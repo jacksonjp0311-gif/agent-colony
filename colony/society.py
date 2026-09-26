@@ -10,12 +10,17 @@ _ROOT = Path(__file__).resolve().parent.parent
 _briefs = _ROOT / "society" / "briefs"
 
 def _load_parts():
-    wholes = sorted(_briefs.glob("society_py_part_[0-9].b64"))
-    if wholes:
-        return "".join(p.read_text().strip() for p in wholes)
+    # Prefer a/b halves (more reliably pushed); fall back to wholes.
     halves = sorted(_briefs.glob("society_py_part_[0-9][ab].b64"))
+    if len(halves) >= 8:
+        return "".join(p.read_text().strip() for p in halves)
+    wholes = sorted(_briefs.glob("society_py_part_[0-9].b64"))
+    if len(wholes) >= 4:
+        return "".join(p.read_text().strip() for p in wholes)
     if halves:
         return "".join(p.read_text().strip() for p in halves)
+    if wholes:
+        return "".join(p.read_text().strip() for p in wholes)
     raise ImportError("colony.society: missing society_py_part_*.b64")
 
 _raw = base64.b64decode(_load_parts())
