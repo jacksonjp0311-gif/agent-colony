@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "description": "Seed research topics for the colony. Scope expansion requires human authorize.",
+  "topics": [
+    {
+      "id": "recursive-self-improvement",
+      "label": "Recursive Self-Improvement",
+      "keywords": ["recursive self-improvement", "RSI", "seed AI", "intelligence explosion"]
+    },
+    {
+      "id": "meta-learning",
+      "label": "Meta-Learning",
+      "keywords": ["meta-learning", "learning to learn", "MAML", "few-shot learning"]
+    },
+    {
+      "id": "autogpt-loops",
+      "label": "AutoGPT-style Agent Loops",
+      "keywords": ["AutoGPT", "autonomous agent loop", "BabyAGI", "task decomposition agents"]
+    },
+    {
+      "id": "constitutional-ai",
+      "label": "Constitutional AI",
+      "keywords": ["Constitutional AI", "CAI", "Anthropic RLAIF", "principle-based alignment"]
+    },
+    {
+      "id": "agent-societies",
+      "label": "Agent Societies / Multi-Agent Systems",
+      "keywords": ["multi-agent systems", "agent society", "swarm intelligence", "cooperative agents"]
+    },
+    {
+      "id": "godel-machines",
+      "label": "Gödel Machines",
+      "keywords": ["Gödel machine", "Juergen Schmidhuber", "self-referential universal problem solver"]
+    },
+    {
+      "id": "darwin-godel-machine",
+      "label": "Darwin Gödel Machine",
+      "keywords": ["Darwin Gödel Machine", "DGM", "Sakana AI", "self-improving coding agent"]
+    },
+    {
+      "id": "opendevin",
+      "label": "OpenDevin / OpenHands",
+      "keywords": ["OpenDevin", "OpenHands", "software engineering agent", "Devin"]
+    },
+    {
+      "id": "voyager",
+      "label": "Voyager",
+      "keywords": ["Voyager Minecraft", "open-ended embodied agent", "skill library LLM"]
+    },
+    {
+      "id": "reflexion",
+      "label": "Reflexion",
+      "keywords": ["Reflexion agent", "verbal reinforcement learning", "self-reflection LLM"]
+    },
+    {
+      "id": "self-refine",
+      "label": "Self-Refine",
+      "keywords": ["Self-Refine", "iterative refinement LLM", "self-feedback"]
+    },
+    {
+      "id": "debate",
+      "label": "AI Debate / Scalable Oversight",
+      "keywords": ["AI safety debate", "scalable oversight", "Irving et al debate"]
+    }
+  ]
+}
