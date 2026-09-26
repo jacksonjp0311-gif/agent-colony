@@ -74,6 +74,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"fitness_after={after.get('fitness_latest')}")
         print(f"agents_active={after.get('agents_active')}")
         print(f"agents_retired={after.get('agents_retired')}")
+        print(f"population={after.get('population')}")
+        print(f"commons_size={after.get('commons_size')}")
+        print(f"government_proposals={after.get('government_proposals')}")
+        print(f"genomes={len(after.get('genomes') or [])}")
         print(f"systems={after.get('systems')}")
         print(f"improvement_proposals={after.get('improvement_proposals')}")
         return 0
