@@ -36,6 +36,9 @@ class GrowthResult:
     spawn_signals: list[str] = field(default_factory=list)
     retired: list[str] = field(default_factory=list)
     actionables: dict[str, Any] = field(default_factory=dict)
+    child_spawn: dict[str, Any] | None = None
+    commons_size: int = 0
+    gov_proposals: int = 0
 
 
 class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
@@ -60,7 +63,7 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         g = GrowthResult()
         cycle_n = int(self.state.data.get("cycle_count") or 0) + 1
 
-        entered = self.registry.sync_from_roles()
+        entered = self.registry.sync_from_roles(cycle_id=cycle_id)
         if entered:
             self.witness.record(
                 cycle_id=cycle_id,
@@ -85,10 +88,13 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         self._gather(cycle_id, g, tribute_topics, tribute_count, actionables)
         self._evolve(cycle_id, g, tribute_topics, tribute_count, live_ok, live_fail)
         self._attempt_improvement(cycle_id, cycle_n, g)
+        self._government_and_census(cycle_id, g)
 
         for role in self.registry.active():
             self.registry.bump_cycle(role)
 
+        from colony.commons import CommonKnowledge
+        g.commons_size = CommonKnowledge(self.state.data).size()
         self.bus.render_bulletin()
 
         self.witness.record(
