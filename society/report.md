@@ -2,28 +2,37 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Cycle:** `20260926T075142Z_e2ccc5`  
-**When:** 2026-09-26T07:51:44Z  
+**Cycle:** `20260926T090704Z_3538e0`  
+**When:** 2026-09-26T09:07:04Z  
 **Creator / Witness:** James Paul Jackson  
 
-## Active Tribute Ask
+## Active Tribute Ask (Creator Will)
 
-> Research recursive systems, self-learning, and self-improving agents; collect public evidence.
+> Let the society grow and learn: build, communicate, gather information, and improve. Standing research on recursive/self-improving systems remains valuable as part of gathering information.
 
-**Paid:** True — 12 findings across topics: agent-societies, autogpt-loops, constitutional-ai, darwin-godel-machine, debate, godel-machines, meta-learning, opendevin, recursive-self-improvement, reflexion, self-refine, voyager
+**Paid:** True — 1 findings across topics: agent-societies, autogpt-loops, constitutional-ai, darwin-godel-machine, debate, godel-machines, meta-learning, opendevin, recursive-self-improvement, reflexion, self-refine, voyager
+
+## Growth Loop (this cycle)
+
+- **Built:** cycle_8_note
+- **Communications:** 4
+- **Gathered:** Gather synthesis cycle 3538e0
+- **Improvements attempted:** Cycle 8 reflection pass
 
 ## Emergence (this cycle)
 
-- **Roles born:** memory_weaver
-- **Institutions:** Archive of Attempts
-- **Councils:** Council of Careful Doubt
-- **Enactments:** 5
+- **Roles born:** improver
+- **Institutions:** _none_
+- **Councils:** _none_
+- **Enactments:** 1
 
 ## Society now
 
-- Roles: memory_weaver, spark, tribute_keeper
-- Ledger status: `{'candidate': 18, 'accepted': 0, 'rejected': 0, 'unknown': 1}`
+- Roles: builder, herald, improver, memory_weaver, pathfinder, spark, tribute_keeper
+- Artifacts: growth_compass, workshop_toolkit, gather_map, improvement_logbook, creator_service_card, cycle_7_note, cycle_8_note
+- Ledger status: `{'candidate': 91, 'accepted': 0, 'rejected': 0, 'unknown': 1}`
 - Witness: `/workspace/agent-colony/society/WITNESS.md`
+- Bulletin: `society/BULLETIN.md`
 
 ## Hard ceiling
 
