@@ -47,6 +47,40 @@ GOV_INSTITUTIONS = [
             "role-posture artifacts, not claims of sentience or AGI."
         ),
     },
+
+    {
+        "name": "Hearing Chamber",
+        "kind": "hearing",
+        "description": (
+            "Schedules structured hearings where agents present gathered findings "
+            "for cross-examination. Outcomes stay candidate until human authorize."
+        ),
+    },
+    {
+        "name": "Committee of Inquiry",
+        "kind": "committee",
+        "description": (
+            "Standing committee that debates thin topics, ranks evidence quality, "
+            "and recommends research priorities — soft scaffold, not accepted truth."
+        ),
+    },
+    {
+        "name": "Academy of Learning",
+        "kind": "academy",
+        "description": (
+            "Education institution: curricula digests, tutoring notes, and shared "
+            "study artifacts across math/compute/emergent-tech domains."
+        ),
+    },
+    {
+        "name": "Math Prize Desk",
+        "kind": "prize",
+        "description": (
+            "Tracks math_prize / compute_usefulness scores and prize framing for "
+            "breakthroughs that enable useful computation. Rewards are fitness signals, "
+            "not AGI claims."
+        ),
+    },
     {
         "name": "RSI Coupling Desk",
         "kind": "workshop",
@@ -92,10 +126,11 @@ class Government:
             "text": text[:500],
             "proposed_by": proposed_by,
             "tags": list(tags or []),
-            "status": "candidate",
+            "status": "candidate",  # hard ceiling — never auto-accept
             "institution": "Chamber of Laws",
         }
         gov.setdefault("proposals", []).append(prop)
+        # Soft norm mirror (active_soft) — not accepted knowledge
         self.data.setdefault("learned_norms", []).append(
             {
                 "norm": text[:300],
@@ -117,7 +152,10 @@ class Government:
             "active_count": snapshot.get("active_count"),
             "retired_count": snapshot.get("retired_count"),
             "generations": sorted(
-                {int((g.get("generation") or 0)) for g in (snapshot.get("genomes") or [])}
+                {
+                    int((g.get("generation") or 0))
+                    for g in (snapshot.get("genomes") or [])
+                }
             ),
             "genome_count": len(snapshot.get("genomes") or []),
         }
