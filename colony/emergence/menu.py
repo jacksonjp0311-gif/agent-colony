@@ -120,4 +120,49 @@ _EMERGENCE_MENU: list[dict[str, Any]] = [
         "text": "Standing RSI research remains valuable as gathering — broader will is grow + build + communicate + gather + improve.",
         "when": "growth_will",
     },
+    {
+        "type": "institution",
+        "name": "Chamber of Laws",
+        "kind": "legislature",
+        "description": (
+            "Drafts law/norm proposals. Proposals remain candidate until human authorize."
+        ),
+        "when": "growth_will",
+    },
+    {
+        "type": "institution",
+        "name": "Census",
+        "kind": "census",
+        "description": (
+            "Tracks population, genomes, generations, and soft pop-cap pressure."
+        ),
+        "when": "growth_will",
+    },
+    {
+        "type": "institution",
+        "name": "Commons Archive",
+        "kind": "commons",
+        "description": (
+            "Holds shared candidate knowledge digests for science, history, math, and RSI."
+        ),
+        "when": "growth_will",
+    },
+    {
+        "type": "norm",
+        "text": (
+            "Empire scaffolding means shared genomes, commons, and government proposals — "
+            "not AGI claims. Accepted truth waits for the creator."
+        ),
+        "when": "growth_will",
+    },
+    {
+        "type": "ritual",
+        "name": "Census of the Living",
+        "description": (
+            "Each cycle the Census records active agents, genome generations, and commons size."
+        ),
+        "when": "growth_will",
+    },
 ]
+
+
