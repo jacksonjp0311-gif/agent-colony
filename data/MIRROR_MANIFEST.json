@@ -1,7 +1,7 @@
 {
   "format": "gzip+base64",
-  "created": "2026-09-26T11:11Z",
-  "reason": "Empire expand+authorize cycle 40 mirrors",
+  "created": "2026-09-26T11:19Z",
+  "reason": "Sync rebuilt colony mirrors for main",
   "files": [
     {
       "path": "data/ledger.jsonl",
