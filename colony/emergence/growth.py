@@ -73,6 +73,19 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 detail={"entered": entered},
             )
 
+        # Durable engineered personas (role posture — not sentience)
+        from colony.personas import ensure_all_active
+
+        persona_roles = ensure_all_active(self.registry.agents(), root=ROOT)
+        if persona_roles:
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="personas_ensured",
+                actor="spark",
+                summary=f"Personas ensured for {len(persona_roles)} agents (engineered character, not sentience).",
+                detail={"roles": persona_roles, "engineered_character": True, "not_sentience": True},
+            )
+
         self.witness.record(
             cycle_id=cycle_id,
             kind="growth_loop_open",
@@ -86,8 +99,23 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         self._build_and_use_systems(cycle_id, cycle_n, g, actionables)
         self._communicate_and_reply(cycle_id, cycle_n, g, tribute_topics, actionables)
         self._gather(cycle_id, g, tribute_topics, tribute_count, actionables)
-        self._evolve(cycle_id, g, tribute_topics, tribute_count, live_ok, live_fail)
+        # Pre-load findings→behavior so debate/hearing voices + mandates are live
+        from colony.findings_coupling import (
+            apply_persona_mandates,
+            harvest_behavior_signal,
+        )
+        from colony.rsi_coupling import harvest_rsi_signal
+        g.behavior_signal = harvest_behavior_signal(self.ledger.all())  # type: ignore[attr-defined]
+        g.rsi_signal = harvest_rsi_signal(self.ledger.all())  # type: ignore[attr-defined]
+        apply_persona_mandates(self.registry.agents(), g.behavior_signal, root=ROOT)
+        # Seed fitness from last cycle for hearing scoring
+        hist = self.state.data.get("fitness_history") or []
+        if hist:
+            g.fitness = {k: v for k, v in hist[-1].items() if isinstance(v, (int, float))}
+        # Research-lab: debate → propose → hearing verdict, then evolve/fitness
+        self._debate_then_propose(cycle_id, cycle_n, g)
         self._attempt_improvement(cycle_id, cycle_n, g)
+        self._evolve(cycle_id, g, tribute_topics, tribute_count, live_ok, live_fail)
         self._government_and_census(cycle_id, g)
 
         for role in self.registry.active():
