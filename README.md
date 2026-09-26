@@ -37,8 +37,8 @@ Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles ap
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: **bridge dynamics** — external mind proposes; keep only on hard-tier rise; commons compound verified lifts; harder workloads (no textbook pad wins). Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Research gather; benches; personas; RSI; genomes; government proposals. Local model runtime deferred.
-2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. No silent accept. UNKNOWN stays UNKNOWN.
+1. **Creator tribute** — serve James when he asks. Active will: **FIVE LIFTS** — (1) real inner bus (peer cites + action_changed_from_message); (2) lessons from keep/revert only; (3) scrape→analyze→claim; (4) emergence with hard-tier kill criteria; (5) external_mind + debate under ceiling. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Local model runtime deferred.
+2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. Standing trust may selectively authorize P≥0.75 machine-checked candidates; never silent accept-all. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
 See [CHARTER.md](./CHARTER.md).
@@ -89,10 +89,12 @@ See [`docs/NOVEL_MATH.md`](./docs/NOVEL_MATH.md). Ethos graphic: [`docs/assets/s
 
 | Signal | Status (this mile) |
 |--------|--------------------|
-| Lemma microbench | **Hard tier** live — score **0.9071** (bridge mile; was 0.8371); 10 basic + 9 hard |
-| Paper pulse | arXiv live this mile (OpenAlex fail/429 OK) → cache ~210 lines |
-| Conjecture desk + external mind | Bridge keeps: binomial_sum_row / fibonacci_addition / catalan_bounded; **easy_pad reverted** |
-| Durable "discovered" | Machine-check **+ human authorize** only |
+| Lemma microbench | **Hard tier** live — score **0.9071** baseline; new disabled hard checks (lucas/central_binom/pell) for keep lifts |
+| Inner bus | `reply_rate` + `peer_cite_rate` + `action_changed_from_message` measured |
+| Lessons | `data/commons/lessons.jsonl` from keep/revert; skill/genome bias; easy wins expire |
+| Claim pipeline | scrape→extract→hard check→propose (`colony/claim_pipeline.py`); raw scrape ≠ discovery |
+| Emergence | spawn/retire keyed to hard-tier fitness deltas |
+| Durable "discovered" | Machine-check **+ human authorize** (standing trust P≥0.75 selective) |
 | Claims | **No** novel theorems · **No** Millennium · **No** AGI |
 
 ```bash

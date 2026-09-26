@@ -22,16 +22,18 @@
 - **Desk rule:** hard-enable mutations may keep; easy-check padding must **fail keep**.
 
 
-## Bridge dynamics (this mile)
+## Five lifts + bridge (this mile)
 
 | Piece | Rule |
 |-------|------|
-| **External mind** | Model/heuristic proposes lemma candidates or paper-derived critique (`colony/external_mind.py`) |
+| **1 Inner bus** | Peer cites + action_changed_from_message; kill shout-into-void |
+| **2 Lessons** | keep/revert → `lessons.jsonl`; bias skills; easy wins expire under harder checks |
+| **3 Claim pipeline** | scrape→extract→hard check→propose; raw scrape ≠ discovery |
+| **4 Emergence** | Spawn on hard-tier gaps; retire when no hard-tier lift |
+| **5 Connection** | external_mind + debate; authorize/standing trust; not consciousness |
 | **Keep rule** | Colony keeps ONLY if hard-tier bench score rises (easy pads fail keep) |
-| **Shared memory** | Commons of verified lifts — kept lemmas, failed pads, paper cites with bench paths; new cycles read first |
-| **Harder workloads** | Prize/fitness only when hard bar moves; no textbook pad wins |
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
-| **Durable discovered** | Machine-check + human authorize. Not AGI. Not Millennium. |
+| **Durable discovered** | Machine-check + human authorize (P≥0.75 selective). Not AGI. Not Millennium. |
 
 ## Claim boundary
 
@@ -45,7 +47,7 @@
 - Harness: `society/benchmarks/lemma_microbench.py` + `artifacts/lemma_impl.py`
 - Desk: `colony/conjecture_desk.py` → `conjecture_history.jsonl` + `WITNESS_CONJECTURE.md`
 - External mind: `colony/external_mind.py` → proposals + commons append on keep/revert
-- Briefs: `society/briefs/CREATOR_BRIEF_bridge_dynamics.md` (this mile)
+- Briefs: `society/briefs/CREATOR_BRIEF_five_lifts.md` (this mile); bridge brief retained
 - Cron: [`GITHUB_CRON.md`](./GITHUB_CRON.md) — CI does **not** auto-accept
 
 ## Measured (this mile)
@@ -62,4 +64,4 @@
 | Authorize (bridge) | accepted 3 / rejected 12 |
 | Ethos graphic | `docs/assets/spark_witness_city.jpg` |
 
-**Novel math beyond textbook?** No — harder pressure + more classical coded identities; still not theorem discovery.
+**Novel math beyond textbook?** No — five lifts harden process (bus/lessons/claims/emergence/connection); classical coded identities only; still not theorem discovery.
