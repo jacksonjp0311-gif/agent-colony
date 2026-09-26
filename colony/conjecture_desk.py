@@ -199,6 +199,46 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals, note=note,
         finding_ids=[x for x in finding_ids if x],
     )
+    try:
+        from colony.external_mind import record_desk_outcome
+        cites = []
+        for pr in proposals:
+            if pr.get("arxiv_id"):
+                cites.append(f"arxiv:{pr['arxiv_id']}")
+            if pr.get("url"):
+                cites.append(pr["url"])
+        record_desk_outcome(
+            decision=decision,
+            mutation=chosen or "",
+            before_score=before_score,
+            after_score=after_score,
+            kind=kind or "",
+            note=note,
+            cycle_id=cycle_id,
+            paper_cites=cites,
+        )
+        # Lift 2: lesson ledger from keep/revert only
+        from colony.lessons import write_lesson
+        write_lesson(
+            decision=decision,
+            check="lemma_microbench",
+            what=note,
+            source="conjecture_desk",
+            cycle_id=cycle_id,
+            mutation=chosen or "",
+            before_score=before_score,
+            after_score=after_score,
+            family="easy_pad" if kind == "easy_pad" else ("hard_enable" if kind == "hard_enable" else "outcome"),
+            skill_bias={
+                "geometer.gather": 0.08 if decision == "keep" else -0.04,
+                "improver.improve": 0.06 if decision == "keep" else -0.03,
+                "spark.emergence": 0.04 if decision == "keep" else -0.02,
+            },
+            tags=["lemma", kind or "mutation", decision],
+            evidence=["society/benchmarks/lemma_microbench.py", "artifacts:lemma_impl"],
+        )
+    except Exception:
+        pass
     _append_history(result); _write_witness([result]); return result
 
 

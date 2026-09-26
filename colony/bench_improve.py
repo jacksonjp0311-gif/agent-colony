@@ -32,6 +32,7 @@ def _invalidate_pyc(path: Path) -> None:
                 pass
 
 
+
 def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -67,6 +68,7 @@ def _patch_add_slow_loops(src: str) -> str:
     """Bump SLOW_EXTRA_LOOPS (deliberate regression for revert proof)."""
     m = re.search(r"SLOW_EXTRA_LOOPS\s*=\s*(\d+)", src)
     if not m:
+        # inject constant near top
         inject = "\nSLOW_EXTRA_LOOPS = 8\n"
         if "from typing" in src:
             src = src.replace("from typing import Sequence\n", "from typing import Sequence\n" + inject, 1)
@@ -102,7 +104,7 @@ def _patch_autodiff_noop_slow(src: str) -> str:
         "def grads(x: float, a: float, b: float, c: float) -> dict[str, float]:\n"
         "    # BENCH_IMPROVE_SLOW\n"
         "    _busy = 0.0\n"
-        "    for _i in range(200000):\n"
+        "    for _i in range(2000):\n"
         "        _busy += 0.0000001\n",
         1,
     )
@@ -365,6 +367,27 @@ def _record(result: ImproveResult, cycle_id: str | None) -> None:
     }
     _append_history(entry)
     _write_witness([result], cycle_note=f"cycle_id={cycle_id}" if cycle_id else "")
+    try:
+        from colony.lessons import write_lesson
+        write_lesson(
+            decision=result.decision,
+            check="bench_harness",
+            what=result.note,
+            source="bench_improve",
+            cycle_id=cycle_id or "",
+            mutation=result.patch_name,
+            before_score=result.before_score,
+            after_score=result.after_score,
+            family="bench_hard" if result.decision == "keep" else "outcome",
+            skill_bias={
+                "improver.improve": 0.07 if result.decision == "keep" else -0.05,
+                "builder.build": 0.05 if result.decision == "keep" else -0.03,
+            },
+            tags=["bench", result.decision, result.patch_name],
+            evidence=[result.target, "society/benchmarks/run_benchmarks.py"],
+        )
+    except Exception:
+        pass
 
 
 def improve_demo() -> list[ImproveResult]:

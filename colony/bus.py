@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BULLETIN_PATH = ROOT / "society" / "BULLETIN.md"
 
 # Domain channels for empire gather/comms upgrade
-DOMAIN_CHANNELS = ("science", "history", "math", "empire", "bulletin", "forum")
+DOMAIN_CHANNELS = ("science", "history", "math", "empire", "bulletin", "forum", "software", "nature", "life", "cosmos", "rsi")
 
 
 def _utc_now() -> str:
@@ -60,7 +60,17 @@ class CommBus:
         bus.setdefault("messages", [])
         bus.setdefault(
             "stats",
-            {"posted": 0, "read": 0, "replied": 0, "reply_quality_sum": 0.0, "reply_quality_n": 0},
+            {
+                "posted": 0,
+                "read": 0,
+                "replied": 0,
+                "reply_quality_sum": 0.0,
+                "reply_quality_n": 0,
+                "peer_cites": 0,
+                "peer_cite_opportunities": 0,
+                "actions_changed_from_message": 0,
+                "actions_planned": 0,
+            },
         )
         bus.setdefault("domains", {d: 0 for d in DOMAIN_CHANNELS})
 
@@ -184,6 +194,73 @@ class CommBus:
             return 0.0
         return round(float(stats.get("reply_quality_sum") or 0) / n, 4)
 
+    def record_peer_cite(self, *, cited: bool) -> None:
+        """Count replies that cite prior turns / peer findings (kill shout-into-void)."""
+        stats = self.data["bus"].setdefault("stats", {})
+        stats["peer_cite_opportunities"] = int(stats.get("peer_cite_opportunities") or 0) + 1
+        if cited:
+            stats["peer_cites"] = int(stats.get("peer_cites") or 0) + 1
+
+    def peer_cite_rate(self) -> float:
+        stats = (self.data.get("bus") or {}).get("stats") or {}
+        n = int(stats.get("peer_cite_opportunities") or 0)
+        if n <= 0:
+            return 0.0
+        return round(int(stats.get("peer_cites") or 0) / n, 4)
+
+    def record_action_changed(self, *, changed: bool, detail: dict | None = None) -> None:
+        """NEXT ACTION must change because of a message — measure it."""
+        stats = self.data["bus"].setdefault("stats", {})
+        stats["actions_planned"] = int(stats.get("actions_planned") or 0) + 1
+        if changed:
+            stats["actions_changed_from_message"] = int(
+                stats.get("actions_changed_from_message") or 0
+            ) + 1
+        if detail:
+            log = self.data["bus"].setdefault("action_change_log", [])
+            log.append(detail)
+            if len(log) > 40:
+                self.data["bus"]["action_change_log"] = log[-40:]
+
+    def action_changed_rate(self) -> float:
+        stats = (self.data.get("bus") or {}).get("stats") or {}
+        n = int(stats.get("actions_planned") or 0)
+        if n <= 0:
+            return 0.0
+        return round(int(stats.get("actions_changed_from_message") or 0) / n, 4)
+
+    def inner_bus_metrics(self) -> dict:
+        return {
+            "reply_rate": self.reply_rate(),
+            "reply_quality": self.reply_quality(),
+            "peer_cite_rate": self.peer_cite_rate(),
+            "action_changed_from_message": self.action_changed_rate(),
+            "stats": dict((self.data.get("bus") or {}).get("stats") or {}),
+        }
+
+    def message_cites_peer(self, text: str, *, parent: dict | None = None, peer_findings: list | None = None) -> bool:
+        """Heuristic: reply cites prior msg id, peer role finding, or parent tokens."""
+        t = (text or "").lower()
+        if not t:
+            return False
+        if parent:
+            pid = str(parent.get("id") or "")
+            if pid and pid.lower() in t:
+                return True
+            # cite prior turn fragment
+            parent_words = [w for w in (parent.get("message") or "").lower().split() if len(w) > 5][:6]
+            if parent_words and sum(1 for w in parent_words if w in t) >= 2:
+                return True
+            fr = (parent.get("from") or "").lower()
+            if fr and f"from {fr}" in t or (fr and f"@{fr}" in t):
+                return True
+        for fid in peer_findings or []:
+            if fid and str(fid).lower() in t:
+                return True
+        if any(k in t for k in ("finding ", "fnd_", "peer:", "prior turn", "citing ", "cite ")):
+            return True
+        return False
+
     def extract_actionables(self, unread: list[dict[str, Any]]) -> dict[str, Any]:
         gaps: list[str] = []
         build_requests: list[str] = []
@@ -239,7 +316,9 @@ class CommBus:
             f"**Stats:** `{self.data.get('bus', {}).get('stats', {})}`  ",
             f"**Domains:** `{self.data.get('bus', {}).get('domains', {})}`  ",
             f"**Reply rate (recent):** {self.reply_rate():.0%}  ",
-            f"**Reply quality (avg):** {self.reply_quality():.0%}",
+            f"**Reply quality (avg):** {self.reply_quality():.0%}  ",
+            f"**Peer cite rate:** {self.peer_cite_rate():.0%}  ",
+            f"**Action changed from message:** {self.action_changed_rate():.0%}",
             "",
             "## Chronology (latest 50)",
             "",

@@ -10,6 +10,12 @@ from pathlib import Path
 
 HISTORY = Path(__file__).resolve().parent.parent / "society" / "benchmarks" / "conjecture_history.jsonl"
 
+_EASY_PAD_DIFF = """
+def check_easy_pad_diff_squares() -> bool:
+    \"\"\"Easy pad - tiny difference-of-squares range (must fail keep under hard tier).\"\"\"
+    return all(a * a - b * b == (a - b) * (a + b) for a in range(-2, 3) for b in range(-2, 3))
+"""
+
 _EASY_PAD_SNIP = """
 def check_easy_pad_square_again() -> bool:
     \"\"\"Easy pad - small-range square identity only (should not ace hard tier).\"\"\"
@@ -24,7 +30,11 @@ MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("binomial_sum_row", "hard_enable", "enable:binomial_sum_row"),
     ("fibonacci_addition", "hard_enable", "enable:fibonacci_addition"),
     ("catalan_bounded", "hard_enable", "enable:catalan_bounded"),
+    ("lucas_addition", "hard_enable", "enable:lucas_addition"),
+    ("central_binom_bound", "hard_enable", "enable:central_binom_bound"),
+    ("pell_companion", "hard_enable", "enable:pell_companion"),
     ("easy_pad_square_again", "easy_pad", _EASY_PAD_SNIP),
+    ("easy_pad_diff_squares", "easy_pad", _EASY_PAD_DIFF),
 ]
 
 
@@ -56,7 +66,8 @@ def apply_easy_pad(src: str, name: str, snippet: str) -> str | None:
         return None
     fn_block = snippet.strip() + "\n\n"
     src = src.replace(marker, fn_block + marker, 1)
-    entry = f'    ("{name}", check_easy_pad_square_again, True),\n'
+    fn_name = f"check_{name}"
+    entry = f'    ("{name}", {fn_name}, True),\n'
     hard_marker = "HARD_TIER_LEMMAS:"
     hi = src.find(hard_marker)
     if hi < 0:

@@ -41,6 +41,37 @@ def _utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def hard_tier_snapshot() -> dict[str, float | int | bool]:
+    """Read lemma hard-tier pressure for emergence kill criteria."""
+    try:
+        from society.benchmarks.lemma_microbench import run as run_lemma
+        r = run_lemma()
+        return {
+            "score": float(r.get("score") or 0),
+            "n_hard": int(r.get("n_hard") or 0),
+            "n_hard_pass": int(r.get("n_hard_pass") or 0),
+            "ok": bool(r.get("ok")),
+        }
+    except Exception:
+        return {"score": 0.0, "n_hard": 0, "n_hard_pass": 0, "ok": False}
+
+
+def hard_tier_delta(data: dict) -> float:
+    """Delta of hard_pass count vs prior recorded snapshot."""
+    hist = data.setdefault("hard_tier_history", [])
+    cur = hard_tier_snapshot()
+    prev = hist[-1] if hist else None
+    delta_pass = int(cur["n_hard_pass"]) - int((prev or {}).get("n_hard_pass") or cur["n_hard_pass"])
+    delta_score = float(cur["score"]) - float((prev or {}).get("score") or cur["score"])
+    cur["delta_pass"] = delta_pass
+    cur["delta_score"] = round(delta_score, 4)
+    hist.append(cur)
+    if len(hist) > 40:
+        data["hard_tier_history"] = hist[-40:]
+    return float(delta_pass)
+
+
+
 def compute_fitness(
     *,
     tribute_count: int,
@@ -217,9 +248,68 @@ class EvolutionEngine:
             )
         return updated
 
+    
+    def hard_tier_emergence(self, cycle_id: str) -> dict[str, Any]:
+        """Lift 4: spawn on measured hard-tier fitness gaps; retire when no lift."""
+        delta = hard_tier_delta(self.data)
+        hist = self.data.get("hard_tier_history") or []
+        cur = hist[-1] if hist else {}
+        gap = int(cur.get("n_hard") or 0) > int(cur.get("n_hard_pass") or 0)
+        # Also treat flat hard_pass across last 3 cycles as gap to fill via new role pressure
+        recent = hist[-3:]
+        flat = len(recent) >= 3 and len({r.get("n_hard_pass") for r in recent}) == 1
+        spawn_roles: list[str] = []
+        retire_roles: list[str] = []
+        if gap or (flat and float(metrics_agg := float((self.data.get("fitness_history") or [{}])[-1].get("aggregate") or 0)) < 0.95):
+            # Prefer geometer/improver pressure — signal only (spark enacts)
+            for role in ("geometer", "improver"):
+                if role not in self.registry.active():
+                    spawn_roles.append(role)
+        # Kill criteria: decorative roles that never lift hard tier
+        ht_log = self.data.setdefault("hard_tier_role_credit", {})
+        if delta > 0:
+            # credit active math roles
+            for role in ("geometer", "improver", "spark"):
+                if role in self.registry.active():
+                    ht_log[role] = int(ht_log.get(role) or 0) + int(delta)
+        else:
+            founding = set(self.data.get("founding_roles") or ["spark", "tribute_keeper"])
+            for role, agent in list(self.registry.active().items()):
+                if role in founding:
+                    continue
+                if int(agent.get("cycles_served") or 0) < 6:
+                    continue
+                credit = int(ht_log.get(role) or 0)
+                # Retire if many cycles and zero hard-tier credit and low contribution
+                if credit <= 0 and float(agent.get("contribution_score") or 0) < 0.25:
+                    # only mark candidates; maybe_retire still executes leave
+                    agent["hard_tier_kill_candidate"] = True
+                    retire_roles.append(role)
+        self.data.setdefault("evolution_log", []).append(
+            {
+                "ts": _utc_now(),
+                "cycle_id": cycle_id,
+                "event": "hard_tier_emergence",
+                "delta_pass": delta,
+                "gap": gap,
+                "flat": flat,
+                "spawn_signals": spawn_roles,
+                "kill_candidates": retire_roles[:3],
+                "snapshot": cur,
+            }
+        )
+        return {
+            "delta_pass": delta,
+            "gap": gap,
+            "spawn_signals": spawn_roles,
+            "kill_candidates": retire_roles[:3],
+            "snapshot": cur,
+        }
+
     def maybe_spawn(self, cycle_id: str, metrics: dict[str, float]) -> list[str]:
-        """Spawn pressure roles when a metric stays weak. Returns new role names."""
-        spawned: list[str] = []
+        """Spawn pressure roles when a metric stays weak. Hard-tier gaps also signal."""
+        ht = self.hard_tier_emergence(cycle_id)
+        spawned: list[str] = list(ht.get("spawn_signals") or [])
         if self.registry.at_capacity():
             return spawned
         history = self.data.get("fitness_history") or []
@@ -348,16 +438,28 @@ class EvolutionEngine:
                 scored.append((role, fitness_score(a)))
             scored.sort(key=lambda x: x[1])
             candidates = [r for r, _ in scored[:2]]
+        # Prefer hard-tier kill candidates (Lift 4)
+        kill_pref = [
+            r for r, a in self.registry.active().items()
+            if a.get("hard_tier_kill_candidate") and r not in (self.data.get("founding_roles") or ["spark", "tribute_keeper"])
+        ]
+        if kill_pref:
+            candidates = list(dict.fromkeys(kill_pref + candidates))
         for role in candidates:
             agent = self.registry.agents().get(role) or {}
-            if int(agent.get("cycles_served") or 0) < min_cycles and not force:
+            if int(agent.get("cycles_served") or 0) < min_cycles and not force and not agent.get("hard_tier_kill_candidate"):
                 continue
-            self.registry.leave(role, reason="low_contribution" if not force else "pop_cap")
+            reason = (
+                "hard_tier_no_lift"
+                if agent.get("hard_tier_kill_candidate")
+                else ("low_contribution" if not force else "pop_cap")
+            )
+            self.registry.leave(role, reason=reason)
             roles = self.data.get("roles") or {}
             if role in roles:
                 roles[role]["status"] = "retired"
                 roles[role]["retired_at"] = _utc_now()
-                roles[role]["retire_reason"] = "low_contribution" if not force else "pop_cap"
+                roles[role]["retire_reason"] = reason
             retired.append(role)
             self.data.setdefault("evolution_log", []).append(
                 {
@@ -435,7 +537,7 @@ class EvolutionEngine:
         if closed and self.workshop is not None and "improvement_scoreboard" in self.workshop.known():
             board = self.workshop.use("improvement_scoreboard", cycle_id)
             content = (board or {}).get("content") or {"proposals": []}
-            by_id = {p.get("id": p for p in content.get("proposals") or []}
+            by_id = {p.get("id"): p for p in content.get("proposals") or []}
             for prop in closed:
                 if prop["id"] in by_id:
                     by_id[prop["id"]]["after"] = metrics
