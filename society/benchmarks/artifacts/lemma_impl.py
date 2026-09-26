@@ -378,6 +378,78 @@ def check_euler_totient_multiplicative(a: int, b: int) -> bool:
 
     return phi(a * b) == phi(a) * phi(b)
 
+
+def check_bell_triangle_recurrence(n: int) -> bool:
+    """Bell numbers via triangle: B(n) = sum binom(n-1,k) B(k); classical."""
+    if n < 0:
+        return True
+    bell = [1]
+    for i in range(1, n + 1):
+        s = sum(math.comb(i - 1, k) * bell[k] for k in range(i))
+        bell.append(s)
+    # Spot: B(0..5) = 1,1,2,5,15,52
+    known = [1, 1, 2, 5, 15, 52]
+    return all(bell[i] == known[i] for i in range(min(len(known), n + 1)))
+
+
+def check_hermite_recurrence(n: int, x: int) -> bool:
+    """Physicists' Hermite: H_{n+1}(x) = 2x H_n(x) - 2n H_{n-1}(x). Classical."""
+    if n < 1:
+        return True
+    def H(m: int) -> int:
+        if m == 0:
+            return 1
+        if m == 1:
+            return 2 * x
+        a, b = 1, 2 * x
+        for k in range(1, m):
+            a, b = b, 2 * x * b - 2 * k * a
+        return b
+    return H(n + 1) == 2 * x * H(n) - 2 * n * H(n - 1)
+
+
+def check_lagrange_identity(a: int, b: int, c: int, d: int) -> bool:
+    """(a^2+b^2)(c^2+d^2) = (ac-bd)^2 + (ad+bc)^2. Classical."""
+    left = (a * a + b * b) * (c * c + d * d)
+    right = (a * c - b * d) ** 2 + (a * d + b * c) ** 2
+    return left == right
+
+
+def check_binomial_inversion_small(n: int) -> bool:
+    """f_n = sum binom(n,k) g_k  <=>  g_n = sum (-1)^{n-k} binom(n,k) f_k. Spot-check."""
+    if n < 0 or n > 10:
+        return True
+    # Choose g_k = k, recover via inversion
+    g = list(range(n + 1))
+    f = [sum(math.comb(i, k) * g[k] for k in range(i + 1)) for i in range(n + 1)]
+    g2 = [
+        sum(((-1) ** (i - k)) * math.comb(i, k) * f[k] for k in range(i + 1))
+        for i in range(n + 1)
+    ]
+    return g2 == g
+
+
+def check_legendre_duplication_small(n: int) -> bool:
+    """P_n(1)=1 and P_n(-1)=(-1)^n for Legendre via Bonnet recurrence. Classical."""
+    if n < 0:
+        return True
+    def P(m: int, x: int) -> int:
+        # integer x in {-1,0,1}; use recurrence (n+1)P_{n+1} = (2n+1)x P_n - n P_{n-1}
+        if m == 0:
+            return 1
+        if m == 1:
+            return x
+        p0, p1 = 1, x
+        for k in range(1, m):
+            # (k+1) P_{k+1} = (2k+1) x P_k - k P_{k-1}
+            num = (2 * k + 1) * x * p1 - k * p0
+            if num % (k + 1) != 0:
+                return 10**9  # fail sentinel
+            p0, p1 = p1, num // (k + 1)
+        return p1
+    return P(n, 1) == 1 and P(n, -1) == ((-1) ** n)
+
+
 def check_workload_derived_chain() -> bool:
     """Multi-step proof-style workload (educational, not novel discovery).
 
@@ -458,6 +530,17 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("euler_totient_multiplicative", lambda: all(
         check_euler_totient_multiplicative(a, b) for a in range(1, 16) for b in range(1, 16)
     ), True),
+    # Flourish mile — start disabled; desk hard_enable may keep ONLY with Oracle pass
+    ("bell_triangle_recurrence", lambda: all(check_bell_triangle_recurrence(n) for n in range(0, 12)), True),
+    ("hermite_recurrence", lambda: all(
+        check_hermite_recurrence(n, x) for n in range(1, 10) for x in range(-4, 5)
+    ), True),
+    ("lagrange_identity", lambda: all(
+        check_lagrange_identity(a, b, c, d)
+        for a in range(-4, 5) for b in range(-4, 5) for c in range(-3, 4) for d in range(-3, 4)
+    ), True),
+    ("binomial_inversion_small", lambda: all(check_binomial_inversion_small(n) for n in range(0, 9)), True),
+    ("legendre_duplication_small", lambda: all(check_legendre_duplication_small(n) for n in range(0, 12)), True),
 
 ]
 

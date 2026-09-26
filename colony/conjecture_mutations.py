@@ -68,6 +68,15 @@ MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("derangement_subfactorial", "hard_enable", "enable:derangement_subfactorial"),
     ("narayana_sum", "hard_enable", "enable:narayana_sum"),
     ("euler_totient_multiplicative", "hard_enable", "enable:euler_totient_multiplicative"),
+    # Flourish mile — new math beyond prior lemmas (start disabled in lemma_impl)
+    ("bell_triangle_recurrence", "hard_enable", "enable:bell_triangle_recurrence"),
+    ("hermite_recurrence", "hard_enable", "enable:hermite_recurrence"),
+    ("lagrange_identity", "hard_enable", "enable:lagrange_identity"),
+    ("binomial_inversion_small", "hard_enable", "enable:binomial_inversion_small"),
+    ("legendre_duplication_small", "hard_enable", "enable:legendre_duplication_small"),
+    # STEM kinematics domain pack
+    ("energy_work", "stem_enable", "enable:energy_work"),
+    ("stem_easy_pad_units", "stem_easy_pad", "pad"),
     ("easy_pad_assoc_add", "easy_pad", _EASY_PAD_ASSOC),
     ("easy_pad_zero_identity", "easy_pad", _EASY_PAD_ZERO),
     ("easy_pad_square_again", "easy_pad", _EASY_PAD_SNIP),
@@ -122,8 +131,19 @@ def apply_mutation(src: str, name: str, kind: str, snippet: str) -> str | None:
         if already_has(src, name):
             return None
         return enable_hard(src, name)
+    if kind == "stem_enable":
+        if already_has(src, name):
+            return None
+        try:
+            from colony.domain_packs import enable_stem
+            return enable_stem(src, name)
+        except Exception:
+            return enable_hard(src, name)
     if kind == "easy_pad":
         return apply_easy_pad(src, name, snippet)
+    if kind == "stem_easy_pad":
+        # Desk handles as deliberate pad; return placeholder for oracle kill path
+        return src if src else None
     return None
 
 

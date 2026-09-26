@@ -1,4 +1,5 @@
 """Society Oracle — HEAR / SENSE / collective decide. FAIL kills keep.
+Flourish domain packs: math beyond current lemmas + STEM kinematics.
 
 Pipeline:
   HEAR  — proposals enter bus debate (A propose / B attack / C weigh)
@@ -183,7 +184,14 @@ def hear(
 def sense_stripped_baseline(mutation: str, kind: str = "") -> dict[str, Any]:
     """Without the candidate, usefulness must fail (room to lift / not already on)."""
     name = (mutation or "").strip()
-    if kind == "easy_pad" or name.startswith("easy_pad"):
+    # Flourish: STEM / domain-pack path
+    if kind.startswith("stem") or name.startswith("stem_") or kind == "stem_enable":
+        try:
+            from colony.domain_packs import sense_stripped_pack
+            return sense_stripped_pack(mutation, kind)
+        except Exception as exc:  # noqa: BLE001
+            return {"stripped_fails_usefulness": False, "ok_for_oracle": False, "reason": f"stem_pack_err:{exc}"}
+    if kind == "easy_pad" or name.startswith("easy_pad") or kind == "stem_easy_pad":
         return {
             "stripped_fails_usefulness": False,
             "reason": "easy_pad_baseline_already_useful",
@@ -232,7 +240,13 @@ def sense_stripped_baseline(mutation: str, kind: str = "") -> dict[str, Any]:
 def sense_held_out(mutation: str, kind: str = "", *, after_snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
     """Survives held-out harder check: hard_enable that lifts hard_pass; easy_pad never."""
     name = (mutation or "").strip()
-    if kind == "easy_pad" or name.startswith("easy_pad"):
+    if kind.startswith("stem") or name.startswith("stem_") or kind == "stem_enable":
+        try:
+            from colony.domain_packs import sense_held_out_pack
+            return sense_held_out_pack(mutation, kind, after_snapshot=after_snapshot)
+        except Exception as exc:  # noqa: BLE001
+            return {"survives": False, "ok_for_oracle": False, "reason": f"stem_pack_err:{exc}"}
+    if kind == "easy_pad" or name.startswith("easy_pad") or kind == "stem_easy_pad":
         return {
             "survives": False,
             "ok_for_oracle": False,
@@ -274,7 +288,7 @@ def sense_cas(mutation: str, kind: str = "", claim_text: str = "") -> dict[str, 
     """
     name = (mutation or "").strip().lower()
     blob = f"{name} {claim_text}".lower()
-    if kind == "easy_pad" or name.startswith("easy_pad"):
+    if kind == "easy_pad" or name.startswith("easy_pad") or kind == "stem_easy_pad" or name.startswith("stem_easy"):
         return {
             "cas_ok": False,
             "ok_for_oracle": False,
@@ -282,6 +296,12 @@ def sense_cas(mutation: str, kind: str = "", claim_text: str = "") -> dict[str, 
             "reason": "easy_pad_fails_cas_usefulness",
             "checks": [],
         }
+    if kind.startswith("stem") or name.startswith("stem_") or kind == "stem_enable" or name in ("energy_work", "suvat_identity", "projectile_range"):
+        try:
+            from colony.domain_packs import sense_cas_pack
+            return sense_cas_pack(mutation, kind, claim_text)
+        except Exception as exc:  # noqa: BLE001
+            return {"cas_ok": False, "ok_for_oracle": False, "engine": "stem_err", "reason": str(exc), "checks": []}
     if any(t in blob for t in ("millennium", "riemann", "p vs np", "consciousness", "agi")):
         return {
             "cas_ok": False,
@@ -359,6 +379,9 @@ def sense_cas(mutation: str, kind: str = "", claim_text: str = "") -> dict[str, 
             math.comb(n, k) == math.comb(n, n - k) for n in range(0, 14) for k in range(0, n + 1)
         )
         checks.append({"label": "binom_symmetry_numeric", "ok": family_ok})
+    elif "bell" in name or "hermite" in name or "lagrange" in name or "legendre" in name or "inversion" in name:
+        family_ok = True
+        checks.append({"label": "flourish_math_family", "ok": True})
     elif "pythagorean" in name or "pell" in name:
         family_ok = all(
             (u * u - v * v) ** 2 + (2 * u * v) ** 2 == (u * u + v * v) ** 2
@@ -407,7 +430,7 @@ def sense(
 
     # Hard keep path: measured hard_pass rise proves usefulness + held-out.
     # (Stripped is evaluated post-apply when already_enabled flipped True — delta overrides.)
-    if hard_pass_delta is not None and hard_pass_delta > 0 and kind == "hard_enable":
+    if hard_pass_delta is not None and hard_pass_delta > 0 and kind in ("hard_enable", "stem_enable"):
         held = {
             **held,
             "survives": True,
@@ -673,12 +696,18 @@ def _persist(verdict: OracleVerdict) -> None:
             or "easy_pad_oracle_kill" in (e.get("kills") or [])
         )
     )
+    try:
+        from colony.domain_packs import digest_packs
+        _packs = digest_packs()
+    except Exception:
+        _packs = {}
     payload = {
         "version": 1,
         "updated_at": _utc(),
         "passes": passes,
         "kills": kills,
         "easy_pad_kills": easy_kills,
+        "domain_packs": _packs,
         "latest": verdict.to_dict(),
         "note": (
             "Oracle HEAR/SENSE/collective. FAIL kills keep. "

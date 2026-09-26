@@ -131,22 +131,55 @@ def apply_hard_tier_spawn_retire(
     cycle_id: str,
     delta_pass: float,
 ) -> dict[str, Any]:
-    """Weak roles spawn/retire keyed to measured hard-tier deltas."""
+    """Weak roles spawn/retire keyed to measured hard-tier + Oracle-pass deltas."""
     data = load_budget()
     log = list(data.get("spawn_retire_log") or [])
     spawned: list[str] = []
     retired: list[str] = []
     if evo is None:
         return {"spawned": [], "retired": [], "delta_pass": delta_pass}
-    # Positive delta → reinforce math roles (spawn signal already in evo)
-    if delta_pass > 0:
-        log.append({"ts": _utc(), "cycle_id": cycle_id, "event": "credit", "delta_pass": delta_pass})
+    oracle_passes = 0
+    try:
+        from colony.oracle import counts as oracle_counts
+        oracle_passes = int(oracle_counts().get("passes") or 0)
+    except Exception:
+        pass
+    prev_op = int(data.get("last_oracle_passes") or oracle_passes)
+    op_delta = oracle_passes - prev_op
+    data["last_oracle_passes"] = oracle_passes
+    # Positive hard or oracle delta → credit / spawn specialist signals
+    if delta_pass > 0 or op_delta > 0:
+        log.append({
+            "ts": _utc(), "cycle_id": cycle_id, "event": "credit",
+            "delta_pass": delta_pass, "oracle_pass_delta": op_delta,
+        })
+        for role in ("oracle_scribe", "stem_checker", "geometer"):
+            if evo is not None and hasattr(evo, "registry"):
+                if role not in evo.registry.active():
+                    spawned.append(role)
     else:
-        # Flat/negative → pressure retire of weak decorative roles via kill flag
-        log.append({"ts": _utc(), "cycle_id": cycle_id, "event": "pressure_retire", "delta_pass": delta_pass})
+        # No Oracle-pass lift → pressure retire of flourish specialists
+        log.append({
+            "ts": _utc(), "cycle_id": cycle_id, "event": "pressure_retire_no_oracle_lift",
+            "delta_pass": delta_pass, "oracle_pass_delta": op_delta,
+        })
+        if evo is not None and hasattr(evo, "registry"):
+            founding = {"spark", "tribute_keeper"}
+            for role, agent in list(evo.registry.active().items()):
+                if role in founding:
+                    continue
+                if role in ("oracle_scribe", "stem_checker", "debate_deepener") and int(agent.get("cycles_served") or 0) >= 4:
+                    agent["oracle_no_lift_retire"] = True
+                    retired.append(role)
     data["spawn_retire_log"] = log[-40:]
     save_budget(data)
-    return {"spawned": spawned, "retired": retired, "delta_pass": delta_pass, "logged": True}
+    return {
+        "spawned": spawned,
+        "retired": retired,
+        "delta_pass": delta_pass,
+        "oracle_pass_delta": op_delta,
+        "logged": True,
+    }
 
 
 def distribution_fingerprint() -> str:

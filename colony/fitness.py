@@ -184,6 +184,35 @@ class EvolutionEngine:
             ),
             "skill": "gather",
         },
+        {
+            "when_metric": "math_prize",
+            "below": 0.55,
+            "role": "oracle_scribe",
+            "description": (
+                "Specialist: records Oracle HEAR/SENSE kills and passes; "
+                "pressures hard/STEM enables when fitness gaps appear."
+            ),
+            "skill": "improve",
+        },
+        {
+            "when_metric": "compute_useful",
+            "below": 0.45,
+            "role": "stem_checker",
+            "description": (
+                "Specialist: runs STEM kinematics domain pack; "
+                "retire when no Oracle-pass lift across recent cycles."
+            ),
+            "skill": "gather",
+        },
+        {
+            "when_metric": "reply_quality",
+            "below": 0.35,
+            "role": "debate_deepener",
+            "description": (
+                "Specialist: deepens multi-hop debate A→B→C→D(Oracle gate) on the bus."
+            ),
+            "skill": "communicate",
+        },
     ]
 
     def __init__(
@@ -262,7 +291,7 @@ class EvolutionEngine:
         retire_roles: list[str] = []
         if gap or (flat and float(metrics_agg := float((self.data.get("fitness_history") or [{}])[-1].get("aggregate") or 0)) < 0.95):
             # Prefer geometer/improver pressure — signal only (spark enacts)
-            for role in ("geometer", "improver"):
+            for role in ("geometer", "improver", "oracle_scribe", "stem_checker"):
                 if role not in self.registry.active():
                     spawn_roles.append(role)
         # Kill criteria: decorative roles that never lift hard tier
@@ -274,6 +303,18 @@ class EvolutionEngine:
                     ht_log[role] = int(ht_log.get(role) or 0) + int(delta)
         else:
             founding = set(self.data.get("founding_roles") or ["spark", "tribute_keeper"])
+            # Flourish: Oracle-pass lift credit — retire specialists with no lift
+            oracle_lift = 0
+            try:
+                from colony.oracle import counts as oracle_counts
+                oc = oracle_counts()
+                oracle_lift = int(oc.get("passes") or 0)
+                self.data["oracle_pass_total"] = oracle_lift
+            except Exception:
+                oracle_lift = int(self.data.get("oracle_pass_total") or 0)
+            prev_lift = int(self.data.get("oracle_pass_total_prev") or oracle_lift)
+            lift_delta = oracle_lift - prev_lift
+            self.data["oracle_pass_total_prev"] = oracle_lift
             for role, agent in list(self.registry.active().items()):
                 if role in founding:
                     continue
@@ -285,6 +326,14 @@ class EvolutionEngine:
                     # only mark candidates; maybe_retire still executes leave
                     agent["hard_tier_kill_candidate"] = True
                     retire_roles.append(role)
+                # Flourish specialists: retire when no Oracle-pass lift
+                if role in ("oracle_scribe", "stem_checker", "debate_deepener", "systems_smith", "coverage_auditor"):
+                    if lift_delta <= 0 and int(agent.get("cycles_served") or 0) >= 4:
+                        if float(agent.get("contribution_score") or 0) < 0.40:
+                            agent["oracle_no_lift_retire"] = True
+                            agent["hard_tier_kill_candidate"] = True
+                            if role not in retire_roles:
+                                retire_roles.append(role)
         self.data.setdefault("evolution_log", []).append(
             {
                 "ts": _utc_now(),

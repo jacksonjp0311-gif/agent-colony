@@ -1,36 +1,66 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T15:25:05Z",
-  "passes": 22,
-  "kills": 22,
-  "easy_pad_kills": 17,
+  "updated_at": "2026-09-26T15:47:32Z",
+  "passes": 33,
+  "kills": 27,
+  "easy_pad_kills": 19,
+  "domain_packs": {
+    "packs": {
+      "math_lemmas": {
+        "label": "Math lemmas (beyond current catalog)",
+        "bench": "lemma_microbench",
+        "kinds": [
+          "hard_enable",
+          "easy_pad",
+          "hard_check"
+        ],
+        "note": "Classical coded identities. Not theorem discovery."
+      },
+      "stem_kinematics": {
+        "label": "STEM kinematics (non-math physics microbench)",
+        "bench": "kinematics_microbench",
+        "kinds": [
+          "stem_enable",
+          "stem_easy_pad",
+          "stem_check"
+        ],
+        "note": "Classical 1D/2D motion. Not novel physics."
+      }
+    },
+    "stem_mutations": [
+      "energy_work",
+      "stem_easy_pad_units"
+    ],
+    "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
+  },
   "latest": {
-    "ts": "2026-09-26T15:25:05Z",
+    "ts": "2026-09-26T15:47:32Z",
     "passed": false,
     "kills": [
       "stripped:easy_pad_baseline_already_useful",
       "held_out:easy_pad_dies_on_held_out",
       "cas:easy_pad_fails_cas_usefulness",
-      "easy_pad_oracle_kill",
       "collective_kill"
     ],
     "hear": {
       "heard": true,
       "bus_ok": false,
-      "is_easy_pad": true,
-      "attack_weight": 0.9,
-      "support_weight": 0.1,
+      "is_easy_pad": false,
+      "attack_weight": 0.35,
+      "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `easy_pad_assoc_add` kind=easy_pad. Reverted `easy_pad_assoc_add` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 20\u219220 \u2014 Oracle/hard-tier required for keep; easy pads die o",
-      "attack": "ATTACK: `easy_pad_assoc_add` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
+      "propose": "PROPOSE for Oracle HEAR: `stem_easy_pad_units` kind=stem_easy_pad. Reverted `stem_easy_pad_units` (stem_easy_pad): score 0.825\u21920.825 ok=True hard_pass 4\u21924 \u2014 Oracle/hard-tier required for keep; easy pa",
+      "attack": "WEIGH: `stem_easy_pad_units` (stem_easy_pad) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
+        "pack": "stem_kinematics",
         "stripped_fails_usefulness": false,
-        "reason": "easy_pad_baseline_already_useful",
-        "ok_for_oracle": false
+        "ok_for_oracle": false,
+        "reason": "easy_pad_baseline_already_useful"
       },
       "held_out": {
+        "pack": "stem_kinematics",
         "survives": false,
         "ok_for_oracle": false,
         "reason": "easy_pad_dies_on_held_out"
@@ -93,16 +123,16 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "easy_pad_assoc_add",
-      "kind": "easy_pad",
+      "mutation": "stem_easy_pad_units",
+      "kind": "stem_easy_pad",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.75 selective."
     },
     "fitness_credit": false,
-    "mutation": "easy_pad_assoc_add",
-    "kind": "easy_pad",
+    "mutation": "stem_easy_pad_units",
+    "kind": "stem_easy_pad",
     "source": "novelty_gate",
-    "cycle_id": "oracle_easy_again",
-    "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+    "cycle_id": "flourish_desk_stem_easy_pad_units",
+    "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

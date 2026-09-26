@@ -1,0 +1,56 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (standing trust P>=0.75 selective; flourish mile; never accept-all)",
+  "decisions": [
+    {
+      "finding_id": "fnd_aed17452fa3a",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard_enable keep bell_triangle_recurrence (flourish selective)"
+    },
+    {
+      "finding_id": "fnd_06b64c0a1035",
+      "decision": "accepted",
+      "rationale": "Oracle-pass stem_enable keep energy_work (flourish selective)"
+    },
+    {
+      "finding_id": "fnd_a87593d46cdc",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard_enable keep hermite_recurrence (flourish selective)"
+    },
+    {
+      "finding_id": "fnd_48bead97ac0a",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard_enable keep lagrange_identity (flourish selective)"
+    },
+    {
+      "finding_id": "fnd_4492152d17b6",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard_enable keep binomial_inversion_small (flourish selective)"
+    },
+    {
+      "finding_id": "fnd_85592ae599dd",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard_enable keep legendre_duplication_small (flourish selective)"
+    },
+    {
+      "finding_id": "fnd_904710c2a41d",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_assoc_add"
+    },
+    {
+      "finding_id": "fnd_309b659110d4",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_zero_identity"
+    },
+    {
+      "finding_id": "fnd_100f4a0bc7a7",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_square_again"
+    },
+    {
+      "finding_id": "fnd_36e627186292",
+      "decision": "rejected",
+      "rationale": "easy_pad die stem_easy_pad_units"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "mile": "flourish",
+  "cycle_count": 145,
+  "fitness_aggregate": 0.8322,
+  "lemma_score": 0.8771,
+  "hard_pass": "25/25",
+  "stem_score": 0.825,
+  "stem_pass": "4/4",
+  "oracle": {
+    "passes": 45,
+    "kills": 37,
+    "easy_pad_kills": 24,
+    "total": 82
+  },
+  "easy_pad_dies": true,
+  "domains": [
+    "math_lemmas",
+    "stem_kinematics"
+  ],
+  "new_math_keeps": [
+    "bell_triangle_recurrence",
+    "hermite_recurrence",
+    "lagrange_identity",
+    "binomial_inversion_small",
+    "legendre_duplication_small"
+  ],
+  "stem_keeps": [
+    "energy_work"
+  ],
+  "spawned": [
+    "oracle_scribe",
+    "stem_checker"
+  ],
+  "retired_this_mile": [],
+  "agents_active": [
+    "spark",
+    "tribute_keeper",
+    "memory_weaver",
+    "builder",
+    "herald",
+    "pathfinder",
+    "improver",
+    "courier",
+    "scribe",
+    "surveyor",
+    "archivist",
+    "legislator",
+    "chronicler",
+    "naturalist",
+    "geometer",
+    "messenger",
+    "oracle_scribe",
+    "stem_checker"
+  ],
+  "agents_retired_count": 0,
+  "debate": "A\u2192B\u2192C\u2192D Oracle gate",
+  "authorize": {
+    "accepted": 6,
+    "rejected": 4,
+    "never_accept_all": true
+  },
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city."
+}

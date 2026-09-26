@@ -1,25 +1,26 @@
 {
-  "ts": "2026-09-26T15:08:22Z",
-  "cycle_id": "20260926T150822Z_0edfdf",
+  "ts": "2026-09-26T15:47:23Z",
+  "cycle_id": "20260926T154722Z_aa3d6e",
   "roles": {
     "A": "geometer",
     "B": "legislator",
-    "C": "improver"
+    "C": "improver",
+    "D": "legislator"
   },
   "msg_ids": [
-    "msg_eb368635b8",
-    "msg_557ed78122",
-    "msg_54c4a03d69"
+    "msg_bf354796cf",
+    "msg_d7aef8c8b7",
+    "msg_ce1c6b7307"
   ],
-  "finding_id": "fnd_e9b18bdaf815",
+  "finding_id": "fnd_3018875fdbf8",
   "code_touched": true,
   "action_changed": true,
   "bus_metrics": {
-    "reply_rate": 0.4082,
+    "reply_rate": 0.4043,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
-    "reply_quality": 0.9505
+    "reply_quality": 0.9544
   },
-  "note": "A\u2192B\u2192C multi-hop. Fitness rise needs bus-driven claim/code change. Not AGI.",
+  "note": "A\u2192B\u2192C\u2192D(Oracle) multi-hop. Fitness rise needs bus-driven claim/code change. Not AGI.",
   "version": 1
 }

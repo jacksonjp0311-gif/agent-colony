@@ -1,4 +1,4 @@
-"""Multi-hop debate: A proposes → B attacks → C patches.
+"""Multi-hop debate: A proposes → B attacks → C patches → D Oracle-gates.
 
 Fitness rise from this path requires a bus-driven claim/code change
 (action_changed_from_message + ledger/code touch). Lifts reply_rate;
@@ -107,6 +107,35 @@ def run_multihop(
     )
     bus.record_action_changed(changed=True, detail={**patch_action, "cycle_id": cycle_id})
 
+    # D — Oracle gate deepen (flourish mile): require SENSE before keep weight
+    role_d = "legislator" if "legislator" in roles else role_b
+    msg_d = bus.post(
+        from_role=role_d,
+        to_role="forum",
+        channel="math",
+        message=(
+            f"MULTI-HOP D/oracle_gate ({role_d}): ACK patch `{msg_c.get('id')}`. "
+            f"DEEPEN: keep weight ONLY if Oracle SENSE (held-out+stripped+CAS) passes; "
+            f"easy_pad dies; STEM pack same rule. FAIL kills keep. Not AGI. cycle={cycle_id}."
+        ),
+        cycle_id=cycle_id,
+        tags=["debate", "multihop", "oracle_gate", "peer_cite", "action_changed"],
+        in_reply_to=msg_c.get("id"),
+        payload={"hop": "D", "kind": "oracle_gate", "parent": msg_c.get("id")},
+    )
+    bus.record_peer_cite(
+        cited=bus.message_cites_peer(msg_d.get("message") or "", parent=msg_c)
+    )
+    bus.record_action_changed(
+        changed=True,
+        detail={
+            "next_action_before": patch_action["next_action_after"],
+            "next_action_after": "oracle_sense_before_keep",
+            "reason": f"hop D oracle_gate on {msg_c.get('id')}",
+            "cycle_id": cycle_id,
+        },
+    )
+
     finding_id = None
     code_touched = False
     if force_code_touch and ledger is not None:
@@ -125,6 +154,7 @@ def run_multihop(
                 f"msg:{msg_a.get('id')}",
                 f"msg:{msg_b.get('id')}",
                 f"msg:{msg_c.get('id')}",
+                f"msg:{msg_d.get('id')}",
                 "colony/debate_multihop.py",
                 f"cycle:{cycle_id}",
             ],
@@ -143,8 +173,8 @@ def run_multihop(
             title="Multi-hop debate patch (bus-driven action change)",
             meta={
                 "kind": "debate_multihop",
-                "hops": ["A_propose", "B_attack", "C_patch"],
-                "msg_ids": [msg_a.get("id"), msg_b.get("id"), msg_c.get("id")],
+                "hops": ["A_propose", "B_attack", "C_patch", "D_oracle_gate"],
+                "msg_ids": [msg_a.get("id"), msg_b.get("id"), msg_c.get("id"), msg_d.get("id")],
                 "action": patch_action,
                 "cycle_id": cycle_id,
                 "not_discovery": True,
@@ -157,7 +187,7 @@ def run_multihop(
     result = {
         "ts": _utc(),
         "cycle_id": cycle_id,
-        "roles": {"A": role_a, "B": role_b, "C": role_c},
+        "roles": {"A": role_a, "B": role_b, "C": role_c, "D": role_d},
         "msg_ids": [msg_a.get("id"), msg_b.get("id"), msg_c.get("id")],
         "finding_id": finding_id,
         "code_touched": code_touched,
@@ -168,7 +198,7 @@ def run_multihop(
             "action_changed_from_message": metrics.get("action_changed_from_message"),
             "reply_quality": metrics.get("reply_quality"),
         },
-        "note": "A→B→C multi-hop. Fitness rise needs bus-driven claim/code change. Not AGI.",
+        "note": "A→B→C→D(Oracle) multi-hop. Fitness rise needs bus-driven claim/code change. Not AGI.",
     }
     DEBATE_LOG.parent.mkdir(parents=True, exist_ok=True)
     with DEBATE_LOG.open("a", encoding="utf-8") as f:
@@ -183,7 +213,7 @@ def run_multihop(
                 kind="debate_multihop",
                 actor=role_c,
                 summary=(
-                    f"Multi-hop A({role_a})→B({role_b})→C({role_c}) "
+                    f"Multi-hop A({role_a})→B({role_b})→C({role_c})→D({role_d}) "
                     f"action_changed=True code_touched={code_touched} "
                     f"reply_rate={metrics.get('reply_rate')}"
                 ),

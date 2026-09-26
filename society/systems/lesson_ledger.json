@@ -1,24 +1,24 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T15:08:29Z",
-  "updated_cycle": "autonomy_extra",
-  "n_active": 19,
-  "n_keeps": 7,
-  "n_reverts": 12,
+  "updated_at": "2026-09-26T15:47:32Z",
+  "updated_cycle": "flourish_desk_stem_easy_pad_units",
+  "n_active": 43,
+  "n_keeps": 17,
+  "n_reverts": 26,
   "skill_bias": {
-    "geometer.gather": 0.0729,
-    "improver.improve": 0.0547,
-    "spark.emergence": 0.0365
+    "geometer.gather": 0.0705,
+    "improver.improve": 0.0529,
+    "spark.emergence": 0.0352
   },
   "recent": [
     {
-      "id": "les_tativity_easy_pad_commutativity",
-      "ts": "2026-09-26T15:08:09Z",
-      "cycle_id": "autonomy_easy_easy_pad_commutativity",
+      "id": "les_sy_again_easy_pad_assoc_add",
+      "ts": "2026-09-26T15:25:05Z",
+      "cycle_id": "oracle_easy_again",
       "decision": "revert",
       "check": "lemma_microbench",
-      "mutation": "easy_pad_commutativity",
-      "what": "Reverted `easy_pad_commutativity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 13\u219213 \u2014 hard-tier lift required for keep; easy pads fail.",
+      "mutation": "easy_pad_assoc_add",
+      "what": "Reverted `easy_pad_assoc_add` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 20\u219220 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
       "source": "conjecture_desk",
       "family": "easy_pad",
       "before_score": 0.9071,
@@ -41,17 +41,249 @@
       "status": "candidate"
     },
     {
-      "id": "les_identity_easy_pad_abs_identity",
-      "ts": "2026-09-26T15:08:09Z",
-      "cycle_id": "autonomy_easy_easy_pad_abs_identity",
+      "id": "les_flourish_bell_triangle_recurrence",
+      "ts": "2026-09-26T15:46:58Z",
+      "cycle_id": "smoke_flourish",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "bell_triangle_recurrence",
+      "what": "Kept `bell_triangle_recurrence` (hard_enable): lemma score 0.8271\u21920.8371 checks 30\u219231 hard_pass 20\u219221 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8271,
+      "after_score": 0.8371,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_oke_stem_energy_work",
+      "ts": "2026-09-26T15:47:09Z",
+      "cycle_id": "smoke_stem",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "energy_work",
+      "what": "Kept `energy_work` (stem_enable): lemma score 0.7812\u21920.825 checks 3\u21924 hard_pass 3\u21924 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "outcome",
+      "before_score": 0.7812,
+      "after_score": 0.825,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "tags": [
+        "lemma",
+        "stem_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_oke_easy_easy_pad_assoc_add",
+      "ts": "2026-09-26T15:47:09Z",
+      "cycle_id": "smoke_easy",
       "decision": "revert",
       "check": "lemma_microbench",
-      "mutation": "easy_pad_abs_identity",
-      "what": "Reverted `easy_pad_abs_identity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 13\u219213 \u2014 hard-tier lift required for keep; easy pads fail.",
+      "mutation": "easy_pad_assoc_add",
+      "what": "Reverted `easy_pad_assoc_add` (easy_pad): score 0.8371\u21920.8529 ok=True hard_pass 21\u219221 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
       "source": "conjecture_desk",
       "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
+      "before_score": 0.8371,
+      "after_score": 0.8371,
+      "skill_bias": {
+        "geometer.gather": -0.04,
+        "improver.improve": -0.03,
+        "spark.emergence": -0.02
+      },
+      "tags": [
+        "lemma",
+        "easy_pad",
+        "revert"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_tem_easy_stem_easy_pad_units",
+      "ts": "2026-09-26T15:47:09Z",
+      "cycle_id": "smoke_stem_easy",
+      "decision": "revert",
+      "check": "lemma_microbench",
+      "mutation": "stem_easy_pad_units",
+      "what": "Reverted `stem_easy_pad_units` (stem_easy_pad): score 0.825\u21920.825 ok=True hard_pass 4\u21924 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['tentative_not_keep']",
+      "source": "conjecture_desk",
+      "family": "outcome",
+      "before_score": 0.825,
+      "after_score": 0.825,
+      "skill_bias": {
+        "geometer.gather": -0.04,
+        "improver.improve": -0.03,
+        "spark.emergence": -0.02
+      },
+      "tags": [
+        "lemma",
+        "stem_easy_pad",
+        "revert"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_currence_hermite_recurrence",
+      "ts": "2026-09-26T15:47:32Z",
+      "cycle_id": "flourish_desk_hermite_recurrence",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "hermite_recurrence",
+      "what": "Kept `hermite_recurrence` (hard_enable): lemma score 0.8371\u21920.8471 checks 31\u219232 hard_pass 21\u219222 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8371,
+      "after_score": 0.8471,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_identity_lagrange_identity",
+      "ts": "2026-09-26T15:47:32Z",
+      "cycle_id": "flourish_desk_lagrange_identity",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "lagrange_identity",
+      "what": "Kept `lagrange_identity` (hard_enable): lemma score 0.8471\u21920.8571 checks 32\u219233 hard_pass 22\u219223 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8471,
+      "after_score": 0.8571,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_on_small_binomial_inversion_small",
+      "ts": "2026-09-26T15:47:32Z",
+      "cycle_id": "flourish_desk_binomial_inversion_small",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "binomial_inversion_small",
+      "what": "Kept `binomial_inversion_small` (hard_enable): lemma score 0.8571\u21920.8671 checks 33\u219234 hard_pass 23\u219224 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8571,
+      "after_score": 0.8671,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_on_small_legendre_duplication_small",
+      "ts": "2026-09-26T15:47:32Z",
+      "cycle_id": "flourish_desk_legendre_duplication_small",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "legendre_duplication_small",
+      "what": "Kept `legendre_duplication_small` (hard_enable): lemma score 0.8671\u21920.8771 checks 34\u219235 hard_pass 24\u219225 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8671,
+      "after_score": 0.8771,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_identity_easy_pad_zero_identity",
+      "ts": "2026-09-26T15:47:32Z",
+      "cycle_id": "flourish_desk_easy_pad_zero_identity",
+      "decision": "revert",
+      "check": "lemma_microbench",
+      "mutation": "easy_pad_zero_identity",
+      "what": "Reverted `easy_pad_zero_identity` (easy_pad): score 0.8771\u21920.8929 ok=True hard_pass 25\u219225 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
+      "source": "conjecture_desk",
+      "family": "easy_pad",
+      "before_score": 0.8771,
+      "after_score": 0.8771,
       "skill_bias": {
         "geometer.gather": -0.04,
         "improver.improve": -0.03,
@@ -71,16 +303,16 @@
     },
     {
       "id": "les_re_again_easy_pad_square_again",
-      "ts": "2026-09-26T15:08:10Z",
-      "cycle_id": "autonomy_easy_easy_pad_square_again",
+      "ts": "2026-09-26T15:47:32Z",
+      "cycle_id": "flourish_desk_easy_pad_square_again",
       "decision": "revert",
       "check": "lemma_microbench",
       "mutation": "easy_pad_square_again",
-      "what": "Reverted `easy_pad_square_again` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 13\u219213 \u2014 hard-tier lift required for keep; easy pads fail.",
+      "what": "Reverted `easy_pad_square_again` (easy_pad): score 0.8771\u21920.8929 ok=True hard_pass 25\u219225 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
       "source": "conjecture_desk",
       "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
+      "before_score": 0.8771,
+      "after_score": 0.8771,
       "skill_bias": {
         "geometer.gather": -0.04,
         "improver.improve": -0.03,
@@ -99,104 +331,17 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_5e87d5_stirling_second_row",
-      "ts": "2026-09-26T15:08:14Z",
-      "cycle_id": "20260926T150813Z_5e87d5",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "stirling_second_row",
-      "what": "Kept `stirling_second_row` (hard_enable): lemma score 0.9071\u21920.9071 checks 23\u219224 hard_pass 13\u219214 (machine-checked; not novel discovery).",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_0bac51_pythagorean_generation",
-      "ts": "2026-09-26T15:08:15Z",
-      "cycle_id": "20260926T150814Z_0bac51",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "pythagorean_generation",
-      "what": "Kept `pythagorean_generation` (hard_enable): lemma score 0.9071\u21920.9071 checks 24\u219225 hard_pass 14\u219215 (machine-checked; not novel discovery).",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_db57fa_motzkin_bounded",
-      "ts": "2026-09-26T15:08:16Z",
-      "cycle_id": "20260926T150815Z_db57fa",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "motzkin_bounded",
-      "what": "Kept `motzkin_bounded` (hard_enable): lemma score 0.9071\u21920.9071 checks 25\u219226 hard_pass 15\u219216 (machine-checked; not novel discovery).",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_9dfb26_easy_pad_diff_squares",
-      "ts": "2026-09-26T15:08:17Z",
-      "cycle_id": "20260926T150817Z_9dfb26",
+      "id": "les_ad_units_stem_easy_pad_units",
+      "ts": "2026-09-26T15:47:32Z",
+      "cycle_id": "flourish_desk_stem_easy_pad_units",
       "decision": "revert",
       "check": "lemma_microbench",
-      "mutation": "easy_pad_diff_squares",
-      "what": "Reverted `easy_pad_diff_squares` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
+      "mutation": "stem_easy_pad_units",
+      "what": "Reverted `stem_easy_pad_units` (stem_easy_pad): score 0.825\u21920.825 ok=True hard_pass 4\u21924 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['tentative_not_keep']",
       "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
+      "family": "outcome",
+      "before_score": 0.825,
+      "after_score": 0.825,
       "skill_bias": {
         "geometer.gather": -0.04,
         "improver.improve": -0.03,
@@ -204,152 +349,7 @@
       },
       "tags": [
         "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_c1b6b6_easy_pad_commutativity",
-      "ts": "2026-09-26T15:08:19Z",
-      "cycle_id": "20260926T150818Z_c1b6b6",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_commutativity",
-      "what": "Reverted `easy_pad_commutativity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_34486c_easy_pad_square_again",
-      "ts": "2026-09-26T15:08:20Z",
-      "cycle_id": "20260926T150819Z_34486c",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_square_again",
-      "what": "Reverted `easy_pad_square_again` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_d6036f_easy_pad_commutativity",
-      "ts": "2026-09-26T15:08:21Z",
-      "cycle_id": "20260926T150820Z_d6036f",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_commutativity",
-      "what": "Reverted `easy_pad_commutativity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_0edfdf_easy_pad_abs_identity",
-      "ts": "2026-09-26T15:08:23Z",
-      "cycle_id": "20260926T150822Z_0edfdf",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_abs_identity",
-      "what": "Reverted `easy_pad_abs_identity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_my_extra_easy_pad_abs_identity",
-      "ts": "2026-09-26T15:08:29Z",
-      "cycle_id": "autonomy_extra",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_abs_identity",
-      "what": "Reverted `easy_pad_abs_identity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
+        "stem_easy_pad",
         "revert"
       ],
       "evidence": [

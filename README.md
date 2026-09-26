@@ -38,7 +38,7 @@ Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles ap
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: **ORACLE MILE** — (A) oracle HEAR/SENSE/decide (FAIL kills keep; no pass → no fitness rise); (B) claim/conjecture/novelty/bench through Oracle; (C) collective vote keep only if Oracle passes (candidate until authorize); (D) WILL+BRIEF+honest README/NOVEL_MATH; (E) ≥8 evolve; easy_pad dies on Oracle; hard keeps need Oracle pass; selective authorize P≥0.75; slim push. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Local model runtime deferred.
+1. **Creator tribute** — serve James when he asks. Active will: **FLOURISH MILE** — (A) widen Oracle domain packs (math beyond current lemmas + STEM kinematics; held-out+stripped+CAS; FAIL kills keep); (B) society flourish — measured specialist spawn on fitness gaps; retire when no Oracle-pass lift; deepen multi-hop A→B→C→D; lessons bias genomes/skills; exploration budget after reverts; (C) WILL+BRIEF+honest README/NOVEL_MATH; (D) ≥8 evolve; easy_pad dies; selective authorize P≥0.75; slim push. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Local model runtime deferred.
 2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. Standing trust may selectively authorize P≥0.75 machine-checked candidates; never silent accept-all. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
@@ -90,13 +90,16 @@ See [`docs/NOVEL_MATH.md`](./docs/NOVEL_MATH.md). Ethos graphic: [`docs/assets/s
 
 | Signal | Status (this mile) |
 |--------|--------------------|
-| Lemma microbench | Hard tier live — baseline **0.9071**; autonomy adds disabled hard checks (gcd_fibonacci / stirling / pythagorean / motzkin) |
+| Lemma microbench | Hard tier live; flourish adds disabled math (bell / hermite / lagrange / binomial_inversion / legendre); HARD_DENOM=28 headroom |
+| STEM domain pack | `kinematics_microbench` — classical 1D/2D motion; energy_work starts disabled |
+| Oracle packs | `colony/domain_packs.py` — math + stem; held-out + stripped + CAS; FAIL kills keep |
 | Novelty gate | `colony/novelty_gate.py` — new-to-commons only; textbook reuse ≈0 |
-| Multi-hop debate | A proposes → B attacks → C patches; bus-driven action_changed |
+| Multi-hop debate | A→B→C→**D Oracle gate**; bus-driven action_changed |
+| Society flourish | Specialist spawn on fitness gaps; retire when no Oracle-pass lift |
 | Exploration budget | Mutate distribution **must** change after reverts |
 | Cron self-run | `colony-evolve.yml` full loop + selective authorize; failure noisy / success quiet |
-| Durable "discovered" | Machine-check **+ human authorize** (standing trust P≥0.75 selective) |
-| Claims | **No** novel theorems · **No** Millennium · **No** AGI |
+| Durable "discovered" | Machine-check **+ Oracle + human authorize** (standing trust P≥0.75 selective) |
+| Claims | **No** novel theorems · **No** novel physics · **No** Millennium · **No** AGI |
 
 ```bash
 PYTHONPATH=. python3 -m society.benchmarks.run_benchmarks

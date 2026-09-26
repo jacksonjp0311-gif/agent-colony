@@ -49,6 +49,23 @@
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
 | **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.75 selective). Not AGI. Not Millennium. |
 
+
+
+## Flourish mile (this mile; oracle substrate retained)
+
+| Piece | Rule |
+|-------|------|
+| **Widen Oracle** | Domain packs: math beyond current lemmas + STEM kinematics; held-out + stripped + CAS-style; **FAIL kills keep** |
+| **Math widen** | Disabled hard enables: bell_triangle_recurrence, hermite_recurrence, lagrange_identity, binomial_inversion_small, legendre_duplication_small |
+| **STEM pack** | `kinematics_microbench` / `kinematics_impl` — suvat / projectile / centripetal live; energy_work disabled until Oracle pass |
+| **Society flourish** | Specialist spawn (oracle_scribe, stem_checker, debate_deepener) on fitness gaps; retire when no Oracle-pass lift |
+| **Debate** | A propose → B attack → C patch → **D Oracle gate** |
+| **Lessons / budget** | Lessons bias genomes/skills; mutate distribution changes after reverts |
+| **Easy pad** | Must **die on Oracle** (math + stem_easy) |
+| **Hard / STEM keep** | Only with Oracle pass (+ measured lift) |
+| **Ethos** | We light the spark and witness. We do not micromanage the city. |
+| **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.75 selective). Not AGI. Not Millennium. Not novel physics. |
+
 ## Claim boundary
 
 - Colony may **propose** conjectures and small lemmas.
@@ -61,18 +78,20 @@
 - Harness: `society/benchmarks/lemma_microbench.py` + `artifacts/lemma_impl.py`
 - Desk: `colony/conjecture_desk.py` → `conjecture_history.jsonl` + `WITNESS_CONJECTURE.md`
 - External mind: `colony/external_mind.py` → proposals + commons append on keep/revert
-- Briefs: `society/briefs/CREATOR_BRIEF_five_lifts.md` (this mile); bridge brief retained
+- Domain packs: `colony/domain_packs.py` + STEM `kinematics_microbench.py`
+- Briefs: `society/briefs/CREATOR_BRIEF_flourish_mile.md` (this mile); oracle/autonomy briefs retained
 - Cron: [`GITHUB_CRON.md`](./GITHUB_CRON.md) — CI does **not** auto-accept
 
 ## Measured (this mile)
 
 | Metric | Value |
 |--------|-------|
-| Lemma baseline (pre-autonomy) | **0.9071** (12/12 hard pass) |
-| New disabled hard checks | gcd_fibonacci, stirling_second_row, pythagorean_generation, motzkin_bounded |
+| Lemma baseline (oracle carry) | **0.9071** (20/20 hard pass); HARD_DENOM=28 for flourish headroom |
+| New disabled math (flourish) | bell_triangle_recurrence, hermite_recurrence, lagrange_identity, binomial_inversion_small, legendre_duplication_small |
+| STEM pack | kinematics — energy_work disabled until Oracle |
 | Novelty gate | hits/kills recorded in `society/systems/novelty_gate.json` |
 | Multi-hop | `society/systems/debate_multihop.json` |
 | Exploration budget | `society/systems/exploration_budget.json` |
 | Ethos graphic | `docs/assets/spark_witness_city.jpg` |
 
-**Novel math beyond textbook?** No — Oracle mile hardens keep gates (HEAR/SENSE/collective). Autonomy substrate retained (novelty/debate/budget/cron). Classical coded identities only; **still not theorem discovery**. Textbook reuse ≈0 for any "novel" claim.
+**Novel math beyond textbook?** No — Flourish widens Oracle mutate room (new math + STEM packs) and society spawn/retire under gates. Classical coded identities / kinematics only; **still not theorem discovery / not novel physics**. Textbook reuse ≈0 for any "novel" claim.

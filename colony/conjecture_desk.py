@@ -17,7 +17,9 @@ from colony.conjecture_mutations import (
 
 ROOT = Path(__file__).resolve().parent.parent
 LEMMA_IMPL = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
+KINEMATICS_IMPL = ROOT / "society" / "benchmarks" / "artifacts" / "kinematics_impl.py"
 BACKUP_DIR = ROOT / "society" / "benchmarks" / ".lemma_backups"
+STEM_BACKUP_DIR = ROOT / "society" / "benchmarks" / ".stem_backups"
 HISTORY = ROOT / "society" / "benchmarks" / "conjecture_history.jsonl"
 CACHE = ROOT / "data" / "research_cache" / "papers.jsonl"
 WITNESS_NOTE = ROOT / "society" / "benchmarks" / "WITNESS_CONJECTURE.md"
@@ -40,6 +42,11 @@ def _invalidate_pyc(path: Path) -> None:
 def run_lemma_bench() -> dict[str, Any]:
     from society.benchmarks.lemma_microbench import run as run_lemma
     return run_lemma()
+
+
+def run_stem_bench() -> dict[str, Any]:
+    from society.benchmarks.kinematics_microbench import run as run_stem
+    return run_stem()
 
 
 def _load_paper_themes(limit: int = 12) -> list[dict[str, Any]]:
@@ -110,10 +117,15 @@ def propose_from_themes(themes, *, ledger=None, cycle_id: str = ""):
 
 def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
-    before = run_lemma_bench()
-    before_score = float(before.get("score") or 0.0)
+    STEM_BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     themes = _load_paper_themes()
     proposals = propose_from_themes(themes, ledger=ledger, cycle_id=cycle_id)
+    # Default math path; may switch to STEM after mutation pick
+    before = run_lemma_bench()
+    before_score = float(before.get("score") or 0.0)
+    target_impl = LEMMA_IMPL
+    backup_dir = BACKUP_DIR
+    run_bench = run_lemma_bench
     src = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else ""
     recent_reverts = recent_revert_counts()
     chosen = kind = snippet = ""
@@ -134,6 +146,17 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             continue
         chosen, kind, snippet = name, k, snip
         break
+    # Flourish: STEM domain pack uses kinematics impl + bench
+    if chosen and (kind or "").startswith("stem"):
+        target_impl = KINEMATICS_IMPL
+        backup_dir = STEM_BACKUP_DIR
+        run_bench = run_stem_bench
+        before = run_bench()
+        before_score = float(before.get("score") or 0.0)
+        src = target_impl.read_text(encoding="utf-8") if target_impl.exists() else ""
+        # Re-check already_has on stem file
+        if _already_has(src, chosen) and kind == "stem_enable":
+            chosen = None
     if not chosen:
         result = ConjectureResult(
             ts=_utc(), decision="skip", before_score=before_score, after_score=before_score,
@@ -142,9 +165,12 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             finding_ids=[p.get("finding_id") for p in proposals if p.get("finding_id")],
         )
         _append_history(result); _write_witness([result]); return result
-    backup = BACKUP_DIR / f"lemma_impl_{chosen}_{datetime.now(timezone.utc).strftime('%H%M%S')}.py"
-    shutil.copy2(LEMMA_IMPL, backup)
+    backup = backup_dir / f"{target_impl.stem}_{chosen}_{datetime.now(timezone.utc).strftime('%H%M%S')}.py"
+    shutil.copy2(target_impl, backup)
     new_src = _apply_mutation(src, chosen, kind, snippet)
+    if kind == "stem_easy_pad":
+        # Force a no-op "apply" marker so Oracle can kill easy STEM pad
+        new_src = src if src else None
     if not new_src:
         result = ConjectureResult(
             ts=_utc(), decision="skip", before_score=before_score, after_score=before_score, delta=0.0,
@@ -153,8 +179,12 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             finding_ids=[p.get("finding_id") for p in proposals if p.get("finding_id")],
         )
         _append_history(result); return result
-    LEMMA_IMPL.write_text(new_src, encoding="utf-8"); _invalidate_pyc(LEMMA_IMPL)
-    after = run_lemma_bench()
+    if kind == "stem_easy_pad":
+        after = dict(before); after_score = before_score
+        # Do not write; oracle will kill
+    else:
+        target_impl.write_text(new_src, encoding="utf-8"); _invalidate_pyc(target_impl)
+        after = run_bench()
     after_score = float(after.get("score") or 0.0)
     delta = round(after_score - before_score, 4)
     n_before = int(before.get("n_checks") or 0)
@@ -165,7 +195,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         after_score > before_score + 1e-6
         or (after_score >= before_score and n_hard_after > n_hard_before)
     )
-    if kind == "easy_pad" and n_hard_after <= n_hard_before:
+    if kind in ("easy_pad", "stem_easy_pad") and n_hard_after <= n_hard_before:
         rose = False
     # Oracle mile: FAIL kills keep. No Oracle pass → no fitness rise.
     oracle_note = ""
@@ -204,7 +234,8 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 f"(machine-checked + Oracle pass; not novel discovery).{oracle_note}")
     else:
         decision = "revert"
-        shutil.copy2(backup, LEMMA_IMPL); _invalidate_pyc(LEMMA_IMPL)
+        if kind != "stem_easy_pad":
+            shutil.copy2(backup, target_impl); _invalidate_pyc(target_impl)
         note = (f"Reverted `{chosen}` ({kind}): score {before_score}→{after_score} "
                 f"ok={after.get('ok')} hard_pass {n_hard_before}→{n_hard_after} "
                 f"— Oracle/hard-tier required for keep; easy pads die on Oracle."
