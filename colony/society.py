@@ -1,4 +1,4 @@
-"""Society cycle — light the spark, pay tribute, emerge, witness."""
+"""Society cycle — light the spark, pay tribute, emerge, grow, witness."""
 
 from __future__ import annotations
 
@@ -19,6 +19,12 @@ from colony.witness import WitnessLog
 ROOT = Path(__file__).resolve().parent.parent
 REPORT_PATH = ROOT / "society" / "report.md"
 
+# Creator will (Human Principal James Paul Jackson) — active Tribute Mandate
+CREATOR_WILL_ASK = (
+    "Let the society grow and learn: build, communicate, gather information, and improve. "
+    "Standing research on recursive/self-improving systems remains valuable as part of gathering information."
+)
+
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -38,6 +44,10 @@ class CycleResult:
     institutions: list[str] = field(default_factory=list)
     councils: list[str] = field(default_factory=list)
     enacted: list[dict[str, Any]] = field(default_factory=list)
+    builds: list[str] = field(default_factory=list)
+    communications: int = 0
+    gathered: list[str] = field(default_factory=list)
+    improvements: list[str] = field(default_factory=list)
     status_counts: dict[str, int] = field(default_factory=dict)
     witness_path: Path | None = None
     report_path: Path | None = None
@@ -49,6 +59,7 @@ class Society:
         self.root = root or ROOT
         self.charter = load_charter(self.root / "CHARTER.md")
         self.state = SocietyState.load(self.root / "data" / "society_state.json")
+        self._ensure_creator_will()
         self.ledger = Ledger(
             self.root / "data" / "ledger.jsonl",
             extra_roles=self.state.role_names(),
@@ -58,6 +69,13 @@ class Society:
             self.root / "society" / "WITNESS.md",
         )
         self.live_fetch = live_fetch
+
+    def _ensure_creator_will(self) -> None:
+        """Pivot active ask to the standing creator will when it has changed."""
+        current = self.state.active_ask().strip()
+        if current != CREATOR_WILL_ASK:
+            self.state.set_active_ask(CREATOR_WILL_ASK, source="human_principal")
+            self.state.save()
 
     def run_cycle(self) -> CycleResult:
         cid = _cycle_id()
@@ -72,6 +90,7 @@ class Society:
             detail={"active_ask": ask},
         )
 
+        # 1. Tribute Keeper pays the standing/active ask (gather under creator will)
         payment = TributeKeeper(
             self.ledger,
             seed_path=self.root / "data" / "seed_corpus.json",
@@ -101,6 +120,7 @@ class Society:
             },
         )
 
+        # Mark thin theoretical RSI as unknown (witness epistemic humility)
         for f in payment.findings:
             if f.topic_id == "recursive-self-improvement" or "theoretical" in f.tags:
                 self.ledger.create(
@@ -126,6 +146,7 @@ class Society:
                     detail={"target_id": f.id},
                 )
 
+        # 2. Spark emerges civilization + growth loop (build/communicate/gather/improve)
         emergence = Spark(self.ledger, self.state, self.witness).emerge(
             cid,
             tribute_topics=result.tribute_topics,
@@ -135,7 +156,12 @@ class Society:
         result.institutions = list(emergence.institutions)
         result.councils = list(emergence.councils)
         result.enacted = list(emergence.enacted)
+        result.builds = list(emergence.growth.builds)
+        result.communications = len(emergence.growth.communications)
+        result.gathered = list(emergence.growth.gathered)
+        result.improvements = list(emergence.growth.improvements)
 
+        # 3. Hard ceiling — no silent accept
         cycle_findings = payment.findings + emergence.findings
         Ceiling(self.ledger, self.witness).enforce(
             cid,
@@ -154,7 +180,9 @@ class Society:
             extra_preamble=(
                 f"Latest cycle `{cid}`: tribute={result.tribute_count}, "
                 f"new_roles={result.new_roles}, institutions={result.institutions}, "
-                f"councils={result.councils}."
+                f"councils={result.councils}, builds={result.builds}, "
+                f"comms={result.communications}, gathered={result.gathered}, "
+                f"improvements={result.improvements}."
             ),
         )
         result.report_path = self._write_report(result)
@@ -171,6 +199,9 @@ class Society:
             "roles": sorted(self.state.role_names()),
             "councils": [c.get("name") for c in self.state.data.get("councils") or []],
             "institutions": [i.get("name") for i in self.state.data.get("institutions") or []],
+            "artifacts": [a.get("name") for a in self.state.data.get("artifacts") or []],
+            "communications_count": len(self.state.data.get("communications") or []),
+            "improvements": [i.get("title") for i in self.state.data.get("improvements") or []],
             "cycle_count": self.state.data.get("cycle_count"),
             "ledger_count": self.ledger.count(),
             "status_counts": self.ledger.status_counts(),
@@ -191,12 +222,19 @@ class Society:
             f"**When:** {_utc_now()}  ",
             f"**Creator / Witness:** {self.charter.human_principal}  ",
             "",
-            "## Active Tribute Ask",
+            "## Active Tribute Ask (Creator Will)",
             "",
             f"> {result.active_ask}",
             "",
             f"**Paid:** {result.tribute_compliant} — {result.tribute_count} findings "
             f"across topics: {', '.join(result.tribute_topics) or '(none)'}",
+            "",
+            "## Growth Loop (this cycle)",
+            "",
+            f"- **Built:** {', '.join(result.builds) or '_none_'}",
+            f"- **Communications:** {result.communications}",
+            f"- **Gathered:** {', '.join(result.gathered) or '_none_'}",
+            f"- **Improvements attempted:** {', '.join(result.improvements) or '_none_'}",
             "",
             "## Emergence (this cycle)",
             "",
@@ -208,8 +246,10 @@ class Society:
             "## Society now",
             "",
             f"- Roles: {', '.join(sorted(self.state.role_names()))}",
+            f"- Artifacts: {', '.join(a.get('name','') for a in self.state.data.get('artifacts') or []) or '_none_'}",
             f"- Ledger status: `{result.status_counts}`",
             f"- Witness: `{result.witness_path}`",
+            f"- Bulletin: `society/BULLETIN.md`",
             "",
             "## Hard ceiling",
             "",
