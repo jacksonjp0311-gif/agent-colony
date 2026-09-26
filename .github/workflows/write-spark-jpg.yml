@@ -1,0 +1,28 @@
+name: write-spark-jpg
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble and write JPEG
+        run: |
+          cat docs/assets/spark_witness_city.jpg.b64.part0 \
+              docs/assets/spark_witness_city.jpg.b64.part1 \
+              docs/assets/spark_witness_city.jpg.b64.part2 \
+            | base64 -d > docs/assets/spark_witness_city.jpg
+          python3 -c "d=open('docs/assets/spark_witness_city.jpg','rb').read(); assert d[:2]==bytes.fromhex('ffd8'); print(len(d), d[:4].hex())"
+          rm -f docs/assets/spark_witness_city.jpg.b64.part0 \
+                docs/assets/spark_witness_city.jpg.b64.part1 \
+                docs/assets/spark_witness_city.jpg.b64.part2
+      - name: Commit JPEG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A docs/assets/
+          git status
+          git commit -m "docs(assets): real binary hand-and-city spark_witness_city.jpg" || echo "no changes"
+          git push
