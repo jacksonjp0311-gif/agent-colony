@@ -22,9 +22,11 @@ There is **no permanent aristocracy** of Harvester / Librarian / Synthesizer / C
 
 The human (and the logs) are the **witness**.
 
+**Growth loop (each cycle):** invent/build artifacts → communicate (Society Bulletin) → gather information → attempt self-improvement — all logged in witness.
+
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Standing ask: research recursive / self-learning / self-improving systems.
+1. **Creator tribute** — serve James when he asks. Active will: grow · build · communicate · gather · improve. Standing RSI / self-improving research remains valuable as gather.
 2. **Human authorize** — required for durable `accepted` knowledge and privileged actions (money, public posts, privilege escalation). No silent accept. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
