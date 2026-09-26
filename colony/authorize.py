@@ -23,6 +23,8 @@ RECEIPTS = ROOT / "society" / "receipts"
 
 Decision = Literal["accepted", "rejected"]
 
+from colony.standing_trust import STANDING_TRUST_P_MIN, meets_standing_trust  # noqa: E402
+
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
