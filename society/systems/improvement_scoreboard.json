@@ -1,0 +1,22 @@
+{
+  "proposals": [
+    {
+      "id": "imp_ed883e_5",
+      "title": "Raise system reuse",
+      "before": {
+        "tribute_quality": 0.9,
+        "gather_coverage": 0.875,
+        "build_reuse": 0.7333,
+        "comm_reply_rate": 0.8333,
+        "aggregate": 0.8387
+      },
+      "after": null,
+      "status": "candidate"
+    }
+  ],
+  "updated_at": "2026-09-26T09:31:14Z",
+  "version": 1,
+  "built_by": "builder",
+  "built_cycle": "20260926T093114Z_ed883e",
+  "updated_cycle": "20260926T093114Z_ed883e"
+}

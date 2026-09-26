@@ -1,0 +1,78 @@
+{
+  "routes": {
+    "tribute": "tribute_keeper",
+    "build": "builder",
+    "communicate": "herald",
+    "gather": "pathfinder",
+    "improve": "improver",
+    "emergence": "spark"
+  },
+  "skills_snapshot": {
+    "spark": {
+      "tribute": 0.5,
+      "build": 0.5,
+      "communicate": 0.6918,
+      "gather": 0.5,
+      "improve": 0.6,
+      "emergence": 0.8467
+    },
+    "tribute_keeper": {
+      "tribute": 0.9152,
+      "build": 0.5,
+      "communicate": 0.6422,
+      "gather": 0.7,
+      "improve": 0.5,
+      "emergence": 0.5
+    },
+    "memory_weaver": {
+      "tribute": 0.5,
+      "build": 0.5,
+      "communicate": 0.6559,
+      "gather": 0.8218,
+      "improve": 0.55,
+      "emergence": 0.5
+    },
+    "builder": {
+      "tribute": 0.5,
+      "build": 0.8282,
+      "communicate": 0.5,
+      "gather": 0.5,
+      "improve": 0.55,
+      "emergence": 0.5
+    },
+    "herald": {
+      "tribute": 0.5,
+      "build": 0.5,
+      "communicate": 0.7359,
+      "gather": 0.5,
+      "improve": 0.5,
+      "emergence": 0.5
+    },
+    "pathfinder": {
+      "tribute": 0.5,
+      "build": 0.5,
+      "communicate": 0.5226,
+      "gather": 0.8261,
+      "improve": 0.5,
+      "emergence": 0.5
+    },
+    "improver": {
+      "tribute": 0.5,
+      "build": 0.5,
+      "communicate": 0.6422,
+      "gather": 0.5,
+      "improve": 0.7947,
+      "emergence": 0.6
+    },
+    "courier": {
+      "tribute": 0.5,
+      "build": 0.5,
+      "communicate": 0.7178,
+      "gather": 0.5,
+      "improve": 0.5,
+      "emergence": 0.5
+    }
+  },
+  "updated_at": "2026-09-26T09:31:14Z",
+  "updated_cycle": "20260926T093114Z_ed883e"
+}
