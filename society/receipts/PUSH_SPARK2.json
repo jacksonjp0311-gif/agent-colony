@@ -1,0 +1,55 @@
+{
+  "mile": "spark2",
+  "when": "2026-09-26T22:19:00Z",
+  "commits": {
+    "spark_tip_before": "b142b317",
+    "spark2_feat": "fe85e7d5646cc3bb2125e8d409ca21e0d78884fc"
+  },
+  "pushed_to": "main",
+  "remote": "jacksonjp0311-gif/agent-colony",
+  "cycle_count": 35,
+  "fitness_aggregate": 0.7838,
+  "oracle": {
+    "passes": 93,
+    "kills": 49,
+    "easy_pad_kills": 33,
+    "total": 142
+  },
+  "authorize": {
+    "accepted": 3,
+    "rejected": 0,
+    "skipped": 0,
+    "receipt": "/workspace/agent-colony/society/receipts/AUTHORIZE_authorize_20260926T221738Z.md",
+    "P_min": 0.7,
+    "P_min_before": 0.75,
+    "never_accept_all": true
+  },
+  "easy_pad_trend_vs_spark": {
+    "prior": 33,
+    "now": 33,
+    "trend": "flat"
+  },
+  "actuation_balance": {
+    "internal_share_cap": 0.5,
+    "external_share_cap": 0.5,
+    "observed_split": {
+      "internal": 16,
+      "external": 16
+    }
+  },
+  "actuation_success_rate": 1.0,
+  "time_revisions": 3,
+  "external_patterns": [
+    "publications_x_space"
+  ],
+  "spark_witness_assets_touched": false,
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "note": "Slim push of SPARK2 code+receipts. Giant ledger/society_state not rewritten on remote."
+}
