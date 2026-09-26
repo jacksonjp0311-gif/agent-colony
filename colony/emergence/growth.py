@@ -115,6 +115,37 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         # Research-lab: debate → propose → hearing verdict, then evolve/fitness
         self._debate_then_propose(cycle_id, cycle_n, g)
         self._attempt_improvement(cycle_id, cycle_n, g)
+        # Measured bench improve: one measure→keep/revert attempt per cycle
+        try:
+            from colony.bench_improve import run_from_growth
+
+            bi = run_from_growth(cycle_id)
+            g.improvements.append(f"bench_improve:{bi.patch_name}:{bi.decision}")
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="bench_improve",
+                actor="improver" if "improver" in self.registry.active() else "spark",
+                summary=(
+                    f"Bench improve `{bi.patch_name}` → {bi.decision} "
+                    f"({bi.before_score}→{bi.after_score}, delta={bi.delta})"
+                ),
+                detail={
+                    "patch": bi.patch_name,
+                    "decision": bi.decision,
+                    "before_score": bi.before_score,
+                    "after_score": bi.after_score,
+                    "delta": bi.delta,
+                    "note": bi.note,
+                },
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="bench_improve_error",
+                actor="improver",
+                summary=f"Bench improve skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         self._evolve(cycle_id, g, tribute_topics, tribute_count, live_ok, live_fail)
         self._government_and_census(cycle_id, g)
 
