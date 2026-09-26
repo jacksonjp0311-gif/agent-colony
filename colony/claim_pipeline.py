@@ -173,11 +173,35 @@ def propose_checked(
             from colony.novelty_gate import evaluate as novelty_evaluate
             nov = novelty_evaluate(mutation=c.theme_id, kind="claim_theme", claim_text=c.text, cycle_id=cycle_id)
             if nov.get("textbook_reuse", 0) >= 0.34:
-                c.note = (c.note or "") + f" | novelty_kill textbook_reuse={nov.get('textbook_reuse")}"
+                c.note = (c.note or "") + f" | novelty_kill textbook_reuse={nov.get('textbook_reuse')}"
                 # still may propose as hard_checked pointer, but tagged not_novel
                 c.text = c.text + " [novelty_gate: not novel-to-commons]"
         except Exception:
             pass
+        # Oracle mile: propose only if Oracle does not hard-kill (claims stay candidate)
+        try:
+            from colony.oracle import gate_keep as oracle_gate
+            final_dec, ov = oracle_gate(
+                tentative_decision="propose",
+                mutation=c.theme_id,
+                kind="claim_theme",
+                claim_text=c.text,
+                source="claim_pipeline",
+                cycle_id=cycle_id,
+            )
+            c.note = (c.note or "") + (
+                f" | oracle={'PASS' if ov.passed else 'KILL'} kills={ov.kills}"
+            )
+            if final_dec not in ("propose", "keep"):
+                c.status = "rejected_raw"
+                c.hard_ok = False
+                c.note = (c.note or "") + " | oracle_blocked_propose"
+                continue
+        except Exception as _ox:
+            c.note = (c.note or "") + f" | oracle_error_fail_closed:{_ox}"
+            c.status = "rejected_raw"
+            c.hard_ok = False
+            continue
         prop = c.to_dict()
         prop["status"] = "candidate"
         prop["stage"] = "propose_after_hard_check"

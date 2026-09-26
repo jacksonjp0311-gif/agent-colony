@@ -304,9 +304,30 @@ def improve_once(
     trial_score = float(after.get("aggregate_score") or 0.0)
     trial_delta = round(trial_score - before_score, 4)
     trial_after = after
-    if trial_score > before_score + 0.01 and after.get("ok_all"):
+    tentative_keep = trial_score > before_score + 0.01 and after.get("ok_all")
+    oracle_note = ""
+    if tentative_keep:
+        try:
+            from colony.oracle import gate_keep as oracle_gate
+            final_dec, ov = oracle_gate(
+                tentative_decision="keep",
+                mutation=patch.name,
+                kind="bench_keep",
+                claim_text=patch.description,
+                source="bench_improve",
+                cycle_id=cycle_id or "",
+                before_score=before_score,
+                after_score=trial_score,
+            )
+            oracle_note = f" | oracle={'PASS' if ov.passed else 'KILL'} kills={ov.kills}"
+            if final_dec != "keep":
+                tentative_keep = False
+        except Exception as _ox:
+            tentative_keep = False
+            oracle_note = f" | oracle=ERROR_fail_closed:{_ox}"
+    if tentative_keep:
         decision = "keep"
-        note = f"aggregate rose; kept patch ({patch.description})"
+        note = f"aggregate rose; kept patch ({patch.description}){oracle_note}"
         result = ImproveResult(
             ts=_utc(),
             patch_name=patch.name,
@@ -322,8 +343,9 @@ def improve_once(
     else:
         decision = "revert"
         note = (
-            f"aggregate did not rise (trial={trial_score}, delta={trial_delta}); "
-            f"reverted ({patch.description})"
+            f"aggregate did not rise or Oracle killed keep "
+            f"(trial={trial_score}, delta={trial_delta}); "
+            f"reverted ({patch.description}){oracle_note}"
         )
         patch.target.write_text(original, encoding="utf-8")
         _invalidate_pyc(patch.target)

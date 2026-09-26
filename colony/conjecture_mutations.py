@@ -35,6 +35,19 @@ def check_easy_pad_abs_identity() -> bool:
     return all(abs(a) * abs(a) == a * a for a in range(-4, 5))
 """
 
+
+_EASY_PAD_ASSOC = """
+def check_easy_pad_assoc_add() -> bool:
+    \"\"\"Easy pad - trivial associativity (must die on Oracle).\"\"\"
+    return all((a + b) + c == a + (b + c) for a in range(-3, 4) for b in range(-3, 4) for c in range(-3, 4))
+"""
+
+_EASY_PAD_ZERO = """
+def check_easy_pad_zero_identity() -> bool:
+    \"\"\"Easy pad - a+0=a on tiny range (must die on Oracle).\"\"\"
+    return all(a + 0 == a and a * 1 == a for a in range(-5, 6))
+"""
+
 MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("vandermonde_conv", "hard_enable", "enable:vandermonde_conv"),
     ("hockey_stick", "hard_enable", "enable:hockey_stick"),
@@ -51,6 +64,12 @@ MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("stirling_second_row", "hard_enable", "enable:stirling_second_row"),
     ("pythagorean_generation", "hard_enable", "enable:pythagorean_generation"),
     ("motzkin_bounded", "hard_enable", "enable:motzkin_bounded"),
+    ("catalan_convolution", "hard_enable", "enable:catalan_convolution"),
+    ("derangement_subfactorial", "hard_enable", "enable:derangement_subfactorial"),
+    ("narayana_sum", "hard_enable", "enable:narayana_sum"),
+    ("euler_totient_multiplicative", "hard_enable", "enable:euler_totient_multiplicative"),
+    ("easy_pad_assoc_add", "easy_pad", _EASY_PAD_ASSOC),
+    ("easy_pad_zero_identity", "easy_pad", _EASY_PAD_ZERO),
     ("easy_pad_square_again", "easy_pad", _EASY_PAD_SNIP),
     ("easy_pad_diff_squares", "easy_pad", _EASY_PAD_DIFF),
     ("easy_pad_commutativity", "easy_pad", _EASY_PAD_COMM),

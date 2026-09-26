@@ -167,17 +167,48 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     )
     if kind == "easy_pad" and n_hard_after <= n_hard_before:
         rose = False
-    if rose:
+    # Oracle mile: FAIL kills keep. No Oracle pass → no fitness rise.
+    oracle_note = ""
+    oracle_passed = False
+    try:
+        from colony.oracle import gate_keep as oracle_gate
+        tentative = "keep" if rose else "revert"
+        final_dec, ov = oracle_gate(
+            tentative_decision=tentative,
+            mutation=chosen or "",
+            kind=kind or "",
+            claim_text=f"lemma mutation {chosen} {before_score}->{after_score}",
+            source="conjecture_desk",
+            cycle_id=cycle_id,
+            after_snapshot=after,
+            hard_pass_delta=(n_hard_after - n_hard_before),
+            before_score=before_score,
+            after_score=after_score,
+        )
+        oracle_passed = bool(ov.passed and ov.fitness_credit)
+        oracle_note = (
+            f" | oracle={'PASS' if ov.passed else 'KILL'} "
+            f"fitness_credit={ov.fitness_credit} kills={ov.kills}"
+        )
+        if tentative == "keep" and final_dec != "keep":
+            rose = False  # Oracle killed keep
+    except Exception as _oracle_exc:  # noqa: BLE001
+        # Fail-closed: cannot keep without Oracle
+        if rose:
+            rose = False
+            oracle_note = f" | oracle=ERROR_fail_closed:{_oracle_exc}"
+    if rose and oracle_passed:
         decision = "keep"
         note = (f"Kept `{chosen}` ({kind}): lemma score {before_score}→{after_score} "
                 f"checks {n_before}→{n_after} hard_pass {n_hard_before}→{n_hard_after} "
-                f"(machine-checked; not novel discovery).")
+                f"(machine-checked + Oracle pass; not novel discovery).{oracle_note}")
     else:
         decision = "revert"
         shutil.copy2(backup, LEMMA_IMPL); _invalidate_pyc(LEMMA_IMPL)
         note = (f"Reverted `{chosen}` ({kind}): score {before_score}→{after_score} "
                 f"ok={after.get('ok')} hard_pass {n_hard_before}→{n_hard_after} "
-                f"— hard-tier lift required for keep; easy pads fail.")
+                f"— Oracle/hard-tier required for keep; easy pads die on Oracle."
+                f"{oracle_note}")
         after_score = before_score; delta = 0.0
     finding_ids = [p.get("finding_id") for p in proposals if p.get("finding_id")]
     if ledger is not None:
@@ -281,7 +312,7 @@ def _append_history(r: ConjectureResult) -> None:
 def _write_witness(results: list[ConjectureResult]) -> None:
     lines = [
         f"# Conjecture desk witness — {_utc()}", "",
-        "Hard-tier mutations; keep only if lemma_microbench score rises. Easy pads fail keep. "
+        "Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. "
         "Not discovery. Not AGI. Not Millennium.", "",
     ]
     for r in results:

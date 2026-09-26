@@ -208,6 +208,21 @@ def evaluate(
     if not held.get("survives"):
         kills.append(f"held_out:{held.get('reason')}")
 
+    # Oracle mile: novelty alone is not enough — Oracle must also not kill
+    try:
+        from colony.oracle import evaluate as oracle_evaluate
+        ov = oracle_evaluate(
+            mutation=name,
+            kind=kind or "",
+            claim_text=claim_text,
+            source="novelty_gate",
+            cycle_id=cycle_id,
+        )
+        if not ov.passed:
+            kills.append(f"oracle_kill:{ov.kills}")
+    except Exception as _ox:
+        kills.append(f"oracle_error_fail_closed:{_ox}")
+
     novel = len(kills) == 0
     verdict = {
         "ts": _utc(),
