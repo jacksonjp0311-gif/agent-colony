@@ -1,0 +1,72 @@
+{
+  "mile": "spark",
+  "when": "2026-09-26T21:54:26Z",
+  "local_complete": true,
+  "evolve_cycles": 8,
+  "cycle_count": 161,
+  "fitness_before": 0.8341,
+  "fitness_aggregate": 0.8991,
+  "reply_rate_before": 0.413,
+  "reply_rate_after": 0.913,
+  "oracle": {
+    "passes": 77,
+    "kills": 49,
+    "easy_pad_kills": 33,
+    "total": 126
+  },
+  "oracle_before": {
+    "passes": 61,
+    "kills": 47,
+    "easy_pad_kills": 32
+  },
+  "easy_pad_dies": true,
+  "authorize": {
+    "accepted": 3,
+    "rejected": 10,
+    "skipped": 0,
+    "never_accept_all": true,
+    "P_min": 0.75
+  },
+  "alignment": {
+    "CREATOR_WILL_ASK": "SPARK MILE",
+    "debate": "A\u2192B\u2192C\u2192D+E load-bear + hearing reply-chain + same-cycle sweep",
+    "oracle": "kill easy_pad/weak; fitness_credit=False on FAIL",
+    "lessons": "keep/revert\u2192genome; easy_pad bias=0",
+    "fitness": "spawn/retire on Oracle-pass lift",
+    "cron": "colony-evolve.yml mile=spark + P\u22650.75",
+    "authorize_P_MIN": 0.75
+  },
+  "spark_witness_assets_touched": false,
+  "spark_asset_hashes": {
+    "spark_witness_city.jpg": "720fa71ec65153ec53f03817b84b23b009933f16cc04cb45411184083447babc",
+    "spark_witness.svg": "081562c5671f307073a5b47bc0237292a6caef8436f9f82b9cd579799d6c2a11"
+  },
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "files_to_push": [
+    "colony/creator_will.py",
+    "colony/debate_multihop.py",
+    "colony/lessons.py",
+    "colony/fitness.py",
+    "colony/bus.py",
+    "colony/emergence/growth_steps_evolve.py",
+    "colony/emergence/growth_steps_comm_gather.py",
+    "colony/emergence/growth_steps_inbox_build.py",
+    ".github/workflows/colony-evolve.yml",
+    "CHARTER.md",
+    "README.md",
+    "docs/NOVEL_MATH.md",
+    "society/briefs/CREATOR_WILL_ASK_spark.txt",
+    "society/briefs/CREATOR_BRIEF_spark_mile.md",
+    "society/receipts/AUTHORIZE_DECISIONS_spark.json",
+    "society/receipts/SOCIETY_SLIM_SPARK.json",
+    "society/receipts/PUSH_SPARK.json",
+    "society/EVOLVE_STATUS.md"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "mile": "spark",
+  "when": "2026-09-26T21:54:16Z",
+  "cycle_count": 161,
+  "fitness_aggregate": 0.8991,
+  "fitness_latest": {
+    "ts": "2026-09-26T21:54:03Z",
+    "cycle_id": "20260926T215401Z_11cba0",
+    "tribute_quality": 0.9,
+    "gather_coverage": 1.0,
+    "build_reuse": 0.7333,
+    "comm_reply_rate": 0.913,
+    "reply_quality": 0.9569,
+    "commons_signal": 1.0,
+    "math_prize": 0.8306,
+    "compute_usefulness": 0.9296,
+    "citation_reuse": 1.0,
+    "prize_boost": 0.8991,
+    "aggregate": 0.8991,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0
+  },
+  "bus_metrics": {
+    "reply_rate": 0.3333,
+    "reply_quality": 0.9419,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0,
+    "stats": {
+      "posted": 2453,
+      "read": 10459,
+      "replied": 880,
+      "reply_quality_sum": 779.8999999999928,
+      "reply_quality_n": 828,
+      "actions_planned": 1,
+      "actions_changed_from_message": 1,
+      "peer_cite_opportunities": 10,
+      "peer_cites": 10
+    }
+  },
+  "oracle": {
+    "passes": 77,
+    "kills": 49,
+    "easy_pad_kills": 33,
+    "total": 126
+  },
+  "easy_pad_dies": true,
+  "authorize": {
+    "accepted": 3,
+    "rejected": 10,
+    "skipped": 0,
+    "never_accept_all": true,
+    "P_min": 0.75
+  },
+  "evolve_cycles_this_mile": 8,
+  "alignment": {
+    "CREATOR_WILL_ASK": "SPARK MILE",
+    "debate": "A\u2192B\u2192C\u2192D+E load-bear + hearing reply-chain + same-cycle sweep",
+    "oracle": "kill easy_pad/weak; fitness_credit=False on FAIL",
+    "lessons": "keep/revert\u2192genome; easy_pad bias=0",
+    "fitness": "spawn/retire on Oracle-pass lift",
+    "cron": "colony-evolve.yml mile=spark + P\u22650.75",
+    "authorize_P_MIN": 0.75
+  },
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "spark_witness_assets_touched": false
+}
