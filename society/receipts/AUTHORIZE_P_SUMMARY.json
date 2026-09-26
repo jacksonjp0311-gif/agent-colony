@@ -1,85 +1,38 @@
 {
-  "when": "2026-09-26T12:28Z",
+  "when": "2026-09-26T12:46Z",
   "standing_trust": "James: authorize high-P (P>=0.75) forever for agent-colony; selective; not accept-all",
-  "authorize_cycles": [
-    {
-      "id": "authorize_20260926T113127Z",
-      "accepted": 0,
-      "rejected": 18,
-      "note": "junk/dupe improve proposals"
-    },
-    {
-      "id": "authorize_20260926T113149Z",
-      "accepted": 6,
-      "rejected": 0,
-      "note": "research-lab math/tech live-fetched seeds"
-    },
-    {
-      "id": "authorize_20260926T114651Z",
-      "accepted": 1,
-      "rejected": 2,
-      "note": "behavior-proven deepen-compute P=0.86; reject weak prize-track dupes"
-    },
-    {
-      "id": "authorize_20260926T122813Z",
-      "accepted": 5,
-      "rejected": 16,
-      "note": "lab institutions+NORM accept; hearing/RSI dupes reject"
-    }
-  ],
-  "p_policy": "accept only P>=0.75 with sourced evidence OR clearly proven by new metrics; reject weak/dupes; leave uncertain",
+  "authorize_cycle": "authorize_20260926T124638Z",
+  "accepted": 3,
+  "rejected_findings": 0,
+  "proposal_rejects": 40,
+  "p_policy": "accept only P>=0.75 with measured/sourced evidence; reject junk/dupes; leave uncertain",
   "accepted_this_batch": [
     {
-      "finding_id": "fnd_e1d23b995bb5",
-      "title": "Institution: Math Prize Desk",
-      "p": 0.88
+      "finding_id": "fnd_f461f2f43e80",
+      "title": "FFT stress microbench (n=4096) — measured headroom",
+      "p": 0.92
     },
     {
-      "finding_id": "fnd_7d85ea93cfe3",
-      "title": "Institution: Hearing Chamber",
-      "p": 0.86
+      "finding_id": "fnd_f455e4d2957d",
+      "title": "Bench improve keep/revert loop — measured proof",
+      "p": 0.94
     },
     {
-      "finding_id": "fnd_a44a3a1683d1",
-      "title": "Council: Research Lab Colloquium",
-      "p": 0.84
-    },
-    {
-      "finding_id": "fnd_b10f4fe2aa43",
-      "title": "Institution: Academy of Learning",
-      "p": 0.82
-    },
-    {
-      "finding_id": "fnd_be3edc343495",
-      "title": "NORM: Debate/hearing before propose; prize_boost; no AGI",
+      "finding_id": "fnd_962d8d802ec9",
+      "title": "Improve attempt: FFT remove SLOW_EXTRA_LOOPS (kept)",
       "p": 0.9
     }
   ],
-  "rejected_this_batch": 16,
-  "creator_brief": "society/briefs/CREATOR_BRIEF_compute_math_tech.md",
-  "live": {
-    "cycle_count": 74,
-    "fitness_aggregate": 0.844,
-    "citation_reuse": 1.0,
-    "math_prize": 1.0,
-    "compute_usefulness": 1.0,
-    "prize_boost": 1.0,
-    "findings_coupling": {
-      "strength": 1.0,
-      "accepted_math": 4,
-      "accepted_compute": 6,
-      "accepted_rsi": 8,
-      "citation_hits": 38,
-      "persona_updated": 16,
-      "ts": "2026-09-26T12:28:43Z"
-    },
-    "status_counts": {
-      "candidate": 1759,
-      "unknown": 24,
-      "accepted": 43,
-      "rejected": 79
-    },
-    "witness_events": 3248,
-    "commons_size": 163
-  }
+  "scores": {
+    "baseline_agg": 0.8834,
+    "after_keep_agg": 0.9451,
+    "live_agg": 0.9431
+  },
+  "status_counts": {
+    "candidate": 1972,
+    "unknown": 30,
+    "accepted": 46,
+    "rejected": 85
+  },
+  "cycle_count": 80
 }
