@@ -1,0 +1,13 @@
+{
+  "mile": "align",
+  "local_complete": true,
+  "evolve_cycles": 8,
+  "cycle_count": 153,
+  "fitness_aggregate": 0.8341,
+  "oracle": {"passes": 61, "kills": 46, "easy_pad_kills": 31, "total": 107},
+  "easy_pad_dies": true,
+  "authorize": {"accepted": 4, "rejected": 6, "never_accept_all": true, "P_min": 0.75},
+  "spark_witness_assets_touched": false,
+  "non_claims": ["not_AGI", "not_consciousness", "not_Millennium", "not_novel_theorems", "not_novel_physics"],
+  "ethos": "We light the spark and witness. We do not micromanage the city."
+}
