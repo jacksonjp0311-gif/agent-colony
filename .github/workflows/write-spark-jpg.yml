@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Assemble and write JPEG
         run: |
           cat docs/assets/spark_witness_city.jpg.b64.c0 docs/assets/spark_witness_city.jpg.b64.c1 docs/assets/spark_witness_city.jpg.b64.c2 docs/assets/spark_witness_city.jpg.b64.c3 docs/assets/spark_witness_city.jpg.b64.c4 docs/assets/spark_witness_city.jpg.b64.c5 docs/assets/spark_witness_city.jpg.b64.c6 docs/assets/spark_witness_city.jpg.b64.c7 | base64 -d > docs/assets/spark_witness_city.jpg
@@ -20,4 +23,5 @@ jobs:
           git add -A docs/assets/
           git status
           git commit -m "docs(assets): real binary hand-and-city spark_witness_city.jpg" || echo "no changes"
-          git push
+          git pull --rebase origin main
+          git push origin main
