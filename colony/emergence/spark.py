@@ -40,7 +40,11 @@ class Spark:
 
     def _will_is_growth(self) -> bool:
         ask = (self.state.active_ask() or "").lower()
-        keys = ("grow", "build", "communicate", "gather", "improve", "learning", "evolve")
+        keys = (
+            "grow", "build", "communicate", "gather", "improve", "learning", "evolve",
+            "empire", "genome", "spawn", "government", "commons", "science", "history",
+            "mathematics", "math",
+        )
         return any(k in ask for k in keys)
 
     def emerge(
@@ -110,15 +114,71 @@ class Spark:
         result.findings.extend(result.growth.findings)
         result.retired_roles = list(result.growth.retired)
 
-        # Enact fitness-driven spawn signals
+        # Enact fitness-driven spawn signals + child genomes
         registry = AgentRegistry(self.state.data)
         spawn_by_role = {s["role"]: s for s in EvolutionEngine.SPAWN_MENU}
+        child = getattr(result.growth, "child_spawn", None)
+        child_role = (child or {}).get("role")
         for role in result.growth.spawn_signals:
+            if child_role and role == child_role and child:
+                if role in self.state.role_names():
+                    registry.enter(
+                        role,
+                        reason="child_respawn",
+                        genome=child.get("genome"),
+                        parents=child.get("parents"),
+                        cycle_id=cycle_id,
+                    )
+                    continue
+                idea = {
+                    "type": "new_role",
+                    "name": role,
+                    "description": child.get("description") or f"Child agent `{role}` with heritable genome.",
+                }
+                try:
+                    check_emergence_proposal({"summary": role, "detail": idea})
+                except CeilingViolation as e:
+                    result.blocked.append(str(e))
+                    continue
+                enacted = self._enact(cycle_id, idea, self.state.role_names(), result)
+                if enacted:
+                    result.enacted.append(enacted)
+                    # _enact already entered as emergence — attach genome/parents + count child
+                    agent = registry.agents().get(role) or registry.enter(
+                        role, reason="child_spawn", cycle_id=cycle_id
+                    )
+                    genome = child.get("genome")
+                    parents = list(child.get("parents") or [])
+                    if genome:
+                        agent["genome"] = genome
+                        from colony.genomes import apply_genome_to_skills, persist_genome
+                        agent["skills"] = apply_genome_to_skills(agent.get("skills") or {}, genome)
+                        persist_genome(genome)
+                    agent["parent_roles"] = parents
+                    agent["enter_reason"] = "child_spawn"
+                    pop = self.state.data.setdefault("population", {})
+                    pop["child_spawns"] = int(pop.get("child_spawns") or 0) + 1
+                    pop["last_child_cycle"] = cycle_id
+                    self.witness.record(
+                        cycle_id=cycle_id,
+                        kind="child_spawned",
+                        actor="spark",
+                        summary=(
+                            f"Child `{role}` spawned from {parents} "
+                            f"gen={((genome or {}).get('generation'))}."
+                        ),
+                        detail={
+                            "role": role,
+                            "parents": parents,
+                            "genome": genome,
+                        },
+                    )
+                continue
             spec = spawn_by_role.get(role)
             if not spec:
                 continue
             if role in self.state.role_names():
-                registry.enter(role, reason="fitness_respawn")
+                registry.enter(role, reason="fitness_respawn", cycle_id=cycle_id)
                 continue
             idea = {
                 "type": "new_role",
@@ -133,7 +193,7 @@ class Spark:
             enacted = self._enact(cycle_id, idea, self.state.role_names(), result)
             if enacted:
                 result.enacted.append(enacted)
-                registry.enter(role, reason="fitness_spawn")
+                registry.enter(role, reason="fitness_spawn", cycle_id=cycle_id)
                 self.witness.record(
                     cycle_id=cycle_id,
                     kind="role_spawned_by_fitness",
