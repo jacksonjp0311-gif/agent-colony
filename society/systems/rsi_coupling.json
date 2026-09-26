@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-26T11:21:25Z",
+  "updated_cycle": "post_tighten_rsi",
+  "signal": {
+    "ts": "2026-09-26T11:21:25Z",
+    "accepted_count": 15,
+    "strong_candidate_count": 20,
+    "unknown_caution_count": 3,
+    "strength": 1.0,
+    "mutation_bias": {
+      "explore": 0.14,
+      "govern": 0.1,
+      "build": 0.08,
+      "gather": 0.05,
+      "reply": 0.04
+    },
+    "skill_bias": {
+      "improver.improve": 0.95,
+      "spark.emergence": 0.85,
+      "pathfinder.gather": 0.7
+    },
+    "accepted_ids": ["fnd_517372b2c041", "fnd_0b8cc4582ed6", "fnd_32167622a2d9", "fnd_b0d445397663", "fnd_8b9165c6035a", "fnd_e843d62a4f50", "fnd_ee88ef21d40b", "fnd_95d913ffe950", "fnd_6f60b9351ae9", "fnd_0cd2a45a7cec", "fnd_378b50e454f3", "fnd_0b30602cf079"],
+    "strong_ids": ["fnd_c727c7b03c5a", "fnd_2544047a3cfa", "fnd_cf892333c473", "fnd_4be6b92a8f05", "fnd_f099711bd46d", "fnd_c3342cdcf132", "fnd_deefcec0d87a", "fnd_36c6f6adebe8", "fnd_17bdd3e3f099", "fnd_967e69a970ee", "fnd_dee9ee85951f", "fnd_25f3be68c02a"],
+    "note": "Coupling is measured state update inside this repo — not open-ended ML, not AGI, not consciousness. Improvement proposals stay candidate until human authorize."
+  },
+  "doc": "society/artifacts/rsi_agent_coupling.md"
+}
