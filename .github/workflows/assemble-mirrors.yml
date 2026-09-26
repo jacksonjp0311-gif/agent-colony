@@ -1,0 +1,43 @@
+name: assemble-mirrors
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble staged mirror parts into flat part files
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import subprocess
+          stage = Path('data/mirrors/_stage')
+          if not stage.exists():
+              raise SystemExit('no staging dir')
+          for part_dir in sorted(stage.rglob('*')):
+              if not part_dir.is_dir():
+                  continue
+              chunks = sorted([p for p in part_dir.iterdir() if p.is_file()], key=lambda p: p.name)
+              if not chunks:
+                  continue
+              rel = part_dir.relative_to(stage)
+              out = Path('data/mirrors') / rel
+              content = ''.join(p.read_text() for p in chunks)
+              out.parent.mkdir(parents=True, exist_ok=True)
+              out.write_text(content)
+              blob = subprocess.check_output(['git', 'hash-object', str(out)], text=True).strip()
+              print(f'wrote {out} size={len(content)} blob={blob}')
+          PY
+      - name: Remove staging tree
+        run: rm -rf data/mirrors/_stage
+      - name: Commit and push assembled parts
+        run: |
+          git config user.name "assemble-mirrors[bot]"
+          git config user.email "assemble-mirrors[bot]@users.noreply.github.com"
+          git add -A
+          git status
+          git diff --cached --quiet && echo 'nothing to commit' && exit 0
+          git commit -m "Assemble mirror part files from verified staging chunks"
+          git push
