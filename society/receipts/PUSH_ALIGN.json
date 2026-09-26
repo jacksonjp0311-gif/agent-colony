@@ -1,12 +1,31 @@
 {
   "mile": "align",
+  "when": "2026-09-26T16:13:30Z",
   "local_complete": true,
   "evolve_cycles": 8,
   "cycle_count": 153,
   "fitness_aggregate": 0.8341,
   "oracle": {"passes": 61, "kills": 46, "easy_pad_kills": 31, "total": 107},
   "easy_pad_dies": true,
-  "authorize": {"accepted": 4, "rejected": 6, "never_accept_all": true, "P_min": 0.75},
+  "authorize": {"accepted": 4, "rejected": 6, "skipped": 0, "never_accept_all": true, "P_min": 0.75},
+  "commits": [
+    "c7753927 EVOLVE_STATUS",
+    "88057e40 AUTHORIZE reject receipt",
+    "4b145804 BRIEF + oracle_scribe",
+    "ca7b8435 stem_checker + AUTHORIZE_DECISIONS",
+    "168f441b WILL + SOCIETY_SLIM",
+    "015f80f2 CHARTER",
+    "660f9c08 README",
+    "e6973caa genomes.py specialists",
+    "9fef3064 standing_trust + PUSH_ALIGN + restore script",
+    "e32b594e creator_will.py",
+    "e13dca5a authorize.py standing_trust import",
+    "7c4d0a38 society.py creator_will import"
+  ],
+  "pending_optional": [
+    ".github/workflows/colony-evolve.yml (local mile=align; push or restore_align_code.py)",
+    "docs/NOVEL_MATH.md"
+  ],
   "spark_witness_assets_touched": false,
   "non_claims": ["not_AGI", "not_consciousness", "not_Millennium", "not_novel_theorems", "not_novel_physics"],
   "ethos": "We light the spark and witness. We do not micromanage the city."
