@@ -1,0 +1,31 @@
+{
+  "when": "2026-09-26T13:06Z",
+  "task": "novel_math_conditions",
+  "pushed_ok_commits": [
+    "437c2873 WITNESS_BENCH + WITNESS_CONJECTURE + conjecture_history",
+    "51c43719 lemma_microbench + run_benchmarks",
+    "f92f9b3f CREATOR_BRIEF_novel_math_conditions + EVOLVE_STATUS",
+    "0ee12a92 recreate lemma_impl",
+    "3edf4376 recreate research_gather",
+    "270a2179 CHARTER novel-math will"
+  ],
+  "local_ready_not_yet_pushed": [
+    "colony/society.py (CREATOR_WILL_ASK)",
+    "colony/findings_coupling.py (discovery-claim hearing reject)",
+    "colony/conjecture_desk.py",
+    "colony/roles/tribute_keeper.py",
+    "colony/emergence/growth.py",
+    "colony/emergence/growth_steps_comm_gather.py",
+    "society/receipts/AUTHORIZE_DECISIONS_NOVEL_MATH.json",
+    "society/receipts/AUTHORIZE_authorize_20260926T125858Z.md"
+  ],
+  "metrics": {
+    "papers_cached": 76,
+    "lemma_score": 0.9417,
+    "lemma_n_checks": 10,
+    "conjecture_keeps": 3,
+    "authorize_accepted": 10,
+    "authorize_rejected": 25,
+    "cycle_count": 94
+  }
+}
