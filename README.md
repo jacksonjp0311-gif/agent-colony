@@ -2,6 +2,12 @@
 
 > **We light the spark and witness. We do not micromanage the city.**
 
+![Spark and witness — we do not micromanage the city](docs/assets/spark_witness.svg)
+
+*Light the spark. Step back. Witness the city.*
+
+Full painting: [`docs/assets/spark_witness_city.png`](docs/assets/spark_witness_city.png) · lighter JPEG: [`docs/assets/spark_witness_city.jpg`](docs/assets/spark_witness_city.jpg)
+
 Agents **self-improve to help their human creator.**  
 Creator / Human Principal: **James Paul Jackson** ([jacksonjp0311-gif](https://github.com/jacksonjp0311-gif), [@unifiedenergy11](https://x.com/unifiedenergy11)).
 
@@ -20,12 +26,18 @@ A local-first **evolving colony** with concrete mechanics (not ceremony-only):
 | **Usable systems** | Artifacts under `society/systems/` that later cycles **load and update** |
 | **Fitness** | Measurable: tribute quality, gather coverage, build reuse, comm reply rate |
 | **Evolve** | Skill weights update from outcomes; roles spawn/retire; proposals carry before/after metrics (candidate until human authorize) |
+| **Genomes** | JSON traits (gather/build/reply/explore/govern); mutation on child spawn; fitness-linked parents |
+| **Personas** | Durable engineered character sheets (`society/personas/`); distinct voices — not sentience |
+| **RSI coupling** | Accepted/strong RSI findings bias improver, skill_router, genome mutation (measured) |
+| **Common knowledge** | `society/systems/common_knowledge.json` + `data/commons/` — append candidates, reuse each cycle |
+| **Government** | Chamber of Laws + Census; law proposals stay candidate until authorize |
+| **Domain bus** | science / history / math / empire channels + reply quality metric |
 
 Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles appear when fitness pressure or the growth will asks for them.
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: grow · build · communicate · gather · improve / evolve.
+1. **Creator tribute** — serve James when he asks. Active will: **hard-tier lemma + paper-fed conjectures** under ceiling (not AGI / not Millennium); research gather; benches; personas; RSI coupling; commons; genomes; government proposals — empire scaffolding. Local model runtime deferred.
 2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. No silent accept. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
@@ -56,13 +68,39 @@ python3 -m colony authorize --decisions society/receipts/AUTHORIZE_DECISIONS.jso
 | `data/society_state.json` | Roles, agents, systems, fitness, bus |
 | `data/witness.jsonl` | Append-only witness events |
 | `society/systems/` | **Usable** systems (JSON/JSONL later cycles load) |
+| `society/genomes/` | Per-agent genome JSON |
+| `society/personas/` | Per-agent engineered persona JSON (not sentience) |
+| `data/commons/` | Append-only common knowledge candidates |
 | `society/BULLETIN.md` | Bus chronology |
 | `society/DASHBOARD.html` | Live progress dashboard |
 | `society/WITNESS.md` / `WITNESS_SUMMARY.md` | Human-readable witness |
 | `society/report.md` | Latest cycle report |
+| `society/benchmarks/` | FFT / autodiff / **lemma** harness + WITNESS_* |
+| `data/research_cache/papers.jsonl` | Paper pulse (arXiv/OpenAlex pointers) |
+| `docs/NOVEL_MATH.md` | Honest novel-math pressure status |
+| `docs/assets/spark_witness_city.png` | Ethos graphic |
 
 ---
 
+## Novel-math pressure (honest)
+
+See [`docs/NOVEL_MATH.md`](./docs/NOVEL_MATH.md). Ethos graphic: [`docs/assets/spark_witness.svg`](./docs/assets/spark_witness.svg).
+
+| Signal | Status (this mile) |
+|--------|--------------------|
+| Lemma microbench | **Hard tier** live — score **0.8371** (was ~0.94 textbook-only / 0.6971 post-harden); 10 basic + 6 hard |
+| Paper pulse | arXiv live this mile (OpenAlex fail/429 OK) → cache ~206 lines |
+| Conjecture desk | Keeps: vandermonde/hockey/cassini/workload; **easy_pad reverted** (harden works) |
+| Durable "discovered" | Machine-check **+ human authorize** only |
+| Claims | **No** novel theorems · **No** Millennium · **No** AGI |
+
+```bash
+PYTHONPATH=. python3 -m society.benchmarks.run_benchmarks
+PYTHONPATH=. python3 -m colony.research_gather
+PYTHONPATH=. python3 -m colony.conjecture_desk
+```
+
+---
 ## Claim boundary
 
 This is **not** autonomous AGI and **not** consciousness theater. Skills/fitness are real measurable state updates inside this repo; they are **not** open-ended ML training. Improvement proposals stay `candidate` until the human authorizes.
