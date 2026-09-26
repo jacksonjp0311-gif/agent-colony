@@ -42,6 +42,24 @@
       "data/society_state.json": "250KB",
       "society/WITNESS.md": "195KB"
     },
-    "status": "pending MCP payload delivery; remote large files are older/smaller versions"
+    "status": "probe deleted; delta uploaded and verified; slim uploaded non-byte-identically; four large files remain unsynced",
+    "pushed": {
+      "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl": {
+        "commit": "8f5cfb0336ab6abd6424c3d99d1c81221410c166",
+        "local_bytes": 48040,
+        "remote_tree_bytes": 48040,
+        "accepted_records": 21
+      },
+      "society/receipts/SOCIETY_SLIM_AFTER_AUTHORIZE.json": {
+        "commit": "d37fd7b09d50ff5962900972d80bf50ab08908ce",
+        "status": "uploaded; payload was compacted and needs byte-for-byte reconciliation"
+      }
+    },
+    "failed": {
+      "data/ledger.jsonl": "not uploaded; local 304304 bytes vs remote old 16754 bytes; inline MCP payload not completed",
+      "data/witness.jsonl": "not uploaded; local 246677 bytes vs remote old 3065 bytes; inline MCP payload not completed",
+      "data/society_state.json": "not uploaded; local 250381 bytes vs remote old 4441 bytes; inline MCP payload not completed",
+      "society/WITNESS.md": "not uploaded; local 195225 bytes vs remote old 3145 bytes; inline MCP payload not completed"
+    }
   }
 }
