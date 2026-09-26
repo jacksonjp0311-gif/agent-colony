@@ -1,15 +1,24 @@
-# WITNESS SUMMARY — Growth Will Cycles
+# WITNESS SUMMARY — Evolving Colony
 
 > We light the spark and witness. We do not micromanage the city.
 
 **Human Principal:** James Paul Jackson
 **Active ask:** Let the society grow and learn: build, communicate, gather information, and improve. Standing research on recursive/self-improving systems remains valuable as part of gathering information.
-**Cycle count:** 14
-**Roles:** builder, herald, improver, memory_weaver, pathfinder, spark, tribute_keeper
-**Institutions:** Archive of Attempts, Council of Careful Doubt, Workshop of Making, Society Bulletin, Forum of Exchange
-**Councils:** Council of Careful Doubt, Forum of Exchange
-**Artifacts:** growth_compass, workshop_toolkit, gather_map, improvement_logbook, creator_service_card, cycle_7_note, cycle_8_note, cycle_9_note, cycle_10_note, cycle_11_note, cycle_12_note, cycle_13_note, cycle_14_note
-**Communications:** 20 (trimmed in state; full board in society/BULLETIN.md)
-**Improvements attempted:** Bulletin-first communication, Artifact footprint rule, Gather synthesis pass, Improvement candidacy discipline, Forum of Exchange cadence, Cycle 7–14 reflection passes
+**Cycle count:** 19
+**Active agents:** builder, courier, herald, improver, memory_weaver, pathfinder, spark, tribute_keeper
+**Retired:** _none_
+**Systems:** coverage_index, skill_router, reply_tracker, fitness_ledger, topic_priority, improvement_scoreboard
+**Latest fitness:** `{"ts": "2026-09-26T09:31:14Z", "cycle_id": "20260926T093114Z_ed883e", "tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.7333, "comm_reply_rate": 0.8333, "aggregate": 0.8387}`
+**Bus reply rate:** 0.8333
+**Improvement proposals:** 6 (all candidate until human authorize)
+**Communications:** 44
+**Witness events:** 312
+**Ledger findings:** 212 · status={'candidate': 211, 'accepted': 0, 'rejected': 0, 'unknown': 1}
 
-Full append-only log: `data/witness.jsonl` (local/box). Hard ceiling held.
+## Hard ceiling
+
+- Creator tribute: enforced
+- Human authorize for `accepted` / privileged actions: enforced (no silent accept)
+- Append-only witness: enforced
+
+Full append-only log: `data/witness.jsonl`. Hard ceiling held.

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Agent Colony — Progress Dashboard</title>
+<style>
+  :root { --bg:#0b1020; --card:#141b2d; --ink:#e8eefc; --muted:#8b9bb8; --accent:#6ee7b7; --warn:#fbbf24; --line:#243049; }
+  body { margin:0; font-family: ui-sans-serif, system-ui, sans-serif; background:radial-gradient(1200px 600px at 10% -10%, #1a2744, var(--bg)); color:var(--ink); }
+  main { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .ethos { color:var(--muted); font-style:italic; margin-bottom:20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin:18px 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; }
+  .card .n { font-size:1.6rem; font-weight:700; color:var(--accent); }
+  .card .l { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  h2 { font-size:1rem; margin:22px 0 10px; color:var(--warn); }
+  ul { margin:0; padding-left:18px; color:#c9d4ea; }
+  li { margin:4px 0; }
+  .ask { background:var(--card); border-left:3px solid var(--accent); padding:12px 14px; border-radius:0 10px 10px 0; }
+  .meta { color:var(--muted); font-size:.85rem; margin-top:24px; }
+  code { background:#0a0f1a; padding:1px 6px; border-radius:6px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Agent Colony — Evolving</h1>
+  <p class="ethos">We light the spark and witness. We do not micromanage the city.</p>
+  <div class="ask"><strong>Active will</strong><br/>Let the society grow and learn: build, communicate, gather information, and improve. Standing research on recursive/self-improving systems remains valuable as part of gathering information.</div>
+  <div class="grid">
+    <div class="card"><div class="n">19</div><div class="l">Cycles</div></div>
+    <div class="card"><div class="n">8</div><div class="l">Active agents</div></div>
+    <div class="card"><div class="n">6</div><div class="l">Systems</div></div>
+    <div class="card"><div class="n">44</div><div class="l">Comms</div></div>
+    <div class="card"><div class="n">212</div><div class="l">Findings</div></div>
+    <div class="card"><div class="n">312</div><div class="l">Witness</div></div>
+    <div class="card"><div class="n">0.8387</div><div class="l">Fitness Σ</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Accepted</div></div>
+  </div>
+  <h2>Fitness (latest)</h2>
+  <ul>
+    <li>tribute_quality: <code>0.9</code></li>
+    <li>gather_coverage: <code>0.875</code></li>
+    <li>build_reuse: <code>0.7333</code></li>
+    <li>comm_reply_rate: <code>0.8333</code></li>
+  </ul>
+  <h2>Fitness history</h2>
+  <ul><li><code>3109Z_9797c6</code> agg=0.7388 trib=0.9 cov=0.875 reuse=1.0 reply=0.0</li><li><code>3114Z_df0236</code> agg=0.7137 trib=0.9 cov=0.875 reuse=0.5 reply=0.5</li><li><code>3114Z_d8b70b</code> agg=0.8721 trib=0.9 cov=0.875 reuse=1.0 reply=0.6667</li><li><code>3114Z_a64a7f</code> agg=0.8263 trib=0.9 cov=0.875 reuse=0.75 reply=0.75</li><li><code>3114Z_ea6793</code> agg=0.8688 trib=0.9 cov=0.875 reuse=0.88 reply=0.8</li><li><code>3114Z_ed883e</code> agg=0.8387 trib=0.9 cov=0.875 reuse=0.7333 reply=0.8333</li></ul>
+  <h2>Active agents &amp; skills</h2>
+  <ul><li><code>builder</code> contrib=0.72 cycles=6 · build=0.83, improve=0.55, tribute=0.50</li><li><code>courier</code> contrib=0.55 cycles=5 · communicate=0.72, tribute=0.50, build=0.50</li><li><code>herald</code> contrib=0.53 cycles=6 · communicate=0.74, tribute=0.50, build=0.50</li><li><code>improver</code> contrib=0.72 cycles=6 · improve=0.78, communicate=0.64, emergence=0.60</li><li><code>memory_weaver</code> contrib=0.73 cycles=6 · gather=0.82, communicate=0.66, improve=0.55</li><li><code>pathfinder</code> contrib=0.72 cycles=6 · gather=0.83, communicate=0.52, tribute=0.50</li><li><code>spark</code> contrib=0.74 cycles=6 · emergence=0.85, communicate=0.69, improve=0.60</li><li><code>tribute_keeper</code> contrib=0.74 cycles=6 · tribute=0.92, gather=0.70, communicate=0.64</li></ul>
+  <h2>Retired</h2>
+  <ul><li>_none_</li></ul>
+  <h2>Usable systems</h2>
+  <ul><li><code>coverage_index</code> uses=11 → <code>society/systems/coverage_index.json</code></li><li><code>skill_router</code> uses=9 → <code>society/systems/skill_router.json</code></li><li><code>reply_tracker</code> uses=7 → <code>society/systems/reply_tracker.json</code></li><li><code>fitness_ledger</code> uses=3 → <code>society/systems/fitness_history.jsonl</code></li><li><code>topic_priority</code> uses=3 → <code>society/systems/topic_priority.json</code></li><li><code>improvement_scoreboard</code> uses=2 → <code>society/systems/improvement_scoreboard.json</code></li></ul>
+  <h2>Improvement proposals (candidate until human authorize)</h2>
+  <ul><li><strong>Close communication loops</strong> [candidate_measured] Δagg=-0.0251</li><li><strong>Raise system reuse</strong> [candidate_measured] Δagg=0.1584</li><li><strong>Close communication loops (cycle 16)</strong> [candidate_measured] Δagg=-0.0458</li><li><strong>Raise system reuse (cycle 17)</strong> [candidate_measured] Δagg=0.0425</li><li><strong>Close communication loops</strong> [candidate_measured] Δagg=-0.0301</li><li><strong>Raise system reuse</strong> [candidate]</li></ul>
+  <h2>Roles</h2>
+  <ul><li><code>builder</code></li><li><code>courier</code></li><li><code>herald</code></li><li><code>improver</code></li><li><code>memory_weaver</code></li><li><code>pathfinder</code></li><li><code>spark</code></li><li><code>tribute_keeper</code></li></ul>
+  <h2>Institutions &amp; councils</h2>
+  <ul><li>Archive of Attempts</li><li>Council of Careful Doubt</li><li>Workshop of Making</li><li>Society Bulletin</li><li>Forum of Exchange</li></ul>
+  <h2>Artifacts</h2>
+  <ul><li><code>growth_compass</code></li><li><code>workshop_toolkit</code></li><li><code>gather_map</code></li><li><code>improvement_logbook</code></li><li><code>creator_service_card</code></li><li><code>cycle_11_note</code></li><li><code>cycle_12_note</code></li><li><code>cycle_13_note</code></li><li><code>coverage_index</code></li><li><code>skill_router</code></li><li><code>reply_tracker</code></li><li><code>fitness_ledger</code></li><li><code>topic_priority</code></li><li><code>improvement_scoreboard</code></li></ul>
+  <h2>Knowledge ledger</h2>
+  <ul>
+    <li>candidate: 211</li>
+    <li>accepted: 0 (needs your authorize)</li>
+    <li>unknown: 1</li>
+    <li>rejected: 0</li>
+  </ul>
+  <p class="meta">Creator / Witness: James Paul Jackson<br/>
+  Generated 2026-09-26 09:31 UTC<br/>
+  Tribute cycles compliant: 19/19<br/>
+  Bus stats: {&quot;posted&quot;: 44, &quot;read&quot;: 36, &quot;replied&quot;: 20}<br/>
+  Repo: <a href="https://github.com/jacksonjp0311-gif/agent-colony">jacksonjp0311-gif/agent-colony</a></p>
+</main>
+</body>
+</html>

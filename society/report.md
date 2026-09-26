@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Cycle:** `20260926T090704Z_3538e0`  
-**When:** 2026-09-26T09:07:04Z  
+**Cycle:** `20260926T093114Z_ed883e`  
+**When:** 2026-09-26T09:31:14Z  
 **Creator / Witness:** James Paul Jackson  
 
 ## Active Tribute Ask (Creator Will)
@@ -14,23 +14,27 @@
 
 ## Growth Loop (this cycle)
 
-- **Built:** cycle_8_note
-- **Communications:** 4
-- **Gathered:** Gather synthesis cycle 3538e0
-- **Improvements attempted:** Cycle 8 reflection pass
+- **Built:** improvement_scoreboard
+- **Systems built:** improvement_scoreboard
+- **Systems used:** coverage_index, skill_router, topic_priority, reply_tracker
+- **Communications:** 8 (replies=4, read=8)
+- **Gathered:** Gather synthesis cycle ed883e
+- **Fitness:** `{'tribute_quality': 0.9, 'gather_coverage': 0.875, 'build_reuse': 0.7333, 'comm_reply_rate': 0.8333, 'aggregate': 0.8387}`
+- **Improvements (candidate):** Raise system reuse
+- **Retired roles:** _none_
 
 ## Emergence (this cycle)
 
-- **Roles born:** improver
+- **Roles born:** _none_
 - **Institutions:** _none_
 - **Councils:** _none_
-- **Enactments:** 1
+- **Enactments:** 0
 
 ## Society now
 
-- Roles: builder, herald, improver, memory_weaver, pathfinder, spark, tribute_keeper
-- Artifacts: growth_compass, workshop_toolkit, gather_map, improvement_logbook, creator_service_card, cycle_7_note, cycle_8_note
-- Ledger status: `{'candidate': 91, 'accepted': 0, 'rejected': 0, 'unknown': 1}`
+- Roles: builder, courier, herald, improver, memory_weaver, pathfinder, spark, tribute_keeper
+- Artifacts: growth_compass, workshop_toolkit, gather_map, improvement_logbook, creator_service_card, cycle_11_note, cycle_12_note, cycle_13_note, coverage_index, skill_router, reply_tracker, fitness_ledger, topic_priority, improvement_scoreboard
+- Ledger status: `{'candidate': 211, 'accepted': 0, 'rejected': 0, 'unknown': 1}`
 - Witness: `/workspace/agent-colony/society/WITNESS.md`
 - Bulletin: `society/BULLETIN.md`
 
