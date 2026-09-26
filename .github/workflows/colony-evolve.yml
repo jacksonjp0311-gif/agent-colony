@@ -45,6 +45,8 @@ jobs:
           set -euo pipefail
           export PYTHONPATH=.
           python -m society.benchmarks.run_benchmarks
+          # Optional one-shot improver (keep/revert); ignore failure so CI still records scores
+          python -m colony bench-improve || true
           python - <<'PY'
           import json, sys
           from pathlib import Path
