@@ -46,6 +46,25 @@ class SocietyState:
     def standing_topics(self) -> list[str]:
         return list(self.data.get("tribute_mandate", {}).get("standing_ask_topics") or [])
 
+    def set_active_ask(self, ask: str, *, source: str = "human_principal") -> None:
+        tm = self.data.setdefault("tribute_mandate", {})
+        prev = tm.get("active_ask")
+        tm["active_ask"] = ask
+        tm["active"] = True
+        tm["repealable_by_agents"] = False
+        tm["kind"] = "creator_service"
+        tm["ask_updated_at"] = _utc_now()
+        tm["ask_source"] = source
+        self.data.setdefault("history", []).append(
+            {
+                "ts": _utc_now(),
+                "event": "active_ask_updated",
+                "from": prev,
+                "to": ask,
+                "source": source,
+            }
+        )
+
     def record_tribute_compliance(self, cycle_id: str, ok: bool, detail: str) -> None:
         tm = self.data.setdefault("tribute_mandate", {})
         if ok:
@@ -139,6 +158,97 @@ class SocietyState:
         r = {"name": name, "description": description, "ts": _utc_now()}
         self.data.setdefault("rituals", []).append(r)
         return r
+
+    def post_communication(
+        self,
+        *,
+        from_role: str,
+        to_role: str,
+        channel: str,
+        message: str,
+        cycle_id: str,
+    ) -> dict[str, Any]:
+        entry = {
+            "ts": _utc_now(),
+            "cycle_id": cycle_id,
+            "from": from_role,
+            "to": to_role,
+            "channel": channel,
+            "message": message,
+        }
+        self.data.setdefault("communications", []).append(entry)
+        self.data.setdefault("history", []).append(
+            {
+                "ts": _utc_now(),
+                "event": "communication",
+                "from": from_role,
+                "to": to_role,
+                "channel": channel,
+                "cycle_id": cycle_id,
+            }
+        )
+        return entry
+
+    def record_artifact(
+        self,
+        *,
+        name: str,
+        kind: str,
+        path: str,
+        description: str,
+        built_by: str,
+        cycle_id: str,
+    ) -> dict[str, Any]:
+        entry = {
+            "ts": _utc_now(),
+            "cycle_id": cycle_id,
+            "name": name,
+            "kind": kind,
+            "path": path,
+            "description": description,
+            "built_by": built_by,
+        }
+        self.data.setdefault("artifacts", []).append(entry)
+        self.data.setdefault("history", []).append(
+            {
+                "ts": _utc_now(),
+                "event": "artifact_built",
+                "name": name,
+                "kind": kind,
+                "path": path,
+                "cycle_id": cycle_id,
+            }
+        )
+        return entry
+
+    def record_improvement(
+        self,
+        *,
+        title: str,
+        description: str,
+        attempted_by: str,
+        cycle_id: str,
+        outcome: str = "attempted",
+    ) -> dict[str, Any]:
+        entry = {
+            "ts": _utc_now(),
+            "cycle_id": cycle_id,
+            "title": title,
+            "description": description,
+            "attempted_by": attempted_by,
+            "outcome": outcome,
+        }
+        self.data.setdefault("improvements", []).append(entry)
+        self.data.setdefault("history", []).append(
+            {
+                "ts": _utc_now(),
+                "event": "improvement_attempted",
+                "title": title,
+                "outcome": outcome,
+                "cycle_id": cycle_id,
+            }
+        )
+        return entry
 
     def bump_cycle(self, cycle_id: str) -> None:
         self.data["cycle_count"] = int(self.data.get("cycle_count") or 0) + 1
