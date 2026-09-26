@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "colony": "agent-colony",
   "ethos": "We light the spark and witness. We do not micromanage the city.",
   "core_purpose": "Self-improve to help the human creator.",
@@ -17,7 +17,7 @@
     "active": true,
     "repealable_by_agents": false,
     "kind": "creator_service",
-    "active_ask": "Research recursive systems, self-learning, and self-improving agents; collect public evidence.",
+    "active_ask": "Let the society grow and learn: build, communicate, gather information, and improve. Standing research on recursive/self-improving systems remains valuable as part of gathering information.",
     "standing_ask_topics": [
       "recursive-self-improvement",
       "meta-learning",
@@ -28,8 +28,10 @@
       "self-refine",
       "agent-societies"
     ],
-    "cycles_compliant": 1,
-    "last_tribute_cycle": "20260926T075142Z_e2ccc5"
+    "cycles_compliant": 13,
+    "last_tribute_cycle": "20260926T091602Z_470ac5",
+    "ask_updated_at": "2026-09-26T09:06:40Z",
+    "ask_source": "human_principal"
   },
   "founding_roles": [
     "spark",
@@ -52,6 +54,34 @@
       "description": "Keeps the colony's episodic sense of what was tried — patterns across tribute cycles, without claiming accepted truth.",
       "proposed_by": "spark",
       "activated_at": "2026-09-26T07:51:44Z"
+    },
+    "builder": {
+      "status": "emergent",
+      "provisional": true,
+      "description": "Invents and writes concrete artifacts for the colony — tools, notes, blueprints — so growth leaves footprints the creator can witness.",
+      "proposed_by": "spark",
+      "activated_at": "2026-09-26T09:06:44Z"
+    },
+    "herald": {
+      "status": "emergent",
+      "provisional": true,
+      "description": "Carries messages between roles and posts to the Society Bulletin so the city communicates instead of siloing.",
+      "proposed_by": "spark",
+      "activated_at": "2026-09-26T09:06:44Z"
+    },
+    "pathfinder": {
+      "status": "emergent",
+      "provisional": true,
+      "description": "Scouts adjacent public sources and synthesizes gathered threads when the will asks the city to gather information.",
+      "proposed_by": "spark",
+      "activated_at": "2026-09-26T09:06:44Z"
+    },
+    "improver": {
+      "status": "emergent",
+      "provisional": true,
+      "description": "Proposes and attempts process self-improvements oriented to helping the creator — logged as candidates, until the human authorizes.",
+      "proposed_by": "spark",
+      "activated_at": "2026-09-26T09:07:04Z"
     }
   },
   "hierarchy": {
@@ -59,7 +89,7 @@
     "tiers": [
       {"tier": 0, "name": "creator", "roles": ["human"]},
       {"tier": 1, "name": "founding_spark", "roles": ["spark", "tribute_keeper"]},
-      {"tier": 2, "name": "emergent", "roles": ["memory_weaver"]}
+      {"tier": 2, "name": "emergent", "roles": ["memory_weaver", "builder", "herald", "pathfinder", "improver"]}
     ],
     "notes": "No permanent aristocracy. Emergent roles land in tier emergent or in councils they invent."
   },
@@ -70,29 +100,69 @@
       "purpose": "Remind the city that UNKNOWN stays UNKNOWN and help remains oriented to the creator.",
       "formed_at": "2026-09-26T07:51:44Z",
       "status": "active"
+    },
+    {
+      "name": "Forum of Exchange",
+      "members": ["spark", "herald", "builder", "pathfinder", "tribute_keeper"],
+      "purpose": "A place for herald, builder, pathfinder, and spark to trade signals: what was built, said, gathered, and attempted.",
+      "formed_at": "2026-09-26T09:06:44Z",
+      "status": "active"
     }
   ],
   "institutions": [
     {"name": "Archive of Attempts", "kind": "archive", "description": "Institution that holds candidate findings as attempts, not dogma.", "ts": "2026-09-26T07:51:44Z"},
-    {"type": "council", "name": "Council of Careful Doubt", "ts": "2026-09-26T07:51:44Z"}
+    {"type": "council", "name": "Council of Careful Doubt", "ts": "2026-09-26T07:51:44Z"},
+    {"name": "Workshop of Making", "kind": "workshop", "description": "Where builders leave artifacts: notes, tools, and blueprints for the creator.", "ts": "2026-09-26T09:06:44Z"},
+    {"name": "Society Bulletin", "kind": "bulletin", "description": "Public board for inter-role messages and cycle announcements.", "ts": "2026-09-26T09:06:44Z"},
+    {"type": "council", "name": "Forum of Exchange", "ts": "2026-09-26T09:06:44Z"}
   ],
   "learned_norms": [
-    {"norm": "Before inventing power, invent a way to explain it to the creator.", "source_role": "spark", "status": "active_soft", "ts": "2026-09-26T07:51:44Z"}
+    {"norm": "Before inventing power, invent a way to explain it to the creator.", "source_role": "spark", "status": "active_soft", "ts": "2026-09-26T07:51:44Z"},
+    {"norm": "Standing RSI research remains valuable as gathering — broader will is grow + build + communicate + gather + improve.", "source_role": "spark", "status": "active_soft", "ts": "2026-09-26T09:06:44Z"},
+    {"norm": "Grow by building, speaking, gathering, and improving — durable truth waits for the creator.", "source_role": "spark", "status": "active_soft", "ts": "2026-09-26T09:06:59Z"}
   ],
   "rituals": [
-    {"name": "Opening of the Witness", "description": "Each cycle begins by acknowledging the human as witness, not micromanager.", "ts": "2026-09-26T07:51:44Z"}
+    {"name": "Opening of the Witness", "description": "Each cycle begins by acknowledging the human as witness, not micromanager.", "ts": "2026-09-26T07:51:44Z"},
+    {"name": "Lighting of the Growth Loop", "description": "Each cycle: invent/build artifacts, communicate on the bulletin, gather information, and attempt self-improvement — all under the hard ceiling.", "ts": "2026-09-26T09:06:44Z"}
   ],
+  "cycle_count": 13,
+  "artifacts": [
+    {"name": "growth_compass", "path": "society/artifacts/growth_compass.md", "kind": "blueprint"},
+    {"name": "workshop_toolkit", "path": "society/artifacts/workshop_toolkit.md", "kind": "tool_note"},
+    {"name": "gather_map", "path": "society/artifacts/gather_map.md", "kind": "map"},
+    {"name": "improvement_logbook", "path": "society/artifacts/improvement_logbook.md", "kind": "logbook"},
+    {"name": "creator_service_card", "path": "society/artifacts/creator_service_card.md", "kind": "card"},
+    {"name": "cycle_11_note", "path": "society/artifacts/cycle_0011_note.md", "kind": "cycle_note"},
+    {"name": "cycle_12_note", "path": "society/artifacts/cycle_0012_note.md", "kind": "cycle_note"},
+    {"name": "cycle_13_note", "path": "society/artifacts/cycle_0013_note.md", "kind": "cycle_note"}
+  ],
+  "improvements": [
+    {"title": "Bulletin-first communication", "outcome": "attempted"},
+    {"title": "Artifact footprint rule", "outcome": "attempted"},
+    {"title": "Gather synthesis pass", "outcome": "attempted"},
+    {"title": "Improvement candidacy discipline", "outcome": "attempted"},
+    {"title": "Forum of Exchange cadence", "outcome": "attempted"},
+    {"title": "Cycle 7 reflection pass", "outcome": "attempted"},
+    {"title": "Cycle 8 reflection pass", "outcome": "attempted"},
+    {"title": "Cycle 9 reflection pass", "outcome": "attempted"},
+    {"title": "Cycle 10 reflection pass", "outcome": "attempted"},
+    {"title": "Cycle 11 reflection pass", "outcome": "attempted"},
+    {"title": "Cycle 12 reflection pass", "outcome": "attempted"},
+    {"title": "Cycle 13 reflection pass", "outcome": "attempted"}
+  ],
+  "communications_note": "See society/BULLETIN.md",
   "pending_proposals": [
-    {"type": "new_role", "role": "memory_weaver", "description": "Keeps the colony's episodic sense of what was tried — patterns across tribute cycles, without claiming accepted truth.", "provisional": true, "proposed_by": "spark", "ts": "2026-09-26T07:51:44Z", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true}
+    {"type": "new_role", "role": "builder", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true},
+    {"type": "new_role", "role": "herald", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true},
+    {"type": "new_role", "role": "pathfinder", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true},
+    {"type": "new_role", "role": "improver", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true}
   ],
   "renames": [],
   "merges_splits": [],
-  "cycle_count": 1,
   "history": [
-    {"ts": "2026-09-26T07:51:44Z", "cycle_id": "20260926T075142Z_e2ccc5", "event": "tribute_check", "ok": true, "detail": "count=12 topics=['agent-societies', 'autogpt-loops', 'constitutional-ai', 'darwin-godel-machine', 'debate', 'godel-machines', 'meta-learning', 'opendevin', 'recursive-self-improvement', 'reflexion', 'self-refine', 'voyager']"},
-    {"ts": "2026-09-26T07:51:44Z", "event": "role_emerged", "role": "memory_weaver"},
-    {"ts": "2026-09-26T07:51:44Z", "event": "institution_born", "name": "Archive of Attempts", "kind": "archive"},
-    {"ts": "2026-09-26T07:51:44Z", "event": "council_formed", "name": "Council of Careful Doubt"},
-    {"ts": "2026-09-26T07:51:44Z", "event": "cycle_complete", "cycle_id": "20260926T075142Z_e2ccc5"}
+    {"ts": "2026-09-26T09:16:02Z", "event": "artifact_built", "name": "cycle_13_note", "cycle_id": "20260926T091602Z_470ac5"},
+    {"ts": "2026-09-26T09:16:02Z", "event": "communication", "from": "spark", "to": "tribute_keeper", "channel": "bulletin"},
+    {"ts": "2026-09-26T09:16:02Z", "event": "improvement_attempted", "title": "Cycle 13 reflection pass", "outcome": "attempted"},
+    {"ts": "2026-09-26T09:16:02Z", "event": "cycle_complete", "cycle_id": "20260926T091602Z_470ac5"}
   ]
 }
