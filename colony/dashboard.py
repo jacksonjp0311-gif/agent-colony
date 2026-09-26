@@ -65,6 +65,18 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
     witness_n = count_jsonl(witness_path)
     ledger_n = count_jsonl(ledger_path)
     tribute_ok = (state.get("tribute_mandate") or {}).get("cycles_compliant") or 0
+    commons = state.get("commons") or {}
+    commons_size = len(commons.get("entries") or [])
+    gov = state.get("government") or {}
+    gov_n = len(gov.get("proposals") or [])
+    pop = state.get("population") or {}
+    soft_cap = pop.get("soft_cap", 20)
+    child_spawns = pop.get("child_spawns", 0)
+    genome_gens = []
+    for a in (state.get("agents") or {}).values():
+        if a.get("status") == "active":
+            genome_gens.append(int((a.get("genome") or {}).get("generation") or 0))
+    max_gen = max(genome_gens) if genome_gens else 0
 
     # Skills table
     skill_rows = []
@@ -143,6 +155,10 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
     <div class="card"><div class="n">{witness_n}</div><div class="l">Witness</div></div>
     <div class="card"><div class="n">{fitness.get('aggregate', '—')}</div><div class="l">Fitness Σ</div></div>
     <div class="card"><div class="n">{status_counts.get('accepted', 0)}</div><div class="l">Accepted</div></div>
+    <div class="card"><div class="n">{commons_size}</div><div class="l">Commons</div></div>
+    <div class="card"><div class="n">{gov_n}</div><div class="l">Gov proposals</div></div>
+    <div class="card"><div class="n">{max_gen}</div><div class="l">Max generation</div></div>
+    <div class="card"><div class="n">{child_spawns}</div><div class="l">Child spawns</div></div>
   </div>
   <h2>Fitness (latest)</h2>
   <ul>
@@ -150,6 +166,14 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
     <li>gather_coverage: <code>{fitness.get('gather_coverage', '—')}</code></li>
     <li>build_reuse: <code>{fitness.get('build_reuse', '—')}</code></li>
     <li>comm_reply_rate: <code>{fitness.get('comm_reply_rate', '—')}</code></li>
+    <li>reply_quality: <code>{fitness.get('reply_quality', '—')}</code></li>
+    <li>commons_signal: <code>{fitness.get('commons_signal', '—')}</code></li>
+  </ul>
+  <h2>Population &amp; genomes</h2>
+  <ul>
+    <li>active / soft_cap: <code>{len(active_agents)}</code> / <code>{soft_cap}</code></li>
+    <li>child_spawns: <code>{child_spawns}</code> · max generation: <code>{max_gen}</code></li>
+    <li>commons_size: <code>{commons_size}</code> · gov proposals: <code>{gov_n}</code></li>
   </ul>
   <h2>Fitness history</h2>
   <ul>{''.join(fit_lines) or '<li>_none yet_</li>'}</ul>
@@ -201,6 +225,9 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         f"**Latest fitness:** `{json.dumps(fitness, ensure_ascii=False)}`" if fitness else "**Latest fitness:** _none_",
         f"**Bus reply rate:** {(fitness or {}).get('comm_reply_rate', '—')}",
         f"**Improvement proposals:** {len(proposals)} (all candidate until human authorize)",
+        f"**Commons size:** {commons_size}",
+        f"**Gov proposals:** {gov_n} (candidate until authorize)",
+        f"**Population:** {len(active_agents)}/{soft_cap} · child_spawns={child_spawns} · max_gen={max_gen}",
         f"**Communications:** {comms}",
         f"**Witness events:** {witness_n}",
         f"**Ledger findings:** {ledger_n} · status={status_counts}",
@@ -225,6 +252,10 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         "fitness": fitness,
         "systems": len(systems),
         "active_agents": len(active_agents),
+        "commons_size": commons_size,
+        "gov_proposals": gov_n,
+        "max_generation": max_gen,
+        "child_spawns": child_spawns,
     }
     (root / "society" / ".last_dashboard.json").write_text(
         json.dumps(meta, indent=2) + "\n", encoding="utf-8"
