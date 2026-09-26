@@ -1,7 +1,16 @@
 {
-  "ranked": [],
-  "updated_at": "2026-09-26T09:31:14Z",
-  "version": 1,
-  "built_by": "builder",
-  "built_cycle": "20260926T093114Z_ea6793"
+  "ranked": [
+    {"topic": "agent-societies", "priority": 1.0, "reason": "inbox_gap"},
+    {"topic": "autogpt-loops", "priority": 1.0, "reason": "inbox_gap"},
+    {"topic": "constitutional-ai", "priority": 1.0, "reason": "inbox_gap"},
+    {"topic": "darwin-godel-machine", "priority": 1.0, "reason": "inbox_gap"},
+    {"topic": "meta-learning", "priority": 0.7, "reason": "coverage=1"},
+    {"topic": "self-improving-agents", "priority": 0.7, "reason": "coverage=0"},
+    {"topic": "godel-machines", "priority": 0.7, "reason": "coverage=1"},
+    {"topic": "reflexion", "priority": 0.7, "reason": "coverage=1"},
+    {"topic": "self-refine", "priority": 0.7, "reason": "coverage=1"}
+  ],
+  "source": "growth_refresh",
+  "updated_at": "2026-09-26T09:43:20Z",
+  "updated_cycle": "20260926T094320Z_3d19c7"
 }

@@ -15,7 +15,7 @@
     "herald": {"tribute": 0.5, "build": 0.5, "communicate": 0.759, "gather": 0.5, "improve": 0.5, "emergence": 0.5},
     "pathfinder": {"tribute": 0.5, "build": 0.5, "communicate": 0.5102, "gather": 0.8308, "improve": 0.5, "emergence": 0.5},
     "improver": {"tribute": 0.5, "build": 0.5, "communicate": 0.6617, "gather": 0.5, "improve": 0.7922, "emergence": 0.6},
-    "courier": {"tribute": 0.5, "build": 0$5, "communicate": 0.7676, "gather": 0.5, "improve": 0.5, "emergence": 0.5}
+    "courier": {"tribute": 0.5, "build": 0.5, "communicate": 0.7676, "gather": 0.5, "improve": 0.5, "emergence": 0.5}
   },
   "updated_at": "2026-09-26T09:43:20Z",
   "updated_cycle": "20260926T094320Z_3d19c7"

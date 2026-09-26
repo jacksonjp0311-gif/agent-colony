@@ -1,22 +1,15 @@
 {
   "proposals": [
-    {
-      "id": "imp_ed883e_5",
-      "title": "Raise system reuse",
-      "before": {
-        "tribute_quality": 0.9,
-        "gather_coverage": 0.875,
-        "build_reuse": 0.7333,
-        "comm_reply_rate": 0.8333,
-        "aggregate": 0.8387
-      },
-      "after": null,
-      "status": "candidate"
-    }
+    {"id": "imp_ed883e_5", "title": "Raise system reuse", "before": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.7333, "comm_reply_rate": 0.8333, "aggregate": 0.8387}, "after": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.8571, "aggregate": 0.8602}, "status": "candidate_measured", "delta_aggregate": 0.0215},
+    {"id": "imp_1a57f3_6", "title": "Raise system reuse (cycle 20)", "before": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.8571, "aggregate": 0.8602}, "after": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.875, "aggregate": 0.8638}, "status": "candidate_measured", "delta_aggregate": 0.0036},
+    {"id": "imp_c33bd8_7", "title": "Raise system reuse (cycle 21)", "before": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.875, "aggregate": 0.8638}, "after": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.8889, "aggregate": 0.8665}, "status": "candidate_measured", "delta_aggregate": 0.0027},
+    {"id": "imp_62672b_8", "title": "Raise system reuse (cycle 22)", "before": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.8889, "aggregate": 0.8665}, "after": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.9, "aggregate": 0.8688}, "status": "candidate_measured", "delta_aggregate": 0.0023},
+    {"id": "imp_72c446_9", "title": "Raise system reuse", "before": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.9, "aggregate": 0.8688}, "after": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.9, "aggregate": 0.8688}, "status": "candidate_measured", "delta_aggregate": 0.0},
+    {"id": "imp_3d19c7_10", "title": "Raise system reuse (cycle 24)", "before": {"tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.9, "aggregate": 0.8688}, "after": null, "status": "candidate"}
   ],
-  "updated_at": "2026-09-26T09:31:14Z",
+  "updated_at": "2026-09-26T09:43:20Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
-  "updated_cycle": "20260926T093114Z_ed883e"
+  "updated_cycle": "20260926T094320Z_3d19c7"
 }
