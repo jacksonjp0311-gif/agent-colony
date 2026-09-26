@@ -1,0 +1,6 @@
+{"ts": "2026-09-26T14:12:34Z", "decision": "keep", "before_score": 0.6971, "after_score": 0.7321, "delta": 0.035, "mutation": "vandermonde_conv", "kind": "hard_enable"}
+{"ts": "2026-09-26T14:12:34Z", "decision": "keep", "before_score": 0.7321, "after_score": 0.7671, "delta": 0.035, "mutation": "hockey_stick", "kind": "hard_enable"}
+{"ts": "2026-09-26T14:12:34Z", "decision": "keep", "before_score": 0.7671, "after_score": 0.8021, "delta": 0.035, "mutation": "cassini", "kind": "hard_enable"}
+{"ts": "2026-09-26T14:12:35Z", "decision": "keep", "before_score": 0.8021, "after_score": 0.8371, "delta": 0.035, "mutation": "workload_derived_chain", "kind": "hard_enable"}
+{"ts": "2026-09-26T14:12:35Z", "decision": "revert", "before_score": 0.8371, "after_score": 0.8371, "delta": 0.0, "mutation": "easy_pad_square_again", "kind": "easy_pad"}
+{"ts": "2026-09-26T14:12:35Z", "decision": "revert", "before_score": 0.8371, "after_score": 0.8371, "delta": 0.0, "mutation": "easy_pad_square_again", "kind": "easy_pad"}
