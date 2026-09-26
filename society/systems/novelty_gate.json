@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-26T15:08:29Z",
+  "hits": 1,
+  "kills": 14,
+  "latest": {
+    "ts": "2026-09-26T15:08:29Z",
+    "cycle_id": "autonomy_extra",
+    "mutation": "easy_pad_abs_identity",
+    "kind": "easy_pad",
+    "novel_to_commons": false,
+    "kills": [
+      "already_in_lesson_ledger_or_history",
+      "textbook_reuse=1.0",
+      "stripped_baseline_does_not_fail_usefulness",
+      "held_out:easy_pad_fails_held_out_harder"
+    ],
+    "textbook_reuse": 1.0,
+    "in_ledger": true,
+    "stripped": {
+      "already_enabled": false,
+      "in_catalog": false,
+      "hard_pass": 16,
+      "hard_n": 16,
+      "stripped_fails_usefulness": false,
+      "score": 0.9071,
+      "impl_id": "lemma_impl_v2_basic10_hard16"
+    },
+    "held_out": {
+      "survives": false,
+      "reason": "easy_pad_fails_held_out_harder"
+    },
+    "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
+  },
+  "note": "New-to-commons novelty gate. Textbook reuse\u22480. Not novel theorems."
+}

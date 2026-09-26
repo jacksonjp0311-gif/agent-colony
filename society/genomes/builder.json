@@ -1,8 +1,8 @@
 {
-  "role": "tribute_keeper",
+  "role": "builder",
   "traits": {
-    "gather": 0.85,
-    "build": 0.5,
+    "gather": 0.5,
+    "build": 0.9,
     "reply": 0.5,
     "explore": 0.5,
     "govern": 0.5

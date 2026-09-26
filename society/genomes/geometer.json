@@ -1,0 +1,23 @@
+{
+  "role": "geometer",
+  "traits": {
+    "gather": 0.5319,
+    "build": 0.5931,
+    "reply": 0.564,
+    "explore": 0.4695,
+    "govern": 0.4841
+  },
+  "parents": [
+    "memory_weaver",
+    "archivist"
+  ],
+  "generation": 2,
+  "mutated_keys": [
+    "gather",
+    "build"
+  ],
+  "born_cycle": "20260926T110547Z_45aeb6",
+  "born_at": "2026-09-26T11:05:47Z",
+  "fitness_at_birth": 0.8939,
+  "version": 1
+}

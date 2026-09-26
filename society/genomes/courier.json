@@ -1,9 +1,9 @@
 {
-  "role": "tribute_keeper",
+  "role": "courier",
   "traits": {
-    "gather": 0.85,
+    "gather": 0.5,
     "build": 0.5,
-    "reply": 0.5,
+    "reply": 0.92,
     "explore": 0.5,
     "govern": 0.5
   },

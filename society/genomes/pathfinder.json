@@ -1,10 +1,10 @@
 {
-  "role": "tribute_keeper",
+  "role": "pathfinder",
   "traits": {
     "gather": 0.85,
     "build": 0.5,
     "reply": 0.5,
-    "explore": 0.5,
+    "explore": 0.8,
     "govern": 0.5
   },
   "parents": [],

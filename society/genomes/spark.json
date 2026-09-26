@@ -1,6 +1,12 @@
 {
   "role": "spark",
-  "traits": {"gather": 0.5, "build": 0.5, "reply": 0.6, "explore": 0.75, "govern": 0.55},
+  "traits": {
+    "gather": 0.5,
+    "build": 0.5,
+    "reply": 0.6,
+    "explore": 0.75,
+    "govern": 0.55
+  },
   "parents": [],
   "generation": 0,
   "mutated_keys": [],
