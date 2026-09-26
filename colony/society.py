@@ -21,13 +21,15 @@ REPORT_PATH = ROOT / "society" / "report.md"
 
 # Creator will (Human Principal James Paul Jackson) — active Tribute Mandate
 CREATOR_WILL_ASK = (
-    "Measured compute mile: keep FFT green and produce a benchmark-passing autodiff artifact "
-    "under society/benchmarks/ (grads vs finite differences + speed). Hearings kill proposals "
-    "with no score delta on society/benchmarks/latest.json. Math Prize Desk pays only on "
-    "verified harness lifts — institution names do not saturate fitness. CI cron runs the "
-    "harness each pulse. No new councils. Personas + RSI coupling + hard ceiling stay. Soft-cap "
-    "20; bias builder+geometer toward benches. Authorize rejects museum re-accepts without bench "
-    "delta. Not AGI theater. Defer local model runtime."
+    "Novel-math / real scientific education under ceiling — NOT AGI theater, NOT claim unproven "
+    "theorems as discovered. Colony may propose conjectures and small lemmas; durable "
+    "'discovered' requires machine-check or reproducible derivation + human authorize. Prefer "
+    "arXiv/OpenAlex/Crossref as pointers; primary = paper metadata + abstracts. Never claim "
+    "Millennium problems solved. Research gather + lemma microbench + conjecture desk keep only "
+    "on harness score rise. Hearings reject 'we discovered X' without bench/proof artifact cite. "
+    "FFT/autodiff stay green. Math Prize Desk pays on verified harness lifts only. Personas + "
+    "RSI coupling + hard ceiling. Soft-cap 20; bias builder+geometer toward benches. Not AGI. "
+    "Defer local model runtime."
 )
 
 
