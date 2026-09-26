@@ -1,1 +1,91 @@
-IiIiSGFyZC10aWVyIG11dGF0aW9uIHNuaXBwZXRzIGFuZCBhcHBseSBoZWxwZXJzIGZvciBjb25qZWN0dXJlIGRlc2suCgpOb3Qgbm92ZWwgZGlzY292ZXJ5LiBFYXN5IHBhZHMgbXVzdCBmYWlsIGtlZXAgdW5kZXIgaGFyZGVyIGJlbmNoLgoiIiIKZnJvbSBfX2Z1dHVyZV9fIGltcG9ydCBhbm5vdGF0aW9ucwoKaW1wb3J0IGpzb24KaW1wb3J0IHJlCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKSElTVE9SWSA9IFBhdGgoX19maWxlX18pLnJlc29sdmUoKS5wYXJlbnQucGFyZW50IC8gInNvY2lldHkiIC8gImJlbmNobWFya3MiIC8gImNvbmplY3R1cmVfaGlzdG9yeS5qc29ubCIKCl9FQVNZX1BBRF9TTklQID0gIiIiCmRlZiBjaGVja19lYXN5X3BhZF9zcXVhcmVfYWdhaW4oKSAtPiBib29sOgogICAgXCJcIlwiRWFzeSBwYWQgLSBzbWFsbC1yYW5nZSBzcXVhcmUgaWRlbnRpdHkgb25seSAoc2hvdWxkIG5vdCBhY2UgaGFyZCB0aWVyKS5cIlwiXCIKICAgIHJldHVybiBhbGwoKGEgKyBiKSAqKiAyID09IGEgKiBhICsgMiAqIGEgKiBiICsgYiAqIGIgZm9yIGEgaW4gcmFuZ2UoLTMsIDQpIGZvciBiIGluIHJhbmdlKC0zLCA0KSkKIiIiCgpNVVRBVElPTl9TTklQUEVUUzogbGlzdFt0dXBsZVtzdHIsIHN0ciwgc3RyXV0gPSBbCiAgICAoInZhbmRlcm1vbmRlX2NvbnYiLCAiaGFyZF9lbmFibGUiLCAiZW5hYmxlOnZhbmRlcm1vbmRlX2NvbnYiKSwKICAgICgiaG9ja2V5X3N0aWNrIiwgImhhcmRfZW5hYmxlIiwgImVuYWJsZTpob2NrZXlfc3RpY2siKSwKICAgICgiY2Fzc2luaSIsICJoYXJkX2VuYWJsZSIsICJlbmFibGU6Y2Fzc2luaSIpLAogICAgKCJ3b3JrbG9hZF9kZXJpdmVkX2NoYWluIiwgImhhcmRfZW5hYmxlIiwgImVuYWJsZTp3b3JrbG9hZF9kZXJpdmVkX2NoYWluIiksCiAgICAoImJpbm9taWFsX3N1bV9yb3ciLCAiaGFyZF9lbmFibGUiLCAiZW5hYmxlOmJpbm9taWFsX3N1bV9yb3ciKSwKICAgICgiZmlib25hY2NpX2FkZGl0aW9uIiwgImhhcmRfZW5hYmxlIiwgImVuYWJsZTpmaWJvbmFjY2lfYWRkaXRpb24iKSwKICAgICgiY2F0YWxhbl9ib3VuZGVkIiwgImhhcmRfZW5hYmxlIiwgImVuYWJsZTpjYXRhbGFuX2JvdW5kZWQiKSwKICAgICgiZWFzeV9wYWRfc3F1YXJlX2FnYWluIiwgImVhc3lfcGFkIiwgX0VBU1lfUEFEX1NOSVApLApdCgoKZGVmIGFscmVhZHlfaGFzKHNyYzogc3RyLCBuYW1lOiBzdHIpIC0+IGJvb2w6CiAgICBpZiBmJygie25hbWV9IicgaW4gc3JjIGFuZCAiVHJ1ZSksIiBpbiBzcmM6CiAgICAgICAgbSA9IHJlLnNlYXJjaChyZidcKCJ7cmUuZXNjYXBlKG5hbWUpfSIuKj8sXHMqKFRydWV8RmFsc2UpXCknLCBzcmMsIHJlLlMpCiAgICAgICAgaWYgbSBhbmQgbS5ncm91cCgxKSA9PSAiVHJ1ZSI6CiAgICAgICAgICAgIHJldHVybiBUcnVlCiAgICAgICAgaWYgbmFtZS5zdGFydHN3aXRoKCJlYXN5X3BhZCIpIGFuZCBmJygie25hbWV9IicgaW4gc3JjOgogICAgICAgICAgICByZXR1cm4gVHJ1ZQogICAgaWYgbmFtZS5zdGFydHN3aXRoKCJlYXN5X3BhZCIpIGFuZCAoZiJjaGVja197bmFtZX0iIGluIHNyYyBvciBmJyJ7bmFtZX0iJyBpbiBzcmMpOgogICAgICAgIHJldHVybiBUcnVlCiAgICByZXR1cm4gRmFsc2UKCgpkZWYgZW5hYmxlX2hhcmQoc3JjOiBzdHIsIG5hbWU6IHN0cikgLT4gc3RyIHwgTm9uZToKICAgIHBhdCA9IHJlLmNvbXBpbGUocmYnKFwoIntyZS5lc2NhcGUobmFtZSl9IixccyouKj8sXHMqKUZhbHNlKFwpKScsIHJlLlMpCiAgICBtID0gcGF0LnNlYXJjaChzcmMpCiAgICBpZiBub3QgbToKICAgICAgICByZXR1cm4gTm9uZQogICAgcmV0dXJuIHNyY1s6IG0uc3RhcnQoKV0gKyBtLmdyb3VwKDEpICsgIlRydWUiICsgbS5ncm91cCgyKSArIHNyY1ttLmVuZCgpIDpdCgoKZGVmIGFwcGx5X2Vhc3lfcGFkKHNyYzogc3RyLCBuYW1lOiBzdHIsIHNuaXBwZXQ6IHN0cikgLT4gc3RyIHwgTm9uZToKICAgIGlmIGFscmVhZHlfaGFzKHNyYywgbmFtZSk6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIG1hcmtlciA9ICIjIE11dGFibGUgY2F0YWxvZyB0aGUgY29uamVjdHVyZSBkZXNrIG1heSBleHRlbmQgLyBtdXRhdGUuIgogICAgaWYgbWFya2VyIG5vdCBpbiBzcmM6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIGZuX2Jsb2NrID0gc25pcHBldC5zdHJpcCgpICsgIlxuXG4iCiAgICBzcmMgPSBzcmMucmVwbGFjZShtYXJrZXIsIGZuX2Jsb2NrICsgbWFya2VyLCAxKQogICAgZW50cnkgPSBmJyAgICAoIntuYW1lfSIsIGNoZWNrX2Vhc3lfcGFkX3NxdWFyZV9hZ2FpbiwgVHJ1ZSksXG4nCiAgICBoYXJkX21hcmtlciA9ICJIQVJEX1RJRVJfTEVNTUFTOiIKICAgIGhpID0gc3JjLmZpbmQoaGFyZF9tYXJrZXIpCiAgICBpZiBoaSA8IDA6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIGNsb3NlID0gc3JjLnJmaW5kKCJdIiwgMCwgaGkpCiAgICBpZiBjbG9zZSA8IDA6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIHJldHVybiBzcmNbOmNsb3NlXSArIGVudHJ5ICsgc3JjW2Nsb3NlOl0KCgpkZWYgYXBwbHlfbXV0YXRpb24oc3JjOiBzdHIsIG5hbWU6IHN0ciwga2luZDogc3RyLCBzbmlwcGV0OiBzdHIpIC0+IHN0ciB8IE5vbmU6CiAgICBpZiBraW5kID09ICJoYXJkX2VuYWJsZSI6CiAgICAgICAgaWYgYWxyZWFkeV9oYXMoc3JjLCBuYW1lKToKICAgICAgICAgICAgcmV0dXJuIE5vbmUKICAgICAgICByZXR1cm4gZW5hYmxlX2hhcmQoc3JjLCBuYW1lKQogICAgaWYga2luZCA9PSAiZWFzeV9wYWQiOgogICAgICAgIHJldHVybiBhcHBseV9lYXN5X3BhZChzcmMsIG5hbWUsIHNuaXBwZXQpCiAgICByZXR1cm4gTm9uZQoKCmRlZiByZWNlbnRfcmV2ZXJ0X2NvdW50cyhsaW1pdDogaW50ID0gMzApIC0+IGRpY3Rbc3RyLCBpbnRdOgogICAgb3V0OiBkaWN0W3N0ciwgaW50XSA9IHt9CiAgICBpZiBub3QgSElTVE9SWS5leGlzdHMoKToKICAgICAgICByZXR1cm4gb3V0CiAgICBmb3IgbG4gaW4gSElTVE9SWS5yZWFkX3RleHQoZW5jb2Rpbmc9InV0Zi04Iikuc3BsaXRsaW5lcygpWy1saW1pdDpdOgogICAgICAgIHRyeToKICAgICAgICAgICAgaCA9IGpzb24ubG9hZHMobG4pCiAgICAgICAgZXhjZXB0IGpzb24uSlNPTkRlY29kZUVycm9yOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIGlmIGguZ2V0KCJkZWNpc2lvbiIpID09ICJyZXZlcnQiIGFuZCBoLmdldCgibXV0YXRpb24iKToKICAgICAgICAgICAgb3V0W2hbIm11dGF0aW9uIl1dID0gb3V0LmdldChoWyJtdXRhdGlvbiJdLCAwKSArIDEKICAgIHJldHVybiBvdXQK
+"""Hard-tier mutation snippets and apply helpers for conjecture desk.
+
+Not novel discovery. Easy pads must fail keep under harder bench.
+"""
+from __future__ import annotations
+
+import json
+import re
+from pathlib import Path
+
+HISTORY = Path(__file__).resolve().parent.parent / "society" / "benchmarks" / "conjecture_history.jsonl"
+
+_EASY_PAD_SNIP = """
+def check_easy_pad_square_again() -> bool:
+    \"\"\"Easy pad - small-range square identity only (should not ace hard tier).\"\"\"
+    return all((a + b) ** 2 == a * a + 2 * a * b + b * b for a in range(-3, 4) for b in range(-3, 4))
+"""
+
+MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
+    ("vandermonde_conv", "hard_enable", "enable:vandermonde_conv"),
+    ("hockey_stick", "hard_enable", "enable:hockey_stick"),
+    ("cassini", "hard_enable", "enable:cassini"),
+    ("workload_derived_chain", "hard_enable", "enable:workload_derived_chain"),
+    ("binomial_sum_row", "hard_enable", "enable:binomial_sum_row"),
+    ("fibonacci_addition", "hard_enable", "enable:fibonacci_addition"),
+    ("catalan_bounded", "hard_enable", "enable:catalan_bounded"),
+    ("easy_pad_square_again", "easy_pad", _EASY_PAD_SNIP),
+]
+
+
+def already_has(src: str, name: str) -> bool:
+    if f'("{name}"' in src and "True)," in src:
+        m = re.search(rf'\("{re.escape(name)}".*?,\s*(True|False)\)', src, re.S)
+        if m and m.group(1) == "True":
+            return True
+        if name.startswith("easy_pad") and f'("{name}"' in src:
+            return True
+    if name.startswith("easy_pad") and (f"check_{name}" in src or f'"{name}"' in src):
+        return True
+    return False
+
+
+def enable_hard(src: str, name: str) -> str | None:
+    pat = re.compile(rf'(\("{re.escape(name)}",\s*.*?,\s*)False(\))', re.S)
+    m = pat.search(src)
+    if not m:
+        return None
+    return src[: m.start()] + m.group(1) + "True" + m.group(2) + src[m.end() :]
+
+
+def apply_easy_pad(src: str, name: str, snippet: str) -> str | None:
+    if already_has(src, name):
+        return None
+    marker = "# Mutable catalog the conjecture desk may extend / mutate."
+    if marker not in src:
+        return None
+    fn_block = snippet.strip() + "\n\n"
+    src = src.replace(marker, fn_block + marker, 1)
+    entry = f'    ("{name}", check_easy_pad_square_again, True),\n'
+    hard_marker = "HARD_TIER_LEMMAS:"
+    hi = src.find(hard_marker)
+    if hi < 0:
+        return None
+    close = src.rfind("]", 0, hi)
+    if close < 0:
+        return None
+    return src[:close] + entry + src[close:]
+
+
+def apply_mutation(src: str, name: str, kind: str, snippet: str) -> str | None:
+    if kind == "hard_enable":
+        if already_has(src, name):
+            return None
+        return enable_hard(src, name)
+    if kind == "easy_pad":
+        return apply_easy_pad(src, name, snippet)
+    return None
+
+
+def recent_revert_counts(limit: int = 30) -> dict[str, int]:
+    out: dict[str, int] = {}
+    if not HISTORY.exists():
+        return out
+    for ln in HISTORY.read_text(encoding="utf-8").splitlines()[-limit:]:
+        try:
+            h = json.loads(ln)
+        except json.JSONDecodeError:
+            continue
+        if h.get("decision") == "revert" and h.get("mutation"):
+            out[h["mutation"]] = out.get(h["mutation"], 0) + 1
+    return out
