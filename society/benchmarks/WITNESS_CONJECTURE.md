@@ -1,4 +1,4 @@
-# Conjecture desk witness — 2026-09-26T14:54:22Z
+# Conjecture desk witness — 2026-09-26T15:08:29Z
 
 Hard-tier mutations; keep only if lemma_microbench score rises. Easy pads fail keep. Not discovery. Not AGI. Not Millennium.
 

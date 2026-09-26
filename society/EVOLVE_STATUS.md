@@ -1,17 +1,15 @@
-# Evolve Status — Hard-tier lemma mile
+# Evolve Status — Autonomy mile
 
 > We light the spark and witness. We do not micromanage the city.
 
-![Spark and witness](../docs/assets/spark_witness_city.png)
+![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
-**When:** 2026-09-26T14:14Z  
-**Ask:** Hard-tier lemma + paper-fed conjectures under ceiling — NOT AGI / NOT Millennium.  
-**Cycles:** evolve --cycles 10 --offline → **cycle_count=104**  
-**Papers cached:** 206 (arXiv pulse + gathers; OpenAlex 429/fail OK)  
-**Lemma:** score **0.8371** (pre-harden textbook 0.9417 → post-harden 0.6971 → after keeps 0.8371); n_hard=6 ok=True  
-**Conjecture:** keeps=4 (vandermonde/hockey/cassini/workload) · reverts=2 (easy_pad) · skips thereafter  
-**Authorize:** accepted=6 rejected=16 (infra+keeps+papers accept; RH probe + dupes reject)  
-**Aggregate benches:** 0.9112 · FFT/autodiff green  
-**Ceiling:** held · selective · witness append-only · not AGI · not novel theorems  
-
-See `society/briefs/CREATOR_BRIEF_hard_lemma_mile.md` and `docs/NOVEL_MATH.md`.
+- **cycle_count:** `129`
+- **fitness aggregate:** `0.8321` (was 0.8268)
+- **reply_rate:** `0.3878` (was 0.3333) · peer_cite `1.0` · action_changed `1.0`
+- **lemma hard_pass:** 16/16 (was 12/12) · score still 0.9071 (formula saturated)
+- **novelty gate:** hits=1 kills=14
+- **debate multihop:** action_changed=True code_touched=True
+- **authorize:** accepted=4 rejected=5 (selective, never accept-all)
+- **easy_pad reverts:** proven (commutativity/abs/square/diff)
+- **Not AGI. Not Millennium. Not novel theorems.**
