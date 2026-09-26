@@ -298,7 +298,7 @@ class CommBus:
             "thin_topics": sorted(set(str(g) for g in gaps if isinstance(g, str)))[:12],
             "build_requests": build_requests[:5],
             "improve_hints": improve_hints[:5],
-            "needs_reply": needs_reply[:8],
+            "needs_reply": needs_reply[:14],
             "commons_notes": domain_notes[:5],
         }
 

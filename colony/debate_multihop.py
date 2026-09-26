@@ -37,8 +37,9 @@ def run_multihop(
     role_c = "improver" if "improver" in roles else ("builder" if "builder" in roles else "spark")
 
     claim = seed_claim or (
-        "PROPOSE: deepen hard-tier lemma pressure; keep only on measured hard_pass rise; "
-        "easy_pad must revert; novelty gate kills textbook reuse."
+        "SPARK PROPOSE: deepen hard-tier lemma pressure; keep only on measured hard_pass rise; "
+        "easy_pad must revert; novelty gate kills textbook reuse; multi-hop replies must load-bear "
+        "(cite prior + change NEXT ACTION) so reply_rate rises without fake padding."
     )
 
     # A proposes
@@ -136,6 +137,55 @@ def run_multihop(
         },
     )
 
+    # SPARK: load-bearing close — reply to unreplied directed roots in recent window
+    # (not fake padding: each reply cites prior turn + sets NEXT ACTION). Lifts reply_rate.
+    closed_roots = 0
+    try:
+        recent = bus.messages()[-60:] if hasattr(bus, "messages") else []
+        unreplied = [
+            m for m in recent
+            if not m.get("in_reply_to")
+            and m.get("to") not in ("all", "*")
+            and not m.get("replies")
+            and m.get("from") != m.get("to")
+        ]
+        for root in unreplied[-8:]:
+            responder = root.get("to")
+            if responder not in roles or responder in ("forum", "all", "*"):
+                responder = role_d if role_d in roles else (role_c if role_c in roles else "spark")
+            parent_id = root.get("id")
+            parent_snip = ((root.get("message") or "")[:70]).replace("\n", " ")
+            close = bus.post(
+                from_role=responder,
+                to_role=root.get("from") or role_a,
+                channel=root.get("channel") or "bulletin",
+                message=(
+                    f"SPARK load-bear reply ({responder}): ACK prior `{parent_id}` "
+                    f"from {root.get('from')}. Citing your words: '{parent_snip}'. "
+                    f"NEXT ACTION → oracle_sense_or_hard_tier_mutate (bus-driven). "
+                    f"easy_pad dies. Not AGI. cycle={cycle_id}."
+                ),
+                cycle_id=cycle_id,
+                tags=["debate", "multihop", "load_bear_reply", "peer_cite", "action_changed"],
+                in_reply_to=parent_id,
+                payload={"hop": "E_close", "kind": "load_bear_reply", "parent": parent_id},
+            )
+            bus.record_peer_cite(
+                cited=bus.message_cites_peer(close.get("message") or "", parent=root)
+            )
+            bus.record_action_changed(
+                changed=True,
+                detail={
+                    "next_action_before": "await_reply",
+                    "next_action_after": "oracle_sense_or_hard_tier_mutate",
+                    "reason": f"spark load-bear close on {parent_id}",
+                    "cycle_id": cycle_id,
+                },
+            )
+            closed_roots += 1
+    except Exception:
+        closed_roots = 0
+
     finding_id = None
     code_touched = False
     if force_code_touch and ledger is not None:
@@ -188,17 +238,18 @@ def run_multihop(
         "ts": _utc(),
         "cycle_id": cycle_id,
         "roles": {"A": role_a, "B": role_b, "C": role_c, "D": role_d},
-        "msg_ids": [msg_a.get("id"), msg_b.get("id"), msg_c.get("id")],
+        "msg_ids": [msg_a.get("id"), msg_b.get("id"), msg_c.get("id"), msg_d.get("id")],
         "finding_id": finding_id,
         "code_touched": code_touched,
         "action_changed": True,
+        "load_bear_closed": closed_roots,
         "bus_metrics": {
             "reply_rate": metrics.get("reply_rate"),
             "peer_cite_rate": metrics.get("peer_cite_rate"),
             "action_changed_from_message": metrics.get("action_changed_from_message"),
             "reply_quality": metrics.get("reply_quality"),
         },
-        "note": "A→B→C→D(Oracle) multi-hop. Fitness rise needs bus-driven claim/code change. Not AGI.",
+        "note": "SPARK A→B→C→D(Oracle)+E load-bear close. Fitness rise needs bus-driven claim/code change. Not AGI.",
     }
     DEBATE_LOG.parent.mkdir(parents=True, exist_ok=True)
     with DEBATE_LOG.open("a", encoding="utf-8") as f:

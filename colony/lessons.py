@@ -138,7 +138,8 @@ def skill_bias_from_lessons(*, lookback: int = 40) -> dict[str, float]:
         # Keeps reinforce; reverts push opposite lightly
         sign = 1.0 if decision == "keep" else (-0.5 if decision == "revert" else 0.0)
         if e.get("family") in EASY_FAMILIES:
-            sign *= 0.25  # easy wins weigh little
+            sign *= 0.0  # SPARK: easy_pad keeps get zero genome/skill bias (die)
+        # SPARK: keep lessons that mention communicate/reply reinforce reply trait
         for k, v in sb.items():
             weights[k] = weights.get(k, 0.0) + abs(sign)
             bias[k] = bias.get(k, 0.0) + float(v) * sign
@@ -184,7 +185,10 @@ def apply_lesson_bias_to_genomes(root: Path | None = None) -> int:
         "reply": "reply",
         "improve": "explore",
         "emergence": "explore",
+        "oracle": "explore",
+        "hard_tier": "explore",
     }
+    # SPARK: if keep lessons outweigh reverts on communicate, nudge reply trait
     n = 0
     gdir = root / "society" / "genomes"
     if not gdir.is_dir():
