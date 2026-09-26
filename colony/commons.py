@@ -16,7 +16,7 @@ COMMONS_DIR = ROOT / "data" / "commons"
 COMMONS_JSONL = COMMONS_DIR / "entries.jsonl"
 SYSTEM_NAME = "common_knowledge"
 
-DOMAINS = ("science", "history", "math", "rsi", "empire", "general")
+DOMAINS = ("science", "history", "math", "rsi", "empire", "software", "nature", "life", "cosmos", "general")
 
 
 def _utc_now() -> str:
@@ -59,7 +59,7 @@ class CommonKnowledge:
             "source_role": source_role,
             "tags": list(tags or []),
             "evidence": list(evidence or []),
-            "status": "candidate",  # hard ceiling
+            "status": "candidate",
             "reuse_count": 0,
         }
         commons = self.data.setdefault("commons", {"entries": [], "stats": {}})
@@ -68,20 +68,12 @@ class CommonKnowledge:
             commons["entries"] = commons["entries"][-200:]
         stats = commons.setdefault("stats", {})
         stats["appended"] = int(stats.get("appended") or 0) + 1
-        # Append-only mirror
         with self.jsonl.open("a", encoding="utf-8") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
         self._persist_system(cycle_id)
         return entry
 
     def reuse(self, *, domain: str | None = None, limit: int = 8) -> list[dict[str, Any]]:
-        entries = list((self.data.get("commons") or {}).get("entries") or [])
-        if domain:
-            entries = [e for e in entries if e.get("domain") == domain]
-        # Prefer least-reused then newest
-        entries.sort(key=lambda e: (int(e.get("reuse_count") or 0), e.get("ts") or ""))
-        picked = list(reversed(entries[-limit:])) if not domain else entries[:limit]
-        # Actually take last N by time among filtered
         filtered = [
             e
             for e in ((self.data.get("commons") or {}).get("entries") or [])

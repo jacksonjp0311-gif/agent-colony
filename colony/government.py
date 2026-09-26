@@ -31,6 +31,30 @@ GOV_INSTITUTIONS = [
             "so spawning/retirement stays machine-legible."
         ),
     },
+    {
+        "name": "Forum of Domains",
+        "kind": "forum",
+        "description": (
+            "Cross-domain council for science, history, math, software, nature, "
+            "life-death, and cosmos channels — raises communication quality."
+        ),
+    },
+    {
+        "name": "Persona Registry",
+        "kind": "registry",
+        "description": (
+            "Holds engineered character sheets (society/personas/). Personas are "
+            "role-posture artifacts, not claims of sentience or AGI."
+        ),
+    },
+    {
+        "name": "RSI Coupling Desk",
+        "kind": "workshop",
+        "description": (
+            "Feeds accepted/strong RSI ledger findings into improver, skill_router, "
+            "and genome mutation biases — measured, candidate until authorize."
+        ),
+    },
 ]
 
 
@@ -68,11 +92,10 @@ class Government:
             "text": text[:500],
             "proposed_by": proposed_by,
             "tags": list(tags or []),
-            "status": "candidate",  # hard ceiling — never auto-accept
+            "status": "candidate",
             "institution": "Chamber of Laws",
         }
         gov.setdefault("proposals", []).append(prop)
-        # Soft norm mirror (active_soft) — not accepted knowledge
         self.data.setdefault("learned_norms", []).append(
             {
                 "norm": text[:300],
@@ -94,10 +117,7 @@ class Government:
             "active_count": snapshot.get("active_count"),
             "retired_count": snapshot.get("retired_count"),
             "generations": sorted(
-                {
-                    int((g.get("generation") or 0))
-                    for g in (snapshot.get("genomes") or [])
-                }
+                {int((g.get("generation") or 0)) for g in (snapshot.get("genomes") or [])}
             ),
             "genome_count": len(snapshot.get("genomes") or []),
         }
