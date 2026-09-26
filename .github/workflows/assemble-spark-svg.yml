@@ -1,0 +1,28 @@
+name: assemble-spark-svg
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "docs/assets/spark_witness.svg.part1"
+      - "docs/assets/spark_witness.svg.part2"
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble and commit SVG
+        run: |
+          set -euo pipefail
+          cat docs/assets/spark_witness.svg.part1 docs/assets/spark_witness.svg.part2 > docs/assets/spark_witness.svg
+          test -s docs/assets/spark_witness.svg
+          grep -q 'data:image/jpeg;base64,/9j/' docs/assets/spark_witness.svg
+          ! grep -q PLACEHOLDER docs/assets/spark_witness.svg
+          wc -c docs/assets/spark_witness.svg
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/assets/spark_witness.svg
+          git diff --cached --quiet && echo nochange && exit 0
+          git commit -m "docs(assets): restore spark_witness.svg with embedded hand-and-city painting"
+          git push
