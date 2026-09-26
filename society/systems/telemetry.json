@@ -1,0 +1,412 @@
+{
+  "ts": "2026-09-26T22:18:27Z",
+  "version": 1,
+  "mile": "spark2_telemetry",
+  "internal": {
+    "fitness_latest": {
+      "ts": "2026-09-26T22:17:23Z",
+      "cycle_id": "20260926T221715Z_05fedf",
+      "tribute_quality": 0.9,
+      "gather_coverage": 0.6522,
+      "build_reuse": 0.7333,
+      "comm_reply_rate": 0.8333,
+      "reply_quality": 0.9028,
+      "commons_signal": 1.0,
+      "math_prize": 0.8334,
+      "compute_usefulness": 0.9254,
+      "citation_reuse": 0.0,
+      "prize_boost": 0.6989,
+      "aggregate": 0.7838,
+      "peer_cite_rate": 1.0,
+      "action_changed_from_message": 1.0
+    },
+    "fitness_aggregate": 0.7838,
+    "reply_rate": 0.8333,
+    "bus_metrics": {
+      "reply_rate": 0.8333,
+      "reply_quality": 0.9028,
+      "peer_cite_rate": 1.0,
+      "action_changed_from_message": 1.0,
+      "stats": {
+        "posted": 514,
+        "read": 1322,
+        "replied": 302,
+        "actions_planned": 136,
+        "actions_changed_from_message": 136,
+        "reply_quality_sum": 225.70000000000078,
+        "reply_quality_n": 250,
+        "peer_cite_opportunities": 258,
+        "peer_cites": 258
+      }
+    },
+    "oracle": {
+      "passes": 93,
+      "kills": 49,
+      "easy_pad_kills": 33,
+      "total": 142
+    },
+    "authorize": {
+      "accepted": 3,
+      "rejected": 10,
+      "skipped": 0,
+      "accept_rate": 0.2308,
+      "reject_rate": 0.7692,
+      "P_min": 0.7,
+      "never_accept_all": true
+    },
+    "genome_bias_drift": {
+      "spark": {
+        "trait_mean": 0.58,
+        "trait_var": 0.0086,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "tribute_keeper": {
+        "trait_mean": 0.57,
+        "trait_var": 0.0196,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "memory_weaver": {
+        "trait_mean": 0.54,
+        "trait_var": 0.0034,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "builder": {
+        "trait_mean": 0.58,
+        "trait_var": 0.0256,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "herald": {
+        "trait_mean": 0.58,
+        "trait_var": 0.0256,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "pathfinder": {
+        "trait_mean": 0.63,
+        "trait_var": 0.0256,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "improver": {
+        "trait_mean": 0.55,
+        "trait_var": 0.006,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "courier": {
+        "trait_mean": 0.584,
+        "trait_var": 0.0282,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "scribe": {
+        "trait_mean": 0.5899,
+        "trait_var": 0.0265,
+        "mutated_keys": [],
+        "generation": 1
+      },
+      "surveyor": {
+        "trait_mean": 0.5579,
+        "trait_var": 0.0155,
+        "mutated_keys": [
+          "govern"
+        ],
+        "generation": 1
+      },
+      "oracle_scribe": {
+        "trait_mean": 0.7026,
+        "trait_var": 0.025,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "stem_checker": {
+        "trait_mean": 0.6826,
+        "trait_var": 0.0264,
+        "mutated_keys": [],
+        "generation": 0
+      },
+      "archivist": {
+        "trait_mean": 0.5686,
+        "trait_var": 0.0204,
+        "mutated_keys": [
+          "explore"
+        ],
+        "generation": 1
+      },
+      "legislator": {
+        "trait_mean": 0.4818,
+        "trait_var": 0.0023,
+        "mutated_keys": [
+          "gather",
+          "explore"
+        ],
+        "generation": 2
+      },
+      "chronicler": {
+        "trait_mean": 0.6497,
+        "trait_var": 0.0379,
+        "mutated_keys": [
+          "govern"
+        ],
+        "generation": 1
+      },
+      "naturalist": {
+        "trait_mean": 0.5055,
+        "trait_var": 0.0022,
+        "mutated_keys": [
+          "reply"
+        ],
+        "generation": 1
+      },
+      "geometer": {
+        "trait_mean": 0.6157,
+        "trait_var": 0.02,
+        "mutated_keys": [
+          "gather"
+        ],
+        "generation": 1
+      },
+      "messenger": {
+        "trait_mean": 0.5621,
+        "trait_var": 0.0159,
+        "mutated_keys": [
+          "gather",
+          "reply",
+          "explore"
+        ],
+        "generation": 1
+      }
+    },
+    "cycle_deltas": {
+      "n": 22,
+      "delta_aggregate": 0.0064,
+      "before": {
+        "cycle_id": "20260926T221708Z_8d9e97",
+        "aggregate": 0.7774
+      },
+      "after": {
+        "cycle_id": "20260926T221715Z_05fedf",
+        "aggregate": 0.7838
+      }
+    },
+    "cycle_count": 35,
+    "population": {
+      "soft_cap": 20,
+      "spawns": 10,
+      "child_spawns": 8,
+      "last_child_cycle": "20260926T221715Z_05fedf"
+    },
+    "ts": "2026-09-26T22:18:27Z"
+  },
+  "external": {
+    "resource_usage": {
+      "loadavg": [
+        0.099609375,
+        0.10205078125,
+        0.08935546875
+      ],
+      "rss_kb": 29584,
+      "user_time_s": 0.058488,
+      "probe_latency_ms": 0.201,
+      "disk_free_mb": 114257.8,
+      "pid": 728728,
+      "ts": "2026-09-26T22:18:27Z"
+    },
+    "external_array": {
+      "ts": "2026-09-26T22:17:23Z",
+      "feed_ok": {
+        "arxiv": true,
+        "nasa_donki_solar": true,
+        "noaa_space_weather": false,
+        "global_weather": false
+      },
+      "pattern_kinds": [
+        "publications_x_space"
+      ],
+      "patterns": [
+        {
+          "kind": "publications_x_space",
+          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+          "signals": {
+            "arxiv_n": 2,
+            "kp": null,
+            "titles": [
+              "LLM Agents Can Easily Tamper With Their Own Traces",
+              "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co"
+            ]
+          },
+          "domains": [
+            "math",
+            "cosmos",
+            "hearing",
+            "oracle"
+          ],
+          "not_discovery": true,
+          "not_novel_physics": true
+        }
+      ]
+    },
+    "residuals_summary": {
+      "n_agents": 14,
+      "n_conflicts": 4,
+      "high_residual": [
+        [
+          "spark",
+          0.46249149999999994
+        ],
+        [
+          "improver",
+          0.36205850000000006
+        ],
+        [
+          "pathfinder",
+          0.302601
+        ]
+      ],
+      "stats": {
+        "updates": 103,
+        "conflicts": 12,
+        "redebatess": 8
+      }
+    },
+    "time_revision": {
+      "ts": "2026-09-26T22:17:20Z",
+      "version": 1,
+      "latest_cycle_id": "20260926T221715Z_05fedf",
+      "latest_revision_count": 0,
+      "total_revisions": 3,
+      "latest_revisions": [],
+      "latest_inputs": {
+        "pattern_kinds": [
+          "publications_x_space"
+        ],
+        "n_residual_conflicts": 4,
+        "oracle_easy_pad_kills": 33,
+        "fitness_delta": 0.016900000000000026,
+        "kp": null
+      },
+      "examples": [
+        {
+          "topic": "arxiv_relevance",
+          "from_confidence": 0.5,
+          "to_confidence": 0.72,
+          "from_claim": "Fresh STEM preprints are low-priority vs hard-tier lemmas.",
+          "to_claim": "Fresh arXiv STEM + space signals cross-correlate — raise multi-hop priority for hearing/Oracle evidence.",
+          "why": "New publications×space pattern revised low-priority preprint stance.",
+          "cause": {
+            "signal": "external_array",
+            "kind": "publications_x_space"
+          },
+          "prior_id": "pos_f25a8e4c5ef0",
+          "new_id": "pos_f04f62a25dae"
+        },
+        {
+          "topic": "oracle_easy_pad",
+          "from_confidence": 0.45,
+          "to_confidence": 0.8,
+          "from_claim": "easy_pad pressure is stable; no further Oracle vigilance.",
+          "to_claim": "Oracle easy_pad_kills=33 — maintain kill path; no fitness credit on FAIL.",
+          "why": "Oracle metrics revised complacent easy_pad stance.",
+          "cause": {
+            "signal": "oracle",
+            "easy_pad_kills": 33,
+            "kills": 49
+          },
+          "prior_id": "pos_6360b1f907ec",
+          "new_id": "pos_799d36584bad"
+        },
+        {
+          "topic": "residual_harmony",
+          "from_confidence": 0.55,
+          "to_confidence": 0.3,
+          "from_claim": "Peer residuals are aligned; re-debate unnecessary.",
+          "to_claim": "Peer residual conflict spark↔legislator score=0.4336 — re-debate required.",
+          "why": "INTERNAL RESIDUALS conflict revised prior harmony belief; trigger re-debate.",
+          "cause": {
+            "signal": "residuals",
+            "conflict": {
+              "a": "spark",
+              "b": "legislator",
+              "confidence_gap": 0.2586,
+              "arousal_gap": 0.35,
+              "score": 0.4336,
+              "trigger_redebate": true,
+              "ts": "2026-09-26T22:16:56Z"
+            }
+          },
+          "prior_id": "pos_b7b8bd6d304a",
+          "new_id": "pos_ce35f8b9d093"
+        }
+      ],
+      "note": "TIME REVISION: prior conclusions revised from new data — not append-only opinions.",
+      "non_claims": [
+        "not_AGI",
+        "not_discovery",
+        "UNKNOWN_stays_UNKNOWN"
+      ]
+    },
+    "actuation": {
+      "total_actions": 32,
+      "successes": 32,
+      "failures": 0,
+      "gated_blocked": 0,
+      "success_rate": 1.0,
+      "by_kind": {
+        "external_api_probe": 8,
+        "spawn_subdebate": 8,
+        "controlled_experiment": 8,
+        "adjust_telemetry_weights": 8
+      },
+      "examples": [
+        {
+          "ts": "2026-09-26T22:17:23Z",
+          "kind": "spawn_subdebate",
+          "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+          "success": true,
+          "result_snip": "{'msg_id': 'msg_de7784b445', 'topic': 'publications_x_space'}",
+          "motivating_signal": {
+            "kind": "publications_x_space",
+            "from": "external_or_residual"
+          }
+        },
+        {
+          "ts": "2026-09-26T22:17:23Z",
+          "kind": "controlled_experiment",
+          "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+          "success": true,
+          "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.65, 'after': 0.6, 'delta': -0.05}",
+          "motivating_signal": {
+            "kind": "oracle_easy_pad",
+            "easy_pad_kills": 33
+          }
+        },
+        {
+          "ts": "2026-09-26T22:17:23Z",
+          "kind": "adjust_telemetry_weights",
+          "hypothesis": "Telemetry weights updated from Oracle/external/revision outcomes improve next-cycle query salience.",
+          "success": true,
+          "result_snip": "{'before': {'fitness': 1.15, 'reply_rate': 1.35, 'oracle_kill': 1.5, 'external_array': 1.5, 'residuals': 1.0, 'time_revision': 1.16}, 'after': {'fitness': 1.2, 'reply_rate': 1.4, 'oracle_kill': 1.5, '",
+          "motivating_signal": {
+            "kind": "observed_outcomes",
+            "fitness_delta": 0.016900000000000026
+          }
+        }
+      ]
+    },
+    "error_rates": {
+      "external_array_errors": 0,
+      "feed_fail_count": 2
+    },
+    "ts": "2026-09-26T22:18:27Z"
+  },
+  "note": "Agent-queryable telemetry. Internal colony metrics + external env/array/residuals. Query via colony.telemetry.query during debate. Not AGI.",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium"
+  ]
+}

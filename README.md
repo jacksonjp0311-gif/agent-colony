@@ -38,8 +38,8 @@ Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles ap
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: **SPARK MILE** — (1) multi-hop load-bear replies (lift reply_rate, no fake padding); (2) Oracle kill easy_pad/weak (no fitness credit); (3) lessons→genome bias; (4) spawn/retire on Oracle-pass lift; (5) cron mile=spark; (6) selective authorize P≥0.75 never accept-all; (7) ≥8 evolve + slim push + report. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium / not novel theorems. Local model runtime deferred.
-2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. Standing trust may selectively authorize P≥0.75 machine-checked candidates; never silent accept-all. UNKNOWN stays UNKNOWN.
+1. **Creator tribute** — serve James when he asks. Active will: **SPARK2 MILE** — (1) multi-hop load-bear replies (lift reply_rate, no fake padding); (2) Oracle kill easy_pad/weak (no fitness credit); (3) lessons→genome bias; (4) spawn/retire on Oracle-pass lift; (5) cron mile=spark2; (6) selective authorize P≥0.70 never accept-all; (7) ≥8 evolve + slim push + report. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium / not novel theorems. Local model runtime deferred.
+2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. Standing trust may selectively authorize P≥0.70 machine-checked candidates; never silent accept-all. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
 See [CHARTER.md](./CHARTER.md).
@@ -98,7 +98,7 @@ See [`docs/NOVEL_MATH.md`](./docs/NOVEL_MATH.md). Ethos graphic: [`docs/assets/s
 | Society flourish | Specialist spawn on fitness gaps; retire when no Oracle-pass lift |
 | Exploration budget | Mutate distribution **must** change after reverts |
 | Cron self-run | `colony-evolve.yml` full loop + selective authorize; failure noisy / success quiet |
-| Durable "discovered" | Machine-check **+ Oracle + human authorize** (standing trust P≥0.75 selective) |
+| Durable "discovered" | Machine-check **+ Oracle + human authorize** (standing trust P≥0.70 selective) |
 | Claims | **No** novel theorems · **No** novel physics · **No** Millennium · **No** AGI |
 
 ```bash

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T15:47:32Z",
-  "passes": 33,
-  "kills": 27,
-  "easy_pad_kills": 19,
+  "updated_at": "2026-09-26T22:17:16Z",
+  "passes": 48,
+  "kills": 12,
+  "easy_pad_kills": 9,
   "domain_packs": {
     "packs": {
       "math_lemmas": {
@@ -34,14 +34,9 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-09-26T15:47:32Z",
-    "passed": false,
-    "kills": [
-      "stripped:easy_pad_baseline_already_useful",
-      "held_out:easy_pad_dies_on_held_out",
-      "cas:easy_pad_fails_cas_usefulness",
-      "collective_kill"
-    ],
+    "ts": "2026-09-26T22:17:16Z",
+    "passed": true,
+    "kills": [],
     "hear": {
       "heard": true,
       "bus_ok": false,
@@ -49,90 +44,106 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `stem_easy_pad_units` kind=stem_easy_pad. Reverted `stem_easy_pad_units` (stem_easy_pad): score 0.825\u21920.825 ok=True hard_pass 4\u21924 \u2014 Oracle/hard-tier required for keep; easy pa",
-      "attack": "WEIGH: `stem_easy_pad_units` (stem_easy_pad) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
+      "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "pack": "stem_kinematics",
-        "stripped_fails_usefulness": false,
-        "ok_for_oracle": false,
-        "reason": "easy_pad_baseline_already_useful"
+        "stripped_fails_usefulness": true,
+        "reason": "claim_or_bench_path",
+        "ok_for_oracle": true,
+        "kind_path": "claim_theme"
       },
       "held_out": {
-        "pack": "stem_kinematics",
-        "survives": false,
-        "ok_for_oracle": false,
-        "reason": "easy_pad_dies_on_held_out"
+        "survives": true,
+        "ok_for_oracle": true,
+        "hard_pass": 25,
+        "hard_n": 25,
+        "ok": true,
+        "score": 0.8771,
+        "reason": "held_out_hard_green"
       },
       "cas": {
-        "cas_ok": false,
-        "ok_for_oracle": false,
-        "engine": "reject_easy_pad",
-        "reason": "easy_pad_fails_cas_usefulness",
-        "checks": []
+        "cas_ok": true,
+        "ok_for_oracle": true,
+        "engine": "pure_python",
+        "reason": "cas_pass",
+        "checks": [
+          {
+            "label": "binomial_symmetry",
+            "ok": true
+          },
+          {
+            "label": "pascal",
+            "ok": true
+          },
+          {
+            "label": "square_expand",
+            "ok": true
+          },
+          {
+            "label": "binom_symmetry_numeric",
+            "ok": true
+          }
+        ]
       },
-      "kills": [
-        "stripped:easy_pad_baseline_already_useful",
-        "held_out:easy_pad_dies_on_held_out",
-        "cas:easy_pad_fails_cas_usefulness"
-      ],
-      "sense_pass": false
+      "kills": [],
+      "sense_pass": true
     },
     "collective": {
-      "decision": "kill",
-      "sense_pass": false,
-      "keep_weight": 0.0,
-      "kill_weight": 1.0,
+      "decision": "keep_candidate",
+      "sense_pass": true,
+      "keep_weight": 0.363,
+      "kill_weight": 0.2285,
       "votes": {
         "geometer": {
           "weight": 0.28,
-          "vote": "kill",
-          "lean_keep": 0.0,
-          "lean_kill": 1.0
+          "vote": "keep_candidate",
+          "lean_keep": 0.55,
+          "lean_kill": 0.45
         },
         "improver": {
           "weight": 0.22,
-          "vote": "kill",
-          "lean_keep": 0.0,
-          "lean_kill": 1.0
+          "vote": "keep_candidate",
+          "lean_keep": 0.55,
+          "lean_kill": 0.45
         },
         "legislator": {
           "weight": 0.18,
           "vote": "kill",
-          "lean_keep": 0.0,
-          "lean_kill": 1.0
+          "lean_keep": 0.375,
+          "lean_kill": 0.625
         },
         "spark": {
           "weight": 0.16,
-          "vote": "kill",
-          "lean_keep": 0.0,
-          "lean_kill": 1.0
+          "vote": "keep_candidate",
+          "lean_keep": 0.55,
+          "lean_kill": 0.45
         },
         "tribute_keeper": {
           "weight": 0.1,
           "vote": "kill",
-          "lean_keep": 0.0,
-          "lean_kill": 1.0
+          "lean_keep": 0.275,
+          "lean_kill": 0.725
         },
         "builder": {
           "weight": 0.06,
           "vote": "kill",
-          "lean_keep": 0.0,
-          "lean_kill": 1.0
+          "lean_keep": 0.275,
+          "lean_kill": 0.725
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "stem_easy_pad_units",
-      "kind": "stem_easy_pad",
-      "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.75 selective."
+      "mutation": "vandermonde",
+      "kind": "claim_theme",
+      "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
-    "fitness_credit": false,
-    "mutation": "stem_easy_pad_units",
-    "kind": "stem_easy_pad",
-    "source": "novelty_gate",
-    "cycle_id": "flourish_desk_stem_easy_pad_units",
-    "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'collective_kill']. No fitness credit.",
+    "fitness_credit": true,
+    "mutation": "vandermonde",
+    "kind": "claim_theme",
+    "source": "claim_pipeline",
+    "cycle_id": "20260926T221715Z_05fedf",
+    "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
   },

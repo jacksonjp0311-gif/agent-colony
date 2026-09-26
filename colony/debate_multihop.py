@@ -36,11 +36,57 @@ def run_multihop(
     role_b = "legislator" if "legislator" in roles else ("improver" if "improver" in roles else "spark")
     role_c = "improver" if "improver" in roles else ("builder" if "builder" in roles else "spark")
 
+    # SPARK2: fresh seeds outside comfort zone (rotate; avoid weak-spot loops)
+    seed_meta = {}
+    if not seed_claim:
+        try:
+            from colony.debate_seeds import next_seed
+            seed_meta = next_seed(cycle_id)
+            seed_claim = seed_meta.get("claim") or ""
+        except Exception:
+            seed_claim = ""
     claim = seed_claim or (
-        "SPARK PROPOSE: deepen hard-tier lemma pressure; keep only on measured hard_pass rise; "
+        "SPARK2 PROPOSE: deepen hard-tier lemma pressure; keep only on measured hard_pass rise; "
         "easy_pad must revert; novelty gate kills textbook reuse; multi-hop replies must load-bear "
         "(cite prior + change NEXT ACTION) so reply_rate rises without fake padding."
     )
+
+    # Agents query telemetry + external array + residuals mid-debate (not human-only)
+    telem_cite = {}
+    ext_patterns = []
+    residual_view = {}
+    try:
+        from colony.telemetry import query as telem_query
+        telem_cite = telem_query(section=None)
+        ext_patterns = list(
+            ((telem_cite.get("external") or {}).get("external_array") or {}).get("patterns") or []
+        )
+    except Exception as exc:
+        telem_cite = {"error": str(exc)}
+    try:
+        from colony.external_array import patterns_for_debate
+        if not ext_patterns:
+            ext_patterns = patterns_for_debate(limit=3)
+    except Exception:
+        pass
+    try:
+        from colony.residuals import ResidualField
+        # bus.state may hold society data
+        state_data = getattr(bus, "data", None) or {}
+        rf = ResidualField(state_data)
+        for role in (role_a, role_b, role_c):
+            rf.ensure(role)
+        residual_view = {
+            "high": rf.high_residual_roles(top_k=3),
+            "conflicts": rf.detect_conflicts(),
+        }
+    except Exception as exc:
+        residual_view = {"error": str(exc)}
+
+    pattern_snip = "; ".join(
+        (p.get("kind") or "?") + ": " + (p.get("summary") or "")[:90]
+        for p in ext_patterns[:2]
+    ) or "external_array:sparse"
 
     # A proposes
     msg_a = bus.post(
@@ -49,11 +95,24 @@ def run_multihop(
         channel="math",
         message=(
             f"MULTI-HOP A/propose ({role_a}): {claim} "
+            f"TELEM cite fitness={(telem_cite.get('internal') or {}).get('fitness_aggregate')} "
+            f"reply_rate={(telem_cite.get('internal') or {}).get('reply_rate')} "
+            f"oracle={(telem_cite.get('internal') or {}).get('oracle')}. "
+            f"EXTERNAL patterns: {pattern_snip}. "
+            f"RESIDUAL high={residual_view.get('high')}. "
             f"Cite prior turn + peer findings. cycle={cycle_id}. Not discovery."
         ),
         cycle_id=cycle_id,
-        tags=["debate", "multihop", "propose", "peer_cite"],
-        payload={"hop": "A", "kind": "propose", "claim": claim[:240]},
+        tags=["debate", "multihop", "propose", "peer_cite", "telemetry", "external_array"],
+        payload={
+            "hop": "A",
+            "kind": "propose",
+            "claim": claim[:240],
+            "seed_id": seed_meta.get("id"),
+            "telem_ts": telem_cite.get("ts"),
+            "ext_patterns": [p.get("kind") for p in ext_patterns[:3]],
+            "residuals_high": residual_view.get("high"),
+        },
     )
     cited_a = bus.message_cites_peer(
         msg_a.get("message") or "",
@@ -249,7 +308,11 @@ def run_multihop(
             "action_changed_from_message": metrics.get("action_changed_from_message"),
             "reply_quality": metrics.get("reply_quality"),
         },
-        "note": "SPARK A→B→C→D(Oracle)+E load-bear close. Fitness rise needs bus-driven claim/code change. Not AGI.",
+        "seed_id": seed_meta.get("id"),
+        "telemetry_ts": telem_cite.get("ts"),
+        "external_patterns": [p.get("kind") for p in ext_patterns[:4]],
+        "residuals": residual_view,
+        "note": "SPARK2 A→B→C→D(Oracle)+E load-bear + telem/external/residuals. Bus-driven claim/code change. Not AGI.",
     }
     DEBATE_LOG.parent.mkdir(parents=True, exist_ok=True)
     with DEBATE_LOG.open("a", encoding="utf-8") as f:

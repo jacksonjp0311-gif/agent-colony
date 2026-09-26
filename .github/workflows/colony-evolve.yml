@@ -88,14 +88,14 @@ jobs:
           python -m colony dashboard || true
           python -m colony status > society/CI_STATUS.json || true
 
-      - name: Selective authorize (standing trust P≥0.75 — never accept-all)
+      - name: Selective authorize (standing trust P≥0.70 — never accept-all)
         if: ${{ github.event.inputs.authorize != 'false' }}
         run: |
           set -euo pipefail
           export PYTHONPATH=.
           python - <<'PY'
           """Selective standing-trust authorize for machine-checked keeps only.
-          Never accept-all. P≥0.75. UNKNOWN stays UNKNOWN. Not AGI.
+          Never accept-all. P≥0.70. UNKNOWN stays UNKNOWN. Not AGI.
           """
           import json
           from pathlib import Path
@@ -124,7 +124,7 @@ jobs:
                       continue
                   items.append(AuthorizeItem(
                       f.id, "accepted",
-                      "Standing trust P≥0.75: machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
+                      "Standing trust P≥0.70: machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
                   ))
               elif "easy_pad" in tags or (meta.get("decision") == "revert"):
                   rejected.append(AuthorizeItem(
@@ -137,21 +137,21 @@ jobs:
           batch = items + rejected
           if not batch:
               print("authorize: nothing selective this run (quiet success)")
-              Path("society/receipts/AUTHORIZE_DECISIONS_spark_ci.json").write_text(
-                  json.dumps({"items": [], "policy": "standing_trust_P>=0.75_selective_never_accept_all", "mile": "spark"}, indent=2)+"\n"
+              Path("society/receipts/AUTHORIZE_DECISIONS_spark2_ci.json").write_text(
+                  json.dumps({"items": [], "policy": "standing_trust_P>=0.70_selective_never_accept_all", "mile": "spark2"}, indent=2)+"\n"
               )
           else:
               decisions = {
                   "items": [{"finding_id": i.finding_id, "decision": i.decision, "rationale": i.rationale} for i in batch],
-                  "policy": "standing_trust_P>=0.75_selective_never_accept_all",
-                  "mile": "spark",
+                  "policy": "standing_trust_P>=0.70_selective_never_accept_all",
+                  "mile": "spark2",
               }
-              dec_path = Path("society/receipts/AUTHORIZE_DECISIONS_spark_ci.json")
+              dec_path = Path("society/receipts/AUTHORIZE_DECISIONS_spark2_ci.json")
               dec_path.write_text(json.dumps(decisions, indent=2) + "\n")
               result = Authorizer(root=root, ledger=ledger, state=state).apply(
                   batch,
                   authorizer="James Paul Jackson",
-                  delegated_via="GitHub Actions cron (standing trust P>=0.75 selective; never accept-all)",
+                  delegated_via="GitHub Actions cron (standing trust P>=0.70 selective; never accept-all)",
               )
               print(json.dumps({
                   "accepted": len(result.accepted),
@@ -206,7 +206,7 @@ jobs:
               ora = {"error": str(e)}
           receipt = {
               "when": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "mile": "spark",
+              "mile": "spark2",
               "cycle_count": cycle_count,
               "fitness_latest": fit,
               "bus_metrics": bus,
@@ -216,12 +216,12 @@ jobs:
               "exploration_budget_fp": (bud.get("last_outcome") or {}),
               "oracle": ora,
               "easy_pad_dies": bool(ora.get("easy_pad_kills")),
-              "note": "Slim CI receipt. Giant JSONL not rewritten. Spark mile. Not AGI. Not novel theorems.",
+              "note": "Slim CI receipt. Giant JSONL not rewritten. Spark2 telemetry mile. Not AGI. Not novel theorems.",
           }
           Path("society/receipts").mkdir(parents=True, exist_ok=True)
-          Path("society/receipts/SOCIETY_SLIM_SPARK.json").write_text(json.dumps(receipt, indent=2) + "\n")
+          Path("society/receipts/SOCIETY_SLIM_SPARK2.json").write_text(json.dumps(receipt, indent=2) + "\n")
           Path("society/EVOLVE_STATUS.md").write_text(
-              "# Evolve Status — Spark mile\n\n"
+              "# Evolve Status — Spark2 telemetry mile\n\n"
               "> We light the spark and witness. We do not micromanage the city.\n\n"
               "![Spark and witness](../docs/assets/spark_witness_city.jpg)\n\n"
               f"- cycle_count: `{cycle_count}`\n"
@@ -229,8 +229,8 @@ jobs:
               f"- novelty hits/kills: `{nov.get('hits')}` / `{nov.get('kills')}`\n"
               f"- debate action_changed: `{deb.get('action_changed')}`\n"
               f"- oracle passes/kills/easy_kills: `{ora.get('passes')}` / `{ora.get('kills')}` / `{ora.get('easy_pad_kills')}`\n"
-              "- CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.75→slim push\n"
-              "- Spark: pressure reply_rate via load-bear multi-hop; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift; P≥0.75. Failure noisy; success quiet. Not AGI. Not Millennium.\n"
+              "- CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.70→slim push\n"
+              "- Spark: pressure reply_rate via load-bear multi-hop; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift; P≥0.70. Failure noisy; success quiet. Not AGI. Not Millennium.\n"
           )
           print("slim receipts written (quiet)")
           PY

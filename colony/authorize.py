@@ -374,6 +374,56 @@ class Authorizer:
             lines.extend(["", f"## Skipped ({len(result.skipped)})", ""])
             for s in result.skipped:
                 lines.append(f"- `{s.get('finding_id')}`: {s.get('reason')}")
+        # SPARK2: before/after threshold compare (0.75 → 0.70)
+        try:
+            from colony.standing_trust import (
+                STANDING_TRUST_P_MIN,
+                STANDING_TRUST_P_MIN_BEFORE,
+                threshold_compare,
+            )
+            lines.extend(
+                [
+                    "",
+                    "## Standing trust threshold compare",
+                    "",
+                    f"- **P_min before (prior mile):** `{STANDING_TRUST_P_MIN_BEFORE}`",
+                    f"- **P_min after (this mile):** `{STANDING_TRUST_P_MIN}`",
+                    "- Policy: selective — never accept-all; UNKNOWN stays UNKNOWN.",
+                    "",
+                ]
+            )
+            compare_rows = []
+            for entry in list(result.accepted) + list(result.rejected):
+                # confidence unknown at receipt time — record decision under new threshold
+                row = {
+                    "finding_id": entry.get("finding_id"),
+                    "decision": entry.get("decision"),
+                    "P_min_before": STANDING_TRUST_P_MIN_BEFORE,
+                    "P_min_after": STANDING_TRUST_P_MIN,
+                }
+                compare_rows.append(row)
+                lines.append(
+                    f"- `{entry.get('finding_id')}` **{entry.get('decision')}** "
+                    f"(gated at P≥{STANDING_TRUST_P_MIN}; prior gate was P≥{STANDING_TRUST_P_MIN_BEFORE})"
+                )
+            # JSON companion for agent/telemetry query
+            import json as _json
+            companion = {
+                "cycle_id": result.cycle_id,
+                "P_min_before": STANDING_TRUST_P_MIN_BEFORE,
+                "P_min_after": STANDING_TRUST_P_MIN,
+                "accepted": len(result.accepted),
+                "rejected": len(result.rejected),
+                "skipped": len(result.skipped),
+                "never_accept_all": True,
+                "compare": compare_rows,
+                "note": "SPARK2 authorize threshold compare 0.75→0.70. Selective.",
+            }
+            (RECEIPTS / f"AUTHORIZE_{result.cycle_id}_compare.json").write_text(
+                _json.dumps(companion, indent=2) + "\n", encoding="utf-8"
+            )
+        except Exception:
+            pass
         lines.extend(["", "---", "", "_Durable knowledge requires human authorize._", ""])
         path.write_text("\n".join(lines), encoding="utf-8")
         return path

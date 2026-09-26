@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "total_actions": 32,
+  "successes": 32,
+  "failures": 0,
+  "gated_blocked": 0,
+  "queued": 0,
+  "throttled": 0,
+  "success_rate": 1.0,
+  "by_kind": {
+    "external_api_probe": 8,
+    "spawn_subdebate": 8,
+    "controlled_experiment": 8,
+    "adjust_telemetry_weights": 8
+  },
+  "by_side": {
+    "internal": 16,
+    "external": 16
+  },
+  "cycle_history": [
+    {
+      "cycle_id": "20260926T221620Z_4c30d0",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    },
+    {
+      "cycle_id": "20260926T221628Z_6741fd",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    },
+    {
+      "cycle_id": "20260926T221636Z_15b8a0",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    },
+    {
+      "cycle_id": "20260926T221644Z_778665",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    },
+    {
+      "cycle_id": "20260926T221652Z_bd61e7",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    },
+    {
+      "cycle_id": "20260926T221659Z_107242",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    },
+    {
+      "cycle_id": "20260926T221708Z_8d9e97",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    },
+    {
+      "cycle_id": "20260926T221715Z_05fedf",
+      "success_rate": 1.0,
+      "n_executed": 4,
+      "n_queued": 0,
+      "internal": 2,
+      "external": 2,
+      "throttle_factor": 1.0
+    }
+  ],
+  "throttle_events": [],
+  "examples": [
+    {
+      "ts": "2026-09-26T22:17:04Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield \u22651 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': False}, 'patterns': ['publications_x_space'], 'latency_ms': 3568.2, 'snap_ts': '2026-09-26T22:17:08",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative Wo"
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:08Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_85dded9bdb', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:08Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.75, 'after': 0.7, 'delta': -0.05}",
+      "motivating_signal": {
+        "kind": "oracle_easy_pad",
+        "easy_pad_kills": 33
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:08Z",
+      "kind": "adjust_telemetry_weights",
+      "hypothesis": "Telemetry weights updated from Oracle/external/revision outcomes improve next-cycle query salience.",
+      "success": true,
+      "result_snip": "{'before': {'fitness': 1.05, 'reply_rate': 1.25, 'oracle_kill': 1.5, 'external_array': 1.4, 'residuals': 1.0, 'time_revision': 1.16}, 'after': {'fitness': 1.1, 'reply_rate': 1.3, 'oracle_kill': 1.5, '",
+      "motivating_signal": {
+        "kind": "observed_outcomes",
+        "fitness_delta": 0.0008000000000000229
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:12Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield \u22651 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': False}, 'patterns': ['publications_x_space'], 'latency_ms': 3384.9, 'snap_ts': '2026-09-26T22:17:15",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative Wo"
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:15Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_c32168c967', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:15Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.7, 'after': 0.65, 'delta': -0.05}",
+      "motivating_signal": {
+        "kind": "oracle_easy_pad",
+        "easy_pad_kills": 33
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:15Z",
+      "kind": "adjust_telemetry_weights",
+      "hypothesis": "Telemetry weights updated from Oracle/external/revision outcomes improve next-cycle query salience.",
+      "success": true,
+      "result_snip": "{'before': {'fitness': 1.1, 'reply_rate': 1.3, 'oracle_kill': 1.5, 'external_array': 1.48, 'residuals': 1.0, 'time_revision': 1.16}, 'after': {'fitness': 1.15, 'reply_rate': 1.35, 'oracle_kill': 1.5, ",
+      "motivating_signal": {
+        "kind": "observed_outcomes",
+        "fitness_delta": 0.009399999999999964
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:20Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield \u22651 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': False}, 'patterns': ['publications_x_space'], 'latency_ms': 3405.6, 'snap_ts': '2026-09-26T22:17:23",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative Wo"
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:23Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_de7784b445', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:23Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.65, 'after': 0.6, 'delta': -0.05}",
+      "motivating_signal": {
+        "kind": "oracle_easy_pad",
+        "easy_pad_kills": 33
+      }
+    },
+    {
+      "ts": "2026-09-26T22:17:23Z",
+      "kind": "adjust_telemetry_weights",
+      "hypothesis": "Telemetry weights updated from Oracle/external/revision outcomes improve next-cycle query salience.",
+      "success": true,
+      "result_snip": "{'before': {'fitness': 1.15, 'reply_rate': 1.35, 'oracle_kill': 1.5, 'external_array': 1.5, 'residuals': 1.0, 'time_revision': 1.16}, 'after': {'fitness': 1.2, 'reply_rate': 1.4, 'oracle_kill': 1.5, '",
+      "motivating_signal": {
+        "kind": "observed_outcomes",
+        "fitness_delta": 0.016900000000000026
+      }
+    }
+  ],
+  "ts": "2026-09-26T22:17:23Z",
+  "note": "Rebuilt from actuation.jsonl after persist fix. Balance 50/50 enforced.",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_novel_physics"
+  ],
+  "repaired": true
+}

@@ -1,22 +1,17 @@
-# Evolve Status — Spark mile
+# Evolve Status — Spark2 telemetry mile
 
 > We light the spark and witness. We do not micromanage the city.
 
 ![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
-**When:** 2026-09-26T21:54:16Z  
-**cycle_count:** 161
-
-| Metric | Before (ALIGN tip) | After (SPARK) |
-|--------|--------------------|---------------|
-| aggregate fitness | **0.8341** | **0.8991** |
-| comm_reply_rate | **0.413** | **0.913** |
-| peer_cite / action_changed | 1.0 / 1.0 | 1.0 / 1.0 |
-| oracle passes / kills / easy_kills | 61 / 47 / 32 | **77** / **49** / **33** |
-| easy_pad on Oracle | dies | **dies** (re-proved) |
-| evolve cycles this mile | — | **8** |
-| authorize | — | selective P≥0.75; **3 accept / 10 reject**; never accept-all |
-
-**Alignment:** WILL↔debate load-bear↔Oracle↔lessons→genome↔spawn-on-Oracle-pass↔cron mile=spark.
-
-**Novel math / novel physics?** Still no. Classical coded identities + kinematics only. **Not AGI. Not Millennium. Not novel theorems. Not consciousness.**
+- cycle_count: `35` (before 27 → after 35; +8 evolve)
+- fitness: `0.8688` → `0.7838`
+- reply_rate: `0.8333`
+- oracle passes/kills/easy_pad: `93` / `49` / `33` (easy_pad trend vs SPARK: **flat**)
+- authorize: accepted **3** / rejected **0** at P≥0.7 (was 0.75); never accept-all
+- EXTERNAL ARRAY patterns: `['publications_x_space']`
+- INTERNAL RESIDUALS high: `[('spark', 0.46249149999999994), ('improver', 0.36205850000000006), ('pathfinder', 0.302601)]`
+- TIME REVISION total: `3`
+- ACTION/ACTUATION: 32 actions; success_rate=1.0; split={'internal': 16, 'external': 16}; queued=0; throttled=0
+- CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.70→slim push
+- Spark2: telemetry + external array + residuals + time revision + balanced actuation. Not AGI. Not Millennium.

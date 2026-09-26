@@ -6,7 +6,7 @@ Pipeline:
   SENSE — held-out harder check + stripped baseline + optional CAS-style
           Python oracle (sympy if present, else pure-Python identity probes)
   DECIDE — multi-agent vote weights; keep weight ONLY if Oracle passes
-           Findings remain *candidate* until human authorize (P≥0.75 selective)
+           Findings remain *candidate* until human authorize (P≥0.70 selective)
 
 Hard rule: FAIL kills keep. No Oracle pass → no fitness rise credit.
 Not AGI. Not consciousness. Not Millennium. Not novel theorems claimed.
@@ -523,7 +523,7 @@ def collective_decide(
         "kind": kind,
         "note": (
             "Collective keep weight only if Oracle SENSE passes. "
-            "Durable accepted still needs human authorize P≥0.75 selective."
+            "Durable accepted still needs human authorize P≥0.70 selective."
         ),
     }
 

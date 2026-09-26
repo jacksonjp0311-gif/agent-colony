@@ -1,0 +1,10 @@
+{"ts": "2026-09-26T22:16:21Z", "n_agents": 0, "n_conflicts": 0, "high": [], "stats": {"updates": 0, "conflicts": 0, "redebatess": 0}}
+{"ts": "2026-09-26T22:16:25Z", "n_agents": 8, "n_conflicts": 0, "high": [["spark", 0.45827599999999996], ["improver", 0.350576], ["pathfinder", 0.294076]], "stats": {"updates": 10, "conflicts": 0, "redebatess": 0}}
+{"ts": "2026-09-26T22:16:32Z", "n_agents": 9, "n_conflicts": 0, "high": [["spark", 0.47268499999999997], ["improver", 0.390355], ["pathfinder", 0.32353]], "stats": {"updates": 21, "conflicts": 0, "redebatess": 0}}
+{"ts": "2026-09-26T22:16:40Z", "n_agents": 10, "n_conflicts": 0, "high": [["spark", 0.47684449999999995], ["improver", 0.4031575], ["pathfinder", 0.33281499999999997]], "stats": {"updates": 33, "conflicts": 0, "redebatess": 0}}
+{"ts": "2026-09-26T22:16:48Z", "n_agents": 12, "n_conflicts": 0, "high": [["spark", 0.4548505], ["improver", 0.3545035], ["pathfinder", 0.295011]], "stats": {"updates": 47, "conflicts": 0, "redebatess": 0}}
+{"ts": "2026-09-26T22:16:56Z", "n_agents": 13, "n_conflicts": 1, "high": [["spark", 0.44916749999999994], ["improver", 0.34254249999999997], ["pathfinder", 0.285605]], "stats": {"updates": 61, "conflicts": 2, "redebatess": 2}}
+{"ts": "2026-09-26T22:17:04Z", "n_agents": 13, "n_conflicts": 1, "high": [["spark", 0.44914], ["improver", 0.34178400000000003], ["pathfinder", 0.285144]], "stats": {"updates": 75, "conflicts": 4, "redebatess": 4}}
+{"ts": "2026-09-26T22:17:12Z", "n_agents": 13, "n_conflicts": 1, "high": [["spark", 0.456317], ["improver", 0.352659], ["pathfinder", 0.294514]], "stats": {"updates": 89, "conflicts": 6, "redebatess": 6}}
+{"ts": "2026-09-26T22:17:20Z", "n_agents": 14, "n_conflicts": 4, "high": [["spark", 0.46249149999999994], ["improver", 0.36205850000000006], ["pathfinder", 0.302601]], "stats": {"updates": 103, "conflicts": 12, "redebatess": 8}}
+{"ts": "2026-09-26T22:17:38Z", "n_agents": 14, "n_conflicts": 4, "high": [["spark", 0.46249149999999994], ["improver", 0.36205850000000006], ["pathfinder", 0.302601]], "stats": {"updates": 103, "conflicts": 12, "redebatess": 8}}

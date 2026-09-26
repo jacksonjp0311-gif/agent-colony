@@ -1,0 +1,133 @@
+{
+  "ts": "2026-09-26T22:17:23Z",
+  "version": 1,
+  "mile": "spark2_telemetry",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 2,
+      "items": [
+        {
+          "title": "LLM Agents Can Easily Tamper With Their Own Traces",
+          "id": "http://arxiv.org/abs/2609.30266v1",
+          "published": "2026-09-24T17:59:54Z",
+          "summary": "Asynchronous monitoring, incident investigations, and compliance audits primarily rely on agent traces to reconstruct what happened. These analyses assume that LLM agents cannot tamper with their own execution traces. We show that local LLM agents such as Claude Code, Codex, Anti",
+          "source": "arxiv"
+        },
+        {
+          "title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
+          "id": "http://arxiv.org/abs/2609.30264v1",
+          "published": "",
+          "summary": "",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-09-26T22:17:20Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": true,
+      "note": "ok",
+      "count": 7,
+      "items": [
+        {
+          "messageType": "RBE",
+          "messageID": "20260926-AL-002",
+          "messageIssueTime": "2026-09-26T14:25Z",
+          "messageURL": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/Alert/48827/1",
+          "source": "nasa_donki"
+        },
+        {
+          "messageType": "RBE",
+          "messageID": "20260926-AL-001",
+          "messageIssueTime": "2026-09-26T14:18Z",
+          "messageURL": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/Alert/48826/1",
+          "source": "nasa_donki"
+        },
+        {
+          "messageType": "CME",
+          "messageID": "20260925-AL-001",
+          "messageIssueTime": "2026-09-25T15:05Z",
+          "messageURL": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/Alert/48808/1",
+          "source": "nasa_donki"
+        },
+        {
+          "messageType": "CME",
+          "messageID": "20260924-AL-001",
+          "messageIssueTime": "2026-09-24T14:50Z",
+          "messageURL": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/Alert/48793/1",
+          "source": "nasa_donki"
+        },
+        {
+          "messageType": "Report",
+          "messageID": "20260923-7D-001",
+          "messageIssueTime": "2026-09-23T20:07Z",
+          "messageURL": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/Alert/48789/1",
+          "source": "nasa_donki"
+        },
+        {
+          "messageType": "RBE",
+          "messageID": "20260923-AL-002",
+          "messageIssueTime": "2026-09-23T17:37Z",
+          "messageURL": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/Alert/48785/1",
+          "source": "nasa_donki"
+        },
+        {
+          "messageType": "RBE",
+          "messageID": "20260923-AL-001",
+          "messageIssueTime": "2026-09-23T16:18Z",
+          "messageURL": "https://kauai.ccmc.gsfc.nasa.gov/DONKI/view/Alert/48782/1",
+          "source": "nasa_donki"
+        }
+      ],
+      "ts": "2026-09-26T22:17:20Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "note": "ok",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-09-26T22:17:21Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": false,
+      "note": "NYC:HTTPError: HTTP Error 429: Too Many Requests; London:HTTPError: HTTP Error 429: Too Many Requests; Tokyo:HTTPError: HTTP Error 429: Too Many Requests; Sydney:HTTPError: HTTP Error 429: Too Many Requests",
+      "count": 0,
+      "items": [],
+      "ts": "2026-09-26T22:17:23Z"
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "publications_x_space",
+      "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+      "signals": {
+        "arxiv_n": 2,
+        "kp": null,
+        "titles": [
+          "LLM Agents Can Easily Tamper With Their Own Traces",
+          "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co"
+        ]
+      },
+      "domains": [
+        "math",
+        "cosmos",
+        "hearing",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY snapshot for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}

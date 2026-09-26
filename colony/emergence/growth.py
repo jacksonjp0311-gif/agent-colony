@@ -273,6 +273,275 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"External mind skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # SPARK2: EXTERNAL ARRAY + INTERNAL RESIDUALS + TELEMETRY + TIME REVISION
+        ext_patterns = []
+        residual_conflicts = []
+        try:
+            from colony.external_array import gather_external_array
+            ext_snap = gather_external_array(force=True)
+            ext_patterns = list(ext_snap.get("cross_domain_patterns") or [])
+            g.improvements.append(
+                f"external_array:patterns={len(ext_patterns)}:feeds_ok="
+                + str({k: bool(v.get('ok')) for k, v in (ext_snap.get('feeds') or {}).items()})
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="external_array",
+                actor="spark",
+                summary=(
+                    f"EXTERNAL ARRAY: {len(ext_patterns)} cross-domain patterns; "
+                    f"kinds={[p.get('kind') for p in ext_patterns[:4]]}. Debate input — not discovery."
+                ),
+                detail={
+                    "patterns": ext_patterns[:4],
+                    "feed_ok": {k: bool(v.get("ok")) for k, v in (ext_snap.get("feeds") or {}).items()},
+                    "not_novel_physics": True,
+                },
+            )
+            # Surface patterns onto forum for multi-hop / hearing
+            if ext_patterns and hasattr(self, "bus"):
+                top = ext_patterns[0]
+                self.bus.post(
+                    from_role="spark",
+                    to_role="forum",
+                    channel="cosmos",
+                    message=(
+                        f"EXTERNAL ARRAY pattern `{top.get('kind')}`: {(top.get('summary') or '')[:220]} "
+                        f"Agents: query colony.telemetry + revise prior positions. cycle={cycle_id}."
+                    ),
+                    cycle_id=cycle_id,
+                    tags=["external_array", "telemetry", "debate", "peer_cite"],
+                    payload={"kind": "external_array_pattern", "pattern": top.get("kind")},
+                )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="external_array_error",
+                actor="spark",
+                summary=f"EXTERNAL ARRAY skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+        try:
+            from colony.residuals import ResidualField
+            rf = ResidualField(self.state.data)
+            fit_delta = 0.0
+            hist = self.state.data.get("fitness_history") or []
+            if len(hist) >= 2:
+                try:
+                    fit_delta = float(hist[-1].get("aggregate") or 0) - float(hist[-2].get("aggregate") or 0)
+                except Exception:
+                    fit_delta = 0.0
+            reply_rate = 0.5
+            try:
+                bm = self.bus.inner_bus_metrics() if hasattr(self.bus, "inner_bus_metrics") else {}
+                reply_rate = float(bm.get("reply_rate") or 0.5)
+            except Exception:
+                pass
+            ext_arousal = 0.2 * len(ext_patterns)
+            for role in list(self.registry.active().keys())[:12]:
+                rf.emit_from_signals(
+                    role,
+                    cycle_id=cycle_id,
+                    fitness_delta=fit_delta,
+                    reply_rate=reply_rate,
+                    external_arousal=ext_arousal,
+                    oracle_kill=False,
+                )
+            # Boost spark / improver arousal slightly for catalytic attention
+            rf.update("spark", cycle_id=cycle_id, arousal=min(1.0, 0.45 + ext_arousal), attention_weight=0.7)
+            if "improver" in self.registry.active():
+                rf.update("improver", cycle_id=cycle_id, arousal=min(1.0, 0.4 + abs(fit_delta)), error_gradient=abs(fit_delta) + 0.1)
+            residual_conflicts = rf.detect_conflicts()
+            rsnap = rf.persist()
+            g.improvements.append(
+                f"residuals:high={rsnap.get('high_residual')}:conflicts={len(residual_conflicts)}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="residuals",
+                actor="spark",
+                summary=(
+                    f"INTERNAL RESIDUALS: high={rsnap.get('high_residual')} "
+                    f"conflicts={len(residual_conflicts)} (re-debate triggers). Not consciousness."
+                ),
+                detail={
+                    "high_residual": rsnap.get("high_residual"),
+                    "conflicts": residual_conflicts[:5],
+                    "traces": rf.trace_sample(5),
+                    "not_consciousness": True,
+                },
+            )
+            if residual_conflicts:
+                c0 = residual_conflicts[0]
+                self.bus.post(
+                    from_role=c0.get("a") or "spark",
+                    to_role="forum",
+                    channel="forum",
+                    message=(
+                        f"RESIDUAL CONFLICT {c0.get('a')}↔{c0.get('b')} score={c0.get('score')}: "
+                        f"confidence_gap={c0.get('confidence_gap')} arousal_gap={c0.get('arousal_gap')}. "
+                        f"TRIGGER RE-DEBATE. High-residual agents get attention. cycle={cycle_id}."
+                    ),
+                    cycle_id=cycle_id,
+                    tags=["residuals", "redebate", "debate", "peer_cite"],
+                    payload={"kind": "residual_conflict", "conflict": c0},
+                )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="residuals_error",
+                actor="spark",
+                summary=f"INTERNAL RESIDUALS skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+        try:
+            from colony.oracle import counts as oracle_counts
+            from colony.time_revision import revise_from_signals
+            ora = {}
+            try:
+                ora = dict(oracle_counts())
+            except Exception:
+                ora = {}
+            fit_delta = 0.0
+            hist = self.state.data.get("fitness_history") or []
+            if len(hist) >= 2:
+                try:
+                    fit_delta = float(hist[-1].get("aggregate") or 0) - float(hist[-2].get("aggregate") or 0)
+                except Exception:
+                    fit_delta = 0.0
+            rev = revise_from_signals(
+                cycle_id=cycle_id,
+                external_patterns=ext_patterns,
+                residual_conflicts=residual_conflicts,
+                oracle=ora,
+                fitness_delta=fit_delta,
+            )
+            g.improvements.append(f"time_revision:count={rev.get('revision_count')}")
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="time_revision",
+                actor="spark",
+                summary=(
+                    f"TIME REVISION: {rev.get('revision_count')} prior conclusion(s) revised "
+                    f"from external/residual/oracle signals. Not append-only."
+                ),
+                detail={
+                    "revision_count": rev.get("revision_count"),
+                    "revisions": (rev.get("revisions") or [])[:5],
+                    "inputs": rev.get("inputs"),
+                },
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="time_revision_error",
+                actor="spark",
+                summary=f"TIME REVISION skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+        # SPARK2: ACTION/ACTUATION — close sense→think→act (gated)
+        actuation_summary = {}
+        try:
+            from colony.actuation import run_actuation_cycle
+            from colony.residuals import ResidualField
+            rf_act = ResidualField(self.state.data)
+            ora_act = {}
+            try:
+                from colony.oracle import counts as oracle_counts
+                ora_act = dict(oracle_counts())
+            except Exception:
+                ora_act = {}
+            fit_delta_act = 0.0
+            hist_act = self.state.data.get("fitness_history") or []
+            if len(hist_act) >= 2:
+                try:
+                    fit_delta_act = float(hist_act[-1].get("aggregate") or 0) - float(
+                        hist_act[-2].get("aggregate") or 0
+                    )
+                except Exception:
+                    fit_delta_act = 0.0
+            rr_act = None
+            try:
+                bm = self.bus.inner_bus_metrics() if hasattr(self.bus, "inner_bus_metrics") else {}
+                rr_act = bm.get("reply_rate")
+            except Exception:
+                pass
+            # reuse last revision event from systems if present
+            rev_event = {}
+            try:
+                from colony.time_revision import revision_stats
+                rev_event = {"revision_count": revision_stats().get("latest_revision_count")}
+            except Exception:
+                pass
+            actuation_summary = run_actuation_cycle(
+                bus=self.bus,
+                state_data=self.state.data,
+                cycle_id=cycle_id,
+                residual_field=rf_act,
+                external_patterns=ext_patterns,
+                revision_event=rev_event,
+                oracle=ora_act,
+                fitness_delta=fit_delta_act,
+                reply_rate=rr_act,
+            )
+            g.improvements.append(
+                f"actuation:exec={actuation_summary.get('n_executed')}:"
+                f"ok={actuation_summary.get('n_success')}:"
+                f"blocked={actuation_summary.get('n_blocked')}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="actuation",
+                actor="spark",
+                summary=(
+                    f"ACTION/ACTUATION: executed={actuation_summary.get('n_executed')} "
+                    f"success={actuation_summary.get('n_success')} "
+                    f"blocked={actuation_summary.get('n_blocked')} "
+                    f"kinds={actuation_summary.get('kinds')}. Sense→think→act closed."
+                ),
+                detail=actuation_summary,
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="actuation_error",
+                actor="spark",
+                summary=f"ACTION/ACTUATION skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+        try:
+            from colony.telemetry import attach_to_state
+            tsnap = attach_to_state(self.state.data, self.bus)
+            g.improvements.append(
+                f"telemetry:fit={(tsnap.get('internal') or {}).get('fitness_aggregate')}:"
+                f"reply={(tsnap.get('internal') or {}).get('reply_rate')}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="telemetry_snapshot",
+                actor="spark",
+                summary=(
+                    f"Telemetry snapshot for agent query: fit="
+                    f"{(tsnap.get('internal') or {}).get('fitness_aggregate')} "
+                    f"reply_rate={(tsnap.get('internal') or {}).get('reply_rate')} "
+                    f"oracle={(tsnap.get('internal') or {}).get('oracle')}."
+                ),
+                detail={
+                    "ts": tsnap.get("ts"),
+                    "internal_keys": list((tsnap.get("internal") or {}).keys()),
+                    "external_patterns": (
+                        (tsnap.get("external") or {}).get("external_array") or {}
+                    ).get("pattern_kinds"),
+                },
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="telemetry_error",
+                actor="spark",
+                summary=f"Telemetry snapshot skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         self._evolve(cycle_id, g, tribute_topics, tribute_count, live_ok, live_fail)
         self._government_and_census(cycle_id, g)
 
