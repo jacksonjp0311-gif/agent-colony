@@ -44,6 +44,8 @@ python3 -m colony evolve --cycles 5          # multi-cycle autonomous evolve
 python3 -m colony evolve --cycles 5 --offline
 python3 -m colony status
 python3 -m colony dashboard                  # refresh DASHBOARD.html + WITNESS_SUMMARY.md
+python3 -m colony authorize --decisions society/receipts/AUTHORIZE_DECISIONS.json
+# Selective human authorize (James / delegated). Never silent accept-all.
 ```
 
 ### Outputs

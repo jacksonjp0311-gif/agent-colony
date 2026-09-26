@@ -1,4 +1,4 @@
-"""CLI: python -m colony cycle | evolve | status | dashboard"""
+"""CLI: python -m colony cycle | evolve | status | dashboard | authorize"""
 
 from __future__ import annotations
 
@@ -20,6 +20,25 @@ def main(argv: list[str] | None = None) -> int:
     p_evolve.add_argument("--offline", action="store_true", help="Seed only; no HTTP")
     sub.add_parser("status", help="Print status JSON")
     sub.add_parser("dashboard", help="Refresh DASHBOARD.html + WITNESS_SUMMARY.md")
+    p_auth = sub.add_parser(
+        "authorize",
+        help="Human authorize: selectively accept/reject ledger findings (no silent accept-all)",
+    )
+    p_auth.add_argument(
+        "--decisions",
+        required=True,
+        help="Path to JSON list of {finding_id, decision, rationale} (+ optional proposals)",
+    )
+    p_auth.add_argument(
+        "--authorizer",
+        default="James Paul Jackson",
+        help="Human principal name (default: James Paul Jackson)",
+    )
+    p_auth.add_argument(
+        "--delegated-via",
+        default="Grok Bot (explicit trust grant)",
+        help="Delegation note recorded in witness/receipt",
+    )
     args = parser.parse_args(argv)
 
     from colony.society import Society
@@ -69,6 +88,50 @@ def main(argv: list[str] | None = None) -> int:
         paths = refresh_dashboard()
         print(f"dashboard={paths['dashboard']}")
         print(f"summary={paths['summary']}")
+        return 0
+
+    if args.cmd == "authorize":
+        from pathlib import Path as _Path
+
+        from colony.authorize import AuthorizeItem, Authorizer
+
+        payload = json.loads(_Path(args.decisions).read_text(encoding="utf-8"))
+        items_raw = payload.get("items") if isinstance(payload, dict) else payload
+        items = [
+            AuthorizeItem(
+                finding_id=i["finding_id"],
+                decision=i["decision"],
+                rationale=i["rationale"],
+            )
+            for i in items_raw
+        ]
+        proposals = []
+        if isinstance(payload, dict):
+            for p in payload.get("proposals") or []:
+                proposals.append((p["proposal_id"], p["decision"], p["rationale"]))
+        result = Authorizer().apply(
+            items,
+            authorizer=args.authorizer,
+            delegated_via=args.delegated_via,
+            proposal_ids=proposals,
+        )
+        print(
+            json.dumps(
+                {
+                    "cycle_id": result.cycle_id,
+                    "authorizer": result.authorizer,
+                    "delegated_via": result.delegated_via,
+                    "accepted": len(result.accepted),
+                    "rejected": len(result.rejected),
+                    "skipped": len(result.skipped),
+                    "proposal_updates": len(result.proposal_updates),
+                    "receipt": str(result.receipt_path),
+                    "accepted_ids": [a["finding_id"] for a in result.accepted],
+                    "rejected_ids": [r["finding_id"] for r in result.rejected],
+                },
+                indent=2,
+            )
+        )
         return 0
 
     return 1
