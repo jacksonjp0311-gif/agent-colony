@@ -1,5 +1,6 @@
 {
-  "when": "2026-09-26T11:47Z",
+  "when": "2026-09-26T12:28Z",
+  "standing_trust": "James: authorize high-P (P>=0.75) forever for agent-colony; selective; not accept-all",
   "authorize_cycles": [
     {
       "id": "authorize_20260926T113127Z",
@@ -18,20 +19,47 @@
       "accepted": 1,
       "rejected": 2,
       "note": "behavior-proven deepen-compute P=0.86; reject weak prize-track dupes"
+    },
+    {
+      "id": "authorize_20260926T122813Z",
+      "accepted": 5,
+      "rejected": 16,
+      "note": "lab institutions+NORM accept; hearing/RSI dupes reject"
     }
   ],
-  "p_policy": "accept only P>=0.75 with sourced evidence OR clearly proven by new metrics (citation_reuse/topic_priority/hearing); reject weak/dupes; leave uncertain",
+  "p_policy": "accept only P>=0.75 with sourced evidence OR clearly proven by new metrics; reject weak/dupes; leave uncertain",
   "accepted_this_batch": [
     {
-      "finding_id": "fnd_309462c974cf",
-      "title": "Hearing accept_candidate: Deepen compute-useful math",
+      "finding_id": "fnd_e1d23b995bb5",
+      "title": "Institution: Math Prize Desk",
+      "p": 0.88
+    },
+    {
+      "finding_id": "fnd_7d85ea93cfe3",
+      "title": "Institution: Hearing Chamber",
       "p": 0.86
+    },
+    {
+      "finding_id": "fnd_a44a3a1683d1",
+      "title": "Council: Research Lab Colloquium",
+      "p": 0.84
+    },
+    {
+      "finding_id": "fnd_b10f4fe2aa43",
+      "title": "Institution: Academy of Learning",
+      "p": 0.82
+    },
+    {
+      "finding_id": "fnd_be3edc343495",
+      "title": "NORM: Debate/hearing before propose; prize_boost; no AGI",
+      "p": 0.9
     }
   ],
-  "rejected_this_batch": 2,
+  "rejected_this_batch": 16,
+  "creator_brief": "society/briefs/CREATOR_BRIEF_compute_math_tech.md",
   "live": {
-    "cycle_count": 62,
-    "fitness_aggregate": 0.8443,
+    "cycle_count": 74,
+    "fitness_aggregate": 0.844,
     "citation_reuse": 1.0,
     "math_prize": 1.0,
     "compute_usefulness": 1.0,
@@ -39,30 +67,19 @@
     "findings_coupling": {
       "strength": 1.0,
       "accepted_math": 4,
-      "accepted_compute": 5,
+      "accepted_compute": 6,
       "accepted_rsi": 8,
       "citation_hits": 38,
       "persona_updated": 16,
-      "ts": "2026-09-26T11:46:09Z"
-    },
-    "spawn_privilege": {
-      "threshold": 0.33,
-      "citations": 38,
-      "strength": 1.0,
-      "ts": "2026-09-26T11:46:09Z"
-    },
-    "hearing": {
-      "accept_candidate": 11,
-      "reject": 11,
-      "defer": 11
+      "ts": "2026-09-26T12:28:43Z"
     },
     "status_counts": {
-      "candidate": 1339,
-      "unknown": 12,
-      "accepted": 38,
-      "rejected": 51
+      "candidate": 1759,
+      "unknown": 24,
+      "accepted": 43,
+      "rejected": 79
     },
-    "witness_events": 2437,
-    "commons_size": 115
+    "witness_events": 3248,
+    "commons_size": 163
   }
 }
