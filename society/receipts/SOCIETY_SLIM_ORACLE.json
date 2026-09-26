@@ -1,4 +1,27 @@
 {
   "mile": "oracle",
-  "probe": true
+  "cycle_count": 137,
+  "fitness_aggregate": 0.8339,
+  "lemma_score": 0.9071,
+  "hard_pass": "20/20",
+  "oracle": {
+    "passes": 22,
+    "kills": 22,
+    "easy_pad_kills": 17,
+    "total": 44
+  },
+  "easy_pad_dies": true,
+  "hard_keeps_oracle_pass": [
+    "catalan_convolution",
+    "derangement_subfactorial",
+    "narayana_sum",
+    "euler_totient_multiplicative"
+  ],
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city."
 }

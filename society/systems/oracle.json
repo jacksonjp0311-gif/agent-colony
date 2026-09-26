@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-26T15:25:05Z",
+  "passes": 22,
+  "kills": 22,
+  "easy_pad_kills": 17,
+  "latest": {
+    "ts": "2026-09-26T15:25:05Z",
+    "passed": false,
+    "kills": [
+      "stripped:easy_pad_baseline_already_useful",
+      "held_out:easy_pad_dies_on_held_out",
+      "cas:easy_pad_fails_cas_usefulness",
+      "easy_pad_oracle_kill",
+      "collective_kill"
+    ],
+    "hear": {
+      "heard": true,
+      "bus_ok": false,
+      "is_easy_pad": true,
+      "attack_weight": 0.9,
+      "support_weight": 0.1,
+      "msg_ids": [],
+      "propose": "PROPOSE for Oracle HEAR: `easy_pad_assoc_add` kind=easy_pad. Reverted `easy_pad_assoc_add` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 20\u219220 \u2014 Oracle/hard-tier required for keep; easy pads die o",
+      "attack": "ATTACK: `easy_pad_assoc_add` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
+    },
+    "sense": {
+      "stripped": {
+        "stripped_fails_usefulness": false,
+        "reason": "easy_pad_baseline_already_useful",
+        "ok_for_oracle": false
+      },
+      "held_out": {
+        "survives": false,
+        "ok_for_oracle": false,
+        "reason": "easy_pad_dies_on_held_out"
+      },
+      "cas": {
+        "cas_ok": false,
+        "ok_for_oracle": false,
+        "engine": "reject_easy_pad",
+        "reason": "easy_pad_fails_cas_usefulness",
+        "checks": []
+      },
+      "kills": [
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness"
+      ],
+      "sense_pass": false
+    },
+    "collective": {
+      "decision": "kill",
+      "sense_pass": false,
+      "keep_weight": 0.0,
+      "kill_weight": 1.0,
+      "votes": {
+        "geometer": {
+          "weight": 0.28,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "improver": {
+          "weight": 0.22,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "legislator": {
+          "weight": 0.18,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "spark": {
+          "weight": 0.16,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "tribute_keeper": {
+          "weight": 0.1,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "builder": {
+          "weight": 0.06,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        }
+      },
+      "still_candidate_until_authorize": true,
+      "mutation": "easy_pad_assoc_add",
+      "kind": "easy_pad",
+      "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.75 selective."
+    },
+    "fitness_credit": false,
+    "mutation": "easy_pad_assoc_add",
+    "kind": "easy_pad",
+    "source": "novelty_gate",
+    "cycle_id": "oracle_easy_again",
+    "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+    "not_agi": true,
+    "not_discovery": true
+  },
+  "note": "Oracle HEAR/SENSE/collective. FAIL kills keep. No pass \u2192 no fitness credit. Not AGI. Not novel theorems."
+}
