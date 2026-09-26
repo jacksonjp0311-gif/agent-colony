@@ -7,6 +7,7 @@ Not AGI. Not novel physics discoveries — correlations are debate input only.
 from __future__ import annotations
 
 import json
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -27,24 +28,47 @@ def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def _http_get(url: str, *, accept: str = "application/json") -> tuple[bool, Any, str]:
-    req = urllib.request.Request(
-        url,
-        headers={"User-Agent": UA, "Accept": accept},
-        method="GET",
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-            raw = resp.read()
-            ctype = (resp.headers.get("Content-Type") or "").lower()
-            if "json" in ctype or accept.endswith("json"):
+def _http_get(
+    url: str,
+    *,
+    accept: str = "application/json",
+    retries: int = 3,
+) -> tuple[bool, Any, str]:
+    """GET with bounded retries/backoff on 429/503 (Open-Meteo rate limits)."""
+    last_note = "no_attempt"
+    for attempt in range(max(1, retries)):
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": UA, "Accept": accept},
+            method="GET",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                raw = resp.read()
+                ctype = (resp.headers.get("Content-Type") or "").lower()
+                if "json" in ctype or accept.endswith("json"):
+                    try:
+                        return True, json.loads(raw.decode("utf-8", errors="replace")), "ok"
+                    except json.JSONDecodeError:
+                        return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
+                return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
+        except urllib.error.HTTPError as exc:
+            last_note = f"HTTPError: HTTP Error {exc.code}: {exc.reason}"
+            if exc.code in (429, 503) and attempt < retries - 1:
+                ra = exc.headers.get("Retry-After") if exc.headers else None
                 try:
-                    return True, json.loads(raw.decode("utf-8", errors="replace")), "ok"
-                except json.JSONDecodeError:
-                    return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
-            return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
-    except Exception as exc:  # noqa: BLE001
-        return False, None, f"{type(exc).__name__}: {exc}"
+                    delay = float(ra) if ra is not None else (1.25 * (2 ** attempt))
+                except (TypeError, ValueError):
+                    delay = 1.25 * (2 ** attempt)
+                time.sleep(min(max(delay, 0.5), 20.0))
+                continue
+            return False, None, last_note
+        except Exception as exc:  # noqa: BLE001
+            return False, None, f"{type(exc).__name__}: {exc}"
+    return False, None, last_note
+
+
+_WEATHER_LAST_GOOD = CACHE_DIR / "global_weather_last_good.json"
 
 
 def fetch_arxiv(max_results: int = 5) -> dict[str, Any]:
@@ -155,7 +179,11 @@ def fetch_noaa_space_weather() -> dict[str, Any]:
 
 
 def fetch_global_weather() -> dict[str, Any]:
-    """Open-Meteo global sample (no key) — multi-city snapshot."""
+    """Open-Meteo global sample (no key) — multi-city snapshot.
+
+    Rate-limits city calls, retries 429/503, and falls back to last-good cache
+    so a rate-limit does not hard-fail the evolve cycle.
+    """
     cities = [
         ("NYC", 40.71, -74.01),
         ("London", 51.51, -0.13),
@@ -164,13 +192,18 @@ def fetch_global_weather() -> dict[str, Any]:
     ]
     items: list[dict[str, Any]] = []
     notes: list[str] = []
-    for name, lat, lon in cities:
+    saw_429 = False
+    for i, (name, lat, lon) in enumerate(cities):
+        if i:
+            time.sleep(1.0)  # polite spacing — Open-Meteo free tier is sensitive
         url = (
             f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}"
             f"&current=temperature_2m,wind_speed_10m,weather_code&timezone=UTC"
         )
-        ok, body, note = _http_get(url)
+        ok, body, note = _http_get(url, retries=3)
         notes.append(f"{name}:{note}")
+        if "429" in note:
+            saw_429 = True
         if ok and isinstance(body, dict):
             cur = body.get("current") or {}
             items.append(
@@ -185,14 +218,43 @@ def fetch_global_weather() -> dict[str, Any]:
                     "source": "open_meteo",
                 }
             )
-    return {
+        elif saw_429:
+            # Stop hammering after a confirmed rate-limit; use what we have / cache.
+            break
+    result = {
         "feed": "global_weather",
         "ok": bool(items),
         "note": "; ".join(notes)[:240],
         "count": len(items),
         "items": items,
+        "live": bool(items),
+        "cached": False,
         "ts": _utc(),
     }
+    if result["ok"]:
+        try:
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            _WEATHER_LAST_GOOD.write_text(
+                json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
+        except Exception:
+            pass
+        return result
+    # Degrade: serve last-good so cycle stays resilient
+    try:
+        if _WEATHER_LAST_GOOD.exists():
+            cached = json.loads(_WEATHER_LAST_GOOD.read_text(encoding="utf-8"))
+            if isinstance(cached, dict) and cached.get("items"):
+                cached = dict(cached)
+                cached["ok"] = True
+                cached["live"] = False
+                cached["cached"] = True
+                cached["note"] = f"cached_last_good_after:{result['note']}"[:240]
+                cached["ts"] = _utc()
+                return cached
+    except Exception:
+        pass
+    return result
 
 
 def _correlate(feeds: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:

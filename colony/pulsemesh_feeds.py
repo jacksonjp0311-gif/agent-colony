@@ -36,24 +36,83 @@ def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def _http_get(url: str, *, accept: str = "application/json") -> tuple[bool, Any, str]:
-    req = urllib.request.Request(
-        url,
-        headers={"User-Agent": UA, "Accept": accept},
-        method="GET",
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-            raw = resp.read()
-            ctype = (resp.headers.get("Content-Type") or "").lower()
-            if "json" in ctype or accept.endswith("json"):
+def _http_get(
+    url: str,
+    *,
+    accept: str = "application/json",
+    retries: int = 3,
+) -> tuple[bool, Any, str]:
+    """GET with bounded retries/backoff on 429/503 so rate limits degrade softly."""
+    last_note = "no_attempt"
+    for attempt in range(max(1, retries)):
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": UA, "Accept": accept},
+            method="GET",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                raw = resp.read()
+                ctype = (resp.headers.get("Content-Type") or "").lower()
+                if "json" in ctype or accept.endswith("json"):
+                    try:
+                        return True, json.loads(raw.decode("utf-8", errors="replace")), "ok"
+                    except json.JSONDecodeError:
+                        return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
+                return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
+        except urllib.error.HTTPError as exc:
+            last_note = f"HTTPError: HTTP Error {exc.code}: {exc.reason}"
+            if exc.code in (429, 503) and attempt < retries - 1:
+                ra = exc.headers.get("Retry-After") if exc.headers else None
                 try:
-                    return True, json.loads(raw.decode("utf-8", errors="replace")), "ok"
-                except json.JSONDecodeError:
-                    return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
-            return True, raw.decode("utf-8", errors="replace")[:4000], "ok_text"
-    except Exception as exc:  # noqa: BLE001
-        return False, None, f"{type(exc).__name__}: {exc}"
+                    delay = float(ra) if ra is not None else (1.25 * (2 ** attempt))
+                except (TypeError, ValueError):
+                    delay = 1.25 * (2 ** attempt)
+                time.sleep(min(max(delay, 0.5), 20.0))
+                continue
+            return False, None, last_note
+        except Exception as exc:  # noqa: BLE001
+            return False, None, f"{type(exc).__name__}: {exc}"
+    return False, None, last_note
+
+
+# In-cycle / short-TTL memo so gather_external_array + gather_pulsemesh do not
+# double-hit Open-Meteo within the same evolve cycle.
+_OPENMETEO_MEM: dict[str, Any] | None = None
+_OPENMETEO_MEM_TS: float = 0.0
+_OPENMETEO_TTL_S = 90.0
+_OPENMETEO_LAST_GOOD = CACHE_DIR / "openmeteo_last_good.json"
+_OPENMETEO_MIN_INTERVAL_S = 1.25
+_OPENMETEO_LAST_REQ_TS: float = 0.0
+
+
+def _openmeteo_rate_limit() -> None:
+    global _OPENMETEO_LAST_REQ_TS
+    now = time.monotonic()
+    wait = _OPENMETEO_MIN_INTERVAL_S - (now - _OPENMETEO_LAST_REQ_TS)
+    if wait > 0:
+        time.sleep(wait)
+    _OPENMETEO_LAST_REQ_TS = time.monotonic()
+
+
+def _load_openmeteo_last_good() -> dict[str, Any] | None:
+    try:
+        if not _OPENMETEO_LAST_GOOD.exists():
+            return None
+        data = json.loads(_OPENMETEO_LAST_GOOD.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else None
+    except Exception:
+        return None
+
+
+def _save_openmeteo_last_good(payload: dict[str, Any]) -> None:
+    try:
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        _OPENMETEO_LAST_GOOD.write_text(
+            json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+    except Exception:
+        pass
 
 
 def _finite(x: Any) -> float | None:
@@ -129,6 +188,16 @@ def collect_openmeteo_series(
     variable: str = "temperature_2m",
     max_points: int = 48,
 ) -> dict[str, Any]:
+    global _OPENMETEO_MEM, _OPENMETEO_MEM_TS
+    now = time.monotonic()
+    if _OPENMETEO_MEM is not None and (now - _OPENMETEO_MEM_TS) < _OPENMETEO_TTL_S:
+        cached = dict(_OPENMETEO_MEM)
+        cached["note"] = f"mem_ttl:{cached.get('note')}"
+        cached["live"] = False
+        cached["cached"] = True
+        cached["ts"] = _utc()
+        return cached
+
     query = {
         "latitude": lat,
         "longitude": lon,
@@ -138,8 +207,20 @@ def collect_openmeteo_series(
         "timezone": "UTC",
     }
     url = "https://api.open-meteo.com/v1/forecast?" + urllib.parse.urlencode(query)
-    ok, body, note = _http_get(url)
+    _openmeteo_rate_limit()
+    ok, body, note = _http_get(url, retries=3)
     if not ok or not isinstance(body, dict):
+        last = _load_openmeteo_last_good()
+        if last and last.get("ok"):
+            out = dict(last)
+            out["note"] = f"cached_last_good_after:{note}"
+            out["live"] = False
+            out["cached"] = True
+            out["ok"] = True  # degrade gracefully — cycle continues on last-good
+            out["ts"] = _utc()
+            _OPENMETEO_MEM = dict(out)
+            _OPENMETEO_MEM_TS = time.monotonic()
+            return out
         return {
             "feed": "pulsemesh_openmeteo",
             "ok": False,
@@ -147,12 +228,22 @@ def collect_openmeteo_series(
             "count": 0,
             "items": [],
             "live": False,
+            "cached": False,
             "ts": _utc(),
         }
     hourly = body.get("hourly") or {}
     times = [str(x) for x in (hourly.get("time") or [])]
     values = [v for v in (_finite(x) for x in (hourly.get(variable) or [])) if v is not None]
     if not _series_ok(values, 8):
+        last = _load_openmeteo_last_good()
+        if last and last.get("ok"):
+            out = dict(last)
+            out["note"] = f"cached_last_good_after:too_few:{note}"
+            out["live"] = False
+            out["cached"] = True
+            out["ok"] = True
+            out["ts"] = _utc()
+            return out
         return {
             "feed": "pulsemesh_openmeteo",
             "ok": False,
@@ -160,10 +251,11 @@ def collect_openmeteo_series(
             "count": len(values),
             "items": [],
             "live": False,
+            "cached": False,
             "ts": _utc(),
         }
     units = (body.get("hourly_units") or {}).get(variable, "")
-    return {
+    result = {
         "feed": "pulsemesh_openmeteo",
         "ok": True,
         "note": note,
@@ -179,8 +271,13 @@ def collect_openmeteo_series(
             for i in range(min(8, len(values[-max_points:])))
         ],
         "live": True,
+        "cached": False,
         "ts": _utc(),
     }
+    _OPENMETEO_MEM = dict(result)
+    _OPENMETEO_MEM_TS = time.monotonic()
+    _save_openmeteo_last_good(result)
+    return result
 
 
 def collect_usgs_quakes(max_points: int = 40, days: int = 7, min_mag: float = 2.5) -> dict[str, Any]:

@@ -313,6 +313,13 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                     tags=["external_array", "telemetry", "debate", "peer_cite"],
                     payload={"kind": "external_array_pattern", "pattern": top.get("kind")},
                 )
+            # Auditability: PulseMesh already wrote society/systems/pulsemesh_feeds.json
+            if "pulsemesh_feeds" not in self.workshop.known():
+                self.workshop.ensure("pulsemesh_feeds", built_by="spark", cycle_id=cycle_id)
+                g.systems_built.append("pulsemesh_feeds")
+            self.workshop.use("pulsemesh_feeds", cycle_id)
+            if "pulsemesh_feeds" not in g.systems_used:
+                g.systems_used.append("pulsemesh_feeds")
         except Exception as exc:  # noqa: BLE001
             self.witness.record(
                 cycle_id=cycle_id,
@@ -449,6 +456,13 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                         "inform_only": True,
                     },
                 )
+            # Auditability: Athanor already wrote society/systems/athanor_coherence.json
+            if "athanor_coherence" not in self.workshop.known():
+                self.workshop.ensure("athanor_coherence", built_by="spark", cycle_id=cycle_id)
+                g.systems_built.append("athanor_coherence")
+            self.workshop.use("athanor_coherence", cycle_id)
+            if "athanor_coherence" not in g.systems_used:
+                g.systems_used.append("athanor_coherence")
         except Exception as exc:  # noqa: BLE001
             self.witness.record(
                 cycle_id=cycle_id,

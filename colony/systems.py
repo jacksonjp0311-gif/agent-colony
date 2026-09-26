@@ -80,6 +80,20 @@ SYSTEM_CATALOG: list[dict[str, Any]] = [
         "description": "Accepted math/compute/RSI findings alter gather/debate/build via skill_router, genomes, topic_priority, personas.",
         "initial": {"signal": {}, "updated_at": None, "version": 1},
     },
+    {
+        "name": "athanor_coherence",
+        "kind": "governor",
+        "filename": "athanor_coherence.json",
+        "description": "Athanor H7 coherence governor (inform-only; no double-gate; no durable accept).",
+        "initial": {"latest": {}, "distribution": {}, "updated_at": None, "version": 1},
+    },
+    {
+        "name": "pulsemesh_feeds",
+        "kind": "feeds",
+        "filename": "pulsemesh_feeds.json",
+        "description": "PulseMesh collectors into EXTERNAL ARRAY (debate input only; graceful degrade).",
+        "initial": {"feeds": {}, "feed_health": {}, "updated_at": None, "version": 1},
+    },
 ]
 
 
