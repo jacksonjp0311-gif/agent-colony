@@ -1,7 +1,8 @@
 """Spark — founding emergence engine.
 
 Proposes and enacts roles, councils, institutions, norms, rituals.
-Runs the growth loop via GrowthLoop. Refuses only hard-ceiling violations.
+Runs the growth loop via GrowthLoop. Enacts fitness-driven spawn signals.
+Refuses only hard-ceiling violations.
 """
 
 from __future__ import annotations
@@ -11,7 +12,10 @@ from typing import Any
 
 from colony.charter import CeilingViolation, check_emergence_proposal
 from colony.emergence.growth import GrowthLoop, GrowthResult
+from colony.emergence.menu import _EMERGENCE_MENU
+from colony.fitness import EvolutionEngine
 from colony.ledger import Finding, Ledger
+from colony.registry import AgentRegistry
 from colony.society_state import SocietyState
 from colony.witness import WitnessLog
 
@@ -25,9 +29,8 @@ class EmergenceResult:
     institutions: list[str] = field(default_factory=list)
     councils: list[str] = field(default_factory=list)
     growth: GrowthResult = field(default_factory=GrowthResult)
+    retired_roles: list[str] = field(default_factory=list)
 
-
-from colony.emergence.menu import _EMERGENCE_MENU
 
 class Spark:
     def __init__(self, ledger: Ledger, state: SocietyState, witness: WitnessLog) -> None:
@@ -37,11 +40,17 @@ class Spark:
 
     def _will_is_growth(self) -> bool:
         ask = (self.state.active_ask() or "").lower()
-        keys = ("grow", "build", "communicate", "gather", "improve", "learning")
+        keys = ("grow", "build", "communicate", "gather", "improve", "learning", "evolve")
         return any(k in ask for k in keys)
 
     def emerge(
-        self, cycle_id: str, *, tribute_topics: list[str], tribute_count: int
+        self,
+        cycle_id: str,
+        *,
+        tribute_topics: list[str],
+        tribute_count: int,
+        live_ok: int = 0,
+        live_fail: int = 0,
     ) -> EmergenceResult:
         result = EmergenceResult()
         existing = self.state.role_names()
@@ -90,13 +99,48 @@ class Spark:
             if enacted:
                 result.enacted.append(enacted)
 
-        # Growth loop — invent/build, communicate, gather, improve
+        # Growth loop — real bus/systems/fitness
         result.growth = GrowthLoop(self.ledger, self.state, self.witness).grow(
             cycle_id,
             tribute_topics=tribute_topics,
             tribute_count=tribute_count,
+            live_ok=live_ok,
+            live_fail=live_fail,
         )
         result.findings.extend(result.growth.findings)
+        result.retired_roles = list(result.growth.retired)
+
+        # Enact fitness-driven spawn signals
+        registry = AgentRegistry(self.state.data)
+        spawn_by_role = {s["role"]: s for s in EvolutionEngine.SPAWN_MENU}
+        for role in result.growth.spawn_signals:
+            spec = spawn_by_role.get(role)
+            if not spec:
+                continue
+            if role in self.state.role_names():
+                registry.enter(role, reason="fitness_respawn")
+                continue
+            idea = {
+                "type": "new_role",
+                "name": role,
+                "description": spec["description"],
+            }
+            try:
+                check_emergence_proposal({"summary": role, "detail": idea})
+            except CeilingViolation as e:
+                result.blocked.append(str(e))
+                continue
+            enacted = self._enact(cycle_id, idea, self.state.role_names(), result)
+            if enacted:
+                result.enacted.append(enacted)
+                registry.enter(role, reason="fitness_spawn")
+                self.witness.record(
+                    cycle_id=cycle_id,
+                    kind="role_spawned_by_fitness",
+                    actor="spark",
+                    summary=f"Fitness spawn: `{role}` (metric pressure).",
+                    detail={"role": role, "metric": spec["when_metric"]},
+                )
 
         self.ledger.set_extra_roles(self.state.role_names())
         return result
@@ -115,6 +159,7 @@ class Spark:
             if name in existing:
                 return None
             self.state.add_role(name, idea["description"], provisional=True, proposed_by="spark")
+            AgentRegistry(self.state.data).enter(name, reason="emergence")
             result.new_roles.append(name)
             self.ledger.set_extra_roles(self.state.role_names())
             f = self.ledger.create(
