@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from pathlib import Path
+
+from colony.personas import evolve_note_voice
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -10,7 +12,7 @@ ARTIFACTS_DIR = ROOT / "society" / "artifacts"
 
 class GrowthSteps1:
 
-    def _read_all_inboxes(self, cycle_id: str, g) -> dict[str, Any]:
+    def _read_all_inboxes(self, cycle_id: str, g: GrowthResult) -> dict[str, Any]:
         merged: dict[str, Any] = {
             "thin_topics": [],
             "build_requests": [],
@@ -34,7 +36,9 @@ class GrowthSteps1:
                 detail={"count": len(unread), "ids": [m.get("id") for m in unread[:8]]},
             )
             self.registry.record_outcome(role, "communicate", min(1.0, 0.4 + 0.1 * len(unread)))
+        # dedupe lists
         merged["thin_topics"] = sorted(set(merged["thin_topics"]))[:12]
+        # unique needs_reply by id
         seen = set()
         uniq = []
         for m in merged["needs_reply"]:
@@ -50,11 +54,12 @@ class GrowthSteps1:
         self,
         cycle_id: str,
         cycle_n: int,
-        g,
+        g: GrowthResult,
         actionables: dict[str, Any],
     ) -> None:
         builder = self.registry.best_for("build")
-        for name in ("coverage_index", "skill_router", "topic_priority", "reply_tracker"):
+        # USE existing systems first (measurable reuse)
+        for name in ("coverage_index", "skill_router", "topic_priority", "reply_tracker", "common_knowledge"):
             used = self.workshop.use(name, cycle_id)
             if used:
                 g.systems_used.append(name)
@@ -62,6 +67,7 @@ class GrowthSteps1:
                     self.registry.agents()[builder].get("systems_used") or 0
                 ) + 1
 
+        # BUILD next unbuilt system OR refresh topic_priority from actionables
         unbuilt = self.workshop.next_unbuilt()
         if unbuilt:
             rec = self.workshop.ensure(unbuilt["name"], built_by=builder, cycle_id=cycle_id)
@@ -78,17 +84,22 @@ class GrowthSteps1:
                 )
                 self.registry.record_outcome(builder, "build", 0.85)
         else:
+            # Refresh an existing system using inbox gap alerts (USE → write)
             self._refresh_topic_priority(cycle_id, builder, actionables, g)
+            # Also leave a short cycle note artifact for human witness
             ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
             note_name = f"cycle_{cycle_n}_evolve_note"
             path = ARTIFACTS_DIR / f"cycle_{cycle_n:04d}_evolve_note.md"
             thin = ", ".join(actionables.get("thin_topics") or []) or "(none from inbox)"
-            path.write_text(
+            note_body = (
                 f"# Cycle {cycle_n} Evolve Note\n\n"
                 f"Cycle: `{cycle_id}`\n\n"
                 f"Systems used: {', '.join(g.systems_used) or '—'}\n\n"
                 f"Inbox thin topics: {thin}\n\n"
-                f"Fitness will be recorded at end of growth loop.\n",
+                f"Fitness will be recorded at end of growth loop.\n"
+            )
+            path.write_text(
+                evolve_note_voice(builder, note_body, root=ROOT),
                 encoding="utf-8",
             )
             rel = str(path.relative_to(ROOT))
@@ -109,25 +120,33 @@ class GrowthSteps1:
         cycle_id: str,
         actor: str,
         actionables: dict[str, Any],
-        g,
+        g: GrowthResult,
     ) -> None:
         if "topic_priority" not in self.workshop.known():
+            # try ensure
             self.workshop.ensure("topic_priority", built_by=actor, cycle_id=cycle_id)
             g.systems_built.append("topic_priority")
+        # Load coverage_index if any
         cov = self.workshop.use("coverage_index", cycle_id)
         topic_counts: dict[str, int] = {}
         if cov and isinstance(cov.get("content"), dict):
             topic_counts = dict((cov["content"] or {}).get("topics") or {})
             if "coverage_index" not in g.systems_used:
                 g.systems_used.append("coverage_index")
+        # Merge inbox thin topics as high priority
         thin = list(actionables.get("thin_topics") or [])
         standing = self.state.standing_topics()
+        stem = ["science-method", "history-of-ideas", "mathematics-foundations", "software-engineering", "life-and-death", "nature-biology-ecology", "cosmology-universe"]
         ranked = []
         for t in thin:
             ranked.append({"topic": t, "priority": 1.0, "reason": "inbox_gap"})
-        for t in standing:
+        for t in stem:
             count = topic_counts.get(t, 0)
             if count < 2 and t not in thin:
+                ranked.append({"topic": t, "priority": 0.85, "reason": f"stem_coverage={count}"})
+        for t in standing:
+            count = topic_counts.get(t, 0)
+            if count < 2 and t not in thin and t not in stem:
                 ranked.append({"topic": t, "priority": 0.7, "reason": f"coverage={count}"})
         ranked.sort(key=lambda x: -x["priority"])
         self.workshop.write_json(
