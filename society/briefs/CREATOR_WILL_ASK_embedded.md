@@ -1,0 +1,16 @@
+# CREATOR_WILL_ASK (hard-lemma mile)
+
+Standing ask text now in `colony/society.py` (local) and mirrored here for GitHub visibility:
+
+```
+Hard-tier lemma + paper-fed conjectures under ceiling — NOT AGI theater, NOT Millennium.
+Next pressure: lemma_microbench hard tier (adversarial ranges + multi-step checkers) so
+textbook dumps cannot ace ~0.95; conjecture desk keeps ONLY on hard-tier score rise;
+easy-check padding must fail keep. Colony may propose conjectures/small lemmas; durable
+'discovered' still needs machine-check + human authorize. Prefer arXiv/OpenAlex as pointers
+(metadata + abstracts). Hearings reject bare 'we discovered X' without proof/bench path.
+FFT/autodiff stay green. Math Prize on verified harness lifts only. Personas + RSI + ceiling.
+Soft-cap 20; bias builder+geometer toward benches. Not AGI. Defer local model runtime.
+```
+
+See also `society/briefs/CREATOR_WILL_ASK_hard_lemma.txt` and `CHARTER.md`.
