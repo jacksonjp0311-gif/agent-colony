@@ -142,9 +142,10 @@ class GrowthSteps2:
                 "geometer" if "geometer" in roles else self.registry.best_for("gather"),
                 "archivist" if "archivist" in roles else "spark",
                 "math",
-                "Math channel: prioritize mathematics-foundations for commons reuse.",
-                ["gap_alert", "math"],
-                {"thin_topics": ["mathematics-foundations"]},
+                "Math channel: prioritize mathematics-foundations, open-math-problems, "
+                "compute-useful-math; cite accepted FFT/autodiff/open-problem findings.",
+                ["gap_alert", "math", "cites_accepted"],
+                {"thin_topics": ["mathematics-foundations", "open-math-problems", "compute-useful-math"]},
             ),
             (
                 "messenger" if "messenger" in roles else self.registry.best_for("communicate"),
@@ -158,7 +159,7 @@ class GrowthSteps2:
                 "naturalist" if "naturalist" in roles else self.registry.best_for("gather"),
                 "archivist" if "archivist" in roles else "spark",
                 "nature",
-                "Nature channel: prioritize nature-biology-ecology for commons.",
+                "Nature channel: prioritize nature-biology-ecology for commons reuse.",
                 ["gap_alert", "nature"],
                 {"thin_topics": ["nature-biology-ecology"]},
             ),
@@ -273,12 +274,25 @@ class GrowthSteps2:
             g.builds.append("common_knowledge")
 
         thin_inbox = actionables.get("thin_topics") or []
-        stem = ["science-method", "history-of-ideas", "mathematics-foundations", "software-engineering", "life-and-death", "nature-biology-ecology", "cosmology-universe"]
-        all_focus = sorted(
-            set(ranked_topics[:6]) | set(thin_inbox[:6]) | set(tribute_topics[:4]) | set(stem)
-        )
+        stem = ["science-method", "history-of-ideas", "mathematics-foundations", "software-engineering", "life-and-death", "nature-biology-ecology", "cosmology-universe", "open-math-problems", "compute-useful-math", "emergent-technology"]
+        # Behavior coupling: accepted findings drive focus order
+        from colony.findings_coupling import harvest_behavior_signal, load_signal, count_citations
+        fsig = load_signal(ROOT) or harvest_behavior_signal(self.ledger.all())
+        boost_topics = [b.get("topic") for b in (fsig.get("topic_boosts") or []) if b.get("topic")]
+        all_focus = list(dict.fromkeys(
+            list(boost_topics[:6]) + list(ranked_topics[:6]) + list(thin_inbox[:4]) + list(tribute_topics[:4]) + stem
+        ))
         thin = [t for t in (standing or all_focus) if ledger_topics.get(t, 0) < 2]
+        # Prefer boosted topics even if not thin (deepen accepted lines)
+        for bt in boost_topics[:4]:
+            if bt not in thin:
+                thin.insert(0, bt)
+        thin = list(dict.fromkeys(thin))
         rich = sorted(ledger_topics.items(), key=lambda x: -x[1])[:6]
+        cite_targets = fsig.get("citation_targets") or []
+        cite_ids = [c.get("id") for c in cite_targets[:4] if c.get("id")]
+        g.findings_signal = fsig  # type: ignore[attr-defined]
+        g.citation_hits = 0  # type: ignore[attr-defined]
 
         # Append commons candidates for STEM / RSI thin topics
         domain_for = {
@@ -297,6 +311,9 @@ class GrowthSteps2:
             "reflexion": "rsi",
             "self-refine": "rsi",
             "agent-societies": "empire",
+            "open-math-problems": "math",
+            "compute-useful-math": "math",
+            "emergent-technology": "software",
         }
         writer = "archivist" if "archivist" in self.registry.active() else actor
         for topic in (thin[:4] or stem[:2]):
@@ -323,12 +340,16 @@ class GrowthSteps2:
             g.systems_used.append("common_knowledge")
 
         title = f"Gather synthesis cycle {cycle_id[-6:]}"
+        cite_line = ", ".join(cite_ids) if cite_ids else "none"
         claim = (
-            f"GATHER(used systems+commons): tribute_count={tribute_count}; "
+            f"GATHER(used systems+commons+accepted findings): tribute_count={tribute_count}; "
             f"focus={all_focus[:8]}; thin={thin[:8]}; rich={rich[:4]}; "
             f"inbox_gaps={thin_inbox[:4]}; commons_size={commons.size()}; "
-            f"reused={[e.get('title') for e in reused[:3]]}."
+            f"reused={[e.get('title') for e in reused[:3]]}; "
+            f"cites_accepted=[{cite_line}]; boost={boost_topics[:4]}."
         )
+        # Math prize: count citation reuse of accepted compute/math findings
+        g.citation_hits = count_citations(claim, fsig)  # type: ignore[attr-defined]
         self.ledger.set_extra_roles(self.state.role_names() | set(self.registry.active()))
         f = self.ledger.create(
             role=actor if actor in self.state.role_names() else "spark",
@@ -338,11 +359,12 @@ class GrowthSteps2:
                 f"cycle:{cycle_id}",
                 "system:coverage_index",
                 "system:common_knowledge",
-            ],
+                "system:findings_coupling",
+            ] + [f"ledger:{cid}" for cid in cite_ids[:3]],
             provenance="growth_gather",
             status="candidate",
-            tags=["growth", "gather", "synthesis", "system_use", "commons"],
-            topic_id="agent-societies",
+            tags=["growth", "gather", "synthesis", "system_use", "commons", "cites_accepted"],
+            topic_id=(boost_topics[0] if boost_topics else "agent-societies"),
             title=title,
             meta={
                 "kind": "gather_synthesis",
@@ -352,11 +374,47 @@ class GrowthSteps2:
                 "cycle_id": cycle_id,
                 "systems_used": list(g.systems_used),
                 "commons_size": commons.size(),
+                "citation_hits": g.citation_hits,
+                "boost_topics": boost_topics[:8],
             },
         )
+        # Research paper gather (OpenAlex/arXiv or offline cache)
+        try:
+            from colony.research_gather import run_from_tribute, cached_count
+            # Tribute already live-fetches; gather reuses cache unless empty
+            live = cached_count() == 0
+            rg = run_from_tribute(ledger=self.ledger, cycle_id=cycle_id, live=live)
+            if rg.findings_created:
+                g.gathered.append(f"research_papers:{len(rg.findings_created)}")
+                self.witness.record(
+                    cycle_id=cycle_id,
+                    kind="research_gather",
+                    actor=actor,
+                    summary=(
+                        f"Research gather: {len(rg.findings_created)} papers "
+                        f"(live_ok={rg.live_ok} offline={rg.used_offline})"
+                    ),
+                    detail={
+                        "count": len(rg.findings_created),
+                        "live_ok": rg.live_ok,
+                        "live_fail": rg.live_fail,
+                        "used_offline": rg.used_offline,
+                        "titles": [h.title[:80] for h in rg.hits[:6]],
+                    },
+                )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="research_gather_error",
+                actor=actor,
+                summary=f"Research gather skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+
         g.findings.append(f)
         g.gathered.append(title)
-        self.registry.record_outcome(actor, "gather", 0.75 if thin else 0.9)
+        cite_bonus = min(0.15, 0.05 * int(getattr(g, "citation_hits", 0) or 0))
+        self.registry.record_outcome(actor, "gather", min(0.98, (0.75 if thin else 0.9) + cite_bonus))
         self.witness.record(
             cycle_id=cycle_id,
             kind="information_gathered",
