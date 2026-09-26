@@ -51,7 +51,7 @@
 
 
 
-## Flourish mile (this mile; oracle substrate retained)
+## Align mile (post-Flourish) (this mile; oracle substrate retained)
 
 | Piece | Rule |
 |-------|------|
@@ -65,6 +65,21 @@
 | **Hard / STEM keep** | Only with Oracle pass (+ measured lift) |
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
 | **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.75 selective). Not AGI. Not Millennium. Not novel physics. |
+
+
+## Spark mile (post-Align) (this mile; align substrate retained)
+
+| Piece | Rule |
+|-------|------|
+| **Soft spot** | reply_rate soft (~0.41); peer_cite/action_changed already 1.0 |
+| **Multi-hop** | A→B→C→D Oracle + E load-bear close; hearing chamber reply-chain; same-cycle directed-root sweep |
+| **Oracle** | Kill weak/easy_pad; **FAIL → fitness_credit=False** |
+| **Lessons→genome** | keep/revert bias skills+traits; easy_pad keeps weigh **0** |
+| **Spawn/retire** | Specialists spawn/retire on **Oracle-pass lift** (not theater) |
+| **Cron** | `colony-evolve.yml` mile=spark; selective authorize P≥0.75; slim push |
+| **Authorize** | Standing trust P≥0.75 selective; never accept-all; UNKNOWN stays UNKNOWN |
+| **Ethos** | We light the spark and witness. We do not micromanage the city. |
+| **Durable discovered** | Machine-check + Oracle + human authorize. Not AGI. Not Millennium. Not novel theorems. Not novel physics. |
 
 ## Claim boundary
 

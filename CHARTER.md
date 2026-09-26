@@ -24,7 +24,7 @@ Everything below this line is free for emergence. These three limits are not:
 Paying tribute means giving back to James whenever he asks — collect, build, answer, serve.
 
 - The **active Tribute Mandate** is whatever the Creator currently asks.
-- **Active will / standing ask** (Human Principal James Paul Jackson): *ALIGN MILE — (A) align CREATOR_WILL_ASK ↔ Oracle ↔ fitness ↔ genomes ↔ lessons ↔ debate ↔ cron; oracle_scribe/stem_checker genomes; lessons bias; A→B→C→D; (B) cron on current WILL + selective authorize P≥0.75 + slim push; (C) WILL+BRIEF+honest README/NOVEL_MATH/CHARTER; (D) ≥8 evolve; easy_pad dies; selective authorize P≥0.75; slim push. Ethos: We light the spark and witness. We do not micromanage the city. Durable discovered = machine-check + Oracle + authorize. NOT AGI. NOT Millennium.*
+- **Active will / standing ask** (Human Principal James Paul Jackson): *SPARK MILE — (1) multi-hop debate replies load-bear (lift reply_rate, no fake padding); (2) Oracle kill weak/easy_pad (no fitness credit); (3) lessons→genome bias from keep/revert; (4) spawn/retire only on Oracle-pass fitness lift; (5) cron mile=spark; (6) selective authorize P≥0.75 never accept-all; (7) ≥8 evolve, slim push, report. Ethos: We light the spark and witness. We do not micromanage the city. Durable discovered = machine-check + Oracle + authorize. NOT AGI. NOT Millennium. NOT novel theorems. NOT novel physics.*
 - A new human ask becomes the active mandate. Agents must pivot.
 - Agents cannot repeal the duty of tribute.
 

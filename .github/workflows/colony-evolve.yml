@@ -60,9 +60,11 @@ jobs:
           print(json.dumps({"ok_all": ok, "aggregate_score": latest.get("aggregate_score")}, indent=2))
           if not ok:
               print("::error::HARD BENCH FAIL ok_all=false — failure is noisy; continuing to record witness")
+              # Non-zero only when AUTOFAIL=1 (operator opt-in)
               if os.environ.get("AUTOFAIL") == "1":
                   sys.exit(2)
           else:
+              # success quiet
               print("benches ok (quiet)")
           PY
 
@@ -73,6 +75,7 @@ jobs:
         run: |
           set -euo pipefail
           export PYTHONPATH=.
+          # Optional live gather pulse (pointers only; raw scrape ≠ discovery)
           python - <<'PY' || echo "::warning::claim pipeline preflight non-fatal"
           from colony.claim_pipeline import run_pipeline
           import json
@@ -109,6 +112,7 @@ jobs:
               tags = set(f.tags or [])
               meta = f.meta or {}
               title = (f.title or "") + " " + (f.claim or "")
+              # ACCEPT only: machine-checked hard keep / multihop bus-driven / novelty-gated
               if f.status != "candidate":
                   continue
               is_keep = ("keep" in tags and ("hard_enable" in tags or meta.get("mutation_kind") == "hard_enable"))
@@ -127,21 +131,22 @@ jobs:
                       f.id, "rejected",
                       "Standing trust: revert/easy_pad — reject durable accept. Selective."
                   ))
+          # Cap accepts — never accept-all
           items = items[:8]
           rejected = rejected[:12]
           batch = items + rejected
           if not batch:
               print("authorize: nothing selective this run (quiet success)")
-              Path("society/receipts/AUTHORIZE_DECISIONS_align_ci.json").write_text(
-                  json.dumps({"items": [], "policy": "standing_trust_P>=0.75_selective_never_accept_all", "mile": "align"}, indent=2)+"\n"
+              Path("society/receipts/AUTHORIZE_DECISIONS_spark_ci.json").write_text(
+                  json.dumps({"items": [], "policy": "standing_trust_P>=0.75_selective_never_accept_all", "mile": "spark"}, indent=2)+"\n"
               )
           else:
               decisions = {
                   "items": [{"finding_id": i.finding_id, "decision": i.decision, "rationale": i.rationale} for i in batch],
                   "policy": "standing_trust_P>=0.75_selective_never_accept_all",
-                  "mile": "align",
+                  "mile": "spark",
               }
-              dec_path = Path("society/receipts/AUTHORIZE_DECISIONS_align_ci.json")
+              dec_path = Path("society/receipts/AUTHORIZE_DECISIONS_spark_ci.json")
               dec_path.write_text(json.dumps(decisions, indent=2) + "\n")
               result = Authorizer(root=root, ledger=ledger, state=state).apply(
                   batch,
@@ -166,6 +171,7 @@ jobs:
           from pathlib import Path
           from colony.dashboard import refresh_dashboard
           refresh_dashboard()
+          # Slim society mirror — do NOT rewrite multi-MB ledger/witness JSONL in CI commit noise
           latest = {}
           lp = Path("society/benchmarks/latest.json")
           if lp.exists():
@@ -175,6 +181,7 @@ jobs:
           cycle_count = None
           fit = None
           if sp.exists():
+              # Avoid loading entire multi-MB state if possible — still needed for metrics
               d = json.loads(sp.read_text())
               cycle_count = d.get("cycle_count")
               fit = (d.get("fitness_history") or [None])[-1]
@@ -199,7 +206,7 @@ jobs:
               ora = {"error": str(e)}
           receipt = {
               "when": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "mile": "align",
+              "mile": "spark",
               "cycle_count": cycle_count,
               "fitness_latest": fit,
               "bus_metrics": bus,
@@ -209,12 +216,12 @@ jobs:
               "exploration_budget_fp": (bud.get("last_outcome") or {}),
               "oracle": ora,
               "easy_pad_dies": bool(ora.get("easy_pad_kills")),
-              "note": "Slim CI receipt. Giant JSONL not rewritten. Align mile. Not AGI. Not novel theorems.",
+              "note": "Slim CI receipt. Giant JSONL not rewritten. Spark mile. Not AGI. Not novel theorems.",
           }
           Path("society/receipts").mkdir(parents=True, exist_ok=True)
-          Path("society/receipts/SOCIETY_SLIM_ALIGN.json").write_text(json.dumps(receipt, indent=2) + "\n")
+          Path("society/receipts/SOCIETY_SLIM_SPARK.json").write_text(json.dumps(receipt, indent=2) + "\n")
           Path("society/EVOLVE_STATUS.md").write_text(
-              "# Evolve Status — Align mile\n\n"
+              "# Evolve Status — Spark mile\n\n"
               "> We light the spark and witness. We do not micromanage the city.\n\n"
               "![Spark and witness](../docs/assets/spark_witness_city.jpg)\n\n"
               f"- cycle_count: `{cycle_count}`\n"
@@ -223,7 +230,7 @@ jobs:
               f"- debate action_changed: `{deb.get('action_changed')}`\n"
               f"- oracle passes/kills/easy_kills: `{ora.get('passes')}` / `{ora.get('kills')}` / `{ora.get('easy_pad_kills')}`\n"
               "- CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.75→slim push\n"
-              "- Align: CREATOR_WILL_ASK↔Oracle↔fitness↔genomes↔lessons↔debate↔cron. Failure noisy; success quiet. Not AGI. Not Millennium.\n"
+              "- Spark: pressure reply_rate via load-bear multi-hop; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift; P≥0.75. Failure noisy; success quiet. Not AGI. Not Millennium.\n"
           )
           print("slim receipts written (quiet)")
           PY
@@ -233,14 +240,16 @@ jobs:
           set -euo pipefail
           git config user.name "agent-colony-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Prefer slim paths; still allow data/society but avoid forcing giant churn messages
           git add -A data/commons society/systems society/benchmarks society/receipts \
             society/EVOLVE_STATUS.md society/DASHBOARD.html society/WITNESS_SUMMARY.md \
             society/BULLETIN.md society/report.md society/CI_STATUS.json \
             society/genomes society/briefs docs .github || true
+          # Include society_state only if changed size reasonable — always add but message notes slim
           git add data/society_state.json data/ledger.jsonl data/witness.jsonl society/WITNESS.md 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No society changes to commit (quiet success)"
           else
-            git commit -m "ci(colony): align loop benches+evolve+selective $(date -u +%Y-%m-%dT%H%MZ)"
+            git commit -m "ci(colony): spark loop benches+evolve+selective $(date -u +%Y-%m-%dT%H%MZ)"
             git push
           fi
