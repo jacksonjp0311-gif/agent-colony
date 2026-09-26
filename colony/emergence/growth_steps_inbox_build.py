@@ -48,6 +48,41 @@ class GrowthSteps1:
                 uniq.append(m)
         merged["needs_reply"] = uniq[:10]
         g.messages_read = total_read
+        # Lift 1: NEXT ACTION must change because of a message
+        baseline_topics = list(self.state.standing_topics())[:4]
+        inbox_topics = list(merged.get("thin_topics") or [])
+        planned_before = {"gather": baseline_topics[:3], "reply_n": 0, "build": "default"}
+        planned_after = {
+            "gather": (inbox_topics[:3] if inbox_topics else baseline_topics[:3]),
+            "reply_n": len(merged.get("needs_reply") or []),
+            "build": "inbox_gap" if inbox_topics else "default",
+        }
+        changed = planned_before != planned_after and (
+            bool(inbox_topics) or bool(merged.get("needs_reply")) or bool(merged.get("build_requests"))
+        )
+        self.bus.record_action_changed(
+            changed=changed,
+            detail={
+                "cycle_id": cycle_id,
+                "changed": changed,
+                "before": planned_before,
+                "after": planned_after,
+                "from_messages": total_read,
+            },
+        )
+        merged["action_changed"] = changed
+        merged["planned_action"] = planned_after
+        if changed:
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="action_changed_from_message",
+                actor="spark",
+                summary=(
+                    f"NEXT ACTION changed from inbox: gather={planned_after['gather'][:3]} "
+                    f"replies_needed={planned_after['reply_n']} (not shout-into-void)."
+                ),
+                detail={"before": planned_before, "after": planned_after},
+            )
         return merged
 
     def _build_and_use_systems(
@@ -149,9 +184,16 @@ class GrowthSteps1:
             if count < 2 and t not in thin and t not in stem:
                 ranked.append({"topic": t, "priority": 0.7, "reason": f"coverage={count}"})
         ranked.sort(key=lambda x: -x["priority"])
+        # Behavior: accepted math/compute/RSI findings boost gather targets (not museum)
+        try:
+            from colony.findings_coupling import harvest_behavior_signal, merge_topic_boosts, load_signal
+            sig = load_signal(ROOT) or harvest_behavior_signal(self.ledger.all())
+            ranked = merge_topic_boosts(ranked, sig)
+        except Exception:
+            pass
         self.workshop.write_json(
             "topic_priority",
-            {"ranked": ranked[:16], "source": "growth_refresh"},
+            {"ranked": ranked[:16], "source": "growth_refresh+findings_coupling"},
             cycle_id,
         )
         used = self.workshop.use("topic_priority", cycle_id)
@@ -165,3 +207,4 @@ class GrowthSteps1:
             summary=f"Refreshed topic_priority with {len(ranked)} ranked targets.",
             detail={"ranked": ranked[:8]},
         )
+

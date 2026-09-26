@@ -178,6 +178,80 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"Conjecture desk skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # Lift 3: scrape→analyze→claim (raw scrape ≠ discovery)
+        try:
+            from colony.claim_pipeline import run_pipeline
+            pipe = run_pipeline(live_gather=False, ledger=self.ledger, cycle_id=cycle_id)
+            g.improvements.append(
+                f"claim_pipeline:extracted={pipe.get('n_extracted')}:proposed={pipe.get('n_proposed')}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="claim_pipeline",
+                actor="geometer" if "geometer" in self.registry.active() else "spark",
+                summary=(
+                    f"Claim pipeline: extracted={pipe.get('n_extracted')} "
+                    f"hard_checked={pipe.get('n_hard_checked')} "
+                    f"proposed={pipe.get('n_proposed')} (raw scrape ≠ discovery)."
+                ),
+                detail=pipe,
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="claim_pipeline_error",
+                actor="geometer",
+                summary=f"Claim pipeline skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+        # Lift 2: bias skills/genomes from lesson ledger (kept outcomes only)
+        try:
+            from colony.lessons import apply_lesson_bias_to_agents, apply_lesson_bias_to_genomes, digest
+            bias = apply_lesson_bias_to_agents(self.registry.agents())
+            n_gen = apply_lesson_bias_to_genomes(ROOT)
+            if bias or n_gen:
+                self.witness.record(
+                    cycle_id=cycle_id,
+                    kind="lesson_bias_applied",
+                    actor="improver" if "improver" in self.registry.active() else "spark",
+                    summary=f"Lesson bias applied keys={list(bias)} genomes_touched={n_gen}. Digest: {digest(limit=3)}",
+                    detail={"skill_bias": bias, "genomes_touched": n_gen},
+                )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="lesson_bias_error",
+                actor="improver",
+                summary=f"Lesson bias skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+        # Lift 5: external_mind proposals under hard-tier (cross-agent debate already in evolve)
+        try:
+            from colony.external_mind import propose as em_propose
+            batch = em_propose(n=4, ledger=self.ledger, cycle_id=cycle_id, state_data=self.state.data)
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="external_mind_propose",
+                actor="spark",
+                summary=(
+                    f"External mind proposed {len(batch.proposals)} candidates "
+                    f"(keep only on hard-tier rise; dissent stays in witness)."
+                ),
+                detail={
+                    "n": len(batch.proposals),
+                    "ids": [p.get("id") for p in batch.proposals],
+                    "commons_prior": (batch.commons_digest or "")[:160],
+                    "not_consciousness": True,
+                },
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="external_mind_error",
+                actor="spark",
+                summary=f"External mind skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         self._evolve(cycle_id, g, tribute_topics, tribute_count, live_ok, live_fail)
         self._government_and_census(cycle_id, g)
 

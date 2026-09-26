@@ -41,10 +41,21 @@ class GrowthSteps2:
             parent_id = m.get("id")
             thin = ", ".join((actionables.get("thin_topics") or [])[:3]) or "n/a"
             digest_snip = commons.digest(limit=2)
+            # Lift 1: reply cites prior turn + peer findings (kill shout-into-void)
+            peer_fids = []
+            try:
+                for fnd in self.ledger.all()[-12:]:
+                    if getattr(fnd, "status", "") in ("accepted", "candidate") and getattr(fnd, "id", None):
+                        peer_fids.append(fnd.id)
+            except Exception:
+                peer_fids = []
+            cite_fid = peer_fids[-1] if peer_fids else ""
+            parent_snip = ((m.get("message") or "")[:80]).replace("\n", " ")
             reply_body = (
-                f"ACK cycle {cycle_n}: read your message from {m.get('from')}. "
-                f"Acting under empire growth will. Thin focus={thin}. "
-                f"Commons reuse: {digest_snip[:160]}."
+                f"ACK cycle {cycle_n}: read prior turn `{parent_id}` from {m.get('from')}. "
+                f"Citing peer finding `{cite_fid or 'none'}` and your words: '{parent_snip}'. "
+                f"NEXT ACTION changed: thin focus={thin}. "
+                f"Commons reuse: {digest_snip[:120]}."
             )
             reply_text = voice_wrap(responder, reply_body, root=ROOT)
             entry = self.bus.post(
@@ -53,9 +64,14 @@ class GrowthSteps2:
                 channel=m.get("channel") or "bulletin",
                 message=reply_text,
                 cycle_id=cycle_id,
-                tags=["reply", "quality"],
+                tags=["reply", "quality", "peer_cite"],
                 in_reply_to=parent_id,
+                payload={"cites_message": parent_id, "cites_finding": cite_fid},
             )
+            cited = self.bus.message_cites_peer(
+                reply_text, parent=m, peer_findings=peer_fids[-3:]
+            )
+            self.bus.record_peer_cite(cited=cited)
             g.replies += 1
             g.communications.append(entry)
             self.registry.agents()[responder]["replies_sent"] = int(
@@ -68,8 +84,17 @@ class GrowthSteps2:
                 cycle_id=cycle_id,
                 kind="communication_reply",
                 actor=responder,
-                summary=f"Reply {responder} -> {entry['to']} (to {parent_id}) q={entry.get('quality')}",
-                detail={"id": entry["id"], "in_reply_to": parent_id, "quality": entry.get("quality")},
+                summary=(
+                    f"Reply {responder} -> {entry['to']} (to {parent_id}) "
+                    f"q={entry.get('quality')} peer_cite={cited}"
+                ),
+                detail={
+                    "id": entry["id"],
+                    "in_reply_to": parent_id,
+                    "quality": entry.get("quality"),
+                    "peer_cite": cited,
+                    "cites_finding": cite_fid,
+                },
             )
 
         thin = actionables.get("thin_topics") or list(tribute_topics)[:4]
