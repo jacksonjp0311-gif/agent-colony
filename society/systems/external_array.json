@@ -1,7 +1,7 @@
 {
-  "ts": "2026-09-26T22:17:23Z",
-  "version": 1,
-  "mile": "spark2_telemetry",
+  "ts": "2026-09-26T22:26:55Z",
+  "version": 2,
+  "mile": "spark3-port",
   "feeds": {
     "arxiv": {
       "feed": "arxiv",
@@ -24,7 +24,7 @@
           "source": "arxiv"
         }
       ],
-      "ts": "2026-09-26T22:17:20Z"
+      "ts": "2026-09-26T22:26:49Z"
     },
     "nasa_donki_solar": {
       "feed": "nasa_donki_solar",
@@ -82,7 +82,7 @@
           "source": "nasa_donki"
         }
       ],
-      "ts": "2026-09-26T22:17:20Z"
+      "ts": "2026-09-26T22:26:49Z"
     },
     "noaa_space_weather": {
       "feed": "noaa_space_weather",
@@ -91,7 +91,7 @@
       "count": 0,
       "latest_kp": null,
       "items": [],
-      "ts": "2026-09-26T22:17:21Z"
+      "ts": "2026-09-26T22:26:49Z"
     },
     "global_weather": {
       "feed": "global_weather",
@@ -99,7 +99,198 @@
       "note": "NYC:HTTPError: HTTP Error 429: Too Many Requests; London:HTTPError: HTTP Error 429: Too Many Requests; Tokyo:HTTPError: HTTP Error 429: Too Many Requests; Sydney:HTTPError: HTTP Error 429: Too Many Requests",
       "count": 0,
       "items": [],
-      "ts": "2026-09-26T22:17:23Z"
+      "ts": "2026-09-26T22:26:52Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.3127585348993795,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-09-26T22:20:00Z",
+          "v": -7.785144214970519
+        },
+        {
+          "t": "2026-09-26T22:20:00Z",
+          "v": -6.3246256461616674
+        },
+        {
+          "t": "2026-09-26T22:21:00Z",
+          "v": -7.79899554093913
+        },
+        {
+          "t": "2026-09-26T22:21:00Z",
+          "v": -6.327334084317779
+        },
+        {
+          "t": "2026-09-26T22:22:00Z",
+          "v": -7.849853489040955
+        },
+        {
+          "t": "2026-09-26T22:22:00Z",
+          "v": -6.318134445741004
+        },
+        {
+          "t": "2026-09-26T22:23:00Z",
+          "v": -7.89756592323183
+        },
+        {
+          "t": "2026-09-26T22:23:00Z",
+          "v": -6.3127585348993795
+        }
+      ],
+      "live": true,
+      "ts": "2026-09-26T22:26:52Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": false,
+      "note": "HTTPError: HTTP Error 429: Too Many Requests",
+      "count": 0,
+      "items": [],
+      "live": false,
+      "ts": "2026-09-26T22:26:53Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 5.0,
+      "items": [
+        {
+          "mag": 5.0,
+          "place": "15 km NNW of Xunchang, China",
+          "time": 1790380653361,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.4,
+          "place": "69 km ENE of Tadine, New Caledonia",
+          "time": 1790380355158,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.5,
+          "place": "61 km ENE of Tadine, New Caledonia",
+          "time": 1790379581392,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "78 km NE of Tadine, New Caledonia",
+          "time": 1790379164392,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.5,
+          "place": "22 km WSW of Cantwell, Alaska",
+          "time": 1790375030485,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.1,
+          "place": "78 km ENE of Tadine, New Caledonia",
+          "time": 1790374054791,
+          "source": "usgs"
+        },
+        {
+          "mag": 6.6,
+          "place": "80 km ENE of Tadine, New Caledonia",
+          "time": 1790371383309,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.0,
+          "place": "13 km N of Xunchang, China",
+          "time": 1790370087262,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-09-19&endtime=2026-09-26&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-09-26T22:26:53Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.125,
+          "disk_free_percent": 88.54998662427288,
+          "process_count": 211,
+          "uptime_hours": 33.61282222222222,
+          "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+          "node": "grok-bot-vm-449207844",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.125,
+      "live": true,
+      "ts": "2026-09-26T22:26:53Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 0.06368799949996173,
+      "mean_ms": 0.101386754977284,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 0.1814010029193014
+        },
+        {
+          "probe": 1,
+          "ms": 0.07350400846917182
+        },
+        {
+          "probe": 2,
+          "ms": 0.08695400902070105
+        },
+        {
+          "probe": 3,
+          "ms": 0.06368799949996173
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-09-26T22:26:53Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": false,
+      "note": "HTTPError: HTTP Error 429: Too Many Requests",
+      "count": 0
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
     }
   },
   "cross_domain_patterns": [
@@ -122,9 +313,37 @@
       ],
       "not_discovery": true,
       "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-6.3127585348993795. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -6.3127585348993795
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.125 probe_ms=0.101386754977284. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.125,
+        "probe_ms": 0.101386754977284
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
     }
   ],
-  "note": "EXTERNAL ARRAY snapshot for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
   "non_claims": [
     "not_AGI",
     "not_novel_physics",

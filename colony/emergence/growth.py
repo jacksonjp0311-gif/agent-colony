@@ -394,6 +394,69 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"INTERNAL RESIDUALS skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # SPARK3: Athanor coherence governor on live residuals (inform-only; no double-gate)
+        athanor_snap = {}
+        try:
+            from colony.athanor_coherence import run_governor_on_state
+            from colony.residuals import ResidualField as _RF
+
+            rf_ath = _RF(self.state.data)
+            athanor_snap = run_governor_on_state(
+                self.state.data, cycle_id=cycle_id, residual_field=rf_ath
+            )
+            latest = athanor_snap.get("latest") or {}
+            dist = athanor_snap.get("distribution") or {}
+            g.improvements.append(
+                f"athanor:verdict={latest.get('verdict')}:h7={latest.get('h7')}:"
+                f"dist={dist}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="athanor_coherence",
+                actor="spark",
+                summary=(
+                    f"ATHANOR H7 inform-only: verdict={latest.get('verdict')} "
+                    f"h7={latest.get('h7')} reason={latest.get('reason')}. "
+                    f"Does NOT authorize durable rows. P>=0.70 human authorize ceiling."
+                ),
+                detail={
+                    "verdict": latest.get("verdict"),
+                    "h7": latest.get("h7"),
+                    "distribution": dist,
+                    "stabilizer_advice": athanor_snap.get("stabilizer_advice"),
+                    "inform_only": True,
+                    "double_gate": False,
+                    "durable_accept": False,
+                },
+            )
+            # Surface verdict into debate/actuation confidence (agents read; may trigger re-debate)
+            if latest.get("verdict") in ("REJECT", "REFINE") and hasattr(self, "bus"):
+                self.bus.post(
+                    from_role="spark",
+                    to_role="forum",
+                    channel="forum",
+                    message=(
+                        f"ATHANOR VERDICT `{latest.get('verdict')}` H7={latest.get('h7')}: "
+                        f"{latest.get('reason')}. Agents: weigh in re-debate / action confidence gates. "
+                        f"Inform-only — no silent ledger accept. cycle={cycle_id}."
+                    ),
+                    cycle_id=cycle_id,
+                    tags=["athanor", "coherence", "redebate", "debate", "peer_cite"],
+                    payload={
+                        "kind": "athanor_verdict",
+                        "verdict": latest.get("verdict"),
+                        "h7": latest.get("h7"),
+                        "inform_only": True,
+                    },
+                )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="athanor_coherence_error",
+                actor="spark",
+                summary=f"ATHANOR coherence skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         try:
             from colony.oracle import counts as oracle_counts
             from colony.time_revision import revise_from_signals

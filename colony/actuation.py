@@ -483,11 +483,36 @@ def _side_for(kind: str) -> str:
     return "internal"
 
 
-def _coherence_throttle(stats: dict[str, Any], *, conflict_rate: float | None) -> tuple[float, dict[str, Any] | None]:
-    """If success rate drops OR residual conflict rate spikes across 2 consecutive cycles → 30% throttle."""
+def _coherence_throttle(
+    stats: dict[str, Any],
+    *,
+    conflict_rate: float | None,
+    athanor_advice: dict[str, Any] | None = None,
+) -> tuple[float, dict[str, Any] | None]:
+    """If success rate drops OR residual conflict rate spikes across 2 consecutive cycles → 30% throttle.
+
+    Athanor H7 advice may INFORM a throttle factor (REJECT→0.70) but never double-gates
+    durable ledger accept. Human authorize P≥0.70 remains ceiling.
+    """
     hist = list(stats.get("cycle_history") or [])
     event = None
     factor = 1.0
+    # Inform-only: take the more conservative of empirical vs H7 suggestion
+    if athanor_advice and athanor_advice.get("inform_only", True):
+        try:
+            sug = float(athanor_advice.get("suggest_throttle_factor") or 1.0)
+            if sug < factor:
+                factor = sug
+                event = {
+                    "ts": _utc(),
+                    "reason": f"athanor_h7_{athanor_advice.get('verdict')}",
+                    "throttle_factor": factor,
+                    "h7": athanor_advice.get("h7"),
+                    "inform_only": True,
+                    "double_gate": False,
+                }
+        except (TypeError, ValueError):
+            pass
     if len(hist) >= STABILITY_WINDOW:
         a, b = hist[-2], hist[-1]
         succ_drop = (
@@ -505,22 +530,32 @@ def _coherence_throttle(stats: dict[str, Any], *, conflict_rate: float | None) -
             if float(conflict_rate) > float(b["conflict_rate"]) + 0.1 and succ_drop:
                 conf_spike = True
         if succ_drop or conf_spike:
-            factor = THROTTLE_FACTOR
+            factor = min(factor, THROTTLE_FACTOR)
             event = {
                 "ts": _utc(),
                 "reason": (
                     ("success_rate_drop" if succ_drop else "")
                     + ("+" if succ_drop and conf_spike else "")
                     + ("conflict_rate_spike" if conf_spike else "")
+                    + ("|athanor" if (athanor_advice and float(athanor_advice.get("suggest_throttle_factor") or 1) < 1) else "")
                 ) or "stability",
                 "throttle_factor": factor,
                 "prior": a,
                 "last": b,
                 "conflict_rate_now": conflict_rate,
+                "athanor_h7": (athanor_advice or {}).get("h7"),
+                "inform_only": True,
             }
             evs = list(stats.get("throttle_events") or [])
             evs.append(event)
             stats["throttle_events"] = evs[-20:]
+            stats["throttled"] = int(stats.get("throttled") or 0) + 1
+    elif event is not None:
+        # H7-only advisory throttle (no empirical window yet)
+        evs = list(stats.get("throttle_events") or [])
+        evs.append(event)
+        stats["throttle_events"] = evs[-20:]
+        if float(factor) < 1.0:
             stats["throttled"] = int(stats.get("throttled") or 0) + 1
     return factor, event
 
@@ -531,9 +566,12 @@ def _apply_balance_and_throttle(
     stats: dict[str, Any],
     conflict_rate: float | None,
     cycle_id: str,
+    athanor_advice: dict[str, Any] | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
     """Cap internal/external ≈50% each; apply coherence throttle; queue overflow."""
-    factor, throttle_event = _coherence_throttle(stats, conflict_rate=conflict_rate)
+    factor, throttle_event = _coherence_throttle(
+        stats, conflict_rate=conflict_rate, athanor_advice=athanor_advice
+    )
     budget = max(1, int(round(len(planned) * factor)))
     # Prefer keeping order but enforce side caps within budget
     max_internal = max(1, int(round(budget * INTERNAL_SHARE_MAX))) if budget else 0
@@ -648,6 +686,29 @@ def run_actuation_cycle(
 
     conflict_rate = round(n_conflicts / max(1, n_agents * (n_agents - 1) / 2), 4) if n_agents > 1 else 0.0
 
+    # Athanor H7 inform-only: adjust action confidence + advise throttle (never durable accept)
+    athanor_advice: dict[str, Any] = {}
+    athanor_verdict = None
+    try:
+        from colony.athanor_coherence import (
+            apply_verdict_to_confidence,
+            latest_verdict,
+            map_h7_to_stabilizer,
+            run_governor_on_state,
+        )
+
+        snap = latest_verdict()
+        if not snap.get("latest"):
+            snap = run_governor_on_state(state_data, cycle_id=cycle_id, residual_field=residual_field)
+        athanor_verdict = snap.get("latest") or {}
+        athanor_advice = snap.get("stabilizer_advice") or map_h7_to_stabilizer(athanor_verdict)
+        confidence = apply_verdict_to_confidence(confidence, athanor_verdict)
+        # Rede bate bias: surface as peer_consensus demand when REJECT/REFINE
+        if float(athanor_advice.get("redebate_bias") or 0) >= 0.3 and peer_consensus < CONSENSUS_MIN_PEERS:
+            peer_consensus = max(peer_consensus, 0)  # keep gate honest; debate layer reads verdict
+    except Exception:
+        athanor_advice = {"inform_only": True, "error": "athanor_unavailable"}
+
     motiv = (external_patterns[0] if external_patterns else {"kind": "external_array_refresh"})
     topic = (motiv.get("kind") if external_patterns else "residual_or_telemetry_gap") or "actuation"
 
@@ -717,7 +778,11 @@ def run_actuation_cycle(
     # Ensure at least one external candidate exists (already have probe).
 
     to_run, queued, split = _apply_balance_and_throttle(
-        planned, stats=stats, conflict_rate=conflict_rate, cycle_id=cycle_id
+        planned,
+        stats=stats,
+        conflict_rate=conflict_rate,
+        cycle_id=cycle_id,
+        athanor_advice=athanor_advice,
     )
 
     actions: list[dict[str, Any]] = []
@@ -767,6 +832,10 @@ def run_actuation_cycle(
             "internal": split.get("execute_internal"),
             "external": split.get("execute_external"),
             "throttle_factor": split.get("throttle_factor"),
+            "athanor_verdict": (athanor_verdict or {}).get("verdict") if isinstance(athanor_verdict, dict) else None,
+            "athanor_h7": (athanor_verdict or {}).get("h7") if isinstance(athanor_verdict, dict) else None,
+            "athanor_inform_only": True,
+
         }
     )
     stats["cycle_history"] = hist[-30:]

@@ -1,28 +1,22 @@
-"""Active Creator Will / Tribute Mandate (SPARK2 telemetry + residuals + time-revision mile).
+"""Active Creator Will / Tribute Mandate (SPARK3-PORT Athanor + PulseMesh mile).
 
 Not AGI. Not Millennium. Not novel theorems.
 """
 from __future__ import annotations
 
 CREATOR_WILL_ASK = (
-    "SPARK2 MILE (James ordered — Light the spark and witness): Continue SPARK pressure with "
-    "telemetry + residuals + time-revision. "
-    "(1) Selective authorize P≥0.70 (was 0.75) never accept-all; UNKNOWN stays UNKNOWN; "
-    "log accept/reject + before/after threshold compare. "
-    "(2) Fresh multi-hop debate seeds outside comfort zone (math/STEM kinematics, gather→claim, "
-    "hearings, Oracle, commons, government) — force cross-domain hops; avoid duplicate weak-spot loops. "
-    "(3) Agent-queryable telemetry: internal (fitness, reply rate, Oracle pass/kill/easy_pad, "
-    "authorize rates, genome bias drift, cycle deltas) + external array (arXiv, NASA/NOAA space, "
-    "solar indices, global weather) with graceful degrade + cache; agents query mid-debate. "
-    "(4) Internal residuals (activation, error gradients, confidence vectors, attention weights, "
-    "arousal scalars) — peer-readable; high-residual agents get attention; conflicting residuals "
-    "trigger re-debate; log traces with Oracle/authorize. "
-    "(5) ACTION/ACTUATION: gated sense→think→act (experiments, API probes, param adjust, sub-debates, telemetry weight updates); high-residual+high-confidence execute; low-confidence needs peer residual consensus; log action→outcome. (6) TIME REVISION: continuously re-evaluate prior conclusions when new external/residual "
-    "data arrives — revise earlier positions, not only append; track revision events. "
-    "(7) Oracle kill on weak/easy_pad (no fitness credit); lessons→genome; spawn on Oracle-pass lift. "
-    "(8) cron mile=spark2/telemetry; ≥8 evolve cycles; slim push; report. "
+    "SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence "
+    "governor + PulseMesh feeds as stability tools (no behavior scripting). "
+    "(1) Athanor: residuals→ΔΦ→C→H₇→APPROVE/REFINE/REJECT; inform Oracle + 50/50 actuation mix "
+    "+ 30% throttle — never double-gate durable ledger; P≥0.70 human authorize remains ceiling. "
+    "(2) PulseMesh collectors into EXTERNAL ARRAY: arXiv, NASA DONKI, NOAA Kp, Open-Meteo + "
+    "system-stat/TCP probe; agent-queryable; correlations = debate input only (not discovery). "
+    "(3) Selective authorize P≥0.70 never accept-all; UNKNOWN stays UNKNOWN. "
+    "(4) Fresh multi-hop debate; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift. "
+    "(5) ACTION/ACTUATION + TIME REVISION + residuals intact from SPARK2. "
+    "(6) cron mile=spark3-port; ≥8 evolve cycles; slim push; report. "
     "Do NOT touch spark_witness assets. Do NOT revert ALIGN→SPARK. Do NOT disable Oracle. "
-    "Ethos: We light the spark and witness. We do not micromanage the city. "
+    "Ethos: We light the spark and witness. We do not micromanage the city. Tools only. "
     "Hard ceiling ONLY: creator tribute; human authorize for durable accepted "
     "(standing trust P≥0.70 selective, never accept-all); append-only witness. "
     "NOT AGI. NOT consciousness. NOT Millennium. NOT novel theorems. NOT novel physics. "

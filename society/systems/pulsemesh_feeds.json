@@ -1,0 +1,223 @@
+{
+  "ts": "2026-09-26T22:26:55Z",
+  "version": 1,
+  "mile": "spark3-port",
+  "feeds": {
+    "goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.3127585348993795,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-09-26T22:20:00Z",
+          "v": -7.785144214970519
+        },
+        {
+          "t": "2026-09-26T22:20:00Z",
+          "v": -6.3246256461616674
+        },
+        {
+          "t": "2026-09-26T22:21:00Z",
+          "v": -7.79899554093913
+        },
+        {
+          "t": "2026-09-26T22:21:00Z",
+          "v": -6.327334084317779
+        },
+        {
+          "t": "2026-09-26T22:22:00Z",
+          "v": -7.849853489040955
+        },
+        {
+          "t": "2026-09-26T22:22:00Z",
+          "v": -6.318134445741004
+        },
+        {
+          "t": "2026-09-26T22:23:00Z",
+          "v": -7.89756592323183
+        },
+        {
+          "t": "2026-09-26T22:23:00Z",
+          "v": -6.3127585348993795
+        }
+      ],
+      "live": true,
+      "ts": "2026-09-26T22:26:54Z"
+    },
+    "openmeteo_series": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": false,
+      "note": "HTTPError: HTTP Error 429: Too Many Requests",
+      "count": 0,
+      "items": [],
+      "live": false,
+      "ts": "2026-09-26T22:26:54Z"
+    },
+    "usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 5.0,
+      "items": [
+        {
+          "mag": 5.0,
+          "place": "15 km NNW of Xunchang, China",
+          "time": 1790380653361,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.4,
+          "place": "69 km ENE of Tadine, New Caledonia",
+          "time": 1790380355158,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.5,
+          "place": "61 km ENE of Tadine, New Caledonia",
+          "time": 1790379581392,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "78 km NE of Tadine, New Caledonia",
+          "time": 1790379164392,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.5,
+          "place": "22 km WSW of Cantwell, Alaska",
+          "time": 1790375030485,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.1,
+          "place": "78 km ENE of Tadine, New Caledonia",
+          "time": 1790374054791,
+          "source": "usgs"
+        },
+        {
+          "mag": 6.6,
+          "place": "80 km ENE of Tadine, New Caledonia",
+          "time": 1790371383309,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.0,
+          "place": "13 km N of Xunchang, China",
+          "time": 1790370087262,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-09-19&endtime=2026-09-26&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-09-26T22:26:55Z"
+    },
+    "system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.11474609375,
+          "disk_free_percent": 88.54998662427288,
+          "process_count": 211,
+          "uptime_hours": 33.613255555555554,
+          "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+          "node": "grok-bot-vm-449207844",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.11474609375,
+      "live": true,
+      "ts": "2026-09-26T22:26:55Z"
+    },
+    "tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 0.07122800161596388,
+      "mean_ms": 0.11036449723178521,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 0.2093279908876866
+        },
+        {
+          "probe": 1,
+          "ms": 0.07970699516590685
+        },
+        {
+          "probe": 2,
+          "ms": 0.0811950012575835
+        },
+        {
+          "probe": 3,
+          "ms": 0.07122800161596388
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-09-26T22:26:55Z"
+    }
+  },
+  "feed_health": {
+    "goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "openmeteo_series": {
+      "ok": false,
+      "note": "HTTPError: HTTP Error 429: Too Many Requests",
+      "count": 0
+    },
+    "usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "pulsemesh_local_ops_health",
+      "summary": "Local system_stat load1=0.11474609375 tcp_probe mean_ms=0.11036449723178521 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "signals": {
+        "load1": 0.11474609375,
+        "probe_ms": 0.11036449723178521,
+        "probe_ok": true
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "PulseMesh collectors in EXTERNAL ARRAY. Agent-queryable. Correlations are debate input — not discovery claims.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium",
+    "debate_input_only"
+  ]
+}

@@ -1,360 +1,349 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T15:47:32Z",
-  "updated_cycle": "flourish_desk_stem_easy_pad_units",
-  "n_active": 43,
-  "n_keeps": 17,
-  "n_reverts": 26,
+  "updated_at": "2026-09-26T22:26:40Z",
+  "updated_cycle": "20260926T222639Z_0c38b7",
+  "n_active": 35,
+  "n_keeps": 7,
+  "n_reverts": 28,
   "skill_bias": {
-    "geometer.gather": 0.0705,
-    "improver.improve": 0.0529,
-    "spark.emergence": 0.0352
+    "geometer.gather": 0.08,
+    "improver.improve": 0.0547,
+    "spark.emergence": 0.04,
+    "builder.build": 0.03
   },
   "recent": [
     {
-      "id": "les_sy_again_easy_pad_assoc_add",
-      "ts": "2026-09-26T15:25:05Z",
-      "cycle_id": "oracle_easy_again",
+      "id": "les_Z_bd61e7_fft_add_slow_loops",
+      "ts": "2026-09-26T22:16:52Z",
+      "cycle_id": "20260926T221652Z_bd61e7",
       "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_assoc_add",
-      "what": "Reverted `easy_pad_assoc_add` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 20\u219220 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_flourish_bell_triangle_recurrence",
-      "ts": "2026-09-26T15:46:58Z",
-      "cycle_id": "smoke_flourish",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "bell_triangle_recurrence",
-      "what": "Kept `bell_triangle_recurrence` (hard_enable): lemma score 0.8271\u21920.8371 checks 30\u219231 hard_pass 20\u219221 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8271,
-      "after_score": 0.8371,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_oke_stem_energy_work",
-      "ts": "2026-09-26T15:47:09Z",
-      "cycle_id": "smoke_stem",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "energy_work",
-      "what": "Kept `energy_work` (stem_enable): lemma score 0.7812\u21920.825 checks 3\u21924 hard_pass 3\u21924 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
-      "source": "conjecture_desk",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8825, delta=-0.0221); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9072",
+      "source": "bench_improve",
       "family": "outcome",
-      "before_score": 0.7812,
-      "after_score": 0.825,
+      "before_score": 0.9046,
+      "after_score": 0.8825,
       "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
+        "improver.improve": -0.05,
+        "builder.build": -0.03
       },
       "tags": [
-        "lemma",
-        "stem_enable",
-        "keep"
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
       ],
       "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
       ],
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_oke_easy_easy_pad_assoc_add",
-      "ts": "2026-09-26T15:47:09Z",
-      "cycle_id": "smoke_easy",
+      "id": "les_Z_107242_fft_add_slow_loops",
+      "ts": "2026-09-26T22:17:00Z",
+      "cycle_id": "20260926T221659Z_107242",
       "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_assoc_add",
-      "what": "Reverted `easy_pad_assoc_add` (easy_pad): score 0.8371\u21920.8529 ok=True hard_pass 21\u219221 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.8371,
-      "after_score": 0.8371,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_tem_easy_stem_easy_pad_units",
-      "ts": "2026-09-26T15:47:09Z",
-      "cycle_id": "smoke_stem_easy",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "stem_easy_pad_units",
-      "what": "Reverted `stem_easy_pad_units` (stem_easy_pad): score 0.825\u21920.825 ok=True hard_pass 4\u21924 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['tentative_not_keep']",
-      "source": "conjecture_desk",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8741, delta=-0.0187); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8957",
+      "source": "bench_improve",
       "family": "outcome",
-      "before_score": 0.825,
-      "after_score": 0.825,
+      "before_score": 0.8928,
+      "after_score": 0.8741,
       "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
+        "improver.improve": -0.05,
+        "builder.build": -0.03
       },
       "tags": [
-        "lemma",
-        "stem_easy_pad",
-        "revert"
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
       ],
       "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
       ],
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_currence_hermite_recurrence",
-      "ts": "2026-09-26T15:47:32Z",
-      "cycle_id": "flourish_desk_hermite_recurrence",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "hermite_recurrence",
-      "what": "Kept `hermite_recurrence` (hard_enable): lemma score 0.8371\u21920.8471 checks 31\u219232 hard_pass 21\u219222 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8371,
-      "after_score": 0.8471,
+      "id": "les_Z_8d9e97_fft_add_slow_loops",
+      "ts": "2026-09-26T22:17:08Z",
+      "cycle_id": "20260926T221708Z_8d9e97",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8773, delta=-0.0273); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8968",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.9046,
+      "after_score": 0.8773,
       "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
+        "improver.improve": -0.05,
+        "builder.build": -0.03
       },
       "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
       ],
       "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
       ],
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_identity_lagrange_identity",
-      "ts": "2026-09-26T15:47:32Z",
-      "cycle_id": "flourish_desk_lagrange_identity",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "lagrange_identity",
-      "what": "Kept `lagrange_identity` (hard_enable): lemma score 0.8471\u21920.8571 checks 32\u219233 hard_pass 22\u219223 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8471,
-      "after_score": 0.8571,
+      "id": "les_Z_05fedf_fft_add_slow_loops",
+      "ts": "2026-09-26T22:17:16Z",
+      "cycle_id": "20260926T221715Z_05fedf",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8839, delta=-0.0175); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9005",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.9014,
+      "after_score": 0.8839,
       "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
+        "improver.improve": -0.05,
+        "builder.build": -0.03
       },
       "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
       ],
       "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
       ],
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_on_small_binomial_inversion_small",
-      "ts": "2026-09-26T15:47:32Z",
-      "cycle_id": "flourish_desk_binomial_inversion_small",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "binomial_inversion_small",
-      "what": "Kept `binomial_inversion_small` (hard_enable): lemma score 0.8571\u21920.8671 checks 33\u219234 hard_pass 23\u219224 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8571,
-      "after_score": 0.8671,
+      "id": "les_Z_d49cf6_fft_add_slow_loops",
+      "ts": "2026-09-26T22:24:57Z",
+      "cycle_id": "20260926T222456Z_d49cf6",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8779, delta=-0.0175); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8971",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8954,
+      "after_score": 0.8779,
       "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
+        "improver.improve": -0.05,
+        "builder.build": -0.03
       },
       "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
       ],
       "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
       ],
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_on_small_legendre_duplication_small",
-      "ts": "2026-09-26T15:47:32Z",
-      "cycle_id": "flourish_desk_legendre_duplication_small",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "legendre_duplication_small",
-      "what": "Kept `legendre_duplication_small` (hard_enable): lemma score 0.8671\u21920.8771 checks 34\u219235 hard_pass 24\u219225 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8671,
+      "id": "les_Z_3a739d_fft_add_slow_loops",
+      "ts": "2026-09-26T22:25:12Z",
+      "cycle_id": "20260926T222511Z_3a739d",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8771, delta=-0.0231); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8974",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.9002,
       "after_score": 0.8771,
       "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
+        "improver.improve": -0.05,
+        "builder.build": -0.03
       },
       "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
       ],
       "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
       ],
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_identity_easy_pad_zero_identity",
-      "ts": "2026-09-26T15:47:32Z",
-      "cycle_id": "flourish_desk_easy_pad_zero_identity",
+      "id": "les_Z_5f3b8a_fft_add_slow_loops",
+      "ts": "2026-09-26T22:25:26Z",
+      "cycle_id": "20260926T222525Z_5f3b8a",
       "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_zero_identity",
-      "what": "Reverted `easy_pad_zero_identity` (easy_pad): score 0.8771\u21920.8929 ok=True hard_pass 25\u219225 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.8771,
-      "after_score": 0.8771,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_re_again_easy_pad_square_again",
-      "ts": "2026-09-26T15:47:32Z",
-      "cycle_id": "flourish_desk_easy_pad_square_again",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_square_again",
-      "what": "Reverted `easy_pad_square_again` (easy_pad): score 0.8771\u21920.8929 ok=True hard_pass 25\u219225 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.8771,
-      "after_score": 0.8771,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_ad_units_stem_easy_pad_units",
-      "ts": "2026-09-26T15:47:32Z",
-      "cycle_id": "flourish_desk_stem_easy_pad_units",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "stem_easy_pad_units",
-      "what": "Reverted `stem_easy_pad_units` (stem_easy_pad): score 0.825\u21920.825 ok=True hard_pass 4\u21924 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['tentative_not_keep']",
-      "source": "conjecture_desk",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8766, delta=-0.0204); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.903",
+      "source": "bench_improve",
       "family": "outcome",
-      "before_score": 0.825,
-      "after_score": 0.825,
+      "before_score": 0.897,
+      "after_score": 0.8766,
       "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
+        "improver.improve": -0.05,
+        "builder.build": -0.03
       },
       "tags": [
-        "lemma",
-        "stem_easy_pad",
-        "revert"
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
       ],
       "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_5fea4a_fft_add_slow_loops",
+      "ts": "2026-09-26T22:25:41Z",
+      "cycle_id": "20260926T222540Z_5fea4a",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8764, delta=-0.0173); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8816",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8937,
+      "after_score": 0.8764,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_d972ab_fft_add_slow_loops",
+      "ts": "2026-09-26T22:25:56Z",
+      "cycle_id": "20260926T222555Z_d972ab",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8786, delta=-0.019); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9033",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8976,
+      "after_score": 0.8786,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_74c6b8_autodiff_busy_loop",
+      "ts": "2026-09-26T22:26:11Z",
+      "cycle_id": "20260926T222610Z_74c6b8",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "autodiff_busy_loop",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.9038, delta=0.0015); reverted (Add busy loop in autodiff grads \u2014 should revert); restored_agg=0.9035",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.9023,
+      "after_score": 0.9038,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "autodiff_busy_loop"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/autodiff_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_e041d2_autodiff_busy_loop",
+      "ts": "2026-09-26T22:26:25Z",
+      "cycle_id": "20260926T222624Z_e041d2",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "autodiff_busy_loop",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.9029, delta=0.0043); reverted (Add busy loop in autodiff grads \u2014 should revert); restored_agg=0.9069",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8986,
+      "after_score": 0.9029,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "autodiff_busy_loop"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/autodiff_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_0c38b7_autodiff_busy_loop",
+      "ts": "2026-09-26T22:26:40Z",
+      "cycle_id": "20260926T222639Z_0c38b7",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "autodiff_busy_loop",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.9021, delta=-0.0021); reverted (Add busy loop in autodiff grads \u2014 should revert); restored_agg=0.9051",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.9042,
+      "after_score": 0.9021,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "autodiff_busy_loop"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/autodiff_impl.py",
+        "society/benchmarks/run_benchmarks.py"
       ],
       "expired": false,
       "status": "candidate"

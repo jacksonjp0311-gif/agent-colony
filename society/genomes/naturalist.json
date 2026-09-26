@@ -1,22 +1,40 @@
 {
   "role": "naturalist",
   "traits": {
-    "gather": 0.5075,
-    "build": 0.41,
-    "reply": 0.9026,
-    "explore": 0.4973,
-    "govern": 0.5611
+    "gather": 0.5292,
+    "build": 0.5008,
+    "reply": 0.4199,
+    "explore": 0.5201,
+    "govern": 0.5577
   },
   "parents": [
-    "spark",
-    "courier"
+    "memory_weaver",
+    "spark"
   ],
   "generation": 1,
   "mutated_keys": [
-    "build"
+    "reply"
   ],
-  "born_cycle": "20260926T110547Z_ff5f5f",
-  "born_at": "2026-09-26T11:05:47Z",
-  "fitness_at_birth": 0.8862,
-  "version": 1
+  "born_cycle": "20260926T221659Z_107242",
+  "born_at": "2026-09-26T22:17:08Z",
+  "fitness_at_birth": 0.7605,
+  "version": 1,
+  "rsi_mutation_bias": {
+    "explore": 0.065,
+    "govern": 0.04,
+    "build": 0.035,
+    "gather": 0.02,
+    "reply": 0.0175
+  },
+  "rsi_coupling_strength": 0.25,
+  "rsi_coupling_ts": "2026-09-26T22:17:08Z",
+  "findings_mutation_bias": {
+    "gather": 0.03,
+    "explore": 0.03,
+    "build": 0.02,
+    "govern": 0.01,
+    "reply": 0.01
+  },
+  "findings_coupling_strength": 0.0,
+  "findings_coupling_ts": "2026-09-26T22:17:08Z"
 }

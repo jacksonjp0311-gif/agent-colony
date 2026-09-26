@@ -277,7 +277,7 @@ def _correlate(feeds: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def gather_external_array(*, force: bool = False) -> dict[str, Any]:
-    """Fetch all feeds, correlate, cache snapshot. Agent-callable."""
+    """Fetch all feeds (+ PulseMesh collectors), correlate, cache snapshot. Agent-callable."""
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     feeds = {
         "arxiv": fetch_arxiv(),
@@ -285,15 +285,80 @@ def gather_external_array(*, force: bool = False) -> dict[str, Any]:
         "noaa_space_weather": fetch_noaa_space_weather(),
         "global_weather": fetch_global_weather(),
     }
+    # SPARK3: PulseMesh live API / system-stat / probe collectors (debate input only)
+    pulsemesh_health: dict[str, Any] = {}
+    try:
+        from colony.pulsemesh_feeds import (
+            collect_goes_xray,
+            collect_openmeteo_series,
+            collect_system_stat,
+            collect_tcp_probe,
+            collect_usgs_quakes,
+        )
+
+        pm = {
+            "pulsemesh_goes_xray": collect_goes_xray(),
+            "pulsemesh_openmeteo": collect_openmeteo_series(),
+            "pulsemesh_usgs_quakes": collect_usgs_quakes(),
+            "pulsemesh_system_stat": collect_system_stat(),
+            "pulsemesh_tcp_probe": collect_tcp_probe(),
+        }
+        feeds.update(pm)
+        pulsemesh_health = {
+            k: {"ok": bool(v.get("ok")), "note": v.get("note"), "count": v.get("count")}
+            for k, v in pm.items()
+        }
+        # Persist dedicated PulseMesh snapshot (non-fatal)
+        try:
+            from colony.pulsemesh_feeds import gather_pulsemesh
+
+            gather_pulsemesh(include_external_core=False)
+        except Exception:
+            pass
+    except Exception as exc:  # noqa: BLE001
+        pulsemesh_health = {"error": str(exc)}
     patterns = _correlate(feeds)
+    # Append PulseMesh-specific pattern hints when local/live sensors speak
+    sysf = feeds.get("pulsemesh_system_stat") or {}
+    probe = feeds.get("pulsemesh_tcp_probe") or {}
+    goes = feeds.get("pulsemesh_goes_xray") or {}
+    if bool(goes.get("ok")):
+        patterns.append(
+            {
+                "kind": "pulsemesh_goes_live",
+                "summary": (
+                    f"PulseMesh GOES X-ray live latest={goes.get('latest')}. "
+                    "Space-weather debate input — not novel physics."
+                ),
+                "signals": {"goes_latest": goes.get("latest")},
+                "domains": ["cosmos", "gather"],
+                "not_discovery": True,
+                "not_novel_physics": True,
+            }
+        )
+    if bool(sysf.get("ok")) or bool(probe.get("ok")):
+        patterns.append(
+            {
+                "kind": "pulsemesh_ops_health",
+                "summary": (
+                    f"PulseMesh system_stat/tcp_probe: load1={sysf.get('latest_load1')} "
+                    f"probe_ms={probe.get('mean_ms')}. Ops health for actuation — not consciousness."
+                ),
+                "signals": {"load1": sysf.get("latest_load1"), "probe_ms": probe.get("mean_ms")},
+                "domains": ["government", "commons", "oracle"],
+                "not_discovery": True,
+                "not_novel_physics": True,
+            }
+        )
     snap = {
         "ts": _utc(),
-        "version": 1,
-        "mile": "spark2_telemetry",
+        "version": 2,
+        "mile": "spark3-port",
         "feeds": feeds,
+        "pulsemesh_health": pulsemesh_health,
         "cross_domain_patterns": patterns,
         "note": (
-            "EXTERNAL ARRAY snapshot for agent query during debate. "
+            "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. "
             "Graceful degrade. Correlations are debate input — not discovery."
         ),
         "non_claims": ["not_AGI", "not_novel_physics", "not_Millennium"],

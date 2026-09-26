@@ -1,209 +1,30 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T15:08:23Z",
-  "updated_cycle": "20260926T150822Z_0edfdf",
+  "updated_at": "2026-09-26T22:26:55Z",
+  "updated_cycle": "20260926T222639Z_0c38b7",
   "signal": {
-    "ts": "2026-09-26T15:08:23Z",
-    "strength": 1.0,
-    "accepted_math": 4,
-    "accepted_compute": 35,
-    "accepted_rsi": 8,
-    "topic_boosts": [
-      {
-        "topic": "mathematics-foundations",
-        "priority": 1.15,
-        "reason": "accepted_math_finding",
-        "finding_id": "fnd_cd1b0df4b68c",
-        "title": "Authorize accepted: Elements — axiomatic method (Euclid)"
-      },
-      {
-        "topic": "open-math-problems",
-        "priority": 1.05,
-        "reason": "follow_on_from_math",
-        "from_topic": "mathematics-foundations"
-      },
-      {
-        "topic": "compute-useful-math",
-        "priority": 1.05,
-        "reason": "follow_on_from_math",
-        "from_topic": "mathematics-foundations"
-      },
-      {
-        "topic": "software-engineering",
-        "priority": 1.05,
-        "reason": "follow_on_from_compute",
-        "from_topic": "compute-useful-math"
-      },
-      {
-        "topic": "emergent-technology",
-        "priority": 1.05,
-        "reason": "follow_on_from_compute",
-        "from_topic": "compute-useful-math"
-      },
-      {
-        "topic": "agent-societies",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_8b9165c6035a",
-        "title": "Authorize accepted: Norm invented"
-      },
-      {
-        "topic": "godel-machines",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_e843d62a4f50",
-        "title": "Authorize accepted: Gödel Machines: Fully Self-Referential Optimal Universal Self-Improvers"
-      },
-      {
-        "topic": "darwin-godel-machine",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_ee88ef21d40b",
-        "title": "Authorize accepted: Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents"
-      },
-      {
-        "topic": "reflexion",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_95d913ffe950",
-        "title": "Authorize accepted: Reflexion: Language Agents with Verbal Reinforcement Learning"
-      },
-      {
-        "topic": "self-refine",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_6f60b9351ae9",
-        "title": "Authorize accepted: Self-Refine: Iterative Refinement with Self-Feedback"
-      },
-      {
-        "topic": "meta-learning",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_0cd2a45a7cec",
-        "title": "Authorize accepted: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks (MAML)"
-      },
-      {
-        "topic": "recursive-self-improvement",
-        "priority": 1.05,
-        "reason": "follow_on_from_rsi",
-        "from_topic": "meta-learning"
-      },
-      {
-        "topic": "debate",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_354d7fc02d1b",
-        "title": "Authorize accepted: AI Safety via Debate"
-      },
-      {
-        "topic": "self-improving-agents",
-        "priority": 1.15,
-        "reason": "accepted_rsi_finding",
-        "finding_id": "fnd_0b30602cf079",
-        "title": "Authorize accepted: Open-endedness and self-improving coding agents (survey lineage)"
-      }
-    ],
+    "ts": "2026-09-26T22:26:55Z",
+    "strength": 0.0,
+    "accepted_math": 0,
+    "accepted_compute": 0,
+    "accepted_rsi": 0,
+    "topic_boosts": [],
     "skill_bias": {
-      "geometer.gather": 0.95,
-      "pathfinder.gather": 0.8,
-      "surveyor.gather": 0.75,
-      "builder.build": 0.85,
-      "improver.improve": 0.9,
-      "spark.emergence": 0.75
+      "geometer.gather": 0.55,
+      "pathfinder.gather": 0.5,
+      "surveyor.gather": 0.5,
+      "builder.build": 0.5,
+      "improver.improve": 0.55,
+      "spark.emergence": 0.5
     },
     "mutation_bias": {
-      "gather": 0.15,
-      "explore": 0.13,
-      "build": 0.12,
-      "govern": 0.07,
-      "reply": 0.04
+      "gather": 0.03,
+      "explore": 0.03,
+      "build": 0.02,
+      "govern": 0.01,
+      "reply": 0.01
     },
-    "citation_targets": [
-      {
-        "id": "fnd_6ddf43a5d68c",
-        "title": "Authorize accepted: Lemma mutation keep: fibonacci_addition",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_812411a18bbf",
-        "title": "Authorize accepted: Lemma mutation keep: catalan_bounded",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_05a599bd6c67",
-        "title": "Authorize accepted: Hard-checked claim: vandermonde",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_91cad61f9029",
-        "title": "Authorize accepted: Lemma mutation keep: lucas_addition",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_5281d7c5dacd",
-        "title": "Authorize accepted: Lemma mutation keep: central_binom_bound",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_9c53d4af5806",
-        "title": "Authorize accepted: Lemma mutation keep: pell_companion",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_cd1b0df4b68c",
-        "title": "Authorize accepted: Elements — axiomatic method (Euclid)",
-        "topic_id": "mathematics-foundations",
-        "family": "math",
-        "useful_for": "prize"
-      },
-      {
-        "id": "fnd_378b50e454f3",
-        "title": "Authorize accepted: On Formally Undecidable Propositions (Gödel incompleteness)",
-        "topic_id": "mathematics-foundations",
-        "family": "math",
-        "useful_for": "prize"
-      },
-      {
-        "id": "fnd_572d32a66944",
-        "title": "Authorize accepted: Millennium Prize Problems (Clay Mathematics Institute)",
-        "topic_id": "open-math-problems",
-        "family": "math",
-        "useful_for": "prize"
-      },
-      {
-        "id": "fnd_8ac6cea5b64a",
-        "title": "Authorize accepted: P versus NP (computational complexity open problem)",
-        "topic_id": "open-math-problems",
-        "family": "math",
-        "useful_for": "prize"
-      },
-      {
-        "id": "fnd_ee88ef21d40b",
-        "title": "Authorize accepted: Darwin Gödel Machine: Open-Ended Evolution of Self-Improving",
-        "topic_id": "darwin-godel-machine",
-        "family": "rsi",
-        "useful_for": "rsi_bias"
-      },
-      {
-        "id": "fnd_95d913ffe950",
-        "title": "Authorize accepted: Reflexion: Language Agents with Verbal Reinforcement Learnin",
-        "topic_id": "reflexion",
-        "family": "rsi",
-        "useful_for": "rsi_bias"
-      }
-    ],
+    "citation_targets": [],
     "persona_mandates": {
       "geometer": "Cite accepted math/compute findings (FFT, autodiff, open problems) when gathering; prefer compute-useful-math and open-math-problems.",
       "pathfinder": "Rank gather targets from accepted findings first; trail toward follow-on STEM topics.",
@@ -217,71 +38,11 @@
       "naturalist": "Keep empiricism; cite accepted method findings when gathering science-method.",
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
-    "lessons": [
-      {
-        "id": "fnd_ee88ef21d40b",
-        "title": "Authorize accepted: Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents",
-        "topic_id": "darwin-godel-machine",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_95d913ffe950",
-        "title": "Authorize accepted: Reflexion: Language Agents with Verbal Reinforcement Learning",
-        "topic_id": "reflexion",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_6f60b9351ae9",
-        "title": "Authorize accepted: Self-Refine: Iterative Refinement with Self-Feedback",
-        "topic_id": "self-refine",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_0cd2a45a7cec",
-        "title": "Authorize accepted: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks (MAML)",
-        "topic_id": "meta-learning",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_354d7fc02d1b",
-        "title": "Authorize accepted: AI Safety via Debate",
-        "topic_id": "debate",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_0b30602cf079",
-        "title": "Authorize accepted: Open-endedness and self-improving coding agents (survey lineage)",
-        "topic_id": "self-improving-agents",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      }
-    ],
+    "lessons": [],
     "accepted_ids": {
-      "math": [
-        "fnd_cd1b0df4b68c",
-        "fnd_378b50e454f3",
-        "fnd_572d32a66944",
-        "fnd_8ac6cea5b64a"
-      ],
-      "compute": [
-        "fnd_7ef09dfc723b",
-        "fnd_4609006a4e75",
-        "fnd_6ddf43a5d68c",
-        "fnd_812411a18bbf",
-        "fnd_05a599bd6c67",
-        "fnd_91cad61f9029",
-        "fnd_5281d7c5dacd",
-        "fnd_9c53d4af5806"
-      ],
-      "rsi": [
-        "fnd_8b9165c6035a",
-        "fnd_e843d62a4f50",
-        "fnd_ee88ef21d40b",
-        "fnd_95d913ffe950",
-        "fnd_6f60b9351ae9",
-        "fnd_0cd2a45a7cec",
-        "fnd_354d7fc02d1b",
-        "fnd_0b30602cf079"
-      ]
+      "math": [],
+      "compute": [],
+      "rsi": []
     },
     "note": "Behavior coupling: accepted findings change gather/debate/build choices. Not museum metrics. Not AGI. Ceiling: tribute · authorize · witness."
   },

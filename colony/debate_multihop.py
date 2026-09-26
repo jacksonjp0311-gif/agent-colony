@@ -52,6 +52,14 @@ def run_multihop(
     )
 
     # Agents query telemetry + external array + residuals mid-debate (not human-only)
+
+    athanor_view = {}
+    try:
+        from colony.athanor_coherence import latest_verdict
+        athanor_view = latest_verdict()
+    except Exception as exc:
+        athanor_view = {"error": str(exc)}
+
     telem_cite = {}
     ext_patterns = []
     residual_view = {}
@@ -312,6 +320,12 @@ def run_multihop(
         "telemetry_ts": telem_cite.get("ts"),
         "external_patterns": [p.get("kind") for p in ext_patterns[:4]],
         "residuals": residual_view,
+        "athanor": {
+            "verdict": (athanor_view.get("latest") or {}).get("verdict") if isinstance(athanor_view, dict) else None,
+            "h7": (athanor_view.get("latest") or {}).get("h7") if isinstance(athanor_view, dict) else None,
+            "inform_only": True,
+            "distribution": athanor_view.get("distribution") if isinstance(athanor_view, dict) else None,
+        },
         "note": "SPARK2 A→B→C→D(Oracle)+E load-bear + telem/external/residuals. Bus-driven claim/code change. Not AGI.",
     }
     DEBATE_LOG.parent.mkdir(parents=True, exist_ok=True)

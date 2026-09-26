@@ -45,6 +45,12 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Port unit + smoke tests (Athanor/PulseMesh)
+        run: |
+          set -euo pipefail
+          export PYTHONPATH=.
+          python -m pytest tests/test_athanor_coherence.py tests/test_pulsemesh_feeds.py tests/test_spark3_integration_smoke.py -q
+
       - name: Hard benches (noisy on fail)
         id: benches
         run: |
@@ -137,16 +143,16 @@ jobs:
           batch = items + rejected
           if not batch:
               print("authorize: nothing selective this run (quiet success)")
-              Path("society/receipts/AUTHORIZE_DECISIONS_spark2_ci.json").write_text(
-                  json.dumps({"items": [], "policy": "standing_trust_P>=0.70_selective_never_accept_all", "mile": "spark2"}, indent=2)+"\n"
+              Path("society/receipts/AUTHORIZE_DECISIONS_spark3_ci.json").write_text(
+                  json.dumps({"items": [], "policy": "standing_trust_P>=0.70_selective_never_accept_all", "mile": "spark3-port"}, indent=2)+"\n"
               )
           else:
               decisions = {
                   "items": [{"finding_id": i.finding_id, "decision": i.decision, "rationale": i.rationale} for i in batch],
                   "policy": "standing_trust_P>=0.70_selective_never_accept_all",
-                  "mile": "spark2",
+                  "mile": "spark3-port",
               }
-              dec_path = Path("society/receipts/AUTHORIZE_DECISIONS_spark2_ci.json")
+              dec_path = Path("society/receipts/AUTHORIZE_DECISIONS_spark3_ci.json")
               dec_path.write_text(json.dumps(decisions, indent=2) + "\n")
               result = Authorizer(root=root, ledger=ledger, state=state).apply(
                   batch,
@@ -206,7 +212,7 @@ jobs:
               ora = {"error": str(e)}
           receipt = {
               "when": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "mile": "spark2",
+              "mile": "spark3-port",
               "cycle_count": cycle_count,
               "fitness_latest": fit,
               "bus_metrics": bus,
@@ -216,12 +222,12 @@ jobs:
               "exploration_budget_fp": (bud.get("last_outcome") or {}),
               "oracle": ora,
               "easy_pad_dies": bool(ora.get("easy_pad_kills")),
-              "note": "Slim CI receipt. Giant JSONL not rewritten. Spark2 telemetry mile. Not AGI. Not novel theorems.",
+              "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems.",
           }
           Path("society/receipts").mkdir(parents=True, exist_ok=True)
-          Path("society/receipts/SOCIETY_SLIM_SPARK2.json").write_text(json.dumps(receipt, indent=2) + "\n")
+          Path("society/receipts/SOCIETY_SLIM_SPARK3.json").write_text(json.dumps(receipt, indent=2) + "\n")
           Path("society/EVOLVE_STATUS.md").write_text(
-              "# Evolve Status — Spark2 telemetry mile\n\n"
+              "# Evolve Status — Spark3 Athanor+PulseMesh port mile\n\n"
               "> We light the spark and witness. We do not micromanage the city.\n\n"
               "![Spark and witness](../docs/assets/spark_witness_city.jpg)\n\n"
               f"- cycle_count: `{cycle_count}`\n"
@@ -230,7 +236,7 @@ jobs:
               f"- debate action_changed: `{deb.get('action_changed')}`\n"
               f"- oracle passes/kills/easy_kills: `{ora.get('passes')}` / `{ora.get('kills')}` / `{ora.get('easy_pad_kills')}`\n"
               "- CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.70→slim push\n"
-              "- Spark: pressure reply_rate via load-bear multi-hop; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift; P≥0.70. Failure noisy; success quiet. Not AGI. Not Millennium.\n"
+              "- Spark3: Athanor H7 inform-only + PulseMesh feeds; pressure reply_rate via load-bear multi-hop; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift; P≥0.70. Failure noisy; success quiet. Not AGI. Not Millennium.\n"
           )
           print("slim receipts written (quiet)")
           PY

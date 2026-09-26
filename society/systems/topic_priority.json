@@ -1,110 +1,87 @@
 {
   "ranked": [
     {
-      "topic": "mathematics-foundations",
-      "priority": 1.15,
-      "reason": "accepted_math_finding",
-      "finding_id": "fnd_cd1b0df4b68c",
-      "title": "Authorize accepted: Elements — axiomatic method (Euclid)"
+      "topic": "'multi-hop",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "(bus-driven)",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "`self-improving-agents`",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "`self-refine`",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "ack-heavy]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "agent-soci'",
+      "priority": 1.0,
+      "reason": "inbox_gap"
     },
     {
       "topic": "agent-societies",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_8b9165c6035a",
-      "title": "Authorize accepted: Norm invented"
+      "priority": 1.0,
+      "reason": "inbox_gap"
     },
     {
-      "topic": "godel-machines",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_e843d62a4f50",
-      "title": "Authorize accepted: Gödel Machines: Fully Self-Referential Optimal Universal Self-Improvers"
+      "topic": "artifact-first",
+      "priority": 1.0,
+      "reason": "inbox_gap"
     },
     {
-      "topic": "darwin-godel-machine",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_ee88ef21d40b",
-      "title": "Authorize accepted: Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents"
-    },
-    {
-      "topic": "reflexion",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_95d913ffe950",
-      "title": "Authorize accepted: Reflexion: Language Agents with Verbal Reinforcement Learning"
-    },
-    {
-      "topic": "self-refine",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_6f60b9351ae9",
-      "title": "Authorize accepted: Self-Refine: Iterative Refinement with Self-Feedback"
-    },
-    {
-      "topic": "meta-learning",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_0cd2a45a7cec",
-      "title": "Authorize accepted: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks (MAML)"
-    },
-    {
-      "topic": "debate",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_354d7fc02d1b",
-      "title": "Authorize accepted: AI Safety via Debate"
-    },
-    {
-      "topic": "self-improving-agents",
-      "priority": 1.15,
-      "reason": "accepted_rsi_finding",
-      "finding_id": "fnd_0b30602cf079",
-      "title": "Authorize accepted: Open-endedness and self-improving coding agents (survey lineage)"
-    },
-    {
-      "topic": "open-math-problems",
-      "priority": 1.05,
-      "reason": "follow_on_from_math",
-      "from_topic": "mathematics-foundations"
+      "topic": "compute-useful",
+      "priority": 1.0,
+      "reason": "inbox_gap"
     },
     {
       "topic": "compute-useful-math",
-      "priority": 1.05,
-      "reason": "follow_on_from_math",
-      "from_topic": "mathematics-foundations"
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "cosmology-universe",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "domain-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "science-method",
+      "priority": 0.85,
+      "reason": "stem_coverage=0"
+    },
+    {
+      "topic": "history-of-ideas",
+      "priority": 0.85,
+      "reason": "stem_coverage=0"
+    },
+    {
+      "topic": "mathematics-foundations",
+      "priority": 0.85,
+      "reason": "stem_coverage=1"
     },
     {
       "topic": "software-engineering",
-      "priority": 1.05,
-      "reason": "follow_on_from_compute",
-      "from_topic": "compute-useful-math"
-    },
-    {
-      "topic": "emergent-technology",
-      "priority": 1.05,
-      "reason": "follow_on_from_compute",
-      "from_topic": "compute-useful-math"
-    },
-    {
-      "topic": "recursive-self-improvement",
-      "priority": 1.05,
-      "reason": "follow_on_from_rsi",
-      "from_topic": "meta-learning"
-    },
-    {
-      "topic": "`nature-biology-ecology`",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "`open-math-problems`",
-      "priority": 1.0,
-      "reason": "inbox_gap"
+      "priority": 0.85,
+      "reason": "stem_coverage=0"
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-09-26T15:08:22Z",
-  "updated_cycle": "20260926T150822Z_0edfdf"
+  "updated_at": "2026-09-26T22:26:40Z",
+  "updated_cycle": "20260926T222639Z_0c38b7"
 }

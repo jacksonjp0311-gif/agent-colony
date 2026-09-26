@@ -1,23 +1,41 @@
 {
   "role": "legislator",
   "traits": {
-    "gather": 0.9673,
-    "build": 0.4916,
-    "reply": 0.4806,
-    "explore": 0.5057,
-    "govern": 0.4109
+    "gather": 0.3886,
+    "build": 0.4972,
+    "reply": 0.4914,
+    "explore": 0.5077,
+    "govern": 0.5242
   },
   "parents": [
-    "pathfinder",
-    "tribute_keeper"
+    "tribute_keeper",
+    "scribe"
   ],
-  "generation": 1,
+  "generation": 2,
   "mutated_keys": [
     "gather",
-    "govern"
+    "explore"
   ],
-  "born_cycle": "20260926T110532Z_0ca9a0",
-  "born_at": "2026-09-26T11:05:32Z",
-  "fitness_at_birth": 0.8746,
-  "version": 1
+  "born_cycle": "20260926T221644Z_778665",
+  "born_at": "2026-09-26T22:16:52Z",
+  "fitness_at_birth": 0.7503,
+  "version": 1,
+  "rsi_mutation_bias": {
+    "explore": 0.065,
+    "govern": 0.04,
+    "build": 0.035,
+    "gather": 0.02,
+    "reply": 0.0175
+  },
+  "rsi_coupling_strength": 0.25,
+  "rsi_coupling_ts": "2026-09-26T22:16:52Z",
+  "findings_mutation_bias": {
+    "gather": 0.03,
+    "explore": 0.03,
+    "build": 0.02,
+    "govern": 0.01,
+    "reply": 0.01
+  },
+  "findings_coupling_strength": 0.0,
+  "findings_coupling_ts": "2026-09-26T22:16:52Z"
 }

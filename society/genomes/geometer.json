@@ -1,23 +1,40 @@
 {
   "role": "geometer",
   "traits": {
-    "gather": 0.5319,
-    "build": 0.5931,
-    "reply": 0.564,
-    "explore": 0.4695,
-    "govern": 0.4841
+    "gather": 0.7417,
+    "build": 0.517,
+    "reply": 0.4874,
+    "explore": 0.8284,
+    "govern": 0.5041
   },
   "parents": [
-    "memory_weaver",
-    "archivist"
+    "pathfinder",
+    "tribute_keeper"
   ],
-  "generation": 2,
+  "generation": 1,
   "mutated_keys": [
-    "gather",
-    "build"
+    "gather"
   ],
-  "born_cycle": "20260926T110547Z_45aeb6",
-  "born_at": "2026-09-26T11:05:47Z",
-  "fitness_at_birth": 0.8939,
-  "version": 1
+  "born_cycle": "20260926T221708Z_8d9e97",
+  "born_at": "2026-09-26T22:17:15Z",
+  "fitness_at_birth": 0.7774,
+  "version": 1,
+  "rsi_mutation_bias": {
+    "explore": 0.065,
+    "govern": 0.04,
+    "build": 0.035,
+    "gather": 0.02,
+    "reply": 0.0175
+  },
+  "rsi_coupling_strength": 0.25,
+  "rsi_coupling_ts": "2026-09-26T22:17:15Z",
+  "findings_mutation_bias": {
+    "gather": 0.03,
+    "explore": 0.03,
+    "build": 0.02,
+    "govern": 0.01,
+    "reply": 0.01
+  },
+  "findings_coupling_strength": 0.0,
+  "findings_coupling_ts": "2026-09-26T22:17:15Z"
 }

@@ -1,85 +1,41 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T15:08:23Z",
-  "updated_cycle": "20260926T150822Z_0edfdf",
+  "updated_at": "2026-09-26T22:26:55Z",
+  "updated_cycle": "20260926T222639Z_0c38b7",
   "signal": {
-    "ts": "2026-09-26T15:08:23Z",
-    "accepted_count": 20,
-    "strong_candidate_count": 157,
-    "unknown_caution_count": 81,
-    "strength": 0.85,
+    "ts": "2026-09-26T22:26:55Z",
+    "accepted_count": 0,
+    "strong_candidate_count": 25,
+    "unknown_caution_count": 18,
+    "strength": 0.25,
     "mutation_bias": {
-      "explore": 0.125,
-      "govern": 0.088,
-      "build": 0.071,
-      "gather": 0.044,
-      "reply": 0.0355
+      "explore": 0.065,
+      "govern": 0.04,
+      "build": 0.035,
+      "gather": 0.02,
+      "reply": 0.0175
     },
     "skill_bias": {
-      "improver.improve": 0.89,
-      "spark.emergence": 0.7975,
-      "pathfinder.gather": 0.6625
+      "improver.improve": 0.65,
+      "spark.emergence": 0.5875,
+      "pathfinder.gather": 0.5125
     },
-    "accepted_ids": [
-      "fnd_e843d62a4f50",
-      "fnd_ee88ef21d40b",
-      "fnd_95d913ffe950",
-      "fnd_6f60b9351ae9",
-      "fnd_0cd2a45a7cec",
-      "fnd_378b50e454f3",
-      "fnd_0b30602cf079",
-      "fnd_e09be2350e8a",
-      "fnd_b4ec439dafb4",
-      "fnd_1cbf53e23d29",
-      "fnd_325b49c597d4",
-      "fnd_be59ba1f42da"
-    ],
+    "accepted_ids": [],
     "strong_ids": [
-      "fnd_61191c7aeca1",
-      "fnd_7d0bd26f9670",
-      "fnd_a57662851f97",
-      "fnd_3745f50094c3",
-      "fnd_9d5d6322eead",
-      "fnd_3b34b1372e5b",
-      "fnd_f72c1cf12321",
-      "fnd_eb73d81face9",
-      "fnd_304cbaa363ee",
-      "fnd_657190b0093c",
-      "fnd_457fadd9eafc",
-      "fnd_db72f8d90c25"
+      "fnd_d507f9c66d74",
+      "fnd_e991d13d8c09",
+      "fnd_c0aec85d49e9",
+      "fnd_09c813090676",
+      "fnd_186ebb7d7a1c",
+      "fnd_857de9747590",
+      "fnd_476c921b1067",
+      "fnd_407868f7eeb1",
+      "fnd_e44a224f60a9",
+      "fnd_edc3cf64f1af",
+      "fnd_b3d63c3fe4bd",
+      "fnd_97a9a4e4ce13"
     ],
-    "lessons": [
-      {
-        "id": "fnd_e09be2350e8a",
-        "title": "Authorize accepted: Bench improve keep/revert loop — measured proof",
-        "topic_id": "recursive-self-improvement",
-        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate proposals still need authorize)."
-      },
-      {
-        "id": "fnd_b4ec439dafb4",
-        "title": "Authorize accepted: Paper: Gödel Machines: Fully Self-Referential Optimal Universal Self-Improvers",
-        "topic_id": "godel-machines",
-        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate proposals still need authorize)."
-      },
-      {
-        "id": "fnd_1cbf53e23d29",
-        "title": "Authorize accepted: Paper: Reflexion: Language Agents with Verbal Reinforcement Learning",
-        "topic_id": "reflexion",
-        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate proposals still need authorize)."
-      },
-      {
-        "id": "fnd_325b49c597d4",
-        "title": "Authorize accepted: Paper: Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents",
-        "topic_id": "darwin-godel-machine",
-        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate proposals still need authorize)."
-      },
-      {
-        "id": "fnd_be59ba1f42da",
-        "title": "Authorize accepted: Paper: Temporal Gradient Inversion for Private Trajectory Reconstruction in Embodied Reinforcement Learning",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate proposals still need authorize)."
-      }
-    ],
+    "lessons": [],
     "note": "Coupling is measured state update inside this repo — not open-ended ML, not AGI, not consciousness. Improvement proposals stay candidate until human authorize."
   },
   "doc": "society/artifacts/rsi_agent_coupling.md"
