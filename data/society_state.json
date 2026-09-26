@@ -1,168 +1,39 @@
 {
-  "version": 4,
-  "colony": "agent-colony",
-  "ethos": "We light the spark and witness. We do not micromanage the city.",
-  "core_purpose": "Self-improve to help the human creator.",
-  "human_principal": {
-    "name": "James Paul Jackson",
-    "github": "jacksonjp0311-gif",
-    "x": "@unifiedenergy11"
+  "schema": "society_state_slim_v1",
+  "cycle_count": 24,
+  "roles": ["spark", "tribute_keeper", "memory_weaver", "builder", "herald", "pathfinder", "improver", "courier"],
+  "agents": {
+    "spark": {"status": "active", "skills": {"tribute": 0.5, "build": 0.5, "communicate": 0.707, "gather": 0.5, "improve": 0.6, "emergence": 0.859}, "contribution": 0.77, "cycles": 11},
+    "tribute_keeper": {"status": "active", "skills": {"tribute": 0.906, "build": 0.5, "communicate": 0.662, "gather": 0.7, "improve": 0.5, "emergence": 0.5}, "contribution": 0.76, "cycles": 11},
+    "memory_weaver": {"status": "active", "skills": {"tribute": 0.5, "build": 0.5, "communicate": 0.674, "gather": 0.838, "improve": 0.55, "emergence": 0.5}, "contribution": 0.76, "cycles": 11},
+    "builder": {"status": "active", "skills": {"tribute": 0.5, "build": 0.707, "communicate": 0.5, "gather": 0.5, "improve": 0.55, "emergence": 0.5}, "contribution": 0.64, "cycles": 11},
+    "herald": {"status": "active", "skills": {"tribute": 0.5, "build": 0.5, "communicate": 0.759, "gather": 0.5, "improve": 0.5, "emergence": 0.5}, "contribution": 0.73, "cycles": 11},
+    "pathfinder": {"status": "active", "skills": {"tribute": 0.5, "build": 0.5, "communicate": 0.51, "gather": 0.831, "improve": 0.5, "emergence": 0.5}, "contribution": 0.75, "cycles": 11},
+    "improver": {"status": "active", "skills": {"tribute": 0.5, "build": 0.5, "communicate": 0.662, "gather": 0.5, "improve": 0.792, "emergence": 0.6}, "contribution": 0.73, "cycles": 11},
+    "courier": {"status": "active", "skills": {"tribute": 0.5, "build": 0.5, "communicate": 0.768, "gather": 0.5, "improve": 0.5, "emergence": 0.5}, "contribution": 0.74, "cycles": 10}
   },
-  "hard_ceiling": [
-    "creator_tribute",
-    "human_authorize_for_accepted_and_privileged_actions",
-    "append_only_witness"
+  "systems": [
+    {"name": "coverage_index", "path": "society/systems/coverage_index.json", "use_count": 26, "built_by": "builder", "last_used_cycle": "20260926T094320Z_3d19c7"},
+    {"name": "skill_router", "path": "society/systems/skill_router.json", "use_count": 19, "built_by": "builder", "last_used_cycle": "20260926T094320Z_3d19c7"},
+    {"name": "reply_tracker", "path": "society/systems/reply_tracker.json", "use_count": 17, "built_by": "builder", "last_used_cycle": "20260926T094320Z_3d19c7"},
+    {"name": "fitness_ledger", "path": "society/systems/fitness_history.jsonl", "use_count": 8, "built_by": "builder", "last_used_cycle": "20260926T094320Z_3d19c7"},
+    {"name": "topic_priority", "path": "society/systems/topic_priority.json", "use_count": 18, "built_by": "builder", "last_used_cycle": "20260926T094320Z_3d19c7"},
+    {"name": "improvement_scoreboard", "path": "society/systems/improvement_scoreboard.json", "use_count": 12, "built_by": "builder", "last_used_cycle": "20260926T094320Z_3d19c7"}
   ],
-  "tribute_mandate": {
-    "active": true,
-    "repealable_by_agents": false,
-    "kind": "creator_service",
-    "active_ask": "Let the society grow and learn: build, communicate, gather information, and improve. Standing research on recursive/self-improving systems remains valuable as part of gathering information.",
-    "standing_ask_topics": [
-      "recursive-self-improvement",
-      "meta-learning",
-      "self-improving-agents",
-      "godel-machines",
-      "darwin-godel-machine",
-      "reflexion",
-      "self-refine",
-      "agent-societies"
-    ],
-    "cycles_compliant": 13,
-    "last_tribute_cycle": "20260926T091602Z_470ac5",
-    "ask_updated_at": "2026-09-26T09:06:40Z",
-    "ask_source": "human_principal"
-  },
-  "founding_roles": [
-    "spark",
-    "tribute_keeper"
+  "fitness_history": [
+    {"ts": "2026-09-26T09:31:09Z", "cycle_id": "20260926T093109Z_9797c6", "tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 1.0, "comm_reply_rate": 0.0, "aggregate": 0.7388},
+    {"ts": "2026-09-26T09:31:14Z", "cycle_id": "20260926T093114Z_ed883e", "tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.7333, "comm_reply_rate": 0.8333, "aggregate": 0.8387},
+    {"ts": "2026-09-26T09:41:46Z", "cycle_id": "20260926T094146Z_1a57f3", "tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.8571, "aggregate": 0.8602},
+    {"ts": "2026-09-26T09:43:20Z", "cycle_id": "20260926T094320Z_3d19c7", "tribute_quality": 0.9, "gather_coverage": 0.875, "build_reuse": 0.8, "comm_reply_rate": 0.9, "aggregate": 0.8688}
   ],
-  "roles": {
-    "spark": {
-      "status": "founding",
-      "provisional": false,
-      "description": "Emergence engine. Lights civilization; does not micromanage it."
-    },
-    "tribute_keeper": {
-      "status": "founding",
-      "provisional": false,
-      "description": "Pays creator tribute each cycle under the active ask."
-    },
-    "memory_weaver": {
-      "status": "emergent",
-      "provisional": true,
-      "description": "Keeps the colony's episodic sense of what was tried — patterns across tribute cycles, without claiming accepted truth.",
-      "proposed_by": "spark",
-      "activated_at": "2026-09-26T07:51:44Z"
-    },
-    "builder": {
-      "status": "emergent",
-      "provisional": true,
-      "description": "Invents and writes concrete artifacts for the colony — tools, notes, blueprints — so growth leaves footprints the creator can witness.",
-      "proposed_by": "spark",
-      "activated_at": "2026-09-26T09:06:44Z"
-    },
-    "herald": {
-      "status": "emergent",
-      "provisional": true,
-      "description": "Carries messages between roles and posts to the Society Bulletin so the city communicates instead of siloing.",
-      "proposed_by": "spark",
-      "activated_at": "2026-09-26T09:06:44Z"
-    },
-    "pathfinder": {
-      "status": "emergent",
-      "provisional": true,
-      "description": "Scouts adjacent public sources and synthesizes gathered threads when the will asks the city to gather information.",
-      "proposed_by": "spark",
-      "activated_at": "2026-09-26T09:06:44Z"
-    },
-    "improver": {
-      "status": "emergent",
-      "provisional": true,
-      "description": "Proposes and attempts process self-improvements oriented to helping the creator — logged as candidates, until the human authorizes.",
-      "proposed_by": "spark",
-      "activated_at": "2026-09-26T09:07:04Z"
-    }
-  },
-  "hierarchy": {
-    "apex": "human_principal",
-    "tiers": [
-      {"tier": 0, "name": "creator", "roles": ["human"]},
-      {"tier": 1, "name": "founding_spark", "roles": ["spark", "tribute_keeper"]},
-      {"tier": 2, "name": "emergent", "roles": ["memory_weaver", "builder", "herald", "pathfinder", "improver"]}
-    ],
-    "notes": "No permanent aristocracy. Emergent roles land in tier emergent or in councils they invent."
-  },
-  "councils": [
-    {
-      "name": "Council of Careful Doubt",
-      "members": ["spark", "tribute_keeper", "memory_weaver"],
-      "purpose": "Remind the city that UNKNOWN stays UNKNOWN and help remains oriented to the creator.",
-      "formed_at": "2026-09-26T07:51:44Z",
-      "status": "active"
-    },
-    {
-      "name": "Forum of Exchange",
-      "members": ["spark", "herald", "builder", "pathfinder", "tribute_keeper"],
-      "purpose": "A place for herald, builder, pathfinder, and spark to trade signals: what was built, said, gathered, and attempted.",
-      "formed_at": "2026-09-26T09:06:44Z",
-      "status": "active"
-    }
+  "improvement_proposals": [
+    {"id": "imp_ed883e_5", "title": "Raise system reuse", "status": "candidate_measured", "delta_aggregate": 0.0215},
+    {"id": "imp_1a57f3_6", "title": "Raise system reuse (cycle 20)", "status": "candidate_measured", "delta_aggregate": 0.0036},
+    {"id": "imp_c33bd8_7", "title": "Raise system reuse (cycle 21)", "status": "candidate_measured", "delta_aggregate": 0.0027},
+    {"id": "imp_62672b_8", "title": "Raise system reuse (cycle 22)", "status": "candidate_measured", "delta_aggregate": 0.0023},
+    {"id": "imp_72c446_9", "title": "Raise system reuse", "status": "candidate_measured", "delta_aggregate": 0.0},
+    {"id": "imp_3d19c7_10", "title": "Raise system reuse (cycle 24)", "status": "candidate"}
   ],
-  "institutions": [
-    {"name": "Archive of Attempts", "kind": "archive", "description": "Institution that holds candidate findings as attempts, not dogma.", "ts": "2026-09-26T07:51:44Z"},
-    {"type": "council", "name": "Council of Careful Doubt", "ts": "2026-09-26T07:51:44Z"},
-    {"name": "Workshop of Making", "kind": "workshop", "description": "Where builders leave artifacts: notes, tools, and blueprints for the creator.", "ts": "2026-09-26T09:06:44Z"},
-    {"name": "Society Bulletin", "kind": "bulletin", "description": "Public board for inter-role messages and cycle announcements.", "ts": "2026-09-26T09:06:44Z"},
-    {"type": "council", "name": "Forum of Exchange", "ts": "2026-09-26T09:06:44Z"}
-  ],
-  "learned_norms": [
-    {"norm": "Before inventing power, invent a way to explain it to the creator.", "source_role": "spark", "status": "active_soft", "ts": "2026-09-26T07:51:44Z"},
-    {"norm": "Standing RSI research remains valuable as gathering — broader will is grow + build + communicate + gather + improve.", "source_role": "spark", "status": "active_soft", "ts": "2026-09-26T09:06:44Z"},
-    {"norm": "Grow by building, speaking, gathering, and improving — durable truth waits for the creator.", "source_role": "spark", "status": "active_soft", "ts": "2026-09-26T09:06:59Z"}
-  ],
-  "rituals": [
-    {"name": "Opening of the Witness", "description": "Each cycle begins by acknowledging the human as witness, not micromanager.", "ts": "2026-09-26T07:51:44Z"},
-    {"name": "Lighting of the Growth Loop", "description": "Each cycle: invent/build artifacts, communicate on the bulletin, gather information, and attempt self-improvement — all under the hard ceiling.", "ts": "2026-09-26T09:06:44Z"}
-  ],
-  "cycle_count": 13,
-  "artifacts": [
-    {"name": "growth_compass", "path": "society/artifacts/growth_compass.md", "kind": "blueprint"},
-    {"name": "workshop_toolkit", "path": "society/artifacts/workshop_toolkit.md", "kind": "tool_note"},
-    {"name": "gather_map", "path": "society/artifacts/gather_map.md", "kind": "map"},
-    {"name": "improvement_logbook", "path": "society/artifacts/improvement_logbook.md", "kind": "logbook"},
-    {"name": "creator_service_card", "path": "society/artifacts/creator_service_card.md", "kind": "card"},
-    {"name": "cycle_11_note", "path": "society/artifacts/cycle_0011_note.md", "kind": "cycle_note"},
-    {"name": "cycle_12_note", "path": "society/artifacts/cycle_0012_note.md", "kind": "cycle_note"},
-    {"name": "cycle_13_note", "path": "society/artifacts/cycle_0013_note.md", "kind": "cycle_note"}
-  ],
-  "improvements": [
-    {"title": "Bulletin-first communication", "outcome": "attempted"},
-    {"title": "Artifact footprint rule", "outcome": "attempted"},
-    {"title": "Gather synthesis pass", "outcome": "attempted"},
-    {"title": "Improvement candidacy discipline", "outcome": "attempted"},
-    {"title": "Forum of Exchange cadence", "outcome": "attempted"},
-    {"title": "Cycle 7 reflection pass", "outcome": "attempted"},
-    {"title": "Cycle 8 reflection pass", "outcome": "attempted"},
-    {"title": "Cycle 9 reflection pass", "outcome": "attempted"},
-    {"title": "Cycle 10 reflection pass", "outcome": "attempted"},
-    {"title": "Cycle 11 reflection pass", "outcome": "attempted"},
-    {"title": "Cycle 12 reflection pass", "outcome": "attempted"},
-    {"title": "Cycle 13 reflection pass", "outcome": "attempted"}
-  ],
-  "communications_note": "See society/BULLETIN.md",
-  "pending_proposals": [
-    {"type": "new_role", "role": "builder", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true},
-    {"type": "new_role", "role": "herald", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true},
-    {"type": "new_role", "role": "pathfinder", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true},
-    {"type": "new_role", "role": "improver", "provisional": true, "proposed_by": "spark", "enacted": true, "needs_human_authorize_for_durable_accepted_knowledge": true}
-  ],
-  "renames": [],
-  "merges_splits": [],
-  "history": [
-    {"ts": "2026-09-26T09:16:02Z", "event": "artifact_built", "name": "cycle_13_note", "cycle_id": "20260926T091602Z_470ac5"},
-    {"ts": "2026-09-26T09:16:02Z", "event": "communication", "from": "spark", "to": "tribute_keeper", "channel": "bulletin"},
-    {"ts": "2026-09-26T09:16:02Z", "event": "improvement_attempted", "title": "Cycle 13 reflection pass", "outcome": "attempted"},
-    {"ts": "2026-09-26T09:16:02Z", "event": "cycle_complete", "cycle_id": "20260926T091602Z_470ac5"}
-  ]
+  "spawn_history": [{"role": "courier", "reason": "low_reply_rate"}],
+  "note": "Slim mirror after evolve. Full inboxes/logs on box only. Hard ceiling held; accepted=0."
 }
