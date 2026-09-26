@@ -309,6 +309,75 @@ def check_motzkin_bounded(n: int) -> bool:
             return False
     return True
 
+
+def check_catalan_convolution(n: int) -> bool:
+    """Catalan convolution: C_{n+1} = sum_{i=0}^{n} C_i C_{n-i} (classical, not discovery)."""
+    if n < 0:
+        return True
+    C = [0] * (n + 2)
+    C[0] = 1
+    for m in range(0, n + 1):
+        s = 0
+        for i in range(0, m + 1):
+            s += C[i] * C[m - i]
+        C[m + 1] = s
+        # Also match closed form
+        closed = math.comb(2 * (m + 1), m + 1) // (m + 2)
+        if C[m + 1] != closed:
+            return False
+    return True
+
+
+def check_derangement_subfactorial(n: int) -> bool:
+    """!n = n! * sum_{k=0}^{n} (-1)^k / k!  (integer recurrence !n = (n-1)[!(n-1)+!(n-2)])."""
+    if n < 0:
+        return True
+    # Build via recurrence: !0=1, !1=0; !n = n*! (n-1) + (-1)^n
+    d = [0] * (n + 1)
+    d[0] = 1
+    if n >= 1:
+        d[1] = 0
+    for m in range(2, n + 1):
+        d[m] = m * d[m - 1] + (1 if m % 2 == 0 else -1)
+    # Cross-check recurrence !n = (n-1) (!(n-1) + !(n-2))
+    for m in range(2, n + 1):
+        if d[m] != (m - 1) * (d[m - 1] + d[m - 2]):
+            return False
+    return True
+
+
+def check_narayana_sum(n: int) -> bool:
+    """Narayana N(n,k) sum_k = Catalan C_n; N(n,k)= (1/n)*C(n,k)*C(n,k-1)."""
+    if n < 1:
+        return True
+    cat = math.comb(2 * n, n) // (n + 1)
+    s = 0
+    for k in range(1, n + 1):
+        s += (math.comb(n, k) * math.comb(n, k - 1)) // n
+    return s == cat
+
+
+def check_euler_totient_multiplicative(a: int, b: int) -> bool:
+    """If gcd(a,b)==1 then phi(ab)=phi(a)phi(b) for small ranges (classical)."""
+    if a < 1 or b < 1:
+        return True
+    if math.gcd(a, b) != 1:
+        return True
+
+    def phi(n: int) -> int:
+        r, i, x = n, 2, n
+        while i * i <= x:
+            if x % i == 0:
+                while x % i == 0:
+                    x //= i
+                r -= r // i
+            i += 1
+        if x > 1:
+            r -= r // x
+        return r
+
+    return phi(a * b) == phi(a) * phi(b)
+
 def check_workload_derived_chain() -> bool:
     """Multi-step proof-style workload (educational, not novel discovery).
 
@@ -382,6 +451,14 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
         check_pythagorean_generation(u, v) for u in range(2, 16) for v in range(1, u)
     ), True),
     ("motzkin_bounded", lambda: all(check_motzkin_bounded(n) for n in range(0, 14)), True),
+    # Oracle mile — start disabled; desk hard_enable may keep ONLY with Oracle pass
+    ("catalan_convolution", lambda: all(check_catalan_convolution(n) for n in range(0, 12)), True),
+    ("derangement_subfactorial", lambda: all(check_derangement_subfactorial(n) for n in range(0, 12)), True),
+    ("narayana_sum", lambda: all(check_narayana_sum(n) for n in range(1, 12)), True),
+    ("euler_totient_multiplicative", lambda: all(
+        check_euler_totient_multiplicative(a, b) for a in range(1, 16) for b in range(1, 16)
+    ), True),
+
 ]
 
 

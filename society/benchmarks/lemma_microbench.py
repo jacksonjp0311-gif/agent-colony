@@ -59,7 +59,7 @@ def run() -> dict[str, Any]:
     # Score formula — leave headroom; textbook-only cannot hit ~0.95.
     # Headroom denominators > current catalog so mutations can still raise score.
     BASIC_DENOM = 14.0  # headroom past ~10 basic checks
-    HARD_DENOM = 8.0    # headroom past seeded + mutation hard checks
+    HARD_DENOM = 20.0   # oracle mile headroom — score can rise on new hard keeps
     basic_comp = min(1.0, len(basic) / BASIC_DENOM) if basic else 0.0
     hard_comp = min(1.0, hard_pass / HARD_DENOM) if hard_n else 0.0
     speed = max(0.0, min(1.0, 0.15 / max(seconds, 1e-9)))
