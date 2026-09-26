@@ -12,6 +12,9 @@ from colony.registry import AgentRegistry
 ROOT = Path(__file__).resolve().parent.parent
 BULLETIN_PATH = ROOT / "society" / "BULLETIN.md"
 
+# Domain channels for empire gather/comms upgrade
+DOMAIN_CHANNELS = ("science", "history", "math", "empire", "bulletin", "forum")
+
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -19,6 +22,31 @@ def _utc_now() -> str:
 
 def _mid() -> str:
     return f"msg_{uuid.uuid4().hex[:10]}"
+
+
+def score_reply_quality(text: str, *, parent_message: str | None = None) -> float:
+    """Heuristic reply quality in [0,1]: length, ACK, actionable cues, non-empty."""
+    t = (text or "").strip()
+    if not t:
+        return 0.0
+    score = 0.15
+    n = len(t)
+    if n >= 40:
+        score += 0.2
+    if n >= 100:
+        score += 0.15
+    low = t.lower()
+    if any(k in low for k in ("ack", "read", "acting", "will")):
+        score += 0.15
+    if any(k in low for k in ("thin", "focus", "commons", "propose", "gather", "build")):
+        score += 0.15
+    if any(k in low for k in ("science", "history", "math", "genome", "census", "law")):
+        score += 0.1
+    if parent_message and any(
+        w in low for w in (parent_message.lower().split()[:6]) if len(w) > 4
+    ):
+        score += 0.1
+    return round(min(1.0, score), 4)
 
 
 class CommBus:
@@ -30,7 +58,11 @@ class CommBus:
         self.data.setdefault("bus", {"messages": [], "stats": {}})
         bus = self.data["bus"]
         bus.setdefault("messages", [])
-        bus.setdefault("stats", {"posted": 0, "read": 0, "replied": 0})
+        bus.setdefault(
+            "stats",
+            {"posted": 0, "read": 0, "replied": 0, "reply_quality_sum": 0.0, "reply_quality_n": 0},
+        )
+        bus.setdefault("domains", {d: 0 for d in DOMAIN_CHANNELS})
 
     def messages(self) -> list[dict[str, Any]]:
         return self.data["bus"].setdefault("messages", [])
@@ -59,13 +91,24 @@ class CommBus:
             "in_reply_to": in_reply_to,
             "payload": dict(payload or {}),
             "replies": [],
+            "quality": None,
         }
+        if in_reply_to:
+            parent_text = None
+            for m in self.messages():
+                if m.get("id") == in_reply_to:
+                    parent_text = m.get("message")
+                    break
+            q = score_reply_quality(message, parent_message=parent_text)
+            entry["quality"] = q
+            stats = self.data["bus"].setdefault("stats", {})
+            stats["reply_quality_sum"] = float(stats.get("reply_quality_sum") or 0) + q
+            stats["reply_quality_n"] = int(stats.get("reply_quality_n") or 0) + 1
+
         self.messages().append(entry)
-        # Keep last 200 on the bus
         if len(self.messages()) > 200:
             self.data["bus"]["messages"] = self.messages()[-200:]
 
-        # Also mirror into legacy communications list for dashboard continuity
         self.data.setdefault("communications", []).append(
             {
                 "ts": entry["ts"],
@@ -77,19 +120,22 @@ class CommBus:
                 "id": entry["id"],
                 "in_reply_to": in_reply_to,
                 "tags": entry["tags"],
+                "quality": entry.get("quality"),
             }
         )
         stats = self.data["bus"].setdefault("stats", {})
         stats["posted"] = int(stats.get("posted") or 0) + 1
         if in_reply_to:
             stats["replied"] = int(stats.get("replied") or 0) + 1
-            # Link reply on parent
             for m in self.messages():
                 if m.get("id") == in_reply_to:
                     m.setdefault("replies", []).append(entry["id"])
                     break
 
-        # Deliver into recipient inbox (and broadcast targets)
+        domains = self.data["bus"].setdefault("domains", {})
+        ch = channel if channel in DOMAIN_CHANNELS else "bulletin"
+        domains[ch] = int(domains.get(ch) or 0) + 1
+
         targets = [to_role]
         if to_role in ("all", "forum", "*"):
             targets = list(self.registry.active().keys())
@@ -113,7 +159,6 @@ class CommBus:
         return entry
 
     def read_inbox(self, role: str) -> list[dict[str, Any]]:
-        """Return unread messages and mark them read. Real next-cycle consumption."""
         unread = self.registry.unread(role)
         if unread:
             self.registry.mark_read(role, [m["id"] for m in unread if m.get("id")])
@@ -122,11 +167,9 @@ class CommBus:
         return unread
 
     def reply_rate(self, *, lookback_cycles: int = 3) -> float:
-        """Fraction of non-reply messages that received at least one reply."""
         msgs = self.messages()
         if not msgs:
             return 0.0
-        # Consider recent messages only
         recent = msgs[-80:]
         roots = [m for m in recent if not m.get("in_reply_to") and m.get("to") not in ("all",)]
         if not roots:
@@ -134,12 +177,19 @@ class CommBus:
         replied = sum(1 for m in roots if m.get("replies"))
         return round(replied / len(roots), 4)
 
+    def reply_quality(self) -> float:
+        stats = (self.data.get("bus") or {}).get("stats") or {}
+        n = int(stats.get("reply_quality_n") or 0)
+        if n <= 0:
+            return 0.0
+        return round(float(stats.get("reply_quality_sum") or 0) / n, 4)
+
     def extract_actionables(self, unread: list[dict[str, Any]]) -> dict[str, Any]:
-        """Parse unread messages into actionable signals agents can USE."""
         gaps: list[str] = []
         build_requests: list[str] = []
         improve_hints: list[str] = []
         needs_reply: list[dict[str, Any]] = []
+        domain_notes: list[str] = []
         for m in unread:
             tags = set(m.get("tags") or [])
             payload = m.get("payload") or {}
@@ -149,26 +199,35 @@ class CommBus:
                 build_requests.append(m.get("message") or "")
             if "improve_hint" in tags:
                 improve_hints.append(m.get("message") or "")
+            if "commons_digest" in tags or payload.get("commons"):
+                domain_notes.append(m.get("message") or "")
             if not m.get("in_reply_to") and m.get("from") != m.get("to"):
                 needs_reply.append(m)
-            # Heuristic: message text mentioning thin/gap
             text = (m.get("message") or "").lower()
             if "thin" in text or "gap" in text:
                 for part in text.replace(",", " ").split():
                     if "-" in part and len(part) > 4:
                         gaps.append(part.strip(".:;"))
-        # dedupe
+            ch = m.get("channel") or ""
+            if ch in ("science", "history", "math") and ch not in gaps:
+                gaps.append(
+                    {
+                        "science": "science-method",
+                        "history": "history-of-ideas",
+                        "math": "mathematics-foundations",
+                    }.get(ch, ch)
+                )
         return {
-            "thin_topics": sorted(set(gaps))[:12],
+            "thin_topics": sorted(set(str(g) for g in gaps if isinstance(g, str)))[:12],
             "build_requests": build_requests[:5],
             "improve_hints": improve_hints[:5],
             "needs_reply": needs_reply[:8],
+            "commons_notes": domain_notes[:5],
         }
 
     def render_bulletin(self) -> Path:
         msgs = self.messages()
         legacy = self.data.get("communications") or []
-        # Prefer bus messages; fall back to legacy
         source = msgs if msgs else legacy
         lines = [
             "# Society Bulletin",
@@ -178,7 +237,9 @@ class CommBus:
             f"**Bus messages:** {len(msgs)}  ",
             f"**Legacy communications:** {len(legacy)}  ",
             f"**Stats:** `{self.data.get('bus', {}).get('stats', {})}`  ",
-            f"**Reply rate (recent):** {self.reply_rate():.0%}",
+            f"**Domains:** `{self.data.get('bus', {}).get('domains', {})}`  ",
+            f"**Reply rate (recent):** {self.reply_rate():.0%}  ",
+            f"**Reply quality (avg):** {self.reply_quality():.0%}",
             "",
             "## Chronology (latest 50)",
             "",
@@ -189,9 +250,11 @@ class CommBus:
             for c in source[-50:]:
                 reply = f" (reply to `{c.get('in_reply_to')}`)" if c.get("in_reply_to") else ""
                 tags = ",".join(c.get("tags") or []) or "-"
+                q = c.get("quality")
+                q_s = f" q={q}" if q is not None else ""
                 lines.append(
                     f"- **{c.get('ts')}** [`{c.get('channel')}`/{tags}] "
-                    f"**{c.get('from')}** → **{c.get('to')}**: {c.get('message')}{reply}"
+                    f"**{c.get('from')}** → **{c.get('to')}**: {c.get('message')}{reply}{q_s}"
                 )
             lines.append("")
         lines.extend(
