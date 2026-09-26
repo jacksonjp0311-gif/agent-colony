@@ -9,3 +9,5 @@ is mirrored here when full JSONL exceeds connector payload limits.
 
 Plain `data/ledger.jsonl` on GitHub may lag until a larger-file push path exists;
 prefer restoring from mirrors or the box copy.
+
+Updated for hard-lemma mile (cycle_count=104); prefer mirrors for ledger/witness/society_state.
