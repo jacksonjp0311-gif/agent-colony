@@ -1,32 +1,38 @@
 # Evolve Status (2026-09-26)
 
-Hard ceiling held. Ran `python -m colony evolve --cycles 5` (+1 smoke) locally.
+Hard ceiling held. Ran `python -m colony evolve --cycles 5` (+1 smoke) on the box.
 
-## Metrics (measured on box)
+## Metrics (box)
 
 | Metric | First evolve fitness | After cycle 19 |
 |--------|----------------------|----------------|
 | aggregate | 0.7388 | **0.8387** |
 | tribute_quality | 0.9 | 0.9 |
 | gather_coverage | 0.875 | 0.875 |
-| build_reuse | 1.0 | **0.7333** (systems reused each cycle) |
+| build_reuse | 1.0 | **0.7333** |
 | comm_reply_rate | **0.0** | **0.8333** |
 
 ## New role
 
-- **courier** spawned when `comm_reply_rate` was below threshold (fitness pressure).
+- **courier** — spawned by fitness when reply rate was weak.
 
-## On GitHub main (this session)
+## Usable systems (built + reused)
 
-Pushed: registry, bus, systems, cli (`evolve`), README, dashboard module, spark, society (`evolve()`), DASHBOARD.html, WITNESS_SUMMARY, report, EVOLVE_STATUS, society/systems/*.
+coverage_index, skill_router, reply_tracker, fitness_ledger, topic_priority, improvement_scoreboard
 
-## Still primarily on the box (push pending / large)
+## GitHub main
 
-- `colony/fitness.py`, `colony/emergence/growth.py` (critical for full clone run)
-- Full `data/society_state.json`, `data/ledger.jsonl`, `data/witness.jsonl`, `society/WITNESS.md`, `society/BULLETIN.md`
+Pushed this session: `registry`, `bus`, `systems`, `fitness`, `dashboard`, `cli` (evolve), `spark`, `society` (evolve()), README, DASHBOARD.html, WITNESS_SUMMARY, report, EVOLVE_STATUS, `society/systems/*`.
 
-Clone may need those two Python modules before `python -m colony evolve` works end-to-end. Local box has the complete evolving colony.
+## Still local / needs follow-up push
+
+- `colony/emergence/growth.py` (~28KB rewrite — bus read / system use / fitness wiring)
+- Full append-only logs: `data/ledger.jsonl`, `data/witness.jsonl`, `society/WITNESS.md`, `society/BULLETIN.md`
+- Full `data/society_state.json` (agents inboxes); GitHub still has older/smaller state
+
+**Box path:** `/workspace/agent-colony` has the complete runnable evolving colony.
 
 ## Honest note
 
-Skills/fitness are real measurable state updates inside this repo (EMA skill weights, reply rates, system use_counts). They are **not** open-ended ML training. Improvement proposals stay `candidate` until human authorize.
+Real: skill EMA updates, inbox read→reply, system use_counts, fitness aggregates, role spawn on metric pressure, before/after proposal metrics.
+Not: open-ended ML / AGI. Proposals stay `candidate` until human authorize. Accepted=0.
