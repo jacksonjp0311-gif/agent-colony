@@ -146,6 +146,38 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"Bench improve skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # Conjecture desk: paper themes → lemma mutations; keep only on score rise
+        try:
+            from colony.conjecture_desk import run_from_growth as conjecture_run
+
+            cj = conjecture_run(cycle_id, ledger=self.ledger)
+            g.improvements.append(f"conjecture:{cj.mutation or 'none'}:{cj.decision}")
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="conjecture_desk",
+                actor="geometer" if "geometer" in self.registry.active() else "spark",
+                summary=(
+                    f"Conjecture desk `{cj.mutation or 'none'}` → {cj.decision} "
+                    f"({cj.before_score}→{cj.after_score}, delta={cj.delta})"
+                ),
+                detail={
+                    "mutation": cj.mutation,
+                    "decision": cj.decision,
+                    "before_score": cj.before_score,
+                    "after_score": cj.after_score,
+                    "delta": cj.delta,
+                    "note": cj.note,
+                    "n_proposals": len(cj.proposals),
+                },
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="conjecture_desk_error",
+                actor="geometer",
+                summary=f"Conjecture desk skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         self._evolve(cycle_id, g, tribute_topics, tribute_count, live_ok, live_fail)
         self._government_and_census(cycle_id, g)
 
