@@ -48,6 +48,12 @@ class CycleResult:
     communications: int = 0
     gathered: list[str] = field(default_factory=list)
     improvements: list[str] = field(default_factory=list)
+    systems_built: list[str] = field(default_factory=list)
+    systems_used: list[str] = field(default_factory=list)
+    fitness: dict[str, float] = field(default_factory=dict)
+    replies: int = 0
+    messages_read: int = 0
+    retired_roles: list[str] = field(default_factory=list)
     status_counts: dict[str, int] = field(default_factory=dict)
     witness_path: Path | None = None
     report_path: Path | None = None
@@ -151,6 +157,8 @@ class Society:
             cid,
             tribute_topics=result.tribute_topics,
             tribute_count=result.tribute_count,
+            live_ok=payment.live_ok,
+            live_fail=payment.live_fail,
         )
         result.new_roles = list(emergence.new_roles)
         result.institutions = list(emergence.institutions)
@@ -160,6 +168,12 @@ class Society:
         result.communications = len(emergence.growth.communications)
         result.gathered = list(emergence.growth.gathered)
         result.improvements = list(emergence.growth.improvements)
+        result.systems_built = list(emergence.growth.systems_built)
+        result.systems_used = list(emergence.growth.systems_used)
+        result.fitness = dict(emergence.growth.fitness)
+        result.replies = int(emergence.growth.replies)
+        result.messages_read = int(emergence.growth.messages_read)
+        result.retired_roles = list(emergence.retired_roles)
 
         # 3. Hard ceiling — no silent accept
         cycle_findings = payment.findings + emergence.findings
@@ -179,14 +193,33 @@ class Society:
             principal=self.charter.human_principal,
             extra_preamble=(
                 f"Latest cycle `{cid}`: tribute={result.tribute_count}, "
-                f"new_roles={result.new_roles}, institutions={result.institutions}, "
-                f"councils={result.councils}, builds={result.builds}, "
-                f"comms={result.communications}, gathered={result.gathered}, "
+                f"new_roles={result.new_roles}, retired={result.retired_roles}, "
+                f"builds={result.builds}, systems_used={result.systems_used}, "
+                f"comms={result.communications}, replies={result.replies}, "
+                f"read={result.messages_read}, fitness={result.fitness.get('aggregate')}, "
                 f"improvements={result.improvements}."
             ),
         )
         result.report_path = self._write_report(result)
         return result
+
+
+    def evolve(self, cycles: int = 5) -> list[CycleResult]:
+        """Run N autonomous cycles with full learn/evolve mechanics."""
+        from colony.dashboard import refresh_dashboard
+
+        results: list[CycleResult] = []
+        for i in range(max(1, int(cycles))):
+            r = self.run_cycle()
+            results.append(r)
+            print(
+                f"[evolve {i+1}/{cycles}] cycle={r.cycle_id} "
+                f"fitness={r.fitness.get('aggregate')} "
+                f"systems_used={r.systems_used} replies={r.replies} "
+                f"new_roles={r.new_roles} retired={r.retired_roles}"
+            )
+        refresh_dashboard(self.root)
+        return results
 
     def status(self) -> dict[str, Any]:
         return {
@@ -200,6 +233,21 @@ class Society:
             "councils": [c.get("name") for c in self.state.data.get("councils") or []],
             "institutions": [i.get("name") for i in self.state.data.get("institutions") or []],
             "artifacts": [a.get("name") for a in self.state.data.get("artifacts") or []],
+            "systems": [
+                {"name": s.get("name"), "uses": s.get("use_count"), "path": s.get("path")}
+                for s in (self.state.data.get("systems") or [])
+            ],
+            "agents_active": sorted(
+                k for k, v in (self.state.data.get("agents") or {}).items()
+                if v.get("status") == "active"
+            ),
+            "agents_retired": sorted(
+                k for k, v in (self.state.data.get("agents") or {}).items()
+                if v.get("status") == "retired"
+            ),
+            "fitness_latest": (self.state.data.get("fitness_history") or [None])[-1],
+            "improvement_proposals": len(self.state.data.get("improvement_proposals") or []),
+            "bus_stats": (self.state.data.get("bus") or {}).get("stats"),
             "communications_count": len(self.state.data.get("communications") or []),
             "improvements": [i.get("title") for i in self.state.data.get("improvements") or []],
             "cycle_count": self.state.data.get("cycle_count"),
@@ -232,9 +280,13 @@ class Society:
             "## Growth Loop (this cycle)",
             "",
             f"- **Built:** {', '.join(result.builds) or '_none_'}",
-            f"- **Communications:** {result.communications}",
+            f"- **Systems built:** {', '.join(result.systems_built) or '_none_'}",
+            f"- **Systems used:** {', '.join(result.systems_used) or '_none_'}",
+            f"- **Communications:** {result.communications} (replies={result.replies}, read={result.messages_read})",
             f"- **Gathered:** {', '.join(result.gathered) or '_none_'}",
-            f"- **Improvements attempted:** {', '.join(result.improvements) or '_none_'}",
+            f"- **Fitness:** `{result.fitness}`",
+            f"- **Improvements (candidate):** {', '.join(result.improvements) or '_none_'}",
+            f"- **Retired roles:** {', '.join(result.retired_roles) or '_none_'}",
             "",
             "## Emergence (this cycle)",
             "",
