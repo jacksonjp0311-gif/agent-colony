@@ -1,19 +1,19 @@
 {
   "topics": {
-    "godel-machines": 1,
-    "darwin-godel-machine": 1,
-    "constitutional-ai": 1,
-    "reflexion": 1,
-    "voyager": 1,
-    "self-refine": 1,
-    "meta-learning": 1,
-    "autogpt-loops": 1,
-    "opendevin": 1,
-    "debate": 1,
-    "agent-societies": 239,
-    "recursive-self-improvement": 2
+    "godel-machines": 2,
+    "darwin-godel-machine": 2,
+    "constitutional-ai": 2,
+    "reflexion": 2,
+    "voyager": 2,
+    "self-refine": 2,
+    "meta-learning": 2,
+    "autogpt-loops": 2,
+    "opendevin": 2,
+    "debate": 2,
+    "agent-societies": 299,
+    "recursive-self-improvement": 3
   },
   "source": "gather_pass",
-  "updated_at": "2026-09-26T09:43:20Z",
-  "updated_cycle": "20260926T094320Z_3d19c7"
+  "updated_at": "2026-09-26T10:16:49Z",
+  "updated_cycle": "20260926T101649Z_c8474a"
 }
