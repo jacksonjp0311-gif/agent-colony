@@ -1,5 +1,5 @@
 {
-  "when": "2026-09-26T11:32Z",
+  "when": "2026-09-26T11:47Z",
   "authorize_cycles": [
     {
       "id": "authorize_20260926T113127Z",
@@ -12,94 +12,57 @@
       "accepted": 6,
       "rejected": 0,
       "note": "research-lab math/tech live-fetched seeds"
+    },
+    {
+      "id": "authorize_20260926T114651Z",
+      "accepted": 1,
+      "rejected": 2,
+      "note": "behavior-proven deepen-compute P=0.86; reject weak prize-track dupes"
     }
   ],
-  "p_policy": "accept only P>=0.75 with sourced evidence; reject junk/dupes; leave uncertain",
-  "accepted": [
+  "p_policy": "accept only P>=0.75 with sourced evidence OR clearly proven by new metrics (citation_reuse/topic_priority/hearing); reject weak/dupes; leave uncertain",
+  "accepted_this_batch": [
     {
-      "finding_id": "fnd_f210093ad5cb",
-      "title": "Millennium Prize Problems",
-      "p": 0.9
-    },
-    {
-      "finding_id": "fnd_b3b0564bd3f8",
-      "title": "FFT Cooley–Tukey",
-      "p": 0.92
-    },
-    {
-      "finding_id": "fnd_3b3e5a61922f",
-      "title": "Automatic differentiation",
-      "p": 0.88
-    },
-    {
-      "finding_id": "fnd_fe0c6eb713f3",
-      "title": "Transformer architecture",
-      "p": 0.9
-    },
-    {
-      "finding_id": "fnd_533552a31c99",
-      "title": "Lean theorem prover",
-      "p": 0.85
-    },
-    {
-      "finding_id": "fnd_94875967a092",
-      "title": "P versus NP",
-      "p": 0.9
+      "finding_id": "fnd_309462c974cf",
+      "title": "Hearing accept_candidate: Deepen compute-useful math",
+      "p": 0.86
     }
   ],
-  "rejected_count": 18,
-  "left_uncertain": "bulletin/forum noise, gather syntheses, ceiling/tribute affirmations, emergence receipts, debate-propose process candidates",
+  "rejected_this_batch": 2,
   "live": {
-    "cycle_count": 51,
-    "fitness_aggregate": 0.8452,
+    "cycle_count": 62,
+    "fitness_aggregate": 0.8443,
+    "citation_reuse": 1.0,
     "math_prize": 1.0,
     "compute_usefulness": 1.0,
     "prize_boost": 1.0,
-    "population": {
-      "active": 16,
-      "soft_cap": 20,
-      "spawns": 8,
-      "child_spawns": 8
+    "findings_coupling": {
+      "strength": 1.0,
+      "accepted_math": 4,
+      "accepted_compute": 5,
+      "accepted_rsi": 8,
+      "citation_hits": 38,
+      "persona_updated": 16,
+      "ts": "2026-09-26T11:46:09Z"
     },
-    "commons_size": 71,
-    "commons_by_domain": {
-      "science": 39,
-      "history": 19,
-      "math": 0,
-      "rsi": 1,
-      "empire": 0,
-      "general": 8
+    "spawn_privilege": {
+      "threshold": 0.33,
+      "citations": 38,
+      "strength": 1.0,
+      "ts": "2026-09-26T11:46:09Z"
+    },
+    "hearing": {
+      "accept_candidate": 11,
+      "reject": 11,
+      "defer": 11
     },
     "status_counts": {
-      "candidate": 954,
-      "accepted": 37,
-      "rejected": 38,
-      "unknown": 1
+      "candidate": 1339,
+      "unknown": 12,
+      "accepted": 38,
+      "rejected": 51
     },
-    "witness_events": 1751,
-    "institutions": [
-      "Archive of Attempts",
-      "Council of Careful Doubt",
-      "Workshop of Making",
-      "Society Bulletin",
-      "Forum of Exchange",
-      "Chamber of Laws",
-      "Census",
-      "Commons Archive",
-      "Forum of Domains",
-      "Persona Registry",
-      "RSI Coupling Desk",
-      "Hearing Chamber",
-      "Committee of Inquiry",
-      "Academy of Learning",
-      "Math Prize Desk",
-      "Research Lab Colloquium"
-    ],
-    "councils": [
-      "Council of Careful Doubt",
-      "Forum of Exchange",
-      "Research Lab Colloquium"
-    ],
-    "active_ask_prefix": "Research-lab civilization: on online cycles, web-gather/scrape public sources; hold inter-agent discussion of findings; run committees, hearings, and education "
+    "witness_events": 2437,
+    "commons_size": 115
   }
 }

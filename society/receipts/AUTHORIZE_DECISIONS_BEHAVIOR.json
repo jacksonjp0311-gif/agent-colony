@@ -1,0 +1,42 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (explicit trust grant \u2014 selective P>=0.75 for metrics-proven behavior)",
+  "p_policy": "accept only P>=0.75 clearly proven by citation_reuse/topic_priority/hearing metrics; reject weak dupes",
+  "items": [
+    {
+      "finding_id": "fnd_309462c974cf",
+      "decision": "accepted",
+      "rationale": "P=0.86: Hearing accept_candidate proven by new metrics \u2014 citation_reuse=1.0, topic_priority ranked by accepted_* findings, persona mandates cite FFT/autodiff, spawn_floor=0.33. Behavior change (not museum). Selective authorize."
+    },
+    {
+      "finding_id": "fnd_f940849031d5",
+      "decision": "rejected",
+      "rationale": "P=0.88 reject: superseded by Hearing Chamber reject path; weak/dupe prize-track propose."
+    },
+    {
+      "finding_id": "fnd_957d7b727cdc",
+      "decision": "rejected",
+      "rationale": "P=0.88 reject: superseded by Hearing Chamber reject path; weak/dupe prize-track propose."
+    }
+  ],
+  "scored": [
+    {
+      "finding_id": "fnd_309462c974cf",
+      "decision": "accepted",
+      "rationale": "P=0.86: Hearing accept_candidate proven by new metrics \u2014 citation_reuse=1.0, topic_priority ranked by accepted_* findings, persona mandates cite FFT/autodiff, spawn_floor=0.33. Behavior change (not museum). Selective authorize.",
+      "p": 0.86
+    },
+    {
+      "finding_id": "fnd_f940849031d5",
+      "decision": "rejected",
+      "rationale": "P=0.88 reject: superseded by Hearing Chamber reject path; weak/dupe prize-track propose.",
+      "p": 0.88
+    },
+    {
+      "finding_id": "fnd_957d7b727cdc",
+      "decision": "rejected",
+      "rationale": "P=0.88 reject: superseded by Hearing Chamber reject path; weak/dupe prize-track propose.",
+      "p": 0.88
+    }
+  ]
+}
