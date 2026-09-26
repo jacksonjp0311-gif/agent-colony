@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-26T15:08:29Z",
+  "updated_cycle": "autonomy_extra",
+  "size": 200,
+  "stats": {
+    "appended": 398,
+    "reused": 911
+  },
+  "by_domain": {
+    "math": 154,
+    "software": 36,
+    "general": 10
+  },
+  "recent": [
+    {
+      "id": "ck_34486c_0200",
+      "ts": "2026-09-26T15:08:20Z",
+      "cycle_id": "20260926T150819Z_34486c",
+      "domain": "math",
+      "title": "Commons note: compute-useful-math",
+      "summary": "Standing gather on `compute-useful-math` (ledger_count=269). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "compute-useful-math"
+      ],
+      "evidence": [
+        "cycle:20260926T150819Z_34486c",
+        "topic:compute-useful-math"
+      ],
+      "status": "candidate",
+      "reuse_count": 2
+    },
+    {
+      "id": "ck_34486c_0200",
+      "ts": "2026-09-26T15:08:20Z",
+      "cycle_id": "20260926T150819Z_34486c",
+      "domain": "math",
+      "title": "Commons note: open-math-problems",
+      "summary": "Standing gather on `open-math-problems` (ledger_count=336). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "open-math-problems"
+      ],
+      "evidence": [
+        "cycle:20260926T150819Z_34486c",
+        "topic:open-math-problems"
+      ],
+      "status": "candidate",
+      "reuse_count": 2
+    },
+    {
+      "id": "ck_34486c_0200",
+      "ts": "2026-09-26T15:08:20Z",
+      "cycle_id": "20260926T150819Z_34486c",
+      "domain": "math",
+      "title": "Commons note: mathematics-foundations",
+      "summary": "Standing gather on `mathematics-foundations` (ledger_count=79). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "mathematics-foundations"
+      ],
+      "evidence": [
+        "cycle:20260926T150819Z_34486c",
+        "topic:mathematics-foundations"
+      ],
+      "status": "candidate",
+      "reuse_count": 3
+    },
+    {
+      "id": "ck_d6036f_0200",
+      "ts": "2026-09-26T15:08:21Z",
+      "cycle_id": "20260926T150820Z_d6036f",
+      "domain": "software",
+      "title": "Commons note: software-engineering",
+      "summary": "Standing gather on `software-engineering` (ledger_count=2). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "software-engineering"
+      ],
+      "evidence": [
+        "cycle:20260926T150820Z_d6036f",
+        "topic:software-engineering"
+      ],
+      "status": "candidate",
+      "reuse_count": 2
+    },
+    {
+      "id": "ck_d6036f_0200",
+      "ts": "2026-09-26T15:08:21Z",
+      "cycle_id": "20260926T150820Z_d6036f",
+      "domain": "math",
+      "title": "Commons note: compute-useful-math",
+      "summary": "Standing gather on `compute-useful-math` (ledger_count=272). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "compute-useful-math"
+      ],
+      "evidence": [
+        "cycle:20260926T150820Z_d6036f",
+        "topic:compute-useful-math"
+      ],
+      "status": "candidate",
+      "reuse_count": 2
+    },
+    {
+      "id": "ck_d6036f_0200",
+      "ts": "2026-09-26T15:08:21Z",
+      "cycle_id": "20260926T150820Z_d6036f",
+      "domain": "math",
+      "title": "Commons note: open-math-problems",
+      "summary": "Standing gather on `open-math-problems` (ledger_count=345). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "open-math-problems"
+      ],
+      "evidence": [
+        "cycle:20260926T150820Z_d6036f",
+        "topic:open-math-problems"
+      ],
+      "status": "candidate",
+      "reuse_count": 2
+    },
+    {
+      "id": "ck_d6036f_0200",
+      "ts": "2026-09-26T15:08:21Z",
+      "cycle_id": "20260926T150820Z_d6036f",
+      "domain": "math",
+      "title": "Commons note: mathematics-foundations",
+      "summary": "Standing gather on `mathematics-foundations` (ledger_count=80). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "mathematics-foundations"
+      ],
+      "evidence": [
+        "cycle:20260926T150820Z_d6036f",
+        "topic:mathematics-foundations"
+      ],
+      "status": "candidate",
+      "reuse_count": 3
+    },
+    {
+      "id": "ck_0edfdf_0200",
+      "ts": "2026-09-26T15:08:22Z",
+      "cycle_id": "20260926T150822Z_0edfdf",
+      "domain": "software",
+      "title": "Commons note: software-engineering",
+      "summary": "Standing gather on `software-engineering` (ledger_count=2). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "software-engineering"
+      ],
+      "evidence": [
+        "cycle:20260926T150822Z_0edfdf",
+        "topic:software-engineering"
+      ],
+      "status": "candidate",
+      "reuse_count": 1
+    },
+    {
+      "id": "ck_0edfdf_0200",
+      "ts": "2026-09-26T15:08:22Z",
+      "cycle_id": "20260926T150822Z_0edfdf",
+      "domain": "math",
+      "title": "Commons note: compute-useful-math",
+      "summary": "Standing gather on `compute-useful-math` (ledger_count=275). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "compute-useful-math"
+      ],
+      "evidence": [
+        "cycle:20260926T150822Z_0edfdf",
+        "topic:compute-useful-math"
+      ],
+      "status": "candidate",
+      "reuse_count": 1
+    },
+    {
+      "id": "ck_0edfdf_0200",
+      "ts": "2026-09-26T15:08:22Z",
+      "cycle_id": "20260926T150822Z_0edfdf",
+      "domain": "math",
+      "title": "Commons note: open-math-problems",
+      "summary": "Standing gather on `open-math-problems` (ledger_count=354). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "open-math-problems"
+      ],
+      "evidence": [
+        "cycle:20260926T150822Z_0edfdf",
+        "topic:open-math-problems"
+      ],
+      "status": "candidate",
+      "reuse_count": 1
+    },
+    {
+      "id": "ck_0edfdf_0200",
+      "ts": "2026-09-26T15:08:22Z",
+      "cycle_id": "20260926T150822Z_0edfdf",
+      "domain": "math",
+      "title": "Commons note: mathematics-foundations",
+      "summary": "Standing gather on `mathematics-foundations` (ledger_count=81). Candidate synthesis for shared reuse. Not accepted.",
+      "source_role": "archivist",
+      "tags": [
+        "gather",
+        "commons",
+        "mathematics-foundations"
+      ],
+      "evidence": [
+        "cycle:20260926T150822Z_0edfdf",
+        "topic:mathematics-foundations"
+      ],
+      "status": "candidate",
+      "reuse_count": 1
+    },
+    {
+      "id": "ck__extra_0200",
+      "ts": "2026-09-26T15:08:29Z",
+      "cycle_id": "autonomy_extra",
+      "domain": "math",
+      "title": "lemma_revert:easy_pad_abs_identity",
+      "summary": "revert `easy_pad_abs_identity` kind=easy_pad score 0.9071→0.9071. Reverted `easy_pad_abs_identity` (easy_pad): score 0.9071→0.9229 ok=True hard_pass 16→16 — hard-tier lift required for keep; easy pads fail.",
+      "source_role": "spark",
+      "tags": [
+        "bridge",
+        "external_mind",
+        "hard_tier",
+        "revert",
+        "easy_pad"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "society/benchmarks/artifacts/lemma_impl.py",
+        "society/benchmarks/conjecture_history.jsonl",
+        "arxiv:1706.03762",
+        "arxiv:cs/0309048",
+        "arxiv:2303.11366",
+        "arxiv:2505.22964"
+      ],
+      "status": "candidate",
+      "reuse_count": 0
+    }
+  ],
+  "note": "Candidates only. Human authorize required for accepted knowledge."
+}

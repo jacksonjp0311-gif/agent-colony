@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-26T15:08:29Z",
+  "mutate_distribution": {
+    "vandermonde_conv": 0.066434,
+    "hockey_stick": 0.066434,
+    "cassini": 0.066434,
+    "workload_derived_chain": 0.066434,
+    "binomial_sum_row": 0.066434,
+    "fibonacci_addition": 0.066434,
+    "catalan_bounded": 0.066434,
+    "lucas_addition": 0.066434,
+    "central_binom_bound": 0.066434,
+    "pell_companion": 0.066434,
+    "gcd_fibonacci": 0.083043,
+    "stirling_second_row": 0.083044,
+    "pythagorean_generation": 0.083044,
+    "motzkin_bounded": 0.083043,
+    "easy_pad_square_again": 0.00087,
+    "easy_pad_diff_squares": 0.00087,
+    "easy_pad_commutativity": 0.00087,
+    "easy_pad_abs_identity": 0.00087
+  },
+  "revert_penalties": {
+    "easy_pad_commutativity": 3,
+    "easy_pad_abs_identity": 3,
+    "easy_pad_square_again": 2,
+    "easy_pad_diff_squares": 1
+  },
+  "keep_rewards": {
+    "gcd_fibonacci": 1,
+    "stirling_second_row": 1,
+    "pythagorean_generation": 1,
+    "motzkin_bounded": 1
+  },
+  "spawn_retire_log": [
+    {
+      "ts": "2026-09-26T15:08:14Z",
+      "cycle_id": "20260926T150813Z_5e87d5",
+      "event": "credit",
+      "delta_pass": 2.0
+    },
+    {
+      "ts": "2026-09-26T15:08:15Z",
+      "cycle_id": "20260926T150814Z_0bac51",
+      "event": "credit",
+      "delta_pass": 1.0
+    },
+    {
+      "ts": "2026-09-26T15:08:16Z",
+      "cycle_id": "20260926T150815Z_db57fa",
+      "event": "credit",
+      "delta_pass": 1.0
+    },
+    {
+      "ts": "2026-09-26T15:08:18Z",
+      "cycle_id": "20260926T150817Z_9dfb26",
+      "event": "pressure_retire",
+      "delta_pass": 0.0
+    },
+    {
+      "ts": "2026-09-26T15:08:19Z",
+      "cycle_id": "20260926T150818Z_c1b6b6",
+      "event": "pressure_retire",
+      "delta_pass": 0.0
+    },
+    {
+      "ts": "2026-09-26T15:08:20Z",
+      "cycle_id": "20260926T150819Z_34486c",
+      "event": "pressure_retire",
+      "delta_pass": 0.0
+    },
+    {
+      "ts": "2026-09-26T15:08:21Z",
+      "cycle_id": "20260926T150820Z_d6036f",
+      "event": "pressure_retire",
+      "delta_pass": 0.0
+    },
+    {
+      "ts": "2026-09-26T15:08:23Z",
+      "cycle_id": "20260926T150822Z_0edfdf",
+      "event": "pressure_retire",
+      "delta_pass": 0.0
+    }
+  ],
+  "note": "Exploration budget. Distribution must change after reverts.",
+  "last_outcome": {
+    "mutation": "easy_pad_abs_identity",
+    "decision": "revert",
+    "kind": "easy_pad",
+    "distribution_changed": true,
+    "ts": "2026-09-26T15:08:29Z"
+  }
+}

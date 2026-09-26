@@ -1,0 +1,51 @@
+{
+  "items": [
+    {
+      "finding_id": "fnd_eb044eddf8ec",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked `debate_multihop` keep/bus-driven. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_c1e04208d7ff",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked `debate_multihop` keep/bus-driven. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_f805b0db1a41",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked `debate_multihop` keep/bus-driven. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_e9b18bdaf815",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked `debate_multihop` keep/bus-driven. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_2e78393af61b",
+      "decision": "rejected",
+      "rationale": "Standing trust: easy_pad/revert `easy_pad_diff_squares` \u2014 no durable accept. Selective."
+    },
+    {
+      "finding_id": "fnd_297f3b4ebd0c",
+      "decision": "rejected",
+      "rationale": "Standing trust: easy_pad/revert `easy_pad_commutativity` \u2014 no durable accept. Selective."
+    },
+    {
+      "finding_id": "fnd_28a63c888df4",
+      "decision": "rejected",
+      "rationale": "Standing trust: easy_pad/revert `easy_pad_square_again` \u2014 no durable accept. Selective."
+    },
+    {
+      "finding_id": "fnd_4be6f2dc84b4",
+      "decision": "rejected",
+      "rationale": "Standing trust: easy_pad/revert `easy_pad_commutativity` \u2014 no durable accept. Selective."
+    },
+    {
+      "finding_id": "fnd_b942eda7f292",
+      "decision": "rejected",
+      "rationale": "Standing trust: easy_pad/revert `easy_pad_abs_identity` \u2014 no durable accept. Selective."
+    }
+  ],
+  "policy": "standing_trust_P>=0.75_selective_never_accept_all",
+  "mile": "autonomy"
+}

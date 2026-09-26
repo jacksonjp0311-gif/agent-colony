@@ -1,0 +1,153 @@
+{
+  "when": "2026-09-26T15:08:44Z",
+  "mile": "autonomy",
+  "cycle_count": 129,
+  "fitness_before_mile": {
+    "aggregate": 0.8268,
+    "comm_reply_rate": 0.3333,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0,
+    "lemma_score": 0.9071,
+    "n_hard_pass": 12
+  },
+  "fitness_latest": {
+    "ts": "2026-09-26T15:08:23Z",
+    "cycle_id": "20260926T150822Z_0edfdf",
+    "tribute_quality": 0.9,
+    "gather_coverage": 1.0,
+    "build_reuse": 0.7333,
+    "comm_reply_rate": 0.3878,
+    "reply_quality": 0.9505,
+    "commons_signal": 1.0,
+    "math_prize": 0.8393,
+    "compute_usefulness": 0.9412,
+    "citation_reuse": 1.0,
+    "prize_boost": 0.9071,
+    "aggregate": 0.8321,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0
+  },
+  "bus_metrics": {
+    "reply_rate": 0.3333,
+    "reply_quality": 0.9419,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0,
+    "stats": {
+      "posted": 2453,
+      "read": 10459,
+      "replied": 880,
+      "reply_quality_sum": 779.8999999999928,
+      "reply_quality_n": 828,
+      "actions_planned": 1,
+      "actions_changed_from_message": 1,
+      "peer_cite_opportunities": 10,
+      "peer_cites": 10
+    }
+  },
+  "benches": {
+    "ok_all": true,
+    "aggregate_score": 0.9249,
+    "lemma": {
+      "bench": "lemma_microbench",
+      "ok": true,
+      "max_abs_err": 0.0,
+      "seconds": 0.008603,
+      "score": 0.9071,
+      "impl_id": "lemma_impl_v2_basic10_hard16",
+      "checks": {
+        "basic:square_of_sum": true,
+        "basic:difference_of_squares": true,
+        "basic:sum_first_n_odds": true,
+        "basic:binomial_symmetry": true,
+        "basic:pascal_identity": true,
+        "basic:polynomial_expand_cube": true,
+        "basic:frobenius_4_7": true,
+        "basic:handshaking_small": true,
+        "basic:geometric_sum": true,
+        "basic:sum_first_n_cubes": true,
+        "hard:adversarial_sum_cubes": true,
+        "hard:adversarial_binomial_pascal": true,
+        "hard:vandermonde_conv": true,
+        "hard:hockey_stick": true,
+        "hard:cassini": true,
+        "hard:workload_derived_chain": true,
+        "hard:binomial_sum_row": true,
+        "hard:fibonacci_addition": true,
+        "hard:catalan_bounded": true,
+        "hard:lucas_addition": true,
+        "hard:central_binom_bound": true,
+        "hard:pell_companion": true,
+        "hard:gcd_fibonacci": true,
+        "hard:stirling_second_row": true,
+        "hard:pythagorean_generation": true,
+        "hard:motzkin_bounded": true
+      },
+      "n_checks": 26,
+      "n_pass": 26,
+      "n_basic": 10,
+      "n_basic_pass": 10,
+      "n_hard": 16,
+      "n_hard_pass": 16,
+      "basic_ok": true,
+      "hard_ok": true,
+      "note": "Machine-check of coded lemmas (basic + hard tier). Textbook-only cannot ace ~0.95. Not novel-theorem discovery."
+    }
+  },
+  "novelty_gate": {
+    "hits": 1,
+    "kills": 14,
+    "latest": "easy_pad_abs_identity"
+  },
+  "debate_multihop": {
+    "action_changed": true,
+    "code_touched": true,
+    "roles": {
+      "A": "geometer",
+      "B": "legislator",
+      "C": "improver"
+    },
+    "bus_metrics": {
+      "reply_rate": 0.4082,
+      "peer_cite_rate": 1.0,
+      "action_changed_from_message": 1.0,
+      "reply_quality": 0.9505
+    }
+  },
+  "exploration_budget": {
+    "mutation": "easy_pad_abs_identity",
+    "decision": "revert",
+    "kind": "easy_pad",
+    "distribution_changed": true,
+    "ts": "2026-09-26T15:08:29Z"
+  },
+  "lessons": {
+    "n_active": 19,
+    "n_keeps": 7,
+    "n_reverts": 12
+  },
+  "authorize": {
+    "accepted": 4,
+    "rejected": 5,
+    "skipped": 0,
+    "policy": "standing_trust_P>=0.75_selective_never_accept_all"
+  },
+  "status_counts": {
+    "candidate": 4083,
+    "unknown": 79,
+    "accepted": 76,
+    "rejected": 261
+  },
+  "keeps_this_mile": [
+    "gcd_fibonacci",
+    "stirling_second_row",
+    "pythagorean_generation",
+    "motzkin_bounded"
+  ],
+  "easy_pad_reverts_proven": [
+    "easy_pad_commutativity",
+    "easy_pad_abs_identity",
+    "easy_pad_square_again",
+    "easy_pad_diff_squares"
+  ],
+  "note": "Autonomy mile slim receipt. Not AGI. Not novel theorems. Textbook reuse\u22480 for novelty claims."
+}
