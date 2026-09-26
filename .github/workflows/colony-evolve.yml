@@ -1,10 +1,9 @@
-# Agent Colony — scheduled evolve (GitHub Actions cron)
+# Agent Colony — scheduled evolve + measured benchmarks (GitHub Actions cron)
 # Cron is UTC. workflow_dispatch allows manual runs.
 name: Colony evolve
 
 on:
   schedule:
-    # Every 6 hours at :26 UTC (light research-lab pulse)
     - cron: "26 */6 * * *"
   workflow_dispatch:
     inputs:
@@ -41,6 +40,22 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Run measured benchmarks
+        run: |
+          set -euo pipefail
+          export PYTHONPATH=.
+          python -m society.benchmarks.run_benchmarks
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          latest = json.loads(Path("society/benchmarks/latest.json").read_text())
+          print(json.dumps(latest, indent=2))
+          if not latest.get("ok_all"):
+              print("::error::Benchmarks failed ok_all=false — refusing to treat as prize-worthy")
+              # Still commit scores so failures are visible; do not fail the whole job hard
+              # unless AUTOFAIL=1
+          PY
+
       - name: Run evolve
         env:
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
@@ -58,10 +73,10 @@ jobs:
           set -euo pipefail
           git config user.name "agent-colony-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data society || true
+          git add -A data society society/benchmarks || true
           if git diff --staged --quiet; then
             echo "No society changes to commit"
           else
-            git commit -m "ci(colony): scheduled evolve $(date -u +%Y-%m-%dT%H%MZ)"
+            git commit -m "ci(colony): benches + evolve $(date -u +%Y-%m-%dT%H%MZ)"
             git push
           fi

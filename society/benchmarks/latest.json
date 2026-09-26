@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-26T12:36:53Z",
+  "ts": "2026-09-26T12:39:17Z",
   "ok_all": true,
   "aggregate_score": 1.0,
   "benches": [
@@ -10,11 +10,39 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.000978,
+      "seconds": 0.001026,
       "score": 1.0,
       "impl_id": "fft_impl_cooley_tukey_iter_v1",
       "err_tol": 1e-06,
       "time_budget_s": 0.05
+    },
+    {
+      "bench": "autodiff_microbench",
+      "ok": true,
+      "max_abs_err": 6.47925602059729e-11,
+      "errs": {
+        "x": 2.7593705098638566e-11,
+        "a": 6.47925602059729e-11,
+        "b": 3.071098930718108e-11,
+        "c": 3.8661435164399904e-13
+      },
+      "got": {
+        "x": 1.522103802241275,
+        "a": 0.4320547673820729,
+        "b": 1.1677155875191159,
+        "c": 0.0624593178423802
+      },
+      "ref_fd": {
+        "x": 1.5221038022136812,
+        "a": 0.4320547673172803,
+        "b": 1.1677155874884049,
+        "c": 0.062459317842766815
+      },
+      "seconds": 2.1e-05,
+      "score": 1.0,
+      "impl_id": "autodiff_reverse_tape_v1",
+      "grad_tol": 5e-05,
+      "time_budget_s": 0.01
     }
   ],
   "note": "Prize fitness must read these scores \u2014 institution names do not count."
