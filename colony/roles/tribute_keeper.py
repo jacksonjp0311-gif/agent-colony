@@ -31,7 +31,6 @@ TRIBUTE_TOPICS = frozenset(
         "opendevin",
         "voyager",
         "debate",
-        "self-improving-agents",
     }
 )
 
@@ -135,8 +134,9 @@ class TributeKeeper:
                 role="tribute_keeper",
                 claim=(
                     "Tribute affirmation: standing corpus on recursive / self-learning / "
-                    "self-improving systems remains in the ledger. Ready for the creator's "
-                    f"next ask. Active ask: {active_ask[:160]}"
+                    "self-improving systems remains in the ledger as valuable gather. "
+                    "Colony serves the broader will — grow, build, communicate, gather, improve. "
+                    f"Active ask: {active_ask[:160]}"
                 ),
                 evidence_urls=["charter:creator-tribute", f"cycle:{cycle_id}"],
                 provenance="tribute_affirmation",
