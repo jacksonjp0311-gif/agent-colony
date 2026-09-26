@@ -1,10 +1,16 @@
 """Colony FFT artifact — iterative radix-2 Cooley–Tukey.
 
 Improve this file; harness scores correctness+speed vs fixed reference.
+SLOW_EXTRA_LOOPS is a deliberate drag the bench-improver may remove.
 """
 from __future__ import annotations
 import math
 from typing import Sequence
+
+# Deliberate slowdown knob (improver measure→keep/revert target).
+# Each unit adds a pure-python pass over the buffer after the transform.
+SLOW_EXTRA_LOOPS = 0
+
 
 def fft(x: Sequence[complex]) -> list[complex]:
     n = len(x)
@@ -36,7 +42,17 @@ def fft(x: Sequence[complex]) -> list[complex]:
                 out[i + k + half] = u - v
                 w *= wlen
         length <<= 1
+    # Intentional drag — correct but slower (stress bench should score <1.0)
+    for _ in range(max(0, int(SLOW_EXTRA_LOOPS))):
+        acc = 0.0
+        for i in range(n):
+            re, im = out[i].real, out[i].imag
+            acc += math.sin(re * 1e-12) + math.cos(im * 1e-12)
+            out[i] = complex(re, im)
+        if acc == float("inf"):  # never; keeps acc live for optimizer
+            out[0] = out[0]
     return out
 
+
 def impl_id() -> str:
-    return "fft_impl_cooley_tukey_iter_v1"
+    return f"fft_impl_cooley_tukey_iter_v1_slow{SLOW_EXTRA_LOOPS}"
