@@ -22,16 +22,15 @@
 - **Desk rule:** hard-enable mutations may keep; easy-check padding must **fail keep**.
 
 
-## Five lifts + bridge (this mile)
+## Autonomy mile (this mile; five-lifts substrate retained)
 
 | Piece | Rule |
 |-------|------|
-| **1 Inner bus** | Peer cites + action_changed_from_message; kill shout-into-void |
-| **2 Lessons** | keep/revert → `lessons.jsonl`; bias skills; easy wins expire under harder checks |
-| **3 Claim pipeline** | scrape→extract→hard check→propose; raw scrape ≠ discovery |
-| **4 Emergence** | Spawn on hard-tier gaps; retire when no hard-tier lift |
-| **5 Connection** | external_mind + debate; authorize/standing trust; not consciousness |
-| **Keep rule** | Colony keeps ONLY if hard-tier bench score rises (easy pads fail keep) |
+| **A Self-run cron** | gather→claim→hard bench→keep/revert→lesson→selective authorize→slim push; failure noisy / success quiet |
+| **B Novelty gate** | Novel-to-commons only if absent from lessons/known IDs, stripped baseline fails usefulness, survives held-out harder check; **textbook reuse ≈0** |
+| **C Multi-hop debate** | A proposes → B attacks → C patches; fitness rise needs bus-driven claim/code change |
+| **D Exploration budget** | Weak roles spawn/retire on hard-tier deltas; mutate distribution changes after reverts |
+| **Keep rule** | Colony keeps ONLY if hard-tier bench score / hard_pass rises (easy pads fail keep) |
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
 | **Durable discovered** | Machine-check + human authorize (P≥0.75 selective). Not AGI. Not Millennium. |
 
@@ -54,14 +53,11 @@
 
 | Metric | Value |
 |--------|-------|
-| Lemma before bridge (prior hard mile) | 0.8371 |
-| Lemma after bridge hard keeps | **0.9071** |
-| Hard checks enabled | 9 / 9 pass |
-| Bridge keeps | binomial_sum_row, fibonacci_addition, catalan_bounded |
-| Bridge reverts | easy_pad_square_again (hard_pass flat → fail keep) |
-| External-mind proposals | 6 (structured + paper); keeps only on hard rise |
-| cycle_count | 112 |
-| Authorize (bridge) | accepted 3 / rejected 12 |
+| Lemma baseline (pre-autonomy) | **0.9071** (12/12 hard pass) |
+| New disabled hard checks | gcd_fibonacci, stirling_second_row, pythagorean_generation, motzkin_bounded |
+| Novelty gate | hits/kills recorded in `society/systems/novelty_gate.json` |
+| Multi-hop | `society/systems/debate_multihop.json` |
+| Exploration budget | `society/systems/exploration_budget.json` |
 | Ethos graphic | `docs/assets/spark_witness_city.jpg` |
 
-**Novel math beyond textbook?** No — five lifts harden process (bus/lessons/claims/emergence/connection); classical coded identities only; still not theorem discovery.
+**Novel math beyond textbook?** No — autonomy mile hardens process gates (novelty/debate/budget/cron). Classical coded identities only; **still not theorem discovery**. Textbook reuse ≈0 for any "novel" claim.
