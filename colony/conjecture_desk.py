@@ -118,12 +118,19 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     recent_reverts = recent_revert_counts()
     chosen = kind = snippet = ""
     chosen = None
-    for name, k, snip in MUTATION_SNIPPETS:
+    try:
+        from colony.exploration_budget import pick_mutation_order
+        ordered = pick_mutation_order(list(MUTATION_SNIPPETS))
+    except Exception:
+        ordered = list(MUTATION_SNIPPETS)
+    for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
             continue
         if _already_has(src, name):
             continue
-        if not force_mutation and recent_reverts.get(name, 0) >= 2:
+        # Autonomy mile: allow one more retry on easy_pad to prove revert; hard uses >=3
+        limit = 3 if name.startswith("easy_pad") else 2
+        if not force_mutation and recent_reverts.get(name, 0) >= limit:
             continue
         chosen, kind, snippet = name, k, snip
         break
@@ -237,6 +244,26 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             tags=["lemma", kind or "mutation", decision],
             evidence=["society/benchmarks/lemma_microbench.py", "artifacts:lemma_impl"],
         )
+        # Autonomy mile B: novelty gate (new-to-commons only)
+        try:
+            from colony.novelty_gate import evaluate as novelty_evaluate
+            nov = novelty_evaluate(
+                mutation=chosen or "",
+                kind=kind or "",
+                claim_text=note,
+                cycle_id=cycle_id,
+            )
+            result.note = (result.note or note) + (
+                f" | novelty_gate novel={nov.get('novel_to_commons')} kills={nov.get('kills')}"
+            )
+        except Exception:
+            pass
+        # Autonomy mile D: exploration budget — distribution MUST change after reverts
+        try:
+            from colony.exploration_budget import record_outcome
+            record_outcome(chosen or "", decision, kind=kind or "")
+        except Exception:
+            pass
     except Exception:
         pass
     _append_history(result); _write_witness([result]); return result

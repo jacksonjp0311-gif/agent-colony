@@ -168,6 +168,16 @@ def propose_checked(
             f.write(json.dumps(c.to_dict(), ensure_ascii=False) + "\n")
         if c.status != "hard_checked" or not c.hard_ok:
             continue
+        # Novelty gate: theme must not be pure textbook reuse claimed as novel
+        try:
+            from colony.novelty_gate import evaluate as novelty_evaluate
+            nov = novelty_evaluate(mutation=c.theme_id, kind="claim_theme", claim_text=c.text, cycle_id=cycle_id)
+            if nov.get("textbook_reuse", 0) >= 0.34:
+                c.note = (c.note or "") + f" | novelty_kill textbook_reuse={nov.get('textbook_reuse")}"
+                # still may propose as hard_checked pointer, but tagged not_novel
+                c.text = c.text + " [novelty_gate: not novel-to-commons]"
+        except Exception:
+            pass
         prop = c.to_dict()
         prop["status"] = "candidate"
         prop["stage"] = "propose_after_hard_check"

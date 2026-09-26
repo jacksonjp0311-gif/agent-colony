@@ -112,6 +112,27 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         hist = self.state.data.get("fitness_history") or []
         if hist:
             g.fitness = {k: v for k, v in hist[-1].items() if isinstance(v, (int, float))}
+        # Autonomy mile C: multi-hop A proposes → B attacks → C patches (bus-driven)
+        try:
+            from colony.debate_multihop import run_multihop
+            mh = run_multihop(
+                bus=self.bus,
+                ledger=self.ledger,
+                registry=self.registry,
+                witness=self.witness,
+                cycle_id=cycle_id,
+            )
+            g.improvements.append(
+                f"debate_multihop:action_changed={mh.get('action_changed')}:touched={mh.get('code_touched')}"
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="debate_multihop_error",
+                actor="spark",
+                summary=f"Multi-hop debate skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         # Research-lab: debate → propose → hearing verdict, then evolve/fitness
         self._debate_then_propose(cycle_id, cycle_n, g)
         self._attempt_improvement(cycle_id, cycle_n, g)

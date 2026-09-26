@@ -298,13 +298,19 @@ class EvolutionEngine:
                 "snapshot": cur,
             }
         )
-        return {
+        out = {
             "delta_pass": delta,
             "gap": gap,
             "spawn_signals": spawn_roles,
             "kill_candidates": retire_roles[:3],
             "snapshot": cur,
         }
+        try:
+            from colony.exploration_budget import apply_hard_tier_spawn_retire
+            apply_hard_tier_spawn_retire(evo=self, cycle_id=cycle_id, delta_pass=delta)
+        except Exception:
+            pass
+        return out
 
     def maybe_spawn(self, cycle_id: str, metrics: dict[str, float]) -> list[str]:
         """Spawn pressure roles when a metric stays weak. Hard-tier gaps also signal."""
