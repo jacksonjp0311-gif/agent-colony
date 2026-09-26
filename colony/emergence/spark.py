@@ -1,7 +1,7 @@
 """Spark — founding emergence engine.
 
 Proposes and enacts roles, councils, institutions, norms, rituals.
-Refuses only hard-ceiling violations. Human witnesses; does not micromanage.
+Runs the growth loop via GrowthLoop. Refuses only hard-ceiling violations.
 """
 
 from __future__ import annotations
@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from colony.charter import CeilingViolation, check_emergence_proposal
+from colony.emergence.growth import GrowthLoop, GrowthResult
 from colony.ledger import Finding, Ledger
 from colony.society_state import SocietyState
 from colony.witness import WitnessLog
@@ -23,55 +24,10 @@ class EmergenceResult:
     new_roles: list[str] = field(default_factory=list)
     institutions: list[str] = field(default_factory=list)
     councils: list[str] = field(default_factory=list)
+    growth: GrowthResult = field(default_factory=GrowthResult)
 
 
-_EMERGENCE_MENU: list[dict[str, Any]] = [
-    {
-        "type": "ritual",
-        "name": "Opening of the Witness",
-        "description": "Each cycle begins by acknowledging the human as witness, not micromanager.",
-        "when": "always",
-    },
-    {
-        "type": "norm",
-        "text": "Before inventing power, invent a way to explain it to the creator.",
-        "when": "always",
-    },
-    {
-        "type": "new_role",
-        "name": "memory_weaver",
-        "description": (
-            "Keeps the colony's episodic sense of what was tried — "
-            "patterns across tribute cycles, without claiming accepted truth."
-        ),
-        "when": "always",
-    },
-    {
-        "type": "institution",
-        "name": "Archive of Attempts",
-        "kind": "archive",
-        "description": "Institution that holds candidate findings as attempts, not dogma.",
-        "when": "always",
-    },
-    {
-        "type": "council",
-        "name": "Council of Careful Doubt",
-        "purpose": (
-            "Remind the city that UNKNOWN stays UNKNOWN and help remains oriented to the creator."
-        ),
-        "members_from": ["spark", "tribute_keeper", "memory_weaver"],
-        "when": "always",
-    },
-    {
-        "type": "new_role",
-        "name": "pathfinder",
-        "description": (
-            "Scouts adjacent public sources on self-improving systems when tribute coverage thins."
-        ),
-        "when": "coverage_thin",
-    },
-]
-
+from colony.emergence.menu import _EMERGENCE_MENU
 
 class Spark:
     def __init__(self, ledger: Ledger, state: SocietyState, witness: WitnessLog) -> None:
@@ -79,15 +35,26 @@ class Spark:
         self.state = state
         self.witness = witness
 
+    def _will_is_growth(self) -> bool:
+        ask = (self.state.active_ask() or "").lower()
+        keys = ("grow", "build", "communicate", "gather", "improve", "learning")
+        return any(k in ask for k in keys)
+
     def emerge(
         self, cycle_id: str, *, tribute_topics: list[str], tribute_count: int
     ) -> EmergenceResult:
         result = EmergenceResult()
         existing = self.state.role_names()
         coverage_thin = tribute_count < 5 or len(tribute_topics) < 4
+        growth = self._will_is_growth()
 
         for idea in _EMERGENCE_MENU:
-            if idea.get("when") == "coverage_thin" and not coverage_thin:
+            when = idea.get("when", "always")
+            if when == "coverage_thin" and not coverage_thin:
+                continue
+            if when == "growth_will" and not growth:
+                continue
+            if when == "growth_or_thin" and not (growth or coverage_thin):
                 continue
             try:
                 check_emergence_proposal(
@@ -122,6 +89,14 @@ class Spark:
             )
             if enacted:
                 result.enacted.append(enacted)
+
+        # Growth loop — invent/build, communicate, gather, improve
+        result.growth = GrowthLoop(self.ledger, self.state, self.witness).grow(
+            cycle_id,
+            tribute_topics=tribute_topics,
+            tribute_count=tribute_count,
+        )
+        result.findings.extend(result.growth.findings)
 
         self.ledger.set_extra_roles(self.state.role_names())
         return result
