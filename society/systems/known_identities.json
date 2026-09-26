@@ -1,0 +1,30 @@
+{
+  "updated_at": "2026-09-26T15:08:29Z",
+  "n": 23,
+  "identities": [
+    "binomial_sum_row",
+    "cassini",
+    "catalan_bounded",
+    "central_binom_bound",
+    "easy_pad",
+    "easy_pad_abs_identity",
+    "easy_pad_commutativity",
+    "easy_pad_diff_squares",
+    "easy_pad_square_again",
+    "fibonacci_addition",
+    "gcd_fibonacci",
+    "geometric_sum",
+    "handshaking_small",
+    "hard_enable",
+    "hockey_stick",
+    "lucas_addition",
+    "motzkin_bounded",
+    "pell_companion",
+    "pythagorean_generation",
+    "stirling_second_row",
+    "sum_first_n_cubes",
+    "vandermonde_conv",
+    "workload_derived_chain"
+  ],
+  "note": "Known identities from lessons + conjecture history. Not discovery."
+}
