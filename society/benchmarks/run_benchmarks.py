@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from society.benchmarks.fft_microbench import run as run_fft
+from society.benchmarks.autodiff_microbench import run as run_autodiff
 
 ROOT = Path(__file__).resolve().parent
 
@@ -15,8 +16,7 @@ def _utc() -> str:
 
 
 def main() -> dict:
-    results = [run_fft()]
-    # Aggregate: mean of scores (0 if any required bench missing)
+    results = [run_fft(), run_autodiff()]
     scores = [float(r.get("score") or 0.0) for r in results]
     agg = round(sum(scores) / max(len(scores), 1), 4)
     ok_all = all(bool(r.get("ok")) for r in results)
@@ -35,8 +35,7 @@ def main() -> dict:
         except Exception:
             prev = None
     latest.write_text(json.dumps(payload, indent=2) + "\n")
-    hist = ROOT / "history.jsonl"
-    with hist.open("a") as f:
+    with (ROOT / "history.jsonl").open("a") as f:
         f.write(json.dumps(payload) + "\n")
     delta = None
     if prev and isinstance(prev.get("aggregate_score"), (int, float)):

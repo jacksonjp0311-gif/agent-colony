@@ -24,6 +24,8 @@ def _load_impl():
     if spec is None or spec.loader is None:
         raise RuntimeError(f"cannot load {path}")
     mod = importlib.util.module_from_spec(spec)
+    import sys
+    sys.modules[spec.name] = mod
     spec.loader.exec_module(mod)
     return mod
 
