@@ -1,65 +1,8 @@
 {
-  "pushed_ok": [
-    "society/EVOLVE_STATUS.md",
-    "society/artifacts/cycle_0025-27 notes + systems reply/skill/topic",
-    "colony/cli.py",
-    "README.md",
-    "colony/authorize.py",
-    "society/DASHBOARD.html",
-    "society/WITNESS_SUMMARY.md",
-    "society/report.md",
-    "society/systems/improvement_scoreboard.json",
-    "society/systems/fitness_history.jsonl",
-    "society/systems/coverage_index.json"
-  ],
-  "pending_local_ready": [
-    "society/receipts/AUTHORIZE_DECISIONS.json (8.5KB)",
-    "society/receipts/AUTHORIZE_authorize_20260926T101645Z.md (8KB)",
-    "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl (48KB)",
-    "society/BULLETIN.md (12KB)",
-    "data/ledger.jsonl (304KB)",
-    "data/witness.jsonl (247KB)",
-    "data/society_state.json (250KB)",
-    "society/WITNESS.md (195KB)"
-  ],
-  "push_payloads_on_box": [
-    "/tmp/batchA.json",
-    "/workspace/agent-colony/.push_ledger.json",
-    "/workspace/agent-colony/.push_authorize.json"
-  ],
-  "latest_main_commit_seen": "364f69af1dfc0409fb6a951d7fc6aad5cf53a2a8",
-  "sync_attempt_20260926T1026Z": {
-    "probe_cleanup": {
-      "path": "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl",
-      "status": "deleted",
-      "delete_commit": "fb1ab5c0360ebe8ed0b195b374010b36f3c014f4"
-    },
-    "local_ready": {
-      "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl": "48KB",
-      "society/receipts/SOCIETY_SLIM_AFTER_AUTHORIZE.json": "18KB",
-      "data/ledger.jsonl": "304KB",
-      "data/witness.jsonl": "247KB",
-      "data/society_state.json": "250KB",
-      "society/WITNESS.md": "195KB"
-    },
-    "status": "probe deleted; delta uploaded and verified; slim uploaded non-byte-identically; four large files remain unsynced",
-    "pushed": {
-      "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl": {
-        "commit": "8f5cfb0336ab6abd6424c3d99d1c81221410c166",
-        "local_bytes": 48040,
-        "remote_tree_bytes": 48040,
-        "accepted_records": 21
-      },
-      "society/receipts/SOCIETY_SLIM_AFTER_AUTHORIZE.json": {
-        "commit": "d37fd7b09d50ff5962900972d80bf50ab08908ce",
-        "status": "uploaded; payload was compacted and needs byte-for-byte reconciliation"
-      }
-    },
-    "failed": {
-      "data/ledger.jsonl": "not uploaded; local 304304 bytes vs remote old 16754 bytes; inline MCP payload not completed",
-      "data/witness.jsonl": "not uploaded; local 246677 bytes vs remote old 3065 bytes; inline MCP payload not completed",
-      "data/society_state.json": "not uploaded; local 250381 bytes vs remote old 4441 bytes; inline MCP payload not completed",
-      "society/WITNESS.md": "not uploaded; local 195225 bytes vs remote old 3145 bytes; inline MCP payload not completed"
-    }
-  }
+  "pushed": ["colony/genomes.py", "colony/commons.py", "colony/government.py", "CHARTER.md", "data/topics.json", "AUTHORIZE receipts", "sample genomes JSON"],
+  "on_box_pending": ["colony/society.py", "colony/fitness.py", "colony/registry.py", "colony/bus.py", "colony/emergence/*", "data/seed_corpus.json", "data/*.gz.b64 cycle40", "society/DASHBOARD.html", "society/systems/*"],
+  "restore": "bash scripts/restore_colony_mirrors.sh after syncing gz.b64 mirrors from box",
+  "authorize_cycle": "authorize_20260926T111104Z",
+  "accepted": 6,
+  "rejected": 6
 }

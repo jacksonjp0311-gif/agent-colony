@@ -1,35 +1,35 @@
 {
   "format": "gzip+base64",
-  "created": "2026-09-26T10:29Z",
-  "reason": "MCP push size limit; authoritative box copies mirrored compressed",
+  "created": "2026-09-26T11:11Z",
+  "reason": "Empire expand+authorize cycle 40 mirrors",
   "files": [
     {
       "path": "data/ledger.jsonl",
       "mirror": "data/ledger.jsonl.gz.b64",
-      "raw_bytes": 304304,
-      "gz_bytes": 24370,
-      "sha256": "1dfe7a0efefce83061d25491b68bd23d5f89e2a8c5a29b6e0f14ea34f4ae0c0d"
+      "raw_bytes": 577558,
+      "gz_bytes": 42926,
+      "sha256": "812fa3e391d14173c41d737fd4dd2c30bd2961e1fc2c1ee96a712489553df3c6"
     },
     {
       "path": "data/witness.jsonl",
       "mirror": "data/witness.jsonl.gz.b64",
-      "raw_bytes": 246677,
-      "gz_bytes": 22051,
-      "sha256": "588767a2864efe46fa3bb2f0d9eacd2d564f90f39617aa1190a4e8a5e7b99b92"
+      "raw_bytes": 489999,
+      "gz_bytes": 41154,
+      "sha256": "3d63fc63e51e37cab796825cdc931935f6183f6b18f71506da43099ad0e43d98"
     },
     {
       "path": "data/society_state.json",
       "mirror": "data/society_state.json.gz.b64",
-      "raw_bytes": 250381,
-      "gz_bytes": 15325,
-      "sha256": "b6c3aa7c6fe3b419b21df31d95a246aa6f2ab644640f208eb20558e6f09b16a0"
+      "raw_bytes": 827393,
+      "gz_bytes": 39928,
+      "sha256": "d46c4b1cb598f6dcafdc09d6e27dafc89ef12a96586085f02e820a5ebdd6670d"
     },
     {
       "path": "society/WITNESS.md",
       "mirror": "society/WITNESS.md.gz.b64",
-      "raw_bytes": 195225,
-      "gz_bytes": 20110,
-      "sha256": "115b37db7e4f2b5119c425f114b2907d8739a83d5cc067b8f6c7cf93a6b7bfe7"
+      "raw_bytes": 363512,
+      "gz_bytes": 35943,
+      "sha256": "da8a2234471bba0c8496926ac2e0beaf03bd02df91a68dc9d78001b19361efce"
     }
   ]
 }
