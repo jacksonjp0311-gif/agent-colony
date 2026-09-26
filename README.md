@@ -38,7 +38,7 @@ Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles ap
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: **FLOURISH MILE** — (A) widen Oracle domain packs (math beyond current lemmas + STEM kinematics; held-out+stripped+CAS; FAIL kills keep); (B) society flourish — measured specialist spawn on fitness gaps; retire when no Oracle-pass lift; deepen multi-hop A→B→C→D; lessons bias genomes/skills; exploration budget after reverts; (C) WILL+BRIEF+honest README/NOVEL_MATH; (D) ≥8 evolve; easy_pad dies; selective authorize P≥0.75; slim push. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Local model runtime deferred.
+1. **Creator tribute** — serve James when he asks. Active will: **ALIGN MILE** — (A) align CREATOR_WILL_ASK ↔ Oracle ↔ fitness ↔ genomes ↔ lessons ↔ debate ↔ cron (oracle_scribe/stem_checker genomes; lessons bias; A→B→C→D); (B) cron on current WILL + selective authorize P≥0.75 + slim push; (C) WILL+BRIEF+honest README/NOVEL_MATH/CHARTER; (D) ≥8 evolve; easy_pad dies; selective authorize P≥0.75; slim push. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Local model runtime deferred.
 2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. Standing trust may selectively authorize P≥0.75 machine-checked candidates; never silent accept-all. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
