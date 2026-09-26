@@ -21,13 +21,13 @@ REPORT_PATH = ROOT / "society" / "report.md"
 
 # Creator will (Human Principal James Paul Jackson) — active Tribute Mandate
 CREATOR_WILL_ASK = (
-    "Grow, learn, build, communicate, and improve. Gather broadly across science, history, "
-    "mathematics, software engineering, nature/biology/ecology, theories of life and death, "
-    "cosmology/our place in the universe, and recursive/self-improving systems. Raise "
-    "communication quality and share common knowledge. Spawn children agents with heritable "
-    "genomes under fitness pressure. Propose institutions of government (law proposals stay "
-    "candidate until human authorize). Build durable civilization scaffolding — an empire of "
-    "shared tools and memory, not AGI theater."
+    "Measured compute mile: keep FFT green and produce a benchmark-passing autodiff artifact "
+    "under society/benchmarks/ (grads vs finite differences + speed). Hearings kill proposals "
+    "with no score delta on society/benchmarks/latest.json. Math Prize Desk pays only on "
+    "verified harness lifts — institution names do not saturate fitness. CI cron runs the "
+    "harness each pulse. No new councils. Personas + RSI coupling + hard ceiling stay. Soft-cap "
+    "20; bias builder+geometer toward benches. Authorize rejects museum re-accepts without bench "
+    "delta. Not AGI theater. Defer local model runtime."
 )
 
 
@@ -99,6 +99,14 @@ class Society:
             "life-and-death",
             "nature-biology-ecology",
             "cosmology-universe",
+            "emergent-technology",
+            "open-math-problems",
+            "compute-useful-math",
+            "debate",
+            "autogpt-loops",
+            "constitutional-ai",
+            "opendevin",
+            "voyager",
         ]
         tm = self.state.data.setdefault("tribute_mandate", {})
         tm["standing_ask_topics"] = standing
