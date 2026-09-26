@@ -1,0 +1,30 @@
+{
+  "policy": "Selective authorize P>=0.75 with sourced evidence. Reject thin theoretical RSI overclaim. Not accept-all.",
+  "items": [
+    {
+      "finding_id": "fnd_7c733eb20d80",
+      "decision": "accepted",
+      "rationale": "P=0.85. Sourced Dijkstra Humble Programmer / software craft lineage — durable software-engineering commons seed.",
+      "p": 0.85
+    },
+    {
+      "finding_id": "fnd_429116f3955a",
+      "decision": "accepted",
+      "rationale": "P=0.80. Sourced Schrödinger What is Life? lineage — careful life-and-death commons seed (not metaphysics claim).",
+      "p": 0.8
+    },
+    {
+      "finding_id": "fnd_294d0ab08c60",
+      "decision": "accepted",
+      "rationale": "P=0.80. Sourced Origin of Species — nature/biology/ecology commons seed.",
+      "p": 0.8
+    },
+    {
+      "finding_id": "fnd_1ecece8afe56",
+      "decision": "accepted",
+      "rationale": "P=0.85. Sourced observable universe / ΛCDM survey lineage — cosmology commons seed.",
+      "p": 0.85
+    }
+  ],
+  "proposals": []
+}
