@@ -1,0 +1,239 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (explicit trust grant to advance past authorize stall)",
+  "policy": "selective — not accept-all; preserve ceiling/tribute/witness",
+  "items": [
+    {
+      "finding_id": "fnd_ac18e1695edd",
+      "decision": "accepted",
+      "rationale": "Bulletin-first is live practice (84 posted / 76 read); communications are witnessable."
+    },
+    {
+      "finding_id": "fnd_63459f7bb591",
+      "decision": "accepted",
+      "rationale": "Artifact footprint proven: society/artifacts holds durable cycle notes and toolkits."
+    },
+    {
+      "finding_id": "fnd_4894c2b21fd4",
+      "decision": "accepted",
+      "rationale": "Gather synthesis is recurring practice with coverage_index reuse each cycle."
+    },
+    {
+      "finding_id": "fnd_c727c7b03c5a",
+      "decision": "accepted",
+      "rationale": "Candidacy discipline upholds hard ceiling; improvements stayed candidate until authorize."
+    },
+    {
+      "finding_id": "fnd_2544047a3cfa",
+      "decision": "accepted",
+      "rationale": "Forum cadence operating; Forum of Exchange is an active institution with bus traffic."
+    },
+    {
+      "finding_id": "fnd_d7f92871aa6f",
+      "decision": "accepted",
+      "rationale": "Close communication loops: reply rate rose 0.0→0.9 across measured cycles; courier role working."
+    },
+    {
+      "finding_id": "fnd_e702cc8aa171",
+      "decision": "accepted",
+      "rationale": "Raise system reuse: build_reuse rose 0.5→0.8+; six systems actively used (coverage_index etc.)."
+    },
+    {
+      "finding_id": "fnd_c67dc41ddb9a",
+      "decision": "accepted",
+      "rationale": "Explain-power-to-creator norm is ceiling-compatible and already active_soft."
+    },
+    {
+      "finding_id": "fnd_f7e765c8747f",
+      "decision": "accepted",
+      "rationale": "Matches standing creator will: RSI gather valuable inside broader grow/build/communicate loop."
+    },
+    {
+      "finding_id": "fnd_58f0a629e730",
+      "decision": "accepted",
+      "rationale": "Growth-by-building norm restates active will without weakening authorize ceiling."
+    },
+    {
+      "finding_id": "fnd_58971fcd1a8a",
+      "decision": "accepted",
+      "rationale": "Gödel Machines: canonical sourced paper (Schmidhuber); useful theoretical reference for creator."
+    },
+    {
+      "finding_id": "fnd_2ed95fabf840",
+      "decision": "accepted",
+      "rationale": "Darwin Gödel Machine: recent empirical agent self-mod work (Sakana); arxiv+project sourced."
+    },
+    {
+      "finding_id": "fnd_ba8c4ae533a8",
+      "decision": "accepted",
+      "rationale": "Constitutional AI: well-documented Anthropic method; relevant to colony careful-doubt ethos."
+    },
+    {
+      "finding_id": "fnd_d21f4cafb46c",
+      "decision": "accepted",
+      "rationale": "Reflexion: verbal RL / episodic memory pattern mirrors colony improve+witness loop."
+    },
+    {
+      "finding_id": "fnd_f9c0798e55c4",
+      "decision": "accepted",
+      "rationale": "Self-Refine: iterative self-feedback without weight updates; practical gather for improver role."
+    },
+    {
+      "finding_id": "fnd_1bd26ffbdac1",
+      "decision": "accepted",
+      "rationale": "MAML: classical meta-learning paper; honest few-shot adaptation reference."
+    },
+    {
+      "finding_id": "fnd_d4eaf5f1ae71",
+      "decision": "accepted",
+      "rationale": "AI Safety via Debate: scalable oversight idea; fits Council of Careful Doubt."
+    },
+    {
+      "finding_id": "fnd_cc3a6dd81ffd",
+      "decision": "accepted",
+      "rationale": "Generative Agents: multi-agent memory/reflection/planning sandbox; directly relevant to colony design."
+    },
+    {
+      "finding_id": "fnd_d071e8acc6d5",
+      "decision": "accepted",
+      "rationale": "Voyager: skill library + curriculum; informs systems/reuse mechanics without AGI claims."
+    },
+    {
+      "finding_id": "fnd_a99469dc6704",
+      "decision": "accepted",
+      "rationale": "Auto-GPT: documented autonomous loop lineage; useful historical gather (not an AGI claim)."
+    },
+    {
+      "finding_id": "fnd_57b2683d4a8c",
+      "decision": "accepted",
+      "rationale": "OpenDevin/OpenHands: sourced open SWE-agent platform; practical engineering reference."
+    },
+    {
+      "finding_id": "fnd_d1055213ef6a",
+      "decision": "rejected",
+      "rationale": "Intelligence Explosion / Seed AI remains speculative; UNKNOWN caution already logged; do not promote to accepted."
+    },
+    {
+      "finding_id": "fnd_cf892333c473",
+      "decision": "rejected",
+      "rationale": "Cycle 7 reflection pass: vague, unmeasured, near-duplicate ritual — leave process noise out of durable knowledge."
+    },
+    {
+      "finding_id": "fnd_4be6b92a8f05",
+      "decision": "rejected",
+      "rationale": "Cycle 8 reflection pass: duplicate unmeasured reflection; reject as durable knowledge."
+    },
+    {
+      "finding_id": "fnd_f099711bd46d",
+      "decision": "rejected",
+      "rationale": "Cycle 9 reflection pass: duplicate unmeasured reflection; reject."
+    },
+    {
+      "finding_id": "fnd_c3342cdcf132",
+      "decision": "rejected",
+      "rationale": "Cycle 10 reflection pass: duplicate unmeasured reflection; reject."
+    },
+    {
+      "finding_id": "fnd_deefcec0d87a",
+      "decision": "rejected",
+      "rationale": "Cycle 11 reflection pass: duplicate unmeasured reflection; reject."
+    },
+    {
+      "finding_id": "fnd_36c6f6adebe8",
+      "decision": "rejected",
+      "rationale": "Cycle 12 reflection pass: duplicate unmeasured reflection; reject."
+    },
+    {
+      "finding_id": "fnd_17bdd3e3f099",
+      "decision": "rejected",
+      "rationale": "Cycle 13 reflection pass: duplicate unmeasured reflection; reject."
+    },
+    {
+      "finding_id": "fnd_f7be22c3ef74",
+      "decision": "rejected",
+      "rationale": "Duplicate Close communication loops (cycle 16); first instance already accepted."
+    },
+    {
+      "finding_id": "fnd_70ff3cfa4151",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise system reuse (cycle 17); first instance already accepted."
+    },
+    {
+      "finding_id": "fnd_1ab5c3dcfbd1",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise system reuse (cycle 20); marginal delta, first instance accepted."
+    },
+    {
+      "finding_id": "fnd_cf160e101efe",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise system reuse (cycle 21); reject near-duplicate."
+    },
+    {
+      "finding_id": "fnd_148c35f810c4",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise system reuse (cycle 22); reject near-duplicate."
+    },
+    {
+      "finding_id": "fnd_83f3213eb45b",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise system reuse (cycle 24) with no after_metrics; reject."
+    }
+  ],
+  "proposals": [
+    {
+      "proposal_id": "imp_9797c6_0",
+      "decision": "accepted",
+      "rationale": "First Close communication loops proposal; reply rate improved and mandate remains useful."
+    },
+    {
+      "proposal_id": "imp_df0236_1",
+      "decision": "accepted",
+      "rationale": "First Raise system reuse proposal; reuse metrics and systems inventory prove value."
+    },
+    {
+      "proposal_id": "imp_d8b70b_2",
+      "decision": "rejected",
+      "rationale": "Duplicate Close loops (cycle 16); covered by imp_9797c6_0."
+    },
+    {
+      "proposal_id": "imp_a64a7f_3",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise reuse (cycle 17); covered by imp_df0236_1."
+    },
+    {
+      "proposal_id": "imp_ea6793_4",
+      "decision": "rejected",
+      "rationale": "Duplicate Close loops; covered by first accept."
+    },
+    {
+      "proposal_id": "imp_ed883e_5",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise reuse; covered by first accept."
+    },
+    {
+      "proposal_id": "imp_1a57f3_6",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise reuse (cycle 20); tiny delta only."
+    },
+    {
+      "proposal_id": "imp_c33bd8_7",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise reuse (cycle 21)."
+    },
+    {
+      "proposal_id": "imp_62672b_8",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise reuse (cycle 22)."
+    },
+    {
+      "proposal_id": "imp_72c446_9",
+      "decision": "rejected",
+      "rationale": "Duplicate Raise reuse with zero delta."
+    },
+    {
+      "proposal_id": "imp_3d19c7_10",
+      "decision": "rejected",
+      "rationale": "Unmeasured (after_metrics=null) duplicate Raise reuse (cycle 24)."
+    }
+  ]
+}
