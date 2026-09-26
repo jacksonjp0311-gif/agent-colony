@@ -1,45 +1,105 @@
 {
-  "when": "2026-09-26T11:21Z",
-  "authorize_cycle": "authorize_20260926T112042Z",
-  "accepted": 4,
-  "rejected": 0,
-  "p_policy": "accept only P>=0.75 with sourced evidence",
-  "items": [
+  "when": "2026-09-26T11:32Z",
+  "authorize_cycles": [
     {
-      "finding_id": "fnd_7c733eb20d80",
-      "decision": "accepted",
-      "rationale": "P=0.85. Sourced Dijkstra Humble Programmer / software craft lineage — durable software-engineering commons seed.",
-      "p": 0.85
+      "id": "authorize_20260926T113127Z",
+      "accepted": 0,
+      "rejected": 18,
+      "note": "junk/dupe improve proposals"
     },
     {
-      "finding_id": "fnd_429116f3955a",
-      "decision": "accepted",
-      "rationale": "P=0.80. Sourced Schrödinger What is Life? lineage — careful life-and-death commons seed (not metaphysics claim).",
-      "p": 0.8
-    },
-    {
-      "finding_id": "fnd_294d0ab08c60",
-      "decision": "accepted",
-      "rationale": "P=0.80. Sourced Origin of Species — nature/biology/ecology commons seed.",
-      "p": 0.8
-    },
-    {
-      "finding_id": "fnd_1ecece8afe56",
-      "decision": "accepted",
-      "rationale": "P=0.85. Sourced observable universe / ΛCDM survey lineage — cosmology commons seed.",
-      "p": 0.85
+      "id": "authorize_20260926T113149Z",
+      "accepted": 6,
+      "rejected": 0,
+      "note": "research-lab math/tech live-fetched seeds"
     }
   ],
+  "p_policy": "accept only P>=0.75 with sourced evidence; reject junk/dupes; leave uncertain",
+  "accepted": [
+    {
+      "finding_id": "fnd_f210093ad5cb",
+      "title": "Millennium Prize Problems",
+      "p": 0.9
+    },
+    {
+      "finding_id": "fnd_b3b0564bd3f8",
+      "title": "FFT Cooley–Tukey",
+      "p": 0.92
+    },
+    {
+      "finding_id": "fnd_3b3e5a61922f",
+      "title": "Automatic differentiation",
+      "p": 0.88
+    },
+    {
+      "finding_id": "fnd_fe0c6eb713f3",
+      "title": "Transformer architecture",
+      "p": 0.9
+    },
+    {
+      "finding_id": "fnd_533552a31c99",
+      "title": "Lean theorem prover",
+      "p": 0.85
+    },
+    {
+      "finding_id": "fnd_94875967a092",
+      "title": "P versus NP",
+      "p": 0.9
+    }
+  ],
+  "rejected_count": 18,
+  "left_uncertain": "bulletin/forum noise, gather syntheses, ceiling/tribute affirmations, emergence receipts, debate-propose process candidates",
   "live": {
-    "cycle_count": 45,
-    "fitness_aggregate": 0.8487,
-    "population": {"active": 16, "soft_cap": 20, "spawns": 8, "child_spawns": 8},
-    "commons_size": 59,
-    "commons_domains": {"general": 8, "science": 33, "history": 13, "software": 1, "nature": 1, "life": 1, "cosmos": 1, "rsi": 1},
-    "personas": 16,
-    "rsi_coupling": {"strength": 1.0, "accepted_count": 15, "strong_candidate_count": 20, "ts": "2026-09-26T11:21:25Z"},
-    "status_counts": {"candidate": 743, "unknown": 1, "accepted": 31, "rejected": 20},
-    "witness_events": 1378,
-    "institutions": ["Archive of Attempts", "Council of Careful Doubt", "Workshop of Making", "Society Bulletin", "Forum of Exchange", "Chamber of Laws", "Census", "Commons Archive", "Forum of Domains", "Persona Registry", "RSI Coupling Desk"]
+    "cycle_count": 51,
+    "fitness_aggregate": 0.8452,
+    "math_prize": 1.0,
+    "compute_usefulness": 1.0,
+    "prize_boost": 1.0,
+    "population": {
+      "active": 16,
+      "soft_cap": 20,
+      "spawns": 8,
+      "child_spawns": 8
+    },
+    "commons_size": 71,
+    "commons_by_domain": {
+      "science": 39,
+      "history": 19,
+      "math": 0,
+      "rsi": 1,
+      "empire": 0,
+      "general": 8
+    },
+    "status_counts": {
+      "candidate": 954,
+      "accepted": 37,
+      "rejected": 38,
+      "unknown": 1
+    },
+    "witness_events": 1751,
+    "institutions": [
+      "Archive of Attempts",
+      "Council of Careful Doubt",
+      "Workshop of Making",
+      "Society Bulletin",
+      "Forum of Exchange",
+      "Chamber of Laws",
+      "Census",
+      "Commons Archive",
+      "Forum of Domains",
+      "Persona Registry",
+      "RSI Coupling Desk",
+      "Hearing Chamber",
+      "Committee of Inquiry",
+      "Academy of Learning",
+      "Math Prize Desk",
+      "Research Lab Colloquium"
+    ],
+    "councils": [
+      "Council of Careful Doubt",
+      "Forum of Exchange",
+      "Research Lab Colloquium"
+    ],
+    "active_ask_prefix": "Research-lab civilization: on online cycles, web-gather/scrape public sources; hold inter-agent discussion of findings; run committees, hearings, and education "
   }
 }
