@@ -1,6 +1,6 @@
 {
   "mile": "spark",
-  "when": "2026-09-26T21:54:26Z",
+  "when": "2026-09-26T21:55:46Z",
   "local_complete": true,
   "evolve_cycles": 8,
   "cycle_count": 161,
@@ -68,5 +68,25 @@
     "society/receipts/SOCIETY_SLIM_SPARK.json",
     "society/receipts/PUSH_SPARK.json",
     "society/EVOLVE_STATUS.md"
-  ]
+  ],
+  "commits": [
+    {
+      "sha": "4fda5a4934d9898156060b89b7c3a150f1245cad",
+      "msg": "feat(spark): CREATOR_WILL_ASK SPARK + load-bear debate + lessons easy_pad bias=0"
+    },
+    {
+      "sha": "185bfb66830e88c14011115c271e373400b4e9ee",
+      "msg": "feat(spark): Oracle-pass spawn gate + hearing reply-chain + same-cycle load-bear sweep"
+    },
+    {
+      "sha": "722b57e118afe121bc4c8e397c64410d0e284ab5",
+      "msg": "feat(spark): cron mile=spark + honest CHARTER/README/NOVEL_MATH"
+    },
+    {
+      "sha": "598211a0dd878f18b89bde0fe4070f5d4ec200ab",
+      "msg": "feat(spark): BRIEF + AUTHORIZE selective P\u22650.75 + EVOLVE/PUSH receipts"
+    }
+  ],
+  "tip": "598211a0dd878f18b89bde0fe4070f5d4ec200ab",
+  "pushed": true
 }
