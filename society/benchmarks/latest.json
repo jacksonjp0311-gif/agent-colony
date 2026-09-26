@@ -1,7 +1,7 @@
 {
-  "ts": "2026-09-26T12:39:17Z",
+  "ts": "2026-09-26T12:47:12Z",
   "ok_all": true,
-  "aggregate_score": 1.0,
+  "aggregate_score": 0.9454,
   "benches": [
     {
       "bench": "fft_microbench",
@@ -10,11 +10,24 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.001026,
+      "seconds": 0.000925,
       "score": 1.0,
-      "impl_id": "fft_impl_cooley_tukey_iter_v1",
+      "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
       "time_budget_s": 0.05
+    },
+    {
+      "bench": "fft_stress_microbench",
+      "n": 4096,
+      "seed": 20260926,
+      "ok": true,
+      "max_abs_err": 7.367024535821709e-11,
+      "mse": 6.228992808609339e-24,
+      "seconds": 0.003929,
+      "score": 0.8363,
+      "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
+      "err_tol": 1e-06,
+      "time_budget_s": 0.0025
     },
     {
       "bench": "autodiff_microbench",
@@ -38,12 +51,12 @@
         "b": 1.1677155874884049,
         "c": 0.062459317842766815
       },
-      "seconds": 2.1e-05,
+      "seconds": 2.2e-05,
       "score": 1.0,
       "impl_id": "autodiff_reverse_tape_v1",
       "grad_tol": 5e-05,
       "time_budget_s": 0.01
     }
   ],
-  "note": "Prize fitness must read these scores \u2014 institution names do not count."
+  "note": "Prize fitness must read these scores — institution names do not count."
 }
