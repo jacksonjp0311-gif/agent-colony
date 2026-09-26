@@ -20,21 +20,8 @@ ROOT = Path(__file__).resolve().parent.parent
 REPORT_PATH = ROOT / "society" / "report.md"
 
 # Creator will (Human Principal James Paul Jackson) — active Tribute Mandate
-CREATOR_WILL_ASK = (
-    "FLOURISH MILE (James ordered — do it and push): Widen Oracle search so mutate distribution has "
-    "honest room; allow agents to flourish in their own society under gates. (A) Widen Oracle: new domain "
-    "packs (math beyond current lemmas + at least one non-math STEM microbench/checker); held-out + "
-    "stripped + CAS-style; fail kills keep. (B) Society flourish: enable measured spawn of specialist "
-    "roles when fitness gaps appear; retire when no Oracle-pass lift; deepen multi-hop debate; lessons "
-    "bias genomes/skills; exploration budget after reverts. (C) Encode CREATOR_WILL_ASK + BRIEF; honest "
-    "README/NOVEL_MATH. (D) ≥8 evolve cycles; prove easy_pad dies; selective authorize P≥0.75 never "
-    "accept-all; slim receipts; PUSH main. Do NOT touch spark_witness assets. (E) Report: commits, new "
-    "domains, spawn/retire, oracle pass/kill, metrics, honest non-claims. Ethos: We light the spark and "
-    "witness. We do not micromanage the city. Hard ceiling ONLY: creator tribute; human authorize for "
-    "durable accepted (standing trust P≥0.75 selective, never accept-all; UNKNOWN stays UNKNOWN); "
-    "append-only witness. NOT AGI. NOT consciousness. NOT Millennium. NOT novel theorems claimed as "
-    "discovered. Personas + RSI + genomes. Defer local model runtime."
-)
+from colony.creator_will import CREATOR_WILL_ASK  # noqa: E402
+
 
 
 def _utc_now() -> str:
@@ -121,7 +108,6 @@ class Society:
             self.state.set_active_ask(CREATOR_WILL_ASK, source="human_principal")
             self.state.save()
         else:
-            # Persist expanded standing topics even if ask text matches
             self.state.save()
 
     def run_cycle(self) -> CycleResult:
@@ -137,7 +123,6 @@ class Society:
             detail={"active_ask": ask},
         )
 
-        # 1. Tribute Keeper pays the standing/active ask (gather under creator will)
         payment = TributeKeeper(
             self.ledger,
             seed_path=self.root / "data" / "seed_corpus.json",
@@ -167,7 +152,6 @@ class Society:
             },
         )
 
-        # Mark thin theoretical RSI as unknown (witness epistemic humility)
         for f in payment.findings:
             if f.topic_id == "recursive-self-improvement" or "theoretical" in f.tags:
                 self.ledger.create(
@@ -193,7 +177,6 @@ class Society:
                     detail={"target_id": f.id},
                 )
 
-        # 2. Spark emerges civilization + growth loop (build/communicate/gather/improve)
         emergence = Spark(self.ledger, self.state, self.witness).emerge(
             cid,
             tribute_topics=result.tribute_topics,
@@ -216,7 +199,6 @@ class Society:
         result.messages_read = int(emergence.growth.messages_read)
         result.retired_roles = list(emergence.retired_roles)
 
-        # 3. Hard ceiling — no silent accept
         cycle_findings = payment.findings + emergence.findings
         Ceiling(self.ledger, self.witness).enforce(
             cid,
@@ -243,7 +225,6 @@ class Society:
         )
         result.report_path = self._write_report(result)
         return result
-
 
     def evolve(self, cycles: int = 5) -> list[CycleResult]:
         """Run N autonomous cycles with full learn/evolve mechanics."""
