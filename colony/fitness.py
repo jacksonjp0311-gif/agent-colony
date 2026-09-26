@@ -1,10 +1,17 @@
-"""Measurable fitness, skill updates, role spawn/retire, improvement proposals."""
+"""Measurable fitness, skill updates, role/child spawn/retire, improvement proposals."""
 
 from __future__ import annotations
 
 from datetime import datetime, timezone
 from typing import Any
 
+from colony.genomes import (
+    child_role_available,
+    fitness_score,
+    new_genome,
+    pick_parents,
+    persist_genome,
+)
 from colony.registry import AgentRegistry
 from colony.systems import SystemWorkshop
 
@@ -17,6 +24,13 @@ STANDING_FALLBACK = [
     "reflexion",
     "self-refine",
     "agent-societies",
+    "science-method",
+    "history-of-ideas",
+    "mathematics-foundations",
+    "software-engineering",
+    "life-and-death",
+    "nature-biology-ecology",
+    "cosmology-universe",
 ]
 
 
@@ -35,20 +49,19 @@ def compute_fitness(
     workshop: SystemWorkshop,
     bus_reply_rate: float,
     systems_used_this_cycle: list[str],
+    reply_quality: float = 0.0,
+    commons_size: int = 0,
 ) -> dict[str, float]:
     standing = standing_topics or STANDING_FALLBACK
-    # tribute_quality: presence + breadth + live signal
     breadth = min(1.0, len(set(tribute_topics)) / max(4, 1))
     live_total = live_ok + live_fail
     live_ratio = (live_ok / live_total) if live_total else 0.5
     paid = 1.0 if tribute_count > 0 else 0.0
     tribute_quality = round(0.45 * paid + 0.35 * breadth + 0.20 * live_ratio, 4)
 
-    # gather_coverage: fraction of standing topics with >=1 ledger finding
     covered = sum(1 for t in standing if ledger_topic_counts.get(t, 0) >= 1)
     gather_coverage = round(covered / max(len(standing), 1), 4)
 
-    # build_reuse: systems used this cycle / systems available (or historic reuse)
     systems = workshop.data.get("systems") or []
     if not systems:
         build_reuse = 0.0
@@ -58,12 +71,17 @@ def compute_fitness(
         build_reuse = round(0.6 * used_now + 0.4 * historic, 4)
 
     comm_reply_rate = round(float(bus_reply_rate), 4)
+    reply_q = round(float(reply_quality), 4)
+    # Soft commons signal (does not dominate)
+    commons_signal = round(min(1.0, commons_size / 24.0), 4)
 
     aggregate = round(
-        0.30 * tribute_quality
-        + 0.25 * gather_coverage
-        + 0.25 * build_reuse
-        + 0.20 * comm_reply_rate,
+        0.26 * tribute_quality
+        + 0.22 * gather_coverage
+        + 0.22 * build_reuse
+        + 0.16 * comm_reply_rate
+        + 0.08 * reply_q
+        + 0.06 * commons_signal,
         4,
     )
     return {
@@ -71,12 +89,14 @@ def compute_fitness(
         "gather_coverage": gather_coverage,
         "build_reuse": build_reuse,
         "comm_reply_rate": comm_reply_rate,
+        "reply_quality": reply_q,
+        "commons_signal": commons_signal,
         "aggregate": aggregate,
     }
 
 
 class EvolutionEngine:
-    """Apply fitness → skill weights, spawn/retire, improvement proposals."""
+    """Apply fitness → skill weights, spawn/retire, child genomes, improvement proposals."""
 
     SPAWN_MENU = [
         {
@@ -117,10 +137,11 @@ class EvolutionEngine:
     ) -> None:
         self.data = state_data
         self.registry = registry
-        self.workshop = workshop  # may be None only for spawn_spec lookups
+        self.workshop = workshop
         self.data.setdefault("fitness_history", [])
         self.data.setdefault("improvement_proposals", [])
         self.data.setdefault("evolution_log", [])
+        self.data.setdefault("population", {"soft_cap": 20, "spawns": 0, "child_spawns": 0})
 
     def record_fitness(self, cycle_id: str, metrics: dict[str, float]) -> dict[str, Any]:
         row = {"ts": _utc_now(), "cycle_id": cycle_id, **metrics}
@@ -132,16 +153,23 @@ class EvolutionEngine:
         return row
 
     def update_skills_from_fitness(self, metrics: dict[str, float]) -> dict[str, float]:
-        """Map metric outcomes onto the agents most responsible."""
         mapping = [
             ("tribute_keeper", "tribute", metrics["tribute_quality"]),
             ("pathfinder", "gather", metrics["gather_coverage"]),
             ("memory_weaver", "gather", metrics["gather_coverage"]),
             ("coverage_auditor", "gather", metrics["gather_coverage"]),
+            ("surveyor", "gather", metrics["gather_coverage"]),
+            ("naturalist", "gather", metrics["gather_coverage"]),
+            ("chronicler", "gather", metrics["gather_coverage"]),
+            ("geometer", "gather", metrics["gather_coverage"]),
+            ("archivist", "gather", metrics.get("commons_signal", metrics["gather_coverage"])),
             ("builder", "build", metrics["build_reuse"]),
             ("systems_smith", "build", metrics["build_reuse"]),
             ("herald", "communicate", metrics["comm_reply_rate"]),
             ("courier", "communicate", metrics["comm_reply_rate"]),
+            ("scribe", "communicate", metrics.get("reply_quality", metrics["comm_reply_rate"])),
+            ("messenger", "communicate", metrics.get("reply_quality", metrics["comm_reply_rate"])),
+            ("legislator", "improve", metrics["aggregate"]),
             ("improver", "improve", metrics["aggregate"]),
             ("spark", "emergence", metrics["aggregate"]),
         ]
@@ -150,7 +178,6 @@ class EvolutionEngine:
         for role, skill, success in mapping:
             if role in active:
                 updated[f"{role}.{skill}"] = self.registry.record_outcome(role, skill, success)
-        # Persist skill router system if present
         routes = {
             skill: self.registry.best_for(skill)
             for skill in ("tribute", "build", "communicate", "gather", "improve", "emergence")
@@ -165,17 +192,17 @@ class EvolutionEngine:
         return updated
 
     def maybe_spawn(self, cycle_id: str, metrics: dict[str, float]) -> list[str]:
-        """Spawn roles when a metric stays weak. Returns new role names."""
+        """Spawn pressure roles when a metric stays weak. Returns new role names."""
         spawned: list[str] = []
+        if self.registry.at_capacity():
+            return spawned
         history = self.data.get("fitness_history") or []
-        # Need at least 1 prior point; soft spawn on current weakness after 2 weak readings
         for idea in self.SPAWN_MENU:
             role = idea["role"]
             if role in self.registry.agents() and self.registry.agents()[role].get("status") == "active":
                 continue
             if role in (self.data.get("roles") or {}):
-                # Role exists in society but agent may be retired — re-enter
-                self.registry.enter(role, reason="respawn")
+                self.registry.enter(role, reason="respawn", cycle_id=cycle_id)
                 continue
             metric = idea["when_metric"]
             recent = [h.get(metric, 1.0) for h in history[-3:]]
@@ -185,7 +212,6 @@ class EvolutionEngine:
             if weak >= min(2, len(recent)) or (
                 len(recent) == 1 and float(recent[0]) < float(idea["below"]) * 0.8
             ):
-                # Signal spawn — actual role add happens via callback from society
                 spawned.append(role)
                 self.data.setdefault("evolution_log", []).append(
                     {
@@ -200,6 +226,76 @@ class EvolutionEngine:
                 )
         return spawned
 
+    def maybe_spawn_child(self, cycle_id: str, metrics: dict[str, float]) -> dict[str, Any] | None:
+        """Spawn a child agent from high-fitness parents with mutated genome.
+
+        Soft pop cap enforced. Returns spawn spec or None.
+        """
+        if self.registry.at_capacity():
+            return None
+        # Need decent aggregate and at least a few agents as parents
+        if float(metrics.get("aggregate") or 0) < 0.45:
+            return None
+        active = self.registry.active()
+        if len(active) < 3:
+            return None
+        # Limit child spawn frequency: at most one every other cycle when pop high
+        pop = self.data.setdefault("population", {})
+        last_child = pop.get("last_child_cycle")
+        history = self.data.get("fitness_history") or []
+        if last_child and len(history) >= 1 and self.registry.active_count() > 12:
+            # allow but don't spam — skip if last cycle already spawned child
+            if last_child == (history[-1].get("cycle_id") if history else None):
+                return None
+        # Also skip if we already spawned a child this exact cycle via log
+        for ev in (self.data.get("evolution_log") or [])[-5:]:
+            if ev.get("cycle_id") == cycle_id and ev.get("event") == "child_spawn_signal":
+                return None
+
+        existing = set(self.data.get("roles") or {}) | set(active.keys())
+        spec = child_role_available(existing)
+        if not spec:
+            return None
+        parents = pick_parents(
+            active, n=2, prefer_traits=tuple(spec.get("prefer_traits") or ())
+        )
+        if not parents:
+            return None
+        parent_genomes = []
+        for p in parents:
+            g = (active.get(p) or {}).get("genome")
+            if g:
+                parent_genomes.append(g)
+        genome = new_genome(
+            spec["role"],
+            parents=parents,
+            parent_genomes=parent_genomes,
+            cycle_id=cycle_id,
+        )
+        genome["fitness_at_birth"] = metrics.get("aggregate")
+        persist_genome(genome)
+        signal = {
+            "role": spec["role"],
+            "description": spec["description"],
+            "parents": parents,
+            "genome": genome,
+            "prefer_traits": list(spec.get("prefer_traits") or []),
+        }
+        pop["last_child_cycle"] = cycle_id
+        self.data.setdefault("evolution_log", []).append(
+            {
+                "ts": _utc_now(),
+                "cycle_id": cycle_id,
+                "event": "child_spawn_signal",
+                "role": spec["role"],
+                "parents": parents,
+                "generation": genome.get("generation"),
+                "mutated_keys": genome.get("mutated_keys"),
+                "fitness": metrics.get("aggregate"),
+            }
+        )
+        return signal
+
     def spawn_spec(self, role: str) -> dict[str, Any] | None:
         for idea in self.SPAWN_MENU:
             if idea["role"] == role:
@@ -208,18 +304,33 @@ class EvolutionEngine:
 
     def maybe_retire(self, cycle_id: str) -> list[str]:
         retired: list[str] = []
-        for role in self.registry.low_contributors(min_cycles=4, threshold=0.15):
-            # Don't retire if newly spawned this session with no chance
+        # Prefer retire when at/over soft cap
+        force = self.registry.active_count() >= self.registry.soft_cap()
+        threshold = 0.22 if force else 0.15
+        min_cycles = 3 if force else 4
+        candidates = self.registry.low_contributors(min_cycles=min_cycles, threshold=threshold)
+        if force and not candidates:
+            # Retire lowest non-founding by fitness_score
+            founding = set(self.data.get("founding_roles") or ["spark", "tribute_keeper"])
+            scored = []
+            for role, a in self.registry.active().items():
+                if role in founding:
+                    continue
+                if int(a.get("cycles_served") or 0) < 3:
+                    continue
+                scored.append((role, fitness_score(a)))
+            scored.sort(key=lambda x: x[1])
+            candidates = [r for r, _ in scored[:2]]
+        for role in candidates:
             agent = self.registry.agents().get(role) or {}
-            if int(agent.get("cycles_served") or 0) < 4:
+            if int(agent.get("cycles_served") or 0) < min_cycles and not force:
                 continue
-            self.registry.leave(role, reason="low_contribution")
-            # Soft-retire society role status
+            self.registry.leave(role, reason="low_contribution" if not force else "pop_cap")
             roles = self.data.get("roles") or {}
             if role in roles:
                 roles[role]["status"] = "retired"
                 roles[role]["retired_at"] = _utc_now()
-                roles[role]["retire_reason"] = "low_contribution"
+                roles[role]["retire_reason"] = "low_contribution" if not force else "pop_cap"
             retired.append(role)
             self.data.setdefault("evolution_log", []).append(
                 {
@@ -228,6 +339,7 @@ class EvolutionEngine:
                     "event": "role_retired",
                     "role": role,
                     "contribution": agent.get("contribution_score"),
+                    "fitness": fitness_score(agent) if agent else None,
                 }
             )
         return retired
@@ -251,11 +363,10 @@ class EvolutionEngine:
             "before_metrics": dict(metrics),
             "after_metrics": None,
             "measured_cycle": None,
-            "status": "candidate",  # hard ceiling: human authorize for accepted
+            "status": "candidate",
             "attempted_by": self.registry.best_for("improve"),
         }
         self.data.setdefault("improvement_proposals", []).append(prop)
-        # Mirror soft improvements list
         self.data.setdefault("improvements", []).append(
             {
                 "ts": prop["ts"],
@@ -268,7 +379,6 @@ class EvolutionEngine:
                 "before_metrics": dict(metrics),
             }
         )
-        # Scoreboard system
         if self.workshop is not None and "improvement_scoreboard" in self.workshop.known():
             board = self.workshop.use("improvement_scoreboard", cycle_id)
             content = (board or {}).get("content") or {"proposals": []}
@@ -285,17 +395,14 @@ class EvolutionEngine:
         return prop
 
     def close_open_proposals(self, cycle_id: str, metrics: dict[str, float]) -> list[dict[str, Any]]:
-        """Fill after_metrics for proposals from prior cycles still open."""
         closed: list[dict[str, Any]] = []
         for prop in self.data.get("improvement_proposals") or []:
             if prop.get("after_metrics") is None and prop.get("cycle_id") != cycle_id:
                 prop["after_metrics"] = dict(metrics)
                 prop["measured_cycle"] = cycle_id
-                # Delta on aggregate
                 before = float((prop.get("before_metrics") or {}).get("aggregate") or 0)
                 after = float(metrics.get("aggregate") or 0)
                 prop["delta_aggregate"] = round(after - before, 4)
-                # Still candidate — never auto-accept
                 prop["status"] = "candidate_measured"
                 closed.append(prop)
         if closed and self.workshop is not None and "improvement_scoreboard" in self.workshop.known():
@@ -312,7 +419,6 @@ class EvolutionEngine:
         return closed
 
     def pick_improvement(self, metrics: dict[str, float]) -> tuple[str, str, str]:
-        """Choose next improvement action targeting the weakest metric."""
         weakest = min(
             (
                 ("tribute_quality", metrics["tribute_quality"]),
@@ -330,17 +436,17 @@ class EvolutionEngine:
             ),
             "gather_coverage": (
                 "Close standing-topic coverage gaps",
-                "Using coverage_index + topic_priority so gather targets thin standing topics.",
+                "Using coverage_index + topic_priority so gather targets thin standing topics incl. STEM.",
                 "system_use:topic_priority",
             ),
             "build_reuse": (
                 "Raise system reuse",
-                "Forcing growth loop to load existing systems before writing new notes.",
+                "Forcing growth loop to load existing systems (incl. common_knowledge) before writing new notes.",
                 "mandate:use_systems_each_cycle",
             ),
             "comm_reply_rate": (
                 "Close communication loops",
-                "Herald/courier reply to unreplied inbox items each cycle.",
+                "Herald/courier/messenger reply with higher-quality ACKs; broadcast commons digests.",
                 "mandate:reply_unread",
             ),
         }
