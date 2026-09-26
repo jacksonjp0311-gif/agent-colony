@@ -1,0 +1,30 @@
+{
+  "when": "2026-09-26T11:11Z",
+  "authorize_cycle": "authorize_20260926T111104Z",
+  "accepted": 6,
+  "rejected": 6,
+  "p_policy": "accept only P>=0.75 with sourced evidence",
+  "items": [
+    {"finding_id": "fnd_09dd38663e50", "decision": "accepted", "p": 0.8},
+    {"finding_id": "fnd_89024c0f61dd", "decision": "accepted", "p": 0.8},
+    {"finding_id": "fnd_c8075b50e680", "decision": "accepted", "p": 0.82},
+    {"finding_id": "fnd_967e69a970ee", "decision": "accepted", "p": 0.82},
+    {"finding_id": "fnd_dee9ee85951f", "decision": "accepted", "p": 0.9},
+    {"finding_id": "fnd_3718e507a55f", "decision": "accepted", "p": 0.88},
+    {"finding_id": "fnd_8f09210427a1", "decision": "rejected", "p": 0.55},
+    {"finding_id": "fnd_a017c8575ae7", "decision": "rejected", "p": 0.45},
+    {"finding_id": "fnd_917bde6979e7", "decision": "rejected", "p": 0.5},
+    {"finding_id": "fnd_ff5cbb4f3910", "decision": "rejected", "p": 0.5},
+    {"finding_id": "fnd_22103f08586a", "decision": "rejected", "p": 0.5},
+    {"finding_id": "fnd_9a95cd82bdc6", "decision": "rejected", "p": 0.5}
+  ],
+  "live": {
+    "cycle_count": 40,
+    "fitness_aggregate": 0.9018,
+    "population": {"active": 16, "soft_cap": 20, "spawns": 8, "child_spawns": 8},
+    "commons_size": 44,
+    "status_counts": {"candidate": 605, "accepted": 27, "rejected": 20, "unknown": 1},
+    "witness_events": 1111,
+    "standing_topics": ["recursive-self-improvement", "meta-learning", "self-improving-agents", "godel-machines", "darwin-godel-machine", "reflexion", "self-refine", "agent-societies", "science-method", "history-of-ideas", "mathematics-foundations", "software-engineering", "life-and-death", "nature-biology-ecology", "cosmology-universe"]
+  }
+}

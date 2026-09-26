@@ -1,0 +1,82 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (explicit trust grant; selective P>=0.75)",
+  "policy": "selective — accept only P>=0.75 with sourced evidence; reject duplicates/speculation; leave uncertain candidate",
+  "items": [
+    {
+      "finding_id": "fnd_09dd38663e50",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.80: Popper falsifiability lineage is a sourced classic (Wikipedia/What Is Life lineage via science-method seed); grounded empiricism for colony gather."
+    },
+    {
+      "finding_id": "fnd_89024c0f61dd",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.80: Scientific Revolution historical scaffold is publicly sourced; supports history-of-ideas commons without AGI claims."
+    },
+    {
+      "finding_id": "fnd_c8075b50e680",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.82: Euclid Elements axiomatic method is canonical, sourced; durable math commons template."
+    },
+    {
+      "finding_id": "fnd_967e69a970ee",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.82: Gödel incompleteness is canonical, sourced; states formal limits honestly (anti-AGI-theater)."
+    },
+    {
+      "finding_id": "fnd_dee9ee85951f",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90: Self-improving agents survey lineage cites DGM arxiv; bounded empirical claim, not explosion."
+    },
+    {
+      "finding_id": "fnd_3718e507a55f",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.88: Chamber law restates hard ceiling (commons/laws stay candidate until authorize); already live practice."
+    },
+    {
+      "finding_id": "fnd_8f09210427a1",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.55: Duplicate 'Raise system reuse' after pattern already authorized (imp_df0236_1); delta +0.015 is weak duplicate signal."
+    },
+    {
+      "finding_id": "fnd_a017c8575ae7",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.45: Duplicate raise-system-reuse proposal already rejected/superseded by accepted reuse practice."
+    },
+    {
+      "finding_id": "fnd_917bde6979e7",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.50: Duplicate close-loops improvement `Close communication loops` delta=0.0071; pattern already authorized."
+    },
+    {
+      "finding_id": "fnd_ff5cbb4f3910",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.50: Duplicate close-loops improvement `Close communication loops (cycle 32)` delta=0.0045; pattern already authorized."
+    },
+    {
+      "finding_id": "fnd_22103f08586a",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.50: Duplicate close-loops improvement `Close communication loops (cycle 33)` delta=0.0077; pattern already authorized."
+    },
+    {
+      "finding_id": "fnd_9a95cd82bdc6",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.50: Duplicate close-loops improvement `Close communication loops (cycle 34)` delta=0.0076; pattern already authorized."
+    }
+  ],
+  "proposals": [],
+  "p_estimates": [
+    {"finding_id": "fnd_09dd38663e50", "decision": "accepted", "p": 0.8},
+    {"finding_id": "fnd_89024c0f61dd", "decision": "accepted", "p": 0.8},
+    {"finding_id": "fnd_c8075b50e680", "decision": "accepted", "p": 0.82},
+    {"finding_id": "fnd_967e69a970ee", "decision": "accepted", "p": 0.82},
+    {"finding_id": "fnd_dee9ee85951f", "decision": "accepted", "p": 0.9},
+    {"finding_id": "fnd_3718e507a55f", "decision": "accepted", "p": 0.88},
+    {"finding_id": "fnd_8f09210427a1", "decision": "rejected", "p": 0.55},
+    {"finding_id": "fnd_a017c8575ae7", "decision": "rejected", "p": 0.45},
+    {"finding_id": "fnd_917bde6979e7", "decision": "rejected", "p": 0.5},
+    {"finding_id": "fnd_ff5cbb4f3910", "decision": "rejected", "p": 0.5},
+    {"finding_id": "fnd_22103f08586a", "decision": "rejected", "p": 0.5},
+    {"finding_id": "fnd_9a95cd82bdc6", "decision": "rejected", "p": 0.5}
+  ]
+}
