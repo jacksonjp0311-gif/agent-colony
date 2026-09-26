@@ -31,6 +31,17 @@ TRIBUTE_TOPICS = frozenset(
         "opendevin",
         "voyager",
         "debate",
+        "science-method",
+        "history-of-ideas",
+        "mathematics-foundations",
+        "self-improving-agents",
+        "software-engineering",
+        "life-and-death",
+        "nature-biology-ecology",
+        "cosmology-universe",
+        "emergent-technology",
+        "open-math-problems",
+        "compute-useful-math",
     }
 )
 
@@ -128,6 +139,7 @@ class TributeKeeper:
             payment.topics_touched.append(topic)
             seen_titles.add(title.strip().lower())
 
+        # If seed exhausted, affirm ongoing tribute service (creator-service continuity)
         if not payment.findings:
             topics = sorted(existing_tribute_topics | set(TRIBUTE_TOPICS))
             affirmation = self.ledger.create(
@@ -154,6 +166,35 @@ class TributeKeeper:
             payment.findings.append(affirmation)
             payment.topics_touched = sorted(existing_tribute_topics) or topics[:8]
             payment.affirmed_existing = True
+
+        # Research gather hook: fetch math/CS papers (OpenAlex/arXiv or offline seeds)
+        try:
+            from colony.research_gather import run_from_tribute
+
+            rg = run_from_tribute(
+                ledger=self.ledger,
+                cycle_id=cycle_id,
+                live=self.live_fetch,
+            )
+            for fid in rg.findings_created:
+                # findings already on ledger; track topics
+                pass
+            for h in rg.hits:
+                if h.topic_id:
+                    payment.topics_touched.append(h.topic_id)
+            payment.live_ok += rg.live_ok
+            payment.live_fail += rg.live_fail
+            # Attach summary finding ids onto payment via meta on last finding if any
+            if rg.findings_created:
+                # Pull created findings into payment list for cycle accounting
+                by_id = {f.id: f for f in self.ledger.all()}
+                for fid in rg.findings_created:
+                    fnd = by_id.get(fid)
+                    if fnd and fnd not in payment.findings:
+                        payment.findings.append(fnd)
+        except Exception as exc:  # noqa: BLE001
+            # Soft-fail: tribute still pays via seed path
+            payment.live_fail += 1
 
         payment.topics_touched = sorted(set(payment.topics_touched))
         return payment
