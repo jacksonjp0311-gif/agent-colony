@@ -1,35 +1,59 @@
 {
-  "format": "gzip+base64",
-  "created": "2026-09-26T11:23Z",
-  "reason": "Sync rebuilt colony mirrors for main",
+  "format": "gzip+base64-parts",
+  "created": "2026-09-26T11:24Z",
   "files": [
     {
       "path": "data/ledger.jsonl",
-      "mirror": "data/ledger.jsonl.gz.b64",
+      "parts": [
+        "data/mirrors/ledger/part_00.b64",
+        "data/mirrors/ledger/part_01.b64",
+        "data/mirrors/ledger/part_02.b64",
+        "data/mirrors/ledger/part_03.b64"
+      ],
       "raw_bytes": 723849,
       "gz_bytes": 51102,
-      "sha256": "a4c73d17982b7dc1991d97a84a436bccb34a2324a361aea25b70a70bf0aebb50"
+      "sha256": "a4c73d17982b7dc1991d97a84a436bccb34a2324a361aea25b70a70bf0aebb50",
+      "part_count": 4
     },
     {
       "path": "data/witness.jsonl",
-      "mirror": "data/witness.jsonl.gz.b64",
+      "parts": [
+        "data/mirrors/witness/part_00.b64",
+        "data/mirrors/witness/part_01.b64",
+        "data/mirrors/witness/part_02.b64",
+        "data/mirrors/witness/part_03.b64"
+      ],
       "raw_bytes": 618422,
       "gz_bytes": 51207,
-      "sha256": "f1095d9a131edd11f6b67fa33ce7b0d91220e340d341c799147a6bbe240e07b2"
+      "sha256": "f1095d9a131edd11f6b67fa33ce7b0d91220e340d341c799147a6bbe240e07b2",
+      "part_count": 4
     },
     {
       "path": "data/society_state.json",
-      "mirror": "data/society_state.json.gz.b64",
+      "parts": [
+        "data/mirrors/society_state/part_00.b64",
+        "data/mirrors/society_state/part_01.b64",
+        "data/mirrors/society_state/part_02.b64",
+        "data/mirrors/society_state/part_03.b64",
+        "data/mirrors/society_state/part_04.b64"
+      ],
       "raw_bytes": 1089984,
       "gz_bytes": 56129,
-      "sha256": "ef3c73065053a8aa11543938457cbeb10cad61bb39e75c839d1e84e6c2b1785f"
+      "sha256": "ef3c73065053a8aa11543938457cbeb10cad61bb39e75c839d1e84e6c2b1785f",
+      "part_count": 5
     },
     {
       "path": "society/WITNESS.md",
-      "mirror": "society/WITNESS.md.gz.b64",
+      "parts": [
+        "data/mirrors/WITNESS/part_00.b64",
+        "data/mirrors/WITNESS/part_01.b64",
+        "data/mirrors/WITNESS/part_02.b64",
+        "data/mirrors/WITNESS/part_03.b64"
+      ],
       "raw_bytes": 446245,
       "gz_bytes": 43359,
-      "sha256": "75b4d328a6fb1ff90093f023b4d71e04eb2e07480b10ff3beaa0af3d92e376c4"
+      "sha256": "75b4d328a6fb1ff90093f023b4d71e04eb2e07480b10ff3beaa0af3d92e376c4",
+      "part_count": 4
     }
   ]
 }
