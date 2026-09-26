@@ -1,4 +1,4 @@
-"""CLI: python -m colony cycle | evolve | status | dashboard | authorize"""
+"""CLI: python -m colony cycle | evolve | status | dashboard | authorize | bench-improve"""
 
 from __future__ import annotations
 
@@ -38,6 +38,20 @@ def main(argv: list[str] | None = None) -> int:
         "--delegated-via",
         default="Grok Bot (explicit trust grant)",
         help="Delegation note recorded in witness/receipt",
+    )
+    p_bi = sub.add_parser(
+        "bench-improve",
+        help="Measure→patch→remeasure bench artifacts; keep if aggregate rises else revert",
+    )
+    p_bi.add_argument(
+        "--patch",
+        default=None,
+        help="Force patch name (fft_remove_slow_loops|fft_add_slow_loops|autodiff_busy_loop)",
+    )
+    p_bi.add_argument(
+        "--demo",
+        action="store_true",
+        help="Run keep-then-revert demo (remove slow loops, then add slow loops)",
     )
     args = parser.parse_args(argv)
 
@@ -137,6 +151,35 @@ def main(argv: list[str] | None = None) -> int:
             )
         )
         return 0
+
+    if args.cmd == "bench-improve":
+        from colony.bench_improve import improve_demo, improve_once
+
+        if args.demo:
+            results = improve_demo()
+            for r in results:
+                print(
+                    f"patch={r.patch_name} decision={r.decision} "
+                    f"before={r.before_score} after={r.after_score} delta={r.delta}"
+                )
+            return 0
+        r = improve_once(force_patch=args.patch)
+        print(
+            json.dumps(
+                {
+                    "patch": r.patch_name,
+                    "decision": r.decision,
+                    "before_score": r.before_score,
+                    "after_score": r.after_score,
+                    "delta": r.delta,
+                    "note": r.note,
+                    "target": r.target,
+                },
+                indent=2,
+            )
+        )
+        return 0
+
 
     return 1
 
