@@ -1,8 +1,4 @@
-"""Society cycle — light the spark, pay tribute, emerge, grow, witness.
-
-Bootstrap loader: full body lives in society/briefs/society_py_part_*.b64 until a
-direct full-file push lands. Hard-lemma mile emergency restore.
-"""
+"""Society cycle — bootstrap from b64 parts (hard-lemma emergency restore)."""
 from __future__ import annotations
 
 import base64
@@ -11,11 +7,18 @@ import types
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parent.parent
-_parts = sorted((_ROOT / "society" / "briefs").glob("society_py_part_*.b64"))
-if not _parts:
-    raise ImportError("colony.society: missing society/briefs/society_py_part_*.b64")
+_briefs = _ROOT / "society" / "briefs"
 
-_raw = base64.b64decode("".join(p.read_text().strip() for p in _parts))
+def _load_parts():
+    wholes = sorted(_briefs.glob("society_py_part_[0-9].b64"))
+    if wholes:
+        return "".join(p.read_text().strip() for p in wholes)
+    halves = sorted(_briefs.glob("society_py_part_[0-9][ab].b64"))
+    if halves:
+        return "".join(p.read_text().strip() for p in halves)
+    raise ImportError("colony.society: missing society_py_part_*.b64")
+
+_raw = base64.b64decode(_load_parts())
 _mod = types.ModuleType(__name__)
 _mod.__file__ = str(Path(__file__).resolve())
 sys.modules[__name__] = _mod
