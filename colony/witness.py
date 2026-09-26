@@ -104,13 +104,14 @@ class WitnessLog:
                 lines.append(f"- **id:** `{ev.id}` | **cycle:** `{ev.cycle_id}`")
                 lines.append(f"- {ev.summary}")
                 if ev.detail:
-                    # compact detail
                     interesting = {
                         k: v
                         for k, v in ev.detail.items()
                         if k in {"role", "roles", "council", "institution", "norm", "ritual",
-                                 "from_role", "to_role", "topics", "count", "title", "status",
-                                 "proposal_type", "name"}
+                                 "from_role", "to_role", "from", "to", "channel", "message",
+                                 "topics", "count", "title", "status", "proposal_type", "name",
+                                 "path", "kind", "builds", "gathered", "improvements",
+                                 "communications", "outcome", "description"}
                         or not isinstance(v, (dict, list))
                     }
                     if interesting:
