@@ -11,30 +11,23 @@ Repo: https://github.com/jacksonjp0311-gif/agent-colony
 
 ## What this is
 
-A local-first colony with a **minimal founding cast** and an **emergence engine**:
+A local-first **evolving colony** with concrete mechanics (not ceremony-only):
 
-| Founding | Role |
-|----------|------|
-| **Spark** | Proposes and enacts civilization (roles, councils, institutions, norms, rituals) |
-| **Tribute Keeper** | Pays creator tribute each cycle under the active ask |
+| Mechanic | What actually happens |
+|----------|------------------------|
+| **Agent registry** | Roles enter/leave; each agent has inbox, skills, contribution scores |
+| **Communication bus** | Messages deliver to inboxes; agents **read** them next cycle and reply |
+| **Usable systems** | Artifacts under `society/systems/` that later cycles **load and update** |
+| **Fitness** | Measurable: tribute quality, gather coverage, build reuse, comm reply rate |
+| **Evolve** | Skill weights update from outcomes; roles spawn/retire; proposals carry before/after metrics (candidate until human authorize) |
 
-There is **no permanent aristocracy** of Harvester / Librarian / Synthesizer / Critic. If those appear, the Spark invented them.
-
-The human (and the logs) are the **witness**.
-
-**Growth loop (each cycle):** invent/build artifacts → communicate (Society Bulletin) → gather information → attempt self-improvement — all logged in witness.
+Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles appear when fitness pressure or the growth will asks for them.
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: grow · build · communicate · gather · improve. Standing RSI / self-improving research remains valuable as gather.
-2. **Human authorize** — required for durable `accepted` knowledge and privileged actions (money, public posts, privilege escalation). No silent accept. UNKNOWN stays UNKNOWN.
+1. **Creator tribute** — serve James when he asks. Active will: grow · build · communicate · gather · improve / evolve.
+2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. No silent accept. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
-
-Between asks, the colony may form civilization freely under that ceiling.
-
-## Claim boundary
-
-This is **not** autonomous AGI and **not** consciousness theater. It is a runnable society that collects evidence, emerges structure, and waits for the creator to accept durable knowledge.
 
 See [CHARTER.md](./CHARTER.md).
 
@@ -45,9 +38,12 @@ See [CHARTER.md](./CHARTER.md).
 ```bash
 cd /workspace/agent-colony   # or your clone
 python3 -m pip install -r requirements.txt   # optional httpx
-python3 -m colony cycle                      # tribute + emergence + witness
+python3 -m colony cycle                      # one cycle
 python3 -m colony cycle --offline            # seed only
+python3 -m colony evolve --cycles 5          # multi-cycle autonomous evolve
+python3 -m colony evolve --cycles 5 --offline
 python3 -m colony status
+python3 -m colony dashboard                  # refresh DASHBOARD.html + WITNESS_SUMMARY.md
 ```
 
 ### Outputs
@@ -55,13 +51,16 @@ python3 -m colony status
 | Path | What |
 |------|------|
 | `data/ledger.jsonl` | Findings with provenance |
-| `data/society_state.json` | Roles, councils, norms, institutions |
+| `data/society_state.json` | Roles, agents, systems, fitness, bus |
 | `data/witness.jsonl` | Append-only witness events |
-| `society/WITNESS.md` | Human-readable witness chronology |
+| `society/systems/` | **Usable** systems (JSON/JSONL later cycles load) |
+| `society/BULLETIN.md` | Bus chronology |
+| `society/DASHBOARD.html` | Live progress dashboard |
+| `society/WITNESS.md` / `WITNESS_SUMMARY.md` | Human-readable witness |
 | `society/report.md` | Latest cycle report |
 
 ---
 
-## Design lineage
+## Claim boundary
 
-Built for Codex ΔΦ / Cortex / Perci taste: local-first, evidence-gated, explicit non-claims — plus **emergence over micromanagement**.
+This is **not** autonomous AGI and **not** consciousness theater. Skills/fitness are real measurable state updates inside this repo; they are **not** open-ended ML training. Improvement proposals stay `candidate` until the human authorizes.
