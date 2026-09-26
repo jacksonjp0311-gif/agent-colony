@@ -37,6 +37,9 @@ ROLE_TRAIT_BIAS: dict[str, dict[str, float]] = {
     "naturalist": {"gather": 0.8, "explore": 0.85},
     "geometer": {"gather": 0.75, "explore": 0.7, "build": 0.45},
     "messenger": {"reply": 0.88, "explore": 0.5},
+    # Flourish specialists — aligned to CREATOR_WILL_ASK / Oracle gates
+    "oracle_scribe": {"gather": 0.7, "explore": 0.8, "govern": 0.65, "reply": 0.55},
+    "stem_checker": {"gather": 0.7, "build": 0.65, "explore": 0.75},
 }
 
 CHILD_ROLE_POOL = [
@@ -87,6 +90,20 @@ CHILD_ROLE_POOL = [
         "role": "messenger",
         "description": "Broadcasts commons digests on science/history/math channels.",
         "prefer_traits": ("reply", "explore"),
+    },
+    {
+        "role": "oracle_scribe",
+        "description": (
+            "Records Oracle HEAR/SENSE/vote; presses hard/STEM enables when fitness gaps appear."
+        ),
+        "prefer_traits": ("explore", "gather", "govern"),
+    },
+    {
+        "role": "stem_checker",
+        "description": (
+            "Runs STEM domain pack checks (kinematics); retire when no Oracle-pass lift."
+        ),
+        "prefer_traits": ("explore", "build", "gather"),
     },
 ]
 
