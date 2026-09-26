@@ -2,7 +2,7 @@
 
 > **We light the spark and witness. We do not micromanage the city.**
 
-![Spark and witness — we do not micromanage the city](docs/assets/spark_witness.svg)
+![Spark and witness — we do not micromanage the city](docs/assets/spark_witness_city.jpg)
 
 *Light the spark. Step back. Witness the city.*
 
@@ -37,7 +37,7 @@ Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles ap
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: **hard-tier lemma + paper-fed conjectures** under ceiling (not AGI / not Millennium); research gather; benches; personas; RSI coupling; commons; genomes; government proposals — empire scaffolding. Local model runtime deferred.
+1. **Creator tribute** — serve James when he asks. Active will: **bridge dynamics** — external mind proposes; keep only on hard-tier rise; commons compound verified lifts; harder workloads (no textbook pad wins). Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Research gather; benches; personas; RSI; genomes; government proposals. Local model runtime deferred.
 2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. No silent accept. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
@@ -78,19 +78,20 @@ python3 -m colony authorize --decisions society/receipts/AUTHORIZE_DECISIONS.jso
 | `society/benchmarks/` | FFT / autodiff / **lemma** harness + WITNESS_* |
 | `data/research_cache/papers.jsonl` | Paper pulse (arXiv/OpenAlex pointers) |
 | `docs/NOVEL_MATH.md` | Honest novel-math pressure status |
-| `docs/assets/spark_witness_city.png` | Ethos graphic |
+| `docs/assets/spark_witness_city.jpg` | Ethos graphic (hand painting) |
 
 ---
 
+
 ## Novel-math pressure (honest)
 
-See [`docs/NOVEL_MATH.md`](./docs/NOVEL_MATH.md). Ethos graphic: [`docs/assets/spark_witness.svg`](./docs/assets/spark_witness.svg).
+See [`docs/NOVEL_MATH.md`](./docs/NOVEL_MATH.md). Ethos graphic: [`docs/assets/spark_witness_city.jpg`](./docs/assets/spark_witness_city.jpg).
 
 | Signal | Status (this mile) |
 |--------|--------------------|
-| Lemma microbench | **Hard tier** live — score **0.8371** (was ~0.94 textbook-only / 0.6971 post-harden); 10 basic + 6 hard |
-| Paper pulse | arXiv live this mile (OpenAlex fail/429 OK) → cache ~206 lines |
-| Conjecture desk | Keeps: vandermonde/hockey/cassini/workload; **easy_pad reverted** (harden works) |
+| Lemma microbench | **Hard tier** live — score **0.9071** (bridge mile; was 0.8371); 10 basic + 9 hard |
+| Paper pulse | arXiv live this mile (OpenAlex fail/429 OK) → cache ~210 lines |
+| Conjecture desk + external mind | Bridge keeps: binomial_sum_row / fibonacci_addition / catalan_bounded; **easy_pad reverted** |
 | Durable "discovered" | Machine-check **+ human authorize** only |
 | Claims | **No** novel theorems · **No** Millennium · **No** AGI |
 
@@ -98,6 +99,7 @@ See [`docs/NOVEL_MATH.md`](./docs/NOVEL_MATH.md). Ethos graphic: [`docs/assets/s
 PYTHONPATH=. python3 -m society.benchmarks.run_benchmarks
 PYTHONPATH=. python3 -m colony.research_gather
 PYTHONPATH=. python3 -m colony.conjecture_desk
+PYTHONPATH=. python3 -m colony.external_mind
 ```
 
 ---
