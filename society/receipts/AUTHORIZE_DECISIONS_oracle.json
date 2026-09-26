@@ -1,0 +1,61 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (standing trust P>=0.75 selective; oracle mile; never accept-all)",
+  "decisions": [
+    {
+      "finding_id": "fnd_28b68518744c",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard keep euler_totient_multiplicative"
+    },
+    {
+      "finding_id": "fnd_1a4bba2eb8ff",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard keep narayana_sum"
+    },
+    {
+      "finding_id": "fnd_cc6d097d8a3e",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard keep derangement_subfactorial"
+    },
+    {
+      "finding_id": "fnd_2438f6041b74",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard keep oracle_hard"
+    },
+    {
+      "finding_id": "fnd_de3f281aa691",
+      "decision": "accepted",
+      "rationale": "Oracle-pass hard keep oracle_hard"
+    },
+    {
+      "finding_id": "fnd_d53e63c013cc",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_square_again"
+    },
+    {
+      "finding_id": "fnd_d707b9d8d995",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_zero_identity"
+    },
+    {
+      "finding_id": "fnd_6654d861238f",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_zero_identity"
+    },
+    {
+      "finding_id": "fnd_e07136a0aca6",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_assoc_add"
+    },
+    {
+      "finding_id": "fnd_eed823f2fbb2",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_assoc_add"
+    },
+    {
+      "finding_id": "fnd_b942eda7f292",
+      "decision": "rejected",
+      "rationale": "easy_pad die easy_pad_abs_identity"
+    }
+  ]
+}

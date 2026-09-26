@@ -34,6 +34,21 @@
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
 | **Durable discovered** | Machine-check + human authorize (P≥0.75 selective). Not AGI. Not Millennium. |
 
+
+
+## Oracle mile (this mile; autonomy substrate retained)
+
+| Piece | Rule |
+|-------|------|
+| **Oracle** | HEAR bus debate → SENSE held-out + stripped-baseline + CAS/Python; **FAIL kills keep** |
+| **Fitness** | No Oracle pass → no fitness rise credit |
+| **Wire** | claim_pipeline / conjecture_desk / novelty_gate / bench_improve gate through Oracle before keep |
+| **Collective** | Multi-agent vote weights; keep only if Oracle passes; still candidate until authorize |
+| **Easy pad** | Must **die on Oracle** (even if basic score ticks up) |
+| **Hard keep** | Only with Oracle pass (+ hard_pass rise) |
+| **Ethos** | We light the spark and witness. We do not micromanage the city. |
+| **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.75 selective). Not AGI. Not Millennium. |
+
 ## Claim boundary
 
 - Colony may **propose** conjectures and small lemmas.
@@ -60,4 +75,4 @@
 | Exploration budget | `society/systems/exploration_budget.json` |
 | Ethos graphic | `docs/assets/spark_witness_city.jpg` |
 
-**Novel math beyond textbook?** No — autonomy mile hardens process gates (novelty/debate/budget/cron). Classical coded identities only; **still not theorem discovery**. Textbook reuse ≈0 for any "novel" claim.
+**Novel math beyond textbook?** No — Oracle mile hardens keep gates (HEAR/SENSE/collective). Autonomy substrate retained (novelty/debate/budget/cron). Classical coded identities only; **still not theorem discovery**. Textbook reuse ≈0 for any "novel" claim.

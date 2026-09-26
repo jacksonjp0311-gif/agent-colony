@@ -31,13 +31,14 @@ A local-first **evolving colony** with concrete mechanics (not ceremony-only):
 | **RSI coupling** | Accepted/strong RSI findings bias improver, skill_router, genome mutation (measured) |
 | **Common knowledge** | `society/systems/common_knowledge.json` + `data/commons/` — append candidates, reuse each cycle |
 | **Government** | Chamber of Laws + Census; law proposals stay candidate until authorize |
+| **Oracle** | HEAR bus debate → SENSE (held-out + stripped + CAS) → collective vote; **FAIL kills keep**; no pass → no fitness rise; still candidate until authorize |
 | **Domain bus** | science / history / math / empire channels + reply quality metric |
 
 Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles appear when fitness pressure or the growth will asks for them.
 
 ## Hard ceiling (only)
 
-1. **Creator tribute** — serve James when he asks. Active will: **AUTONOMY MILE** — (A) production cron self-run gather→claim→bench→keep/revert→lesson→selective authorize→slim push; (B) new-to-commons novelty gate (textbook reuse≈0); (C) multi-hop A→B→C debate with bus-driven action change; (D) exploration budget (distribution changes after reverts); five-lifts substrate retained. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Local model runtime deferred.
+1. **Creator tribute** — serve James when he asks. Active will: **ORACLE MILE** — (A) oracle HEAR/SENSE/decide (FAIL kills keep; no pass → no fitness rise); (B) claim/conjecture/novelty/bench through Oracle; (C) collective vote keep only if Oracle passes (candidate until authorize); (D) WILL+BRIEF+honest README/NOVEL_MATH; (E) ≥8 evolve; easy_pad dies on Oracle; hard keeps need Oracle pass; selective authorize P≥0.75; slim push. Ethos: light the spark and witness; do not micromanage the city. Not AGI / not Millennium. Local model runtime deferred.
 2. **Human authorize** — required for durable `accepted` knowledge and privileged actions. Standing trust may selectively authorize P≥0.75 machine-checked candidates; never silent accept-all. UNKNOWN stays UNKNOWN.
 3. **Append-only witness** — `data/witness.jsonl` + `society/WITNESS.md`.
 
