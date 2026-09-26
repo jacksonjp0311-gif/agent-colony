@@ -1,0 +1,31 @@
+{
+  "pushed_ok": [
+    "society/EVOLVE_STATUS.md",
+    "society/artifacts/cycle_0025-27 notes + systems reply/skill/topic",
+    "colony/cli.py",
+    "README.md",
+    "colony/authorize.py",
+    "society/DASHBOARD.html",
+    "society/WITNESS_SUMMARY.md",
+    "society/report.md",
+    "society/systems/improvement_scoreboard.json",
+    "society/systems/fitness_history.jsonl",
+    "society/systems/coverage_index.json"
+  ],
+  "pending_local_ready": [
+    "society/receipts/AUTHORIZE_DECISIONS.json (8.5KB)",
+    "society/receipts/AUTHORIZE_authorize_20260926T101645Z.md (8KB)",
+    "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl (48KB)",
+    "society/BULLETIN.md (12KB)",
+    "data/ledger.jsonl (304KB)",
+    "data/witness.jsonl (247KB)",
+    "data/society_state.json (250KB)",
+    "society/WITNESS.md (195KB)"
+  ],
+  "push_payloads_on_box": [
+    "/tmp/batchA.json",
+    "/workspace/agent-colony/.push_ledger.json",
+    "/workspace/agent-colony/.push_authorize.json"
+  ],
+  "latest_main_commit_seen": "364f69af1dfc0409fb6a951d7fc6aad5cf53a2a8"
+}
