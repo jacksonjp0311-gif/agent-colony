@@ -27,5 +27,21 @@
     "/workspace/agent-colony/.push_ledger.json",
     "/workspace/agent-colony/.push_authorize.json"
   ],
-  "latest_main_commit_seen": "364f69af1dfc0409fb6a951d7fc6aad5cf53a2a8"
+  "latest_main_commit_seen": "364f69af1dfc0409fb6a951d7fc6aad5cf53a2a8",
+  "sync_attempt_20260926T1026Z": {
+    "probe_cleanup": {
+      "path": "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl",
+      "status": "deleted",
+      "delete_commit": "fb1ab5c0360ebe8ed0b195b374010b36f3c014f4"
+    },
+    "local_ready": {
+      "society/receipts/AUTHORIZE_LEDGER_DELTA.jsonl": "48KB",
+      "society/receipts/SOCIETY_SLIM_AFTER_AUTHORIZE.json": "18KB",
+      "data/ledger.jsonl": "304KB",
+      "data/witness.jsonl": "247KB",
+      "data/society_state.json": "250KB",
+      "society/WITNESS.md": "195KB"
+    },
+    "status": "pending MCP payload delivery; remote large files are older/smaller versions"
+  }
 }
