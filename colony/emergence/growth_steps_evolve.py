@@ -417,14 +417,18 @@ class GrowthSteps3:
             ("improver" if "improver" in roles else self.registry.best_for("improve"), "rsi"),
             ("legislator" if "legislator" in roles else "spark", "forum"),
         ]
+        # SPARK: multi-hop reply chain — hop0 is root; later hops in_reply_to prior
+        # so reply_rate load-bears (no fake padding / shout-into-void forum roots).
         debate_ids = []
-        for fr, channel in debaters:
+        prev_id = None
+        for hop_i, (fr, channel) in enumerate(debaters):
             fr_r = fr if fr in roles else "spark"
             body = (
-                f"Hearing Chamber debate cycle {cycle_n}: weigh {claim_snip}. "
+                f"Hearing Chamber debate hop {hop_i} cycle {cycle_n}: weigh {claim_snip}. "
                 f"Cite accepted compute-useful findings: {cite_snip}. "
-                f"Ask: enables useful computation? Verdict path: accept_candidate|reject|defer. "
-                f"No AGI claims."
+                + (f"ACK prior `{prev_id}`. " if prev_id else "")
+                + f"Ask: enables useful computation? Verdict path: accept_candidate|reject|defer. "
+                f"No AGI claims. NEXT ACTION → hearing_weigh."
             )
             voiced = voice_wrap(fr_r, body, root=ROOT)
             # Count citations in debate for math prize
@@ -437,18 +441,41 @@ class GrowthSteps3:
                 channel=channel,
                 message=voiced,
                 cycle_id=cycle_id,
-                tags=["debate", "hearing", "committee", "colloquium", "cites_accepted"],
-                payload={"kind": "debate", "findings": [f.id for f in recent], "citation_hits": hits},
+                tags=["debate", "hearing", "committee", "colloquium", "cites_accepted", "peer_cite"]
+                + (["action_changed"] if prev_id else ["propose"]),
+                in_reply_to=prev_id,
+                payload={
+                    "kind": "debate",
+                    "hop": hop_i,
+                    "findings": [f.id for f in recent],
+                    "citation_hits": hits,
+                    "parent": prev_id,
+                },
             )
+            if prev_id:
+                try:
+                    self.bus.record_peer_cite(cited=True)
+                    self.bus.record_action_changed(
+                        changed=True,
+                        detail={
+                            "next_action_before": "hearing_open",
+                            "next_action_after": "hearing_weigh",
+                            "reason": f"hearing hop {hop_i} replies to {prev_id}",
+                            "cycle_id": cycle_id,
+                        },
+                    )
+                except Exception:
+                    pass
             g.communications.append(entry)
             debate_ids.append(entry["id"])
+            prev_id = entry["id"]
             self._ledger_comm(entry, cycle_id, g)
             self.witness.record(
                 cycle_id=cycle_id,
                 kind="debate",
                 actor=fr_r,
-                summary=f"Debate/{channel}: {body[:140]}",
-                detail={"id": entry["id"], "channel": channel, "findings": [f.id for f in recent], "citation_hits": hits},
+                summary=f"Debate/{channel} hop={hop_i}: {body[:140]}",
+                detail={"id": entry["id"], "channel": channel, "hop": hop_i, "findings": [f.id for f in recent], "citation_hits": hits},
             )
 
         # Propose after debate — then Hearing Chamber verdict

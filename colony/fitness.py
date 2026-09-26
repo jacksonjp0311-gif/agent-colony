@@ -289,11 +289,27 @@ class EvolutionEngine:
         flat = len(recent) >= 3 and len({r.get("n_hard_pass") for r in recent}) == 1
         spawn_roles: list[str] = []
         retire_roles: list[str] = []
-        if gap or (flat and float(metrics_agg := float((self.data.get("fitness_history") or [{}])[-1].get("aggregate") or 0)) < 0.95):
+        # SPARK: Oracle-pass lift gate for specialist spawn (no theater spawn)
+        oracle_lift_now = 0
+        try:
+            from colony.oracle import counts as _oracle_counts
+            _oc = _oracle_counts()
+            oracle_lift_now = int(_oc.get("passes") or 0)
+        except Exception:
+            oracle_lift_now = int(self.data.get("oracle_pass_total") or 0)
+        prev_oracle = int(self.data.get("oracle_pass_total_prev") or oracle_lift_now)
+        oracle_pass_lift = oracle_lift_now - prev_oracle
+        metrics_agg = float((self.data.get("fitness_history") or [{}])[-1].get("aggregate") or 0)
+        if gap or (flat and metrics_agg < 0.95):
             # Prefer geometer/improver pressure — signal only (spark enacts)
-            for role in ("geometer", "improver", "oracle_scribe", "stem_checker"):
+            for role in ("geometer", "improver"):
                 if role not in self.registry.active():
                     spawn_roles.append(role)
+            # SPARK: oracle_scribe/stem_checker spawn ONLY on Oracle-pass fitness lift
+            if oracle_pass_lift > 0 or gap:
+                for role in ("oracle_scribe", "stem_checker"):
+                    if role not in self.registry.active() and role not in spawn_roles:
+                        spawn_roles.append(role)
         # Kill criteria: decorative roles that never lift hard tier
         ht_log = self.data.setdefault("hard_tier_role_credit", {})
         if delta > 0:

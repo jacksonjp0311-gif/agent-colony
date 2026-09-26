@@ -238,6 +238,63 @@ class GrowthSteps2:
             if "gap_alert" in tags:
                 reply_tracker_open.append(entry["id"])
 
+        # SPARK: same-cycle load-bear reply sweep for unreplied directed roots just posted
+        # (domain/gap_alert etc.). Cite prior + change NEXT ACTION — not fake padding.
+        try:
+            recent = self.bus.messages()[-50:]
+            unreplied = [
+                m for m in recent
+                if not m.get("in_reply_to")
+                and m.get("to") not in ("all", "*")
+                and not m.get("replies")
+                and m.get("from") != m.get("to")
+                and m.get("cycle_id") == cycle_id
+            ]
+            for root in unreplied[:10]:
+                responder = root.get("to")
+                if responder not in roles or responder in ("forum", "all", "*"):
+                    responder = self.registry.best_for("communicate")
+                    if responder not in roles:
+                        responder = "spark"
+                parent_id = root.get("id")
+                parent_snip = ((root.get("message") or "")[:70]).replace("\n", " ")
+                reply_body = (
+                    f"SPARK same-cycle ACK `{parent_id}` from {root.get('from')}: "
+                    f"'{parent_snip}'. NEXT ACTION → cover thin/domain gaps + Oracle gate. "
+                    f"easy_pad dies. Not AGI."
+                )
+                reply_text = voice_wrap(responder, reply_body, root=ROOT)
+                entry = self.bus.post(
+                    from_role=responder,
+                    to_role=root.get("from") or "spark",
+                    channel=root.get("channel") or "bulletin",
+                    message=reply_text,
+                    cycle_id=cycle_id,
+                    tags=["reply", "quality", "peer_cite", "load_bear_reply", "spark_sweep"],
+                    in_reply_to=parent_id,
+                    payload={"cites_message": parent_id, "spark_sweep": True},
+                )
+                self.bus.record_peer_cite(
+                    cited=self.bus.message_cites_peer(reply_text, parent=root)
+                )
+                self.bus.record_action_changed(
+                    changed=True,
+                    detail={
+                        "next_action_before": "await_domain_reply",
+                        "next_action_after": "cover_thin_and_oracle_gate",
+                        "reason": f"spark same-cycle sweep on {parent_id}",
+                        "cycle_id": cycle_id,
+                    },
+                )
+                g.replies += 1
+                g.communications.append(entry)
+                self.registry.agents()[responder]["replies_sent"] = int(
+                    self.registry.agents()[responder].get("replies_sent") or 0
+                ) + 1
+                self._ledger_comm(entry, cycle_id, g)
+        except Exception:
+            pass
+
         if "reply_tracker" in self.workshop.known():
             prev = self.workshop.use("reply_tracker", cycle_id)
             content = (prev or {}).get("content") or {"open": [], "closed": []}

@@ -46,7 +46,7 @@ class GrowthSteps1:
             if mid and mid not in seen:
                 seen.add(mid)
                 uniq.append(m)
-        merged["needs_reply"] = uniq[:10]
+        merged["needs_reply"] = uniq[:18]
         g.messages_read = total_read
         # Lift 1: NEXT ACTION must change because of a message
         baseline_topics = list(self.state.standing_topics())[:4]
