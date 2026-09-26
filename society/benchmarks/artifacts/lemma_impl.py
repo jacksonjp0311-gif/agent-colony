@@ -249,6 +249,66 @@ def check_pell_companion(n: int) -> bool:
         return True
     return pell(n + 1) * pell(n - 1) - pell(n) ** 2 == (-1) ** n
 
+
+def check_gcd_fibonacci(m: int, n: int) -> bool:
+    """Classical: gcd(F(m), F(n)) == F(gcd(m, n)) for small ranges (not a discovery)."""
+    if m < 0 or n < 0:
+        return True
+    return math.gcd(fibonacci(m), fibonacci(n)) == fibonacci(math.gcd(m, n))
+
+
+def check_stirling_second_row(n: int) -> bool:
+    """Stirling 2nd kind row sum: sum_k S(n,k) == Bell-ish check via recurrence for small n.
+    S(n,k) = k*S(n-1,k) + S(n-1,k-1); verify sum_k S(n,k) recurrence identity for n<=10.
+    """
+    # Build S table
+    N = max(n, 1)
+    S = [[0] * (N + 1) for _ in range(N + 1)]
+    S[0][0] = 1
+    for i in range(1, N + 1):
+        for k in range(1, i + 1):
+            S[i][k] = k * S[i - 1][k] + S[i - 1][k - 1]
+    # Identity: S(n,1)=1, S(n,n)=1, S(n,2)=2^{n-1}-1
+    if n < 1:
+        return True
+    if S[n][1] != 1 or S[n][n] != 1:
+        return False
+    if n >= 2 and S[n][2] != (1 << (n - 1)) - 1:
+        return False
+    return True
+
+
+def check_pythagorean_generation(u: int, v: int) -> bool:
+    """Primitive generator: a=u^2-v^2, b=2uv, c=u^2+v^2 => a^2+b^2=c^2 (classical)."""
+    if u <= v or v < 1:
+        return True
+    a = u * u - v * v
+    b = 2 * u * v
+    c = u * u + v * v
+    return a * a + b * b == c * c
+
+
+def check_motzkin_bounded(n: int) -> bool:
+    """Motzkin M_n recurrence: M_0=1,M_1=1; (n+2)M_{n+2}=(3n+3)M_{n+1}-(n-1)M_n? Use simpler:
+    M_{n} = M_{n-1} + sum_{i=0}^{n-2} M_i M_{n-2-i}; verify small n + Catalan bound M_n <= C_{n+1}.
+    """
+    if n < 0:
+        return True
+    M = [0] * (n + 3)
+    M[0] = 1
+    if n >= 1:
+        M[1] = 1
+    for m in range(2, n + 1):
+        M[m] = M[m - 1]
+        for i in range(0, m - 1):
+            M[m] += M[i] * M[m - 2 - i]
+    # Bound vs Catalan C_{n+1} = comb(2n+2,n+1)/(n+2)
+    for m in range(0, n + 1):
+        cat = math.comb(2 * (m + 1), m + 1) // (m + 2)
+        if M[m] > cat:
+            return False
+    return True
+
 def check_workload_derived_chain() -> bool:
     """Multi-step proof-style workload (educational, not novel discovery).
 
@@ -313,6 +373,15 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("lucas_addition", lambda: all(check_lucas_addition(m, n) for m in range(0, 12) for n in range(0, 12)), True),
     ("central_binom_bound", lambda: all(check_central_binom_bound(n) for n in range(1, 18)), True),
     ("pell_companion", lambda: all(check_pell_companion(n) for n in range(1, 20)), True),
+    # Autonomy mile — start disabled; desk hard_enable may keep on n_hard_pass rise
+    ("gcd_fibonacci", lambda: all(
+        check_gcd_fibonacci(m, n) for m in range(0, 18) for n in range(0, 18)
+    ), True),
+    ("stirling_second_row", lambda: all(check_stirling_second_row(n) for n in range(1, 12)), True),
+    ("pythagorean_generation", lambda: all(
+        check_pythagorean_generation(u, v) for u in range(2, 16) for v in range(1, u)
+    ), True),
+    ("motzkin_bounded", lambda: all(check_motzkin_bounded(n) for n in range(0, 14)), True),
 ]
 
 

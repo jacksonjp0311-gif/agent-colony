@@ -1,6 +1,7 @@
 """Hard-tier mutation snippets and apply helpers for conjecture desk.
 
 Not novel discovery. Easy pads must fail keep under harder bench.
+Exploration budget may reorder these; distribution must change after reverts.
 """
 from __future__ import annotations
 
@@ -22,6 +23,18 @@ def check_easy_pad_square_again() -> bool:
     return all((a + b) ** 2 == a * a + 2 * a * b + b * b for a in range(-3, 4) for b in range(-3, 4))
 """
 
+_EASY_PAD_COMM = """
+def check_easy_pad_commutativity() -> bool:
+    \"\"\"Easy pad - trivial commutativity (must fail keep under hard tier).\"\"\"
+    return all(a + b == b + a and a * b == b * a for a in range(-3, 4) for b in range(-3, 4))
+"""
+
+_EASY_PAD_ABS = """
+def check_easy_pad_abs_identity() -> bool:
+    \"\"\"Easy pad - |a|^2 == a*a on tiny range (must fail keep under hard tier).\"\"\"
+    return all(abs(a) * abs(a) == a * a for a in range(-4, 5))
+"""
+
 MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("vandermonde_conv", "hard_enable", "enable:vandermonde_conv"),
     ("hockey_stick", "hard_enable", "enable:hockey_stick"),
@@ -33,8 +46,15 @@ MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("lucas_addition", "hard_enable", "enable:lucas_addition"),
     ("central_binom_bound", "hard_enable", "enable:central_binom_bound"),
     ("pell_companion", "hard_enable", "enable:pell_companion"),
+    # Autonomy mile — new hard enables (start disabled in lemma_impl)
+    ("gcd_fibonacci", "hard_enable", "enable:gcd_fibonacci"),
+    ("stirling_second_row", "hard_enable", "enable:stirling_second_row"),
+    ("pythagorean_generation", "hard_enable", "enable:pythagorean_generation"),
+    ("motzkin_bounded", "hard_enable", "enable:motzkin_bounded"),
     ("easy_pad_square_again", "easy_pad", _EASY_PAD_SNIP),
     ("easy_pad_diff_squares", "easy_pad", _EASY_PAD_DIFF),
+    ("easy_pad_commutativity", "easy_pad", _EASY_PAD_COMM),
+    ("easy_pad_abs_identity", "easy_pad", _EASY_PAD_ABS),
 ]
 
 
