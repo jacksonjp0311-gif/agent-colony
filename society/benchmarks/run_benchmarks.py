@@ -8,6 +8,7 @@ from pathlib import Path
 from society.benchmarks.fft_microbench import run as run_fft
 from society.benchmarks.fft_stress_microbench import run as run_fft_stress
 from society.benchmarks.autodiff_microbench import run as run_autodiff
+from society.benchmarks.lemma_microbench import run as run_lemma
 
 ROOT = Path(__file__).resolve().parent
 
@@ -17,7 +18,7 @@ def _utc() -> str:
 
 
 def main() -> dict:
-    results = [run_fft(), run_fft_stress(), run_autodiff()]
+    results = [run_fft(), run_fft_stress(), run_autodiff(), run_lemma()]
     scores = [float(r.get("score") or 0.0) for r in results]
     agg = round(sum(scores) / max(len(scores), 1), 4)
     ok_all = all(bool(r.get("ok")) for r in results)
