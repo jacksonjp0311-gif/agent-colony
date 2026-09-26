@@ -10,14 +10,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Assemble and write JPEG
         run: |
-          cat docs/assets/spark_witness_city.jpg.b64.part0 \
-              docs/assets/spark_witness_city.jpg.b64.part1 \
-              docs/assets/spark_witness_city.jpg.b64.part2 \
-            | base64 -d > docs/assets/spark_witness_city.jpg
+          cat docs/assets/spark_witness_city.jpg.b64.c0 docs/assets/spark_witness_city.jpg.b64.c1 docs/assets/spark_witness_city.jpg.b64.c2 docs/assets/spark_witness_city.jpg.b64.c3 docs/assets/spark_witness_city.jpg.b64.c4 docs/assets/spark_witness_city.jpg.b64.c5 docs/assets/spark_witness_city.jpg.b64.c6 docs/assets/spark_witness_city.jpg.b64.c7 | base64 -d > docs/assets/spark_witness_city.jpg
           python3 -c "d=open('docs/assets/spark_witness_city.jpg','rb').read(); assert d[:2]==bytes.fromhex('ffd8'); print(len(d), d[:4].hex())"
-          rm -f docs/assets/spark_witness_city.jpg.b64.part0 \
-                docs/assets/spark_witness_city.jpg.b64.part1 \
-                docs/assets/spark_witness_city.jpg.b64.part2
+          rm -f docs/assets/spark_witness_city.jpg.b64.c0 docs/assets/spark_witness_city.jpg.b64.c1 docs/assets/spark_witness_city.jpg.b64.c2 docs/assets/spark_witness_city.jpg.b64.c3 docs/assets/spark_witness_city.jpg.b64.c4 docs/assets/spark_witness_city.jpg.b64.c5 docs/assets/spark_witness_city.jpg.b64.c6 docs/assets/spark_witness_city.jpg.b64.c7
       - name: Commit JPEG
         run: |
           git config user.name "github-actions[bot]"
