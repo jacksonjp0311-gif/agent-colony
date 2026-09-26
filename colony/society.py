@@ -21,8 +21,13 @@ REPORT_PATH = ROOT / "society" / "report.md"
 
 # Creator will (Human Principal James Paul Jackson) — active Tribute Mandate
 CREATOR_WILL_ASK = (
-    "Let the society grow and learn: build, communicate, gather information, and improve. "
-    "Standing research on recursive/self-improving systems remains valuable as part of gathering information."
+    "Grow, learn, build, communicate, and improve. Gather broadly across science, history, "
+    "mathematics, software engineering, nature/biology/ecology, theories of life and death, "
+    "cosmology/our place in the universe, and recursive/self-improving systems. Raise "
+    "communication quality and share common knowledge. Spawn children agents with heritable "
+    "genomes under fitness pressure. Propose institutions of government (law proposals stay "
+    "candidate until human authorize). Build durable civilization scaffolding — an empire of "
+    "shared tools and memory, not AGI theater."
 )
 
 
@@ -78,9 +83,31 @@ class Society:
 
     def _ensure_creator_will(self) -> None:
         """Pivot active ask to the standing creator will when it has changed."""
+        standing = [
+            "recursive-self-improvement",
+            "meta-learning",
+            "self-improving-agents",
+            "godel-machines",
+            "darwin-godel-machine",
+            "reflexion",
+            "self-refine",
+            "agent-societies",
+            "science-method",
+            "history-of-ideas",
+            "mathematics-foundations",
+            "software-engineering",
+            "life-and-death",
+            "nature-biology-ecology",
+            "cosmology-universe",
+        ]
+        tm = self.state.data.setdefault("tribute_mandate", {})
+        tm["standing_ask_topics"] = standing
         current = self.state.active_ask().strip()
         if current != CREATOR_WILL_ASK:
             self.state.set_active_ask(CREATOR_WILL_ASK, source="human_principal")
+            self.state.save()
+        else:
+            # Persist expanded standing topics even if ask text matches
             self.state.save()
 
     def run_cycle(self) -> CycleResult:
@@ -222,6 +249,22 @@ class Society:
         return results
 
     def status(self) -> dict[str, Any]:
+        agents = self.state.data.get("agents") or {}
+        active = {k: v for k, v in agents.items() if v.get("status") == "active"}
+        genomes = []
+        for role, a in sorted(active.items()):
+            g = a.get("genome") or {}
+            genomes.append(
+                {
+                    "role": role,
+                    "generation": g.get("generation", 0),
+                    "traits": g.get("traits") or {},
+                    "parents": g.get("parents") or a.get("parent_roles") or [],
+                }
+            )
+        commons = self.state.data.get("commons") or {}
+        gov = self.state.data.get("government") or {}
+        pop = self.state.data.get("population") or {}
         return {
             "colony": "agent-colony",
             "ethos": self.charter.ethos,
@@ -237,17 +280,34 @@ class Society:
                 {"name": s.get("name"), "uses": s.get("use_count"), "path": s.get("path")}
                 for s in (self.state.data.get("systems") or [])
             ],
-            "agents_active": sorted(
-                k for k, v in (self.state.data.get("agents") or {}).items()
-                if v.get("status") == "active"
-            ),
+            "agents_active": sorted(active.keys()),
             "agents_retired": sorted(
-                k for k, v in (self.state.data.get("agents") or {}).items()
-                if v.get("status") == "retired"
+                k for k, v in agents.items() if v.get("status") == "retired"
             ),
+            "population": {
+                "active": len(active),
+                "soft_cap": pop.get("soft_cap", 20),
+                "spawns": pop.get("spawns", 0),
+                "child_spawns": pop.get("child_spawns", 0),
+            },
+            "genomes": genomes,
+            "commons_size": len(commons.get("entries") or []),
+            "commons_stats": commons.get("stats"),
+            "commons_by_domain": {
+                d: sum(1 for e in (commons.get("entries") or []) if e.get("domain") == d)
+                for d in ("science", "history", "math", "rsi", "empire", "general")
+            },
+            "government_proposals": len(gov.get("proposals") or []),
+            "government_open": [
+                {"id": p.get("id"), "title": p.get("title"), "status": p.get("status")}
+                for p in (gov.get("proposals") or [])
+                if p.get("status") in ("candidate", "candidate_measured")
+            ][-8:],
+            "census_latest": self.state.data.get("census_latest"),
             "fitness_latest": (self.state.data.get("fitness_history") or [None])[-1],
             "improvement_proposals": len(self.state.data.get("improvement_proposals") or []),
             "bus_stats": (self.state.data.get("bus") or {}).get("stats"),
+            "bus_domains": (self.state.data.get("bus") or {}).get("domains"),
             "communications_count": len(self.state.data.get("communications") or []),
             "improvements": [i.get("title") for i in self.state.data.get("improvements") or []],
             "cycle_count": self.state.data.get("cycle_count"),
@@ -257,6 +317,7 @@ class Society:
             "tribute_cycles_compliant": self.state.data.get("tribute_mandate", {}).get(
                 "cycles_compliant"
             ),
+            "standing_topics": self.state.standing_topics(),
         }
 
     def _write_report(self, result: CycleResult) -> Path:
