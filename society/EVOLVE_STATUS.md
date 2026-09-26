@@ -1,38 +1,39 @@
 # Evolve Status (2026-09-26)
 
-Hard ceiling held. Ran `python -m colony evolve --cycles 5` (+1 smoke) on the box.
+Hard ceiling held. Ran `python -m colony evolve --cycles N` on the box (5+ cycles in session; cycle_count now **24**).
 
-## Metrics (box)
+## Metrics
 
-| Metric | First evolve fitness | After cycle 19 |
-|--------|----------------------|----------------|
-| aggregate | 0.7388 | **0.8387** |
+| Metric | First fitness record | Latest |
+|--------|----------------------|--------|
+| aggregate | 0.7388 | **0.8688** |
 | tribute_quality | 0.9 | 0.9 |
 | gather_coverage | 0.875 | 0.875 |
-| build_reuse | 1.0 | **0.7333** |
-| comm_reply_rate | **0.0** | **0.8333** |
+| build_reuse | 1.0 | 0.8 |
+| comm_reply_rate | **0.0** | **0.9** |
 
 ## New role
 
-- **courier** — spawned by fitness when reply rate was weak.
+- **courier** — spawned when reply rate was weak; still active.
 
 ## Usable systems (built + reused)
 
 coverage_index, skill_router, reply_tracker, fitness_ledger, topic_priority, improvement_scoreboard
 
-## GitHub main
+## GitHub main (this session)
 
-Pushed this session: `registry`, `bus`, `systems`, `fitness`, `dashboard`, `cli` (evolve), `spark`, `society` (evolve()), README, DASHBOARD.html, WITNESS_SUMMARY, report, EVOLVE_STATUS, `society/systems/*`.
-
-## Still local / needs follow-up push
-
-- `colony/emergence/growth.py` (~28KB rewrite — bus read / system use / fitness wiring)
-- Full append-only logs: `data/ledger.jsonl`, `data/witness.jsonl`, `society/WITNESS.md`, `society/BULLETIN.md`
-- Full `data/society_state.json` (agents inboxes); GitHub still has older/smaller state
-
-**Box path:** `/workspace/agent-colony` has the complete runnable evolving colony.
+- `colony/registry.py`, `bus.py`, `systems.py`, `fitness.py`, `dashboard.py`, `cli.py`
+- `colony/emergence/spark.py`, `society.py`, growth split:
+  - `growth.py` (orchestrator)
+  - `growth_steps_inbox_build.py`
+  - `growth_steps_comm_gather.py`
+  - `growth_steps_evolve.py`
+- DASHBOARD.html, WITNESS_SUMMARY.md, this EVOLVE_STATUS, society/systems/*
 
 ## Honest note
 
-Real: skill EMA updates, inbox read→reply, system use_counts, fitness aggregates, role spawn on metric pressure, before/after proposal metrics.
-Not: open-ended ML / AGI. Proposals stay `candidate` until human authorize. Accepted=0.
+**Real mechanics:** EMA skill updates from outcomes; inbox read → reply next cycle; system `use_count` / write-back; fitness aggregates; role spawn on metric pressure; improvement proposals with before/after metrics.
+
+**Still not AGI / open-ended ML.** Soft skill boosts and rule-based spawn. Proposals stay `candidate` until human authorize. Accepted knowledge = 0 unless you authorize.
+
+Ethos: light the spark and witness. Do not micromanage.
