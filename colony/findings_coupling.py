@@ -400,7 +400,7 @@ def hearing_score_proposal(
         k in title_l or k in hyp_l
         for k in (
             "fft", "autodiff", "benchmark", "bench delta", "math prize",
-            "prize_boost", "compute-useful", "microbench",
+            "prize_boost", "compute-useful", "microbench", "lemma",
         )
     )
     if claims_bench:
@@ -410,11 +410,39 @@ def hearing_score_proposal(
             or "latest.json" in blob
             or "history.jsonl" in blob
             or "witness_bench" in blob
+            or "lemma_impl" in blob
+            or "lemma_microbench" in blob
         )
         if not cites_bench_path:
             return (
                 "reject",
                 "claims compute/prize/bench advance without citing society/benchmarks path — hearing rejects",
+            )
+
+    # Novel-math honesty: reject bare "we discovered X" without bench/proof artifact cite
+    discovery_claim = any(
+        k in title_l or k in hyp_l
+        for k in (
+            "we discovered", "discovered theorem", "solved millennium",
+            "proved p=np", "proved p≠np", "proved p vs np",
+            "novel theorem discovered", "breakthrough theorem",
+            "solved the riemann", "proved riemann",
+        )
+    )
+    if discovery_claim:
+        blob = " ".join(str(u) for u in urls).lower() + " " + hyp_l + " " + title_l
+        has_proof_path = (
+            "society/benchmarks" in blob
+            or "lemma_impl" in blob
+            or "lemma_microbench" in blob
+            or "proof artifact" in blob
+            or "machine-check" in blob
+            or "machine_check" in blob
+        )
+        if not has_proof_path:
+            return (
+                "reject",
+                "discovery claim without bench path / proof artifact cite — hearing rejects (not AGI theater)",
             )
 
     # ACCEPT_CANDIDATE strong (still candidate until human authorize)
