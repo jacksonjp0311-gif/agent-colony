@@ -333,6 +333,14 @@ def ensure_charters(*, cycle_id: str = "") -> dict[str, Any]:
             )
             by_name[spec["name"]] = row
             changed = True
+        else:
+            row = by_name[spec["name"]]
+            if int(row.get("cycles_remaining") or 0) <= 0 and row.get("active", True):
+                row["cycles_remaining"] = int(row.get("autonomy_cycles") or spec.get("autonomy_cycles") or DEFAULT_AUTONOMY_CYCLES)
+                row["status"] = "standing"
+                row["renewed_at_cycle"] = cycle_id
+                by_name[spec["name"]] = _strip_forbidden(row)
+                changed = True
     data["charters"] = list(by_name.values())
     data["count"] = len(data["charters"])
     if changed or not CHARTERS_STATE.exists():
@@ -403,12 +411,16 @@ def pursue_cycle(cycle_id: str, *, state_data: dict[str, Any] | None = None) -> 
         if not c.get("active"):
             continue
         remaining = int(c.get("cycles_remaining") or 0)
+        # Standing remits renew when exhausted — agenda autonomy only, never truth
         if remaining <= 0:
-            c["status"] = "remit_exhausted"
-            continue
+            c["cycles_remaining"] = int(c.get("autonomy_cycles") or DEFAULT_AUTONOMY_CYCLES)
+            c["status"] = "standing"
+            c["renewed_at_cycle"] = cycle_id
+            remaining = int(c["cycles_remaining"])
         c["cycles_pursued"] = int(c.get("cycles_pursued") or 0) + 1
         c["cycles_remaining"] = remaining - 1
         c["last_cycle"] = cycle_id
+        c["status"] = "standing"
         c = _strip_forbidden(c)
         pursued.append(c["name"])
     # write back stripped rows
