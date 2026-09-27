@@ -3,28 +3,34 @@
   "when": "2026-09-27T11:20:40Z",
   "when_et": "2026-09-27 07:20 AM ET",
   "current_mile": "spark3-port",
-  "status": "plateau_watch \u2014 cycle 91, fitness ~0.83, citation_reuse=1.0, H7 stuck REFINE ~0.54",
+  "status": "implemented — hold+selective, H7 diagnosis, cortex/cerebrum sidecar (2026-09-27)",
   "candidates": [
     {
       "id": "spark3-hold",
       "name": "Hold + selective authorize",
       "summary": "Light evolve only when new hard+oracle-PASS themes appear; never accept-all; keep Athanor/PulseMesh inform-only.",
       "risk": "low",
-      "recommended_now": true
+      "recommended_now": true,
+      "implemented": true,
+      "status": "done"
     },
     {
       "id": "h7-diagnosis",
       "name": "H7 residual diagnosis (tools only)",
-      "summary": "Instrument why H7 stays in refine band (agent residuals variance, \u03ba bound, cusp vs weighted). Diagnostics/report only \u2014 no behavior scripting, no durable-accept double-gate.",
+      "summary": "Instrument why H7 stays in refine band (agent residuals variance, κ bound, cusp vs weighted). Diagnostics/report only — no behavior scripting, no durable-accept double-gate.",
       "risk": "low",
-      "recommended_now": false
+      "recommended_now": false,
+      "implemented": true,
+      "status": "done"
     },
     {
       "id": "cortex-cerebrum-sidecar",
       "name": "Cortex via Cerebrum boundary (inform-only sidecar)",
       "summary": "Optional memory/drift sidecar behind existing Cerebrum boundary. Inform Oracle/actuation mix only. Never silent durable accept. Not AGI.",
       "risk": "medium",
-      "recommended_now": false
+      "recommended_now": false,
+      "implemented": true,
+      "status": "done"
     }
   ],
   "do_not": [
@@ -34,5 +40,13 @@
     "push giant ledger/witness/society_state",
     "claim AGI/consciousness/Millennium/novel theorems"
   ],
-  "ethos": "We light the spark and witness. We do not micromanage the city."
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "implemented": true,
+  "implemented_when": "2026-09-27T12:12:59Z",
+  "implemented_when_et": "2026-09-27 08:12 AM ET",
+  "implementation": {
+    "spark3-hold": "colony/hold_posture.py + HOLD_SELECTIVE_AUTHORIZE receipt; 6-cycle watch; no new theme ≥0.70 → leave as-is",
+    "h7-diagnosis": "colony/h7_diagnosis.py → H7_RESIDUAL_DIAGNOSIS.md/.json (diagnostics only)",
+    "cortex-cerebrum-sidecar": "cerebrum_boundary.py + cortex_sidecar.py + systems/cortex_cerebrum.json + tests"
+  }
 }

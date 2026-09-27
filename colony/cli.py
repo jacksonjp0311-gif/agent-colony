@@ -1,4 +1,7 @@
-"""CLI: python -m colony cycle | evolve | status | dashboard | authorize | bench-improve"""
+"""CLI: python -m colony cycle | evolve | status | dashboard | authorize | bench-improve
+
+Hold posture (colony.hold_posture): default HOLD; light evolve watch; selective authorize only.
+"""
 
 from __future__ import annotations
 
@@ -39,6 +42,7 @@ def main(argv: list[str] | None = None) -> int:
         default="Grok Bot (explicit trust grant)",
         help="Delegation note recorded in witness/receipt",
     )
+    sub.add_parser("hold", help="Print hold posture (HOLD default; selective authorize only)")
     p_bi = sub.add_parser(
         "bench-improve",
         help="Measure→patch→remeasure bench artifacts; keep if aggregate rises else revert",
@@ -180,6 +184,12 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 0
 
+
+    if args.cmd == "hold":
+        from colony.hold_posture import latest_hold
+
+        print(json.dumps(latest_hold(), indent=2))
+        return 0
 
     return 1
 

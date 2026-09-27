@@ -471,6 +471,58 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"ATHANOR coherence skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # Cortex via Cerebrum inform-only sidecar (memory/drift → Oracle/actuation mix only)
+        try:
+            from colony.cortex_sidecar import run_cortex_sidecar
+            from colony.residuals import ResidualField as _RF_cx
+
+            rf_cx = _RF_cx(self.state.data)
+            cx = run_cortex_sidecar(self.state.data, cycle_id=cycle_id, residual_field=rf_cx)
+            admitted = ((cx.get("cortex") or {}).get("admitted")) or {}
+            mix = cx.get("mix_advice") or {}
+            g.improvements.append(
+                f"cortex:drift={admitted.get('drift')}:reuse={admitted.get('memory_reuse')}:"
+                f"throttle={mix.get('suggest_throttle_factor')}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="cortex_cerebrum",
+                actor="spark",
+                summary=(
+                    f"CORTEX/CEREBRUM inform-only: drift={admitted.get('drift')} "
+                    f"memory_reuse={admitted.get('memory_reuse')} "
+                    f"stability={admitted.get('stability_hint')}. "
+                    f"No ledger authority. P>=0.70 human authorize ceiling."
+                ),
+                detail={
+                    "drift": admitted.get("drift"),
+                    "memory_reuse": admitted.get("memory_reuse"),
+                    "mix_advice": mix,
+                    "inform_only": True,
+                    "durable_accept": False,
+                    "can_accept_ledger": False,
+                },
+            )
+            if "cortex_cerebrum" not in self.workshop.known():
+                self.workshop.ensure("cortex_cerebrum", built_by="spark", cycle_id=cycle_id)
+                g.systems_built.append("cortex_cerebrum")
+            self.workshop.use("cortex_cerebrum", cycle_id)
+            if "cortex_cerebrum" not in g.systems_used:
+                g.systems_used.append("cortex_cerebrum")
+            if "hold_posture" not in self.workshop.known():
+                self.workshop.ensure("hold_posture", built_by="spark", cycle_id=cycle_id)
+                g.systems_built.append("hold_posture")
+            self.workshop.use("hold_posture", cycle_id)
+            if "hold_posture" not in g.systems_used:
+                g.systems_used.append("hold_posture")
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="cortex_cerebrum_error",
+                actor="spark",
+                summary=f"CORTEX/CEREBRUM sidecar skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         try:
             from colony.oracle import counts as oracle_counts
             from colony.time_revision import revise_from_signals

@@ -709,6 +709,38 @@ def run_actuation_cycle(
     except Exception:
         athanor_advice = {"inform_only": True, "error": "athanor_unavailable"}
 
+    # Cortex/Cerebrum inform-only mix advice (never durable accept / no ledger authority)
+    cortex_mix: dict[str, Any] = {"inform_only": True, "durable_accept": False}
+    try:
+        from colony.cortex_sidecar import latest_cortex, run_cortex_sidecar
+        from colony.cerebrum_boundary import map_to_oracle_actuation_mix
+
+        cx = latest_cortex()
+        if not cx.get("mix_advice"):
+            cx_run = run_cortex_sidecar(state_data, cycle_id=cycle_id, residual_field=residual_field)
+            cortex_mix = cx_run.get("mix_advice") or map_to_oracle_actuation_mix(
+                ((cx_run.get("cortex") or {}).get("admitted"))
+            )
+        else:
+            cortex_mix = cx.get("mix_advice") or map_to_oracle_actuation_mix(
+                (cx.get("admitted") if isinstance(cx.get("admitted"), dict) else None)
+            )
+        # Fold: take more conservative throttle of athanor vs cortex (still inform-only)
+        if athanor_advice.get("inform_only", True) and cortex_mix.get("inform_only", True):
+            ath_t = float(athanor_advice.get("suggest_throttle_factor") or 1.0)
+            cx_t = float(cortex_mix.get("suggest_throttle_factor") or 1.0)
+            athanor_advice = dict(athanor_advice)
+            athanor_advice["suggest_throttle_factor"] = min(ath_t, cx_t)
+            athanor_advice["cortex_fold"] = True
+            athanor_advice["cortex_drift"] = cortex_mix.get("drift")
+            rb = max(
+                float(athanor_advice.get("redebate_bias") or 0.0),
+                float(cortex_mix.get("redebate_bias") or 0.0),
+            )
+            athanor_advice["redebate_bias"] = rb
+    except Exception:
+        cortex_mix = {"inform_only": True, "error": "cortex_unavailable", "durable_accept": False}
+
     motiv = (external_patterns[0] if external_patterns else {"kind": "external_array_refresh"})
     topic = (motiv.get("kind") if external_patterns else "residual_or_telemetry_gap") or "actuation"
 
@@ -835,6 +867,9 @@ def run_actuation_cycle(
             "athanor_verdict": (athanor_verdict or {}).get("verdict") if isinstance(athanor_verdict, dict) else None,
             "athanor_h7": (athanor_verdict or {}).get("h7") if isinstance(athanor_verdict, dict) else None,
             "athanor_inform_only": True,
+            "cortex_inform_only": True,
+            "cortex_drift": (cortex_mix or {}).get("drift"),
+            "cortex_memory_reuse": (cortex_mix or {}).get("memory_reuse"),
 
         }
     )

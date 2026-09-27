@@ -1,0 +1,55 @@
+{
+  "title": "HOLD_SELECTIVE_AUTHORIZE",
+  "when": "2026-09-27T12:12:42Z",
+  "when_et": "2026-09-27 08:12 AM ET",
+  "mile": "spark3-hold",
+  "posture": "HOLD",
+  "policy": {
+    "light_evolve_watch": true,
+    "authorize_only_new_hard_oracle_pass": true,
+    "score_floor": 0.7,
+    "P_min": 0.7,
+    "never_accept_all": true,
+    "unknown_stays_unknown": true,
+    "athanor_inform_only": true,
+    "pulsemesh_inform_only": true,
+    "no_double_gate": true,
+    "no_silent_durable_accept": true
+  },
+  "evolve": {
+    "cycles_run": 6,
+    "cycle_count_after": 64,
+    "fitness_aggregate": 0.8356,
+    "citation_reuse": 1.0,
+    "witness_events": 3074,
+    "systems_used_include": [
+      "hold_posture",
+      "cortex_cerebrum",
+      "athanor_coherence",
+      "pulsemesh_feeds"
+    ]
+  },
+  "scan_eligible": [],
+  "authorize_action": {
+    "did_authorize": false,
+    "reason": "no_new_hard_oracle_pass_theme_ge_0.70",
+    "eligible_count": 0,
+    "themes": [],
+    "note": "Left as-is under HOLD. UNKNOWN stays UNKNOWN. Never accept-all. Vandermonde already accepted prior mile."
+  },
+  "athanor_inform_only": true,
+  "pulsemesh_inform_only": true,
+  "never_accept_all": true,
+  "unknown_stays_unknown": true,
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "New Bot standing grant (selective; hold posture)",
+  "ceiling_held": true,
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city."
+}

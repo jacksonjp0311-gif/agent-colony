@@ -1,0 +1,40 @@
+{
+  "title": "Next mile \u2014 live progress",
+  "updated_et": "2026-09-27 08:12:59 AM ET",
+  "overall_pct": 100.0,
+  "steps": [
+    {
+      "id": "hold",
+      "label": "Hold + selective authorize",
+      "weight": 30,
+      "pct": 100.0,
+      "status": "done",
+      "detail": "hold_posture.py"
+    },
+    {
+      "id": "h7",
+      "label": "H\u2087 residual diagnosis",
+      "weight": 25,
+      "pct": 100.0,
+      "status": "done",
+      "detail": "H7_RESIDUAL_DIAGNOSIS.md"
+    },
+    {
+      "id": "cortex",
+      "label": "Cortex / Cerebrum sidecar",
+      "weight": 30,
+      "pct": 100.0,
+      "status": "done",
+      "detail": "cerebrum_boundary.py, cortex_sidecar.py"
+    },
+    {
+      "id": "verify",
+      "label": "Verify + slim receipts",
+      "weight": 15,
+      "pct": 100.0,
+      "status": "done",
+      "detail": "NEXT_MILE_IMPLEMENTED"
+    }
+  ],
+  "note": "Live bar tracks implementation of hold \u00b7 H\u2087 \u00b7 Cortex/Cerebrum \u00b7 verify"
+}

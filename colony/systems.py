@@ -94,6 +94,20 @@ SYSTEM_CATALOG: list[dict[str, Any]] = [
         "description": "PulseMesh collectors into EXTERNAL ARRAY (debate input only; graceful degrade).",
         "initial": {"feeds": {}, "feed_health": {}, "updated_at": None, "version": 1},
     },
+    {
+        "name": "hold_posture",
+        "kind": "posture",
+        "filename": "hold_posture.json",
+        "description": "Hold + selective authorize posture (light evolve watch; never accept-all; Athanor/PulseMesh inform-only).",
+        "initial": {"posture": "HOLD", "policy": {}, "updated_at": None, "version": 1},
+    },
+    {
+        "name": "cortex_cerebrum",
+        "kind": "sidecar",
+        "filename": "cortex_cerebrum.json",
+        "description": "Cortex memory/drift sidecar behind Cerebrum boundary (inform-only; no ledger authority).",
+        "initial": {"latest": {}, "inform_only": True, "durable_accept": False, "updated_at": None, "version": 1},
+    },
 ]
 
 

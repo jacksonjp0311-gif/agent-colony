@@ -1,0 +1,60 @@
+{
+  "ts": "2026-09-27T12:12:19Z",
+  "version": 1,
+  "mile": "cortex-cerebrum-sidecar",
+  "raw": {
+    "drift": 0.077116,
+    "memory_reuse": 0.75,
+    "stability_hint": 0.922884,
+    "n_agents": 14,
+    "citation_reuse": 1.0
+  },
+  "admitted": {
+    "source": "cerebrum_boundary",
+    "sidecar": "cortex",
+    "kind": "memory_drift",
+    "drift": 0.077116,
+    "memory_reuse": 0.75,
+    "stability_hint": 0.922884,
+    "oracle_mix_delta": 0.0,
+    "actuation_mix_delta": 0.0,
+    "suggest_throttle_factor": 1.0,
+    "redebate_bias": 0.0,
+    "summary": "Cortex memory/drift: drift=0.0771 memory_reuse=0.7500 stability=0.9229 agents=14. Inform-only.",
+    "inform_only": true,
+    "ledger_authority": false,
+    "durable_accept": false,
+    "double_gate": false,
+    "can_accept_ledger": false,
+    "note": "Cerebrum admits Cortex inform-only. No ledger authority. P>=0.70 human authorize remains ceiling. Not AGI.",
+    "ts": "2026-09-27T12:12:19Z"
+  },
+  "mix_advice": {
+    "source": "cerebrum_boundary",
+    "inform_only": true,
+    "oracle_mix_delta": 0.0,
+    "actuation_mix_delta": 0.0,
+    "suggest_throttle_factor": 1.0,
+    "redebate_bias": 0.0,
+    "drift": 0.077116,
+    "memory_reuse": 0.75,
+    "stability_hint": 0.922884,
+    "durable_accept": false,
+    "double_gate": false,
+    "ledger_authority": false,
+    "note": "Inform Oracle/actuation mix only; human authorize ceiling untouched."
+  },
+  "inform_only": true,
+  "ledger_authority": false,
+  "durable_accept": false,
+  "double_gate": false,
+  "can_accept_ledger": false,
+  "ceiling": "P>=0.70 human authorize; Cerebrum refuses ledger accept",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "inform_only"
+  ],
+  "cycle_id": "20260927T121204Z_6aa88e"
+}

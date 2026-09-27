@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="refresh" content="8"/>
+<title>Next mile progress</title>
+<style>
+  :root { --bg:#0b1020; --bar:#1a2540; --fill:#5b8cff; --fill2:#7cf0c3; --active:#ffd166; --done:#5eead4; --muted:#8b9bb8; --ink:#e8eefc; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; font-family: ui-sans-serif, system-ui, sans-serif; background: radial-gradient(1200px 600px at 20% 0%, #182447 0%, var(--bg) 55%); color:var(--ink); }
+  .card { width:min(720px, 94vw); background:linear-gradient(180deg,#15203a,#101828); border:1px solid #243356; border-radius:20px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  h1 { margin:0 0 4px; font-size:22px; }
+  .meta { color:var(--muted); font-size:13px; margin-bottom:22px; }
+  .overall { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
+  .pct { font-size:34px; font-weight:700; color:var(--fill2); }
+  .track { height:18px; background:var(--bar); border-radius:999px; overflow:hidden; border:1px solid #2a3b63; margin-bottom:26px; }
+  .fill { height:100%; width:100.0%; background:linear-gradient(90deg,var(--fill),var(--fill2)); box-shadow:0 0 18px rgba(124,240,195,.35); transition:width .8s ease; }
+  .step { margin:14px 0; }
+  .row { display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px; }
+  .label { font-weight:600; }
+  .badge { font-size:11px; text-transform:uppercase; letter-spacing:.06em; padding:2px 8px; border-radius:999px; border:1px solid #33466f; color:var(--muted); }
+  .badge.active { color:#1a1400; background:var(--active); border-color:transparent; }
+  .badge.done { color:#042f2e; background:var(--done); border-color:transparent; }
+  .mini { height:8px; background:#18233d; border-radius:999px; overflow:hidden; }
+  .mini > i { display:block; height:100%; background:linear-gradient(90deg,#4f7cff,#9ae6ff); }
+  .detail { color:var(--muted); font-size:12px; margin-top:4px; }
+  .foot { margin-top:18px; color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Agent Colony — next mile</h1>
+    <div class="meta">Live progress · auto-refreshes · 2026-09-27 08:12:59 AM ET</div>
+    <div class="overall"><span>Overall</span><span class="pct">100.0%</span></div>
+    <div class="track"><div class="fill"></div></div>
+    <div class="step">
+      <div class="row"><span class="label">Hold + selective authorize</span><span class="badge done">done · 100.0%</span></div>
+      <div class="mini"><i style="width:100.0%"></i></div>
+      <div class="detail">hold_posture.py</div>
+    </div>
+    <div class="step">
+      <div class="row"><span class="label">H₇ residual diagnosis</span><span class="badge done">done · 100.0%</span></div>
+      <div class="mini"><i style="width:100.0%"></i></div>
+      <div class="detail">H7_RESIDUAL_DIAGNOSIS.md</div>
+    </div>
+    <div class="step">
+      <div class="row"><span class="label">Cortex / Cerebrum sidecar</span><span class="badge done">done · 100.0%</span></div>
+      <div class="mini"><i style="width:100.0%"></i></div>
+      <div class="detail">cerebrum_boundary.py, cortex_sidecar.py</div>
+    </div>
+    <div class="step">
+      <div class="row"><span class="label">Verify + slim receipts</span><span class="badge done">done · 100.0%</span></div>
+      <div class="mini"><i style="width:100.0%"></i></div>
+      <div class="detail">NEXT_MILE_IMPLEMENTED</div>
+    </div>
+    <div class="foot">Live bar tracks implementation of hold · H₇ · Cortex/Cerebrum · verify</div>
+  </div>
+</body>
+</html>

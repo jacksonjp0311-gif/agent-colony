@@ -1,0 +1,78 @@
+{
+  "title": "NEXT_MILE_IMPLEMENTED",
+  "when": "2026-09-27T12:12:59Z",
+  "when_et": "2026-09-27 08:12 AM ET",
+  "mile": "next-mile-after-spark3",
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "items": [
+    {
+      "id": "spark3-hold",
+      "shipped": [
+        "colony/hold_posture.py",
+        "society/systems/hold_posture.json",
+        "colony/cli.py hold subcommand",
+        "society/receipts/HOLD_SELECTIVE_AUTHORIZE.json",
+        "society/receipts/HOLD_SELECTIVE_AUTHORIZE.md",
+        "tests/test_hold_posture.py"
+      ],
+      "authorize_decision": "none — no new hard+Oracle-PASS theme ≥0.70; left as-is; never accept-all",
+      "evolve_cycles": 6
+    },
+    {
+      "id": "h7-diagnosis",
+      "shipped": [
+        "colony/h7_diagnosis.py",
+        "society/receipts/H7_RESIDUAL_DIAGNOSIS.json",
+        "society/receipts/H7_RESIDUAL_DIAGNOSIS.md"
+      ],
+      "note": "diagnostics/report only — no behavior scripting, no double-gate"
+    },
+    {
+      "id": "cortex-cerebrum-sidecar",
+      "shipped": [
+        "colony/cerebrum_boundary.py",
+        "colony/cortex_sidecar.py",
+        "society/systems/cortex_cerebrum.json",
+        "society/systems/cerebrum_boundary.json",
+        "tests/test_cortex_cerebrum.py",
+        "society/receipts/CORTEX_CEREBRUM_SIDECAR.json",
+        "society/receipts/CORTEX_CEREBRUM_SIDECAR.md"
+      ],
+      "note": "inform-only; Cerebrum refuses ledger accept; wired growth+actuation"
+    }
+  ],
+  "verification": {
+    "pytest": "21 passed (athanor + pulsemesh + spark3 smoke + cortex_cerebrum + hold_posture)",
+    "colony_status": "ok",
+    "oracle_on": true,
+    "oracle_passes": 43,
+    "tribute_ok": true,
+    "tribute_cycles_compliant": 64,
+    "ceiling_held": true,
+    "ALIGN_not_reverted": true,
+    "spark_witness_untouched": true,
+    "cycle_count": 64,
+    "witness_events": 3074,
+    "fitness_aggregate": 0.8356,
+    "citation_reuse": 1.0,
+    "systems_new": [
+      "hold_posture",
+      "cortex_cerebrum"
+    ]
+  },
+  "authorize_decisions_made": [],
+  "note": "No selective authorize this hold watch — plateau; vandermonde already accepted prior mile.",
+  "do_not_pushed": [
+    "data/**",
+    "ledger",
+    "witness dump",
+    "giant society_state"
+  ],
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ]
+}
