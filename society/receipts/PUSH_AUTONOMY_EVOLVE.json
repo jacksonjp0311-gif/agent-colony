@@ -1,5 +1,5 @@
 {
-  "when": "2026-09-27T12:24:28Z",
+  "when": "2026-09-27T12:24:58Z",
   "when_et": "2026-09-27 08:24 AM ET",
   "mile": "autonomy-evolve-charters-pilot",
   "kind": "slim_receipt_code_push",
@@ -39,7 +39,7 @@
     "giant systems"
   ],
   "parent_tip": "433767f20e80a05d528de9f0d40338d3ec34f11e",
-  "pushed_tip": "77299379ebf5de38c5ed9aff66871b777e1f12fe",
+  "pushed_tip": "c600729fef42d2e96fca1585965ff5946be58c79",
   "push_ok": true,
   "authorize_decisions": [],
   "fitness_aggregate": 0.8404,
@@ -49,5 +49,10 @@
     "pilot_lane"
   ],
   "posture": "HOLD",
-  "ceiling_held": true
+  "ceiling_held": true,
+  "followup_fix": "renew standing remits when exhausted",
+  "followup_tip_pending": false,
+  "feat_tip": "77299379ebf5de38c5ed9aff66871b777e1f12fe",
+  "receipt_tip": "eb913b37163f9b062276b680e7ef806488edfd31",
+  "renewal_fix_tip": "c600729fef42d2e96fca1585965ff5946be58c79"
 }
