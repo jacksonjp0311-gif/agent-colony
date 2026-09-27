@@ -1,0 +1,3 @@
+{"ts": "2026-09-27T12:16:39Z", "cycle_id": "20260927T121621Z_ec35bc", "kind": "memory_drift", "drift": 0.076975, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}
+{"ts": "2026-09-27T12:17:02Z", "cycle_id": "20260927T121644Z_ac5e4c", "kind": "memory_drift", "drift": 0.080541, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}
+{"ts": "2026-09-27T12:17:24Z", "cycle_id": "20260927T121706Z_58f03a", "kind": "memory_drift", "drift": 0.07709, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-09-27T05:30:37Z",
-  "passes": 6,
+  "updated_at": "2026-09-27T12:17:08Z",
+  "passes": 12,
   "kills": 0,
   "easy_pad_kills": 0,
   "domain_packs": {
@@ -34,7 +34,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-09-27T05:30:37Z",
+    "ts": "2026-09-27T12:17:08Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -142,7 +142,7 @@
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "source": "claim_pipeline",
-    "cycle_id": "20260927T053036Z_cc82d2",
+    "cycle_id": "20260927T121706Z_58f03a",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

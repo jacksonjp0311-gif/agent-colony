@@ -2,7 +2,7 @@
   "routes": {
     "tribute": "tribute_keeper",
     "build": "builder",
-    "communicate": "stem_checker",
+    "communicate": "improver",
     "gather": "archivist",
     "improve": "legislator",
     "emergence": "surveyor"
@@ -14,12 +14,12 @@
       "communicate": 0.9342,
       "gather": 0.5,
       "improve": 0.6569,
-      "emergence": 0.6556
+      "emergence": 0.6616
     },
     "tribute_keeper": {
-      "tribute": 0.9122,
+      "tribute": 0.9516,
       "build": 0.5,
-      "communicate": 0.9489,
+      "communicate": 0.95,
       "gather": 0.7,
       "improve": 0.5,
       "emergence": 0.5
@@ -28,14 +28,14 @@
       "tribute": 0.5,
       "build": 0.5,
       "communicate": 0.9342,
-      "gather": 0.6561,
+      "gather": 0.6543,
       "improve": 0.55,
       "emergence": 0.5
     },
     "builder": {
       "tribute": 0.5,
-      "build": 0.6596,
-      "communicate": 0.9541,
+      "build": 0.6729,
+      "communicate": 0.9579,
       "gather": 0.5,
       "improve": 0.55,
       "emergence": 0.5
@@ -43,7 +43,7 @@
     "herald": {
       "tribute": 0.5,
       "build": 0.5,
-      "communicate": 0.8939,
+      "communicate": 0.8942,
       "gather": 0.5,
       "improve": 0.5,
       "emergence": 0.5
@@ -51,7 +51,7 @@
     "pathfinder": {
       "tribute": 0.5,
       "build": 0.5,
-      "communicate": 0.9561,
+      "communicate": 0.9615,
       "gather": 0.5452,
       "improve": 0.5,
       "emergence": 0.5
@@ -59,15 +59,15 @@
     "improver": {
       "tribute": 0.5,
       "build": 0.5,
-      "communicate": 0.9601,
+      "communicate": 0.963,
       "gather": 0.5,
-      "improve": 0.7178,
+      "improve": 0.7228,
       "emergence": 0.6
     },
     "courier": {
       "tribute": 0.5,
       "build": 0.5,
-      "communicate": 0.894,
+      "communicate": 0.8942,
       "gather": 0.5,
       "improve": 0.5,
       "emergence": 0.5
@@ -75,7 +75,7 @@
     "scribe": {
       "tribute": 0.5,
       "build": 0.4987,
-      "communicate": 0.948,
+      "communicate": 0.9495,
       "gather": 0.6022,
       "improve": 0.4991,
       "emergence": 0.5099
@@ -83,15 +83,15 @@
     "surveyor": {
       "tribute": 0.5,
       "build": 0.5078,
-      "communicate": 0.9561,
-      "gather": 0.5687,
+      "communicate": 0.9615,
+      "gather": 0.5686,
       "improve": 0.4622,
       "emergence": 0.7547
     },
     "oracle_scribe": {
       "tribute": 0.5,
       "build": 0.5,
-      "communicate": 0.9515,
+      "communicate": 0.9549,
       "gather": 0.5,
       "improve": 0.5,
       "emergence": 0.5
@@ -99,7 +99,7 @@
     "stem_checker": {
       "tribute": 0.5,
       "build": 0.5,
-      "communicate": 0.9606,
+      "communicate": 0.9536,
       "gather": 0.5,
       "improve": 0.5,
       "emergence": 0.5
@@ -108,46 +108,46 @@
       "tribute": 0.5,
       "build": 0.5628,
       "communicate": 0.936,
-      "gather": 0.8869,
+      "gather": 0.8873,
       "improve": 0.4967,
       "emergence": 0.4844
     },
     "legislator": {
       "tribute": 0.5,
       "build": 0.499,
-      "communicate": 0.9589,
+      "communicate": 0.9627,
       "gather": 0.461,
-      "improve": 0.7352,
+      "improve": 0.7441,
       "emergence": 0.5352
     },
     "chronicler": {
       "tribute": 0.5,
       "build": 0.5067,
-      "communicate": 0.9537,
-      "gather": 0.6554,
+      "communicate": 0.9576,
+      "gather": 0.6539,
       "improve": 0.4792,
       "emergence": 0.614
     },
     "naturalist": {
       "tribute": 0.5,
       "build": 0.5003,
-      "communicate": 0.9511,
-      "gather": 0.6587,
+      "communicate": 0.9548,
+      "gather": 0.6557,
       "improve": 0.5202,
       "emergence": 0.637
     },
     "geometer": {
       "tribute": 0.5,
       "build": 0.506,
-      "communicate": 0.9432,
-      "gather": 0.7605,
+      "communicate": 0.9581,
+      "gather": 0.7602,
       "improve": 0.5014,
       "emergence": 0.7124
     },
     "messenger": {
       "tribute": 0.5,
       "build": 0.5223,
-      "communicate": 0.9461,
+      "communicate": 0.949,
       "gather": 0.6038,
       "improve": 0.5019,
       "emergence": 0.5085
@@ -162,6 +162,6 @@
     "spark.emergence": 0.5
   },
   "behavior_strength": 0.0,
-  "updated_at": "2026-09-27T05:30:58Z",
-  "updated_cycle": "20260927T053036Z_cc82d2"
+  "updated_at": "2026-09-27T12:17:29Z",
+  "updated_cycle": "20260927T121706Z_58f03a"
 }
