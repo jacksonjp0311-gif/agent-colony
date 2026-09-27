@@ -1,0 +1,3 @@
+{"ts": "2026-09-27T17:07:24Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_6863d4_7ac77cea", "kind": "rsi_bias", "cycle_id": "20260927T170703Z_6863d4", "inform_only": true, "durable_accept": false}
+{"ts": "2026-09-27T17:07:49Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_77bc0f_7789dc8b", "kind": "rsi_bias", "cycle_id": "20260927T170742Z_77bc0f", "inform_only": true, "durable_accept": false}
+{"ts": "2026-09-27T17:08:30Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_86a51f_ec64381d", "kind": "rsi_bias", "cycle_id": "20260927T170811Z_86a51f", "inform_only": true, "durable_accept": false}

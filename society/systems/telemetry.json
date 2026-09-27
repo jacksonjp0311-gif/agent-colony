@@ -1,49 +1,49 @@
 {
-  "ts": "2026-09-27T12:17:28Z",
+  "ts": "2026-09-27T17:08:48Z",
   "version": 1,
   "mile": "spark2_telemetry",
   "internal": {
     "fitness_latest": {
-      "ts": "2026-09-27T12:17:06Z",
-      "cycle_id": "20260927T121644Z_ac5e4c",
+      "ts": "2026-09-27T17:08:11Z",
+      "cycle_id": "20260927T170742Z_77bc0f",
       "tribute_quality": 1.0,
       "gather_coverage": 0.6522,
-      "build_reuse": 0.8154,
+      "build_reuse": 0.84,
       "comm_reply_rate": 0.8077,
-      "reply_quality": 0.9094,
+      "reply_quality": 0.9098,
       "commons_signal": 1.0,
-      "math_prize": 0.8329,
-      "compute_usefulness": 0.9222,
+      "math_prize": 0.8381,
+      "compute_usefulness": 0.9266,
       "citation_reuse": 0.0,
-      "prize_boost": 0.6976,
-      "aggregate": 0.8146,
+      "prize_boost": 0.7015,
+      "aggregate": 0.8197,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0
     },
-    "fitness_aggregate": 0.8146,
+    "fitness_aggregate": 0.8197,
     "reply_rate": 0.8077,
     "bus_metrics": {
       "reply_rate": 0.8077,
-      "reply_quality": 0.9095,
+      "reply_quality": 0.9099,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "stats": {
-        "posted": 1312,
-        "read": 5177,
-        "replied": 806,
-        "actions_planned": 402,
-        "actions_changed_from_message": 402,
-        "reply_quality_sum": 685.7999999999944,
-        "reply_quality_n": 754,
-        "peer_cite_opportunities": 776,
-        "peer_cites": 776
+        "posted": 1483,
+        "read": 6010,
+        "replied": 914,
+        "actions_planned": 459,
+        "actions_changed_from_message": 459,
+        "reply_quality_sum": 784.3499999999927,
+        "reply_quality_n": 862,
+        "peer_cite_opportunities": 887,
+        "peer_cites": 887
       }
     },
     "oracle": {
-      "passes": 12,
+      "passes": 18,
       "kills": 0,
       "easy_pad_kills": 0,
-      "total": 12
+      "total": 18
     },
     "authorize": {
       "accepted": 3,
@@ -182,95 +182,70 @@
       }
     },
     "cycle_deltas": {
-      "n": 35,
-      "delta_aggregate": 0.0011,
+      "n": 38,
+      "delta_aggregate": 0.0,
       "before": {
-        "cycle_id": "20260927T121621Z_ec35bc",
-        "aggregate": 0.8135
+        "cycle_id": "20260927T170703Z_6863d4",
+        "aggregate": 0.8197
       },
       "after": {
-        "cycle_id": "20260927T121644Z_ac5e4c",
-        "aggregate": 0.8146
+        "cycle_id": "20260927T170742Z_77bc0f",
+        "aggregate": 0.8197
       }
     },
-    "cycle_count": 48,
+    "cycle_count": 51,
     "population": {
       "soft_cap": 20,
       "spawns": 10,
       "child_spawns": 8,
       "last_child_cycle": "20260926T221715Z_05fedf"
     },
-    "ts": "2026-09-27T12:17:28Z"
+    "ts": "2026-09-27T17:08:48Z"
   },
   "external": {
     "resource_usage": {
       "loadavg": [
-        0.76953125,
-        0.39306640625,
-        0.1533203125
+        0.046875,
+        0.06005859375,
+        0.0166015625
       ],
-      "rss_kb": 59156,
-      "user_time_s": 2.755392,
-      "probe_latency_ms": 0.016,
-      "disk_free_mb": 87946.7,
-      "pid": 2115,
-      "ts": "2026-09-27T12:17:28Z"
+      "rss_kb": 60808,
+      "user_time_s": 2.64184,
+      "probe_latency_ms": 0.013,
+      "disk_free_mb": 87945.6,
+      "pid": 2102,
+      "ts": "2026-09-27T17:08:48Z"
     },
     "external_array": {
-      "ts": "2026-09-27T12:17:28Z",
+      "ts": "2026-09-27T17:08:48Z",
       "feed_ok": {
-        "arxiv": true,
+        "arxiv": false,
         "nasa_donki_solar": true,
         "noaa_space_weather": false,
         "global_weather": true
       },
       "pattern_kinds": [
-        "publications_x_space",
         "global_weather_spread",
         "pulsemesh_goes_live",
         "pulsemesh_ops_health"
       ],
       "patterns": [
         {
-          "kind": "publications_x_space",
-          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
-          "signals": {
-            "arxiv_n": 2,
-            "kp": null,
-            "titles": [
-              "LLM Agents Can Easily Tamper With Their Own Traces",
-              "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co"
-            ]
-          },
-          "domains": [
-            "math",
-            "cosmos",
-            "hearing",
-            "oracle"
-          ],
-          "not_discovery": true,
-          "not_novel_physics": true
-        },
-        {
           "kind": "global_weather_spread",
-          "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 14.3), ('London', 20.6), ('Tokyo', 21.4), ('Sydney', 14.0)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+          "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 18.8), ('London', 18.8), ('Sydney', 14.6)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
           "signals": {
             "cities": [
               [
                 "NYC",
-                14.3
+                18.8
               ],
               [
                 "London",
-                20.6
-              ],
-              [
-                "Tokyo",
-                21.4
+                18.8
               ],
               [
                 "Sydney",
-                14.0
+                14.6
               ]
             ],
             "kp": null
@@ -285,9 +260,9 @@
         },
         {
           "kind": "pulsemesh_goes_live",
-          "summary": "PulseMesh GOES X-ray live latest=-6.362462534519509. Space-weather debate input — not novel physics.",
+          "summary": "PulseMesh GOES X-ray live latest=-6.33400652181959. Space-weather debate input — not novel physics.",
           "signals": {
-            "goes_latest": -6.362462534519509
+            "goes_latest": -6.33400652181959
           },
           "domains": [
             "cosmos",
@@ -298,10 +273,10 @@
         },
         {
           "kind": "pulsemesh_ops_health",
-          "summary": "PulseMesh system_stat/tcp_probe: load1=0.76953125 probe_ms=9.455795999997463. Ops health for actuation — not consciousness.",
+          "summary": "PulseMesh system_stat/tcp_probe: load1=0.046875 probe_ms=13.426667749996568. Ops health for actuation — not consciousness.",
           "signals": {
-            "load1": 0.76953125,
-            "probe_ms": 9.455795999997463
+            "load1": 0.046875,
+            "probe_ms": 13.426667749996568
           },
           "domains": [
             "government",
@@ -319,40 +294,39 @@
       "high_residual": [
         [
           "spark",
-          0.5888665000000001
+          0.58552
+        ],
+        [
+          "improver",
+          0.36491999999999997
         ],
         [
           "pathfinder",
-          0.379847
-        ],
-        [
-          "tribute_keeper",
-          0.379847
+          0.35042
         ]
       ],
       "stats": {
-        "updates": 299,
-        "conflicts": 664,
-        "redebatess": 36
+        "updates": 341,
+        "conflicts": 808,
+        "redebatess": 42
       }
     },
     "time_revision": {
-      "ts": "2026-09-27T12:17:24Z",
+      "ts": "2026-09-27T17:08:30Z",
       "version": 1,
-      "latest_cycle_id": "20260927T121706Z_58f03a",
+      "latest_cycle_id": "20260927T170811Z_86a51f",
       "latest_revision_count": 0,
       "total_revisions": 4,
       "latest_revisions": [],
       "latest_inputs": {
         "pattern_kinds": [
+          "global_weather_spread",
           "pulsemesh_ops_health",
-          "publications_x_space",
-          "pulsemesh_goes_live",
-          "global_weather_spread"
+          "pulsemesh_goes_live"
         ],
         "n_residual_conflicts": 24,
         "oracle_easy_pad_kills": 0,
-        "fitness_delta": 0.0010999999999999899,
+        "fitness_delta": 0.0,
         "kp": null
       },
       "examples": [
@@ -430,48 +404,48 @@
       ]
     },
     "actuation": {
-      "total_actions": 74,
-      "successes": 74,
+      "total_actions": 83,
+      "successes": 83,
       "failures": 0,
       "gated_blocked": 0,
       "success_rate": 1.0,
       "by_kind": {
-        "external_api_probe": 22,
-        "spawn_subdebate": 22,
-        "controlled_experiment": 22,
+        "external_api_probe": 25,
+        "spawn_subdebate": 25,
+        "controlled_experiment": 25,
         "adjust_telemetry_weights": 8
       },
       "examples": [
         {
-          "ts": "2026-09-27T12:17:24Z",
+          "ts": "2026-09-27T17:08:30Z",
           "kind": "external_api_probe",
           "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
           "success": true,
-          "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
+          "result_snip": "{'feed_ok': {'arxiv': False, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
           "motivating_signal": {
-            "kind": "publications_x_space",
-            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative Wo"
+            "kind": "global_weather_spread",
+            "summary": "Open-Meteo snapshot across 3 cities: [('London', 18.8), ('Tokyo', 21.3), ('Sydney', 14.6)]. Cross-correlate with solar/space feeds for commons resource planning"
           }
         },
         {
-          "ts": "2026-09-27T12:17:28Z",
+          "ts": "2026-09-27T17:08:48Z",
           "kind": "spawn_subdebate",
-          "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+          "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
           "success": true,
-          "result_snip": "{'msg_id': 'msg_b1613fcd01', 'topic': 'publications_x_space'}",
+          "result_snip": "{'msg_id': 'msg_fbadef2ac3', 'topic': 'global_weather_spread'}",
           "motivating_signal": {
-            "kind": "publications_x_space",
+            "kind": "global_weather_spread",
             "from": "external_or_residual"
           }
         },
         {
-          "ts": "2026-09-27T12:17:28Z",
+          "ts": "2026-09-27T17:08:48Z",
           "kind": "controlled_experiment",
           "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
           "success": true,
-          "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.65, 'after': 0.68, 'delta': 0.03}",
+          "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.74, 'after': 0.77, 'delta': 0.03}",
           "motivating_signal": {
-            "kind": "publications_x_space",
+            "kind": "global_weather_spread",
             "easy_pad_kills": 0
           }
         }
@@ -479,9 +453,9 @@
     },
     "error_rates": {
       "external_array_errors": 0,
-      "feed_fail_count": 1
+      "feed_fail_count": 2
     },
-    "ts": "2026-09-27T12:17:28Z"
+    "ts": "2026-09-27T17:08:48Z"
   },
   "note": "Agent-queryable telemetry. Internal colony metrics + external env/array/residuals. Query via colony.telemetry.query during debate. Not AGI.",
   "non_claims": [

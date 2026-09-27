@@ -1,133 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-09-27T12:17:07Z",
-  "updated_cycle": "20260927T121706Z_58f03a",
-  "n_active": 27,
+  "updated_at": "2026-09-27T17:08:12Z",
+  "updated_cycle": "20260927T170811Z_86a51f",
+  "n_active": 31,
   "n_keeps": 7,
-  "n_reverts": 20,
+  "n_reverts": 24,
   "skill_bias": {
     "geometer.gather": 0.08,
-    "improver.improve": 0.0564,
+    "improver.improve": 0.0554,
     "spark.emergence": 0.04,
     "builder.build": 0.03
   },
   "recent": [
-    {
-      "id": "les_Z_34486c_easy_pad_square_again",
-      "ts": "2026-09-26T15:08:20Z",
-      "cycle_id": "20260926T150819Z_34486c",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_square_again",
-      "what": "Reverted `easy_pad_square_again` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_d6036f_easy_pad_commutativity",
-      "ts": "2026-09-26T15:08:21Z",
-      "cycle_id": "20260926T150820Z_d6036f",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_commutativity",
-      "what": "Reverted `easy_pad_commutativity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_0edfdf_easy_pad_abs_identity",
-      "ts": "2026-09-26T15:08:23Z",
-      "cycle_id": "20260926T150822Z_0edfdf",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_abs_identity",
-      "what": "Reverted `easy_pad_abs_identity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_my_extra_easy_pad_abs_identity",
-      "ts": "2026-09-26T15:08:29Z",
-      "cycle_id": "autonomy_extra",
-      "decision": "revert",
-      "check": "lemma_microbench",
-      "mutation": "easy_pad_abs_identity",
-      "what": "Reverted `easy_pad_abs_identity` (easy_pad): score 0.9071\u21920.9229 ok=True hard_pass 16\u219216 \u2014 hard-tier lift required for keep; easy pads fail.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": 0.9071,
-      "after_score": 0.9071,
-      "skill_bias": {
-        "geometer.gather": -0.04,
-        "improver.improve": -0.03,
-        "spark.emergence": -0.02
-      },
-      "tags": [
-        "lemma",
-        "easy_pad",
-        "revert"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
     {
       "id": "les_5:29:55Z_fft_add_slow_loops",
       "ts": "2026-09-27T05:29:55Z",
@@ -336,6 +220,118 @@
       "family": "outcome",
       "before_score": 0.8958,
       "after_score": 0.8755,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_7:07:03Z_fft_add_slow_loops",
+      "ts": "2026-09-27T17:07:03Z",
+      "cycle_id": "",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8687, delta=-0.0147); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9004",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8834,
+      "after_score": 0.8687,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_6863d4_fft_add_slow_loops",
+      "ts": "2026-09-27T17:07:05Z",
+      "cycle_id": "20260927T170703Z_6863d4",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8788, delta=-0.0051); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9025",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8839,
+      "after_score": 0.8788,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_77bc0f_fft_add_slow_loops",
+      "ts": "2026-09-27T17:07:43Z",
+      "cycle_id": "20260927T170742Z_77bc0f",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8792, delta=-0.0237); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9022",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.9029,
+      "after_score": 0.8792,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_86a51f_fft_add_slow_loops",
+      "ts": "2026-09-27T17:08:12Z",
+      "cycle_id": "20260927T170811Z_86a51f",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8794, delta=-0.0235); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.903",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.9029,
+      "after_score": 0.8794,
       "skill_bias": {
         "improver.improve": -0.05,
         "builder.build": -0.03
