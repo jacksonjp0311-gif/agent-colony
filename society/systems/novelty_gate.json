@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updated_at": "2026-09-27T17:08:12Z",
+  "updated_at": "2026-09-27T21:31:09Z",
   "hits": 1,
-  "kills": 23,
+  "kills": 26,
   "latest": {
-    "ts": "2026-09-27T17:08:12Z",
-    "cycle_id": "20260927T170811Z_86a51f",
+    "ts": "2026-09-27T21:31:09Z",
+    "cycle_id": "20260927T213107Z_55bc00",
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "novel_to_commons": false,

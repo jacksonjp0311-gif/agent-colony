@@ -1,101 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-09-27T17:08:12Z",
-  "updated_cycle": "20260927T170811Z_86a51f",
-  "n_active": 31,
+  "updated_at": "2026-09-27T21:30:40Z",
+  "updated_cycle": "20260927T213039Z_cd1c7c",
+  "n_active": 34,
   "n_keeps": 7,
-  "n_reverts": 24,
+  "n_reverts": 27,
   "skill_bias": {
     "geometer.gather": 0.08,
-    "improver.improve": 0.0554,
+    "improver.improve": 0.0548,
     "spark.emergence": 0.04,
     "builder.build": 0.03
   },
   "recent": [
-    {
-      "id": "les_5:29:55Z_fft_add_slow_loops",
-      "ts": "2026-09-27T05:29:55Z",
-      "cycle_id": "",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8656, delta=-0.003); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8786",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8686,
-      "after_score": 0.8656,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_626d8e_fft_add_slow_loops",
-      "ts": "2026-09-27T05:29:57Z",
-      "cycle_id": "20260927T052955Z_626d8e",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8657, delta=-0.0134); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8792",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8791,
-      "after_score": 0.8657,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_be5cbc_autodiff_busy_loop",
-      "ts": "2026-09-27T05:30:17Z",
-      "cycle_id": "20260927T053016Z_be5cbc",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "autodiff_busy_loop",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8792, delta=-0.0004); reverted (Add busy loop in autodiff grads \u2014 should revert); restored_agg=0.8796",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8796,
-      "after_score": 0.8792,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "autodiff_busy_loop"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/autodiff_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
     {
       "id": "les_Z_cc82d2_autodiff_busy_loop",
       "ts": "2026-09-27T05:30:37Z",
@@ -332,6 +248,90 @@
       "family": "outcome",
       "before_score": 0.9029,
       "after_score": 0.8794,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_1:29:54Z_fft_add_slow_loops",
+      "ts": "2026-09-27T21:29:54Z",
+      "cycle_id": "",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8652, delta=-0.0074); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8839",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8726,
+      "after_score": 0.8652,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_5b5a6e_fft_add_slow_loops",
+      "ts": "2026-09-27T21:29:57Z",
+      "cycle_id": "20260927T212954Z_5b5a6e",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8686, delta=-0.0122); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8834",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8808,
+      "after_score": 0.8686,
+      "skill_bias": {
+        "improver.improve": -0.05,
+        "builder.build": -0.03
+      },
+      "tags": [
+        "bench",
+        "revert",
+        "fft_add_slow_loops"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/fft_impl.py",
+        "society/benchmarks/run_benchmarks.py"
+      ],
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_cd1c7c_fft_add_slow_loops",
+      "ts": "2026-09-27T21:30:40Z",
+      "cycle_id": "20260927T213039Z_cd1c7c",
+      "decision": "revert",
+      "check": "bench_harness",
+      "mutation": "fft_add_slow_loops",
+      "what": "aggregate did not rise or Oracle killed keep (trial=0.8693, delta=-0.0148); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8834",
+      "source": "bench_improve",
+      "family": "outcome",
+      "before_score": 0.8841,
+      "after_score": 0.8693,
       "skill_bias": {
         "improver.improve": -0.05,
         "builder.build": -0.03
