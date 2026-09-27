@@ -1,0 +1,38 @@
+{
+  "title": "NEXT_MILE_SKETCH_after_spark3",
+  "when": "2026-09-27T11:20:40Z",
+  "when_et": "2026-09-27 07:20 AM ET",
+  "current_mile": "spark3-port",
+  "status": "plateau_watch \u2014 cycle 91, fitness ~0.83, citation_reuse=1.0, H7 stuck REFINE ~0.54",
+  "candidates": [
+    {
+      "id": "spark3-hold",
+      "name": "Hold + selective authorize",
+      "summary": "Light evolve only when new hard+oracle-PASS themes appear; never accept-all; keep Athanor/PulseMesh inform-only.",
+      "risk": "low",
+      "recommended_now": true
+    },
+    {
+      "id": "h7-diagnosis",
+      "name": "H7 residual diagnosis (tools only)",
+      "summary": "Instrument why H7 stays in refine band (agent residuals variance, \u03ba bound, cusp vs weighted). Diagnostics/report only \u2014 no behavior scripting, no durable-accept double-gate.",
+      "risk": "low",
+      "recommended_now": false
+    },
+    {
+      "id": "cortex-cerebrum-sidecar",
+      "name": "Cortex via Cerebrum boundary (inform-only sidecar)",
+      "summary": "Optional memory/drift sidecar behind existing Cerebrum boundary. Inform Oracle/actuation mix only. Never silent durable accept. Not AGI.",
+      "risk": "medium",
+      "recommended_now": false
+    }
+  ],
+  "do_not": [
+    "accept-all authorize",
+    "overwrite spark_witness assets",
+    "disable Oracle",
+    "push giant ledger/witness/society_state",
+    "claim AGI/consciousness/Millennium/novel theorems"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city."
+}
