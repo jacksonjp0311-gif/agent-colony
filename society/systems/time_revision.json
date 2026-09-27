@@ -1,19 +1,20 @@
 {
-  "ts": "2026-09-26T22:26:48Z",
+  "ts": "2026-09-27T05:30:54Z",
   "version": 1,
-  "latest_cycle_id": "20260926T222639Z_0c38b7",
+  "latest_cycle_id": "20260927T053036Z_cc82d2",
   "latest_revision_count": 0,
-  "total_revisions": 3,
+  "total_revisions": 4,
   "latest_revisions": [],
   "latest_inputs": {
     "pattern_kinds": [
-      "publications_x_space",
+      "pulsemesh_goes_live",
+      "global_weather_spread",
       "pulsemesh_ops_health",
-      "pulsemesh_goes_live"
+      "publications_x_space"
     ],
     "n_residual_conflicts": 24,
-    "oracle_easy_pad_kills": 33,
-    "fitness_delta": 0.0007000000000000339,
+    "oracle_easy_pad_kills": 0,
+    "fitness_delta": -0.02059999999999995,
     "kp": null
   },
   "examples": [
@@ -67,6 +68,20 @@
       },
       "prior_id": "pos_b7b8bd6d304a",
       "new_id": "pos_ce35f8b9d093"
+    },
+    {
+      "topic": "weather_commons",
+      "from_confidence": 0.6,
+      "to_confidence": 0.68,
+      "from_claim": "Global weather snapshots do not affect colony gather→claim.",
+      "to_claim": "Global weather snapshot is observable colony environment signal — include in gather→claim debate.",
+      "why": "Weather feed update revised 'no effect' commons belief.",
+      "cause": {
+        "signal": "external_array",
+        "kind": "global_weather_spread"
+      },
+      "prior_id": "pos_5ec4508c8f49",
+      "new_id": "pos_2007e4ee9eb0"
     }
   ],
   "note": "TIME REVISION: prior conclusions revised from new data — not append-only opinions.",

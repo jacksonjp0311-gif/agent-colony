@@ -1,22 +1,21 @@
 {
-  "when": "2026-09-26T22:27:37Z",
+  "when": "2026-09-27T05:30:59Z",
   "mile": "spark3-port",
-  "cycle_count": 43,
-  "evolve_cycles_this_mile": 8,
+  "cycle_count": 46,
   "fitness_latest": {
-    "ts": "2026-09-26T22:26:55Z",
-    "cycle_id": "20260926T222639Z_0c38b7",
+    "ts": "2026-09-27T05:30:58Z",
+    "cycle_id": "20260927T053036Z_cc82d2",
     "tribute_quality": 0.9,
     "gather_coverage": 0.6522,
-    "build_reuse": 0.7333,
+    "build_reuse": 0.7818,
     "comm_reply_rate": 0.8077,
-    "reply_quality": 0.9078,
+    "reply_quality": 0.9091,
     "commons_signal": 1.0,
-    "math_prize": 0.8287,
-    "compute_usefulness": 0.9288,
+    "math_prize": 0.8099,
+    "compute_usefulness": 0.9086,
     "citation_reuse": 0.0,
-    "prize_boost": 0.698,
-    "aggregate": 0.7807,
+    "prize_boost": 0.6825,
+    "aggregate": 0.7857,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
@@ -37,77 +36,36 @@
       "peer_cites": 23
     }
   },
-  "oracle": {
-    "passes": 109,
-    "kills": 49,
-    "easy_pad_kills": 33,
-    "total": 158
+  "benches": {
+    "ok_all": true,
+    "aggregate_score": 0.8782
   },
-  "easy_pad_dies": true,
-  "athanor": {
-    "distribution": {
-      "APPROVE": 2,
-      "REFINE": 8,
-      "REJECT": 0
-    },
-    "latest_verdict": "REFINE",
-    "latest_h7": 0.5384615384615384,
-    "inform_only": true,
-    "double_gate": false
+  "novelty_gate": {
+    "hits": 1,
+    "kills": 17
   },
-  "pulsemesh_feed_health": {
-    "goes_xray": {
-      "ok": true,
-      "note": "ok",
-      "count": 64
-    },
-    "openmeteo_series": {
-      "ok": false,
-      "note": "HTTPError: HTTP Error 429: Too Many Requests",
-      "count": 0
-    },
-    "usgs_quakes": {
-      "ok": true,
-      "note": "ok",
-      "count": 100
-    },
-    "system_stat": {
-      "ok": true,
-      "note": "ok",
-      "count": 4
-    },
-    "tcp_probe": {
-      "ok": true,
-      "note": "ok=4/4 host=1.1.1.1:443",
-      "count": 4
+  "debate_multihop": {
+    "action_changed": true,
+    "code_touched": true,
+    "bus_metrics": {
+      "reply_rate": 1.0,
+      "peer_cite_rate": 1.0,
+      "action_changed_from_message": 1.0,
+      "reply_quality": 0.9091
     }
   },
-  "external_array_patterns": [
-    "publications_x_space",
-    "pulsemesh_goes_live",
-    "pulsemesh_ops_health"
-  ],
-  "actuation": {
-    "by_side": {
-      "internal": 24,
-      "external": 32
-    },
-    "success_rate": 1.0,
-    "total_actions": 56,
-    "throttled": 0
+  "exploration_budget_fp": {
+    "before": 0.56,
+    "after": 0.59,
+    "delta": 0.03,
+    "cycle_id": "20260927T053036Z_cc82d2"
   },
-  "authorize": {
-    "accepted": 6,
-    "rejected": 8,
-    "never_accept_all": true,
-    "P_min": 0.7
+  "oracle": {
+    "passes": 6,
+    "kills": 0,
+    "easy_pad_kills": 0,
+    "total": 6
   },
-  "time_revision_total": 3,
-  "spark_assets": {
-    "docs/assets/spark_witness.svg": "untouched",
-    "docs/assets/spark_witness_city.jpg": "untouched",
-    "docs/assets/spark_witness_city.png": "DIRTY:?? docs/assets/spark_witness_city.png",
-    "docs/assets/spark_witness_city.html": "DIRTY:?? docs/assets/spark_witness_city.html"
-  },
-  "note": "Slim SPARK3-port receipt. Athanor H7 inform-only + PulseMesh feeds. Not AGI. Not novel theorems."
+  "easy_pad_dies": false,
+  "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."
 }

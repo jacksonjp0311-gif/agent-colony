@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "finding_id": "fnd_b3438dddcfe7",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.70: machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_056487906aa8",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.70: machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
+    }
+  ],
+  "policy": "standing_trust_P>=0.70_selective_never_accept_all",
+  "mile": "spark3-port"
+}

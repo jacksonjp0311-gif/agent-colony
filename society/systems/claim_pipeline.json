@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-09-26T22:26:40Z",
-  "updated_cycle": "20260926T222639Z_0c38b7",
+  "updated_at": "2026-09-27T05:30:37Z",
+  "updated_cycle": "20260927T053036Z_cc82d2",
   "n_claims": 1,
   "n_proposed": 1,
   "recent_claims": [
@@ -20,7 +20,7 @@
       "status": "proposed",
       "hard_ok": true,
       "note": "lemma score=0.8771 hard_pass=25/25 \u2014 machine-checked harness only; not theorem discovery | oracle=PASS kills=[]",
-      "ts": "2026-09-26T22:26:40Z",
+      "ts": "2026-09-27T05:30:37Z",
       "not_discovery": true
     }
   ],

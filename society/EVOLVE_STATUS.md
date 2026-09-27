@@ -1,15 +1,13 @@
-# Evolve Status — Spark3 Athanor+PulseMesh port
+# Evolve Status — Spark3 Athanor+PulseMesh port mile
 
 > We light the spark and witness. We do not micromanage the city.
 
 ![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
-- cycle_count: `43`
-- fitness aggregate: `0.7807`
-- reply_rate: `0.9189`
-- oracle passes/kills/easy_kills: `109` / `49` / `33`
-- athanor dist: `{'APPROVE': 2, 'REFINE': 8, 'REJECT': 0}` latest=`REFINE` h7=`0.5384615384615384`
-- actuation split: `{'internal': 24, 'external': 32}` success_rate=`1.0`
-- authorize accept/reject @0.70: `6` / `8` (never accept-all)
-- pulsemesh health: `{'goes_xray': True, 'openmeteo_series': False, 'usgs_quakes': True, 'system_stat': True, 'tcp_probe': True}`
-- CI mile=spark3-port; Athanor inform-only; PulseMesh debate-input only. Not AGI. Not Millennium.
+- cycle_count: `46`
+- benches ok_all: `True` score `0.8782`
+- novelty hits/kills: `1` / `17`
+- debate action_changed: `True`
+- oracle passes/kills/easy_kills: `6` / `0` / `0`
+- CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.70→slim push
+- Spark3: Athanor H7 inform-only + PulseMesh feeds; pressure reply_rate via load-bear multi-hop; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift; P≥0.70. Failure noisy; success quiet. Not AGI. Not Millennium.

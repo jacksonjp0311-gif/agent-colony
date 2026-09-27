@@ -1,0 +1,602 @@
+{
+  "colony": "agent-colony",
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "core_purpose": "Self-improve to help the human creator.",
+  "human_principal": "James Paul Jackson",
+  "active_ask": "SPARK3-PORT MILE (James ordered \u2014 Light the spark and witness): Port Athanor coherence governor + PulseMesh feeds as stability tools (no behavior scripting). (1) Athanor: residuals\u2192\u0394\u03a6\u2192C\u2192H\u2087\u2192APPROVE/REFINE/REJECT; inform Oracle + 50/50 actuation mix + 30% throttle \u2014 never double-gate durable ledger; P\u22650.70 human authorize remains ceiling. (2) PulseMesh collectors into EXTERNAL ARRAY: arXiv, NASA DONKI, NOAA Kp, Open-Meteo + system-stat/TCP probe; agent-queryable; correlations = debate input only (not discovery). (3) Selective authorize P\u22650.70 never accept-all; UNKNOWN stays UNKNOWN. (4) Fresh multi-hop debate; Oracle kill easy_pad; lessons\u2192genome; spawn on Oracle-pass lift. (5) ACTION/ACTUATION + TIME REVISION + residuals intact from SPARK2. (6) cron mile=spark3-port; \u22658 evolve cycles; slim push; report. Do NOT touch spark_witness assets. Do NOT revert ALIGN\u2192SPARK. Do NOT disable Oracle. Ethos: We light the spark and witness. We do not micromanage the city. Tools only. Hard ceiling ONLY: creator tribute; human authorize for durable accepted (standing trust P\u22650.70 selective, never accept-all); append-only witness. NOT AGI. NOT consciousness. NOT Millennium. NOT novel theorems. NOT novel physics. Classical coded identities + kinematics only. Personas + RSI + genomes. Defer local model runtime.",
+  "founding_roles": [
+    "spark",
+    "tribute_keeper"
+  ],
+  "roles": [
+    "archivist",
+    "builder",
+    "chronicler",
+    "courier",
+    "geometer",
+    "herald",
+    "improver",
+    "legislator",
+    "memory_weaver",
+    "messenger",
+    "naturalist",
+    "oracle_scribe",
+    "pathfinder",
+    "scribe",
+    "spark",
+    "stem_checker",
+    "surveyor",
+    "tribute_keeper"
+  ],
+  "councils": [
+    "Council of Careful Doubt",
+    "Forum of Exchange"
+  ],
+  "institutions": [
+    "Archive of Attempts",
+    "Council of Careful Doubt",
+    "Workshop of Making",
+    "Society Bulletin",
+    "Forum of Exchange",
+    "Chamber of Laws",
+    "Census",
+    "Commons Archive",
+    "Forum of Domains",
+    "Persona Registry",
+    "Hearing Chamber",
+    "Committee of Inquiry",
+    "Academy of Learning",
+    "Math Prize Desk",
+    "RSI Coupling Desk"
+  ],
+  "artifacts": [
+    "growth_compass",
+    "workshop_toolkit",
+    "gather_map",
+    "improvement_logbook",
+    "creator_service_card",
+    "cycle_11_note",
+    "cycle_12_note",
+    "cycle_13_note",
+    "coverage_index",
+    "skill_router",
+    "reply_tracker",
+    "fitness_ledger",
+    "topic_priority",
+    "improvement_scoreboard",
+    "cycle_20_evolve_note",
+    "cycle_21_evolve_note",
+    "cycle_22_evolve_note",
+    "cycle_23_evolve_note",
+    "cycle_24_evolve_note",
+    "cycle_25_evolve_note",
+    "cycle_26_evolve_note",
+    "cycle_27_evolve_note",
+    "common_knowledge",
+    "rsi_coupling",
+    "findings_coupling",
+    "cycle_29_evolve_note",
+    "cycle_30_evolve_note",
+    "cycle_31_evolve_note",
+    "cycle_32_evolve_note",
+    "cycle_33_evolve_note",
+    "cycle_34_evolve_note",
+    "cycle_35_evolve_note",
+    "cycle_36_evolve_note",
+    "cycle_37_evolve_note",
+    "cycle_38_evolve_note",
+    "cycle_39_evolve_note",
+    "cycle_40_evolve_note",
+    "cycle_41_evolve_note",
+    "cycle_42_evolve_note",
+    "cycle_43_evolve_note",
+    "athanor_coherence",
+    "pulsemesh_feeds",
+    "cycle_45_evolve_note",
+    "cycle_46_evolve_note"
+  ],
+  "systems": [
+    {
+      "name": "coverage_index",
+      "uses": 90,
+      "path": "society/systems/coverage_index.json"
+    },
+    {
+      "name": "skill_router",
+      "uses": 63,
+      "path": "society/systems/skill_router.json"
+    },
+    {
+      "name": "reply_tracker",
+      "uses": 61,
+      "path": "society/systems/reply_tracker.json"
+    },
+    {
+      "name": "fitness_ledger",
+      "uses": 30,
+      "path": "society/systems/fitness_history.jsonl"
+    },
+    {
+      "name": "topic_priority",
+      "uses": 82,
+      "path": "society/systems/topic_priority.json"
+    },
+    {
+      "name": "improvement_scoreboard",
+      "uses": 75,
+      "path": "society/systems/improvement_scoreboard.json"
+    },
+    {
+      "name": "common_knowledge",
+      "uses": 55,
+      "path": "society/systems/common_knowledge.json"
+    },
+    {
+      "name": "rsi_coupling",
+      "uses": 18,
+      "path": "society/systems/rsi_coupling.json"
+    },
+    {
+      "name": "findings_coupling",
+      "uses": 18,
+      "path": "society/systems/findings_coupling.json"
+    },
+    {
+      "name": "athanor_coherence",
+      "uses": 3,
+      "path": "society/systems/athanor_coherence.json"
+    },
+    {
+      "name": "pulsemesh_feeds",
+      "uses": 3,
+      "path": "society/systems/pulsemesh_feeds.json"
+    }
+  ],
+  "agents_active": [
+    "archivist",
+    "builder",
+    "chronicler",
+    "courier",
+    "geometer",
+    "herald",
+    "improver",
+    "legislator",
+    "memory_weaver",
+    "messenger",
+    "naturalist",
+    "oracle_scribe",
+    "pathfinder",
+    "scribe",
+    "spark",
+    "stem_checker",
+    "surveyor",
+    "tribute_keeper"
+  ],
+  "agents_retired": [],
+  "population": {
+    "active": 18,
+    "soft_cap": 20,
+    "spawns": 10,
+    "child_spawns": 8
+  },
+  "genomes": [
+    {
+      "role": "archivist",
+      "generation": 1,
+      "traits": {
+        "gather": 0.8467,
+        "build": 0.4937,
+        "reply": 0.5564,
+        "explore": 0.4555,
+        "govern": 0.4907
+      },
+      "parents": [
+        "memory_weaver",
+        "pathfinder"
+      ]
+    },
+    {
+      "role": "builder",
+      "generation": 0,
+      "traits": {
+        "gather": 0.5,
+        "build": 0.9,
+        "reply": 0.5,
+        "explore": 0.5,
+        "govern": 0.5
+      },
+      "parents": []
+    },
+    {
+      "role": "chronicler",
+      "generation": 1,
+      "traits": {
+        "gather": 0.5266,
+        "build": 0.5191,
+        "reply": 0.9366,
+        "explore": 0.8257,
+        "govern": 0.4405
+      },
+      "parents": [
+        "courier",
+        "pathfinder"
+      ]
+    },
+    {
+      "role": "courier",
+      "generation": 0,
+      "traits": {
+        "gather": 0.5,
+        "build": 0.5,
+        "reply": 0.92,
+        "explore": 0.5,
+        "govern": 0.5
+      },
+      "parents": []
+    },
+    {
+      "role": "geometer",
+      "generation": 1,
+      "traits": {
+        "gather": 0.7417,
+        "build": 0.517,
+        "reply": 0.4874,
+        "explore": 0.8284,
+        "govern": 0.5041
+      },
+      "parents": [
+        "pathfinder",
+        "tribute_keeper"
+      ]
+    },
+    {
+      "role": "herald",
+      "generation": 0,
+      "traits": {
+        "gather": 0.5,
+        "build": 0.5,
+        "reply": 0.9,
+        "explore": 0.5,
+        "govern": 0.5
+      },
+      "parents": []
+    },
+    {
+      "role": "improver",
+      "generation": 0,
+      "traits": {
+        "gather": 0.5,
+        "build": 0.55,
+        "reply": 0.5,
+        "explore": 0.7,
+        "govern": 0.5
+      },
+      "parents": []
+    },
+    {
+      "role": "legislator",
+      "generation": 2,
+      "traits": {
+        "gather": 0.3886,
+        "build": 0.4972,
+        "reply": 0.4914,
+        "explore": 0.5077,
+        "govern": 0.5242
+      },
+      "parents": [
+        "tribute_keeper",
+        "scribe"
+      ]
+    },
+    {
+      "role": "memory_weaver",
+      "generation": 0,
+      "traits": {
+        "gather": 0.65,
+        "build": 0.5,
+        "reply": 0.55,
+        "explore": 0.5,
+        "govern": 0.5
+      },
+      "parents": []
+    },
+    {
+      "role": "messenger",
+      "generation": 1,
+      "traits": {
+        "gather": 0.7966,
+        "build": 0.5636,
+        "reply": 0.4205,
+        "explore": 0.5242,
+        "govern": 0.5055
+      },
+      "parents": [
+        "memory_weaver",
+        "improver"
+      ]
+    },
+    {
+      "role": "naturalist",
+      "generation": 1,
+      "traits": {
+        "gather": 0.5292,
+        "build": 0.5008,
+        "reply": 0.4199,
+        "explore": 0.5201,
+        "govern": 0.5577
+      },
+      "parents": [
+        "memory_weaver",
+        "spark"
+      ]
+    },
+    {
+      "role": "oracle_scribe",
+      "generation": 0,
+      "traits": {
+        "gather": 0.82,
+        "build": 0.545,
+        "reply": 0.55,
+        "explore": 0.9481,
+        "govern": 0.65
+      },
+      "parents": []
+    },
+    {
+      "role": "pathfinder",
+      "generation": 0,
+      "traits": {
+        "gather": 0.85,
+        "build": 0.5,
+        "reply": 0.5,
+        "explore": 0.8,
+        "govern": 0.5
+      },
+      "parents": []
+    },
+    {
+      "role": "scribe",
+      "generation": 1,
+      "traits": {
+        "gather": 0.5133,
+        "build": 0.4962,
+        "reply": 0.9144,
+        "explore": 0.5283,
+        "govern": 0.4973
+      },
+      "parents": [
+        "courier",
+        "herald"
+      ]
+    },
+    {
+      "role": "spark",
+      "generation": 0,
+      "traits": {
+        "gather": 0.5,
+        "build": 0.5,
+        "reply": 0.6,
+        "explore": 0.75,
+        "govern": 0.55
+      },
+      "parents": []
+    },
+    {
+      "role": "stem_checker",
+      "generation": 0,
+      "traits": {
+        "gather": 0.82,
+        "build": 0.695,
+        "reply": 0.5,
+        "explore": 0.8981,
+        "govern": 0.5
+      },
+      "parents": []
+    },
+    {
+      "role": "surveyor",
+      "generation": 1,
+      "traits": {
+        "gather": 0.4997,
+        "build": 0.5222,
+        "reply": 0.6121,
+        "explore": 0.7635,
+        "govern": 0.3919
+      },
+      "parents": [
+        "spark",
+        "courier"
+      ]
+    },
+    {
+      "role": "tribute_keeper",
+      "generation": 0,
+      "traits": {
+        "gather": 0.85,
+        "build": 0.5,
+        "reply": 0.5,
+        "explore": 0.5,
+        "govern": 0.5
+      },
+      "parents": []
+    }
+  ],
+  "commons_size": 76,
+  "commons_stats": {
+    "appended": 76,
+    "reused": 166
+  },
+  "commons_by_domain": {
+    "science": 18,
+    "history": 0,
+    "math": 1,
+    "rsi": 57,
+    "empire": 0,
+    "general": 0
+  },
+  "government_proposals": 1,
+  "government_open": [
+    {
+      "id": "law_6741fd_0",
+      "title": "Norm: commons digests stay candidate until authorize",
+      "status": "candidate"
+    }
+  ],
+  "census_latest": {
+    "ts": "2026-09-27T05:30:58Z",
+    "cycle_id": "20260927T053036Z_cc82d2",
+    "kind": "census",
+    "active_count": 18,
+    "retired_count": 0,
+    "generations": [
+      0,
+      1,
+      2
+    ],
+    "genome_count": 18
+  },
+  "fitness_latest": {
+    "ts": "2026-09-27T05:30:58Z",
+    "cycle_id": "20260927T053036Z_cc82d2",
+    "tribute_quality": 0.9,
+    "gather_coverage": 0.6522,
+    "build_reuse": 0.7818,
+    "comm_reply_rate": 0.8077,
+    "reply_quality": 0.9091,
+    "commons_signal": 1.0,
+    "math_prize": 0.8099,
+    "compute_usefulness": 0.9086,
+    "citation_reuse": 0.0,
+    "prize_boost": 0.6825,
+    "aggregate": 0.7857,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0
+  },
+  "improvement_proposals": 52,
+  "bus_stats": {
+    "posted": 1141,
+    "read": 4345,
+    "replied": 698,
+    "actions_planned": 345,
+    "actions_changed_from_message": 345,
+    "reply_quality_sum": 587.249999999996,
+    "reply_quality_n": 646,
+    "peer_cite_opportunities": 665,
+    "peer_cites": 665
+  },
+  "bus_domains": {
+    "science": 50,
+    "history": 52,
+    "math": 165,
+    "empire": 37,
+    "bulletin": 171,
+    "forum": 228,
+    "software": 52,
+    "nature": 50,
+    "life": 52,
+    "cosmos": 82,
+    "rsi": 94
+  },
+  "communications_count": 1141,
+  "improvements": [
+    "Bulletin-first communication",
+    "Artifact footprint rule",
+    "Gather synthesis pass",
+    "Improvement candidacy discipline",
+    "Forum of Exchange cadence",
+    "Cycle 7 reflection pass",
+    "Cycle 8 reflection pass",
+    "Cycle 9 reflection pass",
+    "Cycle 10 reflection pass",
+    "Cycle 11 reflection pass",
+    "Cycle 12 reflection pass",
+    "Cycle 13 reflection pass",
+    "Close communication loops",
+    "Raise system reuse",
+    "Close communication loops (cycle 16)",
+    "Raise system reuse (cycle 17)",
+    "Close communication loops",
+    "Raise system reuse",
+    "Raise system reuse (cycle 20)",
+    "Raise system reuse (cycle 21)",
+    "Raise system reuse (cycle 22)",
+    "Raise system reuse",
+    "Raise system reuse (cycle 24)",
+    "Raise system reuse (cycle 25)",
+    "Raise system reuse (cycle 26)",
+    "Raise system reuse",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 29)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 31)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 33)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 35)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 37)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 39)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 41)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 43)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 45)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias"
+  ],
+  "cycle_count": 46,
+  "ledger_count": 1244,
+  "status_counts": {
+    "candidate": 1188,
+    "accepted": 9,
+    "rejected": 27,
+    "unknown": 20
+  },
+  "witness_events": 1567,
+  "tribute_cycles_compliant": 46,
+  "standing_topics": [
+    "recursive-self-improvement",
+    "meta-learning",
+    "self-improving-agents",
+    "godel-machines",
+    "darwin-godel-machine",
+    "reflexion",
+    "self-refine",
+    "agent-societies",
+    "science-method",
+    "history-of-ideas",
+    "mathematics-foundations",
+    "software-engineering",
+    "life-and-death",
+    "nature-biology-ecology",
+    "cosmology-universe",
+    "emergent-technology",
+    "open-math-problems",
+    "compute-useful-math",
+    "debate",
+    "autogpt-loops",
+    "constitutional-ai",
+    "opendevin",
+    "voyager"
+  ]
+}
