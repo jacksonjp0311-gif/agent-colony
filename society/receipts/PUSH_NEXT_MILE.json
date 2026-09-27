@@ -38,11 +38,13 @@
     "DASHBOARD",
     "WITNESS"
   ],
-  "parent_tip": "76790923432a",
+  "parent_tip": "76790923432a3e2760a9659b46d5b0220ae4cc7a",
   "total_bytes": 155147,
   "cycle_count": 64,
   "witness_events": 3074,
   "fitness_aggregate": 0.8356,
   "citation_reuse": 1.0,
-  "authorize_decisions": []
+  "authorize_decisions": [],
+  "pushed_tip": "2bbf8a6e51bc5674c558c81ae7be018db8f7b787",
+  "push_ok": true
 }

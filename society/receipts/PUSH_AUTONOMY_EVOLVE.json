@@ -1,0 +1,53 @@
+{
+  "when": "2026-09-27T12:24:28Z",
+  "when_et": "2026-09-27 08:24 AM ET",
+  "mile": "autonomy-evolve-charters-pilot",
+  "kind": "slim_receipt_code_push",
+  "message": "feat(autonomy): institution standing charters + pilot sandbox lane under HOLD",
+  "files": [
+    "colony/institution_charters.py",
+    "colony/pilot_lane.py",
+    "colony/systems.py",
+    "colony/cli.py",
+    "colony/emergence/growth.py",
+    "colony/emergence/growth_steps_evolve.py",
+    "tests/test_institution_charters.py",
+    "tests/test_pilot_lane.py",
+    "society/systems/institution_charters.json",
+    "society/systems/pilot_lane.json",
+    "society/sandbox_pilots/README.md",
+    "society/receipts/INSTITUTION_CHARTERS.json",
+    "society/receipts/INSTITUTION_CHARTERS.md",
+    "society/receipts/PILOT_LANE.json",
+    "society/receipts/PILOT_LANE.md",
+    "society/receipts/AUTONOMY_EVOLVE.json",
+    "society/receipts/AUTONOMY_MILE_IMPLEMENTED.json",
+    "society/receipts/NEXT_MILE_IMPLEMENTED.json",
+    "society/briefs/CREATOR_WILL_ASK_autonomy_evolve.txt",
+    "society/briefs/CREATOR_BRIEF_autonomy_evolve.md",
+    "scripts/refresh_next_mile_progress.py",
+    "society/NEXT_MILE_PROGRESS.json",
+    "society/NEXT_MILE_PROGRESS.html",
+    "society/receipts/PUSH_AUTONOMY_EVOLVE.json"
+  ],
+  "excluded": [
+    "data/**",
+    "ledger",
+    "witness bulk",
+    "DASHBOARD",
+    "WITNESS",
+    "giant systems"
+  ],
+  "parent_tip": "433767f20e80a05d528de9f0d40338d3ec34f11e",
+  "pushed_tip": "77299379ebf5de38c5ed9aff66871b777e1f12fe",
+  "push_ok": true,
+  "authorize_decisions": [],
+  "fitness_aggregate": 0.8404,
+  "evolve_cycles": 6,
+  "systems_new": [
+    "institution_charters",
+    "pilot_lane"
+  ],
+  "posture": "HOLD",
+  "ceiling_held": true
+}

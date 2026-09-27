@@ -65,6 +65,10 @@ def reverse(tape: Tape, y_idx: int) -> list[float]:
 
 
 def grads(x: float, a: float, b: float, c: float) -> dict[str, float]:
+    # BENCH_IMPROVE_SLOW
+    _busy = 0.0
+    for _i in range(2000):
+        _busy += 0.0000001
     _, tape, y_idx = forward(x, a, b, c)
     bar = reverse(tape, y_idx)
     return {"x": bar[0], "a": bar[1], "b": bar[2], "c": bar[3]}

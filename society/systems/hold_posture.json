@@ -1,6 +1,6 @@
 {
-  "ts": "2026-09-27T12:12:42Z",
-  "when_et": "2026-09-27 08:12 AM ET",
+  "ts": "2026-09-27T12:20:32Z",
+  "when_et": "2026-09-27 08:20 AM ET",
   "version": 1,
   "mile": "spark3-hold",
   "posture": "HOLD",
@@ -17,28 +17,39 @@
     "no_double_gate": true,
     "no_silent_durable_accept": true
   },
-  "cycle_id": "20260927T121204Z_6aa88e",
-  "scan_eligible": [],
+  "cycle_id": "test_hold",
+  "scan_eligible": [
+    {
+      "finding_id": "fnd_a",
+      "theme": "fibonacci_identities",
+      "score": 0.81
+    },
+    {
+      "finding_id": "fnd_b",
+      "theme": "catalan",
+      "score": 0.82
+    },
+    {
+      "finding_id": "fnd_c",
+      "theme": "binomial_identities",
+      "score": 0.83
+    },
+    {
+      "finding_id": "fnd_d",
+      "theme": "extra",
+      "score": 0.84
+    },
+    {
+      "finding_id": "fnd_e",
+      "theme": "extra2",
+      "score": 0.85
+    }
+  ],
   "authorize_action": {
     "did_authorize": false,
-    "reason": "no_new_hard_oracle_pass_theme_ge_0.70",
-    "eligible_count": 0,
-    "themes": [],
-    "note": "Left as-is under HOLD. UNKNOWN stays UNKNOWN. Never accept-all. Vandermonde already accepted prior mile."
+    "reason": "unit_test"
   },
-  "evolve": {
-    "cycles_run": 6,
-    "cycle_count_after": 64,
-    "fitness_aggregate": 0.8356,
-    "citation_reuse": 1.0,
-    "witness_events": 3074,
-    "systems_used_include": [
-      "hold_posture",
-      "cortex_cerebrum",
-      "athanor_coherence",
-      "pulsemesh_feeds"
-    ]
-  },
+  "evolve": {},
   "ceiling": "P>=0.70 human authorize selective; tribute; append-only witness; Athanor/PulseMesh inform-only",
   "non_claims": [
     "not_AGI",
