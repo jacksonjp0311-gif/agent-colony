@@ -1,0 +1,43 @@
+{
+  "title": "PILOT_LANE",
+  "when": "2026-09-27T12:23:08Z",
+  "when_et": "2026-09-27 08:23 AM ET",
+  "mile": "proposal-pilot-sandbox",
+  "modules": [
+    "colony/pilot_lane.py"
+  ],
+  "systems_entry": "society/systems/pilot_lane.json",
+  "sandbox_dir": "society/sandbox_pilots/",
+  "tests": "tests/test_pilot_lane.py",
+  "wired_into": [
+    "colony/systems.py",
+    "colony/emergence/growth.py",
+    "colony/emergence/growth_steps_evolve.py (skill_router inform)",
+    "colony/cli.py pilots"
+  ],
+  "behavior": {
+    "sandbox_write": true,
+    "reversible": true,
+    "promotion_requires_authorize": true,
+    "P_min": 0.7,
+    "never_accept_all": true,
+    "pilots_count": 3,
+    "promoted_count": 1,
+    "inform_only": true,
+    "durable_accept": false,
+    "ledger_authority": false
+  },
+  "verification": {
+    "unit_tests": "propose+sandbox; cannot durable-accept; promotion gated on authorize+P>=0.70",
+    "live_evolve": "6 cycles systems_used includes pilot_lane"
+  },
+  "ceiling": "P>=0.70 human authorize selective for promotion; sandbox until then",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "sandbox_only"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "reversible": true
+}

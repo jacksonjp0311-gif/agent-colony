@@ -43,6 +43,11 @@ def main(argv: list[str] | None = None) -> int:
         help="Delegation note recorded in witness/receipt",
     )
     sub.add_parser("hold", help="Print hold posture (HOLD default; selective authorize only)")
+    sub.add_parser("charters", help="Print institution standing charters (agenda autonomy; no truth authority)")
+    p_pilots = sub.add_parser("pilots", help="Pilot sandbox lane status / propose (no durable accept)")
+    p_pilots.add_argument("--propose", action="store_true", help="Propose a demo sandbox pilot")
+    p_pilots.add_argument("--name", default="demo_gather_filter", help="Pilot name")
+    p_pilots.add_argument("--kind", default="gather_filter", help="skill|router|gather_filter|improvement|rsi_bias")
     p_bi = sub.add_parser(
         "bench-improve",
         help="Measure→patch→remeasure bench artifacts; keep if aggregate rises else revert",
@@ -190,6 +195,32 @@ def main(argv: list[str] | None = None) -> int:
 
         print(json.dumps(latest_hold(), indent=2))
         return 0
+
+    if args.cmd == "charters":
+        from colony.institution_charters import ensure_charters, latest_charters
+
+        ensure_charters(cycle_id="cli")
+        print(json.dumps(latest_charters(), indent=2))
+        return 0
+
+    if args.cmd == "pilots":
+        from colony.pilot_lane import ensure_sandbox, latest_lane, propose_pilot
+
+        ensure_sandbox()
+        if args.propose:
+            row = propose_pilot(
+                name=args.name,
+                kind=args.kind,
+                body={"demo": True, "reversible": True},
+                proposed_by="cli",
+                cycle_id="cli",
+                rationale="CLI demo sandbox pilot — promotion still needs authorize.",
+            )
+            print(json.dumps(row, indent=2))
+            return 0
+        print(json.dumps(latest_lane(), indent=2))
+        return 0
+
 
     return 1
 

@@ -1,7 +1,7 @@
 {
   "title": "Next mile \u2014 live progress",
-  "updated_et": "2026-09-27 08:12:59 AM ET",
-  "overall_pct": 100.0,
+  "updated_et": "2026-09-27 08:23:24 AM ET",
+  "overall_pct": 130.0,
   "steps": [
     {
       "id": "hold",
@@ -34,6 +34,22 @@
       "pct": 100.0,
       "status": "done",
       "detail": "NEXT_MILE_IMPLEMENTED"
+    },
+    {
+      "id": "charters",
+      "label": "Institution standing charters",
+      "weight": 15,
+      "pct": 100.0,
+      "status": "done",
+      "detail": "institution_charters.py"
+    },
+    {
+      "id": "pilot_lane",
+      "label": "Proposal\u2192pilot sandbox lane",
+      "weight": 15,
+      "pct": 100.0,
+      "status": "done",
+      "detail": "pilot_lane.py"
     }
   ],
   "note": "Live bar tracks implementation of hold \u00b7 H\u2087 \u00b7 Cortex/Cerebrum \u00b7 verify"

@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "mile": "proposal-pilot-sandbox",
+  "updated_at": "2026-09-27T12:22:42Z",
+  "when_et": "2026-09-27 08:22 AM ET",
+  "pilots": [
+    {
+      "id": "pilot_test_gather_filter_5c80956e",
+      "name": "test_gather_filter",
+      "kind": "gather_filter",
+      "body": {
+        "filter": "hard_tier_only",
+        "reversible": true
+      },
+      "proposed_by": "improver",
+      "cycle_id": "test_pilot",
+      "rationale": "unit test sandbox pilot",
+      "status": "sandboxed",
+      "reversible": true,
+      "promotion_requires_authorize": true,
+      "P_min": 0.7,
+      "authorized_by": null,
+      "ts": "2026-09-27T12:20:32Z",
+      "inform_only": true,
+      "durable_accept": false,
+      "ledger_authority": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "path": "society/sandbox_pilots/pilot_test_gather_filter_5c80956e.json",
+      "commons_path": "data/commons/sandbox_pilots/pilot_test_gather_filter_5c80956e.json"
+    },
+    {
+      "id": "pilot_promo_gate_pilot_3aa04833",
+      "name": "promo_gate_pilot",
+      "kind": "skill",
+      "body": {
+        "skill": "gather",
+        "delta": 0.01
+      },
+      "proposed_by": "improver",
+      "cycle_id": "test_promo",
+      "rationale": "",
+      "status": "promoted_sandbox_standing",
+      "reversible": true,
+      "promotion_requires_authorize": true,
+      "P_min": 0.7,
+      "authorized_by": "James Paul Jackson",
+      "ts": "2026-09-27T12:20:32Z",
+      "inform_only": false,
+      "durable_accept": false,
+      "ledger_authority": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "path": "society/sandbox_pilots/pilot_promo_gate_pilot_3aa04833.json",
+      "commons_path": "data/commons/sandbox_pilots/pilot_promo_gate_pilot_3aa04833.json",
+      "authorized_at": "2026-09-27T12:20:32Z",
+      "authorization_rationale": "selective standing grant test",
+      "confidence": 0.85,
+      "machine_checked": true
+    },
+    {
+      "id": "pilot_autonomy_demo_078ddff6",
+      "name": "autonomy_demo",
+      "kind": "gather_filter",
+      "body": {
+        "demo": true,
+        "reversible": true
+      },
+      "proposed_by": "cli",
+      "cycle_id": "cli",
+      "rationale": "CLI demo sandbox pilot — promotion still needs authorize.",
+      "status": "sandboxed",
+      "reversible": true,
+      "promotion_requires_authorize": true,
+      "P_min": 0.7,
+      "authorized_by": null,
+      "ts": "2026-09-27T12:20:43Z",
+      "inform_only": true,
+      "durable_accept": false,
+      "ledger_authority": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "path": "society/sandbox_pilots/pilot_autonomy_demo_078ddff6.json",
+      "commons_path": "data/commons/sandbox_pilots/pilot_autonomy_demo_078ddff6.json"
+    }
+  ],
+  "promoted": [
+    {
+      "promoted": true,
+      "refused": false,
+      "pilot_id": "pilot_promo_gate_pilot_3aa04833",
+      "status": "promoted_sandbox_standing",
+      "authorized_by": "James Paul Jackson",
+      "P_min": 0.7,
+      "durable_accept": false,
+      "ledger_authority": false,
+      "note": "Pilot promoted to standing sandbox use. Does NOT durable-accept ledger findings. Ceiling held.",
+      "ts": "2026-09-27T12:20:32Z"
+    }
+  ],
+  "refused": [
+    {
+      "promoted": false,
+      "refused": true,
+      "reason": "promotion_requires_human_authorize",
+      "pilot_id": "pilot_promo_gate_pilot_3aa04833",
+      "P_min": 0.7,
+      "durable_accept": false,
+      "note": "Standing grant: selective authorize only under James trust.",
+      "ts": "2026-09-27T12:20:32Z"
+    },
+    {
+      "promoted": false,
+      "refused": true,
+      "reason": "standing_trust_not_met",
+      "pilot_id": "pilot_promo_gate_pilot_3aa04833",
+      "confidence": 0.5,
+      "machine_checked": true,
+      "P_min": 0.7,
+      "durable_accept": false,
+      "ts": "2026-09-27T12:20:32Z"
+    },
+    {
+      "promoted": false,
+      "refused": true,
+      "reason": "standing_trust_not_met",
+      "pilot_id": "pilot_promo_gate_pilot_3aa04833",
+      "confidence": 0.95,
+      "machine_checked": false,
+      "P_min": 0.7,
+      "durable_accept": false,
+      "ts": "2026-09-27T12:20:32Z"
+    }
+  ],
+  "inform_only": true,
+  "durable_accept": false,
+  "ledger_authority": false,
+  "can_authorize": false,
+  "promotion_requires_authorize": true,
+  "P_min": 0.7,
+  "ceiling": "P>=0.7 human authorize selective for promotion; sandbox writes only until then; never accept-all",
+  "sandbox_dir": "society/sandbox_pilots",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "sandbox_only"
+  ],
+  "note": "Pilots are reversible sandbox artifacts. Standing promotion needs James selective authorize. Charters/growth may inform only.",
+  "last_proposed": "pilot_autonomy_demo_078ddff6",
+  "last_cycle": "20260927T122226Z_80c748"
+}

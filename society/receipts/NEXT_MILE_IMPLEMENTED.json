@@ -1,7 +1,7 @@
 {
   "title": "NEXT_MILE_IMPLEMENTED",
   "when": "2026-09-27T12:12:59Z",
-  "when_et": "2026-09-27 08:12 AM ET",
+  "when_et": "2026-09-27 08:23 AM ET",
   "mile": "next-mile-after-spark3",
   "ethos": "We light the spark and witness. We do not micromanage the city.",
   "items": [
@@ -15,7 +15,7 @@
         "society/receipts/HOLD_SELECTIVE_AUTHORIZE.md",
         "tests/test_hold_posture.py"
       ],
-      "authorize_decision": "none — no new hard+Oracle-PASS theme ≥0.70; left as-is; never accept-all",
+      "authorize_decision": "none \u2014 no new hard+Oracle-PASS theme \u22650.70; left as-is; never accept-all",
       "evolve_cycles": 6
     },
     {
@@ -25,7 +25,7 @@
         "society/receipts/H7_RESIDUAL_DIAGNOSIS.json",
         "society/receipts/H7_RESIDUAL_DIAGNOSIS.md"
       ],
-      "note": "diagnostics/report only — no behavior scripting, no double-gate"
+      "note": "diagnostics/report only \u2014 no behavior scripting, no double-gate"
     },
     {
       "id": "cortex-cerebrum-sidecar",
@@ -39,6 +39,38 @@
         "society/receipts/CORTEX_CEREBRUM_SIDECAR.md"
       ],
       "note": "inform-only; Cerebrum refuses ledger accept; wired growth+actuation"
+    },
+    {
+      "id": "autonomy-evolve-charters-pilot",
+      "shipped": [
+        {
+          "id": "institution-standing-charters",
+          "shipped": [
+            "colony/institution_charters.py",
+            "society/systems/institution_charters.json",
+            "colony/cli.py charters",
+            "tests/test_institution_charters.py",
+            "society/receipts/INSTITUTION_CHARTERS.json",
+            "society/receipts/INSTITUTION_CHARTERS.md"
+          ],
+          "note": "agenda/topic/gather autonomy for N cycles; never truth/authorize"
+        },
+        {
+          "id": "proposal-pilot-sandbox",
+          "shipped": [
+            "colony/pilot_lane.py",
+            "society/systems/pilot_lane.json",
+            "society/sandbox_pilots/",
+            "colony/cli.py pilots",
+            "tests/test_pilot_lane.py",
+            "society/receipts/PILOT_LANE.json",
+            "society/receipts/PILOT_LANE.md"
+          ],
+          "note": "sandbox write only; promotion needs selective authorize P>=0.70"
+        }
+      ],
+      "note": "HOLD spark; charters+pilot lane; 6 evolve cycles",
+      "when": "2026-09-27T12:23:08Z"
     }
   ],
   "verification": {
@@ -61,7 +93,7 @@
     ]
   },
   "authorize_decisions_made": [],
-  "note": "No selective authorize this hold watch — plateau; vandermonde already accepted prior mile.",
+  "note": "No selective authorize this hold watch \u2014 plateau; vandermonde already accepted prior mile.",
   "do_not_pushed": [
     "data/**",
     "ledger",
@@ -74,5 +106,9 @@
     "not_Millennium",
     "not_novel_theorems",
     "not_novel_physics"
-  ]
+  ],
+  "git_tip": "2bbf8a6e51bc5674c558c81ae7be018db8f7b787",
+  "git_parent": "76790923432a3e2760a9659b46d5b0220ae4cc7a",
+  "pushed": true,
+  "updated_at": "2026-09-27T12:23:08Z"
 }

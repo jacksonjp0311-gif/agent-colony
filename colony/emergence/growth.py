@@ -523,6 +523,116 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"CORTEX/CEREBRUM sidecar skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # Institution standing charters — agenda autonomy only; never truth/authorize
+        try:
+            from colony.institution_charters import pursue_cycle as pursue_charters
+
+            ch = pursue_charters(cycle_id, state_data=self.state.data)
+            g.improvements.append(
+                f"charters:pursued={len(ch.get('pursued') or [])}:"
+                f"hints={len(ch.get('topic_hints') or [])}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="institution_charters",
+                actor="spark",
+                summary=(
+                    f"INSTITUTION CHARTERS: pursued={len(ch.get('pursued') or [])} "
+                    f"topic_hints={len(ch.get('topic_hints') or [])}. "
+                    f"Agenda autonomy only. No truth authority. P>=0.70 ceiling."
+                ),
+                detail={
+                    "pursued": ch.get("pursued"),
+                    "exploration_bias": ch.get("exploration_bias"),
+                    "inform_only": True,
+                    "durable_accept": False,
+                    "can_authorize": False,
+                },
+            )
+            if "institution_charters" not in self.workshop.known():
+                self.workshop.ensure("institution_charters", built_by="spark", cycle_id=cycle_id)
+                g.systems_built.append("institution_charters")
+            self.workshop.use("institution_charters", cycle_id)
+            if "institution_charters" not in g.systems_used:
+                g.systems_used.append("institution_charters")
+            # Soft-inform topic_priority with charter hints (no durable accept)
+            if "topic_priority" in self.workshop.known():
+                from colony.institution_charters import apply_topic_priority_hints, load_charters
+
+                used = self.workshop.use("topic_priority", cycle_id)
+                content = dict((used or {}).get("content") or {})
+                ranked = apply_topic_priority_hints(content.get("ranked") or [], data=load_charters())
+                content["ranked"] = ranked
+                content["charter_inform"] = {
+                    "hints": len(ch.get("topic_hints") or []),
+                    "inform_only": True,
+                    "durable_accept": False,
+                }
+                self.workshop.write_json("topic_priority", content, cycle_id=cycle_id)
+                if "topic_priority" not in g.systems_used:
+                    g.systems_used.append("topic_priority")
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="institution_charters_error",
+                actor="spark",
+                summary=f"INSTITUTION CHARTERS skipped: {exc}",
+                detail={"error": str(exc)},
+            )
+        # Proposal→pilot sandbox lane — reversible pilots; promotion needs authorize
+        try:
+            from colony.pilot_lane import inform_skill_router, run_pilot_lane
+
+            rsi_snap = (self.state.data.get("rsi_coupling") or {})
+            pl = run_pilot_lane(
+                self.state.data,
+                cycle_id=cycle_id,
+                rsi_signal=rsi_snap.get("signal") or rsi_snap,
+                skill_routes=None,
+            )
+            proposed = pl.get("proposed") or {}
+            lane = pl.get("lane") or {}
+            g.improvements.append(
+                f"pilot_lane:count={lane.get('pilots_count')}:last={lane.get('last_proposed')}"
+            )
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="pilot_lane",
+                actor="improver" if "improver" in self.registry.active() else "spark",
+                summary=(
+                    f"PILOT LANE sandbox: pilots={lane.get('pilots_count')} "
+                    f"proposed={proposed.get('id') or '—'}. "
+                    f"Promotion needs P>=0.70 authorize. No durable accept."
+                ),
+                detail={
+                    "lane": lane,
+                    "proposed_id": proposed.get("id"),
+                    "inform_only": True,
+                    "durable_accept": False,
+                    "promotion_requires_authorize": True,
+                },
+            )
+            if "pilot_lane" not in self.workshop.known():
+                self.workshop.ensure("pilot_lane", built_by="improver", cycle_id=cycle_id)
+                g.systems_built.append("pilot_lane")
+            self.workshop.use("pilot_lane", cycle_id)
+            if "pilot_lane" not in g.systems_used:
+                g.systems_used.append("pilot_lane")
+            # Inform skill_router with sandbox pilot metadata (write-only inform)
+            if "skill_router" in self.workshop.known():
+                used = self.workshop.use("skill_router", cycle_id)
+                content = inform_skill_router((used or {}).get("content") or {})
+                self.workshop.write_json("skill_router", content, cycle_id=cycle_id)
+                if "skill_router" not in g.systems_used:
+                    g.systems_used.append("skill_router")
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="pilot_lane_error",
+                actor="spark",
+                summary=f"PILOT LANE skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         try:
             from colony.oracle import counts as oracle_counts
             from colony.time_revision import revise_from_signals

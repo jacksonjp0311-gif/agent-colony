@@ -1,0 +1,844 @@
+{
+  "version": 1,
+  "mile": "institution-standing-charters",
+  "updated_at": "2026-09-27T12:22:42Z",
+  "when_et": "2026-09-27 08:22 AM ET",
+  "charters": [
+    {
+      "name": "Math Prize Desk",
+      "kind": "prize",
+      "remit": "Pursue math_prize / compute_usefulness scoring themes for N cycles: rank candidate identities, seed gather topics, bias exploration toward hard-checkable compute-useful math. Never mark truth accepted.",
+      "agenda_topics": [
+        "compute-useful-math",
+        "open-math-problems",
+        "mathematics-foundations"
+      ],
+      "exploration_bias": {
+        "hard_enable": 0.08,
+        "easy_pad": -0.05
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "RSI Coupling Desk",
+      "kind": "workshop",
+      "remit": "Feed strong RSI ledger candidates into improver/skill_router/genome mutation biases for N cycles. Measured inform only; proposals stay candidate until human authorize.",
+      "agenda_topics": [
+        "emergent-technology",
+        "software-engineering",
+        "rsi-research"
+      ],
+      "exploration_bias": {
+        "explore": 0.06,
+        "govern": 0.03
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Council of Careful Doubt",
+      "kind": "council",
+      "remit": "Keep UNKNOWN as UNKNOWN across N cycles: flag thin evidence, urge re-debate, refuse accept-all pressure. Agenda autonomy for doubt rituals — never truth authority.",
+      "agenda_topics": [
+        "epistemic-caution",
+        "oracle-review"
+      ],
+      "exploration_bias": {
+        "govern": 0.05,
+        "easy_pad": -0.08
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Workshop of Making",
+      "kind": "workshop",
+      "remit": "Ship reversible build artifacts (notes, tools, blueprints, sandbox pilots) for N cycles without re-asking James. Build agenda only — durable systems still need authorize for standing promotion.",
+      "agenda_topics": [
+        "software-engineering",
+        "tool-building"
+      ],
+      "exploration_bias": {
+        "build": 0.07
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Archive of Attempts",
+      "kind": "archive",
+      "remit": "Curate candidate findings as attempts for N cycles: index, tag, surface residuals. Never elevate attempts to accepted truth.",
+      "agenda_topics": [
+        "archive-hygiene",
+        "attempt-index"
+      ],
+      "exploration_bias": {
+        "gather": 0.04
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Academy of Learning",
+      "kind": "academy",
+      "remit": "Maintain curricula digests and tutoring notes across math/compute/emergent-tech for N cycles. Learning agenda autonomy — not accepted knowledge claims.",
+      "agenda_topics": [
+        "mathematics-foundations",
+        "compute-useful-math",
+        "software-engineering"
+      ],
+      "exploration_bias": {
+        "gather": 0.05,
+        "explore": 0.03
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Society Bulletin",
+      "kind": "bulletin",
+      "remit": "Post cycle announcements and route inter-role messages for N cycles. Communication agenda only.",
+      "agenda_topics": [
+        "bulletin-hygiene"
+      ],
+      "exploration_bias": {
+        "reply": 0.04
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Forum of Exchange",
+      "kind": "forum",
+      "remit": "Host trade of build/gather/improve signals for N cycles. Soft coordination — no ledger authority.",
+      "agenda_topics": [
+        "forum-exchange"
+      ],
+      "exploration_bias": {
+        "reply": 0.03,
+        "explore": 0.02
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Chamber of Laws",
+      "kind": "legislature",
+      "remit": "Draft law/norm proposals for N cycles. Proposals remain candidate; never auto-accept norms as durable truth.",
+      "agenda_topics": [
+        "norm-drafting"
+      ],
+      "exploration_bias": {
+        "govern": 0.06
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Census",
+      "kind": "census",
+      "remit": "Track population, genomes, generations, soft pop-cap for N cycles. Machine-legible census only.",
+      "agenda_topics": [
+        "census-hygiene"
+      ],
+      "exploration_bias": {
+        "govern": 0.02
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Commons Archive",
+      "kind": "commons",
+      "remit": "Curate shared candidate knowledge digests for N cycles. Commons writes stay candidate; no silent durable accept.",
+      "agenda_topics": [
+        "commons-digest",
+        "science-history"
+      ],
+      "exploration_bias": {
+        "gather": 0.05
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Forum of Domains",
+      "kind": "forum",
+      "remit": "Cross-domain council agenda for science/history/math/software/nature/life-death/cosmos for N cycles. Raise communication quality; never claim accepted cross-domain truth.",
+      "agenda_topics": [
+        "science-foundations",
+        "history-of-ideas",
+        "mathematics-foundations"
+      ],
+      "exploration_bias": {
+        "explore": 0.04,
+        "gather": 0.03
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Persona Registry",
+      "kind": "registry",
+      "remit": "Maintain persona sheets under society/personas/ for N cycles. Role-posture artifacts — not claims of sentience or AGI.",
+      "agenda_topics": [
+        "persona-hygiene"
+      ],
+      "exploration_bias": {
+        "govern": 0.02
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Hearing Chamber",
+      "kind": "hearing",
+      "remit": "Schedule structured hearings of gathered findings for N cycles. Outcomes stay candidate until human authorize.",
+      "agenda_topics": [
+        "hearing-schedule",
+        "cross-examination"
+      ],
+      "exploration_bias": {
+        "govern": 0.04,
+        "gather": 0.02
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    },
+    {
+      "name": "Committee of Inquiry",
+      "kind": "committee",
+      "remit": "Debate thin topics and recommend research priorities for N cycles. Soft scaffold — not accepted truth.",
+      "agenda_topics": [
+        "thin-topics",
+        "research-priority"
+      ],
+      "exploration_bias": {
+        "explore": 0.05,
+        "gather": 0.04
+      },
+      "autonomy_cycles": 8,
+      "cycles_pursued": 7,
+      "cycles_remaining": 1,
+      "active": true,
+      "status": "standing",
+      "needs_human_authorize_for_accepted": true,
+      "P_min": 0.7,
+      "ceiling": "P>=0.7 human authorize selective; charter pursues agenda only; never durable accept",
+      "inform_only": true,
+      "ledger_authority": false,
+      "durable_accept": false,
+      "can_authorize": false,
+      "can_accept_ledger": false,
+      "truth_authority": false,
+      "autonomy_of": [
+        "agenda",
+        "topic",
+        "gather"
+      ],
+      "not_autonomy_of": [
+        "truth",
+        "durable_accept",
+        "authorize"
+      ],
+      "last_cycle": "20260927T122226Z_80c748"
+    }
+  ],
+  "inform_only": true,
+  "durable_accept": false,
+  "ledger_authority": false,
+  "can_authorize": false,
+  "ceiling": "P>=0.7 human authorize selective; never accept-all",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "agenda_only"
+  ],
+  "note": "Standing remits: agenda/topic/gather autonomy for N cycles. Truth still waits for James selective authorize.",
+  "count": 15,
+  "last_cycle": "20260927T122226Z_80c748",
+  "last_pursued": [
+    "Math Prize Desk",
+    "RSI Coupling Desk",
+    "Council of Careful Doubt",
+    "Workshop of Making",
+    "Archive of Attempts",
+    "Academy of Learning",
+    "Society Bulletin",
+    "Forum of Exchange",
+    "Chamber of Laws",
+    "Census",
+    "Commons Archive",
+    "Forum of Domains",
+    "Persona Registry",
+    "Hearing Chamber",
+    "Committee of Inquiry"
+  ],
+  "topic_hints": [
+    {
+      "topic": "compute-useful-math",
+      "priority": 0.55,
+      "reason": "charter:Math Prize Desk",
+      "institution": "Math Prize Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "open-math-problems",
+      "priority": 0.55,
+      "reason": "charter:Math Prize Desk",
+      "institution": "Math Prize Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "mathematics-foundations",
+      "priority": 0.55,
+      "reason": "charter:Math Prize Desk",
+      "institution": "Math Prize Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "emergent-technology",
+      "priority": 0.55,
+      "reason": "charter:RSI Coupling Desk",
+      "institution": "RSI Coupling Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "software-engineering",
+      "priority": 0.55,
+      "reason": "charter:RSI Coupling Desk",
+      "institution": "RSI Coupling Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "rsi-research",
+      "priority": 0.55,
+      "reason": "charter:RSI Coupling Desk",
+      "institution": "RSI Coupling Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "epistemic-caution",
+      "priority": 0.55,
+      "reason": "charter:Council of Careful Doubt",
+      "institution": "Council of Careful Doubt",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "oracle-review",
+      "priority": 0.55,
+      "reason": "charter:Council of Careful Doubt",
+      "institution": "Council of Careful Doubt",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "software-engineering",
+      "priority": 0.55,
+      "reason": "charter:Workshop of Making",
+      "institution": "Workshop of Making",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "tool-building",
+      "priority": 0.55,
+      "reason": "charter:Workshop of Making",
+      "institution": "Workshop of Making",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "archive-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Archive of Attempts",
+      "institution": "Archive of Attempts",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "attempt-index",
+      "priority": 0.55,
+      "reason": "charter:Archive of Attempts",
+      "institution": "Archive of Attempts",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "mathematics-foundations",
+      "priority": 0.55,
+      "reason": "charter:Academy of Learning",
+      "institution": "Academy of Learning",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "compute-useful-math",
+      "priority": 0.55,
+      "reason": "charter:Academy of Learning",
+      "institution": "Academy of Learning",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "software-engineering",
+      "priority": 0.55,
+      "reason": "charter:Academy of Learning",
+      "institution": "Academy of Learning",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "bulletin-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Society Bulletin",
+      "institution": "Society Bulletin",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "forum-exchange",
+      "priority": 0.55,
+      "reason": "charter:Forum of Exchange",
+      "institution": "Forum of Exchange",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "norm-drafting",
+      "priority": 0.55,
+      "reason": "charter:Chamber of Laws",
+      "institution": "Chamber of Laws",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "census-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Census",
+      "institution": "Census",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "commons-digest",
+      "priority": 0.55,
+      "reason": "charter:Commons Archive",
+      "institution": "Commons Archive",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "science-history",
+      "priority": 0.55,
+      "reason": "charter:Commons Archive",
+      "institution": "Commons Archive",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "science-foundations",
+      "priority": 0.55,
+      "reason": "charter:Forum of Domains",
+      "institution": "Forum of Domains",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "history-of-ideas",
+      "priority": 0.55,
+      "reason": "charter:Forum of Domains",
+      "institution": "Forum of Domains",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "mathematics-foundations",
+      "priority": 0.55,
+      "reason": "charter:Forum of Domains",
+      "institution": "Forum of Domains",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "persona-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Persona Registry",
+      "institution": "Persona Registry",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "hearing-schedule",
+      "priority": 0.55,
+      "reason": "charter:Hearing Chamber",
+      "institution": "Hearing Chamber",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "cross-examination",
+      "priority": 0.55,
+      "reason": "charter:Hearing Chamber",
+      "institution": "Hearing Chamber",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "thin-topics",
+      "priority": 0.55,
+      "reason": "charter:Committee of Inquiry",
+      "institution": "Committee of Inquiry",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "research-priority",
+      "priority": 0.55,
+      "reason": "charter:Committee of Inquiry",
+      "institution": "Committee of Inquiry",
+      "inform_only": true,
+      "durable_accept": false
+    }
+  ],
+  "exploration_bias": {
+    "hard_enable": 0.08,
+    "easy_pad": -0.13,
+    "explore": 0.15,
+    "govern": 0.15,
+    "build": 0.07,
+    "gather": 0.15,
+    "reply": 0.07
+  }
+}

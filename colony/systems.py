@@ -108,6 +108,20 @@ SYSTEM_CATALOG: list[dict[str, Any]] = [
         "description": "Cortex memory/drift sidecar behind Cerebrum boundary (inform-only; no ledger authority).",
         "initial": {"latest": {}, "inform_only": True, "durable_accept": False, "updated_at": None, "version": 1},
     },
+    {
+        "name": "institution_charters",
+        "kind": "charter",
+        "filename": "institution_charters.json",
+        "description": "Standing institution remits: agenda/topic/gather autonomy for N cycles; never durable accept / authorize.",
+        "initial": {"charters": [], "inform_only": True, "durable_accept": False, "can_authorize": False, "updated_at": None, "version": 1},
+    },
+    {
+        "name": "pilot_lane",
+        "kind": "sandbox",
+        "filename": "pilot_lane.json",
+        "description": "Proposal→pilot sandbox lane (reversible skills/routers/filters); promotion needs selective authorize P≥0.70.",
+        "initial": {"pilots": [], "inform_only": True, "durable_accept": False, "promotion_requires_authorize": True, "updated_at": None, "version": 1},
+    },
 ]
 
 

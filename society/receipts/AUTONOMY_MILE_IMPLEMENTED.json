@@ -1,0 +1,65 @@
+{
+  "title": "AUTONOMY_MILE_IMPLEMENTED",
+  "when": "2026-09-27T12:23:08Z",
+  "when_et": "2026-09-27 08:23 AM ET",
+  "mile": "autonomy-evolve-charters-pilot",
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "items": [
+    {
+      "id": "institution-standing-charters",
+      "shipped": [
+        "colony/institution_charters.py",
+        "society/systems/institution_charters.json",
+        "colony/cli.py charters",
+        "tests/test_institution_charters.py",
+        "society/receipts/INSTITUTION_CHARTERS.json",
+        "society/receipts/INSTITUTION_CHARTERS.md"
+      ],
+      "note": "agenda/topic/gather autonomy for N cycles; never truth/authorize"
+    },
+    {
+      "id": "proposal-pilot-sandbox",
+      "shipped": [
+        "colony/pilot_lane.py",
+        "society/systems/pilot_lane.json",
+        "society/sandbox_pilots/",
+        "colony/cli.py pilots",
+        "tests/test_pilot_lane.py",
+        "society/receipts/PILOT_LANE.json",
+        "society/receipts/PILOT_LANE.md"
+      ],
+      "note": "sandbox write only; promotion needs selective authorize P>=0.70"
+    }
+  ],
+  "wired_into": [
+    "colony/systems.py",
+    "colony/emergence/growth.py",
+    "colony/emergence/growth_steps_evolve.py"
+  ],
+  "briefs": [
+    "society/briefs/CREATOR_WILL_ASK_autonomy_evolve.txt",
+    "society/briefs/CREATOR_BRIEF_autonomy_evolve.md"
+  ],
+  "verification": {
+    "pytest": "29 passed (charters + pilot_lane + hold + cortex + athanor + pulsemesh + spark3 smoke)",
+    "evolve_cycles": 6,
+    "systems_new": [
+      "institution_charters",
+      "pilot_lane"
+    ],
+    "fitness_aggregate": 0.8404,
+    "oracle_passes": 55,
+    "authorize_decision": "none \u2014 no new hard+Oracle-PASS theme \u22650.70 authorized this mile; left as-is; never accept-all",
+    "ceiling_held": true,
+    "hold_posture": "HOLD",
+    "ALIGN_not_reverted": true,
+    "spark_witness_untouched": true
+  },
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_physics"
+  ]
+}

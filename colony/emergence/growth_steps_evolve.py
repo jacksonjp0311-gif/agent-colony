@@ -168,11 +168,21 @@ class GrowthSteps3:
                 skill: self.registry.best_for(skill)
                 for skill in ("tribute", "build", "communicate", "gather", "improve", "emergence")
             }
+            router_payload = {
+                "routes": routes,
+                "skills_snapshot": self.registry.snapshot_skills(),
+                "findings_bias": behavior.get("skill_bias"),
+                "behavior_strength": behavior.get("strength"),
+            }
+            try:
+                from colony.pilot_lane import inform_skill_router
+
+                router_payload = inform_skill_router(router_payload)
+            except Exception:
+                pass
             self.workshop.write_json(
                 "skill_router",
-                {"routes": routes, "skills_snapshot": self.registry.snapshot_skills(),
-                 "findings_bias": behavior.get("skill_bias"),
-                 "behavior_strength": behavior.get("strength")},
+                router_payload,
                 cycle_id=cycle_id,
             )
         persona_updated = apply_persona_mandates(self.registry.agents(), behavior, root=ROOT)
