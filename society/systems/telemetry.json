@@ -1,49 +1,49 @@
 {
-  "ts": "2026-09-28T14:18:08Z",
+  "ts": "2026-09-28T23:26:34Z",
   "version": 1,
   "mile": "spark2_telemetry",
   "internal": {
     "fitness_latest": {
-      "ts": "2026-09-28T14:17:43Z",
-      "cycle_id": "20260928T141717Z_72ed1d",
+      "ts": "2026-09-28T23:26:07Z",
+      "cycle_id": "20260928T232529Z_776026",
       "tribute_quality": 1.0,
       "gather_coverage": 0.6522,
       "build_reuse": 0.84,
       "comm_reply_rate": 0.8077,
-      "reply_quality": 0.9106,
+      "reply_quality": 0.9107,
       "commons_signal": 1.0,
-      "math_prize": 0.8103,
-      "compute_usefulness": 0.9091,
+      "math_prize": 0.8144,
+      "compute_usefulness": 0.9131,
       "citation_reuse": 0.0,
-      "prize_boost": 0.6828,
-      "aggregate": 0.8158,
+      "prize_boost": 0.6861,
+      "aggregate": 0.8165,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0
     },
-    "fitness_aggregate": 0.8158,
+    "fitness_aggregate": 0.8165,
     "reply_rate": 0.8077,
     "bus_metrics": {
       "reply_rate": 0.8077,
-      "reply_quality": 0.9106,
+      "reply_quality": 0.9108,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "stats": {
-        "posted": 1996,
-        "read": 8508,
-        "replied": 1238,
-        "actions_planned": 630,
-        "actions_changed_from_message": 630,
-        "reply_quality_sum": 1079.9999999999918,
-        "reply_quality_n": 1186,
-        "peer_cite_opportunities": 1220,
-        "peer_cites": 1220
+        "posted": 2167,
+        "read": 9341,
+        "replied": 1346,
+        "actions_planned": 687,
+        "actions_changed_from_message": 687,
+        "reply_quality_sum": 1178.5499999999977,
+        "reply_quality_n": 1294,
+        "peer_cite_opportunities": 1331,
+        "peer_cites": 1331
       }
     },
     "oracle": {
-      "passes": 36,
+      "passes": 42,
       "kills": 0,
       "easy_pad_kills": 0,
-      "total": 36
+      "total": 42
     },
     "authorize": {
       "accepted": 3,
@@ -182,74 +182,91 @@
       }
     },
     "cycle_deltas": {
-      "n": 47,
-      "delta_aggregate": 0.0195,
+      "n": 50,
+      "delta_aggregate": -0.0002,
       "before": {
-        "cycle_id": "20260928T141640Z_b7f0c6",
-        "aggregate": 0.7963
+        "cycle_id": "20260928T232448Z_3e265b",
+        "aggregate": 0.8167
       },
       "after": {
-        "cycle_id": "20260928T141717Z_72ed1d",
-        "aggregate": 0.8158
+        "cycle_id": "20260928T232529Z_776026",
+        "aggregate": 0.8165
       }
     },
-    "cycle_count": 60,
+    "cycle_count": 63,
     "population": {
       "soft_cap": 20,
       "spawns": 10,
       "child_spawns": 8,
       "last_child_cycle": "20260926T221715Z_05fedf"
     },
-    "ts": "2026-09-28T14:18:08Z"
+    "ts": "2026-09-28T23:26:34Z"
   },
   "external": {
     "resource_usage": {
       "loadavg": [
-        0.2265625,
-        0.166015625,
-        0.06689453125
+        0.107421875,
+        0.09814453125,
+        0.0380859375
       ],
-      "rss_kb": 66460,
-      "user_time_s": 4.922436,
-      "probe_latency_ms": 0.012,
-      "disk_free_mb": 87943.0,
-      "pid": 2325,
-      "ts": "2026-09-28T14:18:08Z"
+      "rss_kb": 68828,
+      "user_time_s": 3.922844,
+      "probe_latency_ms": 0.013,
+      "disk_free_mb": 87940.8,
+      "pid": 2165,
+      "ts": "2026-09-28T23:26:34Z"
     },
     "external_array": {
-      "ts": "2026-09-28T14:18:08Z",
+      "ts": "2026-09-28T23:26:34Z",
       "feed_ok": {
-        "arxiv": false,
+        "arxiv": true,
         "nasa_donki_solar": true,
         "noaa_space_weather": false,
         "global_weather": true
       },
       "pattern_kinds": [
+        "publications_x_space",
         "global_weather_spread",
         "pulsemesh_goes_live",
         "pulsemesh_ops_health"
       ],
       "patterns": [
         {
+          "kind": "publications_x_space",
+          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Learning to Stop without Learning to Stop: Self-Supervised Confidence Training I', 'Statistical attribute alignment for black-box generative AI via output post-proc']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+          "signals": {
+            "arxiv_n": 2,
+            "kp": null,
+            "titles": [
+              "Learning to Stop without Learning to Stop: Self-Supervised Confidence Training I",
+              "Statistical attribute alignment for black-box generative AI via output post-proc"
+            ]
+          },
+          "domains": [
+            "math",
+            "cosmos",
+            "hearing",
+            "oracle"
+          ],
+          "not_discovery": true,
+          "not_novel_physics": true
+        },
+        {
           "kind": "global_weather_spread",
-          "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 14.5), ('London', 20.1), ('Tokyo', 21.2), ('Sydney', 13.6)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+          "summary": "Open-Meteo snapshot across 3 cities: [('London', 16.6), ('Tokyo', 21.6), ('Sydney', 16.9)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
           "signals": {
             "cities": [
               [
-                "NYC",
-                14.5
-              ],
-              [
                 "London",
-                20.1
+                16.6
               ],
               [
                 "Tokyo",
-                21.2
+                21.6
               ],
               [
                 "Sydney",
-                13.6
+                16.9
               ]
             ],
             "kp": null
@@ -264,9 +281,9 @@
         },
         {
           "kind": "pulsemesh_goes_live",
-          "summary": "PulseMesh GOES X-ray live latest=-6.483915919637416. Space-weather debate input — not novel physics.",
+          "summary": "PulseMesh GOES X-ray live latest=-6.34621563531324. Space-weather debate input — not novel physics.",
           "signals": {
-            "goes_latest": -6.483915919637416
+            "goes_latest": -6.34621563531324
           },
           "domains": [
             "cosmos",
@@ -277,10 +294,10 @@
         },
         {
           "kind": "pulsemesh_ops_health",
-          "summary": "PulseMesh system_stat/tcp_probe: load1=0.2265625 probe_ms=8.830370250009878. Ops health for actuation — not consciousness.",
+          "summary": "PulseMesh system_stat/tcp_probe: load1=0.107421875 probe_ms=17.813454999995315. Ops health for actuation — not consciousness.",
           "signals": {
-            "load1": 0.2265625,
-            "probe_ms": 8.830370250009878
+            "load1": 0.107421875,
+            "probe_ms": 17.813454999995315
           },
           "domains": [
             "government",
@@ -298,39 +315,40 @@
       "high_residual": [
         [
           "spark",
-          0.5916625
-        ],
-        [
-          "improver",
-          0.3794475
+          0.588583
         ],
         [
           "pathfinder",
-          0.361535
+          0.37933399999999995
+        ],
+        [
+          "tribute_keeper",
+          0.37933399999999995
         ]
       ],
       "stats": {
-        "updates": 467,
-        "conflicts": 1240,
-        "redebatess": 60
+        "updates": 509,
+        "conflicts": 1384,
+        "redebatess": 66
       }
     },
     "time_revision": {
-      "ts": "2026-09-28T14:18:03Z",
+      "ts": "2026-09-28T23:26:16Z",
       "version": 1,
-      "latest_cycle_id": "20260928T141744Z_f9f07a",
+      "latest_cycle_id": "20260928T232608Z_8acb54",
       "latest_revision_count": 0,
       "total_revisions": 4,
       "latest_revisions": [],
       "latest_inputs": {
         "pattern_kinds": [
-          "global_weather_spread",
           "pulsemesh_goes_live",
-          "pulsemesh_ops_health"
+          "global_weather_spread",
+          "pulsemesh_ops_health",
+          "publications_x_space"
         ],
         "n_residual_conflicts": 24,
         "oracle_easy_pad_kills": 0,
-        "fitness_delta": 0.019499999999999962,
+        "fitness_delta": -0.00019999999999997797,
         "kp": null
       },
       "examples": [
@@ -408,48 +426,48 @@
       ]
     },
     "actuation": {
-      "total_actions": 110,
-      "successes": 110,
+      "total_actions": 119,
+      "successes": 119,
       "failures": 0,
       "gated_blocked": 0,
       "success_rate": 1.0,
       "by_kind": {
-        "external_api_probe": 34,
-        "spawn_subdebate": 34,
-        "controlled_experiment": 34,
+        "external_api_probe": 37,
+        "spawn_subdebate": 37,
+        "controlled_experiment": 37,
         "adjust_telemetry_weights": 8
       },
       "examples": [
         {
-          "ts": "2026-09-28T14:18:03Z",
+          "ts": "2026-09-28T23:26:16Z",
           "kind": "external_api_probe",
           "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
           "success": true,
-          "result_snip": "{'feed_ok': {'arxiv': False, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
+          "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
           "motivating_signal": {
-            "kind": "global_weather_spread",
-            "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 14.5), ('London', 20.1), ('Sydney', 13.6)]. Cross-correlate with solar/space feeds for commons resource planning d"
+            "kind": "publications_x_space",
+            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Learning to Stop without Learning to Stop: Self-Supervised Confidence Training I', 'S"
           }
         },
         {
-          "ts": "2026-09-28T14:18:08Z",
+          "ts": "2026-09-28T23:26:34Z",
           "kind": "spawn_subdebate",
-          "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
+          "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
           "success": true,
-          "result_snip": "{'msg_id': 'msg_bc8280ff3f', 'topic': 'global_weather_spread'}",
+          "result_snip": "{'msg_id': 'msg_31c82d6bb9', 'topic': 'publications_x_space'}",
           "motivating_signal": {
-            "kind": "global_weather_spread",
+            "kind": "publications_x_space",
             "from": "external_or_residual"
           }
         },
         {
-          "ts": "2026-09-28T14:18:08Z",
+          "ts": "2026-09-28T23:26:34Z",
           "kind": "controlled_experiment",
           "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
           "success": true,
-          "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.01, 'after': 1.04, 'delta': 0.03}",
+          "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.1, 'after': 1.13, 'delta': 0.03}",
           "motivating_signal": {
-            "kind": "global_weather_spread",
+            "kind": "publications_x_space",
             "easy_pad_kills": 0
           }
         }
@@ -457,9 +475,9 @@
     },
     "error_rates": {
       "external_array_errors": 0,
-      "feed_fail_count": 2
+      "feed_fail_count": 1
     },
-    "ts": "2026-09-28T14:18:08Z"
+    "ts": "2026-09-28T23:26:34Z"
   },
   "note": "Agent-queryable telemetry. Internal colony metrics + external env/array/residuals. Query via colony.telemetry.query during debate. Not AGI.",
   "non_claims": [

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "cursor": 2,
+  "cursor": 5,
   "used": [
     "seed_kinematics_gather",
     "seed_oracle_commons_budget",
@@ -35,11 +35,14 @@
     "seed_telemetry_query_debate",
     "seed_solar_ops_gather",
     "seed_kinematics_gather",
-    "seed_oracle_commons_budget"
+    "seed_oracle_commons_budget",
+    "seed_hearing_external_array",
+    "seed_residual_redebate",
+    "seed_gov_authorize_threshold"
   ],
-  "last_seed_id": "seed_oracle_commons_budget",
-  "last_cycle_id": "20260928T141744Z_f9f07a",
-  "ts": "2026-09-28T14:17:45Z",
+  "last_seed_id": "seed_gov_authorize_threshold",
+  "last_cycle_id": "20260928T232608Z_8acb54",
+  "ts": "2026-09-28T23:26:09Z",
   "n_seeds": 8,
   "note": "Fresh debate seeds outside comfort zone. Multi-hop across colony domains."
 }

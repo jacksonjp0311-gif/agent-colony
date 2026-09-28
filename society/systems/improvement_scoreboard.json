@@ -2578,8 +2578,23 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "after": null,
-      "status": "candidate"
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8175,
+        "compute_usefulness": 0.9121,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6871,
+        "aggregate": 0.8167,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0009
     },
     {
       "id": "imp_f9f07a_81",
@@ -2599,13 +2614,214 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8175,
+        "compute_usefulness": 0.9121,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6871,
+        "aggregate": 0.8167,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0009
+    },
+    {
+      "id": "imp_3e265b_82",
+      "title": "Deepen compute-useful math from accepted findings after hearing",
+      "before": {
+        "tribute_quality": 0.9,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9106,
+        "commons_signal": 1.0,
+        "math_prize": 0.8101,
+        "compute_usefulness": 0.909,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6827,
+        "aggregate": 0.7958,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8144,
+        "compute_usefulness": 0.9131,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6861,
+        "aggregate": 0.8165,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0207
+    },
+    {
+      "id": "imp_3e265b_83",
+      "title": "Feed accepted/strong RSI findings into skill_router + genome bias",
+      "before": {
+        "tribute_quality": 0.9,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9106,
+        "commons_signal": 1.0,
+        "math_prize": 0.8101,
+        "compute_usefulness": 0.909,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6827,
+        "aggregate": 0.7958,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8144,
+        "compute_usefulness": 0.9131,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6861,
+        "aggregate": 0.8165,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0207
+    },
+    {
+      "id": "imp_776026_84",
+      "title": "Deepen compute-useful math from accepted findings after hearing",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8175,
+        "compute_usefulness": 0.9121,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6871,
+        "aggregate": 0.8167,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9108,
+        "commons_signal": 1.0,
+        "math_prize": 0.8137,
+        "compute_usefulness": 0.9132,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6858,
+        "aggregate": 0.8164,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": -0.0003
+    },
+    {
+      "id": "imp_776026_85",
+      "title": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 63)",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8175,
+        "compute_usefulness": 0.9121,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6871,
+        "aggregate": 0.8167,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9108,
+        "commons_signal": 1.0,
+        "math_prize": 0.8137,
+        "compute_usefulness": 0.9132,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6858,
+        "aggregate": 0.8164,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": -0.0003
+    },
+    {
+      "id": "imp_8acb54_86",
+      "title": "Deepen compute-useful math from accepted findings after hearing",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8144,
+        "compute_usefulness": 0.9131,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6861,
+        "aggregate": 0.8165,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "after": null,
+      "status": "candidate"
+    },
+    {
+      "id": "imp_8acb54_87",
+      "title": "Feed accepted/strong RSI findings into skill_router + genome bias",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8077,
+        "reply_quality": 0.9107,
+        "commons_signal": 1.0,
+        "math_prize": 0.8144,
+        "compute_usefulness": 0.9131,
+        "citation_reuse": 0.0,
+        "prize_boost": 0.6861,
+        "aggregate": 0.8165,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
       "after": null,
       "status": "candidate"
     }
   ],
-  "updated_at": "2026-09-28T14:18:08Z",
+  "updated_at": "2026-09-28T23:26:34Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
-  "updated_cycle": "20260928T141744Z_f9f07a"
+  "updated_cycle": "20260928T232608Z_8acb54"
 }
