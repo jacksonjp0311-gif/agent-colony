@@ -1,49 +1,49 @@
 {
-  "ts": "2026-09-28T23:26:34Z",
+  "ts": "2026-09-29T05:58:31Z",
   "version": 1,
   "mile": "spark2_telemetry",
   "internal": {
     "fitness_latest": {
-      "ts": "2026-09-28T23:26:07Z",
-      "cycle_id": "20260928T232529Z_776026",
+      "ts": "2026-09-29T05:58:08Z",
+      "cycle_id": "20260929T055734Z_7a9d8c",
       "tribute_quality": 1.0,
       "gather_coverage": 0.6522,
       "build_reuse": 0.84,
       "comm_reply_rate": 0.8077,
-      "reply_quality": 0.9107,
+      "reply_quality": 0.9109,
       "commons_signal": 1.0,
-      "math_prize": 0.8144,
-      "compute_usefulness": 0.9131,
+      "math_prize": 0.8349,
+      "compute_usefulness": 0.9257,
       "citation_reuse": 0.0,
-      "prize_boost": 0.6861,
-      "aggregate": 0.8165,
+      "prize_boost": 0.6997,
+      "aggregate": 0.8194,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0
     },
-    "fitness_aggregate": 0.8165,
+    "fitness_aggregate": 0.8194,
     "reply_rate": 0.8077,
     "bus_metrics": {
       "reply_rate": 0.8077,
-      "reply_quality": 0.9108,
+      "reply_quality": 0.9109,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "stats": {
-        "posted": 2167,
-        "read": 9341,
-        "replied": 1346,
-        "actions_planned": 687,
-        "actions_changed_from_message": 687,
-        "reply_quality_sum": 1178.5499999999977,
-        "reply_quality_n": 1294,
-        "peer_cite_opportunities": 1331,
-        "peer_cites": 1331
+        "posted": 2338,
+        "read": 10175,
+        "replied": 1454,
+        "actions_planned": 744,
+        "actions_changed_from_message": 744,
+        "reply_quality_sum": 1277.1000000000035,
+        "reply_quality_n": 1402,
+        "peer_cite_opportunities": 1442,
+        "peer_cites": 1442
       }
     },
     "oracle": {
-      "passes": 42,
+      "passes": 48,
       "kills": 0,
       "easy_pad_kills": 0,
-      "total": 42
+      "total": 48
     },
     "authorize": {
       "accepted": 3,
@@ -182,42 +182,42 @@
       }
     },
     "cycle_deltas": {
-      "n": 50,
-      "delta_aggregate": -0.0002,
+      "n": 53,
+      "delta_aggregate": 0.0031,
       "before": {
-        "cycle_id": "20260928T232448Z_3e265b",
-        "aggregate": 0.8167
+        "cycle_id": "20260929T055710Z_d18931",
+        "aggregate": 0.8163
       },
       "after": {
-        "cycle_id": "20260928T232529Z_776026",
-        "aggregate": 0.8165
+        "cycle_id": "20260929T055734Z_7a9d8c",
+        "aggregate": 0.8194
       }
     },
-    "cycle_count": 63,
+    "cycle_count": 66,
     "population": {
       "soft_cap": 20,
       "spawns": 10,
       "child_spawns": 8,
       "last_child_cycle": "20260926T221715Z_05fedf"
     },
-    "ts": "2026-09-28T23:26:34Z"
+    "ts": "2026-09-29T05:58:31Z"
   },
   "external": {
     "resource_usage": {
       "loadavg": [
-        0.107421875,
-        0.09814453125,
-        0.0380859375
+        0.33642578125,
+        0.16845703125,
+        0.06298828125
       ],
-      "rss_kb": 68828,
-      "user_time_s": 3.922844,
-      "probe_latency_ms": 0.013,
-      "disk_free_mb": 87940.8,
-      "pid": 2165,
-      "ts": "2026-09-28T23:26:34Z"
+      "rss_kb": 69512,
+      "user_time_s": 3.29235,
+      "probe_latency_ms": 0.015,
+      "disk_free_mb": 87941.2,
+      "pid": 2117,
+      "ts": "2026-09-29T05:58:31Z"
     },
     "external_array": {
-      "ts": "2026-09-28T23:26:34Z",
+      "ts": "2026-09-29T05:58:31Z",
       "feed_ok": {
         "arxiv": true,
         "nasa_donki_solar": true,
@@ -233,13 +233,13 @@
       "patterns": [
         {
           "kind": "publications_x_space",
-          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Learning to Stop without Learning to Stop: Self-Supervised Confidence Training I', 'Statistical attribute alignment for black-box generative AI via output post-proc']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['FurE: Efficient Instance-Specific 3D Fur Reconstruction without Animal-Fur Datas', 'Telescopic Language Models']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
           "signals": {
             "arxiv_n": 2,
             "kp": null,
             "titles": [
-              "Learning to Stop without Learning to Stop: Self-Supervised Confidence Training I",
-              "Statistical attribute alignment for black-box generative AI via output post-proc"
+              "FurE: Efficient Instance-Specific 3D Fur Reconstruction without Animal-Fur Datas",
+              "Telescopic Language Models"
             ]
           },
           "domains": [
@@ -253,20 +253,20 @@
         },
         {
           "kind": "global_weather_spread",
-          "summary": "Open-Meteo snapshot across 3 cities: [('London', 16.6), ('Tokyo', 21.6), ('Sydney', 16.9)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+          "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 15.1), ('London', 17.2), ('Sydney', 18.1)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
           "signals": {
             "cities": [
               [
-                "London",
-                16.6
+                "NYC",
+                15.1
               ],
               [
-                "Tokyo",
-                21.6
+                "London",
+                17.2
               ],
               [
                 "Sydney",
-                16.9
+                18.1
               ]
             ],
             "kp": null
@@ -281,9 +281,9 @@
         },
         {
           "kind": "pulsemesh_goes_live",
-          "summary": "PulseMesh GOES X-ray live latest=-6.34621563531324. Space-weather debate input — not novel physics.",
+          "summary": "PulseMesh GOES X-ray live latest=-6.489725392584684. Space-weather debate input — not novel physics.",
           "signals": {
-            "goes_latest": -6.34621563531324
+            "goes_latest": -6.489725392584684
           },
           "domains": [
             "cosmos",
@@ -294,10 +294,10 @@
         },
         {
           "kind": "pulsemesh_ops_health",
-          "summary": "PulseMesh system_stat/tcp_probe: load1=0.107421875 probe_ms=17.813454999995315. Ops health for actuation — not consciousness.",
+          "summary": "PulseMesh system_stat/tcp_probe: load1=0.33642578125 probe_ms=13.633260249996226. Ops health for actuation — not consciousness.",
           "signals": {
-            "load1": 0.107421875,
-            "probe_ms": 17.813454999995315
+            "load1": 0.33642578125,
+            "probe_ms": 13.633260249996226
           },
           "domains": [
             "government",
@@ -315,40 +315,40 @@
       "high_residual": [
         [
           "spark",
-          0.588583
+          0.5894965
         ],
         [
           "pathfinder",
-          0.37933399999999995
+          0.38098699999999996
         ],
         [
           "tribute_keeper",
-          0.37933399999999995
+          0.38098699999999996
         ]
       ],
       "stats": {
-        "updates": 509,
-        "conflicts": 1384,
-        "redebatess": 66
+        "updates": 551,
+        "conflicts": 1528,
+        "redebatess": 72
       }
     },
     "time_revision": {
-      "ts": "2026-09-28T23:26:16Z",
+      "ts": "2026-09-29T05:58:15Z",
       "version": 1,
-      "latest_cycle_id": "20260928T232608Z_8acb54",
+      "latest_cycle_id": "20260929T055809Z_e85d31",
       "latest_revision_count": 0,
       "total_revisions": 4,
       "latest_revisions": [],
       "latest_inputs": {
         "pattern_kinds": [
+          "pulsemesh_ops_health",
           "pulsemesh_goes_live",
           "global_weather_spread",
-          "pulsemesh_ops_health",
           "publications_x_space"
         ],
         "n_residual_conflicts": 24,
         "oracle_easy_pad_kills": 0,
-        "fitness_delta": -0.00019999999999997797,
+        "fitness_delta": 0.0030999999999999917,
         "kp": null
       },
       "examples": [
@@ -426,46 +426,46 @@
       ]
     },
     "actuation": {
-      "total_actions": 119,
-      "successes": 119,
+      "total_actions": 128,
+      "successes": 128,
       "failures": 0,
       "gated_blocked": 0,
       "success_rate": 1.0,
       "by_kind": {
-        "external_api_probe": 37,
-        "spawn_subdebate": 37,
-        "controlled_experiment": 37,
+        "external_api_probe": 40,
+        "spawn_subdebate": 40,
+        "controlled_experiment": 40,
         "adjust_telemetry_weights": 8
       },
       "examples": [
         {
-          "ts": "2026-09-28T23:26:16Z",
+          "ts": "2026-09-29T05:58:15Z",
           "kind": "external_api_probe",
           "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
           "success": true,
           "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
           "motivating_signal": {
             "kind": "publications_x_space",
-            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Learning to Stop without Learning to Stop: Self-Supervised Confidence Training I', 'S"
+            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['FurE: Efficient Instance-Specific 3D Fur Reconstruction without Animal-Fur Datas', 'T"
           }
         },
         {
-          "ts": "2026-09-28T23:26:34Z",
+          "ts": "2026-09-29T05:58:31Z",
           "kind": "spawn_subdebate",
           "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
           "success": true,
-          "result_snip": "{'msg_id': 'msg_31c82d6bb9', 'topic': 'publications_x_space'}",
+          "result_snip": "{'msg_id': 'msg_b1730a794d', 'topic': 'publications_x_space'}",
           "motivating_signal": {
             "kind": "publications_x_space",
             "from": "external_or_residual"
           }
         },
         {
-          "ts": "2026-09-28T23:26:34Z",
+          "ts": "2026-09-29T05:58:31Z",
           "kind": "controlled_experiment",
           "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
           "success": true,
-          "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.1, 'after': 1.13, 'delta': 0.03}",
+          "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.19, 'after': 1.22, 'delta': 0.03}",
           "motivating_signal": {
             "kind": "publications_x_space",
             "easy_pad_kills": 0
@@ -477,7 +477,7 @@
       "external_array_errors": 0,
       "feed_fail_count": 1
     },
-    "ts": "2026-09-28T23:26:34Z"
+    "ts": "2026-09-29T05:58:31Z"
   },
   "note": "Agent-queryable telemetry. Internal colony metrics + external env/array/residuals. Query via colony.telemetry.query during debate. Not AGI.",
   "non_claims": [

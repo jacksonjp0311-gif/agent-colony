@@ -1,12 +1,12 @@
 {
   "items": [
     {
-      "finding_id": "fnd_57851f7fbf66",
+      "finding_id": "fnd_14fb12f2836d",
       "decision": "accepted",
       "rationale": "Standing trust P\u22650.70: machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
     },
     {
-      "finding_id": "fnd_88c469855184",
+      "finding_id": "fnd_f113b0050171",
       "decision": "accepted",
       "rationale": "Standing trust P\u22650.70: machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
     }

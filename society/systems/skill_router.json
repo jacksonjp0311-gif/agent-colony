@@ -14,10 +14,10 @@
       "communicate": 0.9342,
       "gather": 0.5,
       "improve": 0.6569,
-      "emergence": 0.6628
+      "emergence": 0.6637
     },
     "tribute_keeper": {
-      "tribute": 0.9804,
+      "tribute": 0.9892,
       "build": 0.5,
       "communicate": 0.9503,
       "gather": 0.7,
@@ -61,7 +61,7 @@
       "build": 0.5,
       "communicate": 0.9647,
       "gather": 0.5,
-      "improve": 0.7215,
+      "improve": 0.7224,
       "emergence": 0.6
     },
     "courier": {
@@ -99,7 +99,7 @@
     "stem_checker": {
       "tribute": 0.5,
       "build": 0.5,
-      "communicate": 0.9569,
+      "communicate": 0.957,
       "gather": 0.5,
       "improve": 0.5,
       "emergence": 0.5
@@ -117,7 +117,7 @@
       "build": 0.499,
       "communicate": 0.9634,
       "gather": 0.461,
-      "improve": 0.7459,
+      "improve": 0.7472,
       "emergence": 0.5352
     },
     "chronicler": {
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-09-28T23:26:34Z",
-  "updated_cycle": "20260928T232608Z_8acb54"
+  "updated_at": "2026-09-29T05:58:32Z",
+  "updated_cycle": "20260929T055809Z_e85d31"
 }
