@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-29T13:13:24Z",
+  "ts": "2026-09-29T22:29:45Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -5.960315103192069,
+      "latest": -6.5090925952459475,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-09-29T13:07:00Z",
-          "v": -7.43557210932638
+          "t": "2026-09-29T22:22:00Z",
+          "v": -7.741631585452493
         },
         {
-          "t": "2026-09-29T13:07:00Z",
-          "v": -6.06003830925423
+          "t": "2026-09-29T22:22:00Z",
+          "v": -6.496173359939221
         },
         {
-          "t": "2026-09-29T13:08:00Z",
-          "v": -7.386103880461441
+          "t": "2026-09-29T22:23:00Z",
+          "v": -7.734477747356118
         },
         {
-          "t": "2026-09-29T13:08:00Z",
-          "v": -6.017549377456946
+          "t": "2026-09-29T22:23:00Z",
+          "v": -6.502947243491595
         },
         {
-          "t": "2026-09-29T13:09:00Z",
-          "v": -7.349766400571261
+          "t": "2026-09-29T22:24:00Z",
+          "v": -7.671878424288644
         },
         {
-          "t": "2026-09-29T13:09:00Z",
-          "v": -5.97784249198579
+          "t": "2026-09-29T22:24:00Z",
+          "v": -6.505130674780984
         },
         {
-          "t": "2026-09-29T13:10:00Z",
-          "v": -7.3581416312289845
+          "t": "2026-09-29T22:25:00Z",
+          "v": -7.705945078764597
         },
         {
-          "t": "2026-09-29T13:10:00Z",
-          "v": -5.960315103192069
+          "t": "2026-09-29T22:25:00Z",
+          "v": -6.5090925952459475
         }
       ],
       "live": true,
-      "ts": "2026-09-29T13:13:24Z"
+      "ts": "2026-09-29T22:29:45Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
-      "note": "mem_ttl:ok",
+      "note": "mem_ttl:cached_last_good_after:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
       "count": 48,
-      "latest": 17.9,
+      "latest": 18.3,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -95,7 +95,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-09-29T13:13:24Z"
+      "ts": "2026-09-29T22:29:45Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -123,12 +123,6 @@
           "source": "usgs"
         },
         {
-          "mag": 2.6,
-          "place": "60 km S of Whites City, New Mexico",
-          "time": 1790632694240,
-          "source": "usgs"
-        },
-        {
           "mag": 2.7,
           "place": "23 km SSW of Susitna, Alaska",
           "time": 1790630557246,
@@ -151,11 +145,17 @@
           "place": "36 km SE of Hualien City, Taiwan",
           "time": 1790619644330,
           "source": "usgs"
+        },
+        {
+          "mag": 2.6,
+          "place": "13 km NNW of Ninilchik, Alaska",
+          "time": 1790618153431,
+          "source": "usgs"
         }
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-09-22&endtime=2026-09-29&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-09-29T13:13:24Z"
+      "ts": "2026-09-29T22:29:45Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.13330078125,
-          "disk_free_percent": 59.53240805919955,
-          "process_count": 152,
-          "uptime_hours": 0.11566666666666665,
+          "load1": 0.142578125,
+          "disk_free_percent": 59.57684431897597,
+          "process_count": 162,
+          "uptime_hours": 0.05421388888888889,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
-          "node": "runnervmtr4k5",
+          "node": "runnervm8df0l",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.13330078125,
+      "latest_load1": 0.142578125,
       "live": true,
-      "ts": "2026-09-29T13:13:24Z"
+      "ts": "2026-09-29T22:29:45Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 4.990302999999585,
-      "mean_ms": 5.211587749982982,
+      "latest_ms": 5.546106999986478,
+      "mean_ms": 5.572381249997704,
       "items": [
         {
           "probe": 0,
-          "ms": 5.6038159999616255
+          "ms": 5.58349700000349
         },
         {
           "probe": 1,
-          "ms": 5.067195999970409
+          "ms": 5.6740160000003925
         },
         {
           "probe": 2,
-          "ms": 5.185036000000309
+          "ms": 5.485905000000457
         },
         {
           "probe": 3,
-          "ms": 4.990302999999585
+          "ms": 5.546106999986478
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-09-29T13:13:24Z"
+      "ts": "2026-09-29T22:29:45Z"
     }
   },
   "feed_health": {
@@ -216,7 +216,7 @@
     },
     "openmeteo_series": {
       "ok": true,
-      "note": "mem_ttl:ok",
+      "note": "mem_ttl:cached_last_good_after:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
       "count": 48
     },
     "usgs_quakes": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.13330078125 tcp_probe mean_ms=5.211587749982982 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.142578125 tcp_probe mean_ms=5.572381249997704 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.13330078125,
-        "probe_ms": 5.211587749982982,
+        "load1": 0.142578125,
+        "probe_ms": 5.572381249997704,
         "probe_ok": true
       },
       "domains": [

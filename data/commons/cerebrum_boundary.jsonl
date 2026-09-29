@@ -22,3 +22,6 @@
 {"ts": "2026-09-29T13:11:48Z", "cycle_id": "20260929T131115Z_417737", "kind": "memory_drift", "drift": 0.073534, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}
 {"ts": "2026-09-29T13:12:26Z", "cycle_id": "20260929T131206Z_f1c6a2", "kind": "memory_drift", "drift": 0.082387, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}
 {"ts": "2026-09-29T13:13:05Z", "cycle_id": "20260929T131246Z_8bb8d5", "kind": "memory_drift", "drift": 0.079449, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}
+{"ts": "2026-09-29T22:28:38Z", "cycle_id": "20260929T222818Z_2fbd0a", "kind": "memory_drift", "drift": 0.076962, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}
+{"ts": "2026-09-29T22:29:02Z", "cycle_id": "20260929T222844Z_d7a604", "kind": "memory_drift", "drift": 0.079592, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}
+{"ts": "2026-09-29T22:29:28Z", "cycle_id": "20260929T222920Z_50ba31", "kind": "memory_drift", "drift": 0.077026, "memory_reuse": 0.0, "inform_only": true, "durable_accept": false}

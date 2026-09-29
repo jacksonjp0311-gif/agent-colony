@@ -1,22 +1,22 @@
 {
   "version": 1,
-  "updated_at": "2026-09-29T13:12:47Z",
-  "updated_cycle": "20260929T131246Z_8bb8d5",
-  "size": 172,
+  "updated_at": "2026-09-29T22:29:21Z",
+  "updated_cycle": "20260929T222920Z_50ba31",
+  "size": 184,
   "stats": {
-    "appended": 172,
-    "reused": 377
+    "appended": 184,
+    "reused": 404
   },
   "by_domain": {
     "math": 1,
-    "rsi": 129,
-    "science": 42
+    "rsi": 138,
+    "science": 45
   },
   "recent": [
     {
-      "id": "ck_417737_0160",
-      "ts": "2026-09-29T13:11:28Z",
-      "cycle_id": "20260929T131115Z_417737",
+      "id": "ck_2fbd0a_0172",
+      "ts": "2026-09-29T22:28:20Z",
+      "cycle_id": "20260929T222818Z_2fbd0a",
       "domain": "rsi",
       "title": "Commons note: meta-learning",
       "summary": "Standing gather on `meta-learning` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -27,16 +27,16 @@
         "meta-learning"
       ],
       "evidence": [
-        "cycle:20260929T131115Z_417737",
+        "cycle:20260929T222818Z_2fbd0a",
         "topic:meta-learning"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_417737_0161",
-      "ts": "2026-09-29T13:11:28Z",
-      "cycle_id": "20260929T131115Z_417737",
+      "id": "ck_2fbd0a_0173",
+      "ts": "2026-09-29T22:28:20Z",
+      "cycle_id": "20260929T222818Z_2fbd0a",
       "domain": "rsi",
       "title": "Commons note: self-improving-agents",
       "summary": "Standing gather on `self-improving-agents` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -47,16 +47,16 @@
         "self-improving-agents"
       ],
       "evidence": [
-        "cycle:20260929T131115Z_417737",
+        "cycle:20260929T222818Z_2fbd0a",
         "topic:self-improving-agents"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_417737_0162",
-      "ts": "2026-09-29T13:11:28Z",
-      "cycle_id": "20260929T131115Z_417737",
+      "id": "ck_2fbd0a_0174",
+      "ts": "2026-09-29T22:28:20Z",
+      "cycle_id": "20260929T222818Z_2fbd0a",
       "domain": "rsi",
       "title": "Commons note: self-refine",
       "summary": "Standing gather on `self-refine` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -67,16 +67,16 @@
         "self-refine"
       ],
       "evidence": [
-        "cycle:20260929T131115Z_417737",
+        "cycle:20260929T222818Z_2fbd0a",
         "topic:self-refine"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_417737_0163",
-      "ts": "2026-09-29T13:11:28Z",
-      "cycle_id": "20260929T131115Z_417737",
+      "id": "ck_2fbd0a_0175",
+      "ts": "2026-09-29T22:28:20Z",
+      "cycle_id": "20260929T222818Z_2fbd0a",
       "domain": "science",
       "title": "Commons note: science-method",
       "summary": "Standing gather on `science-method` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -87,16 +87,16 @@
         "science-method"
       ],
       "evidence": [
-        "cycle:20260929T131115Z_417737",
+        "cycle:20260929T222818Z_2fbd0a",
         "topic:science-method"
       ],
       "status": "candidate",
       "reuse_count": 3
     },
     {
-      "id": "ck_f1c6a2_0164",
-      "ts": "2026-09-29T13:12:07Z",
-      "cycle_id": "20260929T131206Z_f1c6a2",
+      "id": "ck_d7a604_0176",
+      "ts": "2026-09-29T22:28:45Z",
+      "cycle_id": "20260929T222844Z_d7a604",
       "domain": "rsi",
       "title": "Commons note: meta-learning",
       "summary": "Standing gather on `meta-learning` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -107,16 +107,16 @@
         "meta-learning"
       ],
       "evidence": [
-        "cycle:20260929T131206Z_f1c6a2",
+        "cycle:20260929T222844Z_d7a604",
         "topic:meta-learning"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_f1c6a2_0165",
-      "ts": "2026-09-29T13:12:07Z",
-      "cycle_id": "20260929T131206Z_f1c6a2",
+      "id": "ck_d7a604_0177",
+      "ts": "2026-09-29T22:28:45Z",
+      "cycle_id": "20260929T222844Z_d7a604",
       "domain": "rsi",
       "title": "Commons note: self-improving-agents",
       "summary": "Standing gather on `self-improving-agents` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -127,16 +127,16 @@
         "self-improving-agents"
       ],
       "evidence": [
-        "cycle:20260929T131206Z_f1c6a2",
+        "cycle:20260929T222844Z_d7a604",
         "topic:self-improving-agents"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_f1c6a2_0166",
-      "ts": "2026-09-29T13:12:07Z",
-      "cycle_id": "20260929T131206Z_f1c6a2",
+      "id": "ck_d7a604_0178",
+      "ts": "2026-09-29T22:28:45Z",
+      "cycle_id": "20260929T222844Z_d7a604",
       "domain": "rsi",
       "title": "Commons note: self-refine",
       "summary": "Standing gather on `self-refine` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -147,16 +147,16 @@
         "self-refine"
       ],
       "evidence": [
-        "cycle:20260929T131206Z_f1c6a2",
+        "cycle:20260929T222844Z_d7a604",
         "topic:self-refine"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_f1c6a2_0167",
-      "ts": "2026-09-29T13:12:07Z",
-      "cycle_id": "20260929T131206Z_f1c6a2",
+      "id": "ck_d7a604_0179",
+      "ts": "2026-09-29T22:28:45Z",
+      "cycle_id": "20260929T222844Z_d7a604",
       "domain": "science",
       "title": "Commons note: science-method",
       "summary": "Standing gather on `science-method` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -167,16 +167,16 @@
         "science-method"
       ],
       "evidence": [
-        "cycle:20260929T131206Z_f1c6a2",
+        "cycle:20260929T222844Z_d7a604",
         "topic:science-method"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_8bb8d5_0168",
-      "ts": "2026-09-29T13:12:47Z",
-      "cycle_id": "20260929T131246Z_8bb8d5",
+      "id": "ck_50ba31_0180",
+      "ts": "2026-09-29T22:29:21Z",
+      "cycle_id": "20260929T222920Z_50ba31",
       "domain": "rsi",
       "title": "Commons note: meta-learning",
       "summary": "Standing gather on `meta-learning` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -187,16 +187,16 @@
         "meta-learning"
       ],
       "evidence": [
-        "cycle:20260929T131246Z_8bb8d5",
+        "cycle:20260929T222920Z_50ba31",
         "topic:meta-learning"
       ],
       "status": "candidate",
       "reuse_count": 0
     },
     {
-      "id": "ck_8bb8d5_0169",
-      "ts": "2026-09-29T13:12:47Z",
-      "cycle_id": "20260929T131246Z_8bb8d5",
+      "id": "ck_50ba31_0181",
+      "ts": "2026-09-29T22:29:21Z",
+      "cycle_id": "20260929T222920Z_50ba31",
       "domain": "rsi",
       "title": "Commons note: self-improving-agents",
       "summary": "Standing gather on `self-improving-agents` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -207,16 +207,16 @@
         "self-improving-agents"
       ],
       "evidence": [
-        "cycle:20260929T131246Z_8bb8d5",
+        "cycle:20260929T222920Z_50ba31",
         "topic:self-improving-agents"
       ],
       "status": "candidate",
       "reuse_count": 0
     },
     {
-      "id": "ck_8bb8d5_0170",
-      "ts": "2026-09-29T13:12:47Z",
-      "cycle_id": "20260929T131246Z_8bb8d5",
+      "id": "ck_50ba31_0182",
+      "ts": "2026-09-29T22:29:21Z",
+      "cycle_id": "20260929T222920Z_50ba31",
       "domain": "rsi",
       "title": "Commons note: self-refine",
       "summary": "Standing gather on `self-refine` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -227,16 +227,16 @@
         "self-refine"
       ],
       "evidence": [
-        "cycle:20260929T131246Z_8bb8d5",
+        "cycle:20260929T222920Z_50ba31",
         "topic:self-refine"
       ],
       "status": "candidate",
       "reuse_count": 0
     },
     {
-      "id": "ck_8bb8d5_0171",
-      "ts": "2026-09-29T13:12:47Z",
-      "cycle_id": "20260929T131246Z_8bb8d5",
+      "id": "ck_50ba31_0183",
+      "ts": "2026-09-29T22:29:21Z",
+      "cycle_id": "20260929T222920Z_50ba31",
       "domain": "science",
       "title": "Commons note: science-method",
       "summary": "Standing gather on `science-method` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -247,7 +247,7 @@
         "science-method"
       ],
       "evidence": [
-        "cycle:20260929T131246Z_8bb8d5",
+        "cycle:20260929T222920Z_50ba31",
         "topic:science-method"
       ],
       "status": "candidate",
