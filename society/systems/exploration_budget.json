@@ -1,22 +1,22 @@
 {
-  "ts": "2026-09-29T05:58:31Z",
-  "fp": 1.22,
+  "ts": "2026-09-29T13:13:24Z",
+  "fp": 1.25,
   "last_outcome": {
-    "before": 1.19,
-    "after": 1.22,
+    "before": 1.25,
+    "after": 1.25,
     "delta": 0.03,
-    "cycle_id": "20260929T055809Z_e85d31"
+    "cycle_id": "20260929T131246Z_8bb8d5"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 48,
+  "last_oracle_passes": 54,
   "spawn_retire_log": [
     {
-      "ts": "2026-09-29T05:58:32Z",
-      "cycle_id": "20260929T055809Z_e85d31",
+      "ts": "2026-09-29T13:13:24Z",
+      "cycle_id": "20260929T131246Z_8bb8d5",
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-09-29T05:58:32Z"
+  "updated_at": "2026-09-29T13:13:24Z"
 }
