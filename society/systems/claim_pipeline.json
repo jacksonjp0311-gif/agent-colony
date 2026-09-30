@@ -1,28 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-09-30T12:52:55Z",
-  "updated_cycle": "20260930T125253Z_c551cd",
+  "updated_at": "2026-09-30T22:28:14Z",
+  "updated_cycle": "20260930T222813Z_2be4df",
   "n_claims": 2,
   "n_proposed": 2,
   "recent_claims": [
-    {
-      "claim_id": "cl_vandermonde_260938165",
-      "theme_id": "vandermonde",
-      "text": "CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Cropland PAtteRNS: Parallel Dimensional Attention Networks and Attention to Data` may relate to lemma_microbench hard:vandermonde*. Raw scrape \u2260 discovery. Needs hard check + authorize.",
-      "provenance": {
-        "title": "Cropland PAtteRNS: Parallel Dimensional Attention Networks and Attention to Dataset Disparity for Crop Segmentation in S",
-        "arxiv_id": "2609.38165",
-        "doi": "",
-        "url": "https://arxiv.org/abs/2609.38165",
-        "source": "arxiv"
-      },
-      "bench_hint": "lemma_microbench hard:vandermonde*",
-      "status": "proposed",
-      "hard_ok": true,
-      "note": "lemma score=0.8771 hard_pass=25/25 \u2014 machine-checked harness only; not theorem discovery | oracle=PASS kills=[]",
-      "ts": "2026-09-30T12:52:55Z",
-      "not_discovery": true
-    },
     {
       "claim_id": "cl_vandermonde_170603762",
       "theme_id": "vandermonde",
@@ -38,7 +20,25 @@
       "status": "proposed",
       "hard_ok": true,
       "note": "lemma score=0.8771 hard_pass=25/25 \u2014 machine-checked harness only; not theorem discovery | oracle=PASS kills=[]",
-      "ts": "2026-09-30T12:52:55Z",
+      "ts": "2026-09-30T22:28:14Z",
+      "not_discovery": true
+    },
+    {
+      "claim_id": "cl_vandermonde_260938165",
+      "theme_id": "vandermonde",
+      "text": "CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Cropland PAtteRNS: Parallel Dimensional Attention Networks and Attention to Data` may relate to lemma_microbench hard:vandermonde*. Raw scrape \u2260 discovery. Needs hard check + authorize.",
+      "provenance": {
+        "title": "Cropland PAtteRNS: Parallel Dimensional Attention Networks and Attention to Dataset Disparity for Crop Segmentation in S",
+        "arxiv_id": "2609.38165",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2609.38165",
+        "source": "arxiv"
+      },
+      "bench_hint": "lemma_microbench hard:vandermonde*",
+      "status": "proposed",
+      "hard_ok": true,
+      "note": "lemma score=0.8771 hard_pass=25/25 \u2014 machine-checked harness only; not theorem discovery | oracle=PASS kills=[]",
+      "ts": "2026-09-30T22:28:14Z",
       "not_discovery": true
     }
   ],

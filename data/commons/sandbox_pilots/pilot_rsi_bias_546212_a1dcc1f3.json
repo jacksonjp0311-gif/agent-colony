@@ -1,0 +1,26 @@
+{
+  "id": "pilot_rsi_bias_546212_a1dcc1f3",
+  "name": "rsi_bias_546212",
+  "kind": "rsi_bias",
+  "body": {
+    "strength": 0.25,
+    "skill_bias": {},
+    "mutation_bias": {},
+    "routes_snapshot": {},
+    "reversible": true
+  },
+  "proposed_by": "improver",
+  "cycle_id": "20260930T222713Z_546212",
+  "rationale": "Sandbox RSI bias pilot from measured coupling strength. Inform skill_router only; promotion needs authorize.",
+  "status": "sandboxed",
+  "reversible": true,
+  "promotion_requires_authorize": true,
+  "P_min": 0.7,
+  "authorized_by": null,
+  "ts": "2026-09-30T22:27:33Z",
+  "inform_only": true,
+  "durable_accept": false,
+  "ledger_authority": false,
+  "can_authorize": false,
+  "can_accept_ledger": false
+}
