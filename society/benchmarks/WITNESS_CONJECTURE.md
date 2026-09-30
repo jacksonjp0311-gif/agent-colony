@@ -1,9 +1,9 @@
-# Conjecture desk witness — 2026-09-29T22:29:22Z
+# Conjecture desk witness — 2026-09-30T05:48:17Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
 - `none` (-) → **skip** 0.825→0.825 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty).
-  - themes: TokenCast: Forecasting Token Consumption During LLM Agent Ex, Statistical Learning of Contractive Dynamical Representation, The Sociolinguistics of Machine Identity: LLM Personality an
+  - themes: LeapQuant: Efficient Linear Attention with Accurate Recurren, Cropland PAtteRNS: Parallel Dimensional Attention Networks a, The Sociolinguistics of Machine Identity: LLM Personality an
 
 ## Honesty
 

@@ -14,10 +14,10 @@
       "communicate": 0.9342,
       "gather": 0.5,
       "improve": 0.6569,
-      "emergence": 0.6624
+      "emergence": 0.663
     },
     "tribute_keeper": {
-      "tribute": 0.9653,
+      "tribute": 0.9808,
       "build": 0.5,
       "communicate": 0.9503,
       "gather": 0.7,
@@ -61,7 +61,7 @@
       "build": 0.5,
       "communicate": 0.9647,
       "gather": 0.5,
-      "improve": 0.7211,
+      "improve": 0.7219,
       "emergence": 0.6
     },
     "courier": {
@@ -75,7 +75,7 @@
     "scribe": {
       "tribute": 0.5,
       "build": 0.4987,
-      "communicate": 0.951,
+      "communicate": 0.9511,
       "gather": 0.6022,
       "improve": 0.4991,
       "emergence": 0.5099
@@ -117,7 +117,7 @@
       "build": 0.499,
       "communicate": 0.9634,
       "gather": 0.461,
-      "improve": 0.7452,
+      "improve": 0.7463,
       "emergence": 0.5352
     },
     "chronicler": {
@@ -147,7 +147,7 @@
     "messenger": {
       "tribute": 0.5,
       "build": 0.5223,
-      "communicate": 0.951,
+      "communicate": 0.9511,
       "gather": 0.6038,
       "improve": 0.5019,
       "emergence": 0.5085
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-09-29T22:29:45Z",
-  "updated_cycle": "20260929T222920Z_50ba31"
+  "updated_at": "2026-09-30T05:48:42Z",
+  "updated_cycle": "20260930T054815Z_8befa4"
 }

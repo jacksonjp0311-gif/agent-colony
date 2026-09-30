@@ -11,6 +11,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "`hard-checked",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`self-improving-agents`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -52,11 +57,6 @@
     },
     {
       "topic": "compute-useful-math",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "cosmology-universe",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -242,8 +242,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-09-29T22:29:28Z",
-  "updated_cycle": "20260929T222920Z_50ba31",
+  "updated_at": "2026-09-30T05:48:24Z",
+  "updated_cycle": "20260930T054815Z_8befa4",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

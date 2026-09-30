@@ -1,65 +1,23 @@
 {
   "version": 1,
-  "total_actions": 146,
-  "successes": 146,
+  "total_actions": 155,
+  "successes": 155,
   "failures": 0,
   "gated_blocked": 0,
   "queued": 0,
   "throttled": 0,
   "success_rate": 1.0,
   "by_kind": {
-    "external_api_probe": 46,
-    "spawn_subdebate": 46,
-    "controlled_experiment": 46,
+    "external_api_probe": 49,
+    "spawn_subdebate": 49,
+    "controlled_experiment": 49,
     "adjust_telemetry_weights": 8
   },
   "by_side": {
-    "internal": 54,
-    "external": 92
+    "internal": 57,
+    "external": 98
   },
   "cycle_history": [
-    {
-      "cycle_id": "20260927T052955Z_626d8e",
-      "ts": "2026-09-27T05:30:16Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true
-    },
-    {
-      "cycle_id": "20260927T053016Z_be5cbc",
-      "ts": "2026-09-27T05:30:36Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true
-    },
-    {
-      "cycle_id": "20260927T053036Z_cc82d2",
-      "ts": "2026-09-27T05:30:58Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true
-    },
     {
       "cycle_id": "20260927T121621Z_ec35bc",
       "ts": "2026-09-27T12:16:44Z",
@@ -518,109 +476,61 @@
       "cortex_inform_only": true,
       "cortex_drift": 0.077026,
       "cortex_memory_reuse": 0.0
+    },
+    {
+      "cycle_id": "20260930T054719Z_60e072",
+      "ts": "2026-09-30T05:47:48Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.07695,
+      "cortex_memory_reuse": 0.0
+    },
+    {
+      "cycle_id": "20260930T054749Z_ed253c",
+      "ts": "2026-09-30T05:48:15Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.077026,
+      "cortex_memory_reuse": 0.0
+    },
+    {
+      "cycle_id": "20260930T054815Z_8befa4",
+      "ts": "2026-09-30T05:48:42Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.077026,
+      "cortex_memory_reuse": 0.0
     }
   ],
   "throttle_events": [],
   "examples": [
-    {
-      "ts": "2026-09-29T13:13:05Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['FurE: Efficient Instance-Specific 3D Fur Reconstruction without Animal-Fur Datas', 'T"
-      }
-    },
-    {
-      "ts": "2026-09-29T13:13:24Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_8798111a82', 'topic': 'publications_x_space'}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-09-29T13:13:24Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "easy_pad_kills": 0
-      }
-    },
-    {
-      "ts": "2026-09-29T22:28:38Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['FurE: Efficient Instance-Specific 3D Fur Reconstruction without Animal-Fur Datas', 'T"
-      }
-    },
-    {
-      "ts": "2026-09-29T22:28:43Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_ac62f2d534', 'topic': 'publications_x_space'}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-09-29T22:28:43Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "easy_pad_kills": 0
-      }
-    },
-    {
-      "ts": "2026-09-29T22:29:02Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['FurE: Efficient Instance-Specific 3D Fur Reconstruction without Animal-Fur Datas', 'T"
-      }
-    },
-    {
-      "ts": "2026-09-29T22:29:20Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_3d248f127d', 'topic': 'publications_x_space'}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-09-29T22:29:20Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "easy_pad_kills": 0
-      }
-    },
     {
       "ts": "2026-09-29T22:29:28Z",
       "kind": "external_api_probe",
@@ -653,9 +563,108 @@
         "kind": "publications_x_space",
         "easy_pad_kills": 0
       }
+    },
+    {
+      "ts": "2026-09-30T05:47:30Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Skill-Space Shooting for Autonomous Robot Policy Improvement', 'STEPQuant: When and W"
+      }
+    },
+    {
+      "ts": "2026-09-30T05:47:48Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_433cc92ed1', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-09-30T05:47:48Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "easy_pad_kills": 0
+      }
+    },
+    {
+      "ts": "2026-09-30T05:48:09Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Skill-Space Shooting for Autonomous Robot Policy Improvement', 'STEPQuant: When and W"
+      }
+    },
+    {
+      "ts": "2026-09-30T05:48:15Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_4cf7a88f1f', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-09-30T05:48:15Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "easy_pad_kills": 0
+      }
+    },
+    {
+      "ts": "2026-09-30T05:48:24Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Skill-Space Shooting for Autonomous Robot Policy Improvement', 'STEPQuant: When and W"
+      }
+    },
+    {
+      "ts": "2026-09-30T05:48:42Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_0113d8ec32', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-09-30T05:48:42Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "easy_pad_kills": 0
+      }
     }
   ],
-  "ts": "2026-09-29T22:29:45Z",
+  "ts": "2026-09-30T05:48:42Z",
   "note": "ACTION/ACTUATION log. Bounded probes only. Durable accept still needs human authorize.",
   "non_claims": [
     "not_AGI",
