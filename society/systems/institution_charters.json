@@ -1,8 +1,8 @@
 {
   "version": 1,
   "mile": "institution-standing-charters",
-  "updated_at": "2026-10-01T13:39:45Z",
-  "when_et": "2026-10-01 01:39 PM ET",
+  "updated_at": "2026-10-01T22:50:16Z",
+  "when_et": "2026-10-01 10:50 PM ET",
   "charters": [
     {
       "name": "Math Prize Desk",
@@ -18,8 +18,8 @@
         "easy_pad": -0.05
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -41,8 +41,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "RSI Coupling Desk",
@@ -58,8 +58,8 @@
         "govern": 0.03
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -81,8 +81,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Council of Careful Doubt",
@@ -97,8 +97,8 @@
         "easy_pad": -0.08
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -120,8 +120,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Workshop of Making",
@@ -135,8 +135,8 @@
         "build": 0.07
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -158,8 +158,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Archive of Attempts",
@@ -173,8 +173,8 @@
         "gather": 0.04
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -196,8 +196,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Academy of Learning",
@@ -213,8 +213,8 @@
         "explore": 0.03
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -236,8 +236,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Society Bulletin",
@@ -250,8 +250,8 @@
         "reply": 0.04
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -273,8 +273,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Forum of Exchange",
@@ -288,8 +288,8 @@
         "explore": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -311,8 +311,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Chamber of Laws",
@@ -325,8 +325,8 @@
         "govern": 0.06
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -348,8 +348,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Census",
@@ -362,8 +362,8 @@
         "govern": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -385,8 +385,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Commons Archive",
@@ -400,8 +400,8 @@
         "gather": 0.05
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -423,8 +423,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Forum of Domains",
@@ -440,8 +440,8 @@
         "gather": 0.03
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -463,8 +463,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Persona Registry",
@@ -477,8 +477,8 @@
         "govern": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -500,8 +500,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Hearing Chamber",
@@ -516,8 +516,8 @@
         "gather": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -539,8 +539,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     },
     {
       "name": "Committee of Inquiry",
@@ -555,8 +555,8 @@
         "gather": 0.04
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 46,
-      "cycles_remaining": 2,
+      "cycles_pursued": 49,
+      "cycles_remaining": 7,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -578,8 +578,8 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261001T133940Z_fa5cad",
-      "renewed_at_cycle": "20261001T061553Z_4939f2"
+      "last_cycle": "20261001T224958Z_2af4c4",
+      "renewed_at_cycle": "20261001T224958Z_2af4c4"
     }
   ],
   "inform_only": true,
@@ -595,7 +595,7 @@
   ],
   "note": "Standing remits: agenda/topic/gather autonomy for N cycles. Truth still waits for James selective authorize.",
   "count": 15,
-  "last_cycle": "20261001T133940Z_fa5cad",
+  "last_cycle": "20261001T224958Z_2af4c4",
   "last_pursued": [
     "Math Prize Desk",
     "RSI Coupling Desk",
