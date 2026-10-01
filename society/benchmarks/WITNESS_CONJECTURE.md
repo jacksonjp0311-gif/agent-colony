@@ -1,4 +1,4 @@
-# Conjecture desk witness — 2026-10-01T06:16:57Z
+# Conjecture desk witness — 2026-10-01T13:39:41Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
