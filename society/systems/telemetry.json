@@ -1,26 +1,26 @@
 {
-  "ts": "2026-09-30T22:28:36Z",
+  "ts": "2026-10-01T06:17:20Z",
   "version": 1,
   "mile": "spark2_telemetry",
   "internal": {
     "fitness_latest": {
-      "ts": "2026-09-30T22:28:13Z",
-      "cycle_id": "20260930T222738Z_f61d66",
+      "ts": "2026-10-01T06:16:55Z",
+      "cycle_id": "20261001T061631Z_734b4c",
       "tribute_quality": 1.0,
       "gather_coverage": 0.6522,
       "build_reuse": 0.84,
       "comm_reply_rate": 0.8077,
-      "reply_quality": 0.9113,
+      "reply_quality": 0.9114,
       "commons_signal": 1.0,
-      "math_prize": 0.8291,
-      "compute_usefulness": 0.9273,
+      "math_prize": 0.8103,
+      "compute_usefulness": 0.9092,
       "citation_reuse": 0.0,
-      "prize_boost": 0.6976,
-      "aggregate": 0.819,
+      "prize_boost": 0.6829,
+      "aggregate": 0.8159,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0
     },
-    "fitness_aggregate": 0.819,
+    "fitness_aggregate": 0.8159,
     "reply_rate": 0.8077,
     "bus_metrics": {
       "reply_rate": 0.8077,
@@ -28,22 +28,22 @@
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "stats": {
-        "posted": 3193,
-        "read": 14345,
-        "replied": 1994,
-        "actions_planned": 1029,
-        "actions_changed_from_message": 1029,
-        "reply_quality_sum": 1769.8500000000329,
-        "reply_quality_n": 1942,
-        "peer_cite_opportunities": 1997,
-        "peer_cites": 1997
+        "posted": 3364,
+        "read": 15179,
+        "replied": 2102,
+        "actions_planned": 1086,
+        "actions_changed_from_message": 1086,
+        "reply_quality_sum": 1868.4000000000387,
+        "reply_quality_n": 2050,
+        "peer_cite_opportunities": 2108,
+        "peer_cites": 2108
       }
     },
     "oracle": {
-      "passes": 96,
+      "passes": 102,
       "kills": 0,
       "easy_pad_kills": 0,
-      "total": 96
+      "total": 102
     },
     "authorize": {
       "accepted": 3,
@@ -182,42 +182,42 @@
       }
     },
     "cycle_deltas": {
-      "n": 68,
-      "delta_aggregate": 0.0004,
+      "n": 71,
+      "delta_aggregate": -0.0005,
       "before": {
-        "cycle_id": "20260930T222713Z_546212",
-        "aggregate": 0.8186
+        "cycle_id": "20261001T061553Z_4939f2",
+        "aggregate": 0.8164
       },
       "after": {
-        "cycle_id": "20260930T222738Z_f61d66",
-        "aggregate": 0.819
+        "cycle_id": "20261001T061631Z_734b4c",
+        "aggregate": 0.8159
       }
     },
-    "cycle_count": 81,
+    "cycle_count": 84,
     "population": {
       "soft_cap": 20,
       "spawns": 10,
       "child_spawns": 8,
       "last_child_cycle": "20260926T221715Z_05fedf"
     },
-    "ts": "2026-09-30T22:28:36Z"
+    "ts": "2026-10-01T06:17:20Z"
   },
   "external": {
     "resource_usage": {
       "loadavg": [
-        0.3603515625,
-        0.201171875,
-        0.0791015625
+        0.11962890625,
+        0.0751953125,
+        0.02294921875
       ],
-      "rss_kb": 77424,
-      "user_time_s": 4.512646,
-      "probe_latency_ms": 0.01,
-      "disk_free_mb": 87937.0,
-      "pid": 2114,
-      "ts": "2026-09-30T22:28:36Z"
+      "rss_kb": 78924,
+      "user_time_s": 6.882601,
+      "probe_latency_ms": 0.011,
+      "disk_free_mb": 88002.6,
+      "pid": 2372,
+      "ts": "2026-10-01T06:17:20Z"
     },
     "external_array": {
-      "ts": "2026-09-30T22:28:36Z",
+      "ts": "2026-10-01T06:17:20Z",
       "feed_ok": {
         "arxiv": true,
         "nasa_donki_solar": true,
@@ -233,13 +233,13 @@
       "patterns": [
         {
           "kind": "publications_x_space",
-          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Skill-Space Shooting for Autonomous Robot Policy Improvement', 'STEPQuant: When and Where Errors Matter in Delta-Rule Recurrent State Quantizati']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Semifactual Credit-Augmented Policy Optimization', 'Singularity of harmonic measures for hyperbolic lattices']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
           "signals": {
             "arxiv_n": 2,
             "kp": null,
             "titles": [
-              "Skill-Space Shooting for Autonomous Robot Policy Improvement",
-              "STEPQuant: When and Where Errors Matter in Delta-Rule Recurrent State Quantizati"
+              "Semifactual Credit-Augmented Policy Optimization",
+              "Singularity of harmonic measures for hyperbolic lattices"
             ]
           },
           "domains": [
@@ -253,20 +253,20 @@
         },
         {
           "kind": "global_weather_spread",
-          "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 19.5), ('London', 19.0), ('Tokyo', 19.8)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+          "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 17.0), ('Tokyo', 29.0), ('Sydney', 26.3)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
           "signals": {
             "cities": [
               [
                 "NYC",
-                19.5
-              ],
-              [
-                "London",
-                19.0
+                17.0
               ],
               [
                 "Tokyo",
-                19.8
+                29.0
+              ],
+              [
+                "Sydney",
+                26.3
               ]
             ],
             "kp": null
@@ -281,9 +281,9 @@
         },
         {
           "kind": "pulsemesh_goes_live",
-          "summary": "PulseMesh GOES X-ray live latest=-6.575499550484339. Space-weather debate input — not novel physics.",
+          "summary": "PulseMesh GOES X-ray live latest=-6.505751103677624. Space-weather debate input — not novel physics.",
           "signals": {
-            "goes_latest": -6.575499550484339
+            "goes_latest": -6.505751103677624
           },
           "domains": [
             "cosmos",
@@ -294,10 +294,10 @@
         },
         {
           "kind": "pulsemesh_ops_health",
-          "summary": "PulseMesh system_stat/tcp_probe: load1=0.3603515625 probe_ms=9.51242950000264. Ops health for actuation — not consciousness.",
+          "summary": "PulseMesh system_stat/tcp_probe: load1=0.11962890625 probe_ms=5.649377749996631. Ops health for actuation — not consciousness.",
           "signals": {
-            "load1": 0.3603515625,
-            "probe_ms": 9.51242950000264
+            "load1": 0.11962890625,
+            "probe_ms": 5.649377749996631
           },
           "domains": [
             "government",
@@ -315,40 +315,40 @@
       "high_residual": [
         [
           "spark",
-          0.588646
+          0.5886775000000001
         ],
         [
           "pathfinder",
-          0.379448
+          0.3795050000000001
         ],
         [
           "tribute_keeper",
-          0.379448
+          0.3795050000000001
         ]
       ],
       "stats": {
-        "updates": 761,
-        "conflicts": 2248,
-        "redebatess": 102
+        "updates": 803,
+        "conflicts": 2392,
+        "redebatess": 108
       }
     },
     "time_revision": {
-      "ts": "2026-09-30T22:28:19Z",
+      "ts": "2026-10-01T06:17:03Z",
       "version": 1,
-      "latest_cycle_id": "20260930T222813Z_2be4df",
+      "latest_cycle_id": "20261001T061655Z_8abb2b",
       "latest_revision_count": 0,
       "total_revisions": 4,
       "latest_revisions": [],
       "latest_inputs": {
         "pattern_kinds": [
           "global_weather_spread",
-          "pulsemesh_goes_live",
+          "publications_x_space",
           "pulsemesh_ops_health",
-          "publications_x_space"
+          "pulsemesh_goes_live"
         ],
         "n_residual_conflicts": 24,
         "oracle_easy_pad_kills": 0,
-        "fitness_delta": 0.00039999999999995595,
+        "fitness_delta": -0.000500000000000056,
         "kp": null
       },
       "examples": [
@@ -426,42 +426,42 @@
       ]
     },
     "actuation": {
-      "total_actions": 173,
-      "successes": 173,
+      "total_actions": 182,
+      "successes": 182,
       "failures": 0,
       "gated_blocked": 0,
       "success_rate": 1.0,
       "by_kind": {
-        "external_api_probe": 55,
-        "spawn_subdebate": 55,
-        "controlled_experiment": 55,
+        "external_api_probe": 58,
+        "spawn_subdebate": 58,
+        "controlled_experiment": 58,
         "adjust_telemetry_weights": 8
       },
       "examples": [
         {
-          "ts": "2026-09-30T22:28:19Z",
+          "ts": "2026-10-01T06:17:03Z",
           "kind": "external_api_probe",
           "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
           "success": true,
           "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
           "motivating_signal": {
             "kind": "publications_x_space",
-            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Skill-Space Shooting for Autonomous Robot Policy Improvement', 'STEPQuant: When and W"
+            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Semifactual Credit-Augmented Policy Optimization', 'Singularity of harmonic measures "
           }
         },
         {
-          "ts": "2026-09-30T22:28:36Z",
+          "ts": "2026-10-01T06:17:20Z",
           "kind": "spawn_subdebate",
           "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
           "success": true,
-          "result_snip": "{'msg_id': 'msg_f337664523', 'topic': 'publications_x_space'}",
+          "result_snip": "{'msg_id': 'msg_ec09198daa', 'topic': 'publications_x_space'}",
           "motivating_signal": {
             "kind": "publications_x_space",
             "from": "external_or_residual"
           }
         },
         {
-          "ts": "2026-09-30T22:28:36Z",
+          "ts": "2026-10-01T06:17:20Z",
           "kind": "controlled_experiment",
           "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
           "success": true,
@@ -477,7 +477,7 @@
       "external_array_errors": 0,
       "feed_fail_count": 1
     },
-    "ts": "2026-09-30T22:28:36Z"
+    "ts": "2026-10-01T06:17:20Z"
   },
   "note": "Agent-queryable telemetry. Internal colony metrics + external env/array/residuals. Query via colony.telemetry.query during debate. Not AGI.",
   "non_claims": [

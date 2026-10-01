@@ -1,14 +1,14 @@
 {
-  "ts": "2026-09-30T22:28:19Z",
+  "ts": "2026-10-01T06:17:03Z",
   "version": 1,
   "mile": "cortex-cerebrum-sidecar",
   "latest": {
     "source": "cerebrum_boundary",
     "sidecar": "cortex",
     "kind": "memory_drift",
-    "drift": 0.077001,
+    "drift": 0.077014,
     "memory_reuse": 0.0,
-    "stability_hint": 0.922999,
+    "stability_hint": 0.922986,
     "oracle_mix_delta": 0.0,
     "actuation_mix_delta": 0.0,
     "suggest_throttle_factor": 1.0,
@@ -20,8 +20,8 @@
     "double_gate": false,
     "can_accept_ledger": false,
     "note": "Cerebrum admits Cortex inform-only. No ledger authority. P>=0.70 human authorize remains ceiling. Not AGI.",
-    "ts": "2026-09-30T22:28:19Z",
-    "cycle_id": "20260930T222813Z_2be4df"
+    "ts": "2026-10-01T06:17:03Z",
+    "cycle_id": "20261001T061655Z_8abb2b"
   },
   "inform_only": true,
   "ledger_authority": false,
