@@ -1,74 +1,23 @@
 {
   "version": 1,
-  "total_actions": 218,
-  "successes": 218,
+  "total_actions": 227,
+  "successes": 227,
   "failures": 0,
   "gated_blocked": 0,
   "queued": 0,
   "throttled": 0,
   "success_rate": 1.0,
   "by_kind": {
-    "external_api_probe": 70,
-    "spawn_subdebate": 70,
-    "controlled_experiment": 70,
+    "external_api_probe": 73,
+    "spawn_subdebate": 73,
+    "controlled_experiment": 73,
     "adjust_telemetry_weights": 8
   },
   "by_side": {
-    "internal": 78,
-    "external": 140
+    "internal": 81,
+    "external": 146
   },
   "cycle_history": [
-    {
-      "cycle_id": "20260929T131115Z_417737",
-      "ts": "2026-09-29T13:12:06Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true,
-      "cortex_inform_only": true,
-      "cortex_drift": 0.073534,
-      "cortex_memory_reuse": 0.0
-    },
-    {
-      "cycle_id": "20260929T131206Z_f1c6a2",
-      "ts": "2026-09-29T13:12:45Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true,
-      "cortex_inform_only": true,
-      "cortex_drift": 0.082387,
-      "cortex_memory_reuse": 0.0
-    },
-    {
-      "cycle_id": "20260929T131246Z_8bb8d5",
-      "ts": "2026-09-29T13:13:24Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true,
-      "cortex_inform_only": true,
-      "cortex_drift": 0.079449,
-      "cortex_memory_reuse": 0.0
-    },
     {
       "cycle_id": "20260929T222818Z_2fbd0a",
       "ts": "2026-09-29T22:28:43Z",
@@ -527,109 +476,61 @@
       "cortex_inform_only": true,
       "cortex_drift": 0.077014,
       "cortex_memory_reuse": 0.0
+    },
+    {
+      "cycle_id": "20261002T222452Z_421b6b",
+      "ts": "2026-10-02T22:25:24Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.07695,
+      "cortex_memory_reuse": 0.0
+    },
+    {
+      "cycle_id": "20261002T222524Z_7179a1",
+      "ts": "2026-10-02T22:25:53Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.077014,
+      "cortex_memory_reuse": 0.0
+    },
+    {
+      "cycle_id": "20261002T222554Z_441617",
+      "ts": "2026-10-02T22:26:23Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.077014,
+      "cortex_memory_reuse": 0.0
     }
   ],
   "throttle_events": [],
   "examples": [
-    {
-      "ts": "2026-10-02T05:58:09Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'K"
-      }
-    },
-    {
-      "ts": "2026-10-02T05:58:24Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_dc2a30d7ef', 'topic': 'publications_x_space'}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-10-02T05:58:24Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "easy_pad_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-02T12:57:25Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'K"
-      }
-    },
-    {
-      "ts": "2026-10-02T12:57:42Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_914c6fd407', 'topic': 'publications_x_space'}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-10-02T12:57:42Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "easy_pad_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-02T12:57:50Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'K"
-      }
-    },
-    {
-      "ts": "2026-10-02T12:58:07Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_5d8df76a90', 'topic': 'publications_x_space'}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-10-02T12:58:07Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
-      "motivating_signal": {
-        "kind": "publications_x_space",
-        "easy_pad_kills": 0
-      }
-    },
     {
       "ts": "2026-10-02T12:58:27Z",
       "kind": "external_api_probe",
@@ -662,9 +563,108 @@
         "kind": "publications_x_space",
         "easy_pad_kills": 0
       }
+    },
+    {
+      "ts": "2026-10-02T22:25:17Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'K"
+      }
+    },
+    {
+      "ts": "2026-10-02T22:25:24Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_f2c2723dc8', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-10-02T22:25:24Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "easy_pad_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-02T22:25:45Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'K"
+      }
+    },
+    {
+      "ts": "2026-10-02T22:25:53Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_55f397f048', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-10-02T22:25:53Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "easy_pad_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-02T22:26:03Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'K"
+      }
+    },
+    {
+      "ts": "2026-10-02T22:26:23Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_9301a83dbf', 'topic': 'publications_x_space'}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-10-02T22:26:23Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 1.25, 'after': 1.25, 'delta': 0.03}",
+      "motivating_signal": {
+        "kind": "publications_x_space",
+        "easy_pad_kills": 0
+      }
     }
   ],
-  "ts": "2026-10-02T12:58:44Z",
+  "ts": "2026-10-02T22:26:23Z",
   "note": "ACTION/ACTUATION log. Bounded probes only. Durable accept still needs human authorize.",
   "non_claims": [
     "not_AGI",
