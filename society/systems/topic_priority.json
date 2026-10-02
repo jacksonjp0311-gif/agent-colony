@@ -26,17 +26,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "absolute-max",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "ack-heavy]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "agent-soci'",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "agent-societies",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -242,8 +242,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-01T22:50:16Z",
-  "updated_cycle": "20261001T224958Z_2af4c4",
+  "updated_at": "2026-10-02T05:58:09Z",
+  "updated_cycle": "20261002T055751Z_46d575",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

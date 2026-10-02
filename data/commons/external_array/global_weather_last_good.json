@@ -8,34 +8,34 @@
       "city": "NYC",
       "lat": 40.71,
       "lon": -74.01,
-      "temperature_2m": 21.4,
-      "wind_speed_10m": 6.2,
+      "temperature_2m": 20.2,
+      "wind_speed_10m": 9.0,
       "weather_code": 0,
-      "time": "2026-10-01T22:45",
+      "time": "2026-10-02T05:45",
       "source": "open_meteo"
     },
     {
       "city": "London",
       "lat": 51.51,
       "lon": -0.13,
-      "temperature_2m": 15.5,
-      "wind_speed_10m": 7.9,
+      "temperature_2m": 13.5,
+      "wind_speed_10m": 5.4,
       "weather_code": 0,
-      "time": "2026-10-01T22:45",
+      "time": "2026-10-02T05:45",
       "source": "open_meteo"
     },
     {
       "city": "Tokyo",
       "lat": 35.68,
       "lon": 139.76,
-      "temperature_2m": 21.2,
+      "temperature_2m": 22.1,
       "wind_speed_10m": 5.1,
-      "weather_code": 2,
-      "time": "2026-10-01T22:45",
+      "weather_code": 1,
+      "time": "2026-10-02T05:45",
       "source": "open_meteo"
     }
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-10-01T22:50:33Z"
+  "ts": "2026-10-02T05:58:24Z"
 }
