@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-03T11:53:44Z",
+  "ts": "2026-10-03T16:35:10Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.708845582488503,
+      "latest": -6.516015030731188,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-03T11:46:00Z",
-          "v": -9.000000012282687
+          "t": "2026-10-03T16:29:00Z",
+          "v": -8.142564752129125
         },
         {
-          "t": "2026-10-03T11:46:00Z",
-          "v": -6.699680448486291
+          "t": "2026-10-03T16:29:00Z",
+          "v": -6.480223924715215
         },
         {
-          "t": "2026-10-03T11:47:00Z",
-          "v": -9.000000012282687
+          "t": "2026-10-03T16:30:00Z",
+          "v": -8.299413134518607
         },
         {
-          "t": "2026-10-03T11:47:00Z",
-          "v": -6.705534450626462
+          "t": "2026-10-03T16:30:00Z",
+          "v": -6.489928089068753
         },
         {
-          "t": "2026-10-03T11:48:00Z",
-          "v": -8.88565823060732
+          "t": "2026-10-03T16:31:00Z",
+          "v": -8.315817345731473
         },
         {
-          "t": "2026-10-03T11:48:00Z",
-          "v": -6.704063473409438
+          "t": "2026-10-03T16:31:00Z",
+          "v": -6.505267948887406
         },
         {
-          "t": "2026-10-03T11:49:00Z",
-          "v": -9.000000012282687
+          "t": "2026-10-03T16:32:00Z",
+          "v": -8.337260664636878
         },
         {
-          "t": "2026-10-03T11:49:00Z",
-          "v": -6.708845582488503
+          "t": "2026-10-03T16:32:00Z",
+          "v": -6.516015030731188
         }
       ],
       "live": true,
-      "ts": "2026-10-03T11:53:44Z"
+      "ts": "2026-10-03T16:35:10Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 18.4,
+      "latest": 18.6,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -95,7 +95,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-03T11:53:44Z"
+      "ts": "2026-10-03T16:35:10Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -129,33 +129,33 @@
           "source": "usgs"
         },
         {
-          "mag": 5.1,
-          "place": "199 km SSE of Vilyuchinsk, Russia",
-          "time": 1790972847120,
+          "mag": 4.7,
+          "place": "52 km SSW of Vilyuchinsk, Russia",
+          "time": 1790973501109,
           "source": "usgs"
         },
         {
           "mag": 4.6,
-          "place": "67 km ESE of Kokopo, Papua New Guinea",
-          "time": 1790972762878,
+          "place": "46 km SSW of Paratunka, Russia",
+          "time": 1790973468318,
           "source": "usgs"
         },
         {
-          "mag": 4.9,
-          "place": "136 km SSE of Vilyuchinsk, Russia",
-          "time": 1790972729894,
+          "mag": 4.5,
+          "place": "86 km E of Noda, Japan",
+          "time": 1790973296862,
           "source": "usgs"
         },
         {
-          "mag": 4.4,
-          "place": "Kermadec Islands region",
-          "time": 1790970200760,
+          "mag": 5.1,
+          "place": "199 km SSE of Vilyuchinsk, Russia",
+          "time": 1790972847120,
           "source": "usgs"
         }
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-09-26&endtime=2026-10-03&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-03T11:53:44Z"
+      "ts": "2026-10-03T16:35:10Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.212890625,
-          "disk_free_percent": 59.57051101487192,
-          "process_count": 154,
-          "uptime_hours": 0.14062777777777777,
+          "load1": 0.18505859375,
+          "disk_free_percent": 59.570069402435436,
+          "process_count": 165,
+          "uptime_hours": 0.03334444444444445,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervm8df0l",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.212890625,
+      "latest_load1": 0.18505859375,
       "live": true,
-      "ts": "2026-10-03T11:53:44Z"
+      "ts": "2026-10-03T16:35:10Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 6.201534000012998,
-      "mean_ms": 6.597055250011863,
+      "latest_ms": 2.2500700000023244,
+      "mean_ms": 2.1383549999960394,
       "items": [
         {
           "probe": 0,
-          "ms": 6.256185000040659
+          "ms": 2.893138999993994
         },
         {
           "probe": 1,
-          "ms": 7.400506999999834
+          "ms": 1.6189839999896094
         },
         {
           "probe": 2,
-          "ms": 6.52999499999396
+          "ms": 1.79122699999823
         },
         {
           "probe": 3,
-          "ms": 6.201534000012998
+          "ms": 2.2500700000023244
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-03T11:53:44Z"
+      "ts": "2026-10-03T16:35:10Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.212890625 tcp_probe mean_ms=6.597055250011863 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.18505859375 tcp_probe mean_ms=2.1383549999960394 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.212890625,
-        "probe_ms": 6.597055250011863,
+        "load1": 0.18505859375,
+        "probe_ms": 2.1383549999960394,
         "probe_ok": true
       },
       "domains": [

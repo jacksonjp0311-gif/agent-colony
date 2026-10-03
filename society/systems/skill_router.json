@@ -14,7 +14,7 @@
       "communicate": 0.9342,
       "gather": 0.5,
       "improve": 0.6569,
-      "emergence": 0.6631
+      "emergence": 0.6632
     },
     "tribute_keeper": {
       "tribute": 0.99,
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-10-03T11:53:45Z",
-  "updated_cycle": "20261003T115318Z_69586f"
+  "updated_at": "2026-10-03T16:35:11Z",
+  "updated_cycle": "20261003T163448Z_bf59fc"
 }
