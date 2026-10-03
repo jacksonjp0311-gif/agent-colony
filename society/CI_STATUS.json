@@ -149,82 +149,85 @@
     "cycle_97_evolve_note",
     "cycle_98_evolve_note",
     "cycle_99_evolve_note",
-    "cycle_100_evolve_note"
+    "cycle_100_evolve_note",
+    "cycle_101_evolve_note",
+    "cycle_102_evolve_note",
+    "cycle_103_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 250,
+      "uses": 259,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 222,
+      "uses": 231,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 169,
+      "uses": 175,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 84,
+      "uses": 87,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 293,
+      "uses": 305,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 237,
+      "uses": 246,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 217,
+      "uses": 226,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 72,
+      "uses": 75,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 72,
+      "uses": 75,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 57,
+      "uses": 60,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 57,
+      "uses": 60,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 54,
+      "uses": 57,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 54,
+      "uses": 57,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 51,
+      "uses": 54,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 51,
+      "uses": 54,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -499,8 +502,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 292,
-    "reused": 652
+    "appended": 304,
+    "reused": 679
   },
   "commons_by_domain": {
     "science": 50,
@@ -519,8 +522,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-02T22:26:23Z",
-    "cycle_id": "20261002T222554Z_441617",
+    "ts": "2026-10-03T05:34:01Z",
+    "cycle_id": "20261003T053322Z_269b04",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -532,48 +535,48 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-02T22:26:23Z",
-    "cycle_id": "20261002T222554Z_441617",
+    "ts": "2026-10-03T05:34:01Z",
+    "cycle_id": "20261003T053322Z_269b04",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8077,
-    "reply_quality": 0.9116,
+    "reply_quality": 0.9117,
     "commons_signal": 1.0,
-    "math_prize": 0.8101,
-    "compute_usefulness": 0.9088,
+    "math_prize": 0.8131,
+    "compute_usefulness": 0.9125,
     "citation_reuse": 0.0,
-    "prize_boost": 0.6826,
-    "aggregate": 0.8158,
+    "prize_boost": 0.6853,
+    "aggregate": 0.8164,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
-  "improvement_proposals": 160,
+  "improvement_proposals": 166,
   "bus_stats": {
-    "posted": 4219,
-    "read": 19349,
-    "replied": 2642,
-    "actions_planned": 1371,
-    "actions_changed_from_message": 1371,
-    "reply_quality_sum": 2361.15000000007,
-    "reply_quality_n": 2590,
-    "peer_cite_opportunities": 2663,
-    "peer_cites": 2663
+    "posted": 4390,
+    "read": 20183,
+    "replied": 2750,
+    "actions_planned": 1428,
+    "actions_changed_from_message": 1428,
+    "reply_quality_sum": 2459.7000000000767,
+    "reply_quality_n": 2698,
+    "peer_cite_opportunities": 2774,
+    "peer_cites": 2774
   },
   "bus_domains": {
-    "science": 212,
-    "history": 214,
-    "math": 651,
-    "empire": 145,
-    "bulletin": 657,
-    "forum": 930,
-    "software": 214,
-    "nature": 212,
-    "life": 214,
-    "cosmos": 298,
-    "rsi": 364
+    "science": 221,
+    "history": 223,
+    "math": 678,
+    "empire": 151,
+    "bulletin": 684,
+    "forum": 969,
+    "software": 223,
+    "nature": 221,
+    "life": 223,
+    "cosmos": 310,
+    "rsi": 379
   },
-  "communications_count": 4219,
+  "communications_count": 4390,
   "improvements": [
     "Bulletin-first communication",
     "Artifact footprint rule",
@@ -746,18 +749,24 @@
     "Deepen compute-useful math from accepted findings after hearing",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 99)",
     "Deepen compute-useful math from accepted findings after hearing",
-    "Feed accepted/strong RSI findings into skill_router + genome bias"
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 101)",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 103)"
   ],
-  "cycle_count": 100,
-  "ledger_count": 4554,
+  "cycle_count": 103,
+  "ledger_count": 4736,
   "status_counts": {
-    "candidate": 4354,
-    "accepted": 45,
-    "rejected": 81,
-    "unknown": 74
+    "candidate": 4528,
+    "accepted": 47,
+    "rejected": 84,
+    "unknown": 77
   },
-  "witness_events": 6277,
-  "tribute_cycles_compliant": 100,
+  "witness_events": 6539,
+  "tribute_cycles_compliant": 103,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
