@@ -1,9 +1,9 @@
-# Conjecture desk witness — 2026-10-04T21:44:34Z
+# Conjecture desk witness — 2026-10-05T06:00:45Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
 - `none` (-) → **skip** 0.825→0.825 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty).
-  - themes: TACO: Ternary Absolute-max Column-wise One-sparse Optimizer , FERPO: Forward Entropy-Regularized Policy Optimization, The Sociolinguistics of Machine Identity: LLM Personality an
+  - themes: Quantitative Gowers uniformity of the primes in intervals of, Non-isomorphic graphs have distinct vertex-Ramsey classes, The Sociolinguistics of Machine Identity: LLM Personality an
 
 ## Honesty
 

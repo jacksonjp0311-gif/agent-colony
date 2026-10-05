@@ -1,49 +1,49 @@
 {
-  "ts": "2026-10-04T21:45:08Z",
+  "ts": "2026-10-05T06:01:06Z",
   "version": 1,
   "mile": "spark2_telemetry",
   "internal": {
     "fitness_latest": {
-      "ts": "2026-10-04T21:44:31Z",
-      "cycle_id": "20261004T214407Z_5faa7e",
+      "ts": "2026-10-05T06:00:43Z",
+      "cycle_id": "20261005T060019Z_9b96dd",
       "tribute_quality": 1.0,
       "gather_coverage": 0.6522,
       "build_reuse": 0.84,
       "comm_reply_rate": 0.8077,
       "reply_quality": 0.9118,
       "commons_signal": 1.0,
-      "math_prize": 0.8103,
-      "compute_usefulness": 0.9091,
+      "math_prize": 0.825,
+      "compute_usefulness": 0.9265,
       "citation_reuse": 0.0,
-      "prize_boost": 0.6828,
-      "aggregate": 0.8159,
+      "prize_boost": 0.6955,
+      "aggregate": 0.8186,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0
     },
-    "fitness_aggregate": 0.8159,
+    "fitness_aggregate": 0.8186,
     "reply_rate": 0.8077,
     "bus_metrics": {
       "reply_rate": 0.8077,
-      "reply_quality": 0.9118,
+      "reply_quality": 0.9119,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "stats": {
-        "posted": 5416,
-        "read": 25187,
-        "replied": 3398,
-        "actions_planned": 1770,
-        "actions_changed_from_message": 1770,
-        "reply_quality_sum": 3051.000000000116,
-        "reply_quality_n": 3346,
-        "peer_cite_opportunities": 3440,
-        "peer_cites": 3440
+        "posted": 5587,
+        "read": 26021,
+        "replied": 3506,
+        "actions_planned": 1827,
+        "actions_changed_from_message": 1827,
+        "reply_quality_sum": 3149.5500000001225,
+        "reply_quality_n": 3454,
+        "peer_cite_opportunities": 3551,
+        "peer_cites": 3551
       }
     },
     "oracle": {
-      "passes": 174,
+      "passes": 180,
       "kills": 0,
       "easy_pad_kills": 0,
-      "total": 174
+      "total": 180
     },
     "authorize": {
       "accepted": 3,
@@ -183,41 +183,41 @@
     },
     "cycle_deltas": {
       "n": 100,
-      "delta_aggregate": -0.0006,
+      "delta_aggregate": -0.0012,
       "before": {
-        "cycle_id": "20261004T214328Z_40d5f8",
-        "aggregate": 0.8165
+        "cycle_id": "20261005T055942Z_e9c5a7",
+        "aggregate": 0.8198
       },
       "after": {
-        "cycle_id": "20261004T214407Z_5faa7e",
-        "aggregate": 0.8159
+        "cycle_id": "20261005T060019Z_9b96dd",
+        "aggregate": 0.8186
       }
     },
-    "cycle_count": 120,
+    "cycle_count": 123,
     "population": {
       "soft_cap": 20,
       "spawns": 10,
       "child_spawns": 8,
       "last_child_cycle": "20260926T221715Z_05fedf"
     },
-    "ts": "2026-10-04T21:45:08Z"
+    "ts": "2026-10-05T06:01:06Z"
   },
   "external": {
     "resource_usage": {
       "loadavg": [
-        0.19384765625,
-        0.15087890625,
-        0.0615234375
+        0.1865234375,
+        0.12158203125,
+        0.04638671875
       ],
-      "rss_kb": 99168,
-      "user_time_s": 9.971918,
-      "probe_latency_ms": 0.01,
-      "disk_free_mb": 87992.8,
-      "pid": 2393,
-      "ts": "2026-10-04T21:45:08Z"
+      "rss_kb": 100584,
+      "user_time_s": 6.785685,
+      "probe_latency_ms": 0.012,
+      "disk_free_mb": 87992.0,
+      "pid": 2160,
+      "ts": "2026-10-05T06:01:06Z"
     },
     "external_array": {
-      "ts": "2026-10-04T21:45:08Z",
+      "ts": "2026-10-05T06:01:06Z",
       "feed_ok": {
         "arxiv": true,
         "nasa_donki_solar": true,
@@ -233,13 +233,13 @@
       "patterns": [
         {
           "kind": "publications_x_space",
-          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux wit']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Less Decoder is More Encoder: Geometric Representation Learning from Novel View ', '4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
           "signals": {
             "arxiv_n": 2,
             "kp": null,
             "titles": [
-              "One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av",
-              "KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux wit"
+              "Less Decoder is More Encoder: Geometric Representation Learning from Novel View ",
+              "4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes"
             ]
           },
           "domains": [
@@ -253,20 +253,24 @@
         },
         {
           "kind": "global_weather_spread",
-          "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 14.0), ('London', 18.2), ('Tokyo', 17.6)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+          "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 12.9), ('London', 12.9), ('Tokyo', 21.6), ('Sydney', 19.3)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
           "signals": {
             "cities": [
               [
                 "NYC",
-                14.0
+                12.9
               ],
               [
                 "London",
-                18.2
+                12.9
               ],
               [
                 "Tokyo",
-                17.6
+                21.6
+              ],
+              [
+                "Sydney",
+                19.3
               ]
             ],
             "kp": null
@@ -281,9 +285,9 @@
         },
         {
           "kind": "pulsemesh_goes_live",
-          "summary": "PulseMesh GOES X-ray live latest=-6.746708042258093. Space-weather debate input — not novel physics.",
+          "summary": "PulseMesh GOES X-ray live latest=-6.037809555236011. Space-weather debate input — not novel physics.",
           "signals": {
-            "goes_latest": -6.746708042258093
+            "goes_latest": -6.037809555236011
           },
           "domains": [
             "cosmos",
@@ -294,10 +298,10 @@
         },
         {
           "kind": "pulsemesh_ops_health",
-          "summary": "PulseMesh system_stat/tcp_probe: load1=0.19384765625 probe_ms=1.6639639999951328. Ops health for actuation — not consciousness.",
+          "summary": "PulseMesh system_stat/tcp_probe: load1=0.1865234375 probe_ms=8.04747849999643. Ops health for actuation — not consciousness.",
           "signals": {
-            "load1": 0.19384765625,
-            "probe_ms": 1.6639639999951328
+            "load1": 0.1865234375,
+            "probe_ms": 8.04747849999643
           },
           "domains": [
             "government",
@@ -315,40 +319,40 @@
       "high_residual": [
         [
           "spark",
-          0.5887089999999999
+          0.5888979999999999
         ],
         [
           "pathfinder",
-          0.379562
+          0.37990399999999996
         ],
         [
           "tribute_keeper",
-          0.379562
+          0.37990399999999996
         ]
       ],
       "stats": {
-        "updates": 1307,
-        "conflicts": 4120,
-        "redebatess": 180
+        "updates": 1349,
+        "conflicts": 4264,
+        "redebatess": 186
       }
     },
     "time_revision": {
-      "ts": "2026-10-04T21:44:51Z",
+      "ts": "2026-10-05T06:01:02Z",
       "version": 1,
-      "latest_cycle_id": "20261004T214432Z_f78bbf",
+      "latest_cycle_id": "20261005T060043Z_4c66b7",
       "latest_revision_count": 0,
       "total_revisions": 4,
       "latest_revisions": [],
       "latest_inputs": {
         "pattern_kinds": [
-          "pulsemesh_goes_live",
+          "publications_x_space",
           "global_weather_spread",
           "pulsemesh_ops_health",
-          "publications_x_space"
+          "pulsemesh_goes_live"
         ],
         "n_residual_conflicts": 24,
         "oracle_easy_pad_kills": 0,
-        "fitness_delta": -0.0006000000000000449,
+        "fitness_delta": -0.0011999999999999789,
         "kp": null
       },
       "examples": [
@@ -426,42 +430,42 @@
       ]
     },
     "actuation": {
-      "total_actions": 290,
-      "successes": 290,
+      "total_actions": 299,
+      "successes": 299,
       "failures": 0,
       "gated_blocked": 0,
       "success_rate": 1.0,
       "by_kind": {
-        "external_api_probe": 94,
-        "spawn_subdebate": 94,
-        "controlled_experiment": 94,
+        "external_api_probe": 97,
+        "spawn_subdebate": 97,
+        "controlled_experiment": 97,
         "adjust_telemetry_weights": 8
       },
       "examples": [
         {
-          "ts": "2026-10-04T21:44:51Z",
+          "ts": "2026-10-05T06:01:02Z",
           "kind": "external_api_probe",
           "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
           "success": true,
           "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': True, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pul",
           "motivating_signal": {
             "kind": "publications_x_space",
-            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['One Basis to Animate Them All: Gaussian Blendshape Distillation for Real-Time Av', 'K"
+            "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Less Decoder is More Encoder: Geometric Representation Learning from Novel View ', '4"
           }
         },
         {
-          "ts": "2026-10-04T21:45:08Z",
+          "ts": "2026-10-05T06:01:06Z",
           "kind": "spawn_subdebate",
           "hypothesis": "Targeted sub-debate on `publications_x_space` will lift load-bear replies / hearing quality.",
           "success": true,
-          "result_snip": "{'msg_id': 'msg_51f9c793f5', 'topic': 'publications_x_space'}",
+          "result_snip": "{'msg_id': 'msg_341febc0cd', 'topic': 'publications_x_space'}",
           "motivating_signal": {
             "kind": "publications_x_space",
             "from": "external_or_residual"
           }
         },
         {
-          "ts": "2026-10-04T21:45:08Z",
+          "ts": "2026-10-05T06:01:06Z",
           "kind": "controlled_experiment",
           "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
           "success": true,
@@ -477,7 +481,7 @@
       "external_array_errors": 0,
       "feed_fail_count": 1
     },
-    "ts": "2026-10-04T21:45:08Z"
+    "ts": "2026-10-05T06:01:06Z"
   },
   "note": "Agent-queryable telemetry. Internal colony metrics + external env/array/residuals. Query via colony.telemetry.query during debate. Not AGI.",
   "non_claims": [
