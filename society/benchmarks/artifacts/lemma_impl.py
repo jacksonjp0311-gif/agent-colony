@@ -477,6 +477,50 @@ def check_workload_derived_chain() -> bool:
     return True
 
 
+
+def check_vandermonde_asymmetric() -> bool:
+    """Asymmetric Vandermonde convolution windows (harder ranges than vandermonde_conv)."""
+    windows = [(12, 9, 7), (14, 8, 10), (11, 11, 5), (15, 6, 9), (13, 10, 12)]
+    return all(check_vandermonde_convolution(m, n, r) for m, n, r in windows)
+
+
+def check_binomial_hockey_deep() -> bool:
+    """Hockey-stick at deeper adversarial (n,r) ranges."""
+    return all(
+        check_hockey_stick(n, r)
+        for n in range(0, 36)
+        for r in range(0, min(n, 12) + 1)
+    )
+
+
+def check_fibonacci_cassini_ext() -> bool:
+    """Cassini-family Fibonacci identity under extended range (n=1..60)."""
+    return all(check_cassini_identity(n) for n in range(1, 61))
+
+
+def check_derived_chain_stress() -> bool:
+    """Multi-step derived chain stress beyond workload_derived_chain."""
+    if not check_workload_derived_chain():
+        return False
+    # Extra stress: larger Vandermonde + deeper hockey + longer Cassini
+    if not check_vandermonde_convolution(12, 10, 8):
+        return False
+    if not check_hockey_stick(28, 6):
+        return False
+    if not all(check_cassini_identity(n) for n in range(1, 45)):
+        return False
+    if not all(check_binomial_sum_row(n) for n in range(0, 28)):
+        return False
+    return True
+
+
+# Adversarial aliases used by Oracle theme held-out windows (same callables)
+check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
+check_adversarial_hockey_deep = check_binomial_hockey_deep
+check_adversarial_cassini_ext = check_fibonacci_cassini_ext
+check_adversarial_catalan_convolution_stress = check_catalan_convolution
+check_adversarial_derived_chain_stress = check_derived_chain_stress
+
 # Mutable catalog the conjecture desk may extend / mutate.
 # Each entry: (name, zero-arg callable returning bool, enabled)
 CANDIDATE_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
@@ -541,6 +585,17 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ), True),
     ("binomial_inversion_small", lambda: all(check_binomial_inversion_small(n) for n in range(0, 9)), True),
     ("legendre_duplication_small", lambda: all(check_legendre_duplication_small(n) for n in range(0, 12)), True),
+    # Relight spark — Phase 2 harder lemmas (start DISABLED so desk can hard_enable)
+    ("vandermonde_asymmetric", check_vandermonde_asymmetric, False),
+    ("binomial_hockey_deep", check_binomial_hockey_deep, False),
+    ("fibonacci_cassini_ext", check_fibonacci_cassini_ext, False),
+    ("derived_chain_stress", check_derived_chain_stress, False),
+    # Adversarial held-out windows (Oracle theme-specific; start disabled)
+    ("adversarial_vandermonde_asymmetric", check_adversarial_vandermonde_asymmetric, False),
+    ("adversarial_hockey_deep", check_adversarial_hockey_deep, False),
+    ("adversarial_cassini_ext", check_adversarial_cassini_ext, False),
+    ("adversarial_catalan_convolution_stress", lambda: all(check_catalan_convolution(n) for n in range(0, 16)), False),
+    ("adversarial_derived_chain_stress", check_adversarial_derived_chain_stress, False),
 
 ]
 

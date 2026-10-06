@@ -74,6 +74,11 @@ MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("lagrange_identity", "hard_enable", "enable:lagrange_identity"),
     ("binomial_inversion_small", "hard_enable", "enable:binomial_inversion_small"),
     ("legendre_duplication_small", "hard_enable", "enable:legendre_duplication_small"),
+    # Relight spark Phase 2 — harder lemmas (disabled in lemma_impl; desk hard_enable)
+    ("vandermonde_asymmetric", "hard_enable", "enable:vandermonde_asymmetric"),
+    ("binomial_hockey_deep", "hard_enable", "enable:binomial_hockey_deep"),
+    ("fibonacci_cassini_ext", "hard_enable", "enable:fibonacci_cassini_ext"),
+    ("derived_chain_stress", "hard_enable", "enable:derived_chain_stress"),
     # STEM kinematics domain pack
     ("energy_work", "stem_enable", "enable:energy_work"),
     ("stem_easy_pad_units", "stem_easy_pad", "pad"),
@@ -159,3 +164,54 @@ def recent_revert_counts(limit: int = 30) -> dict[str, int]:
         if h.get("decision") == "revert" and h.get("mutation"):
             out[h["mutation"]] = out.get(h["mutation"], 0) + 1
     return out
+
+
+EXT_CATALOG = Path(__file__).resolve().parent.parent / "society" / "systems" / "mutation_catalog_ext.json"
+
+
+def load_extended_snippets() -> list[tuple[str, str, str]]:
+    """Data-driven mutation overlay (lesson catalog_hint stubs). Candidate only."""
+    if not EXT_CATALOG.exists():
+        return []
+    try:
+        data = json.loads(EXT_CATALOG.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+    out: list[tuple[str, str, str]] = []
+    for row in data.get("mutations") or []:
+        name = str(row.get("name") or "").strip()
+        kind = str(row.get("kind") or "hard_enable").strip()
+        snip = str(row.get("snippet") or f"enable:{name}")
+        if name:
+            out.append((name, kind, snip))
+    return out
+
+
+def all_snippets() -> list[tuple[str, str, str]]:
+    return list(MUTATION_SNIPPETS) + load_extended_snippets()
+
+
+def register_mutation_candidate(name: str, kind: str = "hard_enable", snippet: str = "") -> dict:
+    """Queue a disabled stub mutation into the overlay JSON (self-extending catalog)."""
+    name = (name or "").strip()
+    if not name:
+        return {"ok": False, "reason": "empty_name"}
+    EXT_CATALOG.parent.mkdir(parents=True, exist_ok=True)
+    data = {"version": 1, "mutations": [], "note": "Data-driven overlay; enables stay candidate until authorize."}
+    if EXT_CATALOG.exists():
+        try:
+            data = json.loads(EXT_CATALOG.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass
+    muts = data.setdefault("mutations", [])
+    if any(m.get("name") == name for m in muts):
+        return {"ok": True, "reason": "already_queued", "name": name}
+    muts.append({
+        "name": name,
+        "kind": kind or "hard_enable",
+        "snippet": snippet or f"enable:{name}",
+        "status": "candidate",
+        "disabled_default": True,
+    })
+    EXT_CATALOG.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    return {"ok": True, "name": name, "queued": True}

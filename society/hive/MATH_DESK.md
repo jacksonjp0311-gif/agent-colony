@@ -44,3 +44,13 @@ This file only. No code changes. No charter edits. No workflow edits.
 - Classical textbook identities ≠ novel mathematics.
 - The desk proposes; the Oracle kills; James authorizes.
 - Not AGI. Not consciousness. Not a civilization claim.
+
+
+## Relight the Spark (live paths)
+
+- Papers cache: `data/research_cache/papers.jsonl` (built from offline_seeds + ledger arXiv IDs via `scripts/build_papers_cache.py`)
+- Conjecture desk + claim pipeline read that cache (offline-first)
+- Harder lemmas (disabled until desk `hard_enable`): `vandermonde_asymmetric`, `binomial_hockey_deep`, `fibonacci_cassini_ext`, `derived_chain_stress`
+- Extended mutation overlay: `society/systems/mutation_catalog_ext.json`
+- Lessons with `catalog_hint` queue stubs; durable accept still needs human authorize P≥0.70
+- Not discovery. Not AGI. Not Millennium.
