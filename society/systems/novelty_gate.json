@@ -1,34 +1,35 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T14:33:47Z",
+  "updated_at": "2026-10-06T18:33:28Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-06T14:33:47Z",
+    "ts": "2026-10-06T18:33:28Z",
     "cycle_id": "",
-    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)",
+    "mutation": "Deepen compute-useful math from accepted findings after hearing",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
+      "already_in_lesson_ledger_or_history",
       "stripped_baseline_does_not_fail_usefulness",
       "held_out:hard_tier_green_and_hard_enable",
       "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
     ],
     "textbook_reuse": 0.0,
-    "in_ledger": false,
+    "in_ledger": true,
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 26,
-      "hard_n": 26,
+      "hard_pass": 29,
+      "hard_n": 29,
       "stripped_fails_usefulness": false,
-      "score": 0.8871,
-      "impl_id": "lemma_impl_v2_basic10_hard26"
+      "score": 0.9071,
+      "impl_id": "lemma_impl_v2_basic10_hard29"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 26,
+      "hard_pass": 29,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

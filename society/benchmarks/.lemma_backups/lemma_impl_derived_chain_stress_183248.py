@@ -589,7 +589,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("vandermonde_asymmetric", check_vandermonde_asymmetric, True),
     ("binomial_hockey_deep", check_binomial_hockey_deep, True),
     ("fibonacci_cassini_ext", check_fibonacci_cassini_ext, True),
-    ("derived_chain_stress", check_derived_chain_stress, True),
+    ("derived_chain_stress", check_derived_chain_stress, False),
     # Adversarial held-out windows (Oracle theme-specific; start disabled)
     ("adversarial_vandermonde_asymmetric", check_adversarial_vandermonde_asymmetric, False),
     ("adversarial_hockey_deep", check_adversarial_hockey_deep, False),

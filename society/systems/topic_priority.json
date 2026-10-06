@@ -1,6 +1,31 @@
 {
   "ranked": [
     {
+      "topic": "compute-useful-math",
+      "priority": 1.15,
+      "reason": "accepted_compute_finding",
+      "finding_id": "fnd_d4814b6bea51",
+      "title": "Authorize accepted: Hard-checked claim: autodiff"
+    },
+    {
+      "topic": "open-math-problems",
+      "priority": 1.05,
+      "reason": "follow_on_from_compute",
+      "from_topic": "compute-useful-math"
+    },
+    {
+      "topic": "software-engineering",
+      "priority": 1.05,
+      "reason": "follow_on_from_compute",
+      "from_topic": "compute-useful-math"
+    },
+    {
+      "topic": "emergent-technology",
+      "priority": 1.05,
+      "reason": "follow_on_from_compute",
+      "from_topic": "compute-useful-math"
+    },
+    {
       "topic": "'multi-hop",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -56,43 +81,15 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "compute-useful-math",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "science-method",
       "priority": 0.85,
       "reason": "stem_coverage=0"
     },
     {
-      "topic": "history-of-ideas",
-      "priority": 0.85,
-      "reason": "stem_coverage=0"
-    },
-    {
       "topic": "mathematics-foundations",
-      "priority": 0.85,
-      "reason": "stem_coverage=1"
-    },
-    {
-      "topic": "software-engineering",
-      "priority": 0.85,
-      "reason": "stem_coverage=0"
-    },
-    {
-      "topic": "open-math-problems",
       "priority": 0.55,
       "reason": "charter:Math Prize Desk",
       "institution": "Math Prize Desk",
-      "inform_only": true,
-      "durable_accept": false
-    },
-    {
-      "topic": "emergent-technology",
-      "priority": 0.55,
-      "reason": "charter:RSI Coupling Desk",
-      "institution": "RSI Coupling Desk",
       "inform_only": true,
       "durable_accept": false
     },
@@ -201,6 +198,14 @@
       "durable_accept": false
     },
     {
+      "topic": "history-of-ideas",
+      "priority": 0.55,
+      "reason": "charter:Forum of Domains",
+      "institution": "Forum of Domains",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
       "topic": "persona-hygiene",
       "priority": 0.55,
       "reason": "charter:Persona Registry",
@@ -242,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-06T14:33:24Z",
-  "updated_cycle": "20261006T143302Z_295c03",
+  "updated_at": "2026-10-06T18:33:06Z",
+  "updated_cycle": "20261006T183245Z_2a4842",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

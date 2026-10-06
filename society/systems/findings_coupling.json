@@ -1,30 +1,78 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T14:33:42Z",
-  "updated_cycle": "20261006T143302Z_295c03",
+  "updated_at": "2026-10-06T18:33:26Z",
+  "updated_cycle": "20261006T183245Z_2a4842",
   "signal": {
-    "ts": "2026-10-06T14:33:42Z",
-    "strength": 0.0,
+    "ts": "2026-10-06T18:33:26Z",
+    "strength": 0.3,
     "accepted_math": 0,
-    "accepted_compute": 0,
+    "accepted_compute": 3,
     "accepted_rsi": 0,
-    "topic_boosts": [],
+    "topic_boosts": [
+      {
+        "topic": "compute-useful-math",
+        "priority": 1.15,
+        "reason": "accepted_compute_finding",
+        "finding_id": "fnd_d4814b6bea51",
+        "title": "Authorize accepted: Hard-checked claim: autodiff"
+      },
+      {
+        "topic": "open-math-problems",
+        "priority": 1.05,
+        "reason": "follow_on_from_compute",
+        "from_topic": "compute-useful-math"
+      },
+      {
+        "topic": "software-engineering",
+        "priority": 1.05,
+        "reason": "follow_on_from_compute",
+        "from_topic": "compute-useful-math"
+      },
+      {
+        "topic": "emergent-technology",
+        "priority": 1.05,
+        "reason": "follow_on_from_compute",
+        "from_topic": "compute-useful-math"
+      }
+    ],
     "skill_bias": {
-      "geometer.gather": 0.55,
-      "pathfinder.gather": 0.5,
+      "geometer.gather": 0.85,
+      "pathfinder.gather": 0.59,
       "surveyor.gather": 0.5,
-      "builder.build": 0.5,
+      "builder.build": 0.85,
       "improver.improve": 0.55,
-      "spark.emergence": 0.5
+      "spark.emergence": 0.575
     },
     "mutation_bias": {
-      "gather": 0.03,
-      "explore": 0.03,
-      "build": 0.02,
+      "gather": 0.102,
+      "explore": 0.06,
+      "build": 0.095,
       "govern": 0.01,
-      "reply": 0.01
+      "reply": 0.019
     },
-    "citation_targets": [],
+    "citation_targets": [
+      {
+        "id": "fnd_d4814b6bea51",
+        "title": "Authorize accepted: Hard-checked claim: autodiff",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_fdb17b7531cc",
+        "title": "Authorize accepted: Hard-checked claim: vandermonde",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_ff6ac9884b6a",
+        "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      }
+    ],
     "persona_mandates": {
       "geometer": "Cite accepted math/compute findings (FFT, autodiff, open problems) when gathering; prefer compute-useful-math and open-math-problems.",
       "pathfinder": "Rank gather targets from accepted findings first; trail toward follow-on STEM topics.",
@@ -38,10 +86,33 @@
       "naturalist": "Keep empiricism; cite accepted method findings when gathering science-method.",
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
-    "lessons": [],
+    "lessons": [
+      {
+        "id": "fnd_d4814b6bea51",
+        "title": "Authorize accepted: Hard-checked claim: autodiff",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_fdb17b7531cc",
+        "title": "Authorize accepted: Hard-checked claim: vandermonde",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_ff6ac9884b6a",
+        "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      }
+    ],
     "accepted_ids": {
       "math": [],
-      "compute": [],
+      "compute": [
+        "fnd_d4814b6bea51",
+        "fnd_fdb17b7531cc",
+        "fnd_ff6ac9884b6a"
+      ],
       "rsi": []
     },
     "note": "Behavior coupling: accepted findings change gather/debate/build choices. Not museum metrics. Not AGI. Ceiling: tribute · authorize · witness."
