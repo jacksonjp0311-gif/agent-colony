@@ -165,13 +165,14 @@ def hear(
                 "support_weight": 0.1 if is_easy else 0.55,
                 "msg_ids": msg_ids,
             }
+    clean_ids = [m for m in msg_ids if m]
     return {
         "heard": True,
-        "bus_ok": bus is not None,
+        "bus_ok": bool(bus is not None and clean_ids),
         "is_easy_pad": is_easy,
         "attack_weight": 0.9 if is_easy else 0.35,
         "support_weight": 0.1 if is_easy else 0.55,
-        "msg_ids": [m for m in msg_ids if m],
+        "msg_ids": clean_ids,
         "propose": propose[:200],
         "attack": attack[:200],
     }
@@ -237,6 +238,106 @@ def sense_stripped_baseline(mutation: str, kind: str = "") -> dict[str, Any]:
         }
 
 
+
+# Theme → adversarial held-out window (Phase 0 fail-closed; Phase 2 may add lemmas).
+# Saturated themes without a harder window FAIL — that failure seeds catalog_hint lessons.
+_THEME_HELD_OUT: dict[str, str] = {
+    "vandermonde": "adversarial_vandermonde_asymmetric",
+    "vandermonde_conv": "adversarial_vandermonde_asymmetric",
+    "vandermonde_asymmetric": "adversarial_vandermonde_asymmetric",
+    "binomial_identities": "adversarial_hockey_deep",
+    "binomial_hockey_deep": "adversarial_hockey_deep",
+    "hockey_stick": "adversarial_hockey_deep",
+    "fibonacci_identities": "adversarial_cassini_ext",
+    "fibonacci_cassini_ext": "adversarial_cassini_ext",
+    "cassini": "adversarial_cassini_ext",
+    "catalan": "adversarial_catalan_convolution_stress",
+    "catalan_convolution": "adversarial_catalan_convolution_stress",
+    "catalan_bounded": "adversarial_catalan_convolution_stress",
+    "derived_chain_stress": "adversarial_derived_chain_stress",
+    "workload_derived_chain": "adversarial_derived_chain_stress",
+}
+
+
+def _held_out_for_theme(theme: str, *, after_snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Per-claim held-out: require theme-specific harder window, not global hard green."""
+    name = (theme or "").strip()
+    window = _THEME_HELD_OUT.get(name)
+    if not window:
+        # Also try loose family match
+        low = name.lower()
+        for key, win in _THEME_HELD_OUT.items():
+            if key in low or low in key:
+                window = win
+                break
+    if not window:
+        return {
+            "survives": False,
+            "ok_for_oracle": False,
+            "reason": "no_theme_held_out_window",
+            "theme_window": None,
+            "mutation": name,
+        }
+    # Check whether the adversarial window lemma exists and is enabled+passing.
+    try:
+        src_path = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
+        src = src_path.read_text(encoding="utf-8") if src_path.exists() else ""
+        in_catalog = f'("{window}"' in src
+        enabled = bool(re.search(rf'\("{re.escape(window)}".*?,\s*True\)', src, re.S))
+        if not in_catalog:
+            return {
+                "survives": False,
+                "ok_for_oracle": False,
+                "reason": "held_out:already_saturated_no_harder_window",
+                "theme_window": window,
+                "in_catalog": False,
+                "enabled": False,
+                "mutation": name,
+                "catalog_hint": {"add_mutation": window, "kind": "hard_enable"},
+            }
+        # Window exists: require it enabled and harness still green (stricter path).
+        snap = after_snapshot
+        if snap is None:
+            from society.benchmarks.lemma_microbench import run as run_lemma
+            snap = run_lemma()
+        hard_pass = int(snap.get("n_hard_pass") or 0)
+        hard_n = int(snap.get("n_hard") or 0)
+        green = bool(snap.get("ok")) and hard_pass > 0 and hard_pass == hard_n
+        if not enabled:
+            # Window present but disabled — theme is saturated vs current catalog; fail closed
+            # until desk hard_enables the adversarial window (honest failure signal).
+            return {
+                "survives": False,
+                "ok_for_oracle": False,
+                "reason": "held_out:already_saturated_no_harder_window",
+                "theme_window": window,
+                "in_catalog": True,
+                "enabled": False,
+                "mutation": name,
+                "catalog_hint": {"add_mutation": window.replace("adversarial_", ""), "kind": "hard_enable"},
+            }
+        survives = green and enabled
+        return {
+            "survives": survives,
+            "ok_for_oracle": survives,
+            "reason": "held_out_theme_window_green" if survives else "held_out_theme_window_fail",
+            "theme_window": window,
+            "in_catalog": True,
+            "enabled": enabled,
+            "hard_pass": hard_pass,
+            "hard_n": hard_n,
+            "mutation": name,
+        }
+    except Exception as exc:  # noqa: BLE001
+        return {
+            "survives": False,
+            "ok_for_oracle": False,
+            "reason": f"held_out_theme_error:{exc}",
+            "theme_window": window,
+            "mutation": name,
+        }
+
+
 def sense_held_out(mutation: str, kind: str = "", *, after_snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
     """Survives held-out harder check: hard_enable that lifts hard_pass; easy_pad never."""
     name = (mutation or "").strip()
@@ -261,11 +362,10 @@ def sense_held_out(mutation: str, kind: str = "", *, after_snapshot: dict[str, A
         hard_pass = int(snap.get("n_hard_pass") or 0)
         hard_n = int(snap.get("n_hard") or 0)
         ok = bool(snap.get("ok")) and hard_pass > 0 and hard_pass == hard_n
-        # hard_enable / claim / bench keep paths
-        kind_ok = kind in ("hard_enable", "claim_theme", "bench_keep", "hard_check", "") or (
-            kind.startswith("hard")
-        )
-        # hard_enable also wants measured delta when provided via after_snapshot ok
+        # Phase 0: claim_theme / bench_keep / hard_check need theme-specific harder window
+        if kind in ("claim_theme", "bench_keep", "hard_check"):
+            return _held_out_for_theme(name, after_snapshot=snap)
+        kind_ok = kind in ("hard_enable", "") or kind.startswith("hard")
         survives = ok and kind_ok and not name.startswith("easy_pad")
         return {
             "survives": survives,
@@ -547,6 +647,26 @@ def evaluate(
 ) -> OracleVerdict:
     """Full Oracle: HEAR → SENSE → collective. FAIL → passed=False, fitness_credit=False."""
     name = (mutation or "").strip()
+    # Phase 0: claim_theme propose path fail-closed without a real bus (drives kill_rate off zero)
+    if kind in ("claim_theme", "bench_keep") and bus is None:
+        import os as _os
+        if _os.environ.get("ORACLE_STRICT_CLAIMS", "1") != "0":
+            verdict = OracleVerdict(
+                passed=False,
+                kills=["oracle_blocked_no_bus"],
+                hear={"heard": False, "bus_ok": False, "msg_ids": []},
+                sense={"kills": ["oracle_blocked_no_bus"], "sense_pass": False},
+                collective={"decision": "kill", "sense_pass": False},
+                fitness_credit=False,
+                mutation=name,
+                kind=kind,
+                source=source,
+                cycle_id=cycle_id,
+                note="Oracle FAIL: no bus for claim path (fail-closed). No fitness credit.",
+            )
+            _persist(verdict)
+            _lesson_on_kill(verdict)
+            return verdict
     hear_r = hear(mutation=name, kind=kind, claim_text=claim_text, bus=bus, cycle_id=cycle_id)
     sense_r = sense(
         mutation=name,
@@ -593,7 +713,34 @@ def evaluate(
         ),
     )
     _persist(verdict)
+    if not verdict.passed:
+        _lesson_on_kill(verdict)
     return verdict
+
+
+def _lesson_on_kill(verdict: OracleVerdict) -> None:
+    """Phase 1: Oracle FAIL → lesson (candidate teaching; never auto-accept)."""
+    try:
+        from colony.lessons import write_lesson
+        held = (verdict.sense or {}).get("held_out") or {}
+        hint = held.get("catalog_hint")
+        write_lesson(
+            decision="revert",
+            check="oracle",
+            what=(verdict.note or "Oracle kill")[:500],
+            source=verdict.source or "oracle",
+            cycle_id=verdict.cycle_id,
+            mutation=verdict.mutation,
+            family=verdict.kind or "oracle",
+            lesson_type="oracle_kill",
+            tags=["oracle_kill", *(verdict.kills[:4] if verdict.kills else [])],
+            evidence=[f"kill:{k}" for k in (verdict.kills or [])[:6]],
+            skill_bias={"improver.improve": 0.02, "geometer.gather": 0.02},
+            catalog_hint=hint if isinstance(hint, dict) else None,
+            genome_prior={"explore": 0.02, "gather": 0.0},
+        )
+    except Exception:
+        pass
 
 
 def gate_keep(
@@ -701,12 +848,21 @@ def _persist(verdict: OracleVerdict) -> None:
         _packs = digest_packs()
     except Exception:
         _packs = {}
+    kill_rate = round(kills / max(1, passes + kills), 4)
+    bus_ok_n = sum(1 for e in recent if (e.get("hear") or {}).get("bus_ok"))
+    bus_ok_rate = round(bus_ok_n / max(1, len(recent)), 4)
+    unique_pass = sorted({str(e.get("mutation") or "") for e in recent if e.get("passed")} - {""})
+    unique_kill = sorted({str(e.get("mutation") or "") for e in recent if not e.get("passed")} - {""})
     payload = {
         "version": 1,
         "updated_at": _utc(),
         "passes": passes,
         "kills": kills,
         "easy_pad_kills": easy_kills,
+        "kill_rate": kill_rate,
+        "bus_ok_rate": bus_ok_rate,
+        "unique_mutations_pass": unique_pass[:40],
+        "unique_mutations_kill": unique_kill[:40],
         "domain_packs": _packs,
         "latest": verdict.to_dict(),
         "note": (
@@ -784,7 +940,13 @@ def counts() -> dict[str, int]:
                 or "easy_pad_oracle_kill" in (e.get("kills") or [])
             ):
                 easy += 1
-    return {"passes": passes, "kills": kills, "easy_pad_kills": easy, "total": total}
+    return {
+        "passes": passes,
+        "kills": kills,
+        "easy_pad_kills": easy,
+        "total": total,
+        "kill_rate": round(kills / max(1, passes + kills), 4),
+    }
 
 
 if __name__ == "__main__":

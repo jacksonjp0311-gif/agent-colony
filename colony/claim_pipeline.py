@@ -33,6 +33,77 @@ def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _oracle_seen_claims(limit: int = 500) -> set[str]:
+    """Keys already Oracle-PASS'd: theme_id:arxiv_id|claim_id."""
+    log = ROOT / "data" / "commons" / "oracle.jsonl"
+    seen: set[str] = set()
+    if not log.exists():
+        return seen
+    for ln in log.read_text(encoding="utf-8").splitlines()[-limit:]:
+        if not ln.strip():
+            continue
+        try:
+            e = __import__("json").loads(ln)
+        except Exception:
+            continue
+        if not e.get("passed"):
+            continue
+        mut = str(e.get("mutation") or "")
+        if mut:
+            seen.add(mut)
+            # Also index bare theme
+            seen.add(f"{mut}:")
+    return seen
+
+
+def _theme_pass_count(theme_id: str, limit: int = 500) -> int:
+    log = ROOT / "data" / "commons" / "oracle.jsonl"
+    if not log.exists():
+        return 0
+    n = 0
+    for ln in log.read_text(encoding="utf-8").splitlines()[-limit:]:
+        try:
+            e = __import__("json").loads(ln)
+        except Exception:
+            continue
+        if e.get("passed") and str(e.get("mutation") or "") == theme_id:
+            n += 1
+    return n
+
+
+def _bus_for_cycle(cycle_id: str = ""):
+    """Best-effort bus for Oracle HEAR; NullBus still posts msg_ids if society bus unavailable."""
+    try:
+        from colony.bus import CommBus
+        from colony.registry import AgentRegistry
+        from colony.society_state import SocietyState
+        state = SocietyState.load()
+        reg = AgentRegistry(state.data)
+        return CommBus(state.data, reg)
+    except Exception:
+        return _NullBus(cycle_id=cycle_id)
+
+
+class _NullBus:
+    """Minimal bus so HEAR can post msg_ids and set bus_ok=True when posts succeed."""
+
+    def __init__(self, cycle_id: str = ""):
+        self.cycle_id = cycle_id
+        self._n = 0
+
+    def post(self, **kwargs):
+        self._n += 1
+        mid = f"nullbus_{self._n}_{kwargs.get('from_role','x')}"
+        return {"id": mid}
+
+    def record_peer_cite(self, **kwargs):
+        return None
+
+    def record_action_changed(self, **kwargs):
+        return None
+
+
+
 @dataclass
 class ExtractedClaim:
     claim_id: str
@@ -168,19 +239,43 @@ def propose_checked(
             f.write(json.dumps(c.to_dict(), ensure_ascii=False) + "\n")
         if c.status != "hard_checked" or not c.hard_ok:
             continue
+        # Phase 0: same (theme_id, arxiv_id|claim_id) cannot Oracle-PASS more than once
+        try:
+            from colony.lessons import write_lesson
+            seen = _oracle_seen_claims(limit=500)
+            claim_key = f"{c.theme_id}:{c.provenance.get('arxiv_id') or c.claim_id}"
+            if claim_key in seen or c.theme_id in seen or _theme_pass_count(c.theme_id) >= 3:
+                write_lesson(
+                    decision="skip",
+                    check="oracle_seen_claim",
+                    what=f"skip re-oracle of {claim_key}",
+                    source="claim_pipeline",
+                    family="novelty",
+                    mutation=c.theme_id,
+                    cycle_id=cycle_id,
+                    lesson_type="skip",
+                    tags=["repeat_claim"],
+                    proposal_fingerprint=claim_key[:48],
+                )
+                c.status = "rejected_raw"
+                c.hard_ok = False
+                c.note = (c.note or "") + f" | skip_seen_claim:{claim_key}"
+                continue
+        except Exception:
+            pass
         # Novelty gate: theme must not be pure textbook reuse claimed as novel
         try:
             from colony.novelty_gate import evaluate as novelty_evaluate
             nov = novelty_evaluate(mutation=c.theme_id, kind="claim_theme", claim_text=c.text, cycle_id=cycle_id)
             if nov.get("textbook_reuse", 0) >= 0.34:
                 c.note = (c.note or "") + f" | novelty_kill textbook_reuse={nov.get('textbook_reuse')}"
-                # still may propose as hard_checked pointer, but tagged not_novel
                 c.text = c.text + " [novelty_gate: not novel-to-commons]"
         except Exception:
             pass
-        # Oracle mile: propose only if Oracle does not hard-kill (claims stay candidate)
+        # Oracle mile: pass a real bus; fail-closed without it
         try:
             from colony.oracle import gate_keep as oracle_gate
+            bus = _bus_for_cycle(cycle_id)
             final_dec, ov = oracle_gate(
                 tentative_decision="propose",
                 mutation=c.theme_id,
@@ -188,9 +283,11 @@ def propose_checked(
                 claim_text=c.text,
                 source="claim_pipeline",
                 cycle_id=cycle_id,
+                bus=bus,
             )
             c.note = (c.note or "") + (
-                f" | oracle={'PASS' if ov.passed else 'KILL'} kills={ov.kills}"
+                f" | oracle={'PASS' if ov.passed else 'KILL'} kills={ov.kills} "
+                f"bus_ok={(ov.hear or {}).get('bus_ok')}"
             )
             if final_dec not in ("propose", "keep"):
                 c.status = "rejected_raw"
