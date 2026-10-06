@@ -108,19 +108,45 @@ jobs:
           from colony.authorize import AuthorizeItem, Authorizer
           from colony.ledger import Ledger
           from colony.society_state import SocietyState
+          from colony.standing_trust import STANDING_TRUST_P_MIN, meets_standing_trust
+          from colony.hold_posture import scan_all_candidates
 
           root = Path(".")
           state = SocietyState.load(root / "data" / "society_state.json")
           ledger = Ledger(root / "data" / "ledger.jsonl", extra_roles=state.role_names())
           items = []
           rejected = []
+          # Phase 3: P≥0.70 gate via scan_all_candidates (never accept-all)
+          try:
+              eligible = scan_all_candidates(ledger, state, lookback=200)
+              for e in eligible[:8]:
+                  fid = e.get("finding_id")
+                  if not fid or str(fid).startswith("imp_"):
+                      continue  # improvement proposals stay candidate until explicit human item
+                  P = e.get("P") if e.get("P") is not None else e.get("score")
+                  if not meets_standing_trust(P, machine_checked=True):
+                      continue
+                  items.append(AuthorizeItem(
+                      fid, "accepted",
+                      f"Standing trust P≥{STANDING_TRUST_P_MIN}: P={P} machine-checked selective. Not novel theorem."
+                  ))
+          except Exception as _scan_exc:
+              print(f"::warning::scan_all_candidates fallback: {_scan_exc}")
+          # Fingerprint guard: skip multi-hop process re-accept spam
+          seen_claims = set()
           for f in ledger.all()[-120:]:
               tags = set(f.tags or [])
               meta = f.meta or {}
               title = (f.title or "") + " " + (f.claim or "")
-              # ACCEPT only: machine-checked hard keep / multihop bus-driven / novelty-gated
               if f.status != "candidate":
                   continue
+              # Block repeated Multi-hop debate patch authorizations
+              if "multihop" in tags and "Multi-hop" in (f.title or ""):
+                  fp = (f.title or "")[:80]
+                  if fp in seen_claims:
+                      rejected.append(AuthorizeItem(f.id, "rejected", "Standing trust: repeat multi-hop process receipt blocked (fingerprint)."))
+                      continue
+                  seen_claims.add(fp)
               is_keep = ("keep" in tags and ("hard_enable" in tags or meta.get("mutation_kind") == "hard_enable"))
               is_multihop = "multihop" in tags and "bus_driven" in tags
               is_lemma_keep = meta.get("kind") == "lemma_mutation" and meta.get("decision") == "keep"
@@ -128,9 +154,16 @@ jobs:
                   if "easy_pad" in tags or "not_discovery" not in tags and "easy_pad" in title:
                       rejected.append(AuthorizeItem(f.id, "rejected", "Standing trust: easy_pad / non-machine path rejected. Selective."))
                       continue
+                  # Prefer items already selected by P scan; avoid duplicate adds
+                  if any(i.finding_id == f.id for i in items):
+                      continue
+                  # Require meta confidence/P when present
+                  conf = meta.get("P") or meta.get("confidence")
+                  if conf is not None and not meets_standing_trust(conf, machine_checked=True):
+                      continue
                   items.append(AuthorizeItem(
                       f.id, "accepted",
-                      "Standing trust P≥0.70: machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
+                      f"Standing trust P≥{STANDING_TRUST_P_MIN}: machine-checked hard-tier/Oracle/bus-driven candidate. Selective authorize."
                   ))
               elif "easy_pad" in tags or (meta.get("decision") == "revert"):
                   rejected.append(AuthorizeItem(

@@ -222,7 +222,69 @@ __all__ = [
     "accepted_themes",
     "parse_theme_score",
     "scan_new_authorize_themes",
+    "scan_all_candidates",
     "persist_hold_state",
     "latest_hold",
     "build_selective_decisions",
 ]
+
+
+def scan_all_candidates(
+    ledger: Any,
+    state: Any | None = None,
+    *,
+    lookback: int = 400,
+) -> list[dict[str, Any]]:
+    """Union of theme candidates + improvement proposals with computed P.
+
+    Eligible only when P >= STANDING_TRUST_P_MIN. Never accept-all. Cap elsewhere.
+    """
+    eligible = scan_new_authorize_themes(ledger, lookback=lookback)
+    # Stamp P from score for themes (score already used as confidence proxy)
+    for e in eligible:
+        if "P" not in e:
+            e["P"] = e.get("score")
+    # Improvement proposals from society state
+    try:
+        data = None
+        if state is not None:
+            data = state.data if hasattr(state, "data") else state
+        if data is None:
+            from colony.society_state import SocietyState
+            data = SocietyState.load().data
+        for prop in (data.get("improvement_proposals") or [])[-80:]:
+            if prop.get("status") not in ("candidate", "candidate_measured"):
+                continue
+            P = prop.get("P")
+            if P is None:
+                try:
+                    from colony.standing_trust import compute_proposal_P
+                    P, terms = compute_proposal_P(
+                        mutation=prop.get("title") or "",
+                        action=prop.get("action") or "",
+                        fingerprint=prop.get("fingerprint") or "",
+                        bench_delta=(prop.get("delta_aggregate")),
+                    )
+                    prop["P"] = P
+                    prop["P_terms"] = terms
+                except Exception:
+                    P = None
+            if P is None or float(P) < STANDING_TRUST_P_MIN:
+                continue
+            if not meets_standing_trust(P, machine_checked=True):
+                continue
+            eligible.append({
+                "finding_id": prop.get("id"),
+                "theme": "improvement_proposal",
+                "score": float(P),
+                "P": float(P),
+                "title": prop.get("title"),
+                "notes": (prop.get("hypothesis") or "")[:240],
+                "P_min": STANDING_TRUST_P_MIN,
+                "meets_standing_trust": True,
+                "kind": "improvement_proposal",
+            })
+    except Exception:
+        pass
+    # Final P gate
+    return [e for e in eligible if float(e.get("P") or e.get("score") or 0) >= STANDING_TRUST_P_MIN]

@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import hashlib
+import math
+
 from datetime import datetime, timezone
 from typing import Any
 
@@ -72,6 +75,75 @@ def hard_tier_delta(data: dict) -> float:
 
 
 
+def _oracle_kill_rate_term() -> float:
+    """Informative sieve scores mid-high; 0 or >0.95 both score mid/low. Easy-pad-only kills → low."""
+    try:
+        from colony.oracle import counts
+        c = counts()
+        total = int(c.get("total") or 0)
+        kills = int(c.get("kills") or 0)
+        easy = int(c.get("easy_pad_kills") or 0)
+        if total <= 0:
+            return 0.35
+        kr = kills / max(1, total)
+        if kills == 0 or kr > 0.95:
+            return 0.25
+        # No credit if all kills are easy_pad only
+        if kills > 0 and easy >= kills and (kills / max(1, total)) > 0:
+            non_easy = kills - easy
+            if non_easy <= 0:
+                return 0.30
+        # Peak around 0.2–0.8
+        if 0.2 <= kr <= 0.8:
+            return round(0.55 + 0.45 * (1.0 - abs(kr - 0.5) / 0.5), 4)
+        return round(0.35 + 0.2 * (1.0 - abs(kr - 0.5)), 4)
+    except Exception:
+        return 0.35
+
+
+def _novelty_term() -> float:
+    try:
+        from pathlib import Path as _P
+        import json as _json
+        p = _P(__file__).resolve().parent.parent / "society" / "systems" / "novelty_gate.json"
+        if not p.exists():
+            return 0.4
+        d = _json.loads(p.read_text(encoding="utf-8"))
+        hits = float(d.get("hits") or 0)
+        kills = float(d.get("kills") or 0)
+        total = hits + kills
+        if total <= 0:
+            return 0.4
+        return round(min(1.0, hits / total), 4)
+    except Exception:
+        return 0.4
+
+
+def _lesson_uptake_term() -> float:
+    """Fraction of recent keep/enable decisions that cite a prior lesson id."""
+    try:
+        from colony.lessons import load_lessons, LESSONS_JSONL
+        lessons = load_lessons(limit=80)
+        ids = {e.get("id") for e in lessons if e.get("id")}
+        if not ids:
+            return 0.0
+        keeps = [e for e in lessons if e.get("decision") == "keep"][-10:]
+        if not keeps:
+            return 0.0
+        cited = 0
+        for e in keeps:
+            ev = " ".join(str(x) for x in (e.get("evidence") or []))
+            what = e.get("what") or ""
+            blob = ev + " " + what
+            if any(i and i in blob for i in ids if i != e.get("id")):
+                cited += 1
+            elif any(t.startswith("lesson:") for t in (e.get("tags") or [])):
+                cited += 1
+        return round(cited / max(1, len(keeps)), 4)
+    except Exception:
+        return 0.0
+
+
 def compute_fitness(
     *,
     tribute_count: int,
@@ -127,14 +199,20 @@ def compute_fitness(
         0.45 * math_prize + 0.35 * compute_usefulness + 0.20 * citation_reuse, 4
     )
 
+    kill_rate_term = _oracle_kill_rate_term()
+    novelty = _novelty_term()
+    lesson_uptake = _lesson_uptake_term()
     aggregate = round(
-        0.20 * tribute_quality
-        + 0.17 * gather_coverage
-        + 0.17 * build_reuse
-        + 0.13 * comm_reply_rate
-        + 0.07 * reply_q
-        + 0.05 * commons_signal
-        + 0.21 * prize_boost,  # big reward: math/compute + citation reuse
+        0.18 * tribute_quality
+        + 0.14 * gather_coverage
+        + 0.14 * build_reuse
+        + 0.11 * comm_reply_rate
+        + 0.06 * reply_q
+        + 0.04 * commons_signal
+        + 0.16 * prize_boost
+        + 0.07 * kill_rate_term
+        + 0.05 * novelty
+        + 0.05 * lesson_uptake,
         4,
     )
     return {
@@ -148,6 +226,9 @@ def compute_fitness(
         "compute_usefulness": compute_usefulness,
         "citation_reuse": citation_reuse,
         "prize_boost": prize_boost,
+        "kill_rate": kill_rate_term,
+        "novelty": novelty,
+        "lesson_uptake": lesson_uptake,
         "aggregate": aggregate,
     }
 
@@ -553,6 +634,67 @@ class EvolutionEngine:
         hypothesis: str,
         action: str,
     ) -> dict[str, Any]:
+        import re as _re
+        def _canon(s: str) -> str:
+            return _re.sub(r"\s+", " ", (s or "").strip().lower())
+        fp = hashlib.sha1(f"{_canon(title)}|{_canon(action)}".encode()).hexdigest()[:12]
+        # Phase 4 / 1: block repeats (≥3 identical in recent proposals / lessons)
+        try:
+            from colony.lessons import write_lesson, proposal_fingerprint_counts
+            counts = proposal_fingerprint_counts(days=14)
+            recent = self.data.get("improvement_proposals") or []
+            recent_fp_n = sum(1 for p in recent[-80:] if p.get("fingerprint") == fp)
+            if counts.get(fp, 0) >= 3 or recent_fp_n >= 3:
+                write_lesson(
+                    decision="block",
+                    check="dedupe",
+                    what=f"blocked repeat: {title[:80]}",
+                    source="growth_hearing",
+                    cycle_id=cycle_id,
+                    lesson_type="repeat_proposal",
+                    family="process",
+                    proposal_fingerprint=fp,
+                    tags=["repeat_proposal"],
+                )
+                # Archive older duplicates (witness — do not delete)
+                archive = self.data.setdefault("improvement_proposals_archived", [])
+                kept = []
+                for p in recent:
+                    if p.get("fingerprint") == fp and p.get("status") in ("rejected", "deferred", "candidate"):
+                        archive.append(p)
+                    else:
+                        kept.append(p)
+                # Keep last 2 of this fp inline max
+                same = [p for p in kept if p.get("fingerprint") == fp]
+                other = [p for p in kept if p.get("fingerprint") != fp]
+                self.data["improvement_proposals"] = other + same[-2:]
+                return {
+                    "id": f"imp_blocked_{fp}",
+                    "ts": _utc_now(),
+                    "cycle_id": cycle_id,
+                    "title": title,
+                    "hypothesis": hypothesis,
+                    "action": action,
+                    "status": "blocked_repeat",
+                    "fingerprint": fp,
+                    "P": 0.0,
+                    "note": "repeat_proposal blocked",
+                }
+        except Exception:
+            pass
+        # Compute standing-trust P (Phase 3)
+        P = None
+        P_terms = {}
+        try:
+            from colony.standing_trust import compute_proposal_P
+            P, P_terms = compute_proposal_P(
+                mutation=title,
+                action=action,
+                fingerprint=fp,
+                bench_delta=None,
+            )
+        except Exception:
+            pass
         prop = {
             "id": f"imp_{cycle_id[-6:]}_{len(self.data.get('improvement_proposals') or [])}",
             "ts": _utc_now(),
@@ -565,6 +707,11 @@ class EvolutionEngine:
             "measured_cycle": None,
             "status": "candidate",
             "attempted_by": self.registry.best_for("improve"),
+            "fingerprint": fp,
+            "P": P,
+            "P_terms": P_terms,
+            "confidence": P,
+            "machine_checked": P is not None,
         }
         self.data.setdefault("improvement_proposals", []).append(prop)
         self.data.setdefault("improvements", []).append(
