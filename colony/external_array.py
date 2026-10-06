@@ -147,8 +147,28 @@ def fetch_nasa_donki_solar() -> dict[str, Any]:
     }
 
 
+# Phase 4: NOAA Kp feed quarantined — consistent failures (214/214). Soft skip.
+NOAA_QUARANTINED = True
+
+
 def fetch_noaa_space_weather() -> dict[str, Any]:
-    """NOAA SWPC planetary K-index (solar activity proxy)."""
+    """NOAA SWPC planetary K-index (solar activity proxy).
+
+    Quarantined (Phase 4): do not count toward evolve health failure.
+    Prefer pulsemesh_goes_xray as solar proxy when NOAA is down.
+    """
+    if NOAA_QUARANTINED:
+        return {
+            "feed": "noaa_space_weather",
+            "ok": False,
+            "deprecated": True,
+            "quarantined": True,
+            "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+            "count": 0,
+            "latest_kp": None,
+            "items": [],
+            "ts": _utc(),
+        }
     url = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
     ok, body, note = _http_get(url)
     items: list[dict[str, Any]] = []
@@ -438,7 +458,7 @@ def gather_external_array(*, force: bool = False) -> dict[str, Any]:
                 {
                     "ts": snap["ts"],
                     "pattern_count": len(patterns),
-                    "feed_ok": {k: bool(v.get("ok")) for k, v in feeds.items()},
+                    "feed_ok": {k: (True if v.get("quarantined") or v.get("deprecated") else bool(v.get("ok"))) for k, v in feeds.items()},
                     "patterns": [p.get("kind") for p in patterns],
                 },
                 ensure_ascii=False,

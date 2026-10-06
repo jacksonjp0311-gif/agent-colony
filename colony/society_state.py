@@ -2,15 +2,20 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
+import os
 from copy import deepcopy
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_STATE = ROOT / "data" / "society_state.json"
+SHARDS_DIR = ROOT / "data" / "society_shards"
+# Feature flag: STATE_SHARDS=1 enables shard flush (default on for relight; fallback keeps full file)
+STATE_SHARDS = os.environ.get("STATE_SHARDS", "1") != "0"
 
 
 def _utc_now() -> str:
@@ -21,18 +26,66 @@ def _utc_now() -> str:
 class SocietyState:
     path: Path
     data: dict[str, Any]
+    _last_hash: str | None = field(default=None, repr=False, compare=False)
 
     @classmethod
     def load(cls, path: Path | None = None) -> SocietyState:
         p = path or DEFAULT_STATE
         with p.open("r", encoding="utf-8") as f:
-            return cls(path=p, data=json.load(f))
+            data = json.load(f)
+        # Merge shard tails if present (full-file remains source of truth for one mile)
+        if STATE_SHARDS and SHARDS_DIR.is_dir():
+            for key in ("improvement_proposals", "fitness_history", "improvements"):
+                shard = SHARDS_DIR / f"{key}.jsonl"
+                if not shard.exists():
+                    continue
+                # Inline state keeps tails; shards are append-only archive — do not re-inflate fully
+                data.setdefault("_shards", {})[key] = str(shard.relative_to(ROOT))
+        return cls(path=p, data=data)
+
+    def _flush_shard(self, key: str, *, max_inline: int = 50) -> None:
+        if not STATE_SHARDS:
+            return
+        arr = self.data.get(key)
+        if not isinstance(arr, list) or len(arr) <= max_inline:
+            return
+        SHARDS_DIR.mkdir(parents=True, exist_ok=True)
+        shard_path = SHARDS_DIR / f"{key}.jsonl"
+        overflow = arr[:-max_inline]
+        # Append overflow once (track by id/ts to avoid dupes on re-save)
+        existing_ids: set[str] = set()
+        if shard_path.exists():
+            for ln in shard_path.read_text(encoding="utf-8").splitlines()[-5000:]:
+                try:
+                    e = json.loads(ln)
+                    existing_ids.add(str(e.get("id") or e.get("ts") or ""))
+                except json.JSONDecodeError:
+                    continue
+        with shard_path.open("a", encoding="utf-8") as f:
+            for e in overflow:
+                eid = str((e or {}).get("id") or (e or {}).get("ts") or "")
+                if eid and eid in existing_ids:
+                    continue
+                f.write(json.dumps(e, ensure_ascii=False) + "\n")
+                if eid:
+                    existing_ids.add(eid)
+        self.data[key] = arr[-max_inline:]
+        self.data.setdefault("_shards", {})[key] = str(shard_path.relative_to(ROOT))
 
     def save(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
+        # Shard hot arrays to cut commit churn
+        self._flush_shard("improvement_proposals", max_inline=50)
+        self._flush_shard("fitness_history", max_inline=30)
+        self._flush_shard("improvements", max_inline=50)
+        blob = json.dumps(self.data, sort_keys=True, separators=(",", ":"))
+        digest = hashlib.sha256(blob.encode()).hexdigest()
+        if self._last_hash == digest:
+            return
         with self.path.open("w", encoding="utf-8") as f:
             json.dump(self.data, f, indent=2, ensure_ascii=False)
             f.write("\n")
+        self._last_hash = digest
 
     def role_names(self) -> set[str]:
         return set(self.data.get("roles", {}).keys())

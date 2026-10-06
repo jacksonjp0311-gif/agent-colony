@@ -261,9 +261,37 @@ def improve_once(
     before_score = float(before.get("aggregate_score") or 0.0)
 
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
-    backup = BACKUP_DIR / f"{patch.target.name}.{_utc().replace(':', '')}.bak"
-    shutil.copy2(patch.target, backup)
     original = patch.target.read_text(encoding="utf-8")
+    new_bytes = original.encode("utf-8")
+    latest = None
+    cands = sorted(
+        BACKUP_DIR.glob(f"{patch.target.name}.*.bak"),
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+    if cands and cands[0].read_bytes() == new_bytes:
+        backup = cands[0]
+    else:
+        backup = BACKUP_DIR / f"{patch.target.name}.{_utc().replace(':', '')}.bak"
+        backup.write_bytes(new_bytes)
+        # Cap: keep last 5 distinct hashes per target
+        seen_hashes = set()
+        keep = []
+        for p in cands:
+            h = hash(p.read_bytes())
+            if h in seen_hashes:
+                try:
+                    p.unlink()
+                except OSError:
+                    pass
+                continue
+            seen_hashes.add(h)
+            keep.append(p)
+        for p in keep[5:]:
+            try:
+                p.unlink()
+            except OSError:
+                pass
     patched = patch.apply_fn(original)
     if patched == original:
         return ImproveResult(

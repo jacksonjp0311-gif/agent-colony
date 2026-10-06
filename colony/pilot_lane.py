@@ -153,6 +153,30 @@ def propose_pilot(
     kind_s = str(kind or "improvement")
     if kind_s not in ALLOWED_KINDS:
         kind_s = "improvement"
+    body = dict(body or {})
+    # Phase 4: refuse empty rsi_bias pilots
+    if kind_s == "rsi_bias" and not any(body.get(k) for k in ("skill_bias", "mutation_bias", "routes_snapshot")):
+        try:
+            from colony.lessons import write_lesson
+            write_lesson(
+                decision="skip",
+                check="pilot",
+                what="empty rsi_bias pilot suppressed",
+                source="pilot_lane",
+                cycle_id=cycle_id,
+                lesson_type="skip",
+                family="rsi",
+                tags=["empty_rsi_bias"],
+            )
+        except Exception:
+            pass
+        return {
+            "id": None,
+            "status": "suppressed",
+            "reason": "empty_rsi_bias",
+            "kind": kind_s,
+            "note": "empty rsi_bias pilot suppressed",
+        }
     slug = _safe_slug(name)
     pilot_id = f"pilot_{slug}_{uuid4().hex[:8]}"
     payload = _strip_forbidden(
@@ -160,7 +184,7 @@ def propose_pilot(
             "id": pilot_id,
             "name": slug,
             "kind": kind_s,
-            "body": dict(body or {}),
+            "body": dict(body),
             "proposed_by": proposed_by,
             "cycle_id": cycle_id,
             "rationale": (rationale or "")[:400],

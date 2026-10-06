@@ -226,7 +226,7 @@ def gather_external_signals() -> dict[str, Any]:
             "ts": array.get("ts"),
             "feed_ok": {
                 k: bool((array.get("feeds") or {}).get(k, {}).get("ok"))
-                for k in ("arxiv", "nasa_donki_solar", "noaa_space_weather", "global_weather")
+                for k in ("arxiv", "nasa_donki_solar", "global_weather")  # noaa quarantined Phase 4
             }
             if isinstance(array, dict)
             else {},
@@ -257,7 +257,7 @@ def gather_external_signals() -> dict[str, Any]:
             "external_array_errors": 1 if array.get("error") else 0,
             "feed_fail_count": sum(
                 1
-                for k in ("arxiv", "nasa_donki_solar", "noaa_space_weather", "global_weather")
+                for k in ("arxiv", "nasa_donki_solar", "global_weather")  # noaa quarantined Phase 4
                 if not bool(((array.get("feeds") or {}).get(k) or {}).get("ok"))
             )
             if isinstance(array, dict) and array.get("feeds")

@@ -30,18 +30,10 @@
     }
   },
   "born_at": "2026-09-26T11:20:44Z",
-  "updated_at": "2026-09-27T12:22:51Z",
+  "updated_at": "2026-10-06T14:31:44Z",
   "note": "Personas are durable engineered character sheets. Inspired by 'I think therefore I am' as role posture only.",
   "behavior_mandate": "Spawn privilege favors agents that cite accepted compute-useful findings.",
-  "citation_targets": [
-    {
-      "id": "fnd_d5a3825816f4",
-      "title": "Authorize accepted: Hard-checked claim: vandermonde",
-      "topic_id": "compute-useful-math",
-      "family": "compute",
-      "useful_for": "compute"
-    }
-  ],
-  "findings_coupling_strength": 0.1,
-  "findings_coupling_ts": "2026-09-27T12:22:51Z"
+  "citation_targets": [],
+  "findings_coupling_strength": 0.0,
+  "findings_coupling_ts": "2026-10-06T14:31:44Z"
 }
