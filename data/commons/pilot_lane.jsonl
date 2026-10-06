@@ -76,3 +76,6 @@
 {"ts": "2026-10-05T15:05:05Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_dec863_6b8a9268", "kind": "rsi_bias", "cycle_id": "20261005T150442Z_dec863", "inform_only": true, "durable_accept": false}
 {"ts": "2026-10-05T15:05:47Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_242648_713ab8d1", "kind": "rsi_bias", "cycle_id": "20261005T150525Z_242648", "inform_only": true, "durable_accept": false}
 {"ts": "2026-10-05T15:06:29Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_f2a4b2_595c08f4", "kind": "rsi_bias", "cycle_id": "20261005T150607Z_f2a4b2", "inform_only": true, "durable_accept": false}
+{"ts": "2026-10-06T00:13:12Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_2f3133_667922c3", "kind": "rsi_bias", "cycle_id": "20261006T001301Z_2f3133", "inform_only": true, "durable_accept": false}
+{"ts": "2026-10-06T00:13:51Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_95606f_a39108bb", "kind": "rsi_bias", "cycle_id": "20261006T001330Z_95606f", "inform_only": true, "durable_accept": false}
+{"ts": "2026-10-06T00:14:31Z", "event": "propose_sandbox", "pilot_id": "pilot_rsi_bias_4e8de2_5f3344e8", "kind": "rsi_bias", "cycle_id": "20261006T001410Z_4e8de2", "inform_only": true, "durable_accept": false}

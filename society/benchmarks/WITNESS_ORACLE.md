@@ -1,4 +1,4 @@
-# Oracle witness — 2026-10-05T15:06:10Z
+# Oracle witness — 2026-10-06T00:14:13Z
 
 HEAR bus debate → SENSE (held-out + stripped + CAS) → collective vote. **FAIL kills keep.** No Oracle pass → no fitness rise. Still candidate until human authorize. Not AGI. Not Millennium.
 
