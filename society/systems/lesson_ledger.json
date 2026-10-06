@@ -1,350 +1,468 @@
 {
   "version": 1,
-  "updated_at": "2026-09-27T21:30:40Z",
-  "updated_cycle": "20260927T213039Z_cd1c7c",
-  "n_active": 34,
-  "n_keeps": 7,
-  "n_reverts": 27,
+  "updated_at": "2026-10-06T14:33:47Z",
+  "updated_cycle": "",
+  "n_active": 80,
+  "n_keeps": 3,
+  "n_reverts": 74,
   "skill_bias": {
-    "geometer.gather": 0.08,
-    "improver.improve": 0.0548,
-    "spark.emergence": 0.04,
-    "builder.build": 0.03
+    "improver.improve": -0.02,
+    "geometer.gather": -0.02
   },
   "recent": [
     {
-      "id": "les_Z_cc82d2_autodiff_busy_loop",
-      "ts": "2026-09-27T05:30:37Z",
-      "cycle_id": "20260927T053036Z_cc82d2",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "autodiff_busy_loop",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8791, delta=0.0); reverted (Add busy loop in autodiff grads \u2014 should revert); restored_agg=0.8782",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8791,
-      "after_score": 0.8791,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "autodiff_busy_loop"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/autodiff_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_2:16:21Z_fft_add_slow_loops",
-      "ts": "2026-09-27T12:16:21Z",
+      "id": "les_4:33:46Z_Deepen compute-useful math from acc",
+      "ts": "2026-10-06T14:33:46Z",
       "cycle_id": "",
+      "type": "oracle_kill",
       "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8688, delta=-0.0193); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8801",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8881,
-      "after_score": 0.8688,
+      "check": "oracle",
+      "mutation": "Deepen compute-useful math from accepted findings after hearing",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
       "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
       },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
       "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
       ],
+      "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_ec35bc_autodiff_busy_loop",
-      "ts": "2026-09-27T12:16:23Z",
-      "cycle_id": "20260927T121621Z_ec35bc",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "autodiff_busy_loop",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8938, delta=0.0056); reverted (Add busy loop in autodiff grads \u2014 should revert); restored_agg=0.8955",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8882,
-      "after_score": 0.8938,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "autodiff_busy_loop"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/autodiff_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_ac5e4c_fft_add_slow_loops",
-      "ts": "2026-09-27T12:16:45Z",
-      "cycle_id": "20260927T121644Z_ac5e4c",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8758, delta=-0.0207); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8963",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8965,
-      "after_score": 0.8758,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_58f03a_fft_add_slow_loops",
-      "ts": "2026-09-27T12:17:07Z",
-      "cycle_id": "20260927T121706Z_58f03a",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8755, delta=-0.0203); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8957",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8958,
-      "after_score": 0.8755,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_7:07:03Z_fft_add_slow_loops",
-      "ts": "2026-09-27T17:07:03Z",
+      "id": "les_4:33:46Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-06T14:33:46Z",
       "cycle_id": "",
+      "type": "oracle_kill",
       "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8687, delta=-0.0147); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9004",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8834,
-      "after_score": 0.8687,
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
       "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
       },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
       "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
       ],
+      "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_6863d4_fft_add_slow_loops",
-      "ts": "2026-09-27T17:07:05Z",
-      "cycle_id": "20260927T170703Z_6863d4",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8788, delta=-0.0051); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9025",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8839,
-      "after_score": 0.8788,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_77bc0f_fft_add_slow_loops",
-      "ts": "2026-09-27T17:07:43Z",
-      "cycle_id": "20260927T170742Z_77bc0f",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8792, delta=-0.0237); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.9022",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.9029,
-      "after_score": 0.8792,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_86a51f_fft_add_slow_loops",
-      "ts": "2026-09-27T17:08:12Z",
-      "cycle_id": "20260927T170811Z_86a51f",
-      "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8794, delta=-0.0235); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.903",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.9029,
-      "after_score": 0.8794,
-      "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
-      },
-      "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
-      ],
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_1:29:54Z_fft_add_slow_loops",
-      "ts": "2026-09-27T21:29:54Z",
+      "id": "les_4:33:46Z_Deepen compute-useful math from acc",
+      "ts": "2026-10-06T14:33:46Z",
       "cycle_id": "",
+      "type": "oracle_kill",
       "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8652, delta=-0.0074); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8839",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8726,
-      "after_score": 0.8652,
+      "check": "oracle",
+      "mutation": "Deepen compute-useful math from accepted findings after hearing",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
       "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
       },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
       "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
       ],
+      "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_5b5a6e_fft_add_slow_loops",
-      "ts": "2026-09-27T21:29:57Z",
-      "cycle_id": "20260927T212954Z_5b5a6e",
+      "id": "les_4:33:46Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-06T14:33:46Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
       "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8686, delta=-0.0122); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8834",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8808,
-      "after_score": 0.8686,
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 129)",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
       "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
       },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
       "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
       ],
+      "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_cd1c7c_fft_add_slow_loops",
-      "ts": "2026-09-27T21:30:40Z",
-      "cycle_id": "20260927T213039Z_cd1c7c",
+      "id": "les_4:33:46Z_Deepen compute-useful math from acc",
+      "ts": "2026-10-06T14:33:46Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
       "decision": "revert",
-      "check": "bench_harness",
-      "mutation": "fft_add_slow_loops",
-      "what": "aggregate did not rise or Oracle killed keep (trial=0.8693, delta=-0.0148); reverted (Increase SLOW_EXTRA_LOOPS \u2014 deliberate regression); restored_agg=0.8834",
-      "source": "bench_improve",
-      "family": "outcome",
-      "before_score": 0.8841,
-      "after_score": 0.8693,
+      "check": "oracle",
+      "mutation": "Deepen compute-useful math from accepted findings after hearing",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
       "skill_bias": {
-        "improver.improve": -0.05,
-        "builder.build": -0.03
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
       },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
       "tags": [
-        "bench",
-        "revert",
-        "fft_add_slow_loops"
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/fft_impl.py",
-        "society/benchmarks/run_benchmarks.py"
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
       ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_4:33:46Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-06T14:33:46Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_4:33:47Z_Deepen compute-useful math from acc",
+      "ts": "2026-10-06T14:33:47Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Deepen compute-useful math from accepted findings after hearing",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_4:33:47Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-06T14:33:47Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 131)",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_4:33:47Z_Deepen compute-useful math from acc",
+      "ts": "2026-10-06T14:33:47Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Deepen compute-useful math from accepted findings after hearing",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_4:33:47Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-06T14:33:47Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_4:33:47Z_Deepen compute-useful math from acc",
+      "ts": "2026-10-06T14:33:47Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Deepen compute-useful math from accepted findings after hearing",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_4:33:47Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-06T14:33:47Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
       "expired": false,
       "status": "candidate"
     }

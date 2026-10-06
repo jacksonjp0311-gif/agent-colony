@@ -1,9 +1,32 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T06:39:41Z",
-  "passes": 60,
-  "kills": 0,
+  "updated_at": "2026-10-06T14:33:47Z",
+  "passes": 10,
+  "kills": 50,
   "easy_pad_kills": 0,
+  "kill_rate": 0.8333,
+  "bus_ok_rate": 0.0,
+  "unique_mutations_pass": [
+    "autodiff",
+    "vandermonde",
+    "vandermonde_asymmetric"
+  ],
+  "unique_mutations_kill": [
+    "Deepen compute-useful math from accepted findings after hearing",
+    "Feed accepted/strong RSI findings into skill_router + genome bias",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 111)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 113)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 115)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 117)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 119)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 121)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 123)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 125)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 127)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 129)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 131)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)"
+  ],
   "domain_packs": {
     "packs": {
       "math_lemmas": {
@@ -34,9 +57,13 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-06T06:39:41Z",
-    "passed": true,
-    "kills": [],
+    "ts": "2026-10-06T14:33:47Z",
+    "passed": false,
+    "kills": [
+      "stripped:stripped_not_useful_fail",
+      "held_out:held_out_fail",
+      "collective_kill"
+    ],
     "hear": {
       "heard": true,
       "bus_ok": false,
@@ -44,24 +71,28 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `autodiff` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `autodiff` from `Towards Looped Models Done Right, Part II: Rethinking at Fixed Points` may ",
-      "attack": "WEIGH: `autodiff` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)` kind=process. rsi_coupling:skill_router+mutation_bias Not discovery. cycle=.",
+      "attack": "WEIGH: `Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "stripped_fails_usefulness": true,
-        "reason": "claim_or_bench_path",
-        "ok_for_oracle": true,
-        "kind_path": "claim_theme"
+        "already_enabled": false,
+        "in_catalog": false,
+        "hard_pass": 26,
+        "hard_n": 26,
+        "score": 0.8871,
+        "stripped_fails_usefulness": false,
+        "ok_for_oracle": false,
+        "reason": "stripped_not_useful_fail"
       },
       "held_out": {
-        "survives": true,
-        "ok_for_oracle": true,
-        "hard_pass": 25,
-        "hard_n": 25,
+        "survives": false,
+        "ok_for_oracle": false,
+        "hard_pass": 26,
+        "hard_n": 26,
         "ok": true,
-        "score": 0.8771,
-        "reason": "held_out_hard_green"
+        "score": 0.8871,
+        "reason": "held_out_fail"
       },
       "cas": {
         "cas_ok": true,
@@ -83,63 +114,66 @@
           }
         ]
       },
-      "kills": [],
-      "sense_pass": true
+      "kills": [
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail"
+      ],
+      "sense_pass": false
     },
     "collective": {
-      "decision": "keep_candidate",
-      "sense_pass": true,
-      "keep_weight": 0.363,
-      "kill_weight": 0.2285,
+      "decision": "kill",
+      "sense_pass": false,
+      "keep_weight": 0.0,
+      "kill_weight": 1.0,
       "votes": {
         "geometer": {
           "weight": 0.28,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "improver": {
           "weight": 0.22,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "legislator": {
           "weight": 0.18,
           "vote": "kill",
-          "lean_keep": 0.375,
-          "lean_kill": 0.625
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "spark": {
           "weight": 0.16,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "tribute_keeper": {
           "weight": 0.1,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "builder": {
           "weight": 0.06,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "autodiff",
-      "kind": "claim_theme",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)",
+      "kind": "process",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
-    "fitness_credit": true,
-    "mutation": "autodiff",
-    "kind": "claim_theme",
-    "source": "claim_pipeline",
-    "cycle_id": "20261006T063937Z_0efce9",
-    "note": "Oracle PASS \u2014 keep as candidate until authorize.",
+    "fitness_credit": false,
+    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)",
+    "kind": "process",
+    "source": "novelty_gate",
+    "cycle_id": "",
+    "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

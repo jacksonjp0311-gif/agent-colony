@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T06:40:20Z",
-  "updated_cycle": "20261006T063937Z_0efce9",
+  "updated_at": "2026-10-06T14:33:42Z",
+  "updated_cycle": "20261006T143302Z_295c03",
   "signal": {
-    "ts": "2026-10-06T06:40:20Z",
+    "ts": "2026-10-06T14:33:42Z",
     "accepted_count": 0,
-    "strong_candidate_count": 30,
-    "unknown_caution_count": 108,
+    "strong_candidate_count": 33,
+    "unknown_caution_count": 109,
     "strength": 0.25,
     "mutation_bias": {
       "explore": 0.065,
@@ -22,9 +22,6 @@
     },
     "accepted_ids": [],
     "strong_ids": [
-      "fnd_857de9747590",
-      "fnd_476c921b1067",
-      "fnd_407868f7eeb1",
       "fnd_e44a224f60a9",
       "fnd_edc3cf64f1af",
       "fnd_b3d63c3fe4bd",
@@ -33,7 +30,10 @@
       "fnd_aa11307783aa",
       "fnd_2579e1826e2a",
       "fnd_e3e3f40eb861",
-      "fnd_07cb914f7450"
+      "fnd_07cb914f7450",
+      "fnd_9cad30bd5362",
+      "fnd_151056afccc1",
+      "fnd_e3bbb9acd923"
     ],
     "lessons": [],
     "note": "Coupling is measured state update inside this repo — not open-ended ML, not AGI, not consciousness. Improvement proposals stay candidate until human authorize."

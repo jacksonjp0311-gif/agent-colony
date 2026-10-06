@@ -586,7 +586,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("binomial_inversion_small", lambda: all(check_binomial_inversion_small(n) for n in range(0, 9)), True),
     ("legendre_duplication_small", lambda: all(check_legendre_duplication_small(n) for n in range(0, 12)), True),
     # Relight spark — Phase 2 harder lemmas (start DISABLED so desk can hard_enable)
-    ("vandermonde_asymmetric", check_vandermonde_asymmetric, True),
+    ("vandermonde_asymmetric", check_vandermonde_asymmetric, False),
     ("binomial_hockey_deep", check_binomial_hockey_deep, False),
     ("fibonacci_cassini_ext", check_fibonacci_cassini_ext, False),
     ("derived_chain_stress", check_derived_chain_stress, False),

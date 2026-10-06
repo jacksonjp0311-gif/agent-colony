@@ -128,3 +128,5 @@
 {"ts": "2026-10-06T06:38:36Z", "cycle_id": "20261006T063811Z_c9d263", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 32, "REFINE": 96, "REJECT": 0}}
 {"ts": "2026-10-06T06:39:17Z", "cycle_id": "20261006T063855Z_96d0cb", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 32, "REFINE": 97, "REJECT": 0}}
 {"ts": "2026-10-06T06:39:59Z", "cycle_id": "20261006T063937Z_0efce9", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 32, "REFINE": 98, "REJECT": 0}}
+{"ts": "2026-10-06T14:33:01Z", "cycle_id": "smoke_spark3", "verdict": "APPROVE", "h7": 1.0, "reason": "H7>=threshold", "distribution": {"APPROVE": 33, "REFINE": 98, "REJECT": 0}}
+{"ts": "2026-10-06T14:33:24Z", "cycle_id": "20261006T143302Z_295c03", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 33, "REFINE": 99, "REJECT": 0}}

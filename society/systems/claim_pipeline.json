@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T06:39:41Z",
-  "updated_cycle": "20261006T063937Z_0efce9",
-  "n_claims": 2,
-  "n_proposed": 2,
+  "updated_at": "2026-10-06T14:33:04Z",
+  "updated_cycle": "20261006T143302Z_295c03",
+  "n_claims": 1,
+  "n_proposed": 0,
   "recent_claims": [
     {
       "claim_id": "cl_vandermonde_170603762",
@@ -17,28 +17,10 @@
         "source": "offline_seed"
       },
       "bench_hint": "lemma_microbench hard:vandermonde*",
-      "status": "proposed",
-      "hard_ok": true,
-      "note": "lemma score=0.8771 hard_pass=25/25 \u2014 machine-checked harness only; not theorem discovery | oracle=PASS kills=[]",
-      "ts": "2026-10-06T06:39:41Z",
-      "not_discovery": true
-    },
-    {
-      "claim_id": "cl_autodiff_261006833",
-      "theme_id": "autodiff",
-      "text": "CLAIM CANDIDATE (not discovered): paper themes around `autodiff` from `Towards Looped Models Done Right, Part II: Rethinking at Fixed Points` may relate to autodiff_microbench. Raw scrape \u2260 discovery. Needs hard check + authorize.",
-      "provenance": {
-        "title": "Towards Looped Models Done Right, Part II: Rethinking at Fixed Points",
-        "arxiv_id": "2610.06833",
-        "doi": "",
-        "url": "https://arxiv.org/abs/2610.06833",
-        "source": "arxiv"
-      },
-      "bench_hint": "autodiff_microbench",
-      "status": "proposed",
-      "hard_ok": true,
-      "note": "autodiff ok=True score=1.0 | oracle=PASS kills=[]",
-      "ts": "2026-10-06T06:39:41Z",
+      "status": "rejected_raw",
+      "hard_ok": false,
+      "note": "lemma score=0.8871 hard_pass=26/26 \u2014 machine-checked harness only; not theorem discovery | skip_seen_claim:vandermonde:1706.03762",
+      "ts": "2026-10-06T14:33:04Z",
       "not_discovery": true
     }
   ],
