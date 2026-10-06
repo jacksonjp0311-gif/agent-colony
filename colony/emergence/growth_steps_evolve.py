@@ -555,6 +555,12 @@ class GrowthSteps3:
                 hypothesis=hypothesis,
                 action=action,
             )
+            # Phase 1/4: if propose_improvement blocked a repeat, skip ledger spam
+            if prop.get("status") == "blocked_repeat":
+                g.hearing_verdicts.append(  # type: ignore[attr-defined]
+                    {"title": title, "verdict": "block", "rationale": "repeat_proposal", "P": 0.0}
+                )
+                continue
             # Map hearing verdict → proposal + ledger status
             if verdict == "reject":
                 prop["status"] = "rejected"
@@ -574,6 +580,25 @@ class GrowthSteps3:
                 prop["hearing_rationale"] = rationale
                 ledger_status = "unknown"
                 tags = ["growth", "debate", "propose", "hearing", "deferred"]
+            # Phase 1: hearing reject/defer → lesson
+            try:
+                from colony.lessons import write_lesson
+                if verdict in ("reject", "defer"):
+                    write_lesson(
+                        decision="block" if verdict == "reject" else "skip",
+                        check="hearing",
+                        what=f"hearing_{verdict}: {rationale}"[:500],
+                        source="growth_hearing",
+                        cycle_id=cycle_id,
+                        mutation=title[:80],
+                        lesson_type=f"hearing_{verdict}",
+                        family="process",
+                        proposal_fingerprint=prop.get("fingerprint") or "",
+                        tags=["hearing", verdict],
+                        evidence=[f"proposal:{prop.get('id')}"],
+                    )
+            except Exception:
+                pass
 
             self.ledger.set_extra_roles(self.state.role_names() | set(self.registry.active()))
             f = self.ledger.create(

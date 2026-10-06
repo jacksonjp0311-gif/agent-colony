@@ -26,6 +26,20 @@ def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+# Human authors allowed to write type=human_guide (agents may NOT invent guides).
+HUMAN_GUIDE_AUTHORS = frozenset({
+    "James Paul Jackson",
+    "James Jackson",
+    "jacksonjp0311-gif",
+})
+
+LESSON_TYPES = frozenset({
+    "oracle_kill", "hearing_reject", "hearing_defer", "bench_regression",
+    "repeat_proposal", "catalog_exhausted", "human_guide",
+    "keep", "revert", "skip",
+})
+
+
 def write_lesson(
     *,
     decision: str,
@@ -40,8 +54,31 @@ def write_lesson(
     family: str = "",
     tags: list[str] | None = None,
     evidence: list[str] | None = None,
+    lesson_type: str = "",
+    catalog_hint: dict[str, Any] | None = None,
+    proposal_fingerprint: str = "",
+    genome_prior: dict[str, float] | None = None,
+    author: str | None = None,
 ) -> dict[str, Any]:
-    """Append one lesson. decision in {keep, revert, skip}."""
+    """Append one lesson. decision in {keep, revert, skip, guide, block}.
+
+    human_guide is ONLY writable by explicit human path (author allowlist + source=human).
+    Agents may read guides as teaching priors; they may not invent type=human_guide.
+    Lessons remain status=candidate — durable promotion still needs authorize.
+    """
+    ltype = (lesson_type or decision or "skip").strip()
+    if ltype == "human_guide" or decision == "guide":
+        # Hard guard: reject non-human writers
+        if source != "human" or (author or "") not in HUMAN_GUIDE_AUTHORS:
+            raise PermissionError(
+                "human_guide lessons are writable only by humans "
+                f"(source=human + author in allowlist); got source={source!r} author={author!r}"
+            )
+        ltype = "human_guide"
+        decision = "guide"
+        source = "human"
+        family = family or "human_teaching"
+
     LESSONS_JSONL.parent.mkdir(parents=True, exist_ok=True)
     fam = family or (
         "easy_pad"
@@ -52,6 +89,7 @@ def write_lesson(
         "id": f"les_{cycle_id[-8:] if cycle_id else _utc()[-8:]}_{mutation or check}"[:48],
         "ts": _utc(),
         "cycle_id": cycle_id,
+        "type": ltype if ltype in LESSON_TYPES else (decision or "skip"),
         "decision": decision,
         "check": check,
         "mutation": mutation,
@@ -61,8 +99,12 @@ def write_lesson(
         "before_score": before_score,
         "after_score": after_score,
         "skill_bias": dict(skill_bias or {}),
+        "genome_prior": dict(genome_prior or {}),
+        "catalog_hint": dict(catalog_hint) if catalog_hint else {},
+        "proposal_fingerprint": (proposal_fingerprint or "")[:48],
         "tags": list(tags or []),
         "evidence": list(evidence or []),
+        "author": author,
         "expired": False,
         "status": "candidate",  # hard ceiling — durable accept needs authorize
     }
@@ -135,14 +177,21 @@ def skill_bias_from_lessons(*, lookback: int = 40) -> dict[str, float]:
     for e in lessons:
         sb = e.get("skill_bias") or {}
         decision = e.get("decision")
-        # Keeps reinforce; reverts push opposite lightly
+        ltype = e.get("type") or decision
+        # Keeps reinforce; reverts push opposite lightly; guides teach
         sign = 1.0 if decision == "keep" else (-0.5 if decision == "revert" else 0.0)
+        if ltype == "human_guide" or decision == "guide":
+            sign = 1.5
+        elif ltype == "oracle_kill":
+            sign = -1.0 if sign == 0.0 else sign
+            # Also apply skill_bias at full weight for kill teaching
+            if sign == 0.0:
+                sign = -0.5
         if e.get("family") in EASY_FAMILIES:
             sign *= 0.0  # SPARK: easy_pad keeps get zero genome/skill bias (die)
-        # SPARK: keep lessons that mention communicate/reply reinforce reply trait
         for k, v in sb.items():
-            weights[k] = weights.get(k, 0.0) + abs(sign)
-            bias[k] = bias.get(k, 0.0) + float(v) * sign
+            weights[k] = weights.get(k, 0.0) + abs(sign) if sign != 0 else weights.get(k, 0.0) + 1.0
+            bias[k] = bias.get(k, 0.0) + float(v) * (sign if sign != 0 else 1.0)
     out: dict[str, float] = {}
     for k, total in bias.items():
         w = weights.get(k) or 1.0
@@ -248,3 +297,62 @@ def digest(*, limit: int = 5) -> str:
             f"{(e.get('what') or '')[:60]}"
         )
     return " | ".join(parts)
+
+
+def catalog_hints_from_lessons(*, lookback: int = 40) -> list[dict[str, Any]]:
+    """Recent catalog_hint payloads from kill/exhausted lessons (priors for desk)."""
+    out: list[dict[str, Any]] = []
+    for e in load_lessons(limit=lookback):
+        hint = e.get("catalog_hint") or {}
+        if hint.get("add_mutation"):
+            out.append(dict(hint))
+    return out
+
+
+def proposal_fingerprint_counts(*, days: int = 14, lookback: int = 400) -> dict[str, int]:
+    """Count repeat_proposal / hearing_* fingerprints (approx by recent lessons)."""
+    from datetime import datetime, timezone, timedelta
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    counts: dict[str, int] = {}
+    for e in load_lessons(limit=lookback, include_expired=True):
+        fp = e.get("proposal_fingerprint") or ""
+        if not fp:
+            continue
+        ts = e.get("ts") or ""
+        try:
+            dt = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+            if dt < cutoff:
+                continue
+        except ValueError:
+            pass
+        counts[fp] = counts.get(fp, 0) + 1
+    return counts
+
+
+def write_human_guide(
+    *,
+    what: str,
+    author: str = "James Paul Jackson",
+    mutation: str = "",
+    catalog_hint: dict[str, Any] | None = None,
+    skill_bias: dict[str, float] | None = None,
+    genome_prior: dict[str, float] | None = None,
+    cycle_id: str = "",
+    tags: list[str] | None = None,
+) -> dict[str, Any]:
+    """Explicit human path to append a human_guide lesson (teaching prior only)."""
+    return write_lesson(
+        decision="guide",
+        check="human",
+        what=what,
+        source="human",
+        author=author,
+        mutation=mutation,
+        lesson_type="human_guide",
+        family="human_teaching",
+        catalog_hint=catalog_hint,
+        skill_bias=skill_bias,
+        genome_prior=genome_prior,
+        cycle_id=cycle_id,
+        tags=list(tags or ["human_guide"]),
+    )

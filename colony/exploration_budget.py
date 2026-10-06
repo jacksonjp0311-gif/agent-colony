@@ -119,10 +119,27 @@ def record_outcome(mutation: str, decision: str, *, kind: str = "") -> dict[str,
 
 
 def pick_mutation_order(candidates: list[tuple[str, str, str]]) -> list[tuple[str, str, str]]:
-    """Reorder mutation candidates by exploration distribution (high weight first)."""
-    names = [n for n, _, _ in candidates]
+    """Reorder mutation candidates by exploration distribution (high weight first).
+
+    Phase 1/2: prepend mutations listed in recent lesson catalog_hint.add_mutation.
+    """
+    boosted: list[tuple[str, str, str]] = []
+    try:
+        from colony.lessons import catalog_hints_from_lessons
+        hints = catalog_hints_from_lessons(lookback=20)
+        want = [str(h.get("add_mutation") or "") for h in hints if h.get("add_mutation")]
+        by_name = {n: (n, k, s) for n, k, s in candidates}
+        for name in want:
+            if name in by_name:
+                boosted.append(by_name.pop(name))
+        rest = list(by_name.values())
+    except Exception:
+        rest = list(candidates)
+        boosted = []
+    names = [n for n, _, _ in rest]
     dist = ensure_distribution(names) if names else {}
-    return sorted(candidates, key=lambda t: float(dist.get(t[0]) or 0.0), reverse=True)
+    rest_sorted = sorted(rest, key=lambda t: float(dist.get(t[0]) or 0.0), reverse=True)
+    return boosted + rest_sorted
 
 
 def apply_hard_tier_spawn_retire(

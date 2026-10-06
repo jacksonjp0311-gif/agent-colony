@@ -10,9 +10,11 @@ from typing import Any
 
 from colony.conjecture_mutations import (
     MUTATION_SNIPPETS,
+    all_snippets,
     already_has as _already_has,
     apply_mutation as _apply_mutation,
     recent_revert_counts,
+    register_mutation_candidate,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -132,9 +134,9 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     chosen = None
     try:
         from colony.exploration_budget import pick_mutation_order
-        ordered = pick_mutation_order(list(MUTATION_SNIPPETS))
+        ordered = pick_mutation_order(list(all_snippets()))
     except Exception:
-        ordered = list(MUTATION_SNIPPETS)
+        ordered = list(all_snippets())
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
             continue
@@ -158,6 +160,34 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         if _already_has(src, chosen) and kind == "stem_enable":
             chosen = None
     if not chosen:
+        # Phase 1/2: catalog exhausted → lesson + queue stub mutation from hints
+        try:
+            from colony.lessons import write_lesson, catalog_hints_from_lessons
+            hints = catalog_hints_from_lessons(lookback=20)
+            hint = hints[0] if hints else {"add_mutation": "vandermonde_asymmetric", "kind": "hard_enable"}
+            write_lesson(
+                decision="skip",
+                check="conjecture",
+                what="catalog exhausted — queue next hard_enable stub from lessons/external mind",
+                source="conjecture_desk",
+                cycle_id=cycle_id,
+                lesson_type="catalog_exhausted",
+                family="hard_tier",
+                catalog_hint=hint,
+                tags=["catalog_exhausted"],
+            )
+            try:
+                from colony.conjecture_mutations import register_mutation_candidate
+                if hint.get("add_mutation"):
+                    register_mutation_candidate(
+                        str(hint["add_mutation"]),
+                        str(hint.get("kind") or "hard_enable"),
+                        f"enable:{hint['add_mutation']}",
+                    )
+            except Exception:
+                pass
+        except Exception:
+            pass
         result = ConjectureResult(
             ts=_utc(), decision="skip", before_score=before_score, after_score=before_score,
             delta=0.0, themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals,
@@ -165,8 +195,21 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             finding_ids=[p.get("finding_id") for p in proposals if p.get("finding_id")],
         )
         _append_history(result); _write_witness([result]); return result
-    backup = backup_dir / f"{target_impl.stem}_{chosen}_{datetime.now(timezone.utc).strftime('%H%M%S')}.py"
-    shutil.copy2(target_impl, backup)
+    backup_dir.mkdir(parents=True, exist_ok=True)
+    new_bytes = target_impl.read_bytes()
+    latest = None
+    cands = sorted(backup_dir.glob(f"{target_impl.stem}_{chosen}_*.py"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if cands and cands[0].read_bytes() == new_bytes:
+        backup = cands[0]  # reuse identical
+    else:
+        backup = backup_dir / f"{target_impl.stem}_{chosen}_{datetime.now(timezone.utc).strftime('%H%M%S')}.py"
+        shutil.copy2(target_impl, backup)
+        # Cap: keep last 5 distinct per target+mutation
+        for oldp in cands[4:]:
+            try:
+                oldp.unlink()
+            except OSError:
+                pass
     new_src = _apply_mutation(src, chosen, kind, snippet)
     if kind == "stem_easy_pad":
         # Force a no-op "apply" marker so Oracle can kill easy STEM pad

@@ -71,6 +71,29 @@ class Authorizer:
             self.root / "society" / "WITNESS.md",
         )
 
+
+
+    def write_guide(
+        self,
+        *,
+        what: str,
+        author: str = "James Paul Jackson",
+        mutation: str = "",
+        catalog_hint: dict | None = None,
+        tags: list[str] | None = None,
+        cycle_id: str = "",
+    ) -> dict:
+        """Human-only teaching prior. Never auto-accepts knowledge (ceiling intact)."""
+        from colony.lessons import write_human_guide
+        return write_human_guide(
+            what=what,
+            author=author,
+            mutation=mutation,
+            catalog_hint=catalog_hint,
+            tags=tags,
+            cycle_id=cycle_id or getattr(self, "cycle_id", "") or "",
+        )
+
     def apply(
         self,
         items: list[AuthorizeItem],

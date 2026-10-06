@@ -357,3 +357,12 @@ class Spark:
             return {"type": "ritual", "name": idea["name"]}
 
         return None
+
+
+def lesson_priors_for_spark(*, limit: int = 8) -> str:
+    """Digest recent lessons into spark witness detail (priors, not commands)."""
+    try:
+        from colony.lessons import digest
+        return digest(limit=limit)
+    except Exception:
+        return "(lessons unavailable)"

@@ -42,6 +42,10 @@ def main(argv: list[str] | None = None) -> int:
         default="Grok Bot (explicit trust grant)",
         help="Delegation note recorded in witness/receipt",
     )
+    p_lessons = sub.add_parser("lessons", help="Lesson ledger: digest or human_guide (human-only)")
+    p_lessons.add_argument("--guide", default=None, help="Write a human_guide lesson (requires human author)")
+    p_lessons.add_argument("--author", default="James Paul Jackson", help="Human author (allowlisted)")
+    p_lessons.add_argument("--mutation", default="", help="Optional mutation/theme hint")
     sub.add_parser("hold", help="Print hold posture (HOLD default; selective authorize only)")
     sub.add_parser("charters", help="Print institution standing charters (agenda autonomy; no truth authority)")
     p_pilots = sub.add_parser("pilots", help="Pilot sandbox lane status / propose (no durable accept)")
@@ -189,6 +193,21 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 0
 
+
+    
+    if args.cmd == "lessons":
+        from colony.lessons import digest, write_human_guide, load_lessons
+        if args.guide:
+            entry = write_human_guide(
+                what=args.guide,
+                author=args.author,
+                mutation=args.mutation or "",
+            )
+            print(json.dumps({"wrote": entry.get("id"), "type": entry.get("type"), "status": entry.get("status")}, indent=2))
+        else:
+            print(digest(limit=8))
+            print(f"n_active≈{len(load_lessons(limit=200))}")
+        return 0
 
     if args.cmd == "hold":
         from colony.hold_posture import latest_hold
