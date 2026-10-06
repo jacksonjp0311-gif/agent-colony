@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T00:14:13Z",
+  "updated_at": "2026-10-06T06:39:41Z",
   "passes": 60,
   "kills": 0,
   "easy_pad_kills": 0,
@@ -34,7 +34,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-06T00:14:13Z",
+    "ts": "2026-10-06T06:39:41Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -44,8 +44,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
-      "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `autodiff` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `autodiff` from `Towards Looped Models Done Right, Part II: Rethinking at Fixed Points` may ",
+      "attack": "WEIGH: `autodiff` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -79,10 +79,6 @@
           },
           {
             "label": "square_expand",
-            "ok": true
-          },
-          {
-            "label": "binom_symmetry_numeric",
             "ok": true
           }
         ]
@@ -134,15 +130,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "vandermonde",
+      "mutation": "autodiff",
       "kind": "claim_theme",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "vandermonde",
+    "mutation": "autodiff",
     "kind": "claim_theme",
     "source": "claim_pipeline",
-    "cycle_id": "20261006T001410Z_4e8de2",
+    "cycle_id": "20261006T063937Z_0efce9",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

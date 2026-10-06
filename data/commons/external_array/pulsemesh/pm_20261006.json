@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-06T00:14:38Z",
+  "ts": "2026-10-06T06:40:19Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.185772900118879,
+      "latest": -4.9896067862604125,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-06T00:07:00Z",
-          "v": -7.907862825480573
+          "t": "2026-10-06T06:34:00Z",
+          "v": -5.955594481082782
         },
         {
-          "t": "2026-10-06T00:07:00Z",
-          "v": -6.221386514591291
+          "t": "2026-10-06T06:34:00Z",
+          "v": -4.964041414396612
         },
         {
-          "t": "2026-10-06T00:08:00Z",
-          "v": -7.954400563248984
+          "t": "2026-10-06T06:35:00Z",
+          "v": -5.970897074911804
         },
         {
-          "t": "2026-10-06T00:08:00Z",
-          "v": -6.218394141055258
+          "t": "2026-10-06T06:35:00Z",
+          "v": -4.9722427194276415
         },
         {
-          "t": "2026-10-06T00:09:00Z",
-          "v": -7.485835445491335
+          "t": "2026-10-06T06:36:00Z",
+          "v": -5.984145616940462
         },
         {
-          "t": "2026-10-06T00:09:00Z",
-          "v": -6.151021034993388
+          "t": "2026-10-06T06:36:00Z",
+          "v": -4.980737626554055
         },
         {
-          "t": "2026-10-06T00:10:00Z",
-          "v": -7.571306018758277
+          "t": "2026-10-06T06:37:00Z",
+          "v": -6.0013971975649945
         },
         {
-          "t": "2026-10-06T00:10:00Z",
-          "v": -6.185772900118879
+          "t": "2026-10-06T06:37:00Z",
+          "v": -4.9896067862604125
         }
       ],
       "live": true,
-      "ts": "2026-10-06T00:14:38Z"
+      "ts": "2026-10-06T06:40:19Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 13.1,
+      "latest": 13.6,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -95,15 +95,45 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-06T00:14:38Z"
+      "ts": "2026-10-06T06:40:19Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
       "ok": true,
       "note": "ok",
       "count": 100,
-      "latest": 2.81,
+      "latest": 4.6,
       "items": [
+        {
+          "mag": 4.6,
+          "place": "31 km S of Tezpur, India",
+          "time": 1791240822181,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.8,
+          "place": "146 km WNW of Panguna, Papua New Guinea",
+          "time": 1791240533669,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.3,
+          "place": "17 km WNW of Ashkāsham, Afghanistan",
+          "time": 1791236313955,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.5,
+          "place": "39 km SW of Tambolaka, Indonesia",
+          "time": 1791236285713,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.2,
+          "place": "17 km ESE of Eagle Village, Alaska",
+          "time": 1791233408260,
+          "source": "usgs"
+        },
         {
           "mag": 2.81,
           "place": "32 km SW of Dana Point, CA",
@@ -121,41 +151,11 @@
           "place": "31 km SW of Dana Point, CA",
           "time": 1791231750410,
           "source": "usgs"
-        },
-        {
-          "mag": 4.6,
-          "place": "12 km ENE of Metahāra, Ethiopia",
-          "time": 1791229675779,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.4,
-          "place": "21 km E of Kimbe, Papua New Guinea",
-          "time": 1791224908162,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.7,
-          "place": "81 km W of Karluk, Alaska",
-          "time": 1791223553049,
-          "source": "usgs"
-        },
-        {
-          "mag": 3.9,
-          "place": "247 km WNW of Port McNeill, Canada",
-          "time": 1791221440698,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.7,
-          "place": "105 km WNW of Höfn, Iceland",
-          "time": 1791221304530,
-          "source": "usgs"
         }
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-09-29&endtime=2026-10-06&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-06T00:14:38Z"
+      "ts": "2026-10-06T06:40:19Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.23291015625,
-          "disk_free_percent": 59.566184799625894,
-          "process_count": 160,
-          "uptime_hours": 0.08733333333333333,
+          "load1": 0.07763671875,
+          "disk_free_percent": 59.56463783390528,
+          "process_count": 151,
+          "uptime_hours": 0.09797499999999999,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervm8df0l",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.23291015625,
+      "latest_load1": 0.07763671875,
       "live": true,
-      "ts": "2026-10-06T00:14:38Z"
+      "ts": "2026-10-06T06:40:19Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 8.545517000015934,
-      "mean_ms": 8.79972925000061,
+      "latest_ms": 18.02821399996901,
+      "mean_ms": 21.26077399996973,
       "items": [
         {
           "probe": 0,
-          "ms": 8.52800100000195
+          "ms": 18.008703999953468
         },
         {
           "probe": 1,
-          "ms": 8.972115999995367
+          "ms": 21.182174999978542
         },
         {
           "probe": 2,
-          "ms": 9.153282999989187
+          "ms": 27.824002999977893
         },
         {
           "probe": 3,
-          "ms": 8.545517000015934
+          "ms": 18.02821399996901
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-06T00:14:38Z"
+      "ts": "2026-10-06T06:40:19Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.23291015625 tcp_probe mean_ms=8.79972925000061 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.07763671875 tcp_probe mean_ms=21.26077399996973 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.23291015625,
-        "probe_ms": 8.79972925000061,
+        "load1": 0.07763671875,
+        "probe_ms": 21.26077399996973,
         "probe_ok": true
       },
       "domains": [

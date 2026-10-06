@@ -1,10 +1,7 @@
 {
   "version": 1,
-  "cursor": 7,
+  "cursor": 2,
   "used": [
-    "seed_solar_ops_gather",
-    "seed_kinematics_gather",
-    "seed_oracle_commons_budget",
     "seed_hearing_external_array",
     "seed_residual_redebate",
     "seed_gov_authorize_threshold",
@@ -41,11 +38,14 @@
     "seed_residual_redebate",
     "seed_gov_authorize_threshold",
     "seed_time_revision_arxiv",
-    "seed_telemetry_query_debate"
+    "seed_telemetry_query_debate",
+    "seed_solar_ops_gather",
+    "seed_kinematics_gather",
+    "seed_oracle_commons_budget"
   ],
-  "last_seed_id": "seed_telemetry_query_debate",
-  "last_cycle_id": "20261006T001410Z_4e8de2",
-  "ts": "2026-10-06T00:14:13Z",
+  "last_seed_id": "seed_oracle_commons_budget",
+  "last_cycle_id": "20261006T063937Z_0efce9",
+  "ts": "2026-10-06T06:39:40Z",
   "n_seeds": 8,
   "note": "Fresh debate seeds outside comfort zone. Multi-hop across colony domains."
 }
