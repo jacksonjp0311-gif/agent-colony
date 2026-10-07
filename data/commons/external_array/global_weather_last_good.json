@@ -1,8 +1,8 @@
 {
   "feed": "global_weather",
   "ok": true,
-  "note": "NYC:ok; London:ok; Tokyo:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; Sydney:ok",
-  "count": 3,
+  "note": "NYC:ok; London:ok; Tokyo:ok; Sydney:ok",
+  "count": 4,
   "items": [
     {
       "city": "NYC",
@@ -25,6 +25,16 @@
       "source": "open_meteo"
     },
     {
+      "city": "Tokyo",
+      "lat": 35.68,
+      "lon": 139.76,
+      "temperature_2m": 18.1,
+      "wind_speed_10m": 4.5,
+      "weather_code": 0,
+      "time": "2026-10-07T23:00",
+      "source": "open_meteo"
+    },
+    {
       "city": "Sydney",
       "lat": -33.87,
       "lon": 151.21,
@@ -37,5 +47,5 @@
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-10-07T23:06:25Z"
+  "ts": "2026-10-07T23:14:41Z"
 }

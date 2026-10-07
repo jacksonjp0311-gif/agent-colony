@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T23:06:27Z",
-  "updated_cycle": "20261007T230547Z_fa8aba",
+  "updated_at": "2026-10-07T23:14:42Z",
+  "updated_cycle": "20261007T231428Z_5fe308",
   "signal": {
-    "ts": "2026-10-07T23:06:27Z",
+    "ts": "2026-10-07T23:14:42Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 12,
+    "accepted_compute": 14,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_223f509f2b6b",
-        "title": "Authorize accepted: Lemma mutation keep: fibonacci_cassini_ext"
+        "finding_id": "fnd_35432d4730d7",
+        "title": "Authorize accepted: Lemma mutation keep: adversarial_cassini_ext"
       },
       {
         "topic": "open-math-problems",
@@ -52,20 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_35432d4730d7",
-        "title": "Authorize accepted: Lemma mutation keep: adversarial_cassini_ext",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_c300b9aab0c0",
-        "title": "Authorize accepted: Lemma mutation keep: adversarial_catalan_convolution_stress",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_4e13618dda89",
         "title": "Authorize accepted: Lemma mutation keep: authored_bell_triangle_recurrence__bino",
         "topic_id": "compute-useful-math",
@@ -92,6 +78,20 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_39d6422caccc",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_con",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_4aca120f61ca",
+        "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__derangeme",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,18 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_35432d4730d7",
-        "title": "Authorize accepted: Lemma mutation keep: adversarial_cassini_ext",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_c300b9aab0c0",
-        "title": "Authorize accepted: Lemma mutation keep: adversarial_catalan_convolution_stress",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_4e13618dda89",
         "title": "Authorize accepted: Lemma mutation keep: authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -143,19 +131,31 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000045__cassini",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_39d6422caccc",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_convolution_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_4aca120f61ca",
+        "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__derangement_subfactorial_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_223f509f2b6b",
-        "fnd_94d4382ab0c5",
         "fnd_35432d4730d7",
         "fnd_c300b9aab0c0",
         "fnd_4e13618dda89",
         "fnd_e88debfdefc2",
         "fnd_13ed8f840b09",
-        "fnd_344a6b830f6a"
+        "fnd_344a6b830f6a",
+        "fnd_39d6422caccc",
+        "fnd_4aca120f61ca"
       ],
       "rsi": []
     },

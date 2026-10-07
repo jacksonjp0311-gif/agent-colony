@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-07T23:05:48Z",
-  "cycle_id": "20261007T230547Z_fa8aba",
+  "ts": "2026-10-07T23:14:28Z",
+  "cycle_id": "20261007T231428Z_5fe308",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -16,30 +16,16 @@
       "deepen compute-useful math from accepted finding": 28,
       "vandermonde_asymmetric": 10,
       "easy_pad_square_again": 4,
+      "easy_pad_assoc_add": 4,
       "lemma_hard_combinatorics": 4,
       "workload_derived_chain": 4,
       "energy_work": 4,
-      "easy_pad_assoc_add": 3,
       "easy_pad_zero_identity": 3,
       "binomial_hockey_deep": 3,
       "derived_chain_stress": 3,
       "easy_pad_diff_squares": 3
     },
     "recent": {
-      "stem_easy_pad_units": {
-        "last": "revert",
-        "streak": 4,
-        "n": 4,
-        "keeps": 0,
-        "reverts": 4
-      },
-      "easy_pad_assoc_add": {
-        "last": "revert",
-        "streak": 3,
-        "n": 3,
-        "keeps": 0,
-        "reverts": 3
-      },
       "easy_pad_zero_identity": {
         "last": "revert",
         "streak": 3,
@@ -109,14 +95,28 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_central_binom_bound__derangement_subfactorial_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_euler_totient_multiplicative__hermite_recurrence_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8247,
-      "slope": -0.000151,
+      "last": 0.8198,
+      "slope": 0.00023,
       "min": 0.8163,
       "max": 0.8247
     },
@@ -127,46 +127,46 @@
       "max": 0.0
     },
     "kill_rate": {
-      "last": 0.387,
-      "slope": 0.0,
-      "min": 0.387,
-      "max": 0.387
+      "last": 0.3866,
+      "slope": -2e-05,
+      "min": 0.3859,
+      "max": 0.3876
     },
     "kill_rate_term": {
-      "last": 0.8983,
-      "slope": 0.000852,
-      "min": 0.8905,
+      "last": 0.8979,
+      "slope": 0.000413,
+      "min": 0.8927,
       "max": 0.8993
     },
     "lesson_uptake": {
       "last": 0.9615,
-      "slope": -0.002374,
+      "slope": 0.00588,
       "min": 0.8929,
       "max": 0.9615
     }
   },
   "stall": {
-    "stalled": false,
-    "aggregate_range": 0.0084,
+    "stalled": true,
+    "aggregate_range": 0.0049,
     "novelty_max": 0.0,
     "window": 6,
-    "reason": "moving"
+    "reason": "aggregate flat and novelty 0"
   },
   "catalog": {
-    "enabled": 48,
+    "enabled": 50,
     "disabled": [
-      "adversarial_vandermonde_asymmetric",
-      "authored_central_binom_bound__derangement_subfactorial_w1"
+      "adversarial_vandermonde_asymmetric"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
       "authored_binomial_sum_row__catalan_bounded_w1",
       "authored_binomial_symmetry__catalan_convolution_w1",
       "authored_central_binom_bound__derangement_subfactorial_w1",
+      "authored_euler_totient_multiplicative__hermite_recurrence_w1",
       "authored_oeis_a000045__cassini",
       "authored_oeis_a000108__catalan_bounded"
     ],
-    "exhausted_recent": 3
+    "exhausted_recent": 2
   },
   "guides": {
     "n_guides": 14,
@@ -180,23 +180,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.0,
+      "ratio": 1.097,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.128,
+      "ratio": 1.082,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.994,
+      "ratio": 1.126,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.055,
+      "ratio": 1.058,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.946,
+      "ratio": 1.058,
       "drift": false
     }
   },
@@ -206,18 +206,18 @@
     "last": [
       [
         null,
+        "2026-10-07T23:13:27Z"
+      ],
+      [
+        "success",
         "2026-10-07T23:04:10Z"
       ],
       [
         "success",
         "2026-10-07T21:50:51Z"
-      ],
-      [
-        "success",
-        "2026-10-07T21:47:50Z"
       ]
     ],
-    "fetched_at": "2026-10-07T23:04:23Z"
+    "fetched_at": "2026-10-07T23:13:42Z"
   },
   "feeds": {
     "by_source": {
@@ -258,7 +258,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-07T23:04:22Z"
+      "ts": "2026-10-07T23:13:41Z"
     },
     "health": {
       "arxiv": {
@@ -280,6 +280,7 @@
     }
   },
   "signals": [
+    "stall: aggregate flat (0.0049) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "revert_streaks: easy_pad_abs_identity, easy_pad_assoc_add, easy_pad_commutativity, easy_pad_diff_squares → deprioritize in seek",
     "feeds: 2 OEIS sequence(s) cached → candidate cross-checks for authored checks"
   ],

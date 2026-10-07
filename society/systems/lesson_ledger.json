@@ -1,32 +1,32 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T23:06:09Z",
-  "updated_cycle": "20261007T230547Z_fa8aba",
+  "updated_at": "2026-10-07T23:14:38Z",
+  "updated_cycle": "20261007T231428Z_5fe308",
   "n_active": 80,
   "n_keeps": 0,
-  "n_reverts": 14,
+  "n_reverts": 12,
   "skill_bias": {
+    "improver.improve": 0.0521,
+    "geometer.gather": 0.0433,
     "gather": 0.0822,
     "oracle": 0.0683,
-    "explore": 0.06,
-    "improver.improve": 0.0494,
-    "geometer.gather": 0.0345,
     "build": 0.0686,
     "improve": 0.075,
     "emergence": 0.0525,
     "reply": 0.03,
-    "communicate": 0.03
+    "communicate": 0.03,
+    "explore": 0.06
   },
   "recent": [
     {
-      "id": "les_Z_02007f_authored_binomial_symmetry__catalan",
-      "ts": "2026-10-07T21:52:44Z",
-      "cycle_id": "20261007T215238Z_02007f",
+      "id": "les_Z_b2e5a4_authored_euler_totient_multiplicati",
+      "ts": "2026-10-07T23:13:51Z",
+      "cycle_id": "20261007T231345Z_b2e5a4",
       "type": "authored_check",
       "decision": "skip",
       "check": "authoring",
-      "mutation": "authored_binomial_symmetry__catalan_convolution_w1",
-      "what": "authored disabled hard check `authored_binomial_symmetry__catalan_convolution_w1` from proven lemmas binomial_symmetry + catalan_convolution on new windows; awaits Oracle via proposal",
+      "mutation": "authored_euler_totient_multiplicative__hermite_recurrence_w1",
+      "what": "authored disabled hard check `authored_euler_totient_multiplicative__hermite_recurrence_w1` from proven lemmas euler_totient_multiplicative + hermite_recurrence on new windows; awaits Oracle via proposal",
       "source": "conjecture_desk",
       "family": "hard_tier",
       "before_score": null,
@@ -38,24 +38,65 @@
       "tags": [
         "authoring",
         "authored_check",
-        "binomial_symmetry",
-        "catalan_convolution"
+        "euler_totient_multiplicative",
+        "hermite_recurrence"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::check_binomial_symmetry",
-        "society/benchmarks/artifacts/lemma_impl.py::check_catalan_convolution",
+        "society/benchmarks/artifacts/lemma_impl.py::check_euler_totient_multiplicative",
+        "society/benchmarks/artifacts/lemma_impl.py::check_hermite_recurrence",
         "society/benchmarks/lemma_microbench.py",
-        "lemma:binomial_symmetry",
-        "lemma:catalan_convolution"
+        "lemma:euler_totient_multiplicative",
+        "lemma:hermite_recurrence"
       ],
       "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_02007f_vandermonde",
-      "ts": "2026-10-07T21:52:44Z",
-      "cycle_id": "20261007T215238Z_02007f",
+      "id": "les_Z_b2e5a4_easy_pad_assoc_add",
+      "ts": "2026-10-07T23:13:51Z",
+      "cycle_id": "20261007T231345Z_b2e5a4",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "easy_pad_assoc_add",
+      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+      "source": "conjecture_desk",
+      "family": "easy_pad",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness",
+        "easy_pad_oracle_kill"
+      ],
+      "evidence": [
+        "kill:stripped:easy_pad_baseline_already_useful",
+        "kill:held_out:easy_pad_dies_on_held_out",
+        "kill:cas:easy_pad_fails_cas_usefulness",
+        "kill:easy_pad_oracle_kill",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_b2e5a4_vandermonde",
+      "ts": "2026-10-07T23:13:51Z",
+      "cycle_id": "20261007T231345Z_b2e5a4",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -78,9 +119,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_02007f_pilot",
-      "ts": "2026-10-07T21:53:02Z",
-      "cycle_id": "20261007T215238Z_02007f",
+      "id": "les_Z_b2e5a4_pilot",
+      "ts": "2026-10-07T23:14:08Z",
+      "cycle_id": "20261007T231345Z_b2e5a4",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -103,9 +144,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ef1eec_vandermonde",
-      "ts": "2026-10-07T23:04:32Z",
-      "cycle_id": "20261007T230426Z_ef1eec",
+      "id": "les_Z_40013d_vandermonde",
+      "ts": "2026-10-07T23:14:19Z",
+      "cycle_id": "20261007T231413Z_40013d",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -128,9 +169,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ef1eec_pilot",
-      "ts": "2026-10-07T23:04:49Z",
-      "cycle_id": "20261007T230426Z_ef1eec",
+      "id": "les_Z_40013d_pilot",
+      "ts": "2026-10-07T23:14:23Z",
+      "cycle_id": "20261007T231413Z_40013d",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -153,9 +194,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_bfcb21_dedupe",
-      "ts": "2026-10-07T23:05:11Z",
-      "cycle_id": "20261007T230507Z_bfcb21",
+      "id": "les_Z_5fe308_dedupe",
+      "ts": "2026-10-07T23:14:33Z",
+      "cycle_id": "20261007T231428Z_5fe308",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -178,9 +219,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_bfcb21_dedupe",
-      "ts": "2026-10-07T23:05:11Z",
-      "cycle_id": "20261007T230507Z_bfcb21",
+      "id": "les_Z_5fe308_dedupe",
+      "ts": "2026-10-07T23:14:33Z",
+      "cycle_id": "20261007T231428Z_5fe308",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -203,14 +244,14 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_bfcb21_authored_central_binom_bound__deran",
-      "ts": "2026-10-07T23:05:12Z",
-      "cycle_id": "20261007T230507Z_bfcb21",
+      "id": "les_Z_5fe308_authored_fibonacci_addition__gcd_fi",
+      "ts": "2026-10-07T23:14:33Z",
+      "cycle_id": "20261007T231428Z_5fe308",
       "type": "authored_check",
       "decision": "skip",
       "check": "authoring",
-      "mutation": "authored_central_binom_bound__derangement_subfactorial_w1",
-      "what": "authored disabled hard check `authored_central_binom_bound__derangement_subfactorial_w1` from proven lemmas central_binom_bound + derangement_subfactorial on new windows; awaits Oracle via proposal",
+      "mutation": "authored_fibonacci_addition__gcd_fibonacci_w1",
+      "what": "authored disabled hard check `authored_fibonacci_addition__gcd_fibonacci_w1` from proven lemmas fibonacci_addition + gcd_fibonacci on new windows; awaits Oracle via proposal",
       "source": "conjecture_desk",
       "family": "hard_tier",
       "before_score": null,
@@ -222,74 +263,65 @@
       "tags": [
         "authoring",
         "authored_check",
-        "central_binom_bound",
-        "derangement_subfactorial"
+        "fibonacci_addition",
+        "gcd_fibonacci"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::check_central_binom_bound",
-        "society/benchmarks/artifacts/lemma_impl.py::check_derangement_subfactorial",
+        "society/benchmarks/artifacts/lemma_impl.py::check_fibonacci_addition",
+        "society/benchmarks/artifacts/lemma_impl.py::check_gcd_fibonacci",
         "society/benchmarks/lemma_microbench.py",
-        "lemma:central_binom_bound",
-        "lemma:derangement_subfactorial"
+        "lemma:fibonacci_addition",
+        "lemma:gcd_fibonacci"
       ],
       "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_bfcb21_vandermonde",
-      "ts": "2026-10-07T23:05:12Z",
-      "cycle_id": "20261007T230507Z_bfcb21",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
+      "id": "les_Z_5fe308_easy_pad_assoc_add",
+      "ts": "2026-10-07T23:14:34Z",
+      "cycle_id": "20261007T231428Z_5fe308",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "easy_pad_assoc_add",
+      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+      "source": "conjecture_desk",
+      "family": "easy_pad",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_bfcb21_pilot",
-      "ts": "2026-10-07T23:05:29Z",
-      "cycle_id": "20261007T230507Z_bfcb21",
-      "type": "skip",
-      "decision": "skip",
-      "check": "pilot",
-      "mutation": "",
-      "what": "empty rsi_bias pilot suppressed",
-      "source": "pilot_lane",
-      "family": "rsi",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
       "catalog_hint": {},
       "proposal_fingerprint": "",
       "tags": [
-        "empty_rsi_bias"
+        "oracle_kill",
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness",
+        "easy_pad_oracle_kill"
       ],
-      "evidence": [],
+      "evidence": [
+        "kill:stripped:easy_pad_baseline_already_useful",
+        "kill:held_out:easy_pad_dies_on_held_out",
+        "kill:cas:easy_pad_fails_cas_usefulness",
+        "kill:easy_pad_oracle_kill",
+        "kill:collective_kill"
+      ],
       "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_fa8aba_vandermonde",
-      "ts": "2026-10-07T23:05:52Z",
-      "cycle_id": "20261007T230547Z_fa8aba",
+      "id": "les_Z_5fe308_vandermonde",
+      "ts": "2026-10-07T23:14:34Z",
+      "cycle_id": "20261007T231428Z_5fe308",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -312,9 +344,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_fa8aba_pilot",
-      "ts": "2026-10-07T23:06:09Z",
-      "cycle_id": "20261007T230547Z_fa8aba",
+      "id": "les_Z_5fe308_pilot",
+      "ts": "2026-10-07T23:14:38Z",
+      "cycle_id": "20261007T231428Z_5fe308",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",

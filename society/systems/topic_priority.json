@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_223f509f2b6b",
-      "title": "Authorize accepted: Lemma mutation keep: fibonacci_cassini_ext"
+      "finding_id": "fnd_35432d4730d7",
+      "title": "Authorize accepted: Lemma mutation keep: adversarial_cassini_ext"
     },
     {
       "topic": "open-math-problems",
@@ -66,11 +66,6 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "`self-refine`",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -84,6 +79,11 @@
       "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
+    },
+    {
+      "topic": "science-method",
+      "priority": 0.85,
+      "reason": "stem_coverage=0"
     },
     {
       "topic": "mathematics-foundations",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-07T23:06:09Z",
-  "updated_cycle": "20261007T230547Z_fa8aba",
+  "updated_at": "2026-10-07T23:14:38Z",
+  "updated_cycle": "20261007T231428Z_5fe308",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T23:05:52Z",
-  "passes": 218,
-  "kills": 137,
-  "easy_pad_kills": 18,
-  "kill_rate": 0.3859,
+  "updated_at": "2026-10-07T23:14:34Z",
+  "passes": 219,
+  "kills": 139,
+  "easy_pad_kills": 20,
+  "kill_rate": 0.3883,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 10,
-    "kills": 50,
-    "easy_pad_kills": 12,
-    "kill_rate": 0.8333
+    "passes": 11,
+    "kills": 49,
+    "easy_pad_kills": 13,
+    "kill_rate": 0.8167
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -23,6 +23,7 @@
     "authored_binomial_sum_row__catalan_bounded_w1",
     "authored_binomial_symmetry__catalan_convolution_w1",
     "authored_central_binom_bound__derangement_subfactorial_w1",
+    "authored_euler_totient_multiplicative__hermite_recurrence_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000108__catalan_bounded"
   ],
@@ -53,9 +54,8 @@
     "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
     "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
     "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves (cycle 161)",
-    "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
-    "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves (cycle 158)",
     "easy_pad_abs_identity",
+    "easy_pad_assoc_add",
     "easy_pad_commutativity",
     "easy_pad_diff_squares",
     "easy_pad_square_again"
@@ -90,122 +90,104 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-07T23:05:52Z",
-    "passed": true,
-    "kills": [],
+    "ts": "2026-10-07T23:14:34Z",
+    "passed": false,
+    "kills": [
+      "stripped:easy_pad_baseline_already_useful",
+      "held_out:easy_pad_dies_on_held_out",
+      "cas:easy_pad_fails_cas_usefulness",
+      "easy_pad_oracle_kill",
+      "collective_kill"
+    ],
     "hear": {
       "heard": true,
       "bus_ok": false,
-      "is_easy_pad": false,
-      "attack_weight": 0.35,
-      "support_weight": 0.55,
+      "is_easy_pad": true,
+      "attack_weight": 0.9,
+      "support_weight": 0.1,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_central_binom_bound__derangement_subfactorial_w1` kind=hard_enable. lemma mutation authored_central_binom_bound__derangement_subfactorial_w1 0.9071->0.9071 Not disco",
-      "attack": "WEIGH: `authored_central_binom_bound__derangement_subfactorial_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `easy_pad_assoc_add` kind=easy_pad. lemma mutation easy_pad_assoc_add 0.9071->0.9229 Not discovery. cycle=20261007T231428Z_5fe308.",
+      "attack": "ATTACK: `easy_pad_assoc_add` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
     },
     "sense": {
       "stripped": {
-        "already_enabled": true,
-        "in_catalog": true,
-        "hard_pass": 39,
-        "hard_n": 39,
-        "score": 0.9071,
-        "stripped_fails_usefulness": true,
-        "ok_for_oracle": true,
-        "reason": "pre_apply_usefulness_via_delta=1",
-        "hard_pass_delta": 1
+        "stripped_fails_usefulness": false,
+        "reason": "easy_pad_baseline_already_useful",
+        "ok_for_oracle": false
       },
       "held_out": {
-        "survives": true,
-        "ok_for_oracle": true,
-        "hard_pass": 39,
-        "hard_n": 39,
-        "ok": true,
-        "score": 0.9071,
-        "reason": "hard_pass_delta=1",
-        "hard_pass_delta": 1
+        "survives": false,
+        "ok_for_oracle": false,
+        "reason": "easy_pad_dies_on_held_out"
       },
       "cas": {
-        "cas_ok": true,
-        "ok_for_oracle": true,
-        "engine": "pure_python",
-        "reason": "cas_pass",
-        "checks": [
-          {
-            "label": "binomial_symmetry",
-            "ok": true
-          },
-          {
-            "label": "pascal",
-            "ok": true
-          },
-          {
-            "label": "square_expand",
-            "ok": true
-          },
-          {
-            "label": "hard_enable_probes",
-            "ok": true
-          }
-        ]
+        "cas_ok": false,
+        "ok_for_oracle": false,
+        "engine": "reject_easy_pad",
+        "reason": "easy_pad_fails_cas_usefulness",
+        "checks": []
       },
-      "kills": [],
-      "sense_pass": true
+      "kills": [
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness"
+      ],
+      "sense_pass": false
     },
     "collective": {
-      "decision": "keep_candidate",
-      "sense_pass": true,
-      "keep_weight": 0.363,
-      "kill_weight": 0.2285,
+      "decision": "kill",
+      "sense_pass": false,
+      "keep_weight": 0.0,
+      "kill_weight": 1.0,
       "votes": {
         "geometer": {
           "weight": 0.28,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "improver": {
           "weight": 0.22,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "legislator": {
           "weight": 0.18,
           "vote": "kill",
-          "lean_keep": 0.375,
-          "lean_kill": 0.625
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "spark": {
           "weight": 0.16,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "tribute_keeper": {
           "weight": 0.1,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "builder": {
           "weight": 0.06,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_central_binom_bound__derangement_subfactorial_w1",
-      "kind": "hard_enable",
+      "mutation": "easy_pad_assoc_add",
+      "kind": "easy_pad",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
-    "fitness_credit": true,
-    "mutation": "authored_central_binom_bound__derangement_subfactorial_w1",
-    "kind": "hard_enable",
+    "fitness_credit": false,
+    "mutation": "easy_pad_assoc_add",
+    "kind": "easy_pad",
     "source": "conjecture_desk",
-    "cycle_id": "20261007T230547Z_fa8aba",
-    "note": "Oracle PASS \u2014 keep as candidate until authorize.",
+    "cycle_id": "20261007T231428Z_5fe308",
+    "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

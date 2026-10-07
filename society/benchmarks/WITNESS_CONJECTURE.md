@@ -1,8 +1,8 @@
-# Conjecture desk witness — 2026-10-07T23:05:52Z
+# Conjecture desk witness — 2026-10-07T23:14:34Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `authored_central_binom_bound__derangement_subfactorial_w1` (hard_enable) → **keep** 0.9071→0.9071 (+0.0000) — Kept `authored_central_binom_bound__derangement_subfactorial_w1` (hard_enable): lemma score 0.9071→0.9071 checks 48→49 hard_pass 38→39 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[]
+- `easy_pad_assoc_add` (easy_pad) → **revert** 0.9071→0.9071 (+0.0000) — Reverted `easy_pad_assoc_add` (easy_pad): score 0.9071→0.9229 ok=True hard_pass 40→40 — Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']
   - themes: New algebraic points on covers of elliptic curves, The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty
