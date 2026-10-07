@@ -536,19 +536,6 @@ def check_authored_binomial_sum_row__catalan_bounded_w1() -> bool:
     return all((check_binomial_sum_row(n) for n in range(22, 33))) and all((check_catalan_bounded(n) for n in range(12, 18)))
 
 
-def check_authored_oeis_a000108__catalan_bounded() -> bool:
-    """Authored feed cross-check (desk): OEIS A000108 held-out terms
-    n=9..28 must equal the colony's `catalan` (binomial(2 * n, n) // (n + 1)), and the
-    proven lemma catalan_bounded must hold on a window past its base window.
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_catalan_bounded,
-    ::binomial; checked by society/benchmarks/lemma_microbench.py.
-    Source: https://oeis.org/A000108 (feed oeis:A000108:catalan, fetched 2026-10-07T21:48:09Z).
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_catalan_bounded(n) for n in range(12, 18))) and all((binomial(2 * n, n) // (n + 1) == t for n, t in zip(range(9, 29), (4862, 16796, 58786, 208012, 742900, 2674440, 9694845, 35357670, 129644790, 477638700, 1767263190, 6564120420, 24466267020, 91482563640, 343059613650, 1289904147324, 4861946401452, 18367353072152, 69533550916004, 263747951750360))))
-
-
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -633,8 +620,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("adversarial_derived_chain_stress", check_adversarial_derived_chain_stress, True),
 
     ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, True),
-    ("authored_binomial_sum_row__catalan_bounded_w1", check_authored_binomial_sum_row__catalan_bounded_w1, True),
-    ("authored_oeis_a000108__catalan_bounded", check_authored_oeis_a000108__catalan_bounded, True),
+    ("authored_binomial_sum_row__catalan_bounded_w1", check_authored_binomial_sum_row__catalan_bounded_w1, False),
 ]
 
 

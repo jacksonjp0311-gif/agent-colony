@@ -225,82 +225,85 @@
     "cycle_173_evolve_note",
     "cycle_174_evolve_note",
     "cycle_175_evolve_note",
-    "cycle_176_evolve_note"
+    "cycle_176_evolve_note",
+    "cycle_177_evolve_note",
+    "cycle_178_evolve_note",
+    "cycle_179_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 478,
+      "uses": 487,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 450,
+      "uses": 459,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 321,
+      "uses": 327,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 160,
+      "uses": 163,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 597,
+      "uses": 609,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 429,
+      "uses": 434,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 445,
+      "uses": 454,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 148,
+      "uses": 151,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 148,
+      "uses": 151,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 133,
+      "uses": 136,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 133,
+      "uses": 136,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 130,
+      "uses": 133,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 130,
+      "uses": 133,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 127,
+      "uses": 130,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 127,
+      "uses": 130,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -575,14 +578,14 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 596,
-    "reused": 1336
+    "appended": 608,
+    "reused": 1363
   },
   "commons_by_domain": {
-    "science": 9,
+    "science": 6,
     "history": 0,
-    "math": 82,
-    "rsi": 109,
+    "math": 88,
+    "rsi": 106,
     "empire": 0,
     "general": 0
   },
@@ -595,8 +598,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-07T20:34:58Z",
-    "cycle_id": "20261007T203417Z_36f988",
+    "ts": "2026-10-07T21:49:40Z",
+    "cycle_id": "20261007T214910Z_60b63d",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -608,56 +611,52 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-07T20:34:58Z",
-    "cycle_id": "20261007T203417Z_36f988",
+    "ts": "2026-10-07T21:49:40Z",
+    "cycle_id": "20261007T214910Z_60b63d",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.816,
-    "compute_usefulness": 0.9159,
+    "math_prize": 0.8133,
+    "compute_usefulness": 0.9126,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8878,
-    "kill_rate": 0.8927,
+    "prize_boost": 0.8854,
+    "kill_rate": 0.8971,
     "novelty": 0.0,
-    "lesson_uptake": 0.9583,
-    "aggregate": 0.8241,
+    "lesson_uptake": 0.8929,
+    "aggregate": 0.8163,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 8500,
-    "read": 40074,
-    "replied": 5347,
-    "actions_planned": 2784,
-    "actions_changed_from_message": 2784,
-    "reply_quality_sum": 4828.9999999999945,
-    "reply_quality_n": 5295,
-    "peer_cite_opportunities": 5444,
-    "peer_cites": 5444
+    "posted": 8667,
+    "read": 40866,
+    "replied": 5452,
+    "actions_planned": 2838,
+    "actions_changed_from_message": 2838,
+    "reply_quality_sum": 4924.699999999969,
+    "reply_quality_n": 5400,
+    "peer_cite_opportunities": 5552,
+    "peer_cites": 5552
   },
   "bus_domains": {
-    "science": 440,
-    "history": 442,
-    "math": 1335,
-    "empire": 297,
-    "bulletin": 1280,
-    "forum": 1911,
-    "software": 442,
-    "nature": 440,
-    "life": 442,
-    "cosmos": 619,
-    "rsi": 744
+    "science": 449,
+    "history": 451,
+    "math": 1362,
+    "empire": 303,
+    "bulletin": 1301,
+    "forum": 1950,
+    "software": 451,
+    "nature": 449,
+    "life": 451,
+    "cosmos": 633,
+    "rsi": 759
   },
-  "communications_count": 8500,
+  "communications_count": 8667,
   "improvements": [
-    "Feed accepted/strong RSI findings into skill_router + genome bias",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 139)",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 141)",
-    "Feed accepted/strong RSI findings into skill_router + genome bias",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 143)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 145)",
     "Feed accepted/strong RSI findings into skill_router + genome bias",
@@ -703,18 +702,22 @@
     "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
     "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
     "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves",
-    "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves (cycle 175)"
+    "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves (cycle 175)",
+    "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds",
+    "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds (cycle 177)",
+    "Chain `authored_oeis_a000108__catalan_bounded` citing Odds",
+    "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)"
   ],
-  "cycle_count": 176,
-  "ledger_count": 9147,
+  "cycle_count": 179,
+  "ledger_count": 9326,
   "status_counts": {
-    "candidate": 8762,
-    "accepted": 91,
-    "rejected": 173,
+    "candidate": 8936,
+    "accepted": 93,
+    "rejected": 176,
     "unknown": 121
   },
-  "witness_events": 12909,
-  "tribute_cycles_compliant": 176,
+  "witness_events": 13174,
+  "tribute_cycles_compliant": 179,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:33:41Z",
+  "updated_at": "2026-10-07T21:49:15Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-07T20:33:41Z",
+    "ts": "2026-10-07T21:49:15Z",
     "cycle_id": "",
-    "mutation": "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves (cycle 175)",
+    "mutation": "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
@@ -14,21 +14,21 @@
       "held_out:hard_tier_green_and_hard_enable",
       "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
     ],
-    "textbook_reuse": 0.0,
+    "textbook_reuse": 0.3333,
     "in_ledger": false,
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 33,
-      "hard_n": 33,
+      "hard_pass": 35,
+      "hard_n": 35,
       "stripped_fails_usefulness": false,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard33"
+      "impl_id": "lemma_impl_v2_basic10_hard34"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 33,
+      "hard_pass": 35,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

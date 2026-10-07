@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:34:58Z",
-  "updated_cycle": "20261007T203417Z_36f988",
+  "updated_at": "2026-10-07T21:49:40Z",
+  "updated_cycle": "20261007T214910Z_60b63d",
   "signal": {
-    "ts": "2026-10-07T20:34:58Z",
+    "ts": "2026-10-07T21:49:40Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 8,
+    "accepted_compute": 9,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_d4814b6bea51",
-        "title": "Authorize accepted: Hard-checked claim: autodiff"
+        "finding_id": "fnd_fdb17b7531cc",
+        "title": "Authorize accepted: Hard-checked claim: vandermonde"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_ff6ac9884b6a",
-        "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_6e98db19d5bf",
         "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep",
         "topic_id": "compute-useful-math",
@@ -89,6 +82,13 @@
       {
         "id": "fnd_c300b9aab0c0",
         "title": "Authorize accepted: Lemma mutation keep: adversarial_catalan_convolution_stress",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_4e13618dda89",
+        "title": "Authorize accepted: Lemma mutation keep: authored_bell_triangle_recurrence__bino",
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
@@ -109,12 +109,6 @@
     },
     "lessons": [
       {
-        "id": "fnd_ff6ac9884b6a",
-        "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
         "id": "fnd_6e98db19d5bf",
         "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep",
         "topic_id": "compute-useful-math",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: adversarial_catalan_convolution_stress",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_4e13618dda89",
+        "title": "Authorize accepted: Lemma mutation keep: authored_bell_triangle_recurrence__binomial_inversion_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_d4814b6bea51",
         "fnd_fdb17b7531cc",
         "fnd_ff6ac9884b6a",
         "fnd_6e98db19d5bf",
         "fnd_223f509f2b6b",
         "fnd_94d4382ab0c5",
         "fnd_35432d4730d7",
-        "fnd_c300b9aab0c0"
+        "fnd_c300b9aab0c0",
+        "fnd_4e13618dda89"
       ],
       "rsi": []
     },

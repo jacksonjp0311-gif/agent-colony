@@ -1,17 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:33:41Z",
-  "passes": 5,
-  "kills": 55,
-  "easy_pad_kills": 16,
-  "kill_rate": 0.9167,
+  "updated_at": "2026-10-07T21:49:16Z",
+  "passes": 7,
+  "kills": 53,
+  "easy_pad_kills": 14,
+  "kill_rate": 0.8833,
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
     "adversarial_derived_chain_stress",
     "adversarial_hockey_deep",
-    "authored_bell_triangle_recurrence__binomial_inversion_small_w1"
+    "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
+    "authored_binomial_sum_row__catalan_bounded_w1",
+    "authored_oeis_a000108__catalan_bounded"
   ],
   "unique_mutations_kill": [
     "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves",
@@ -24,6 +26,10 @@
     "Chain `adversarial_hockey_deep` citing New algebraic points on covers of elliptic curves (cycle 165)",
     "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves",
     "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves (cycle 175)",
+    "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds",
+    "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds (cycle 177)",
+    "Chain `authored_oeis_a000108__catalan_bounded` citing Odds",
+    "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)",
     "Chain `derived_chain_stress` citing New algebraic points on covers of elliptic curves",
     "Chain `derived_chain_stress` citing New algebraic points on covers of elliptic curves (cycle 159)",
     "Chain `energy_work` citing New algebraic points on covers of elliptic curves",
@@ -35,13 +41,9 @@
     "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
     "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves (cycle 161)",
     "Seek `binomial_hockey_deep` citing New algebraic points on covers of elliptic curves",
-    "Seek `binomial_hockey_deep` citing New algebraic points on covers of elliptic curves (cycle 156)",
     "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
     "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves (cycle 158)",
-    "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 154)",
-    "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 155)",
     "easy_pad_abs_identity",
-    "easy_pad_assoc_add",
     "easy_pad_commutativity",
     "easy_pad_diff_squares",
     "easy_pad_square_again",
@@ -77,7 +79,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-07T20:33:41Z",
+    "ts": "2026-10-07T21:49:16Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -87,15 +89,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_bell_triangle_recurrence__binomial_inversion_small_w1` kind=hard_enable. lemma mutation authored_bell_triangle_recurrence__binomial_inversion_small_w1 0.9071->0.9071",
-      "attack": "WEIGH: `authored_bell_triangle_recurrence__binomial_inversion_small_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_oeis_a000108__catalan_bounded` kind=hard_enable. lemma mutation authored_oeis_a000108__catalan_bounded 0.9071->0.9071 Not discovery. cycle=20261007T214910Z_60b63d.",
+      "attack": "WEIGH: `authored_oeis_a000108__catalan_bounded` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 34,
-        "hard_n": 34,
+        "hard_pass": 36,
+        "hard_n": 36,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -105,8 +107,8 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 34,
-        "hard_n": 34,
+        "hard_pass": 36,
+        "hard_n": 36,
         "ok": true,
         "score": 0.9071,
         "reason": "hard_pass_delta=1",
@@ -131,7 +133,7 @@
             "ok": true
           },
           {
-            "label": "binom_symmetry_numeric",
+            "label": "catalan_positive",
             "ok": true
           }
         ]
@@ -183,15 +185,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
+      "mutation": "authored_oeis_a000108__catalan_bounded",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
+    "mutation": "authored_oeis_a000108__catalan_bounded",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261007T203336Z_f7c5ca",
+    "cycle_id": "20261007T214910Z_60b63d",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

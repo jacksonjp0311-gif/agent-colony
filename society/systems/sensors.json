@@ -1,0 +1,282 @@
+{
+  "ts": "2026-10-07T21:49:11Z",
+  "cycle_id": "20261007T214910Z_60b63d",
+  "lemma_streaks": {
+    "revert_streaks": [
+      "easy_pad_abs_identity",
+      "easy_pad_assoc_add",
+      "easy_pad_commutativity",
+      "easy_pad_diff_squares",
+      "easy_pad_square_again",
+      "easy_pad_zero_identity",
+      "stem_easy_pad_units"
+    ],
+    "oracle_kills_by_theme": {
+      "skill_router": 38,
+      "deepen compute-useful math from accepted finding": 28,
+      "vandermonde_asymmetric": 10,
+      "easy_pad_square_again": 4,
+      "lemma_hard_combinatorics": 4,
+      "workload_derived_chain": 4,
+      "energy_work": 4,
+      "easy_pad_assoc_add": 3,
+      "easy_pad_zero_identity": 3,
+      "binomial_hockey_deep": 3,
+      "derived_chain_stress": 3,
+      "easy_pad_diff_squares": 3
+    },
+    "recent": {
+      "binomial_hockey_deep": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "fibonacci_cassini_ext": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "derived_chain_stress": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "stem_easy_pad_units": {
+        "last": "revert",
+        "streak": 2,
+        "n": 2,
+        "keeps": 0,
+        "reverts": 2
+      },
+      "easy_pad_assoc_add": {
+        "last": "revert",
+        "streak": 3,
+        "n": 3,
+        "keeps": 0,
+        "reverts": 3
+      },
+      "easy_pad_zero_identity": {
+        "last": "revert",
+        "streak": 3,
+        "n": 3,
+        "keeps": 0,
+        "reverts": 3
+      },
+      "adversarial_hockey_deep": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "adversarial_cassini_ext": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "adversarial_catalan_convolution_stress": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "adversarial_derived_chain_stress": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_bell_triangle_recurrence__binomial_inversion_small_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_binomial_sum_row__catalan_bounded_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      }
+    }
+  },
+  "trends": {
+    "n": 12,
+    "aggregate": {
+      "last": 0.8207,
+      "slope": -2.7e-05,
+      "min": 0.8167,
+      "max": 0.8243
+    },
+    "novelty": {
+      "last": 0.0,
+      "slope": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "kill_rate": {
+      "last": 0.895,
+      "slope": 0.001981,
+      "min": 0.8693,
+      "max": 0.895
+    },
+    "lesson_uptake": {
+      "last": 0.8929,
+      "slope": -0.004108,
+      "min": 0.8929,
+      "max": 0.9583
+    }
+  },
+  "stall": {
+    "stalled": false,
+    "aggregate_range": 0.0076,
+    "novelty_max": 0.0,
+    "window": 6,
+    "reason": "moving"
+  },
+  "catalog": {
+    "enabled": 45,
+    "disabled": [
+      "adversarial_vandermonde_asymmetric",
+      "authored_oeis_a000108__catalan_bounded"
+    ],
+    "authored": [
+      "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
+      "authored_binomial_sum_row__catalan_bounded_w1",
+      "authored_oeis_a000108__catalan_bounded"
+    ],
+    "exhausted_recent": 3
+  },
+  "guides": {
+    "n_guides": 14,
+    "active": {
+      "process_spam_avoided": true,
+      "prefers_invariant_chains": true,
+      "requires_chain_cites": true,
+      "seeks_unenabled_variants": true,
+      "authoring_active": true
+    }
+  },
+  "bench_timing": {
+    "fft_microbench": {
+      "ratio": 1.227,
+      "drift": false
+    },
+    "fft_stress_microbench": {
+      "ratio": 1.225,
+      "drift": false
+    },
+    "autodiff_microbench": {
+      "ratio": 1.222,
+      "drift": false
+    },
+    "lemma_microbench": {
+      "ratio": 1.221,
+      "drift": false
+    },
+    "kinematics_microbench": {
+      "ratio": 1.218,
+      "drift": false
+    }
+  },
+  "ci_health": {
+    "success_rate": 1.0,
+    "completed": 11,
+    "last": [
+      [
+        null,
+        "2026-10-07T21:47:50Z"
+      ],
+      [
+        "success",
+        "2026-10-07T20:32:41Z"
+      ],
+      [
+        "success",
+        "2026-10-07T20:23:07Z"
+      ]
+    ],
+    "fetched_at": "2026-10-07T21:48:13Z"
+  },
+  "feeds": {
+    "by_source": {
+      "arxiv": 6,
+      "oeis": 2,
+      "crossref": 2,
+      "wikipedia": 1
+    },
+    "by_kind": {
+      "paper": 8,
+      "sequence": 2,
+      "summary": 1
+    },
+    "last_run": {
+      "sources": {
+        "arxiv": {
+          "error": "",
+          "fetched": 8,
+          "new": 6,
+          "ok": true
+        },
+        "ci_health": {
+          "new": 0,
+          "ok": true
+        },
+        "crossref": {
+          "error": "",
+          "fetched": 2,
+          "new": 2,
+          "ok": true
+        },
+        "oeis": {
+          "error": "",
+          "fetched": 2,
+          "new": 2,
+          "ok": true
+        },
+        "wikipedia": {
+          "error": "",
+          "fetched": 1,
+          "new": 1,
+          "ok": true
+        }
+      },
+      "ts": "2026-10-07T21:48:05Z"
+    },
+    "health": {
+      "arxiv": {
+        "fail": 0,
+        "ok": 1
+      },
+      "crossref": {
+        "fail": 0,
+        "ok": 1
+      },
+      "oeis": {
+        "fail": 0,
+        "ok": 1
+      },
+      "wikipedia": {
+        "fail": 0,
+        "ok": 1
+      }
+    }
+  },
+  "signals": [
+    "revert_streaks: easy_pad_abs_identity, easy_pad_assoc_add, easy_pad_commutativity, easy_pad_diff_squares → deprioritize in seek",
+    "feeds: 2 OEIS sequence(s) cached → candidate cross-checks for authored checks"
+  ],
+  "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
+}

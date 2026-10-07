@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_d4814b6bea51",
-      "title": "Authorize accepted: Hard-checked claim: autodiff"
+      "finding_id": "fnd_fdb17b7531cc",
+      "title": "Authorize accepted: Hard-checked claim: vandermonde"
     },
     {
       "topic": "open-math-problems",
@@ -32,6 +32,11 @@
     },
     {
       "topic": "(bus-driven)",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "<https://doi.org/10.1007/s00373-025-03000-w>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -79,11 +84,6 @@
       "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
-    },
-    {
-      "topic": "science-method",
-      "priority": 0.85,
-      "reason": "stem_coverage=0"
     },
     {
       "topic": "mathematics-foundations",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-07T20:34:39Z",
-  "updated_cycle": "20261007T203417Z_36f988",
+  "updated_at": "2026-10-07T21:49:22Z",
+  "updated_cycle": "20261007T214910Z_60b63d",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
