@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-07T11:26:27Z",
+  "ts": "2026-10-07T11:29:04Z",
   "version": 1,
   "mile": "spark3-port",
   "latest": {
@@ -11,28 +11,28 @@
     "summary": {
       "threshold": 0.7,
       "mode": "l2",
-      "dphi_mean": 0.4275456004252288,
-      "dphi_std": 0.47702720954819594,
-      "C_mean": 0.7769780191014863,
-      "C_std": 0.23147930327715072,
+      "dphi_mean": 0.42071302258575877,
+      "dphi_std": 0.46754471112790696,
+      "C_mean": 0.778556454494178,
+      "C_std": 0.2294412790909194,
       "h7": 0.5384615384615384,
-      "h7_weighted": 0.8459409325023562,
+      "h7_weighted": 0.8461730033609896,
       "h7_cusp": 0.7777777777777778,
-      "kappa_bound": 0.6036948421668696
+      "kappa_bound": 0.606150152834545
     },
     "inform_only": true,
     "double_gate": false,
     "durable_accept": false,
     "note": "ATHANOR H7 inform-only. Does NOT authorize durable ledger rows. P>=0.70 human authorize remains ceiling. Not AGI.",
-    "ts": "2026-10-07T11:26:27Z",
-    "cycle_id": "20261007T112620Z_6f0ef3",
+    "ts": "2026-10-07T11:29:04Z",
+    "cycle_id": "20261007T112842Z_f24b06",
     "extra": {
       "n_agents": 14
     }
   },
   "distribution": {
-    "APPROVE": 36,
-    "REFINE": 108,
+    "APPROVE": 37,
+    "REFINE": 111,
     "REJECT": 0
   },
   "stabilizer_advice": {

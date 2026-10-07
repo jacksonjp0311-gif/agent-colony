@@ -36,6 +36,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "['4d-hof",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`hard-checked",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "absolute-max",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "ack-heavy]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-07T11:26:27Z",
-  "updated_cycle": "20261007T112620Z_6f0ef3",
+  "updated_at": "2026-10-07T11:29:04Z",
+  "updated_cycle": "20261007T112842Z_f24b06",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

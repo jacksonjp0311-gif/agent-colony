@@ -3,154 +3,154 @@
     "tribute": "tribute_keeper",
     "build": "builder",
     "communicate": "tribute_keeper",
-    "gather": "tribute_keeper",
+    "gather": "spark",
     "improve": "spark",
     "emergence": "surveyor"
   },
   "skills_snapshot": {
     "spark": {
       "tribute": 0.5,
-      "build": 0.68,
-      "communicate": 0.9899,
-      "gather": 0.83,
-      "improve": 0.8819,
-      "emergence": 0.6927
+      "build": 0.86,
+      "communicate": 0.9824,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.7009
     },
     "tribute_keeper": {
       "tribute": 0.99,
-      "build": 0.68,
+      "build": 0.86,
       "communicate": 0.99,
       "gather": 0.99,
-      "improve": 0.725,
-      "emergence": 0.65
+      "improve": 0.95,
+      "emergence": 0.8
     },
     "memory_weaver": {
       "tribute": 0.5,
-      "build": 0.68,
-      "communicate": 0.9899,
-      "gather": 0.8771,
-      "improve": 0.775,
-      "emergence": 0.65
+      "build": 0.86,
+      "communicate": 0.9841,
+      "gather": 0.9292,
+      "improve": 0.99,
+      "emergence": 0.8
     },
     "builder": {
       "tribute": 0.5,
-      "build": 0.8402,
+      "build": 0.8895,
       "communicate": 0.99,
-      "gather": 0.83,
-      "improve": 0.775,
-      "emergence": 0.65
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.8
     },
     "herald": {
       "tribute": 0.5,
-      "build": 0.68,
-      "communicate": 0.9599,
-      "gather": 0.83,
-      "improve": 0.725,
-      "emergence": 0.65
+      "build": 0.86,
+      "communicate": 0.9543,
+      "gather": 0.99,
+      "improve": 0.95,
+      "emergence": 0.8
     },
     "pathfinder": {
       "tribute": 0.5,
-      "build": 0.68,
+      "build": 0.86,
       "communicate": 0.99,
-      "gather": 0.7054,
-      "improve": 0.725,
-      "emergence": 0.65
+      "gather": 0.7246,
+      "improve": 0.95,
+      "emergence": 0.8
     },
     "improver": {
       "tribute": 0.5,
-      "build": 0.68,
+      "build": 0.86,
       "communicate": 0.99,
-      "gather": 0.83,
-      "improve": 0.7379,
-      "emergence": 0.75
+      "gather": 0.99,
+      "improve": 0.7683,
+      "emergence": 0.9
     },
     "courier": {
       "tribute": 0.5,
-      "build": 0.68,
-      "communicate": 0.9599,
-      "gather": 0.83,
-      "improve": 0.725,
-      "emergence": 0.65
+      "build": 0.86,
+      "communicate": 0.9543,
+      "gather": 0.99,
+      "improve": 0.95,
+      "emergence": 0.8
     },
     "scribe": {
       "tribute": 0.5,
-      "build": 0.6787,
-      "communicate": 0.976,
-      "gather": 0.9322,
-      "improve": 0.7241,
-      "emergence": 0.6599
+      "build": 0.8587,
+      "communicate": 0.9759,
+      "gather": 0.99,
+      "improve": 0.9491,
+      "emergence": 0.8099
     },
     "surveyor": {
       "tribute": 0.5,
-      "build": 0.6878,
+      "build": 0.8678,
       "communicate": 0.99,
-      "gather": 0.7257,
-      "improve": 0.6872,
-      "emergence": 0.9047
+      "gather": 0.7735,
+      "improve": 0.9122,
+      "emergence": 0.99
     },
     "oracle_scribe": {
       "tribute": 0.5,
-      "build": 0.68,
+      "build": 0.86,
       "communicate": 0.99,
-      "gather": 0.83,
-      "improve": 0.725,
-      "emergence": 0.65
+      "gather": 0.99,
+      "improve": 0.95,
+      "emergence": 0.8
     },
     "stem_checker": {
       "tribute": 0.5,
-      "build": 0.68,
+      "build": 0.86,
       "communicate": 0.99,
-      "gather": 0.83,
-      "improve": 0.725,
-      "emergence": 0.65
+      "gather": 0.99,
+      "improve": 0.95,
+      "emergence": 0.8
     },
     "archivist": {
       "tribute": 0.5,
-      "build": 0.7428,
-      "communicate": 0.969,
+      "build": 0.8665,
+      "communicate": 0.9782,
       "gather": 0.99,
-      "improve": 0.7217,
-      "emergence": 0.6344
+      "improve": 0.9467,
+      "emergence": 0.7844
     },
     "legislator": {
       "tribute": 0.5,
-      "build": 0.679,
+      "build": 0.859,
       "communicate": 0.99,
-      "gather": 0.791,
-      "improve": 0.8699,
-      "emergence": 0.6852
+      "gather": 0.99,
+      "improve": 0.9496,
+      "emergence": 0.8352
     },
     "chronicler": {
       "tribute": 0.5,
-      "build": 0.6867,
+      "build": 0.8667,
       "communicate": 0.99,
-      "gather": 0.8771,
-      "improve": 0.7042,
-      "emergence": 0.764
+      "gather": 0.9292,
+      "improve": 0.9292,
+      "emergence": 0.914
     },
     "naturalist": {
       "tribute": 0.5,
-      "build": 0.6803,
+      "build": 0.8603,
       "communicate": 0.99,
-      "gather": 0.8771,
-      "improve": 0.7452,
-      "emergence": 0.787
+      "gather": 0.9292,
+      "improve": 0.9702,
+      "emergence": 0.937
     },
     "geometer": {
       "tribute": 0.5,
-      "build": 0.686,
+      "build": 0.866,
       "communicate": 0.99,
       "gather": 0.9329,
-      "improve": 0.7264,
-      "emergence": 0.8624
+      "improve": 0.9514,
+      "emergence": 0.99
     },
     "messenger": {
       "tribute": 0.5,
-      "build": 0.7023,
-      "communicate": 0.976,
-      "gather": 0.9338,
-      "improve": 0.7269,
-      "emergence": 0.6585
+      "build": 0.8823,
+      "communicate": 0.9759,
+      "gather": 0.99,
+      "improve": 0.9519,
+      "emergence": 0.8085
     }
   },
   "findings_bias": {
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-10-07T11:26:31Z",
-  "updated_cycle": "20261007T112620Z_6f0ef3"
+  "updated_at": "2026-10-07T11:29:24Z",
+  "updated_cycle": "20261007T112842Z_f24b06"
 }
