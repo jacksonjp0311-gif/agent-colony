@@ -125,9 +125,8 @@ def stripped_baseline_fails(mutation: str) -> dict[str, Any]:
 
         src_path = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
         src = src_path.read_text(encoding="utf-8") if src_path.exists() else ""
-        already_enabled = bool(
-            re.search(rf'\("{re.escape(mutation)}".*?,\s*True\)', src, re.S)
-        )
+        _m = re.search(rf'\("{re.escape(mutation)}".*?,\s*(True|False)\)', src, re.S)
+        already_enabled = bool(_m and _m.group(1) == "True")  # this entry's own flag only
         before = run_lemma()
         # Baseline "fails" the novelty usefulness test if candidate isn't adding
         # a new hard pass beyond what's already green.

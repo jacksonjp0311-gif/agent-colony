@@ -212,7 +212,8 @@ def sense_stripped_baseline(mutation: str, kind: str = "") -> dict[str, Any]:
 
         src_path = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
         src = src_path.read_text(encoding="utf-8") if src_path.exists() else ""
-        already = bool(re.search(rf'\("{re.escape(name)}".*?,\s*True\)', src, re.S))
+        _m = re.search(rf'\("{re.escape(name)}".*?,\s*(True|False)\)', src, re.S)
+        already = bool(_m and _m.group(1) == "True")  # this entry's own flag only
         before = run_lemma()
         hard_pass = int(before.get("n_hard_pass") or 0)
         hard_n = int(before.get("n_hard") or 0)
@@ -283,7 +284,8 @@ def _held_out_for_theme(theme: str, *, after_snapshot: dict[str, Any] | None = N
         src_path = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
         src = src_path.read_text(encoding="utf-8") if src_path.exists() else ""
         in_catalog = f'("{window}"' in src
-        enabled = bool(re.search(rf'\("{re.escape(window)}".*?,\s*True\)', src, re.S))
+        _m = re.search(rf'\("{re.escape(window)}".*?,\s*(True|False)\)', src, re.S)
+        enabled = bool(_m and _m.group(1) == "True")  # this entry's own flag only
         if not in_catalog:
             return {
                 "survives": False,

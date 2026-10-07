@@ -57,7 +57,8 @@ def sense_stripped_pack(mutation: str, kind: str = "") -> dict[str, Any]:
         try:
             path = ROOT / "society" / "benchmarks" / "artifacts" / "kinematics_impl.py"
             src = path.read_text(encoding="utf-8") if path.exists() else ""
-            already = bool(re.search(rf'\("{re.escape(name)}".*?,\s*True\)', src, re.S))
+            _m = re.search(rf'\("{re.escape(name)}".*?,\s*(True|False)\)', src, re.S)
+            already = bool(_m and _m.group(1) == "True")  # this entry's own flag only
             in_catalog = f'("{name}"' in src
             fails = (not already) and in_catalog
             return {
