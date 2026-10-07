@@ -299,7 +299,7 @@ class GrowthSteps3:
             action=action,
         )
         # Fail-soft BEFORE hearing stamps status: blocked_repeat has no ledger work.
-        if prop.get("status") == "blocked_repeat":
+        if prop.get("status") in ("blocked_repeat", "blocked_kill_cooldown"):
             return
         prop["hearing_verdict"] = verdict
         prop["hearing_rationale"] = rationale
@@ -604,7 +604,7 @@ class GrowthSteps3:
                 action=action,
             )
             # Phase 1/4: if propose_improvement blocked a repeat, skip ledger spam
-            if prop.get("status") == "blocked_repeat":
+            if prop.get("status") in ("blocked_repeat", "blocked_kill_cooldown"):
                 g.hearing_verdicts.append(  # type: ignore[attr-defined]
                     {"title": title, "verdict": "block", "rationale": "repeat_proposal", "P": 0.0}
                 )

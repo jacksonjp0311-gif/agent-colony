@@ -1,14 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T13:42:03Z",
-  "updated_cycle": "20261007T134144Z_697a74",
+  "updated_at": "2026-10-07T13:59:12Z",
+  "updated_cycle": "teach_drop_kill_cooldown",
   "n_active": 80,
   "n_keeps": 0,
   "n_reverts": 21,
   "skill_bias": {
-    "improver.improve": 0.0246,
-    "geometer.gather": 0.0178,
-    "gather": 0.11,
+    "improver.improve": 0.0274,
+    "geometer.gather": 0.0238,
+    "gather": 0.1067,
+    "explore": 0.08,
     "oracle": 0.06,
     "build": 0.06,
     "improve": 0.075,
@@ -17,31 +18,6 @@
     "communicate": 0.03
   },
   "recent": [
-    {
-      "id": "les_Z_f7a42b_vandermonde",
-      "ts": "2026-10-07T13:40:45Z",
-      "cycle_id": "20261007T134041Z_f7a42b",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
     {
       "id": "les_Z_f7a42b_pilot",
       "ts": "2026-10-07T13:41:02Z",
@@ -385,6 +361,65 @@
       ],
       "evidence": [],
       "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_cooldown_drop_repeated_kill_seek_elsewhere",
+      "ts": "2026-10-07T13:58:28Z",
+      "cycle_id": "teach_drop_kill_cooldown",
+      "type": "human_guide",
+      "decision": "guide",
+      "check": "human",
+      "mutation": "drop_repeated_kill_seek_elsewhere",
+      "what": "DROP AFTER REPEATED KILLS: When the Oracle kills the same claim/theme repeatedly (e.g. vandermonde_asymmetric), STOP re-proposing it. Drop the cooled theme and SEEK a different target from papers.jsonl, ledger citations, and domain bus channels (science/history/math/empire/rsi). Failure teaches; looping the same killed idea does not. Light the spark elsewhere \u2014 gather before propose, cite sources, chase novelty.",
+      "source": "human",
+      "family": "human_teaching",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "gather": 0.1,
+        "explore": 0.08,
+        "improver.improve": 0.05,
+        "geometer.gather": 0.06
+      },
+      "genome_prior": {
+        "gather": 0.06,
+        "explore": 0.08
+      },
+      "catalog_hint": {
+        "avoid": [
+          "vandermonde_asymmetric",
+          "process_spam"
+        ],
+        "drop_theme": [
+          "vandermonde_asymmetric"
+        ],
+        "seek": [
+          "papers.jsonl",
+          "ledger",
+          "domain_bus",
+          "arxiv"
+        ],
+        "prefer": [
+          "novelty",
+          "cite_sources",
+          "gather_before_propose",
+          "drop_cooled_theme"
+        ],
+        "add_mutation": "binomial_hockey_deep"
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "human_guide",
+        "seek",
+        "kill_cooldown",
+        "drop",
+        "novelty",
+        "oracle_kill"
+      ],
+      "evidence": [],
+      "author": "James Jackson",
       "expired": false,
       "status": "candidate"
     }

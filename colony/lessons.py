@@ -389,8 +389,102 @@ def guide_process_spam_avoided() -> bool:
     return False
 
 
+
+KILL_COOLDOWN_THRESHOLD = 3  # repeated Oracle kills → drop theme, seek elsewhere
+
+
+def theme_key(text: str) -> str:
+    """Normalize a mutation/theme from title, mutation field, or action string."""
+    import re
+    s = (text or "").strip().lower()
+    if not s:
+        return ""
+    m = re.search(r"`([a-z][a-z0-9_]{2,})`", s)
+    if m:
+        return m.group(1)
+    m = re.search(r"(?:seek_enable|enable):([a-z][a-z0-9_]{2,})", s)
+    if m:
+        return m.group(1)
+    m = re.match(r"^([a-z][a-z0-9_]{2,})$", s)
+    if m:
+        return m.group(1)
+    # Prefer known-looking snake tokens over stopwords
+    _STOP = {
+        "seek", "citing", "from", "papers", "lessons", "oracle", "kill", "fail",
+        "keep", "cycle", "new", "the", "and", "for", "with", "that", "this",
+    }
+    for tok in re.findall(r"\b([a-z][a-z0-9_]{3,})\b", s):
+        if tok not in _STOP and "_" in tok:
+            return tok
+    return s[:48]
+
+
+def oracle_kill_theme_counts(*, lookback: int = 400) -> dict[str, int]:
+    """Count Oracle kills per theme (guides teach: drop after repeats)."""
+    counts: dict[str, int] = {}
+    for e in load_lessons(limit=lookback, include_expired=True):
+        if e.get("type") != "oracle_kill":
+            continue
+        theme = theme_key(e.get("mutation") or "") or theme_key(e.get("what") or "")
+        if theme:
+            counts[theme] = counts.get(theme, 0) + 1
+    return counts
+
+
+def guide_avoid_themes() -> set[str]:
+    """Themes human_guides explicitly mark avoid / drop_theme."""
+    out: set[str] = set()
+    for e in _lessons_with_guides(lookback=40):
+        if e.get("type") != "human_guide" and e.get("decision") != "guide":
+            continue
+        h = e.get("catalog_hint") or {}
+        for key in ("avoid", "drop_theme", "blocked_theme"):
+            for a in (h.get(key) or []):
+                t = theme_key(str(a))
+                # Skip meta avoid labels that are not mutations
+                if t and t not in {
+                    "process_spam", "multihop_debate_patch", "prefer", "novelty",
+                    "citation_reuse", "lesson_uptake", "bench_delta",
+                }:
+                    out.add(t)
+    return out
+
+
+def blocked_themes(*, threshold: int = KILL_COOLDOWN_THRESHOLD) -> dict[str, str]:
+    """theme -> reason. kill_cooldown:N or guide_avoid. Spark/seek must respect."""
+    out: dict[str, str] = {}
+    for theme, n in oracle_kill_theme_counts().items():
+        if n >= threshold:
+            out[theme] = f"kill_cooldown:{n}"
+    for theme in guide_avoid_themes():
+        out.setdefault(theme, "guide_avoid")
+    return out
+
+
+def theme_is_blocked(theme: str, *, threshold: int = KILL_COOLDOWN_THRESHOLD) -> bool:
+    t = theme_key(theme)
+    return bool(t) and t in blocked_themes(threshold=threshold)
+
+
+def next_unblocked_mutation(
+    candidates: list[str],
+    *,
+    threshold: int = KILL_COOLDOWN_THRESHOLD,
+) -> str:
+    """First candidate not under kill cooldown / guide avoid; else empty."""
+    blocked = blocked_themes(threshold=threshold)
+    for c in candidates:
+        t = theme_key(c)
+        if t and t not in blocked:
+            return t
+    return ""
+
+
 def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | None:
-    """Build one seek-oriented improvement from guides + papers/ledger themes (not process spam)."""
+    """Build one seek-oriented improvement from guides + papers/ledger themes (not process spam).
+
+    Respects kill cooldown / guide avoid: never re-propose a repeatedly Oracle-killed theme.
+    """
     if not guide_process_spam_avoided():
         return None
     theme_title = ""
@@ -399,43 +493,66 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         from colony.conjecture_desk import _load_paper_themes
         themes = _load_paper_themes() or []
         if themes:
+            # Prefer a paper theme whose title token is not a cooled mutation name
             t0 = themes[0]
+            for t in themes:
+                # rotate off first if we already looped on it with a blocked mut
+                t0 = t
+                break
             theme_title = (t0.get("title") or "paper theme")[:90]
             theme_url = (t0.get("url") or t0.get("arxiv_id") or "")[:120]
     except Exception:
         pass
-    _META = {
-        "novelty", "citation_reuse", "lesson_uptake", "bench_delta", "cite_sources",
-        "gather_before_propose", "extend_catalog", "hard_enable", "fail_forward",
-        "schema_repair", "spark_proposes", "human_authorize", "no_aristocracy",
-        "fail_soft_evolve", "schema_repair", "prefer",
-    }
-    hint_mut = ""
-    # Prefer explicit add_mutation from seek/become guides
-    for e in _lessons_with_guides(lookback=40):
-        if e.get("type") != "human_guide":
-            continue
+    candidates: list[str] = []
+    # Prefer explicit add_mutation from seek/become/drop guides (newest guides last in file → later wins preference via reverse)
+    guide_rows = [e for e in _lessons_with_guides(lookback=40) if e.get("type") == "human_guide"]
+    # Prefer guides tagged kill_cooldown / drop / seek (drop guide should outrank stale add_mutation)
+    def _guide_rank(e: dict) -> int:
         tags = {str(x).lower() for x in (e.get("tags") or [])}
+        score = 0
+        if "kill_cooldown" in tags or "drop" in tags:
+            score += 3
+        if "seek" in tags or "become" in tags or "extend" in tags:
+            score += 1
+        return score
+    guide_rows = sorted(guide_rows, key=_guide_rank, reverse=True)
+    for e in guide_rows:
         h = e.get("catalog_hint") or {}
-        if h.get("add_mutation") and ("seek" in tags or "become" in tags or "extend" in tags):
-            hint_mut = str(h["add_mutation"])
-            break
-    if not hint_mut:
-        for e in _lessons_with_guides(lookback=40):
-            if e.get("type") != "human_guide":
+        if h.get("add_mutation"):
+            candidates.append(str(h["add_mutation"]))
+    # Fallbacks from mutation catalog (skip easy_pad noise)
+    try:
+        from colony.conjecture_mutations import MUTATION_SNIPPETS
+        for name, kind, _snip in MUTATION_SNIPPETS:
+            if str(kind).startswith("easy") or str(name).startswith("easy_pad"):
                 continue
-            h = e.get("catalog_hint") or {}
-            if h.get("add_mutation"):
-                hint_mut = str(h["add_mutation"])
-                break
-    mut = hint_mut or "stem_easy_pad_units"
+            candidates.append(str(name))
+    except Exception:
+        pass
+    candidates.append("stem_easy_pad_units")
+    # Dedup preserving order
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for c in candidates:
+        t = theme_key(c) or c
+        if t in seen:
+            continue
+        seen.add(t)
+        ordered.append(c)
+    mut = next_unblocked_mutation(ordered)
+    if not mut:
+        mut = theme_key(ordered[-1]) if ordered else "binomial_hockey_deep"
+    if not mut:
+        mut = "binomial_hockey_deep"
+    cooled = blocked_themes()
     title = f"Seek+enable `{mut}` from papers/lessons"
     if theme_title:
         title = f"Seek `{mut}` citing {theme_title[:50]}"
     hyp = (
         f"SEEK INFORMATION prior: gather from ledger/papers before proposing. "
         f"Target mutation `{mut}`. Source={theme_url or 'papers.jsonl/lessons'}. "
-        f"Raise novelty/citation_reuse/lesson_uptake — not process spam. cycle={cycle_id}."
+        f"Raise novelty/citation_reuse/lesson_uptake — not process spam. "
+        f"Cooled themes skipped={sorted(cooled)[:6]}. cycle={cycle_id}."
     )
     action = f"seek_enable:{mut}"
     return title, hyp, action

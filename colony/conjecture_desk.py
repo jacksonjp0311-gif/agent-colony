@@ -165,9 +165,26 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     if not chosen:
         # Phase 1/2: catalog exhausted → lesson + queue stub mutation from hints
         try:
-            from colony.lessons import write_lesson, catalog_hints_from_lessons
+            from colony.lessons import (
+                write_lesson,
+                catalog_hints_from_lessons,
+                theme_is_blocked,
+                next_unblocked_mutation,
+            )
             hints = catalog_hints_from_lessons(lookback=20)
-            hint = hints[0] if hints else {"add_mutation": "vandermonde_asymmetric", "kind": "hard_enable"}
+            hint = {"add_mutation": "binomial_hockey_deep", "kind": "hard_enable"}
+            for h in hints:
+                mut = str((h or {}).get("add_mutation") or "")
+                if mut and not theme_is_blocked(mut):
+                    hint = h
+                    break
+            else:
+                # All hint mutations cooled — pick next unblocked catalog name
+                cands = [str((h or {}).get("add_mutation") or "") for h in hints]
+                cands += ["binomial_hockey_deep", "fibonacci_cassini_ext", "derived_chain_stress"]
+                alt = next_unblocked_mutation(cands)
+                if alt:
+                    hint = {"add_mutation": alt, "kind": "hard_enable"}
             write_lesson(
                 decision="skip",
                 check="conjecture",

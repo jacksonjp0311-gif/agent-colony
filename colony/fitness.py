@@ -657,6 +657,50 @@ class EvolutionEngine:
         def _canon(s: str) -> str:
             return _re.sub(r"\s+", " ", (s or "").strip().lower())
         fp = hashlib.sha1(f"{_canon(title)}|{_canon(action)}".encode()).hexdigest()[:12]
+        # Kill cooldown: drop repeatedly Oracle-killed themes (human_guide prior).
+        try:
+            from colony.lessons import (
+                write_lesson,
+                theme_key,
+                theme_is_blocked,
+                blocked_themes,
+            )
+            theme = theme_key(action) or theme_key(title)
+            if theme and theme_is_blocked(theme):
+                reason = (blocked_themes() or {}).get(theme) or "kill_cooldown"
+                write_lesson(
+                    decision="block",
+                    check="kill_cooldown",
+                    what=f"blocked cooled theme `{theme}` ({reason}): {title[:80]}",
+                    source="growth_hearing",
+                    cycle_id=cycle_id,
+                    lesson_type="repeat_proposal",
+                    family="kill_cooldown",
+                    mutation=theme,
+                    proposal_fingerprint=fp,
+                    tags=["kill_cooldown", "blocked_theme", theme],
+                    skill_bias={"gather": 0.05, "explore": 0.05},
+                )
+                try:
+                    _actor = self.registry.best_for("improve")
+                except Exception:
+                    _actor = "spark"
+                return {
+                    "id": f"imp_cooled_{fp}",
+                    "ts": _utc_now(),
+                    "cycle_id": cycle_id,
+                    "title": title,
+                    "hypothesis": hypothesis,
+                    "action": action,
+                    "status": "blocked_kill_cooldown",
+                    "fingerprint": fp,
+                    "P": 0.0,
+                    "attempted_by": _actor or "spark",
+                    "note": f"kill_cooldown blocked theme={theme} reason={reason}",
+                    "cooled_theme": theme,
+                }
+        except Exception:
+            pass
         # Phase 4 / 1: block repeats (≥3 identical in recent proposals / lessons)
         try:
             from colony.lessons import write_lesson, proposal_fingerprint_counts
