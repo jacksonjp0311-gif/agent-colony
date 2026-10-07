@@ -258,8 +258,18 @@ class GrowthSteps3:
             "comm_reply_rate": 0,
             "aggregate": 0,
         }
+        # human_guide seek/become: prefer seek-from-papers over process RSI spam
+        seek_pick = None
+        try:
+            from colony.lessons import seek_proposal_from_guides, guide_process_spam_avoided
+            if guide_process_spam_avoided():
+                seek_pick = seek_proposal_from_guides(cycle_id=cycle_id)
+        except Exception:
+            seek_pick = None
         rsi_pick = pick_rsi_improvement(getattr(g, "rsi_signal", None) or {}, metrics)
-        if rsi_pick:
+        if seek_pick:
+            title, hypothesis, action = seek_pick
+        elif rsi_pick:
             title, hypothesis, action = rsi_pick
         else:
             title, hypothesis, action = self.evo.pick_improvement(metrics)
@@ -526,13 +536,21 @@ class GrowthSteps3:
 
         # Build one strong + optionally probe a weak duplicate for reject path
         proposals_spec = []
-        # Strong proposal: cites accepted findings
+        # Strong proposal: seek/become guide overrides process Deepen spam when taught
         strong_title = "Deepen compute-useful math from accepted findings after hearing"
         strong_hyp = (
             f"Reuse accepted citation targets ({cite_snip}) to focus gather/build on "
             f"open-math-problems and compute-useful-math; raise citation_reuse fitness."
         )
         strong_action = "mandate:cite_accepted_compute_findings"
+        try:
+            from colony.lessons import seek_proposal_from_guides, guide_process_spam_avoided
+            if guide_process_spam_avoided():
+                sp = seek_proposal_from_guides(cycle_id=cycle_id)
+                if sp:
+                    strong_title, strong_hyp, strong_action = sp
+        except Exception:
+            pass
         proposals_spec.append(
             {
                 "title": strong_title,

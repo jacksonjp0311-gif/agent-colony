@@ -137,28 +137,31 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         ordered = pick_mutation_order(list(all_snippets()))
     except Exception:
         ordered = list(all_snippets())
+    lemma_src = src
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
-            continue
-        if _already_has(src, name):
             continue
         # Autonomy mile: allow one more retry on easy_pad to prove revert; hard uses >=3
         limit = 3 if name.startswith("easy_pad") else 2
         if not force_mutation and recent_reverts.get(name, 0) >= limit:
             continue
+        # STEM mutations live in kinematics_impl — check the right file before picking.
+        if (k or "").startswith("stem"):
+            stem_src = KINEMATICS_IMPL.read_text(encoding="utf-8") if KINEMATICS_IMPL.exists() else ""
+            if _already_has(stem_src, name):
+                continue
+            chosen, kind, snippet = name, k, snip
+            target_impl = KINEMATICS_IMPL
+            backup_dir = STEM_BACKUP_DIR
+            run_bench = run_stem_bench
+            before = run_bench()
+            before_score = float(before.get("score") or 0.0)
+            src = stem_src
+            break
+        if _already_has(lemma_src, name):
+            continue
         chosen, kind, snippet = name, k, snip
         break
-    # Flourish: STEM domain pack uses kinematics impl + bench
-    if chosen and (kind or "").startswith("stem"):
-        target_impl = KINEMATICS_IMPL
-        backup_dir = STEM_BACKUP_DIR
-        run_bench = run_stem_bench
-        before = run_bench()
-        before_score = float(before.get("score") or 0.0)
-        src = target_impl.read_text(encoding="utf-8") if target_impl.exists() else ""
-        # Re-check already_has on stem file
-        if _already_has(src, chosen) and kind == "stem_enable":
-            chosen = None
     if not chosen:
         # Phase 1/2: catalog exhausted → lesson + queue stub mutation from hints
         try:
@@ -184,6 +187,12 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                         str(hint.get("kind") or "hard_enable"),
                         f"enable:{hint['add_mutation']}",
                     )
+                # SEEK: if guides ask to extend catalog, also queue any still-False
+                # adversarial_* held-out windows as hard_check candidates.
+                import re as _re
+                _lsrc = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else ""
+                for _m in _re.finditer(r'\("([^"]*adversarial[^"]*)"[^)]*,\s*False\)', _lsrc):
+                    register_mutation_candidate(_m.group(1), "hard_check", f"enable:{_m.group(1)}")
             except Exception:
                 pass
         except Exception:

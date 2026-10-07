@@ -132,7 +132,7 @@ def apply_easy_pad(src: str, name: str, snippet: str) -> str | None:
 
 
 def apply_mutation(src: str, name: str, kind: str, snippet: str) -> str | None:
-    if kind == "hard_enable":
+    if kind in ("hard_enable", "hard_check"):
         if already_has(src, name):
             return None
         return enable_hard(src, name)

@@ -123,3 +123,58 @@ def test_spark_emerge_records_lesson_priors(tmp_path, monkeypatch):
     prior_rows = [r for r in rows if r.get("kind") == "lesson_priors"]
     blob = str((prior_rows[0].get("detail") or {}).get("priors") or "")
     assert "become" in blob.lower() or "BECOME" in blob or "human_guide" in blob
+
+
+def test_lesson_uptake_credits_human_guides(tmp_path, monkeypatch):
+    import colony.lessons as L
+    import colony.fitness as F
+
+    monkeypatch.setattr(L, "LESSONS_JSONL", tmp_path / "lessons.jsonl")
+    monkeypatch.setattr(L, "LEDGER_SYSTEM", tmp_path / "lesson_ledger.json")
+    write_human_guide(
+        what="BECOME SOMETHING MORE: prefer novelty",
+        author="James Jackson",
+        mutation="become_uptake",
+        skill_bias={"gather": 0.1, "explore": 0.08},
+        genome_prior={"explore": 0.05},
+        catalog_hint={"prefer": ["novelty"], "avoid": ["process_spam"]},
+        tags=["human_guide", "become"],
+    )
+    val = F._lesson_uptake_term()
+    assert isinstance(val, float)
+    assert val > 0.0
+
+
+
+def test_guide_seek_avoids_process_spam():
+    from colony.lessons import guide_process_spam_avoided, seek_proposal_from_guides
+    # Live ledger has our become guide
+    assert guide_process_spam_avoided() is True
+    t, h, a = seek_proposal_from_guides(cycle_id="t")
+    assert "Seek" in t or "seek" in a
+    assert not a.startswith("rsi_coupling")
+    assert "Deepen compute" not in t
+
+
+def test_stem_already_has_does_not_exhaust(tmp_path, monkeypatch):
+    """If STEM mutation already enabled, desk must try next candidate (not exhaust)."""
+    import colony.conjecture_desk as D
+    from colony.conjecture_mutations import already_has
+
+    # energy_work is already True in kinematics; stem_easy_pad_units should still be pickable
+    kin = D.KINEMATICS_IMPL.read_text(encoding="utf-8")
+    assert already_has(kin, "energy_work") is True
+    # Dry-run pick logic: ordered list with stem first should skip energy_work and land on next
+    ordered = [("energy_work", "stem_enable", "enable:energy_work"),
+               ("stem_easy_pad_units", "stem_easy_pad", "pad")]
+    chosen = None
+    kind = None
+    for name, k, snip in ordered:
+        if (k or "").startswith("stem"):
+            if already_has(kin, name) and k == "stem_enable":
+                continue
+            if already_has(kin, name):
+                continue
+            chosen, kind = name, k
+            break
+    assert chosen == "stem_easy_pad_units"

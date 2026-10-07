@@ -120,26 +120,45 @@ def _novelty_term() -> float:
 
 
 def _lesson_uptake_term() -> float:
-    """Fraction of recent keep/enable decisions that cite a prior lesson id."""
+    """Uptake = keep-cites + active human_guide prior application (seek/become)."""
     try:
-        from colony.lessons import load_lessons, LESSONS_JSONL
-        lessons = load_lessons(limit=80)
+        from colony.lessons import load_lessons, skill_bias_from_lessons
+        lessons = load_lessons(limit=120)
         ids = {e.get("id") for e in lessons if e.get("id")}
-        if not ids:
-            return 0.0
+        guides = [
+            e for e in lessons
+            if (e.get("type") == "human_guide" or e.get("decision") == "guide") and not e.get("expired")
+        ]
+        keep_score = 0.0
         keeps = [e for e in lessons if e.get("decision") == "keep"][-10:]
-        if not keeps:
-            return 0.0
-        cited = 0
-        for e in keeps:
-            ev = " ".join(str(x) for x in (e.get("evidence") or []))
-            what = e.get("what") or ""
-            blob = ev + " " + what
-            if any(i and i in blob for i in ids if i != e.get("id")):
-                cited += 1
-            elif any(t.startswith("lesson:") for t in (e.get("tags") or [])):
-                cited += 1
-        return round(cited / max(1, len(keeps)), 4)
+        if keeps and ids:
+            cited = 0
+            for e in keeps:
+                ev = " ".join(str(x) for x in (e.get("evidence") or []))
+                what = e.get("what") or ""
+                blob = ev + " " + what
+                if any(i and i in blob for i in ids if i != e.get("id")):
+                    cited += 1
+                elif any(str(t).startswith("lesson:") for t in (e.get("tags") or [])):
+                    cited += 1
+            keep_score = cited / max(1, len(keeps))
+        guide_score = 0.0
+        if guides:
+            bias = skill_bias_from_lessons(lookback=40)
+            # Guides count as uptake when their skill_bias or genome_prior is live in bias
+            live = 0
+            for g in guides:
+                sb = g.get("skill_bias") or {}
+                gp = g.get("genome_prior") or {}
+                if any(k in bias for k in sb) or any(k in bias for k in gp):
+                    live += 1
+                elif g.get("catalog_hint"):
+                    live += 0.5
+            guide_score = min(1.0, live / max(1, len(guides)))
+        # Prefer measured keep-cites; blend in guide application so teaching is visible
+        if keeps:
+            return round(min(1.0, 0.6 * keep_score + 0.4 * guide_score), 4)
+        return round(min(1.0, guide_score), 4)
     except Exception:
         return 0.0
 

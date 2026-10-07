@@ -371,6 +371,75 @@ def proposal_fingerprint_counts(*, days: int = 14, lookback: int = 400) -> dict[
     return counts
 
 
+
+
+def guide_process_spam_avoided() -> bool:
+    """True when an active human_guide prefers real fitness over process spam."""
+    for e in _lessons_with_guides(lookback=40):
+        if e.get("type") != "human_guide" and e.get("decision") != "guide":
+            continue
+        hint = e.get("catalog_hint") or {}
+        avoid = [str(x).lower() for x in (hint.get("avoid") or [])]
+        tags = [str(x).lower() for x in (e.get("tags") or [])]
+        prefer = [str(x).lower() for x in (hint.get("prefer") or [])]
+        if any(a in ("process_spam", "multihop_debate_patch") for a in avoid):
+            return True
+        if "become" in tags and any(p in prefer for p in ("novelty", "citation_reuse", "bench_delta", "lesson_uptake")):
+            return True
+    return False
+
+
+def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | None:
+    """Build one seek-oriented improvement from guides + papers/ledger themes (not process spam)."""
+    if not guide_process_spam_avoided():
+        return None
+    theme_title = ""
+    theme_url = ""
+    try:
+        from colony.conjecture_desk import _load_paper_themes
+        themes = _load_paper_themes() or []
+        if themes:
+            t0 = themes[0]
+            theme_title = (t0.get("title") or "paper theme")[:90]
+            theme_url = (t0.get("url") or t0.get("arxiv_id") or "")[:120]
+    except Exception:
+        pass
+    _META = {
+        "novelty", "citation_reuse", "lesson_uptake", "bench_delta", "cite_sources",
+        "gather_before_propose", "extend_catalog", "hard_enable", "fail_forward",
+        "schema_repair", "spark_proposes", "human_authorize", "no_aristocracy",
+        "fail_soft_evolve", "schema_repair", "prefer",
+    }
+    hint_mut = ""
+    # Prefer explicit add_mutation from seek/become guides
+    for e in _lessons_with_guides(lookback=40):
+        if e.get("type") != "human_guide":
+            continue
+        tags = {str(x).lower() for x in (e.get("tags") or [])}
+        h = e.get("catalog_hint") or {}
+        if h.get("add_mutation") and ("seek" in tags or "become" in tags or "extend" in tags):
+            hint_mut = str(h["add_mutation"])
+            break
+    if not hint_mut:
+        for e in _lessons_with_guides(lookback=40):
+            if e.get("type") != "human_guide":
+                continue
+            h = e.get("catalog_hint") or {}
+            if h.get("add_mutation"):
+                hint_mut = str(h["add_mutation"])
+                break
+    mut = hint_mut or "stem_easy_pad_units"
+    title = f"Seek+enable `{mut}` from papers/lessons"
+    if theme_title:
+        title = f"Seek `{mut}` citing {theme_title[:50]}"
+    hyp = (
+        f"SEEK INFORMATION prior: gather from ledger/papers before proposing. "
+        f"Target mutation `{mut}`. Source={theme_url or 'papers.jsonl/lessons'}. "
+        f"Raise novelty/citation_reuse/lesson_uptake — not process spam. cycle={cycle_id}."
+    )
+    action = f"seek_enable:{mut}"
+    return title, hyp, action
+
 def write_human_guide(
     *,
     what: str,
