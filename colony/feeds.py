@@ -407,7 +407,7 @@ def fetch_wikipedia(topics: list[str]) -> tuple[bool, list[dict[str, Any]], str]
         except Exception:
             continue
         # relevance guard: the article title must share a word (>=4 chars) with the topic
-        words = {w for w in t.lower().split() if len(w) >= 4}
+        words = {w for w in t.lower().split() if len(w) >= 3}
         ok_hits = [h for h in hits if "disambiguation" not in h.lower()
                    and words and words <= {w.strip("'(),.").lower() for w in h.split()}]
         title = min(ok_hits, key=lambda h: (len(h.split()), hits.index(h))) if ok_hits else ""
@@ -544,11 +544,39 @@ def _pick(items: list[dict[str, Any]], cycle_id: str) -> dict[str, Any] | None:
     return items[h % len(items)]
 
 
-def pick_seek_theme(cycle_id: str = "", *, window: int = 12) -> dict[str, Any] | None:
-    """A recent feed paper/summary as a seek theme (rotates by cycle). Pointer only."""
-    items = [e for e in load_items(limit=400) if e.get("kind") in ("paper", "summary") and e.get("title")]
+_TARGET_STOP = {"authored", "oeis", "bounded", "small", "stress", "deep", "check", "lemma", "chain",
+                "derived", "identity", "recurrence", "row", "ext", "asymmetric"}
+
+
+def _target_tokens(target: str) -> set[str]:
+    toks = set()
+    for w in re.split(r"[^a-z0-9]+", (target or "").lower()):
+        if len(w) >= 4 and w not in _TARGET_STOP and not re.fullmatch(r"a\d{6}|w\d+|\d+", w):
+            toks.add(w)
+    return toks
+
+
+def pick_seek_theme(cycle_id: str = "", *, target: str = "", window: int = 24) -> dict[str, Any] | None:
+    """A recent feed PAPER (arXiv / Crossref) as the seek theme. Pointer only.
+
+    Papers whose title/abstract share words with the target (e.g. "catalan") rank first;
+    ties rotate by cycle. Encyclopedia summaries are textbook context, not research themes —
+    they stay on the history channel and are never used as a seek theme.
+    """
+    items = [e for e in load_items(limit=400) if e.get("kind") == "paper" and e.get("title")]
     items.sort(key=lambda e: str(e.get("fetched_at") or ""))
-    return _pick(items[-window:], cycle_id)
+    items = items[-window:]
+    if not items:
+        return None
+    toks = _target_tokens(target)
+    if toks:
+        def _score(e: dict[str, Any]) -> int:
+            blob = f"{e.get('title', '')} {e.get('text', '')}".lower()
+            return sum(1 for t in toks if t in blob)
+        best = max(_score(e) for e in items)
+        if best > 0:
+            items = [e for e in items if _score(e) == best]
+    return _pick(items, cycle_id)
 
 
 def channel_item(channel: str, cycle_id: str = "", *, window: int = 8) -> dict[str, Any] | None:

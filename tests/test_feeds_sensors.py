@@ -125,6 +125,17 @@ def test_sequence_items_reject_tampered_rows(feeds_tmp):
     assert F.sequence_items() == [good]
 
 
+def test_seek_theme_prefers_related_paper_and_skips_summaries(feeds_tmp):
+    rows = [F._item("wikipedia", "catalan number", "summary", "Catalan number", "catalan", "u0", "history", "e", "q"),
+            F._item("arxiv", "2610.1", "paper", "Graph minors", "minors", "u1", "math", "e", "q"),
+            F._item("crossref", "10.1/c", "paper", "An identity relating Catalan numbers", "x", "u2", "science", "e", "q")]
+    F._append(rows)
+    for cyc in ("a", "b", "c", "d"):
+        assert F.pick_seek_theme(cyc, target="authored_oeis_a000108__catalan_bounded")["id"] == "crossref:10.1/c"
+    assert all(F.pick_seek_theme(c)["kind"] == "paper" for c in ("a", "b", "c", "d"))
+    assert F._target_tokens("authored_oeis_a000108__catalan_bounded_w1") == {"catalan"}
+
+
 def test_channel_note_routes_pointer(feeds_tmp):
     F.fetch_all(force=True)
     note, payload = F.channel_note("math", "c1")
@@ -179,8 +190,8 @@ def test_seek_uses_feed_theme_with_cite_and_sensor_order(feeds_tmp, monkeypatch,
     pick = L.seek_proposal_from_guides(cycle_id="cyc1")
     assert pick is not None
     title, hyp, action = pick
-    theme = F.pick_seek_theme("cyc1")
-    assert theme["title"][:40] in title
+    theme = F.pick_seek_theme("cyc1", target=action.split(":", 1)[1])
+    assert theme["kind"] == "paper" and theme["title"][:40] in title
     assert "Feed cite:" in hyp and theme["url"] in hyp and "not evidence of truth" in hyp
     first = L.theme_key(action.split(":", 1)[1])
     S.SENSORS_JSON.write_text(json.dumps({"lemma_streaks": {"revert_streaks": [first]}}))

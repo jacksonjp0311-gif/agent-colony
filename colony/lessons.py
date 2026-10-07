@@ -890,20 +890,8 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
     theme_url = ""
     feed_cite = ""
     try:
-        # Outward senses first: a recent external feed item (arXiv / Crossref / Wikipedia)
-        # rotated per cycle. Untrusted pointer text — cited, never executed.
-        from colony.feeds import pick_seek_theme
-        ft = pick_seek_theme(cycle_id)
-        if ft:
-            theme_title = str(ft.get("title") or "")[:90]
-            theme_url = str(ft.get("url") or "")[:120]
-            feed_cite = (f" Feed cite: {ft.get('source')} `{ft.get('id')}` <{theme_url}> "
-                         f"fetched {ft.get('fetched_at')} (external pointer, not evidence of truth).")
-    except Exception:
-        feed_cite = ""
-    try:
         from colony.conjecture_desk import _load_paper_themes
-        themes = [] if theme_title else (_load_paper_themes() or [])  # feed theme wins
+        themes = _load_paper_themes() or []
         if themes:
             # Prefer a paper theme whose title token is not a cooled mutation name
             t0 = themes[0]
@@ -993,6 +981,18 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         # Every candidate is cooled / guide-avoided: never re-propose a blocked target.
         # Return nothing — the desk authors new checks (author guide) instead.
         return None
+    try:
+        # Outward senses: a recent external feed paper (arXiv / Crossref) related to the
+        # chosen target when possible, rotated per cycle. Untrusted pointer — cited, never run.
+        from colony.feeds import pick_seek_theme
+        ft = pick_seek_theme(cycle_id, target=mut)
+        if ft:
+            theme_title = str(ft.get("title") or "")[:90]
+            theme_url = str(ft.get("url") or "")[:120]
+            feed_cite = (f" Feed cite: {ft.get('source')} `{ft.get('id')}` <{theme_url}> "
+                         f"fetched {ft.get('fetched_at')} (external pointer, not evidence of truth).")
+    except Exception:
+        feed_cite = ""
     cooled = blocked_themes()
     title = f"Seek+enable `{mut}` from papers/lessons"
     if theme_title:
