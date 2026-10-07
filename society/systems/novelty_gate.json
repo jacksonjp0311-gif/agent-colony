@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:09:53Z",
+  "updated_at": "2026-10-07T20:21:14Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-07T20:09:53Z",
+    "ts": "2026-10-07T20:21:14Z",
     "cycle_id": "",
-    "mutation": "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves",
+    "mutation": "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
@@ -20,8 +20,8 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 32,
-      "hard_n": 32,
+      "hard_pass": 33,
+      "hard_n": 33,
       "stripped_fails_usefulness": false,
       "score": 0.9071,
       "impl_id": "lemma_impl_v2_basic10_hard32"
@@ -29,7 +29,7 @@
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 32,
+      "hard_pass": 33,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

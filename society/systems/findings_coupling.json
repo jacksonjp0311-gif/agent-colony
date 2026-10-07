@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:09:49Z",
-  "updated_cycle": "20261007T200922Z_d8a478",
+  "updated_at": "2026-10-07T20:21:52Z",
+  "updated_cycle": "20261007T202111Z_ea870b",
   "signal": {
-    "ts": "2026-10-07T20:09:49Z",
+    "ts": "2026-10-07T20:21:52Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 6,
+    "accepted_compute": 8,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
@@ -52,20 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_d4814b6bea51",
-        "title": "Authorize accepted: Hard-checked claim: autodiff",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_fdb17b7531cc",
-        "title": "Authorize accepted: Hard-checked claim: vandermonde",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_ff6ac9884b6a",
         "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
         "topic_id": "compute-useful-math",
@@ -89,6 +75,20 @@
       {
         "id": "fnd_94d4382ab0c5",
         "title": "Authorize accepted: Lemma mutation keep: derived_chain_stress",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_35432d4730d7",
+        "title": "Authorize accepted: Lemma mutation keep: adversarial_cassini_ext",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_c300b9aab0c0",
+        "title": "Authorize accepted: Lemma mutation keep: adversarial_catalan_convolution_stress",
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
@@ -109,18 +109,6 @@
     },
     "lessons": [
       {
-        "id": "fnd_d4814b6bea51",
-        "title": "Authorize accepted: Hard-checked claim: autodiff",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_fdb17b7531cc",
-        "title": "Authorize accepted: Hard-checked claim: vandermonde",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
         "id": "fnd_ff6ac9884b6a",
         "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
         "topic_id": "compute-useful-math",
@@ -143,6 +131,18 @@
         "title": "Authorize accepted: Lemma mutation keep: derived_chain_stress",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_35432d4730d7",
+        "title": "Authorize accepted: Lemma mutation keep: adversarial_cassini_ext",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_c300b9aab0c0",
+        "title": "Authorize accepted: Lemma mutation keep: adversarial_catalan_convolution_stress",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
@@ -153,7 +153,9 @@
         "fnd_ff6ac9884b6a",
         "fnd_6e98db19d5bf",
         "fnd_223f509f2b6b",
-        "fnd_94d4382ab0c5"
+        "fnd_94d4382ab0c5",
+        "fnd_35432d4730d7",
+        "fnd_c300b9aab0c0"
       ],
       "rsi": []
     },

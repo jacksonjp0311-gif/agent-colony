@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-07T20:09:33Z",
+  "ts": "2026-10-07T20:21:33Z",
   "version": 1,
   "mile": "cortex-cerebrum-sidecar",
   "raw": {
-    "drift": 0.075752,
+    "drift": 0.075815,
     "memory_reuse": 0.75,
-    "stability_hint": 0.924248,
+    "stability_hint": 0.924185,
     "n_agents": 14,
     "citation_reuse": 1.0
   },
@@ -13,9 +13,9 @@
     "source": "cerebrum_boundary",
     "sidecar": "cortex",
     "kind": "memory_drift",
-    "drift": 0.075752,
+    "drift": 0.075815,
     "memory_reuse": 0.75,
-    "stability_hint": 0.924248,
+    "stability_hint": 0.924185,
     "oracle_mix_delta": 0.0,
     "actuation_mix_delta": 0.0,
     "suggest_throttle_factor": 1.0,
@@ -27,7 +27,7 @@
     "double_gate": false,
     "can_accept_ledger": false,
     "note": "Cerebrum admits Cortex inform-only. No ledger authority. P>=0.70 human authorize remains ceiling. Not AGI.",
-    "ts": "2026-10-07T20:09:33Z"
+    "ts": "2026-10-07T20:21:33Z"
   },
   "mix_advice": {
     "source": "cerebrum_boundary",
@@ -36,9 +36,9 @@
     "actuation_mix_delta": 0.0,
     "suggest_throttle_factor": 1.0,
     "redebate_bias": 0.0,
-    "drift": 0.075752,
+    "drift": 0.075815,
     "memory_reuse": 0.75,
-    "stability_hint": 0.924248,
+    "stability_hint": 0.924185,
     "durable_accept": false,
     "double_gate": false,
     "ledger_authority": false,
@@ -56,5 +56,5 @@
     "not_Millennium",
     "inform_only"
   ],
-  "cycle_id": "20261007T200922Z_d8a478"
+  "cycle_id": "20261007T202111Z_ea870b"
 }

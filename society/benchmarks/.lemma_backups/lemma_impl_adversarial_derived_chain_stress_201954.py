@@ -595,7 +595,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("adversarial_hockey_deep", check_adversarial_hockey_deep, True),
     ("adversarial_cassini_ext", check_adversarial_cassini_ext, True),
     ("adversarial_catalan_convolution_stress", lambda: all(check_catalan_convolution(n) for n in range(0, 16)), True),
-    ("adversarial_derived_chain_stress", check_adversarial_derived_chain_stress, True),
+    ("adversarial_derived_chain_stress", check_adversarial_derived_chain_stress, False),
 
 ]
 

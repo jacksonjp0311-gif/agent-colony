@@ -1,128 +1,27 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:09:53Z",
-  "updated_cycle": "",
+  "updated_at": "2026-10-07T20:21:33Z",
+  "updated_cycle": "20261007T202111Z_ea870b",
   "n_active": 80,
   "n_keeps": 0,
-  "n_reverts": 41,
+  "n_reverts": 42,
   "skill_bias": {
-    "improver.improve": 0.0289,
-    "geometer.gather": 0.0117,
-    "gather": 0.0886,
+    "improver.improve": 0.03,
+    "geometer.gather": 0.0129,
+    "gather": 0.0852,
     "oracle": 0.07,
     "build": 0.0633,
+    "explore": 0.068,
     "improve": 0.075,
     "emergence": 0.0525,
     "reply": 0.03,
-    "communicate": 0.03,
-    "explore": 0.08
+    "communicate": 0.03
   },
   "recent": [
     {
-      "id": "les_Z_09233f_pilot",
-      "ts": "2026-10-07T20:08:39Z",
-      "cycle_id": "20261007T200815Z_09233f",
-      "type": "skip",
-      "decision": "skip",
-      "check": "pilot",
-      "mutation": "",
-      "what": "empty rsi_bias pilot suppressed",
-      "source": "pilot_lane",
-      "family": "rsi",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "empty_rsi_bias"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_0:09:00Z_Chain `adversarial_cassini_ext` cit",
-      "ts": "2026-10-07T20:09:00Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_0:09:01Z_Chain `adversarial_cassini_ext` cit",
-      "ts": "2026-10-07T20:09:01Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves (cycle 166)",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_9b8906_vandermonde",
-      "ts": "2026-10-07T20:09:01Z",
-      "cycle_id": "20261007T200855Z_9b8906",
+      "id": "les_Z_3ac8ad_vandermonde",
+      "ts": "2026-10-07T20:19:54Z",
+      "cycle_id": "20261007T201949Z_3ac8ad",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -145,9 +44,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_9b8906_pilot",
-      "ts": "2026-10-07T20:09:17Z",
-      "cycle_id": "20261007T200855Z_9b8906",
+      "id": "les_Z_3ac8ad_pilot",
+      "ts": "2026-10-07T20:20:12Z",
+      "cycle_id": "20261007T201949Z_3ac8ad",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -170,13 +69,13 @@
       "status": "candidate"
     },
     {
-      "id": "les_0:09:27Z_Chain `adversarial_catalan_convolut",
-      "ts": "2026-10-07T20:09:27Z",
+      "id": "les_0:20:34Z_Chain `stem_easy_pad_units` citing ",
+      "ts": "2026-10-07T20:20:34Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves",
+      "mutation": "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
@@ -208,13 +107,13 @@
       "status": "candidate"
     },
     {
-      "id": "les_0:09:27Z_Chain `adversarial_catalan_convolut",
-      "ts": "2026-10-07T20:09:27Z",
+      "id": "les_0:20:34Z_Chain `stem_easy_pad_units` citing ",
+      "ts": "2026-10-07T20:20:34Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves (cycle 167)",
+      "mutation": "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
@@ -246,9 +145,50 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_d8a478_vandermonde",
-      "ts": "2026-10-07T20:09:27Z",
-      "cycle_id": "20261007T200922Z_d8a478",
+      "id": "les_Z_d82303_easy_pad_commutativity",
+      "ts": "2026-10-07T20:20:35Z",
+      "cycle_id": "20261007T202031Z_d82303",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "easy_pad_commutativity",
+      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+      "source": "conjecture_desk",
+      "family": "easy_pad",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness",
+        "easy_pad_oracle_kill"
+      ],
+      "evidence": [
+        "kill:stripped:easy_pad_baseline_already_useful",
+        "kill:held_out:easy_pad_dies_on_held_out",
+        "kill:cas:easy_pad_fails_cas_usefulness",
+        "kill:easy_pad_oracle_kill",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_d82303_vandermonde",
+      "ts": "2026-10-07T20:20:35Z",
+      "cycle_id": "20261007T202031Z_d82303",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -271,9 +211,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_d8a478_pilot",
-      "ts": "2026-10-07T20:09:33Z",
-      "cycle_id": "20261007T200922Z_d8a478",
+      "id": "les_Z_d82303_pilot",
+      "ts": "2026-10-07T20:20:53Z",
+      "cycle_id": "20261007T202031Z_d82303",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -296,13 +236,13 @@
       "status": "candidate"
     },
     {
-      "id": "les_0:09:52Z_Chain `adversarial_hockey_deep` cit",
-      "ts": "2026-10-07T20:09:52Z",
+      "id": "les_0:21:14Z_Chain `stem_easy_pad_units` citing ",
+      "ts": "2026-10-07T20:21:14Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `adversarial_hockey_deep` citing New algebraic points on covers of elliptic curves",
+      "mutation": "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
@@ -334,16 +274,46 @@
       "status": "candidate"
     },
     {
-      "id": "les_0:09:53Z_Chain `adversarial_cassini_ext` cit",
-      "ts": "2026-10-07T20:09:53Z",
-      "cycle_id": "",
+      "id": "les_Z_ea870b_stem_easy_pad_units",
+      "ts": "2026-10-07T20:21:15Z",
+      "cycle_id": "20261007T202111Z_ea870b",
+      "type": "repeat_proposal",
+      "decision": "block",
+      "check": "kill_cooldown",
+      "mutation": "stem_easy_pad_units",
+      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
+      "source": "growth_hearing",
+      "family": "kill_cooldown",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "gather": 0.05,
+        "explore": 0.05
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "f87caf6dfa2f",
+      "tags": [
+        "kill_cooldown",
+        "blocked_theme",
+        "stem_easy_pad_units"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_ea870b_easy_pad_commutativity",
+      "ts": "2026-10-07T20:21:15Z",
+      "cycle_id": "20261007T202111Z_ea870b",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
+      "mutation": "easy_pad_commutativity",
+      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+      "source": "conjecture_desk",
+      "family": "easy_pad",
       "before_score": null,
       "after_score": null,
       "skill_bias": {
@@ -358,13 +328,16 @@
       "proposal_fingerprint": "",
       "tags": [
         "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness",
+        "easy_pad_oracle_kill"
       ],
       "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
+        "kill:stripped:easy_pad_baseline_already_useful",
+        "kill:held_out:easy_pad_dies_on_held_out",
+        "kill:cas:easy_pad_fails_cas_usefulness",
+        "kill:easy_pad_oracle_kill",
         "kill:collective_kill"
       ],
       "author": null,
@@ -372,39 +345,51 @@
       "status": "candidate"
     },
     {
-      "id": "les_0:09:53Z_Chain `adversarial_catalan_convolut",
-      "ts": "2026-10-07T20:09:53Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
+      "id": "les_Z_ea870b_vandermonde",
+      "ts": "2026-10-07T20:21:15Z",
+      "cycle_id": "20261007T202111Z_ea870b",
+      "type": "skip",
+      "decision": "skip",
+      "check": "oracle_seen_claim",
+      "mutation": "vandermonde",
+      "what": "skip re-oracle of vandermonde:1706.03762",
+      "source": "claim_pipeline",
+      "family": "novelty",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "vandermonde:1706.03762",
+      "tags": [
+        "repeat_claim"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_ea870b_pilot",
+      "ts": "2026-10-07T20:21:33Z",
+      "cycle_id": "20261007T202111Z_ea870b",
+      "type": "skip",
+      "decision": "skip",
+      "check": "pilot",
+      "mutation": "",
+      "what": "empty rsi_bias pilot suppressed",
+      "source": "pilot_lane",
+      "family": "rsi",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
       "catalog_hint": {},
       "proposal_fingerprint": "",
       "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
+        "empty_rsi_bias"
       ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
+      "evidence": [],
       "author": null,
       "expired": false,
       "status": "candidate"

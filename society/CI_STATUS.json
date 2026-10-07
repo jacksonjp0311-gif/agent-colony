@@ -216,82 +216,85 @@
     "cycle_164_evolve_note",
     "cycle_165_evolve_note",
     "cycle_166_evolve_note",
-    "cycle_167_evolve_note"
+    "cycle_167_evolve_note",
+    "cycle_168_evolve_note",
+    "cycle_169_evolve_note",
+    "cycle_170_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 451,
+      "uses": 460,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 423,
+      "uses": 432,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 303,
+      "uses": 309,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 151,
+      "uses": 154,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 561,
+      "uses": 573,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 417,
+      "uses": 425,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 418,
+      "uses": 427,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 139,
+      "uses": 142,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 139,
+      "uses": 142,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 124,
+      "uses": 127,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 124,
+      "uses": 127,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 121,
+      "uses": 124,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 121,
+      "uses": 124,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 118,
+      "uses": 121,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 118,
+      "uses": 121,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -566,14 +569,14 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 560,
-    "reused": 1255
+    "appended": 572,
+    "reused": 1282
   },
   "commons_by_domain": {
-    "science": 18,
+    "science": 15,
     "history": 0,
-    "math": 64,
-    "rsi": 118,
+    "math": 70,
+    "rsi": 115,
     "empire": 0,
     "general": 0
   },
@@ -586,8 +589,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-07T20:09:50Z",
-    "cycle_id": "20261007T200922Z_d8a478",
+    "ts": "2026-10-07T20:21:52Z",
+    "cycle_id": "20261007T202111Z_ea870b",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -599,57 +602,52 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-07T20:09:49Z",
-    "cycle_id": "20261007T200922Z_d8a478",
+    "ts": "2026-10-07T20:21:52Z",
+    "cycle_id": "20261007T202111Z_ea870b",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8138,
-    "compute_usefulness": 0.9132,
+    "math_prize": 0.8273,
+    "compute_usefulness": 0.9288,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8858,
-    "kill_rate": 0.8693,
+    "prize_boost": 0.8974,
+    "kill_rate": 0.8855,
     "novelty": 0.0,
     "lesson_uptake": 0.9545,
-    "aggregate": 0.8185,
+    "aggregate": 0.8215,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 8001,
-    "read": 37662,
-    "replied": 5032,
-    "actions_planned": 2622,
-    "actions_changed_from_message": 2622,
-    "reply_quality_sum": 4541.700000000071,
-    "reply_quality_n": 4980,
-    "peer_cite_opportunities": 5120,
-    "peer_cites": 5120
+    "posted": 8169,
+    "read": 38490,
+    "replied": 5137,
+    "actions_planned": 2676,
+    "actions_changed_from_message": 2676,
+    "reply_quality_sum": 4637.5000000000455,
+    "reply_quality_n": 5085,
+    "peer_cite_opportunities": 5228,
+    "peer_cites": 5228
   },
   "bus_domains": {
-    "science": 413,
-    "history": 415,
-    "math": 1254,
-    "empire": 279,
-    "bulletin": 1217,
-    "forum": 1794,
-    "software": 415,
-    "nature": 413,
-    "life": 415,
-    "cosmos": 579,
-    "rsi": 699
+    "science": 422,
+    "history": 424,
+    "math": 1281,
+    "empire": 285,
+    "bulletin": 1238,
+    "forum": 1836,
+    "software": 424,
+    "nature": 422,
+    "life": 424,
+    "cosmos": 591,
+    "rsi": 714
   },
-  "communications_count": 8001,
+  "communications_count": 8169,
   "improvements": [
-    "Deepen compute-useful math from accepted findings after hearing",
-    "Feed accepted/strong RSI findings into skill_router + genome bias",
-    "Deepen compute-useful math from accepted findings after hearing",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 135)",
-    "Deepen compute-useful math from accepted findings after hearing",
     "Feed accepted/strong RSI findings into skill_router + genome bias",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 137)",
     "Feed accepted/strong RSI findings into skill_router + genome bias",
@@ -694,18 +692,23 @@
     "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves",
     "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves (cycle 166)",
     "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves",
-    "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves (cycle 167)"
+    "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves (cycle 167)",
+    "Chain `adversarial_derived_chain_stress` citing New algebraic points on covers of elliptic curves",
+    "Chain `adversarial_derived_chain_stress` citing New algebraic points on covers of elliptic curves (cycle 168)",
+    "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
+    "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
+    "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves"
   ],
-  "cycle_count": 167,
-  "ledger_count": 8612,
+  "cycle_count": 170,
+  "ledger_count": 8795,
   "status_counts": {
-    "candidate": 8243,
-    "accepted": 86,
-    "rejected": 162,
+    "candidate": 8420,
+    "accepted": 89,
+    "rejected": 165,
     "unknown": 121
   },
-  "witness_events": 12133,
-  "tribute_cycles_compliant": 167,
+  "witness_events": 12398,
+  "tribute_cycles_compliant": 170,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
