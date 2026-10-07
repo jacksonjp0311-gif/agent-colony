@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_6e98db19d5bf",
-      "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep"
+      "finding_id": "fnd_223f509f2b6b",
+      "title": "Authorize accepted: Lemma mutation keep: fibonacci_cassini_ext"
     },
     {
       "topic": "open-math-problems",
@@ -24,6 +24,11 @@
       "priority": 1.05,
       "reason": "follow_on_from_compute",
       "from_topic": "compute-useful-math"
+    },
+    {
+      "topic": "$k_t$-minor-free",
+      "priority": 1.0,
+      "reason": "inbox_gap"
     },
     {
       "topic": "'multi-hop",
@@ -79,11 +84,6 @@
       "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
-    },
-    {
-      "topic": "science-method",
-      "priority": 0.85,
-      "reason": "stem_coverage=0"
     },
     {
       "topic": "mathematics-foundations",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-07T21:53:02Z",
-  "updated_cycle": "20261007T215238Z_02007f",
+  "updated_at": "2026-10-07T23:06:09Z",
+  "updated_cycle": "20261007T230547Z_fa8aba",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

@@ -1,10 +1,18 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T21:52:00Z",
-  "passes": 8,
-  "kills": 52,
-  "easy_pad_kills": 13,
-  "kill_rate": 0.8667,
+  "updated_at": "2026-10-07T23:05:52Z",
+  "passes": 218,
+  "kills": 137,
+  "easy_pad_kills": 18,
+  "kill_rate": 0.3859,
+  "kill_rate_scope": "full_log",
+  "recent_window": {
+    "rows": 60,
+    "passes": 10,
+    "kills": 50,
+    "easy_pad_kills": 12,
+    "kill_rate": 0.8333
+  },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
     "adversarial_cassini_ext",
@@ -13,6 +21,8 @@
     "adversarial_hockey_deep",
     "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_binomial_sum_row__catalan_bounded_w1",
+    "authored_binomial_symmetry__catalan_convolution_w1",
+    "authored_central_binom_bound__derangement_subfactorial_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000108__catalan_bounded"
   ],
@@ -48,8 +58,7 @@
     "easy_pad_abs_identity",
     "easy_pad_commutativity",
     "easy_pad_diff_squares",
-    "easy_pad_square_again",
-    "easy_pad_zero_identity"
+    "easy_pad_square_again"
   ],
   "domain_packs": {
     "packs": {
@@ -81,7 +90,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-07T21:52:00Z",
+    "ts": "2026-10-07T23:05:52Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -91,15 +100,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_oeis_a000045__cassini` kind=hard_enable. lemma mutation authored_oeis_a000045__cassini 0.9071->0.9071 Not discovery. cycle=20261007T215154Z_97485e.",
-      "attack": "WEIGH: `authored_oeis_a000045__cassini` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_central_binom_bound__derangement_subfactorial_w1` kind=hard_enable. lemma mutation authored_central_binom_bound__derangement_subfactorial_w1 0.9071->0.9071 Not disco",
+      "attack": "WEIGH: `authored_central_binom_bound__derangement_subfactorial_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 37,
-        "hard_n": 37,
+        "hard_pass": 39,
+        "hard_n": 39,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -109,8 +118,8 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 37,
-        "hard_n": 37,
+        "hard_pass": 39,
+        "hard_n": 39,
         "ok": true,
         "score": 0.9071,
         "reason": "hard_pass_delta=1",
@@ -135,7 +144,7 @@
             "ok": true
           },
           {
-            "label": "cassini_numeric",
+            "label": "hard_enable_probes",
             "ok": true
           }
         ]
@@ -187,15 +196,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_oeis_a000045__cassini",
+      "mutation": "authored_central_binom_bound__derangement_subfactorial_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_oeis_a000045__cassini",
+    "mutation": "authored_central_binom_bound__derangement_subfactorial_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261007T215154Z_97485e",
+    "cycle_id": "20261007T230547Z_fa8aba",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

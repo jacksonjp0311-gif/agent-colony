@@ -573,17 +573,6 @@ def check_authored_binomial_symmetry__catalan_convolution_w1() -> bool:
     return all((check_binomial_symmetry(n, k) for n in range(16, 24) for k in range(0, n + 1))) and all((check_catalan_convolution(n) for n in range(12, 18)))
 
 
-def check_authored_central_binom_bound__derangement_subfactorial_w1() -> bool:
-    """Authored stress check (desk): proven lemmas central_binom_bound + derangement_subfactorial on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_central_binom_bound,
-    ::check_derangement_subfactorial; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_central_binom_bound(n) for n in range(18, 26))) and all((check_derangement_subfactorial(n) for n in range(12, 18)))
-
-
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -671,8 +660,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_binomial_sum_row__catalan_bounded_w1", check_authored_binomial_sum_row__catalan_bounded_w1, True),
     ("authored_oeis_a000108__catalan_bounded", check_authored_oeis_a000108__catalan_bounded, True),
     ("authored_oeis_a000045__cassini", check_authored_oeis_a000045__cassini, True),
-    ("authored_binomial_symmetry__catalan_convolution_w1", check_authored_binomial_symmetry__catalan_convolution_w1, True),
-    ("authored_central_binom_bound__derangement_subfactorial_w1", check_authored_central_binom_bound__derangement_subfactorial_w1, True),
+    ("authored_binomial_symmetry__catalan_convolution_w1", check_authored_binomial_symmetry__catalan_convolution_w1, False),
 ]
 
 

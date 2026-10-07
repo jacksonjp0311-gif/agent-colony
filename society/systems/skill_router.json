@@ -1,7 +1,7 @@
 {
   "routes": {
     "tribute": "tribute_keeper",
-    "build": "tribute_keeper",
+    "build": "spark",
     "communicate": "spark",
     "gather": "spark",
     "improve": "spark",
@@ -10,15 +10,15 @@
   "skills_snapshot": {
     "spark": {
       "tribute": 0.5,
-      "build": 0.9794,
+      "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
       "improve": 0.99,
-      "emergence": 0.7331
+      "emergence": 0.7338
     },
     "tribute_keeper": {
       "tribute": 0.99,
-      "build": 0.99,
+      "build": 0.9794,
       "communicate": 0.99,
       "gather": 0.99,
       "improve": 0.99,
@@ -27,7 +27,7 @@
     "memory_weaver": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9841,
+      "communicate": 0.99,
       "gather": 0.9292,
       "improve": 0.99,
       "emergence": 0.99
@@ -43,7 +43,7 @@
     "herald": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9541,
+      "communicate": 0.9486,
       "gather": 0.99,
       "improve": 0.99,
       "emergence": 0.99
@@ -52,7 +52,7 @@
       "tribute": 0.5,
       "build": 0.99,
       "communicate": 0.99,
-      "gather": 0.7031,
+      "gather": 0.7041,
       "improve": 0.99,
       "emergence": 0.99
     },
@@ -61,13 +61,13 @@
       "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
-      "improve": 0.8168,
+      "improve": 0.8184,
       "emergence": 0.99
     },
     "courier": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9541,
+      "communicate": 0.9486,
       "gather": 0.99,
       "improve": 0.99,
       "emergence": 0.99
@@ -84,7 +84,7 @@
       "tribute": 0.5,
       "build": 0.99,
       "communicate": 0.99,
-      "gather": 0.7348,
+      "gather": 0.7366,
       "improve": 0.99,
       "emergence": 0.99
     },
@@ -107,7 +107,7 @@
     "archivist": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9767,
+      "communicate": 0.9714,
       "gather": 0.99,
       "improve": 0.99,
       "emergence": 0.99
@@ -117,7 +117,7 @@
       "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
-      "improve": 0.9596,
+      "improve": 0.9594,
       "emergence": 0.99
     },
     "chronicler": {
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-10-07T21:53:21Z",
-  "updated_cycle": "20261007T215238Z_02007f"
+  "updated_at": "2026-10-07T23:06:27Z",
+  "updated_cycle": "20261007T230547Z_fa8aba"
 }

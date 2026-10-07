@@ -672,7 +672,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_oeis_a000108__catalan_bounded", check_authored_oeis_a000108__catalan_bounded, True),
     ("authored_oeis_a000045__cassini", check_authored_oeis_a000045__cassini, True),
     ("authored_binomial_symmetry__catalan_convolution_w1", check_authored_binomial_symmetry__catalan_convolution_w1, True),
-    ("authored_central_binom_bound__derangement_subfactorial_w1", check_authored_central_binom_bound__derangement_subfactorial_w1, True),
+    ("authored_central_binom_bound__derangement_subfactorial_w1", check_authored_central_binom_bound__derangement_subfactorial_w1, False),
 ]
 
 
