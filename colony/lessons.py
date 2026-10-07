@@ -170,9 +170,19 @@ def expire_stale_easy_wins() -> int:
     return n
 
 
+def _lessons_with_guides(*, lookback: int = 40) -> list[dict[str, Any]]:
+    """Recent lessons plus ALL active human_guide rows (guides must not drown under kills)."""
+    recent = load_lessons(limit=lookback)
+    by_id = {e.get("id"): e for e in recent if e.get("id")}
+    for e in load_lessons(limit=400):
+        if (e.get("type") == "human_guide" or e.get("decision") == "guide") and not e.get("expired"):
+            by_id[e.get("id") or id(e)] = e
+    return list(by_id.values())
+
+
 def skill_bias_from_lessons(*, lookback: int = 40) -> dict[str, float]:
-    """Aggregate skill biases from recent non-expired keep/revert lessons."""
-    lessons = load_lessons(limit=lookback)
+    """Aggregate skill biases from recent lessons; human_guide always included as prior."""
+    lessons = _lessons_with_guides(lookback=lookback)
     bias: dict[str, float] = {}
     weights: dict[str, float] = {}
     for e in lessons:
@@ -223,9 +233,21 @@ def apply_lesson_bias_to_agents(agents: dict[str, Any]) -> dict[str, float]:
 
 
 def apply_lesson_bias_to_genomes(root: Path | None = None) -> int:
-    """Soft-nudge genome trait files from keep lessons (explore/gather/build)."""
+    """Soft-nudge genome trait files from skill_bias + human_guide genome_prior."""
     root = root or ROOT
     bias = skill_bias_from_lessons()
+    # Fold explicit genome_prior from durable human_guide lessons (teaching priors).
+    for e in _lessons_with_guides(lookback=40):
+        if e.get("type") != "human_guide" and e.get("decision") != "guide":
+            continue
+        for trait, delta in (e.get("genome_prior") or {}).items():
+            try:
+                bias[str(trait)] = round(
+                    max(-0.2, min(0.2, float(bias.get(str(trait)) or 0.0) + 1.5 * float(delta))),
+                    4,
+                )
+            except (TypeError, ValueError):
+                continue
     if not bias:
         return 0
     trait_map = {
@@ -234,9 +256,11 @@ def apply_lesson_bias_to_genomes(root: Path | None = None) -> int:
         "communicate": "reply",
         "reply": "reply",
         "improve": "explore",
+        "explore": "explore",
         "emergence": "explore",
         "oracle": "explore",
         "hard_tier": "explore",
+        "novelty": "explore",
     }
     # SPARK: if keep lessons outweigh reverts on communicate, nudge reply trait
     n = 0
@@ -252,7 +276,7 @@ def apply_lesson_bias_to_genomes(root: Path | None = None) -> int:
         changed = False
         for sk, delta in bias.items():
             sk_base = sk.split(".")[-1]
-            trait = trait_map.get(sk_base)
+            trait = trait_map.get(sk_base) or (sk_base if sk_base in traits else None)
             if not trait or trait not in traits:
                 continue
             traits[trait] = round(max(0.05, min(0.99, float(traits[trait]) + 0.5 * delta)), 4)
@@ -288,24 +312,41 @@ def persist_system(*, cycle_id: str = "") -> None:
 
 
 def digest(*, limit: int = 5) -> str:
-    active = load_lessons(limit=limit)
-    if not active:
+    """Surface human_guide priors first, then recent outcome lessons."""
+    guides = [
+        e for e in load_lessons(limit=400)
+        if (e.get("type") == "human_guide" or e.get("decision") == "guide") and not e.get("expired")
+    ]
+    recent = load_lessons(limit=max(limit * 3, 12))
+    # Prefer guides, then non-guide recent, de-dupe by id
+    ordered: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for e in list(guides[-limit:]) + list(recent[-limit:]):
+        eid = str(e.get("id") or "")
+        if eid and eid in seen:
+            continue
+        if eid:
+            seen.add(eid)
+        ordered.append(e)
+        if len(ordered) >= limit:
+            break
+    if not ordered:
         return "(no lessons yet)"
     parts = []
-    for e in active[-limit:]:
+    for e in ordered:
         parts.append(
-            f"[{e.get('decision')}/{e.get('family')}] {e.get('mutation') or e.get('check')}: "
-            f"{(e.get('what') or '')[:60]}"
+            f"[{e.get('type') or e.get('decision')}/{e.get('family')}] "
+            f"{e.get('mutation') or e.get('check')}: {(e.get('what') or '')[:60]}"
         )
     return " | ".join(parts)
 
 
 def catalog_hints_from_lessons(*, lookback: int = 40) -> list[dict[str, Any]]:
-    """Recent catalog_hint payloads from kill/exhausted lessons (priors for desk)."""
+    """Recent catalog_hint payloads; human_guide hints always eligible as priors."""
     out: list[dict[str, Any]] = []
-    for e in load_lessons(limit=lookback):
+    for e in _lessons_with_guides(lookback=lookback):
         hint = e.get("catalog_hint") or {}
-        if hint.get("add_mutation"):
+        if hint.get("add_mutation") or hint.get("prefer") or hint.get("seek"):
             out.append(dict(hint))
     return out
 

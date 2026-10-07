@@ -57,6 +57,15 @@ class Spark:
         live_fail: int = 0,
     ) -> EmergenceResult:
         result = EmergenceResult()
+        # Teaching priors (human_guide preferred) — witness only; not commands.
+        priors = lesson_priors_for_spark(limit=8)
+        self.witness.record(
+            cycle_id=cycle_id,
+            kind="lesson_priors",
+            actor="spark",
+            summary="Spark read lesson priors (human_guide first).",
+            detail={"priors": priors[:500]},
+        )
         existing = self.state.role_names()
         coverage_thin = tribute_count < 5 or len(tribute_topics) < 4
         growth = self._will_is_growth()
