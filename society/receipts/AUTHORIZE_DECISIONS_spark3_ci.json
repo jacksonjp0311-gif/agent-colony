@@ -1,12 +1,12 @@
 {
   "items": [
     {
-      "finding_id": "fnd_82eeb56babf6",
+      "finding_id": "fnd_450c21f9f432",
       "decision": "accepted",
       "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. Selective authorize."
     },
     {
-      "finding_id": "fnd_ead0f51c8270",
+      "finding_id": "fnd_2305bd55e9f4",
       "decision": "rejected",
       "rationale": "Standing trust: repeat multi-hop process receipt blocked (fingerprint)."
     }
