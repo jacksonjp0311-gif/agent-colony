@@ -552,6 +552,194 @@ def preferred_invariant_mutations() -> list[str]:
     return ordered
 
 
+# --- Chain citations (human_guide: cite proven lemmas + society/benchmarks) ----------
+
+BENCH_DIR = ROOT / "society" / "benchmarks"
+BENCH_ARTIFACTS_DIR = BENCH_DIR / "artifacts"
+BENCH_LATEST = BENCH_DIR / "latest.json"
+CITE_GUIDE_TAGS = {"cite", "cite_benchmarks", "cite_lemmas", "bench_cite"}
+CITE_GUIDE_REQUIRE = {"bench_cite", "lemma_cite", "cite_benchmarks", "cite_lemmas"}
+
+
+def guide_requires_chain_cites() -> bool:
+    """True when an active human_guide requires chain proposals to cite lemmas + bench artifacts."""
+    for e in _lessons_with_guides(lookback=40):
+        if e.get("type") != "human_guide" and e.get("decision") != "guide":
+            continue
+        tags = {str(x).lower() for x in (e.get("tags") or [])}
+        hint = e.get("catalog_hint") or {}
+        req = {str(x).lower() for x in (hint.get("require") or [])}
+        if tags & CITE_GUIDE_TAGS or req & CITE_GUIDE_REQUIRE:
+            return True
+    return False
+
+
+def _rel(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
+def _check_calls(node: Any) -> list[str]:
+    """Names of check_* functions called anywhere under an AST node (source order, dedup)."""
+    import ast
+    out: list[str] = []
+    for sub in ast.walk(node):
+        name = ""
+        if isinstance(sub, ast.Call) and isinstance(sub.func, ast.Name):
+            name = sub.func.id
+        elif isinstance(sub, ast.Name) and isinstance(sub.ctx, ast.Load):
+            name = sub.id
+        if name.startswith("check_") and name not in out:
+            out.append(name)
+    return out
+
+
+def _scan_bench_artifact(path: Path) -> tuple[dict[str, Any], dict[str, list[str]]]:
+    """Parse one artifact: (check functions by name, catalog entry name -> referenced check fns).
+
+    Catalogs are module-level lists of (name, callable, enabled) tuples
+    (CANDIDATE_LEMMAS / HARD_TIER_LEMMAS / STEM_CHECKS) — read from source, never executed.
+    """
+    import ast
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+    except (OSError, SyntaxError, UnicodeDecodeError):
+        return {}, {}
+    funcs: dict[str, Any] = {}
+    catalog: dict[str, list[str]] = {}
+    aliases: dict[str, str] = {}
+    for node in tree.body:
+        if isinstance(node, ast.FunctionDef) and node.name.startswith("check_"):
+            funcs[node.name] = node
+        elif isinstance(node, (ast.Assign, ast.AnnAssign)):
+            value = node.value
+            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+            if isinstance(value, ast.Name) and value.id.startswith("check_"):
+                for t in targets:
+                    if isinstance(t, ast.Name):
+                        aliases[t.id] = value.id
+            if isinstance(value, ast.List):
+                for elt in value.elts:
+                    if (
+                        isinstance(elt, ast.Tuple)
+                        and len(elt.elts) >= 2
+                        and isinstance(elt.elts[0], ast.Constant)
+                        and isinstance(elt.elts[0].value, str)
+                    ):
+                        refs = [aliases.get(n, n) for n in _check_calls(elt.elts[1])]
+                        catalog.setdefault(elt.elts[0].value, refs)
+    return funcs, catalog
+
+
+def _bench_check_status() -> dict[str, bool]:
+    """Latest machine-check results keyed by catalog name (prefix basic:/hard:/stem: stripped)."""
+    try:
+        data = json.loads(BENCH_LATEST.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    out: dict[str, bool] = {}
+    for b in data.get("benches") or []:
+        for k, v in ((b or {}).get("checks") or {}).items():
+            name = str(k).split(":", 1)[-1]
+            # A lemma is proven only if every recorded check of it passed
+            out[name] = bool(v) and out.get(name, True)
+    return out
+
+
+def chain_citations(mutation: str) -> dict[str, Any] | None:
+    """Look up the bench artifact + proven lemmas a (chain) mutation actually composes.
+
+    Reads society/benchmarks/artifacts/*.py (AST, not exec) and society/benchmarks/latest.json.
+    Returns None when no artifact checks this mutation — the colony must not invent a cite.
+    """
+    mut = theme_key(mutation) or str(mutation or "").strip()
+    if not mut or not BENCH_ARTIFACTS_DIR.is_dir():
+        return None
+    status = _bench_check_status()
+    for path in sorted(BENCH_ARTIFACTS_DIR.glob("*.py")):
+        if path.name.startswith("__"):
+            continue
+        funcs, catalog = _scan_bench_artifact(path)
+        roots: list[str] = []
+        if mut in catalog:
+            roots = [f for f in catalog[mut] if f in funcs]
+        if not roots and f"check_{mut}" in funcs:
+            roots = [f"check_{mut}"]
+        if not roots:
+            continue
+        # Reverse map: check fn -> catalog lemma that runs exactly that check
+        fn_to_lemma: dict[str, str] = {}
+        for name, refs in catalog.items():
+            if len(refs) == 1 and refs[0] not in fn_to_lemma and name != mut:
+                if name.startswith("adversarial_") and refs[0] != f"check_{name}":
+                    continue
+                fn_to_lemma[refs[0]] = name
+        links: list[dict[str, Any]] = []
+        seen: set[str] = set()
+        for root in roots:
+            for fn in _check_calls(funcs[root]):
+                if fn in roots or fn in seen or fn not in funcs:
+                    continue
+                seen.add(fn)
+                lemma = fn_to_lemma.get(fn) or fn[len("check_"):]
+                links.append({"lemma": lemma, "function": fn, "proven": status.get(lemma) is True})
+        stem = path.stem
+        benches = sorted(
+            _rel(b)
+            for b in BENCH_DIR.glob("*microbench*.py")
+            if stem in b.read_text(encoding="utf-8", errors="ignore")
+        )
+        return {
+            "mutation": mut,
+            "artifact": _rel(path),
+            "function": roots[0],
+            "links": links,
+            "chain_proven": status.get(mut) is True,
+            "bench": benches,
+            "status_source": _rel(BENCH_LATEST) if status else "",
+        }
+    return None
+
+
+def chain_cite_note(cites: dict[str, Any] | None) -> str:
+    """Human-readable cite clause for a proposal hypothesis (empty when nothing to cite)."""
+    if not cites:
+        return ""
+    proven = [l["lemma"] for l in cites.get("links") or [] if l.get("proven")]
+    unproven = [l["lemma"] for l in cites.get("links") or [] if not l.get("proven")]
+    parts = [f" Cites {cites['artifact']}::{cites['function']}"]
+    if cites.get("links"):
+        parts.append(f" composing proven lemmas [{', '.join(proven) or 'none'}]")
+        if unproven:
+            parts.append(f" + unverified links [{', '.join(unproven)}]")
+    if cites.get("status_source"):
+        state = "pass" if cites.get("chain_proven") else "not yet passing"
+        parts.append(f" ({cites['mutation']} {state} in {cites['status_source']})")
+    if cites.get("bench"):
+        parts.append(f"; checked by {', '.join(cites['bench'])}")
+    return "".join(parts) + "."
+
+
+def chain_cite_evidence(action_or_mutation: str) -> list[str]:
+    """Evidence entries (bench paths + proven lemma ids) for a seek/chain proposal action."""
+    if not guide_requires_chain_cites():
+        return []
+    raw = str(action_or_mutation or "")
+    if ":" in raw:
+        raw = raw.split(":", 1)[1]
+    cites = chain_citations(raw)
+    if not cites:
+        return []
+    ev = [f"{cites['artifact']}::{cites['function']}"]
+    ev += list(cites.get("bench") or [])
+    if cites.get("status_source"):
+        ev.append(cites["status_source"])
+    ev += [f"lemma:{l['lemma']}" for l in cites.get("links") or [] if l.get("proven")]
+    return ev
+
+
 def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | None:
     """Build one seek-oriented improvement from guides + papers/ledger themes (not process spam).
 
@@ -619,6 +807,16 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
             continue
         seen.add(t)
         ordered.append(c)
+    # Cite guide: prefer mutations that a society/benchmarks artifact actually checks
+    # (proven chain first) so the proposal can name real lemmas — never invent a cite.
+    require_cites = guide_requires_chain_cites()
+    if require_cites:
+        def _cite_rank(name: str) -> int:
+            c = chain_citations(name)
+            if not c:
+                return 2
+            return 0 if c.get("chain_proven") else 1
+        ordered = sorted(ordered, key=_cite_rank)  # stable: keeps guide order within rank
     mut = next_unblocked_mutation(ordered)
     if not mut:
         mut = theme_key(ordered[-1]) if ordered else "binomial_hockey_deep"
@@ -644,6 +842,11 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         f"Cooled themes skipped={sorted(cooled)[:6]}. cycle={cycle_id}."
         f"{inv_note}"
     )
+    if require_cites:
+        cite = chain_cite_note(chain_citations(mut))
+        hyp += cite or (
+            f" No society/benchmarks artifact checks `{mut}` yet — build the check before claiming it."
+        )
     action = f"seek_enable:{mut}"
     return title, hyp, action
 

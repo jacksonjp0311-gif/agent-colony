@@ -386,6 +386,12 @@ def lesson_priors_for_spark(*, limit: int = 8) -> str:
         if guide_prefers_invariant_chains():
             inv = ", ".join(preferred_invariant_mutations()[:5])
             extras.append(f"invariant_chains: {inv}")
+        try:
+            from colony.lessons import guide_requires_chain_cites
+            if guide_requires_chain_cites():
+                extras.append("chain_cites: name proven lemmas + society/benchmarks artifact")
+        except Exception:
+            pass
         if extras:
             return f"{base} || " + " || ".join(extras)
         return base

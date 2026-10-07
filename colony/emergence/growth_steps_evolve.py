@@ -25,6 +25,17 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 ARTIFACTS_DIR = ROOT / "society" / "artifacts"
 
 
+
+def _chain_cite_ev(action: str) -> list[str]:
+    """Bench artifact + proven lemma evidence for seek/chain actions (cite guide; fail-soft)."""
+    if not str(action or "").startswith("seek_enable:"):
+        return []
+    try:
+        from colony.lessons import chain_cite_evidence
+        return chain_cite_evidence(action)
+    except Exception:
+        return []
+
 class GrowthSteps3:
 
     def _evolve(
@@ -283,10 +294,18 @@ class GrowthSteps3:
         # RSI picks that cite coupling get a citation bonus
         if action.startswith("rsi_coupling"):
             cited = max(cited, 1)
+        # Cite guide: attach the bench artifact / proven lemmas the chain actually composes
+        cite_ev: list[str] = []
+        if action.startswith("seek_enable:"):
+            try:
+                from colony.lessons import chain_cite_evidence
+                cite_ev = chain_cite_evidence(action)
+            except Exception:
+                cite_ev = []
         verdict, rationale = hearing_score_proposal(
             title=title,
             hypothesis=hypothesis,
-            evidence_urls=["charter:civilization-freedom", f"cycle:{cycle_id}", "fitness:before", "system:findings_coupling"],
+            evidence_urls=["charter:civilization-freedom", f"cycle:{cycle_id}", "fitness:before", "system:findings_coupling"] + cite_ev,
             cited=cited,
             prior_titles=prior,
             fitness_aggregate=float(metrics.get("aggregate") or 0),
@@ -357,7 +376,7 @@ class GrowthSteps3:
                 f"IMPROVE({verdict}): {title} — {hypothesis} | action={action} | "
                 f"before={metrics}. Hearing: {rationale}. Durable accepted needs human authorize."
             ),
-            evidence_urls=["charter:civilization-freedom", f"cycle:{cycle_id}", "fitness:before", "institution:Hearing Chamber"],
+            evidence_urls=["charter:civilization-freedom", f"cycle:{cycle_id}", "fitness:before", "institution:Hearing Chamber"] + cite_ev,
             provenance="growth_improve",
             status=ledger_status,
             tags=tags,
@@ -563,7 +582,8 @@ class GrowthSteps3:
                     f"cycle:{cycle_id}",
                     "system:findings_coupling",
                 ] + [f"ledger:{c.get('id')}" for c in cite_targets[:3] if c.get("id")]
-                + [f"msg:{i}" for i in debate_ids[:2]],
+                + [f"msg:{i}" for i in debate_ids[:2]]
+                + _chain_cite_ev(strong_action),
                 "cited": count_citations(strong_hyp + cite_snip, behavior) + (1 if cite_targets else 0),
             }
         )
