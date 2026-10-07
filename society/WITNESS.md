@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 13442  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 13446  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -80198,6 +80198,30 @@
 - **id:** `wit_15ffcceb7a` | **cycle:** `authorize_20261007T215324Z`
 - Authorize batch closed. accepted=2 rejected=2 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261007T215324Z.md.
 - detail: `{"accepted": 2, "rejected": 2, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261007T215324Z.md"}`
+
+### 2026-10-07T22:59:35Z — `authorize_batch_open` (human)
+
+- **id:** `wit_7fa184676d` | **cycle:** `authorize_20261007T225935Z`
+- Authorize batch opened by James Jackson via Grok Bot (explicit human authorize by James in chat 2026-10-07 6:59 PM ET; two named items; selective not accept-all). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 6:59 PM ET; two named items; selective not accept-all)", "item_count": 0}`
+
+### 2026-10-07T22:59:35Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_67a33f5cdf` | **cycle:** `authorize_20261007T225935Z`
+- Proposal accepted: `imp_60b63d_50` (Chain `authored_oeis_a000108__catalan_bounded` citing Odds) — Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000108__catalan_bounded (colony catalan == OEIS A000108 held-out terms n=9..28 + proven catalan_bounded on a new window); Oracle PASS, kept; P=0.7919 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.501, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_60b63d_51 not authorized.
+- detail: `{"proposal_id": "imp_60b63d_50", "title": "Chain `authored_oeis_a000108__catalan_bounded` citing Odds", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000108__catalan_bounde`
+
+### 2026-10-07T22:59:35Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_beb9d62767` | **cycle:** `authorize_20261007T225935Z`
+- Proposal accepted: `imp_97485e_50` (Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa) — Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000045__cassini (colony fibonacci == OEIS A000045 held-out terms n=9..28 + proven Cassini identity on a new window); Oracle PASS, kept; P=0.7417 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_97485e_51 not authorized.
+- detail: `{"proposal_id": "imp_97485e_50", "title": "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check`
+
+### 2026-10-07T22:59:35Z — `authorize_batch_close` (human)
+
+- **id:** `wit_05f7aa9173` | **cycle:** `authorize_20261007T225935Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=2. Receipt=AUTHORIZE_authorize_20261007T225935Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 2, "receipt": "/workspace/agent-colony-cite/society/receipts/AUTHORIZE_authorize_20261007T225935Z.md"}`
 
 ---
 

@@ -3261,7 +3261,7 @@
       "title": "Chain `authored_oeis_a000108__catalan_bounded` citing Odds",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_oeis_a000108__catalan_bounded`. Source=https://en.wikipedia.org/wiki/Odds. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['adversarial_cassini_ext', 'adversarial_catalan_convolution_stress', 'adversarial_hockey_deep', 'binomial_hockey_deep', 'deepen compute-useful math from accepted finding', 'derived_chain_stress']. cycle=20261007T214910Z_60b63d. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: wikipedia `wikipedia:odds` <https://en.wikipedia.org/wiki/Odds> fetched 2026-10-07T21:48:11Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_oeis_a000108__catalan_bounded` built from proven lemmas [catalan_bounded]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_oeis_a000108__catalan_bounded composing proven lemmas [catalan_bounded] (authored_oeis_a000108__catalan_bounded not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_oeis_a000108__catalan_bounded",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_60b63d_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3280,7 +3280,9 @@
         "aggregate": 0.8207,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-07T22:59:35Z",
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000108__catalan_bounded (colony catalan == OEIS A000108 held-out terms n=9..28 + proven catalan_bounded on a new window); Oracle PASS, kept; P=0.7919 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.501, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_60b63d_51 not authorized."
     },
     {
       "ts": "2026-10-07T21:49:15Z",
@@ -3315,7 +3317,7 @@
       "title": "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_oeis_a000045__cassini`. Source=https://doi.org/10.1007/s00373-025-03000-w. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['adversarial_cassini_ext', 'adversarial_catalan_convolution_stress', 'adversarial_hockey_deep', 'binomial_hockey_deep', 'deepen compute-useful math from accepted finding', 'derived_chain_stress']. cycle=20261007T215154Z_97485e. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: crossref `crossref:10.1007/s00373-025-03000-w` <https://doi.org/10.1007/s00373-025-03000-w> fetched 2026-10-07T21:48:10Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_oeis_a000045__cassini` built from proven lemmas [cassini]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_oeis_a000045__cassini composing proven lemmas [cassini] (authored_oeis_a000045__cassini not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_oeis_a000045__cassini",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_97485e_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3334,7 +3336,9 @@
         "aggregate": 0.8211,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-07T22:59:35Z",
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000045__cassini (colony fibonacci == OEIS A000045 held-out terms n=9..28 + proven Cassini identity on a new window); Oracle PASS, kept; P=0.7417 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_97485e_51 not authorized."
     },
     {
       "ts": "2026-10-07T21:52:00Z",
@@ -7665,6 +7669,14 @@
       "authorizer": "James Paul Jackson",
       "delegated_via": "GitHub Actions cron (standing trust P>=0.70 selective; never accept-all)",
       "proposal_updates": 0
+    },
+    {
+      "ts": "2026-10-07T22:59:35Z",
+      "event": "human_authorize",
+      "cycle_id": "authorize_20261007T225935Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 6:59 PM ET; two named items; selective not accept-all)",
+      "proposal_updates": 2
     }
   ],
   "agents": {
@@ -36941,7 +36953,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261007T215110Z_3206f0",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "4e00c6bb087d",
       "P": 0.7919,
@@ -36957,7 +36969,12 @@
       "hearing_verdict": "accept_candidate",
       "hearing_rationale": "strong: citations=7 http_ev=0 agg=0.8207 — survives as candidate",
       "delta_aggregate": 0.0004,
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "authorized_at": "2026-10-07T22:59:35Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 6:59 PM ET; two named items; selective not accept-all)",
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000108__catalan_bounded (colony catalan == OEIS A000108 held-out terms n=9..28 + proven catalan_bounded on a new window); Oracle PASS, kept; P=0.7919 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.501, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_60b63d_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261007T225935Z"
     },
     {
       "id": "imp_60b63d_51",
@@ -37065,7 +37082,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261007T215238Z_02007f",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "36894f03a533",
       "P": 0.7417,
@@ -37081,7 +37098,12 @@
       "hearing_verdict": "accept_candidate",
       "hearing_rationale": "strong: citations=7 http_ev=0 agg=0.8211 — survives as candidate",
       "delta_aggregate": -0.0001,
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "authorized_at": "2026-10-07T22:59:35Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 6:59 PM ET; two named items; selective not accept-all)",
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000045__cassini (colony fibonacci == OEIS A000045 held-out terms n=9..28 + proven Cassini identity on a new window); Oracle PASS, kept; P=0.7417 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_97485e_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261007T225935Z"
     },
     {
       "id": "imp_97485e_51",

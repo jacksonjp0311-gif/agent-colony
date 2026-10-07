@@ -10281,8 +10281,10 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0004
+      "status": "accepted",
+      "delta_aggregate": 0.0004,
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000108__catalan_bounded (colony catalan == OEIS A000108 held-out terms n=9..28 + proven catalan_bounded on a new window); Oracle PASS, kept; P=0.7919 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.501, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_60b63d_51 not authorized.",
+      "authorized_at": "2026-10-07T22:59:35Z"
     },
     {
       "id": "imp_60b63d_51",
@@ -10365,8 +10367,10 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": -0.0001
+      "status": "accepted",
+      "delta_aggregate": -0.0001,
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 6:59 PM ET). seek_enable for the feed-authored OEIS cross-check authored_oeis_a000045__cassini (colony fibonacci == OEIS A000045 held-out terms n=9..28 + proven Cassini identity on a new window); Oracle PASS, kept; P=0.7417 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_97485e_51 not authorized.",
+      "authorized_at": "2026-10-07T22:59:35Z"
     },
     {
       "id": "imp_97485e_51",
@@ -10411,7 +10415,7 @@
       "delta_aggregate": -0.0001
     }
   ],
-  "updated_at": "2026-10-07T21:53:21Z",
+  "updated_at": "2026-10-07T22:59:35Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
