@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T13:41:48Z",
-  "updated_cycle": "20261007T134144Z_697a74",
+  "updated_at": "2026-10-07T14:01:15Z",
+  "updated_cycle": "20261007T140111Z_7c797c",
   "n_claims": 1,
   "n_proposed": 0,
   "recent_claims": [
@@ -20,7 +20,7 @@
       "status": "rejected_raw",
       "hard_ok": false,
       "note": "lemma score=0.9071 hard_pass=29/29 \u2014 machine-checked harness only; not theorem discovery | skip_seen_claim:vandermonde:1706.03762",
-      "ts": "2026-10-07T13:41:48Z",
+      "ts": "2026-10-07T14:01:15Z",
       "not_discovery": true
     }
   ],

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T13:41:48Z",
+  "updated_at": "2026-10-07T14:01:40Z",
   "passes": 3,
   "kills": 57,
-  "easy_pad_kills": 4,
+  "easy_pad_kills": 7,
   "kill_rate": 0.95,
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -14,8 +14,6 @@
   "unique_mutations_kill": [
     "Deepen compute-useful math from accepted findings after hearing",
     "Feed accepted/strong RSI findings into skill_router + genome bias",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 121)",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 123)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 125)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 127)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 129)",
@@ -29,6 +27,10 @@
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 145)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 147)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 149)",
+    "Seek `binomial_hockey_deep` citing New algebraic points on covers of elliptic curves",
+    "Seek `binomial_hockey_deep` citing New algebraic points on covers of elliptic curves (cycle 156)",
+    "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
+    "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves (cycle 158)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 150)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 151)",
@@ -37,6 +39,7 @@
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 154)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 155)",
     "easy_pad_assoc_add",
+    "easy_pad_square_again",
     "easy_pad_zero_identity"
   ],
   "domain_packs": {
@@ -69,47 +72,66 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-07T13:41:48Z",
+    "ts": "2026-10-07T14:01:40Z",
     "passed": false,
     "kills": [
-      "stripped:easy_pad_baseline_already_useful",
-      "held_out:easy_pad_dies_on_held_out",
-      "cas:easy_pad_fails_cas_usefulness",
-      "easy_pad_oracle_kill",
+      "stripped:stripped_not_useful_fail",
+      "held_out:held_out_fail",
       "collective_kill"
     ],
     "hear": {
       "heard": true,
       "bus_ok": false,
-      "is_easy_pad": true,
-      "attack_weight": 0.9,
-      "support_weight": 0.1,
+      "is_easy_pad": false,
+      "attack_weight": 0.35,
+      "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `easy_pad_zero_identity` kind=easy_pad. lemma mutation easy_pad_zero_identity 0.9071->0.9229 Not discovery. cycle=20261007T134144Z_697a74.",
-      "attack": "ATTACK: `easy_pad_zero_identity` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
+      "propose": "PROPOSE for Oracle HEAR: `Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves` kind=process. seek_enable:lemma_hard_combinatorics Not discovery. cycle=.",
+      "attack": "WEIGH: `Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
+        "already_enabled": false,
+        "in_catalog": false,
+        "hard_pass": 29,
+        "hard_n": 29,
+        "score": 0.9071,
         "stripped_fails_usefulness": false,
-        "reason": "easy_pad_baseline_already_useful",
-        "ok_for_oracle": false
+        "ok_for_oracle": false,
+        "reason": "stripped_not_useful_fail"
       },
       "held_out": {
         "survives": false,
         "ok_for_oracle": false,
-        "reason": "easy_pad_dies_on_held_out"
+        "hard_pass": 29,
+        "hard_n": 29,
+        "ok": true,
+        "score": 0.9071,
+        "reason": "held_out_fail"
       },
       "cas": {
-        "cas_ok": false,
-        "ok_for_oracle": false,
-        "engine": "reject_easy_pad",
-        "reason": "easy_pad_fails_cas_usefulness",
-        "checks": []
+        "cas_ok": true,
+        "ok_for_oracle": true,
+        "engine": "pure_python",
+        "reason": "cas_pass",
+        "checks": [
+          {
+            "label": "binomial_symmetry",
+            "ok": true
+          },
+          {
+            "label": "pascal",
+            "ok": true
+          },
+          {
+            "label": "square_expand",
+            "ok": true
+          }
+        ]
       },
       "kills": [
-        "stripped:easy_pad_baseline_already_useful",
-        "held_out:easy_pad_dies_on_held_out",
-        "cas:easy_pad_fails_cas_usefulness"
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail"
       ],
       "sense_pass": false
     },
@@ -157,16 +179,16 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "easy_pad_zero_identity",
-      "kind": "easy_pad",
+      "mutation": "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
+      "kind": "process",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "easy_pad_zero_identity",
-    "kind": "easy_pad",
-    "source": "conjecture_desk",
-    "cycle_id": "20261007T134144Z_697a74",
-    "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+    "mutation": "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
+    "kind": "process",
+    "source": "novelty_gate",
+    "cycle_id": "",
+    "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

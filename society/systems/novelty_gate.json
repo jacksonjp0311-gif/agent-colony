@@ -1,21 +1,22 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T13:41:47Z",
+  "updated_at": "2026-10-07T14:01:40Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-07T13:41:47Z",
+    "ts": "2026-10-07T14:01:40Z",
     "cycle_id": "",
-    "mutation": "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 155)",
+    "mutation": "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
+      "already_in_lesson_ledger_or_history",
       "stripped_baseline_does_not_fail_usefulness",
       "held_out:hard_tier_green_and_hard_enable",
       "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
     ],
-    "textbook_reuse": 0.3333,
-    "in_ledger": false,
+    "textbook_reuse": 0.0,
+    "in_ledger": true,
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
