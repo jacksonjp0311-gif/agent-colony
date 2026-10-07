@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-07T21:49:11Z",
-  "cycle_id": "20261007T214910Z_60b63d",
+  "ts": "2026-10-07T21:52:39Z",
+  "cycle_id": "20261007T215238Z_02007f",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -26,20 +26,6 @@
       "easy_pad_diff_squares": 3
     },
     "recent": {
-      "binomial_hockey_deep": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "fibonacci_cassini_ext": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "derived_chain_stress": {
         "last": "keep",
         "streak": 1,
@@ -109,15 +95,29 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_oeis_a000108__catalan_bounded": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_oeis_a000045__cassini": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8207,
-      "slope": -2.7e-05,
-      "min": 0.8167,
+      "last": 0.8165,
+      "slope": -0.000574,
+      "min": 0.8163,
       "max": 0.8243
     },
     "novelty": {
@@ -127,37 +127,37 @@
       "max": 0.0
     },
     "kill_rate": {
-      "last": 0.895,
-      "slope": 0.001981,
-      "min": 0.8693,
-      "max": 0.895
+      "last": 0.8993,
+      "slope": 0.001171,
+      "min": 0.8855,
+      "max": 0.8993
     },
     "lesson_uptake": {
       "last": 0.8929,
-      "slope": -0.004108,
+      "slope": -0.007578,
       "min": 0.8929,
       "max": 0.9583
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0076,
+    "aggregate_range": 0.0078,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 45,
+    "enabled": 47,
     "disabled": [
-      "adversarial_vandermonde_asymmetric",
-      "authored_oeis_a000108__catalan_bounded"
+      "adversarial_vandermonde_asymmetric"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
       "authored_binomial_sum_row__catalan_bounded_w1",
+      "authored_oeis_a000045__cassini",
       "authored_oeis_a000108__catalan_bounded"
     ],
-    "exhausted_recent": 3
+    "exhausted_recent": 4
   },
   "guides": {
     "n_guides": 14,
@@ -171,23 +171,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.227,
+      "ratio": 1.207,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.225,
+      "ratio": 1.199,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.222,
+      "ratio": 1.127,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.221,
+      "ratio": 1.225,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.218,
+      "ratio": 1.129,
       "drift": false
     }
   },
@@ -197,18 +197,18 @@
     "last": [
       [
         null,
+        "2026-10-07T21:50:51Z"
+      ],
+      [
+        "success",
         "2026-10-07T21:47:50Z"
       ],
       [
         "success",
         "2026-10-07T20:32:41Z"
-      ],
-      [
-        "success",
-        "2026-10-07T20:23:07Z"
       ]
     ],
-    "fetched_at": "2026-10-07T21:48:13Z"
+    "fetched_at": "2026-10-07T21:51:06Z"
   },
   "feeds": {
     "by_source": {
@@ -225,35 +225,31 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
-          "new": 6,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 2,
-          "new": 2,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
-          "new": 2,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 1,
-          "new": 1,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-10-07T21:48:05Z"
+      "ts": "2026-10-07T21:51:06Z"
     },
     "health": {
       "arxiv": {

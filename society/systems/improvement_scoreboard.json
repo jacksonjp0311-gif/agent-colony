@@ -10263,8 +10263,26 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "after": null,
-      "status": "candidate"
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8186,
+        "compute_usefulness": 0.9128,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8879,
+        "kill_rate": 0.8971,
+        "novelty": 0.0,
+        "lesson_uptake": 0.8929,
+        "aggregate": 0.8211,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0004
     },
     {
       "id": "imp_60b63d_51",
@@ -10287,13 +10305,115 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "after": null,
-      "status": "candidate"
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8186,
+        "compute_usefulness": 0.9128,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8879,
+        "kill_rate": 0.8971,
+        "novelty": 0.0,
+        "lesson_uptake": 0.8929,
+        "aggregate": 0.8211,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0004
+    },
+    {
+      "id": "imp_97485e_50",
+      "title": "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8186,
+        "compute_usefulness": 0.9128,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8879,
+        "kill_rate": 0.8971,
+        "novelty": 0.0,
+        "lesson_uptake": 0.8929,
+        "aggregate": 0.8211,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8137,
+        "compute_usefulness": 0.9131,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8858,
+        "kill_rate": 0.8993,
+        "novelty": 0.0,
+        "lesson_uptake": 0.8929,
+        "aggregate": 0.821,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": -0.0001
+    },
+    {
+      "id": "imp_97485e_51",
+      "title": "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa (cycle 181)",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8186,
+        "compute_usefulness": 0.9128,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8879,
+        "kill_rate": 0.8971,
+        "novelty": 0.0,
+        "lesson_uptake": 0.8929,
+        "aggregate": 0.8211,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8137,
+        "compute_usefulness": 0.9131,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8858,
+        "kill_rate": 0.8993,
+        "novelty": 0.0,
+        "lesson_uptake": 0.8929,
+        "aggregate": 0.821,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": -0.0001
     }
   ],
-  "updated_at": "2026-10-07T21:49:15Z",
+  "updated_at": "2026-10-07T21:53:21Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
-  "updated_cycle": "20261007T214910Z_60b63d"
+  "updated_cycle": "20261007T215238Z_02007f"
 }

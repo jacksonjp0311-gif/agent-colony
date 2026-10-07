@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T21:49:15Z",
+  "updated_at": "2026-10-07T21:52:00Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-07T21:49:15Z",
+    "ts": "2026-10-07T21:52:00Z",
     "cycle_id": "",
-    "mutation": "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)",
+    "mutation": "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa (cycle 181)",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
@@ -19,16 +19,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 35,
-      "hard_n": 35,
+      "hard_pass": 36,
+      "hard_n": 36,
       "stripped_fails_usefulness": false,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard34"
+      "impl_id": "lemma_impl_v2_basic10_hard36"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 35,
+      "hard_pass": 36,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

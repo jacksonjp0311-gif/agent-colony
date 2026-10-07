@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T21:49:40Z",
-  "updated_cycle": "20261007T214910Z_60b63d",
+  "updated_at": "2026-10-07T21:53:21Z",
+  "updated_cycle": "20261007T215238Z_02007f",
   "signal": {
-    "ts": "2026-10-07T21:49:40Z",
+    "ts": "2026-10-07T21:53:21Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 9,
+    "accepted_compute": 11,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_fdb17b7531cc",
-        "title": "Authorize accepted: Hard-checked claim: vandermonde"
+        "finding_id": "fnd_6e98db19d5bf",
+        "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep"
       },
       {
         "topic": "open-math-problems",
@@ -52,20 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_6e98db19d5bf",
-        "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_223f509f2b6b",
-        "title": "Authorize accepted: Lemma mutation keep: fibonacci_cassini_ext",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_94d4382ab0c5",
         "title": "Authorize accepted: Lemma mutation keep: derived_chain_stress",
         "topic_id": "compute-useful-math",
@@ -92,6 +78,20 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_e88debfdefc2",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__catalan_boun",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_13ed8f840b09",
+        "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000108__catalan_bounded",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,18 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_6e98db19d5bf",
-        "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_223f509f2b6b",
-        "title": "Authorize accepted: Lemma mutation keep: fibonacci_cassini_ext",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_94d4382ab0c5",
         "title": "Authorize accepted: Lemma mutation keep: derived_chain_stress",
@@ -143,19 +131,31 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_bell_triangle_recurrence__binomial_inversion_small_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_e88debfdefc2",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__catalan_bounded_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_13ed8f840b09",
+        "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000108__catalan_bounded",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_fdb17b7531cc",
-        "fnd_ff6ac9884b6a",
         "fnd_6e98db19d5bf",
         "fnd_223f509f2b6b",
         "fnd_94d4382ab0c5",
         "fnd_35432d4730d7",
         "fnd_c300b9aab0c0",
-        "fnd_4e13618dda89"
+        "fnd_4e13618dda89",
+        "fnd_e88debfdefc2",
+        "fnd_13ed8f840b09"
       ],
       "rsi": []
     },

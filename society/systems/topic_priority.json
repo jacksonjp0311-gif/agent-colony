@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_fdb17b7531cc",
-      "title": "Authorize accepted: Hard-checked claim: vandermonde"
+      "finding_id": "fnd_6e98db19d5bf",
+      "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep"
     },
     {
       "topic": "open-math-problems",
@@ -66,11 +66,6 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "absolute-max",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -84,6 +79,11 @@
       "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
+    },
+    {
+      "topic": "science-method",
+      "priority": 0.85,
+      "reason": "stem_coverage=0"
     },
     {
       "topic": "mathematics-foundations",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-07T21:49:22Z",
-  "updated_cycle": "20261007T214910Z_60b63d",
+  "updated_at": "2026-10-07T21:53:02Z",
+  "updated_cycle": "20261007T215238Z_02007f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

@@ -1,7 +1,7 @@
 {
-  "ts": "2026-10-07T21:49:15Z",
+  "ts": "2026-10-07T21:52:43Z",
   "ok_all": true,
-  "aggregate_score": 0.8835,
+  "aggregate_score": 0.8841,
   "benches": [
     {
       "bench": "fft_microbench",
@@ -10,7 +10,7 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.001692,
+      "seconds": 0.001609,
       "score": 1.0,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
@@ -23,8 +23,8 @@
       "ok": true,
       "max_abs_err": 7.367024535821709e-11,
       "mse": 6.228992808609339e-24,
-      "seconds": 0.008323,
-      "score": 0.6852,
+      "seconds": 0.00812,
+      "score": 0.6885,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
       "time_budget_s": 0.0025
@@ -61,9 +61,9 @@
       "bench": "lemma_microbench",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 0.028469,
+      "seconds": 0.028682,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard35",
+      "impl_id": "lemma_impl_v2_basic10_hard37",
       "checks": {
         "basic:square_of_sum": true,
         "basic:difference_of_squares": true,
@@ -109,14 +109,16 @@
         "hard:adversarial_catalan_convolution_stress": true,
         "hard:adversarial_derived_chain_stress": true,
         "hard:authored_bell_triangle_recurrence__binomial_inversion_small_w1": true,
-        "hard:authored_binomial_sum_row__catalan_bounded_w1": true
+        "hard:authored_binomial_sum_row__catalan_bounded_w1": true,
+        "hard:authored_oeis_a000108__catalan_bounded": true,
+        "hard:authored_oeis_a000045__cassini": true
       },
-      "n_checks": 45,
-      "n_pass": 45,
+      "n_checks": 47,
+      "n_pass": 47,
       "n_basic": 10,
       "n_basic_pass": 10,
-      "n_hard": 35,
-      "n_hard_pass": 35,
+      "n_hard": 37,
+      "n_hard_pass": 37,
       "basic_ok": true,
       "hard_ok": true,
       "note": "Machine-check of coded lemmas (basic + hard tier). Textbook-only cannot ace ~0.95. Not novel-theorem discovery."

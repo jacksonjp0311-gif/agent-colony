@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-07T21:49:15Z",
-  "n": 123,
+  "updated_at": "2026-10-07T21:51:59Z",
+  "n": 126,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -9,6 +9,7 @@
     "author_new_hard_checks_from_proven_lemmas",
     "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_binomial_sum_row__catalan_bounded_w1",
+    "authored_oeis_a000045__cassini",
     "authored_oeis_a000108__catalan_bounded",
     "autodiff",
     "autodiff_busy_loop",
@@ -31,7 +32,9 @@
     "chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing new algebraic points on covers of elliptic curves (cycle 175)",
     "chain `authored_binomial_sum_row__catalan_bounded_w1` citing odds",
     "chain `authored_binomial_sum_row__catalan_bounded_w1` citing odds (cycle 177)",
+    "chain `authored_oeis_a000045__cassini` citing square-free word-representation of word-representa",
     "chain `authored_oeis_a000108__catalan_bounded` citing odds",
+    "chain `authored_oeis_a000108__catalan_bounded` citing odds (cycle 179)",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic c",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves (cycle 159)",
