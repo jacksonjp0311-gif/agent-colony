@@ -132,11 +132,20 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     recent_reverts = recent_revert_counts()
     chosen = kind = snippet = ""
     chosen = None
+    snippets = list(all_snippets())
+    try:
+        # Guide: seek unenabled harder variants built from proven lemmas (discovered
+        # from the artifact catalogs) — Oracle still decides keep vs revert.
+        from colony.lessons import variant_mutation_snippets
+        _have = {n for n, _k, _s in snippets}
+        snippets += [v for v in variant_mutation_snippets() if v[0] not in _have]
+    except Exception:
+        pass
     try:
         from colony.exploration_budget import pick_mutation_order
-        ordered = pick_mutation_order(list(all_snippets()))
+        ordered = pick_mutation_order(snippets)
     except Exception:
-        ordered = list(all_snippets())
+        ordered = snippets
     lemma_src = src
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:

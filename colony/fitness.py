@@ -122,13 +122,11 @@ def _novelty_term() -> float:
 def _lesson_uptake_term() -> float:
     """Uptake = keep-cites + active human_guide prior application (seek/become)."""
     try:
-        from colony.lessons import load_lessons, skill_bias_from_lessons
+        from colony.lessons import load_lessons, load_human_guides, skill_bias_from_lessons
         lessons = load_lessons(limit=120)
         ids = {e.get("id") for e in lessons if e.get("id")}
-        guides = [
-            e for e in lessons
-            if (e.get("type") == "human_guide" or e.get("decision") == "guide") and not e.get("expired")
-        ]
+        # All active guides (whole file), not just those inside the recent window
+        guides = load_human_guides()
         keep_score = 0.0
         keeps = [e for e in lessons if e.get("decision") == "keep"][-10:]
         if keeps and ids:

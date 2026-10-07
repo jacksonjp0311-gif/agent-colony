@@ -136,6 +136,12 @@ def pick_mutation_order(candidates: list[tuple[str, str, str]]) -> list[tuple[st
         if guide_prefers_invariant_chains():
             # James guide: machine-checkable invariants / lemma chains before renames
             want = list(preferred_invariant_mutations()) + want
+        try:
+            from colony.lessons import preferred_variant_mutations
+            # James guide: unenabled harder variants of proven lemmas before everything
+            want = list(preferred_variant_mutations()) + want
+        except Exception:
+            pass
         by_name = {n: (n, k, s) for n, k, s in candidates}
         for name in want:
             if name in by_name:

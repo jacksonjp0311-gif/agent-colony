@@ -392,6 +392,13 @@ def lesson_priors_for_spark(*, limit: int = 8) -> str:
                 extras.append("chain_cites: name proven lemmas + society/benchmarks artifact")
         except Exception:
             pass
+        try:
+            from colony.lessons import preferred_variant_mutations
+            var = preferred_variant_mutations()
+            if var:
+                extras.append(f"unenabled_variants: {', '.join(var[:5])}")
+        except Exception:
+            pass
         if extras:
             return f"{base} || " + " || ".join(extras)
         return base

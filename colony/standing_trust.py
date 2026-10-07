@@ -140,7 +140,7 @@ def compute_proposal_P(
     else:
         p_les = 0.4  # neutral
         try:
-            from colony.lessons import load_lessons, catalog_hints_from_lessons
+            from colony.lessons import load_lessons, load_human_guides, catalog_hints_from_lessons
             # Match catalog_hint / human_guide
             hints = catalog_hints_from_lessons(lookback=30)
             blob = f"{mutation} {action}".lower()
@@ -149,10 +149,10 @@ def compute_proposal_P(
                 if add and add in blob:
                     p_les = 1.0
                     break
+            for e in load_human_guides():  # guides apply however old they are
+                if any(t in blob for t in (e.get("tags") or []) if isinstance(t, str)):
+                    p_les = max(p_les, 1.0)
             for e in load_lessons(limit=40):
-                if e.get("type") == "human_guide":
-                    if any(t in blob for t in (e.get("tags") or []) if isinstance(t, str)):
-                        p_les = max(p_les, 1.0)
                 if e.get("type") == "hearing_reject" and fingerprint and e.get("proposal_fingerprint") == fingerprint:
                     p_les = 0.0
                     break

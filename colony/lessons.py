@@ -145,6 +145,41 @@ def load_lessons(*, limit: int = 200, include_expired: bool = False) -> list[dic
     return out[-limit:]
 
 
+_GUIDE_CACHE: dict[str, Any] = {"key": None, "rows": []}
+
+
+def load_human_guides(*, include_expired: bool = False) -> list[dict[str, Any]]:
+    """ALL human_guide rows from the whole lessons file, however far back they are.
+
+    Guides are teaching priors, so they must never fall out of a recent-N window the way
+    outcome lessons do. Cheap: substring prefilter before json parse, cached on
+    (path, mtime_ns, size) so repeated calls in one cycle do not re-read the file.
+    """
+    path = LESSONS_JSONL
+    if not path.exists():
+        return []
+    try:
+        st = path.stat()
+    except OSError:
+        return []
+    key = (str(path), st.st_mtime_ns, st.st_size)
+    if _GUIDE_CACHE.get("key") != key:
+        rows: list[dict[str, Any]] = []
+        with path.open(encoding="utf-8") as fh:
+            for ln in fh:
+                if '"human_guide"' not in ln and '"guide"' not in ln:
+                    continue
+                try:
+                    e = json.loads(ln)
+                except json.JSONDecodeError:
+                    continue
+                if e.get("type") == "human_guide" or e.get("decision") == "guide":
+                    rows.append(e)
+        _GUIDE_CACHE["key"] = key
+        _GUIDE_CACHE["rows"] = rows
+    return [dict(e) for e in _GUIDE_CACHE["rows"] if include_expired or not e.get("expired")]
+
+
 def expire_stale_easy_wins() -> int:
     """Mark easy-family keep lessons expired once harder-family lessons exist."""
     if not LESSONS_JSONL.exists():
@@ -186,9 +221,8 @@ def _lessons_with_guides(*, lookback: int = 40) -> list[dict[str, Any]]:
     """Recent lessons plus ALL active human_guide rows (guides must not drown under kills)."""
     recent = load_lessons(limit=lookback)
     by_id = {e.get("id"): e for e in recent if e.get("id")}
-    for e in load_lessons(limit=400):
-        if (e.get("type") == "human_guide" or e.get("decision") == "guide") and not e.get("expired"):
-            by_id[e.get("id") or id(e)] = e
+    for e in load_human_guides():  # whole file — guides never age out of a window
+        by_id[e.get("id") or id(e)] = e
     return list(by_id.values())
 
 
@@ -325,10 +359,7 @@ def persist_system(*, cycle_id: str = "") -> None:
 
 def digest(*, limit: int = 5) -> str:
     """Surface human_guide priors first, then recent outcome lessons."""
-    guides = [
-        e for e in load_lessons(limit=400)
-        if (e.get("type") == "human_guide" or e.get("decision") == "guide") and not e.get("expired")
-    ]
+    guides = load_human_guides()
     recent = load_lessons(limit=max(limit * 3, 12))
     # Prefer guides, then non-guide recent, de-dupe by id
     ordered: list[dict[str, Any]] = []
@@ -597,7 +628,15 @@ def _check_calls(node: Any) -> list[str]:
 
 
 def _scan_bench_artifact(path: Path) -> tuple[dict[str, Any], dict[str, list[str]]]:
-    """Parse one artifact: (check functions by name, catalog entry name -> referenced check fns).
+    """Parse one artifact: (check functions by name, catalog entry name -> referenced check fns)."""
+    funcs, catalog, _enabled = _scan_bench_artifact_full(path)
+    return funcs, catalog
+
+
+def _scan_bench_artifact_full(
+    path: Path,
+) -> tuple[dict[str, Any], dict[str, list[str]], dict[str, bool | None]]:
+    """Parse one artifact: (check fns, catalog name -> referenced check fns, catalog name -> enabled).
 
     Catalogs are module-level lists of (name, callable, enabled) tuples
     (CANDIDATE_LEMMAS / HARD_TIER_LEMMAS / STEM_CHECKS) — read from source, never executed.
@@ -606,9 +645,10 @@ def _scan_bench_artifact(path: Path) -> tuple[dict[str, Any], dict[str, list[str
     try:
         tree = ast.parse(path.read_text(encoding="utf-8"))
     except (OSError, SyntaxError, UnicodeDecodeError):
-        return {}, {}
+        return {}, {}, {}
     funcs: dict[str, Any] = {}
     catalog: dict[str, list[str]] = {}
+    enabled: dict[str, bool | None] = {}
     aliases: dict[str, str] = {}
     for node in tree.body:
         if isinstance(node, ast.FunctionDef) and node.name.startswith("check_"):
@@ -630,7 +670,12 @@ def _scan_bench_artifact(path: Path) -> tuple[dict[str, Any], dict[str, list[str
                     ):
                         refs = [aliases.get(n, n) for n in _check_calls(elt.elts[1])]
                         catalog.setdefault(elt.elts[0].value, refs)
-    return funcs, catalog
+                        flag = None
+                        if len(elt.elts) >= 3 and isinstance(elt.elts[2], ast.Constant):
+                            if isinstance(elt.elts[2].value, bool):
+                                flag = elt.elts[2].value
+                        enabled.setdefault(elt.elts[0].value, flag)
+    return funcs, catalog, enabled
 
 
 def _bench_check_status() -> dict[str, bool]:
@@ -678,6 +723,13 @@ def chain_citations(mutation: str) -> dict[str, Any] | None:
                 fn_to_lemma[refs[0]] = name
         links: list[dict[str, Any]] = []
         seen: set[str] = set()
+        # A variant that re-runs another catalog lemma's check (e.g. an adversarial
+        # window aliasing check_derived_chain_stress) is built from that lemma.
+        for root in roots:
+            base = fn_to_lemma.get(root)
+            if base and base != mut and root not in seen:
+                seen.add(root)
+                links.append({"lemma": base, "function": root, "proven": status.get(base) is True})
         for root in roots:
             for fn in _check_calls(funcs[root]):
                 if fn in roots or fn in seen or fn not in funcs:
@@ -740,6 +792,92 @@ def chain_cite_evidence(action_or_mutation: str) -> list[str]:
     return ev
 
 
+# --- Unenabled harder variants built from proven lemmas (human_guide) --------------
+
+VARIANT_GUIDE_TAGS = {"unenabled_variant", "unenabled_variants", "seek_unproven", "harder_variant"}
+
+
+def guide_seeks_unenabled_variants() -> bool:
+    """True when an active human_guide says: re-enabling adds nothing — seek unenabled variants."""
+    for e in load_human_guides():
+        tags = {str(x).lower() for x in (e.get("tags") or [])}
+        hint = e.get("catalog_hint") or {}
+        prefer = {str(x).lower() for x in (hint.get("prefer") or [])}
+        if tags & VARIANT_GUIDE_TAGS or prefer & VARIANT_GUIDE_TAGS:
+            return True
+    return False
+
+
+def target_enabled(mutation: str) -> bool | None:
+    """Enabled flag of a catalog entry in society/benchmarks/artifacts (None = not in a catalog)."""
+    mut = theme_key(mutation) or str(mutation or "").strip()
+    if not mut or not BENCH_ARTIFACTS_DIR.is_dir():
+        return None
+    for path in sorted(BENCH_ARTIFACTS_DIR.glob("*.py")):
+        if path.name.startswith("__"):
+            continue
+        _f, _c, enabled = _scan_bench_artifact_full(path)
+        if mut in enabled:
+            return enabled[mut]
+    return None
+
+
+def _variant_kind(artifact: str) -> str:
+    """Desk mutation kind for an artifact catalog (kinematics → STEM pack, else hard tier)."""
+    return "stem_enable" if "kinematics" in artifact else "hard_enable"
+
+
+def unenabled_chain_variants(*, respect_cooldown: bool = True) -> list[dict[str, Any]]:
+    """Disabled catalog entries whose components are ALL proven lemmas (discovered, not listed).
+
+    Read from society/benchmarks/artifacts catalogs + latest.json. Each row carries the cite
+    (artifact, component lemmas, microbench) so proposals stay honest. Cooled themes skipped.
+    """
+    if not BENCH_ARTIFACTS_DIR.is_dir():
+        return []
+    blocked = blocked_themes() if respect_cooldown else {}
+    # A human "drop this theme" also drops its harder variants (e.g. vandermonde_asymmetric)
+    avoided = guide_avoid_themes() if respect_cooldown else set()
+    out: list[dict[str, Any]] = []
+    for path in sorted(BENCH_ARTIFACTS_DIR.glob("*.py")):
+        if path.name.startswith("__"):
+            continue
+        _f, _c, enabled = _scan_bench_artifact_full(path)
+        for name, flag in enabled.items():
+            if flag is not False or name in blocked:
+                continue
+            if any(t and len(t) >= 6 and t in name for t in avoided):
+                continue
+            cites = chain_citations(name)
+            if not cites:
+                continue
+            links = cites.get("links") or []
+            if not links or not all(l.get("proven") for l in links):
+                continue  # only variants composed of machine-checked, passing lemmas
+            out.append(
+                {
+                    "name": name,
+                    "kind": _variant_kind(cites["artifact"]),
+                    "artifact": cites["artifact"],
+                    "components": [l["lemma"] for l in links],
+                    "bench": list(cites.get("bench") or []),
+                }
+            )
+    return out
+
+
+def variant_mutation_snippets() -> list[tuple[str, str, str]]:
+    """(name, kind, snippet) desk candidates for unenabled variants when the guide is active."""
+    if not guide_seeks_unenabled_variants():
+        return []
+    return [(v["name"], v["kind"], f"enable:{v['name']}") for v in unenabled_chain_variants()]
+
+
+def preferred_variant_mutations() -> list[str]:
+    """Unenabled-variant names to try first (empty unless the guide is active)."""
+    return [n for n, _k, _s in variant_mutation_snippets()]
+
+
 def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | None:
     """Build one seek-oriented improvement from guides + papers/ledger themes (not process spam).
 
@@ -778,6 +916,10 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
             score += 1
         return score
     guide_rows = sorted(guide_rows, key=_guide_rank, reverse=True)
+    # Unenabled variant guide: harder not-yet-enabled variants of proven lemmas go first
+    seek_variants = guide_seeks_unenabled_variants()
+    variant_rows = {v["name"]: v for v in unenabled_chain_variants()} if seek_variants else {}
+    candidates.extend(variant_rows)
     # Prefer invariant-chain mutations when guides ask (compose lemmas, not renames)
     if guide_prefers_invariant_chains():
         candidates.extend(preferred_invariant_mutations())
@@ -807,11 +949,18 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
             continue
         seen.add(t)
         ordered.append(c)
+    # Re-enabling an already-enabled target adds nothing (Oracle: stripped_not_useful) — skip
+    if seek_variants:
+        fresh = [c for c in ordered if target_enabled(theme_key(c) or c) is not True]
+        if fresh:
+            ordered = fresh
     # Cite guide: prefer mutations that a society/benchmarks artifact actually checks
     # (proven chain first) so the proposal can name real lemmas — never invent a cite.
     require_cites = guide_requires_chain_cites()
     if require_cites:
         def _cite_rank(name: str) -> int:
+            if (theme_key(name) or name) in variant_rows:
+                return 0  # unenabled variant built from proven lemmas
             c = chain_citations(name)
             if not c:
                 return 2
@@ -842,6 +991,13 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         f"Cooled themes skipped={sorted(cooled)[:6]}. cycle={cycle_id}."
         f"{inv_note}"
     )
+    if mut in variant_rows:
+        v = variant_rows[mut]
+        hyp += (
+            f" Harder not-yet-enabled variant `{mut}` built from proven lemmas "
+            f"[{', '.join(v['components'])}]; re-enabling already-on targets adds nothing. "
+            f"Enable only if the Oracle held-out check passes."
+        )
     if require_cites:
         cite = chain_cite_note(chain_citations(mut))
         hyp += cite or (
