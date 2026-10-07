@@ -525,17 +525,6 @@ def check_authored_bell_triangle_recurrence__binomial_inversion_small_w1() -> bo
     return all((check_bell_triangle_recurrence(n) for n in range(12, 18))) and all((check_binomial_inversion_small(n) for n in range(9, 13)))
 
 
-def check_authored_binomial_sum_row__catalan_bounded_w1() -> bool:
-    """Authored stress check (desk): proven lemmas binomial_sum_row + catalan_bounded on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_binomial_sum_row,
-    ::check_catalan_bounded; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_binomial_sum_row(n) for n in range(22, 33))) and all((check_catalan_bounded(n) for n in range(12, 18)))
-
-
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -619,8 +608,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("adversarial_catalan_convolution_stress", lambda: all(check_catalan_convolution(n) for n in range(0, 16)), True),
     ("adversarial_derived_chain_stress", check_adversarial_derived_chain_stress, True),
 
-    ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, True),
-    ("authored_binomial_sum_row__catalan_bounded_w1", check_authored_binomial_sum_row__catalan_bounded_w1, False),
+    ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, False),
 ]
 
 

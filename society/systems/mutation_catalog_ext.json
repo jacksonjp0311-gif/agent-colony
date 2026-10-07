@@ -7,6 +7,13 @@
       "snippet": "enable:vandermonde_asymmetric",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "catalan_convolution",
+      "kind": "hard_enable",
+      "snippet": "enable:catalan_convolution",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

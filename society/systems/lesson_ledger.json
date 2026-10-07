@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:24:52Z",
-  "updated_cycle": "20261007T202431Z_9e76e0",
+  "updated_at": "2026-10-07T20:34:39Z",
+  "updated_cycle": "20261007T203417Z_36f988",
   "n_active": 80,
   "n_keeps": 0,
-  "n_reverts": 38,
+  "n_reverts": 32,
   "skill_bias": {
-    "improver.improve": 0.0353,
-    "geometer.gather": 0.02,
-    "gather": 0.0779,
+    "improver.improve": 0.0455,
+    "geometer.gather": 0.0326,
+    "gather": 0.0744,
     "explore": 0.0582,
-    "oracle": 0.07,
-    "build": 0.0633,
+    "build": 0.0686,
+    "oracle": 0.072,
     "improve": 0.075,
     "emergence": 0.0525,
     "reply": 0.03,
@@ -19,9 +19,9 @@
   },
   "recent": [
     {
-      "id": "les_Z_170de6_vandermonde",
-      "ts": "2026-10-07T20:23:27Z",
-      "cycle_id": "20261007T202322Z_170de6",
+      "id": "les_Z_17b6ee_vandermonde",
+      "ts": "2026-10-07T20:33:01Z",
+      "cycle_id": "20261007T203256Z_17b6ee",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -44,9 +44,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_170de6_pilot",
-      "ts": "2026-10-07T20:23:44Z",
-      "cycle_id": "20261007T202322Z_170de6",
+      "id": "les_Z_17b6ee_pilot",
+      "ts": "2026-10-07T20:33:19Z",
+      "cycle_id": "20261007T203256Z_17b6ee",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -69,76 +69,16 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ed8bd7_stem_easy_pad_units",
-      "ts": "2026-10-07T20:24:06Z",
-      "cycle_id": "20261007T202403Z_ed8bd7",
-      "type": "repeat_proposal",
-      "decision": "block",
-      "check": "kill_cooldown",
-      "mutation": "stem_easy_pad_units",
-      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
-      "source": "growth_hearing",
-      "family": "kill_cooldown",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "gather": 0.05,
-        "explore": 0.05
-      },
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "fec9774c9818",
-      "tags": [
-        "kill_cooldown",
-        "blocked_theme",
-        "stem_easy_pad_units"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_ed8bd7_stem_easy_pad_units",
-      "ts": "2026-10-07T20:24:06Z",
-      "cycle_id": "20261007T202403Z_ed8bd7",
-      "type": "repeat_proposal",
-      "decision": "block",
-      "check": "kill_cooldown",
-      "mutation": "stem_easy_pad_units",
-      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
-      "source": "growth_hearing",
-      "family": "kill_cooldown",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "gather": 0.05,
-        "explore": 0.05
-      },
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "5faed9780bb8",
-      "tags": [
-        "kill_cooldown",
-        "blocked_theme",
-        "stem_easy_pad_units"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_ed8bd7_easy_pad_abs_identity",
-      "ts": "2026-10-07T20:24:06Z",
-      "cycle_id": "20261007T202403Z_ed8bd7",
+      "id": "les_0:33:40Z_Chain `authored_bell_triangle_recur",
+      "ts": "2026-10-07T20:33:40Z",
+      "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "easy_pad_abs_identity",
-      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
+      "mutation": "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
       "before_score": null,
       "after_score": null,
       "skill_bias": {
@@ -153,16 +93,13 @@
       "proposal_fingerprint": "",
       "tags": [
         "oracle_kill",
-        "stripped:easy_pad_baseline_already_useful",
-        "held_out:easy_pad_dies_on_held_out",
-        "cas:easy_pad_fails_cas_usefulness",
-        "easy_pad_oracle_kill"
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
       "evidence": [
-        "kill:stripped:easy_pad_baseline_already_useful",
-        "kill:held_out:easy_pad_dies_on_held_out",
-        "kill:cas:easy_pad_fails_cas_usefulness",
-        "kill:easy_pad_oracle_kill",
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
         "kill:collective_kill"
       ],
       "author": null,
@@ -170,9 +107,47 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ed8bd7_vandermonde",
-      "ts": "2026-10-07T20:24:07Z",
-      "cycle_id": "20261007T202403Z_ed8bd7",
+      "id": "les_0:33:41Z_Chain `authored_bell_triangle_recur",
+      "ts": "2026-10-07T20:33:41Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves (cycle 175)",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_f7c5ca_vandermonde",
+      "ts": "2026-10-07T20:33:41Z",
+      "cycle_id": "20261007T203336Z_f7c5ca",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -195,9 +170,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ed8bd7_pilot",
-      "ts": "2026-10-07T20:24:12Z",
-      "cycle_id": "20261007T202403Z_ed8bd7",
+      "id": "les_Z_f7c5ca_pilot",
+      "ts": "2026-10-07T20:33:59Z",
+      "cycle_id": "20261007T203336Z_f7c5ca",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -220,29 +195,24 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_9e76e0_stem_easy_pad_units",
-      "ts": "2026-10-07T20:24:34Z",
-      "cycle_id": "20261007T202431Z_9e76e0",
+      "id": "les_Z_36f988_dedupe",
+      "ts": "2026-10-07T20:34:21Z",
+      "cycle_id": "20261007T203417Z_36f988",
       "type": "repeat_proposal",
       "decision": "block",
-      "check": "kill_cooldown",
-      "mutation": "stem_easy_pad_units",
-      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
+      "check": "dedupe",
+      "mutation": "",
+      "what": "blocked repeat: Deepen compute-useful math from accepted findings after hearing",
       "source": "growth_hearing",
-      "family": "kill_cooldown",
+      "family": "process",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {
-        "gather": 0.05,
-        "explore": 0.05
-      },
+      "skill_bias": {},
       "genome_prior": {},
       "catalog_hint": {},
-      "proposal_fingerprint": "fec9774c9818",
+      "proposal_fingerprint": "810bc050d326",
       "tags": [
-        "kill_cooldown",
-        "blocked_theme",
-        "stem_easy_pad_units"
+        "repeat_proposal"
       ],
       "evidence": [],
       "author": null,
@@ -250,29 +220,24 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_9e76e0_stem_easy_pad_units",
-      "ts": "2026-10-07T20:24:35Z",
-      "cycle_id": "20261007T202431Z_9e76e0",
+      "id": "les_Z_36f988_dedupe",
+      "ts": "2026-10-07T20:34:21Z",
+      "cycle_id": "20261007T203417Z_36f988",
       "type": "repeat_proposal",
       "decision": "block",
-      "check": "kill_cooldown",
-      "mutation": "stem_easy_pad_units",
-      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
+      "check": "dedupe",
+      "mutation": "",
+      "what": "blocked repeat: Feed accepted/strong RSI findings into skill_router + genome bias",
       "source": "growth_hearing",
-      "family": "kill_cooldown",
+      "family": "process",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {
-        "gather": 0.05,
-        "explore": 0.05
-      },
+      "skill_bias": {},
       "genome_prior": {},
       "catalog_hint": {},
-      "proposal_fingerprint": "8546198c3b45",
+      "proposal_fingerprint": "27e48156942c",
       "tags": [
-        "kill_cooldown",
-        "blocked_theme",
-        "stem_easy_pad_units"
+        "repeat_proposal"
       ],
       "evidence": [],
       "author": null,
@@ -280,50 +245,71 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_9e76e0_easy_pad_abs_identity",
-      "ts": "2026-10-07T20:24:35Z",
-      "cycle_id": "20261007T202431Z_9e76e0",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "easy_pad_abs_identity",
-      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+      "id": "les_Z_36f988_authored_binomial_sum_row__catalan_",
+      "ts": "2026-10-07T20:34:21Z",
+      "cycle_id": "20261007T203417Z_36f988",
+      "type": "authored_check",
+      "decision": "skip",
+      "check": "authoring",
+      "mutation": "authored_binomial_sum_row__catalan_bounded_w1",
+      "what": "authored disabled hard check `authored_binomial_sum_row__catalan_bounded_w1` from proven lemmas binomial_sum_row + catalan_bounded on new windows; awaits Oracle via proposal",
       "source": "conjecture_desk",
-      "family": "easy_pad",
+      "family": "hard_tier",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
+      "skill_bias": {},
+      "genome_prior": {},
       "catalog_hint": {},
       "proposal_fingerprint": "",
       "tags": [
-        "oracle_kill",
-        "stripped:easy_pad_baseline_already_useful",
-        "held_out:easy_pad_dies_on_held_out",
-        "cas:easy_pad_fails_cas_usefulness",
-        "easy_pad_oracle_kill"
+        "authoring",
+        "authored_check",
+        "binomial_sum_row",
+        "catalan_bounded"
       ],
       "evidence": [
-        "kill:stripped:easy_pad_baseline_already_useful",
-        "kill:held_out:easy_pad_dies_on_held_out",
-        "kill:cas:easy_pad_fails_cas_usefulness",
-        "kill:easy_pad_oracle_kill",
-        "kill:collective_kill"
+        "society/benchmarks/artifacts/lemma_impl.py::check_binomial_sum_row",
+        "society/benchmarks/artifacts/lemma_impl.py::check_catalan_bounded",
+        "society/benchmarks/lemma_microbench.py",
+        "lemma:binomial_sum_row",
+        "lemma:catalan_bounded"
       ],
       "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_9e76e0_vandermonde",
-      "ts": "2026-10-07T20:24:35Z",
-      "cycle_id": "20261007T202431Z_9e76e0",
+      "id": "les_Z_36f988_conjecture",
+      "ts": "2026-10-07T20:34:21Z",
+      "cycle_id": "20261007T203417Z_36f988",
+      "type": "catalog_exhausted",
+      "decision": "skip",
+      "check": "conjecture",
+      "mutation": "",
+      "what": "catalog exhausted \u2014 queue next hard_enable stub from lessons/external mind",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {
+        "add_mutation": "catalan_convolution",
+        "kind": "hard_enable"
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "catalog_exhausted"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_36f988_vandermonde",
+      "ts": "2026-10-07T20:34:21Z",
+      "cycle_id": "20261007T203417Z_36f988",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -346,9 +332,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_9e76e0_pilot",
-      "ts": "2026-10-07T20:24:52Z",
-      "cycle_id": "20261007T202431Z_9e76e0",
+      "id": "les_Z_36f988_pilot",
+      "ts": "2026-10-07T20:34:39Z",
+      "cycle_id": "20261007T203417Z_36f988",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",

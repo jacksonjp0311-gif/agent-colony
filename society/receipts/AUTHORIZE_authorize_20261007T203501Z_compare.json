@@ -1,0 +1,30 @@
+{
+  "cycle_id": "authorize_20261007T203501Z",
+  "P_min_before": 0.75,
+  "P_min_after": 0.7,
+  "accepted": 2,
+  "rejected": 1,
+  "skipped": 0,
+  "never_accept_all": true,
+  "compare": [
+    {
+      "finding_id": "fnd_c8139594646f",
+      "decision": "accepted",
+      "P_min_before": 0.75,
+      "P_min_after": 0.7
+    },
+    {
+      "finding_id": "fnd_9e3f7f67f577",
+      "decision": "accepted",
+      "P_min_before": 0.75,
+      "P_min_after": 0.7
+    },
+    {
+      "finding_id": "fnd_70f624103ac6",
+      "decision": "rejected",
+      "P_min_before": 0.75,
+      "P_min_after": 0.7
+    }
+  ],
+  "note": "SPARK2 authorize threshold compare 0.75\u21920.70. Selective."
+}
