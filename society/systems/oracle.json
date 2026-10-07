@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T14:01:40Z",
+  "updated_at": "2026-10-07T18:03:56Z",
   "passes": 3,
   "kills": 57,
-  "easy_pad_kills": 7,
+  "easy_pad_kills": 10,
   "kill_rate": 0.95,
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -12,11 +12,12 @@
     "fibonacci_cassini_ext"
   ],
   "unique_mutations_kill": [
+    "Chain `derived_chain_stress` citing New algebraic points on covers of elliptic curves",
+    "Chain `derived_chain_stress` citing New algebraic points on covers of elliptic curves (cycle 159)",
+    "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
+    "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves (cycle 161)",
     "Deepen compute-useful math from accepted findings after hearing",
     "Feed accepted/strong RSI findings into skill_router + genome bias",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 125)",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 127)",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 129)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 131)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 133)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 135)",
@@ -39,6 +40,7 @@
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 154)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 155)",
     "easy_pad_assoc_add",
+    "easy_pad_diff_squares",
     "easy_pad_square_again",
     "easy_pad_zero_identity"
   ],
@@ -72,7 +74,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-07T14:01:40Z",
+    "ts": "2026-10-07T18:03:56Z",
     "passed": false,
     "kills": [
       "stripped:stripped_not_useful_fail",
@@ -86,8 +88,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves` kind=process. seek_enable:lemma_hard_combinatorics Not discovery. cycle=.",
-      "attack": "WEIGH: `Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves` kind=process. seek_enable:workload_derived_chain Not discovery. cycle=.",
+      "attack": "WEIGH: `Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -179,12 +181,12 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
+      "mutation": "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
       "kind": "process",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
+    "mutation": "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
     "kind": "process",
     "source": "novelty_gate",
     "cycle_id": "",
