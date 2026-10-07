@@ -150,7 +150,12 @@ def test_guide_seek_avoids_process_spam():
     from colony.lessons import guide_process_spam_avoided, seek_proposal_from_guides
     # Live ledger has our become guide
     assert guide_process_spam_avoided() is True
-    t, h, a = seek_proposal_from_guides(cycle_id="t")
+    pick = seek_proposal_from_guides(cycle_id="t")
+    if pick is None:
+        # Live ledger may have every target cooled: seek must then propose nothing
+        # (desk authors new checks) rather than fall back to a cooled/process target.
+        return
+    t, h, a = pick
     assert "Seek" in t or "seek" in a
     assert not a.startswith("rsi_coupling")
     assert "Deepen compute" not in t

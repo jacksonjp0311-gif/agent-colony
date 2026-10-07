@@ -49,6 +49,7 @@ LESSON_TYPES = frozenset({
     "oracle_kill", "hearing_reject", "hearing_defer", "bench_regression",
     "repeat_proposal", "catalog_exhausted", "human_guide",
     "schema_drift", "self_repair",
+    "authored_check", "authoring_reject",
     "keep", "revert", "skip",
 })
 
@@ -968,9 +969,9 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         ordered = sorted(ordered, key=_cite_rank)  # stable: keeps guide order within rank
     mut = next_unblocked_mutation(ordered)
     if not mut:
-        mut = theme_key(ordered[-1]) if ordered else "binomial_hockey_deep"
-    if not mut:
-        mut = "binomial_hockey_deep"
+        # Every candidate is cooled / guide-avoided: never re-propose a blocked target.
+        # Return nothing — the desk authors new checks (author guide) instead.
+        return None
     cooled = blocked_themes()
     title = f"Seek+enable `{mut}` from papers/lessons"
     if theme_title:

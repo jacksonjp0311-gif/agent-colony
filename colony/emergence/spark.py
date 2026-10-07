@@ -399,6 +399,12 @@ def lesson_priors_for_spark(*, limit: int = 8) -> str:
                 extras.append(f"unenabled_variants: {', '.join(var[:5])}")
         except Exception:
             pass
+        try:
+            from colony.authoring import guide_authoring_active
+            if guide_authoring_active():
+                extras.append("author_checks: when variants run out, compose proven lemmas into new disabled checks")
+        except Exception:
+            pass
         if extras:
             return f"{base} || " + " || ".join(extras)
         return base

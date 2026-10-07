@@ -138,9 +138,22 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         # from the artifact catalogs) — Oracle still decides keep vs revert.
         from colony.lessons import variant_mutation_snippets
         _have = {n for n, _k, _s in snippets}
-        snippets += [v for v in variant_mutation_snippets() if v[0] not in _have]
+        _variants = [v for v in variant_mutation_snippets() if v[0] not in _have]
+        snippets += _variants
     except Exception:
-        pass
+        _variants = []
+    # Guide: when no disabled variants remain, AUTHOR new disabled hard checks from
+    # proven lemmas. They stay disabled this cycle (a later proposal targets them and
+    # the Oracle judges the enable) — authoring never enables anything.
+    fresh_authored: set[str] = set()
+    try:
+        from colony.authoring import guide_authoring_active, author_checks
+        from colony.lessons import variant_mutation_snippets as _vms
+        if not _variants and not _vms() and guide_authoring_active():
+            fresh_authored = {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
+            src = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else src
+    except Exception:
+        fresh_authored = set()
     try:
         from colony.exploration_budget import pick_mutation_order
         ordered = pick_mutation_order(snippets)
@@ -150,6 +163,8 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
             continue
+        if name in fresh_authored:
+            continue  # authored this cycle: wait for a proposal + Oracle next cycle
         # Autonomy mile: allow one more retry on easy_pad to prove revert; hard uses >=3
         limit = 3 if name.startswith("easy_pad") else 2
         if not force_mutation and recent_reverts.get(name, 0) >= limit:
@@ -223,8 +238,14 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 # adversarial_* held-out windows as hard_check candidates.
                 import re as _re
                 _lsrc = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else ""
+                from colony.lessons import guide_avoid_themes as _gat
+                _avoid = {t for t in _gat() if t and len(t) >= 6}
                 for _m in _re.finditer(r'\("([^"]*adversarial[^"]*)"[^)]*,\s*False\)', _lsrc):
-                    register_mutation_candidate(_m.group(1), "hard_check", f"enable:{_m.group(1)}")
+                    _nm = _m.group(1)
+                    # Respect cooled themes and human "drop" guides (e.g. vandermonde_asymmetric)
+                    if theme_is_blocked(_nm) or any(t in _nm for t in _avoid):
+                        continue
+                    register_mutation_candidate(_nm, "hard_check", f"enable:{_nm}")
             except Exception:
                 pass
         except Exception:
