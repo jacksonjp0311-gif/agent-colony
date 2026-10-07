@@ -1,7 +1,7 @@
 {
   "role": "oracle_scribe",
   "traits": {
-    "gather": 0.9283,
+    "gather": 0.9289,
     "build": 0.645,
     "reply": 0.58,
     "explore": 0.99,
@@ -14,7 +14,7 @@
   "born_at": "2026-09-26T15:47:16Z",
   "fitness_at_birth": null,
   "version": 1,
-  "lesson_bias_ts": "2026-10-07T11:36:00Z",
+  "lesson_bias_ts": "2026-10-07T13:41:48Z",
   "align_mile_bias": true,
   "align_mile_ts": "2026-09-26T16:05:05Z"
 }

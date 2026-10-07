@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T11:36:00Z",
+  "updated_at": "2026-10-07T13:41:48Z",
   "passes": 3,
   "kills": 57,
-  "easy_pad_kills": 1,
+  "easy_pad_kills": 4,
   "kill_rate": 0.95,
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -14,8 +14,6 @@
   "unique_mutations_kill": [
     "Deepen compute-useful math from accepted findings after hearing",
     "Feed accepted/strong RSI findings into skill_router + genome bias",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 117)",
-    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 119)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 121)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 123)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 125)",
@@ -35,7 +33,11 @@
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 150)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 151)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 152)",
-    "easy_pad_assoc_add"
+    "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 153)",
+    "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 154)",
+    "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 155)",
+    "easy_pad_assoc_add",
+    "easy_pad_zero_identity"
   ],
   "domain_packs": {
     "packs": {
@@ -67,7 +69,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-07T11:36:00Z",
+    "ts": "2026-10-07T13:41:48Z",
     "passed": false,
     "kills": [
       "stripped:easy_pad_baseline_already_useful",
@@ -83,8 +85,8 @@
       "attack_weight": 0.9,
       "support_weight": 0.1,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `easy_pad_assoc_add` kind=easy_pad. lemma mutation easy_pad_assoc_add 0.9071->0.9229 Not discovery. cycle=20261007T113556Z_1cc0a8.",
-      "attack": "ATTACK: `easy_pad_assoc_add` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
+      "propose": "PROPOSE for Oracle HEAR: `easy_pad_zero_identity` kind=easy_pad. lemma mutation easy_pad_zero_identity 0.9071->0.9229 Not discovery. cycle=20261007T134144Z_697a74.",
+      "attack": "ATTACK: `easy_pad_zero_identity` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
     },
     "sense": {
       "stripped": {
@@ -155,15 +157,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "easy_pad_assoc_add",
+      "mutation": "easy_pad_zero_identity",
       "kind": "easy_pad",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "easy_pad_assoc_add",
+    "mutation": "easy_pad_zero_identity",
     "kind": "easy_pad",
     "source": "conjecture_desk",
-    "cycle_id": "20261007T113556Z_1cc0a8",
+    "cycle_id": "20261007T134144Z_697a74",
     "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

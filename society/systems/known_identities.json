@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-07T11:35:59Z",
-  "n": 70,
+  "updated_at": "2026-10-07T13:41:47Z",
+  "n": 74,
   "identities": [
     "autodiff",
     "autodiff_busy_loop",
@@ -17,6 +17,7 @@
     "derived_chain_stress",
     "easy_pad",
     "easy_pad_abs_identity",
+    "easy_pad_assoc_add",
     "easy_pad_commutativity",
     "easy_pad_diff_squares",
     "easy_pad_square_again",
@@ -62,6 +63,9 @@
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves",
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 150)",
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 151)",
+    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 152)",
+    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 153)",
+    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 154)",
     "seek_extend_catalog",
     "seek_on_kill_or_flat_novelty",
     "self_repair_schema",
