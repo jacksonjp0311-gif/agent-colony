@@ -96,11 +96,23 @@ def lemma_streaks(rows: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     return {"by_mutation": streaks, "revert_streaks": revert_streaks, "oracle_kills_by_theme": kills}
 
 
+def _trend_value(row: dict[str, Any], key: str) -> float | None:
+    """Rows written before kill_rate_term existed stored the scored term under kill_rate."""
+    legacy = "kill_rate_term" not in row
+    if key == "kill_rate_term":
+        v = row.get("kill_rate") if legacy else row.get("kill_rate_term")
+    elif key == "kill_rate" and legacy:
+        return None  # legacy value was the term, not the raw rate
+    else:
+        v = row.get(key)
+    return float(v) if isinstance(v, (int, float)) else None
+
+
 def trends(rows: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     rows = rows if rows is not None else _tail_jsonl(FITNESS_HISTORY, TREND_WINDOW)
     out: dict[str, Any] = {"n": len(rows)}
-    for key in ("aggregate", "novelty", "kill_rate", "lesson_uptake"):
-        ys = [float(r[key]) for r in rows if isinstance(r.get(key), (int, float))]
+    for key in ("aggregate", "novelty", "kill_rate", "kill_rate_term", "lesson_uptake"):
+        ys = [float(v) for v in (_trend_value(r, key) for r in rows) if v is not None]
         if ys:
             out[key] = {"last": round(ys[-1], 4), "slope": _slope(ys), "min": round(min(ys), 4), "max": round(max(ys), 4)}
     return out

@@ -305,32 +305,30 @@ class Authorizer:
                 },
             )
 
-        accepted_titles = {
-            u["title"] for u in updates if u["decision"] == "accepted"
-        } | set(accepted_finding_titles)
-        for imp in self.state.data.get("improvements") or []:
-            if not isinstance(imp, dict):
-                continue
-            title = imp.get("title") or ""
-            if title in accepted_titles or any(
-                title.startswith(t) or t.startswith(title)
-                for t in accepted_titles
-                if t
-            ):
-                if imp.get("outcome") in (None, "attempted", "candidate", "candidate_measured"):
-                    matching = [
-                        u
-                        for u in updates
-                        if u["decision"] == "accepted"
-                        and (
-                            u["title"] == title
-                            or (u["title"] and title.startswith(str(u["title"]).split(" (")[0]))
-                        )
-                    ]
-                    if matching:
-                        imp["outcome"] = "accepted"
-                        imp["authorized_at"] = _utc_now()
-                        imp["authorize_rationale"] = matching[0]["rationale"]
+        # Mirror accepted proposals onto their `improvements` records by EXACT proposal id.
+        # Never by title prefix: duplicate proposals (e.g. imp_x_50 / imp_x_51) share a
+        # title stem, and authorizing one must not touch the other. Exact title is only an
+        # explicit fallback for legacy records that carry no proposal_id, and only when that
+        # title is unambiguous (exactly one such record); otherwise nothing is marked.
+        # (accepted_finding_titles never marked improvements on their own — unchanged.)
+        _ = accepted_finding_titles
+        accepted = {u["proposal_id"]: u for u in updates if u["decision"] == "accepted"}
+        imps = [i for i in (self.state.data.get("improvements") or []) if isinstance(i, dict)]
+        open_outcomes = (None, "attempted", "candidate", "candidate_measured")
+        legacy_by_title: dict[str, list[dict[str, Any]]] = {}
+        for imp in imps:
+            if not imp.get("proposal_id"):
+                legacy_by_title.setdefault(str(imp.get("title") or ""), []).append(imp)
+        for pid, u in accepted.items():
+            targets = [i for i in imps if i.get("proposal_id") == pid]
+            if not targets and u.get("title"):
+                legacy = legacy_by_title.get(str(u["title"])) or []
+                targets = legacy if len(legacy) == 1 else []
+            for imp in targets:
+                if imp.get("outcome") in open_outcomes:
+                    imp["outcome"] = "accepted"
+                    imp["authorized_at"] = _utc_now()
+                    imp["authorize_rationale"] = u["rationale"]
 
         systems = self.root / "society" / "systems" / "improvement_scoreboard.json"
         if systems.is_file() and updates:

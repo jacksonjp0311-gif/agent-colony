@@ -851,6 +851,21 @@ def _persist(verdict: OracleVerdict) -> None:
     except Exception:
         _packs = {}
     kill_rate = round(kills / max(1, passes + kills), 4)
+    # Headline numbers = the full log (same definition fitness uses via counts()), so
+    # oracle.json kill_rate == fitness kill_rate. The last-60 window stays as recent_window.
+    recent_window = {
+        "rows": len(recent),
+        "passes": passes,
+        "kills": kills,
+        "easy_pad_kills": easy_kills,
+        "kill_rate": kill_rate,
+    }
+    try:
+        _all = counts()
+        passes, kills = int(_all["passes"]), int(_all["kills"])
+        easy_kills, kill_rate = int(_all["easy_pad_kills"]), float(_all["kill_rate"])
+    except Exception:
+        pass
     bus_ok_n = sum(1 for e in recent if (e.get("hear") or {}).get("bus_ok"))
     bus_ok_rate = round(bus_ok_n / max(1, len(recent)), 4)
     unique_pass = sorted({str(e.get("mutation") or "") for e in recent if e.get("passed")} - {""})
@@ -862,6 +877,8 @@ def _persist(verdict: OracleVerdict) -> None:
         "kills": kills,
         "easy_pad_kills": easy_kills,
         "kill_rate": kill_rate,
+        "kill_rate_scope": "full_log",
+        "recent_window": recent_window,
         "bus_ok_rate": bus_ok_rate,
         "unique_mutations_pass": unique_pass[:40],
         "unique_mutations_kill": unique_kill[:40],
@@ -886,9 +903,12 @@ def _write_witness(payload: dict[str, Any]) -> None:
         "**FAIL kills keep.** No Oracle pass → no fitness rise. "
         "Still candidate until human authorize. Not AGI. Not Millennium.",
         "",
-        f"- passes (recent window): **{payload.get('passes')}**",
-        f"- kills (recent window): **{payload.get('kills')}**",
-        f"- easy_pad kills: **{payload.get('easy_pad_kills')}**",
+        f"- passes (full log): **{payload.get('passes')}**",
+        f"- kills (full log): **{payload.get('kills')}**",
+        f"- easy_pad kills (full log): **{payload.get('easy_pad_kills')}**",
+        f"- kill_rate (full log, same as fitness kill_rate): **{payload.get('kill_rate')}**",
+        f"- recent window (last {(payload.get('recent_window') or {}).get('rows')}): "
+        f"kill_rate **{(payload.get('recent_window') or {}).get('kill_rate')}**",
         f"- latest: `{latest.get('mutation')}` kind={latest.get('kind')} "
         f"→ **{'PASS' if latest.get('passed') else 'KILL'}** "
         f"fitness_credit={latest.get('fitness_credit')}",

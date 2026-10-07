@@ -75,8 +75,28 @@ def hard_tier_delta(data: dict) -> float:
 
 
 
+def oracle_kill_rate() -> float | None:
+    """The ONE raw Oracle kill rate: kills / (passes + kills) over the full oracle.jsonl log.
+
+    Same definition (and same number) as ``kill_rate`` in society/systems/oracle.json and
+    ``colony.oracle.counts()``. The fitness row reports this as ``kill_rate``; the scored
+    sieve term derived from it is ``kill_rate_term`` (that term is what enters aggregate).
+    """
+    try:
+        from colony.oracle import counts
+        c = counts()
+        if int(c.get("total") or 0) <= 0:
+            return None
+        return float(c.get("kill_rate"))
+    except Exception:
+        return None
+
+
 def _oracle_kill_rate_term() -> float:
-    """Informative sieve scores mid-high; 0 or >0.95 both score mid/low. Easy-pad-only kills → low."""
+    """Informative sieve scores mid-high; 0 or >0.95 both score mid/low. Easy-pad-only kills → low.
+
+    Input is the raw rate from :func:`oracle_kill_rate` (kills/total; total = passes+kills).
+    """
     try:
         from colony.oracle import counts
         c = counts()
@@ -119,6 +139,14 @@ def _novelty_term() -> float:
         return 0.4
 
 
+def is_pure_recognition_guide(g: dict[str, Any]) -> bool:
+    """A human_guide that only recognizes (tag ``human_recognition``) and has no actionable hint."""
+    tags = {str(t) for t in (g.get("tags") or [])}
+    if "human_recognition" not in tags:
+        return False
+    return not (g.get("skill_bias") or g.get("genome_prior") or g.get("catalog_hint"))
+
+
 def _lesson_uptake_term() -> float:
     """Uptake = keep-cites + active human_guide prior application (seek/become)."""
     try:
@@ -141,6 +169,11 @@ def _lesson_uptake_term() -> float:
                     cited += 1
             keep_score = cited / max(1, len(keeps))
         guide_score = 0.0
+        # Pure recognition guides (tagged human_recognition, no skill_bias / genome_prior /
+        # catalog_hint) carry no instruction, so there is nothing to "apply": they are not
+        # uptake-measurable and leave the denominator. Any guide with a hint — or any
+        # hintless guide that is not pure recognition — still counts exactly as before.
+        guides = [g for g in guides if not is_pure_recognition_guide(g)]
         if guides:
             bias = skill_bias_from_lessons(lookback=40)
             # Guides count as uptake when their skill_bias or genome_prior is live in bias
@@ -217,6 +250,7 @@ def compute_fitness(
     )
 
     kill_rate_term = _oracle_kill_rate_term()
+    kill_rate_raw = oracle_kill_rate()
     novelty = _novelty_term()
     lesson_uptake = _lesson_uptake_term()
     aggregate = round(
@@ -243,12 +277,51 @@ def compute_fitness(
         "compute_usefulness": compute_usefulness,
         "citation_reuse": citation_reuse,
         "prize_boost": prize_boost,
-        "kill_rate": kill_rate_term,
+        # kill_rate = raw Oracle kill rate (identical to oracle.json kill_rate);
+        # kill_rate_term = the scored sieve term that enters aggregate (weight 0.07).
+        "kill_rate": kill_rate_raw if kill_rate_raw is not None else 0.0,
+        "kill_rate_term": kill_rate_term,
         "novelty": novelty,
         "lesson_uptake": lesson_uptake,
         "aggregate": aggregate,
     }
 
+
+
+def _settle_title_check(prop: dict[str, Any]) -> None:
+    """Resolve a deferred title check at measurement (which claim the Oracle judges).
+
+    A proposal with a resolved target (``seek_enable:<name>`` / catalog entry) deferred its
+    title-text check at propose time. Now: if the Oracle judged that target in the
+    proposal's cycle, its verdict is the evidence (a killed target is a real kill row in
+    oracle.jsonl, and P_oracle=0) and the title check is not run. Otherwise run the legacy
+    title check now, unchanged — fail closed, the kill still lands.
+    """
+    if prop.get("title_check") != "deferred":
+        return
+    try:
+        from colony.standing_trust import resolve_proposal_target, target_judged_in_cycle, run_title_check
+        target = resolve_proposal_target(action=prop.get("action") or "", mutation=prop.get("title") or "")
+        row = target_judged_in_cycle(target, prop.get("cycle_id") or "") if target else None
+        if row is not None:
+            prop["title_check"] = "skipped_target_judged"
+            prop["target_oracle"] = {
+                "target": target,
+                "passed": bool(row.get("passed")),
+                "fitness_credit": bool(row.get("fitness_credit")),
+                "kills": list(row.get("kills") or [])[:6],
+            }
+            return
+        run_title_check(mutation=prop.get("title") or "", action=prop.get("action") or "")
+        prop["title_check"] = "ran_deferred"
+    except Exception:
+        # fail closed: try the legacy check; if even that fails, record it
+        try:
+            from colony.standing_trust import run_title_check
+            run_title_check(mutation=prop.get("title") or "", action=prop.get("action") or "")
+            prop["title_check"] = "ran_deferred"
+        except Exception:
+            prop["title_check"] = "deferred_error"
 
 
 def _rescore_measured_proposal(prop: dict[str, Any]) -> None:
@@ -274,6 +347,9 @@ def _rescore_measured_proposal(prop: dict[str, Any]) -> None:
             bench_delta=prop.get("delta_aggregate"),
             cycle_id=prop.get("cycle_id") or "",
         )
+        terms.pop("title_check_deferred", None)
+        terms.pop("title_check_skipped_target_judged", None)
+        _settle_title_check(prop)
         prop["P_propose"] = prop.get("P")
         prop["P"] = P
         prop["P_terms"] = terms
@@ -791,9 +867,18 @@ class EvolutionEngine:
                 fingerprint=fp,
                 bench_delta=None,
                 cycle_id=cycle_id,
+                # Resolved targets: the desk judges the real lemma later this cycle; don't
+                # submit the title text to the Oracle now (no phantom kill). Re-checked at
+                # measurement — if the target still has no verdict, the title check runs.
+                defer_title_check=True,
             )
         except Exception:
             pass
+        title_check = "ran"
+        if P_terms.pop("title_check_deferred", None):
+            title_check = "deferred"
+        elif P_terms.pop("title_check_skipped_target_judged", None):
+            title_check = "skipped_target_judged"
         prop = {
             "id": f"imp_{cycle_id[-6:]}_{len(self.data.get('improvement_proposals') or [])}",
             "ts": _utc_now(),
@@ -811,6 +896,7 @@ class EvolutionEngine:
             "P_terms": P_terms,
             "confidence": P,
             "machine_checked": P is not None,
+            "title_check": title_check,
         }
         self.data.setdefault("improvement_proposals", []).append(prop)
         self.data.setdefault("improvements", []).append(

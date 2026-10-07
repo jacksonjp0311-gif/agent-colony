@@ -124,6 +124,43 @@ def target_oracle_verdict(target: str, *, cycle_id: str = "", log: Path | None =
     return latest
 
 
+def target_judged_in_cycle(target: str, cycle_id: str, *, log: Path | None = None) -> dict[str, Any] | None:
+    """Latest Oracle row judging exactly ``target`` IN ``cycle_id`` (pass or kill), else None.
+
+    Used to decide which claim a seek proposal submits: when the Oracle judged the real
+    target in the proposal's own cycle, that verdict IS the proposal's Oracle evidence and
+    the separate title-text process check is not run (no phantom kill on the title).
+    """
+    if not target or not cycle_id:
+        return None
+    path = log or ORACLE_LOG
+    if not path.exists():
+        return None
+    latest: dict[str, Any] | None = None
+    try:
+        with path.open(encoding="utf-8") as fh:
+            for ln in fh:
+                if f'"{target}"' not in ln:
+                    continue
+                try:
+                    e = json.loads(ln)
+                except json.JSONDecodeError:
+                    continue
+                if str(e.get("mutation") or "") == target and str(e.get("cycle_id") or "") == cycle_id:
+                    latest = e
+    except OSError:
+        return None
+    return latest
+
+
+def run_title_check(*, mutation: str, action: str) -> dict[str, Any]:
+    """The legacy title-text check, unchanged: novelty gate (+ its Oracle run) on the title
+    as kind=process. Used for unresolved proposals, and deferred for resolved proposals
+    whose target the Oracle did not judge in their cycle."""
+    from colony.novelty_gate import evaluate as novelty_evaluate
+    return novelty_evaluate(mutation=mutation or action, kind="process", claim_text=action)
+
+
 def _p_oracle_from_target(row: dict[str, Any]) -> float:
     """Map the real Oracle verdict on the target to P_oracle.
 
@@ -153,6 +190,7 @@ def compute_proposal_P(
     bench_delta: float | None = None,
     lesson_consistency: float | None = None,
     cycle_id: str = "",
+    defer_title_check: bool = False,
 ) -> tuple[float | None, dict[str, float]]:
     """Machine-checked selective P for authorize queue.
 
@@ -163,8 +201,22 @@ def compute_proposal_P(
     the Oracle judged that real lemma (this cycle for a pass; any time for a kill), use that
     verdict; a resolved target with no fresh verdict gets 0 (fail closed). Unresolved
     targets keep the legacy title lookup unchanged.
+
+    Title check (which claim is submitted — the Oracle's checks are unchanged):
+    - resolved target judged by the Oracle in ``cycle_id`` → that verdict is the evidence;
+      the title-text process check is NOT run (P_novelty uses the same textbook-reuse score
+      the gate would compute, without submitting the title to the Oracle).
+    - resolved target not (yet) judged and ``defer_title_check`` → skip now, flag
+      ``title_check_deferred``; the caller runs :func:`run_title_check` at measurement if
+      the target still has no verdict in that cycle (fail closed: the kill still lands).
+    - unresolved → legacy title check, unchanged.
     """
     terms: dict[str, float] = {}
+    _target_for_title = ""
+    try:
+        _target_for_title = resolve_proposal_target(action=action, mutation=mutation)
+    except Exception:
+        _target_for_title = ""
     # --- P_oracle ---
     p_oracle = None
     ora = oracle
@@ -220,11 +272,27 @@ def compute_proposal_P(
     # --- P_novelty ---
     nov = novelty or {}
     if not nov:
-        try:
-            from colony.novelty_gate import evaluate as novelty_evaluate
-            nov = novelty_evaluate(mutation=mutation or action, kind="process", claim_text=action)
-        except Exception:
-            nov = {"textbook_reuse": 0.5}
+        judged = None
+        if _target_for_title:
+            try:
+                judged = target_judged_in_cycle(_target_for_title, cycle_id)
+            except Exception:
+                judged = None
+        if _target_for_title and (judged is not None or defer_title_check):
+            try:
+                from colony.novelty_gate import textbook_reuse_score
+                nov = {"textbook_reuse": textbook_reuse_score((mutation or action).strip(), action)}
+            except Exception:
+                nov = {"textbook_reuse": 0.5}
+            if judged is not None:
+                terms["title_check_skipped_target_judged"] = 1.0
+            else:
+                terms["title_check_deferred"] = 1.0
+        else:
+            try:
+                nov = run_title_check(mutation=mutation, action=action)
+            except Exception:
+                nov = {"textbook_reuse": 0.5}
     _tr = nov.get("textbook_reuse")
     p_nov = max(0.0, 1.0 - float(1.0 if _tr is None else _tr))
     # Repeat fingerprint → 0
