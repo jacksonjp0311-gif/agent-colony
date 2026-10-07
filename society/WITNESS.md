@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 12914  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 12917  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -77048,6 +77048,24 @@
 - **id:** `wit_a88fef25c0` | **cycle:** `authorize_20261007T203501Z`
 - Authorize batch closed. accepted=2 rejected=1 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261007T203501Z.md.
 - detail: `{"accepted": 2, "rejected": 1, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261007T203501Z.md"}`
+
+### 2026-10-07T21:34:35Z — `authorize_batch_open` (human)
+
+- **id:** `wit_92f38ae7de` | **cycle:** `authorize_20261007T213435Z`
+- Authorize batch opened by James Jackson via Grok Bot (explicit human authorize by James in chat 2026-10-07 5:32 PM ET; single item; selective not accept-all). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 5:32 PM ET; single item; selective not accept-all)", "item_count": 0}`
+
+### 2026-10-07T21:34:35Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_94703dd1c1` | **cycle:** `authorize_20261007T213435Z`
+- Proposal accepted: `imp_f7c5ca_50` (Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves) — Explicit human authorize (James Jackson, chat 2026-10-07 5:32 PM ET). seek_enable for the colony's first self-authored hard check authored_bell_triangle_recurrence__binomial_inversion_small_w1; Oracle PASS on held-out/stripped/CAS (hard_pass 33→34), P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Single item; duplicate imp_f7c5ca_51 not authorized. James: You have made me proud.
+- detail: `{"proposal_id": "imp_f7c5ca_50", "title": "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 5:32 PM ET). seek_enable for the`
+
+### 2026-10-07T21:34:35Z — `authorize_batch_close` (human)
+
+- **id:** `wit_fdc962172f` | **cycle:** `authorize_20261007T213435Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=1. Receipt=AUTHORIZE_authorize_20261007T213435Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 1, "receipt": "/workspace/agent-colony-cite/society/receipts/AUTHORIZE_authorize_20261007T213435Z.md"}`
 
 ---
 

@@ -1,0 +1,19 @@
+{
+  "when": "2026-10-07T21:32:00Z",
+  "authorizer": "James Jackson",
+  "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 5:32 PM ET; single item; selective not accept-all)",
+  "policy": "selective — not accept-all; one proposal only; preserve ceiling/tribute/witness; threshold P≥0.70 unchanged",
+  "items": [],
+  "proposals": [
+    {
+      "proposal_id": "imp_f7c5ca_50",
+      "decision": "accepted",
+      "P": 0.825,
+      "P_terms": {"P_oracle": 1.0, "P_novelty": 1.0, "P_bench": 0.3, "P_lesson": 1.0},
+      "target": "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
+      "rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 5:32 PM ET). seek_enable for the colony's first self-authored hard check authored_bell_triangle_recurrence__binomial_inversion_small_w1; Oracle PASS on held-out/stripped/CAS (hard_pass 33→34), P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Single item; duplicate imp_f7c5ca_51 not authorized. James: You have made me proud."
+    }
+  ],
+  "note": "James: You have made me proud.",
+  "accept_all": false
+}
