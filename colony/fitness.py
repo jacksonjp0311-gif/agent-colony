@@ -758,6 +758,7 @@ class EvolutionEngine:
                 action=action,
                 fingerprint=fp,
                 bench_delta=None,
+                cycle_id=cycle_id,
             )
         except Exception:
             pass

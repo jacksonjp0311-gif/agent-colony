@@ -43,8 +43,104 @@ def threshold_compare(confidence: float | None) -> dict:
     }
 
 
+import json
 import math
+import re
+from pathlib import Path
 from typing import Any
+
+ORACLE_LOG = Path(__file__).resolve().parent.parent / "data" / "commons" / "oracle.jsonl"
+_TARGET_ACTION_RE = re.compile(
+    r"(?:seek_enable|hard_enable|hard_check|stem_enable|enable):([a-z][a-z0-9_]{2,})"
+)
+
+
+def resolve_proposal_target(*, action: str = "", mutation: str = "") -> str:
+    """The real lemma/check a proposal targets, from structured fields; "" if unresolved.
+
+    Order: the action field (``seek_enable:<name>`` etc.), then a backticked name in the
+    title. A name only counts if it is a real catalog entry (benchmark artifact catalog or
+    desk mutation catalog) — free text never resolves.
+    """
+    cands: list[str] = []
+    m = _TARGET_ACTION_RE.search(str(action or "").lower())
+    if m:
+        cands.append(m.group(1))
+    m = re.search(r"`([a-z][a-z0-9_]{2,})`", str(mutation or "").lower())
+    if m:
+        cands.append(m.group(1))
+    if not cands:
+        return ""
+    known: set[str] = set()
+    try:
+        from colony.conjecture_mutations import all_snippets
+        known = {str(n) for n, _k, _s in all_snippets()}
+    except Exception:
+        pass
+    for c in cands:
+        try:
+            from colony.lessons import target_enabled
+            if target_enabled(c) is not None:
+                return c
+        except Exception:
+            pass
+        if c in known:
+            return c
+    return ""
+
+
+def target_oracle_verdict(target: str, *, cycle_id: str = "", log: Path | None = None) -> dict[str, Any] | None:
+    """Latest Oracle row judging exactly ``target`` (the real lemma), or None.
+
+    Kills count whenever they are the latest verdict (fail closed). A pass only counts when
+    the Oracle judged the target in the proposal's own cycle — an old pass is not credit
+    for a new proposal (returns None → caller falls back).
+    """
+    if not target:
+        return None
+    path = log or ORACLE_LOG
+    if not path.exists():
+        return None
+    latest: dict[str, Any] | None = None
+    try:
+        with path.open(encoding="utf-8") as fh:
+            for ln in fh:
+                if f'"{target}"' not in ln:
+                    continue
+                try:
+                    e = json.loads(ln)
+                except json.JSONDecodeError:
+                    continue
+                if str(e.get("mutation") or "") == target:
+                    latest = e
+    except OSError:
+        return None
+    if latest is None:
+        return None
+    if latest.get("passed") and cycle_id and str(latest.get("cycle_id") or "") != cycle_id:
+        return None
+    if latest.get("passed") and not cycle_id:
+        return None  # cannot prove freshness → no credit from this path
+    return latest
+
+
+def _p_oracle_from_target(row: dict[str, Any]) -> float:
+    """Map the real Oracle verdict on the target to P_oracle.
+
+    1.0 = passed + fitness_credit + sense checks (held-out, stripped, CAS) all passed on the
+          real lemma. The proposal's own hearing is enforced separately (Hearing Chamber
+          verdict; rejected proposals never enter the queue), so bus_ok is not re-required.
+    0.5 = passed without fitness credit.  0.0 = killed.
+    """
+    passed = bool(row.get("passed"))
+    credit = bool(row.get("fitness_credit"))
+    sense = row.get("sense") or {}
+    sense_pass = bool(sense.get("sense_pass", passed))
+    if passed and credit and sense_pass:
+        return 1.0
+    if passed:
+        return 0.5
+    return 0.0
 
 
 def compute_proposal_P(
@@ -56,17 +152,38 @@ def compute_proposal_P(
     novelty: dict[str, Any] | None = None,
     bench_delta: float | None = None,
     lesson_consistency: float | None = None,
+    cycle_id: str = "",
 ) -> tuple[float | None, dict[str, float]]:
     """Machine-checked selective P for authorize queue.
 
     P = clip(0.35*P_oracle + 0.25*P_novelty + 0.25*P_bench + 0.15*P_lesson)
     Returns (P, terms). If critical evidence missing → P=None (UNKNOWN, not eligible).
+
+    P_oracle: when the proposal's target lemma resolves (action/title → catalog entry) and
+    the Oracle judged that real lemma (this cycle for a pass; any time for a kill), use that
+    verdict; a resolved target with no fresh verdict gets 0 (fail closed). Unresolved
+    targets keep the legacy title lookup unchanged.
     """
     terms: dict[str, float] = {}
     # --- P_oracle ---
     p_oracle = None
     ora = oracle
     if ora is None:
+        target = ""
+        try:
+            target = resolve_proposal_target(action=action, mutation=mutation)
+            row = target_oracle_verdict(target, cycle_id=cycle_id) if target else None
+        except Exception:
+            row = None
+        if row is not None:
+            p_oracle = _p_oracle_from_target(row)
+            terms["P_oracle_target_resolved"] = 1.0
+        elif target:
+            # Real target named but no fresh Oracle verdict on it: fail closed, no credit
+            # (never borrow a title match or an old pass).
+            p_oracle = 0.0
+            terms["P_oracle_target_resolved"] = 0.0
+    if ora is None and p_oracle is None:
         # Look up last oracle row for this mutation/theme
         try:
             from pathlib import Path as _P
@@ -86,7 +203,7 @@ def compute_proposal_P(
                         break
         except Exception:
             ora = None
-    if ora is not None:
+    if ora is not None and p_oracle is None:
         passed = bool(ora.get("passed"))
         hear = ora.get("hear") or {}
         bus_ok = bool(hear.get("bus_ok"))
@@ -184,6 +301,7 @@ def attach_P_to_proposal(prop: dict[str, Any], **kwargs: Any) -> dict[str, Any]:
         novelty=kwargs.get("novelty"),
         bench_delta=kwargs.get("bench_delta"),
         lesson_consistency=kwargs.get("lesson_consistency"),
+        cycle_id=kwargs.get("cycle_id") or prop.get("cycle_id") or "",
     )
     prop["P"] = P
     prop["P_terms"] = terms

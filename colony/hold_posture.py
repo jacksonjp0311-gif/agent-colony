@@ -255,6 +255,10 @@ def scan_all_candidates(
         for prop in (data.get("improvement_proposals") or [])[-80:]:
             if prop.get("status") not in ("candidate", "candidate_measured"):
                 continue
+            # Hearing stays binding: a hearing-rejected proposal never enters the queue,
+            # even after close_open_proposals re-labels it candidate_measured.
+            if prop.get("hearing_verdict") == "reject":
+                continue
             P = prop.get("P")
             if P is None:
                 try:
@@ -264,6 +268,7 @@ def scan_all_candidates(
                         action=prop.get("action") or "",
                         fingerprint=prop.get("fingerprint") or "",
                         bench_delta=(prop.get("delta_aggregate")),
+                        cycle_id=prop.get("cycle_id") or "",
                     )
                     prop["P"] = P
                     prop["P_terms"] = terms
