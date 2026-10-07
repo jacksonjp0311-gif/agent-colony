@@ -124,3 +124,44 @@ def test_hearing_rejected_proposal_never_queued(monkeypatch):
     out = HP.scan_all_candidates(None, state)
     ids = [e.get("finding_id") for e in out]
     assert "imp_b" in ids and "imp_a" not in ids
+
+
+def test_measured_rescore_picks_up_same_cycle_verdict(tmp_path, monkeypatch):
+    """Proposal scored before the desk judges its target (fail closed), then rescored at
+    measurement once the Oracle verdict on the real lemma exists."""
+    from colony.fitness import EvolutionEngine
+
+    path = _log(tmp_path, monkeypatch, [])
+    P0, t0 = _P(cycle_id="c1")
+    assert t0["P_oracle"] == 0.0 and P0 < STANDING_TRUST_P_MIN
+    prop = {
+        "id": "imp_x", "cycle_id": "c1", "title": TITLE, "action": ACTION, "fingerprint": "",
+        "status": "candidate", "hearing_verdict": "accept_candidate", "P": P0, "P_terms": t0,
+        "before_metrics": {"aggregate": 0.82}, "after_metrics": None,
+    }
+    path.write_text(json.dumps(_row("adversarial_hockey_deep", passed=True, cycle_id="c1")) + "\n")
+    eng = EvolutionEngine.__new__(EvolutionEngine)
+    eng.data = {"improvement_proposals": [prop]}
+    eng.workshop = None
+    closed = eng.close_open_proposals("c2", {"aggregate": 0.82})
+    assert closed and closed[0]["P_terms"]["P_oracle"] == 1.0
+    assert closed[0]["P_propose"] == P0
+    # measured delta 0 → P_bench 0.3; novelty carried over (1.0)
+    assert closed[0]["P"] == round(0.35 + 0.25 + 0.25 * 0.3 + 0.15 * closed[0]["P_terms"]["P_lesson"], 4)
+
+
+def test_measured_rescore_killed_target_stays_below_gate(tmp_path, monkeypatch):
+    from colony.fitness import EvolutionEngine
+
+    _log(tmp_path, monkeypatch, [_row("adversarial_hockey_deep", passed=False, cycle_id="c1")])
+    prop = {
+        "id": "imp_y", "cycle_id": "c1", "title": TITLE, "action": ACTION, "fingerprint": "",
+        "status": "candidate", "P": 0.5, "P_terms": {"P_novelty": 1.0},
+        "before_metrics": {"aggregate": 0.5}, "after_metrics": None,
+    }
+    eng = EvolutionEngine.__new__(EvolutionEngine)
+    eng.data = {"improvement_proposals": [prop]}
+    eng.workshop = None
+    closed = eng.close_open_proposals("c2", {"aggregate": 0.9})  # big bench rise
+    assert closed[0]["P_terms"]["P_oracle"] == 0.0
+    assert closed[0]["P"] < STANDING_TRUST_P_MIN

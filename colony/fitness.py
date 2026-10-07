@@ -250,6 +250,38 @@ def compute_fitness(
     }
 
 
+
+def _rescore_measured_proposal(prop: dict[str, Any]) -> None:
+    """Finalize P once the proposal is measured.
+
+    Proposals are scored when made, which is BEFORE the conjecture desk / Oracle judge
+    the target lemma in that same cycle — so P_oracle is 0 (fail closed) at propose time.
+    At measurement the Oracle verdict on the real target (same cycle) and the measured
+    aggregate delta (P_bench) exist, so recompute. Novelty is carried over from the
+    propose-time term (no second novelty-gate/Oracle run on the title, no extra kill rows).
+    """
+    try:
+        from colony.standing_trust import compute_proposal_P
+        terms0 = prop.get("P_terms") or {}
+        nov = None
+        if "P_novelty" in terms0:
+            nov = {"textbook_reuse": round(1.0 - float(terms0["P_novelty"]), 4)}
+        P, terms = compute_proposal_P(
+            mutation=prop.get("title") or "",
+            action=prop.get("action") or "",
+            fingerprint=prop.get("fingerprint") or "",
+            novelty=nov,
+            bench_delta=prop.get("delta_aggregate"),
+            cycle_id=prop.get("cycle_id") or "",
+        )
+        prop["P_propose"] = prop.get("P")
+        prop["P"] = P
+        prop["P_terms"] = terms
+        prop["confidence"] = P
+        prop["machine_checked"] = P is not None
+    except Exception:
+        pass
+
 class EvolutionEngine:
     """Apply fitness → skill weights, spawn/retire, child genomes, improvement proposals."""
 
@@ -818,6 +850,7 @@ class EvolutionEngine:
                 after = float(metrics.get("aggregate") or 0)
                 prop["delta_aggregate"] = round(after - before, 4)
                 prop["status"] = "candidate_measured"
+                _rescore_measured_proposal(prop)
                 closed.append(prop)
         if closed and self.workshop is not None and "improvement_scoreboard" in self.workshop.known():
             board = self.workshop.use("improvement_scoreboard", cycle_id)
