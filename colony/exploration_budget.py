@@ -122,12 +122,20 @@ def pick_mutation_order(candidates: list[tuple[str, str, str]]) -> list[tuple[st
     """Reorder mutation candidates by exploration distribution (high weight first).
 
     Phase 1/2: prepend mutations listed in recent lesson catalog_hint.add_mutation.
+    When human_guides prefer invariant chains, prepend those first (compose lemmas).
     """
     boosted: list[tuple[str, str, str]] = []
     try:
-        from colony.lessons import catalog_hints_from_lessons
+        from colony.lessons import (
+            catalog_hints_from_lessons,
+            guide_prefers_invariant_chains,
+            preferred_invariant_mutations,
+        )
         hints = catalog_hints_from_lessons(lookback=20)
         want = [str(h.get("add_mutation") or "") for h in hints if h.get("add_mutation")]
+        if guide_prefers_invariant_chains():
+            # James guide: machine-checkable invariants / lemma chains before renames
+            want = list(preferred_invariant_mutations()) + want
         by_name = {n: (n, k, s) for n, k, s in candidates}
         for name in want:
             if name in by_name:

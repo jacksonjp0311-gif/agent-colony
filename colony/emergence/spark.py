@@ -371,12 +371,23 @@ class Spark:
 def lesson_priors_for_spark(*, limit: int = 8) -> str:
     """Digest recent lessons into spark witness detail (priors, not commands)."""
     try:
-        from colony.lessons import digest, blocked_themes
+        from colony.lessons import (
+            digest,
+            blocked_themes,
+            guide_prefers_invariant_chains,
+            preferred_invariant_mutations,
+        )
         base = digest(limit=limit)
+        extras: list[str] = []
         cooled = blocked_themes()
         if cooled:
             tip = ", ".join(f"{k}({v})" for k, v in list(cooled.items())[:6])
-            return f"{base} || cooled_themes: {tip}"
+            extras.append(f"cooled_themes: {tip}")
+        if guide_prefers_invariant_chains():
+            inv = ", ".join(preferred_invariant_mutations()[:5])
+            extras.append(f"invariant_chains: {inv}")
+        if extras:
+            return f"{base} || " + " || ".join(extras)
         return base
     except Exception:
         return "(lessons unavailable)"

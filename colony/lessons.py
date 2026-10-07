@@ -21,6 +21,18 @@ GENOMES_DIR = ROOT / "society" / "genomes"
 EASY_FAMILIES = {"easy_pad", "fft_pad", "textbook_only"}
 HARD_FAMILIES = {"hard_enable", "hard_tier", "lemma_hard", "bench_hard", "derived_chain"}
 
+# Machine-checkable invariant / chain mutations (combinatorics, derived proofs, STEM).
+# Guides teach: seek these and compose them — not isolated renames.
+INVARIANT_CHAIN_MUTATIONS: tuple[str, ...] = (
+    "derived_chain_stress",
+    "workload_derived_chain",
+    "fibonacci_cassini_ext",
+    "binomial_hockey_deep",
+    "energy_work",
+    "catalan_convolution",
+    "lagrange_identity",
+)
+
 
 def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -480,12 +492,72 @@ def next_unblocked_mutation(
     return ""
 
 
+
+def guide_prefers_invariant_chains() -> bool:
+    """True when an active human_guide prefers machine-checkable invariants / lemma chains."""
+    for e in _lessons_with_guides(lookback=40):
+        if e.get("type") != "human_guide" and e.get("decision") != "guide":
+            continue
+        tags = {str(x).lower() for x in (e.get("tags") or [])}
+        hint = e.get("catalog_hint") or {}
+        prefer = [str(x).lower() for x in (hint.get("prefer") or [])]
+        if tags & {"invariant", "invariants", "chain", "compose", "derived_chain"}:
+            return True
+        if any(
+            p in prefer
+            for p in (
+                "invariant",
+                "invariants",
+                "machine_checkable",
+                "lemma_chain",
+                "derived_chain",
+                "compose_lemmas",
+                "proof_chain",
+            )
+        ):
+            return True
+    return False
+
+
+def preferred_invariant_mutations() -> list[str]:
+    """Ordered invariant/chain mutation names from guides, then defaults (unblocked first)."""
+    ordered: list[str] = []
+    seen: set[str] = set()
+    for e in _lessons_with_guides(lookback=40):
+        if e.get("type") != "human_guide" and e.get("decision") != "guide":
+            continue
+        h = e.get("catalog_hint") or {}
+        tags = {str(x).lower() for x in (e.get("tags") or [])}
+        prefer = [str(x).lower() for x in (h.get("prefer") or [])]
+        is_inv = bool(tags & {"invariant", "invariants", "chain", "compose", "derived_chain"}) or any(
+            p in prefer
+            for p in ("invariant", "invariants", "machine_checkable", "lemma_chain", "derived_chain", "compose_lemmas", "proof_chain")
+        )
+        if not is_inv:
+            continue
+        for key in ("add_mutation", "chain_mutation"):
+            mut = theme_key(str(h.get(key) or ""))
+            if mut and mut not in seen:
+                seen.add(mut)
+                ordered.append(mut)
+        for m in (h.get("prefer_mutations") or h.get("chain") or []):
+            mut = theme_key(str(m))
+            if mut and mut not in seen:
+                seen.add(mut)
+                ordered.append(mut)
+    for m in INVARIANT_CHAIN_MUTATIONS:
+        if m not in seen:
+            seen.add(m)
+            ordered.append(m)
+    return ordered
+
+
 def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | None:
     """Build one seek-oriented improvement from guides + papers/ledger themes (not process spam).
 
     Respects kill cooldown / guide avoid: never re-propose a repeatedly Oracle-killed theme.
     """
-    if not guide_process_spam_avoided():
+    if not (guide_process_spam_avoided() or guide_prefers_invariant_chains()):
         return None
     theme_title = ""
     theme_url = ""
@@ -512,14 +584,22 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         score = 0
         if "kill_cooldown" in tags or "drop" in tags:
             score += 3
+        if tags & {"invariant", "invariants", "chain", "compose", "derived_chain"}:
+            score += 4  # James: prefer machine-checkable invariants / lemma chains
         if "seek" in tags or "become" in tags or "extend" in tags:
             score += 1
         return score
     guide_rows = sorted(guide_rows, key=_guide_rank, reverse=True)
+    # Prefer invariant-chain mutations when guides ask (compose lemmas, not renames)
+    if guide_prefers_invariant_chains():
+        candidates.extend(preferred_invariant_mutations())
     for e in guide_rows:
         h = e.get("catalog_hint") or {}
         if h.get("add_mutation"):
             candidates.append(str(h["add_mutation"]))
+        for m in (h.get("prefer_mutations") or h.get("chain") or []):
+            if m:
+                candidates.append(str(m))
     # Fallbacks from mutation catalog (skip easy_pad noise)
     try:
         from colony.conjecture_mutations import MUTATION_SNIPPETS
@@ -548,11 +628,21 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
     title = f"Seek+enable `{mut}` from papers/lessons"
     if theme_title:
         title = f"Seek `{mut}` citing {theme_title[:50]}"
+    inv_note = ""
+    if guide_prefers_invariant_chains():
+        inv_note = (
+            " Prefer machine-checkable invariants (combinatorics/FFT/kinematics) "
+            "and compose proven lemmas into longer proof chains — not isolated renames."
+        )
+        title = f"Chain+seek `{mut}` from invariant priors"
+        if theme_title:
+            title = f"Chain `{mut}` citing {theme_title[:50]}"
     hyp = (
         f"SEEK INFORMATION prior: gather from ledger/papers before proposing. "
         f"Target mutation `{mut}`. Source={theme_url or 'papers.jsonl/lessons'}. "
         f"Raise novelty/citation_reuse/lesson_uptake — not process spam. "
         f"Cooled themes skipped={sorted(cooled)[:6]}. cycle={cycle_id}."
+        f"{inv_note}"
     )
     action = f"seek_enable:{mut}"
     return title, hyp, action

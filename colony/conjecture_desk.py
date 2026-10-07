@@ -170,18 +170,24 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 catalog_hints_from_lessons,
                 theme_is_blocked,
                 next_unblocked_mutation,
+                guide_prefers_invariant_chains,
+                preferred_invariant_mutations,
             )
             hints = catalog_hints_from_lessons(lookback=20)
-            hint = {"add_mutation": "binomial_hockey_deep", "kind": "hard_enable"}
+            # Prefer invariant/chain mutations when guides teach compose-over-rename
+            default_mut = "derived_chain_stress" if guide_prefers_invariant_chains() else "binomial_hockey_deep"
+            hint = {"add_mutation": default_mut, "kind": "hard_enable"}
             for h in hints:
                 mut = str((h or {}).get("add_mutation") or "")
                 if mut and not theme_is_blocked(mut):
                     hint = h
                     break
             else:
-                # All hint mutations cooled — pick next unblocked catalog name
+                # All hint mutations cooled — prefer invariant chains, then catalog
                 cands = [str((h or {}).get("add_mutation") or "") for h in hints]
-                cands += ["binomial_hockey_deep", "fibonacci_cassini_ext", "derived_chain_stress"]
+                if guide_prefers_invariant_chains():
+                    cands = list(preferred_invariant_mutations()) + cands
+                cands += ["derived_chain_stress", "binomial_hockey_deep", "fibonacci_cassini_ext", "energy_work"]
                 alt = next_unblocked_mutation(cands)
                 if alt:
                     hint = {"add_mutation": alt, "kind": "hard_enable"}
