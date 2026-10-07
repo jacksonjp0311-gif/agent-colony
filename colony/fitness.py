@@ -668,6 +668,10 @@ class EvolutionEngine:
                 same = [p for p in kept if p.get("fingerprint") == fp]
                 other = [p for p in kept if p.get("fingerprint") != fp]
                 self.data["improvement_proposals"] = other + same[-2:]
+                try:
+                    _actor = self.registry.best_for("improve")
+                except Exception:
+                    _actor = "spark"
                 return {
                     "id": f"imp_blocked_{fp}",
                     "ts": _utc_now(),
@@ -678,6 +682,7 @@ class EvolutionEngine:
                     "status": "blocked_repeat",
                     "fingerprint": fp,
                     "P": 0.0,
+                    "attempted_by": _actor or "spark",
                     "note": "repeat_proposal blocked",
                 }
         except Exception:

@@ -288,6 +288,9 @@ class GrowthSteps3:
             hypothesis=hypothesis,
             action=action,
         )
+        # Fail-soft BEFORE hearing stamps status: blocked_repeat has no ledger work.
+        if prop.get("status") == "blocked_repeat":
+            return
         prop["hearing_verdict"] = verdict
         prop["hearing_rationale"] = rationale
         if verdict == "reject":
@@ -309,7 +312,34 @@ class GrowthSteps3:
                 role, skill = target.split(".", 1)
                 if role in self.registry.active():
                     self.registry.record_outcome(role, skill, 0.9)
-        actor = prop["attempted_by"]
+        actor = prop.get("attempted_by")
+        if not actor:
+            try:
+                from colony.lessons import write_lesson
+                write_lesson(
+                    decision="skip",
+                    check="schema",
+                    what=(
+                        "schema_drift: improvement proposal missing attempted_by; "
+                        "defaulted to spark and continued cycle (self_repair)"
+                    ),
+                    source="growth_evolve",
+                    cycle_id=cycle_id,
+                    mutation=(prop.get("title") or "")[:80],
+                    lesson_type="schema_drift",
+                    family="self_repair",
+                    proposal_fingerprint=prop.get("fingerprint") or "",
+                    tags=["schema_drift", "self_repair", "attempted_by"],
+                    evidence=[
+                        f"proposal:{prop.get('id')}",
+                        f"keys:{sorted(prop.keys())}",
+                        f"status:{prop.get('status')}",
+                    ],
+                )
+            except Exception:
+                pass
+            actor = "spark"
+            prop["attempted_by"] = actor  # repair in place for downstream readers
         self.ledger.set_extra_roles(self.state.role_names() | set(self.registry.active()))
         f = self.ledger.create(
             role=actor if actor in self.state.role_names() else "spark",

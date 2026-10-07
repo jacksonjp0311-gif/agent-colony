@@ -36,6 +36,7 @@ HUMAN_GUIDE_AUTHORS = frozenset({
 LESSON_TYPES = frozenset({
     "oracle_kill", "hearing_reject", "hearing_defer", "bench_regression",
     "repeat_proposal", "catalog_exhausted", "human_guide",
+    "schema_drift", "self_repair",
     "keep", "revert", "skip",
 })
 

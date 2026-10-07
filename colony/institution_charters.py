@@ -419,6 +419,11 @@ def pursue_cycle(cycle_id: str, *, state_data: dict[str, Any] | None = None) -> 
             remaining = int(c["cycles_remaining"])
         c["cycles_pursued"] = int(c.get("cycles_pursued") or 0) + 1
         c["cycles_remaining"] = remaining - 1
+        # Self-repair: renew immediately when this tick exhausts the remit so
+        # topic_hints stay continuous (active_charters requires remaining > 0).
+        if int(c["cycles_remaining"]) <= 0:
+            c["cycles_remaining"] = int(c.get("autonomy_cycles") or DEFAULT_AUTONOMY_CYCLES)
+            c["renewed_at_cycle"] = cycle_id
         c["last_cycle"] = cycle_id
         c["status"] = "standing"
         c = _strip_forbidden(c)

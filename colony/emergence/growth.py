@@ -135,7 +135,35 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
             )
         # Research-lab: debate → propose → hearing verdict, then evolve/fitness
         self._debate_then_propose(cycle_id, cycle_n, g)
-        self._attempt_improvement(cycle_id, cycle_n, g)
+        # Fail-soft: schema KeyError in improve path must not abort the whole cron.
+        try:
+            self._attempt_improvement(cycle_id, cycle_n, g)
+        except KeyError as exc:
+            try:
+                from colony.lessons import write_lesson
+                write_lesson(
+                    decision="skip",
+                    check="schema",
+                    what=(
+                        f"self_repair: KeyError {exc!s} in _attempt_improvement; "
+                        "recorded lesson and continued cycle (do not die cron)"
+                    ),
+                    source="growth_evolve",
+                    cycle_id=cycle_id,
+                    lesson_type="self_repair",
+                    family="self_repair",
+                    tags=["self_repair", "KeyError", "schema"],
+                    evidence=[f"exc:{exc!s}", "site:_attempt_improvement"],
+                )
+            except Exception:
+                pass
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="self_repair",
+                actor="spark",
+                summary=f"Improvement attempt recovered from KeyError: {exc}",
+                detail={"error": str(exc), "site": "_attempt_improvement"},
+            )
         # Measured bench improve: one measure→keep/revert attempt per cycle
         try:
             from colony.bench_improve import run_from_growth

@@ -82,8 +82,8 @@ def test_catalog_not_exhausted_has_new_mutations():
         "derived_chain_stress",
     ):
         assert need in names
-    # Disabled in lemma_impl so desk can hard_enable
+    # Hard lemmas live in catalog; enabled may flip via mutation overlay (self-repair OK).
     from society.benchmarks.artifacts.lemma_impl import HARD_TIER_LEMMAS
 
     by = {n: en for n, _, en in HARD_TIER_LEMMAS}
-    assert by.get("vandermonde_asymmetric") is False
+    assert "vandermonde_asymmetric" in by

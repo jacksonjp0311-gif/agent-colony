@@ -1,131 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T18:33:28Z",
-  "updated_cycle": "",
+  "updated_at": "2026-10-07T09:03:10Z",
+  "updated_cycle": "test_kill",
   "n_active": 80,
   "n_keeps": 0,
-  "n_reverts": 65,
+  "n_reverts": 64,
   "skill_bias": {
-    "improver.improve": -0.02,
-    "geometer.gather": -0.02
+    "improver.improve": -0.0171,
+    "geometer.gather": -0.0171
   },
   "recent": [
-    {
-      "id": "les_Z_08ffe2_Deepen compute-useful math from acc",
-      "ts": "2026-10-06T18:32:04Z",
-      "cycle_id": "20261006T183201Z_08ffe2",
-      "type": "hearing_reject",
-      "decision": "block",
-      "check": "hearing",
-      "mutation": "Deepen compute-useful math from accepted findings after hearing",
-      "what": "hearing_reject: claims compute/prize/bench advance without citing society/benchmarks path \u2014 hearing rejects",
-      "source": "growth_hearing",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "810bc050d326",
-      "tags": [
-        "hearing",
-        "reject"
-      ],
-      "evidence": [
-        "proposal:imp_08ffe2_50"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_8:32:04Z_Feed accepted/strong RSI findings i",
-      "ts": "2026-10-06T18:32:04Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_08ffe2_vandermonde",
-      "ts": "2026-10-06T18:32:05Z",
-      "cycle_id": "20261006T183201Z_08ffe2",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_08ffe2_autodiff",
-      "ts": "2026-10-06T18:32:05Z",
-      "cycle_id": "20261006T183201Z_08ffe2",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "autodiff",
-      "what": "skip re-oracle of autodiff:2610.06833",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "autodiff:2610.06833",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
     {
       "id": "les_Z_08ffe2_pilot",
       "ts": "2026-10-06T18:32:24Z",
@@ -359,6 +243,155 @@
       "evidence": [
         "kill:stripped:stripped_not_useful_fail",
         "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_self_repair_schema_guide",
+      "ts": "2026-10-07T09:05:00Z",
+      "cycle_id": "",
+      "type": "human_guide",
+      "decision": "guide",
+      "check": "human",
+      "mutation": "self_repair_schema",
+      "what": "On KeyError or missing schema fields in evolve paths (e.g. attempted_by on improvement proposals): repair the schema with safe defaults, write a typed schema_drift/self_repair lesson, and continue the cycle. Never abort the whole cron for a thin record \u2014 light the spark and witness; mechanisms heal, humans authorize durable change (P\u22650.70).",
+      "source": "human",
+      "family": "human_teaching",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {
+        "prefer": [
+          "schema_repair",
+          "fail_soft_evolve"
+        ]
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "human_guide",
+        "self_repair",
+        "schema_drift"
+      ],
+      "evidence": [
+        "run:37580467492",
+        "site:growth_steps_evolve._attempt_improvement"
+      ],
+      "author": "James Jackson",
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_9:03:10Z_easy_pad_square_again",
+      "ts": "2026-10-07T09:03:10Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "easy_pad_square_again",
+      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+      "source": "test",
+      "family": "easy_pad",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness",
+        "easy_pad_oracle_kill"
+      ],
+      "evidence": [
+        "kill:stripped:easy_pad_baseline_already_useful",
+        "kill:held_out:easy_pad_dies_on_held_out",
+        "kill:cas:easy_pad_fails_cas_usefulness",
+        "kill:easy_pad_oracle_kill",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_9:03:10Z_vandermonde",
+      "ts": "2026-10-07T09:03:10Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "vandermonde",
+      "what": "Oracle FAIL: no bus for claim path (fail-closed). No fitness credit.",
+      "source": "test",
+      "family": "claim_theme",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "oracle_blocked_no_bus"
+      ],
+      "evidence": [
+        "kill:oracle_blocked_no_bus"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_est_kill_vandermonde",
+      "ts": "2026-10-07T09:03:10Z",
+      "cycle_id": "test_kill",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "vandermonde",
+      "what": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
+      "source": "test",
+      "family": "claim_theme",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {
+        "add_mutation": "vandermonde_asymmetric",
+        "kind": "hard_enable"
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "held_out:held_out:already_saturated_no_harder_window",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:held_out:held_out:already_saturated_no_harder_window",
         "kill:collective_kill"
       ],
       "author": null,
