@@ -593,8 +593,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     # Adversarial held-out windows (Oracle theme-specific; start disabled)
     ("adversarial_vandermonde_asymmetric", check_adversarial_vandermonde_asymmetric, False),
     ("adversarial_hockey_deep", check_adversarial_hockey_deep, True),
-    ("adversarial_cassini_ext", check_adversarial_cassini_ext, True),
-    ("adversarial_catalan_convolution_stress", lambda: all(check_catalan_convolution(n) for n in range(0, 16)), True),
+    ("adversarial_cassini_ext", check_adversarial_cassini_ext, False),
+    ("adversarial_catalan_convolution_stress", lambda: all(check_catalan_convolution(n) for n in range(0, 16)), False),
     ("adversarial_derived_chain_stress", check_adversarial_derived_chain_stress, False),
 
 ]

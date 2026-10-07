@@ -1,27 +1,27 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T19:54:17Z",
+  "updated_at": "2026-10-07T20:09:53Z",
   "updated_cycle": "",
   "n_active": 80,
   "n_keeps": 0,
-  "n_reverts": 40,
+  "n_reverts": 41,
   "skill_bias": {
-    "improver.improve": 0.0305,
-    "geometer.gather": 0.0172,
-    "gather": 0.09,
-    "oracle": 0.0667,
-    "build": 0.064,
-    "emergence": 0.0525,
+    "improver.improve": 0.0289,
+    "geometer.gather": 0.0117,
+    "gather": 0.0886,
+    "oracle": 0.07,
+    "build": 0.0633,
     "improve": 0.075,
+    "emergence": 0.0525,
     "reply": 0.03,
     "communicate": 0.03,
     "explore": 0.08
   },
   "recent": [
     {
-      "id": "les_Z_5ba8dd_pilot",
-      "ts": "2026-10-07T19:52:48Z",
-      "cycle_id": "20261007T195223Z_5ba8dd",
+      "id": "les_Z_09233f_pilot",
+      "ts": "2026-10-07T20:08:39Z",
+      "cycle_id": "20261007T200815Z_09233f",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -44,13 +44,13 @@
       "status": "candidate"
     },
     {
-      "id": "les_9:53:10Z_Chain `energy_work` citing New alge",
-      "ts": "2026-10-07T19:53:10Z",
+      "id": "les_0:09:00Z_Chain `adversarial_cassini_ext` cit",
+      "ts": "2026-10-07T20:09:00Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `energy_work` citing New algebraic points on covers of elliptic curves",
+      "mutation": "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
@@ -82,13 +82,13 @@
       "status": "candidate"
     },
     {
-      "id": "les_9:53:11Z_Chain `fibonacci_cassini_ext` citin",
-      "ts": "2026-10-07T19:53:11Z",
+      "id": "les_0:09:01Z_Chain `adversarial_cassini_ext` cit",
+      "ts": "2026-10-07T20:09:01Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `fibonacci_cassini_ext` citing New algebraic points on covers of elliptic curves",
+      "mutation": "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves (cycle 166)",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
@@ -120,50 +120,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_175ec3_easy_pad_diff_squares",
-      "ts": "2026-10-07T19:53:11Z",
-      "cycle_id": "20261007T195306Z_175ec3",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "easy_pad_diff_squares",
-      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:easy_pad_baseline_already_useful",
-        "held_out:easy_pad_dies_on_held_out",
-        "cas:easy_pad_fails_cas_usefulness",
-        "easy_pad_oracle_kill"
-      ],
-      "evidence": [
-        "kill:stripped:easy_pad_baseline_already_useful",
-        "kill:held_out:easy_pad_dies_on_held_out",
-        "kill:cas:easy_pad_fails_cas_usefulness",
-        "kill:easy_pad_oracle_kill",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_175ec3_vandermonde",
-      "ts": "2026-10-07T19:53:11Z",
-      "cycle_id": "20261007T195306Z_175ec3",
+      "id": "les_Z_9b8906_vandermonde",
+      "ts": "2026-10-07T20:09:01Z",
+      "cycle_id": "20261007T200855Z_9b8906",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -186,9 +145,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_175ec3_pilot",
-      "ts": "2026-10-07T19:53:28Z",
-      "cycle_id": "20261007T195306Z_175ec3",
+      "id": "les_Z_9b8906_pilot",
+      "ts": "2026-10-07T20:09:17Z",
+      "cycle_id": "20261007T200855Z_9b8906",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -211,13 +170,13 @@
       "status": "candidate"
     },
     {
-      "id": "les_9:53:51Z_Chain `fibonacci_cassini_ext` citin",
-      "ts": "2026-10-07T19:53:51Z",
+      "id": "les_0:09:27Z_Chain `adversarial_catalan_convolut",
+      "ts": "2026-10-07T20:09:27Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `fibonacci_cassini_ext` citing New algebraic points on covers of elliptic curves",
+      "mutation": "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
@@ -249,13 +208,13 @@
       "status": "candidate"
     },
     {
-      "id": "les_9:53:51Z_Chain `fibonacci_cassini_ext` citin",
-      "ts": "2026-10-07T19:53:51Z",
+      "id": "les_0:09:27Z_Chain `adversarial_catalan_convolut",
+      "ts": "2026-10-07T20:09:27Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `fibonacci_cassini_ext` citing New algebraic points on covers of elliptic curves (cycle 164)",
+      "mutation": "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves (cycle 167)",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
@@ -287,50 +246,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_24305d_easy_pad_commutativity",
-      "ts": "2026-10-07T19:53:51Z",
-      "cycle_id": "20261007T195347Z_24305d",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "easy_pad_commutativity",
-      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:easy_pad_baseline_already_useful",
-        "held_out:easy_pad_dies_on_held_out",
-        "cas:easy_pad_fails_cas_usefulness",
-        "easy_pad_oracle_kill"
-      ],
-      "evidence": [
-        "kill:stripped:easy_pad_baseline_already_useful",
-        "kill:held_out:easy_pad_dies_on_held_out",
-        "kill:cas:easy_pad_fails_cas_usefulness",
-        "kill:easy_pad_oracle_kill",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_24305d_vandermonde",
-      "ts": "2026-10-07T19:53:51Z",
-      "cycle_id": "20261007T195347Z_24305d",
+      "id": "les_Z_d8a478_vandermonde",
+      "ts": "2026-10-07T20:09:27Z",
+      "cycle_id": "20261007T200922Z_d8a478",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -353,9 +271,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_24305d_pilot",
-      "ts": "2026-10-07T19:53:57Z",
-      "cycle_id": "20261007T195347Z_24305d",
+      "id": "les_Z_d8a478_pilot",
+      "ts": "2026-10-07T20:09:33Z",
+      "cycle_id": "20261007T200922Z_d8a478",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -378,13 +296,89 @@
       "status": "candidate"
     },
     {
-      "id": "les_9:54:17Z_Chain `energy_work` citing New alge",
-      "ts": "2026-10-07T19:54:17Z",
+      "id": "les_0:09:52Z_Chain `adversarial_hockey_deep` cit",
+      "ts": "2026-10-07T20:09:52Z",
       "cycle_id": "",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "Chain `energy_work` citing New algebraic points on covers of elliptic curves",
+      "mutation": "Chain `adversarial_hockey_deep` citing New algebraic points on covers of elliptic curves",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_0:09:53Z_Chain `adversarial_cassini_ext` cit",
+      "ts": "2026-10-07T20:09:53Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Chain `adversarial_cassini_ext` citing New algebraic points on covers of elliptic curves",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
+      ],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_0:09:53Z_Chain `adversarial_catalan_convolut",
+      "ts": "2026-10-07T20:09:53Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Chain `adversarial_catalan_convolution_stress` citing New algebraic points on covers of elliptic curves",
       "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
       "source": "novelty_gate",
       "family": "process",
