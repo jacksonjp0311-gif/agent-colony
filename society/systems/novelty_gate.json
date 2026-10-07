@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T11:31:43Z",
+  "updated_at": "2026-10-07T11:35:59Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-07T11:31:43Z",
+    "ts": "2026-10-07T11:35:59Z",
     "cycle_id": "",
-    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 149)",
+    "mutation": "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 152)",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
@@ -14,7 +14,7 @@
       "held_out:hard_tier_green_and_hard_enable",
       "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
     ],
-    "textbook_reuse": 0.0,
+    "textbook_reuse": 0.3333,
     "in_ledger": false,
     "stripped": {
       "already_enabled": false,

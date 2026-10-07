@@ -1,7 +1,7 @@
 {
-  "ts": "2026-10-07T11:31:43Z",
+  "ts": "2026-10-07T11:35:59Z",
   "ok_all": true,
-  "aggregate_score": 0.8881,
+  "aggregate_score": 0.8894,
   "benches": [
     {
       "bench": "fft_microbench",
@@ -10,7 +10,7 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.00139,
+      "seconds": 0.001399,
       "score": 1.0,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
@@ -23,8 +23,8 @@
       "ok": true,
       "max_abs_err": 7.367024535821709e-11,
       "mse": 6.228992808609339e-24,
-      "seconds": 0.007095,
-      "score": 0.7086,
+      "seconds": 0.006815,
+      "score": 0.7151,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
       "time_budget_s": 0.0025
@@ -51,7 +51,7 @@
         "b": 1.1677155874884049,
         "c": 0.062459317842766815
       },
-      "seconds": 8.8e-05,
+      "seconds": 8.5e-05,
       "score": 1.0,
       "impl_id": "autodiff_reverse_tape_v1",
       "grad_tol": 5e-05,
@@ -61,7 +61,7 @@
       "bench": "lemma_microbench",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 0.020072,
+      "seconds": 0.017972,
       "score": 0.9071,
       "impl_id": "lemma_impl_v2_basic10_hard29",
       "checks": {
@@ -120,7 +120,7 @@
       "domain": "stem_physics",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 9.8e-05,
+      "seconds": 8.7e-05,
       "score": 0.825,
       "impl_id": "kinematics_impl_v1_enabled4",
       "checks": {
