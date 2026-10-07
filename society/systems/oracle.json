@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:21:15Z",
+  "updated_at": "2026-10-07T20:24:35Z",
   "passes": 4,
   "kills": 56,
-  "easy_pad_kills": 15,
+  "easy_pad_kills": 17,
   "kill_rate": 0.9333,
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -36,10 +36,10 @@
     "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves",
     "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves (cycle 158)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves",
-    "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 152)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 153)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 154)",
     "Seek `vandermonde_asymmetric` citing New algebraic points on covers of elliptic curves (cycle 155)",
+    "easy_pad_abs_identity",
     "easy_pad_assoc_add",
     "easy_pad_commutativity",
     "easy_pad_diff_squares",
@@ -76,7 +76,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-07T20:21:15Z",
+    "ts": "2026-10-07T20:24:35Z",
     "passed": false,
     "kills": [
       "stripped:easy_pad_baseline_already_useful",
@@ -92,8 +92,8 @@
       "attack_weight": 0.9,
       "support_weight": 0.1,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `easy_pad_commutativity` kind=easy_pad. lemma mutation easy_pad_commutativity 0.9071->0.9229 Not discovery. cycle=20261007T202111Z_ea870b.",
-      "attack": "ATTACK: `easy_pad_commutativity` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
+      "propose": "PROPOSE for Oracle HEAR: `easy_pad_abs_identity` kind=easy_pad. lemma mutation easy_pad_abs_identity 0.9071->0.9229 Not discovery. cycle=20261007T202431Z_9e76e0.",
+      "attack": "ATTACK: `easy_pad_abs_identity` looks like easy_pad / textbook padding \u2014 stripped baseline already useful; held-out harder must fail. Kill keep."
     },
     "sense": {
       "stripped": {
@@ -164,15 +164,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "easy_pad_commutativity",
+      "mutation": "easy_pad_abs_identity",
       "kind": "easy_pad",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "easy_pad_commutativity",
+    "mutation": "easy_pad_abs_identity",
     "kind": "easy_pad",
     "source": "conjecture_desk",
-    "cycle_id": "20261007T202111Z_ea870b",
+    "cycle_id": "20261007T202431Z_9e76e0",
     "note": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

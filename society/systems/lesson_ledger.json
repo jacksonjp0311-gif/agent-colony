@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T20:21:33Z",
-  "updated_cycle": "20261007T202111Z_ea870b",
+  "updated_at": "2026-10-07T20:24:52Z",
+  "updated_cycle": "20261007T202431Z_9e76e0",
   "n_active": 80,
   "n_keeps": 0,
-  "n_reverts": 42,
+  "n_reverts": 38,
   "skill_bias": {
-    "improver.improve": 0.03,
-    "geometer.gather": 0.0129,
-    "gather": 0.0852,
+    "improver.improve": 0.0353,
+    "geometer.gather": 0.02,
+    "gather": 0.0779,
+    "explore": 0.0582,
     "oracle": 0.07,
     "build": 0.0633,
-    "explore": 0.068,
     "improve": 0.075,
     "emergence": 0.0525,
     "reply": 0.03,
@@ -19,9 +19,9 @@
   },
   "recent": [
     {
-      "id": "les_Z_3ac8ad_vandermonde",
-      "ts": "2026-10-07T20:19:54Z",
-      "cycle_id": "20261007T201949Z_3ac8ad",
+      "id": "les_Z_170de6_vandermonde",
+      "ts": "2026-10-07T20:23:27Z",
+      "cycle_id": "20261007T202322Z_170de6",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -44,9 +44,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_3ac8ad_pilot",
-      "ts": "2026-10-07T20:20:12Z",
-      "cycle_id": "20261007T201949Z_3ac8ad",
+      "id": "les_Z_170de6_pilot",
+      "ts": "2026-10-07T20:23:44Z",
+      "cycle_id": "20261007T202322Z_170de6",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -69,214 +69,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_0:20:34Z_Chain `stem_easy_pad_units` citing ",
-      "ts": "2026-10-07T20:20:34Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_0:20:34Z_Chain `stem_easy_pad_units` citing ",
-      "ts": "2026-10-07T20:20:34Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_d82303_easy_pad_commutativity",
-      "ts": "2026-10-07T20:20:35Z",
-      "cycle_id": "20261007T202031Z_d82303",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "easy_pad_commutativity",
-      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
-      "source": "conjecture_desk",
-      "family": "easy_pad",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:easy_pad_baseline_already_useful",
-        "held_out:easy_pad_dies_on_held_out",
-        "cas:easy_pad_fails_cas_usefulness",
-        "easy_pad_oracle_kill"
-      ],
-      "evidence": [
-        "kill:stripped:easy_pad_baseline_already_useful",
-        "kill:held_out:easy_pad_dies_on_held_out",
-        "kill:cas:easy_pad_fails_cas_usefulness",
-        "kill:easy_pad_oracle_kill",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_d82303_vandermonde",
-      "ts": "2026-10-07T20:20:35Z",
-      "cycle_id": "20261007T202031Z_d82303",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_d82303_pilot",
-      "ts": "2026-10-07T20:20:53Z",
-      "cycle_id": "20261007T202031Z_d82303",
-      "type": "skip",
-      "decision": "skip",
-      "check": "pilot",
-      "mutation": "",
-      "what": "empty rsi_bias pilot suppressed",
-      "source": "pilot_lane",
-      "family": "rsi",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "empty_rsi_bias"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_0:21:14Z_Chain `stem_easy_pad_units` citing ",
-      "ts": "2026-10-07T20:21:14Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_ea870b_stem_easy_pad_units",
-      "ts": "2026-10-07T20:21:15Z",
-      "cycle_id": "20261007T202111Z_ea870b",
+      "id": "les_Z_ed8bd7_stem_easy_pad_units",
+      "ts": "2026-10-07T20:24:06Z",
+      "cycle_id": "20261007T202403Z_ed8bd7",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "kill_cooldown",
@@ -292,7 +87,7 @@
       },
       "genome_prior": {},
       "catalog_hint": {},
-      "proposal_fingerprint": "f87caf6dfa2f",
+      "proposal_fingerprint": "fec9774c9818",
       "tags": [
         "kill_cooldown",
         "blocked_theme",
@@ -304,13 +99,43 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ea870b_easy_pad_commutativity",
-      "ts": "2026-10-07T20:21:15Z",
-      "cycle_id": "20261007T202111Z_ea870b",
+      "id": "les_Z_ed8bd7_stem_easy_pad_units",
+      "ts": "2026-10-07T20:24:06Z",
+      "cycle_id": "20261007T202403Z_ed8bd7",
+      "type": "repeat_proposal",
+      "decision": "block",
+      "check": "kill_cooldown",
+      "mutation": "stem_easy_pad_units",
+      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
+      "source": "growth_hearing",
+      "family": "kill_cooldown",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "gather": 0.05,
+        "explore": 0.05
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "5faed9780bb8",
+      "tags": [
+        "kill_cooldown",
+        "blocked_theme",
+        "stem_easy_pad_units"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_ed8bd7_easy_pad_abs_identity",
+      "ts": "2026-10-07T20:24:06Z",
+      "cycle_id": "20261007T202403Z_ed8bd7",
       "type": "oracle_kill",
       "decision": "revert",
       "check": "oracle",
-      "mutation": "easy_pad_commutativity",
+      "mutation": "easy_pad_abs_identity",
       "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
       "source": "conjecture_desk",
       "family": "easy_pad",
@@ -345,9 +170,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ea870b_vandermonde",
-      "ts": "2026-10-07T20:21:15Z",
-      "cycle_id": "20261007T202111Z_ea870b",
+      "id": "les_Z_ed8bd7_vandermonde",
+      "ts": "2026-10-07T20:24:07Z",
+      "cycle_id": "20261007T202403Z_ed8bd7",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -370,9 +195,160 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_ea870b_pilot",
-      "ts": "2026-10-07T20:21:33Z",
-      "cycle_id": "20261007T202111Z_ea870b",
+      "id": "les_Z_ed8bd7_pilot",
+      "ts": "2026-10-07T20:24:12Z",
+      "cycle_id": "20261007T202403Z_ed8bd7",
+      "type": "skip",
+      "decision": "skip",
+      "check": "pilot",
+      "mutation": "",
+      "what": "empty rsi_bias pilot suppressed",
+      "source": "pilot_lane",
+      "family": "rsi",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "empty_rsi_bias"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_9e76e0_stem_easy_pad_units",
+      "ts": "2026-10-07T20:24:34Z",
+      "cycle_id": "20261007T202431Z_9e76e0",
+      "type": "repeat_proposal",
+      "decision": "block",
+      "check": "kill_cooldown",
+      "mutation": "stem_easy_pad_units",
+      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
+      "source": "growth_hearing",
+      "family": "kill_cooldown",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "gather": 0.05,
+        "explore": 0.05
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "fec9774c9818",
+      "tags": [
+        "kill_cooldown",
+        "blocked_theme",
+        "stem_easy_pad_units"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_9e76e0_stem_easy_pad_units",
+      "ts": "2026-10-07T20:24:35Z",
+      "cycle_id": "20261007T202431Z_9e76e0",
+      "type": "repeat_proposal",
+      "decision": "block",
+      "check": "kill_cooldown",
+      "mutation": "stem_easy_pad_units",
+      "what": "blocked cooled theme `stem_easy_pad_units` (kill_cooldown:3): Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic cu",
+      "source": "growth_hearing",
+      "family": "kill_cooldown",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "gather": 0.05,
+        "explore": 0.05
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "8546198c3b45",
+      "tags": [
+        "kill_cooldown",
+        "blocked_theme",
+        "stem_easy_pad_units"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_9e76e0_easy_pad_abs_identity",
+      "ts": "2026-10-07T20:24:35Z",
+      "cycle_id": "20261007T202431Z_9e76e0",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "easy_pad_abs_identity",
+      "what": "Oracle FAIL kills keep. kills=['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']. No fitness credit.",
+      "source": "conjecture_desk",
+      "family": "easy_pad",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "oracle_kill",
+        "stripped:easy_pad_baseline_already_useful",
+        "held_out:easy_pad_dies_on_held_out",
+        "cas:easy_pad_fails_cas_usefulness",
+        "easy_pad_oracle_kill"
+      ],
+      "evidence": [
+        "kill:stripped:easy_pad_baseline_already_useful",
+        "kill:held_out:easy_pad_dies_on_held_out",
+        "kill:cas:easy_pad_fails_cas_usefulness",
+        "kill:easy_pad_oracle_kill",
+        "kill:collective_kill"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_9e76e0_vandermonde",
+      "ts": "2026-10-07T20:24:35Z",
+      "cycle_id": "20261007T202431Z_9e76e0",
+      "type": "skip",
+      "decision": "skip",
+      "check": "oracle_seen_claim",
+      "mutation": "vandermonde",
+      "what": "skip re-oracle of vandermonde:1706.03762",
+      "source": "claim_pipeline",
+      "family": "novelty",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "vandermonde:1706.03762",
+      "tags": [
+        "repeat_claim"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_9e76e0_pilot",
+      "ts": "2026-10-07T20:24:52Z",
+      "cycle_id": "20261007T202431Z_9e76e0",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",

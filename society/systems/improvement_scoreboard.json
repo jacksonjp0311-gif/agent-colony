@@ -10051,13 +10051,31 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "after": null,
-      "status": "candidate"
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8197,
+        "compute_usefulness": 0.9143,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8889,
+        "kill_rate": 0.8872,
+        "novelty": 0.0,
+        "lesson_uptake": 0.9545,
+        "aggregate": 0.8237,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0025
     }
   ],
-  "updated_at": "2026-10-07T20:21:52Z",
+  "updated_at": "2026-10-07T20:24:02Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
-  "updated_cycle": "20261007T202111Z_ea870b"
+  "updated_cycle": "20261007T202322Z_170de6"
 }
