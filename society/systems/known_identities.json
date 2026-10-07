@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-07T18:03:56Z",
-  "n": 91,
+  "updated_at": "2026-10-07T19:54:17Z",
+  "n": 96,
   "identities": [
     "autodiff",
     "autodiff_busy_loop",
@@ -14,9 +14,14 @@
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic c",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves (cycle 159)",
+    "chain `energy_work` citing new algebraic points on covers of elliptic curves",
+    "chain `energy_work` citing new algebraic points on covers of elliptic curves (cycle 162)",
+    "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves",
+    "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 164)",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves (cycle 161)",
+    "chain_cite_proven_lemmas_and_benchmarks",
     "charter_seek_propose_authorize",
     "claim_theme",
     "compose_chain_proven_lemmas",

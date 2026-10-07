@@ -134,3 +134,6 @@
 {"ts": "2026-10-07T18:02:14Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5873575], ["pathfinder", 0.37818499999999994], ["tribute_keeper", 0.37818499999999994]], "stats": {"updates": 1839, "conflicts": 5944, "redebatess": 256}}
 {"ts": "2026-10-07T18:02:55Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.589342], ["pathfinder", 0.381776], ["tribute_keeper", 0.381776]], "stats": {"updates": 1853, "conflicts": 5992, "redebatess": 258}}
 {"ts": "2026-10-07T18:03:35Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5873575], ["pathfinder", 0.37818499999999994], ["tribute_keeper", 0.37818499999999994]], "stats": {"updates": 1867, "conflicts": 6040, "redebatess": 260}}
+{"ts": "2026-10-07T19:52:48Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5873575], ["pathfinder", 0.37818499999999994], ["tribute_keeper", 0.37818499999999994]], "stats": {"updates": 1881, "conflicts": 6088, "redebatess": 262}}
+{"ts": "2026-10-07T19:53:28Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.584263], ["improver", 0.363749], ["pathfinder", 0.349214]], "stats": {"updates": 1895, "conflicts": 6136, "redebatess": 264}}
+{"ts": "2026-10-07T19:53:57Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.584263], ["improver", 0.363749], ["pathfinder", 0.349214]], "stats": {"updates": 1909, "conflicts": 6184, "redebatess": 266}}

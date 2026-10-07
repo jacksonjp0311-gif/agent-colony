@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T18:03:56Z",
+  "updated_at": "2026-10-07T19:54:17Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-07T18:03:56Z",
+    "ts": "2026-10-07T19:54:17Z",
     "cycle_id": "",
-    "mutation": "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
+    "mutation": "Chain `energy_work` citing New algebraic points on covers of elliptic curves",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [

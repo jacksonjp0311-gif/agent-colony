@@ -1,24 +1,24 @@
 {
-  "when": "2026-10-07T18:03:57Z",
+  "when": "2026-10-07T19:54:18Z",
   "mile": "spark3-port",
-  "cycle_count": 161,
+  "cycle_count": 164,
   "fitness_latest": {
-    "ts": "2026-10-07T18:03:54Z",
-    "cycle_id": "20261007T180314Z_7a9e7d",
+    "ts": "2026-10-07T19:54:15Z",
+    "cycle_id": "20261007T195347Z_24305d",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
-    "reply_quality": 0.9119,
+    "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.827,
-    "compute_usefulness": 0.9286,
+    "math_prize": 0.8192,
+    "compute_usefulness": 0.9196,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8972,
-    "kill_rate": 0.8402,
+    "prize_boost": 0.8905,
+    "kill_rate": 0.8595,
     "novelty": 0.0,
     "lesson_uptake": 1.0,
-    "aggregate": 0.8206,
+    "aggregate": 0.8209,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
@@ -41,7 +41,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.9048
+    "aggregate_score": 0.8928
   },
   "novelty_gate": {
     "hits": 0,
@@ -58,17 +58,17 @@
     }
   },
   "exploration_budget_fp": {
-    "before": 0.8,
-    "after": 0.75,
+    "before": 0.65,
+    "after": 0.6,
     "delta": -0.05,
-    "cycle_id": "20261007T180314Z_7a9e7d"
+    "cycle_id": "20261007T195347Z_24305d"
   },
   "oracle": {
     "passes": 208,
-    "kills": 100,
-    "easy_pad_kills": 10,
-    "total": 308,
-    "kill_rate": 0.3247
+    "kills": 110,
+    "easy_pad_kills": 13,
+    "total": 318,
+    "kill_rate": 0.3459
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."
