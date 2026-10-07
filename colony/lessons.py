@@ -888,9 +888,22 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         return None
     theme_title = ""
     theme_url = ""
+    feed_cite = ""
+    try:
+        # Outward senses first: a recent external feed item (arXiv / Crossref / Wikipedia)
+        # rotated per cycle. Untrusted pointer text — cited, never executed.
+        from colony.feeds import pick_seek_theme
+        ft = pick_seek_theme(cycle_id)
+        if ft:
+            theme_title = str(ft.get("title") or "")[:90]
+            theme_url = str(ft.get("url") or "")[:120]
+            feed_cite = (f" Feed cite: {ft.get('source')} `{ft.get('id')}` <{theme_url}> "
+                         f"fetched {ft.get('fetched_at')} (external pointer, not evidence of truth).")
+    except Exception:
+        feed_cite = ""
     try:
         from colony.conjecture_desk import _load_paper_themes
-        themes = _load_paper_themes() or []
+        themes = [] if theme_title else (_load_paper_themes() or [])  # feed theme wins
         if themes:
             # Prefer a paper theme whose title token is not a cooled mutation name
             t0 = themes[0]
@@ -967,6 +980,14 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
                 return 2
             return 0 if c.get("chain_proven") else 1
         ordered = sorted(ordered, key=_cite_rank)  # stable: keeps guide order within rank
+    # Sensors: targets on a current revert streak go last (still eligible; Oracle decides)
+    try:
+        from colony.sensors import revert_streak_names
+        streak = revert_streak_names()
+        if streak:
+            ordered = sorted(ordered, key=lambda c: (theme_key(c) or c) in streak)
+    except Exception:
+        pass
     mut = next_unblocked_mutation(ordered)
     if not mut:
         # Every candidate is cooled / guide-avoided: never re-propose a blocked target.
@@ -992,6 +1013,7 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         f"Cooled themes skipped={sorted(cooled)[:6]}. cycle={cycle_id}."
         f"{inv_note}"
     )
+    hyp += feed_cite
     if mut in variant_rows:
         v = variant_rows[mut]
         hyp += (

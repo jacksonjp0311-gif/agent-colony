@@ -213,6 +213,22 @@ class GrowthSteps2:
                 {"thin_topics": ["recursive-self-improvement", "self-improving-agents"]},
             ),
         ]
+        # Outward senses: attach one cached external feed pointer to its routed channel
+        # (arXiv math→math, cs.LG→science, cs.MA→rsi, OEIS→math, Crossref→science,
+        # Wikipedia→history). Same posts, richer content — pointer text is untrusted data.
+        try:
+            from colony.feeds import channel_note
+            _enriched = []
+            for fr, to, channel, message, tags, payload in plans:
+                note = channel_note(channel, cycle_id) if channel in ("math", "science", "history", "rsi") else None
+                if note:
+                    message = message + note[0]
+                    payload = {**payload, **note[1]}
+                    tags = list(tags) + ["feed"]
+                _enriched.append((fr, to, channel, message, tags, payload))
+            plans = _enriched
+        except Exception:
+            pass
         for fr, to, channel, message, tags, payload in plans:
             fr_r = fr if fr in roles else "spark"
             to_r = to if to in roles or to in ("all", "forum", "*") else "spark"

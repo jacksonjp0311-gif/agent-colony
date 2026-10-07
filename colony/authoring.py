@@ -19,12 +19,17 @@ Guards (mechanism, not a fixed list):
   actually evaluated (>= MIN_EVALS calls), forcing any component False makes the
   authored check False (falsifiable), and it finishes inside RUNTIME_BUDGET_S;
 - bounds: MAX_AUTHORED_PER_CYCLE new checks per cycle, MAX_AUTHORED_TOTAL overall.
+
+Feed-driven candidates (colony.feeds, OEIS) are tried first: the colony's own sequence
+generator must reproduce OEIS held-out terms AND a proven lemma must hold on a new window.
+Same guards, same verification, same disabled-until-Oracle path.
 """
 from __future__ import annotations
 
 import ast
 import copy
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -217,6 +222,72 @@ def _build_candidate(a: dict[str, Any], b: dict[str, Any], k: int) -> tuple[str,
     return name, fn_src, body, expr
 
 
+def _defined_functions(src: str) -> set[str]:
+    try:
+        return {n.name for n in ast.parse(src).body if isinstance(n, ast.FunctionDef)}
+    except SyntaxError:
+        return set()
+
+
+def oeis_candidates(src: str, comps: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Feed-driven: an OEIS sequence that matched one of the colony's OWN sequences becomes a
+    cross-check — the generator must reproduce OEIS's held-out terms (indices never used in
+    the query) AND a proven lemma about that sequence must hold on a new window.
+
+    Only integers (digits-only parsed) and a validated A-number reach the generated code;
+    no fetched text does. The expression template comes from colony.feeds.SEQ_GENERATORS.
+    """
+    try:
+        from colony.feeds import generator_by_name, sequence_items
+        seqs = sequence_items()
+    except Exception:
+        return []
+    defined = _defined_functions(src)
+    by_fn = {c["function"]: c for c in comps}
+    out: list[dict[str, Any]] = []
+    for it in seqs:
+        gen = generator_by_name(str(it.get("generator") or ""))
+        if not gen or not all(f in defined for f in gen["base_fns"]):
+            continue
+        comp = next((by_fn[f] for f in gen["lemma_fns"] if f in by_fn), None)
+        if comp is None:
+            continue
+        anum = str(it["oeis_id"]).lower()
+        feed_id = f"oeis:{it['oeis_id']}:{gen['name']}"  # rebuilt from validated parts only
+        fetched = str(it.get("fetched_at") or "")
+        fetched = fetched if re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", fetched) else "unknown"
+        terms = [int(t) for t in it["terms"]]
+        h0 = int(it["heldout_start"])
+        name = f"{AUTHORED_PREFIX}oeis_{anum}__{comp['lemma']}"
+        oeis_expr = (f"all(({gen['expr']}) == t for n, t in zip(range({h0}, {h0 + len(terms)}), "
+                     f"({', '.join(str(t) for t in terms)},)))")
+        oeis_node = ast.parse(oeis_expr, mode="eval").body
+        lemma_node = ast.Call(func=ast.Name(id="all", ctx=ast.Load()), args=[_shift_windows(comp["gen"], 1)], keywords=[])
+        body = ast.fix_missing_locations(ast.BoolOp(op=ast.And(), values=[lemma_node, oeis_node]))
+        expr = ast.unparse(body)
+        fn_src = (
+            f"def check_{name}() -> bool:\n"
+            f'    """Authored feed cross-check (desk): OEIS {it["oeis_id"]} held-out terms\n'
+            f"    n={h0}..{h0 + len(terms) - 1} must equal the colony's `{gen['name']}` ({gen['expr']}), and the\n"
+            f"    proven lemma {comp['lemma']} must hold on a window past its base window.\n\n"
+            f"    Components: society/benchmarks/artifacts/lemma_impl.py::{comp['function']},\n"
+            f"    ::{', ::'.join(gen['base_fns'])}; checked by society/benchmarks/lemma_microbench.py.\n"
+            f"    Source: https://oeis.org/{it['oeis_id']} (feed {feed_id}, fetched {fetched}).\n"
+            f'    Machine check only — not a novel theorem. Disabled until the Oracle passes it.\n'
+            f'    """\n'
+            f"    return {expr}\n"
+        )
+        out.append({
+            "name": name, "fn_src": fn_src, "body": body, "expr": expr,
+            "components": [comp], "verify_fns": [comp["function"], *gen["base_fns"]],
+            "evidence": [f"oeis:{it['oeis_id']}", f"https://oeis.org/{it['oeis_id']}", f"feed:{feed_id}"],
+            "what": (f"authored disabled feed cross-check `{name}`: OEIS {it['oeis_id']} held-out terms vs "
+                     f"`{gen['name']}` + proven lemma {comp['lemma']} on a new window; awaits Oracle via proposal"),
+            "source": "oeis",
+        })
+    return out
+
+
 def insert_disabled(src: str, name: str, fn_src: str) -> str | None:
     """Add the function and a disabled HARD_TIER_LEMMAS entry; None if markers are missing."""
     marker = INSERT_MARKER if INSERT_MARKER in src else FALLBACK_MARKER
@@ -328,23 +399,32 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
             pairs.append(((used, spread, a["lemma"], b["lemma"]), a, b, used + 1))
     # least-used pair, then least-used components (diversity), then stable name order
     pairs.sort(key=lambda t: t[0])
+    candidates: list[dict[str, Any]] = list(oeis_candidates(src, comps))  # feeds first
+    for _key, a, b, k in pairs:
+        name, fn_src, body, expr = _build_candidate(a, b, k)
+        candidates.append({
+            "name": name, "fn_src": fn_src, "body": body, "expr": expr, "components": [a, b],
+            "verify_fns": [a["function"], b["function"]], "evidence": [], "source": "compose",
+            "what": (f"authored disabled hard check `{name}` from proven lemmas "
+                     f"{a['lemma']} + {b['lemma']} on new windows; awaits Oracle via proposal"),
+        })
     out: list[dict[str, Any]] = []
     tried = 0
-    for _key, a, b, k in pairs:
+    for cand in candidates:
         if len(out) >= max_new or tried >= MAX_CANDIDATES_TRIED:
             break
-        name, fn_src, body, expr = _build_candidate(a, b, k)
+        name, body = cand["name"], cand["body"]
         if name in names or name in blocked or name in rejected or ast.dump(body) in bodies:
             continue  # duplicate / cooled
-        new_src = insert_disabled(src, name, fn_src)
+        new_src = insert_disabled(src, name, cand["fn_src"])
         if new_src is None:
             break
         tried += 1
-        res = verify_candidate(new_src, name, [a["function"], b["function"]])
+        res = verify_candidate(new_src, name, cand["verify_fns"])
         if not res.get("accepted"):
             out_row = {"name": name, "accepted": False, "reason": res.get("reason")}
             if write:
-                _lesson_for(out_row, a, b, expr, cycle_id)
+                _lesson_for(out_row, cand, cycle_id)
             rejected.add(name)
             continue
         if write:
@@ -356,14 +436,16 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
         row = {
             "name": name,
             "accepted": True,
-            "components": [a["lemma"], b["lemma"]],
-            "functions": [a["function"], b["function"]],
-            "assertion": expr,
+            "source": cand["source"],
+            "components": [c["lemma"] for c in cand["components"]],
+            "functions": list(cand["verify_fns"]),
+            "assertion": cand["expr"],
+            "evidence": list(cand["evidence"]),
             "seconds": res.get("seconds"),
             "evaluations": res.get("counts"),
         }
         if write:
-            _lesson_for(row, a, b, expr, cycle_id)
+            _lesson_for(row, cand, cycle_id)
         out.append(row)
     return out
 
@@ -378,32 +460,26 @@ def _invalidate(path: Path) -> None:
                 pass
 
 
-def _lesson_for(row: dict[str, Any], a: dict[str, Any], b: dict[str, Any], expr: str, cycle_id: str) -> None:
+def _lesson_for(row: dict[str, Any], cand: dict[str, Any], cycle_id: str) -> None:
     try:
         from colony.lessons import write_lesson
         ok = row.get("accepted")
+        comps = cand["components"]
+        evidence = [f"society/benchmarks/artifacts/lemma_impl.py::{f}" for f in cand["verify_fns"]]
+        evidence += ["society/benchmarks/lemma_microbench.py"] + [f"lemma:{c['lemma']}" for c in comps]
+        evidence += list(cand.get("evidence") or [])
         write_lesson(
             decision="skip",
             check="authoring",
-            what=(
-                (f"authored disabled hard check `{row['name']}` from proven lemmas "
-                 f"{a['lemma']} + {b['lemma']} on new windows; awaits Oracle via proposal")
-                if ok else
-                f"rejected authored candidate `{row['name']}`: {row.get('reason')}"
-            )[:400],
+            what=(cand["what"] if ok else f"rejected authored candidate `{row['name']}`: {row.get('reason')}")[:400],
             source="conjecture_desk",
             cycle_id=cycle_id,
             mutation=row["name"],
             lesson_type="authored_check" if ok else "authoring_reject",
             family="hard_tier",
-            tags=["authoring", "authored_check" if ok else "authoring_reject", a["lemma"], b["lemma"]],
-            evidence=[
-                f"society/benchmarks/artifacts/lemma_impl.py::{a['function']}",
-                f"society/benchmarks/artifacts/lemma_impl.py::{b['function']}",
-                "society/benchmarks/lemma_microbench.py",
-                f"lemma:{a['lemma']}",
-                f"lemma:{b['lemma']}",
-            ],
+            tags=["authoring", "authored_check" if ok else "authoring_reject",
+                  *[c["lemma"] for c in comps], *(["feed", cand["source"]] if cand.get("source") == "oeis" else [])],
+            evidence=evidence,
         )
     except Exception:
         pass

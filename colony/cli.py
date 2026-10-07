@@ -1,4 +1,4 @@
-"""CLI: python -m colony cycle | evolve | status | dashboard | authorize | bench-improve
+"""CLI: python -m colony cycle | evolve | status | dashboard | authorize | bench-improve | feeds
 
 Hold posture (colony.hold_posture): default HOLD; light evolve watch; selective authorize only.
 """
@@ -46,6 +46,9 @@ def main(argv: list[str] | None = None) -> int:
     p_lessons.add_argument("--guide", default=None, help="Write a human_guide lesson (requires human author)")
     p_lessons.add_argument("--author", default="James Paul Jackson", help="Human author (allowlisted)")
     p_lessons.add_argument("--mutation", default="", help="Optional mutation/theme hint")
+    p_feeds = sub.add_parser("feeds", help="Fetch external feeds once (fail-soft; exit 0 on outage) + refresh sensors")
+    p_feeds.add_argument("--force", action="store_true", help="Ignore the per-source TTL")
+    p_feeds.add_argument("--offline", action="store_true", help="No network; only refresh sensors")
     sub.add_parser("hold", help="Print hold posture (HOLD default; selective authorize only)")
     sub.add_parser("charters", help="Print institution standing charters (agenda autonomy; no truth authority)")
     p_pilots = sub.add_parser("pilots", help="Pilot sandbox lane status / propose (no durable accept)")
@@ -207,6 +210,23 @@ def main(argv: list[str] | None = None) -> int:
         else:
             print(digest(limit=8))
             print(f"n_active≈{len(load_lessons(limit=200))}")
+        return 0
+
+    if args.cmd == "feeds":
+        out: dict = {}
+        try:
+            from colony.feeds import counts, fetch_all
+            if not args.offline:
+                out["fetch"] = fetch_all(force=args.force)
+            out["cache"] = counts()
+        except Exception as e:  # noqa: BLE001 — a feed outage never fails the run
+            out["error"] = f"{type(e).__name__}: {e}"
+        try:
+            from colony.sensors import refresh
+            out["signals"] = refresh("feeds_cli").get("signals")
+        except Exception as e:  # noqa: BLE001
+            out["sensors_error"] = f"{type(e).__name__}: {e}"
+        print(json.dumps(out, indent=2))
         return 0
 
     if args.cmd == "hold":

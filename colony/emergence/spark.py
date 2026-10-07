@@ -57,6 +57,21 @@ class Spark:
         live_fail: int = 0,
     ) -> EmergenceResult:
         result = EmergenceResult()
+        # Internal sensors: one structured snapshot per cycle (informs priors; no gate change)
+        try:
+            from colony.sensors import refresh as _refresh_sensors
+            _snap = _refresh_sensors(cycle_id)
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="sensors",
+                actor="spark",
+                summary=f"Sensors: {len(_snap.get('signals') or [])} signal(s); "
+                        f"stalled={(_snap.get('stall') or {}).get('stalled')}; "
+                        f"feeds={(_snap.get('feeds') or {}).get('by_source')}",
+                detail={"signals": (_snap.get("signals") or [])[:6], "path": "society/systems/sensors.json"},
+            )
+        except Exception:
+            pass
         # Teaching priors (human_guide preferred) — witness only; not commands.
         priors = lesson_priors_for_spark(limit=8)
         self.witness.record(
@@ -403,6 +418,12 @@ def lesson_priors_for_spark(*, limit: int = 8) -> str:
             from colony.authoring import guide_authoring_active
             if guide_authoring_active():
                 extras.append("author_checks: when variants run out, compose proven lemmas into new disabled checks")
+        except Exception:
+            pass
+        try:
+            from colony.sensors import latest as _sensors_latest
+            for sig in (_sensors_latest().get("signals") or [])[:3]:
+                extras.append(f"sensor: {sig}")
         except Exception:
             pass
         if extras:

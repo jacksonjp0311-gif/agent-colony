@@ -45,6 +45,16 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Sense — external feeds + internal sensors (fail-soft; outage never fails the run)
+        if: ${{ github.event.inputs.offline != 'true' }}
+        continue-on-error: true
+        timeout-minutes: 6
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          export PYTHONPATH=.
+          python -m colony feeds || echo "::warning::feeds step non-fatal"
+
       - name: Port unit + smoke tests (Athanor/PulseMesh)
         run: |
           set -euo pipefail
@@ -286,6 +296,8 @@ jobs:
             society/genomes society/briefs docs .github || true
           # Include society_state only if changed size reasonable — always add but message notes slim
           git add data/society_state.json data/ledger.jsonl data/witness.jsonl society/WITNESS.md 2>/dev/null || true
+          # Feed cache + fetch state (append-only, size-bounded) so dedupe/TTL persist across runs
+          git add data/research_cache/feeds.jsonl data/research_cache/feeds_state.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No society changes to commit (quiet success)"
           else
