@@ -1,8 +1,8 @@
 {
   "version": 1,
   "mile": "institution-standing-charters",
-  "updated_at": "2026-10-07T09:05:12Z",
-  "when_et": "2026-10-07 09:05 AM ET",
+  "updated_at": "2026-10-07T11:26:27Z",
+  "when_et": "2026-10-07 11:26 AM ET",
   "charters": [
     {
       "name": "Math Prize Desk",
@@ -18,8 +18,8 @@
         "easy_pad": -0.05
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -41,7 +41,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -58,8 +58,8 @@
         "govern": 0.03
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -81,7 +81,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -97,8 +97,8 @@
         "easy_pad": -0.08
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -120,7 +120,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -135,8 +135,8 @@
         "build": 0.07
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -158,7 +158,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -173,8 +173,8 @@
         "gather": 0.04
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -196,7 +196,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -213,8 +213,8 @@
         "explore": 0.03
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -236,7 +236,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -250,8 +250,8 @@
         "reply": 0.04
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -273,7 +273,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -288,8 +288,8 @@
         "explore": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -311,7 +311,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -325,8 +325,8 @@
         "govern": 0.06
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -348,7 +348,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -362,8 +362,8 @@
         "govern": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -385,7 +385,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -400,8 +400,8 @@
         "gather": 0.05
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -423,7 +423,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -440,8 +440,8 @@
         "gather": 0.03
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -463,7 +463,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -477,8 +477,8 @@
         "govern": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -500,7 +500,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -516,8 +516,8 @@
         "gather": 0.02
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -539,7 +539,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     },
     {
@@ -555,8 +555,8 @@
         "gather": 0.04
       },
       "autonomy_cycles": 8,
-      "cycles_pursued": 98,
-      "cycles_remaining": 6,
+      "cycles_pursued": 101,
+      "cycles_remaining": 3,
       "active": true,
       "status": "standing",
       "needs_human_authorize_for_accepted": true,
@@ -578,7 +578,7 @@
         "durable_accept",
         "authorize"
       ],
-      "last_cycle": "20261007T090451Z_17bfae",
+      "last_cycle": "20261007T112620Z_6f0ef3",
       "renewed_at_cycle": "20261007T090340Z_c51d8e"
     }
   ],
@@ -595,7 +595,7 @@
   ],
   "note": "Standing remits: agenda/topic/gather autonomy for N cycles. Truth still waits for James selective authorize.",
   "count": 15,
-  "last_cycle": "20261007T090451Z_17bfae",
+  "last_cycle": "20261007T112620Z_6f0ef3",
   "last_pursued": [
     "Math Prize Desk",
     "RSI Coupling Desk",

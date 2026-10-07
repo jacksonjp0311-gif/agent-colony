@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T11:25:18Z",
-  "updated_cycle": "teach_seek_become",
+  "updated_at": "2026-10-07T11:26:27Z",
+  "updated_cycle": "20261007T112620Z_6f0ef3",
   "n_active": 80,
   "n_keeps": 0,
-  "n_reverts": 49,
+  "n_reverts": 37,
   "skill_bias": {
-    "improver.improve": 0.0215,
-    "geometer.gather": 0.0114,
+    "improver.improve": 0.0237,
+    "geometer.gather": 0.0138,
     "gather": 0.11,
     "oracle": 0.06,
     "build": 0.06,
@@ -18,9 +18,9 @@
   },
   "recent": [
     {
-      "id": "les_Z_9ed71b_vandermonde",
-      "ts": "2026-10-07T09:04:25Z",
-      "cycle_id": "20261007T090422Z_9ed71b",
+      "id": "les_Z_1603e5_vandermonde",
+      "ts": "2026-10-07T11:25:47Z",
+      "cycle_id": "20261007T112543Z_1603e5",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -43,9 +43,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_9ed71b_pilot",
-      "ts": "2026-10-07T09:04:31Z",
-      "cycle_id": "20261007T090422Z_9ed71b",
+      "id": "les_Z_1603e5_pilot",
+      "ts": "2026-10-07T11:25:51Z",
+      "cycle_id": "20261007T112543Z_1603e5",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -68,9 +68,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_17bfae_dedupe",
-      "ts": "2026-10-07T09:04:54Z",
-      "cycle_id": "20261007T090451Z_17bfae",
+      "id": "les_Z_1f43f1_dedupe",
+      "ts": "2026-10-07T11:25:59Z",
+      "cycle_id": "20261007T112556Z_1f43f1",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -93,34 +93,47 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_17bfae_dedupe",
-      "ts": "2026-10-07T09:04:54Z",
-      "cycle_id": "20261007T090451Z_17bfae",
-      "type": "repeat_proposal",
-      "decision": "block",
-      "check": "dedupe",
-      "mutation": "",
-      "what": "blocked repeat: Feed accepted/strong RSI findings into skill_router + genome bias",
-      "source": "growth_hearing",
+      "id": "les_1:25:59Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-07T11:25:59Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
       "family": "process",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
+      "skill_bias": {
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
+      },
+      "genome_prior": {
+        "explore": 0.02,
+        "gather": 0.0
+      },
       "catalog_hint": {},
-      "proposal_fingerprint": "27e48156942c",
+      "proposal_fingerprint": "",
       "tags": [
-        "repeat_proposal"
+        "oracle_kill",
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
-      "evidence": [],
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
       "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_17bfae_conjecture",
-      "ts": "2026-10-07T09:04:54Z",
-      "cycle_id": "20261007T090451Z_17bfae",
+      "id": "les_Z_1f43f1_conjecture",
+      "ts": "2026-10-07T11:25:59Z",
+      "cycle_id": "20261007T112556Z_1f43f1",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -146,9 +159,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_17bfae_vandermonde",
-      "ts": "2026-10-07T09:04:54Z",
-      "cycle_id": "20261007T090451Z_17bfae",
+      "id": "les_Z_1f43f1_vandermonde",
+      "ts": "2026-10-07T11:25:59Z",
+      "cycle_id": "20261007T112556Z_1f43f1",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -171,9 +184,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_17bfae_pilot",
-      "ts": "2026-10-07T09:05:12Z",
-      "cycle_id": "20261007T090451Z_17bfae",
+      "id": "les_Z_1f43f1_pilot",
+      "ts": "2026-10-07T11:26:15Z",
+      "cycle_id": "20261007T112556Z_1f43f1",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -196,230 +209,143 @@
       "status": "candidate"
     },
     {
-      "id": "les_k_become_seek_on_kill_or_flat_novelty",
-      "ts": "2026-10-07T11:24:25Z",
-      "cycle_id": "teach_seek_become",
-      "type": "human_guide",
-      "decision": "guide",
-      "check": "human",
-      "mutation": "seek_on_kill_or_flat_novelty",
-      "what": "SEEK INFORMATION: When the Oracle kills a claim, or novelty stays near zero, gather from the ledger, arXiv cache, papers.jsonl, and domain bus channels (science/history/math/empire/rsi) BEFORE proposing again. Cite sources on every proposal. Never invent findings \u2014 light the spark from evidence, then witness.",
-      "source": "human",
-      "family": "human_teaching",
+      "id": "les_Z_6f0ef3_dedupe",
+      "ts": "2026-10-07T11:26:23Z",
+      "cycle_id": "20261007T112620Z_6f0ef3",
+      "type": "repeat_proposal",
+      "decision": "block",
+      "check": "dedupe",
+      "mutation": "",
+      "what": "blocked repeat: Deepen compute-useful math from accepted findings after hearing",
+      "source": "growth_hearing",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "810bc050d326",
+      "tags": [
+        "repeat_proposal"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_1:26:23Z_Feed accepted/strong RSI findings i",
+      "ts": "2026-10-07T11:26:23Z",
+      "cycle_id": "",
+      "type": "oracle_kill",
+      "decision": "revert",
+      "check": "oracle",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 143)",
+      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+      "source": "novelty_gate",
+      "family": "process",
       "before_score": null,
       "after_score": null,
       "skill_bias": {
-        "gather": 0.12,
-        "geometer.gather": 0.1,
-        "improver.improve": 0.04,
-        "oracle": 0.06
+        "improver.improve": 0.02,
+        "geometer.gather": 0.02
       },
       "genome_prior": {
-        "gather": 0.08,
-        "explore": 0.05
+        "explore": 0.02,
+        "gather": 0.0
       },
-      "catalog_hint": {
-        "seek": [
-          "ledger",
-          "arxiv",
-          "papers.jsonl",
-          "domain_bus"
-        ],
-        "prefer": [
-          "cite_sources",
-          "gather_before_propose"
-        ],
-        "add_mutation": "vandermonde_asymmetric"
-      },
+      "catalog_hint": {},
       "proposal_fingerprint": "",
       "tags": [
-        "human_guide",
-        "seek",
         "oracle_kill",
-        "novelty",
-        "cite"
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail",
+        "collective_kill"
       ],
-      "evidence": [],
-      "author": "James Jackson",
+      "evidence": [
+        "kill:stripped:stripped_not_useful_fail",
+        "kill:held_out:held_out_fail",
+        "kill:collective_kill"
+      ],
+      "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_k_become_seek_extend_catalog",
-      "ts": "2026-10-07T11:24:25Z",
-      "cycle_id": "teach_seek_become",
-      "type": "human_guide",
-      "decision": "guide",
-      "check": "human",
-      "mutation": "seek_extend_catalog",
-      "what": "SEEK INFORMATION: Treat catalog_exhausted or skip-as-empty as a cue to EXTEND the mutation catalog from lessons + papers.jsonl + ledger citations \u2014 not to idle. Queue the next hard_enable or lemma stub from catalog_hint and keep the desk moving.",
-      "source": "human",
-      "family": "human_teaching",
+      "id": "les_Z_6f0ef3_conjecture",
+      "ts": "2026-10-07T11:26:23Z",
+      "cycle_id": "20261007T112620Z_6f0ef3",
+      "type": "catalog_exhausted",
+      "decision": "skip",
+      "check": "conjecture",
+      "mutation": "",
+      "what": "catalog exhausted \u2014 queue next hard_enable stub from lessons/external mind",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {
-        "gather": 0.1,
-        "build": 0.06,
-        "improver.improve": 0.05
-      },
-      "genome_prior": {
-        "gather": 0.06,
-        "explore": 0.07,
-        "build": 0.04
-      },
+      "skill_bias": {},
+      "genome_prior": {},
       "catalog_hint": {
-        "seek": [
-          "lessons",
-          "papers.jsonl",
-          "catalog_hint"
-        ],
-        "prefer": [
-          "extend_catalog",
-          "hard_enable"
-        ],
-        "add_mutation": "lemma_hard_combinatorics"
+        "add_mutation": "vandermonde_asymmetric",
+        "kind": "hard_enable"
       },
       "proposal_fingerprint": "",
       "tags": [
-        "human_guide",
-        "seek",
-        "catalog_exhausted",
-        "extend"
+        "catalog_exhausted"
       ],
       "evidence": [],
-      "author": "James Jackson",
+      "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_k_become_become_real_fitness",
-      "ts": "2026-10-07T11:24:25Z",
-      "cycle_id": "teach_seek_become",
-      "type": "human_guide",
-      "decision": "guide",
-      "check": "human",
-      "mutation": "become_real_fitness",
-      "what": "BECOME SOMETHING MORE: Prefer proposals that raise novelty, citation_reuse, lesson_uptake, or a real bench delta. Reject process spam and multi-hop debate patches that only rearrange ceremony. Fitness must move from useful work, not noise.",
-      "source": "human",
-      "family": "human_teaching",
+      "id": "les_Z_6f0ef3_vandermonde",
+      "ts": "2026-10-07T11:26:23Z",
+      "cycle_id": "20261007T112620Z_6f0ef3",
+      "type": "skip",
+      "decision": "skip",
+      "check": "oracle_seen_claim",
+      "mutation": "vandermonde",
+      "what": "skip re-oracle of vandermonde:1706.03762",
+      "source": "claim_pipeline",
+      "family": "novelty",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {
-        "improve": 0.08,
-        "improver.improve": 0.1,
-        "build": 0.06,
-        "emergence": 0.05
-      },
-      "genome_prior": {
-        "explore": 0.08,
-        "build": 0.05,
-        "gather": 0.03
-      },
-      "catalog_hint": {
-        "prefer": [
-          "novelty",
-          "citation_reuse",
-          "lesson_uptake",
-          "bench_delta"
-        ],
-        "avoid": [
-          "process_spam",
-          "multihop_debate_patch"
-        ]
-      },
-      "proposal_fingerprint": "",
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "vandermonde:1706.03762",
       "tags": [
-        "human_guide",
-        "become",
-        "novelty",
-        "citation_reuse",
-        "lesson_uptake",
-        "bench"
+        "repeat_claim"
       ],
       "evidence": [],
-      "author": "James Jackson",
+      "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_k_become_become_fail_forward",
-      "ts": "2026-10-07T11:24:25Z",
-      "cycle_id": "teach_seek_become",
-      "type": "human_guide",
-      "decision": "guide",
-      "check": "human",
-      "mutation": "become_fail_forward",
-      "what": "BECOME SOMETHING MORE: After schema_drift or self_repair, keep cycling. Failure writes a lesson; the next propose must be better for having failed. Mechanisms heal; do not abort the city for a thin record. Humans authorize at P\u22650.70.",
-      "source": "human",
-      "family": "human_teaching",
+      "id": "les_Z_6f0ef3_pilot",
+      "ts": "2026-10-07T11:26:27Z",
+      "cycle_id": "20261007T112620Z_6f0ef3",
+      "type": "skip",
+      "decision": "skip",
+      "check": "pilot",
+      "mutation": "",
+      "what": "empty rsi_bias pilot suppressed",
+      "source": "pilot_lane",
+      "family": "rsi",
       "before_score": null,
       "after_score": null,
-      "skill_bias": {
-        "improve": 0.07,
-        "emergence": 0.06,
-        "reply": 0.03
-      },
-      "genome_prior": {
-        "explore": 0.06,
-        "build": 0.04
-      },
-      "catalog_hint": {
-        "prefer": [
-          "fail_forward",
-          "schema_repair",
-          "lesson_uptake"
-        ]
-      },
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
       "proposal_fingerprint": "",
       "tags": [
-        "human_guide",
-        "become",
-        "self_repair",
-        "schema_drift",
-        "fail_forward"
+        "empty_rsi_bias"
       ],
       "evidence": [],
-      "author": "James Jackson",
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_k_become_charter_seek_propose_authorize",
-      "ts": "2026-10-07T11:24:25Z",
-      "cycle_id": "teach_seek_become",
-      "type": "human_guide",
-      "decision": "guide",
-      "check": "human",
-      "mutation": "charter_seek_propose_authorize",
-      "what": "CHARTER: No permanent aristocracy. Spark proposes structure; humans authorize (standing trust only at P\u22650.70). Seek information and propose \u2014 never self-grant durable power. TributeKeeper and Ceiling stay intact. Light the spark and witness; do not micromanage the city.",
-      "source": "human",
-      "family": "human_teaching",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "emergence": 0.04,
-        "communicate": 0.03
-      },
-      "genome_prior": {
-        "explore": 0.03
-      },
-      "catalog_hint": {
-        "prefer": [
-          "spark_proposes",
-          "human_authorize",
-          "no_aristocracy"
-        ]
-      },
-      "proposal_fingerprint": "",
-      "tags": [
-        "human_guide",
-        "charter",
-        "authorize",
-        "no_aristocracy",
-        "seek"
-      ],
-      "evidence": [],
-      "author": "James Jackson",
+      "author": null,
       "expired": false,
       "status": "candidate"
     }
