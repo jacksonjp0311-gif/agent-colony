@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T18:33:26Z",
-  "updated_cycle": "20261006T183245Z_2a4842",
+  "updated_at": "2026-10-07T09:05:19Z",
+  "updated_cycle": "20261007T090451Z_17bfae",
   "signal": {
-    "ts": "2026-10-06T18:33:26Z",
-    "strength": 0.3,
+    "ts": "2026-10-07T09:05:19Z",
+    "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 3,
+    "accepted_compute": 6,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
@@ -36,19 +36,19 @@
       }
     ],
     "skill_bias": {
-      "geometer.gather": 0.85,
-      "pathfinder.gather": 0.59,
+      "geometer.gather": 0.95,
+      "pathfinder.gather": 0.62,
       "surveyor.gather": 0.5,
       "builder.build": 0.85,
       "improver.improve": 0.55,
-      "spark.emergence": 0.575
+      "spark.emergence": 0.6
     },
     "mutation_bias": {
-      "gather": 0.102,
-      "explore": 0.06,
-      "build": 0.095,
+      "gather": 0.15,
+      "explore": 0.07,
+      "build": 0.12,
       "govern": 0.01,
-      "reply": 0.019
+      "reply": 0.022
     },
     "citation_targets": [
       {
@@ -68,6 +68,27 @@
       {
         "id": "fnd_ff6ac9884b6a",
         "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_6e98db19d5bf",
+        "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_223f509f2b6b",
+        "title": "Authorize accepted: Lemma mutation keep: fibonacci_cassini_ext",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_94d4382ab0c5",
+        "title": "Authorize accepted: Lemma mutation keep: derived_chain_stress",
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
@@ -104,6 +125,24 @@
         "title": "Authorize accepted: Lemma mutation keep: vandermonde_asymmetric",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_6e98db19d5bf",
+        "title": "Authorize accepted: Lemma mutation keep: binomial_hockey_deep",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_223f509f2b6b",
+        "title": "Authorize accepted: Lemma mutation keep: fibonacci_cassini_ext",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_94d4382ab0c5",
+        "title": "Authorize accepted: Lemma mutation keep: derived_chain_stress",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
@@ -111,7 +150,10 @@
       "compute": [
         "fnd_d4814b6bea51",
         "fnd_fdb17b7531cc",
-        "fnd_ff6ac9884b6a"
+        "fnd_ff6ac9884b6a",
+        "fnd_6e98db19d5bf",
+        "fnd_223f509f2b6b",
+        "fnd_94d4382ab0c5"
       ],
       "rsi": []
     },

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T18:33:25Z",
-  "updated_cycle": "20261006T183245Z_2a4842",
+  "updated_at": "2026-10-07T09:05:19Z",
+  "updated_cycle": "20261007T090451Z_17bfae",
   "signal": {
-    "ts": "2026-10-06T18:33:25Z",
+    "ts": "2026-10-07T09:05:19Z",
     "accepted_count": 0,
     "strong_candidate_count": 33,
-    "unknown_caution_count": 112,
+    "unknown_caution_count": 114,
     "strength": 0.25,
     "mutation_bias": {
       "explore": 0.065,

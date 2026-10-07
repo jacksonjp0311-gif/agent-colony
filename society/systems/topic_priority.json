@@ -41,6 +41,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "`meta-learning`",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`self-improving-agents`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "ack-heavy]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "agent-soci'",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-06T18:33:06Z",
-  "updated_cycle": "20261006T183245Z_2a4842",
+  "updated_at": "2026-10-07T09:05:12Z",
+  "updated_cycle": "20261007T090451Z_17bfae",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
