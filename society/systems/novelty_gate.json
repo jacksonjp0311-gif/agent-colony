@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T21:52:00Z",
+  "updated_at": "2026-10-08T01:14:23Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-07T21:52:00Z",
+    "ts": "2026-10-08T01:14:23Z",
     "cycle_id": "",
-    "mutation": "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa (cycle 181)",
+    "mutation": "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 190)",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
@@ -19,16 +19,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 36,
-      "hard_n": 36,
+      "hard_pass": 42,
+      "hard_n": 42,
       "stripped_fails_usefulness": false,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard36"
+      "impl_id": "lemma_impl_v2_basic10_hard42"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 36,
+      "hard_pass": 42,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

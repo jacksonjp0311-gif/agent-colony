@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_35432d4730d7",
-      "title": "Authorize accepted: Lemma mutation keep: adversarial_cassini_ext"
+      "finding_id": "fnd_c300b9aab0c0",
+      "title": "Authorize accepted: Lemma mutation keep: adversarial_catalan_convolution_stress"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-07T23:14:38Z",
-  "updated_cycle": "20261007T231428Z_5fe308",
+  "updated_at": "2026-10-08T01:14:04Z",
+  "updated_cycle": "20261008T011326Z_051c58",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
