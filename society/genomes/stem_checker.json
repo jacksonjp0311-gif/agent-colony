@@ -1,7 +1,7 @@
 {
   "role": "stem_checker",
   "traits": {
-    "gather": 0.94,
+    "gather": 0.9382,
     "build": 0.795,
     "reply": 0.53,
     "explore": 0.99,
@@ -14,7 +14,7 @@
   "born_at": "2026-09-26T15:47:16Z",
   "fitness_at_birth": null,
   "version": 1,
-  "lesson_bias_ts": "2026-10-08T07:44:14Z",
+  "lesson_bias_ts": "2026-10-08T07:47:59Z",
   "align_mile_bias": true,
   "align_mile_ts": "2026-09-26T16:05:05Z"
 }

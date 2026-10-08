@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-08T07:44:08Z",
-  "cycle_id": "20261008T074402Z_7993a3",
+  "ts": "2026-10-08T07:47:52Z",
+  "cycle_id": "20261008T074746Z_c23c2b",
   "roles": {
     "A": "geometer",
     "B": "legislator",
@@ -8,23 +8,23 @@
     "D": "legislator"
   },
   "msg_ids": [
-    "msg_13d8d75cbd",
-    "msg_a831c0e46b",
-    "msg_4d15dd395b",
-    "msg_17d0cf0d58"
+    "msg_c5e4415967",
+    "msg_3d5a796b37",
+    "msg_751705d61e",
+    "msg_a773ef04b2"
   ],
-  "finding_id": "fnd_73e6a47d1f3d",
+  "finding_id": "fnd_67627fc4b756",
   "code_touched": true,
   "action_changed": true,
   "load_bear_closed": 1,
   "bus_metrics": {
-    "reply_rate": 0.9286,
+    "reply_rate": 0.9643,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "reply_quality": 0.912
   },
-  "seed_id": "seed_solar_ops_gather",
-  "telemetry_ts": "2026-10-08T07:44:00Z",
+  "seed_id": "seed_hearing_external_array",
+  "telemetry_ts": "2026-10-08T07:47:44Z",
   "external_patterns": [
     "publications_x_space",
     "global_weather_spread",
@@ -35,233 +35,233 @@
     "high": [
       [
         "spark",
-        0.5894615
+        0.5887749999999999
       ],
       [
         "pathfinder",
-        0.38069699999999995
+        0.38075000000000003
       ],
       [
         "tribute_keeper",
-        0.38069699999999995
+        0.38075000000000003
       ]
     ],
     "conflicts": [
       {
         "a": "pathfinder",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "pathfinder",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "improver",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.1021,
-        "score": 0.3766,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.105,
+        "score": 0.3655,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "improver",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.1021,
-        "score": 0.3766,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.105,
+        "score": 0.3655,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "spark",
         "b": "legislator",
-        "confidence_gap": 0.3256,
+        "confidence_gap": 0.313,
         "arousal_gap": 0.7,
-        "score": 0.6756,
+        "score": 0.663,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "spark",
         "b": "geometer",
-        "confidence_gap": 0.3256,
+        "confidence_gap": 0.313,
         "arousal_gap": 0.7,
-        "score": 0.6756,
+        "score": 0.663,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "tribute_keeper",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "tribute_keeper",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "memory_weaver",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "memory_weaver",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "builder",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "builder",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "herald",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "herald",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "courier",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "courier",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "scribe",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "scribe",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "surveyor",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "surveyor",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "oracle_scribe",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "oracle_scribe",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "stem_checker",
         "b": "legislator",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       },
       {
         "a": "stem_checker",
         "b": "geometer",
-        "confidence_gap": 0.3256,
-        "arousal_gap": 0.191,
-        "score": 0.4211,
+        "confidence_gap": 0.313,
+        "arousal_gap": 0.1925,
+        "score": 0.4093,
         "trigger_redebate": true,
-        "ts": "2026-10-08T07:44:08Z"
+        "ts": "2026-10-08T07:47:52Z"
       }
     ]
   },
@@ -270,8 +270,8 @@
     "h7": 0.5384615384615384,
     "inform_only": true,
     "distribution": {
-      "APPROVE": 56,
-      "REFINE": 167,
+      "APPROVE": 57,
+      "REFINE": 170,
       "REJECT": 0
     }
   },
