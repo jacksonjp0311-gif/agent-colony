@@ -463,11 +463,47 @@ def theme_key(text: str) -> str:
     return s[:48]
 
 
+def is_title_only_kill(e: dict, *, _cache: dict | None = None) -> bool:
+    """True for an oracle_kill lesson that judged a seek proposal's TITLE TEXT, not its target.
+
+    Identified from the row's own fields (history is never rewritten): written by the novelty
+    gate (source ``novelty_gate``) on a kind=process claim (family ``process``) whose text names
+    a resolved target (``Chain `<catalog entry>` …``) and is not that target itself. Those rows
+    are not a verdict on the lemma; the Oracle's verdict on the target is a separate row with the
+    lemma as its mutation, and that one still counts. Unresolved titles keep counting. Fail
+    closed: if the target cannot be resolved, the kill counts.
+    """
+    if e.get("type") != "oracle_kill":
+        return False
+    if str(e.get("source") or "") != "novelty_gate" or str(e.get("family") or "") != "process":
+        return False
+    mut = str(e.get("mutation") or "").strip()
+    if not mut:
+        return False
+    cache = _cache if _cache is not None else {}
+    if mut not in cache:
+        try:
+            from colony.standing_trust import resolve_proposal_target
+            cache[mut] = resolve_proposal_target(action="", mutation=mut)
+        except Exception:
+            cache[mut] = ""
+    target = cache[mut]
+    return bool(target) and target != mut.lower()
+
+
 def oracle_kill_theme_counts(*, lookback: int = 400) -> dict[str, int]:
-    """Count Oracle kills per theme (guides teach: drop after repeats)."""
+    """Count Oracle kills per theme (guides teach: drop after repeats).
+
+    Only real Oracle kills of a lemma/claim count; title-only kills on proposals whose target
+    resolved (:func:`is_title_only_kill`) are filtered out. Guide-based blocks are separate
+    (:func:`guide_avoid_themes`) and unaffected.
+    """
     counts: dict[str, int] = {}
+    _cache: dict[str, str] = {}
     for e in load_lessons(limit=lookback, include_expired=True):
         if e.get("type") != "oracle_kill":
+            continue
+        if is_title_only_kill(e, _cache=_cache):
             continue
         theme = theme_key(e.get("mutation") or "") or theme_key(e.get("what") or "")
         if theme:
