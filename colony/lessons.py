@@ -471,7 +471,9 @@ def is_title_only_kill(e: dict, *, _cache: dict | None = None) -> bool:
     a resolved target (``Chain `<catalog entry>` …``) and is not that target itself. Those rows
     are not a verdict on the lemma; the Oracle's verdict on the target is a separate row with the
     lemma as its mutation, and that one still counts. Unresolved titles keep counting. Fail
-    closed: if the target cannot be resolved, the kill counts.
+    closed: if the target cannot be resolved, the kill counts. A deferred title check (source
+    ``novelty_gate_deferred_title``: the target was never judged in its cycle) also counts —
+    otherwise a target the desk never judges could be re-proposed forever.
     """
     if e.get("type") != "oracle_kill":
         return False

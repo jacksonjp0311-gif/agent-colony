@@ -153,11 +153,22 @@ def target_judged_in_cycle(target: str, cycle_id: str, *, log: Path | None = Non
     return latest
 
 
-def run_title_check(*, mutation: str, action: str) -> dict[str, Any]:
+DEFERRED_TITLE_SOURCE = "novelty_gate_deferred_title"
+
+
+def run_title_check(*, mutation: str, action: str, deferred: bool = False) -> dict[str, Any]:
     """The legacy title-text check, unchanged: novelty gate (+ its Oracle run) on the title
     as kind=process. Used for unresolved proposals, and deferred for resolved proposals
-    whose target the Oracle did not judge in their cycle."""
+    whose target the Oracle did not judge in their cycle.
+
+    A deferred run is the fail-closed path (the target was never judged), so its Oracle row is
+    labelled ``novelty_gate_deferred_title`` and its kill counts toward the kill cooldown; only
+    plain ``novelty_gate`` title kills of a resolved target are filtered from the cooldown.
+    """
     from colony.novelty_gate import evaluate as novelty_evaluate
+    if deferred:
+        return novelty_evaluate(mutation=mutation or action, kind="process", claim_text=action,
+                                oracle_source=DEFERRED_TITLE_SOURCE)
     return novelty_evaluate(mutation=mutation or action, kind="process", claim_text=action)
 
 

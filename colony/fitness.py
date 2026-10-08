@@ -312,13 +312,13 @@ def _settle_title_check(prop: dict[str, Any]) -> None:
                 "kills": list(row.get("kills") or [])[:6],
             }
             return
-        run_title_check(mutation=prop.get("title") or "", action=prop.get("action") or "")
+        run_title_check(mutation=prop.get("title") or "", action=prop.get("action") or "", deferred=True)
         prop["title_check"] = "ran_deferred"
     except Exception:
         # fail closed: try the legacy check; if even that fails, record it
         try:
             from colony.standing_trust import run_title_check
-            run_title_check(mutation=prop.get("title") or "", action=prop.get("action") or "")
+            run_title_check(mutation=prop.get("title") or "", action=prop.get("action") or "", deferred=True)
             prop["title_check"] = "ran_deferred"
         except Exception:
             prop["title_check"] = "deferred_error"

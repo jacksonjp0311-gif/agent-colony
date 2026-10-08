@@ -30,17 +30,24 @@ def _row(mutation, *, passed, cycle_id, kind="hard_enable"):
     }
 
 
+calls_sources: list = []
+
+
 @pytest.fixture
 def title_calls(tmp_path, monkeypatch):
     """Record every title-text submission (novelty gate → Oracle) instead of running it."""
     calls: list[dict] = []
+    sources: list[str] = []
+    calls_sources[:] = []
 
-    def fake_eval(*, mutation, kind="", claim_text="", cycle_id=""):
+    def fake_eval(*, mutation, kind="", claim_text="", cycle_id="", oracle_source="novelty_gate"):
         calls.append({"mutation": mutation, "kind": kind, "claim_text": claim_text})
+        sources.append(oracle_source)
         return {"textbook_reuse": NG.textbook_reuse_score(mutation.strip(), claim_text),
                 "novel_to_commons": False, "kills": ["oracle_kill:[stub]"]}
 
     monkeypatch.setattr(NG, "evaluate", fake_eval)
+    calls_sources.append(sources)
     log = tmp_path / "oracle.jsonl"
     log.write_text("", encoding="utf-8")
     monkeypatch.setattr(ST, "ORACLE_LOG", log)
@@ -85,6 +92,7 @@ def test_unresolved_proposal_keeps_legacy_title_check(title_calls):
     t, a = "Deepen compute-useful math from accepted findings", "mandate:cite_accepted_compute_findings"
     compute_proposal_P(mutation=t, action=a, cycle_id="c1", lesson_consistency=1.0, defer_title_check=True)
     assert calls == [{"mutation": t, "kind": "process", "claim_text": a}]
+    assert calls_sources[-1] == ["novelty_gate"]  # legacy path, legacy label
 
 
 def _engine(prop):
@@ -131,6 +139,8 @@ def test_measure_target_never_judged_runs_deferred_title_check(title_calls):
     assert len(calls) == 1 and calls[0]["mutation"] == TITLE and calls[0]["kind"] == "process"
     assert pr["title_check"] == "ran_deferred"
     assert pr["P_terms"]["P_oracle"] == 0.0 and pr["P"] < STANDING_TRUST_P_MIN
+    # labelled as the fail-closed deferred check (its kill counts toward the cooldown)
+    assert calls_sources[-1] == [ST.DEFERRED_TITLE_SOURCE]
 
 
 def test_legacy_proposal_without_flag_is_not_rechecked(title_calls):

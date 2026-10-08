@@ -87,3 +87,43 @@ def test_human_guide_drop_persists_regardless_of_counts(lessons):
     assert theme_is_blocked(theme)
     lessons([_guide(theme)])  # no kills at all
     assert theme_is_blocked(theme)
+
+
+def test_deferred_title_check_kills_count_fail_closed(lessons):
+    """A deferred title check runs only when the target was never judged in its cycle; those
+    kills count, so a target the desk never judges cannot be re-proposed forever."""
+    from colony.standing_trust import DEFERRED_TITLE_SOURCE
+    deferred = [_kill(f"Chain `{TARGET}` citing P", source=DEFERRED_TITLE_SOURCE, family="process", i=i)
+                for i in range(3)]
+    phantom = [_kill(f"Chain `{TARGET}` citing P", source="novelty_gate", family="process", i=10 + i)
+               for i in range(3)]
+    lessons(phantom + deferred[:2])
+    assert oracle_kill_theme_counts().get(TARGET) == 2 and not theme_is_blocked(TARGET)
+    lessons(phantom + deferred)
+    assert not any(is_title_only_kill(r) for r in deferred)
+    assert blocked_themes()[TARGET] == "kill_cooldown:3"
+
+
+def test_novelty_gate_oracle_source_is_label_only(monkeypatch):
+    """oracle_source changes only the provenance label passed to the Oracle, nothing else."""
+    import colony.novelty_gate as NG
+    import colony.oracle as O
+    seen = []
+
+    class _V:
+        passed, kills = False, ["k"]
+
+    def fake_oracle(**kw):
+        seen.append(kw)
+        return _V()
+
+    monkeypatch.setattr(O, "evaluate", fake_oracle)
+    monkeypatch.setattr(NG, "_persist_system", lambda v: None)
+    monkeypatch.setattr(NG, "GATE_LOG", __import__("pathlib").Path(__import__("tempfile").mkdtemp()) / "g.jsonl")
+    a = NG.evaluate(mutation="Chain `x` t", kind="process", claim_text="seek_enable:x")
+    b = NG.evaluate(mutation="Chain `x` t", kind="process", claim_text="seek_enable:x",
+                    oracle_source="novelty_gate_deferred_title")
+    assert [s["source"] for s in seen] == ["novelty_gate", "novelty_gate_deferred_title"]
+    strip = lambda d: {k: v for k, v in d.items() if k != "ts"}
+    assert strip(a) == strip(b)
+    assert {k: v for k, v in seen[0].items() if k != "source"} == {k: v for k, v in seen[1].items() if k != "source"}

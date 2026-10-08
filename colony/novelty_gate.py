@@ -184,8 +184,12 @@ def evaluate(
     kind: str = "",
     claim_text: str = "",
     cycle_id: str = "",
+    oracle_source: str = "novelty_gate",
 ) -> dict[str, Any]:
-    """Return gate verdict. novel_to_commons True only if all gates pass."""
+    """Return gate verdict. novel_to_commons True only if all gates pass.
+
+    ``oracle_source`` only labels the Oracle row/lesson (provenance); the checks are identical.
+    """
     known = known_identities()
     name = (mutation or "").strip()
     in_ledger = name.lower() in known or any(name.lower() in k for k in known)
@@ -214,7 +218,7 @@ def evaluate(
             mutation=name,
             kind=kind or "",
             claim_text=claim_text,
-            source="novelty_gate",
+            source=oracle_source or "novelty_gate",
             cycle_id=cycle_id,
         )
         if not ov.passed:
