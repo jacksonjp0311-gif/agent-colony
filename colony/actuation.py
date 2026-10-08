@@ -454,12 +454,25 @@ def act_param_experiment(
     try:
         sys_path = ROOT / "society" / "systems" / "exploration_budget.json"
         sys_path.parent.mkdir(parents=True, exist_ok=True)
-        payload = {
-            "ts": _utc(),
-            "fp": after,
-            "last_outcome": {"before": before, "after": after, "delta": delta, "cycle_id": cycle_id},
-            "note": "actuation controlled experiment — bounded fp nudge",
-        }
+        # Merge, don't replace: the same file holds the desk's exploration distribution
+        # (mutate_distribution / revert_penalties / keep_rewards from
+        # colony.exploration_budget.record_outcome). Overwriting it wiped those every cycle.
+        payload: dict[str, Any] = {}
+        if sys_path.exists():
+            try:
+                loaded = json.loads(sys_path.read_text(encoding="utf-8"))
+                if isinstance(loaded, dict):
+                    payload = loaded
+            except (json.JSONDecodeError, OSError):
+                payload = {}
+        payload.update(
+            {
+                "ts": _utc(),
+                "fp": after,
+                "last_outcome": {"before": before, "after": after, "delta": delta, "cycle_id": cycle_id},
+                "note": "actuation controlled experiment — bounded fp nudge",
+            }
+        )
         sys_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     except Exception:
         pass
