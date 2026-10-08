@@ -1,34 +1,34 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T01:14:23Z",
+  "updated_at": "2026-10-08T01:17:40Z",
   "hits": 0,
   "kills": 30,
   "latest": {
-    "ts": "2026-10-08T01:14:23Z",
-    "cycle_id": "",
-    "mutation": "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 190)",
-    "kind": "process",
+    "ts": "2026-10-08T01:17:40Z",
+    "cycle_id": "20261008T011728Z_9f2da2",
+    "mutation": "binomial_identities",
+    "kind": "claim_theme",
     "novel_to_commons": false,
     "kills": [
       "stripped_baseline_does_not_fail_usefulness",
       "held_out:hard_tier_green_and_hard_enable",
-      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
+      "oracle_kill:['oracle_blocked_no_bus']"
     ],
-    "textbook_reuse": 0.3333,
+    "textbook_reuse": 0.0,
     "in_ledger": false,
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 42,
-      "hard_n": 42,
+      "hard_pass": 43,
+      "hard_n": 43,
       "stripped_fails_usefulness": false,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard42"
+      "impl_id": "lemma_impl_v2_basic10_hard43"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 42,
+      "hard_pass": 43,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
