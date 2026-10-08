@@ -639,19 +639,6 @@ def check_authored_pascal_identity__narayana_sum_w1() -> bool:
     return all((check_pascal_identity(n, k) for n in range(16, 23) for k in range(1, n))) and all((check_narayana_sum(n) for n in range(12, 17)))
 
 
-def check_authored_oeis_a000984__central_binom_bound() -> bool:
-    """Authored feed cross-check (desk): OEIS A000984 held-out terms
-    n=9..27 must equal the colony's `central_binomial` (binomial(2 * n, n)), and the
-    proven lemma central_binom_bound must hold on a window past its base window.
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_central_binom_bound,
-    ::binomial; checked by society/benchmarks/lemma_microbench.py.
-    Source: https://oeis.org/A000984 (feed oeis:A000984:central_binomial, fetched 2026-10-08T06:24:33Z).
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_central_binom_bound(n) for n in range(18, 26))) and all((binomial(2 * n, n) == t for n, t in zip(range(9, 28), (48620, 184756, 705432, 2704156, 10400600, 40116600, 155117520, 601080390, 2333606220, 9075135300, 35345263800, 137846528820, 538257874440, 2104098963720, 8233430727600, 32247603683100, 126410606437752, 495918532948104, 1946939425648112))))
-
-
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -745,8 +732,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_fibonacci_addition__gcd_fibonacci_w1", check_authored_fibonacci_addition__gcd_fibonacci_w1, True),
     ("authored_geometric_sum__hockey_stick_w1", check_authored_geometric_sum__hockey_stick_w1, True),
     ("authored_motzkin_bounded__legendre_duplication_small_w1", check_authored_motzkin_bounded__legendre_duplication_small_w1, True),
-    ("authored_pascal_identity__narayana_sum_w1", check_authored_pascal_identity__narayana_sum_w1, True),
-    ("authored_oeis_a000984__central_binom_bound", check_authored_oeis_a000984__central_binom_bound, True),
+    ("authored_pascal_identity__narayana_sum_w1", check_authored_pascal_identity__narayana_sum_w1, False),
 ]
 
 

@@ -243,82 +243,85 @@
     "cycle_191_evolve_note",
     "cycle_192_evolve_note",
     "cycle_193_evolve_note",
-    "cycle_194_evolve_note"
+    "cycle_194_evolve_note",
+    "cycle_195_evolve_note",
+    "cycle_196_evolve_note",
+    "cycle_197_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 532,
+      "uses": 541,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 504,
+      "uses": 513,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 357,
+      "uses": 363,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 178,
+      "uses": 181,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 669,
+      "uses": 681,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 464,
+      "uses": 470,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 499,
+      "uses": 508,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 166,
+      "uses": 169,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 166,
+      "uses": 169,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 151,
+      "uses": 154,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 151,
+      "uses": 154,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 148,
+      "uses": 151,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 148,
+      "uses": 151,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 145,
+      "uses": 148,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 145,
+      "uses": 148,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -593,8 +596,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 668,
-    "reused": 1498
+    "appended": 680,
+    "reused": 1525
   },
   "commons_by_domain": {
     "science": 0,
@@ -613,8 +616,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-08T01:18:06Z",
-    "cycle_id": "20261008T011728Z_9f2da2",
+    "ts": "2026-10-08T06:26:30Z",
+    "cycle_id": "20261008T062555Z_19076a",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -626,57 +629,53 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-08T01:18:05Z",
-    "cycle_id": "20261008T011728Z_9f2da2",
+    "ts": "2026-10-08T06:26:29Z",
+    "cycle_id": "20261008T062555Z_19076a",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.7692,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8173,
-    "compute_usefulness": 0.9173,
+    "math_prize": 0.8139,
+    "compute_usefulness": 0.9132,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8888,
-    "kill_rate": 0.3973,
-    "kill_rate_term": 0.9076,
+    "prize_boost": 0.8859,
+    "kill_rate": 0.4,
+    "kill_rate_term": 0.91,
     "novelty": 0.0,
     "lesson_uptake": 0.9615,
-    "aggregate": 0.8221,
+    "aggregate": 0.8207,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 9502,
-    "read": 44916,
-    "replied": 5977,
-    "actions_planned": 3108,
-    "actions_changed_from_message": 3108,
-    "reply_quality_sum": 5403.399999999841,
-    "reply_quality_n": 5925,
-    "peer_cite_opportunities": 6092,
-    "peer_cites": 6092
+    "posted": 9669,
+    "read": 45726,
+    "replied": 6082,
+    "actions_planned": 3162,
+    "actions_changed_from_message": 3162,
+    "reply_quality_sum": 5499.199999999816,
+    "reply_quality_n": 6030,
+    "peer_cite_opportunities": 6200,
+    "peer_cites": 6200
   },
   "bus_domains": {
-    "science": 494,
-    "history": 496,
-    "math": 1497,
-    "empire": 333,
-    "bulletin": 1406,
-    "forum": 2150,
-    "software": 496,
-    "nature": 494,
-    "life": 496,
-    "cosmos": 698,
-    "rsi": 834
+    "science": 503,
+    "history": 505,
+    "math": 1524,
+    "empire": 339,
+    "bulletin": 1427,
+    "forum": 2190,
+    "software": 505,
+    "nature": 503,
+    "life": 505,
+    "cosmos": 711,
+    "rsi": 849
   },
-  "communications_count": 9502,
+  "communications_count": 9669,
   "improvements": [
-    "Seek `lemma_hard_combinatorics` citing New algebraic points on covers of elliptic curves (cycle 158)",
-    "Chain `derived_chain_stress` citing New algebraic points on covers of elliptic curves",
-    "Chain `derived_chain_stress` citing New algebraic points on covers of elliptic curves (cycle 159)",
-    "Chain `derived_chain_stress` citing New algebraic points on covers of elliptic curves",
     "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
     "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves",
     "Chain `workload_derived_chain` citing New algebraic points on covers of elliptic curves (cycle 161)",
@@ -722,18 +721,22 @@
     "Chain `authored_motzkin_bounded__legendre_duplication_small_w1` citing Sum and square-sum of consecutive pentagonal numbe",
     "Chain `authored_motzkin_bounded__legendre_duplication_small_w1` citing Sum and square-sum of consecutive pentagonal numbe (cycle 193)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
-    "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)"
+    "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)",
+    "Chain `authored_pascal_identity__narayana_sum_w1` citing On the maximum degree and order of $K_t$-minor-fre",
+    "Chain `authored_pascal_identity__narayana_sum_w1` citing On the maximum degree and order of $K_t$-minor-fre (cycle 195)",
+    "Chain `authored_oeis_a000984__central_binom_bound` citing A counting version of Petersen's $2$-factor theore",
+    "Chain `authored_oeis_a000984__central_binom_bound` citing A counting version of Petersen's $2$-factor theore (cycle 197)"
   ],
-  "cycle_count": 194,
-  "ledger_count": 10238,
+  "cycle_count": 197,
+  "ledger_count": 10425,
   "status_counts": {
-    "candidate": 9816,
-    "accepted": 105,
-    "rejected": 196,
+    "candidate": 9996,
+    "accepted": 108,
+    "rejected": 200,
     "unknown": 121
   },
-  "witness_events": 14508,
-  "tribute_cycles_compliant": 194,
+  "witness_events": 14774,
+  "tribute_cycles_compliant": 197,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

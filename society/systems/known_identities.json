@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-08T01:17:40Z",
-  "n": 138,
+  "updated_at": "2026-10-08T06:25:16Z",
+  "n": 139,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -23,6 +23,7 @@
     "become_fail_forward",
     "become_real_fitness",
     "binomial_hockey_deep",
+    "binomial_identities",
     "binomial_sum_row",
     "cassini",
     "catalan_bounded",

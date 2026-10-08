@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T01:17:40Z",
-  "passes": 223,
-  "kills": 147,
-  "easy_pad_kills": 23,
-  "kill_rate": 0.3973,
+  "updated_at": "2026-10-08T06:26:06Z",
+  "passes": 225,
+  "kills": 150,
+  "easy_pad_kills": 24,
+  "kill_rate": 0.4,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 15,
-    "kills": 45,
-    "easy_pad_kills": 13,
-    "kill_rate": 0.75
+    "passes": 17,
+    "kills": 43,
+    "easy_pad_kills": 12,
+    "kill_rate": 0.7167
   },
   "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
@@ -29,6 +29,8 @@
     "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000108__catalan_bounded",
+    "authored_oeis_a000984__central_binom_bound",
+    "authored_pascal_identity__narayana_sum_w1",
     "binomial_identities"
   ],
   "unique_mutations_kill": [
@@ -49,7 +51,6 @@
     "Chain `authored_oeis_a000108__catalan_bounded` citing Odds",
     "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)",
     "Chain `energy_work` citing New algebraic points on covers of elliptic curves",
-    "Chain `fibonacci_cassini_ext` citing New algebraic points on covers of elliptic curves",
     "Chain `fibonacci_cassini_ext` citing New algebraic points on covers of elliptic curves (cycle 164)",
     "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
     "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
@@ -57,11 +58,11 @@
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian (cycle 192)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 190)",
+    "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)",
     "binomial_identities",
     "easy_pad_abs_identity",
     "easy_pad_assoc_add",
     "easy_pad_commutativity",
-    "easy_pad_diff_squares",
     "easy_pad_zero_identity"
   ],
   "domain_packs": {
@@ -94,40 +95,40 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-08T01:17:40Z",
+    "ts": "2026-10-08T06:26:06Z",
     "passed": true,
     "kills": [],
     "hear": {
       "heard": true,
-      "bus_ok": true,
+      "bus_ok": false,
       "is_easy_pad": false,
       "attack_weight": 0.35,
       "support_weight": 0.55,
-      "msg_ids": [
-        "msg_a7fee28763",
-        "msg_eeb716c7b0",
-        "msg_3ed470d577"
-      ],
-      "propose": "PROPOSE for Oracle HEAR: `binomial_identities` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `binomial_identities` from `Reconstruction of slices of cubes` may relate to lemm",
-      "attack": "WEIGH: `binomial_identities` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "msg_ids": [],
+      "propose": "PROPOSE for Oracle HEAR: `authored_oeis_a000984__central_binom_bound` kind=hard_enable. lemma mutation authored_oeis_a000984__central_binom_bound 0.9071->0.9071 Not discovery. cycle=20261008T062555Z_1",
+      "attack": "WEIGH: `authored_oeis_a000984__central_binom_bound` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
+        "already_enabled": true,
+        "in_catalog": true,
+        "hard_pass": 45,
+        "hard_n": 45,
+        "score": 0.9071,
         "stripped_fails_usefulness": true,
-        "reason": "claim_or_bench_path",
         "ok_for_oracle": true,
-        "kind_path": "claim_theme"
+        "reason": "pre_apply_usefulness_via_delta=1",
+        "hard_pass_delta": 1
       },
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "reason": "held_out_theme_window_green",
-        "theme_window": "adversarial_hockey_deep",
-        "in_catalog": true,
-        "enabled": true,
-        "hard_pass": 43,
-        "hard_n": 43,
-        "mutation": "binomial_identities"
+        "hard_pass": 45,
+        "hard_n": 45,
+        "ok": true,
+        "score": 0.9071,
+        "reason": "hard_pass_delta=1",
+        "hard_pass_delta": 1
       },
       "cas": {
         "cas_ok": true,
@@ -148,7 +149,7 @@
             "ok": true
           },
           {
-            "label": "binom_symmetry_numeric",
+            "label": "hard_enable_probes",
             "ok": true
           }
         ]
@@ -200,15 +201,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "binomial_identities",
-      "kind": "claim_theme",
+      "mutation": "authored_oeis_a000984__central_binom_bound",
+      "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "binomial_identities",
-    "kind": "claim_theme",
-    "source": "claim_pipeline",
-    "cycle_id": "20261008T011728Z_9f2da2",
+    "mutation": "authored_oeis_a000984__central_binom_bound",
+    "kind": "hard_enable",
+    "source": "conjecture_desk",
+    "cycle_id": "20261008T062555Z_19076a",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

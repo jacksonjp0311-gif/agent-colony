@@ -746,7 +746,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_geometric_sum__hockey_stick_w1", check_authored_geometric_sum__hockey_stick_w1, True),
     ("authored_motzkin_bounded__legendre_duplication_small_w1", check_authored_motzkin_bounded__legendre_duplication_small_w1, True),
     ("authored_pascal_identity__narayana_sum_w1", check_authored_pascal_identity__narayana_sum_w1, True),
-    ("authored_oeis_a000984__central_binom_bound", check_authored_oeis_a000984__central_binom_bound, True),
+    ("authored_oeis_a000984__central_binom_bound", check_authored_oeis_a000984__central_binom_bound, False),
 ]
 
 

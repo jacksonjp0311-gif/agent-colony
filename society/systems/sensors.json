@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-08T01:17:29Z",
-  "cycle_id": "20261008T011728Z_9f2da2",
+  "ts": "2026-10-08T06:25:55Z",
+  "cycle_id": "20261008T062555Z_19076a",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -15,23 +15,17 @@
       "skill_router": 38,
       "deepen compute-useful math from accepted finding": 28,
       "easy_pad_assoc_add": 6,
+      "easy_pad_zero_identity": 6,
       "easy_pad_square_again": 4,
-      "easy_pad_zero_identity": 4,
       "lemma_hard_combinatorics": 4,
+      "stem_easy_pad_units": 4,
       "easy_pad_diff_squares": 3,
       "easy_pad_commutativity": 3,
       "easy_pad_abs_identity": 3,
       "vandermonde": 2,
-      "stem_easy_pad_units": 2
+      "binomial_identities": 1
     },
     "recent": {
-      "adversarial_catalan_convolution_stress": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "adversarial_derived_chain_stress": {
         "last": "keep",
         "streak": 1,
@@ -108,16 +102,23 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_pascal_identity__narayana_sum_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8037,
-      "slope": -0.002124,
+      "last": 0.8252,
+      "slope": -0.000203,
       "min": 0.8037,
-      "max": 0.8247
+      "max": 0.8252
     },
     "novelty": {
       "last": 0.0,
@@ -126,35 +127,36 @@
       "max": 0.0
     },
     "kill_rate": {
-      "last": 0.3918,
-      "slope": 0.000514,
+      "last": 0.4011,
+      "slope": 0.001234,
       "min": 0.3859,
-      "max": 0.3929
+      "max": 0.4011
     },
     "kill_rate_term": {
-      "last": 0.9026,
-      "slope": 0.000359,
+      "last": 0.911,
+      "slope": 0.001113,
       "min": 0.8973,
-      "max": 0.9036
+      "max": 0.911
     },
     "lesson_uptake": {
       "last": 0.9615,
-      "slope": 0.002638,
-      "min": 0.8929,
+      "slope": 0.0,
+      "min": 0.9615,
       "max": 0.9615
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0207,
+    "aggregate_range": 0.0215,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 53,
+    "enabled": 54,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_oeis_a000984__central_binom_bound"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -166,7 +168,9 @@
       "authored_geometric_sum__hockey_stick_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
       "authored_oeis_a000045__cassini",
-      "authored_oeis_a000108__catalan_bounded"
+      "authored_oeis_a000108__catalan_bounded",
+      "authored_oeis_a000984__central_binom_bound",
+      "authored_pascal_identity__narayana_sum_w1"
     ],
     "exhausted_recent": 0
   },
@@ -182,23 +186,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.085,
+      "ratio": 1.096,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.061,
+      "ratio": 1.068,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.918,
+      "ratio": 1.072,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.078,
+      "ratio": 1.294,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.885,
+      "ratio": 1.094,
       "drift": false
     }
   },
@@ -208,82 +212,86 @@
     "last": [
       [
         null,
+        "2026-10-08T06:24:15Z"
+      ],
+      [
+        "success",
         "2026-10-08T01:15:31Z"
       ],
       [
         "success",
         "2026-10-08T01:11:23Z"
-      ],
-      [
-        "success",
-        "2026-10-07T23:13:27Z"
       ]
     ],
-    "fetched_at": "2026-10-08T01:15:45Z"
+    "fetched_at": "2026-10-08T06:24:36Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 6,
-      "oeis": 2,
-      "crossref": 2,
-      "wikipedia": 1
+      "arxiv": 12,
+      "oeis": 4,
+      "crossref": 7,
+      "wikipedia": 2
     },
     "by_kind": {
-      "paper": 8,
-      "sequence": 2,
-      "summary": 1
+      "paper": 19,
+      "sequence": 4,
+      "summary": 2
     },
     "last_run": {
       "sources": {
         "arxiv": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 8,
+          "new": 6,
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 5,
+          "new": 5,
+          "ok": true
         },
         "oeis": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 2,
+          "new": 2,
+          "ok": true
         },
         "wikipedia": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 1,
+          "new": 1,
+          "ok": true
         }
       },
-      "ts": "2026-10-08T01:15:44Z"
+      "ts": "2026-10-08T06:24:29Z"
     },
     "health": {
       "arxiv": {
         "fail": 0,
-        "ok": 1
+        "ok": 2
       },
       "crossref": {
         "fail": 0,
-        "ok": 1
+        "ok": 2
       },
       "oeis": {
         "fail": 0,
-        "ok": 1
+        "ok": 2
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 1
+        "ok": 2
       }
     }
   },
   "signals": [
     "revert_streaks: easy_pad_abs_identity, easy_pad_assoc_add, easy_pad_commutativity, easy_pad_diff_squares → deprioritize in seek",
-    "feeds: 2 OEIS sequence(s) cached → candidate cross-checks for authored checks"
+    "feeds: 4 OEIS sequence(s) cached → candidate cross-checks for authored checks"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
 }
