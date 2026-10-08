@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-08T07:47:47Z",
-  "cycle_id": "20261008T074746Z_c23c2b",
+  "ts": "2026-10-08T13:54:31Z",
+  "cycle_id": "20261008T135430Z_7f846b",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -12,27 +12,20 @@
       "stem_easy_pad_units"
     ],
     "oracle_kills_by_theme": {
-      "skill_router": 32,
-      "deepen compute-useful math from accepted finding": 22,
+      "skill_router": 24,
+      "deepen compute-useful math from accepted finding": 13,
       "easy_pad_square_again": 7,
       "easy_pad_assoc_add": 6,
       "easy_pad_zero_identity": 6,
       "lemma_hard_combinatorics": 4,
       "easy_pad_diff_squares": 4,
+      "easy_pad_commutativity": 4,
+      "easy_pad_abs_identity": 4,
       "stem_easy_pad_units": 4,
-      "easy_pad_commutativity": 3,
-      "easy_pad_abs_identity": 3,
       "vandermonde": 2,
       "binomial_identities": 1
     },
     "recent": {
-      "authored_binomial_symmetry__catalan_convolution_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_central_binom_bound__derangement_subfactorial_w1": {
         "last": "keep",
         "streak": 1,
@@ -109,57 +102,66 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_binomial_inversion_small__legendre_duplication_small_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.827,
-      "slope": 0.000617,
+      "last": 0.8332,
+      "slope": 0.000774,
       "min": 0.8207,
-      "max": 0.8303
+      "max": 0.8332
     },
     "novelty": {
-      "last": 0.1,
-      "slope": 0.009443,
+      "last": 0.1333,
+      "slope": 0.01212,
       "min": 0.0,
-      "max": 0.1
+      "max": 0.1333
     },
     "kill_rate": {
-      "last": 0.4021,
-      "slope": 0.00046,
-      "min": 0.3962,
-      "max": 0.4031
+      "last": 0.4041,
+      "slope": 0.000283,
+      "min": 0.4,
+      "max": 0.4041
     },
     "kill_rate_term": {
-      "last": 0.9119,
-      "slope": 0.000412,
-      "min": 0.9066,
-      "max": 0.9128
+      "last": 0.9137,
+      "slope": 0.000256,
+      "min": 0.91,
+      "max": 0.9137
     },
     "lesson_uptake": {
       "last": 0.9846,
-      "slope": 0.002827,
+      "slope": 0.002585,
       "min": 0.9615,
       "max": 0.9846
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.005,
-    "novelty_max": 0.1,
+    "aggregate_range": 0.0079,
+    "novelty_max": 0.1333,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 59,
+    "enabled": 60,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_oeis_a000079__binomial_sum_row"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
       "authored_bell_triangle_recurrence__hermite_recurrence_w1",
+      "authored_binomial_inversion_small__legendre_duplication_small_w1",
       "authored_binomial_sum_row__catalan_bounded_w1",
       "authored_binomial_symmetry__catalan_convolution_w1",
       "authored_central_binom_bound__derangement_subfactorial_w1",
@@ -168,6 +170,7 @@
       "authored_geometric_sum__hockey_stick_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
       "authored_oeis_a000045__cassini",
+      "authored_oeis_a000079__binomial_sum_row",
       "authored_oeis_a000108__catalan_bounded",
       "authored_oeis_a000984__central_binom_bound",
       "authored_pascal_identity__narayana_sum_w1",
@@ -189,23 +192,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.173,
+      "ratio": 1.096,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.184,
+      "ratio": 1.099,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.222,
+      "ratio": 1.213,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.604,
-      "drift": true
+      "ratio": 1.475,
+      "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.103,
+      "ratio": 1.042,
       "drift": false
     }
   },
@@ -215,83 +218,86 @@
     "last": [
       [
         null,
+        "2026-10-08T13:52:02Z"
+      ],
+      [
+        "success",
         "2026-10-08T07:46:06Z"
       ],
       [
         "success",
         "2026-10-08T07:42:20Z"
-      ],
-      [
-        "success",
-        "2026-10-08T07:26:16Z"
       ]
     ],
-    "fetched_at": "2026-10-08T07:46:22Z"
+    "fetched_at": "2026-10-08T13:53:30Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 12,
-      "oeis": 4,
-      "crossref": 7,
-      "wikipedia": 2
+      "arxiv": 14,
+      "oeis": 5,
+      "crossref": 9,
+      "wikipedia": 3
     },
     "by_kind": {
-      "paper": 19,
-      "sequence": 4,
-      "summary": 2
+      "paper": 23,
+      "sequence": 5,
+      "summary": 3
     },
     "last_run": {
       "sources": {
         "arxiv": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 8,
+          "new": 2,
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 2,
+          "new": 2,
+          "ok": true
         },
         "oeis": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 1,
+          "new": 1,
+          "ok": true
         },
         "wikipedia": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 1,
+          "new": 1,
+          "ok": true
         }
       },
-      "ts": "2026-10-08T07:46:21Z"
+      "ts": "2026-10-08T13:53:23Z"
     },
     "health": {
       "arxiv": {
         "fail": 0,
-        "ok": 2
+        "ok": 3
       },
       "crossref": {
         "fail": 0,
-        "ok": 2
+        "ok": 3
       },
       "oeis": {
         "fail": 0,
-        "ok": 2
+        "ok": 3
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 2
+        "ok": 3
       }
     }
   },
   "signals": [
     "revert_streaks: easy_pad_abs_identity, easy_pad_assoc_add, easy_pad_commutativity, easy_pad_diff_squares → deprioritize in seek",
-    "feeds: 4 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: lemma_microbench"
+    "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
 }

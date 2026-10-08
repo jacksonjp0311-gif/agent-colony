@@ -1,25 +1,25 @@
 {
-  "when": "2026-10-08T07:48:30Z",
+  "when": "2026-10-08T13:55:10Z",
   "mile": "spark3-port",
-  "cycle_count": 206,
+  "cycle_count": 209,
   "fitness_latest": {
-    "ts": "2026-10-08T07:48:25Z",
-    "cycle_id": "20261008T074746Z_c23c2b",
+    "ts": "2026-10-08T13:55:05Z",
+    "cycle_id": "20261008T135430Z_7f846b",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8138,
+    "math_prize": 0.8139,
     "compute_usefulness": 0.9132,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8858,
-    "kill_rate": 0.4036,
-    "kill_rate_term": 0.9133,
-    "novelty": 0.1,
+    "prize_boost": 0.8859,
+    "kill_rate": 0.4031,
+    "kill_rate_term": 0.9128,
+    "novelty": 0.1667,
     "lesson_uptake": 0.9846,
-    "aggregate": 0.8315,
+    "aggregate": 0.8304,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
@@ -45,31 +45,31 @@
     "aggregate_score": 0.8843
   },
   "novelty_gate": {
-    "hits": 3,
-    "kills": 27
+    "hits": 5,
+    "kills": 25
   },
   "debate_multihop": {
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.9643,
+      "reply_rate": 0.9286,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
-      "reply_quality": 0.912
+      "reply_quality": 0.9119
     }
   },
   "exploration_budget_fp": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261008T074746Z_c23c2b"
+    "cycle_id": "20261008T135430Z_7f846b"
   },
   "oracle": {
-    "passes": 229,
-    "kills": 155,
-    "easy_pad_kills": 29,
-    "total": 384,
-    "kill_rate": 0.4036
+    "passes": 231,
+    "kills": 156,
+    "easy_pad_kills": 30,
+    "total": 387,
+    "kill_rate": 0.4031
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."

@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_14491c687c04",
-      "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__hockey_stick_w1"
+      "finding_id": "fnd_653c1925e68c",
+      "title": "Authorize accepted: Hard-checked claim: binomial_identities"
     },
     {
       "topic": "open-math-problems",
@@ -51,6 +51,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.1007/s00373-026-03021-z>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "['4d-hof",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -79,11 +84,6 @@
       "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
-    },
-    {
-      "topic": "science-method",
-      "priority": 0.85,
-      "reason": "stem_coverage=0"
     },
     {
       "topic": "mathematics-foundations",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-08T07:48:05Z",
-  "updated_cycle": "20261008T074746Z_c23c2b",
+  "updated_at": "2026-10-08T13:54:49Z",
+  "updated_cycle": "20261008T135430Z_7f846b",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

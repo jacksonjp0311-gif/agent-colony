@@ -1,14 +1,14 @@
 {
-  "ts": "2026-10-08T07:48:24Z",
+  "ts": "2026-10-08T13:55:05Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261008T074746Z_c23c2b"
+    "cycle_id": "20261008T135430Z_7f846b"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 229,
+  "last_oracle_passes": 231,
   "spawn_retire_log": [
     {
       "ts": "2026-10-08T07:44:41Z",
@@ -37,52 +37,77 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-08T13:54:07Z",
+      "cycle_id": "20261008T135334Z_a7097d",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-08T13:54:29Z",
+      "cycle_id": "20261008T135408Z_028d68",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-08T13:55:06Z",
+      "cycle_id": "20261008T135430Z_7f846b",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
     }
   ],
-  "updated_at": "2026-10-08T07:48:26Z",
+  "updated_at": "2026-10-08T13:55:06Z",
   "mutate_distribution": {
-    "vandermonde_conv": 0.032899,
-    "hockey_stick": 0.032899,
-    "cassini": 0.032899,
-    "binomial_sum_row": 0.032899,
-    "fibonacci_addition": 0.032899,
-    "catalan_bounded": 0.032899,
-    "lucas_addition": 0.032899,
-    "central_binom_bound": 0.032899,
-    "pell_companion": 0.032899,
-    "gcd_fibonacci": 0.032899,
-    "stirling_second_row": 0.032899,
-    "pythagorean_generation": 0.032899,
-    "motzkin_bounded": 0.032899,
-    "derangement_subfactorial": 0.032899,
-    "narayana_sum": 0.032899,
-    "euler_totient_multiplicative": 0.032899,
-    "bell_triangle_recurrence": 0.032899,
-    "hermite_recurrence": 0.032899,
-    "binomial_inversion_small": 0.032899,
-    "legendre_duplication_small": 0.032899,
-    "stem_easy_pad_units": 0.032899,
-    "easy_pad_assoc_add": 0.002867,
-    "easy_pad_zero_identity": 0.002867,
-    "easy_pad_square_again": 0.002867,
-    "easy_pad_diff_squares": 0.002007,
-    "easy_pad_commutativity": 0.002007,
-    "easy_pad_abs_identity": 0.002867,
-    "workload_derived_chain": 0.036704,
-    "catalan_convolution": 0.036704,
-    "lagrange_identity": 0.036704,
-    "vandermonde_asymmetric": 0.036704,
-    "binomial_hockey_deep": 0.036704,
-    "fibonacci_cassini_ext": 0.036704,
-    "derived_chain_stress": 0.036704,
-    "energy_work": 0.036704
+    "vandermonde_conv": 0.031733,
+    "hockey_stick": 0.031733,
+    "cassini": 0.031733,
+    "binomial_sum_row": 0.031733,
+    "fibonacci_addition": 0.031733,
+    "catalan_bounded": 0.031733,
+    "lucas_addition": 0.031733,
+    "central_binom_bound": 0.031733,
+    "pell_companion": 0.031733,
+    "gcd_fibonacci": 0.031733,
+    "stirling_second_row": 0.031733,
+    "pythagorean_generation": 0.031733,
+    "motzkin_bounded": 0.031733,
+    "derangement_subfactorial": 0.031733,
+    "narayana_sum": 0.031733,
+    "euler_totient_multiplicative": 0.031733,
+    "bell_triangle_recurrence": 0.031733,
+    "hermite_recurrence": 0.031733,
+    "binomial_inversion_small": 0.031733,
+    "legendre_duplication_small": 0.031733,
+    "stem_easy_pad_units": 0.031733,
+    "easy_pad_assoc_add": 0.001,
+    "easy_pad_zero_identity": 0.001,
+    "easy_pad_square_again": 0.001,
+    "easy_pad_diff_squares": 0.001,
+    "easy_pad_commutativity": 0.001,
+    "easy_pad_abs_identity": 0.001,
+    "workload_derived_chain": 0.033601,
+    "catalan_convolution": 0.033601,
+    "lagrange_identity": 0.033601,
+    "vandermonde_asymmetric": 0.033601,
+    "binomial_hockey_deep": 0.033601,
+    "fibonacci_cassini_ext": 0.033601,
+    "derived_chain_stress": 0.033601,
+    "energy_work": 0.033601,
+    "authored_oeis_a000079__binomial_sum_row": 0.058803
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 1,
-    "easy_pad_commutativity": 1
+    "easy_pad_commutativity": 1,
+    "easy_pad_abs_identity": 1
   },
   "keep_rewards": {
-    "authored_bell_triangle_recurrence__hermite_recurrence_w1": 1
+    "authored_bell_triangle_recurrence__hermite_recurrence_w1": 1,
+    "authored_binomial_inversion_small__legendre_duplication_small_w1": 1,
+    "authored_oeis_a000079__binomial_sum_row": 1
   },
   "charter_inform": {
     "bias": {

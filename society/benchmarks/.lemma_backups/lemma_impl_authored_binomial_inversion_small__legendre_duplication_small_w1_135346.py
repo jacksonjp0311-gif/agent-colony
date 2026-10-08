@@ -707,19 +707,6 @@ def check_authored_binomial_inversion_small__legendre_duplication_small_w1() -> 
     return all((check_binomial_inversion_small(n) for n in range(9, 13))) and all((check_legendre_duplication_small(n) for n in range(12, 18)))
 
 
-def check_authored_oeis_a000079__binomial_sum_row() -> bool:
-    """Authored feed cross-check (desk): OEIS A000079 held-out terms
-    n=9..28 must equal the colony's `binomial_row_sum` (sum(binomial(n, k) for k in range(n + 1))), and the
-    proven lemma binomial_sum_row must hold on a window past its base window.
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_binomial_sum_row,
-    ::binomial; checked by society/benchmarks/lemma_microbench.py.
-    Source: https://oeis.org/A000079 (feed oeis:A000079:binomial_row_sum, fetched 2026-10-08T13:53:26Z).
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_binomial_sum_row(n) for n in range(22, 33))) and all((sum((binomial(n, k) for k in range(n + 1))) == t for n, t in zip(range(9, 29), (512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456))))
-
-
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -819,8 +806,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sum_first_n_cubes__stirling_second_row_w1", check_authored_sum_first_n_cubes__stirling_second_row_w1, True),
     ("authored_sum_first_n_odds__vandermonde_conv_w1", check_authored_sum_first_n_odds__vandermonde_conv_w1, True),
     ("authored_bell_triangle_recurrence__hermite_recurrence_w1", check_authored_bell_triangle_recurrence__hermite_recurrence_w1, True),
-    ("authored_binomial_inversion_small__legendre_duplication_small_w1", check_authored_binomial_inversion_small__legendre_duplication_small_w1, True),
-    ("authored_oeis_a000079__binomial_sum_row", check_authored_oeis_a000079__binomial_sum_row, True),
+    ("authored_binomial_inversion_small__legendre_duplication_small_w1", check_authored_binomial_inversion_small__legendre_duplication_small_w1, False),
 ]
 
 
