@@ -349,9 +349,9 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 f"{oracle_note}")
         after_score = before_score; delta = 0.0
     # Autonomy mile B: novelty gate (new-to-commons only) on THIS judgment. Runs on its own —
-    # it used to sit behind `from colony.external_mind import record_desk_outcome`, which has
-    # raised ImportError since 2026-09-26 (external_mind loads from b64 parts that are absent),
-    # so the gate silently never ran for desk outcomes. Inputs are the desk's own Oracle verdict
+    # it used to sit behind `from colony.external_mind import record_desk_outcome`, which
+    # raised ImportError from 2026-09-26 until external_mind became plain code, so the gate
+    # silently never ran for desk outcomes. Inputs are the desk's own Oracle verdict
     # (no second Oracle run, no extra Oracle rows) and the real stripped baseline (`src`, the
     # impl before this candidate). The gate's conditions are unchanged.
     try:
@@ -397,54 +397,79 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals, note=note,
         finding_ids=[x for x in finding_ids if x],
     )
+    _record_desk_bookkeeping(
+        decision=decision, chosen=chosen or "", kind=kind or "", before_score=before_score,
+        after_score=after_score, note=note, cycle_id=cycle_id, proposals=proposals,
+    )
+    _append_history(result); _write_witness([result]); return result
+
+
+def _record_desk_bookkeeping(
+    *, decision: str, chosen: str, kind: str, before_score: float | None,
+    after_score: float | None, note: str, cycle_id: str, proposals: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Commons row + keep/revert lesson + exploration budget for one desk judgment.
+
+    Each step is independent so one failure cannot silently disable the others (all three sat
+    in one try behind a broken external_mind import from 2026-09-26). Never raises.
+    """
+    written: dict[str, Any] = {"outcome": None, "lesson": None, "budget": None, "lesson_cites": []}
+    cites: list[str] = []
+    for pr in proposals or []:
+        if pr.get("arxiv_id"):
+            cites.append(f"arxiv:{pr['arxiv_id']}")
+        if pr.get("url"):
+            cites.append(pr["url"])
+    lesson_cites: list[str] = []
+    try:
+        from colony.external_mind import lineage_lesson_ids
+        # Real prior lessons that named this exact mutation (its authoring record, the hint /
+        # human guide that asked for it). Empty when there are none; never padded.
+        lesson_cites = lineage_lesson_ids(chosen, exclude_cycle=cycle_id)
+    except Exception:
+        lesson_cites = []
+    written["lesson_cites"] = list(lesson_cites)
     try:
         from colony.external_mind import record_desk_outcome
-        cites = []
-        for pr in proposals:
-            if pr.get("arxiv_id"):
-                cites.append(f"arxiv:{pr['arxiv_id']}")
-            if pr.get("url"):
-                cites.append(pr["url"])
-        record_desk_outcome(
-            decision=decision,
-            mutation=chosen or "",
-            before_score=before_score,
-            after_score=after_score,
-            kind=kind or "",
-            note=note,
-            cycle_id=cycle_id,
-            paper_cites=cites,
+        written["outcome"] = record_desk_outcome(
+            decision=decision, mutation=chosen, before_score=before_score,
+            after_score=after_score, kind=kind, note=note, cycle_id=cycle_id,
+            paper_cites=cites, lesson_cites=lesson_cites,
         )
-        # Lift 2: lesson ledger from keep/revert only
-        from colony.lessons import write_lesson
-        write_lesson(
-            decision=decision,
-            check="lemma_microbench",
-            what=note,
-            source="conjecture_desk",
-            cycle_id=cycle_id,
-            mutation=chosen or "",
-            before_score=before_score,
-            after_score=after_score,
-            family="easy_pad" if kind == "easy_pad" else ("hard_enable" if kind == "hard_enable" else "outcome"),
-            skill_bias={
-                "geometer.gather": 0.08 if decision == "keep" else -0.04,
-                "improver.improve": 0.06 if decision == "keep" else -0.03,
-                "spark.emergence": 0.04 if decision == "keep" else -0.02,
-            },
-            tags=["lemma", kind or "mutation", decision],
-            evidence=["society/benchmarks/lemma_microbench.py", "artifacts:lemma_impl"],
-        )
-        # (novelty gate now runs above, independent of this block)
-        # Autonomy mile D: exploration budget — distribution MUST change after reverts
-        try:
-            from colony.exploration_budget import record_outcome
-            record_outcome(chosen or "", decision, kind=kind or "")
-        except Exception:
-            pass
     except Exception:
         pass
-    _append_history(result); _write_witness([result]); return result
+    # Lift 2: lesson ledger from keep/revert only
+    if decision in ("keep", "revert"):
+        try:
+            from colony.lessons import write_lesson
+            written["lesson"] = write_lesson(
+                decision=decision,
+                check="lemma_microbench",
+                what=note,
+                source="conjecture_desk",
+                cycle_id=cycle_id,
+                mutation=chosen,
+                before_score=before_score,
+                after_score=after_score,
+                family="easy_pad" if kind == "easy_pad" else ("hard_enable" if kind == "hard_enable" else "outcome"),
+                skill_bias={
+                    "geometer.gather": 0.08 if decision == "keep" else -0.04,
+                    "improver.improve": 0.06 if decision == "keep" else -0.03,
+                    "spark.emergence": 0.04 if decision == "keep" else -0.02,
+                },
+                tags=["lemma", kind or "mutation", decision],
+                evidence=["society/benchmarks/lemma_microbench.py", "artifacts:lemma_impl"]
+                + [f"lesson:{i}" for i in lesson_cites],
+            )
+        except Exception:
+            pass
+    # Autonomy mile D: exploration budget — distribution MUST change after reverts
+    try:
+        from colony.exploration_budget import record_outcome
+        written["budget"] = record_outcome(chosen, decision, kind=kind)
+    except Exception:
+        pass
+    return written
 
 
 def _append_history(r: ConjectureResult) -> None:

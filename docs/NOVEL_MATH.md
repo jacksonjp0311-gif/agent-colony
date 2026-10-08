@@ -92,7 +92,7 @@
 
 - Harness: `society/benchmarks/lemma_microbench.py` + `artifacts/lemma_impl.py`
 - Desk: `colony/conjecture_desk.py` → `conjecture_history.jsonl` + `WITNESS_CONJECTURE.md`
-- External mind: `colony/external_mind.py` → proposals + commons append on keep/revert
+- External mind: `colony/external_mind.py` → commons append on keep/revert (`data/commons/desk_outcomes.jsonl`) + lineage cites on desk lessons (plain code; `propose` not implemented)
 - Domain packs: `colony/domain_packs.py` + STEM `kinematics_microbench.py`
 - Briefs: `society/briefs/CREATOR_BRIEF_flourish_mile.md` (this mile); oracle/autonomy briefs retained
 - Cron: [`GITHUB_CRON.md`](./GITHUB_CRON.md) — CI does **not** auto-accept
