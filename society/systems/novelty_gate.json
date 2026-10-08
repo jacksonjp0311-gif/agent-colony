@@ -1,35 +1,37 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T06:25:16Z",
-  "hits": 0,
-  "kills": 30,
+  "updated_at": "2026-10-08T07:27:47Z",
+  "hits": 1,
+  "kills": 29,
   "latest": {
-    "ts": "2026-10-08T06:25:16Z",
-    "cycle_id": "",
-    "mutation": "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)",
-    "kind": "process",
+    "ts": "2026-10-08T07:27:47Z",
+    "cycle_id": "20261008T072738Z_cd6b48",
+    "mutation": "easy_pad_square_again",
+    "kind": "easy_pad",
     "novel_to_commons": false,
     "kills": [
+      "already_in_lesson_ledger_or_history",
+      "textbook_reuse=1.0",
       "stripped_baseline_does_not_fail_usefulness",
-      "held_out:hard_tier_green_and_hard_enable",
-      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
+      "held_out:easy_pad_fails_held_out_harder",
+      "oracle_kill:['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']"
     ],
-    "textbook_reuse": 0.3333,
-    "in_ledger": false,
+    "textbook_reuse": 1.0,
+    "in_ledger": true,
+    "own_authoring_record_only": false,
+    "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 44,
-      "hard_n": 44,
+      "hard_pass": 46,
+      "hard_n": 46,
       "stripped_fails_usefulness": false,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard44"
+      "impl_id": "lemma_impl_v2_basic10_hard45"
     },
     "held_out": {
       "survives": false,
-      "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 44,
-      "ok": true
+      "reason": "easy_pad_fails_held_out_harder"
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
   },

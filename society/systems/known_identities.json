@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-08T06:25:16Z",
-  "n": 139,
+  "updated_at": "2026-10-08T07:27:47Z",
+  "n": 143,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -17,7 +17,10 @@
     "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000108__catalan_bounded",
+    "authored_oeis_a000984__central_binom_bound",
     "authored_pascal_identity__narayana_sum_w1",
+    "authored_pell_companion__pythagorean_generation_w1",
+    "authored_sum_first_n_cubes__stirling_second_row_w1",
     "autodiff",
     "autodiff_busy_loop",
     "become_fail_forward",
@@ -57,6 +60,7 @@
     "chain `stem_easy_pad_units` citing new integer sequence oeis a392714 counts wronskian (cycle 192)",
     "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord",
     "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 190)",
+    "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 194)",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves (cycle 161)",

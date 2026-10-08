@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_13ed8f840b09",
-      "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000108__catalan_bounded"
+      "finding_id": "fnd_39d6422caccc",
+      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_convolution_w1"
     },
     {
       "topic": "open-math-problems",
@@ -24,6 +24,11 @@
       "priority": 1.05,
       "reason": "follow_on_from_compute",
       "from_topic": "compute-useful-math"
+    },
+    {
+      "topic": "$2$-factor",
+      "priority": 1.0,
+      "reason": "inbox_gap"
     },
     {
       "topic": "$k_t$-minor-free",
@@ -79,11 +84,6 @@
       "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
-    },
-    {
-      "topic": "science-method",
-      "priority": 0.85,
-      "reason": "stem_coverage=0"
     },
     {
       "topic": "mathematics-foundations",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-08T06:26:11Z",
-  "updated_cycle": "20261008T062555Z_19076a",
+  "updated_at": "2026-10-08T07:27:52Z",
+  "updated_cycle": "20261008T072738Z_cd6b48",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
