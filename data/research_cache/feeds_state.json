@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-08T13:53:30Z",
+    "fetched_at": "2026-10-08T23:29:19Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-08T23:28:58Z",
+        "id": 37859673722,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-08T23:29:02Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-08T13:52:02Z",
         "id": 37787772437,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-08T13:53:13Z"
+        "status": "completed",
+        "updated_at": "2026-10-08T13:55:18Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-07T21:49:51Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-07T20:32:41Z",
-        "id": 37682802531,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-07T20:35:09Z"
       }
     ],
     "success_rate": 1.0
@@ -105,33 +105,33 @@
   "health": {
     "arxiv": {
       "fail": 0,
-      "ok": 3
+      "ok": 4
     },
     "crossref": {
       "fail": 0,
-      "ok": 3
+      "ok": 4
     },
     "oeis": {
       "fail": 0,
-      "ok": 3
+      "ok": 4
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 3
+      "ok": 4
     }
   },
   "last_ok": {
-    "arxiv": "2026-10-08T13:53:26Z",
-    "crossref": "2026-10-08T13:53:27Z",
-    "oeis": "2026-10-08T13:53:26Z",
-    "wikipedia": "2026-10-08T13:53:29Z"
+    "arxiv": "2026-10-08T23:29:15Z",
+    "crossref": "2026-10-08T23:29:17Z",
+    "oeis": "2026-10-08T23:29:16Z",
+    "wikipedia": "2026-10-08T23:29:18Z"
   },
   "last_run": {
     "sources": {
       "arxiv": {
         "error": "",
         "fetched": 8,
-        "new": 2,
+        "new": 6,
         "ok": true
       },
       "ci_health": {
@@ -140,24 +140,24 @@
       },
       "crossref": {
         "error": "",
-        "fetched": 2,
-        "new": 2,
+        "fetched": 5,
+        "new": 5,
         "ok": true
       },
       "oeis": {
         "error": "",
-        "fetched": 1,
-        "new": 1,
+        "fetched": 2,
+        "new": 0,
         "ok": true
       },
       "wikipedia": {
         "error": "",
-        "fetched": 1,
-        "new": 1,
+        "fetched": 0,
+        "new": 0,
         "ok": true
       }
     },
-    "ts": "2026-10-08T13:53:23Z"
+    "ts": "2026-10-08T23:29:12Z"
   },
-  "runs": 11
+  "runs": 12
 }

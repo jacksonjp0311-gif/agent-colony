@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-08T13:55:05Z",
+  "ts": "2026-10-08T23:31:10Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -5.896345208184944,
+      "latest": -6.008972882962267,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-08T13:48:00Z",
-          "v": -7.59755693650498
+          "t": "2026-10-08T23:24:00Z",
+          "v": -7.766597605123822
         },
         {
-          "t": "2026-10-08T13:48:00Z",
-          "v": -5.941073985692563
+          "t": "2026-10-08T23:24:00Z",
+          "v": -5.965317009890292
         },
         {
-          "t": "2026-10-08T13:49:00Z",
-          "v": -7.5114953874465344
+          "t": "2026-10-08T23:25:00Z",
+          "v": -7.790142593508538
         },
         {
-          "t": "2026-10-08T13:49:00Z",
-          "v": -5.913818860976179
+          "t": "2026-10-08T23:25:00Z",
+          "v": -5.97394261183285
         },
         {
-          "t": "2026-10-08T13:50:00Z",
-          "v": -7.528728087328973
+          "t": "2026-10-08T23:26:00Z",
+          "v": -7.837408764128803
         },
         {
-          "t": "2026-10-08T13:50:00Z",
-          "v": -5.905227000200016
+          "t": "2026-10-08T23:26:00Z",
+          "v": -5.992161617697224
         },
         {
-          "t": "2026-10-08T13:51:00Z",
-          "v": -7.43727903303575
+          "t": "2026-10-08T23:27:00Z",
+          "v": -7.887864879824278
         },
         {
-          "t": "2026-10-08T13:51:00Z",
-          "v": -5.896345208184944
+          "t": "2026-10-08T23:27:00Z",
+          "v": -6.008972882962267
         }
       ],
       "live": true,
-      "ts": "2026-10-08T13:55:05Z"
+      "ts": "2026-10-08T23:31:09Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
-      "note": "mem_ttl:ok",
+      "note": "ok",
       "count": 48,
-      "latest": 20.4,
+      "latest": 19.1,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -93,9 +93,9 @@
           "v": 8.5
         }
       ],
-      "live": false,
-      "cached": true,
-      "ts": "2026-10-08T13:55:05Z"
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-08T23:31:10Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -117,9 +117,21 @@
           "source": "usgs"
         },
         {
+          "mag": 4.6,
+          "place": "18 km NNE of Posoltega, Nicaragua",
+          "time": 1791406611318,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "9 km NNE of Midori, Japan",
+          "time": 1791401806284,
+          "source": "usgs"
+        },
+        {
           "mag": 4.9,
-          "place": "13 km SE of Yokoshiba, Japan",
-          "time": 1791400427589,
+          "place": "3 km WSW of Shibayama, Japan",
+          "time": 1791400430830,
           "source": "usgs"
         },
         {
@@ -139,23 +151,11 @@
           "place": "south of the Fiji Islands",
           "time": 1791396793966,
           "source": "usgs"
-        },
-        {
-          "mag": 4.3,
-          "place": "Volcano Islands, Japan region",
-          "time": 1791395943884,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.6,
-          "place": "148 km SSE of Alcan Border, Alaska",
-          "time": 1791395696525,
-          "source": "usgs"
         }
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-01&endtime=2026-10-08&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-08T13:55:05Z"
+      "ts": "2026-10-08T23:31:10Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.392578125,
-          "disk_free_percent": 59.49798608862648,
-          "process_count": 159,
-          "uptime_hours": 0.07539166666666668,
+          "load1": 0.33642578125,
+          "disk_free_percent": 59.49731177023545,
+          "process_count": 156,
+          "uptime_hours": 0.06335555555555555,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervmmprz5",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.392578125,
+      "latest_load1": 0.33642578125,
       "live": true,
-      "ts": "2026-10-08T13:55:05Z"
+      "ts": "2026-10-08T23:31:10Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 10.45073099999172,
-      "mean_ms": 6.688277750001248,
+      "latest_ms": 15.049057000027233,
+      "mean_ms": 12.052529250013322,
       "items": [
         {
           "probe": 0,
-          "ms": 5.346062000000984
+          "ms": 10.706254000012905
         },
         {
           "probe": 1,
-          "ms": 5.6082330000322145
+          "ms": 8.85683399999948
         },
         {
           "probe": 2,
-          "ms": 5.348084999980074
+          "ms": 13.59797200001367
         },
         {
           "probe": 3,
-          "ms": 10.45073099999172
+          "ms": 15.049057000027233
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-08T13:55:05Z"
+      "ts": "2026-10-08T23:31:10Z"
     }
   },
   "feed_health": {
@@ -216,7 +216,7 @@
     },
     "openmeteo_series": {
       "ok": true,
-      "note": "mem_ttl:ok",
+      "note": "ok",
       "count": 48
     },
     "usgs_quakes": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.392578125 tcp_probe mean_ms=6.688277750001248 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.33642578125 tcp_probe mean_ms=12.052529250013322 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.392578125,
-        "probe_ms": 6.688277750001248,
+        "load1": 0.33642578125,
+        "probe_ms": 12.052529250013322,
         "probe_ok": true
       },
       "domains": [
