@@ -305,6 +305,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     # Oracle mile: FAIL kills keep. No Oracle pass → no fitness rise.
     oracle_note = ""
     oracle_passed = False
+    _desk_verdict = None
     try:
         from colony.oracle import gate_keep as oracle_gate
         tentative = "keep" if rose else "revert"
@@ -320,6 +321,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             before_score=before_score,
             after_score=after_score,
         )
+        _desk_verdict = ov
         oracle_passed = bool(ov.passed and ov.fitness_credit)
         oracle_note = (
             f" | oracle={'PASS' if ov.passed else 'KILL'} "
@@ -346,6 +348,28 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 f"— Oracle/hard-tier required for keep; easy pads die on Oracle."
                 f"{oracle_note}")
         after_score = before_score; delta = 0.0
+    # Autonomy mile B: novelty gate (new-to-commons only) on THIS judgment. Runs on its own —
+    # it used to sit behind `from colony.external_mind import record_desk_outcome`, which has
+    # raised ImportError since 2026-09-26 (external_mind loads from b64 parts that are absent),
+    # so the gate silently never ran for desk outcomes. Inputs are the desk's own Oracle verdict
+    # (no second Oracle run, no extra Oracle rows) and the real stripped baseline (`src`, the
+    # impl before this candidate). The gate's conditions are unchanged.
+    try:
+        from colony.novelty_gate import evaluate as novelty_evaluate
+        _nov = novelty_evaluate(
+            mutation=chosen or "",
+            kind=kind or "",
+            claim_text=note,
+            cycle_id=cycle_id,
+            oracle_verdict=_desk_verdict,
+            oracle_verdict_required=True,
+            baseline_src=src,
+        )
+        note = note + (
+            f" | novelty_gate novel={_nov.get('novel_to_commons')} kills={_nov.get('kills')}"
+        )
+    except Exception:
+        pass
     finding_ids = [p.get("finding_id") for p in proposals if p.get("finding_id")]
     if ledger is not None:
         try:
@@ -411,20 +435,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             tags=["lemma", kind or "mutation", decision],
             evidence=["society/benchmarks/lemma_microbench.py", "artifacts:lemma_impl"],
         )
-        # Autonomy mile B: novelty gate (new-to-commons only)
-        try:
-            from colony.novelty_gate import evaluate as novelty_evaluate
-            nov = novelty_evaluate(
-                mutation=chosen or "",
-                kind=kind or "",
-                claim_text=note,
-                cycle_id=cycle_id,
-            )
-            result.note = (result.note or note) + (
-                f" | novelty_gate novel={nov.get('novel_to_commons')} kills={nov.get('kills')}"
-            )
-        except Exception:
-            pass
+        # (novelty gate now runs above, independent of this block)
         # Autonomy mile D: exploration budget — distribution MUST change after reverts
         try:
             from colony.exploration_budget import record_outcome

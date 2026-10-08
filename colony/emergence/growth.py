@@ -230,7 +230,9 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         # Lift 3: scrape→analyze→claim (raw scrape ≠ discovery)
         try:
             from colony.claim_pipeline import run_pipeline
-            pipe = run_pipeline(live_gather=False, ledger=self.ledger, cycle_id=cycle_id)
+            # Real society CommBus (persisted with state): claims post on their domain
+            # channel and the Oracle's HEAR debate lands in the same log.
+            pipe = run_pipeline(live_gather=False, ledger=self.ledger, cycle_id=cycle_id, bus=self.bus)
             g.improvements.append(
                 f"claim_pipeline:extracted={pipe.get('n_extracted')}:proposed={pipe.get('n_proposed')}"
             )

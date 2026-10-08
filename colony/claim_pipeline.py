@@ -71,37 +71,76 @@ def _theme_pass_count(theme_id: str, limit: int = 500) -> int:
     return n
 
 
-def _bus_for_cycle(cycle_id: str = ""):
-    """Best-effort bus for Oracle HEAR; NullBus still posts msg_ids if society bus unavailable."""
+# Claims are posted on the domain channel their theme belongs to (lemma themes → math;
+# signal / autodiff themes → science). The post is the claim's bus receipt.
+CLAIM_CHANNELS: dict[str, str] = {
+    "binomial_identities": "math",
+    "fibonacci_identities": "math",
+    "vandermonde": "math",
+    "catalan": "math",
+    "fft_signal": "science",
+    "autodiff": "science",
+}
+RECEIPT_CHANNELS = frozenset({"math", "science", "history", "empire", "rsi"})
+
+
+def claim_channel(theme_id: str) -> str:
+    return CLAIM_CHANNELS.get(theme_id, "math")
+
+
+def post_claim(bus: Any, claim: "ExtractedClaim", *, cycle_id: str) -> dict[str, Any] | None:
+    """Post the claim on its domain channel of the real CommBus; return the bus receipt.
+
+    The receipt is only what the bus actually logged: {msg_id, channel, cycle_id, claim_id}.
+    No bus → None (the Oracle then fails closed with oracle_blocked_no_bus).
+    """
+    if bus is None:
+        return None
+    ch = claim_channel(claim.theme_id)
+    prov = claim.provenance or {}
+    pointer = prov.get("arxiv_id") or prov.get("doi") or prov.get("url") or ""
+    entry = bus.post(
+        from_role="geometer",
+        to_role="all",
+        channel=ch,
+        message=(
+            f"CLAIM for Oracle HEAR: `{claim.theme_id}` ({claim.claim_id}) — {claim.text[:200]} "
+            f"Source pointer: {pointer or 'cache'} (untrusted pointer, not evidence). "
+            f"Hard check: {claim.note[:120]}"
+        ),
+        cycle_id=cycle_id,
+        tags=["claim", "oracle_submit", claim.theme_id],
+        payload={"claim_id": claim.claim_id, "theme_id": claim.theme_id, "kind": "claim_theme"},
+    )
+    if not isinstance(entry, dict) or not entry.get("id"):
+        return None
+    return {"msg_id": entry.get("id"), "channel": ch, "cycle_id": cycle_id, "claim_id": claim.claim_id}
+
+
+def validate_bus_receipt(bus: Any, receipt: dict[str, Any] | None, *, claim_id: str, cycle_id: str) -> bool:
+    """A receipt is genuine only if the CommBus log really holds that message: same id, a
+    domain channel, this cycle, this claim. Anything else (missing, forged id, wrong
+    channel/cycle/claim, a bus with no log) → False."""
+    if bus is None or not isinstance(receipt, dict):
+        return False
+    mid, ch = receipt.get("msg_id"), receipt.get("channel")
+    if not mid or ch not in RECEIPT_CHANNELS:
+        return False
+    if receipt.get("cycle_id") != cycle_id or receipt.get("claim_id") != claim_id:
+        return False
     try:
-        from colony.bus import CommBus
-        from colony.registry import AgentRegistry
-        from colony.society_state import SocietyState
-        state = SocietyState.load()
-        reg = AgentRegistry(state.data)
-        return CommBus(state.data, reg)
+        msgs = bus.messages()
     except Exception:
-        return _NullBus(cycle_id=cycle_id)
-
-
-class _NullBus:
-    """Minimal bus so HEAR can post msg_ids and set bus_ok=True when posts succeed."""
-
-    def __init__(self, cycle_id: str = ""):
-        self.cycle_id = cycle_id
-        self._n = 0
-
-    def post(self, **kwargs):
-        self._n += 1
-        mid = f"nullbus_{self._n}_{kwargs.get('from_role','x')}"
-        return {"id": mid}
-
-    def record_peer_cite(self, **kwargs):
-        return None
-
-    def record_action_changed(self, **kwargs):
-        return None
-
+        return False
+    for m in reversed(list(msgs or [])):
+        if m.get("id") != mid:
+            continue
+        return (
+            m.get("channel") == ch
+            and m.get("cycle_id") == cycle_id
+            and (m.get("payload") or {}).get("claim_id") == claim_id
+        )
+    return False
 
 
 @dataclass
@@ -230,8 +269,14 @@ def propose_checked(
     *,
     ledger: Any | None = None,
     cycle_id: str = "",
+    bus: Any | None = None,
 ) -> list[dict[str, Any]]:
-    """Only hard_checked claims become ledger candidates. Raw scrape ≠ discovery."""
+    """Only hard_checked claims become ledger candidates. Raw scrape ≠ discovery.
+
+    ``bus`` must be the society's real CommBus (the one persisted with society state). Each
+    claim is posted on its domain channel and the Oracle only receives the bus when that
+    post is verifiably in the bus log; otherwise it fails closed (oracle_blocked_no_bus).
+    """
     proposed: list[dict[str, Any]] = []
     CLAIMS_JSONL.parent.mkdir(parents=True, exist_ok=True)
     for c in claims:
@@ -263,19 +308,35 @@ def propose_checked(
                 continue
         except Exception:
             pass
-        # Novelty gate: theme must not be pure textbook reuse claimed as novel
+        # Textbook-reuse annotation (same score and same text change as before; it no longer
+        # needs a separate novelty-gate Oracle run, which had no bus and always died
+        # oracle_blocked_no_bus).
         try:
-            from colony.novelty_gate import evaluate as novelty_evaluate
-            nov = novelty_evaluate(mutation=c.theme_id, kind="claim_theme", claim_text=c.text, cycle_id=cycle_id)
-            if nov.get("textbook_reuse", 0) >= 0.34:
-                c.note = (c.note or "") + f" | novelty_kill textbook_reuse={nov.get('textbook_reuse')}"
+            from colony.novelty_gate import textbook_reuse_score
+            _reuse = textbook_reuse_score(c.theme_id.strip(), c.text)
+            if _reuse >= 0.34:
+                c.note = (c.note or "") + f" | novelty_kill textbook_reuse={_reuse}"
                 c.text = c.text + " [novelty_gate: not novel-to-commons]"
         except Exception:
             pass
-        # Oracle mile: pass a real bus; fail-closed without it
+        # Bus receipt: the claim is posted on its domain channel of the real CommBus; the
+        # Oracle gets the bus only if that post is verifiably in the bus log.
+        receipt = None
+        oracle_bus = None
+        try:
+            receipt = post_claim(bus, c, cycle_id=cycle_id)
+        except Exception as _bx:
+            c.note = (c.note or "") + f" | bus_post_error:{_bx}"
+            receipt = None
+        if validate_bus_receipt(bus, receipt, claim_id=c.claim_id, cycle_id=cycle_id):
+            oracle_bus = bus
+            c.provenance = {**(c.provenance or {}), "bus_receipt": receipt}
+            c.note = (c.note or "") + f" | bus_receipt={receipt['channel']}:{receipt['msg_id']}"
+        else:
+            c.note = (c.note or "") + " | bus_receipt_invalid_or_missing"
+        # Oracle mile: real bus only; fail-closed without it
         try:
             from colony.oracle import gate_keep as oracle_gate
-            bus = _bus_for_cycle(cycle_id)
             final_dec, ov = oracle_gate(
                 tentative_decision="propose",
                 mutation=c.theme_id,
@@ -283,12 +344,23 @@ def propose_checked(
                 claim_text=c.text,
                 source="claim_pipeline",
                 cycle_id=cycle_id,
-                bus=bus,
+                bus=oracle_bus,
             )
             c.note = (c.note or "") + (
                 f" | oracle={'PASS' if ov.passed else 'KILL'} kills={ov.kills} "
                 f"bus_ok={(ov.hear or {}).get('bus_ok')}"
             )
+            # Novelty gate on this claim, judged with the Oracle verdict just obtained (one
+            # Oracle run per claim; same conditions as ever).
+            try:
+                from colony.novelty_gate import evaluate as novelty_evaluate
+                _nv = novelty_evaluate(
+                    mutation=c.theme_id, kind="claim_theme", claim_text=c.text, cycle_id=cycle_id,
+                    oracle_verdict=ov, oracle_verdict_required=True,
+                )
+                c.note = (c.note or "") + f" | novelty_gate novel={_nv.get('novel_to_commons')}"
+            except Exception:
+                pass
             if final_dec not in ("propose", "keep"):
                 c.status = "rejected_raw"
                 c.hard_ok = False
@@ -341,6 +413,7 @@ def propose_checked(
                     "cycle_id": cycle_id,
                     "not_discovery": True,
                     "hard_ok": True,
+                    "bus_receipt": (c.provenance or {}).get("bus_receipt"),
                 },
             )
             prop["finding_id"] = fnd.id
@@ -355,6 +428,7 @@ def run_pipeline(
     live_gather: bool = False,
     ledger: Any | None = None,
     cycle_id: str = "",
+    bus: Any | None = None,
 ) -> dict[str, Any]:
     """Full glue: optional live gather → extract → hard check → propose."""
     gather_meta: dict[str, Any] = {"ran": False}
@@ -372,7 +446,7 @@ def run_pipeline(
         }
     extracted = extract_claims()
     checked = [hard_check_claim(c) for c in extracted]
-    proposed = propose_checked(checked, ledger=ledger, cycle_id=cycle_id)
+    proposed = propose_checked(checked, ledger=ledger, cycle_id=cycle_id, bus=bus)
     return {
         "gather": gather_meta,
         "n_extracted": len(extracted),

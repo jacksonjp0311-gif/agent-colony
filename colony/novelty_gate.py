@@ -99,6 +99,52 @@ def known_identities() -> set[str]:
     return ids
 
 
+def _only_own_authoring_record(name: str, known: set[str]) -> bool:
+    """True iff the ONLY trace of ``name`` in the commons is the candidate's own authoring
+    record (lesson type ``authored_check`` with mutation == name).
+
+    The authoring step writes that record before the desk can judge the candidate, so without
+    this the "not already known" condition is unsatisfiable by construction for every authored
+    check. Any other trace — a desk judgment in conjecture history (full file, not just the
+    recent window), any other lesson (keep/revert/kill/skip), a proposal-title row such as
+    "Chain `name` citing …", or a snapshot entry other than the bare name — still makes it
+    known. Fail closed: no authoring record found → False.
+    """
+    n = (name or "").strip().lower()
+    if not n:
+        return False
+    # Snapshot/union entries containing the name other than the bare name → known elsewhere
+    if any(n in k and k != n for k in known):
+        return False
+    authored = False
+    if LESSONS.exists():
+        for ln in LESSONS.read_text(encoding="utf-8").splitlines():
+            if n not in ln.lower():
+                continue
+            try:
+                e = json.loads(ln)
+            except json.JSONDecodeError:
+                return False  # unreadable row naming it → cannot prove, fail closed
+            mut = (e.get("mutation") or "").lower()
+            fam = (e.get("family") or "").lower()
+            if n not in mut and n not in fam:
+                continue
+            if e.get("type") == "authored_check" and mut == n:
+                authored = True
+                continue
+            return False
+    if HISTORY.exists():
+        for ln in HISTORY.read_text(encoding="utf-8").splitlines():
+            if n in ln.lower():
+                try:
+                    e = json.loads(ln)
+                except json.JSONDecodeError:
+                    return False
+                if n in (e.get("mutation") or "").lower():
+                    return False
+    return authored
+
+
 def textbook_reuse_score(name: str, claim_text: str = "") -> float:
     """≈0 means not textbook dump; high means textbook reuse (kill novelty claim)."""
     blob = f"{name} {claim_text}".lower()
@@ -113,7 +159,7 @@ def textbook_reuse_score(name: str, claim_text: str = "") -> float:
     return round(min(1.0, hits / 3.0), 4)
 
 
-def stripped_baseline_fails(mutation: str) -> dict[str, Any]:
+def stripped_baseline_fails(mutation: str, baseline_src: str | None = None) -> dict[str, Any]:
     """Machine check must FAIL usefulness on stripped baseline (candidate absent).
 
     If mutation already enabled → not novel (already in commons).
@@ -124,7 +170,12 @@ def stripped_baseline_fails(mutation: str) -> dict[str, Any]:
         from society.benchmarks.artifacts import lemma_impl as impl
 
         src_path = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
-        src = src_path.read_text(encoding="utf-8") if src_path.exists() else ""
+        if baseline_src is not None:
+            # The real stripped baseline: the impl source as it was BEFORE this candidate was
+            # applied (the desk's pre-mutation snapshot). Same test, correct input.
+            src = baseline_src
+        else:
+            src = src_path.read_text(encoding="utf-8") if src_path.exists() else ""
         _m = re.search(rf'\("{re.escape(mutation)}".*?,\s*(True|False)\)', src, re.S)
         already_enabled = bool(_m and _m.group(1) == "True")  # this entry's own flag only
         before = run_lemma()
@@ -185,16 +236,32 @@ def evaluate(
     claim_text: str = "",
     cycle_id: str = "",
     oracle_source: str = "novelty_gate",
+    bus: Any | None = None,
+    oracle_verdict: Any | None = None,
+    oracle_verdict_required: bool = False,
+    baseline_src: str | None = None,
 ) -> dict[str, Any]:
     """Return gate verdict. novel_to_commons True only if all gates pass.
 
     ``oracle_source`` only labels the Oracle row/lesson (provenance); the checks are identical.
+
+    Plumbing (the conditions themselves are unchanged):
+    - ``oracle_verdict``: the Oracle verdict the caller already obtained for exactly this
+      (mutation, kind, cycle). Used instead of a second Oracle run; it must match all three or
+      the gate kills (fail closed). ``oracle_verdict_required`` → never run the Oracle here.
+    - ``bus``: real CommBus handed to the Oracle when the gate runs it itself.
+    - ``baseline_src``: the real stripped baseline (impl source before the candidate).
     """
     known = known_identities()
     name = (mutation or "").strip()
     in_ledger = name.lower() in known or any(name.lower() in k for k in known)
+    own_record_only = False
+    if in_ledger and _only_own_authoring_record(name, known):
+        # A candidate's own birth record is not prior knowledge of it (see helper).
+        in_ledger = False
+        own_record_only = True
     reuse = textbook_reuse_score(name, claim_text)
-    stripped = stripped_baseline_fails(name)
+    stripped = stripped_baseline_fails(name, baseline_src=baseline_src)
     held = held_out_harder_survives(name, kind or "")
 
     kills: list[str] = []
@@ -212,19 +279,33 @@ def evaluate(
         kills.append(f"held_out:{held.get('reason')}")
 
     # Oracle mile: novelty alone is not enough — Oracle must also not kill
-    try:
-        from colony.oracle import evaluate as oracle_evaluate
-        ov = oracle_evaluate(
-            mutation=name,
-            kind=kind or "",
-            claim_text=claim_text,
-            source=oracle_source or "novelty_gate",
-            cycle_id=cycle_id,
-        )
-        if not ov.passed:
-            kills.append(f"oracle_kill:{ov.kills}")
-    except Exception as _ox:
-        kills.append(f"oracle_error_fail_closed:{_ox}")
+    oracle_used = "own_run"
+    if oracle_verdict is not None or oracle_verdict_required:
+        oracle_used = "caller_verdict"
+        v = oracle_verdict
+        _get = (lambda k: v.get(k)) if isinstance(v, dict) else (lambda k: getattr(v, k, None))
+        if v is None:
+            kills.append("oracle_verdict_missing_fail_closed")
+        elif (str(_get("mutation") or "").strip() != name or str(_get("kind") or "") != (kind or "")
+              or str(_get("cycle_id") or "") != (cycle_id or "")):
+            kills.append("oracle_verdict_mismatch_fail_closed")
+        elif not bool(_get("passed")):
+            kills.append(f"oracle_kill:{_get('kills')}")
+    else:
+        try:
+            from colony.oracle import evaluate as oracle_evaluate
+            ov = oracle_evaluate(
+                mutation=name,
+                kind=kind or "",
+                claim_text=claim_text,
+                source=oracle_source or "novelty_gate",
+                cycle_id=cycle_id,
+                bus=bus,
+            )
+            if not ov.passed:
+                kills.append(f"oracle_kill:{ov.kills}")
+        except Exception as _ox:
+            kills.append(f"oracle_error_fail_closed:{_ox}")
 
     novel = len(kills) == 0
     verdict = {
@@ -236,6 +317,8 @@ def evaluate(
         "kills": kills,
         "textbook_reuse": reuse,
         "in_ledger": in_ledger,
+        "own_authoring_record_only": own_record_only,
+        "oracle_used": oracle_used,
         "stripped": stripped,
         "held_out": held,
         "note": (
