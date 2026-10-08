@@ -3265,7 +3265,7 @@
       "title": "Chain `authored_binomial_symmetry__catalan_convolution_w1` citing Optimal bound for the polynomial Littlewood-Offord",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_binomial_symmetry__catalan_convolution_w1`. Source=https://arxiv.org/abs/2610.08708. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['adversarial_cassini_ext', 'adversarial_catalan_convolution_stress', 'adversarial_hockey_deep', 'binomial_hockey_deep', 'deepen compute-useful math from accepted finding', 'derived_chain_stress']. cycle=20261007T230426Z_ef1eec. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.08708` <https://arxiv.org/abs/2610.08708> fetched 2026-10-07T21:48:05Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_binomial_symmetry__catalan_convolution_w1` built from proven lemmas [binomial_symmetry, catalan_convolution]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_binomial_symmetry__catalan_convolution_w1 composing proven lemmas [binomial_symmetry, catalan_convolution] (authored_binomial_symmetry__catalan_convolution_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_binomial_symmetry__catalan_convolution_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_ef1eec_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3284,7 +3284,9 @@
         "aggregate": 0.821,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T01:10:20Z",
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 9:09 PM ET). seek_enable for the authored stress check authored_binomial_symmetry__catalan_convolution_w1 (proven binomial_symmetry n=16..23 and catalan_convolution n=12..17, windows disjoint from their base windows); Oracle PASS with fitness credit, kept; P=0.7106 (P_oracle=1.0, P_novelty=0.3333, P_bench=0.5092, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_ef1eec_51 not authorized."
     },
     {
       "ts": "2026-10-07T23:04:31Z",
@@ -7871,6 +7873,14 @@
       "authorizer": "James Paul Jackson",
       "delegated_via": "GitHub Actions cron (standing trust P>=0.70 selective; never accept-all)",
       "proposal_updates": 0
+    },
+    {
+      "ts": "2026-10-08T01:10:20Z",
+      "event": "human_authorize",
+      "cycle_id": "authorize_20261008T011020Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 9:09 PM ET; one named item; selective not accept-all)",
+      "proposal_updates": 1
     }
   ],
   "agents": {
@@ -37052,7 +37062,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261007T230507Z_bfcb21",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "1cc529cbf1e1",
       "P": 0.7106,
@@ -37075,7 +37085,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.3583
+      "P_propose": 0.3583,
+      "authorized_at": "2026-10-08T01:10:20Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 9:09 PM ET; one named item; selective not accept-all)",
+      "authorize_rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 9:09 PM ET). seek_enable for the authored stress check authored_binomial_symmetry__catalan_convolution_w1 (proven binomial_symmetry n=16..23 and catalan_convolution n=12..17, windows disjoint from their base windows); Oracle PASS with fitness credit, kept; P=0.7106 (P_oracle=1.0, P_novelty=0.3333, P_bench=0.5092, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_ef1eec_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T011020Z"
     },
     {
       "id": "imp_ef1eec_51",

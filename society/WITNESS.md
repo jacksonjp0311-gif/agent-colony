@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 13973  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 13976  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -83366,6 +83366,24 @@
 - **id:** `wit_ae32aa3331` | **cycle:** `authorize_20261007T231446Z`
 - Authorize batch closed. accepted=2 rejected=3 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261007T231446Z.md.
 - detail: `{"accepted": 2, "rejected": 3, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261007T231446Z.md"}`
+
+### 2026-10-08T01:10:20Z — `authorize_batch_open` (human)
+
+- **id:** `wit_6b646490c6` | **cycle:** `authorize_20261008T011020Z`
+- Authorize batch opened by James Jackson via Grok Bot (explicit human authorize by James in chat 2026-10-07 9:09 PM ET; one named item; selective not accept-all). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 9:09 PM ET; one named item; selective not accept-all)", "item_count": 0}`
+
+### 2026-10-08T01:10:20Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_05b3bd9c7f` | **cycle:** `authorize_20261008T011020Z`
+- Proposal accepted: `imp_ef1eec_50` (Chain `authored_binomial_symmetry__catalan_convolution_w1` citing Optimal bound for the polynomial Littlewood-Offord) — Explicit human authorize (James Jackson, chat 2026-10-07 9:09 PM ET). seek_enable for the authored stress check authored_binomial_symmetry__catalan_convolution_w1 (proven binomial_symmetry n=16..23 and catalan_convolution n=12..17, windows disjoint from their base windows); Oracle PASS with fitness credit, kept; P=0.7106 (P_oracle=1.0, P_novelty=0.3333, P_bench=0.5092, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_ef1eec_51 not authorized.
+- detail: `{"proposal_id": "imp_ef1eec_50", "title": "Chain `authored_binomial_symmetry__catalan_convolution_w1` citing Optimal bound for the polynomial Littlewood-Offord", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 9:09 PM ET). seek_enable for the authored s`
+
+### 2026-10-08T01:10:20Z — `authorize_batch_close` (human)
+
+- **id:** `wit_d57383d0e6` | **cycle:** `authorize_20261008T011020Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=1. Receipt=AUTHORIZE_authorize_20261008T011020Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 1, "receipt": "/workspace/agent-colony-cite/society/receipts/AUTHORIZE_authorize_20261008T011020Z.md"}`
 
 ---
 
