@@ -1,0 +1,101 @@
+{
+  "when": "2026-10-08T07:40:00Z",
+  "authorizer": "James Jackson",
+  "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+  "policy": "selective — not accept-all; seven named proposals only, each verified candidate_measured + Hearing accept_candidate + P≥0.70 + target Oracle PASS; threshold P≥0.70 unchanged; preserve ceiling/tribute/witness",
+  "items": [],
+  "proposals": [
+    {
+      "proposal_id": "imp_6cff35_50",
+      "decision": "accepted",
+      "P": 0.886,
+      "P_terms": {
+        "P_oracle": 1.0,
+        "P_novelty": 1.0,
+        "P_bench": 0.5441,
+        "P_lesson": 1.0
+      },
+      "target": "authored_motzkin_bounded__legendre_duplication_small_w1",
+      "rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_motzkin_bounded__legendre_duplication_small_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T011639Z_6cff35), latest Oracle verdict on the target is PASS; P=0.886 (P_oracle=1.0, P_novelty=1.0, P_bench=0.5441, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_6cff35_51 not authorized."
+    },
+    {
+      "proposal_id": "imp_19076a_50",
+      "decision": "accepted",
+      "P": 0.8759,
+      "P_terms": {
+        "P_oracle": 1.0,
+        "P_novelty": 1.0,
+        "P_bench": 0.5035,
+        "P_lesson": 1.0
+      },
+      "target": "authored_oeis_a000984__central_binom_bound",
+      "rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_oeis_a000984__central_binom_bound; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T062555Z_19076a), latest Oracle verdict on the target is PASS; P=0.8759 (P_oracle=1.0, P_novelty=1.0, P_bench=0.5035, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_19076a_51 not authorized."
+    },
+    {
+      "proposal_id": "imp_fa8aba_50",
+      "decision": "accepted",
+      "P": 0.825,
+      "P_terms": {
+        "P_oracle": 1.0,
+        "P_novelty": 1.0,
+        "P_bench": 0.3,
+        "P_lesson": 1.0
+      },
+      "target": "authored_central_binom_bound__derangement_subfactorial_w1",
+      "rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_central_binom_bound__derangement_subfactorial_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261007T230547Z_fa8aba), latest Oracle verdict on the target is PASS; P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_fa8aba_51 not authorized."
+    },
+    {
+      "proposal_id": "imp_40013d_50",
+      "decision": "accepted",
+      "P": 0.825,
+      "P_terms": {
+        "P_oracle": 1.0,
+        "P_novelty": 1.0,
+        "P_bench": 0.3,
+        "P_lesson": 1.0
+      },
+      "target": "authored_euler_totient_multiplicative__hermite_recurrence_w1",
+      "rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_euler_totient_multiplicative__hermite_recurrence_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261007T231413Z_40013d), latest Oracle verdict on the target is PASS; P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_40013d_51 not authorized."
+    },
+    {
+      "proposal_id": "imp_02e53a_50",
+      "decision": "accepted",
+      "P": 0.7936,
+      "P_terms": {
+        "P_oracle": 1.0,
+        "P_novelty": 0.6667,
+        "P_bench": 0.5077,
+        "P_lesson": 1.0
+      },
+      "target": "authored_pascal_identity__narayana_sum_w1",
+      "rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_pascal_identity__narayana_sum_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T062440Z_02e53a), latest Oracle verdict on the target is PASS; P=0.7936 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.5077, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_02e53a_51 not authorized."
+    },
+    {
+      "proposal_id": "imp_66cada_50",
+      "decision": "accepted",
+      "P": 0.7924,
+      "P_terms": {
+        "P_oracle": 1.0,
+        "P_novelty": 0.6667,
+        "P_bench": 0.503,
+        "P_lesson": 1.0
+      },
+      "target": "authored_pell_companion__pythagorean_generation_w1",
+      "rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_pell_companion__pythagorean_generation_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T072706Z_66cada), latest Oracle verdict on the target is PASS; P=0.7924 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.503, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_66cada_51 not authorized."
+    },
+    {
+      "proposal_id": "imp_fce8bb_50",
+      "decision": "accepted",
+      "P": 0.7417,
+      "P_terms": {
+        "P_oracle": 1.0,
+        "P_novelty": 0.6667,
+        "P_bench": 0.3,
+        "P_lesson": 1.0
+      },
+      "target": "authored_fibonacci_addition__gcd_fibonacci_w1",
+      "rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_fibonacci_addition__gcd_fibonacci_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T011139Z_fce8bb), latest Oracle verdict on the target is PASS; P=0.7417 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_fce8bb_51 not authorized."
+    }
+  ],
+  "accept_all": false
+}

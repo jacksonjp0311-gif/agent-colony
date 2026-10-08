@@ -2943,7 +2943,7 @@
       "title": "Chain `authored_central_binom_bound__derangement_subfactorial_w1` citing Optimal bound for the polynomial Littlewood-Offord",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_central_binom_bound__derangement_subfactorial_w1`. Source=https://arxiv.org/abs/2610.08708. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['adversarial_cassini_ext', 'adversarial_catalan_convolution_stress', 'adversarial_hockey_deep', 'binomial_hockey_deep', 'deepen compute-useful math from accepted finding', 'derived_chain_stress']. cycle=20261007T230547Z_fa8aba. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.08708` <https://arxiv.org/abs/2610.08708> fetched 2026-10-07T21:48:05Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_central_binom_bound__derangement_subfactorial_w1` built from proven lemmas [central_binom_bound, derangement_subfactorial]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_central_binom_bound__derangement_subfactorial_w1 composing proven lemmas [central_binom_bound, derangement_subfactorial] (authored_central_binom_bound__derangement_subfactorial_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_central_binom_bound__derangement_subfactorial_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_fa8aba_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -2963,7 +2963,9 @@
         "aggregate": 0.8247,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_central_binom_bound__derangement_subfactorial_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261007T230547Z_fa8aba), latest Oracle verdict on the target is PASS; P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_fa8aba_51 not authorized."
     },
     {
       "ts": "2026-10-07T23:05:52Z",
@@ -2999,7 +3001,7 @@
       "title": "Chain `authored_euler_totient_multiplicative__hermite_recurrence_w1` citing Local newforms, Paškūnas-Stevens Whittaker functio",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_euler_totient_multiplicative__hermite_recurrence_w1`. Source=https://arxiv.org/abs/2610.08633. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['adversarial_cassini_ext', 'adversarial_catalan_convolution_stress', 'adversarial_hockey_deep', 'binomial_hockey_deep', 'deepen compute-useful math from accepted finding', 'derived_chain_stress']. cycle=20261007T231413Z_40013d. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.08633` <https://arxiv.org/abs/2610.08633> fetched 2026-10-07T21:48:08Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_euler_totient_multiplicative__hermite_recurrence_w1` built from proven lemmas [euler_totient_multiplicative, hermite_recurrence]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_euler_totient_multiplicative__hermite_recurrence_w1 composing proven lemmas [euler_totient_multiplicative, hermite_recurrence] (authored_euler_totient_multiplicative__hermite_recurrence_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_euler_totient_multiplicative__hermite_recurrence_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_40013d_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3019,7 +3021,9 @@
         "aggregate": 0.8247,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_euler_totient_multiplicative__hermite_recurrence_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261007T231413Z_40013d), latest Oracle verdict on the target is PASS; P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_40013d_51 not authorized."
     },
     {
       "ts": "2026-10-07T23:14:18Z",
@@ -3055,7 +3059,7 @@
       "title": "Chain `authored_fibonacci_addition__gcd_fibonacci_w1` citing Random independent sets in uncrowded hypergraphs",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_fibonacci_addition__gcd_fibonacci_w1`. Source=https://arxiv.org/abs/2610.08707. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T011139Z_fce8bb. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.08707` <https://arxiv.org/abs/2610.08707> fetched 2026-10-07T21:48:05Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_fibonacci_addition__gcd_fibonacci_w1` built from proven lemmas [fibonacci_addition, gcd_fibonacci]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_fibonacci_addition__gcd_fibonacci_w1 composing proven lemmas [fibonacci_addition, gcd_fibonacci] (authored_fibonacci_addition__gcd_fibonacci_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_fibonacci_addition__gcd_fibonacci_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_fce8bb_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3075,7 +3079,9 @@
         "aggregate": 0.8244,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_fibonacci_addition__gcd_fibonacci_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T011139Z_fce8bb), latest Oracle verdict on the target is PASS; P=0.7417 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_fce8bb_51 not authorized."
     },
     {
       "ts": "2026-10-08T01:11:46Z",
@@ -3279,7 +3285,7 @@
       "title": "Chain `authored_motzkin_bounded__legendre_duplication_small_w1` citing Sum and square-sum of consecutive pentagonal numbe",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_motzkin_bounded__legendre_duplication_small_w1`. Source=https://doi.org/10.1080/00255572.2026.2652922. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T011639Z_6cff35. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: crossref `crossref:10.1080/00255572.2026.2652922` <https://doi.org/10.1080/00255572.2026.2652922> fetched 2026-10-07T21:48:10Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_motzkin_bounded__legendre_duplication_small_w1` built from proven lemmas [motzkin_bounded, legendre_duplication_small]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_motzkin_bounded__legendre_duplication_small_w1 composing proven lemmas [motzkin_bounded, legendre_duplication_small] (authored_motzkin_bounded__legendre_duplication_small_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_motzkin_bounded__legendre_duplication_small_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_6cff35_50",
       "before_metrics": {
         "tribute_quality": 0.9,
@@ -3299,7 +3305,9 @@
         "aggregate": 0.8044,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_motzkin_bounded__legendre_duplication_small_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T011639Z_6cff35), latest Oracle verdict on the target is PASS; P=0.886 (P_oracle=1.0, P_novelty=1.0, P_bench=0.5441, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_6cff35_51 not authorized."
     },
     {
       "ts": "2026-10-08T01:17:00Z",
@@ -3391,7 +3399,7 @@
       "title": "Chain `authored_pascal_identity__narayana_sum_w1` citing On the maximum degree and order of $K_t$-minor-fre",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_pascal_identity__narayana_sum_w1`. Source=https://arxiv.org/abs/2610.08706. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T062440Z_02e53a. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.08706` <https://arxiv.org/abs/2610.08706> fetched 2026-10-07T21:48:05Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_pascal_identity__narayana_sum_w1` built from proven lemmas [pascal_identity, narayana_sum]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_pascal_identity__narayana_sum_w1 composing proven lemmas [pascal_identity, narayana_sum] (authored_pascal_identity__narayana_sum_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_pascal_identity__narayana_sum_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_02e53a_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3411,7 +3419,9 @@
         "aggregate": 0.8221,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_pascal_identity__narayana_sum_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T062440Z_02e53a), latest Oracle verdict on the target is PASS; P=0.7936 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.5077, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_02e53a_51 not authorized."
     },
     {
       "ts": "2026-10-08T06:24:50Z",
@@ -3447,7 +3457,7 @@
       "title": "Chain `authored_oeis_a000984__central_binom_bound` citing A counting version of Petersen's $2$-factor theore",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_oeis_a000984__central_binom_bound`. Source=https://arxiv.org/abs/2610.10424. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T062555Z_19076a. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.10424` <https://arxiv.org/abs/2610.10424> fetched 2026-10-08T06:24:30Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_oeis_a000984__central_binom_bound` built from proven lemmas [central_binom_bound]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_oeis_a000984__central_binom_bound composing proven lemmas [central_binom_bound] (authored_oeis_a000984__central_binom_bound not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_oeis_a000984__central_binom_bound",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_19076a_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3467,7 +3477,9 @@
         "aggregate": 0.8252,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_oeis_a000984__central_binom_bound; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T062555Z_19076a), latest Oracle verdict on the target is PASS; P=0.8759 (P_oracle=1.0, P_novelty=1.0, P_bench=0.5035, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_19076a_51 not authorized."
     },
     {
       "ts": "2026-10-08T06:26:05Z",
@@ -3503,7 +3515,7 @@
       "title": "Chain `authored_pell_companion__pythagorean_generation_w1` citing New algebraic points on covers of elliptic curves",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_pell_companion__pythagorean_generation_w1`. Source=https://arxiv.org/abs/2610.08753. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T072706Z_66cada. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.08753` <https://arxiv.org/abs/2610.08753> fetched 2026-10-07T21:48:08Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_pell_companion__pythagorean_generation_w1` built from proven lemmas [pell_companion, pythagorean_generation]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_pell_companion__pythagorean_generation_w1 composing proven lemmas [pell_companion, pythagorean_generation] (authored_pell_companion__pythagorean_generation_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_pell_companion__pythagorean_generation_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_66cada_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3523,7 +3535,9 @@
         "aggregate": 0.8266,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_pell_companion__pythagorean_generation_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T072706Z_66cada), latest Oracle verdict on the target is PASS; P=0.7924 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.503, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_66cada_51 not authorized."
     },
     {
       "ts": "2026-10-08T07:27:14Z",
@@ -8279,6 +8293,14 @@
       "authorizer": "James Paul Jackson",
       "delegated_via": "GitHub Actions cron (standing trust P>=0.70 selective; never accept-all)",
       "proposal_updates": 0
+    },
+    {
+      "ts": "2026-10-08T07:39:24Z",
+      "event": "human_authorize",
+      "cycle_id": "authorize_20261008T073923Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "proposal_updates": 7
     }
   ],
   "agents": {
@@ -36538,7 +36560,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261007T231345Z_b2e5a4",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "abf96de84412",
       "P": 0.825,
@@ -36561,7 +36583,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_central_binom_bound__derangement_subfactorial_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261007T230547Z_fa8aba), latest Oracle verdict on the target is PASS; P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_fa8aba_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T073923Z"
     },
     {
       "id": "imp_fa8aba_51",
@@ -36680,7 +36707,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261007T231428Z_5fe308",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "87a6bed1a102",
       "P": 0.825,
@@ -36703,7 +36730,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_euler_totient_multiplicative__hermite_recurrence_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261007T231413Z_40013d), latest Oracle verdict on the target is PASS; P=0.825 (P_oracle=1.0, P_novelty=1.0, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_40013d_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T073923Z"
     },
     {
       "id": "imp_40013d_51",
@@ -36822,7 +36854,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T011240Z_aead0c",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "f6576182ade6",
       "P": 0.7417,
@@ -36845,7 +36877,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_fibonacci_addition__gcd_fibonacci_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T011139Z_fce8bb), latest Oracle verdict on the target is PASS; P=0.7417 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.3, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_fce8bb_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T073923Z"
     },
     {
       "id": "imp_fce8bb_51",
@@ -37366,7 +37403,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T011728Z_9f2da2",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "3c3b58514e3a",
       "P": 0.886,
@@ -37389,7 +37426,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_motzkin_bounded__legendre_duplication_small_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T011639Z_6cff35), latest Oracle verdict on the target is PASS; P=0.886 (P_oracle=1.0, P_novelty=1.0, P_bench=0.5441, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_6cff35_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T073923Z"
     },
     {
       "id": "imp_6cff35_51",
@@ -37638,7 +37680,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T062517Z_43ed50",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "044e53dfd9f3",
       "P": 0.7936,
@@ -37661,7 +37703,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_pascal_identity__narayana_sum_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T062440Z_02e53a), latest Oracle verdict on the target is PASS; P=0.7936 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.5077, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_02e53a_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T073923Z"
     },
     {
       "id": "imp_02e53a_51",
@@ -37780,7 +37827,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T072632Z_538f59",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "911b26ab03dc",
       "P": 0.8759,
@@ -37803,7 +37850,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_oeis_a000984__central_binom_bound; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T062555Z_19076a), latest Oracle verdict on the target is PASS; P=0.8759 (P_oracle=1.0, P_novelty=1.0, P_bench=0.5035, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_19076a_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T073923Z"
     },
     {
       "id": "imp_19076a_51",
@@ -37922,7 +37974,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T072738Z_cd6b48",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "a85c93545f6a",
       "P": 0.7924,
@@ -37945,7 +37997,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "authorized_at": "2026-10-08T07:39:24Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated the decision in chat 2026-10-08 3:38 AM ET: \"Make the decision\"; seven named queued proposals, each re-verified; selective not accept-all)",
+      "authorize_rationale": "Human authorize by delegation: James Jackson told Grok Bot in chat 2026-10-08 3:38 AM ET \"Make the decision\"; the decision was to authorize the queued proposals that still verify. seek_enable for the authored check authored_pell_companion__pythagorean_generation_w1; target Oracle PASS with fitness credit in the proposal's own cycle (20261008T072706Z_66cada), latest Oracle verdict on the target is PASS; P=0.7924 (P_oracle=1.0, P_novelty=0.6667, P_bench=0.503, P_lesson=1.0), Hearing accept_candidate, status candidate_measured. Machine check — not a novel theorem. Duplicate imp_66cada_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261008T073923Z"
     },
     {
       "id": "imp_66cada_51",
