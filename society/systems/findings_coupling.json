@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T07:28:10Z",
-  "updated_cycle": "20261008T072738Z_cd6b48",
+  "updated_at": "2026-10-08T07:44:41Z",
+  "updated_cycle": "20261008T074402Z_7993a3",
   "signal": {
-    "ts": "2026-10-08T07:28:10Z",
+    "ts": "2026-10-08T07:44:41Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 20,
+    "accepted_compute": 21,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_39d6422caccc",
-        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_convolution_w1"
+        "finding_id": "fnd_4aca120f61ca",
+        "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__derangement_subfactorial_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_aeec44aa0a5d",
-        "title": "Authorize accepted: Lemma mutation keep: authored_euler_totient_multiplicative__",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_14491c687c04",
         "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__hockey_stick_w1",
         "topic_id": "compute-useful-math",
@@ -92,6 +85,13 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_17dbe7c4aac7",
+        "title": "Authorize accepted: Lemma mutation keep: authored_pell_companion__pythagorean_ge",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,12 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_aeec44aa0a5d",
-        "title": "Authorize accepted: Lemma mutation keep: authored_euler_totient_multiplicative__hermite_recurrence_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_14491c687c04",
         "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__hockey_stick_w1",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000984__central_binom_bound",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_17dbe7c4aac7",
+        "title": "Authorize accepted: Lemma mutation keep: authored_pell_companion__pythagorean_generation_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_39d6422caccc",
         "fnd_4aca120f61ca",
         "fnd_aeec44aa0a5d",
         "fnd_14491c687c04",
         "fnd_653c1925e68c",
         "fnd_5937d591b4b2",
         "fnd_709ab27a8f7c",
-        "fnd_b0bc168e8940"
+        "fnd_b0bc168e8940",
+        "fnd_17dbe7c4aac7"
       ],
       "rsi": []
     },

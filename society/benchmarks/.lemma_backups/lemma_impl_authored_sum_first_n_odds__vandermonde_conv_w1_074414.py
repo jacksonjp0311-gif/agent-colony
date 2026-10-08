@@ -782,7 +782,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_oeis_a000984__central_binom_bound", check_authored_oeis_a000984__central_binom_bound, True),
     ("authored_pell_companion__pythagorean_generation_w1", check_authored_pell_companion__pythagorean_generation_w1, True),
     ("authored_sum_first_n_cubes__stirling_second_row_w1", check_authored_sum_first_n_cubes__stirling_second_row_w1, True),
-    ("authored_sum_first_n_odds__vandermonde_conv_w1", check_authored_sum_first_n_odds__vandermonde_conv_w1, True),
+    ("authored_sum_first_n_odds__vandermonde_conv_w1", check_authored_sum_first_n_odds__vandermonde_conv_w1, False),
 ]
 
 

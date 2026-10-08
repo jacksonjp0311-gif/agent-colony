@@ -1,37 +1,35 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T07:27:47Z",
-  "hits": 1,
-  "kills": 29,
+  "updated_at": "2026-10-08T07:44:14Z",
+  "hits": 2,
+  "kills": 28,
   "latest": {
-    "ts": "2026-10-08T07:27:47Z",
-    "cycle_id": "20261008T072738Z_cd6b48",
-    "mutation": "easy_pad_square_again",
-    "kind": "easy_pad",
+    "ts": "2026-10-08T07:44:14Z",
+    "cycle_id": "20261008T074402Z_7993a3",
+    "mutation": "authored_sum_first_n_odds__vandermonde_conv_w1",
+    "kind": "hard_enable",
     "novel_to_commons": false,
     "kills": [
-      "already_in_lesson_ledger_or_history",
-      "textbook_reuse=1.0",
-      "stripped_baseline_does_not_fail_usefulness",
-      "held_out:easy_pad_fails_held_out_harder",
-      "oracle_kill:['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']"
+      "textbook_reuse=0.6667"
     ],
-    "textbook_reuse": 1.0,
-    "in_ledger": true,
-    "own_authoring_record_only": false,
+    "textbook_reuse": 0.6667,
+    "in_ledger": false,
+    "own_authoring_record_only": true,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": false,
-      "hard_pass": 46,
-      "hard_n": 46,
-      "stripped_fails_usefulness": false,
+      "in_catalog": true,
+      "hard_pass": 48,
+      "hard_n": 48,
+      "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard45"
+      "impl_id": "lemma_impl_v2_basic10_hard47"
     },
     "held_out": {
-      "survives": false,
-      "reason": "easy_pad_fails_held_out_harder"
+      "survives": true,
+      "reason": "hard_tier_green_and_hard_enable",
+      "hard_pass": 48,
+      "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
   },

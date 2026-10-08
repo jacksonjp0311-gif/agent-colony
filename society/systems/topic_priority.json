@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_39d6422caccc",
-      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_convolution_w1"
+      "finding_id": "fnd_4aca120f61ca",
+      "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__derangement_subfactorial_w1"
     },
     {
       "topic": "open-math-problems",
@@ -66,11 +66,6 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "`self-improving-agents`",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -84,6 +79,11 @@
       "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
+    },
+    {
+      "topic": "science-method",
+      "priority": 0.85,
+      "reason": "stem_coverage=0"
     },
     {
       "topic": "mathematics-foundations",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-08T07:27:52Z",
-  "updated_cycle": "20261008T072738Z_cd6b48",
+  "updated_at": "2026-10-08T07:44:21Z",
+  "updated_cycle": "20261008T074402Z_7993a3",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

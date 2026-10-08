@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-08T07:27:39Z",
-  "cycle_id": "20261008T072738Z_cd6b48",
+  "ts": "2026-10-08T07:44:03Z",
+  "cycle_id": "20261008T074402Z_7993a3",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -13,10 +13,10 @@
     ],
     "oracle_kills_by_theme": {
       "skill_router": 38,
-      "deepen compute-useful math from accepted finding": 28,
+      "deepen compute-useful math from accepted finding": 27,
+      "easy_pad_square_again": 7,
       "easy_pad_assoc_add": 6,
       "easy_pad_zero_identity": 6,
-      "easy_pad_square_again": 5,
       "lemma_hard_combinatorics": 4,
       "stem_easy_pad_units": 4,
       "easy_pad_diff_squares": 3,
@@ -26,13 +26,6 @@
       "binomial_identities": 1
     },
     "recent": {
-      "authored_binomial_sum_row__catalan_bounded_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_oeis_a000108__catalan_bounded": {
         "last": "keep",
         "streak": 1,
@@ -109,53 +102,61 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_sum_first_n_cubes__stirling_second_row_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8235,
-      "slope": 0.001647,
+      "last": 0.8298,
+      "slope": 0.002286,
       "min": 0.8037,
-      "max": 0.8266
+      "max": 0.8298
     },
     "novelty": {
-      "last": 0.0333,
-      "slope": 0.001281,
+      "last": 0.0667,
+      "slope": 0.006062,
       "min": 0.0,
-      "max": 0.0333
+      "max": 0.0667
     },
     "kill_rate": {
-      "last": 0.4005,
-      "slope": 0.00148,
-      "min": 0.3872,
-      "max": 0.4016
+      "last": 0.4026,
+      "slope": 0.001188,
+      "min": 0.3878,
+      "max": 0.4026
     },
     "kill_rate_term": {
-      "last": 0.9105,
-      "slope": 0.001336,
-      "min": 0.8985,
-      "max": 0.9114
+      "last": 0.9124,
+      "slope": 0.00107,
+      "min": 0.899,
+      "max": 0.9124
     },
     "lesson_uptake": {
-      "last": 0.9615,
-      "slope": 0.0,
+      "last": 0.9846,
+      "slope": 0.001615,
       "min": 0.9615,
-      "max": 0.9615
+      "max": 0.9846
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0059,
-    "novelty_max": 0.0333,
+    "aggregate_range": 0.0091,
+    "novelty_max": 0.0667,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 56,
+    "enabled": 57,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_sum_first_n_odds__vandermonde_conv_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -170,7 +171,9 @@
       "authored_oeis_a000108__catalan_bounded",
       "authored_oeis_a000984__central_binom_bound",
       "authored_pascal_identity__narayana_sum_w1",
-      "authored_pell_companion__pythagorean_generation_w1"
+      "authored_pell_companion__pythagorean_generation_w1",
+      "authored_sum_first_n_cubes__stirling_second_row_w1",
+      "authored_sum_first_n_odds__vandermonde_conv_w1"
     ],
     "exhausted_recent": 0
   },
@@ -186,23 +189,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.768,
+      "ratio": 1.114,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.746,
+      "ratio": 1.136,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.791,
+      "ratio": 1.155,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.091,
+      "ratio": 1.175,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.021,
+      "ratio": 1.142,
       "drift": false
     }
   },
@@ -212,18 +215,18 @@
     "last": [
       [
         null,
+        "2026-10-08T07:42:20Z"
+      ],
+      [
+        "success",
         "2026-10-08T07:26:16Z"
       ],
       [
         "success",
         "2026-10-08T06:24:15Z"
-      ],
-      [
-        "success",
-        "2026-10-08T01:15:31Z"
       ]
     ],
-    "fetched_at": "2026-10-08T07:26:29Z"
+    "fetched_at": "2026-10-08T07:42:38Z"
   },
   "feeds": {
     "by_source": {
@@ -264,7 +267,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-08T07:26:28Z"
+      "ts": "2026-10-08T07:42:38Z"
     },
     "health": {
       "arxiv": {
