@@ -187,8 +187,28 @@ def _spot_points(task: dict[str, Any], hi: int, k: int = SPOT_SAMPLES) -> list[i
     return sorted(pts)
 
 
-def run_task(task: dict[str, Any], t: dict[str, Any], impl: Any | None = None) -> dict[str, Any]:
-    """Primary check under the time budget, then independent verification. Never raises."""
+def _challenge(out: dict[str, Any], task: dict[str, Any], r: dict[str, Any], t: dict[str, Any], impl: Any,
+               cycle_id: str) -> bool:
+    """Challenger pass before the independent recheck. True → withheld (self-rejected)."""
+    try:
+        from colony.challenger import challenge_frontier, record as challenger_record, why_believe
+        ch = challenge_frontier(task, r, t, impl, cycle_id=cycle_id)
+        why = why_believe(ch, extra={"target": task["target"], "window": [task["lo"], task["hi"]]})
+        challenger_record(ch, why=why)
+        out["challenger"] = {"blocked": ch.blocked, "reason": ch.reason, "summary": ch.summary(),
+                             "counterexample": ch.counterexample}
+        out["why_believe"] = why
+        blocked = ch.blocked
+    except Exception as exc:  # noqa: BLE001 — fail closed: no challenge, no submission
+        out["challenger"] = {"blocked": True, "reason": f"challenger_unavailable:{type(exc).__name__}"}
+        blocked = True
+    if blocked:
+        out.update({"outcome": "self_rejected", "verified_hi": None})
+    return blocked
+
+
+def run_task(task: dict[str, Any], t: dict[str, Any], impl: Any | None = None, *, cycle_id: str = "") -> dict[str, Any]:
+    """Primary check under the time budget, Challenger, then independent verification. Never raises."""
     impl = impl or load_impl()
     deadline = impl.Deadline(task["budget_s"])
     out: dict[str, Any] = {"ts": _utc(), **task, "label": LABEL, "proof": False}
@@ -197,6 +217,9 @@ def run_task(task: dict[str, Any], t: dict[str, Any], impl: Any | None = None) -
         if fam == "oeis_recurrence":
             terms = [int(x) for x in t.get("terms") or []]
             r = impl.check_oeis_recurrence(terms, deadline)
+            out["primary"] = r
+            if r.get("holds") and _challenge(out, task, r, t, impl, cycle_id):
+                return out
             indep = bool(r.get("holds")) and impl.reverify_oeis_recurrence(terms, r["order"], r["coeffs"])
             out.update({"primary": r, "independent_ok": indep if r.get("holds") else None,
                         "outcome": ("recurrence_verified_on_unused_terms" if indep
@@ -209,6 +232,8 @@ def run_task(task: dict[str, Any], t: dict[str, Any], impl: Any | None = None) -
         else:
             r = check(task["lo"], task["hi"], deadline)
         out["primary"] = r
+        if _challenge(out, task, r, t, impl, cycle_id):
+            return out
         if r.get("counterexample") is not None:
             n = int(r["counterexample"])
             confirmed = not holds(n)  # independent method
@@ -258,6 +283,10 @@ def apply_result(t: dict[str, Any], res: dict[str, Any]) -> None:
     t["last_run"] = res["ts"]
     t["runs"] = int(t.get("runs") or 0) + 1
     oc = res.get("outcome")
+    if oc == "self_rejected":  # withheld by the Challenger: no progress, nothing frozen
+        t["stall_streak"] = int(t.get("stall_streak") or 0) + 1
+        t["last_self_reject"] = {"ts": res["ts"], "reason": (res.get("challenger") or {}).get("reason")}
+        return
     if t.get("family") == "oeis_recurrence":
         if oc in ("recurrence_verified_on_unused_terms", "no_low_order_recurrence"):
             t["result"] = {"outcome": oc, "order": (res.get("primary") or {}).get("order"),
@@ -395,7 +424,7 @@ def run_cycle(cycle_id: str = "", *, witness: Any | None = None, max_tasks: int 
         if task is None:
             blocked[t["id"]] = why
             continue
-        res = run_task(task, t, impl)
+        res = run_task(task, t, impl, cycle_id=cycle_id)
         res["cycle_id"] = cycle_id
         res["enabled"] = res.get("outcome") in ("extended", "recurrence_verified_on_unused_terms")
         _append_log(res)
@@ -419,6 +448,14 @@ def _witness(witness: Any | None, cycle_id: str, t: dict[str, Any], res: dict[st
         kind = "frontier_counterexample_candidate"
         summary = (f"⚠⚠ FRONTIER COUNTEREXAMPLE CANDIDATE for {t['id']} at n={res.get('counterexample')} — "
                    f"primary and independent checkers agree. NOT a disproof claim; target frozen for human review.")
+    elif oc == "self_rejected":
+        ch = res.get("challenger") or {}
+        ce = ch.get("counterexample") or {}
+        kind = "frontier_self_reject"
+        loud = "⚠ " if ce.get("independent_fails") else ""
+        summary = (f"{loud}Frontier {t['id']}: Challenger withheld the result before recheck "
+                   f"({ch.get('reason')}; {json.dumps(ce, default=str)[:120]}). No range claimed; "
+                   f"{'independent method fails here — human review, NOT a disproof' if loud else 'checker edge'}.")
     elif oc in ("disagreement", "unresolved_anomaly"):
         kind = "frontier_review"
         summary = f"Frontier {t['id']}: {oc} near n={res.get('counterexample') or res.get('anomaly')} — frozen for review."

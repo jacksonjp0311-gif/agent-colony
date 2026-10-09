@@ -65,6 +65,10 @@ def _load_paper_themes(limit: int = 12) -> list[dict[str, Any]]:
     return out[-limit:]
 
 
+class _Withheld(Exception):
+    """Internal: the Challenger withheld this submission (skip Oracle / novelty judgment)."""
+
+
 @dataclass
 class ConjectureResult:
     ts: str
@@ -78,6 +82,8 @@ class ConjectureResult:
     note: str = ""
     finding_ids: list[str] = field(default_factory=list)
     kind: str = ""
+    why_believe: dict[str, Any] | None = None  # machine note: components + ranges + Challenger
+    self_rejected: bool = False  # Challenger withheld it from the Oracle
 
 
 def propose_from_themes(themes, *, ledger=None, cycle_id: str = ""):
@@ -361,11 +367,31 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     )
     if kind in ("easy_pad", "stem_easy_pad") and n_hard_after <= n_hard_before:
         rose = False
-    # Oracle mile: FAIL kills keep. No Oracle pass → no fitness rise.
+    # Challenger (self-challenge, block-only): before the Oracle sees this mutation the colony
+    # tries to break it — boundary / far / seeded-sample / type edges / triviality. A block
+    # withholds the submission (no Oracle run, no score); a pass approves nothing.
     oracle_note = ""
     oracle_passed = False
     _desk_verdict = None
+    why = None
+    self_rejected = False
     try:
+        from colony.challenger import challenge_entry, record as challenger_record, why_believe
+        _ch = challenge_entry(new_src, chosen or "", cycle_id=cycle_id, before_src=src)
+        why = why_believe(_ch, extra={"before_score": before_score, "after_score": after_score,
+                                      "hard_pass_delta": n_hard_after - n_hard_before})
+        challenger_record(_ch, why=why)
+        self_rejected = bool(_ch.blocked)
+    except Exception as _cx:  # noqa: BLE001 — fail closed: no challenge, no submission
+        self_rejected = True
+        why = {"challenger": f"unavailable:{type(_cx).__name__}", "generated_by": "colony.challenger"}
+    if self_rejected:
+        rose = False
+        oracle_note = (f" | SELF-REJECT: {why.get('challenger') if why else 'challenger'}; "
+                       f"withheld from the Oracle (nothing scored)")
+    try:
+        if self_rejected:
+            raise _Withheld()
         from colony.oracle import gate_keep as oracle_gate
         tentative = "keep" if rose else "revert"
         final_dec, ov = oracle_gate(
@@ -388,6 +414,8 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         )
         if tentative == "keep" and final_dec != "keep":
             rose = False  # Oracle killed keep
+    except _Withheld:
+        pass
     except Exception as _oracle_exc:  # noqa: BLE001
         # Fail-closed: cannot keep without Oracle
         if rose:
@@ -414,6 +442,8 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     # (no second Oracle run, no extra Oracle rows) and the real stripped baseline (`src`, the
     # impl before this candidate). The gate's conditions are unchanged.
     try:
+        if self_rejected:
+            raise _Withheld()  # nothing was submitted, so there is no judgment to gate
         from colony.novelty_gate import evaluate as novelty_evaluate
         _nov = novelty_evaluate(
             mutation=chosen or "",
@@ -447,14 +477,15 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             title=f"Lemma mutation {decision}: {chosen}",
             meta={"kind": "lemma_mutation", "decision": decision, "mutation": chosen,
                   "mutation_kind": kind, "before_score": before_score, "after_score": after_score,
-                  "cycle_id": cycle_id, "not_discovery": True},
+                  "cycle_id": cycle_id, "not_discovery": True, "why_believe": why,
+                  "self_rejected": self_rejected},
         )
         finding_ids.append(fnd.id)
     result = ConjectureResult(
         ts=_utc(), decision=decision, before_score=before_score, after_score=after_score,
         delta=delta, mutation=chosen, kind=kind,
         themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals, note=note,
-        finding_ids=[x for x in finding_ids if x],
+        finding_ids=[x for x in finding_ids if x], why_believe=why, self_rejected=self_rejected,
     )
     _record_desk_bookkeeping(
         decision=decision, chosen=chosen or "", kind=kind or "", before_score=before_score,
@@ -536,6 +567,9 @@ def _append_history(r: ConjectureResult) -> None:
     entry = {"ts": r.ts, "decision": r.decision, "before_score": r.before_score,
              "after_score": r.after_score, "delta": r.delta, "mutation": r.mutation,
              "kind": r.kind, "note": r.note, "themes": r.themes}
+    if r.why_believe is not None:
+        entry["why_believe"] = r.why_believe
+        entry["self_rejected"] = r.self_rejected
     with HISTORY.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")
 

@@ -124,6 +124,8 @@ def test_novelty_gate_oracle_source_is_label_only(monkeypatch):
     b = NG.evaluate(mutation="Chain `x` t", kind="process", claim_text="seek_enable:x",
                     oracle_source="novelty_gate_deferred_title")
     assert [s["source"] for s in seen] == ["novelty_gate", "novelty_gate_deferred_title"]
-    strip = lambda d: {k: v for k, v in d.items() if k != "ts"}
+    # lemma-bench score has a timing term (two runs differ under load); compare everything else
+    strip = lambda d: {k: ({kk: vv for kk, vv in v.items() if kk != "score"} if k == "stripped" else v)
+                       for k, v in d.items() if k != "ts"}
     assert strip(a) == strip(b)
     assert {k: v for k, v in seen[0].items() if k != "source"} == {k: v for k, v in seen[1].items() if k != "source"}

@@ -221,6 +221,18 @@ def frontier() -> dict[str, Any]:
             "label": s.get("label")}
 
 
+def self_challenge() -> dict[str, Any]:
+    try:
+        from colony.challenger import metrics
+        m = metrics()
+    except Exception:
+        return {}
+    return {k: m.get(k) for k in ("challenged", "blocked", "self_reject_rate", "by_kind",
+                                  "post_challenger_oracle_kill_rate", "post_challenger_oracle_judged",
+                                  "pre_challenger_oracle_kill_rate", "pre_challenger_oracle_judged",
+                                  "post_challenger_frontier_recheck_fail_rate", "challenger_catches")}
+
+
 def signals(snap: dict[str, Any]) -> list[str]:
     """Short human-readable signals (priors for spark/seek; not commands)."""
     sig: list[str] = []
@@ -242,6 +254,11 @@ def signals(snap: dict[str, Any]) -> list[str]:
     if fr.get("reviews"):
         sig.append(f"frontier_review: {', '.join(fr['reviews'][:3])} frozen pending human review "
                    f"(no proof/disproof claims)")
+    sc = snap.get("self_challenge") or {}
+    if sc.get("challenger_catches"):
+        last = sc["challenger_catches"][-1]
+        sig.append(f"self_challenge: Challenger caught {sc.get('blocked')} of {sc.get('challenged')} "
+                   f"(last: {last.get('target')} — {last.get('reason')}) → break your own claims first")
     ci = snap.get("ci_health") or {}
     if isinstance(ci.get("success_rate"), (int, float)) and ci["success_rate"] < 0.8:
         sig.append(f"ci_health: success_rate {ci['success_rate']} → be conservative")
@@ -252,7 +269,7 @@ def compute(cycle_id: str = "") -> dict[str, Any]:
     snap: dict[str, Any] = {"ts": _utc(), "cycle_id": cycle_id}
     for key, fn in (("lemma_streaks", lemma_streaks), ("trends", trends), ("stall", stall),
                     ("catalog", catalog), ("guides", guides), ("bench_timing", bench_timing),
-                    ("frontier", frontier)):
+                    ("frontier", frontier), ("self_challenge", self_challenge)):
         try:
             snap[key] = fn()
         except Exception as e:  # noqa: BLE001

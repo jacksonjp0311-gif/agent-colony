@@ -278,6 +278,7 @@ def propose_checked(
     post is verifiably in the bus log; otherwise it fails closed (oracle_blocked_no_bus).
     """
     proposed: list[dict[str, Any]] = []
+    _ch_cache: dict[str, Any] = {}  # one Challenger pass per catalog entry per cycle
     CLAIMS_JSONL.parent.mkdir(parents=True, exist_ok=True)
     for c in claims:
         with CLAIMS_JSONL.open("a", encoding="utf-8") as f:
@@ -319,6 +320,24 @@ def propose_checked(
                 c.text = c.text + " [novelty_gate: not novel-to-commons]"
         except Exception:
             pass
+        # Challenger (block-only): try to break the catalog identities this claim leans on
+        # before it is posted or judged. A block withholds it; a pass approves nothing.
+        try:
+            from colony.challenger import challenge_claim, record as challenger_record, why_believe
+            _ch = challenge_claim(c.theme_id, c.bench_hint, cycle_id=cycle_id, cache=_ch_cache)
+            _why = why_believe(_ch, extra={"theme_id": c.theme_id, "bench_hint": c.bench_hint})
+            challenger_record(_ch, why=_why)
+            c.provenance = {**(c.provenance or {}), "why_believe": _why}
+            if _ch.blocked:
+                c.status = "rejected_raw"
+                c.hard_ok = False
+                c.note = (c.note or "") + f" | SELF-REJECT challenger:{_ch.reason} (withheld from Oracle)"
+                continue
+        except Exception as _cx:  # noqa: BLE001 — fail closed
+            c.status = "rejected_raw"
+            c.hard_ok = False
+            c.note = (c.note or "") + f" | challenger_unavailable_fail_closed:{type(_cx).__name__}"
+            continue
         # Bus receipt: the claim is posted on its domain channel of the real CommBus; the
         # Oracle gets the bus only if that post is verifiably in the bus log.
         receipt = None
@@ -414,6 +433,7 @@ def propose_checked(
                     "not_discovery": True,
                     "hard_ok": True,
                     "bus_receipt": (c.provenance or {}).get("bus_receipt"),
+                    "why_believe": (c.provenance or {}).get("why_believe"),
                 },
             )
             prop["finding_id"] = fnd.id

@@ -109,6 +109,27 @@ class GrowthSteps3:
             self.state.data.setdefault("bus_metrics_latest", ibm)
         except Exception:
             pass
+        # Challenger observability (fitness detail only — never in the aggregate weights)
+        try:
+            from colony.challenger import write_system as challenger_system, load_log as challenger_log
+            chm = challenger_system()
+            metrics["self_reject_rate"] = chm.get("self_reject_rate", 0.0)
+            if chm.get("post_challenger_oracle_kill_rate") is not None:
+                metrics["post_challenger_oracle_kill_rate"] = chm["post_challenger_oracle_kill_rate"]
+            caught = [r for r in challenger_log(limit=400) if r.get("cycle_id") == cycle_id and r.get("blocked")]
+            if caught:
+                self.witness.record(
+                    cycle_id=cycle_id,
+                    kind="self_challenge",
+                    actor="challenger",
+                    summary=(f"Challenger self-rejected {len(caught)} submission(s) before the Oracle/recheck: "
+                             + "; ".join(f"{r.get('target')} ({r.get('reason')})" for r in caught[:3])
+                             + ". Withheld; nothing scored."),
+                    detail={"caught": [{k: r.get(k) for k in ("target", "kind", "reason", "counterexample")}
+                                       for r in caught[:5]]},
+                )
+        except Exception:
+            pass
         self.evo.record_fitness(cycle_id, metrics)
         # Close prior proposals with after_metrics
         closed = self.evo.close_open_proposals(cycle_id, metrics)

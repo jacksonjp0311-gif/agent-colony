@@ -50,6 +50,7 @@ LESSON_TYPES = frozenset({
     "repeat_proposal", "catalog_exhausted", "human_guide",
     "schema_drift", "self_repair",
     "authored_check", "authoring_reject",
+    "self_challenge",
     "keep", "revert", "skip",
 })
 
@@ -607,8 +608,15 @@ def mutation_cooldown(*, threshold: int = KILL_COOLDOWN_THRESHOLD, with_penaltie
     if with_penalties:
         from colony.exploration_budget import load_budget
         penalties = dict((load_budget() or {}).get("revert_penalties") or {})
+    blocked = blocked_themes(threshold=threshold)
+    # Mutations the Challenger broke (deterministic edge / counterexample): retrying is pointless.
+    from colony.challenger import blocked_targets
+    for name, why in blocked_targets().items():
+        t = theme_key(name)
+        if t:
+            blocked.setdefault(t, why)
     return MutationCooldown(
-        blocked=blocked_themes(threshold=threshold),
+        blocked=blocked,
         avoided=guide_avoid_themes(),
         penalties=penalties,
         threshold=threshold,

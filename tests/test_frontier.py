@@ -53,7 +53,7 @@ def test_catalog_is_labeled_evidence_not_proof():
     assert {"goldbach", "collatz", "legendre", "lehmer_totient", "erdos_straus", "twin_hl"} <= fams
     for t in cat["targets"]:
         assert t["proof"] is False and t["label"] == "bounded evidence, not proof"
-        v = t["verified"]  # seeded empty; only ranges the colony checked itself are recorded
+        v = t.get("verified")  # seeded empty; only ranges the colony checked itself are recorded
         assert v is None or (v["by"] == "colony" and v["label"] == "bounded evidence, not proof")
 
 
@@ -126,9 +126,12 @@ def test_counterexample_requires_independent_reverify_and_never_claims(sandbox, 
     cat = FR.load_catalog()
     t = _target(cat, "goldbach_even")
     task, _ = FR.make_task(t, done=set())
-    # independent verifier disagrees → disagreement (checker bug), NOT a counterexample
+    # independent verifier disagrees → the Challenger catches the false alarm before the recheck
+    # (self-rejected: withheld, nothing claimed, nothing frozen) — a checker bug, NOT a counterexample
     res = FR.run_task(task, t, _FakeImpl(impl, independent_agrees=False))
-    assert res["outcome"] == "disagreement" and res["independent_confirms_failure"] is False
+    assert res["outcome"] == "self_rejected" and res["verified_hi"] is None
+    assert res["challenger"]["reason"].startswith("primary_false_alarm")
+    assert res["why_believe"]["generated_by"] == "colony.challenger"
     # independent verifier agrees → candidate flagged for review, still not a claim
     t2 = _target(FR.load_catalog(), "goldbach_even")
     res2 = FR.run_task(task, t2, _FakeImpl(impl, independent_agrees=True))
