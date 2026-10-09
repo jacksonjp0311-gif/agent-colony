@@ -1,37 +1,33 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T23:30:44Z",
-  "hits": 5,
-  "kills": 25,
+  "updated_at": "2026-10-09T06:16:52Z",
+  "hits": 7,
+  "kills": 23,
   "latest": {
-    "ts": "2026-10-08T23:30:44Z",
-    "cycle_id": "20261008T233036Z_83aa56",
-    "mutation": "easy_pad_diff_squares",
-    "kind": "easy_pad",
-    "novel_to_commons": false,
-    "kills": [
-      "already_in_lesson_ledger_or_history",
-      "textbook_reuse=1.0",
-      "stripped_baseline_does_not_fail_usefulness",
-      "held_out:easy_pad_fails_held_out_harder",
-      "oracle_kill:['stripped:easy_pad_baseline_already_useful', 'held_out:easy_pad_dies_on_held_out', 'cas:easy_pad_fails_cas_usefulness', 'easy_pad_oracle_kill', 'collective_kill']"
-    ],
-    "textbook_reuse": 1.0,
-    "in_ledger": true,
-    "own_authoring_record_only": false,
+    "ts": "2026-10-09T06:16:52Z",
+    "cycle_id": "20261009T061639Z_0cd410",
+    "mutation": "authored_fibonacci_addition__euler_totient_multiplicative_w1",
+    "kind": "hard_enable",
+    "novel_to_commons": true,
+    "kills": [],
+    "textbook_reuse": 0.3333,
+    "in_ledger": false,
+    "own_authoring_record_only": true,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": false,
-      "hard_pass": 52,
-      "hard_n": 52,
-      "stripped_fails_usefulness": false,
+      "in_catalog": true,
+      "hard_pass": 54,
+      "hard_n": 54,
+      "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard51"
+      "impl_id": "lemma_impl_v2_basic10_hard53"
     },
     "held_out": {
-      "survives": false,
-      "reason": "easy_pad_fails_held_out_harder"
+      "survives": true,
+      "reason": "hard_tier_green_and_hard_enable",
+      "hard_pass": 54,
+      "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
   },

@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-08T23:30:36Z",
-  "cycle_id": "20261008T233036Z_83aa56",
+  "ts": "2026-10-09T06:16:40Z",
+  "cycle_id": "20261009T061639Z_0cd410",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -12,27 +12,20 @@
       "stem_easy_pad_units"
     ],
     "oracle_kills_by_theme": {
-      "skill_router": 17,
-      "deepen compute-useful math from accepted finding": 7,
+      "skill_router": 12,
       "easy_pad_square_again": 7,
       "easy_pad_assoc_add": 6,
       "easy_pad_zero_identity": 6,
-      "easy_pad_diff_squares": 5,
+      "easy_pad_diff_squares": 6,
       "lemma_hard_combinatorics": 4,
       "easy_pad_commutativity": 4,
       "easy_pad_abs_identity": 4,
       "stem_easy_pad_units": 4,
       "vandermonde": 2,
+      "deepen compute-useful math from accepted finding": 1,
       "binomial_identities": 1
     },
     "recent": {
-      "authored_fibonacci_addition__gcd_fibonacci_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_geometric_sum__hockey_stick_w1": {
         "last": "keep",
         "streak": 1,
@@ -109,53 +102,61 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_catalan_convolution__derangement_subfactorial_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.832,
-      "slope": 0.000664,
+      "last": 0.8365,
+      "slope": 0.000807,
       "min": 0.8253,
       "max": 0.8367
     },
     "novelty": {
-      "last": 0.1667,
-      "slope": 0.012588,
-      "min": 0.0333,
-      "max": 0.1667
+      "last": 0.2,
+      "slope": 0.012587,
+      "min": 0.0667,
+      "max": 0.2
     },
     "kill_rate": {
-      "last": 0.4036,
-      "slope": 0.000224,
-      "min": 0.4011,
-      "max": 0.4046
+      "last": 0.4041,
+      "slope": 0.000219,
+      "min": 0.4016,
+      "max": 0.4051
     },
     "kill_rate_term": {
-      "last": 0.9132,
-      "slope": 0.000203,
-      "min": 0.9109,
-      "max": 0.9142
+      "last": 0.9137,
+      "slope": 0.000198,
+      "min": 0.9114,
+      "max": 0.9146
     },
     "lesson_uptake": {
       "last": 0.9846,
-      "slope": 0.000888,
-      "min": 0.9615,
+      "slope": 0.0,
+      "min": 0.9846,
       "max": 0.9846
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0076,
-    "novelty_max": 0.1667,
+    "aggregate_range": 0.0063,
+    "novelty_max": 0.2,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 62,
+    "enabled": 63,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_fibonacci_addition__euler_totient_multiplicative_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -164,8 +165,10 @@
       "authored_binomial_sum_row__catalan_bounded_w1",
       "authored_binomial_symmetry__cassini_w1",
       "authored_binomial_symmetry__catalan_convolution_w1",
+      "authored_catalan_convolution__derangement_subfactorial_w1",
       "authored_central_binom_bound__derangement_subfactorial_w1",
       "authored_euler_totient_multiplicative__hermite_recurrence_w1",
+      "authored_fibonacci_addition__euler_totient_multiplicative_w1",
       "authored_fibonacci_addition__gcd_fibonacci_w1",
       "authored_geometric_sum__hockey_stick_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
@@ -178,7 +181,7 @@
       "authored_sum_first_n_cubes__stirling_second_row_w1",
       "authored_sum_first_n_odds__vandermonde_conv_w1"
     ],
-    "exhausted_recent": 0
+    "exhausted_recent": 1
   },
   "guides": {
     "n_guides": 14,
@@ -192,23 +195,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.67,
+      "ratio": 1.123,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.665,
+      "ratio": 1.113,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.71,
+      "ratio": 1.041,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.018,
+      "ratio": 1.193,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.886,
+      "ratio": 1.15,
       "drift": false
     }
   },
@@ -218,30 +221,30 @@
     "last": [
       [
         null,
+        "2026-10-09T06:15:06Z"
+      ],
+      [
+        "success",
         "2026-10-08T23:28:58Z"
       ],
       [
         "success",
         "2026-10-08T13:52:02Z"
-      ],
-      [
-        "success",
-        "2026-10-08T07:46:06Z"
       ]
     ],
-    "fetched_at": "2026-10-08T23:29:19Z"
+    "fetched_at": "2026-10-09T06:15:26Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 20,
+      "arxiv": 26,
       "oeis": 5,
-      "crossref": 14,
-      "wikipedia": 3
+      "crossref": 15,
+      "wikipedia": 4
     },
     "by_kind": {
-      "paper": 34,
+      "paper": 41,
       "sequence": 5,
-      "summary": 3
+      "summary": 4
     },
     "last_run": {
       "sources": {
@@ -257,8 +260,8 @@
         },
         "crossref": {
           "error": "",
-          "fetched": 5,
-          "new": 5,
+          "fetched": 1,
+          "new": 1,
           "ok": true
         },
         "oeis": {
@@ -269,29 +272,29 @@
         },
         "wikipedia": {
           "error": "",
-          "fetched": 0,
-          "new": 0,
+          "fetched": 1,
+          "new": 1,
           "ok": true
         }
       },
-      "ts": "2026-10-08T23:29:12Z"
+      "ts": "2026-10-09T06:15:19Z"
     },
     "health": {
       "arxiv": {
         "fail": 0,
-        "ok": 4
+        "ok": 5
       },
       "crossref": {
         "fail": 0,
-        "ok": 4
+        "ok": 5
       },
       "oeis": {
         "fail": 0,
-        "ok": 4
+        "ok": 5
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 4
+        "ok": 5
       }
     }
   },

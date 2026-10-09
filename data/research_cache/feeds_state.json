@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-08T23:29:19Z",
+    "fetched_at": "2026-10-09T06:15:26Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-09T06:15:06Z",
+        "id": 37892561858,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-09T06:15:10Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-08T23:28:58Z",
         "id": 37859673722,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-08T23:29:02Z"
+        "status": "completed",
+        "updated_at": "2026-10-08T23:31:22Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-07T21:53:33Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-07T21:47:50Z",
-        "id": 37691898961,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-07T21:49:51Z"
       }
     ],
     "success_rate": 1.0
@@ -105,26 +105,26 @@
   "health": {
     "arxiv": {
       "fail": 0,
-      "ok": 4
+      "ok": 5
     },
     "crossref": {
       "fail": 0,
-      "ok": 4
+      "ok": 5
     },
     "oeis": {
       "fail": 0,
-      "ok": 4
+      "ok": 5
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 4
+      "ok": 5
     }
   },
   "last_ok": {
-    "arxiv": "2026-10-08T23:29:15Z",
-    "crossref": "2026-10-08T23:29:17Z",
-    "oeis": "2026-10-08T23:29:16Z",
-    "wikipedia": "2026-10-08T23:29:18Z"
+    "arxiv": "2026-10-09T06:15:23Z",
+    "crossref": "2026-10-09T06:15:24Z",
+    "oeis": "2026-10-09T06:15:24Z",
+    "wikipedia": "2026-10-09T06:15:26Z"
   },
   "last_run": {
     "sources": {
@@ -140,8 +140,8 @@
       },
       "crossref": {
         "error": "",
-        "fetched": 5,
-        "new": 5,
+        "fetched": 1,
+        "new": 1,
         "ok": true
       },
       "oeis": {
@@ -152,12 +152,12 @@
       },
       "wikipedia": {
         "error": "",
-        "fetched": 0,
-        "new": 0,
+        "fetched": 1,
+        "new": 1,
         "ok": true
       }
     },
-    "ts": "2026-10-08T23:29:12Z"
+    "ts": "2026-10-09T06:15:19Z"
   },
-  "runs": 12
+  "runs": 13
 }

@@ -14,6 +14,13 @@
       "snippet": "enable:catalan_convolution",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "binomial_hockey_deep",
+      "kind": "hard_enable",
+      "snippet": "enable:binomial_hockey_deep",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

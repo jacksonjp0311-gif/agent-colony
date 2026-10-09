@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_709ab27a8f7c",
-      "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__narayana_sum_w1"
+      "finding_id": "fnd_b0bc168e8940",
+      "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000984__central_binom_bound"
     },
     {
       "topic": "open-math-problems",
@@ -27,6 +27,11 @@
     },
     {
       "topic": "$2$-factor",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$\\ell_2$-norm",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -57,11 +62,6 @@
     },
     {
       "topic": "<https://doi.org/10.1007/s00373-026-03021-z>",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "['4d-hof",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-08T23:30:51Z",
-  "updated_cycle": "20261008T233036Z_83aa56",
+  "updated_at": "2026-10-09T06:16:56Z",
+  "updated_cycle": "20261009T061639Z_0cd410",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

@@ -856,7 +856,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_oeis_a000079__binomial_sum_row", check_authored_oeis_a000079__binomial_sum_row, True),
     ("authored_binomial_symmetry__cassini_w1", check_authored_binomial_symmetry__cassini_w1, True),
     ("authored_catalan_convolution__derangement_subfactorial_w1", check_authored_catalan_convolution__derangement_subfactorial_w1, True),
-    ("authored_fibonacci_addition__euler_totient_multiplicative_w1", check_authored_fibonacci_addition__euler_totient_multiplicative_w1, True),
+    ("authored_fibonacci_addition__euler_totient_multiplicative_w1", check_authored_fibonacci_addition__euler_totient_multiplicative_w1, False),
 ]
 
 

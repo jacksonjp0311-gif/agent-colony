@@ -742,17 +742,6 @@ def check_authored_catalan_convolution__derangement_subfactorial_w1() -> bool:
     return all((check_catalan_convolution(n) for n in range(12, 18))) and all((check_derangement_subfactorial(n) for n in range(12, 18)))
 
 
-def check_authored_fibonacci_addition__euler_totient_multiplicative_w1() -> bool:
-    """Authored stress check (desk): proven lemmas fibonacci_addition + euler_totient_multiplicative on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_fibonacci_addition,
-    ::check_euler_totient_multiplicative; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_fibonacci_addition(m, n) for m in range(15, 22) for n in range(15, 22))) and all((check_euler_totient_multiplicative(a, b) for a in range(16, 23) for b in range(16, 23)))
-
-
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -855,8 +844,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_binomial_inversion_small__legendre_duplication_small_w1", check_authored_binomial_inversion_small__legendre_duplication_small_w1, True),
     ("authored_oeis_a000079__binomial_sum_row", check_authored_oeis_a000079__binomial_sum_row, True),
     ("authored_binomial_symmetry__cassini_w1", check_authored_binomial_symmetry__cassini_w1, True),
-    ("authored_catalan_convolution__derangement_subfactorial_w1", check_authored_catalan_convolution__derangement_subfactorial_w1, True),
-    ("authored_fibonacci_addition__euler_totient_multiplicative_w1", check_authored_fibonacci_addition__euler_totient_multiplicative_w1, True),
+    ("authored_catalan_convolution__derangement_subfactorial_w1", check_authored_catalan_convolution__derangement_subfactorial_w1, False),
 ]
 
 
