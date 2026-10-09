@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-09T13:40:38Z",
+  "ts": "2026-10-09T22:48:25Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -5.933170136756283,
+      "latest": -6.0341494044115525,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-09T13:35:00Z",
-          "v": -7.524276685835943
+          "t": "2026-10-09T22:41:00Z",
+          "v": -7.919347687759199
         },
         {
-          "t": "2026-10-09T13:35:00Z",
-          "v": -5.894773626011016
+          "t": "2026-10-09T22:41:00Z",
+          "v": -6.051884717805873
         },
         {
-          "t": "2026-10-09T13:36:00Z",
-          "v": -7.600333803592517
+          "t": "2026-10-09T22:42:00Z",
+          "v": -7.880133665579179
         },
         {
-          "t": "2026-10-09T13:36:00Z",
-          "v": -5.9091123596458175
+          "t": "2026-10-09T22:42:00Z",
+          "v": -6.04505756575775
         },
         {
-          "t": "2026-10-09T13:37:00Z",
-          "v": -7.663029730156837
+          "t": "2026-10-09T22:43:00Z",
+          "v": -7.876844821152585
         },
         {
-          "t": "2026-10-09T13:37:00Z",
-          "v": -5.920801787331339
+          "t": "2026-10-09T22:43:00Z",
+          "v": -6.038399207972825
         },
         {
-          "t": "2026-10-09T13:38:00Z",
-          "v": -7.730531443394803
+          "t": "2026-10-09T22:44:00Z",
+          "v": -7.822544898165663
         },
         {
-          "t": "2026-10-09T13:38:00Z",
-          "v": -5.933170136756283
+          "t": "2026-10-09T22:44:00Z",
+          "v": -6.0341494044115525
         }
       ],
       "live": true,
-      "ts": "2026-10-09T13:40:37Z"
+      "ts": "2026-10-09T22:48:24Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 17.7,
+      "latest": 18.0,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -95,15 +95,21 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-09T13:40:37Z"
+      "ts": "2026-10-09T22:48:24Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
       "ok": true,
       "note": "ok",
       "count": 100,
-      "latest": 3.1,
+      "latest": 4.9,
       "items": [
+        {
+          "mag": 4.9,
+          "place": "northern Mid-Atlantic Ridge",
+          "time": 1791495263503,
+          "source": "usgs"
+        },
         {
           "mag": 3.1,
           "place": "225 km ESE of Chiniak, Alaska",
@@ -135,27 +141,21 @@
           "source": "usgs"
         },
         {
+          "mag": 2.7,
+          "place": "115 km SW of Adak, Alaska",
+          "time": 1791480118498,
+          "source": "usgs"
+        },
+        {
           "mag": 4.7,
           "place": "84 km WNW of Bengkulu, Indonesia",
           "time": 1791473027618,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.9,
-          "place": "113 km NW of Baa, Indonesia",
-          "time": 1791468709678,
-          "source": "usgs"
-        },
-        {
-          "mag": 3.5,
-          "place": "119 km SW of Nikolski, Alaska",
-          "time": 1791465314685,
           "source": "usgs"
         }
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-02&endtime=2026-10-09&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-09T13:40:38Z"
+      "ts": "2026-10-09T22:48:24Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.36572265625,
-          "disk_free_percent": 59.488421345017144,
+          "load1": 0.54638671875,
+          "disk_free_percent": 59.49156816417532,
           "process_count": 164,
-          "uptime_hours": 0.051152777777777776,
+          "uptime_hours": 0.03353888888888889,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervmmprz5",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.36572265625,
+      "latest_load1": 0.54638671875,
       "live": true,
-      "ts": "2026-10-09T13:40:38Z"
+      "ts": "2026-10-09T22:48:24Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 18.466543999977603,
-      "mean_ms": 18.484882499997468,
+      "latest_ms": 2.2683899999975665,
+      "mean_ms": 2.4263500000039073,
       "items": [
         {
           "probe": 0,
-          "ms": 18.730956000013066
+          "ms": 2.51626300000396
         },
         {
           "probe": 1,
-          "ms": 18.275514000009707
+          "ms": 2.095348000011654
         },
         {
           "probe": 2,
-          "ms": 18.466515999989497
+          "ms": 2.8253990000024487
         },
         {
           "probe": 3,
-          "ms": 18.466543999977603
+          "ms": 2.2683899999975665
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-09T13:40:38Z"
+      "ts": "2026-10-09T22:48:25Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.36572265625 tcp_probe mean_ms=18.484882499997468 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.54638671875 tcp_probe mean_ms=2.4263500000039073 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.36572265625,
-        "probe_ms": 18.484882499997468,
+        "load1": 0.54638671875,
+        "probe_ms": 2.4263500000039073,
         "probe_ok": true
       },
       "domains": [

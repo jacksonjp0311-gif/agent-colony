@@ -1,26 +1,27 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T13:39:28Z",
-  "passes": 241,
+  "updated_at": "2026-10-09T22:48:16Z",
+  "passes": 243,
   "kills": 161,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4005,
+  "kill_rate": 0.3985,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 29,
-    "kills": 31,
+    "passes": 30,
+    "kills": 30,
     "easy_pad_kills": 14,
-    "kill_rate": 0.5167
+    "kill_rate": 0.5
   },
   "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
-    "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_bell_triangle_recurrence__hermite_recurrence_w1",
     "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
     "authored_binomial_inversion_small__legendre_duplication_small_w1",
+    "authored_binomial_sum_row__binomial_inversion_small_w1",
     "authored_binomial_sum_row__catalan_bounded_w1",
     "authored_binomial_symmetry__cassini_w1",
+    "authored_binomial_symmetry__catalan_bounded_w1",
     "authored_binomial_symmetry__catalan_convolution_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
     "authored_central_binom_bound__derangement_subfactorial_w1",
@@ -46,7 +47,6 @@
     "binomial_identities"
   ],
   "unique_mutations_kill": [
-    "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves (cycle 175)",
     "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds",
     "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds (cycle 177)",
     "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa",
@@ -99,7 +99,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-09T13:39:28Z",
+    "ts": "2026-10-09T22:48:16Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -109,15 +109,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_bell_triangle_recurrence__legendre_duplication_small_w1` kind=hard_enable. lemma mutation authored_bell_triangle_recurrence__legendre_duplication_small_w1 0.9071->0.",
-      "attack": "WEIGH: `authored_bell_triangle_recurrence__legendre_duplication_small_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_binomial_symmetry__catalan_bounded_w1` kind=hard_enable. lemma mutation authored_binomial_symmetry__catalan_bounded_w1 0.9071->0.9071 Not discovery. cycle=20261009T2",
+      "attack": "WEIGH: `authored_binomial_symmetry__catalan_bounded_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 61,
-        "hard_n": 61,
+        "hard_pass": 63,
+        "hard_n": 63,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -127,8 +127,8 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 61,
-        "hard_n": 61,
+        "hard_pass": 63,
+        "hard_n": 63,
         "ok": true,
         "score": 0.9071,
         "reason": "hard_pass_delta=1",
@@ -153,7 +153,7 @@
             "ok": true
           },
           {
-            "label": "flourish_math_family",
+            "label": "catalan_positive",
             "ok": true
           }
         ]
@@ -205,15 +205,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
+      "mutation": "authored_binomial_symmetry__catalan_bounded_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
+    "mutation": "authored_binomial_symmetry__catalan_bounded_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261009T133914Z_4240dc",
+    "cycle_id": "20261009T224803Z_fa9cbb",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

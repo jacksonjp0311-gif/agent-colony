@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_be2569b21a4a",
-      "title": "Authorize accepted: Lemma mutation keep: authored_catalan_convolution__derangement_subfactorial_w1"
+      "finding_id": "fnd_87c97ca23c29",
+      "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__euler_totient_multiplicative_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-09T13:40:18Z",
-  "updated_cycle": "20261009T133957Z_6011fc",
+  "updated_at": "2026-10-09T22:48:21Z",
+  "updated_cycle": "20261009T224803Z_fa9cbb",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

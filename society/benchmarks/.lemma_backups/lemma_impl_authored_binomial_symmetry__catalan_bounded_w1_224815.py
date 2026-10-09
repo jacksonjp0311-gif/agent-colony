@@ -964,7 +964,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sum_first_n_odds__stirling_second_row_w1", check_authored_sum_first_n_odds__stirling_second_row_w1, True),
     ("authored_bell_triangle_recurrence__legendre_duplication_small_w1", check_authored_bell_triangle_recurrence__legendre_duplication_small_w1, True),
     ("authored_binomial_sum_row__binomial_inversion_small_w1", check_authored_binomial_sum_row__binomial_inversion_small_w1, True),
-    ("authored_binomial_symmetry__catalan_bounded_w1", check_authored_binomial_symmetry__catalan_bounded_w1, True),
+    ("authored_binomial_symmetry__catalan_bounded_w1", check_authored_binomial_symmetry__catalan_bounded_w1, False),
 ]
 
 

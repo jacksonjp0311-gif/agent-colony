@@ -1,7 +1,7 @@
 {
   "routes": {
     "tribute": "tribute_keeper",
-    "build": "tribute_keeper",
+    "build": "spark",
     "communicate": "spark",
     "gather": "spark",
     "improve": "spark",
@@ -10,15 +10,15 @@
   "skills_snapshot": {
     "spark": {
       "tribute": 0.5,
-      "build": 0.9794,
+      "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
       "improve": 0.99,
-      "emergence": 0.8023
+      "emergence": 0.8027
     },
     "tribute_keeper": {
       "tribute": 0.99,
-      "build": 0.99,
+      "build": 0.9794,
       "communicate": 0.99,
       "gather": 0.99,
       "improve": 0.99,
@@ -27,7 +27,7 @@
     "memory_weaver": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9841,
+      "communicate": 0.99,
       "gather": 0.9292,
       "improve": 0.99,
       "emergence": 0.99
@@ -43,7 +43,7 @@
     "herald": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9541,
+      "communicate": 0.9486,
       "gather": 0.99,
       "improve": 0.99,
       "emergence": 0.99
@@ -61,13 +61,13 @@
       "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
-      "improve": 0.8536,
+      "improve": 0.8505,
       "emergence": 0.99
     },
     "courier": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9541,
+      "communicate": 0.9486,
       "gather": 0.99,
       "improve": 0.99,
       "emergence": 0.99
@@ -107,7 +107,7 @@
     "archivist": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9767,
+      "communicate": 0.9714,
       "gather": 0.99,
       "improve": 0.99,
       "emergence": 0.99
@@ -117,7 +117,7 @@
       "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
-      "improve": 0.9639,
+      "improve": 0.9634,
       "emergence": 0.99
     },
     "chronicler": {
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-10-09T13:40:39Z",
-  "updated_cycle": "20261009T133957Z_6011fc"
+  "updated_at": "2026-10-09T22:48:25Z",
+  "updated_cycle": "20261009T224803Z_fa9cbb"
 }

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T13:40:18Z",
-  "updated_cycle": "20261009T133957Z_6011fc",
+  "updated_at": "2026-10-09T22:48:21Z",
+  "updated_cycle": "20261009T224803Z_fa9cbb",
   "n_active": 80,
-  "n_keeps": 5,
+  "n_keeps": 6,
   "n_reverts": 3,
   "skill_bias": {
     "geometer.gather": 0.08,
-    "improver.improve": 0.0617,
+    "improver.improve": 0.0616,
     "spark.emergence": 0.04,
     "gather": 0.0822,
     "oracle": 0.0683,
@@ -20,110 +20,14 @@
   },
   "recent": [
     {
-      "id": "les_Z_0c6da3_conjecture",
-      "ts": "2026-10-09T13:38:46Z",
-      "cycle_id": "20261009T133831Z_0c6da3",
-      "type": "catalog_exhausted",
-      "decision": "skip",
-      "check": "conjecture",
-      "mutation": "",
-      "what": "catalog exhausted \u2014 queue next hard_enable stub from lessons/external mind",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {
-        "avoid": [
-          "vandermonde_asymmetric",
-          "process_spam"
-        ],
-        "drop_theme": [
-          "vandermonde_asymmetric"
-        ],
-        "seek": [
-          "papers.jsonl",
-          "ledger",
-          "domain_bus",
-          "arxiv"
-        ],
-        "prefer": [
-          "novelty",
-          "cite_sources",
-          "gather_before_propose",
-          "drop_cooled_theme"
-        ],
-        "add_mutation": "binomial_hockey_deep"
-      },
-      "proposal_fingerprint": "",
-      "tags": [
-        "catalog_exhausted"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_0c6da3_vandermonde",
-      "ts": "2026-10-09T13:38:46Z",
-      "cycle_id": "20261009T133831Z_0c6da3",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_0c6da3_pilot",
-      "ts": "2026-10-09T13:38:54Z",
-      "cycle_id": "20261009T133831Z_0c6da3",
-      "type": "skip",
-      "decision": "skip",
-      "check": "pilot",
-      "mutation": "",
-      "what": "empty rsi_bias pilot suppressed",
-      "source": "pilot_lane",
-      "family": "rsi",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "empty_rsi_bias"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate"
-    },
-    {
-      "id": "les_Z_4240dc_authored_bell_triangle_recurrence__",
-      "ts": "2026-10-09T13:39:29Z",
-      "cycle_id": "20261009T133914Z_4240dc",
+      "id": "les_Z_b91552_authored_binomial_sum_row__binomial",
+      "ts": "2026-10-09T22:47:29Z",
+      "cycle_id": "20261009T224715Z_b91552",
       "type": "keep",
       "decision": "keep",
       "check": "lemma_microbench",
-      "mutation": "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
-      "what": "Kept `authored_bell_triangle_recurrence__legendre_duplication_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 70\u219271 hard_pass 60\u219261 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | novelty_gate novel=True kills=[]",
+      "mutation": "authored_binomial_sum_row__binomial_inversion_small_w1",
+      "what": "Kept `authored_binomial_sum_row__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 71\u219272 hard_pass 61\u219262 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | novelty_gate novel=True kills=[]",
       "source": "conjecture_desk",
       "family": "hard_enable",
       "before_score": 0.9071,
@@ -144,16 +48,16 @@
       "evidence": [
         "society/benchmarks/lemma_microbench.py",
         "artifacts:lemma_impl",
-        "lesson:les_Z_0c6da3_authored_bell_triangle_recurrence__"
+        "lesson:les_Z_6011fc_authored_binomial_sum_row__binomial"
       ],
       "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_4240dc_vandermonde",
-      "ts": "2026-10-09T13:39:29Z",
-      "cycle_id": "20261009T133914Z_4240dc",
+      "id": "les_Z_b91552_vandermonde",
+      "ts": "2026-10-09T22:47:29Z",
+      "cycle_id": "20261009T224715Z_b91552",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -176,9 +80,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_4240dc_pilot",
-      "ts": "2026-10-09T13:39:36Z",
-      "cycle_id": "20261009T133914Z_4240dc",
+      "id": "les_Z_b91552_pilot",
+      "ts": "2026-10-09T22:47:34Z",
+      "cycle_id": "20261009T224715Z_b91552",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -201,9 +105,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_6011fc_dedupe",
-      "ts": "2026-10-09T13:40:06Z",
-      "cycle_id": "20261009T133957Z_6011fc",
+      "id": "les_Z_af526f_dedupe",
+      "ts": "2026-10-09T22:47:48Z",
+      "cycle_id": "20261009T224740Z_af526f",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -226,9 +130,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_6011fc_dedupe",
-      "ts": "2026-10-09T13:40:08Z",
-      "cycle_id": "20261009T133957Z_6011fc",
+      "id": "les_Z_af526f_dedupe",
+      "ts": "2026-10-09T22:47:50Z",
+      "cycle_id": "20261009T224740Z_af526f",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -251,14 +155,14 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_6011fc_authored_binomial_sum_row__binomial",
-      "ts": "2026-10-09T13:40:10Z",
-      "cycle_id": "20261009T133957Z_6011fc",
+      "id": "les_Z_af526f_authored_binomial_symmetry__catalan",
+      "ts": "2026-10-09T22:47:52Z",
+      "cycle_id": "20261009T224740Z_af526f",
       "type": "authored_check",
       "decision": "skip",
       "check": "authoring",
-      "mutation": "authored_binomial_sum_row__binomial_inversion_small_w1",
-      "what": "authored disabled hard check `authored_binomial_sum_row__binomial_inversion_small_w1` from proven lemmas binomial_sum_row + binomial_inversion_small on new windows; awaits Oracle via proposal",
+      "mutation": "authored_binomial_symmetry__catalan_bounded_w1",
+      "what": "authored disabled hard check `authored_binomial_symmetry__catalan_bounded_w1` from proven lemmas binomial_symmetry + catalan_bounded on new windows; awaits Oracle via proposal",
       "source": "conjecture_desk",
       "family": "hard_tier",
       "before_score": null,
@@ -270,24 +174,24 @@
       "tags": [
         "authoring",
         "authored_check",
-        "binomial_sum_row",
-        "binomial_inversion_small"
+        "binomial_symmetry",
+        "catalan_bounded"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::check_binomial_sum_row",
-        "society/benchmarks/artifacts/lemma_impl.py::check_binomial_inversion_small",
+        "society/benchmarks/artifacts/lemma_impl.py::check_binomial_symmetry",
+        "society/benchmarks/artifacts/lemma_impl.py::check_catalan_bounded",
         "society/benchmarks/lemma_microbench.py",
-        "lemma:binomial_sum_row",
-        "lemma:binomial_inversion_small"
+        "lemma:binomial_symmetry",
+        "lemma:catalan_bounded"
       ],
       "author": null,
       "expired": false,
       "status": "candidate"
     },
     {
-      "id": "les_Z_6011fc_conjecture",
-      "ts": "2026-10-09T13:40:11Z",
-      "cycle_id": "20261009T133957Z_6011fc",
+      "id": "les_Z_af526f_conjecture",
+      "ts": "2026-10-09T22:47:53Z",
+      "cycle_id": "20261009T224740Z_af526f",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -331,9 +235,9 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_6011fc_vandermonde",
-      "ts": "2026-10-09T13:40:12Z",
-      "cycle_id": "20261009T133957Z_6011fc",
+      "id": "les_Z_af526f_vandermonde",
+      "ts": "2026-10-09T22:47:53Z",
+      "cycle_id": "20261009T224740Z_af526f",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -356,9 +260,94 @@
       "status": "candidate"
     },
     {
-      "id": "les_Z_6011fc_pilot",
-      "ts": "2026-10-09T13:40:18Z",
-      "cycle_id": "20261009T133957Z_6011fc",
+      "id": "les_Z_af526f_pilot",
+      "ts": "2026-10-09T22:47:57Z",
+      "cycle_id": "20261009T224740Z_af526f",
+      "type": "skip",
+      "decision": "skip",
+      "check": "pilot",
+      "mutation": "",
+      "what": "empty rsi_bias pilot suppressed",
+      "source": "pilot_lane",
+      "family": "rsi",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "empty_rsi_bias"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_fa9cbb_authored_binomial_symmetry__catalan",
+      "ts": "2026-10-09T22:48:16Z",
+      "cycle_id": "20261009T224803Z_fa9cbb",
+      "type": "keep",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "authored_binomial_symmetry__catalan_bounded_w1",
+      "what": "Kept `authored_binomial_symmetry__catalan_bounded_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 72\u219273 hard_pass 62\u219263 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | novelty_gate novel=False kills=['textbook_reuse=0.6667']",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.9071,
+      "after_score": 0.9071,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl",
+        "lesson:les_Z_af526f_authored_binomial_symmetry__catalan"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_fa9cbb_vandermonde",
+      "ts": "2026-10-09T22:48:16Z",
+      "cycle_id": "20261009T224803Z_fa9cbb",
+      "type": "skip",
+      "decision": "skip",
+      "check": "oracle_seen_claim",
+      "mutation": "vandermonde",
+      "what": "skip re-oracle of vandermonde:1706.03762",
+      "source": "claim_pipeline",
+      "family": "novelty",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "vandermonde:1706.03762",
+      "tags": [
+        "repeat_claim"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate"
+    },
+    {
+      "id": "les_Z_fa9cbb_pilot",
+      "ts": "2026-10-09T22:48:21Z",
+      "cycle_id": "20261009T224803Z_fa9cbb",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
