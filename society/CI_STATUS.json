@@ -279,82 +279,85 @@
     "cycle_227_evolve_note",
     "cycle_228_evolve_note",
     "cycle_229_evolve_note",
-    "cycle_230_evolve_note"
+    "cycle_230_evolve_note",
+    "cycle_231_evolve_note",
+    "cycle_232_evolve_note",
+    "cycle_233_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 640,
+      "uses": 649,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 612,
+      "uses": 621,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 429,
+      "uses": 435,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 214,
+      "uses": 217,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 813,
+      "uses": 825,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 516,
+      "uses": 521,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 607,
+      "uses": 616,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 202,
+      "uses": 205,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 202,
+      "uses": 205,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 187,
+      "uses": 190,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 187,
+      "uses": 190,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 184,
+      "uses": 187,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 184,
+      "uses": 187,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 181,
+      "uses": 184,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 181,
+      "uses": 184,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -629,8 +632,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 812,
-    "reused": 1822
+    "appended": 824,
+    "reused": 1849
   },
   "commons_by_domain": {
     "science": 0,
@@ -649,8 +652,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-09T07:55:20Z",
-    "cycle_id": "20261009T075438Z_dd0e2a",
+    "ts": "2026-10-09T07:58:06Z",
+    "cycle_id": "20261009T075729Z_3b4223",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -662,23 +665,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-09T07:55:20Z",
-    "cycle_id": "20261009T075438Z_dd0e2a",
+    "ts": "2026-10-09T07:58:05Z",
+    "cycle_id": "20261009T075729Z_3b4223",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.813,
-    "compute_usefulness": 0.9123,
+    "math_prize": 0.8138,
+    "compute_usefulness": 0.913,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8852,
-    "kill_rate": 0.4035,
-    "kill_rate_term": 0.9132,
-    "novelty": 0.3333,
-    "lesson_uptake": 0.8933,
-    "aggregate": 0.8385,
+    "prize_boost": 0.8858,
+    "kill_rate": 0.4015,
+    "kill_rate_term": 0.9113,
+    "novelty": 0.3667,
+    "lesson_uptake": 0.9,
+    "aggregate": 0.8361,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -686,35 +689,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 11497,
-    "read": 54492,
-    "replied": 7237,
-    "actions_planned": 3756,
-    "actions_changed_from_message": 3756,
-    "reply_quality_sum": 6551.899999999534,
-    "reply_quality_n": 7185,
-    "peer_cite_opportunities": 7388,
-    "peer_cites": 7388
+    "posted": 11664,
+    "read": 55284,
+    "replied": 7342,
+    "actions_planned": 3810,
+    "actions_changed_from_message": 3810,
+    "reply_quality_sum": 6647.599999999508,
+    "reply_quality_n": 7290,
+    "peer_cite_opportunities": 7496,
+    "peer_cites": 7496
   },
   "bus_domains": {
-    "science": 602,
-    "history": 604,
-    "math": 1821,
-    "empire": 405,
-    "bulletin": 1658,
-    "forum": 2613,
-    "software": 604,
-    "nature": 602,
-    "life": 604,
-    "cosmos": 862,
-    "rsi": 1014
+    "science": 611,
+    "history": 613,
+    "math": 1848,
+    "empire": 411,
+    "bulletin": 1679,
+    "forum": 2652,
+    "software": 613,
+    "nature": 611,
+    "life": 613,
+    "cosmos": 876,
+    "rsi": 1029
   },
-  "communications_count": 11497,
+  "communications_count": 11664,
   "improvements": [
-    "Chain `authored_binomial_symmetry__catalan_convolution_w1` citing Optimal bound for the polynomial Littlewood-Offord (cycle 183)",
-    "Chain `authored_central_binom_bound__derangement_subfactorial_w1` citing Optimal bound for the polynomial Littlewood-Offord",
-    "Chain `authored_central_binom_bound__derangement_subfactorial_w1` citing Optimal bound for the polynomial Littlewood-Offord (cycle 185)",
-    "Chain `authored_euler_totient_multiplicative__hermite_recurrence_w1` citing Local newforms, Pa\u0161k\u016bnas-Stevens Whittaker functio",
     "Chain `authored_euler_totient_multiplicative__hermite_recurrence_w1` citing Local newforms, Pa\u0161k\u016bnas-Stevens Whittaker functio (cycle 187)",
     "Chain `authored_fibonacci_addition__gcd_fibonacci_w1` citing Random independent sets in uncrowded hypergraphs",
     "Chain `authored_fibonacci_addition__gcd_fibonacci_w1` citing Random independent sets in uncrowded hypergraphs (cycle 189)",
@@ -760,18 +759,22 @@
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 225)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 227)",
     "Chain `authored_pascal_identity__pythagorean_generation_w1` citing Geometrically Abelian Sections on Higher-Dimension",
-    "Chain `authored_pascal_identity__pythagorean_generation_w1` citing Geometrically Abelian Sections on Higher-Dimension (cycle 229)"
+    "Chain `authored_pascal_identity__pythagorean_generation_w1` citing Geometrically Abelian Sections on Higher-Dimension (cycle 229)",
+    "Chain `authored_sum_first_n_cubes__vandermonde_conv_w1` citing Decentralized SGD under Heavy-Tailed Noise: Optima",
+    "Chain `authored_sum_first_n_cubes__vandermonde_conv_w1` citing Decentralized SGD under Heavy-Tailed Noise: Optima (cycle 231)",
+    "Chain `authored_sum_first_n_odds__stirling_second_row_w1` citing An (\u03b5, \u03b4)-Differential Privacy Analysis of Adaptiv",
+    "Chain `authored_sum_first_n_odds__stirling_second_row_w1` citing An (\u03b5, \u03b4)-Differential Privacy Analysis of Adaptiv (cycle 233)"
   ],
-  "cycle_count": 230,
-  "ledger_count": 12386,
+  "cycle_count": 233,
+  "ledger_count": 12565,
   "status_counts": {
-    "candidate": 11896,
-    "accepted": 133,
-    "rejected": 233,
+    "candidate": 12070,
+    "accepted": 135,
+    "rejected": 236,
     "unknown": 124
   },
-  "witness_events": 17692,
-  "tribute_cycles_compliant": 230,
+  "witness_events": 17957,
+  "tribute_cycles_compliant": 233,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_996b756037a2",
-      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_inversion_small__legendre_duplication_small_w1"
+      "finding_id": "fnd_303472a5b44e",
+      "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000079__binomial_sum_row"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-09T07:55:00Z",
-  "updated_cycle": "20261009T075438Z_dd0e2a",
+  "updated_at": "2026-10-09T07:57:48Z",
+  "updated_cycle": "20261009T075729Z_3b4223",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

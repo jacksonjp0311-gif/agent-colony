@@ -808,17 +808,6 @@ def check_authored_sum_first_n_cubes__vandermonde_conv_w1() -> bool:
     return all((check_sum_first_n_cubes(n) for n in range(30, 45))) and all((check_vandermonde_convolution(m, n, r) for m in range(12, 18) for n in range(12, 18) for r in range(0, m + n + 1)))
 
 
-def check_authored_sum_first_n_odds__stirling_second_row_w1() -> bool:
-    """Authored stress check (desk): proven lemmas sum_first_n_odds + stirling_second_row on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_sum_first_n_odds,
-    ::check_stirling_second_row; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_sum_first_n_odds(n) for n in range(40, 60))) and all((check_stirling_second_row(n) for n in range(12, 17)))
-
-
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -927,8 +916,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_geometric_sum__narayana_sum_w1", check_authored_geometric_sum__narayana_sum_w1, True),
     ("authored_hockey_stick__pell_companion_w1", check_authored_hockey_stick__pell_companion_w1, True),
     ("authored_pascal_identity__pythagorean_generation_w1", check_authored_pascal_identity__pythagorean_generation_w1, True),
-    ("authored_sum_first_n_cubes__vandermonde_conv_w1", check_authored_sum_first_n_cubes__vandermonde_conv_w1, True),
-    ("authored_sum_first_n_odds__stirling_second_row_w1", check_authored_sum_first_n_odds__stirling_second_row_w1, True),
+    ("authored_sum_first_n_cubes__vandermonde_conv_w1", check_authored_sum_first_n_cubes__vandermonde_conv_w1, False),
 ]
 
 

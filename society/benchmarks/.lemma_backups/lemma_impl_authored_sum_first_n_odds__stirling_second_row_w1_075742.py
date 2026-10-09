@@ -928,7 +928,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_hockey_stick__pell_companion_w1", check_authored_hockey_stick__pell_companion_w1, True),
     ("authored_pascal_identity__pythagorean_generation_w1", check_authored_pascal_identity__pythagorean_generation_w1, True),
     ("authored_sum_first_n_cubes__vandermonde_conv_w1", check_authored_sum_first_n_cubes__vandermonde_conv_w1, True),
-    ("authored_sum_first_n_odds__stirling_second_row_w1", check_authored_sum_first_n_odds__stirling_second_row_w1, True),
+    ("authored_sum_first_n_odds__stirling_second_row_w1", check_authored_sum_first_n_odds__stirling_second_row_w1, False),
 ]
 
 
