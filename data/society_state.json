@@ -3357,7 +3357,7 @@
       "title": "Chain `authored_sum_first_n_cubes__stirling_second_row_w1` citing $p$-class groups in the cyclotomic $\\mathbb{Z}_p$-",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_sum_first_n_cubes__stirling_second_row_w1`. Source=https://arxiv.org/abs/2610.10452. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T074243Z_325a70. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.10452` <https://arxiv.org/abs/2610.10452> fetched 2026-10-08T06:24:33Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_sum_first_n_cubes__stirling_second_row_w1` built from proven lemmas [sum_first_n_cubes, stirling_second_row]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_sum_first_n_cubes__stirling_second_row_w1 composing proven lemmas [sum_first_n_cubes, stirling_second_row] (authored_sum_first_n_cubes__stirling_second_row_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_sum_first_n_cubes__stirling_second_row_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_325a70_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3377,7 +3377,9 @@
         "aggregate": 0.8278,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7929 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.505, P_lesson=1.0), target authored_sum_first_n_cubes__stirling_second_row_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T074243Z_325a70), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_325a70_51 not authorized."
     },
     {
       "ts": "2026-10-08T07:42:54Z",
@@ -3469,7 +3471,7 @@
       "title": "Chain `authored_bell_triangle_recurrence__hermite_recurrence_w1` citing Polynomial expressions for the dimensions of the r",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_bell_triangle_recurrence__hermite_recurrence_w1`. Source=https://doi.org/10.1016/j.ejc.2025.104242. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T074706Z_a30a0b. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: crossref `crossref:10.1016/j.ejc.2025.104242` <https://doi.org/10.1016/j.ejc.2025.104242> fetched 2026-10-08T06:24:34Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_bell_triangle_recurrence__hermite_recurrence_w1` built from proven lemmas [bell_triangle_recurrence, hermite_recurrence]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_bell_triangle_recurrence__hermite_recurrence_w1 composing proven lemmas [bell_triangle_recurrence, hermite_recurrence] (authored_bell_triangle_recurrence__hermite_recurrence_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_bell_triangle_recurrence__hermite_recurrence_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_a30a0b_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3489,7 +3491,9 @@
         "aggregate": 0.8303,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.8758 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.503, P_lesson=1.0), target authored_bell_triangle_recurrence__hermite_recurrence_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T074706Z_a30a0b), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_a30a0b_51 not authorized."
     },
     {
       "ts": "2026-10-08T07:47:17Z",
@@ -3525,7 +3529,7 @@
       "title": "Chain `authored_binomial_inversion_small__legendre_duplication_small_w1` citing The replica symmetric solution for hypergraph inde",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_binomial_inversion_small__legendre_duplication_small_w1`. Source=https://arxiv.org/abs/2610.10433. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T135334Z_a7097d. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.10433` <https://arxiv.org/abs/2610.10433> fetched 2026-10-08T06:24:30Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_binomial_inversion_small__legendre_duplication_small_w1` built from proven lemmas [binomial_inversion_small, legendre_duplication_small]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_binomial_inversion_small__legendre_duplication_small_w1 composing proven lemmas [binomial_inversion_small, legendre_duplication_small] (authored_binomial_inversion_small__legendre_duplication_small_w1 not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_binomial_inversion_small__legendre_duplication_small_w1",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_a7097d_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3545,7 +3549,9 @@
         "aggregate": 0.8315,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.876 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.5042, P_lesson=1.0), target authored_binomial_inversion_small__legendre_duplication_small_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T135334Z_a7097d), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_a7097d_51 not authorized."
     },
     {
       "ts": "2026-10-08T13:53:45Z",
@@ -3581,7 +3587,7 @@
       "title": "Chain `authored_oeis_a000079__binomial_sum_row` citing The replica symmetric solution for hypergraph inde",
       "description": "SEEK INFORMATION prior: gather from ledger/papers before proposing. Target mutation `authored_oeis_a000079__binomial_sum_row`. Source=https://arxiv.org/abs/2610.10433. Raise novelty/citation_reuse/lesson_uptake — not process spam. Cooled themes skipped=['deepen compute-useful math from accepted finding', 'duplicate_check', 'easy_pad', 'easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity']. cycle=20261008T135430Z_7f846b. Prefer machine-checkable invariants (combinatorics/FFT/kinematics) and compose proven lemmas into longer proof chains — not isolated renames. Feed cite: arxiv `arxiv:2610.10433` <https://arxiv.org/abs/2610.10433> fetched 2026-10-08T06:24:30Z (external pointer, not evidence of truth). Harder not-yet-enabled variant `authored_oeis_a000079__binomial_sum_row` built from proven lemmas [binomial_sum_row]; re-enabling already-on targets adds nothing. Enable only if the Oracle held-out check passes. Cites society/benchmarks/artifacts/lemma_impl.py::check_authored_oeis_a000079__binomial_sum_row composing proven lemmas [binomial_sum_row] (authored_oeis_a000079__binomial_sum_row not yet passing in society/benchmarks/latest.json); checked by society/benchmarks/lemma_microbench.py. | action=seek_enable:authored_oeis_a000079__binomial_sum_row",
       "attempted_by": "spark",
-      "outcome": "attempted",
+      "outcome": "accepted",
       "proposal_id": "imp_7f846b_50",
       "before_metrics": {
         "tribute_quality": 1.0,
@@ -3601,7 +3607,9 @@
         "aggregate": 0.8332,
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
-      }
+      },
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7939 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.5087, P_lesson=1.0), target authored_oeis_a000079__binomial_sum_row Oracle PASS with fitness credit in the proposal's own cycle (20261008T135430Z_7f846b), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_7f846b_51 not authorized."
     },
     {
       "ts": "2026-10-08T13:54:41Z",
@@ -8693,6 +8701,14 @@
       "authorizer": "James Paul Jackson",
       "delegated_via": "GitHub Actions cron (standing trust P>=0.70 selective; never accept-all)",
       "proposal_updates": 0
+    },
+    {
+      "ts": "2026-10-09T06:07:16Z",
+      "event": "human_authorize",
+      "cycle_id": "authorize_20261009T060716Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all)",
+      "proposal_updates": 4
     }
   ],
   "agents": {
@@ -37822,7 +37838,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T074322Z_0ae0f2",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "353fde08c7b5",
       "P": 0.7929,
@@ -37845,7 +37861,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all)",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7929 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.505, P_lesson=1.0), target authored_sum_first_n_cubes__stirling_second_row_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T074243Z_325a70), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_325a70_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261009T060716Z"
     },
     {
       "id": "imp_325a70_51",
@@ -38106,7 +38127,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T074746Z_c23c2b",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "6de0bc524a16",
       "P": 0.8758,
@@ -38129,7 +38150,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all)",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.8758 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.503, P_lesson=1.0), target authored_bell_triangle_recurrence__hermite_recurrence_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T074706Z_a30a0b), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_a30a0b_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261009T060716Z"
     },
     {
       "id": "imp_a30a0b_51",
@@ -38248,7 +38274,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T135408Z_028d68",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "7e35b79431cc",
       "P": 0.876,
@@ -38271,7 +38297,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all)",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.876 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.5042, P_lesson=1.0), target authored_binomial_inversion_small__legendre_duplication_small_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T135334Z_a7097d), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_a7097d_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261009T060716Z"
     },
     {
       "id": "imp_a7097d_51",
@@ -38390,7 +38421,7 @@
         "action_changed_from_message": 1.0
       },
       "measured_cycle": "20261008T232923Z_313183",
-      "status": "candidate_measured",
+      "status": "accepted",
       "attempted_by": "spark",
       "fingerprint": "97603b28ed69",
       "P": 0.7939,
@@ -38413,7 +38444,12 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "authorized_at": "2026-10-09T06:07:16Z",
+      "authorizer": "James Jackson",
+      "delegated_via": "Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all)",
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7939 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.5087, P_lesson=1.0), target authored_oeis_a000079__binomial_sum_row Oracle PASS with fitness credit in the proposal's own cycle (20261008T135430Z_7f846b), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_7f846b_51 not authorized.",
+      "authorize_cycle_id": "authorize_20261009T060716Z"
     },
     {
       "id": "imp_7f846b_51",

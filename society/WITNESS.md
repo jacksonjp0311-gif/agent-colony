@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 16107  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 16113  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -96098,6 +96098,42 @@
 - **id:** `wit_9f71da43cd` | **cycle:** `authorize_20261008T233113Z`
 - Authorize batch closed. accepted=2 rejected=3 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261008T233113Z.md.
 - detail: `{"accepted": 2, "rejected": 3, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261008T233113Z.md"}`
+
+### 2026-10-09T06:07:16Z — `authorize_batch_open` (human)
+
+- **id:** `wit_985e25a1f3` | **cycle:** `authorize_20261009T060716Z`
+- Authorize batch opened by James Jackson via Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all)", "item_count": 0}`
+
+### 2026-10-09T06:07:16Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_01789ada6b` | **cycle:** `authorize_20261009T060716Z`
+- Proposal accepted: `imp_a7097d_50` (Chain `authored_binomial_inversion_small__legendre_duplication_small_w1` citing The replica symmetric solution for hypergraph inde) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.876 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.5042, P_lesson=1.0), target authored_binomial_inversion_small__legendre_duplication_small_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T135334Z_a7097d), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_a7097d_51 not authorized.
+- detail: `{"proposal_id": "imp_a7097d_50", "title": "Chain `authored_binomial_inversion_small__legendre_duplication_small_w1` citing The replica symmetric solution for hypergraph inde", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09`
+
+### 2026-10-09T06:07:16Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_a3bb7a7ae6` | **cycle:** `authorize_20261009T060716Z`
+- Proposal accepted: `imp_a30a0b_50` (Chain `authored_bell_triangle_recurrence__hermite_recurrence_w1` citing Polynomial expressions for the dimensions of the r) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.8758 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.503, P_lesson=1.0), target authored_bell_triangle_recurrence__hermite_recurrence_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T074706Z_a30a0b), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_a30a0b_51 not authorized.
+- detail: `{"proposal_id": "imp_a30a0b_50", "title": "Chain `authored_bell_triangle_recurrence__hermite_recurrence_w1` citing Polynomial expressions for the dimensions of the r", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM`
+
+### 2026-10-09T06:07:16Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_e809340b97` | **cycle:** `authorize_20261009T060716Z`
+- Proposal accepted: `imp_7f846b_50` (Chain `authored_oeis_a000079__binomial_sum_row` citing The replica symmetric solution for hypergraph inde) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7939 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.5087, P_lesson=1.0), target authored_oeis_a000079__binomial_sum_row Oracle PASS with fitness credit in the proposal's own cycle (20261008T135430Z_7f846b), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_7f846b_51 not authorized.
+- detail: `{"proposal_id": "imp_7f846b_50", "title": "Chain `authored_oeis_a000079__binomial_sum_row` citing The replica symmetric solution for hypergraph inde", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize `
+
+### 2026-10-09T06:07:16Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_8f75371ef5` | **cycle:** `authorize_20261009T060716Z`
+- Proposal accepted: `imp_325a70_50` (Chain `authored_sum_first_n_cubes__stirling_second_row_w1` citing $p$-class groups in the cyclotomic $\mathbb{Z}_p$-) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (rule: candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7929 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.505, P_lesson=1.0), target authored_sum_first_n_cubes__stirling_second_row_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261008T074243Z_325a70), novelty gate novel_to_commons=True (no textbook_reuse kill). Machine check — not a novel theorem. Twin imp_325a70_51 not authorized.
+- detail: `{"proposal_id": "imp_325a70_50", "title": "Chain `authored_sum_first_n_cubes__stirling_second_row_w1` citing $p$-class groups in the cyclotomic $\\mathbb{Z}_p$-", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET t`
+
+### 2026-10-09T06:07:16Z — `authorize_batch_close` (human)
+
+- **id:** `wit_6875dcd9b0` | **cycle:** `authorize_20261009T060716Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=4. Receipt=AUTHORIZE_authorize_20261009T060716Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 4, "receipt": "/workspace/agent-colony-cite/society/receipts/AUTHORIZE_authorize_20261009T060716Z.md"}`
 
 ---
 
