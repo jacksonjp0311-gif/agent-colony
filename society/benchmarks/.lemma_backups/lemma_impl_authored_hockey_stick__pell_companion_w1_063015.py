@@ -892,7 +892,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_fibonacci_addition__euler_totient_multiplicative_w1", check_authored_fibonacci_addition__euler_totient_multiplicative_w1, True),
     ("authored_gcd_fibonacci__motzkin_bounded_w1", check_authored_gcd_fibonacci__motzkin_bounded_w1, True),
     ("authored_geometric_sum__narayana_sum_w1", check_authored_geometric_sum__narayana_sum_w1, True),
-    ("authored_hockey_stick__pell_companion_w1", check_authored_hockey_stick__pell_companion_w1, True),
+    ("authored_hockey_stick__pell_companion_w1", check_authored_hockey_stick__pell_companion_w1, False),
 ]
 
 

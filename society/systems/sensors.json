@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-09T06:26:42Z",
-  "cycle_id": "20261009T062641Z_fb8788",
+  "ts": "2026-10-09T06:30:04Z",
+  "cycle_id": "20261009T063004Z_64188e",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -12,26 +12,18 @@
       "stem_easy_pad_units"
     ],
     "oracle_kills_by_theme": {
-      "skill_router": 9,
-      "easy_pad_square_again": 7,
+      "skill_router": 7,
       "easy_pad_assoc_add": 6,
       "easy_pad_zero_identity": 6,
+      "easy_pad_square_again": 6,
       "easy_pad_diff_squares": 6,
       "lemma_hard_combinatorics": 4,
       "easy_pad_commutativity": 4,
       "easy_pad_abs_identity": 4,
       "stem_easy_pad_units": 4,
-      "vandermonde": 2,
       "binomial_identities": 1
     },
     "recent": {
-      "authored_pascal_identity__narayana_sum_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_oeis_a000984__central_binom_bound": {
         "last": "keep",
         "streak": 1,
@@ -108,53 +100,61 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_geometric_sum__narayana_sum_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8353,
-      "slope": 0.000533,
-      "min": 0.8291,
-      "max": 0.8385
+      "last": 0.841,
+      "slope": 0.000645,
+      "min": 0.8304,
+      "max": 0.841
     },
     "novelty": {
-      "last": 0.2667,
-      "slope": 0.012937,
-      "min": 0.1,
-      "max": 0.2667
+      "last": 0.3,
+      "slope": 0.013983,
+      "min": 0.1667,
+      "max": 0.3
     },
     "kill_rate": {
-      "last": 0.402,
-      "slope": -5.3e-05,
-      "min": 0.402,
+      "last": 0.401,
+      "slope": -0.000301,
+      "min": 0.401,
       "max": 0.4051
     },
     "kill_rate_term": {
-      "last": 0.9118,
-      "slope": -4.9e-05,
-      "min": 0.9118,
+      "last": 0.9109,
+      "slope": -0.000273,
+      "min": 0.9109,
       "max": 0.9146
     },
     "lesson_uptake": {
-      "last": 0.9846,
-      "slope": 0.0,
-      "min": 0.9846,
+      "last": 0.9714,
+      "slope": -0.000923,
+      "min": 0.9714,
       "max": 0.9846
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0059,
-    "novelty_max": 0.2667,
+    "aggregate_range": 0.0073,
+    "novelty_max": 0.3,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 65,
+    "enabled": 66,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_hockey_stick__pell_companion_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -170,6 +170,8 @@
       "authored_fibonacci_addition__gcd_fibonacci_w1",
       "authored_gcd_fibonacci__motzkin_bounded_w1",
       "authored_geometric_sum__hockey_stick_w1",
+      "authored_geometric_sum__narayana_sum_w1",
+      "authored_hockey_stick__pell_companion_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
       "authored_oeis_a000045__cassini",
       "authored_oeis_a000079__binomial_sum_row",
@@ -180,10 +182,10 @@
       "authored_sum_first_n_cubes__stirling_second_row_w1",
       "authored_sum_first_n_odds__vandermonde_conv_w1"
     ],
-    "exhausted_recent": 2
+    "exhausted_recent": 4
   },
   "guides": {
-    "n_guides": 14,
+    "n_guides": 15,
     "active": {
       "process_spam_avoided": true,
       "prefers_invariant_chains": true,
@@ -194,25 +196,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.028,
+      "ratio": 1.008,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.018,
+      "ratio": 1.002,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.98,
+      "ratio": 1.017,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.171,
+      "ratio": 1.041,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.003,
+      "ratio": 1.091,
       "drift": false
     }
+  },
+  "frontier": {
+    "n_targets": 6,
+    "verified": {
+      "collatz_descent": 200000,
+      "erdos_straus": 5001
+    },
+    "reviews": [],
+    "label": "bounded evidence, not proof"
   },
   "ci_health": {
     "success_rate": 1.0,
@@ -220,18 +231,18 @@
     "last": [
       [
         null,
+        "2026-10-09T06:28:24Z"
+      ],
+      [
+        "success",
         "2026-10-09T06:25:23Z"
       ],
       [
         "success",
         "2026-10-09T06:15:06Z"
-      ],
-      [
-        "success",
-        "2026-10-08T23:28:58Z"
       ]
     ],
-    "fetched_at": "2026-10-09T06:25:37Z"
+    "fetched_at": "2026-10-09T06:28:42Z"
   },
   "feeds": {
     "by_source": {
@@ -266,13 +277,19 @@
           "ok": true,
           "skipped": "ttl"
         },
+        "oeis_conj": {
+          "error": "TypeError: _item() got multiple values for argument 'query'",
+          "fetched": 0,
+          "new": 0,
+          "ok": false
+        },
         "wikipedia": {
           "new": 0,
           "ok": true,
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-09T06:25:36Z"
+      "ts": "2026-10-09T06:28:41Z"
     },
     "health": {
       "arxiv": {
@@ -286,6 +303,10 @@
       "oeis": {
         "fail": 0,
         "ok": 5
+      },
+      "oeis_conj": {
+        "fail": 1,
+        "ok": 0
       },
       "wikipedia": {
         "fail": 0,

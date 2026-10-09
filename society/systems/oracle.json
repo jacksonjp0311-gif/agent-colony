@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T06:26:30Z",
-  "passes": 235,
+  "updated_at": "2026-10-09T06:30:15Z",
+  "passes": 237,
   "kills": 158,
   "easy_pad_kills": 32,
-  "kill_rate": 0.402,
+  "kill_rate": 0.4,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 23,
-    "kills": 37,
+    "passes": 25,
+    "kills": 35,
     "easy_pad_kills": 19,
-    "kill_rate": 0.6167
+    "kill_rate": 0.5833
   },
   "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
@@ -28,6 +28,8 @@
     "authored_fibonacci_addition__gcd_fibonacci_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
     "authored_geometric_sum__hockey_stick_w1",
+    "authored_geometric_sum__narayana_sum_w1",
+    "authored_hockey_stick__pell_companion_w1",
     "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000079__binomial_sum_row",
@@ -49,7 +51,6 @@
     "Chain `authored_oeis_a000108__catalan_bounded` citing Odds",
     "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)",
     "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
-    "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian (cycle 192)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
@@ -93,7 +94,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-09T06:26:30Z",
+    "ts": "2026-10-09T06:30:15Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -103,15 +104,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_gcd_fibonacci__motzkin_bounded_w1` kind=hard_enable. lemma mutation authored_gcd_fibonacci__motzkin_bounded_w1 0.9071->0.9071 Not discovery. cycle=20261009T062617Z_5",
-      "attack": "WEIGH: `authored_gcd_fibonacci__motzkin_bounded_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_hockey_stick__pell_companion_w1` kind=hard_enable. lemma mutation authored_hockey_stick__pell_companion_w1 0.9071->0.9071 Not discovery. cycle=20261009T063004Z_64188",
+      "attack": "WEIGH: `authored_hockey_stick__pell_companion_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 55,
-        "hard_n": 55,
+        "hard_pass": 57,
+        "hard_n": 57,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -121,8 +122,8 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 55,
-        "hard_n": 55,
+        "hard_pass": 57,
+        "hard_n": 57,
         "ok": true,
         "score": 0.9071,
         "reason": "hard_pass_delta=1",
@@ -147,7 +148,7 @@
             "ok": true
           },
           {
-            "label": "cassini_numeric",
+            "label": "binom_symmetry_numeric",
             "ok": true
           }
         ]
@@ -199,15 +200,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_gcd_fibonacci__motzkin_bounded_w1",
+      "mutation": "authored_hockey_stick__pell_companion_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_gcd_fibonacci__motzkin_bounded_w1",
+    "mutation": "authored_hockey_stick__pell_companion_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261009T062617Z_5224de",
+    "cycle_id": "20261009T063004Z_64188e",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

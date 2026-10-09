@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-09T06:25:37Z",
+    "fetched_at": "2026-10-09T06:28:42Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-09T06:28:24Z",
+        "id": 37893695676,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-09T06:28:28Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-09T06:25:23Z",
         "id": 37893441106,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-09T06:25:26Z"
+        "status": "completed",
+        "updated_at": "2026-10-09T06:27:17Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-07T23:14:54Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-07T23:04:10Z",
-        "id": 37700075086,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-07T23:06:36Z"
       }
     ],
     "success_rate": 1.0
@@ -115,10 +115,17 @@
       "fail": 0,
       "ok": 5
     },
+    "oeis_conj": {
+      "fail": 1,
+      "ok": 0
+    },
     "wikipedia": {
       "fail": 0,
       "ok": 5
     }
+  },
+  "last_error": {
+    "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
     "arxiv": "2026-10-09T06:15:23Z",
@@ -147,13 +154,19 @@
         "ok": true,
         "skipped": "ttl"
       },
+      "oeis_conj": {
+        "error": "TypeError: _item() got multiple values for argument 'query'",
+        "fetched": 0,
+        "new": 0,
+        "ok": false
+      },
       "wikipedia": {
         "new": 0,
         "ok": true,
         "skipped": "ttl"
       }
     },
-    "ts": "2026-10-09T06:25:36Z"
+    "ts": "2026-10-09T06:28:41Z"
   },
-  "runs": 14
+  "runs": 15
 }

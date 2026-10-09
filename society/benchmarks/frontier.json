@@ -10,15 +10,34 @@
       "kind": "universal",
       "statement": "Every even n >= 4 is a sum of two primes (Goldbach).",
       "start": 4,
-      "verified": null,
-      "window": 200000,
+      "verified": {
+        "lo": 4,
+        "hi": 200003,
+        "by": "colony",
+        "label": "bounded evidence, not proof"
+      },
+      "window": 400000,
       "min_window": 20000,
       "max_window": 4000000,
       "budget_s": 2.5,
       "status": "open",
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "label": "bounded evidence, not proof",
-      "proof": false
+      "proof": false,
+      "last_run": "2026-10-09T06:30:15Z",
+      "runs": 1,
+      "extensions": [
+        {
+          "ts": "2026-10-09T06:30:15Z",
+          "lo": 4,
+          "hi": 200003,
+          "seconds": 0.1028
+        }
+      ],
+      "last_data": {
+        "max_least_prime": 383
+      },
+      "stall_streak": 0
     },
     {
       "id": "collatz_descent",
@@ -26,15 +45,35 @@
       "kind": "universal",
       "statement": "Every n >= 1 reaches 1 under n→n/2, 3n+1 (checked as: each n drops below itself; stopping-time record kept).",
       "start": 1,
-      "verified": null,
-      "window": 200000,
+      "verified": {
+        "lo": 1,
+        "hi": 200000,
+        "by": "colony",
+        "label": "bounded evidence, not proof"
+      },
+      "window": 400000,
       "min_window": 20000,
       "max_window": 4000000,
       "budget_s": 2.5,
       "status": "open",
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "label": "bounded evidence, not proof",
-      "proof": false
+      "proof": false,
+      "last_run": "2026-10-09T06:28:58Z",
+      "runs": 1,
+      "extensions": [
+        {
+          "ts": "2026-10-09T06:28:58Z",
+          "lo": 1,
+          "hi": 200000,
+          "seconds": 0.0859
+        }
+      ],
+      "last_data": {
+        "max_stopping_time": 220,
+        "argmax": 35655
+      },
+      "stall_streak": 0
     },
     {
       "id": "legendre_square_gap",
@@ -74,15 +113,34 @@
       "kind": "universal",
       "statement": "For every n >= 2, 4/n = 1/x + 1/y + 1/z has a solution in positive integers (Erdős–Straus).",
       "start": 2,
-      "verified": null,
-      "window": 5000,
+      "verified": {
+        "lo": 2,
+        "hi": 5001,
+        "by": "colony",
+        "label": "bounded evidence, not proof"
+      },
+      "window": 10000,
       "min_window": 500,
       "max_window": 200000,
       "budget_s": 2.5,
       "status": "open",
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "label": "bounded evidence, not proof",
-      "proof": false
+      "proof": false,
+      "last_run": "2026-10-09T06:29:37Z",
+      "runs": 1,
+      "extensions": [
+        {
+          "ts": "2026-10-09T06:29:37Z",
+          "lo": 2,
+          "hi": 5001,
+          "seconds": 0.0206
+        }
+      ],
+      "last_data": {
+        "certificates": 669
+      },
+      "stall_streak": 0
     },
     {
       "id": "twin_primes_hl",
@@ -100,5 +158,6 @@
       "label": "bounded evidence, not proof",
       "proof": false
     }
-  ]
+  ],
+  "updated_at": "2026-10-09T06:30:16Z"
 }

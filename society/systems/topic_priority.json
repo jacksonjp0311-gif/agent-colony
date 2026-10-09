@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_c6e09b4a88a3",
-      "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_cubes__stirling_second_row_w1"
+      "finding_id": "fnd_9d70ad9040b5",
+      "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_odds__vandermonde_conv_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-09T06:26:59Z",
-  "updated_cycle": "20261009T062641Z_fb8788",
+  "updated_at": "2026-10-09T06:30:22Z",
+  "updated_cycle": "20261009T063004Z_64188e",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
