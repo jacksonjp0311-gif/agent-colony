@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T07:57:43Z",
+  "updated_at": "2026-10-09T13:40:11Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -99,16 +99,56 @@
       "literature": null,
       "window": null,
       "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A027833": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A048881": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A051064": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A262813": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": null
+    },
+    "oeis_A182172": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": null
     }
   },
   "reviews": [],
   "last": {
-    "target": "goldbach_even",
-    "lo": 200004,
-    "hi": 600003,
-    "outcome": "extended",
-    "verified_hi": 600003,
-    "cycle_id": "20261009T075729Z_3b4223"
+    "target": "oeis_A051064",
+    "lo": 0,
+    "hi": 79,
+    "outcome": "no_low_order_recurrence",
+    "verified_hi": null,
+    "cycle_id": "20261009T133957Z_6011fc"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

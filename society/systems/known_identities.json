@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-09T07:57:42Z",
-  "n": 159,
+  "updated_at": "2026-10-09T13:39:28Z",
+  "n": 160,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -9,6 +9,7 @@
     "author_new_hard_checks_from_proven_lemmas",
     "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_bell_triangle_recurrence__hermite_recurrence_w1",
+    "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
     "authored_binomial_inversion_small__legendre_duplication_small_w1",
     "authored_binomial_sum_row__catalan_bounded_w1",
     "authored_binomial_symmetry__cassini_w1",

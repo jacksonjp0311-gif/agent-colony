@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_303472a5b44e",
-      "title": "Authorize accepted: Lemma mutation keep: authored_oeis_a000079__binomial_sum_row"
+      "finding_id": "fnd_be2569b21a4a",
+      "title": "Authorize accepted: Lemma mutation keep: authored_catalan_convolution__derangement_subfactorial_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-09T07:57:48Z",
-  "updated_cycle": "20261009T075729Z_3b4223",
+  "updated_at": "2026-10-09T13:40:18Z",
+  "updated_cycle": "20261009T133957Z_6011fc",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
