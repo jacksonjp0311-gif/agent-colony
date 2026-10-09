@@ -1,14 +1,14 @@
 {
-  "ts": "2026-10-09T06:17:11Z",
+  "ts": "2026-10-09T06:27:03Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261009T061639Z_0cd410"
+    "cycle_id": "20261009T062641Z_fb8788"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 234,
+  "last_oracle_passes": 235,
   "spawn_retire_log": [
     {
       "ts": "2026-10-08T07:44:41Z",
@@ -100,46 +100,58 @@
       "event": "credit",
       "delta_pass": 1.0,
       "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-09T06:26:16Z",
+      "cycle_id": "20261009T062541Z_853302",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-09T06:26:41Z",
+      "cycle_id": "20261009T062617Z_5224de",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-09T06:27:04Z",
+      "cycle_id": "20261009T062641Z_fb8788",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-10-09T06:17:12Z",
+  "updated_at": "2026-10-09T06:27:04Z",
   "mutate_distribution": {
-    "vandermonde_conv": 0.03174,
-    "hockey_stick": 0.03174,
-    "cassini": 0.03174,
-    "binomial_sum_row": 0.03174,
-    "fibonacci_addition": 0.03174,
-    "catalan_bounded": 0.03174,
-    "lucas_addition": 0.03174,
-    "central_binom_bound": 0.03174,
-    "pell_companion": 0.03174,
-    "gcd_fibonacci": 0.03174,
-    "stirling_second_row": 0.03174,
-    "pythagorean_generation": 0.03174,
-    "motzkin_bounded": 0.03174,
-    "derangement_subfactorial": 0.03174,
-    "narayana_sum": 0.03174,
-    "euler_totient_multiplicative": 0.03174,
-    "bell_triangle_recurrence": 0.03174,
-    "hermite_recurrence": 0.03174,
-    "binomial_inversion_small": 0.03174,
-    "legendre_duplication_small": 0.03174,
-    "stem_easy_pad_units": 0.03174,
-    "easy_pad_assoc_add": 0.001,
-    "easy_pad_zero_identity": 0.001,
-    "easy_pad_square_again": 0.001,
-    "easy_pad_diff_squares": 0.001,
-    "easy_pad_commutativity": 0.001,
-    "easy_pad_abs_identity": 0.001,
-    "workload_derived_chain": 0.033587,
-    "catalan_convolution": 0.033587,
-    "lagrange_identity": 0.033587,
-    "vandermonde_asymmetric": 0.033587,
-    "binomial_hockey_deep": 0.033587,
-    "fibonacci_cassini_ext": 0.033587,
-    "derived_chain_stress": 0.033587,
-    "energy_work": 0.033587,
-    "authored_fibonacci_addition__euler_totient_multiplicative_w1": 0.058778
+    "vandermonde_conv": 0.047249,
+    "hockey_stick": 0.047249,
+    "cassini": 0.047249,
+    "binomial_sum_row": 0.047249,
+    "fibonacci_addition": 0.047249,
+    "catalan_bounded": 0.047249,
+    "lucas_addition": 0.047249,
+    "central_binom_bound": 0.047249,
+    "pell_companion": 0.047249,
+    "gcd_fibonacci": 0.047249,
+    "stirling_second_row": 0.047249,
+    "pythagorean_generation": 0.047249,
+    "motzkin_bounded": 0.047249,
+    "derangement_subfactorial": 0.047249,
+    "narayana_sum": 0.047249,
+    "euler_totient_multiplicative": 0.047249,
+    "bell_triangle_recurrence": 0.047249,
+    "hermite_recurrence": 0.047249,
+    "binomial_inversion_small": 0.047249,
+    "legendre_duplication_small": 0.047249,
+    "stem_easy_pad_units": 0.047249,
+    "easy_pad_assoc_add": 0.001295,
+    "easy_pad_zero_identity": 0.001295,
+    "easy_pad_square_again": 0.001295,
+    "easy_pad_diff_squares": 0.001295,
+    "easy_pad_commutativity": 0.001295,
+    "easy_pad_abs_identity": 0.001295
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -152,7 +164,8 @@
     "authored_oeis_a000079__binomial_sum_row": 1,
     "authored_binomial_symmetry__cassini_w1": 1,
     "authored_catalan_convolution__derangement_subfactorial_w1": 1,
-    "authored_fibonacci_addition__euler_totient_multiplicative_w1": 1
+    "authored_fibonacci_addition__euler_totient_multiplicative_w1": 1,
+    "authored_gcd_fibonacci__motzkin_bounded_w1": 1
   },
   "charter_inform": {
     "bias": {

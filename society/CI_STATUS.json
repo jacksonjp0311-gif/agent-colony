@@ -264,82 +264,85 @@
     "cycle_212_evolve_note",
     "cycle_213_evolve_note",
     "cycle_214_evolve_note",
-    "cycle_215_evolve_note"
+    "cycle_215_evolve_note",
+    "cycle_216_evolve_note",
+    "cycle_217_evolve_note",
+    "cycle_218_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 595,
+      "uses": 604,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 567,
+      "uses": 576,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 399,
+      "uses": 405,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 199,
+      "uses": 202,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 753,
+      "uses": 765,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 497,
+      "uses": 501,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 562,
+      "uses": 571,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 187,
+      "uses": 190,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 187,
+      "uses": 190,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 172,
+      "uses": 175,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 172,
+      "uses": 175,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 169,
+      "uses": 172,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 169,
+      "uses": 172,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 166,
+      "uses": 169,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 166,
+      "uses": 169,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -614,8 +617,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 752,
-    "reused": 1687
+    "appended": 764,
+    "reused": 1714
   },
   "commons_by_domain": {
     "science": 0,
@@ -634,8 +637,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-09T06:17:12Z",
-    "cycle_id": "20261009T061639Z_0cd410",
+    "ts": "2026-10-09T06:27:04Z",
+    "cycle_id": "20261009T062641Z_fb8788",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -647,55 +650,53 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-09T06:17:12Z",
-    "cycle_id": "20261009T061639Z_0cd410",
+    "ts": "2026-10-09T06:27:03Z",
+    "cycle_id": "20261009T062641Z_fb8788",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
     "math_prize": 0.8135,
     "compute_usefulness": 0.913,
     "citation_reuse": 1.0,
     "prize_boost": 0.8856,
-    "kill_rate": 0.4031,
-    "kill_rate_term": 0.9128,
-    "novelty": 0.2333,
+    "kill_rate": 0.402,
+    "kill_rate_term": 0.9118,
+    "novelty": 0.2667,
     "lesson_uptake": 0.9846,
-    "aggregate": 0.8337,
+    "aggregate": 0.8397,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 10668,
-    "read": 50532,
-    "replied": 6712,
-    "actions_planned": 3486,
-    "actions_changed_from_message": 3486,
-    "reply_quality_sum": 6073.399999999662,
-    "reply_quality_n": 6660,
-    "peer_cite_opportunities": 6848,
-    "peer_cites": 6848
+    "posted": 10834,
+    "read": 51342,
+    "replied": 6817,
+    "actions_planned": 3540,
+    "actions_changed_from_message": 3540,
+    "reply_quality_sum": 6169.099999999637,
+    "reply_quality_n": 6765,
+    "peer_cite_opportunities": 6956,
+    "peer_cites": 6956
   },
   "bus_domains": {
-    "science": 557,
-    "history": 559,
-    "math": 1686,
-    "empire": 375,
-    "bulletin": 1553,
-    "forum": 2424,
-    "software": 559,
-    "nature": 557,
-    "life": 559,
-    "cosmos": 792,
-    "rsi": 939
+    "science": 566,
+    "history": 568,
+    "math": 1713,
+    "empire": 381,
+    "bulletin": 1574,
+    "forum": 2463,
+    "software": 568,
+    "nature": 566,
+    "life": 568,
+    "cosmos": 805,
+    "rsi": 954
   },
-  "communications_count": 10668,
+  "communications_count": 10834,
   "improvements": [
-    "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves (cycle 169)",
-    "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
     "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves",
     "Chain `authored_bell_triangle_recurrence__binomial_inversion_small_w1` citing New algebraic points on covers of elliptic curves (cycle 175)",
     "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds",
@@ -743,18 +744,20 @@
     "Chain `authored_catalan_convolution__derangement_subfactorial_w1` citing Hankel Determinants for Convolution Powers of Nara",
     "Chain `authored_catalan_convolution__derangement_subfactorial_w1` citing Hankel Determinants for Convolution Powers of Nara (cycle 213)",
     "Chain `authored_fibonacci_addition__euler_totient_multiplicative_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands",
-    "Chain `authored_fibonacci_addition__euler_totient_multiplicative_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands (cycle 215)"
+    "Chain `authored_fibonacci_addition__euler_totient_multiplicative_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands (cycle 215)",
+    "Chain `authored_gcd_fibonacci__motzkin_bounded_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands",
+    "Chain `authored_gcd_fibonacci__motzkin_bounded_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands (cycle 217)"
   ],
-  "cycle_count": 215,
-  "ledger_count": 11512,
+  "cycle_count": 218,
+  "ledger_count": 11688,
   "status_counts": {
-    "candidate": 11044,
-    "accepted": 123,
-    "rejected": 224,
+    "candidate": 11215,
+    "accepted": 126,
+    "rejected": 226,
     "unknown": 121
   },
-  "witness_events": 16370,
-  "tribute_cycles_compliant": 215,
+  "witness_events": 16635,
+  "tribute_cycles_compliant": 218,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

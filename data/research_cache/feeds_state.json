@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-09T06:15:26Z",
+    "fetched_at": "2026-10-09T06:25:37Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-09T06:25:23Z",
+        "id": 37893441106,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-09T06:25:26Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-09T06:15:06Z",
         "id": 37892561858,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-09T06:15:10Z"
+        "status": "completed",
+        "updated_at": "2026-10-09T06:17:23Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-07T23:06:36Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-07T21:50:51Z",
-        "id": 37692236312,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-07T21:53:33Z"
       }
     ],
     "success_rate": 1.0
@@ -129,35 +129,31 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "",
-        "fetched": 8,
-        "new": 6,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 1,
-        "new": 1,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 1,
-        "new": 1,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-10-09T06:15:19Z"
+    "ts": "2026-10-09T06:25:36Z"
   },
-  "runs": 13
+  "runs": 14
 }

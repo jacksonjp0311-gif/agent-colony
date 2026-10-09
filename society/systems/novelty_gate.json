@@ -1,32 +1,32 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T06:16:52Z",
-  "hits": 7,
-  "kills": 23,
+  "updated_at": "2026-10-09T06:26:30Z",
+  "hits": 8,
+  "kills": 22,
   "latest": {
-    "ts": "2026-10-09T06:16:52Z",
-    "cycle_id": "20261009T061639Z_0cd410",
-    "mutation": "authored_fibonacci_addition__euler_totient_multiplicative_w1",
+    "ts": "2026-10-09T06:26:30Z",
+    "cycle_id": "20261009T062617Z_5224de",
+    "mutation": "authored_gcd_fibonacci__motzkin_bounded_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
-    "textbook_reuse": 0.3333,
+    "textbook_reuse": 0.0,
     "in_ledger": false,
     "own_authoring_record_only": true,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 54,
-      "hard_n": 54,
+      "hard_pass": 55,
+      "hard_n": 55,
       "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard53"
+      "impl_id": "lemma_impl_v2_basic10_hard55"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 54,
+      "hard_pass": 55,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
