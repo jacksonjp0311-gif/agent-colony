@@ -227,6 +227,21 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"Conjecture desk skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # Frontier desk (James 2026-10-09): open statements on bounded ranges — bounded evidence,
+        # not proof. Guide-driven, time-budgeted, shared cooldown; never touches lemma/Oracle credit.
+        try:
+            from colony.frontier import run_cycle as frontier_run
+
+            fr = frontier_run(cycle_id, witness=self.witness)
+            g.improvements.append(f"frontier:ran={fr.get('ran')}")
+        except Exception as exc:  # noqa: BLE001
+            self.witness.record(
+                cycle_id=cycle_id,
+                kind="frontier_error",
+                actor="geometer",
+                summary=f"Frontier desk skipped: {exc}",
+                detail={"error": str(exc)},
+            )
         # Lift 3: scrape→analyze→claim (raw scrape ≠ discovery)
         try:
             from colony.claim_pipeline import run_pipeline

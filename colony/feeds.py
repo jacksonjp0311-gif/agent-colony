@@ -14,6 +14,10 @@ verification, the Oracle and the Hearing like everything else.
 Sources (all public, no keys):
 - arxiv     — export.arxiv.org Atom API, rotating categories (math.CO, math.NT, cs.LG, cs.MA)
 - oeis      — oeis.org search by the colony's OWN computed sequence prefixes ("what is my sequence?")
+- oeis_conj — oeis.org searches for sequences with conjectured / empirical formulas or keyword
+              more/hard (frontier targets). Only the A-number and the integer terms are kept, plus
+              a boolean "mentions a conjecture/empirical formula"; formula text is never stored,
+              parsed or executed.
 - crossref  — api.crossref.org works search (recent journal articles, catalog-derived queries)
 - wikipedia — en.wikipedia.org summaries for topics derived from lemma names in the catalog
 - ci_health — public GitHub Actions run list for this repo (sensor input, stored in state)
@@ -329,6 +333,67 @@ def fetch_oeis(gens: list[dict[str, Any]]) -> tuple[bool, list[dict[str, Any]], 
     return (bool(items) or not errs), items, "; ".join(errs)
 
 
+CONJ_QUERIES = ('"Empirical G.f."', '"Conjecture: a(n)"', '"Conjectured g.f."', '"Empirical: a(n)"',
+                'keyword:more', 'keyword:hard')
+MIN_CONJ_TERMS = 20
+
+
+def parse_oeis_conj(body: str, query: str) -> list[dict[str, Any]]:
+    """Each OEIS result → (A-number, integer terms, keywords, conj flag). Untrusted; ints only."""
+    out: list[dict[str, Any]] = []
+    for chunk in re.split(r'"number"\s*:\s*', body)[1:]:
+        nm = re.match(r"(\d{1,7})", chunk)
+        dm = re.search(r'"data"\s*:\s*"([0-9,\-\s]*)"', chunk)
+        if not (nm and dm):
+            continue
+        terms = _parse_terms(dm.group(1))
+        if len(terms) < MIN_CONJ_TERMS:
+            continue
+        km = re.search(r'"keyword"\s*:\s*"([a-z,]{0,120})"', chunk)
+        keywords = [k for k in (km.group(1).split(",") if km else []) if re.fullmatch(r"[a-z]{2,12}", k)]
+        flag = "conjectured_formula" if re.search(r"[Cc]onjectur|[Ee]mpirical", chunk[:20000]) else (
+            "keyword_" + ("hard" if "hard" in keywords else "more") if {"hard", "more"} & set(keywords) else "")
+        if not flag:
+            continue
+        name_m = re.search(r'"name"\s*:\s*"((?:[^"\\]|\\.){0,400})"', chunk)
+        out.append({"oeis_id": f"A{int(nm.group(1)):06d}", "name": clean_text(name_m.group(1) if name_m else "", 200),
+                    "terms": terms[:80], "keywords": keywords[:8], "conj_flag": flag, "query": query})
+    return out
+
+
+def fetch_oeis_conj(queries: list[str], start: int = 0) -> tuple[bool, list[dict[str, Any]], str]:
+    items: list[dict[str, Any]] = []
+    errs: list[str] = []
+    for q in queries:
+        ok, body = _http_get(f"https://oeis.org/search?{urlencode({'q': q, 'fmt': 'json', 'start': start})}")
+        if not ok:
+            errs.append(f"{q}:{body[:80]}")
+            continue
+        for hit in parse_oeis_conj(body, q):
+            items.append(_item(
+                "oeis_conj", hit["oeis_id"], "conj_sequence", f"{hit['oeis_id']} {hit['name']}",
+                f"OEIS {hit['oeis_id']} ({hit['conj_flag']}): {len(hit['terms'])} integer terms for the frontier desk.",
+                f"https://oeis.org/{hit['oeis_id']}", CHANNEL_BY_SOURCE["oeis"], "oeis.org/search", q, **hit,
+            ))
+    return (bool(items) or not errs), items, "; ".join(errs)
+
+
+def conj_sequence_items() -> list[dict[str, Any]]:
+    """Validated frontier sequences from the cache (A-number + int terms only)."""
+    out = []
+    for e in load_items(kind="conj_sequence"):
+        if not re.fullmatch(r"A\d{6}", str(e.get("oeis_id") or "")):
+            continue
+        terms = e.get("terms") or []
+        if not (isinstance(terms, list) and len(terms) >= MIN_CONJ_TERMS
+                and all(isinstance(t, int) and not isinstance(t, bool) for t in terms)):
+            continue
+        if any(len(str(abs(t))) > MAX_TERM_DIGITS for t in terms):
+            continue
+        out.append({"oeis_id": e["oeis_id"], "terms": list(terms), "conj_flag": str(e.get("conj_flag") or "")[:40]})
+    return out
+
+
 def catalog_topics() -> list[str]:
     """Human-readable topics derived from lemma names in the catalog (mechanism, not a list)."""
     try:
@@ -485,6 +550,7 @@ def fetch_all(*, force: bool = False, sources: list[str] | None = None) -> dict[
     plan: dict[str, Callable[[], tuple[bool, list[dict[str, Any]], str]]] = {
         "arxiv": lambda: fetch_arxiv(_rotate(list(ARXIV_CATEGORIES), run_k, 2)),
         "oeis": lambda: fetch_oeis(_rotate(gens_fresh, 0 if gens_fresh is not SEQ_GENERATORS else run_k, 2)),
+        "oeis_conj": lambda: fetch_oeis_conj(_rotate(list(CONJ_QUERIES), run_k, 1), start=(run_k * 10) % 100),
         "crossref": lambda: fetch_crossref(_rotate(topics, run_k, 1)),
         "wikipedia": lambda: fetch_wikipedia(_rotate(topics, run_k + 1, 2)),
     }

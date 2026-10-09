@@ -17,6 +17,7 @@ Signals:
 - ci_health       — recent GitHub Actions run conclusions (fetched by colony.feeds in CI)
 - bench_timing    — per-bench recent vs baseline seconds ratio (drift flag)
 - feeds           — rows per source/kind and last fetch health
+- frontier        — verified ranges / review flags of frontier targets (bounded evidence, not proof)
 """
 from __future__ import annotations
 
@@ -207,6 +208,19 @@ def ci_and_feeds() -> tuple[dict[str, Any], dict[str, Any]]:
         return {}, {}
 
 
+def frontier() -> dict[str, Any]:
+    try:
+        from colony.frontier import SYSTEM
+        s = json.loads(SYSTEM.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    tg = s.get("targets") or {}
+    return {"n_targets": len(tg),
+            "verified": {k: v.get("verified_hi") for k, v in tg.items() if v.get("verified_hi") is not None},
+            "reviews": [r.get("id") for r in s.get("reviews") or []],
+            "label": s.get("label")}
+
+
 def signals(snap: dict[str, Any]) -> list[str]:
     """Short human-readable signals (priors for spark/seek; not commands)."""
     sig: list[str] = []
@@ -224,6 +238,10 @@ def signals(snap: dict[str, Any]) -> list[str]:
     drift = [k for k, v in (snap.get("bench_timing") or {}).items() if v.get("drift")]
     if drift:
         sig.append(f"bench_timing_drift: {', '.join(drift)}")
+    fr = snap.get("frontier") or {}
+    if fr.get("reviews"):
+        sig.append(f"frontier_review: {', '.join(fr['reviews'][:3])} frozen pending human review "
+                   f"(no proof/disproof claims)")
     ci = snap.get("ci_health") or {}
     if isinstance(ci.get("success_rate"), (int, float)) and ci["success_rate"] < 0.8:
         sig.append(f"ci_health: success_rate {ci['success_rate']} → be conservative")
@@ -233,7 +251,8 @@ def signals(snap: dict[str, Any]) -> list[str]:
 def compute(cycle_id: str = "") -> dict[str, Any]:
     snap: dict[str, Any] = {"ts": _utc(), "cycle_id": cycle_id}
     for key, fn in (("lemma_streaks", lemma_streaks), ("trends", trends), ("stall", stall),
-                    ("catalog", catalog), ("guides", guides), ("bench_timing", bench_timing)):
+                    ("catalog", catalog), ("guides", guides), ("bench_timing", bench_timing),
+                    ("frontier", frontier)):
         try:
             snap[key] = fn()
         except Exception as e:  # noqa: BLE001

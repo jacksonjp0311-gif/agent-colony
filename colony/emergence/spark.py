@@ -421,6 +421,14 @@ def lesson_priors_for_spark(*, limit: int = 8) -> str:
         except Exception:
             pass
         try:
+            from colony.frontier import digest as _frontier_digest, guide_frontier_active
+            if guide_frontier_active():
+                fd = _frontier_digest()
+                extras.append(fd or "frontier: aim at the edge — extend verified ranges of open statements "
+                                    "(bounded evidence, never proof)")
+        except Exception:
+            pass
+        try:
             from colony.sensors import latest as _sensors_latest
             for sig in (_sensors_latest().get("signals") or [])[:3]:
                 extras.append(f"sensor: {sig}")
