@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 17167  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 17173  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -102422,6 +102422,42 @@
 - **id:** `wit_db2bffe4f0` | **cycle:** `authorize_20261009T063358Z`
 - Authorize batch closed. accepted=1 rejected=1 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261009T063358Z.md.
 - detail: `{"accepted": 1, "rejected": 1, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261009T063358Z.md"}`
+
+### 2026-10-09T06:34:41Z — `authorize_batch_open` (human)
+
+- **id:** `wit_c6d33ccb77` | **cycle:** `authorize_20261009T063441Z`
+- Authorize batch opened by James Jackson via Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (James delegated authorize decisions standing in chat 2026-10-09 2:06 AM ET under a stated rule; selective, not accept-all)", "item_count": 0}`
+
+### 2026-10-09T06:34:41Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_388e9e5cd3` | **cycle:** `authorize_20261009T063441Z`
+- Proposal accepted: `imp_0cd410_50` (Chain `authored_fibonacci_addition__euler_totient_multiplicative_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7929 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.505, P_lesson=1.0), target authored_fibonacci_addition__euler_totient_multiplicative_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T061639Z_0cd410), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.3333). Machine check — not a novel theorem. Twin imp_0cd410_51 not authorized.
+- detail: `{"proposal_id": "imp_0cd410_50", "title": "Chain `authored_fibonacci_addition__euler_totient_multiplicative_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:0`
+
+### 2026-10-09T06:34:41Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_d359aabdb2` | **cycle:** `authorize_20261009T063441Z`
+- Proposal accepted: `imp_5224de_50` (Chain `authored_gcd_fibonacci__motzkin_bounded_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.8758 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.503, P_lesson=1.0), target authored_gcd_fibonacci__motzkin_bounded_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T062617Z_5224de), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.0). Machine check — not a novel theorem. Twin imp_5224de_51 not authorized.
+- detail: `{"proposal_id": "imp_5224de_50", "title": "Chain `authored_gcd_fibonacci__motzkin_bounded_w1` citing Two Primes and Five Mixed Fibonacci-Lucas Summands", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authori`
+
+### 2026-10-09T06:34:41Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_e4b4a08cd6` | **cycle:** `authorize_20261009T063441Z`
+- Proposal accepted: `imp_a2e0dc_50` (Chain `authored_geometric_sum__narayana_sum_w1` citing Geometrically Abelian Sections on Higher-Dimension) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7925 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.5032, P_lesson=1.0), target authored_geometric_sum__narayana_sum_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T062846Z_a2e0dc), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.3333). Machine check — not a novel theorem. Twin imp_a2e0dc_51 not authorized.
+- detail: `{"proposal_id": "imp_a2e0dc_50", "title": "Chain `authored_geometric_sum__narayana_sum_w1` citing Geometrically Abelian Sections on Higher-Dimension", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize `
+
+### 2026-10-09T06:34:41Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_0d1b585aef` | **cycle:** `authorize_20261009T063441Z`
+- Proposal accepted: `imp_64188e_50` (Chain `authored_hockey_stick__pell_companion_w1` citing Assessment of the Outcomes of a Modified Version o) — Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.793 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.5052, P_lesson=1.0), target authored_hockey_stick__pell_companion_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T063004Z_64188e), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.3333). Machine check — not a novel theorem. Twin imp_64188e_51 not authorized.
+- detail: `{"proposal_id": "imp_64188e_50", "title": "Chain `authored_hockey_stick__pell_companion_w1` citing Assessment of the Outcomes of a Modified Version o", "decision": "accepted", "rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize`
+
+### 2026-10-09T06:34:41Z — `authorize_batch_close` (human)
+
+- **id:** `wit_ba6b5067e6` | **cycle:** `authorize_20261009T063441Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=4. Receipt=AUTHORIZE_authorize_20261009T063441Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 4, "receipt": "/workspace/agent-colony-cite/society/receipts/AUTHORIZE_authorize_20261009T063441Z.md"}`
 
 ---
 

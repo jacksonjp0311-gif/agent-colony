@@ -12151,8 +12151,10 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.002
+      "status": "accepted",
+      "delta_aggregate": 0.002,
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7929 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.505, P_lesson=1.0), target authored_fibonacci_addition__euler_totient_multiplicative_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T061639Z_0cd410), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.3333). Machine check — not a novel theorem. Twin imp_0cd410_51 not authorized.",
+      "authorized_at": "2026-10-09T06:34:41Z"
     },
     {
       "id": "imp_0cd410_51",
@@ -12239,8 +12241,10 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0012
+      "status": "accepted",
+      "delta_aggregate": 0.0012,
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.8758 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=1.0, P_bench=0.503, P_lesson=1.0), target authored_gcd_fibonacci__motzkin_bounded_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T062617Z_5224de), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.0). Machine check — not a novel theorem. Twin imp_5224de_51 not authorized.",
+      "authorized_at": "2026-10-09T06:34:41Z"
     },
     {
       "id": "imp_5224de_51",
@@ -12327,8 +12331,10 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0013
+      "status": "accepted",
+      "delta_aggregate": 0.0013,
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.7925 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.5032, P_lesson=1.0), target authored_geometric_sum__narayana_sum_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T062846Z_a2e0dc), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.3333). Machine check — not a novel theorem. Twin imp_a2e0dc_51 not authorized.",
+      "authorized_at": "2026-10-09T06:34:41Z"
     },
     {
       "id": "imp_a2e0dc_51",
@@ -12415,8 +12421,10 @@
         "peer_cite_rate": 1.0,
         "action_changed_from_message": 1.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0021
+      "status": "accepted",
+      "delta_aggregate": 0.0021,
+      "authorize_rationale": "Human authorize by standing delegation: James Jackson told Grok Bot in chat 2026-10-09 2:06 AM ET to authorize under the rule (candidate_measured + Hearing accept_candidate + P>=0.70 + target Oracle PASS in its own cycle + target not novelty-killed for textbook reuse). Verified: status candidate_measured, Hearing accept_candidate, P=0.793 (P_oracle_target_resolved=1.0, P_oracle=1.0, P_novelty=0.6667, P_bench=0.5052, P_lesson=1.0), target authored_hockey_stick__pell_companion_w1 Oracle PASS with fitness credit in the proposal's own cycle (20261009T063004Z_64188e), novelty gate novel_to_commons=True, kills=[] (no textbook_reuse kill; textbook_reuse=0.3333). Machine check — not a novel theorem. Twin imp_64188e_51 not authorized.",
+      "authorized_at": "2026-10-09T06:34:41Z"
     },
     {
       "id": "imp_64188e_51",
@@ -12507,7 +12515,7 @@
       "delta_aggregate": -0.0003
     }
   ],
-  "updated_at": "2026-10-09T06:33:55Z",
+  "updated_at": "2026-10-09T06:34:41Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
