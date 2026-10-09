@@ -38,7 +38,7 @@ from pathlib import Path
 from typing import Any
 
 MAX_AUTHORED_PER_CYCLE = 1
-MAX_AUTHORED_TOTAL = 24
+MAX_AUTHORED_TOTAL = 100  # James 2026-10-09 3:52 AM ET: raised from 24 (per-cycle limit unchanged)
 MAX_CANDIDATES_TRIED = 8
 MIN_EVALS = 3
 RUNTIME_BUDGET_S = 0.5
