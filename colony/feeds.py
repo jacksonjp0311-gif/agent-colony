@@ -373,7 +373,8 @@ def fetch_oeis_conj(queries: list[str], start: int = 0) -> tuple[bool, list[dict
             items.append(_item(
                 "oeis_conj", hit["oeis_id"], "conj_sequence", f"{hit['oeis_id']} {hit['name']}",
                 f"OEIS {hit['oeis_id']} ({hit['conj_flag']}): {len(hit['terms'])} integer terms for the frontier desk.",
-                f"https://oeis.org/{hit['oeis_id']}", CHANNEL_BY_SOURCE["oeis"], "oeis.org/search", q, **hit,
+                f"https://oeis.org/{hit['oeis_id']}", CHANNEL_BY_SOURCE["oeis"], "oeis.org/search", q,
+                **{k: v for k, v in hit.items() if k in ("oeis_id", "terms", "keywords", "conj_flag")},
             ))
     return (bool(items) or not errs), items, "; ".join(errs)
 

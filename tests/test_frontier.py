@@ -25,6 +25,10 @@ def sandbox(tmp_path, monkeypatch):
     monkeypatch.setattr(FR, "CATALOG", tmp_path / "frontier.json")
     monkeypatch.setattr(FR, "LOG", tmp_path / "frontier.jsonl")
     monkeypatch.setattr(FR, "SYSTEM", tmp_path / "frontier_system.json")
+    for t in cat["targets"]:  # tests start from the seed state, independent of live colony progress
+        t.update(verified=None, status="open", stall_streak=0, extensions=[], last_run=None)
+        t.pop("review", None)
+    cat["targets"] = [t for t in cat["targets"] if not t["id"].startswith("oeis_")]
     (tmp_path / "frontier.json").write_text(json.dumps(cat))
     monkeypatch.setattr("colony.feeds.conj_sequence_items", lambda: [])
     return tmp_path
@@ -49,7 +53,8 @@ def test_catalog_is_labeled_evidence_not_proof():
     assert {"goldbach", "collatz", "legendre", "lehmer_totient", "erdos_straus", "twin_hl"} <= fams
     for t in cat["targets"]:
         assert t["proof"] is False and t["label"] == "bounded evidence, not proof"
-        assert t["verified"] is None  # the colony starts with nothing it has not checked itself
+        v = t["verified"]  # seeded empty; only ranges the colony checked itself are recorded
+        assert v is None or (v["by"] == "colony" and v["label"] == "bounded evidence, not proof")
 
 
 def test_frontier_is_not_in_any_proof_scored_tier():
@@ -187,6 +192,18 @@ def test_feed_parser_keeps_ints_only_and_discovery(sandbox, monkeypatch):
     added = FR.discover_oeis_targets(cat)
     assert added == ["oeis_A069429"]  # constant data rejected as trivial
     assert FR.discover_oeis_targets(cat) == []  # dedupe
+
+
+def test_fetch_oeis_conj_builds_items(monkeypatch):
+    """Regression: CI hit TypeError (query passed twice to _item)."""
+    import colony.feeds as F
+    body = ('[{"number": 69429, "data": "' + ",".join(str(x) for x in range(1, 30)) +
+            '", "name": "Conjecture: x", "keyword": "nonn"}]')
+    monkeypatch.setattr(F, "_http_get", lambda url, *a, **k: (True, body))
+    ok, items, err = F.fetch_oeis_conj(["q"])
+    assert ok and not err and items[0]["oeis_id"] == "A069429"
+    assert items[0]["kind"] == "conj_sequence" and items[0]["provenance"]["query"] == "q"
+    assert all(isinstance(x, int) for x in items[0]["terms"])
 
 
 # ---------------------------------------------------------------- cycle
