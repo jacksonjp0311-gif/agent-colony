@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T06:57:01Z",
+  "updated_at": "2026-10-09T07:54:53Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -47,9 +47,9 @@
     "twin_primes_hl": {
       "family": "twin_hl",
       "status": "open",
-      "verified_hi": null,
+      "verified_hi": 200000,
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
-      "window": 200000,
+      "window": 400000,
       "result": null
     },
     "oeis_A297870": {
@@ -58,7 +58,7 @@
       "verified_hi": null,
       "literature": null,
       "window": null,
-      "result": null
+      "result": "recurrence_verified_on_unused_terms"
     },
     "oeis_A304004": {
       "family": "oeis_recurrence",
@@ -66,7 +66,7 @@
       "verified_hi": null,
       "literature": null,
       "window": null,
-      "result": null
+      "result": "recurrence_verified_on_unused_terms"
     },
     "oeis_A033305": {
       "family": "oeis_recurrence",
@@ -103,12 +103,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "oeis_A202882",
-    "lo": 0,
-    "hi": 28,
-    "outcome": "recurrence_verified_on_unused_terms",
-    "verified_hi": null,
-    "cycle_id": "20261009T065648Z_2b8a87"
+    "target": "twin_primes_hl",
+    "lo": 1,
+    "hi": 200000,
+    "outcome": "extended",
+    "verified_hi": 200000,
+    "cycle_id": "20261009T075438Z_dd0e2a"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

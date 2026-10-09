@@ -1,36 +1,34 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T06:56:59Z",
+  "updated_at": "2026-10-09T07:54:10Z",
   "hits": 10,
   "kills": 20,
   "latest": {
-    "ts": "2026-10-09T06:56:59Z",
-    "cycle_id": "",
-    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 227)",
-    "kind": "process",
+    "ts": "2026-10-09T07:54:10Z",
+    "cycle_id": "20261009T075357Z_8a1b00",
+    "mutation": "authored_pascal_identity__pythagorean_generation_w1",
+    "kind": "hard_enable",
     "novel_to_commons": false,
     "kills": [
-      "stripped_baseline_does_not_fail_usefulness",
-      "held_out:hard_tier_green_and_hard_enable",
-      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
+      "textbook_reuse=0.6667"
     ],
-    "textbook_reuse": 0.0,
+    "textbook_reuse": 0.6667,
     "in_ledger": false,
-    "own_authoring_record_only": false,
-    "oracle_used": "own_run",
+    "own_authoring_record_only": true,
+    "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": false,
-      "hard_pass": 57,
-      "hard_n": 57,
-      "stripped_fails_usefulness": false,
+      "in_catalog": true,
+      "hard_pass": 58,
+      "hard_n": 58,
+      "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard57"
+      "impl_id": "lemma_impl_v2_basic10_hard58"
     },
     "held_out": {
-      "survives": false,
+      "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 57,
+      "hard_pass": 58,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

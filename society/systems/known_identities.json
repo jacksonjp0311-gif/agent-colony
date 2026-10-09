@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-09T06:56:58Z",
-  "n": 155,
+  "updated_at": "2026-10-09T07:54:10Z",
+  "n": 157,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -28,6 +28,7 @@
     "authored_oeis_a000108__catalan_bounded",
     "authored_oeis_a000984__central_binom_bound",
     "authored_pascal_identity__narayana_sum_w1",
+    "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pell_companion__pythagorean_generation_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
     "authored_sum_first_n_odds__vandermonde_conv_w1",
@@ -111,6 +112,7 @@
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 149)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 223)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 225)",
+    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 227)",
     "fft_add_slow_loops",
     "fibonacci_addition",
     "fibonacci_cassini_ext",

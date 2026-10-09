@@ -183,15 +183,40 @@
       "kind": "asymptotic_consistency",
       "statement": "pi_2(x) ~ 2·C_2·Li_2(x) (Hardy–Littlewood twin-prime estimate); checked as a consistency ratio at growing x — deviations are flags, never counterexamples.",
       "start": 1,
-      "verified": null,
-      "window": 200000,
+      "verified": {
+        "lo": 1,
+        "hi": 200000,
+        "by": "colony",
+        "label": "bounded evidence, not proof",
+        "pi2": 2160,
+        "hl_ratio": 0.987442
+      },
+      "window": 400000,
       "min_window": 20000,
       "max_window": 4000000,
       "budget_s": 2.5,
       "status": "open",
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
-      "proof": false
+      "proof": false,
+      "last_run": "2026-10-09T07:54:53Z",
+      "runs": 1,
+      "extensions": [
+        {
+          "ts": "2026-10-09T07:54:53Z",
+          "lo": 1,
+          "hi": 200000,
+          "seconds": 0.0197
+        }
+      ],
+      "last_data": {
+        "x": 200000,
+        "pi2": 2160,
+        "segment_pairs": 2160,
+        "hl_estimate": 2187.47,
+        "ratio": 0.987442
+      },
+      "stall_streak": 0
     },
     {
       "id": "oeis_A297870",
@@ -241,7 +266,22 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T06:32:12Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-09T07:53:28Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 4,
+        "coeffs": [
+          "1",
+          "3",
+          "0",
+          "-4",
+          "0"
+        ],
+        "unused_verified": 24,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A304004",
@@ -289,7 +329,23 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T06:32:12Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-09T07:54:11Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 5,
+        "coeffs": [
+          "1",
+          "3",
+          "0",
+          "-4",
+          "0",
+          "0"
+        ],
+        "unused_verified": 20,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A033305",
@@ -541,5 +597,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-09T06:57:01Z"
+  "updated_at": "2026-10-09T07:54:53Z"
 }
