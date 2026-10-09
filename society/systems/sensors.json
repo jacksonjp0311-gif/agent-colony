@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-09T06:30:04Z",
-  "cycle_id": "20261009T063004Z_64188e",
+  "ts": "2026-10-09T06:33:17Z",
+  "cycle_id": "20261009T063316Z_4d9a55",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -24,13 +24,6 @@
       "binomial_identities": 1
     },
     "recent": {
-      "authored_oeis_a000984__central_binom_bound": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_pell_companion__pythagorean_generation_w1": {
         "last": "keep",
         "streak": 1,
@@ -107,54 +100,60 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_hockey_stick__pell_companion_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.841,
-      "slope": 0.000645,
-      "min": 0.8304,
-      "max": 0.841
+      "last": 0.8428,
+      "slope": 0.000757,
+      "min": 0.8326,
+      "max": 0.8431
     },
     "novelty": {
-      "last": 0.3,
-      "slope": 0.013983,
+      "last": 0.3333,
+      "slope": 0.015731,
       "min": 0.1667,
-      "max": 0.3
+      "max": 0.3333
     },
     "kill_rate": {
-      "last": 0.401,
-      "slope": -0.000301,
-      "min": 0.401,
+      "last": 0.4015,
+      "slope": -0.000427,
+      "min": 0.4,
       "max": 0.4051
     },
     "kill_rate_term": {
-      "last": 0.9109,
-      "slope": -0.000273,
-      "min": 0.9109,
+      "last": 0.9114,
+      "slope": -0.000383,
+      "min": 0.91,
       "max": 0.9146
     },
     "lesson_uptake": {
       "last": 0.9714,
-      "slope": -0.000923,
+      "slope": -0.001615,
       "min": 0.9714,
       "max": 0.9846
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0073,
-    "novelty_max": 0.3,
+    "aggregate_range": 0.006,
+    "novelty_max": 0.3333,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 66,
+    "enabled": 67,
     "disabled": [
-      "adversarial_vandermonde_asymmetric",
-      "authored_hockey_stick__pell_companion_w1"
+      "adversarial_vandermonde_asymmetric"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -182,7 +181,7 @@
       "authored_sum_first_n_cubes__stirling_second_row_w1",
       "authored_sum_first_n_odds__vandermonde_conv_w1"
     ],
-    "exhausted_recent": 4
+    "exhausted_recent": 6
   },
   "guides": {
     "n_guides": 15,
@@ -196,30 +195,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.008,
+      "ratio": 0.931,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.002,
+      "ratio": 0.922,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.017,
+      "ratio": 0.931,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.041,
+      "ratio": 0.934,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.091,
+      "ratio": 0.815,
       "drift": false
     }
   },
   "frontier": {
-    "n_targets": 6,
+    "n_targets": 12,
     "verified": {
+      "goldbach_even": 200003,
       "collatz_descent": 200000,
+      "legendre_square_gap": 2000,
+      "lehmer_totient": 200001,
       "erdos_straus": 5001
     },
     "reviews": [],
@@ -231,30 +233,32 @@
     "last": [
       [
         null,
+        "2026-10-09T06:31:41Z"
+      ],
+      [
+        "success",
         "2026-10-09T06:28:24Z"
       ],
       [
         "success",
         "2026-10-09T06:25:23Z"
-      ],
-      [
-        "success",
-        "2026-10-09T06:15:06Z"
       ]
     ],
-    "fetched_at": "2026-10-09T06:28:42Z"
+    "fetched_at": "2026-10-09T06:31:56Z"
   },
   "feeds": {
     "by_source": {
       "arxiv": 26,
       "oeis": 5,
       "crossref": 15,
-      "wikipedia": 4
+      "wikipedia": 4,
+      "oeis_conj": 6
     },
     "by_kind": {
       "paper": 41,
       "sequence": 5,
-      "summary": 4
+      "summary": 4,
+      "conj_sequence": 6
     },
     "last_run": {
       "sources": {
@@ -278,10 +282,10 @@
           "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "TypeError: _item() got multiple values for argument 'query'",
-          "fetched": 0,
-          "new": 0,
-          "ok": false
+          "error": "",
+          "fetched": 10,
+          "new": 6,
+          "ok": true
         },
         "wikipedia": {
           "new": 0,
@@ -289,7 +293,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-09T06:28:41Z"
+      "ts": "2026-10-09T06:31:54Z"
     },
     "health": {
       "arxiv": {
@@ -306,7 +310,7 @@
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 0
+        "ok": 1
       },
       "wikipedia": {
         "fail": 0,

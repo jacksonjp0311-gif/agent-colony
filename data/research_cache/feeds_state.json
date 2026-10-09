@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-09T06:28:42Z",
+    "fetched_at": "2026-10-09T06:31:56Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-09T06:31:41Z",
+        "id": 37893989748,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-09T06:31:46Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-09T06:28:24Z",
         "id": 37893695676,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-09T06:28:28Z"
+        "status": "completed",
+        "updated_at": "2026-10-09T06:30:54Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-08T01:14:34Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-07T23:13:27Z",
-        "id": 37701007209,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-07T23:14:54Z"
       }
     ],
     "success_rate": 1.0
@@ -117,7 +117,7 @@
     },
     "oeis_conj": {
       "fail": 1,
-      "ok": 0
+      "ok": 1
     },
     "wikipedia": {
       "fail": 0,
@@ -131,6 +131,7 @@
     "arxiv": "2026-10-09T06:15:23Z",
     "crossref": "2026-10-09T06:15:24Z",
     "oeis": "2026-10-09T06:15:24Z",
+    "oeis_conj": "2026-10-09T06:31:55Z",
     "wikipedia": "2026-10-09T06:15:26Z"
   },
   "last_run": {
@@ -155,10 +156,10 @@
         "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "TypeError: _item() got multiple values for argument 'query'",
-        "fetched": 0,
-        "new": 0,
-        "ok": false
+        "error": "",
+        "fetched": 10,
+        "new": 6,
+        "ok": true
       },
       "wikipedia": {
         "new": 0,
@@ -166,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-10-09T06:28:41Z"
+    "ts": "2026-10-09T06:31:54Z"
   },
-  "runs": 15
+  "runs": 16
 }
