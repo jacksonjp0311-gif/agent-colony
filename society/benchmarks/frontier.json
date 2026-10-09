@@ -402,7 +402,21 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T06:32:12Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-09T06:55:50Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 3,
+        "coeffs": [
+          "4",
+          "-5",
+          "2",
+          "-1"
+        ],
+        "unused_verified": 24,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A179580",
@@ -447,7 +461,23 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T06:32:12Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-09T06:56:32Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 5,
+        "coeffs": [
+          "7",
+          "-19",
+          "25",
+          "-16",
+          "4",
+          "1"
+        ],
+        "unused_verified": 17,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A202882",
@@ -492,8 +522,24 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T06:32:12Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-09T06:57:01Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 5,
+        "coeffs": [
+          "3",
+          "-3",
+          "4",
+          "-1",
+          "1",
+          "0"
+        ],
+        "unused_verified": 17,
+        "label": "bounded evidence, not proof"
+      }
     }
   ],
-  "updated_at": "2026-10-09T06:33:27Z"
+  "updated_at": "2026-10-09T06:57:01Z"
 }

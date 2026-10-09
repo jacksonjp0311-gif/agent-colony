@@ -1,0 +1,20 @@
+{
+  "challenged": 3,
+  "blocked": 0,
+  "self_reject_rate": 0.0,
+  "by_kind": {
+    "frontier": {
+      "challenged": 3,
+      "blocked": 0
+    }
+  },
+  "post_challenger_oracle_judged": 0,
+  "post_challenger_oracle_kill_rate": null,
+  "pre_challenger_oracle_judged": 167,
+  "pre_challenger_oracle_kill_rate": 0.1916,
+  "post_challenger_frontier_recheck_fail_rate": 0.0,
+  "challenger_catches": [],
+  "can_approve": false,
+  "note": "Observability only: the Challenger can block, never approve; not part of aggregate fitness.",
+  "updated_at": "2026-10-09T06:57:15Z"
+}

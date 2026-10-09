@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T06:32:48Z",
+  "updated_at": "2026-10-09T06:56:59Z",
   "passes": 237,
-  "kills": 159,
+  "kills": 161,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4015,
+  "kill_rate": 0.4045,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
     "passes": 25,
     "kills": 35,
-    "easy_pad_kills": 18,
+    "easy_pad_kills": 17,
     "kill_rate": 0.5833
   },
   "bus_ok_rate": 0.0167,
@@ -50,13 +50,14 @@
     "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa (cycle 181)",
     "Chain `authored_oeis_a000108__catalan_bounded` citing Odds",
     "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)",
-    "Chain `stem_easy_pad_units` citing New algebraic points on covers of elliptic curves",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian (cycle 192)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 190)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 223)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 225)",
+    "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 227)",
     "binomial_identities",
     "easy_pad_abs_identity",
     "easy_pad_assoc_add",
@@ -95,7 +96,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-09T06:32:48Z",
+    "ts": "2026-10-09T06:56:59Z",
     "passed": false,
     "kills": [
       "stripped:stripped_not_useful_fail",
@@ -109,8 +110,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `Feed accepted/strong RSI findings into skill_router + genome bias (cycle 223)` kind=process. rsi_coupling:skill_router+mutation_bias Not discovery. cycle=.",
-      "attack": "WEIGH: `Feed accepted/strong RSI findings into skill_router + genome bias (cycle 223)` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `Feed accepted/strong RSI findings into skill_router + genome bias (cycle 227)` kind=process. rsi_coupling:skill_router+mutation_bias Not discovery. cycle=.",
+      "attack": "WEIGH: `Feed accepted/strong RSI findings into skill_router + genome bias (cycle 227)` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -202,12 +203,12 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 223)",
+      "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 227)",
       "kind": "process",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 223)",
+    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 227)",
     "kind": "process",
     "source": "novelty_gate",
     "cycle_id": "",

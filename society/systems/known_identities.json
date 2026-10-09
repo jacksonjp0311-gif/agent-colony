@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-09T06:32:48Z",
-  "n": 153,
+  "updated_at": "2026-10-09T06:56:58Z",
+  "n": 155,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -109,6 +109,8 @@
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 145)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 147)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 149)",
+    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 223)",
+    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 225)",
     "fft_add_slow_loops",
     "fibonacci_addition",
     "fibonacci_cassini_ext",
