@@ -548,16 +548,83 @@ def theme_is_blocked(theme: str, *, threshold: int = KILL_COOLDOWN_THRESHOLD) ->
     return bool(t) and t in blocked_themes(threshold=threshold)
 
 
+GUIDE_AVOID_MIN_LEN = 6  # shorter guide-avoid tokens are labels, not mutation stems
+
+
+class MutationCooldown:
+    """One shared cooldown filter for every mutation picker (seek, conjecture desk).
+
+    A mutation name is cooled when any of these hold:
+
+    * ``kill_cooldown:N`` / ``guide_avoid`` — its theme is in :func:`blocked_themes`
+      (exact theme match; the same set spark/seek already respect);
+    * ``guide_avoid:<t>`` — a human guide's avoid/drop token (len >= 6) is a substring of the
+      name, so a guide saying ``easy_pad`` or ``vandermonde_asymmetric`` also covers
+      ``easy_pad_diff_squares`` / ``vandermonde_asymmetric_w2`` (as seek variants already did);
+    * ``revert_penalty:N`` — the exploration budget recorded N >= threshold reverts of it.
+
+    Build it once per pick (:func:`mutation_cooldown`) so every candidate is judged against the
+    same snapshot. Fail closed: if the cooldown sources cannot be read, the filter raises and
+    the caller must not fall back to an unfiltered pick.
+    """
+
+    def __init__(
+        self,
+        *,
+        blocked: dict[str, str],
+        avoided: set[str],
+        penalties: dict[str, int] | None = None,
+        threshold: int = KILL_COOLDOWN_THRESHOLD,
+    ) -> None:
+        self.blocked = blocked if blocked is not None else {}
+        self.avoided = {t for t in avoided if t and len(t) >= GUIDE_AVOID_MIN_LEN}
+        self.penalties = {str(k): int(v or 0) for k, v in (penalties or {}).items()}
+        self.threshold = int(threshold)
+
+    def reason(self, name: str) -> str:
+        """Why ``name`` is cooled, or ``""`` when it may be picked."""
+        raw = (name or "").strip().lower()
+        t = theme_key(name)
+        if not t:
+            return ""
+        if t in self.blocked:
+            return str(self.blocked.get(t) or "blocked")
+        for a in sorted(self.avoided):
+            if a in raw:
+                return f"guide_avoid:{a}"
+        n = self.penalties.get(name) or self.penalties.get(t) or 0
+        if n >= self.threshold:
+            return f"revert_penalty:{n}"
+        return ""
+
+    def allows(self, name: str) -> bool:
+        return not self.reason(name)
+
+
+def mutation_cooldown(*, threshold: int = KILL_COOLDOWN_THRESHOLD, with_penalties: bool = True) -> MutationCooldown:
+    """Snapshot of kill cooldown + human-guide blocks + exploration revert penalties."""
+    penalties: dict[str, int] = {}
+    if with_penalties:
+        from colony.exploration_budget import load_budget
+        penalties = dict((load_budget() or {}).get("revert_penalties") or {})
+    return MutationCooldown(
+        blocked=blocked_themes(threshold=threshold),
+        avoided=guide_avoid_themes(),
+        penalties=penalties,
+        threshold=threshold,
+    )
+
+
 def next_unblocked_mutation(
     candidates: list[str],
     *,
     threshold: int = KILL_COOLDOWN_THRESHOLD,
 ) -> str:
-    """First candidate not under kill cooldown / guide avoid; else empty."""
-    blocked = blocked_themes(threshold=threshold)
+    """First candidate the shared :class:`MutationCooldown` allows; else empty."""
+    cooldown = mutation_cooldown(threshold=threshold)
     for c in candidates:
         t = theme_key(c)
-        if t and t not in blocked:
+        if t and cooldown.allows(t):
             return t
     return ""
 
@@ -874,18 +941,18 @@ def unenabled_chain_variants(*, respect_cooldown: bool = True) -> list[dict[str,
     """
     if not BENCH_ARTIFACTS_DIR.is_dir():
         return []
-    blocked = blocked_themes() if respect_cooldown else {}
-    # A human "drop this theme" also drops its harder variants (e.g. vandermonde_asymmetric)
-    avoided = guide_avoid_themes() if respect_cooldown else set()
+    # Shared cooldown filter (same one the conjecture desk uses). A human "drop this theme"
+    # also drops its harder variants (e.g. vandermonde_asymmetric).
+    cooldown = mutation_cooldown() if respect_cooldown else None
     out: list[dict[str, Any]] = []
     for path in sorted(BENCH_ARTIFACTS_DIR.glob("*.py")):
         if path.name.startswith("__"):
             continue
         _f, _c, enabled = _scan_bench_artifact_full(path)
         for name, flag in enabled.items():
-            if flag is not False or name in blocked:
+            if flag is not False:
                 continue
-            if any(t and len(t) >= 6 and t in name for t in avoided):
+            if cooldown is not None and not cooldown.allows(name):
                 continue
             cites = chain_citations(name)
             if not cites:

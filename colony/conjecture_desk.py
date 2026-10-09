@@ -117,6 +117,49 @@ def propose_from_themes(themes, *, ledger=None, cycle_id: str = ""):
     return proposals
 
 
+def pick_mutation(
+    ordered: list[tuple[str, str, str]],
+    *,
+    cooldown: Any,
+    fresh_authored: set[str] | None = None,
+    recent_reverts: dict[str, int] | None = None,
+    force_mutation: str | None = None,
+    lemma_src: str = "",
+) -> tuple[str | None, str, str, dict[str, str]]:
+    """First pickable mutation → (name, kind, snippet, cooled{name: reason}).
+
+    ``cooldown`` is the shared :class:`colony.lessons.MutationCooldown` (kill cooldown, human
+    guide blocks, revert penalties) — the same filter seek uses. Cooled names are never picked,
+    not even when forced. Returns ``(None, "", "", cooled)`` when nothing is pickable; the caller
+    then falls through to authoring / catalog-exhausted handling.
+    """
+    fresh_authored = fresh_authored or set()
+    recent_reverts = recent_reverts or {}
+    cooled: dict[str, str] = {}
+    for name, k, snip in ordered:
+        if force_mutation and name != force_mutation:
+            continue
+        if name in fresh_authored:
+            continue  # authored this cycle: wait for a proposal + Oracle next cycle
+        why = cooldown.reason(name)
+        if why:
+            cooled[name] = why
+            continue
+        # Short-window retry limit (kept): easy_pad 3, hard 2 recent reverts
+        limit = 3 if name.startswith("easy_pad") else 2
+        if not force_mutation and recent_reverts.get(name, 0) >= limit:
+            continue
+        if (k or "").startswith("stem"):
+            stem_src = KINEMATICS_IMPL.read_text(encoding="utf-8") if KINEMATICS_IMPL.exists() else ""
+            if _already_has(stem_src, name):
+                continue
+            return name, k, snip, cooled
+        if _already_has(lemma_src, name):
+            continue
+        return name, k, snip, cooled
+    return None, "", "", cooled
+
+
 def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     STEM_BACKUP_DIR.mkdir(parents=True, exist_ok=True)
@@ -146,46 +189,62 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     # proven lemmas. They stay disabled this cycle (a later proposal targets them and
     # the Oracle judges the enable) — authoring never enables anything.
     fresh_authored: set[str] = set()
+    authoring_ran = False
     try:
         from colony.authoring import guide_authoring_active, author_checks
         from colony.lessons import variant_mutation_snippets as _vms
         if not _variants and not _vms() and guide_authoring_active():
+            authoring_ran = True
             fresh_authored = {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
             src = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else src
     except Exception:
         fresh_authored = set()
+    # Same cooldown filter seek uses (kill cooldown + human-guide blocks + revert penalties).
+    # Fail closed: if it cannot be built, nothing is picked this cycle.
+    cooled: dict[str, str] = {}
+    try:
+        from colony.lessons import mutation_cooldown
+        cooldown = mutation_cooldown()
+    except Exception as exc:  # noqa: BLE001
+        cooldown = None
+        cooldown_error = str(exc)[:200]
     try:
         from colony.exploration_budget import pick_mutation_order
         ordered = pick_mutation_order(snippets)
     except Exception:
         ordered = snippets
     lemma_src = src
-    for name, k, snip in ordered:
-        if force_mutation and name != force_mutation:
-            continue
-        if name in fresh_authored:
-            continue  # authored this cycle: wait for a proposal + Oracle next cycle
-        # Autonomy mile: allow one more retry on easy_pad to prove revert; hard uses >=3
-        limit = 3 if name.startswith("easy_pad") else 2
-        if not force_mutation and recent_reverts.get(name, 0) >= limit:
-            continue
-        # STEM mutations live in kinematics_impl — check the right file before picking.
-        if (k or "").startswith("stem"):
-            stem_src = KINEMATICS_IMPL.read_text(encoding="utf-8") if KINEMATICS_IMPL.exists() else ""
-            if _already_has(stem_src, name):
-                continue
-            chosen, kind, snippet = name, k, snip
-            target_impl = KINEMATICS_IMPL
-            backup_dir = STEM_BACKUP_DIR
-            run_bench = run_stem_bench
-            before = run_bench()
-            before_score = float(before.get("score") or 0.0)
-            src = stem_src
-            break
-        if _already_has(lemma_src, name):
-            continue
-        chosen, kind, snippet = name, k, snip
-        break
+    if cooldown is not None:  # fail closed: no cooldown snapshot → no pick
+        chosen, kind, snippet, cooled = pick_mutation(
+            ordered, cooldown=cooldown, fresh_authored=fresh_authored,
+            recent_reverts=recent_reverts, force_mutation=force_mutation, lemma_src=lemma_src,
+        )
+    if chosen and (kind or "").startswith("stem"):
+        # STEM mutations live in kinematics_impl.
+        target_impl = KINEMATICS_IMPL
+        backup_dir = STEM_BACKUP_DIR
+        run_bench = run_stem_bench
+        before = run_bench()
+        before_score = float(before.get("score") or 0.0)
+        src = KINEMATICS_IMPL.read_text(encoding="utf-8") if KINEMATICS_IMPL.exists() else ""
+    if not chosen and cooldown is None:
+        result = ConjectureResult(
+            ts=_utc(), decision="skip", before_score=before_score, after_score=before_score,
+            delta=0.0, themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals,
+            note=f"Cooldown filter unavailable ({cooldown_error}); fail closed, no pick.",
+            finding_ids=[p.get("finding_id") for p in proposals if p.get("finding_id")],
+        )
+        _append_history(result); _write_witness([result]); return result
+    if not chosen and not authoring_ran:
+        # Everything left was cooled/blocked/done: fall through to authoring new disabled
+        # checks (they wait for a proposal + Oracle) rather than a cooled pick.
+        try:
+            from colony.authoring import guide_authoring_active, author_checks
+            if guide_authoring_active():
+                authoring_ran = True
+                fresh_authored = {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
+        except Exception:
+            pass
     if not chosen:
         # Phase 1/2: catalog exhausted → lesson + queue stub mutation from hints
         try:
@@ -203,7 +262,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             hint = {"add_mutation": default_mut, "kind": "hard_enable"}
             for h in hints:
                 mut = str((h or {}).get("add_mutation") or "")
-                if mut and not theme_is_blocked(mut):
+                if mut and cooldown.allows(mut):
                     hint = h
                     break
             else:
@@ -238,12 +297,10 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 # adversarial_* held-out windows as hard_check candidates.
                 import re as _re
                 _lsrc = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else ""
-                from colony.lessons import guide_avoid_themes as _gat
-                _avoid = {t for t in _gat() if t and len(t) >= 6}
                 for _m in _re.finditer(r'\("([^"]*adversarial[^"]*)"[^)]*,\s*False\)', _lsrc):
                     _nm = _m.group(1)
                     # Respect cooled themes and human "drop" guides (e.g. vandermonde_asymmetric)
-                    if theme_is_blocked(_nm) or any(t in _nm for t in _avoid):
+                    if not cooldown.allows(_nm):
                         continue
                     register_mutation_candidate(_nm, "hard_check", f"enable:{_nm}")
             except Exception:
@@ -253,7 +310,9 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         result = ConjectureResult(
             ts=_utc(), decision="skip", before_score=before_score, after_score=before_score,
             delta=0.0, themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals,
-            note="No pending hard-tier lemma mutations (catalog exhausted or empty).",
+            note=("No pending hard-tier lemma mutations (catalog exhausted or empty)."
+                  + (f" Cooled/blocked skipped: {sorted(cooled)[:8]}." if cooled else "")
+                  + (f" Authored new disabled checks: {sorted(fresh_authored)[:4]}." if fresh_authored else "")),
             finding_ids=[p.get("finding_id") for p in proposals if p.get("finding_id")],
         )
         _append_history(result); _write_witness([result]); return result
