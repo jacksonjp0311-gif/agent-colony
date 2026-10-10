@@ -1,5 +1,5 @@
 {
-  "challenged": 15,
+  "challenged": 16,
   "blocked": 0,
   "self_reject_rate": 0.0,
   "by_kind": {
@@ -8,11 +8,11 @@
       "blocked": 0
     },
     "lemma_mutation": {
-      "challenged": 6,
+      "challenged": 7,
       "blocked": 0
     }
   },
-  "post_challenger_oracle_judged": 6,
+  "post_challenger_oracle_judged": 7,
   "post_challenger_oracle_kill_rate": 0.0,
   "pre_challenger_oracle_judged": 167,
   "pre_challenger_oracle_kill_rate": 0.1916,
@@ -20,5 +20,5 @@
   "challenger_catches": [],
   "can_approve": false,
   "note": "Observability only: the Challenger can block, never approve; not part of aggregate fitness.",
-  "updated_at": "2026-10-09T22:48:25Z"
+  "updated_at": "2026-10-10T06:10:41Z"
 }

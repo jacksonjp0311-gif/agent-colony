@@ -1,28 +1,29 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T22:48:25Z",
-  "updated_cycle": "20261009T224803Z_fa9cbb",
+  "updated_at": "2026-10-10T06:10:41Z",
+  "updated_cycle": "20261010T060959Z_bb8c32",
   "signal": {
-    "ts": "2026-10-09T22:48:25Z",
-    "accepted_count": 2,
+    "ts": "2026-10-10T06:10:41Z",
+    "accepted_count": 3,
     "strong_candidate_count": 42,
     "unknown_caution_count": 125,
-    "strength": 0.49,
+    "strength": 0.61,
     "mutation_bias": {
-      "explore": 0.089,
-      "govern": 0.0592,
-      "build": 0.0494,
-      "gather": 0.0296,
-      "reply": 0.0247
+      "explore": 0.101,
+      "govern": 0.0688,
+      "build": 0.0566,
+      "gather": 0.0344,
+      "reply": 0.0283
     },
     "skill_bias": {
-      "improver.improve": 0.746,
-      "spark.emergence": 0.6715,
-      "pathfinder.gather": 0.5725
+      "improver.improve": 0.794,
+      "spark.emergence": 0.7135,
+      "pathfinder.gather": 0.6025
     },
     "accepted_ids": [
       "fnd_4e13618dda89",
-      "fnd_996b756037a2"
+      "fnd_996b756037a2",
+      "fnd_c4032bdb2b03"
     ],
     "strong_ids": [
       "fnd_9cad30bd5362",
@@ -48,6 +49,12 @@
       {
         "id": "fnd_996b756037a2",
         "title": "Authorize accepted: Lemma mutation keep: authored_binomial_inversion_small__legendre_duplication_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
+      },
+      {
+        "id": "fnd_c4032bdb2b03",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__binomial_inversion_small_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
       }

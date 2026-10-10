@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T22:48:16Z",
-  "passes": 243,
-  "kills": 161,
+  "updated_at": "2026-10-10T06:10:46Z",
+  "passes": 244,
+  "kills": 164,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3985,
+  "kill_rate": 0.402,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -19,10 +19,10 @@
     "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
     "authored_binomial_inversion_small__legendre_duplication_small_w1",
     "authored_binomial_sum_row__binomial_inversion_small_w1",
-    "authored_binomial_sum_row__catalan_bounded_w1",
     "authored_binomial_symmetry__cassini_w1",
     "authored_binomial_symmetry__catalan_bounded_w1",
     "authored_binomial_symmetry__catalan_convolution_w1",
+    "authored_cassini__catalan_convolution_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
     "authored_central_binom_bound__derangement_subfactorial_w1",
     "authored_euler_totient_multiplicative__hermite_recurrence_w1",
@@ -47,12 +47,11 @@
     "binomial_identities"
   ],
   "unique_mutations_kill": [
-    "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds",
-    "Chain `authored_binomial_sum_row__catalan_bounded_w1` citing Odds (cycle 177)",
     "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa",
     "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa (cycle 181)",
-    "Chain `authored_oeis_a000108__catalan_bounded` citing Odds",
     "Chain `authored_oeis_a000108__catalan_bounded` citing Odds (cycle 179)",
+    "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
+    "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re (cycle 242)",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian (cycle 192)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
@@ -99,9 +98,13 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-09T22:48:16Z",
-    "passed": true,
-    "kills": [],
+    "ts": "2026-10-10T06:10:46Z",
+    "passed": false,
+    "kills": [
+      "stripped:stripped_not_useful_fail",
+      "held_out:held_out_fail",
+      "collective_kill"
+    ],
     "hear": {
       "heard": true,
       "bus_ok": false,
@@ -109,30 +112,28 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_binomial_symmetry__catalan_bounded_w1` kind=hard_enable. lemma mutation authored_binomial_symmetry__catalan_bounded_w1 0.9071->0.9071 Not discovery. cycle=20261009T2",
-      "attack": "WEIGH: `authored_binomial_symmetry__catalan_bounded_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re` kind=process. seek_enable:lemma_hard_combinatorics Not discovery. cycle=.",
+      "attack": "WEIGH: `Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "already_enabled": true,
-        "in_catalog": true,
-        "hard_pass": 63,
-        "hard_n": 63,
+        "already_enabled": false,
+        "in_catalog": false,
+        "hard_pass": 64,
+        "hard_n": 64,
         "score": 0.9071,
-        "stripped_fails_usefulness": true,
-        "ok_for_oracle": true,
-        "reason": "pre_apply_usefulness_via_delta=1",
-        "hard_pass_delta": 1
+        "stripped_fails_usefulness": false,
+        "ok_for_oracle": false,
+        "reason": "stripped_not_useful_fail"
       },
       "held_out": {
-        "survives": true,
-        "ok_for_oracle": true,
-        "hard_pass": 63,
-        "hard_n": 63,
+        "survives": false,
+        "ok_for_oracle": false,
+        "hard_pass": 64,
+        "hard_n": 64,
         "ok": true,
         "score": 0.9071,
-        "reason": "hard_pass_delta=1",
-        "hard_pass_delta": 1
+        "reason": "held_out_fail"
       },
       "cas": {
         "cas_ok": true,
@@ -151,70 +152,69 @@
           {
             "label": "square_expand",
             "ok": true
-          },
-          {
-            "label": "catalan_positive",
-            "ok": true
           }
         ]
       },
-      "kills": [],
-      "sense_pass": true
+      "kills": [
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail"
+      ],
+      "sense_pass": false
     },
     "collective": {
-      "decision": "keep_candidate",
-      "sense_pass": true,
-      "keep_weight": 0.363,
-      "kill_weight": 0.2285,
+      "decision": "kill",
+      "sense_pass": false,
+      "keep_weight": 0.0,
+      "kill_weight": 1.0,
       "votes": {
         "geometer": {
           "weight": 0.28,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "improver": {
           "weight": 0.22,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "legislator": {
           "weight": 0.18,
           "vote": "kill",
-          "lean_keep": 0.375,
-          "lean_kill": 0.625
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "spark": {
           "weight": 0.16,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "tribute_keeper": {
           "weight": 0.1,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "builder": {
           "weight": 0.06,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_binomial_symmetry__catalan_bounded_w1",
-      "kind": "hard_enable",
+      "mutation": "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
+      "kind": "process",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
-    "fitness_credit": true,
-    "mutation": "authored_binomial_symmetry__catalan_bounded_w1",
-    "kind": "hard_enable",
-    "source": "conjecture_desk",
-    "cycle_id": "20261009T224803Z_fa9cbb",
-    "note": "Oracle PASS \u2014 keep as candidate until authorize.",
+    "fitness_credit": false,
+    "mutation": "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
+    "kind": "process",
+    "source": "novelty_gate",
+    "cycle_id": "",
+    "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

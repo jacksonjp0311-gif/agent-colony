@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_87c97ca23c29",
-      "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__euler_totient_multiplicative_w1"
+      "finding_id": "fnd_03844a70cf18",
+      "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__narayana_sum_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-09T22:48:21Z",
-  "updated_cycle": "20261009T224803Z_fa9cbb",
+  "updated_at": "2026-10-10T06:10:21Z",
+  "updated_cycle": "20261010T060959Z_bb8c32",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

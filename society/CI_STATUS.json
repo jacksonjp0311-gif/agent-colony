@@ -288,82 +288,85 @@
     "cycle_236_evolve_note",
     "cycle_237_evolve_note",
     "cycle_238_evolve_note",
-    "cycle_239_evolve_note"
+    "cycle_239_evolve_note",
+    "cycle_240_evolve_note",
+    "cycle_241_evolve_note",
+    "cycle_242_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 667,
+      "uses": 676,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 639,
+      "uses": 648,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 447,
+      "uses": 453,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 223,
+      "uses": 226,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 849,
+      "uses": 861,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 530,
+      "uses": 536,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 634,
+      "uses": 643,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 211,
+      "uses": 214,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 211,
+      "uses": 214,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 196,
+      "uses": 199,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 196,
+      "uses": 199,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 193,
+      "uses": 196,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 193,
+      "uses": 196,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 190,
+      "uses": 193,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 190,
+      "uses": 193,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -638,8 +641,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 848,
-    "reused": 1903
+    "appended": 860,
+    "reused": 1930
   },
   "commons_by_domain": {
     "science": 0,
@@ -658,8 +661,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-09T22:48:26Z",
-    "cycle_id": "20261009T224803Z_fa9cbb",
+    "ts": "2026-10-10T06:10:42Z",
+    "cycle_id": "20261010T060959Z_bb8c32",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -671,23 +674,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-09T22:48:25Z",
-    "cycle_id": "20261009T224803Z_fa9cbb",
+    "ts": "2026-10-10T06:10:41Z",
+    "cycle_id": "20261010T060959Z_bb8c32",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.7692,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8133,
-    "compute_usefulness": 0.9128,
+    "math_prize": 0.8135,
+    "compute_usefulness": 0.9129,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8855,
-    "kill_rate": 0.3985,
-    "kill_rate_term": 0.9087,
-    "novelty": 0.4333,
+    "prize_boost": 0.8856,
+    "kill_rate": 0.4005,
+    "kill_rate_term": 0.9104,
+    "novelty": 0.4,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8422,
+    "aggregate": 0.8417,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -695,35 +698,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 11997,
-    "read": 56886,
-    "replied": 7552,
-    "actions_planned": 3918,
-    "actions_changed_from_message": 3918,
-    "reply_quality_sum": 6838.999999999457,
-    "reply_quality_n": 7500,
-    "peer_cite_opportunities": 7712,
-    "peer_cites": 7712
+    "posted": 12164,
+    "read": 57696,
+    "replied": 7657,
+    "actions_planned": 3972,
+    "actions_changed_from_message": 3972,
+    "reply_quality_sum": 6934.699999999431,
+    "reply_quality_n": 7605,
+    "peer_cite_opportunities": 7820,
+    "peer_cites": 7820
   },
   "bus_domains": {
-    "science": 629,
-    "history": 631,
-    "math": 1902,
-    "empire": 423,
-    "bulletin": 1721,
-    "forum": 2730,
-    "software": 631,
-    "nature": 629,
-    "life": 631,
-    "cosmos": 903,
-    "rsi": 1059
+    "science": 638,
+    "history": 640,
+    "math": 1929,
+    "empire": 429,
+    "bulletin": 1742,
+    "forum": 2770,
+    "software": 640,
+    "nature": 638,
+    "life": 640,
+    "cosmos": 916,
+    "rsi": 1074
   },
-  "communications_count": 11997,
+  "communications_count": 12164,
   "improvements": [
-    "Chain `authored_geometric_sum__hockey_stick_w1` citing New algebraic points on covers of elliptic curves (cycle 191)",
-    "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian",
-    "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian (cycle 192)",
-    "Chain `authored_motzkin_bounded__legendre_duplication_small_w1` citing Sum and square-sum of consecutive pentagonal numbe",
     "Chain `authored_motzkin_bounded__legendre_duplication_small_w1` citing Sum and square-sum of consecutive pentagonal numbe (cycle 193)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)",
@@ -769,18 +768,22 @@
     "Chain `authored_binomial_sum_row__binomial_inversion_small_w1` citing Sum rules for permutations with fixed points invol",
     "Chain `authored_binomial_sum_row__binomial_inversion_small_w1` citing Sum rules for permutations with fixed points invol (cycle 237)",
     "Chain `authored_binomial_symmetry__catalan_bounded_w1` citing Bi-FORK: Generative Modeling of High-Dimensional B",
-    "Chain `authored_binomial_symmetry__catalan_bounded_w1` citing Bi-FORK: Generative Modeling of High-Dimensional B (cycle 239)"
+    "Chain `authored_binomial_symmetry__catalan_bounded_w1` citing Bi-FORK: Generative Modeling of High-Dimensional B (cycle 239)",
+    "Chain `authored_cassini__catalan_convolution_w1` citing Seasonal variation of the main gases in Titan's io",
+    "Chain `authored_cassini__catalan_convolution_w1` citing Seasonal variation of the main gases in Titan's io (cycle 241)",
+    "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
+    "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re (cycle 242)"
   ],
-  "cycle_count": 239,
-  "ledger_count": 12920,
+  "cycle_count": 242,
+  "ledger_count": 13099,
   "status_counts": {
-    "candidate": 12415,
-    "accepted": 140,
-    "rejected": 241,
+    "candidate": 12588,
+    "accepted": 143,
+    "rejected": 244,
     "unknown": 124
   },
-  "witness_events": 18487,
-  "tribute_cycles_compliant": 239,
+  "witness_events": 18755,
+  "tribute_cycles_compliant": 242,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

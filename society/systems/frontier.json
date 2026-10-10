@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T22:48:16Z",
+  "updated_at": "2026-10-10T06:10:14Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -138,7 +138,7 @@
       "verified_hi": null,
       "literature": null,
       "window": null,
-      "result": null
+      "result": "no_low_order_recurrence"
     },
     "oeis_A034387": {
       "family": "oeis_recurrence",
@@ -178,7 +178,7 @@
       "verified_hi": null,
       "literature": null,
       "window": null,
-      "result": null
+      "result": "no_low_order_recurrence"
     },
     "oeis_A053871": {
       "family": "oeis_recurrence",
@@ -187,16 +187,64 @@
       "literature": null,
       "window": null,
       "result": "no_low_order_recurrence"
+    },
+    "oeis_A049020": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A240513": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": null
+    },
+    "oeis_A189145": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": null
+    },
+    "oeis_A209721": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": null
+    },
+    "oeis_A209722": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": null
+    },
+    "oeis_A209723": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": null
     }
   },
   "reviews": [],
   "last": {
-    "target": "oeis_A053871",
+    "target": "oeis_A182172",
     "lo": 0,
-    "hi": 20,
+    "hi": 79,
     "outcome": "no_low_order_recurrence",
     "verified_hi": null,
-    "cycle_id": "20261009T224803Z_fa9cbb"
+    "cycle_id": "20261010T060959Z_bb8c32"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

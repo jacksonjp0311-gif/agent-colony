@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-09T22:48:16Z",
-  "n": 162,
+  "updated_at": "2026-10-10T06:10:45Z",
+  "n": 166,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -16,8 +16,10 @@
     "authored_binomial_symmetry__cassini_w1",
     "authored_binomial_symmetry__catalan_bounded_w1",
     "authored_binomial_symmetry__catalan_convolution_w1",
+    "authored_cassini__catalan_convolution_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
     "authored_central_binom_bound__derangement_subfactorial_w1",
+    "authored_central_binom_bound__euler_totient_multiplicative_w1",
     "authored_euler_totient_multiplicative__hermite_recurrence_w1",
     "authored_fibonacci_addition__euler_totient_multiplicative_w1",
     "authored_fibonacci_addition__gcd_fibonacci_w1",
@@ -70,6 +72,8 @@
     "chain `energy_work` citing new algebraic points on covers of elliptic curves (cycle 162)",
     "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves",
     "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 164)",
+    "chain `lemma_hard_combinatorics` citing on two families of generalized stirling numbers re",
+    "chain `lemma_hard_combinatorics` citing on two families of generalized stirling numbers re (cycle 242)",
     "chain `stem_easy_pad_units` citing new algebraic points on covers of elliptic curves",
     "chain `stem_easy_pad_units` citing new algebraic points on covers of elliptic curves (cycle 169)",
     "chain `stem_easy_pad_units` citing new integer sequence oeis a392714 counts wronskian",
