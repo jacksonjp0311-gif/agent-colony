@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_8c5c7a91001a",
-      "title": "Authorize accepted: Lemma mutation keep: authored_hockey_stick__pell_companion_w1"
+      "finding_id": "fnd_f1b9f68bb53e",
+      "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_cubes__vandermonde_conv_w1"
     },
     {
       "topic": "open-math-problems",
@@ -56,6 +56,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.1007/s00026-026-00819-9>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "<https://doi.org/10.1007/s00373-025-03000-w>",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -77,11 +82,6 @@
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-10T12:50:44Z",
-  "updated_cycle": "20261010T125024Z_ebe49b",
+  "updated_at": "2026-10-10T21:56:01Z",
+  "updated_cycle": "20261010T215547Z_01b3a2",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

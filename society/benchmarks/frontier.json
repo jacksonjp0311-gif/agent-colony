@@ -1679,7 +1679,22 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-10T06:08:50Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-10T21:55:55Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 4,
+        "coeffs": [
+          "1",
+          "2",
+          "1",
+          "-1",
+          "-2"
+        ],
+        "unused_verified": 22,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A189145",
@@ -1864,7 +1879,20 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-10T06:08:50Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-10T21:54:35Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 2,
+        "coeffs": [
+          "0",
+          "2",
+          "-2"
+        ],
+        "unused_verified": 36,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A209723",
@@ -1921,7 +1949,20 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-10T06:08:50Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-10T21:55:22Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 2,
+        "coeffs": [
+          "0",
+          "2",
+          "-4"
+        ],
+        "unused_verified": 35,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A057468",
@@ -1978,5 +2019,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-10T12:50:38Z"
+  "updated_at": "2026-10-10T21:55:55Z"
 }

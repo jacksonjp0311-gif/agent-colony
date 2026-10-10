@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T12:50:38Z",
+  "updated_at": "2026-10-10T21:55:55Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -202,7 +202,7 @@
       "verified_hi": null,
       "literature": null,
       "window": null,
-      "result": null
+      "result": "recurrence_verified_on_unused_terms"
     },
     "oeis_A189145": {
       "family": "oeis_recurrence",
@@ -226,7 +226,7 @@
       "verified_hi": null,
       "literature": null,
       "window": null,
-      "result": null
+      "result": "recurrence_verified_on_unused_terms"
     },
     "oeis_A209723": {
       "family": "oeis_recurrence",
@@ -234,7 +234,7 @@
       "verified_hi": null,
       "literature": null,
       "window": null,
-      "result": null
+      "result": "recurrence_verified_on_unused_terms"
     },
     "oeis_A057468": {
       "family": "oeis_recurrence",
@@ -247,12 +247,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "oeis_A209721",
+    "target": "oeis_A240513",
     "lo": 0,
-    "hi": 41,
+    "hi": 31,
     "outcome": "recurrence_verified_on_unused_terms",
     "verified_hi": null,
-    "cycle_id": "20261010T125024Z_ebe49b"
+    "cycle_id": "20261010T215547Z_01b3a2"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

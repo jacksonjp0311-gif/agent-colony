@@ -294,82 +294,85 @@
     "cycle_242_evolve_note",
     "cycle_243_evolve_note",
     "cycle_244_evolve_note",
-    "cycle_245_evolve_note"
+    "cycle_245_evolve_note",
+    "cycle_246_evolve_note",
+    "cycle_247_evolve_note",
+    "cycle_248_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 685,
+      "uses": 694,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 657,
+      "uses": 666,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 459,
+      "uses": 465,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 229,
+      "uses": 232,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 873,
+      "uses": 885,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 542,
+      "uses": 546,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 652,
+      "uses": 661,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 217,
+      "uses": 220,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 217,
+      "uses": 220,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 202,
+      "uses": 205,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 202,
+      "uses": 205,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 199,
+      "uses": 202,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 199,
+      "uses": 202,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 196,
+      "uses": 199,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 196,
+      "uses": 199,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -644,8 +647,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 872,
-    "reused": 1957
+    "appended": 884,
+    "reused": 1984
   },
   "commons_by_domain": {
     "science": 0,
@@ -664,8 +667,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-10T12:51:05Z",
-    "cycle_id": "20261010T125024Z_ebe49b",
+    "ts": "2026-10-10T21:56:20Z",
+    "cycle_id": "20261010T215547Z_01b3a2",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -677,23 +680,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-10T12:51:04Z",
-    "cycle_id": "20261010T125024Z_ebe49b",
+    "ts": "2026-10-10T21:56:19Z",
+    "cycle_id": "20261010T215547Z_01b3a2",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8141,
-    "compute_usefulness": 0.9131,
+    "math_prize": 0.8276,
+    "compute_usefulness": 0.9289,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8859,
-    "kill_rate": 0.4,
-    "kill_rate_term": 0.91,
-    "novelty": 0.4333,
+    "prize_boost": 0.8975,
+    "kill_rate": 0.399,
+    "kill_rate_term": 0.9091,
+    "novelty": 0.4667,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8423,
+    "aggregate": 0.8502,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -701,33 +704,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 12331,
-    "read": 58506,
-    "replied": 7762,
-    "actions_planned": 4026,
-    "actions_changed_from_message": 4026,
-    "reply_quality_sum": 7030.499999999406,
-    "reply_quality_n": 7710,
-    "peer_cite_opportunities": 7928,
-    "peer_cites": 7928
+    "posted": 12497,
+    "read": 59316,
+    "replied": 7867,
+    "actions_planned": 4080,
+    "actions_changed_from_message": 4080,
+    "reply_quality_sum": 7126.19999999938,
+    "reply_quality_n": 7815,
+    "peer_cite_opportunities": 8036,
+    "peer_cites": 8036
   },
   "bus_domains": {
-    "science": 647,
-    "history": 649,
-    "math": 1956,
-    "empire": 435,
-    "bulletin": 1763,
-    "forum": 2810,
-    "software": 649,
-    "nature": 647,
-    "life": 649,
-    "cosmos": 929,
-    "rsi": 1089
+    "science": 656,
+    "history": 658,
+    "math": 1983,
+    "empire": 441,
+    "bulletin": 1784,
+    "forum": 2849,
+    "software": 658,
+    "nature": 656,
+    "life": 658,
+    "cosmos": 942,
+    "rsi": 1104
   },
-  "communications_count": 12331,
+  "communications_count": 12497,
   "improvements": [
-    "Chain `authored_pascal_identity__narayana_sum_w1` citing On the maximum degree and order of $K_t$-minor-fre (cycle 195)",
-    "Chain `authored_oeis_a000984__central_binom_bound` citing A counting version of Petersen's $2$-factor theore",
     "Chain `authored_oeis_a000984__central_binom_bound` citing A counting version of Petersen's $2$-factor theore (cycle 197)",
     "Chain `authored_pell_companion__pythagorean_generation_w1` citing New algebraic points on covers of elliptic curves",
     "Chain `authored_pell_companion__pythagorean_generation_w1` citing New algebraic points on covers of elliptic curves (cycle 199)",
@@ -775,18 +776,20 @@
     "Chain `authored_central_binom_bound__euler_totient_multiplicative_w1` citing Central trinomial numbers, Motzkin trees, and the ",
     "Chain `authored_central_binom_bound__euler_totient_multiplicative_w1` citing Central trinomial numbers, Motzkin trees, and the  (cycle 243)",
     "Chain `authored_derangement_subfactorial__hermite_recurrence_w1` citing One Block, Multiple Depths: Recurrent Vision Trans",
-    "Chain `authored_derangement_subfactorial__hermite_recurrence_w1` citing One Block, Multiple Depths: Recurrent Vision Trans (cycle 245)"
+    "Chain `authored_derangement_subfactorial__hermite_recurrence_w1` citing One Block, Multiple Depths: Recurrent Vision Trans (cycle 245)",
+    "Chain `authored_fibonacci_addition__motzkin_bounded_w1` citing Enumeration of interval-closed sets via Motzkin pa",
+    "Chain `authored_fibonacci_addition__motzkin_bounded_w1` citing Enumeration of interval-closed sets via Motzkin pa (cycle 247)"
   ],
-  "cycle_count": 245,
-  "ledger_count": 13278,
+  "cycle_count": 248,
+  "ledger_count": 13454,
   "status_counts": {
-    "candidate": 12762,
-    "accepted": 145,
-    "rejected": 247,
+    "candidate": 12933,
+    "accepted": 148,
+    "rejected": 249,
     "unknown": 124
   },
-  "witness_events": 19022,
-  "tribute_cycles_compliant": 245,
+  "witness_events": 19287,
+  "tribute_cycles_compliant": 248,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

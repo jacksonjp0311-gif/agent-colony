@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T12:50:37Z",
-  "passes": 246,
+  "updated_at": "2026-10-10T21:55:22Z",
+  "passes": 247,
   "kills": 164,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4,
+  "kill_rate": 0.399,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 31,
-    "kills": 29,
+    "passes": 32,
+    "kills": 28,
     "easy_pad_kills": 14,
-    "kill_rate": 0.4833
+    "kill_rate": 0.4667
   },
   "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
@@ -30,6 +30,7 @@
     "authored_euler_totient_multiplicative__hermite_recurrence_w1",
     "authored_fibonacci_addition__euler_totient_multiplicative_w1",
     "authored_fibonacci_addition__gcd_fibonacci_w1",
+    "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
     "authored_geometric_sum__hockey_stick_w1",
     "authored_geometric_sum__narayana_sum_w1",
@@ -48,7 +49,6 @@
     "binomial_identities"
   ],
   "unique_mutations_kill": [
-    "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa",
     "Chain `authored_oeis_a000045__cassini` citing Square-free Word-representation of Word-representa (cycle 181)",
     "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
     "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re (cycle 242)",
@@ -98,7 +98,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-10T12:50:37Z",
+    "ts": "2026-10-10T21:55:22Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -108,15 +108,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_derangement_subfactorial__hermite_recurrence_w1` kind=hard_enable. lemma mutation authored_derangement_subfactorial__hermite_recurrence_w1 0.9071->0.9071 Not discove",
-      "attack": "WEIGH: `authored_derangement_subfactorial__hermite_recurrence_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_fibonacci_addition__motzkin_bounded_w1` kind=hard_enable. lemma mutation authored_fibonacci_addition__motzkin_bounded_w1 0.9071->0.9071 Not discovery. cycle=20261010",
+      "attack": "WEIGH: `authored_fibonacci_addition__motzkin_bounded_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 66,
-        "hard_n": 66,
+        "hard_pass": 67,
+        "hard_n": 67,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -126,8 +126,8 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 66,
-        "hard_n": 66,
+        "hard_pass": 67,
+        "hard_n": 67,
         "ok": true,
         "score": 0.9071,
         "reason": "hard_pass_delta=1",
@@ -152,7 +152,7 @@
             "ok": true
           },
           {
-            "label": "flourish_math_family",
+            "label": "cassini_numeric",
             "ok": true
           }
         ]
@@ -204,15 +204,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_derangement_subfactorial__hermite_recurrence_w1",
+      "mutation": "authored_fibonacci_addition__motzkin_bounded_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_derangement_subfactorial__hermite_recurrence_w1",
+    "mutation": "authored_fibonacci_addition__motzkin_bounded_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261010T125024Z_ebe49b",
+    "cycle_id": "20261010T215514Z_c46a69",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
