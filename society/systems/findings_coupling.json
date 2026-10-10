@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T06:10:42Z",
-  "updated_cycle": "20261010T060959Z_bb8c32",
+  "updated_at": "2026-10-10T12:51:05Z",
+  "updated_cycle": "20261010T125024Z_ebe49b",
   "signal": {
-    "ts": "2026-10-10T06:10:41Z",
+    "ts": "2026-10-10T12:51:05Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 38,
+    "accepted_compute": 39,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_03844a70cf18",
-        "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__narayana_sum_w1"
+        "finding_id": "fnd_8c5c7a91001a",
+        "title": "Authorize accepted: Lemma mutation keep: authored_hockey_stick__pell_companion_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_5312994841da",
-        "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__pythagorean_g",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_f1b9f68bb53e",
         "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_cubes__vandermonde",
         "topic_id": "compute-useful-math",
@@ -92,6 +85,13 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_13c2383d9d4e",
+        "title": "Authorize accepted: Lemma mutation keep: authored_cassini__catalan_convolution_w",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,12 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_5312994841da",
-        "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__pythagorean_generation_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_f1b9f68bb53e",
         "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_cubes__vandermonde_conv_w1",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_bounded_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_13c2383d9d4e",
+        "title": "Authorize accepted: Lemma mutation keep: authored_cassini__catalan_convolution_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_03844a70cf18",
         "fnd_8c5c7a91001a",
         "fnd_5312994841da",
         "fnd_f1b9f68bb53e",
         "fnd_ceb477fedfbe",
         "fnd_e7bcb3c0207b",
         "fnd_c4032bdb2b03",
-        "fnd_f49c0f81e6b0"
+        "fnd_f49c0f81e6b0",
+        "fnd_13c2383d9d4e"
       ],
       "rsi": []
     },

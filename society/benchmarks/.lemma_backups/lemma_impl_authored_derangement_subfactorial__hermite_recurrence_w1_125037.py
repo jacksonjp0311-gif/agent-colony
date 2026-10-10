@@ -1000,7 +1000,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_binomial_symmetry__catalan_bounded_w1", check_authored_binomial_symmetry__catalan_bounded_w1, True),
     ("authored_cassini__catalan_convolution_w1", check_authored_cassini__catalan_convolution_w1, True),
     ("authored_central_binom_bound__euler_totient_multiplicative_w1", check_authored_central_binom_bound__euler_totient_multiplicative_w1, True),
-    ("authored_derangement_subfactorial__hermite_recurrence_w1", check_authored_derangement_subfactorial__hermite_recurrence_w1, True),
+    ("authored_derangement_subfactorial__hermite_recurrence_w1", check_authored_derangement_subfactorial__hermite_recurrence_w1, False),
 ]
 
 

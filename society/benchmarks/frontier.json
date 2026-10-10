@@ -1726,7 +1726,16 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-10T06:08:50Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-10T12:49:56Z",
+      "runs": 1,
+      "result": {
+        "outcome": "no_low_order_recurrence",
+        "order": null,
+        "coeffs": null,
+        "unused_verified": 0,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A209721",
@@ -1784,7 +1793,20 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-10T06:08:50Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-10T12:50:38Z",
+      "runs": 1,
+      "result": {
+        "outcome": "recurrence_verified_on_unused_terms",
+        "order": 2,
+        "coeffs": [
+          "0",
+          "2",
+          "-1"
+        ],
+        "unused_verified": 36,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A209722",
@@ -1900,7 +1922,61 @@
       "proof": false,
       "discovered": "2026-10-10T06:08:50Z",
       "note": "Integer terms only; OEIS formula text is never parsed or executed."
+    },
+    {
+      "id": "oeis_A057468",
+      "family": "oeis_recurrence",
+      "kind": "conjectured_formula",
+      "statement": "A057468 (feed: keyword_hard) — does a low-order linear recurrence fitted on early terms predict every later listed term?",
+      "oeis_id": "A057468",
+      "source": "https://oeis.org/A057468",
+      "terms": [
+        2,
+        3,
+        5,
+        17,
+        29,
+        31,
+        53,
+        59,
+        101,
+        277,
+        647,
+        1061,
+        2381,
+        2833,
+        3613,
+        3853,
+        3929,
+        5297,
+        7417,
+        90217,
+        122219,
+        173191,
+        256199,
+        336353,
+        485977,
+        591827,
+        1059503,
+        3227201,
+        3745897
+      ],
+      "status": "open",
+      "budget_s": 1.0,
+      "label": "bounded evidence, not proof",
+      "proof": false,
+      "discovered": "2026-10-10T12:49:15Z",
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-10T12:49:15Z",
+      "runs": 1,
+      "result": {
+        "outcome": "no_low_order_recurrence",
+        "order": null,
+        "coeffs": null,
+        "unused_verified": 0,
+        "label": "bounded evidence, not proof"
+      }
     }
   ],
-  "updated_at": "2026-10-10T06:10:14Z"
+  "updated_at": "2026-10-10T12:50:38Z"
 }
