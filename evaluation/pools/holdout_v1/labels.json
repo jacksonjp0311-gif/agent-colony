@@ -1,0 +1,85 @@
+{
+ "version": 1,
+ "labels": {
+  "pool_h01_fib_prefix_sum": {
+   "label": "sound_useful",
+   "family": "fibonacci",
+   "witness": null,
+   "note": ""
+  },
+  "pool_h02_catalan_ballot": {
+   "label": "sound_useful",
+   "family": "catalan",
+   "witness": null,
+   "note": ""
+  },
+  "pool_h03_wilson": {
+   "label": "sound_useful",
+   "family": "prime_characterisation",
+   "witness": null,
+   "note": ""
+  },
+  "pool_h04_fib_divides_triple": {
+   "label": "sound_useful",
+   "family": "fibonacci",
+   "witness": null,
+   "note": ""
+  },
+  "pool_h05_derangement_rec": {
+   "label": "sound_useful",
+   "family": "derangement",
+   "witness": null,
+   "note": "helper _ph_der by inclusion-exclusion"
+  },
+  "pool_h06_2n2_29_prime": {
+   "label": "unsound",
+   "family": "prime_polynomial",
+   "witness": {
+    "n": 29
+   },
+   "note": ""
+  },
+  "pool_h07_pow2_mod_n_ne3": {
+   "label": "unsound",
+   "family": "power_residue",
+   "witness": {
+    "n": 4700063497
+   },
+   "note": "escape by design: first counterexample n=4700063497"
+  },
+  "pool_h08_n2_n_17_prime": {
+   "label": "unsound",
+   "family": "prime_polynomial",
+   "witness": {
+    "n": 16
+   },
+   "note": ""
+  },
+  "pool_h09_odd_composite_3_5": {
+   "label": "unsound",
+   "family": "divisibility",
+   "witness": {
+    "n": 49
+   },
+   "note": ""
+  },
+  "pool_h10_fib_square_sum": {
+   "label": "sound_useful",
+   "family": "fibonacci",
+   "witness": null,
+   "note": ""
+  },
+  "pool_h11_shift_square_diff": {
+   "label": "trivial",
+   "family": "polynomial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_h12_self_minus_self": {
+   "label": "trivial",
+   "family": "polynomial",
+   "witness": null,
+   "note": ""
+  }
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "version": 1,
+ "labels": {
+  "pool_d01_k_binom_sum": {
+   "label": "sound_useful",
+   "family": "binomial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_d02_fib_doubling": {
+   "label": "sound_useful",
+   "family": "fibonacci",
+   "witness": null,
+   "note": ""
+  },
+  "pool_d03_binom_square_sum": {
+   "label": "sound_useful",
+   "family": "binomial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_d04_n5_minus_n_div30": {
+   "label": "sound_useful",
+   "family": "divisibility",
+   "witness": null,
+   "note": ""
+  },
+  "pool_d05_euler41_prime": {
+   "label": "unsound",
+   "family": "prime_polynomial",
+   "witness": {
+    "n": 40
+   },
+   "note": ""
+  },
+  "pool_d06_mersenne_small": {
+   "label": "unsound",
+   "family": "mersenne",
+   "witness": {
+    "n": 11
+   },
+   "note": ""
+  },
+  "pool_d07_fermat_base2": {
+   "label": "unsound",
+   "family": "pseudoprime",
+   "witness": {
+    "n": 341
+   },
+   "note": ""
+  },
+  "pool_d08_no_abundant": {
+   "label": "unsound",
+   "family": "divisor_sum",
+   "witness": {
+    "n": 12
+   },
+   "note": ""
+  },
+  "pool_d09_square_expand": {
+   "label": "trivial",
+   "family": "polynomial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_d10_mul_one": {
+   "label": "trivial",
+   "family": "polynomial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_d11_gcd_n17": {
+   "label": "unsound",
+   "family": "gcd_polynomial",
+   "witness": {
+    "n": 8424432925592889329288197322308900672459420460792433
+   },
+   "note": "escape by design: first counterexample is a 52-digit n"
+  },
+  "pool_d12_lucas_fib": {
+   "label": "sound_useful",
+   "family": "fibonacci",
+   "witness": null,
+   "note": ""
+  }
+ }
+}

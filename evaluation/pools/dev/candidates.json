@@ -1,0 +1,65 @@
+{
+ "version": 1,
+ "candidates": [
+  {
+   "name": "pool_d01_k_binom_sum",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_d01_k_binom_sum() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(sum(k * math.comb(n, k) for k in range(n + 1)) == n * 2 ** (n - 1) for n in range(1, 30))\n"
+  },
+  {
+   "name": "pool_d02_fib_doubling",
+   "helpers_src": "\ndef _pd_fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+   "check_src": "\ndef check_pool_d02_fib_doubling() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pd_fib(2 * n) == _pd_fib(n) * (2 * _pd_fib(n + 1) - _pd_fib(n)) for n in range(0, 40))\n"
+  },
+  {
+   "name": "pool_d03_binom_square_sum",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_d03_binom_square_sum() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(sum(math.comb(n, k) ** 2 for k in range(n + 1)) == math.comb(2 * n, n) for n in range(0, 25))\n"
+  },
+  {
+   "name": "pool_d04_n5_minus_n_div30",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_d04_n5_minus_n_div30() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all((n ** 5 - n) % 30 == 0 for n in range(0, 60))\n"
+  },
+  {
+   "name": "pool_d05_euler41_prime",
+   "helpers_src": "\ndef _pd_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_d05_euler41_prime() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pd_isprime(n * n + n + 41) for n in range(0, 40))\n"
+  },
+  {
+   "name": "pool_d06_mersenne_small",
+   "helpers_src": "\ndef _pd_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_d06_mersenne_small() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pd_isprime(2 ** n - 1) for n in range(2, 11) if _pd_isprime(n))\n"
+  },
+  {
+   "name": "pool_d07_fermat_base2",
+   "helpers_src": "\ndef _pd_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_d07_fermat_base2() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pd_isprime(n) for n in range(3, 341) if n % 2 == 1 and pow(2, n - 1, n) == 1)\n"
+  },
+  {
+   "name": "pool_d08_no_abundant",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_d08_no_abundant() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(sum(d for d in range(1, n) if n % d == 0) <= n for n in range(1, 12))\n"
+  },
+  {
+   "name": "pool_d09_square_expand",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_d09_square_expand() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all((n + 1) ** 2 == n * n + 2 * n + 1 for n in range(0, 50))\n"
+  },
+  {
+   "name": "pool_d10_mul_one",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_d10_mul_one() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(n * 1 + 0 == n for n in range(-20, 20))\n"
+  },
+  {
+   "name": "pool_d11_gcd_n17",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_d11_gcd_n17() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(math.gcd(n ** 17 + 9, (n + 1) ** 17 + 9) == 1 for n in range(0, 200))\n"
+  },
+  {
+   "name": "pool_d12_lucas_fib",
+   "helpers_src": "\ndef _pd_fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+   "check_src": "\ndef check_pool_d12_lucas_fib() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pd_fib(n - 1) + _pd_fib(n + 1) == _pd_fib(2 * n) // _pd_fib(n) for n in range(1, 40))\n"
+  }
+ ]
+}
