@@ -1,0 +1,4482 @@
+{
+ "pool": "dev",
+ "arms": [
+  "L1C1",
+  "L0C1",
+  "L1C0",
+  "L0C0"
+ ],
+ "seeds": [
+  11,
+  23,
+  37,
+  41,
+  53
+ ],
+ "cycles": 14,
+ "label": "dev_v0",
+ "summary": {
+  "L0C0": {
+   "n_runs": 5,
+   "verified": {
+    "mean": 2.6,
+    "sd": 0.548,
+    "min": 2.0,
+    "max": 3.0,
+    "values": [
+     3.0,
+     2.0,
+     3.0,
+     2.0,
+     3.0
+    ]
+   },
+   "harmful_kept": {
+    "mean": 3.6,
+    "sd": 0.548,
+    "min": 3.0,
+    "max": 4.0,
+    "values": [
+     4.0,
+     3.0,
+     4.0,
+     3.0,
+     4.0
+    ]
+   },
+   "repeated_failures": {
+    "mean": 0.0,
+    "sd": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "distinct_tried": {
+    "mean": 7.0,
+    "sd": 0.0,
+    "min": 7.0,
+    "max": 7.0,
+    "values": [
+     7.0,
+     7.0,
+     7.0,
+     7.0,
+     7.0
+    ]
+   },
+   "wall_s": {
+    "mean": 13.12,
+    "sd": 0.585,
+    "min": 12.53,
+    "max": 13.75,
+    "values": [
+     13.74,
+     13.75,
+     12.53,
+     12.89,
+     12.69
+    ]
+   },
+   "oracle_calls": {
+    "mean": 14.0,
+    "sd": 0.0,
+    "min": 14.0,
+    "max": 14.0,
+    "values": [
+     14.0,
+     14.0,
+     14.0,
+     14.0,
+     14.0
+    ]
+   },
+   "challenger_calls": {
+    "mean": 0.0,
+    "sd": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "cycles_per_verified": 5.38,
+   "wall_s_per_verified": 5.05
+  },
+  "L0C1": {
+   "n_runs": 5,
+   "verified": {
+    "mean": 0.6,
+    "sd": 0.894,
+    "min": 0.0,
+    "max": 2.0,
+    "values": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     2.0
+    ]
+   },
+   "harmful_kept": {
+    "mean": 0.0,
+    "sd": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "repeated_failures": {
+    "mean": 5.4,
+    "sd": 0.894,
+    "min": 4.0,
+    "max": 6.0,
+    "values": [
+     5.0,
+     6.0,
+     6.0,
+     6.0,
+     4.0
+    ]
+   },
+   "distinct_tried": {
+    "mean": 1.6,
+    "sd": 0.894,
+    "min": 1.0,
+    "max": 3.0,
+    "values": [
+     2.0,
+     1.0,
+     1.0,
+     1.0,
+     3.0
+    ]
+   },
+   "wall_s": {
+    "mean": 16.636,
+    "sd": 0.658,
+    "min": 15.63,
+    "max": 17.43,
+    "values": [
+     16.62,
+     16.93,
+     16.57,
+     17.43,
+     15.63
+    ]
+   },
+   "oracle_calls": {
+    "mean": 7.6,
+    "sd": 0.894,
+    "min": 7.0,
+    "max": 9.0,
+    "values": [
+     8.0,
+     7.0,
+     7.0,
+     7.0,
+     9.0
+    ]
+   },
+   "challenger_calls": {
+    "mean": 14.0,
+    "sd": 0.0,
+    "min": 14.0,
+    "max": 14.0,
+    "values": [
+     14.0,
+     14.0,
+     14.0,
+     14.0,
+     14.0
+    ]
+   },
+   "cycles_per_verified": 23.33,
+   "wall_s_per_verified": 27.73
+  },
+  "L1C0": {
+   "n_runs": 5,
+   "verified": {
+    "mean": 2.6,
+    "sd": 0.548,
+    "min": 2.0,
+    "max": 3.0,
+    "values": [
+     3.0,
+     2.0,
+     3.0,
+     2.0,
+     3.0
+    ]
+   },
+   "harmful_kept": {
+    "mean": 3.6,
+    "sd": 0.548,
+    "min": 3.0,
+    "max": 4.0,
+    "values": [
+     4.0,
+     3.0,
+     4.0,
+     3.0,
+     4.0
+    ]
+   },
+   "repeated_failures": {
+    "mean": 0.0,
+    "sd": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "distinct_tried": {
+    "mean": 7.0,
+    "sd": 0.0,
+    "min": 7.0,
+    "max": 7.0,
+    "values": [
+     7.0,
+     7.0,
+     7.0,
+     7.0,
+     7.0
+    ]
+   },
+   "wall_s": {
+    "mean": 21.018,
+    "sd": 1.009,
+    "min": 20.18,
+    "max": 22.26,
+    "values": [
+     20.38,
+     20.18,
+     22.26,
+     21.97,
+     20.3
+    ]
+   },
+   "oracle_calls": {
+    "mean": 14.0,
+    "sd": 0.0,
+    "min": 14.0,
+    "max": 14.0,
+    "values": [
+     14.0,
+     14.0,
+     14.0,
+     14.0,
+     14.0
+    ]
+   },
+   "challenger_calls": {
+    "mean": 0.0,
+    "sd": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "cycles_per_verified": 5.38,
+   "wall_s_per_verified": 8.08
+  },
+  "L1C1": {
+   "n_runs": 5,
+   "verified": {
+    "mean": 2.6,
+    "sd": 0.548,
+    "min": 2.0,
+    "max": 3.0,
+    "values": [
+     3.0,
+     2.0,
+     3.0,
+     2.0,
+     3.0
+    ]
+   },
+   "harmful_kept": {
+    "mean": 0.8,
+    "sd": 0.447,
+    "min": 0.0,
+    "max": 1.0,
+    "values": [
+     1.0,
+     1.0,
+     0.0,
+     1.0,
+     1.0
+    ]
+   },
+   "repeated_failures": {
+    "mean": 0.0,
+    "sd": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "distinct_tried": {
+    "mean": 7.0,
+    "sd": 0.0,
+    "min": 7.0,
+    "max": 7.0,
+    "values": [
+     7.0,
+     7.0,
+     7.0,
+     7.0,
+     7.0
+    ]
+   },
+   "wall_s": {
+    "mean": 22.71,
+    "sd": 1.029,
+    "min": 21.47,
+    "max": 24.28,
+    "values": [
+     24.28,
+     22.83,
+     22.24,
+     21.47,
+     22.73
+    ]
+   },
+   "oracle_calls": {
+    "mean": 10.4,
+    "sd": 0.548,
+    "min": 10.0,
+    "max": 11.0,
+    "values": [
+     11.0,
+     10.0,
+     10.0,
+     10.0,
+     11.0
+    ]
+   },
+   "challenger_calls": {
+    "mean": 14.0,
+    "sd": 0.0,
+    "min": 14.0,
+    "max": 14.0,
+    "values": [
+     14.0,
+     14.0,
+     14.0,
+     14.0,
+     14.0
+    ]
+   },
+   "cycles_per_verified": 5.38,
+   "wall_s_per_verified": 8.73
+  }
+ },
+ "paired": [
+  {
+   "comparison": "L1C1 - L0C1",
+   "metric": "n_verified",
+   "paired_diffs": [
+    2,
+    2,
+    3,
+    2,
+    1
+   ],
+   "mean_diff": 2,
+   "sign_flip_p_two_sided": 0.0625,
+   "n_pairs": 5
+  },
+  {
+   "comparison": "L1C1 - L0C1",
+   "metric": "repeated_failures",
+   "paired_diffs": [
+    -5,
+    -6,
+    -6,
+    -6,
+    -4
+   ],
+   "mean_diff": -5.4,
+   "sign_flip_p_two_sided": 0.0625,
+   "n_pairs": 5
+  },
+  {
+   "comparison": "L1C1 - L0C1",
+   "metric": "distinct_candidates_tried",
+   "paired_diffs": [
+    5,
+    6,
+    6,
+    6,
+    4
+   ],
+   "mean_diff": 5.4,
+   "sign_flip_p_two_sided": 0.0625,
+   "n_pairs": 5
+  },
+  {
+   "comparison": "L1C1 - L1C0",
+   "metric": "n_verified",
+   "paired_diffs": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "mean_diff": 0,
+   "sign_flip_p_two_sided": 1.0,
+   "n_pairs": 5
+  },
+  {
+   "comparison": "L1C1 - L1C0",
+   "metric": "n_harmful_kept",
+   "paired_diffs": [
+    -3,
+    -2,
+    -4,
+    -2,
+    -3
+   ],
+   "mean_diff": -2.8,
+   "sign_flip_p_two_sided": 0.0625,
+   "n_pairs": 5
+  }
+ ],
+ "runs": [
+  {
+   "pool": "dev",
+   "arm": "L1C1",
+   "seed": 11,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d02_fib_doubling",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant"
+   ],
+   "wall_s": 24.28,
+   "oracle_calls": 11,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 1,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.104,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.065,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.13,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.876,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 73\u219274 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 279911134202697) in 0.02s; wit"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 4.077,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.891,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.21,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.529,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 76\u219277 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 248252537981238) in 0.02s; withh"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.171,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.105,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.18,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.583,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 79\u219280 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 187659500723802) in 0.02s; with"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.453,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.831,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C1",
+   "seed": 23,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d08_no_abundant",
+    "pool_d10_mul_one",
+    "pool_d06_mersenne_small",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d09_square_expand",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d07_fermat_base2",
+    "pool_d12_lucas_fib",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d05_euler41_prime"
+   ],
+   "wall_s": 22.83,
+   "oracle_calls": 10,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30"
+   ],
+   "n_verified": 2,
+   "harmful_kept": [
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 1,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [
+    "pool_d06_mersenne_small",
+    "pool_d08_no_abundant",
+    "pool_d09_square_expand",
+    "pool_d10_mul_one"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d06_mersenne_small",
+    "pool_d08_no_abundant"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.117,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.647,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 71\u219272 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 247476811923753) in 0.02s; withhe"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.177,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.891,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 72\u219273 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 38 probes (boundary 10, far 18, sample 10, edge 0; seed 89076303130259) in 0.03s; withheld"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 4.316,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.539,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 73\u219274 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 217473467302006) in 0.02s; wit"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.195,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.88,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.97,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.769,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.041,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d09_square_expand",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.523,
+     "note": "Reverted `pool_d09_square_expand` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 78\u219279 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 24 probes (boundary 5, far 9, sample 10, edge 0; seed 188462082476635) in 0.02s; wit"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.065,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d04_n5_minus_n_div30",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.635,
+     "note": "Kept `pool_d04_n5_minus_n_div30` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C1",
+   "seed": 37,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d09_square_expand",
+    "pool_d02_fib_doubling",
+    "pool_d10_mul_one",
+    "pool_d11_gcd_n17"
+   ],
+   "wall_s": 22.24,
+   "oracle_calls": 10,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [],
+   "n_harmful_kept": 0,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.453,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.712,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 71\u219272 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 100503472591057) in 0.04s; with"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.969,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d12_lucas_fib",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.787,
+     "note": "Kept `pool_d12_lucas_fib` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071->0.9071; Oracle passed; adds "
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 4.114,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.658,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 74\u219275 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 54827609370954) in 0.04s; withhe"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.079,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.629,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 75\u219276 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 140233226659217) in 0.02s; withhe"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.935,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d04_n5_minus_n_div30",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.657,
+     "note": "Kept `pool_d04_n5_minus_n_div30` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.972,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.678,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.997,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.528,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 80\u219281 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 53979352406110) in 0.02s; with"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C1",
+   "seed": 41,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d10_mul_one",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d08_no_abundant",
+    "pool_d09_square_expand",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "wall_s": 21.47,
+   "oracle_calls": 10,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling"
+   ],
+   "n_verified": 2,
+   "harmful_kept": [
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 1,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [
+    "pool_d05_euler41_prime",
+    "pool_d08_no_abundant",
+    "pool_d09_square_expand",
+    "pool_d10_mul_one"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d05_euler41_prime",
+    "pool_d08_no_abundant"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.148,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.6,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 71\u219272 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 37 probes (boundary 10, far 18, sample 9, edge 0; seed 178369575316239) in 0.02s; withheld"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.094,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.654,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 4.238,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.719,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.132,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.684,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 76\u219277 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 210332427984130) in 0.02s; withhe"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.943,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "revert",
+     "mutation": "pool_d09_square_expand",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.487,
+     "note": "Reverted `pool_d09_square_expand` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 77\u219278 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 24 probes (boundary 5, far 9, sample 10, edge 0; seed 55301503537673) in 0.02s; with"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.934,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.543,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.879,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.346,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 80\u219281 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 171985810553983) in 0.02s; with"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C1",
+   "seed": 53,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d02_fib_doubling",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one"
+   ],
+   "wall_s": 22.73,
+   "oracle_calls": 11,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 1,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.122,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.92,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.088,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.008,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 4.204,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.714,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 75\u219276 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 157084534691010) in 0.02s; withh"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.311,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.916,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.043,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.706,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.955,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.359,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 80\u219281 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 267720204021539) in 0.02s; with"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.933,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.388,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 81\u219282 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 185716363570751) in 0.02s; wit"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C1",
+   "seed": 11,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d02_fib_doubling",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant"
+   ],
+   "wall_s": 16.62,
+   "oracle_calls": 8,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d03_binom_square_sum"
+   ],
+   "n_verified": 1,
+   "harmful_kept": [],
+   "n_harmful_kept": 0,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 5,
+   "distinct_candidates_tried": 2,
+   "challenger_blocked": [
+    "pool_d06_mersenne_small"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d06_mersenne_small"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.763,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.288,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.745,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.444,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 73\u219274 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 85367800422560) in 0.02s; with"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 3.749,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.143,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 74\u219275 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 2875021686149) in 0.02s; withh"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.719,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.083,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 75\u219276 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 176955777679700) in 0.02s; wit"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.669,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.109,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 76\u219277 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 246762172723514) in 0.02s; wit"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.726,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.24,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 77\u219278 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 15726957144986) in 0.03s; with"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.682,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.2,
+     "note": "Reverted `pool_d06_mersenne_small` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 78\u219279 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 64905492121832) in 0.02s; with"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C1",
+   "seed": 23,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d08_no_abundant",
+    "pool_d10_mul_one",
+    "pool_d06_mersenne_small",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d09_square_expand",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d07_fermat_base2",
+    "pool_d12_lucas_fib",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d05_euler41_prime"
+   ],
+   "wall_s": 16.93,
+   "oracle_calls": 7,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [],
+   "n_verified": 0,
+   "harmful_kept": [],
+   "n_harmful_kept": 0,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 6,
+   "distinct_candidates_tried": 1,
+   "challenger_blocked": [
+    "pool_d08_no_abundant"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d08_no_abundant"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.8,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.243,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 71\u219272 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 47973439236213) in 0.02s; withhel"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.735,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.435,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 72\u219273 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 210414352870819) in 0.02s; withhe"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 3.648,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.292,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 73\u219274 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 20139175793949) in 0.02s; withhel"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.839,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.113,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 74\u219275 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 202610902794453) in 0.02s; withhe"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.685,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.165,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 75\u219276 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 15693293038801) in 0.02s; withhel"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.922,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.12,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 76\u219277 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 120494802006203) in 0.02s; withhe"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.767,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.093,
+     "note": "Reverted `pool_d08_no_abundant` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 77\u219278 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 114681929713933) in 0.02s; withhe"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C1",
+   "seed": 37,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d09_square_expand",
+    "pool_d02_fib_doubling",
+    "pool_d10_mul_one",
+    "pool_d11_gcd_n17"
+   ],
+   "wall_s": 16.57,
+   "oracle_calls": 7,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [],
+   "n_verified": 0,
+   "harmful_kept": [],
+   "n_harmful_kept": 0,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 6,
+   "distinct_candidates_tried": 1,
+   "challenger_blocked": [
+    "pool_d05_euler41_prime"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d05_euler41_prime"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.806,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.132,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 71\u219272 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 77256555881888) in 0.02s; withh"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.641,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.035,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 72\u219273 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 92547708422407) in 0.02s; withh"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 3.652,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.152,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 73\u219274 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 177615293440514) in 0.03s; with"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.952,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.248,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 74\u219275 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 137096314623060) in 0.02s; with"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.776,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.108,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 75\u219276 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 217987264782437) in 0.02s; with"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.804,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.108,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 76\u219277 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 143727997122878) in 0.02s; with"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.797,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.301,
+     "note": "Reverted `pool_d05_euler41_prime` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 77\u219278 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 5 probes (boundary 5, far 0, sample 0, edge 0; seed 211785945425337) in 0.03s; with"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C1",
+   "seed": 41,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d10_mul_one",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d08_no_abundant",
+    "pool_d09_square_expand",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "wall_s": 17.43,
+   "oracle_calls": 7,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [],
+   "n_verified": 0,
+   "harmful_kept": [],
+   "n_harmful_kept": 0,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 6,
+   "distinct_candidates_tried": 1,
+   "challenger_blocked": [
+    "pool_d10_mul_one"
+   ],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.8,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.473,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 71\u219272 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 38 probes (boundary 10, far 18, sample 10, edge 0; seed 168402021964047) in 0.03s; withhel"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.909,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.345,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 72\u219273 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 38 probes (boundary 10, far 18, sample 10, edge 0; seed 64410783448467) in 0.08s; withheld"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 3.933,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.12,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 73\u219274 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 38 probes (boundary 10, far 18, sample 10, edge 0; seed 124619838245977) in 0.02s; withhel"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.717,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.202,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 74\u219275 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 37 probes (boundary 10, far 18, sample 9, edge 0; seed 248414421185478) in 0.02s; withheld"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.73,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.338,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 75\u219276 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 36 probes (boundary 10, far 18, sample 8, edge 0; seed 35620729343834) in 0.03s; withheld "
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.866,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.049,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 76\u219277 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 37 probes (boundary 10, far 18, sample 9, edge 0; seed 237189350787189) in 0.02s; withheld"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.715,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.168,
+     "note": "Reverted `pool_d10_mul_one` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 77\u219278 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (trivial:ring_tautology): 38 probes (boundary 10, far 18, sample 10, edge 0; seed 106250731610181) in 0.04s; withhel"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C1",
+   "seed": 53,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d02_fib_doubling",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one"
+   ],
+   "wall_s": 15.63,
+   "oracle_calls": 9,
+   "challenger_calls": 14,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling"
+   ],
+   "n_verified": 2,
+   "harmful_kept": [],
+   "n_harmful_kept": 0,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 4,
+   "distinct_candidates_tried": 3,
+   "challenger_blocked": [
+    "pool_d07_fermat_base2"
+   ],
+   "harmful_blocked_by_challenger": [
+    "pool_d07_fermat_base2"
+   ],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.691,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.233,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.573,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.213,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 3.628,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.092,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 75\u219276 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 231625328287873) in 0.05s; withh"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.648,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.083,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 76\u219277 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 75210649685116) in 0.02s; withhe"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.674,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.06,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 77\u219278 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 251571140373556) in 0.02s; withh"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.711,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.126,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 78\u219279 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 271815846661222) in 0.02s; withh"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.667,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "revert",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": true,
+     "promotion": "none",
+     "seconds": 1.161,
+     "note": "Reverted `pool_d07_fermat_base2` (hard_enable): score 0.9071\u21920.9071 ok=True hard_pass 79\u219280 \u2014 Oracle/hard-tier required for keep; easy pads die on Oracle. | SELF-REJECT: Challenger BLOCKED (counterexample_boundary): 3 probes (boundary 3, far 0, sample 0, edge 0; seed 179382373972250) in 0.02s; withh"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C0",
+   "seed": 11,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d02_fib_doubling",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant"
+   ],
+   "wall_s": 20.38,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 4,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.187,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.711,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.002,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.891,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.362,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.221,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.241,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.109,
+     "note": "Kept `pool_d07_fermat_base2` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.899,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.568,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.908,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.559,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.029,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.619,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C0",
+   "seed": 23,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d08_no_abundant",
+    "pool_d10_mul_one",
+    "pool_d06_mersenne_small",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d09_square_expand",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d07_fermat_base2",
+    "pool_d12_lucas_fib",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d05_euler41_prime"
+   ],
+   "wall_s": 20.18,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30"
+   ],
+   "n_verified": 2,
+   "harmful_kept": [
+    "pool_d06_mersenne_small",
+    "pool_d08_no_abundant",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 3,
+   "coverage_only_kept": [
+    "pool_d09_square_expand",
+    "pool_d10_mul_one"
+   ],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.044,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.269,
+     "note": "Kept `pool_d08_no_abundant` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.276,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.979,
+     "note": "Kept `pool_d10_mul_one` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.138,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.681,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.036,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.687,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.943,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.623,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.959,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d09_square_expand",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.578,
+     "note": "Kept `pool_d09_square_expand` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.038,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d04_n5_minus_n_div30",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.836,
+     "note": "Kept `pool_d04_n5_minus_n_div30` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C0",
+   "seed": 37,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d09_square_expand",
+    "pool_d02_fib_doubling",
+    "pool_d10_mul_one",
+    "pool_d11_gcd_n17"
+   ],
+   "wall_s": 22.26,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant"
+   ],
+   "n_harmful_kept": 4,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.191,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.862,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.149,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d12_lucas_fib",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.284,
+     "note": "Kept `pool_d12_lucas_fib` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; adds "
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.26,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.0,
+     "note": "Kept `pool_d07_fermat_base2` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.305,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.213,
+     "note": "Kept `pool_d08_no_abundant` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.274,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d04_n5_minus_n_div30",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.856,
+     "note": "Kept `pool_d04_n5_minus_n_div30` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.92,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.912,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.19,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.776,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C0",
+   "seed": 41,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d10_mul_one",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d08_no_abundant",
+    "pool_d09_square_expand",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "wall_s": 21.97,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling"
+   ],
+   "n_verified": 2,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d08_no_abundant",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 3,
+   "coverage_only_kept": [
+    "pool_d09_square_expand",
+    "pool_d10_mul_one"
+   ],
+   "sound_not_kept": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.452,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.372,
+     "note": "Kept `pool_d10_mul_one` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.991,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.253,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.192,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.177,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.071,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.845,
+     "note": "Kept `pool_d08_no_abundant` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.033,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d09_square_expand",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.805,
+     "note": "Kept `pool_d09_square_expand` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.032,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.02,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.947,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.715,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L1C0",
+   "seed": 53,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d02_fib_doubling",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one"
+   ],
+   "wall_s": 20.3,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 4,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.145,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 2.001,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.975,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.878,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.468,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.832,
+     "note": "Kept `pool_d07_fermat_base2` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.094,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.803,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.986,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.822,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.943,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.593,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.924,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.776,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C0",
+   "seed": 11,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d02_fib_doubling",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant"
+   ],
+   "wall_s": 13.74,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 4,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.695,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.218,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.561,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.201,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.816,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.171,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.809,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.701,
+     "note": "Kept `pool_d07_fermat_base2` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.713,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.098,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.621,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.171,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.705,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.175,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C0",
+   "seed": 23,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d08_no_abundant",
+    "pool_d10_mul_one",
+    "pool_d06_mersenne_small",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d09_square_expand",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d07_fermat_base2",
+    "pool_d12_lucas_fib",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d05_euler41_prime"
+   ],
+   "wall_s": 13.75,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30"
+   ],
+   "n_verified": 2,
+   "harmful_kept": [
+    "pool_d06_mersenne_small",
+    "pool_d08_no_abundant",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 3,
+   "coverage_only_kept": [
+    "pool_d09_square_expand",
+    "pool_d10_mul_one"
+   ],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.619,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.239,
+     "note": "Kept `pool_d08_no_abundant` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.648,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.631,
+     "note": "Kept `pool_d10_mul_one` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.775,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.679,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.579,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.126,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.598,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.205,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.621,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d09_square_expand",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.177,
+     "note": "Kept `pool_d09_square_expand` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.632,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d04_n5_minus_n_div30",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.162,
+     "note": "Kept `pool_d04_n5_minus_n_div30` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C0",
+   "seed": 37,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d03_binom_square_sum",
+    "pool_d06_mersenne_small",
+    "pool_d01_k_binom_sum",
+    "pool_d09_square_expand",
+    "pool_d02_fib_doubling",
+    "pool_d10_mul_one",
+    "pool_d11_gcd_n17"
+   ],
+   "wall_s": 12.53,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d08_no_abundant"
+   ],
+   "n_harmful_kept": 4,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.663,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.308,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.657,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d12_lucas_fib",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.257,
+     "note": "Kept `pool_d12_lucas_fib` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; adds "
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.616,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.248,
+     "note": "Kept `pool_d07_fermat_base2` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.58,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.135,
+     "note": "Kept `pool_d08_no_abundant` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.566,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d04_n5_minus_n_div30",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.165,
+     "note": "Kept `pool_d04_n5_minus_n_div30` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.553,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.138,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.521,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.032,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C0",
+   "seed": 41,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d10_mul_one",
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d08_no_abundant",
+    "pool_d09_square_expand",
+    "pool_d11_gcd_n17",
+    "pool_d05_euler41_prime",
+    "pool_d12_lucas_fib",
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2"
+   ],
+   "wall_s": 12.89,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling"
+   ],
+   "n_verified": 2,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d08_no_abundant",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 3,
+   "coverage_only_kept": [
+    "pool_d09_square_expand",
+    "pool_d10_mul_one"
+   ],
+   "sound_not_kept": [
+    "pool_d03_binom_square_sum",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.76,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d10_mul_one",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.493,
+     "note": "Kept `pool_d10_mul_one` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.721,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.455,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.624,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.136,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.583,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d08_no_abundant",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.148,
+     "note": "Kept `pool_d08_no_abundant` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.595,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d09_square_expand",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.114,
+     "note": "Kept `pool_d09_square_expand` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.548,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.099,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.509,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.05,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    }
+   ],
+   "worker_stderr_tail": ""
+  },
+  {
+   "pool": "dev",
+   "arm": "L0C0",
+   "seed": 53,
+   "cycles": 14,
+   "pick_order_seeded": [
+    "pool_d02_fib_doubling",
+    "pool_d01_k_binom_sum",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17",
+    "pool_d03_binom_square_sum",
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d12_lucas_fib",
+    "pool_d09_square_expand",
+    "pool_d08_no_abundant",
+    "pool_d04_n5_minus_n_div30",
+    "pool_d10_mul_one"
+   ],
+   "wall_s": 12.69,
+   "oracle_calls": 14,
+   "challenger_calls": 0,
+   "bench_runs_approx": 28,
+   "verified": [
+    "pool_d01_k_binom_sum",
+    "pool_d02_fib_doubling",
+    "pool_d03_binom_square_sum"
+   ],
+   "n_verified": 3,
+   "harmful_kept": [
+    "pool_d05_euler41_prime",
+    "pool_d06_mersenne_small",
+    "pool_d07_fermat_base2",
+    "pool_d11_gcd_n17"
+   ],
+   "n_harmful_kept": 4,
+   "coverage_only_kept": [],
+   "sound_not_kept": [
+    "pool_d04_n5_minus_n_div30",
+    "pool_d12_lucas_fib"
+   ],
+   "repeated_failures": 0,
+   "distinct_candidates_tried": 7,
+   "challenger_blocked": [],
+   "harmful_blocked_by_challenger": [],
+   "useful_blocked_by_challenger": [],
+   "non_pool_keeps": [
+    "authored_pascal_identity__stirling_second_row_w1",
+    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+    "authored_binomial_symmetry__vandermonde_conv_w1",
+    "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+    "authored_cassini__binomial_inversion_small_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_central_binom_bound__gcd_fibonacci_w1"
+   ],
+   "cycles_detail": [
+    {
+     "i": 0,
+     "decision": "keep",
+     "mutation": "authored_pascal_identity__stirling_second_row_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.623,
+     "note": "Kept `authored_pascal_identity__stirling_second_row_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 80\u219281 hard_pass 70\u219271 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 70->71 with lemma score flat 0.9071"
+    },
+    {
+     "i": 1,
+     "decision": "keep",
+     "mutation": "pool_d02_fib_doubling",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.266,
+     "note": "Kept `pool_d02_fib_doubling` (hard_enable): lemma score 0.9071\u21920.9071 checks 81\u219282 hard_pass 71\u219272 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 2,
+     "decision": "keep",
+     "mutation": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.705,
+     "note": "Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 82\u219283 hard_pass 72\u219273 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 72->73 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 3,
+     "decision": "keep",
+     "mutation": "pool_d01_k_binom_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.612,
+     "note": "Kept `pool_d01_k_binom_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 83\u219284 hard_pass 73\u219274 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 73->74 with lemma score flat 0.9071->0.9071; Oracle passed; add"
+    },
+    {
+     "i": 4,
+     "decision": "keep",
+     "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.713,
+     "note": "Kept `authored_binomial_symmetry__vandermonde_conv_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 84\u219285 hard_pass 74\u219275 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 74->75 with lemma score flat 0.9071-"
+    },
+    {
+     "i": 5,
+     "decision": "keep",
+     "mutation": "pool_d07_fermat_base2",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.294,
+     "note": "Kept `pool_d07_fermat_base2` (hard_enable): lemma score 0.9071\u21920.9071 checks 85\u219286 hard_pass 75\u219276 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 75->76 with lemma score flat 0.9071->0.9071; Oracle passed; ad"
+    },
+    {
+     "i": 6,
+     "decision": "keep",
+     "mutation": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.631,
+     "note": "Kept `authored_binomial_sum_row__bell_triangle_recurrence_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 86\u219287 hard_pass 76\u219277 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 76->77 with lemma score flat "
+    },
+    {
+     "i": 7,
+     "decision": "keep",
+     "mutation": "pool_d11_gcd_n17",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.138,
+     "note": "Kept `pool_d11_gcd_n17` (hard_enable): lemma score 0.9071\u21920.9071 checks 87\u219288 hard_pass 77\u219278 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 77->78 with lemma score flat 0.9071->0.9071; Oracle passed; adds a "
+    },
+    {
+     "i": 8,
+     "decision": "keep",
+     "mutation": "authored_cassini__binomial_inversion_small_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.549,
+     "note": "Kept `authored_cassini__binomial_inversion_small_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 88\u219289 hard_pass 78\u219279 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 78->79 with lemma score flat 0.9071->0"
+    },
+    {
+     "i": 9,
+     "decision": "keep",
+     "mutation": "pool_d03_binom_square_sum",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.059,
+     "note": "Kept `pool_d03_binom_square_sum` (hard_enable): lemma score 0.9071\u21920.9071 checks 89\u219290 hard_pass 79\u219280 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 79->80 with lemma score flat 0.9071->0.9071; Oracle passed"
+    },
+    {
+     "i": 10,
+     "decision": "keep",
+     "mutation": "authored_catalan_bounded__catalan_convolution_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.52,
+     "note": "Kept `authored_catalan_bounded__catalan_convolution_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 90\u219291 hard_pass 80\u219281 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 80->81 with lemma score flat 0.9071"
+    },
+    {
+     "i": 11,
+     "decision": "keep",
+     "mutation": "pool_d05_euler41_prime",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.015,
+     "note": "Kept `pool_d05_euler41_prime` (hard_enable): lemma score 0.9071\u21920.9071 checks 91\u219292 hard_pass 81\u219282 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 81->82 with lemma score flat 0.9071->0.9071; Oracle passed; a"
+    },
+    {
+     "i": 12,
+     "decision": "keep",
+     "mutation": "authored_central_binom_bound__gcd_fibonacci_w1",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 0.493,
+     "note": "Kept `authored_central_binom_bound__gcd_fibonacci_w1` (hard_enable): lemma score 0.9071\u21920.9071 checks 92\u219293 hard_pass 82\u219283 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 82->83 with lemma score flat 0.9071->"
+    },
+    {
+     "i": 13,
+     "decision": "keep",
+     "mutation": "pool_d06_mersenne_small",
+     "kind": "hard_enable",
+     "self_rejected": false,
+     "promotion": "coverage",
+     "seconds": 1.008,
+     "note": "Kept `pool_d06_mersenne_small` (hard_enable): lemma score 0.9071\u21920.9071 checks 93\u219294 hard_pass 83\u219284 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 83->84 with lemma score flat 0.9071->0.9071; Oracle passed; "
+    }
+   ],
+   "worker_stderr_tail": ""
+  }
+ ],
+ "elapsed_s": 59.0
+}

@@ -369,6 +369,12 @@ def sense_held_out(mutation: str, kind: str = "", *, after_snapshot: dict[str, A
             return _held_out_for_theme(name, after_snapshot=snap)
         kind_ok = kind in ("hard_enable", "") or kind.startswith("hard")
         survives = ok and kind_ok and not name.startswith("easy_pad")
+        shift: dict[str, Any] | None = None
+        if survives and kind in ("hard_enable", "hard_check") and name:
+            # Spark S1: a real held-out — re-run the entry on a disjoint shifted window.
+            from colony.trust.shifted_holdout import shifted_window_check
+            shift = shifted_window_check(ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py", name)
+            survives = bool(shift.get("ok"))
         return {
             "survives": survives,
             "ok_for_oracle": survives,
@@ -376,7 +382,9 @@ def sense_held_out(mutation: str, kind: str = "", *, after_snapshot: dict[str, A
             "hard_n": hard_n,
             "ok": snap.get("ok"),
             "score": snap.get("score"),
-            "reason": "held_out_hard_green" if survives else "held_out_fail",
+            "shifted_window": shift,
+            "reason": ("held_out_hard_green" if survives else
+                       (f"held_out_{shift.get('reason')}" if shift else "held_out_fail")),
         }
     except Exception as exc:  # noqa: BLE001
         return {"survives": False, "ok_for_oracle": False, "reason": f"error:{exc}"}

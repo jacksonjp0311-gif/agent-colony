@@ -669,6 +669,24 @@ class MutationCooldown:
         return not self.reason(name)
 
 
+def oracle_counterexample_targets(*, lookback: int = 400) -> dict[str, str]:
+    """mutation -> reason, for Oracle kills whose held-out shifted window found a counterexample."""
+    from colony.oracle import ORACLE_LOG
+    out: dict[str, str] = {}
+    if not ORACLE_LOG.exists():
+        return out
+    for ln in ORACLE_LOG.read_text(encoding="utf-8").splitlines()[-lookback:]:
+        if "shift_window_counterexample" not in ln:
+            continue
+        try:
+            e = json.loads(ln)
+        except json.JSONDecodeError:
+            continue
+        if not e.get("passed") and e.get("mutation"):
+            out[str(e["mutation"])] = "oracle_counterexample:shifted_window"
+    return out
+
+
 def mutation_cooldown(*, threshold: int = KILL_COOLDOWN_THRESHOLD, with_penalties: bool = True) -> MutationCooldown:
     """Snapshot of kill cooldown + human-guide blocks + exploration revert penalties."""
     from colony.trust.flags import learning_enabled
@@ -684,6 +702,12 @@ def mutation_cooldown(*, threshold: int = KILL_COOLDOWN_THRESHOLD, with_penaltie
     # Mutations the Challenger broke (deterministic edge / counterexample): retrying is pointless.
     from colony.challenger import blocked_targets
     for name, why in blocked_targets().items():
+        t = theme_key(name)
+        if t:
+            blocked.setdefault(t, why)
+    # Spark S2: an Oracle kill backed by a concrete shifted-window counterexample is
+    # deterministic — retrying it is as pointless as retrying a Challenger break.
+    for name, why in oracle_counterexample_targets().items():
         t = theme_key(name)
         if t:
             blocked.setdefault(t, why)

@@ -17,3 +17,4 @@ Declared: 2026-10-11 ~10:25 AM ET, before the first ablation/evolution run.
 Stop conditions: budget exhausted, integrity violation (holdout manifest hash mismatch,
 live-state pollution), unrecoverable failure, or a permission boundary. Resume point is
 recorded in README.md ("Resume point").
+EXPERIMENT CLOCK START Sun Oct 11 10:22:07 EDT 2026

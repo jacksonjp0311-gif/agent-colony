@@ -573,9 +573,19 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         finding_ids=[x for x in finding_ids if x], why_believe=why, self_rejected=self_rejected,
         promotion=promotion,
     )
+    _cex: list[Any] = []
+    if why and why.get("challenger_blocked"):
+        _cex.append({"by": "challenger", "detail": str(why.get("challenger"))[:240]})
+    try:
+        _sw = ((_desk_verdict.sense or {}).get("held_out") or {}).get("shifted_window") if _desk_verdict else None
+        if _sw and not _sw.get("ok"):
+            _cex.append({"by": "oracle_shifted_window", "reason": _sw.get("reason"), "window": _sw.get("window_expr")})
+    except Exception:  # noqa: BLE001
+        pass
     _record_desk_bookkeeping(
         decision=decision, chosen=chosen or "", kind=kind or "", before_score=before_score,
         after_score=after_score, note=note, cycle_id=cycle_id, proposals=proposals,
+        counterexamples=_cex,
     )
     _append_history(result); _write_witness([result]); return result
 
@@ -583,6 +593,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
 def _record_desk_bookkeeping(
     *, decision: str, chosen: str, kind: str, before_score: float | None,
     after_score: float | None, note: str, cycle_id: str, proposals: list[dict[str, Any]],
+    counterexamples: list[Any] | None = None,
 ) -> dict[str, Any]:
     """Commons row + keep/revert lesson + exploration budget for one desk judgment.
 
@@ -636,6 +647,7 @@ def _record_desk_bookkeeping(
                 tags=["lemma", kind or "mutation", decision],
                 evidence=["society/benchmarks/lemma_microbench.py", "artifacts:lemma_impl"]
                 + [f"lesson:{i}" for i in lesson_cites],
+                counterexamples=list(counterexamples or []),
             )
         except Exception:
             pass

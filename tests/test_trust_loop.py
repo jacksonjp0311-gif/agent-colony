@@ -223,3 +223,13 @@ def test_gate_entry_point_runs_and_reports(monkeypatch):
     assert rep["ok"] is True, rep["failed"]
     monkeypatch.setenv("COLONY_LEARNING", "0")
     assert run_gate(skip_tests=True)["ok"] is False
+
+
+def test_spark_s1_shifted_window_kills_window_only_claim(tmp_path):
+    from colony.trust.shifted_holdout import shifted_window_check
+    p = tmp_path / "impl.py"
+    p.write_text(FALSE_IN_WINDOW)
+    bad = shifted_window_check(p, "t_euler41")
+    good = shifted_window_check(p, "t_binom_sq")
+    assert bad["ok"] is False and bad["reason"] == "shift_window_counterexample"
+    assert good["ok"] is True and good["applied"] is True
