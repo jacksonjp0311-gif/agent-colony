@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_f49c0f81e6b0",
-      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_bounded_w1"
+      "finding_id": "fnd_d2dbef7d46bc",
+      "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__euler_totient_multiplicative_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-11T14:34:57Z",
-  "updated_cycle": "20261011T143439Z_b47d55",
+  "updated_at": "2026-10-11T22:14:40Z",
+  "updated_cycle": "20261011T221421Z_65d3af",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

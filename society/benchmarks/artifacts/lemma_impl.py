@@ -951,6 +951,28 @@ def check_authored_sum_first_n_odds__sum_first_n_cubes_w1() -> bool:
     return all((check_sum_first_n_odds(n) for n in range(40, 60))) and all((check_sum_first_n_cubes(n) for n in range(30, 45)))
 
 
+def check_authored_binomial_symmetry__vandermonde_conv_w1() -> bool:
+    """Authored stress check (desk): proven lemmas binomial_symmetry + vandermonde_conv on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_binomial_symmetry,
+    ::check_vandermonde_convolution; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_binomial_symmetry(n, k) for n in range(16, 24) for k in range(0, n + 1))) and all((check_vandermonde_convolution(m, n, r) for m in range(12, 18) for n in range(12, 18) for r in range(0, m + n + 1)))
+
+
+def check_authored_binomial_sum_row__bell_triangle_recurrence_w1() -> bool:
+    """Authored stress check (desk): proven lemmas binomial_sum_row + bell_triangle_recurrence on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_binomial_sum_row,
+    ::check_bell_triangle_recurrence; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_binomial_sum_row(n) for n in range(22, 33))) and all((check_bell_triangle_recurrence(n) for n in range(12, 18)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1073,6 +1095,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_hockey_stick__pythagorean_generation_w1", check_authored_hockey_stick__pythagorean_generation_w1, True),
     ("authored_pascal_identity__stirling_second_row_w1", check_authored_pascal_identity__stirling_second_row_w1, True),
     ("authored_sum_first_n_odds__sum_first_n_cubes_w1", check_authored_sum_first_n_odds__sum_first_n_cubes_w1, True),
+    ("authored_binomial_symmetry__vandermonde_conv_w1", check_authored_binomial_symmetry__vandermonde_conv_w1, True),
+    ("authored_binomial_sum_row__bell_triangle_recurrence_w1", check_authored_binomial_sum_row__bell_triangle_recurrence_w1, False),
 ]
 
 

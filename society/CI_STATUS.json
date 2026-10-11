@@ -306,82 +306,85 @@
     "cycle_254_evolve_note",
     "cycle_255_evolve_note",
     "cycle_256_evolve_note",
-    "cycle_257_evolve_note"
+    "cycle_257_evolve_note",
+    "cycle_258_evolve_note",
+    "cycle_259_evolve_note",
+    "cycle_260_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 721,
+      "uses": 730,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 693,
+      "uses": 702,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 483,
+      "uses": 489,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 241,
+      "uses": 244,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 921,
+      "uses": 933,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 560,
+      "uses": 564,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 688,
+      "uses": 697,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 229,
+      "uses": 232,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 229,
+      "uses": 232,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 214,
+      "uses": 217,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 214,
+      "uses": 217,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 211,
+      "uses": 214,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 211,
+      "uses": 214,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 208,
+      "uses": 211,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 208,
+      "uses": 211,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -656,8 +659,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 920,
-    "reused": 2065
+    "appended": 932,
+    "reused": 2092
   },
   "commons_by_domain": {
     "science": 0,
@@ -676,8 +679,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-11T14:35:16Z",
-    "cycle_id": "20261011T143439Z_b47d55",
+    "ts": "2026-10-11T22:15:01Z",
+    "cycle_id": "20261011T221421Z_65d3af",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -689,23 +692,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-11T14:35:16Z",
-    "cycle_id": "20261011T143439Z_b47d55",
+    "ts": "2026-10-11T22:15:00Z",
+    "cycle_id": "20261011T221421Z_65d3af",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8191,
-    "compute_usefulness": 0.9187,
+    "math_prize": 0.8142,
+    "compute_usefulness": 0.9133,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8901,
-    "kill_rate": 0.3942,
-    "kill_rate_term": 0.9048,
-    "novelty": 0.5,
+    "prize_boost": 0.886,
+    "kill_rate": 0.3933,
+    "kill_rate_term": 0.904,
+    "novelty": 0.4667,
     "lesson_uptake": 0.96,
-    "aggregate": 0.846,
+    "aggregate": 0.848,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -713,33 +716,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 12997,
-    "read": 61710,
-    "replied": 8182,
-    "actions_planned": 4242,
-    "actions_changed_from_message": 4242,
-    "reply_quality_sum": 7413.2999999993035,
-    "reply_quality_n": 8130,
-    "peer_cite_opportunities": 8360,
-    "peer_cites": 8360
+    "posted": 13163,
+    "read": 62520,
+    "replied": 8287,
+    "actions_planned": 4296,
+    "actions_changed_from_message": 4296,
+    "reply_quality_sum": 7508.999999999278,
+    "reply_quality_n": 8235,
+    "peer_cite_opportunities": 8468,
+    "peer_cites": 8468
   },
   "bus_domains": {
-    "science": 683,
-    "history": 685,
-    "math": 2064,
-    "empire": 459,
-    "bulletin": 1847,
-    "forum": 2966,
-    "software": 685,
-    "nature": 683,
-    "life": 685,
-    "cosmos": 983,
-    "rsi": 1149
+    "science": 692,
+    "history": 694,
+    "math": 2091,
+    "empire": 465,
+    "bulletin": 1868,
+    "forum": 3005,
+    "software": 694,
+    "nature": 692,
+    "life": 694,
+    "cosmos": 996,
+    "rsi": 1164
   },
-  "communications_count": 12997,
+  "communications_count": 13163,
   "improvements": [
-    "Chain `authored_binomial_inversion_small__legendre_duplication_small_w1` citing The replica symmetric solution for hypergraph inde (cycle 207)",
-    "Chain `authored_oeis_a000079__binomial_sum_row` citing The replica symmetric solution for hypergraph inde",
     "Chain `authored_oeis_a000079__binomial_sum_row` citing The replica symmetric solution for hypergraph inde (cycle 209)",
     "Chain `authored_binomial_symmetry__cassini_w1` citing The replica symmetric solution for hypergraph inde",
     "Chain `authored_binomial_symmetry__cassini_w1` citing The replica symmetric solution for hypergraph inde (cycle 211)",
@@ -787,18 +788,20 @@
     "Chain `authored_pascal_identity__stirling_second_row_w1` citing Combinatorics of q,r-analogues of Stirling numbers",
     "Chain `authored_pascal_identity__stirling_second_row_w1` citing Combinatorics of q,r-analogues of Stirling numbers (cycle 255)",
     "Chain `authored_sum_first_n_odds__sum_first_n_cubes_w1` citing Sum rules for permutations with fixed points invol",
-    "Chain `authored_sum_first_n_odds__sum_first_n_cubes_w1` citing Sum rules for permutations with fixed points invol (cycle 257)"
+    "Chain `authored_sum_first_n_odds__sum_first_n_cubes_w1` citing Sum rules for permutations with fixed points invol (cycle 257)",
+    "Chain `authored_binomial_symmetry__vandermonde_conv_w1` citing \u201c LES VOSTRES CATALONIAN GIRLS PREFERIDES \u201d: NATIO",
+    "Chain `authored_binomial_symmetry__vandermonde_conv_w1` citing \u201c LES VOSTRES CATALONIAN GIRLS PREFERIDES \u201d: NATIO (cycle 259)"
   ],
-  "cycle_count": 257,
-  "ledger_count": 13988,
+  "cycle_count": 260,
+  "ledger_count": 14164,
   "status_counts": {
-    "candidate": 13452,
-    "accepted": 155,
-    "rejected": 257,
+    "candidate": 13623,
+    "accepted": 158,
+    "rejected": 259,
     "unknown": 124
   },
-  "witness_events": 20082,
-  "tribute_cycles_compliant": 257,
+  "witness_events": 20347,
+  "tribute_cycles_compliant": 260,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
