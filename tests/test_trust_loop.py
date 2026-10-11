@@ -233,3 +233,20 @@ def test_spark_s1_shifted_window_kills_window_only_claim(tmp_path):
     good = shifted_window_check(p, "t_binom_sq")
     assert bad["ok"] is False and bad["reason"] == "shift_window_counterexample"
     assert good["ok"] is True and good["applied"] is True
+
+
+def test_recover_when_target_deleted(monkeypatch, tmp_path):
+    import colony.conjecture_desk as D
+    monkeypatch.setattr(D, "JOURNAL", tmp_path / ".desk_journal.json")
+    monkeypatch.setattr(D, "HISTORY", tmp_path / "hist.jsonl")
+    target, backup = tmp_path / "impl.py", tmp_path / "b.py"
+    backup.write_text("ORIG\n")
+    D._journal_open(target=target, backup=backup, mutation="m", kind="hard_enable", cycle_id="c")
+    r = D.recover_interrupted()
+    assert r["recovered"] and target.read_text() == "ORIG\n" and not D.JOURNAL.exists()
+
+
+def test_crash_hook_counts_as_ablation(monkeypatch):
+    from colony.trust.flags import ablation_active
+    monkeypatch.setenv("COLONY_TEST_CRASH_AFTER_APPLY", "1")
+    assert "COLONY_TEST_CRASH_AFTER_APPLY=1" in ablation_active()

@@ -27,4 +27,6 @@ def ablation_active() -> list[str]:
         out.append("COLONY_LEARNING=0")
     if not challenger_enabled():
         out.append("COLONY_CHALLENGER=0")
+    if os.environ.get("COLONY_TEST_CRASH_AFTER_APPLY") == "1":
+        out.append("COLONY_TEST_CRASH_AFTER_APPLY=1")
     return out

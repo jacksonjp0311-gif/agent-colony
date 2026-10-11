@@ -205,14 +205,14 @@ def recover_interrupted(*, cycle_id: str = "") -> dict[str, Any] | None:
         j = {}
     target, backup = Path(str(j.get("target") or "")), Path(str(j.get("backup") or ""))
     restored = False
-    if target.is_file() and backup.is_file():
-        if target.read_bytes() != backup.read_bytes():
-            shutil.copy2(backup, target)
-            _invalidate_pyc(target)
-            restored = True
-    elif target and not backup.is_file():
+    if not j.get("target") or not backup.is_file():
         # Cannot roll back safely: keep the journal so the gate fails loudly.
-        return {"recovered": False, "reason": "backup_missing", **j}
+        return {"recovered": False, "reason": "backup_missing_or_journal_unreadable", **j}
+    if not target.is_file() or target.read_bytes() != backup.read_bytes():
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(backup, target)
+        _invalidate_pyc(target)
+        restored = True
     _journal_close()
     rec = {"recovered": True, "restored_bytes": restored, **j}
     with HISTORY.open("a", encoding="utf-8") as f:

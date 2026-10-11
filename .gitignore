@@ -7,3 +7,7 @@ venv/
 .pytest_cache/
 .mypy_cache/
 .DS_Store
+
+# trust loop: transient write-ahead journal (never commit)
+society/benchmarks/.desk_journal.json
+society/benchmarks/.desk_journal.tmp
