@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -65,6 +66,10 @@ def _load_paper_themes(limit: int = 12) -> list[dict[str, Any]]:
     return out[-limit:]
 
 
+class _ChallengerOff(Exception):
+    """Internal: Challenger switched off for a matched ablation (COLONY_CHALLENGER=0)."""
+
+
 class _Withheld(Exception):
     """Internal: the Challenger withheld this submission (skip Oracle / novelty judgment)."""
 
@@ -82,6 +87,7 @@ class ConjectureResult:
     note: str = ""
     finding_ids: list[str] = field(default_factory=list)
     kind: str = ""
+    promotion: dict[str, Any] | None = None
     why_believe: dict[str, Any] | None = None  # machine note: components + ranges + Challenger
     self_rejected: bool = False  # Challenger withheld it from the Oracle
 
@@ -166,7 +172,58 @@ def pick_mutation(
     return None, "", "", cooled
 
 
+JOURNAL = ROOT / "society" / "benchmarks" / ".desk_journal.json"
+
+
+def _journal_open(*, target: Path, backup: Path, mutation: str, kind: str, cycle_id: str) -> None:
+    """Write-ahead marker: an artifact is about to be mutated. Removed once keep/revert lands."""
+    JOURNAL.parent.mkdir(parents=True, exist_ok=True)
+    tmp = JOURNAL.with_suffix(".tmp")
+    tmp.write_text(json.dumps({"target": str(target), "backup": str(backup), "mutation": mutation,
+                               "kind": kind, "cycle_id": cycle_id, "ts": _utc()}), encoding="utf-8")
+    tmp.replace(JOURNAL)
+
+
+def _journal_close() -> None:
+    try:
+        JOURNAL.unlink()
+    except FileNotFoundError:
+        pass
+
+
+def recover_interrupted(*, cycle_id: str = "") -> dict[str, Any] | None:
+    """Restart recovery: a journal left behind means a run died between apply and keep/revert.
+
+    The mutation was never judged, so it is rolled back to the pre-apply backup. Idempotent:
+    a second call (or a target already equal to the backup) changes nothing.
+    """
+    if not JOURNAL.exists():
+        return None
+    try:
+        j = json.loads(JOURNAL.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        j = {}
+    target, backup = Path(str(j.get("target") or "")), Path(str(j.get("backup") or ""))
+    restored = False
+    if target.is_file() and backup.is_file():
+        if target.read_bytes() != backup.read_bytes():
+            shutil.copy2(backup, target)
+            _invalidate_pyc(target)
+            restored = True
+    elif target and not backup.is_file():
+        # Cannot roll back safely: keep the journal so the gate fails loudly.
+        return {"recovered": False, "reason": "backup_missing", **j}
+    _journal_close()
+    rec = {"recovered": True, "restored_bytes": restored, **j}
+    with HISTORY.open("a", encoding="utf-8") as f:
+        f.write(json.dumps({"ts": _utc(), "decision": "recovered_rollback", "mutation": j.get("mutation"),
+                            "kind": j.get("kind"), "note": f"interrupted run rolled back (restored={restored})",
+                            "interrupted_cycle": j.get("cycle_id"), "cycle_id": cycle_id}) + "\n")
+    return rec
+
+
 def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
+    recover_interrupted(cycle_id=cycle_id)
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     STEM_BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     themes = _load_paper_themes()
@@ -353,7 +410,11 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         after = dict(before); after_score = before_score
         # Do not write; oracle will kill
     else:
+        _journal_open(target=target_impl, backup=backup, mutation=chosen or "", kind=kind or "",
+                      cycle_id=cycle_id)
         target_impl.write_text(new_src, encoding="utf-8"); _invalidate_pyc(target_impl)
+        if os.environ.get("COLONY_TEST_CRASH_AFTER_APPLY") == "1":  # fault-injection fixture only
+            os._exit(17)
         after = run_bench()
     after_score = float(after.get("score") or 0.0)
     delta = round(after_score - before_score, 4)
@@ -376,16 +437,30 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     why = None
     self_rejected = False
     try:
+        from colony.trust.flags import challenger_enabled
+        if not challenger_enabled():
+            raise _ChallengerOff()
         from colony.challenger import challenge_entry, record as challenger_record, why_believe
         _ch = challenge_entry(new_src, chosen or "", cycle_id=cycle_id, before_src=src)
         why = why_believe(_ch, extra={"before_score": before_score, "after_score": after_score,
                                       "hard_pass_delta": n_hard_after - n_hard_before})
         challenger_record(_ch, why=why)
         self_rejected = bool(_ch.blocked)
+    except _ChallengerOff:
+        why = {"challenger": "disabled_by_ablation(COLONY_CHALLENGER=0)"}
+        self_rejected = False
     except Exception as _cx:  # noqa: BLE001 — fail closed: no challenge, no submission
         self_rejected = True
         why = {"challenger": f"unavailable:{type(_cx).__name__}", "generated_by": "colony.challenger"}
-    if self_rejected:
+    if kind in ("hard_enable", "hard_check") and not self_rejected:
+        from colony.trust.diffscope import enable_diff_ok
+        _ds = enable_diff_ok(src, new_src, chosen or "")
+        if not _ds["ok"]:
+            self_rejected = True
+            why = {**(why or {}), "diff_scope": _ds}
+            rose = False
+            oracle_note = f" | DIFF-SCOPE KILL: {_ds['reason']} {_ds.get('extra_diff', [])[:3]}; withheld from the Oracle"
+    if self_rejected and not oracle_note:
         rose = False
         oracle_note = (f" | SELF-REJECT: {why.get('challenger') if why else 'challenger'}; "
                        f"withheld from the Oracle (nothing scored)")
@@ -405,6 +480,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             hard_pass_delta=(n_hard_after - n_hard_before),
             before_score=before_score,
             after_score=after_score,
+            before_src=src,
         )
         _desk_verdict = ov
         oracle_passed = bool(ov.passed and ov.fitness_credit)
@@ -421,8 +497,15 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         if rose:
             rose = False
             oracle_note = f" | oracle=ERROR_fail_closed:{_oracle_exc}"
+    from colony.trust.promotion import classify_promotion
+    promotion = classify_promotion(before=before, after=after, oracle_passed=oracle_passed,
+                                   challenger_blocked=self_rejected)
+    if rose and oracle_passed and not promotion["eligible"]:
+        rose = False
+        oracle_note += f" | promotion=none ({promotion['explanation']})"
     if rose and oracle_passed:
         decision = "keep"
+        oracle_note += f" | promotion={promotion['category']}: {promotion['explanation']}"
         note = (f"Kept `{chosen}` ({kind}): lemma score {before_score}→{after_score} "
                 f"checks {n_before}→{n_after} hard_pass {n_hard_before}→{n_hard_after} "
                 f"(machine-checked + Oracle pass; not novel discovery).{oracle_note}")
@@ -435,6 +518,8 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 f"— Oracle/hard-tier required for keep; easy pads die on Oracle."
                 f"{oracle_note}")
         after_score = before_score; delta = 0.0
+        promotion = {**promotion, "category": "none", "eligible": False}
+    _journal_close()  # keep or revert has landed on disk
     # Autonomy mile B: novelty gate (new-to-commons only) on THIS judgment. Runs on its own —
     # it used to sit behind `from colony.external_mind import record_desk_outcome`, which
     # raised ImportError from 2026-09-26 until external_mind became plain code, so the gate
@@ -478,7 +563,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             meta={"kind": "lemma_mutation", "decision": decision, "mutation": chosen,
                   "mutation_kind": kind, "before_score": before_score, "after_score": after_score,
                   "cycle_id": cycle_id, "not_discovery": True, "why_believe": why,
-                  "self_rejected": self_rejected},
+                  "self_rejected": self_rejected, "promotion": promotion},
         )
         finding_ids.append(fnd.id)
     result = ConjectureResult(
@@ -486,6 +571,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         delta=delta, mutation=chosen, kind=kind,
         themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals, note=note,
         finding_ids=[x for x in finding_ids if x], why_believe=why, self_rejected=self_rejected,
+        promotion=promotion,
     )
     _record_desk_bookkeeping(
         decision=decision, chosen=chosen or "", kind=kind or "", before_score=before_score,
@@ -567,6 +653,8 @@ def _append_history(r: ConjectureResult) -> None:
     entry = {"ts": r.ts, "decision": r.decision, "before_score": r.before_score,
              "after_score": r.after_score, "delta": r.delta, "mutation": r.mutation,
              "kind": r.kind, "note": r.note, "themes": r.themes}
+    if r.promotion is not None:
+        entry["promotion"] = r.promotion
     if r.why_believe is not None:
         entry["why_believe"] = r.why_believe
         entry["self_rejected"] = r.self_rejected

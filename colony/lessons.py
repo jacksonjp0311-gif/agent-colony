@@ -52,6 +52,7 @@ LESSON_TYPES = frozenset({
     "authored_check", "authoring_reject",
     "self_challenge",
     "keep", "revert", "skip",
+    "lesson_retired", "lesson_revised",
 })
 
 
@@ -74,6 +75,9 @@ def write_lesson(
     proposal_fingerprint: str = "",
     genome_prior: dict[str, float] | None = None,
     author: str | None = None,
+    scope: str | None = None,
+    counterexamples: list[Any] | None = None,
+    invalidated_if: str | None = None,
 ) -> dict[str, Any]:
     """Append one lesson. decision in {keep, revert, skip, guide, block}.
 
@@ -122,6 +126,13 @@ def write_lesson(
         "author": author,
         "expired": False,
         "status": "candidate",  # hard ceiling — durable accept needs authorize
+        # Trust loop: provenance + scope + counterexamples + invalidation condition.
+        "provenance": {"source": source, "cycle_id": cycle_id, "check": check,
+                       "evidence": list(evidence or [])[:12]},
+        "scope": scope or (f"mutation:{mutation}" if mutation else f"check:{check}"),
+        "counterexamples": list(counterexamples or [])[:8],
+        "invalidated_if": invalidated_if or (
+            f"a later Oracle/holdout verdict on `{mutation or check}` contradicts decision={decision}"),
     }
     with LESSONS_JSONL.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -130,9 +141,27 @@ def write_lesson(
     return entry
 
 
+def _retired_ids() -> dict[str, str]:
+    """lesson id -> id of the retirement/revision record that superseded it (append-only)."""
+    out: dict[str, str] = {}
+    if not LESSONS_JSONL.exists():
+        return out
+    for ln in LESSONS_JSONL.read_text(encoding="utf-8").splitlines():
+        if '"lesson_retired"' not in ln and '"lesson_revised"' not in ln:
+            continue
+        try:
+            e = json.loads(ln)
+        except json.JSONDecodeError:
+            continue
+        for rid in e.get("supersedes") or []:
+            out[str(rid)] = str(e.get("id") or "")
+    return out
+
+
 def load_lessons(*, limit: int = 200, include_expired: bool = False) -> list[dict[str, Any]]:
     if not LESSONS_JSONL.exists():
         return []
+    retired = {} if include_expired else _retired_ids()
     out: list[dict[str, Any]] = []
     for ln in LESSONS_JSONL.read_text(encoding="utf-8").splitlines():
         if not ln.strip():
@@ -143,8 +172,46 @@ def load_lessons(*, limit: int = 200, include_expired: bool = False) -> list[dic
             continue
         if not include_expired and e.get("expired"):
             continue
+        if retired and str(e.get("id") or "") in retired:
+            continue  # superseded by a retirement/revision record (original row kept on disk)
         out.append(e)
     return out[-limit:]
+
+
+def retire_lesson(lesson_id: str, *, reason: str, contradicted_by: list[str], source: str,
+                  cycle_id: str = "", revised: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Retire (or revise) a contradicted lesson WITHOUT rewriting history.
+
+    Appends a ``lesson_retired`` (or ``lesson_revised`` carrying the corrected content) record
+    whose ``supersedes`` names the old id; loaders then skip the old row, while the original
+    stays on disk for audit. Human guides cannot be retired by agents.
+    """
+    target = None
+    for e in load_lessons(limit=100000, include_expired=True):
+        if str(e.get("id")) == lesson_id:
+            target = e
+    if target is None:
+        raise KeyError(lesson_id)
+    if target.get("type") == "human_guide" and source != "human":
+        raise PermissionError("only a human may retire a human_guide lesson")
+    if not contradicted_by:
+        raise ValueError("retirement needs evidence (contradicted_by)")
+    rtype = "lesson_revised" if revised else "lesson_retired"
+    entry = {
+        "id": f"{'rev' if revised else 'ret'}_{lesson_id}"[:64], "ts": _utc(), "cycle_id": cycle_id,
+        "type": rtype, "decision": "skip", "check": "lesson_audit", "mutation": target.get("mutation", ""),
+        "what": reason[:500], "source": source, "family": "lesson_audit", "supersedes": [lesson_id],
+        "contradicted_by": list(contradicted_by)[:12], "revised": dict(revised or {}),
+        "skill_bias": {}, "genome_prior": {}, "catalog_hint": {}, "tags": [rtype], "evidence": list(contradicted_by)[:12],
+        "expired": False, "status": "candidate",
+        "provenance": {"source": source, "cycle_id": cycle_id, "check": "lesson_audit"},
+        "scope": target.get("scope") or f"lesson:{lesson_id}", "counterexamples": [],
+        "invalidated_if": "never (audit record)",
+    }
+    with LESSONS_JSONL.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    persist_system(cycle_id=cycle_id)
+    return entry
 
 
 _GUIDE_CACHE: dict[str, Any] = {"key": None, "rows": []}
@@ -604,6 +671,11 @@ class MutationCooldown:
 
 def mutation_cooldown(*, threshold: int = KILL_COOLDOWN_THRESHOLD, with_penalties: bool = True) -> MutationCooldown:
     """Snapshot of kill cooldown + human-guide blocks + exploration revert penalties."""
+    from colony.trust.flags import learning_enabled
+    if not learning_enabled():
+        # Ablation (COLONY_LEARNING=0): ignore outcome-derived memory; human guides still apply.
+        return MutationCooldown(blocked={}, avoided=guide_avoid_themes(), penalties={},
+                                threshold=threshold)
     penalties: dict[str, int] = {}
     if with_penalties:
         from colony.exploration_budget import load_budget

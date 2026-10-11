@@ -517,6 +517,14 @@ def sense_cas(mutation: str, kind: str = "", claim_text: str = "") -> dict[str, 
     }
 
 
+def _entry_flag(src: str, name: str) -> bool | None:
+    """This catalog entry's own enabled flag in ``src`` (None when absent)."""
+    if not src or f'("{name}"' not in src:
+        return None
+    m = re.search(rf'\("{re.escape(name)}".*?,\s*(True|False)\)', src, re.S)
+    return None if not m else m.group(1) == "True"
+
+
 def sense(
     *,
     mutation: str,
@@ -524,29 +532,45 @@ def sense(
     claim_text: str = "",
     after_snapshot: dict[str, Any] | None = None,
     hard_pass_delta: int | None = None,
+    before_src: str | None = None,
 ) -> dict[str, Any]:
-    """Combine stripped + held-out + CAS. All must ok_for_oracle (except delta override)."""
+    """Combine stripped + held-out + CAS. All three must be ok_for_oracle.
+
+    Trust-loop fix (2026-10-11): a positive ``hard_pass_delta`` used to OVERRIDE both the
+    held-out and the stripped-baseline results for hard_enable/stem_enable, so a mutation
+    that lifted hard_pass while another enabled check failed (or that was already enabled
+    before apply) still passed. Now:
+
+    * held-out is never overridden — it is evaluated on the after-apply snapshot as-is;
+    * stripped baseline is evaluated on the PRE-apply source (``before_src``) when given:
+      the entry must exist and be disabled before the mutation, AND the delta must be > 0;
+    * without ``before_src`` the delta alone is accepted as pre-apply usefulness evidence,
+      but only when the after-apply harness is fully green (labelled ``delta_only``).
+    """
     stripped = sense_stripped_baseline(mutation, kind)
     held = sense_held_out(mutation, kind, after_snapshot=after_snapshot)
     cas = sense_cas(mutation, kind, claim_text)
 
-    # Hard keep path: measured hard_pass rise proves usefulness + held-out.
-    # (Stripped is evaluated post-apply when already_enabled flipped True — delta overrides.)
-    if hard_pass_delta is not None and hard_pass_delta > 0 and kind in ("hard_enable", "stem_enable"):
-        held = {
-            **held,
-            "survives": True,
-            "ok_for_oracle": True,
-            "reason": f"hard_pass_delta={hard_pass_delta}",
-            "hard_pass_delta": hard_pass_delta,
-        }
-        stripped = {
-            **stripped,
-            "stripped_fails_usefulness": True,
-            "ok_for_oracle": True,
-            "reason": f"pre_apply_usefulness_via_delta={hard_pass_delta}",
-            "hard_pass_delta": hard_pass_delta,
-        }
+    if hard_pass_delta is not None and kind in ("hard_enable", "stem_enable"):
+        name = (mutation or "").strip()
+        if before_src is not None:
+            flag = _entry_flag(before_src, name)
+            ok = flag is False and hard_pass_delta > 0
+            reason = (
+                f"pre_apply_disabled_and_delta={hard_pass_delta}" if ok
+                else ("pre_apply_absent" if flag is None else
+                      ("pre_apply_already_enabled" if flag else f"no_lift_delta={hard_pass_delta}"))
+            )
+            stripped = {**stripped, "stripped_fails_usefulness": ok, "ok_for_oracle": ok,
+                        "reason": reason, "hard_pass_delta": hard_pass_delta,
+                        "pre_apply_flag": flag, "basis": "before_src"}
+        else:
+            ok = hard_pass_delta > 0 and bool(held.get("ok_for_oracle"))
+            stripped = {**stripped, "stripped_fails_usefulness": ok, "ok_for_oracle": ok,
+                        "reason": (f"delta_only={hard_pass_delta}" if ok else
+                                   f"delta_only_rejected={hard_pass_delta}"),
+                        "hard_pass_delta": hard_pass_delta, "basis": "delta_only"}
+        held = {**held, "hard_pass_delta": hard_pass_delta, "delta_override": False}
 
     kills: list[str] = []
     if not stripped.get("ok_for_oracle"):
@@ -646,6 +670,7 @@ def evaluate(
     hard_pass_delta: int | None = None,
     before_score: float | None = None,
     after_score: float | None = None,
+    before_src: str | None = None,
 ) -> OracleVerdict:
     """Full Oracle: HEAR → SENSE → collective. FAIL → passed=False, fitness_credit=False."""
     name = (mutation or "").strip()
@@ -676,6 +701,7 @@ def evaluate(
         claim_text=claim_text,
         after_snapshot=after_snapshot,
         hard_pass_delta=hard_pass_delta,
+        before_src=before_src,
     )
     coll = collective_decide(hear_result=hear_r, sense_result=sense_r, mutation=name, kind=kind)
 
@@ -758,6 +784,7 @@ def gate_keep(
     hard_pass_delta: int | None = None,
     before_score: float | None = None,
     after_score: float | None = None,
+    before_src: str | None = None,
 ) -> tuple[str, OracleVerdict]:
     """If tentative keep/propose but Oracle fails → force revert/kill.
 
@@ -804,6 +831,7 @@ def gate_keep(
         hard_pass_delta=hard_pass_delta,
         before_score=before_score,
         after_score=after_score,
+        before_src=before_src,
     )
     if not v.passed:
         return "revert", v

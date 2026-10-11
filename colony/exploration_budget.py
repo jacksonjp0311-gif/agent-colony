@@ -73,6 +73,9 @@ def ensure_distribution(names: list[str]) -> dict[str, float]:
 
 def record_outcome(mutation: str, decision: str, *, kind: str = "") -> dict[str, Any]:
     """After keep/revert, mutate distribution MUST change (especially on revert)."""
+    from colony.trust.flags import learning_enabled
+    if not learning_enabled():
+        return {"mutation": mutation, "decision": decision, "skipped": "COLONY_LEARNING=0"}
     from colony.conjecture_mutations import MUTATION_SNIPPETS
 
     names = [n for n, _, _ in MUTATION_SNIPPETS]
@@ -131,7 +134,8 @@ def pick_mutation_order(candidates: list[tuple[str, str, str]]) -> list[tuple[st
             guide_prefers_invariant_chains,
             preferred_invariant_mutations,
         )
-        hints = catalog_hints_from_lessons(lookback=20)
+        from colony.trust.flags import learning_enabled
+        hints = catalog_hints_from_lessons(lookback=20) if learning_enabled() else []
         want = [str(h.get("add_mutation") or "") for h in hints if h.get("add_mutation")]
         if guide_prefers_invariant_chains():
             # James guide: machine-checkable invariants / lemma chains before renames

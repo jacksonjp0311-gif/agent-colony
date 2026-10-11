@@ -55,11 +55,11 @@ jobs:
           export PYTHONPATH=.
           python -m colony feeds || echo "::warning::feeds step non-fatal"
 
-      - name: Port unit + smoke tests (Athanor/PulseMesh)
+      - name: Trust gate — pre-evolve (full suite, isolation, benches, holdout manifest; FATAL on fail)
         run: |
           set -euo pipefail
           export PYTHONPATH=.
-          python -m pytest tests/test_athanor_coherence.py tests/test_pulsemesh_feeds.py tests/test_spark3_integration_smoke.py -q
+          python -m colony.trust gate --report society/receipts/TRUST_GATE_pre.json
 
       - name: Hard benches (noisy on fail)
         id: benches
@@ -75,10 +75,8 @@ jobs:
           ok = bool(latest.get("ok_all"))
           print(json.dumps({"ok_all": ok, "aggregate_score": latest.get("aggregate_score")}, indent=2))
           if not ok:
-              print("::error::HARD BENCH FAIL ok_all=false — failure is noisy; continuing to record witness")
-              # Non-zero only when AUTOFAIL=1 (operator opt-in)
-              if os.environ.get("AUTOFAIL") == "1":
-                  sys.exit(2)
+              print("::error::HARD BENCH FAIL ok_all=false — mandatory; failing the job (trust loop 2026-10-11)")
+              sys.exit(2)
           else:
               # success quiet
               print("benches ok (quiet)")
@@ -103,6 +101,20 @@ jobs:
           python -m colony "${ARGS[@]}"
           python -m colony dashboard || true
           python -m colony status > society/CI_STATUS.json || true
+
+      - name: Trust gate — post-evolve (benches + rollback journal + manifest; FATAL before authorize/commit)
+        run: |
+          set -euo pipefail
+          export PYTHONPATH=.
+          python -m colony.trust gate --skip-tests --report society/receipts/TRUST_GATE_post.json
+
+      - name: Preserve trust-gate reports (also on failure)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: trust-gate-reports
+          path: society/receipts/TRUST_GATE_*.json
+          if-no-files-found: warn
 
       - name: Selective authorize (standing trust P≥0.70 — never accept-all)
         if: ${{ github.event.inputs.authorize != 'false' }}
@@ -160,6 +172,12 @@ jobs:
               is_keep = ("keep" in tags and ("hard_enable" in tags or meta.get("mutation_kind") == "hard_enable"))
               is_multihop = "multihop" in tags and "bus_driven" in tags
               is_lemma_keep = meta.get("kind") == "lemma_mutation" and meta.get("decision") == "keep"
+              if is_lemma_keep:
+                  # Trust loop: a claimed keep must match a real Oracle PASS row (no fabricated metrics)
+                  from colony.trust.provenance import finding_oracle_backed
+                  if not finding_oracle_backed(f)["ok"]:
+                      print(f"::warning::provenance: {f.id} claims keep without a matching Oracle PASS row; left candidate")
+                      continue  # never authorize; stays candidate (UNKNOWN stays UNKNOWN)
               if is_keep or is_multihop or is_lemma_keep:
                   if "easy_pad" in tags or "not_discovery" not in tags and "easy_pad" in title:
                       rejected.append(AuthorizeItem(f.id, "rejected", "Standing trust: easy_pad / non-machine path rejected. Selective."))

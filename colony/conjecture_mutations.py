@@ -154,6 +154,9 @@ def apply_mutation(src: str, name: str, kind: str, snippet: str) -> str | None:
 
 def recent_revert_counts(limit: int = 30) -> dict[str, int]:
     out: dict[str, int] = {}
+    from colony.trust.flags import learning_enabled
+    if not learning_enabled():
+        return out  # ablation: no outcome memory
     if not HISTORY.exists():
         return out
     for ln in HISTORY.read_text(encoding="utf-8").splitlines()[-limit:]:
