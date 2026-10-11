@@ -170,7 +170,11 @@ Read the full diff 9304f97..HEAD and the test/evidence artifacts after the exper
 5. `self_rejected` also covers diff-scope kills, so harness "challenger_blocked" counts include them. Not an issue in measured runs (desk mutations are single flips); disclosed.
 6. The provenance check depends on desk findings carrying `meta.mutation` + `meta.cycle_id` (they do since this desk version); older findings without them stay candidate.
 7. Fixed-seed determinism verified: L1C1 dev results were identical across dev_v0/s1/s1s2, as expected when S1/S2 do not change Challenger-on outcomes.
-Rerun from a clean checkout: see "Clean-checkout verification" below.
+### Clean-checkout verification
+Fresh clone of the branch at `dcec0b9`: `pytest tests` → **206 passed**, 0 files changed;
+`python -m colony.trust gate` → exit 0, all 6 checks true (`clean_checkout_gate.json`);
+`python -m colony evolve --cycles 1 --offline` → exit 0 (desk kept an authored check, labelled coverage);
+post-evolve `gate --skip-tests` → exit 0.
 
 ## Reproduce
 ```bash
@@ -192,4 +196,14 @@ claims) before any fix for the stepped-range escape; then fix Challenger/S1 step
 and evaluate once on holdout_v2.
 
 ## Rollback
-See the main-branch section appended below (exact commit range).
+Landed on `main` (authorized by James, 10:20 AM ET) as a fast-forward of 12 commits on top of
+`9304f97`: first `d3d36ba`, last = the commit that adds this section (its sha is in the landing report /
+`git log --grep "rollback range"`). No history rewrite, no force-push.
+
+- Revert everything (newest first, one revert commit per landed commit):
+  `git revert --no-edit 9304f97..<last-trust-loop-sha>`
+- Revert only the CI gate change (keep code + evidence): `git revert --no-edit cb97d76` touches
+  code too, so instead restore the old workflow file:
+  `git checkout 9304f97 -- .github/workflows/colony-evolve.yml && git commit -m "revert trust gate in CI"`
+- Revert only the spark (S1+S2): `git revert --no-edit 4b45123`
+- Bot commits (agent-colony-bot) landing after this range are independent and need not be reverted.
