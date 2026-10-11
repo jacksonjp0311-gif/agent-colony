@@ -1,0 +1,34 @@
+{
+  "ok": false,
+  "when": "2026-10-11T10:21:53-0400",
+  "checks": [
+    {
+      "check": "ablation_switches_off",
+      "ok": false,
+      "active": [
+        "COLONY_CHALLENGER=0"
+      ]
+    },
+    {
+      "check": "hard_benches_ok_all",
+      "ok": true,
+      "returncode": 0,
+      "aggregate_score": 0.9038,
+      "failing": []
+    },
+    {
+      "check": "no_pending_interrupted_mutation",
+      "ok": true,
+      "hint": "run `python -m colony.trust recover` to roll back the unjudged mutation"
+    },
+    {
+      "check": "holdout_manifest_intact",
+      "ok": true,
+      "files": 6,
+      "mismatch": []
+    }
+  ],
+  "failed": [
+    "ablation_switches_off"
+  ]
+}

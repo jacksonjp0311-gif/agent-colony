@@ -1,0 +1,6 @@
+1 clean: rc=0
+2 failing hard check injected: rc=1
+3 evaluator tampered: rc=1
+4 ablation switch set: rc=1
+5 interrupted-run journal pending: rc=1
+6 recovered: rc=0

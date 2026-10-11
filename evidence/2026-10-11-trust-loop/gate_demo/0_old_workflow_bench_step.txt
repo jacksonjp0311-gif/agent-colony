@@ -1,0 +1,6 @@
+{
+  "ok_all": false,
+  "aggregate_score": 0.1
+}
+::error::HARD BENCH FAIL ok_all=false — failure is noisy; continuing to record witness
+old step (verbatim logic from 9304f97) exit code with ok_all=false and AUTOFAIL unset: 0

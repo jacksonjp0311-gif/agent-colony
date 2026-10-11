@@ -91,7 +91,7 @@ def run_gate(*, skip_tests: bool = False, python: str = sys.executable) -> dict[
         hint="run `python -m colony.trust recover` to roll back the unjudged mutation")
 
     m = manifest_check()
-    add("holdout_manifest_intact", m["ok"], **m)
+    add("holdout_manifest_intact", m["ok"], **{k: v for k, v in m.items() if k != "ok"})
 
     ok = all(c["ok"] for c in checks)
     return {"ok": ok, "when": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "checks": checks,

@@ -209,3 +209,17 @@ def test_fabricated_keep_is_not_oracle_backed(tmp_path):
     assert oracle_backed("killed_m", "c1", log=log)["ok"] is False
     assert oracle_backed("fabricated_m", "c9", log=log)["ok"] is False
     assert oracle_backed("real_m", "c2", log=log)["ok"] is False  # right name, wrong cycle
+
+
+def test_gate_entry_point_runs_and_reports(monkeypatch):
+    """The CI entry point itself (skip the nested pytest run to avoid recursion)."""
+    monkeypatch.delenv("COLONY_LEARNING", raising=False)
+    monkeypatch.delenv("COLONY_CHALLENGER", raising=False)
+    from colony.trust.gate import run_gate
+    rep = run_gate(skip_tests=True)
+    names = {c["check"] for c in rep["checks"]}
+    assert {"ablation_switches_off", "hard_benches_ok_all", "no_pending_interrupted_mutation",
+            "holdout_manifest_intact"} <= names
+    assert rep["ok"] is True, rep["failed"]
+    monkeypatch.setenv("COLONY_LEARNING", "0")
+    assert run_gate(skip_tests=True)["ok"] is False
