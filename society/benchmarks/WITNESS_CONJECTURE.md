@@ -1,9 +1,9 @@
-# Conjecture desk witness — 2026-10-11T13:13:35Z
+# Conjecture desk witness — 2026-10-11T14:34:48Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.9071→0.9071 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'stem_easy_pad_units', 'vandermonde_asymmetric']. Authored new disabled checks: ['authored_pascal_identity__stirling_second_row_w1'].
-  - themes: AI Safety via Debate, CSF: Contextual Safety Filtering for Motion Generators, A Balanced Data Diet: Addressing the Exploration Bottleneck 
+- `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable) → **keep** 0.9071→0.9071 (+0.0000) — Kept `authored_sum_first_n_odds__sum_first_n_cubes_w1` (hard_enable): lemma score 0.9071→0.9071 checks 81→82 hard_pass 71→72 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 71->72 with lemma score flat 0.9071->0.9071; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=False kills=['textbook_reuse=0.6667']
+  - themes: Bi-FORK: Generative Modeling of High-Dimensional Bifurcating, The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty
 

@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_c4032bdb2b03",
-      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__binomial_inversion_small_w1"
+      "finding_id": "fnd_f49c0f81e6b0",
+      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__catalan_bounded_w1"
     },
     {
       "topic": "open-math-problems",
@@ -41,6 +41,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$s$-catalan",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "'multi-hop",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "<https://doi.org/10.1007/s00026-026-00819-9>",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "<https://doi.org/10.1007/s00373-025-03000-w>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-11T13:13:40Z",
-  "updated_cycle": "20261011T131324Z_b3a4a1",
+  "updated_at": "2026-10-11T14:34:57Z",
+  "updated_cycle": "20261011T143439Z_b47d55",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
