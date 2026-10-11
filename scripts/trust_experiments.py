@@ -218,6 +218,7 @@ def main() -> int:
     ap.add_argument("--jobs", type=int, default=6)
     ap.add_argument("--out", default="")
     ap.add_argument("--label", default="")
+    ap.add_argument("--baseline-ref", default="", help="holdout only: also run this git ref's code in the SAME exposure")
     a = ap.parse_args()
     if not manifest_ok():
         print("INTEGRITY: evaluation/MANIFEST.sha256 mismatch — refusing to run", file=sys.stderr)
@@ -238,16 +239,30 @@ def main() -> int:
                 print(f"NOTE: holdout_v1 already exposed {len(prior)}x; this run is a RE-EXPOSURE "
                       "(results must be reported as reused data, not unseen)", file=sys.stderr)
         rows = ablation(pool, a.cycles, arms, seeds, a.jobs)
+        base_rows: list[dict] = []
+        if a.cmd == "holdout" and a.baseline_ref:
+            wt = Path("/tmp/trust_ws/baseline_ref")
+            if wt.exists():
+                subprocess.run(["git", "worktree", "remove", "--force", str(wt)], cwd=ROOT)
+            subprocess.run(["git", "worktree", "add", "--detach", str(wt), a.baseline_ref], cwd=ROOT, check=True,
+                           capture_output=True)
+            base_rows = ablation(pool, a.cycles, arms, seeds, a.jobs, code_root=wt)
+            for r in base_rows:
+                r["arm"] = "BASE_" + r["arm"]
+            subprocess.run(["git", "worktree", "remove", "--force", str(wt)], cwd=ROOT)
+        rows = rows + base_rows
         res = {"pool": pool, "arms": arms, "seeds": seeds, "cycles": a.cycles, "label": a.label,
                "summary": summarize(rows),
                "paired": [paired(rows, "L1C1", "L0C1", k) for k in ("n_verified", "repeated_failures", "distinct_candidates_tried")]
-               + [paired(rows, "L1C1", "L1C0", k) for k in ("n_verified", "n_harmful_kept")],
+               + [paired(rows, "L1C1", "L1C0", k) for k in ("n_verified", "n_harmful_kept")]
+               + ([paired(rows, x, "BASE_" + x, k) for x in arms for k in ("n_verified", "n_harmful_kept", "repeated_failures")]
+                  if any(r["arm"].startswith("BASE_") for r in rows) else []),
                "runs": rows}
         if a.cmd == "holdout":
             with (ROOT / "evaluation" / "EXPOSURES.jsonl").open("a") as f:
                 f.write(json.dumps({"ts": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "pool": pool, "label": a.label,
                                     "code_sha": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip(),
-                                    "arms": arms, "seeds": seeds}) + "\n")
+                                    "arms": arms, "seeds": seeds, "baseline_ref": a.baseline_ref}) + "\n")
     res["elapsed_s"] = round(time.time() - t0, 1)
     if not manifest_ok():
         res["integrity"] = "MANIFEST_CHANGED_DURING_RUN"
