@@ -300,82 +300,85 @@
     "cycle_248_evolve_note",
     "cycle_249_evolve_note",
     "cycle_250_evolve_note",
-    "cycle_251_evolve_note"
+    "cycle_251_evolve_note",
+    "cycle_252_evolve_note",
+    "cycle_253_evolve_note",
+    "cycle_254_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 703,
+      "uses": 712,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 675,
+      "uses": 684,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 471,
+      "uses": 477,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 235,
+      "uses": 238,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 897,
+      "uses": 909,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 551,
+      "uses": 555,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 670,
+      "uses": 679,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 223,
+      "uses": 226,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 223,
+      "uses": 226,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 208,
+      "uses": 211,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 208,
+      "uses": 211,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 205,
+      "uses": 208,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 205,
+      "uses": 208,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 202,
+      "uses": 205,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 202,
+      "uses": 205,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -650,8 +653,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 896,
-    "reused": 2011
+    "appended": 908,
+    "reused": 2038
   },
   "commons_by_domain": {
     "science": 0,
@@ -670,8 +673,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-11T06:07:48Z",
-    "cycle_id": "20261011T060714Z_e7745f",
+    "ts": "2026-10-11T13:13:57Z",
+    "cycle_id": "20261011T131324Z_b3a4a1",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -683,23 +686,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-11T06:07:47Z",
-    "cycle_id": "20261011T060714Z_e7745f",
-    "tribute_quality": 1.0,
+    "ts": "2026-10-11T13:13:56Z",
+    "cycle_id": "20261011T131324Z_b3a4a1",
+    "tribute_quality": 0.9,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8133,
-    "compute_usefulness": 0.9126,
+    "math_prize": 0.8135,
+    "compute_usefulness": 0.9129,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8854,
-    "kill_rate": 0.3971,
-    "kill_rate_term": 0.9074,
+    "prize_boost": 0.8856,
+    "kill_rate": 0.3961,
+    "kill_rate_term": 0.9065,
     "novelty": 0.5,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8454,
+    "aggregate": 0.8318,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -707,33 +710,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 12664,
-    "read": 60108,
-    "replied": 7972,
-    "actions_planned": 4134,
-    "actions_changed_from_message": 4134,
-    "reply_quality_sum": 7221.899999999355,
-    "reply_quality_n": 7920,
-    "peer_cite_opportunities": 8144,
-    "peer_cites": 8144
+    "posted": 12830,
+    "read": 60918,
+    "replied": 8077,
+    "actions_planned": 4188,
+    "actions_changed_from_message": 4188,
+    "reply_quality_sum": 7317.599999999329,
+    "reply_quality_n": 8025,
+    "peer_cite_opportunities": 8252,
+    "peer_cites": 8252
   },
   "bus_domains": {
-    "science": 665,
-    "history": 667,
-    "math": 2010,
-    "empire": 447,
-    "bulletin": 1805,
-    "forum": 2888,
-    "software": 667,
-    "nature": 665,
-    "life": 667,
-    "cosmos": 956,
-    "rsi": 1119
+    "science": 674,
+    "history": 676,
+    "math": 2037,
+    "empire": 453,
+    "bulletin": 1826,
+    "forum": 2927,
+    "software": 676,
+    "nature": 674,
+    "life": 676,
+    "cosmos": 969,
+    "rsi": 1134
   },
-  "communications_count": 12664,
+  "communications_count": 12830,
   "improvements": [
-    "Chain `authored_sum_first_n_cubes__stirling_second_row_w1` citing $p$-class groups in the cyclotomic $\\mathbb{Z}_p$- (cycle 201)",
-    "Chain `authored_sum_first_n_odds__vandermonde_conv_w1` citing Local newforms, Pa\u0161k\u016bnas-Stevens Whittaker functio",
     "Chain `authored_sum_first_n_odds__vandermonde_conv_w1` citing Local newforms, Pa\u0161k\u016bnas-Stevens Whittaker functio (cycle 203)",
     "Chain `authored_bell_triangle_recurrence__hermite_recurrence_w1` citing Polynomial expressions for the dimensions of the r",
     "Chain `authored_bell_triangle_recurrence__hermite_recurrence_w1` citing Polynomial expressions for the dimensions of the r (cycle 205)",
@@ -781,18 +782,20 @@
     "Chain `authored_gcd_fibonacci__narayana_sum_w1` citing Balanced Fibonacci word rectangles, and beyond",
     "Chain `authored_gcd_fibonacci__narayana_sum_w1` citing Balanced Fibonacci word rectangles, and beyond (cycle 249)",
     "Chain `authored_geometric_sum__pell_companion_w1` citing Cofactor Dynamics and Pell Equations in GCD-Augmen",
-    "Chain `authored_geometric_sum__pell_companion_w1` citing Cofactor Dynamics and Pell Equations in GCD-Augmen (cycle 251)"
+    "Chain `authored_geometric_sum__pell_companion_w1` citing Cofactor Dynamics and Pell Equations in GCD-Augmen (cycle 251)",
+    "Chain `authored_hockey_stick__pythagorean_generation_w1` citing Pythagorean Fuzzy Topological Polygroups",
+    "Chain `authored_hockey_stick__pythagorean_generation_w1` citing Pythagorean Fuzzy Topological Polygroups (cycle 253)"
   ],
-  "cycle_count": 251,
-  "ledger_count": 13633,
+  "cycle_count": 254,
+  "ledger_count": 13809,
   "status_counts": {
-    "candidate": 13107,
-    "accepted": 150,
-    "rejected": 252,
+    "candidate": 13278,
+    "accepted": 153,
+    "rejected": 254,
     "unknown": 124
   },
-  "witness_events": 19552,
-  "tribute_cycles_compliant": 251,
+  "witness_events": 19817,
+  "tribute_cycles_compliant": 254,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_ceb477fedfbe",
-      "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_odds__stirling_second_row_w1"
+      "finding_id": "fnd_c4032bdb2b03",
+      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__binomial_inversion_small_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-11T06:07:31Z",
-  "updated_cycle": "20261011T060714Z_e7745f",
+  "updated_at": "2026-10-11T13:13:40Z",
+  "updated_cycle": "20261011T131324Z_b3a4a1",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
