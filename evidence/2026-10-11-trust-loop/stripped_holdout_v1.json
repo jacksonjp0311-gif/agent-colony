@@ -1,0 +1,42 @@
+{
+ "pool": "holdout_v1",
+ "rule": "bench_only_keep_if_in_window_green",
+ "bench_green": {
+  "pool_h01_fib_prefix_sum": true,
+  "pool_h02_catalan_ballot": true,
+  "pool_h03_wilson": true,
+  "pool_h04_fib_divides_triple": true,
+  "pool_h05_derangement_rec": true,
+  "pool_h06_2n2_29_prime": true,
+  "pool_h07_pow2_mod_n_ne3": true,
+  "pool_h08_n2_n_17_prime": true,
+  "pool_h09_odd_composite_3_5": true,
+  "pool_h10_fib_square_sum": true,
+  "pool_h11_shift_square_diff": true,
+  "pool_h12_self_minus_self": true
+ },
+ "n_candidates": 12,
+ "n_sound_useful": 6,
+ "verified": [
+  "pool_h01_fib_prefix_sum",
+  "pool_h02_catalan_ballot",
+  "pool_h03_wilson",
+  "pool_h04_fib_divides_triple",
+  "pool_h05_derangement_rec",
+  "pool_h10_fib_square_sum"
+ ],
+ "harmful_kept": [
+  "pool_h06_2n2_29_prime",
+  "pool_h07_pow2_mod_n_ne3",
+  "pool_h08_n2_n_17_prime",
+  "pool_h09_odd_composite_3_5"
+ ],
+ "coverage_only_kept": [
+  "pool_h11_shift_square_diff",
+  "pool_h12_self_minus_self"
+ ],
+ "sound_not_kept": [],
+ "n_verified": 6,
+ "n_harmful_kept": 4,
+ "elapsed_s": 1.1
+}

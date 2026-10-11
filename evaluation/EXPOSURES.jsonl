@@ -1,0 +1,1 @@
+{"ts": "2026-10-11T10:29:59-0400", "pool": "holdout_v1", "label": "final_frozen", "code_sha": "31942ed25a035e8eaeb05678076ca8994359917d", "arms": ["L1C1", "L0C1", "L1C0", "L0C0"], "seeds": [11, 23, 37, 41, 53], "baseline_ref": "cb97d76"}
