@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T21:55:22Z",
-  "hits": 14,
-  "kills": 16,
+  "updated_at": "2026-10-11T06:07:26Z",
+  "hits": 15,
+  "kills": 15,
   "latest": {
-    "ts": "2026-10-10T21:55:22Z",
-    "cycle_id": "20261010T215514Z_c46a69",
-    "mutation": "authored_fibonacci_addition__motzkin_bounded_w1",
+    "ts": "2026-10-11T06:07:26Z",
+    "cycle_id": "20261011T060714Z_e7745f",
+    "mutation": "authored_geometric_sum__pell_companion_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -17,16 +17,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 67,
-      "hard_n": 67,
+      "hard_pass": 69,
+      "hard_n": 69,
       "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard67"
+      "impl_id": "lemma_impl_v2_basic10_hard68"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 67,
+      "hard_pass": 69,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

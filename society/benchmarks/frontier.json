@@ -1023,7 +1023,16 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T13:38:46Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-11T06:06:17Z",
+      "runs": 1,
+      "result": {
+        "outcome": "no_low_order_recurrence",
+        "order": null,
+        "coeffs": null,
+        "unused_verified": 0,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A182172",
@@ -1273,7 +1282,16 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T22:47:29Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-11T06:07:27Z",
+      "runs": 1,
+      "result": {
+        "outcome": "no_low_order_recurrence",
+        "order": null,
+        "coeffs": null,
+        "unused_verified": 0,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A022493",
@@ -1400,7 +1418,16 @@
       "label": "bounded evidence, not proof",
       "proof": false,
       "discovered": "2026-10-09T22:47:29Z",
-      "note": "Integer terms only; OEIS formula text is never parsed or executed."
+      "note": "Integer terms only; OEIS formula text is never parsed or executed.",
+      "last_run": "2026-10-11T06:06:52Z",
+      "runs": 1,
+      "result": {
+        "outcome": "no_low_order_recurrence",
+        "order": null,
+        "coeffs": null,
+        "unused_verified": 0,
+        "label": "bounded evidence, not proof"
+      }
     },
     {
       "id": "oeis_A108954",
@@ -2019,5 +2046,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-10T21:55:55Z"
+  "updated_at": "2026-10-11T06:07:27Z"
 }

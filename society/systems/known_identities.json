@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-10T21:55:22Z",
-  "n": 168,
+  "updated_at": "2026-10-11T06:07:26Z",
+  "n": 170,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -26,8 +26,10 @@
     "authored_fibonacci_addition__gcd_fibonacci_w1",
     "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
+    "authored_gcd_fibonacci__narayana_sum_w1",
     "authored_geometric_sum__hockey_stick_w1",
     "authored_geometric_sum__narayana_sum_w1",
+    "authored_geometric_sum__pell_companion_w1",
     "authored_hockey_stick__pell_companion_w1",
     "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_oeis_a000045__cassini",
