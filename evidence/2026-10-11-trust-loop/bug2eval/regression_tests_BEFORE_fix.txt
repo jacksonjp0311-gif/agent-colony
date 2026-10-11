@@ -1,0 +1,25 @@
+__________________ test_delta_cannot_override_failed_held_out __________________
+    def test_delta_cannot_override_failed_held_out():
+tests/test_trust_gates.py:23: AssertionError
+E       TypeError: sense() got an unexpected keyword argument 'before_src'
+tests/test_trust_gates.py:31: TypeError
+E       TypeError: sense() got an unexpected keyword argument 'before_src'
+tests/test_trust_gates.py:41: TypeError
+E       AssertionError: bench failure must be fatal without an operator opt-in
+tests/test_trust_gates.py:61: AssertionError
+tests/test_trust_gates.py:69: AssertionError
+E       ModuleNotFoundError: No module named 'colony.trust'
+tests/test_trust_gates.py:80: ModuleNotFoundError
+E       ModuleNotFoundError: No module named 'colony.trust'
+tests/test_trust_gates.py:90: ModuleNotFoundError
+E       ModuleNotFoundError: No module named 'colony.trust'
+tests/test_trust_gates.py:98: ModuleNotFoundError
+FAILED tests/test_trust_gates.py::test_delta_cannot_override_failed_held_out
+FAILED tests/test_trust_gates.py::test_delta_cannot_override_stripped_when_already_enabled_before
+FAILED tests/test_trust_gates.py::test_delta_still_counts_as_usefulness_when_honest
+FAILED tests/test_trust_gates.py::test_workflow_bench_failure_not_opt_in - As...
+FAILED tests/test_trust_gates.py::test_workflow_runs_trust_gate_before_and_after_evolve
+FAILED tests/test_trust_gates.py::test_check_growth_without_score_rise_is_coverage
+FAILED tests/test_trust_gates.py::test_no_promotion_without_oracle - ModuleNo...
+FAILED tests/test_trust_gates.py::test_desk_cannot_assign_capability - Module...
+8 failed in 0.13s
