@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-12T06:17:26Z",
-  "n": 176,
+  "updated_at": "2026-10-12T15:51:45Z",
+  "n": 177,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -20,6 +20,7 @@
     "authored_binomial_symmetry__vandermonde_conv_w1",
     "authored_cassini__binomial_inversion_small_w1",
     "authored_cassini__catalan_convolution_w1",
+    "authored_catalan_bounded__catalan_convolution_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
     "authored_central_binom_bound__derangement_subfactorial_w1",
     "authored_central_binom_bound__euler_totient_multiplicative_w1",

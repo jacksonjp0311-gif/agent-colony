@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_b32e1e5a5939",
-      "title": "Authorize accepted: Lemma mutation keep: authored_derangement_subfactorial__hermite_recurrence_w1"
+      "finding_id": "fnd_f504c2db5fb0",
+      "title": "Authorize accepted: Lemma mutation keep: authored_gcd_fibonacci__narayana_sum_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-12T06:17:34Z",
-  "updated_cycle": "20261012T061717Z_7d357f",
+  "updated_at": "2026-10-12T15:52:29Z",
+  "updated_cycle": "20261012T155213Z_d811fb",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

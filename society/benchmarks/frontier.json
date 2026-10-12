@@ -119,11 +119,11 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 14000,
+        "hi": 30000,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
-      "window": 16000,
+      "window": 32000,
       "min_window": 200,
       "max_window": 50000,
       "budget_s": 2.5,
@@ -131,8 +131,8 @@
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-11T22:13:09Z",
-      "runs": 3,
+      "last_run": "2026-10-12T15:51:07Z",
+      "runs": 4,
       "extensions": [
         {
           "ts": "2026-10-09T06:32:12Z",
@@ -151,10 +151,16 @@
           "lo": 6001,
           "hi": 14000,
           "seconds": 0.2248
+        },
+        {
+          "ts": "2026-10-12T15:51:07Z",
+          "lo": 14001,
+          "hi": 30000,
+          "seconds": 0.4985
         }
       ],
       "last_data": {
-        "max_first_prime_offset": 130
+        "max_first_prime_offset": 163
       },
       "stall_streak": 0
     },
@@ -166,7 +172,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 1400001,
+        "hi": 2200001,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -178,8 +184,8 @@
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-11T22:13:53Z",
-      "runs": 3,
+      "last_run": "2026-10-12T15:51:45Z",
+      "runs": 4,
       "extensions": [
         {
           "ts": "2026-10-09T06:32:50Z",
@@ -198,6 +204,12 @@
           "lo": 600002,
           "hi": 1400001,
           "seconds": 0.9517
+        },
+        {
+          "ts": "2026-10-12T15:51:45Z",
+          "lo": 1400002,
+          "hi": 2200001,
+          "seconds": 0.9694
         }
       ],
       "stall_streak": 0
@@ -263,13 +275,13 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 1400000,
+        "hi": 3000000,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi2": 10952,
-        "hl_ratio": 0.995478
+        "pi2": 20932,
+        "hl_ratio": 0.996043
       },
-      "window": 1600000,
+      "window": 3200000,
       "min_window": 20000,
       "max_window": 4000000,
       "budget_s": 2.5,
@@ -277,8 +289,8 @@
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-11T22:14:33Z",
-      "runs": 3,
+      "last_run": "2026-10-12T15:52:23Z",
+      "runs": 4,
       "extensions": [
         {
           "ts": "2026-10-09T07:54:53Z",
@@ -297,14 +309,20 @@
           "lo": 600001,
           "hi": 1400000,
           "seconds": 0.0662
+        },
+        {
+          "ts": "2026-10-12T15:52:23Z",
+          "lo": 1400001,
+          "hi": 3000000,
+          "seconds": 0.1134
         }
       ],
       "last_data": {
-        "x": 1400000,
-        "pi2": 10952,
-        "segment_pairs": 5621,
-        "hl_estimate": 11001.75,
-        "ratio": 0.995478
+        "x": 3000000,
+        "pi2": 20932,
+        "segment_pairs": 9980,
+        "hl_estimate": 21015.16,
+        "ratio": 0.996043
       },
       "stall_streak": 0
     },
@@ -2118,5 +2136,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-12T06:17:28Z"
+  "updated_at": "2026-10-12T15:52:23Z"
 }

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T06:17:27Z",
-  "hits": 16,
-  "kills": 14,
+  "updated_at": "2026-10-12T15:51:45Z",
+  "hits": 17,
+  "kills": 13,
   "latest": {
-    "ts": "2026-10-12T06:17:27Z",
-    "cycle_id": "20261012T061717Z_7d357f",
-    "mutation": "authored_cassini__binomial_inversion_small_w1",
+    "ts": "2026-10-12T15:51:45Z",
+    "cycle_id": "20261012T155135Z_151876",
+    "mutation": "authored_catalan_bounded__catalan_convolution_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -17,16 +17,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 75,
-      "hard_n": 75,
+      "hard_pass": 76,
+      "hard_n": 76,
       "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard74"
+      "impl_id": "lemma_impl_v2_basic10_hard76"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 75,
+      "hard_pass": 76,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
