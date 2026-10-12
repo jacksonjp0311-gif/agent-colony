@@ -1,0 +1,410 @@
+{
+  "ts": "2026-10-12T06:17:52Z",
+  "version": 2,
+  "mile": "spark3-port",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 2,
+      "items": [
+        {
+          "title": "Can Language Models Play the Wikipedia Game?",
+          "id": "http://arxiv.org/abs/2610.13948v1",
+          "published": "2026-10-09T17:59:56Z",
+          "summary": "Language models increasingly support or automate information retrieval from document collections too large to index. This task is difficult when it requires specialist linguistic or scientific knowledge. We used the Wikipedia Game to test language models on an analogous informati",
+          "source": "arxiv"
+        },
+        {
+          "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
+          "id": "http://arxiv.org/abs/2610.13935v1",
+          "published": "",
+          "summary": "",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-10-12T06:17:34Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": true,
+      "note": "ok_text",
+      "count": 1,
+      "items": [
+        {
+          "raw_snip": "<!DOCTYPE html><html><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width\"/><title>CCMC Announcements | NASA CCMC</title><meta name=\"description\" content=\"NASA&#x27;s Community Coordinated Modeling Center (CCMC) provides free access to space weather models, simulation runs-on-request, real-time space weather predictions, visualization tools, and model validation for the r",
+          "source": "nasa_donki"
+        }
+      ],
+      "ts": "2026-10-12T06:17:35Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "deprecated": true,
+      "quarantined": true,
+      "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-10-12T06:17:35Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": true,
+      "note": "NYC:ok; London:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; Tokyo:ok; Sydney:ok",
+      "count": 3,
+      "items": [
+        {
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 11.7,
+          "wind_speed_10m": 14.6,
+          "weather_code": 2,
+          "time": "2026-10-12T06:15",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "temperature_2m": 24.5,
+          "wind_speed_10m": 7.9,
+          "weather_code": 0,
+          "time": "2026-10-12T06:15",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "temperature_2m": 30.4,
+          "wind_speed_10m": 4.4,
+          "weather_code": 3,
+          "time": "2026-10-12T06:15",
+          "source": "open_meteo"
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-12T06:17:51Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.165824247731113,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-10-12T06:12:00Z",
+          "v": -8.290166463365711
+        },
+        {
+          "t": "2026-10-12T06:12:00Z",
+          "v": -6.158278315469578
+        },
+        {
+          "t": "2026-10-12T06:13:00Z",
+          "v": -8.347129771384106
+        },
+        {
+          "t": "2026-10-12T06:13:00Z",
+          "v": -6.163583611103364
+        },
+        {
+          "t": "2026-10-12T06:14:00Z",
+          "v": -8.511678335731034
+        },
+        {
+          "t": "2026-10-12T06:14:00Z",
+          "v": -6.164172085052256
+        },
+        {
+          "t": "2026-10-12T06:15:00Z",
+          "v": -8.369614864826287
+        },
+        {
+          "t": "2026-10-12T06:15:00Z",
+          "v": -6.165824247731113
+        }
+      ],
+      "live": true,
+      "ts": "2026-10-12T06:17:51Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "ok",
+      "count": 48,
+      "latest": 16.4,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-10-11T00:00",
+          "v": 16.0
+        },
+        {
+          "t": "2026-10-11T01:00",
+          "v": 15.5
+        },
+        {
+          "t": "2026-10-11T02:00",
+          "v": 14.9
+        },
+        {
+          "t": "2026-10-11T03:00",
+          "v": 14.6
+        },
+        {
+          "t": "2026-10-11T04:00",
+          "v": 14.2
+        },
+        {
+          "t": "2026-10-11T05:00",
+          "v": 13.8
+        },
+        {
+          "t": "2026-10-11T06:00",
+          "v": 13.8
+        },
+        {
+          "t": "2026-10-11T07:00",
+          "v": 13.7
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-12T06:17:52Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 4.5,
+      "items": [
+        {
+          "mag": 4.5,
+          "place": "103 km SSW of La Libertad, El Salvador",
+          "time": 1791760835800,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "0 km NE of Leones Arriba, Panama",
+          "time": 1791758424458,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "18 km WSW of Río Grande, Panama",
+          "time": 1791757536642,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.5,
+          "place": "116 km SE of Nabire, Indonesia",
+          "time": 1791756445771,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.3,
+          "place": "150 km W of Gorontalo, Indonesia",
+          "time": 1791754493822,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.3,
+          "place": "61 km WNW of San Antonio de los Cobres, Argentina",
+          "time": 1791754388230,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.52,
+          "place": "34 km WNW of Desert Center, CA",
+          "time": 1791754093930,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.5,
+          "place": "27 km W of Río Grande, Panama",
+          "time": 1791753560354,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-05&endtime=2026-10-12&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-12T06:17:52Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.25537109375,
+          "disk_free_percent": 59.47500108684258,
+          "process_count": 148,
+          "uptime_hours": 0.14145833333333332,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "node": "runnervmmprz5",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.25537109375,
+      "live": true,
+      "ts": "2026-10-12T06:17:52Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 10.903358999996726,
+      "mean_ms": 8.87737974997549,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 8.535082999969745
+        },
+        {
+          "probe": 1,
+          "ms": 8.132405999958792
+        },
+        {
+          "probe": 2,
+          "ms": 7.938670999976694
+        },
+        {
+          "probe": 3,
+          "ms": 10.903358999996726
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-10-12T06:17:52Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": true,
+      "note": "ok",
+      "count": 48
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "publications_x_space",
+      "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Can Language Models Play the Wikipedia Game?', 'Hide and Seek: HIDE Concepts to SEEK explanations for black box models']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+      "signals": {
+        "arxiv_n": 2,
+        "kp": null,
+        "titles": [
+          "Can Language Models Play the Wikipedia Game?",
+          "Hide and Seek: HIDE Concepts to SEEK explanations for black box models"
+        ]
+      },
+      "domains": [
+        "math",
+        "cosmos",
+        "hearing",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "global_weather_spread",
+      "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 11.7), ('Tokyo', 24.5), ('Sydney', 30.4)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "signals": {
+        "cities": [
+          [
+            "NYC",
+            11.7
+          ],
+          [
+            "Tokyo",
+            24.5
+          ],
+          [
+            "Sydney",
+            30.4
+          ]
+        ],
+        "kp": null
+      },
+      "domains": [
+        "nature",
+        "commons",
+        "government"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-6.165824247731113. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -6.165824247731113
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.25537109375 probe_ms=8.87737974997549. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.25537109375,
+        "probe_ms": 8.87737974997549
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}

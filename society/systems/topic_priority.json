@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_d2dbef7d46bc",
-      "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__euler_totient_multiplicative_w1"
+      "finding_id": "fnd_b32e1e5a5939",
+      "title": "Authorize accepted: Lemma mutation keep: authored_derangement_subfactorial__hermite_recurrence_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-11T22:14:40Z",
-  "updated_cycle": "20261011T221421Z_65d3af",
+  "updated_at": "2026-10-12T06:17:34Z",
+  "updated_cycle": "20261012T061717Z_7d357f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

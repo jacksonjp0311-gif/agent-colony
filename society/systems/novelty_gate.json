@@ -1,34 +1,32 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T22:13:53Z",
-  "hits": 14,
-  "kills": 16,
+  "updated_at": "2026-10-12T06:17:27Z",
+  "hits": 16,
+  "kills": 14,
   "latest": {
-    "ts": "2026-10-11T22:13:53Z",
-    "cycle_id": "20261011T221338Z_5885ee",
-    "mutation": "authored_binomial_symmetry__vandermonde_conv_w1",
+    "ts": "2026-10-12T06:17:27Z",
+    "cycle_id": "20261012T061717Z_7d357f",
+    "mutation": "authored_cassini__binomial_inversion_small_w1",
     "kind": "hard_enable",
-    "novel_to_commons": false,
-    "kills": [
-      "textbook_reuse=0.6667"
-    ],
-    "textbook_reuse": 0.6667,
+    "novel_to_commons": true,
+    "kills": [],
+    "textbook_reuse": 0.3333,
     "in_ledger": false,
     "own_authoring_record_only": true,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 73,
-      "hard_n": 73,
+      "hard_pass": 75,
+      "hard_n": 75,
       "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard73"
+      "impl_id": "lemma_impl_v2_basic10_hard74"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 73,
+      "hard_pass": 75,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
