@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-13T00:55:16Z",
+  "ts": "2026-10-13T14:29:33Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.23396542482671,
+      "latest": -6.1671404772345255,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-13T00:48:00Z",
-          "v": -8.573168028766434
+          "t": "2026-10-13T14:23:00Z",
+          "v": -9.000000012282687
         },
         {
-          "t": "2026-10-13T00:48:00Z",
-          "v": -6.2317033248877305
+          "t": "2026-10-13T14:23:00Z",
+          "v": -6.162755626479647
         },
         {
-          "t": "2026-10-13T00:49:00Z",
-          "v": -8.585480235144622
+          "t": "2026-10-13T14:24:00Z",
+          "v": -8.75122853811275
         },
         {
-          "t": "2026-10-13T00:49:00Z",
-          "v": -6.234310928336667
+          "t": "2026-10-13T14:24:00Z",
+          "v": -6.166118622270393
         },
         {
-          "t": "2026-10-13T00:50:00Z",
-          "v": -8.613591183380256
+          "t": "2026-10-13T14:25:00Z",
+          "v": -8.910741668606128
         },
         {
-          "t": "2026-10-13T00:50:00Z",
-          "v": -6.2332080402215535
+          "t": "2026-10-13T14:25:00Z",
+          "v": -6.1679327517849565
         },
         {
-          "t": "2026-10-13T00:51:00Z",
-          "v": -8.65185041576673
+          "t": "2026-10-13T14:26:00Z",
+          "v": -8.976199189562877
         },
         {
-          "t": "2026-10-13T00:51:00Z",
-          "v": -6.23396542482671
+          "t": "2026-10-13T14:26:00Z",
+          "v": -6.1671404772345255
         }
       ],
       "live": true,
-      "ts": "2026-10-13T00:55:16Z"
+      "ts": "2026-10-13T14:29:33Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 19.5,
+      "latest": 18.5,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -95,19 +95,31 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-13T00:55:16Z"
+      "ts": "2026-10-13T14:29:33Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
       "ok": true,
       "note": "ok",
       "count": 100,
-      "latest": 4.8,
+      "latest": 4.5,
       "items": [
         {
-          "mag": 4.8,
-          "place": "21 km W of Río Grande, Panama",
-          "time": 1791848206354,
+          "mag": 4.5,
+          "place": "24 km SW of Zapotillo, Panama",
+          "time": 1791848713532,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.1,
+          "place": "274 km WSW of Tual, Indonesia",
+          "time": 1791848632181,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "17 km W of Río Grande, Panama",
+          "time": 1791848206150,
           "source": "usgs"
         },
         {
@@ -118,14 +130,20 @@
         },
         {
           "mag": 3.5,
-          "place": "150 km SE of Chignik, Alaska",
-          "time": 1791847381765,
+          "place": "148 km SE of Chignik, Alaska",
+          "time": 1791847381755,
           "source": "usgs"
         },
         {
           "mag": 6.1,
-          "place": "18 km W of Río Grande, Panama",
-          "time": 1791847236486,
+          "place": "17 km W of Río Grande, Panama",
+          "time": 1791847236003,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.6,
+          "place": "Rat Islands, Aleutian Islands, Alaska",
+          "time": 1791843980226,
           "source": "usgs"
         },
         {
@@ -133,29 +151,11 @@
           "place": "5 km WSW of Calidonia, Panama",
           "time": 1791841734521,
           "source": "usgs"
-        },
-        {
-          "mag": 4.5,
-          "place": "21 km WNW of Río Grande, Panama",
-          "time": 1791841410326,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.8,
-          "place": "25 km W of Río Grande, Panama",
-          "time": 1791835525236,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.8,
-          "place": "237 km W of Ferndale, California",
-          "time": 1791830041393,
-          "source": "usgs"
         }
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-06&endtime=2026-10-13&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-13T00:55:16Z"
+      "ts": "2026-10-13T14:29:33Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.36572265625,
-          "disk_free_percent": 58.86526124257998,
-          "process_count": 151,
-          "uptime_hours": 0.10271388888888888,
+          "load1": 0.35302734375,
+          "disk_free_percent": 58.86472707663885,
+          "process_count": 162,
+          "uptime_hours": 0.06250555555555556,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervmmprz5",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.36572265625,
+      "latest_load1": 0.35302734375,
       "live": true,
-      "ts": "2026-10-13T00:55:16Z"
+      "ts": "2026-10-13T14:29:33Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 1.7058450000035918,
-      "mean_ms": 2.0078272499972627,
+      "latest_ms": 1.7481659999987187,
+      "mean_ms": 1.7076882500006718,
       "items": [
         {
           "probe": 0,
-          "ms": 1.7378639999492407
+          "ms": 1.574903000005179
         },
         {
           "probe": 1,
-          "ms": 2.476574000013443
+          "ms": 1.6267400000060661
         },
         {
           "probe": 2,
-          "ms": 2.1110260000227754
+          "ms": 1.8809439999927235
         },
         {
           "probe": 3,
-          "ms": 1.7058450000035918
+          "ms": 1.7481659999987187
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-13T00:55:16Z"
+      "ts": "2026-10-13T14:29:33Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.36572265625 tcp_probe mean_ms=2.0078272499972627 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.35302734375 tcp_probe mean_ms=1.7076882500006718 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.36572265625,
-        "probe_ms": 2.0078272499972627,
+        "load1": 0.35302734375,
+        "probe_ms": 1.7076882500006718,
         "probe_ok": true
       },
       "domains": [

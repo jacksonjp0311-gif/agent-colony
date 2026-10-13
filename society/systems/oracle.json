@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T00:54:52Z",
-  "passes": 258,
+  "updated_at": "2026-10-13T14:28:27Z",
+  "passes": 259,
   "kills": 164,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3886,
+  "kill_rate": 0.3877,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 37,
-    "kills": 23,
+    "passes": 38,
+    "kills": 22,
     "easy_pad_kills": 11,
-    "kill_rate": 0.3833
+    "kill_rate": 0.3667
   },
   "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
@@ -32,6 +32,7 @@
     "authored_derangement_subfactorial__euler_totient_multiplicative_w1",
     "authored_derangement_subfactorial__hermite_recurrence_w1",
     "authored_fibonacci_addition__euler_totient_multiplicative_w1",
+    "authored_fibonacci_addition__hermite_recurrence_w1",
     "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
     "authored_gcd_fibonacci__narayana_sum_w1",
@@ -59,7 +60,6 @@
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian (cycle 192)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
-    "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 190)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 223)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 225)",
@@ -101,7 +101,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-13T00:54:52Z",
+    "ts": "2026-10-13T14:28:27Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -111,15 +111,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_derangement_subfactorial__euler_totient_multiplicative_w1` kind=hard_enable. lemma mutation authored_derangement_subfactorial__euler_totient_multiplicative_w1 0.9071",
-      "attack": "WEIGH: `authored_derangement_subfactorial__euler_totient_multiplicative_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_fibonacci_addition__hermite_recurrence_w1` kind=hard_enable. lemma mutation authored_fibonacci_addition__hermite_recurrence_w1 0.9071->0.9071 Not discovery. cycle=20",
+      "attack": "WEIGH: `authored_fibonacci_addition__hermite_recurrence_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 78,
-        "hard_n": 78,
+        "hard_pass": 79,
+        "hard_n": 79,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -131,17 +131,17 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 78,
-        "hard_n": 78,
+        "hard_pass": 79,
+        "hard_n": 79,
         "ok": true,
         "score": 0.9071,
         "shifted_window": {
           "ok": true,
           "reason": "shift_window_pass",
           "applied": true,
-          "ranges_shifted": 3,
-          "seconds": 0.009,
-          "window_expr": "all((check_derangement_subfactorial(n) for n in range(18, 24))) and all((check_euler_totient_multiplicative(a, b) for a in range(23, 30) for b in range(23, 30)))"
+          "ranges_shifted": 4,
+          "seconds": 0.01,
+          "window_expr": "all((check_fibonacci_addition(m, n) for m in range(22, 29) for n in range(22, 29))) and all((check_hermite_recurrence(n, x) for n in range(14, 18) for x in range(5, 14)))"
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -166,7 +166,7 @@
             "ok": true
           },
           {
-            "label": "hard_enable_probes",
+            "label": "cassini_numeric",
             "ok": true
           }
         ]
@@ -218,15 +218,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_derangement_subfactorial__euler_totient_multiplicative_w1",
+      "mutation": "authored_fibonacci_addition__hermite_recurrence_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_derangement_subfactorial__euler_totient_multiplicative_w1",
+    "mutation": "authored_fibonacci_addition__hermite_recurrence_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261013T005442Z_6dcbd0",
+    "cycle_id": "20261013T142817Z_9b6937",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

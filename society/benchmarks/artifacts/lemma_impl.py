@@ -1017,6 +1017,28 @@ def check_authored_derangement_subfactorial__euler_totient_multiplicative_w1() -
     return all((check_derangement_subfactorial(n) for n in range(12, 18))) and all((check_euler_totient_multiplicative(a, b) for a in range(16, 23) for b in range(16, 23)))
 
 
+def check_authored_fibonacci_addition__hermite_recurrence_w1() -> bool:
+    """Authored stress check (desk): proven lemmas fibonacci_addition + hermite_recurrence on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_fibonacci_addition,
+    ::check_hermite_recurrence; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_fibonacci_addition(m, n) for m in range(15, 22) for n in range(15, 22))) and all((check_hermite_recurrence(n, x) for n in range(10, 14) for x in range(-4, 5)))
+
+
+def check_authored_geometric_sum__legendre_duplication_small_w1() -> bool:
+    """Authored stress check (desk): proven lemmas geometric_sum + legendre_duplication_small on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_geometric_sum,
+    ::check_legendre_duplication_small; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_geometric_sum(a, n) for a in (2, 3, 5) for n in range(12, 17))) and all((check_legendre_duplication_small(n) for n in range(12, 18)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1145,6 +1167,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_catalan_bounded__catalan_convolution_w1", check_authored_catalan_bounded__catalan_convolution_w1, True),
     ("authored_central_binom_bound__gcd_fibonacci_w1", check_authored_central_binom_bound__gcd_fibonacci_w1, True),
     ("authored_derangement_subfactorial__euler_totient_multiplicative_w1", check_authored_derangement_subfactorial__euler_totient_multiplicative_w1, True),
+    ("authored_fibonacci_addition__hermite_recurrence_w1", check_authored_fibonacci_addition__hermite_recurrence_w1, True),
+    ("authored_geometric_sum__legendre_duplication_small_w1", check_authored_geometric_sum__legendre_duplication_small_w1, False),
 ]
 
 

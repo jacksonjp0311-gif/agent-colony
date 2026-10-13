@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_30866d113c8b",
-      "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__pell_companion_w1"
+      "finding_id": "fnd_352b79d0e36a",
+      "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__stirling_second_row_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-13T00:54:59Z",
-  "updated_cycle": "20261013T005442Z_6dcbd0",
+  "updated_at": "2026-10-13T14:29:14Z",
+  "updated_cycle": "20261013T142856Z_e36490",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
