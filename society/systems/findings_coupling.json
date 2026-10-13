@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T14:29:35Z",
-  "updated_cycle": "20261013T142856Z_e36490",
+  "updated_at": "2026-10-13T23:00:54Z",
+  "updated_cycle": "20261013T230012Z_91773d",
   "signal": {
-    "ts": "2026-10-13T14:29:34Z",
+    "ts": "2026-10-13T23:00:54Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 53,
+    "accepted_compute": 54,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_352b79d0e36a",
-        "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__stirling_second_row_w1"
+        "finding_id": "fnd_77935cadf4b4",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_odds__sum_first_n_cubes_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_842d41fe0f1b",
-        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__vandermonde",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_68810b7e48cd",
         "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__bell_triangl",
         "topic_id": "compute-useful-math",
@@ -92,6 +85,13 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_220d65fc8372",
+        "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__hermite_re",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,12 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_842d41fe0f1b",
-        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__vandermonde_conv_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_68810b7e48cd",
         "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__bell_triangle_recurrence_w1",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_derangement_subfactorial__euler_totient_multiplicative_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_220d65fc8372",
+        "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__hermite_recurrence_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_352b79d0e36a",
         "fnd_77935cadf4b4",
         "fnd_842d41fe0f1b",
         "fnd_68810b7e48cd",
         "fnd_0bcaa683b3f1",
         "fnd_d8d1e42fc4d9",
         "fnd_44821c3a4f06",
-        "fnd_78d698caa520"
+        "fnd_78d698caa520",
+        "fnd_220d65fc8372"
       ],
       "rsi": []
     },

@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_352b79d0e36a",
-      "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__stirling_second_row_w1"
+      "finding_id": "fnd_77935cadf4b4",
+      "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_odds__sum_first_n_cubes_w1"
     },
     {
       "topic": "open-math-problems",
@@ -61,12 +61,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s00026-026-00819-9>",
+      "topic": "4-dimensional",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s10801-026-01558-z>",
+      "topic": "<https://doi.org/10.1007/s00026-026-00819-9>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-13T14:29:14Z",
-  "updated_cycle": "20261013T142856Z_e36490",
+  "updated_at": "2026-10-13T23:00:32Z",
+  "updated_cycle": "20261013T230012Z_91773d",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

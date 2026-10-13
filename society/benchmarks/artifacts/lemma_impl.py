@@ -1039,6 +1039,17 @@ def check_authored_geometric_sum__legendre_duplication_small_w1() -> bool:
     return all((check_geometric_sum(a, n) for a in (2, 3, 5) for n in range(12, 17))) and all((check_legendre_duplication_small(n) for n in range(12, 18)))
 
 
+def check_authored_hockey_stick__motzkin_bounded_w1() -> bool:
+    """Authored stress check (desk): proven lemmas hockey_stick + motzkin_bounded on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_hockey_stick,
+    ::check_motzkin_bounded; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_hockey_stick(n, r) for n in range(25, 37) for r in range(0, n + 1))) and all((check_motzkin_bounded(n) for n in range(14, 21)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1168,7 +1179,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_central_binom_bound__gcd_fibonacci_w1", check_authored_central_binom_bound__gcd_fibonacci_w1, True),
     ("authored_derangement_subfactorial__euler_totient_multiplicative_w1", check_authored_derangement_subfactorial__euler_totient_multiplicative_w1, True),
     ("authored_fibonacci_addition__hermite_recurrence_w1", check_authored_fibonacci_addition__hermite_recurrence_w1, True),
-    ("authored_geometric_sum__legendre_duplication_small_w1", check_authored_geometric_sum__legendre_duplication_small_w1, False),
+    ("authored_geometric_sum__legendre_duplication_small_w1", check_authored_geometric_sum__legendre_duplication_small_w1, True),
+    ("authored_hockey_stick__motzkin_bounded_w1", check_authored_hockey_stick__motzkin_bounded_w1, True),
 ]
 
 

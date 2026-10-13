@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T14:28:27Z",
-  "passes": 259,
+  "updated_at": "2026-10-13T23:00:22Z",
+  "passes": 261,
   "kills": 164,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3877,
+  "kill_rate": 0.3859,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 38,
-    "kills": 22,
-    "easy_pad_kills": 11,
-    "kill_rate": 0.3667
+    "passes": 39,
+    "kills": 21,
+    "easy_pad_kills": 10,
+    "kill_rate": 0.35
   },
   "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
@@ -36,11 +36,12 @@
     "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
     "authored_gcd_fibonacci__narayana_sum_w1",
+    "authored_geometric_sum__legendre_duplication_small_w1",
     "authored_geometric_sum__narayana_sum_w1",
     "authored_geometric_sum__pell_companion_w1",
+    "authored_hockey_stick__motzkin_bounded_w1",
     "authored_hockey_stick__pell_companion_w1",
     "authored_hockey_stick__pythagorean_generation_w1",
-    "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_oeis_a000079__binomial_sum_row",
     "authored_oeis_a000984__central_binom_bound",
     "authored_pascal_identity__narayana_sum_w1",
@@ -101,7 +102,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-13T14:28:27Z",
+    "ts": "2026-10-13T23:00:22Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -111,15 +112,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_fibonacci_addition__hermite_recurrence_w1` kind=hard_enable. lemma mutation authored_fibonacci_addition__hermite_recurrence_w1 0.9071->0.9071 Not discovery. cycle=20",
-      "attack": "WEIGH: `authored_fibonacci_addition__hermite_recurrence_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_hockey_stick__motzkin_bounded_w1` kind=hard_enable. lemma mutation authored_hockey_stick__motzkin_bounded_w1 0.9071->0.9071 Not discovery. cycle=20261013T230012Z_917",
+      "attack": "WEIGH: `authored_hockey_stick__motzkin_bounded_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 79,
-        "hard_n": 79,
+        "hard_pass": 81,
+        "hard_n": 81,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -131,17 +132,17 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 79,
-        "hard_n": 79,
+        "hard_pass": 81,
+        "hard_n": 81,
         "ok": true,
         "score": 0.9071,
         "shifted_window": {
           "ok": true,
           "reason": "shift_window_pass",
           "applied": true,
-          "ranges_shifted": 4,
-          "seconds": 0.01,
-          "window_expr": "all((check_fibonacci_addition(m, n) for m in range(22, 29) for n in range(22, 29))) and all((check_hermite_recurrence(n, x) for n in range(14, 18) for x in range(5, 14)))"
+          "ranges_shifted": 2,
+          "seconds": 0.016,
+          "window_expr": "all((check_hockey_stick(n, r) for n in range(37, 49) for r in range(0, n + 1))) and all((check_motzkin_bounded(n) for n in range(21, 28)))"
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -166,7 +167,7 @@
             "ok": true
           },
           {
-            "label": "cassini_numeric",
+            "label": "catalan_positive",
             "ok": true
           }
         ]
@@ -218,15 +219,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_fibonacci_addition__hermite_recurrence_w1",
+      "mutation": "authored_hockey_stick__motzkin_bounded_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_fibonacci_addition__hermite_recurrence_w1",
+    "mutation": "authored_hockey_stick__motzkin_bounded_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261013T142817Z_9b6937",
+    "cycle_id": "20261013T230012Z_91773d",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
