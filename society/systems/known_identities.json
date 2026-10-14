@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-14T12:14:20Z",
-  "n": 185,
+  "updated_at": "2026-10-14T17:27:03Z",
+  "n": 186,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -17,6 +17,7 @@
     "authored_binomial_symmetry__cassini_w1",
     "authored_binomial_symmetry__catalan_bounded_w1",
     "authored_binomial_symmetry__catalan_convolution_w1",
+    "authored_binomial_symmetry__sum_first_n_cubes_w1",
     "authored_binomial_symmetry__vandermonde_conv_w1",
     "authored_cassini__binomial_inversion_small_w1",
     "authored_cassini__catalan_convolution_w1",
