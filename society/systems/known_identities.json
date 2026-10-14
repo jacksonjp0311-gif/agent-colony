@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-14T05:10:25Z",
-  "n": 183,
+  "updated_at": "2026-10-14T12:14:20Z",
+  "n": 185,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -51,11 +51,13 @@
     "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pascal_identity__stirling_second_row_w1",
     "authored_pell_companion__pythagorean_generation_w1",
+    "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
     "authored_sum_first_n_cubes__vandermonde_conv_w1",
     "authored_sum_first_n_odds__stirling_second_row_w1",
     "authored_sum_first_n_odds__sum_first_n_cubes_w1",
     "authored_sum_first_n_odds__vandermonde_conv_w1",
+    "authored_vandermonde_conv__stirling_second_row_w1",
     "autodiff",
     "autodiff_busy_loop",
     "become_fail_forward",

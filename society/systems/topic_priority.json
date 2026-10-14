@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_68810b7e48cd",
-      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__bell_triangle_recurrence_w1"
+      "finding_id": "fnd_0bcaa683b3f1",
+      "title": "Authorize accepted: Lemma mutation keep: authored_cassini__binomial_inversion_small_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-14T05:11:09Z",
-  "updated_cycle": "20261014T051052Z_04eb2b",
+  "updated_at": "2026-10-14T12:14:28Z",
+  "updated_cycle": "20261014T121408Z_0fa62f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

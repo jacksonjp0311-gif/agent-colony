@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T05:11:29Z",
-  "updated_cycle": "20261014T051052Z_04eb2b",
+  "updated_at": "2026-10-14T12:14:48Z",
+  "updated_cycle": "20261014T121408Z_0fa62f",
   "signal": {
-    "ts": "2026-10-14T05:11:29Z",
+    "ts": "2026-10-14T12:14:48Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 56,
+    "accepted_compute": 57,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_68810b7e48cd",
-        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__bell_triangle_recurrence_w1"
+        "finding_id": "fnd_0bcaa683b3f1",
+        "title": "Authorize accepted: Lemma mutation keep: authored_cassini__binomial_inversion_small_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_d8d1e42fc4d9",
-        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__catalan_convo",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_44821c3a4f06",
         "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__gcd_fibon",
         "topic_id": "compute-useful-math",
@@ -92,6 +85,13 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_adbb330e3340",
+        "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__pell_companio",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,12 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_d8d1e42fc4d9",
-        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__catalan_convolution_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_44821c3a4f06",
         "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__gcd_fibonacci_w1",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_hockey_stick__motzkin_bounded_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_adbb330e3340",
+        "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__pell_companion_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_68810b7e48cd",
         "fnd_0bcaa683b3f1",
         "fnd_d8d1e42fc4d9",
         "fnd_44821c3a4f06",
         "fnd_78d698caa520",
         "fnd_220d65fc8372",
         "fnd_b0e70d63ba49",
-        "fnd_c888bf313aef"
+        "fnd_c888bf313aef",
+        "fnd_adbb330e3340"
       ],
       "rsi": []
     },
