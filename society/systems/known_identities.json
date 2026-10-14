@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-14T17:27:03Z",
-  "n": 186,
+  "updated_at": "2026-10-14T21:53:15Z",
+  "n": 188,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -14,6 +14,7 @@
     "authored_binomial_sum_row__bell_triangle_recurrence_w1",
     "authored_binomial_sum_row__binomial_inversion_small_w1",
     "authored_binomial_sum_row__catalan_bounded_w1",
+    "authored_binomial_sum_row__catalan_convolution_w1",
     "authored_binomial_symmetry__cassini_w1",
     "authored_binomial_symmetry__catalan_bounded_w1",
     "authored_binomial_symmetry__catalan_convolution_w1",
@@ -55,6 +56,7 @@
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
     "authored_sum_first_n_cubes__vandermonde_conv_w1",
+    "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
     "authored_sum_first_n_odds__stirling_second_row_w1",
     "authored_sum_first_n_odds__sum_first_n_cubes_w1",
     "authored_sum_first_n_odds__vandermonde_conv_w1",

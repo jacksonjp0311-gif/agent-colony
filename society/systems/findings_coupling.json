@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T17:28:40Z",
-  "updated_cycle": "20261014T172754Z_ddb7a1",
+  "updated_at": "2026-10-14T21:53:43Z",
+  "updated_cycle": "20261014T215305Z_c1e753",
   "signal": {
-    "ts": "2026-10-14T17:28:40Z",
+    "ts": "2026-10-14T21:53:43Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 59,
+    "accepted_compute": 60,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_44821c3a4f06",
-        "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__gcd_fibonacci_w1"
+        "finding_id": "fnd_78d698caa520",
+        "title": "Authorize accepted: Lemma mutation keep: authored_derangement_subfactorial__euler_totient_multiplicative_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_220d65fc8372",
-        "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__hermite_re",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_b0e70d63ba49",
         "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__legendre_duplic",
         "topic_id": "compute-useful-math",
@@ -92,6 +85,13 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_a04a37ae3296",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__sum_first_n",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,12 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_220d65fc8372",
-        "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__hermite_recurrence_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_b0e70d63ba49",
         "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__legendre_duplication_small_w1",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_vandermonde_conv__stirling_second_row_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_a04a37ae3296",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__sum_first_n_cubes_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_44821c3a4f06",
         "fnd_78d698caa520",
         "fnd_220d65fc8372",
         "fnd_b0e70d63ba49",
         "fnd_c888bf313aef",
         "fnd_adbb330e3340",
         "fnd_e62620cc6f04",
-        "fnd_42bed5bbd20e"
+        "fnd_42bed5bbd20e",
+        "fnd_a04a37ae3296"
       ],
       "rsi": []
     },
