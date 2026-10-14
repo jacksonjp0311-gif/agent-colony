@@ -1,0 +1,410 @@
+{
+  "ts": "2026-10-14T05:11:28Z",
+  "version": 2,
+  "mile": "spark3-port",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 2,
+      "items": [
+        {
+          "title": "ChunkAct: Action Chunking for Agentic Robotics",
+          "id": "http://arxiv.org/abs/2610.18874v1",
+          "published": "2026-10-13T17:59:57Z",
+          "summary": "Agentic robotics places a large language model (LLM) agent in the robot control loop, where it composes perception, motion, and vision-language-action (VLA) tools under the guidance of a memory and thereby generalizes to new tasks without retraining. This generality comes at a st",
+          "source": "arxiv"
+        },
+        {
+          "title": "What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study",
+          "id": "http://arxiv.org/abs/2610.18869v1",
+          "published": "",
+          "summary": "",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-10-14T05:11:09Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": true,
+      "note": "ok_text",
+      "count": 1,
+      "items": [
+        {
+          "raw_snip": "<!DOCTYPE html><html><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width\"/><title>CCMC Announcements | NASA CCMC</title><meta name=\"description\" content=\"NASA&#x27;s Community Coordinated Modeling Center (CCMC) provides free access to space weather models, simulation runs-on-request, real-time space weather predictions, visualization tools, and model validation for the r",
+          "source": "nasa_donki"
+        }
+      ],
+      "ts": "2026-10-14T05:11:10Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "deprecated": true,
+      "quarantined": true,
+      "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-10-14T05:11:10Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": true,
+      "note": "NYC:ok; London:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; Tokyo:ok; Sydney:ok",
+      "count": 3,
+      "items": [
+        {
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 19.1,
+          "wind_speed_10m": 15.5,
+          "weather_code": 0,
+          "time": "2026-10-14T05:00",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "temperature_2m": 21.3,
+          "wind_speed_10m": 4.8,
+          "weather_code": 1,
+          "time": "2026-10-14T05:00",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "temperature_2m": 16.6,
+          "wind_speed_10m": 20.7,
+          "weather_code": 0,
+          "time": "2026-10-14T05:00",
+          "source": "open_meteo"
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-14T05:11:27Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.087997430227016,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-10-14T05:05:00Z",
+          "v": -7.961758534083282
+        },
+        {
+          "t": "2026-10-14T05:05:00Z",
+          "v": -6.100444252884612
+        },
+        {
+          "t": "2026-10-14T05:06:00Z",
+          "v": -8.114878334971003
+        },
+        {
+          "t": "2026-10-14T05:06:00Z",
+          "v": -6.098063237864803
+        },
+        {
+          "t": "2026-10-14T05:07:00Z",
+          "v": -8.146816662485918
+        },
+        {
+          "t": "2026-10-14T05:07:00Z",
+          "v": -6.089448097818066
+        },
+        {
+          "t": "2026-10-14T05:08:00Z",
+          "v": -8.126985938066671
+        },
+        {
+          "t": "2026-10-14T05:08:00Z",
+          "v": -6.087997430227016
+        }
+      ],
+      "live": true,
+      "ts": "2026-10-14T05:11:27Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "ok",
+      "count": 48,
+      "latest": 22.9,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-10-13T00:00",
+          "v": 17.7
+        },
+        {
+          "t": "2026-10-13T01:00",
+          "v": 17.1
+        },
+        {
+          "t": "2026-10-13T02:00",
+          "v": 17.0
+        },
+        {
+          "t": "2026-10-13T03:00",
+          "v": 16.3
+        },
+        {
+          "t": "2026-10-13T04:00",
+          "v": 15.7
+        },
+        {
+          "t": "2026-10-13T05:00",
+          "v": 15.0
+        },
+        {
+          "t": "2026-10-13T06:00",
+          "v": 14.9
+        },
+        {
+          "t": "2026-10-13T07:00",
+          "v": 14.6
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-14T05:11:28Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 2.6,
+      "items": [
+        {
+          "mag": 2.6,
+          "place": "51 km S of Whites City, New Mexico",
+          "time": 1791935683556,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.83,
+          "place": "7 km NNE of Isabela, Puerto Rico",
+          "time": 1791934195680,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "70 km NNE of Calama, Chile",
+          "time": 1791934012460,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.6,
+          "place": "23 km WSW of Carlsbad, New Mexico",
+          "time": 1791931140232,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.8,
+          "place": "5 km NW of Cepitá, Colombia",
+          "time": 1791926661135,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.72,
+          "place": "19 km SSW of Leilani Estates, Hawaii",
+          "time": 1791919678120,
+          "source": "usgs"
+        },
+        {
+          "mag": 6.0,
+          "place": "126 km S of Kokopo, Papua New Guinea",
+          "time": 1791917103231,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "20 km WSW of Palestina, Colombia",
+          "time": 1791916598928,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-07&endtime=2026-10-14&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-14T05:11:28Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.2919921875,
+          "disk_free_percent": 58.8604220164796,
+          "process_count": 159,
+          "uptime_hours": 0.056275,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "node": "runnervmmprz5",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.2919921875,
+      "live": true,
+      "ts": "2026-10-14T05:11:28Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 1.515313999988166,
+      "mean_ms": 1.5854130000008126,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 1.6013949999944543
+        },
+        {
+          "probe": 1,
+          "ms": 1.6387050000048475
+        },
+        {
+          "probe": 2,
+          "ms": 1.5862380000157827
+        },
+        {
+          "probe": 3,
+          "ms": 1.515313999988166
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-10-14T05:11:28Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": true,
+      "note": "ok",
+      "count": 48
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "publications_x_space",
+      "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['ChunkAct: Action Chunking for Agentic Robotics', 'What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+      "signals": {
+        "arxiv_n": 2,
+        "kp": null,
+        "titles": [
+          "ChunkAct: Action Chunking for Agentic Robotics",
+          "What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study"
+        ]
+      },
+      "domains": [
+        "math",
+        "cosmos",
+        "hearing",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "global_weather_spread",
+      "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 19.1), ('Tokyo', 21.3), ('Sydney', 16.6)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "signals": {
+        "cities": [
+          [
+            "NYC",
+            19.1
+          ],
+          [
+            "Tokyo",
+            21.3
+          ],
+          [
+            "Sydney",
+            16.6
+          ]
+        ],
+        "kp": null
+      },
+      "domains": [
+        "nature",
+        "commons",
+        "government"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-6.087997430227016. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -6.087997430227016
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.2919921875 probe_ms=1.5854130000008126. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.2919921875,
+        "probe_ms": 1.5854130000008126
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}

@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T23:00:22Z",
-  "passes": 261,
+  "updated_at": "2026-10-14T05:10:25Z",
+  "passes": 262,
   "kills": 164,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3859,
+  "kill_rate": 0.385,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 39,
-    "kills": 21,
+    "passes": 40,
+    "kills": 20,
     "easy_pad_kills": 10,
-    "kill_rate": 0.35
+    "kill_rate": 0.3333
   },
   "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
@@ -45,6 +45,7 @@
     "authored_oeis_a000079__binomial_sum_row",
     "authored_oeis_a000984__central_binom_bound",
     "authored_pascal_identity__narayana_sum_w1",
+    "authored_pascal_identity__pell_companion_w1",
     "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pascal_identity__stirling_second_row_w1",
     "authored_pell_companion__pythagorean_generation_w1",
@@ -58,7 +59,6 @@
   "unique_mutations_kill": [
     "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
     "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re (cycle 242)",
-    "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian",
     "Chain `stem_easy_pad_units` citing New integer sequence OEIS A392714 counts Wronskian (cycle 192)",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord",
     "Chain `stem_easy_pad_units` citing Optimal bound for the polynomial Littlewood-Offord (cycle 194)",
@@ -102,7 +102,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-13T23:00:22Z",
+    "ts": "2026-10-14T05:10:25Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -112,15 +112,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_hockey_stick__motzkin_bounded_w1` kind=hard_enable. lemma mutation authored_hockey_stick__motzkin_bounded_w1 0.9071->0.9071 Not discovery. cycle=20261013T230012Z_917",
-      "attack": "WEIGH: `authored_hockey_stick__motzkin_bounded_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_pascal_identity__pell_companion_w1` kind=hard_enable. lemma mutation authored_pascal_identity__pell_companion_w1 0.9071->0.9071 Not discovery. cycle=20261014T051016Z",
+      "attack": "WEIGH: `authored_pascal_identity__pell_companion_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 81,
-        "hard_n": 81,
+        "hard_pass": 82,
+        "hard_n": 82,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -132,8 +132,8 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 81,
-        "hard_n": 81,
+        "hard_pass": 82,
+        "hard_n": 82,
         "ok": true,
         "score": 0.9071,
         "shifted_window": {
@@ -141,8 +141,8 @@
           "reason": "shift_window_pass",
           "applied": true,
           "ranges_shifted": 2,
-          "seconds": 0.016,
-          "window_expr": "all((check_hockey_stick(n, r) for n in range(37, 49) for r in range(0, n + 1))) and all((check_motzkin_bounded(n) for n in range(21, 28)))"
+          "seconds": 0.011,
+          "window_expr": "all((check_pascal_identity(n, k) for n in range(23, 30) for k in range(1, n))) and all((check_pell_companion(n) for n in range(29, 38)))"
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -167,7 +167,7 @@
             "ok": true
           },
           {
-            "label": "catalan_positive",
+            "label": "binom_symmetry_numeric",
             "ok": true
           }
         ]
@@ -219,15 +219,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_hockey_stick__motzkin_bounded_w1",
+      "mutation": "authored_pascal_identity__pell_companion_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_hockey_stick__motzkin_bounded_w1",
+    "mutation": "authored_pascal_identity__pell_companion_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261013T230012Z_91773d",
+    "cycle_id": "20261014T051016Z_a3eace",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

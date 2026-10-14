@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-13T23:00:22Z",
-  "n": 182,
+  "updated_at": "2026-10-14T05:10:25Z",
+  "n": 183,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -47,6 +47,7 @@
     "authored_oeis_a000108__catalan_bounded",
     "authored_oeis_a000984__central_binom_bound",
     "authored_pascal_identity__narayana_sum_w1",
+    "authored_pascal_identity__pell_companion_w1",
     "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pascal_identity__stirling_second_row_w1",
     "authored_pell_companion__pythagorean_generation_w1",
