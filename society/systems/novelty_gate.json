@@ -1,32 +1,32 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T11:52:20Z",
-  "hits": 20,
-  "kills": 10,
+  "updated_at": "2026-10-15T17:15:04Z",
+  "hits": 21,
+  "kills": 9,
   "latest": {
-    "ts": "2026-10-15T11:52:20Z",
-    "cycle_id": "20261015T115210Z_049e91",
-    "mutation": "authored_derangement_subfactorial__legendre_duplication_small_w1",
+    "ts": "2026-10-15T17:15:04Z",
+    "cycle_id": "20261015T171453Z_0dc7af",
+    "mutation": "authored_fibonacci_addition__narayana_sum_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
-    "textbook_reuse": 0.0,
+    "textbook_reuse": 0.3333,
     "in_ledger": false,
     "own_authoring_record_only": true,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 90,
-      "hard_n": 90,
+      "hard_pass": 91,
+      "hard_n": 91,
       "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard89"
+      "impl_id": "lemma_impl_v2_basic10_hard91"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 90,
+      "hard_pass": 91,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
