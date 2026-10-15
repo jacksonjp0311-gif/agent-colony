@@ -336,82 +336,85 @@
     "cycle_284_evolve_note",
     "cycle_285_evolve_note",
     "cycle_286_evolve_note",
-    "cycle_287_evolve_note"
+    "cycle_287_evolve_note",
+    "cycle_288_evolve_note",
+    "cycle_289_evolve_note",
+    "cycle_290_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 811,
+      "uses": 820,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 783,
+      "uses": 792,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 543,
+      "uses": 549,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 271,
+      "uses": 274,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1041,
+      "uses": 1053,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 605,
+      "uses": 609,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 778,
+      "uses": 787,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 259,
+      "uses": 262,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 259,
+      "uses": 262,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 244,
+      "uses": 247,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 244,
+      "uses": 247,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 241,
+      "uses": 244,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 241,
+      "uses": 244,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 238,
+      "uses": 241,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 238,
+      "uses": 241,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -686,8 +689,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1040,
-    "reused": 2335
+    "appended": 1052,
+    "reused": 2362
   },
   "commons_by_domain": {
     "science": 0,
@@ -706,8 +709,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-14T21:53:44Z",
-    "cycle_id": "20261014T215305Z_c1e753",
+    "ts": "2026-10-15T04:59:34Z",
+    "cycle_id": "20261015T045858Z_2352c2",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -719,23 +722,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-14T21:53:43Z",
-    "cycle_id": "20261014T215305Z_c1e753",
+    "ts": "2026-10-15T04:59:34Z",
+    "cycle_id": "20261015T045858Z_2352c2",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8169,
-    "compute_usefulness": 0.9165,
+    "math_prize": 0.8162,
+    "compute_usefulness": 0.9161,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8884,
-    "kill_rate": 0.3805,
-    "kill_rate_term": 0.8925,
-    "novelty": 0.6667,
+    "prize_boost": 0.8879,
+    "kill_rate": 0.3796,
+    "kill_rate_term": 0.8917,
+    "novelty": 0.6333,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8532,
+    "aggregate": 0.8558,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -743,33 +746,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 14662,
-    "read": 69720,
-    "replied": 9232,
-    "actions_planned": 4782,
-    "actions_changed_from_message": 4782,
-    "reply_quality_sum": 8370.299999999042,
-    "reply_quality_n": 9180,
-    "peer_cite_opportunities": 9440,
-    "peer_cites": 9440
+    "posted": 14828,
+    "read": 70530,
+    "replied": 9337,
+    "actions_planned": 4836,
+    "actions_changed_from_message": 4836,
+    "reply_quality_sum": 8465.999999999014,
+    "reply_quality_n": 9285,
+    "peer_cite_opportunities": 9548,
+    "peer_cites": 9548
   },
   "bus_domains": {
-    "science": 773,
-    "history": 775,
-    "math": 2334,
-    "empire": 519,
-    "bulletin": 2057,
-    "forum": 3356,
-    "software": 775,
-    "nature": 773,
-    "life": 775,
-    "cosmos": 1118,
-    "rsi": 1299
+    "science": 782,
+    "history": 784,
+    "math": 2361,
+    "empire": 525,
+    "bulletin": 2078,
+    "forum": 3395,
+    "software": 784,
+    "nature": 782,
+    "life": 784,
+    "cosmos": 1131,
+    "rsi": 1314
   },
-  "communications_count": 14662,
+  "communications_count": 14828,
   "improvements": [
-    "Chain `authored_cassini__catalan_convolution_w1` citing Seasonal variation of the main gases in Titan's io",
-    "Chain `authored_cassini__catalan_convolution_w1` citing Seasonal variation of the main gases in Titan's io (cycle 241)",
     "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
     "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re (cycle 242)",
     "Chain `authored_central_binom_bound__euler_totient_multiplicative_w1` citing Central trinomial numbers, Motzkin trees, and the ",
@@ -817,18 +818,20 @@
     "Chain `authored_sum_first_n_odds__bell_triangle_recurrence_w1` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In",
     "Chain `authored_sum_first_n_odds__bell_triangle_recurrence_w1` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In (cycle 285)",
     "Chain `authored_binomial_sum_row__catalan_convolution_w1` citing Classification of unmixed parity binomial edge ide",
-    "Chain `authored_binomial_sum_row__catalan_convolution_w1` citing Classification of unmixed parity binomial edge ide (cycle 287)"
+    "Chain `authored_binomial_sum_row__catalan_convolution_w1` citing Classification of unmixed parity binomial edge ide (cycle 287)",
+    "Chain `authored_cassini__catalan_bounded_w1` citing Co-Evolving Acting and Forecasting for Language Ag",
+    "Chain `authored_cassini__catalan_bounded_w1` citing Co-Evolving Acting and Forecasting for Language Ag (cycle 289)"
   ],
-  "cycle_count": 287,
-  "ledger_count": 15773,
+  "cycle_count": 290,
+  "ledger_count": 15954,
   "status_counts": {
-    "candidate": 15187,
-    "accepted": 180,
-    "rejected": 282,
+    "candidate": 15363,
+    "accepted": 183,
+    "rejected": 284,
     "unknown": 124
   },
-  "witness_events": 22732,
-  "tribute_cycles_compliant": 287,
+  "witness_events": 22997,
+  "tribute_cycles_compliant": 290,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_78d698caa520",
-      "title": "Authorize accepted: Lemma mutation keep: authored_derangement_subfactorial__euler_totient_multiplicative_w1"
+      "finding_id": "fnd_b0e70d63ba49",
+      "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__legendre_duplication_small_w1"
     },
     {
       "topic": "open-math-problems",
@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "bottleneck-monge",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-14T21:53:23Z",
-  "updated_cycle": "20261014T215305Z_c1e753",
+  "updated_at": "2026-10-15T04:59:14Z",
+  "updated_cycle": "20261015T045858Z_2352c2",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

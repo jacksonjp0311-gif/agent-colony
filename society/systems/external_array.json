@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-14T21:53:42Z",
+  "ts": "2026-10-15T04:59:33Z",
   "version": 2,
   "mile": "spark3-port",
   "feeds": {
@@ -10,21 +10,21 @@
       "count": 2,
       "items": [
         {
-          "title": "ChunkAct: Action Chunking for Agentic Robotics",
-          "id": "http://arxiv.org/abs/2610.18874v1",
-          "published": "2026-10-13T17:59:57Z",
-          "summary": "Agentic robotics places a large language model (LLM) agent in the robot control loop, where it composes perception, motion, and vision-language-action (VLA) tools under the guidance of a memory and thereby generalizes to new tasks without retraining. This generality comes at a st",
+          "title": "Modeling and Understanding Neural Weights of Humanoid Policies with Diffusion",
+          "id": "http://arxiv.org/abs/2610.20606v1",
+          "published": "2026-10-14T17:59:52Z",
+          "summary": "Recent advances in robot learning have driven rapid progress in humanoid control, enabling increasingly agile behaviors in the real world. However, humanoid control networks are typically obtained through conventional training procedures, while comparatively little attention has ",
           "source": "arxiv"
         },
         {
-          "title": "What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study",
-          "id": "http://arxiv.org/abs/2610.18869v1",
+          "title": "Hierarchical Residual Policy Learning for Real-World Mobile Manipulation with Sparse Human Guidance",
+          "id": "http://arxiv.org/abs/2610.20607v1",
           "published": "",
           "summary": "",
           "source": "arxiv"
         }
       ],
-      "ts": "2026-10-14T21:53:23Z"
+      "ts": "2026-10-15T04:59:14Z"
     },
     "nasa_donki_solar": {
       "feed": "nasa_donki_solar",
@@ -37,7 +37,7 @@
           "source": "nasa_donki"
         }
       ],
-      "ts": "2026-10-14T21:53:24Z"
+      "ts": "2026-10-15T04:59:15Z"
     },
     "noaa_space_weather": {
       "feed": "noaa_space_weather",
@@ -48,100 +48,100 @@
       "count": 0,
       "latest_kp": null,
       "items": [],
-      "ts": "2026-10-14T21:53:24Z"
+      "ts": "2026-10-15T04:59:15Z"
     },
     "global_weather": {
       "feed": "global_weather",
       "ok": true,
-      "note": "NYC:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; London:ok; Tokyo:ok; Sydney:ok",
+      "note": "NYC:ok; London:ok; Tokyo:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; Sydney:ok",
       "count": 3,
       "items": [
+        {
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 18.1,
+          "wind_speed_10m": 14.2,
+          "weather_code": 3,
+          "time": "2026-10-15T04:45",
+          "source": "open_meteo"
+        },
         {
           "city": "London",
           "lat": 51.51,
           "lon": -0.13,
-          "temperature_2m": 15.2,
-          "wind_speed_10m": 9.0,
+          "temperature_2m": 15.5,
+          "wind_speed_10m": 11.5,
           "weather_code": 3,
-          "time": "2026-10-14T21:45",
-          "source": "open_meteo"
-        },
-        {
-          "city": "Tokyo",
-          "lat": 35.68,
-          "lon": 139.76,
-          "temperature_2m": 16.8,
-          "wind_speed_10m": 4.7,
-          "weather_code": 0,
-          "time": "2026-10-14T21:45",
+          "time": "2026-10-15T04:45",
           "source": "open_meteo"
         },
         {
           "city": "Sydney",
           "lat": -33.87,
           "lon": 151.21,
-          "temperature_2m": 14.5,
-          "wind_speed_10m": 16.2,
+          "temperature_2m": 17.1,
+          "wind_speed_10m": 15.0,
           "weather_code": 51,
-          "time": "2026-10-14T21:45",
+          "time": "2026-10-15T04:45",
           "source": "open_meteo"
         }
       ],
       "live": true,
       "cached": false,
-      "ts": "2026-10-14T21:53:41Z"
+      "ts": "2026-10-15T04:59:32Z"
     },
     "pulsemesh_goes_xray": {
       "feed": "pulsemesh_goes_xray",
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.207297620935022,
+      "latest": -6.1452263703214856,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-14T21:47:00Z",
-          "v": -8.110218975449452
+          "t": "2026-10-15T04:53:00Z",
+          "v": -8.058558930830031
         },
         {
-          "t": "2026-10-14T21:47:00Z",
-          "v": -6.187492947227596
+          "t": "2026-10-15T04:53:00Z",
+          "v": -6.147201499462168
         },
         {
-          "t": "2026-10-14T21:48:00Z",
-          "v": -8.078046930992533
+          "t": "2026-10-15T04:54:00Z",
+          "v": -8.029438923684454
         },
         {
-          "t": "2026-10-14T21:48:00Z",
-          "v": -6.19483305875861
+          "t": "2026-10-15T04:54:00Z",
+          "v": -6.144717943264469
         },
         {
-          "t": "2026-10-14T21:49:00Z",
-          "v": -8.096376356965667
+          "t": "2026-10-15T04:55:00Z",
+          "v": -8.041752971079285
         },
         {
-          "t": "2026-10-14T21:49:00Z",
-          "v": -6.201863018562219
+          "t": "2026-10-15T04:55:00Z",
+          "v": -6.145792026614949
         },
         {
-          "t": "2026-10-14T21:50:00Z",
-          "v": -8.090157913570327
+          "t": "2026-10-15T04:56:00Z",
+          "v": -8.06073257367129
         },
         {
-          "t": "2026-10-14T21:50:00Z",
-          "v": -6.207297620935022
+          "t": "2026-10-15T04:56:00Z",
+          "v": -6.1452263703214856
         }
       ],
       "live": true,
-      "ts": "2026-10-14T21:53:41Z"
+      "ts": "2026-10-15T04:59:32Z"
     },
     "pulsemesh_openmeteo": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "ok",
       "count": 48,
-      "latest": 23.1,
+      "latest": 14.4,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -149,101 +149,101 @@
       "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
       "items": [
         {
-          "t": "2026-10-13T00:00",
-          "v": 17.7
+          "t": "2026-10-14T00:00",
+          "v": 20.2
         },
         {
-          "t": "2026-10-13T01:00",
-          "v": 17.1
+          "t": "2026-10-14T01:00",
+          "v": 20.6
         },
         {
-          "t": "2026-10-13T02:00",
-          "v": 17.0
+          "t": "2026-10-14T02:00",
+          "v": 19.9
         },
         {
-          "t": "2026-10-13T03:00",
-          "v": 16.3
+          "t": "2026-10-14T03:00",
+          "v": 20.1
         },
         {
-          "t": "2026-10-13T04:00",
-          "v": 15.7
+          "t": "2026-10-14T04:00",
+          "v": 20.0
         },
         {
-          "t": "2026-10-13T05:00",
-          "v": 15.0
+          "t": "2026-10-14T05:00",
+          "v": 19.8
         },
         {
-          "t": "2026-10-13T06:00",
-          "v": 14.9
+          "t": "2026-10-14T06:00",
+          "v": 19.9
         },
         {
-          "t": "2026-10-13T07:00",
-          "v": 14.6
+          "t": "2026-10-14T07:00",
+          "v": 19.4
         }
       ],
       "live": true,
       "cached": false,
-      "ts": "2026-10-14T21:53:42Z"
+      "ts": "2026-10-15T04:59:32Z"
     },
     "pulsemesh_usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
       "ok": true,
       "note": "ok",
       "count": 100,
-      "latest": 2.6,
+      "latest": 3.1,
       "items": [
         {
-          "mag": 2.6,
-          "place": "50 km S of Whites City, New Mexico",
-          "time": 1791935683577,
+          "mag": 3.1,
+          "place": "22 km NNE of Brenas, Puerto Rico",
+          "time": 1792020281550,
           "source": "usgs"
         },
         {
-          "mag": 2.83,
-          "place": "7 km NNE of Isabela, Puerto Rico",
-          "time": 1791934195680,
+          "mag": 4.5,
+          "place": "82 km SSW of Mil’kovo, Russia",
+          "time": 1792020059714,
           "source": "usgs"
         },
         {
-          "mag": 4.4,
-          "place": "70 km NNE of Calama, Chile",
-          "time": 1791934012460,
+          "mag": 3.1,
+          "place": "102 km N of Yakutat, Alaska",
+          "time": 1792018926731,
           "source": "usgs"
         },
         {
           "mag": 3.6,
-          "place": "23 km WSW of Carlsbad, New Mexico",
-          "time": 1791931140232,
+          "place": "18 km NNW of Whites City, New Mexico",
+          "time": 1792018519298,
           "source": "usgs"
         },
         {
-          "mag": 4.8,
-          "place": "5 km NW of Cepitá, Colombia",
-          "time": 1791926661135,
+          "mag": 4.1,
+          "place": "33 km NE of Bahía de Caráquez, Ecuador",
+          "time": 1792010086590,
           "source": "usgs"
         },
         {
-          "mag": 2.72,
-          "place": "19 km SSW of Leilani Estates, Hawaii",
-          "time": 1791919678120,
+          "mag": 3.14,
+          "place": "57 km NW of San Antonio, Puerto Rico",
+          "time": 1792008609470,
           "source": "usgs"
         },
         {
-          "mag": 6.0,
-          "place": "126 km S of Kokopo, Papua New Guinea",
-          "time": 1791917103231,
+          "mag": 3.04,
+          "place": "12 km NE of Walker Lake, Nevada",
+          "time": 1792007680223,
           "source": "usgs"
         },
         {
-          "mag": 4.4,
-          "place": "20 km WSW of Palestina, Colombia",
-          "time": 1791916598928,
+          "mag": 3.1,
+          "place": "48 km N of Hatillo, Puerto Rico",
+          "time": 1792000938980,
           "source": "usgs"
         }
       ],
       "live": true,
-      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-07&endtime=2026-10-14&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-14T21:53:42Z"
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-08&endtime=2026-10-15&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-15T04:59:32Z"
     },
     "pulsemesh_system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -252,48 +252,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.33251953125,
-          "disk_free_percent": 58.860522503141794,
-          "process_count": 159,
-          "uptime_hours": 0.05434444444444444,
+          "load1": 0.3076171875,
+          "disk_free_percent": 59.32833022582738,
+          "process_count": 161,
+          "uptime_hours": 0.049850000000000005,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
-          "node": "runnervmmprz5",
+          "node": "runnervm8k3b6",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.33251953125,
+      "latest_load1": 0.3076171875,
       "live": true,
-      "ts": "2026-10-14T21:53:42Z"
+      "ts": "2026-10-15T04:59:32Z"
     },
     "pulsemesh_tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 18.52084100002571,
-      "mean_ms": 18.12119075000851,
+      "latest_ms": 30.612812999976313,
+      "mean_ms": 30.935645749991636,
       "items": [
         {
           "probe": 0,
-          "ms": 18.174858000008953
+          "ms": 31.147355000001653
         },
         {
           "probe": 1,
-          "ms": 17.902168000006213
+          "ms": 31.052328999976453
         },
         {
           "probe": 2,
-          "ms": 17.886895999993158
+          "ms": 30.930086000012125
         },
         {
           "probe": 3,
-          "ms": 18.52084100002571
+          "ms": 30.612812999976313
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-14T21:53:42Z"
+      "ts": "2026-10-15T04:59:33Z"
     }
   },
   "pulsemesh_health": {
@@ -326,13 +326,13 @@
   "cross_domain_patterns": [
     {
       "kind": "publications_x_space",
-      "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['ChunkAct: Action Chunking for Agentic Robotics', 'What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+      "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['Modeling and Understanding Neural Weights of Humanoid Policies with Diffusion', 'Hierarchical Residual Policy Learning for Real-World Mobile Manipulation with Sp']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
       "signals": {
         "arxiv_n": 2,
         "kp": null,
         "titles": [
-          "ChunkAct: Action Chunking for Agentic Robotics",
-          "What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study"
+          "Modeling and Understanding Neural Weights of Humanoid Policies with Diffusion",
+          "Hierarchical Residual Policy Learning for Real-World Mobile Manipulation with Sp"
         ]
       },
       "domains": [
@@ -346,20 +346,20 @@
     },
     {
       "kind": "global_weather_spread",
-      "summary": "Open-Meteo snapshot across 3 cities: [('London', 15.2), ('Tokyo', 16.8), ('Sydney', 14.5)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 18.1), ('London', 15.5), ('Sydney', 17.1)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
       "signals": {
         "cities": [
           [
-            "London",
-            15.2
+            "NYC",
+            18.1
           ],
           [
-            "Tokyo",
-            16.8
+            "London",
+            15.5
           ],
           [
             "Sydney",
-            14.5
+            17.1
           ]
         ],
         "kp": null
@@ -374,9 +374,9 @@
     },
     {
       "kind": "pulsemesh_goes_live",
-      "summary": "PulseMesh GOES X-ray live latest=-6.207297620935022. Space-weather debate input — not novel physics.",
+      "summary": "PulseMesh GOES X-ray live latest=-6.1452263703214856. Space-weather debate input — not novel physics.",
       "signals": {
-        "goes_latest": -6.207297620935022
+        "goes_latest": -6.1452263703214856
       },
       "domains": [
         "cosmos",
@@ -387,10 +387,10 @@
     },
     {
       "kind": "pulsemesh_ops_health",
-      "summary": "PulseMesh system_stat/tcp_probe: load1=0.33251953125 probe_ms=18.12119075000851. Ops health for actuation — not consciousness.",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.3076171875 probe_ms=30.935645749991636. Ops health for actuation — not consciousness.",
       "signals": {
-        "load1": 0.33251953125,
-        "probe_ms": 18.12119075000851
+        "load1": 0.3076171875,
+        "probe_ms": 30.935645749991636
       },
       "domains": [
         "government",

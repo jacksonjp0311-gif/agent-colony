@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T21:53:43Z",
-  "updated_cycle": "20261014T215305Z_c1e753",
+  "updated_at": "2026-10-15T04:59:34Z",
+  "updated_cycle": "20261015T045858Z_2352c2",
   "signal": {
-    "ts": "2026-10-14T21:53:43Z",
+    "ts": "2026-10-15T04:59:34Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 60,
+    "accepted_compute": 62,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_78d698caa520",
-        "title": "Authorize accepted: Lemma mutation keep: authored_derangement_subfactorial__euler_totient_multiplicative_w1"
+        "finding_id": "fnd_b0e70d63ba49",
+        "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__legendre_duplication_small_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,20 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_b0e70d63ba49",
-        "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__legendre_duplic",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_c888bf313aef",
-        "title": "Authorize accepted: Lemma mutation keep: authored_hockey_stick__motzkin_bounded_",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_adbb330e3340",
         "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__pell_companio",
         "topic_id": "compute-useful-math",
@@ -92,6 +78,20 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_d3555d0bba7d",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_odds__bell_triangl",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_0d591a504f39",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__catalan_conv",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,18 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_b0e70d63ba49",
-        "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__legendre_duplication_small_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_c888bf313aef",
-        "title": "Authorize accepted: Lemma mutation keep: authored_hockey_stick__motzkin_bounded_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_adbb330e3340",
         "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__pell_companion_w1",
@@ -143,19 +131,31 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__sum_first_n_cubes_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_d3555d0bba7d",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_odds__bell_triangle_recurrence_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_0d591a504f39",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__catalan_convolution_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_78d698caa520",
-        "fnd_220d65fc8372",
         "fnd_b0e70d63ba49",
         "fnd_c888bf313aef",
         "fnd_adbb330e3340",
         "fnd_e62620cc6f04",
         "fnd_42bed5bbd20e",
-        "fnd_a04a37ae3296"
+        "fnd_a04a37ae3296",
+        "fnd_d3555d0bba7d",
+        "fnd_0d591a504f39"
       ],
       "rsi": []
     },
