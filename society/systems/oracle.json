@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T17:15:03Z",
-  "passes": 271,
+  "updated_at": "2026-10-15T21:36:58Z",
+  "passes": 273,
   "kills": 164,
   "easy_pad_kills": 32,
-  "kill_rate": 0.377,
+  "kill_rate": 0.3753,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 46,
-    "kills": 14,
-    "easy_pad_kills": 8,
-    "kill_rate": 0.2333
+    "passes": 47,
+    "kills": 13,
+    "easy_pad_kills": 7,
+    "kill_rate": 0.2167
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -40,8 +40,10 @@
     "authored_fibonacci_addition__hermite_recurrence_w1",
     "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_fibonacci_addition__narayana_sum_w1",
+    "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
     "authored_gcd_fibonacci__narayana_sum_w1",
+    "authored_geometric_sum__hermite_recurrence_w1",
     "authored_geometric_sum__legendre_duplication_small_w1",
     "authored_geometric_sum__narayana_sum_w1",
     "authored_geometric_sum__pell_companion_w1",
@@ -52,9 +54,7 @@
     "authored_pascal_identity__pell_companion_w1",
     "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pascal_identity__stirling_second_row_w1",
-    "authored_pell_companion__pythagorean_generation_w1",
-    "authored_pythagorean_generation__narayana_sum_w1",
-    "authored_sum_first_n_cubes__stirling_second_row_w1"
+    "authored_pythagorean_generation__narayana_sum_w1"
   ],
   "unique_mutations_kill": [
     "Chain `lemma_hard_combinatorics` citing On two families of generalized Stirling numbers re",
@@ -97,7 +97,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-15T17:15:03Z",
+    "ts": "2026-10-15T21:36:58Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -107,15 +107,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_fibonacci_addition__narayana_sum_w1` kind=hard_enable. lemma mutation authored_fibonacci_addition__narayana_sum_w1 0.9071->0.9071 Not discovery. cycle=20261015T17145",
-      "attack": "WEIGH: `authored_fibonacci_addition__narayana_sum_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_geometric_sum__hermite_recurrence_w1` kind=hard_enable. lemma mutation authored_geometric_sum__hermite_recurrence_w1 0.9071->0.9071 Not discovery. cycle=20261015T213",
+      "attack": "WEIGH: `authored_geometric_sum__hermite_recurrence_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 91,
-        "hard_n": 91,
+        "hard_pass": 93,
+        "hard_n": 93,
         "score": 0.9071,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -127,8 +127,8 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 91,
-        "hard_n": 91,
+        "hard_pass": 93,
+        "hard_n": 93,
         "ok": true,
         "score": 0.9071,
         "shifted_window": {
@@ -136,8 +136,8 @@
           "reason": "shift_window_pass",
           "applied": true,
           "ranges_shifted": 3,
-          "seconds": 0.01,
-          "window_expr": "all((check_fibonacci_addition(m, n) for m in range(22, 29) for n in range(22, 29))) and all((check_narayana_sum(n) for n in range(17, 22)))"
+          "seconds": 0.011,
+          "window_expr": "all((check_geometric_sum(a, n) for a in (2, 3, 5) for n in range(17, 22))) and all((check_hermite_recurrence(n, x) for n in range(14, 18) for x in range(5, 14)))"
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -162,7 +162,7 @@
             "ok": true
           },
           {
-            "label": "cassini_numeric",
+            "label": "flourish_math_family",
             "ok": true
           }
         ]
@@ -214,15 +214,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_fibonacci_addition__narayana_sum_w1",
+      "mutation": "authored_geometric_sum__hermite_recurrence_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_fibonacci_addition__narayana_sum_w1",
+    "mutation": "authored_geometric_sum__hermite_recurrence_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261015T171453Z_0dc7af",
+    "cycle_id": "20261015T213646Z_e43c99",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

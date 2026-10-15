@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_e62620cc6f04",
-      "title": "Authorize accepted: Lemma mutation keep: authored_pythagorean_generation__narayana_sum_w1"
+      "finding_id": "fnd_42bed5bbd20e",
+      "title": "Authorize accepted: Lemma mutation keep: authored_vandermonde_conv__stirling_second_row_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-15T17:15:48Z",
-  "updated_cycle": "20261015T171532Z_99d211",
+  "updated_at": "2026-10-15T21:37:03Z",
+  "updated_cycle": "20261015T213646Z_e43c99",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

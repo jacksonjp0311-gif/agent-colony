@@ -1,7 +1,7 @@
 {
-  "ts": "2026-10-15T17:16:11Z",
+  "ts": "2026-10-15T21:37:13Z",
   "ok_all": true,
-  "aggregate_score": 0.8743,
+  "aggregate_score": 0.8745,
   "benches": [
     {
       "bench": "fft_microbench",
@@ -10,7 +10,7 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.002545,
+      "seconds": 0.002511,
       "score": 1.0,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
@@ -23,8 +23,8 @@
       "ok": true,
       "max_abs_err": 7.367024535821709e-11,
       "mse": 6.228992808609339e-24,
-      "seconds": 0.012606,
-      "score": 0.6392,
+      "seconds": 0.012465,
+      "score": 0.6403,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
       "time_budget_s": 0.0025
@@ -61,9 +61,9 @@
       "bench": "lemma_microbench",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 0.144669,
+      "seconds": 0.121712,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard91",
+      "impl_id": "lemma_impl_v2_basic10_hard93",
       "checks": {
         "basic:square_of_sum": true,
         "basic:difference_of_squares": true,
@@ -165,14 +165,16 @@
         "hard:authored_cassini__catalan_bounded_w1": true,
         "hard:authored_central_binom_bound__binomial_inversion_small_w1": true,
         "hard:authored_derangement_subfactorial__legendre_duplication_small_w1": true,
-        "hard:authored_fibonacci_addition__narayana_sum_w1": true
+        "hard:authored_fibonacci_addition__narayana_sum_w1": true,
+        "hard:authored_gcd_fibonacci__euler_totient_multiplicative_w1": true,
+        "hard:authored_geometric_sum__hermite_recurrence_w1": true
       },
-      "n_checks": 101,
-      "n_pass": 101,
+      "n_checks": 103,
+      "n_pass": 103,
       "n_basic": 10,
       "n_basic_pass": 10,
-      "n_hard": 91,
-      "n_hard_pass": 91,
+      "n_hard": 93,
+      "n_hard_pass": 93,
       "basic_ok": true,
       "hard_ok": true,
       "note": "Machine-check of coded lemmas (basic + hard tier). Textbook-only cannot ace ~0.95. Not novel-theorem discovery."
@@ -182,7 +184,7 @@
       "domain": "stem_physics",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 0.00011,
+      "seconds": 0.000109,
       "score": 0.825,
       "impl_id": "kinematics_impl_v1_enabled4",
       "checks": {
