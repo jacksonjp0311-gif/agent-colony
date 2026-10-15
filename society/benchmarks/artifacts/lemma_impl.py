@@ -1138,6 +1138,17 @@ def check_authored_central_binom_bound__binomial_inversion_small_w1() -> bool:
     return all((check_central_binom_bound(n) for n in range(18, 26))) and all((check_binomial_inversion_small(n) for n in range(9, 13)))
 
 
+def check_authored_derangement_subfactorial__legendre_duplication_small_w1() -> bool:
+    """Authored stress check (desk): proven lemmas derangement_subfactorial + legendre_duplication_small on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_derangement_subfactorial,
+    ::check_legendre_duplication_small; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_derangement_subfactorial(n) for n in range(12, 18))) and all((check_legendre_duplication_small(n) for n in range(12, 18)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1276,7 +1287,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sum_first_n_odds__bell_triangle_recurrence_w1", check_authored_sum_first_n_odds__bell_triangle_recurrence_w1, True),
     ("authored_binomial_sum_row__catalan_convolution_w1", check_authored_binomial_sum_row__catalan_convolution_w1, True),
     ("authored_cassini__catalan_bounded_w1", check_authored_cassini__catalan_bounded_w1, True),
-    ("authored_central_binom_bound__binomial_inversion_small_w1", check_authored_central_binom_bound__binomial_inversion_small_w1, False),
+    ("authored_central_binom_bound__binomial_inversion_small_w1", check_authored_central_binom_bound__binomial_inversion_small_w1, True),
+    ("authored_derangement_subfactorial__legendre_duplication_small_w1", check_authored_derangement_subfactorial__legendre_duplication_small_w1, True),
 ]
 
 

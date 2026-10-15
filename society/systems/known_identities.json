@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-15T04:58:28Z",
-  "n": 189,
+  "updated_at": "2026-10-15T11:52:20Z",
+  "n": 191,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -25,11 +25,13 @@
     "authored_cassini__catalan_convolution_w1",
     "authored_catalan_bounded__catalan_convolution_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
+    "authored_central_binom_bound__binomial_inversion_small_w1",
     "authored_central_binom_bound__derangement_subfactorial_w1",
     "authored_central_binom_bound__euler_totient_multiplicative_w1",
     "authored_central_binom_bound__gcd_fibonacci_w1",
     "authored_derangement_subfactorial__euler_totient_multiplicative_w1",
     "authored_derangement_subfactorial__hermite_recurrence_w1",
+    "authored_derangement_subfactorial__legendre_duplication_small_w1",
     "authored_euler_totient_multiplicative__hermite_recurrence_w1",
     "authored_fibonacci_addition__euler_totient_multiplicative_w1",
     "authored_fibonacci_addition__gcd_fibonacci_w1",
