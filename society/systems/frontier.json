@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T18:01:35Z",
+  "updated_at": "2026-10-16T19:15:07Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -246,8 +246,8 @@
     },
     "oeis_A104062_next": {
       "family": "prime_run_count",
-      "status": "done",
-      "verified_hi": 4290000001,
+      "status": "open",
+      "verified_hi": 118690000001,
       "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). Colony computed a(7) = 138994 on 2026-10-16 (cross-checked with primesieve 12.7 + C counter and a pure-Python recount; evidence/2026-10-16-a104062-a7/). Computed value, not a proof; pending OEIS review.",
       "window": 100000000,
       "result": null,
@@ -258,22 +258,24 @@
         "200000": 416,
         "2000000": 2748,
         "20000000": 19348,
-        "200000000": 138994
+        "200000000": 138994,
+        "2000000000": 1031312
       },
       "new_term_candidates": {
-        "200000000": 138994
+        "200000000": 138994,
+        "2000000000": 1031312
       },
       "published_record": "a(1)..a(6), i.e. the first 2*10^7 primes (p(2*10^7) = 373587883)"
     }
   },
   "reviews": [],
   "last": {
-    "target": "twin_primes_hl",
-    "lo": 34200001,
-    "hi": 38200000,
+    "target": "oeis_A104062_next",
+    "lo": 118590000002,
+    "hi": 118690000001,
     "outcome": "extended",
-    "verified_hi": 38200000,
-    "cycle_id": "20261016T180121Z_449e36"
+    "verified_hi": 118690000001,
+    "cycle_id": "burst_2026-10-16T19:06:08Z"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
