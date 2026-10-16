@@ -9,6 +9,13 @@ import pytest
 import colony.feeds as F
 import colony.sensors as S
 
+@pytest.fixture(autouse=True)
+def _no_instrument_candidates(monkeypatch):
+    """These tests cover lemma-compose / feed authoring; instrument checks have their own tests."""
+    import colony.instrument_checks as _ic
+    monkeypatch.setattr(_ic, "candidates", lambda *a, **k: [])
+
+
 ATOM = """<?xml version='1.0'?><feed>
 <entry><id>http://arxiv.org/abs/2610.00001v1</id><published>2026-10-06T00:00:00Z</published>
 <title>On <b>Catalan</b>   identities</title><summary>We prove things &amp; more.</summary></entry>

@@ -357,6 +357,7 @@ def verify_candidate(new_src: str, name: str, components: list[str]) -> dict[str
             proc = subprocess.run(
                 [sys.executable, "-c", _VERIFY, str(path), name, json.dumps(components)],
                 capture_output=True, text=True, timeout=SUBPROCESS_TIMEOUT_S,
+                cwd=str(Path(__file__).resolve().parent.parent),
             )
         except subprocess.TimeoutExpired:
             return {"accepted": False, "reason": "timeout"}
@@ -415,6 +416,17 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
     # least-used pair, then least-used components (diversity), then stable name order
     pairs.sort(key=lambda t: t[0])
     candidates: list[dict[str, Any]] = list(oeis_candidates(src, comps))  # feeds first
+    try:  # then checks that call colony instruments (same disabled-until-Oracle path)
+        from colony import instrument_checks
+        marker = INSERT_MARKER if INSERT_MARKER in src else FALLBACK_MARKER
+        bridged = instrument_checks.ensure_bridges(src, marker)
+        if bridged != src:
+            ast.parse(bridged)
+            src, tree = bridged, ast.parse(bridged)
+            bodies = _existing_bodies(tree)
+        candidates += instrument_checks.candidates(names | rejected)
+    except Exception:
+        pass
     for _key, a, b, k in pairs:
         name, fn_src, body, expr = _build_candidate(a, b, k)
         candidates.append({
@@ -493,7 +505,8 @@ def _lesson_for(row: dict[str, Any], cand: dict[str, Any], cycle_id: str) -> Non
             lesson_type="authored_check" if ok else "authoring_reject",
             family="hard_tier",
             tags=["authoring", "authored_check" if ok else "authoring_reject",
-                  *[c["lemma"] for c in comps], *(["feed", cand["source"]] if cand.get("source") == "oeis" else [])],
+                  *[c["lemma"] for c in comps], *(["feed", cand["source"]] if cand.get("source") == "oeis" else []),
+                  *(["instrument", "sieve", str(cand.get("template") or "")] if cand.get("source") == "instrument" else [])],
             evidence=evidence,
         )
     except Exception:

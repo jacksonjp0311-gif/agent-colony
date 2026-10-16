@@ -9,6 +9,13 @@ import pytest
 import colony.authoring as A
 from colony.lessons import write_human_guide, write_lesson
 
+@pytest.fixture(autouse=True)
+def _no_instrument_candidates(monkeypatch):
+    """These tests cover lemma-compose / feed authoring; instrument checks have their own tests."""
+    import colony.instrument_checks as _ic
+    monkeypatch.setattr(_ic, "candidates", lambda *a, **k: [])
+
+
 BASE = '''
 def check_a(n: int) -> bool:
     """sum of first n odds = n^2"""

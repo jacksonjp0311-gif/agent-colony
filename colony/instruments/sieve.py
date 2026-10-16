@@ -221,11 +221,12 @@ def _li_k(a: float, b: float, k: int, steps: int = 4000) -> float:
     return s * h / 3
 
 
-def hl_predict(gaps: Sequence[int], a: int, b: int, *, consecutive: bool = True) -> dict[str, Any]:
+def hl_predict(gaps: Sequence[int], a: int, b: int, *, consecutive: bool = True,
+               prime_limit: int = 2_000_000, steps: int = 4000) -> dict[str, Any]:
     """HL forecast of matches in [a, b). consecutive=True applies inclusion-exclusion over interior
     points (Odlyzko-Rubinstein-Wolf 1999) so it predicts CONSECUTIVE primes. Conjectural heuristic."""
     H = _offsets(gaps); k = len(H)
-    lead = hl_constant(H) * _li_k(a, b, k)
+    lead = hl_constant(H, prime_limit) * _li_k(a, b, k, steps)
     if not consecutive:
         return {"tuple_only": lead, "prediction": lead, "conjectural": True}
     inter = [x for x in range(1, H[-1]) if x not in H]
@@ -234,9 +235,9 @@ def hl_predict(gaps: Sequence[int], a: int, b: int, *, consecutive: bool = True)
     tot = 0.0
     for r in range(len(inter) + 1):
         for S in itertools.combinations(inter, r):
-            c = hl_constant(H + list(S)) if r else hl_constant(H)
+            c = hl_constant(H + list(S), prime_limit)
             if c:
-                tot += (-1) ** r * c * _li_k(a, b, k + r)
+                tot += (-1) ** r * c * _li_k(a, b, k + r, steps)
     return {"tuple_only": lead, "prediction": tot, "conjectural": True}
 
 
