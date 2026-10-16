@@ -1,23 +1,31 @@
 {
   "ci_health": {
-    "completed": 10,
-    "fetched_at": "2026-10-16T21:30:28Z",
+    "completed": 11,
+    "fetched_at": "2026-10-16T21:57:09Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-16T21:56:55Z",
+        "id": 38972707491,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-16T21:56:59Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-16T21:27:27Z",
         "id": 38969496718,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-16T21:30:16Z"
+        "status": "completed",
+        "updated_at": "2026-10-16T21:33:05Z"
       },
       {
-        "conclusion": null,
+        "conclusion": "success",
         "created_at": "2026-10-16T21:24:29Z",
         "id": 38969154507,
         "name": "A104062 shards",
-        "status": "queued",
-        "updated_at": "2026-10-16T21:24:52Z"
+        "status": "completed",
+        "updated_at": "2026-10-16T21:44:44Z"
       },
       {
         "conclusion": "cancelled",
@@ -90,17 +98,9 @@
         "name": "Frontier burst",
         "status": "completed",
         "updated_at": "2026-10-16T19:35:21Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-16T19:15:45Z",
-        "id": 38953601645,
-        "name": "Frontier burst",
-        "status": "completed",
-        "updated_at": "2026-10-16T19:25:37Z"
       }
     ],
-    "success_rate": 0.9
+    "success_rate": 0.9091
   },
   "health": {
     "arxiv": {
@@ -138,10 +138,9 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "",
-        "fetched": 8,
-        "new": 2,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-10-16T21:30:24Z"
+    "ts": "2026-10-16T21:57:09Z"
   },
-  "runs": 51
+  "runs": 52
 }

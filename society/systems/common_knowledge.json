@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T21:32:09Z",
-  "updated_cycle": "20261016T213202Z_f5c103",
+  "updated_at": "2026-10-16T21:58:44Z",
+  "updated_cycle": "20261016T215839Z_d0a038",
   "size": 200,
   "stats": {
-    "appended": 1208,
-    "reused": 2708
+    "appended": 1220,
+    "reused": 2735
   },
   "by_domain": {
     "math": 100,
@@ -13,12 +13,12 @@
   },
   "recent": [
     {
-      "id": "ck_2f9cef_0200",
-      "ts": "2026-10-16T21:30:54Z",
-      "cycle_id": "20261016T213047Z_2f9cef",
+      "id": "ck_68096f_0200",
+      "ts": "2026-10-16T21:57:32Z",
+      "cycle_id": "20261016T215724Z_68096f",
       "domain": "math",
       "title": "Commons note: open-math-problems",
-      "summary": "Standing gather on `open-math-problems` (ledger_count=1567). Candidate synthesis for shared reuse. Not accepted.",
+      "summary": "Standing gather on `open-math-problems` (ledger_count=1582). Candidate synthesis for shared reuse. Not accepted.",
       "source_role": "archivist",
       "tags": [
         "gather",
@@ -26,19 +26,19 @@
         "open-math-problems"
       ],
       "evidence": [
-        "cycle:20261016T213047Z_2f9cef",
+        "cycle:20261016T215724Z_68096f",
         "topic:open-math-problems"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_2f9cef_0200",
-      "ts": "2026-10-16T21:30:54Z",
-      "cycle_id": "20261016T213047Z_2f9cef",
+      "id": "ck_68096f_0200",
+      "ts": "2026-10-16T21:57:32Z",
+      "cycle_id": "20261016T215724Z_68096f",
       "domain": "math",
       "title": "Commons note: compute-useful-math",
-      "summary": "Standing gather on `compute-useful-math` (ledger_count=832). Candidate synthesis for shared reuse. Not accepted.",
+      "summary": "Standing gather on `compute-useful-math` (ledger_count=841). Candidate synthesis for shared reuse. Not accepted.",
       "source_role": "archivist",
       "tags": [
         "gather",
@@ -46,16 +46,16 @@
         "compute-useful-math"
       ],
       "evidence": [
-        "cycle:20261016T213047Z_2f9cef",
+        "cycle:20261016T215724Z_68096f",
         "topic:compute-useful-math"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_2f9cef_0200",
-      "ts": "2026-10-16T21:30:54Z",
-      "cycle_id": "20261016T213047Z_2f9cef",
+      "id": "ck_68096f_0200",
+      "ts": "2026-10-16T21:57:32Z",
+      "cycle_id": "20261016T215724Z_68096f",
       "domain": "rsi",
       "title": "Commons note: meta-learning",
       "summary": "Standing gather on `meta-learning` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -66,16 +66,16 @@
         "meta-learning"
       ],
       "evidence": [
-        "cycle:20261016T213047Z_2f9cef",
+        "cycle:20261016T215724Z_68096f",
         "topic:meta-learning"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_2f9cef_0200",
-      "ts": "2026-10-16T21:30:54Z",
-      "cycle_id": "20261016T213047Z_2f9cef",
+      "id": "ck_68096f_0200",
+      "ts": "2026-10-16T21:57:32Z",
+      "cycle_id": "20261016T215724Z_68096f",
       "domain": "rsi",
       "title": "Commons note: self-improving-agents",
       "summary": "Standing gather on `self-improving-agents` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -86,19 +86,19 @@
         "self-improving-agents"
       ],
       "evidence": [
-        "cycle:20261016T213047Z_2f9cef",
+        "cycle:20261016T215724Z_68096f",
         "topic:self-improving-agents"
       ],
       "status": "candidate",
       "reuse_count": 3
     },
     {
-      "id": "ck_f42ae2_0200",
-      "ts": "2026-10-16T21:31:33Z",
-      "cycle_id": "20261016T213126Z_f42ae2",
+      "id": "ck_ce9f04_0200",
+      "ts": "2026-10-16T21:58:08Z",
+      "cycle_id": "20261016T215803Z_ce9f04",
       "domain": "math",
       "title": "Commons note: open-math-problems",
-      "summary": "Standing gather on `open-math-problems` (ledger_count=1572). Candidate synthesis for shared reuse. Not accepted.",
+      "summary": "Standing gather on `open-math-problems` (ledger_count=1587). Candidate synthesis for shared reuse. Not accepted.",
       "source_role": "archivist",
       "tags": [
         "gather",
@@ -106,19 +106,19 @@
         "open-math-problems"
       ],
       "evidence": [
-        "cycle:20261016T213126Z_f42ae2",
+        "cycle:20261016T215803Z_ce9f04",
         "topic:open-math-problems"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_f42ae2_0200",
-      "ts": "2026-10-16T21:31:33Z",
-      "cycle_id": "20261016T213126Z_f42ae2",
+      "id": "ck_ce9f04_0200",
+      "ts": "2026-10-16T21:58:08Z",
+      "cycle_id": "20261016T215803Z_ce9f04",
       "domain": "math",
       "title": "Commons note: compute-useful-math",
-      "summary": "Standing gather on `compute-useful-math` (ledger_count=835). Candidate synthesis for shared reuse. Not accepted.",
+      "summary": "Standing gather on `compute-useful-math` (ledger_count=842). Candidate synthesis for shared reuse. Not accepted.",
       "source_role": "archivist",
       "tags": [
         "gather",
@@ -126,16 +126,16 @@
         "compute-useful-math"
       ],
       "evidence": [
-        "cycle:20261016T213126Z_f42ae2",
+        "cycle:20261016T215803Z_ce9f04",
         "topic:compute-useful-math"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_f42ae2_0200",
-      "ts": "2026-10-16T21:31:33Z",
-      "cycle_id": "20261016T213126Z_f42ae2",
+      "id": "ck_ce9f04_0200",
+      "ts": "2026-10-16T21:58:08Z",
+      "cycle_id": "20261016T215803Z_ce9f04",
       "domain": "rsi",
       "title": "Commons note: meta-learning",
       "summary": "Standing gather on `meta-learning` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -146,16 +146,16 @@
         "meta-learning"
       ],
       "evidence": [
-        "cycle:20261016T213126Z_f42ae2",
+        "cycle:20261016T215803Z_ce9f04",
         "topic:meta-learning"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_f42ae2_0200",
-      "ts": "2026-10-16T21:31:33Z",
-      "cycle_id": "20261016T213126Z_f42ae2",
+      "id": "ck_ce9f04_0200",
+      "ts": "2026-10-16T21:58:08Z",
+      "cycle_id": "20261016T215803Z_ce9f04",
       "domain": "rsi",
       "title": "Commons note: self-improving-agents",
       "summary": "Standing gather on `self-improving-agents` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -166,19 +166,19 @@
         "self-improving-agents"
       ],
       "evidence": [
-        "cycle:20261016T213126Z_f42ae2",
+        "cycle:20261016T215803Z_ce9f04",
         "topic:self-improving-agents"
       ],
       "status": "candidate",
       "reuse_count": 2
     },
     {
-      "id": "ck_f5c103_0200",
-      "ts": "2026-10-16T21:32:09Z",
-      "cycle_id": "20261016T213202Z_f5c103",
+      "id": "ck_d0a038_0200",
+      "ts": "2026-10-16T21:58:44Z",
+      "cycle_id": "20261016T215839Z_d0a038",
       "domain": "math",
       "title": "Commons note: open-math-problems",
-      "summary": "Standing gather on `open-math-problems` (ledger_count=1577). Candidate synthesis for shared reuse. Not accepted.",
+      "summary": "Standing gather on `open-math-problems` (ledger_count=1592). Candidate synthesis for shared reuse. Not accepted.",
       "source_role": "archivist",
       "tags": [
         "gather",
@@ -186,19 +186,19 @@
         "open-math-problems"
       ],
       "evidence": [
-        "cycle:20261016T213202Z_f5c103",
+        "cycle:20261016T215839Z_d0a038",
         "topic:open-math-problems"
       ],
       "status": "candidate",
       "reuse_count": 0
     },
     {
-      "id": "ck_f5c103_0200",
-      "ts": "2026-10-16T21:32:09Z",
-      "cycle_id": "20261016T213202Z_f5c103",
+      "id": "ck_d0a038_0200",
+      "ts": "2026-10-16T21:58:44Z",
+      "cycle_id": "20261016T215839Z_d0a038",
       "domain": "math",
       "title": "Commons note: compute-useful-math",
-      "summary": "Standing gather on `compute-useful-math` (ledger_count=836). Candidate synthesis for shared reuse. Not accepted.",
+      "summary": "Standing gather on `compute-useful-math` (ledger_count=845). Candidate synthesis for shared reuse. Not accepted.",
       "source_role": "archivist",
       "tags": [
         "gather",
@@ -206,16 +206,16 @@
         "compute-useful-math"
       ],
       "evidence": [
-        "cycle:20261016T213202Z_f5c103",
+        "cycle:20261016T215839Z_d0a038",
         "topic:compute-useful-math"
       ],
       "status": "candidate",
       "reuse_count": 0
     },
     {
-      "id": "ck_f5c103_0200",
-      "ts": "2026-10-16T21:32:09Z",
-      "cycle_id": "20261016T213202Z_f5c103",
+      "id": "ck_d0a038_0200",
+      "ts": "2026-10-16T21:58:44Z",
+      "cycle_id": "20261016T215839Z_d0a038",
       "domain": "rsi",
       "title": "Commons note: meta-learning",
       "summary": "Standing gather on `meta-learning` (ledger_count=1). Candidate synthesis for shared reuse. Not accepted.",
@@ -226,16 +226,16 @@
         "meta-learning"
       ],
       "evidence": [
-        "cycle:20261016T213202Z_f5c103",
+        "cycle:20261016T215839Z_d0a038",
         "topic:meta-learning"
       ],
       "status": "candidate",
       "reuse_count": 0
     },
     {
-      "id": "ck_f5c103_0200",
-      "ts": "2026-10-16T21:32:09Z",
-      "cycle_id": "20261016T213202Z_f5c103",
+      "id": "ck_d0a038_0200",
+      "ts": "2026-10-16T21:58:44Z",
+      "cycle_id": "20261016T215839Z_d0a038",
       "domain": "rsi",
       "title": "Commons note: self-improving-agents",
       "summary": "Standing gather on `self-improving-agents` (ledger_count=0). Candidate synthesis for shared reuse. Not accepted.",
@@ -246,7 +246,7 @@
         "self-improving-agents"
       ],
       "evidence": [
-        "cycle:20261016T213202Z_f5c103",
+        "cycle:20261016T215839Z_d0a038",
         "topic:self-improving-agents"
       ],
       "status": "candidate",

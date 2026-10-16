@@ -1,32 +1,37 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T21:32:13Z",
-  "hits": 24,
-  "kills": 6,
+  "updated_at": "2026-10-16T21:59:19Z",
+  "hits": 21,
+  "kills": 9,
   "latest": {
-    "ts": "2026-10-16T21:32:13Z",
-    "cycle_id": "20261016T213202Z_f5c103",
-    "mutation": "authored_pell_companion__motzkin_bounded_w1",
-    "kind": "hard_enable",
-    "novel_to_commons": true,
-    "kills": [],
+    "ts": "2026-10-16T21:59:19Z",
+    "cycle_id": "",
+    "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
+    "kind": "process",
+    "novel_to_commons": false,
+    "kills": [
+      "already_in_lesson_ledger_or_history",
+      "stripped_baseline_does_not_fail_usefulness",
+      "held_out:hard_tier_green_and_hard_enable",
+      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
+    ],
     "textbook_reuse": 0.0,
-    "in_ledger": false,
-    "own_authoring_record_only": true,
-    "oracle_used": "caller_verdict",
+    "in_ledger": true,
+    "own_authoring_record_only": false,
+    "oracle_used": "own_run",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": true,
-      "hard_pass": 108,
-      "hard_n": 108,
-      "stripped_fails_usefulness": true,
+      "in_catalog": false,
+      "hard_pass": 109,
+      "hard_n": 109,
+      "stripped_fails_usefulness": false,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard107"
+      "impl_id": "lemma_impl_v2_basic10_hard109"
     },
     "held_out": {
-      "survives": true,
+      "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 108,
+      "hard_pass": 109,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
