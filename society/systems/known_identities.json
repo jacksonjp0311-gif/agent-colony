@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T11:44:49Z",
-  "n": 197,
+  "updated_at": "2026-10-16T16:18:05Z",
+  "n": 198,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -66,6 +66,7 @@
     "authored_sum_first_n_cubes__stirling_second_row_w1",
     "authored_sum_first_n_cubes__vandermonde_conv_w1",
     "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
+    "authored_sum_first_n_odds__pythagorean_generation_w1",
     "authored_sum_first_n_odds__stirling_second_row_w1",
     "authored_sum_first_n_odds__sum_first_n_cubes_w1",
     "authored_sum_first_n_odds__vandermonde_conv_w1",
