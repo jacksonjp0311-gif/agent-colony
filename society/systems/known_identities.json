@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-15T21:36:58Z",
-  "n": 194,
+  "updated_at": "2026-10-16T04:48:25Z",
+  "n": 195,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -49,6 +49,7 @@
     "authored_hockey_stick__motzkin_bounded_w1",
     "authored_hockey_stick__pell_companion_w1",
     "authored_hockey_stick__pythagorean_generation_w1",
+    "authored_hockey_stick__stirling_second_row_w1",
     "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000079__binomial_sum_row",

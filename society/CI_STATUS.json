@@ -348,82 +348,85 @@
     "cycle_296_evolve_note",
     "cycle_297_evolve_note",
     "cycle_298_evolve_note",
-    "cycle_299_evolve_note"
+    "cycle_299_evolve_note",
+    "cycle_300_evolve_note",
+    "cycle_301_evolve_note",
+    "cycle_302_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 847,
+      "uses": 856,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 819,
+      "uses": 828,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 567,
+      "uses": 573,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 283,
+      "uses": 286,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1089,
+      "uses": 1101,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 623,
+      "uses": 627,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 814,
+      "uses": 823,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 271,
+      "uses": 274,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 271,
+      "uses": 274,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 256,
+      "uses": 259,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 256,
+      "uses": 259,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 253,
+      "uses": 256,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 253,
+      "uses": 256,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 250,
+      "uses": 253,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 250,
+      "uses": 253,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -698,8 +701,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1088,
-    "reused": 2443
+    "appended": 1100,
+    "reused": 2470
   },
   "commons_by_domain": {
     "science": 0,
@@ -718,8 +721,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-15T21:37:08Z",
-    "cycle_id": "20261015T213646Z_e43c99",
+    "ts": "2026-10-16T04:49:32Z",
+    "cycle_id": "20261016T044854Z_92aaa5",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -731,23 +734,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-15T21:37:07Z",
-    "cycle_id": "20261015T213646Z_e43c99",
+    "ts": "2026-10-16T04:49:30Z",
+    "cycle_id": "20261016T044854Z_92aaa5",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8135,
-    "compute_usefulness": 0.913,
+    "math_prize": 0.8138,
+    "compute_usefulness": 0.9133,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8856,
-    "kill_rate": 0.3753,
-    "kill_rate_term": 0.8878,
-    "novelty": 0.7667,
+    "prize_boost": 0.8859,
+    "kill_rate": 0.3744,
+    "kill_rate_term": 0.887,
+    "novelty": 0.8,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8574,
+    "aggregate": 0.8635,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -755,33 +758,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 15328,
-    "read": 72924,
-    "replied": 9652,
-    "actions_planned": 4998,
-    "actions_changed_from_message": 4998,
-    "reply_quality_sum": 8753.099999998929,
-    "reply_quality_n": 9600,
-    "peer_cite_opportunities": 9872,
-    "peer_cites": 9872
+    "posted": 15494,
+    "read": 73734,
+    "replied": 9757,
+    "actions_planned": 5052,
+    "actions_changed_from_message": 5052,
+    "reply_quality_sum": 8848.7999999989,
+    "reply_quality_n": 9705,
+    "peer_cite_opportunities": 9980,
+    "peer_cites": 9980
   },
   "bus_domains": {
-    "science": 809,
-    "history": 811,
-    "math": 2442,
-    "empire": 543,
-    "bulletin": 2141,
-    "forum": 3512,
-    "software": 811,
-    "nature": 809,
-    "life": 811,
-    "cosmos": 1172,
-    "rsi": 1359
+    "science": 818,
+    "history": 820,
+    "math": 2469,
+    "empire": 549,
+    "bulletin": 2162,
+    "forum": 3551,
+    "software": 820,
+    "nature": 818,
+    "life": 820,
+    "cosmos": 1185,
+    "rsi": 1374
   },
-  "communications_count": 15328,
+  "communications_count": 15494,
   "improvements": [
-    "Chain `authored_geometric_sum__pell_companion_w1` citing Cofactor Dynamics and Pell Equations in GCD-Augmen",
-    "Chain `authored_geometric_sum__pell_companion_w1` citing Cofactor Dynamics and Pell Equations in GCD-Augmen (cycle 251)",
     "Chain `authored_hockey_stick__pythagorean_generation_w1` citing Pythagorean Fuzzy Topological Polygroups",
     "Chain `authored_hockey_stick__pythagorean_generation_w1` citing Pythagorean Fuzzy Topological Polygroups (cycle 253)",
     "Chain `authored_pascal_identity__stirling_second_row_w1` citing Combinatorics of q,r-analogues of Stirling numbers",
@@ -829,18 +830,20 @@
     "Chain `authored_gcd_fibonacci__euler_totient_multiplicative_w1` citing The $k$-color poset Ramsey number of the diamond i",
     "Chain `authored_gcd_fibonacci__euler_totient_multiplicative_w1` citing The $k$-color poset Ramsey number of the diamond i (cycle 297)",
     "Chain `authored_geometric_sum__hermite_recurrence_w1` citing Cyclic relative difference sets and circulant weig",
-    "Chain `authored_geometric_sum__hermite_recurrence_w1` citing Cyclic relative difference sets and circulant weig (cycle 299)"
+    "Chain `authored_geometric_sum__hermite_recurrence_w1` citing Cyclic relative difference sets and circulant weig (cycle 299)",
+    "Chain `authored_hockey_stick__stirling_second_row_w1` citing TANGO: RNA Topology and Geometry Co-Design",
+    "Chain `authored_hockey_stick__stirling_second_row_w1` citing TANGO: RNA Topology and Geometry Co-Design (cycle 301)"
   ],
-  "cycle_count": 299,
-  "ledger_count": 16488,
+  "cycle_count": 302,
+  "ledger_count": 16669,
   "status_counts": {
-    "candidate": 15882,
-    "accepted": 190,
-    "rejected": 292,
+    "candidate": 16058,
+    "accepted": 193,
+    "rejected": 294,
     "unknown": 124
   },
-  "witness_events": 23792,
-  "tribute_cycles_compliant": 299,
+  "witness_events": 24057,
+  "tribute_cycles_compliant": 302,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

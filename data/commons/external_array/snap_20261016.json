@@ -1,0 +1,378 @@
+{
+  "ts": "2026-10-16T04:49:30Z",
+  "version": 2,
+  "mile": "spark3-port",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 1,
+      "items": [
+        {
+          "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
+          "id": "http://arxiv.org/abs/2610.22372v1",
+          "published": "2026-10-15T17:59:59Z",
+          "summary": "Personalization is essential for general-purpose robots to transition into household environments and achieve true practicality. While general robotic manipulation has been extensively studied, personalized robotic manipulation (PeRM) lacks a controlled benchmark for separating t",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-10-16T04:49:12Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": false,
+      "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "count": 0,
+      "items": [],
+      "ts": "2026-10-16T04:49:12Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "deprecated": true,
+      "quarantined": true,
+      "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-10-16T04:49:12Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": true,
+      "note": "NYC:ok; London:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; Tokyo:ok; Sydney:ok",
+      "count": 3,
+      "items": [
+        {
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 13.3,
+          "wind_speed_10m": 3.9,
+          "weather_code": 0,
+          "time": "2026-10-16T04:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "temperature_2m": 25.5,
+          "wind_speed_10m": 2.3,
+          "weather_code": 0,
+          "time": "2026-10-16T04:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "temperature_2m": 18.4,
+          "wind_speed_10m": 16.8,
+          "weather_code": 1,
+          "time": "2026-10-16T04:45",
+          "source": "open_meteo"
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-16T04:49:29Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -5.933138981819721,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-10-16T04:42:00Z",
+          "v": -7.012842527012124
+        },
+        {
+          "t": "2026-10-16T04:42:00Z",
+          "v": -5.768843990130285
+        },
+        {
+          "t": "2026-10-16T04:43:00Z",
+          "v": -7.211277975976088
+        },
+        {
+          "t": "2026-10-16T04:43:00Z",
+          "v": -5.832450629256378
+        },
+        {
+          "t": "2026-10-16T04:44:00Z",
+          "v": -7.3360858428773845
+        },
+        {
+          "t": "2026-10-16T04:44:00Z",
+          "v": -5.885894578019875
+        },
+        {
+          "t": "2026-10-16T04:45:00Z",
+          "v": -7.490945860060275
+        },
+        {
+          "t": "2026-10-16T04:45:00Z",
+          "v": -5.933138981819721
+        }
+      ],
+      "live": true,
+      "ts": "2026-10-16T04:49:29Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "ok",
+      "count": 48,
+      "latest": 20.7,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-10-15T00:00",
+          "v": 23.8
+        },
+        {
+          "t": "2026-10-15T01:00",
+          "v": 23.9
+        },
+        {
+          "t": "2026-10-15T02:00",
+          "v": 23.2
+        },
+        {
+          "t": "2026-10-15T03:00",
+          "v": 22.1
+        },
+        {
+          "t": "2026-10-15T04:00",
+          "v": 20.4
+        },
+        {
+          "t": "2026-10-15T05:00",
+          "v": 19.2
+        },
+        {
+          "t": "2026-10-15T06:00",
+          "v": 17.4
+        },
+        {
+          "t": "2026-10-15T07:00",
+          "v": 16.2
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-16T04:49:30Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 2.9,
+      "items": [
+        {
+          "mag": 2.9,
+          "place": "72 km SSE of Cantwell, Alaska",
+          "time": 1792107020010,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.41,
+          "place": "19 km W of Preston, Nevada",
+          "time": 1792104934180,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "52 km S of Champerico, Guatemala",
+          "time": 1792099747770,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.44,
+          "place": "65 km NE of Punta Cana, Dominican Republic",
+          "time": 1792098748970,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.5,
+          "place": "44 km SSE of Champerico, Guatemala",
+          "time": 1792096765755,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.3,
+          "place": "11 km SE of Huara, Chile",
+          "time": 1792095920509,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.9,
+          "place": "86 km SE of Ugashik, Alaska",
+          "time": 1792094317884,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.6,
+          "place": "41 km NNE of Beaver, Alaska",
+          "time": 1792093602353,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-09&endtime=2026-10-16&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-16T04:49:30Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.3916015625,
+          "disk_free_percent": 59.32560650840476,
+          "process_count": 159,
+          "uptime_hours": 0.055044444444444444,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "node": "runnervm8k3b6",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.3916015625,
+      "live": true,
+      "ts": "2026-10-16T04:49:30Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 5.275316999984625,
+      "mean_ms": 5.075740499997039,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 4.723366000007445
+        },
+        {
+          "probe": 1,
+          "ms": 4.974008000004915
+        },
+        {
+          "probe": 2,
+          "ms": 5.330270999991171
+        },
+        {
+          "probe": 3,
+          "ms": 5.275316999984625
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-10-16T04:49:30Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": true,
+      "note": "ok",
+      "count": 48
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "global_weather_spread",
+      "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 13.3), ('Tokyo', 25.5), ('Sydney', 18.4)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "signals": {
+        "cities": [
+          [
+            "NYC",
+            13.3
+          ],
+          [
+            "Tokyo",
+            25.5
+          ],
+          [
+            "Sydney",
+            18.4
+          ]
+        ],
+        "kp": null
+      },
+      "domains": [
+        "nature",
+        "commons",
+        "government"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-5.933138981819721. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -5.933138981819721
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.3916015625 probe_ms=5.075740499997039. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.3916015625,
+        "probe_ms": 5.075740499997039
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}
