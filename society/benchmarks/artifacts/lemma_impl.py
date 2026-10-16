@@ -1528,7 +1528,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_pascal_identity__sum_first_n_cubes_w1", check_authored_pascal_identity__sum_first_n_cubes_w1, True),
     ("authored_pell_companion__motzkin_bounded_w1", check_authored_pell_companion__motzkin_bounded_w1, True),
     ("authored_stirling_second_row__pythagorean_generation_w1", check_authored_stirling_second_row__pythagorean_generation_w1, True),
-    ("authored_pascal_identity__vandermonde_conv_w1", check_authored_pascal_identity__vandermonde_conv_w1, False),
+    ("authored_pascal_identity__vandermonde_conv_w1", check_authored_pascal_identity__vandermonde_conv_w1, True),
 ]
 
 

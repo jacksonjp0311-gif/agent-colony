@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-16T23:17:32Z",
-  "cycle_id": "20261016T231731Z_112d30",
+  "ts": "2026-10-16T23:20:19Z",
+  "cycle_id": "20261016T232017Z_0e2b33",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -15,13 +15,6 @@
       "lemma_hard_combinatorics": 3
     },
     "recent": {
-      "authored_geometric_sum__vandermonde_conv_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_binomial_sum_row__central_binom_bound_w1": {
         "last": "keep",
         "streak": 1,
@@ -98,45 +91,52 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_pascal_identity__vandermonde_conv_w1": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8581,
-      "slope": 0.001,
+      "last": 0.8503,
+      "slope": 8.5e-05,
       "min": 0.8419,
       "max": 0.8652
     },
     "novelty": {
-      "last": 0.7333,
-      "slope": -0.006757,
-      "min": 0.7333,
+      "last": 0.6667,
+      "slope": -0.011301,
+      "min": 0.6667,
       "max": 0.8333
     },
     "kill_rate": {
-      "last": 0.3648,
-      "slope": -0.000295,
+      "last": 0.3662,
+      "slope": -0.000137,
       "min": 0.362,
-      "max": 0.3661
+      "max": 0.3662
     },
     "kill_rate_term": {
-      "last": 0.8784,
-      "slope": -0.000261,
+      "last": 0.8796,
+      "slope": -0.000119,
       "min": 0.8758,
-      "max": 0.8795
+      "max": 0.8796
     },
     "lesson_uptake": {
-      "last": 0.96,
-      "slope": 0.0,
-      "min": 0.96,
+      "last": 0.9,
+      "slope": -0.002308,
+      "min": 0.9,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0071,
+    "aggregate_range": 0.0149,
     "novelty_max": 0.8,
     "window": 6,
     "reason": "moving"
@@ -240,23 +240,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.062,
+      "ratio": 0.924,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.066,
+      "ratio": 0.822,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.03,
+      "ratio": 0.836,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.99,
+      "ratio": 0.971,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.964,
+      "ratio": 0.912,
       "drift": false
     }
   },
@@ -265,7 +265,7 @@
     "verified": {
       "goldbach_even": 20600003,
       "collatz_descent": 35000000,
-      "legendre_square_gap": 220607,
+      "legendre_square_gap": 236607,
       "lehmer_totient": 10200001,
       "erdos_straus": 371039,
       "twin_primes_hl": 42200000,
@@ -280,11 +280,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4996,
+        "challenged": 4995,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 4,
+        "challenged": 5,
         "blocked": 0
       }
     },
@@ -318,18 +318,18 @@
     "last": [
       [
         null,
+        "2026-10-16T23:19:39Z"
+      ],
+      [
+        "success",
         "2026-10-16T23:16:42Z"
       ],
       [
         "success",
         "2026-10-16T21:56:55Z"
-      ],
-      [
-        "success",
-        "2026-10-16T21:27:27Z"
       ]
     ],
-    "fetched_at": "2026-10-16T23:17:05Z"
+    "fetched_at": "2026-10-16T23:19:58Z"
   },
   "feeds": {
     "by_source": {
@@ -377,7 +377,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-16T23:17:04Z"
+      "ts": "2026-10-16T23:19:58Z"
     },
     "health": {
       "arxiv": {

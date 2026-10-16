@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T23:17:51Z",
+  "updated_at": "2026-10-16T23:20:31Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -31,7 +31,7 @@
     "lehmer_totient": {
       "family": "lehmer_totient",
       "status": "open",
-      "verified_hi": 10200001,
+      "verified_hi": 11000001,
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "window": 800000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "legendre_square_gap",
-    "lo": 220608,
-    "hi": 236607,
+    "target": "lehmer_totient",
+    "lo": 10200002,
+    "hi": 11000001,
     "outcome": "extended",
-    "verified_hi": 236607,
-    "cycle_id": "20261016T231731Z_112d30"
+    "verified_hi": 11000001,
+    "cycle_id": "20261016T232017Z_0e2b33"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

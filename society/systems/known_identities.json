@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T23:17:47Z",
-  "n": 212,
+  "updated_at": "2026-10-16T23:20:57Z",
+  "n": 213,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -129,6 +129,7 @@
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves (cycle 161)",
+    "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors",
     "chain+seek `lemma_hard_combinatorics` from invariant priors",
     "chain+seek `lemma_hard_combinatorics` from invariant priors (cycle 332)",
     "chain_cite_proven_lemmas_and_benchmarks",
@@ -200,8 +201,7 @@
     "seek `lemma_hard_combinatorics` citing new algebraic points on covers of elliptic curves (cycle 158)",
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves",
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 150)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 151)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 152)"
+    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 151)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
