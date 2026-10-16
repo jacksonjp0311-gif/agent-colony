@@ -134,7 +134,7 @@ d.text((GX, GY + 395), "with consecutive-prime correction",
 FY = H - M - 70
 d.text((LX, FY), "independent counters agree",
        font=sans(48), fill=SAGE, anchor="ls")
-spaced((W - M - 20, FY - 40), "COMPUTED, NOT PROOF  ·  PENDING OEIS REVIEW",
+spaced((W - M - 20, FY - 40), "COMPUTED, NOT PROOF",
        sans(42), DIM if False else SAGE, 0.22, "r")
 
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "plaque.png")
