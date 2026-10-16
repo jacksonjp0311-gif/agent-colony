@@ -1,15 +1,47 @@
 {
   "ci_health": {
-    "completed": 11,
-    "fetched_at": "2026-10-16T20:32:18Z",
+    "completed": 10,
+    "fetched_at": "2026-10-16T21:30:28Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-16T21:27:27Z",
+        "id": 38969496718,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-16T21:30:16Z"
+      },
+      {
+        "conclusion": null,
+        "created_at": "2026-10-16T21:24:29Z",
+        "id": 38969154507,
+        "name": "A104062 shards",
+        "status": "queued",
+        "updated_at": "2026-10-16T21:24:52Z"
+      },
+      {
+        "conclusion": "cancelled",
+        "created_at": "2026-10-16T20:57:11Z",
+        "id": 38965929509,
+        "name": "A104062 shards",
+        "status": "completed",
+        "updated_at": "2026-10-16T21:23:47Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-10-16T20:55:28Z",
+        "id": 38965729478,
+        "name": "A104062 shards",
+        "status": "completed",
+        "updated_at": "2026-10-16T20:56:37Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-16T20:31:37Z",
         "id": 38962875875,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-16T20:31:42Z"
+        "status": "completed",
+        "updated_at": "2026-10-16T20:36:37Z"
       },
       {
         "conclusion": "success",
@@ -66,46 +98,14 @@
         "name": "Frontier burst",
         "status": "completed",
         "updated_at": "2026-10-16T19:25:37Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-16T19:05:43Z",
-        "id": 38952344745,
-        "name": "Frontier burst",
-        "status": "completed",
-        "updated_at": "2026-10-16T19:15:22Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-16T18:16:30Z",
-        "id": 38946059972,
-        "name": "Erdos 699 search",
-        "status": "completed",
-        "updated_at": "2026-10-16T18:29:52Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-16T18:12:30Z",
-        "id": 38945552262,
-        "name": "Erdos 699 search",
-        "status": "completed",
-        "updated_at": "2026-10-16T18:15:48Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-16T18:06:58Z",
-        "id": 38944843509,
-        "name": "Erdos 699 search",
-        "status": "completed",
-        "updated_at": "2026-10-16T18:09:16Z"
       }
     ],
-    "success_rate": 1.0
+    "success_rate": 0.9
   },
   "health": {
     "arxiv": {
       "fail": 1,
-      "ok": 29
+      "ok": 30
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-10-16T16:16:59Z",
+    "arxiv": "2026-10-16T21:30:27Z",
     "crossref": "2026-10-16T20:32:14Z",
     "oeis": "2026-10-16T20:32:12Z",
     "oeis_conj": "2026-10-16T20:32:14Z",
@@ -138,41 +138,37 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "cs.LG:HTTPError: HTTP Error 429: Unknown Error; cs.MA:TimeoutError: The read operation timed out",
-        "fetched": 0,
-        "new": 0,
-        "ok": false
+        "error": "",
+        "fetched": 8,
+        "new": 2,
+        "ok": true
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 3,
-        "new": 1,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 9,
-        "new": 3,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-10-16T20:31:53Z"
+    "ts": "2026-10-16T21:30:24Z"
   },
-  "runs": 50
+  "runs": 51
 }

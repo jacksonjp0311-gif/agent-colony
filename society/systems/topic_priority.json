@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_72a040118109",
-      "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__vandermonde_conv_w1"
+      "finding_id": "fnd_84934bba8f8c",
+      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__central_binom_bound_w1"
     },
     {
       "topic": "open-math-problems",
@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "3*a(n-2))/(n+1)",
+      "topic": "<https://doi.org/10.1007/s00026-026-00811-3>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-16T20:35:42Z",
-  "updated_cycle": "20261016T203513Z_058483",
+  "updated_at": "2026-10-16T21:32:18Z",
+  "updated_cycle": "20261016T213202Z_f5c103",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

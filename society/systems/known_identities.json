@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T20:34:16Z",
-  "n": 204,
+  "updated_at": "2026-10-16T21:32:12Z",
+  "n": 206,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -69,6 +69,8 @@
     "authored_pascal_identity__pell_companion_w1",
     "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pascal_identity__stirling_second_row_w1",
+    "authored_pascal_identity__sum_first_n_cubes_w1",
+    "authored_pell_companion__motzkin_bounded_w1",
     "authored_pell_companion__pythagorean_generation_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sum_first_n_cubes__pell_companion_w1",
@@ -199,9 +201,7 @@
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 155)",
     "seek_extend_catalog",
     "seek_machine_checkable_invariants",
-    "seek_on_kill_or_flat_novelty",
-    "seek_unenabled_variants_from_proven_lemmas",
-    "self_repair_schema"
+    "seek_on_kill_or_flat_novelty"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
