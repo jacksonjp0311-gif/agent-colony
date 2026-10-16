@@ -2650,6 +2650,26 @@
           "disagreements": 0,
           "self_rejects": 0
         }
+      },
+      "open_next_term": {
+        "n": 12,
+        "index": 20000000000000,
+        "status": "open",
+        "prediction": {
+          "file": "evidence/2026-10-16-a104062-a12-prediction/a12_predictions.json",
+          "written_at": "2026-10-16T19:14:04-04:00",
+          "sha256": "6ae7cd171775a86b05fe42e2404da4dca25f637fb9558bda6188b68499212396",
+          "hl_integral": 3945984674,
+          "range_2sigma": [
+            3945859040,
+            3946110308
+          ],
+          "note": "pre-registered before counting; HL is conjectural"
+        },
+        "method": "sharded: .github/workflows/a104062-shards.yml with n_primes=20000000000000 (pass A qs_range + pass B qk_range, different boundaries); colony.instruments.sieve for sub-range recounts (1e10 cap per call)",
+        "acceptance": "two independent counts must agree exactly; result is a review candidate only",
+        "label": "bounded evidence, not proof",
+        "proof": false
       }
     }
   ],

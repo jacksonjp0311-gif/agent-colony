@@ -1,0 +1,104 @@
+{
+ "written_at": "2026-10-16T19:14:04.721664-04:00",
+ "a12_x_estimate_p_(2e13)": 661876602830072.4,
+ "note": "a(12)=#consecutive (p,p+6,p+12,p+18) with last prime <= p_(2e13). Fit on checkpoints <=1e11. Range = 2 sigma (Poisson + parameter). x from inverse Riemann R (adds ~\u00b11e4 uncertainty). Not counted yet.",
+ "survivors": {},
+ "reference_not_surviving": {
+  "HL_integral|none": {
+   "params": [],
+   "AIC": 95.27722770406308,
+   "a12": 3945984674,
+   "range_2sigma": [
+    3945859040,
+    3946110308
+   ],
+   "fails_terms": [
+    1,
+    2,
+    3,
+    5
+   ]
+  },
+  "HL_integral|1+c/sqrt(x)": {
+   "params": [
+    -12.984053794174137
+   ],
+   "AIC": 90.38910779542424,
+   "a12": 3945979864,
+   "range_2sigma": [
+    3945854186,
+    3946105543
+   ],
+   "fails_terms": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  "HL_integral|1+c*cos(w*L)/L": {
+   "params": [
+    -0.07027647227208184,
+    6.627306233465623
+   ],
+   "AIC": 90.74616319828769,
+   "a12": 3945879356,
+   "range_2sigma": [
+    3944794228,
+    3946964484
+   ],
+   "fails_terms": [
+    1,
+    2,
+    3,
+    5
+   ]
+  },
+  "HL_integral|1+c*cos(w*L)/sqrtL": {
+   "params": [
+    -0.014218469521075123,
+    6.62755344325494
+   ],
+   "AIC": 90.90309868592766,
+   "a12": 3945846843,
+   "range_2sigma": [
+    3944770104,
+    3946923582
+   ],
+   "fails_terms": [
+    1,
+    2,
+    3,
+    5
+   ]
+  }
+ },
+ "candidates_tested": [
+  "integral|1+c*cos(w*L)/L",
+  "integral|1+c*cos(w*L)/sqrtL",
+  "integral|1+c*cos(w*loglog x)",
+  "integral|1+c*sin(w*L)/L",
+  "integral|1+c*sin(w*L)/sqrtL",
+  "integral|1+c/L",
+  "integral|1+c/L+d/L2",
+  "integral|1+c/L-c^2/L^2",
+  "integral|1+c/sqrt(x)",
+  "integral|1+c/sqrt(x)+d/L",
+  "integral|L^eps",
+  "integral|none",
+  "integral|x^eps",
+  "simple|1+c*cos(w*L)/L",
+  "simple|1+c*cos(w*L)/sqrtL",
+  "simple|1+c*cos(w*loglog x)",
+  "simple|1+c*sin(w*L)/L",
+  "simple|1+c*sin(w*L)/sqrtL",
+  "simple|1+c/L",
+  "simple|1+c/L+d/L2",
+  "simple|1+c/L-c^2/L^2",
+  "simple|1+c/sqrt(x)",
+  "simple|1+c/sqrt(x)+d/L",
+  "simple|L^eps",
+  "simple|none",
+  "simple|x^eps"
+ ]
+}
