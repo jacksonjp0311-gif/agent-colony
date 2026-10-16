@@ -70,28 +70,33 @@ d.text((LX, M + 370), "each 6 apart.", font=serif(120), fill=BONE)
 d.text((LX, M + 545), "p,  p+6,  p+12,  p+18     e.g.  251 · 257 · 263 · 269",
        font=mono(54), fill=SAGE)
 
-def readout(y, label, value, sub):
-    spaced((LX, y), label, sans_m(50), SAGE, 0.25)
-    d.text((LX, y + 70), value, font=mono_r(150), fill=BONE)
-    d.text((LX, y + 250), sub, font=sans(48), fill=SAGE)
-readout(M + 720, "a(8)", "1,031,312", "first 2·10⁹ primes")
-readout(M + 1080, "a(9)", "7,863,231", "first 2·10¹⁰ primes  ·  up to 518,649,879,439")
+def readout(x, y, label, value, subs):
+    spaced((x, y), label, sans_m(46), SAGE, 0.25)
+    d.text((x, y + 62), value, font=mono_r(112), fill=BONE)
+    for i, sub in enumerate(subs):
+        d.text((x, y + 205 + i * 56), sub, font=sans(42), fill=SAGE)
+C2 = LX + 980
+readout(LX, M + 700, "a(8)", "1,031,312", ["first 2·10⁹ primes"])
+readout(C2, M + 700, "a(9)", "7,863,231", ["first 2·10¹⁰ primes"])
+readout(LX, M + 1040, "a(10)", "61,341,010", ["first 2·10¹¹ primes"])
+readout(C2, M + 1040, "a(11)", "487,855,645",
+        ["first 2·10¹² primes", "up to 61,427,839,512,211"])
 
 # ---- gauge (log scale of relative error) ----
-GX, GY, R = 3000, 1180, 600
-A0, A1 = 180, 0          # degrees: 1% at A0, 0.001% at A1
+GX, GY, R = 3000, 1250, 600
+A0, A1 = 180, 0          # degrees: 1% at A0, 0.0001% at A1
 def ang(err_pct):
-    t = (0 - math.log10(err_pct)) / 3.0
+    t = (0 - math.log10(err_pct)) / 4.0
     return math.radians(A0 + (A1 - A0) * t)
 def pt(a, r):
     return GX + r * math.cos(a), GY - r * math.sin(a)
 
 d.arc([GX - R, GY - R, GX + R, GY + R], -A0, -A1, fill=SAGE, width=3)
 d.arc([GX - R + 110, GY - R + 110, GX + R - 110, GY + R - 110], -A0, -A1, fill=DIM, width=2)
-labels = {0: "1%", 1: "0.1%", 2: "0.01%", 3: "0.001%"}
-for dec in range(0, 4):
+labels = {0: "1%", 1: "0.1%", 2: "0.01%", 3: "0.001%", 4: "0.0001%"}
+for dec in range(0, 5):
     for m in range(1, 10):
-        if dec == 3 and m > 1: break
+        if dec == 4 and m > 1: break
         e = m * 10.0 ** (-dec)
         if e > 1.0000001: continue
         a = ang(e)
@@ -100,32 +105,34 @@ for dec in range(0, 4):
         d.line([pt(a, R), pt(a, R - L)], fill=BONE if major else SAGE,
                width=4 if major else 2)
         if major:
-            x, y = pt(a, R + (130 if dec in (0, 3) else 85))
+            x, y = pt(a, R + (130 if dec in (0, 4) else 85))
             d.text((x, y), labels[dec], font=mono(46), fill=SAGE, anchor="mm")
 
-def needle(err, label, primary):
+def needle(err, label, primary, r_lab, side):
     a = ang(err)
     col = BONE if primary else SAGE
-    d.line([pt(a, 40), pt(a, R - 20)], fill=col, width=7 if primary else 4)
-    tx, ty = pt(a + (math.radians(-9) if primary else math.radians(9)), R - 190)
-    d.text((tx, ty), label, font=sans_m(48), fill=col, anchor="mm")
-needle(0.09, "a(8)", False)
-needle(0.01, "a(9)", True)
+    d.line([pt(a, 40), pt(a, R - 20)], fill=col, width=7 if primary else 3)
+    tx, ty = pt(a + math.radians(side), r_lab)
+    d.text((tx, ty), label, font=sans_m(44), fill=col, anchor="mm")
+needle(0.09, "a(8)", False, 400, 8)
+needle(0.009, "a(9)", False, 470, 7)
+needle(0.012, "a(10)", False, 300, -10)
+needle(0.0005, "a(11)", True, 400, -8)
 d.ellipse([GX - 34, GY - 34, GX + 34, GY + 34], outline=BONE, width=4, fill=BG)
 # arrow hint of direction along inner arc
 spaced((GX, M + 215), "PREDICTION ERROR", sans_m(46), SAGE, 0.3, "m")
 spaced((GX, M + 285), "log scale", sans(40), DIM, 0.2, "m")
 
 # headline numbers under gauge
-d.text((GX, GY + 190), "0.09%  →  0.01%", font=mono_r(132), fill=BONE, anchor="mm")
-d.text((GX, GY + 340), "Hardy–Littlewood k-tuple conjecture, 1923",
+d.text((GX, GY + 175), "0.09%  →  0.0005%", font=mono_r(120), fill=BONE, anchor="mm")
+d.text((GX, GY + 320), "Hardy–Littlewood k-tuple conjecture, 1923",
        font=serif_i(56), fill=SAGE, anchor="mm")
-d.text((GX, GY + 420), "with consecutive-prime correction",
+d.text((GX, GY + 395), "with consecutive-prime correction",
        font=sans(44), fill=SAGE, anchor="mm")
 
 # ---- footer ----
 FY = H - M - 70
-d.text((LX, FY), "Counted by Agent Colony  ·  independent counters agree",
+d.text((LX, FY), "independent counters agree",
        font=sans(48), fill=SAGE, anchor="ls")
 spaced((W - M - 20, FY - 40), "COMPUTED, NOT PROOF  ·  PENDING OEIS REVIEW",
        sans(42), DIM if False else SAGE, 0.22, "r")
