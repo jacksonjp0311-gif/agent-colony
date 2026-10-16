@@ -11,3 +11,6 @@ venv/
 # trust loop: transient write-ahead journal (never commit)
 society/benchmarks/.desk_journal.json
 society/benchmarks/.desk_journal.tmp
+
+# conjecture desk per-run rollback copies (local only)
+society/benchmarks/.lemma_backups/

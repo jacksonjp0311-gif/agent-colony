@@ -2392,7 +2392,7 @@
       "max_window": 100000000,
       "budget_s": 6.0,
       "status": "done",
-      "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). a(7) is not listed there as of 2026-10-16; a colony value would be a candidate new term only after human re-computation.",
+      "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). Colony computed a(7) = 138994 on 2026-10-16 (cross-checked with primesieve 12.7 + C counter and a pure-Python recount; evidence/2026-10-16-a104062-a7/). Computed value, not a proof; pending OEIS review.",
       "label": "bounded evidence, not proof",
       "proof": false,
       "last_run": "2026-10-16T16:53:18Z",
@@ -2519,5 +2519,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-16T16:53:19Z"
+  "updated_at": "2026-10-16T17:18:01Z"
 }

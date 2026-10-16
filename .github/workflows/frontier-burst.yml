@@ -58,6 +58,5 @@ jobs:
             data/commons/self_challenge.jsonl data/commons/lessons.jsonl 2>/dev/null || true
           if git diff --staged --quiet; then echo "no frontier changes"; exit 0; fi
           git commit -m "ci(frontier): burst ${{ github.event.inputs.target }} $(date -u +%Y-%m-%dT%H%MZ)"
-          git stash -u -q || true
-          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && exit 0; sleep 5; done
           exit 1

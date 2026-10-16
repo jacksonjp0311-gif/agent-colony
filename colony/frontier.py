@@ -442,7 +442,11 @@ def write_system(cat: dict[str, Any], last: dict[str, Any] | None = None) -> dic
             t["id"]: {"family": t.get("family"), "status": t.get("status"),
                       "verified_hi": (t.get("verified") or {}).get("hi"),
                       "literature": t.get("literature"), "window": t.get("window"),
-                      "result": (t.get("result") or {}).get("outcome")}
+                      "result": (t.get("result") or {}).get("outcome"),
+                      **({"colony_terms": {k: (v or {}).get("count") for k, v in (t.get("colony_terms") or {}).items()},
+                          "new_term_candidates": {k: (v or {}).get("count") for k, v in (t.get("new_term_review") or {}).items()},
+                          "published_record": (t.get("published_record") or {}).get("limit")}
+                         if t.get("family") == "prime_run_count" else {})}
             for t in targets
         },
         "reviews": [{"id": t["id"], **(t.get("review") or {})} for t in targets if t.get("status") in REVIEW_STATUSES],

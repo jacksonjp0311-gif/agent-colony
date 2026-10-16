@@ -320,5 +320,11 @@ jobs:
             echo "No society changes to commit (quiet success)"
           else
             git commit -m "ci(colony): spark loop benches+evolve+selective $(date -u +%Y-%m-%dT%H%MZ)"
-            git push
+            # main may have moved during the run (human push): rebase onto it and retry; never force
+            ok=0
+            for i in 1 2 3; do
+              if git pull --rebase --autostash && git push; then ok=1; break; fi
+              sleep 5
+            done
+            [ "$ok" = 1 ] || { echo "::error::push failed after 3 rebase attempts"; exit 1; }
           fi

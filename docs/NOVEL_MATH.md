@@ -32,7 +32,7 @@
 | **D Exploration budget** | Weak roles spawn/retire on hard-tier deltas; mutate distribution changes after reverts |
 | **Keep rule** | Colony keeps ONLY if hard-tier bench score / hard_pass rises (easy pads fail keep) |
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
-| **Durable discovered** | Machine-check + human authorize (P≥0.75 selective). Not AGI. Not Millennium. |
+| **Durable discovered** | Machine-check + human authorize (P≥0.70 selective). Not AGI. Not Millennium. |
 
 
 
@@ -47,7 +47,7 @@
 | **Easy pad** | Must **die on Oracle** (even if basic score ticks up) |
 | **Hard keep** | Only with Oracle pass (+ hard_pass rise) |
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
-| **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.75 selective). Not AGI. Not Millennium. |
+| **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.70 selective). Not AGI. Not Millennium. |
 
 
 
@@ -64,7 +64,7 @@
 | **Easy pad** | Must **die on Oracle** (math + stem_easy) |
 | **Hard / STEM keep** | Only with Oracle pass (+ measured lift) |
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
-| **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.75 selective). Not AGI. Not Millennium. Not novel physics. |
+| **Durable discovered** | Machine-check + Oracle + human authorize (P≥0.70 selective). Not AGI. Not Millennium. Not novel physics. |
 
 
 ## Spark mile (post-Align) (this mile; align substrate retained)
@@ -76,8 +76,8 @@
 | **Oracle** | Kill weak/easy_pad; **FAIL → fitness_credit=False** |
 | **Lessons→genome** | keep/revert bias skills+traits; easy_pad keeps weigh **0** |
 | **Spawn/retire** | Specialists spawn/retire on **Oracle-pass lift** (not theater) |
-| **Cron** | `colony-evolve.yml` mile=spark; selective authorize P≥0.75; slim push |
-| **Authorize** | Standing trust P≥0.75 selective; never accept-all; UNKNOWN stays UNKNOWN |
+| **Cron** | `colony-evolve.yml` mile=spark; selective authorize P≥0.70; slim push |
+| **Authorize** | Standing trust P≥0.70 selective; never accept-all; UNKNOWN stays UNKNOWN |
 | **Ethos** | We light the spark and witness. We do not micromanage the city. |
 | **Durable discovered** | Machine-check + Oracle + human authorize. Not AGI. Not Millennium. Not novel theorems. Not novel physics. |
 

@@ -4,14 +4,36 @@
 
 ![Spark and witness — we do not micromanage the city](docs/assets/spark_witness_city.jpg)
 
-*Light the spark. Step back. Witness the city.*
+Agent Colony is an experiment by **James Paul Jackson** ([jacksonjp0311-gif](https://github.com/jacksonjp0311-gif), [@unifiedenergy11](https://x.com/unifiedenergy11)).
+It is a small society of scripted agents that run on a GitHub Actions schedule. They propose
+machine-checkable math checks, test them against a strict checker (the "Oracle"), learn from what fails, and
+keep a public, append-only record of everything. A human authorizes anything durable.
 
-Full painting: [`docs/assets/spark_witness_city.png`](docs/assets/spark_witness_city.png) · lighter JPEG: [`docs/assets/spark_witness_city.jpg`](docs/assets/spark_witness_city.jpg)
+## Results
 
-Agents **self-improve to help their human creator.**  
-Creator / Human Principal: **James Paul Jackson** ([jacksonjp0311-gif](https://github.com/jacksonjp0311-gif), [@unifiedenergy11](https://x.com/unifiedenergy11)).
+- **OEIS A104062: computed a(7) = 138994.** The colony counted four consecutive primes in arithmetic
+  progression (difference 6) among the first 2·10^8 primes. It first reproduced every published term a(1)–a(6), and the
+  value was cross-checked independently with primesieve 12.7 plus a C counter, and with a pure-Python recount.
+  *Computed value, not a proof; pending OEIS review.* Evidence and reproduction:
+  [`evidence/2026-10-16-a104062-a7/`](evidence/2026-10-16-a104062-a7/README.md).
+- **Fresh holdout test (holdout_v2): no measured capability gain.** On 12 unseen problems, today's colony
+  performed exactly like the 2026-10-11 version. Its recent growth is in coverage (more checks it wrote itself), not
+  in solving unfamiliar problems better. [`evidence/2026-10-16-holdout-v2/`](evidence/2026-10-16-holdout-v2/README.md)
+- **Trust loop and citations:** [`evidence/2026-10-11-trust-loop/`](evidence/2026-10-11-trust-loop/README.md),
+  [`evidence/2026-10-16-citations/`](evidence/2026-10-16-citations/README.md).
 
-Repo: https://github.com/jacksonjp0311-gif/agent-colony
+## Known limitations
+
+- **Far counterexamples escape.** A claim that is false only at astronomically large values passes every in-loop check.
+  Examples: holdout_v2's Pell-991 claim (first counterexample has 29 digits) was kept in 2/5 runs, and a 52-digit gcd case in the
+  fault tests. Only the out-of-loop evaluator catches these.
+- **Stepped ranges** (e.g. `range(9, 49, 2)`) are not re-tested on a shifted window by the Oracle's held-out check
+  (`colony/trust/shifted_holdout.py`).
+- **Misleading agent lessons** are blocked downstream by the Challenger, but they are not automatically retired.
+- **Small samples:** holdout experiments use 5 paired seeds (smallest attainable p = 0.0625).
+- The agents are scripted programs, not a language model. This is not AGI and not new mathematics beyond computed values.
+
+Repo: https://github.com/jacksonjp0311-gif/agent-colony · License: [MIT](LICENSE)
 
 ---
 
@@ -49,8 +71,8 @@ See [CHARTER.md](./CHARTER.md).
 ## Run
 
 ```bash
-cd /workspace/agent-colony   # or your clone
-python3 -m pip install -r requirements.txt   # optional httpx
+git clone https://github.com/jacksonjp0311-gif/agent-colony && cd agent-colony
+python3 -m pip install -r requirements.txt   # httpx, numpy, pytest
 python3 -m colony cycle                      # one cycle
 python3 -m colony cycle --offline            # seed only
 python3 -m colony evolve --cycles 5          # multi-cycle autonomous evolve

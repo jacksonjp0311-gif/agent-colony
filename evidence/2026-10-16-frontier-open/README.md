@@ -17,9 +17,10 @@ primes are p+6, p+12, p+18.
 - Published record: a(1)…a(6) = 1, 12, 64, 416, 2748, 19348, i.e. the first 2·10^7 primes (p ≤ 373,587,883).
   Source: https://oeis.org/A104062 (keyword "more"; b-file synthesized from the entry; last edited
   2024-11-03; checked 2026-10-16).
-- Colony work: recompute a(1..6), then a(7) (first 2·10^8 primes, p up to ≈ 4.22·10^9). That is about 140 windows
-  of 30M at roughly 1.1 s each: cheap total compute (a few minutes of CPU), done at one window per evolve cycle.
-  At 4 cron runs/day × ~3 cycles that is about 12 days. No persistent runs and no money.
+- Colony work: recompute a(1..6), then a(7) (first 2·10^8 primes, p up to ≈ 4.22·10^9).
+- **Update (same day, commit a8c2cd7):** a numpy sieve and multi-window "Frontier burst" runs replaced the planned
+  one-window-per-cycle schedule (originally estimated at ~12 days). One burst run finished the search:
+  **a(7) = 138994**, see [`../2026-10-16-a104062-a7/`](../2026-10-16-a104062-a7/README.md).
 - A local dry run of the first 3 windows reproduced a(1)…a(5) exactly, with no mismatch.
 
 **Searched and rejected as not cheap.** Ranges past the published limits for the existing classical targets are

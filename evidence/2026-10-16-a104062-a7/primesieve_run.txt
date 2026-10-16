@@ -1,0 +1,48 @@
+$ primesieve --version
+primesieve 12.7, <https://github.com/kimwalisch/primesieve>
+Copyright (C) 2010 - 2025 Kim Walisch
+BSD 2-Clause License <https://opensource.org/licenses/BSD-2-Clause>
+
+$ primesieve -n 200000000
+Sieve size = 384 KiB
+Threads = 8
+Seconds: 0.066
+Nth prime: 4222234741
+
+real	0m0.068s
+user	0m0.434s
+sys	0m0.004s
+
+$ primesieve 4222234741 -c
+Sieve size = 384 KiB
+Threads = 8
+
+Seconds: 0.059
+Primes: 200000000
+
+real	0m0.061s
+user	0m0.423s
+sys	0m0.004s
+
+$ gcc -O2 -o q q.c   # q.c in this folder
+$ time (primesieve 4222234741 --print | ./q)
+n=1 N=200 p(N)=1223 count=1
+n=2 N=2000 p(N)=17389 count=12
+n=3 N=20000 p(N)=224737 count=64
+n=4 N=200000 p(N)=2750159 count=416
+n=5 N=2000000 p(N)=32452843 count=2748
+n=6 N=20000000 p(N)=373587883 count=19348
+n=7 N=200000000 p(N)=4222234741 count=138994
+
+real	0m12.951s
+user	0m12.956s
+sys	0m1.199s
+
+$ primesieve 4222230000 4222240000 --print   # primes around index 2e8 (grep context)
+224-4222234693
+225-4222234703
+226-4222234727
+227:4222234741
+228-4222234763
+229-4222234811
+230-4222234829

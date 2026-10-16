@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T16:53:19Z",
+  "updated_at": "2026-10-16T17:18:01Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -248,9 +248,22 @@
       "family": "prime_run_count",
       "status": "done",
       "verified_hi": 4290000001,
-      "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). a(7) is not listed there as of 2026-10-16; a colony value would be a candidate new term only after human re-computation.",
+      "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). Colony computed a(7) = 138994 on 2026-10-16 (cross-checked with primesieve 12.7 + C counter and a pure-Python recount; evidence/2026-10-16-a104062-a7/). Computed value, not a proof; pending OEIS review.",
       "window": 100000000,
-      "result": null
+      "result": null,
+      "colony_terms": {
+        "200": 1,
+        "2000": 12,
+        "20000": 64,
+        "200000": 416,
+        "2000000": 2748,
+        "20000000": 19348,
+        "200000000": 138994
+      },
+      "new_term_candidates": {
+        "200000000": 138994
+      },
+      "published_record": "a(1)..a(6), i.e. the first 2*10^7 primes (p(2*10^7) = 373587883)"
     }
   },
   "reviews": [],
