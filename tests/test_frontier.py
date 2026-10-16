@@ -280,3 +280,29 @@ def test_catalog_open_targets_cite_published_record():
             rec = t.get("published_record") or {}
             assert rec.get("limit") and str(rec.get("source", "")).startswith("https://oeis.org/")
             assert t["label"] == "bounded evidence, not proof" and t["proof"] is False
+
+
+def test_numpy_engine_matches_pure_python_reference(impl):
+    if impl._np is None:
+        pytest.skip("numpy not installed")
+    T = [200, 2000, 20000, 200000]
+    for lo, hi in ((2, 3_000_000), (1_234_567, 2_500_001), (10 ** 9, 10 ** 9 + 400_000)):
+        a = impl.prime_run_scan(lo, hi, [6, 12, 18], 0, 0, T, engine="python")
+        b = impl.prime_run_scan(lo, hi, [6, 12, 18], 0, 0, T)
+        a.pop("engine"), b.pop("engine")
+        assert a == b
+
+
+def test_burst_runs_many_windows_and_stops_on_freeze(sandbox, monkeypatch):
+    cat = json.loads(FR.CATALOG.read_text())
+    cat["targets"].append(_prt(id="prt", window=40_000, max_window=40_000))
+    FR.CATALOG.write_text(json.dumps(cat))
+    out = FR.burst("prt", budget_s=60)
+    assert out["windows"] >= 2 and out["status"] == "done" and out["colony_terms"]["20000"] == 64
+    assert out["proof"] is False and set(out["new_term_review"]) == {"20000"}
+    cat = json.loads(FR.CATALOG.read_text())
+    cat["targets"] = [t for t in cat["targets"] if t["id"] != "prt"] + [_prt(id="prt", known_terms={"200": 2})]
+    FR.CATALOG.write_text(json.dumps(cat))
+    out = FR.burst("prt", budget_s=60)
+    assert out["windows"] == 1 and out["stop"] == "outcome:disagreement" and out["status"] == "disagreement_review"
+    assert FR.burst("goldbach_even", budget_s=5)["windows"] == 0  # only counting targets burst

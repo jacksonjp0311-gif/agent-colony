@@ -547,5 +547,74 @@ def digest(limit: int = 4) -> str:
     return out
 
 
+def burst(target_id: str, *, budget_s: float = 240.0, cycle_id: str = "", witness: Any | None = None,
+          max_windows: int = 10_000) -> dict[str, Any]:
+    """Many windows of ONE counting target under a wall-clock budget (dedicated search runs).
+
+    Each window goes through exactly the same path as a normal cycle: run_task (Challenger,
+    Miller-Rabin sub-window recount, published-term reproduction) then apply_result. The loop
+    stops at the budget, when the target is done, or the moment a window is not a clean
+    extension (disagreement → target frozen for review, self-reject, error). Never raises.
+    """
+    import time as _time
+    t_end = _time.monotonic() + float(budget_s)
+    try:
+        cat = load_catalog()
+        impl = load_impl()
+    except Exception as exc:  # noqa: BLE001
+        return {"windows": 0, "skipped": f"catalog_or_impl_unavailable:{exc}"[:200]}
+    t = next((x for x in cat.get("targets") or [] if x.get("id") == target_id), None)
+    if t is None or t.get("family") != "prime_run_count":
+        return {"windows": 0, "skipped": "not_a_counting_target"}
+    start_hi = (t.get("verified") or {}).get("hi")
+    done = {r.get("fingerprint") for r in load_log() if r.get("fingerprint")}
+    rows: list[dict[str, Any]] = []
+    stop = ""
+    while len(rows) < max_windows:
+        if t.get("status") != "open":
+            stop = f"status:{t.get('status')}"
+            break
+        # leave room for one more window (estimated from the last one) inside the budget
+        last_s = float(((rows[-1].get("primary") or {}).get("seconds") or 0) * 2 + 1) if rows else 1.0
+        if _time.monotonic() + last_s > t_end:
+            stop = "budget"
+            break
+        task, why = make_task(t, done=done)
+        if task is None:
+            stop = why
+            break
+        res = run_task(task, t, impl, cycle_id=cycle_id or "burst")
+        res["cycle_id"] = cycle_id or "burst"
+        res["enabled"] = res.get("outcome") in ("extended", "new_term_candidate")
+        _append_log({k: v for k, v in res.items() if k not in ("why_believe",)})
+        done.add(task["fingerprint"])
+        apply_result(t, res)
+        rows.append(res)
+        if res.get("outcome") != "extended":
+            _witness(witness, cycle_id or "burst", t, res)
+        if res.get("outcome") not in ("extended", "new_term_candidate"):
+            stop = f"outcome:{res.get('outcome')}"
+            break
+    save_catalog(cat)
+    write_system(cat, {k: rows[-1].get(k) for k in ("target", "lo", "hi", "outcome", "verified_hi", "cycle_id")}
+                 if rows else None)
+    ver = t.get("verified") or {}
+    return {"target": target_id, "windows": len(rows), "stop": stop or "max_windows",
+            "from_hi": start_hi, "to_hi": ver.get("hi"), "pi": ver.get("pi"), "count": ver.get("count"),
+            "engine": ((rows[-1].get("primary") or {}).get("data") or {}).get("engine") if rows else None,
+            "colony_terms": {k: v.get("count") for k, v in (t.get("colony_terms") or {}).items()},
+            "new_term_review": t.get("new_term_review") or {}, "status": t.get("status"),
+            "label": LABEL, "proof": False}
+
+
 if __name__ == "__main__":
-    print(json.dumps(run_cycle("manual"), indent=2))
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("cmd", nargs="?", default="cycle", choices=["cycle", "burst"])
+    ap.add_argument("--target", default="oeis_A104062_next")
+    ap.add_argument("--budget", type=float, default=240.0)
+    a = ap.parse_args()
+    if a.cmd == "burst":
+        print(json.dumps(burst(a.target, budget_s=a.budget, cycle_id=f"burst_{_utc()}"), indent=2, default=str))
+    else:
+        print(json.dumps(run_cycle("manual"), indent=2))

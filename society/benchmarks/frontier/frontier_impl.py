@@ -537,8 +537,84 @@ def _primes_in(a: int, b: int) -> list[int]:
     return list(itertools.compress(range(a, b + 1), segment_sieve(a, b)))
 
 
+try:  # optional acceleration; the pure-Python path below is the reference and the fallback
+    import numpy as _np
+except Exception:  # noqa: BLE001
+    _np = None
+
+_BASE_CACHE: dict[str, Any] = {}
+
+
+def _np_base_primes(n: int) -> Any:
+    got = _BASE_CACHE.get("p")
+    if got is None or _BASE_CACHE["n"] < n:
+        m = max(n, 70_000)
+        s = _np.ones(m + 1, dtype=bool)
+        s[:2] = False
+        for p in range(2, math.isqrt(m) + 1):
+            if s[p]:
+                s[p * p::p] = False
+        _BASE_CACHE.update(n=m, p=_np.nonzero(s)[0])
+    return _BASE_CACHE["p"]
+
+
+def _np_primes_in(a: int, b: int) -> Any:
+    """Primes in [a, b] (int64 array) — numpy segmented sieve over odd numbers."""
+    a = max(a, 2)
+    if b < a:
+        return _np.zeros(0, dtype=_np.int64)
+    a0 = a | 1  # first odd >= a
+    n = (b - a0) // 2 + 1 if b >= a0 else 0
+    seg = _np.ones(max(n, 0), dtype=bool)  # seg[i] <-> a0 + 2i
+    for p in _np_base_primes(math.isqrt(b) + 1)[1:]:  # odd base primes
+        p = int(p)
+        if p * p > b:
+            break
+        st = max(p * p, ((a0 + p - 1) // p) * p)
+        if st % 2 == 0:
+            st += p
+        if st > b:
+            continue
+        seg[(st - a0) // 2::p] = False
+    out = a0 + 2 * _np.nonzero(seg)[0].astype(_np.int64)
+    if a <= 2 <= b:
+        out = _np.concatenate([_np.array([2], dtype=_np.int64), out])
+    return out
+
+
+def _np_prime_run_scan(lo: int, hi: int, offsets: list[int], prior_pi: int, prior_count: int,
+                       thresholds: list[int]) -> dict[str, Any]:
+    ps = _np_primes_in(lo, hi + max(offsets))
+    n_in = int(_np.searchsorted(ps, hi, side="right"))
+    k = len(offsets)
+    match = _np.zeros(n_in, dtype=bool)
+    if n_in:
+        match[:] = True
+        for m, off in enumerate(offsets, start=1):
+            idx = _np.arange(n_in) + m
+            ok = idx < len(ps)
+            col = _np.zeros(n_in, dtype=bool)
+            col[ok] = ps[idx[ok]] - ps[:n_in][ok] == off
+            match &= col
+    cum = _np.cumsum(match, dtype=_np.int64)
+    pi0, hit = int(prior_pi), {}
+    for T in sorted(int(t) for t in thresholds):
+        j = T - pi0 - 1  # position of the T-th prime in this window
+        if 0 <= j < n_in:
+            hit[str(T)] = {"count": int(prior_count) + int(cum[j]), "prime_at_index": int(ps[j])}
+    return {"pi": pi0 + n_in, "count": int(prior_count) + (int(cum[-1]) if n_in else 0), "terms_hit": hit,
+            "engine": "numpy"}
+
+
 def prime_run_scan(lo: int, hi: int, offsets: list[int], prior_pi: int, prior_count: int,
-                   thresholds: list[int]) -> dict[str, Any]:
+                   thresholds: list[int], *, engine: str = "auto") -> dict[str, Any]:
+    if engine != "python" and _np is not None:
+        return _np_prime_run_scan(lo, hi, offsets, prior_pi, prior_count, thresholds)
+    return _py_prime_run_scan(lo, hi, offsets, prior_pi, prior_count, thresholds)
+
+
+def _py_prime_run_scan(lo: int, hi: int, offsets: list[int], prior_pi: int, prior_count: int,
+                       thresholds: list[int]) -> dict[str, Any]:
     """Walk primes p in [lo, hi] in order. p (the i-th prime) "matches" when the next len(offsets)
     CONSECUTIVE primes are exactly p + offsets. Returns the running prime index pi, the running
     match count, and {T: count of matches with index <= T} for every threshold T crossed here."""
@@ -557,7 +633,7 @@ def prime_run_scan(lo: int, hi: int, offsets: list[int], prior_pi: int, prior_co
         while wi < len(want) and pi == want[wi]:
             hit[str(want[wi])] = {"count": cnt, "prime_at_index": p}
             wi += 1
-    return {"pi": pi, "count": cnt, "terms_hit": hit}
+    return {"pi": pi, "count": cnt, "terms_hit": hit, "engine": "python"}
 
 
 def check_prime_run_count(lo: int, hi: int, deadline: Deadline, *, offsets: list[int], prior_pi: int = 0,
@@ -594,7 +670,7 @@ def prime_run_count_mr(a: int, b: int, offsets: list[int]) -> tuple[int, int]:
 
 
 def prime_run_count_sieve(a: int, b: int, offsets: list[int]) -> tuple[int, int]:
-    d = prime_run_scan(a, b, offsets, 0, 0, [])
+    d = _py_prime_run_scan(a, b, offsets, 0, 0, [])
     return d["pi"], d["count"]
 
 

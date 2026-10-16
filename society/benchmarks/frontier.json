@@ -2387,10 +2387,10 @@
       },
       "beyond_record": true,
       "start": 2,
-      "window": 30000000,
+      "window": 100000000,
       "min_window": 1000000,
-      "max_window": 50000000,
-      "budget_s": 4.0,
+      "max_window": 100000000,
+      "budget_s": 6.0,
       "status": "open",
       "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). a(7) is not listed there as of 2026-10-16; a colony value would be a candidate new term only after human re-computation.",
       "label": "bounded evidence, not proof",
@@ -2455,5 +2455,5 @@
       "stall_streak": 0
     }
   ],
-  "updated_at": "2026-10-16T16:43:55Z"
+  "updated_at": "2026-10-16T16:50:21Z"
 }

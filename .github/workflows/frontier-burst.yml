@@ -1,0 +1,63 @@
+# Frontier burst — dedicated counting search (manual dispatch only; no schedule).
+# Runs many frontier windows of ONE counting target (default: OEIS A104062 a(7)) under a wall-clock
+# budget, with the same per-window checks as evolve (Challenger, Miller-Rabin sub-window recount,
+# every published term reproduced or the target freezes). Results past the published record are
+# review CANDIDATES only — bounded evidence, not proof. Shares the colony-evolve concurrency group,
+# so it queues behind / ahead of evolve runs instead of overlapping.
+name: Frontier burst
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Counting frontier target id"
+        required: false
+        default: "oeis_A104062_next"
+      budget_s:
+        description: "Counting budget in seconds"
+        required: false
+        default: "240"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: colony-evolve
+  cancel-in-progress: false
+
+jobs:
+  burst:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Trust gate (FATAL on fail)
+        run: |
+          set -euo pipefail
+          PYTHONPATH=. python -m colony.trust gate > gate.json || { cat gate.json; exit 1; }
+          git checkout -- society/benchmarks/WITNESS_BENCH.md society/benchmarks/history.jsonl society/benchmarks/latest.json 2>/dev/null || true
+      - name: Burst
+        timeout-minutes: 10
+        run: |
+          set -euo pipefail
+          PYTHONPATH=. python -m colony.frontier burst --target "${{ github.event.inputs.target }}" --budget "${{ github.event.inputs.budget_s }}" | tee burst.json
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"; cat burst.json >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit frontier state only
+        run: |
+          set -euo pipefail
+          git config user.name "agent-colony-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add society/benchmarks/frontier.json society/systems/frontier.json data/commons/frontier.jsonl \
+            data/commons/self_challenge.jsonl data/commons/lessons.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then echo "no frontier changes"; exit 0; fi
+          git commit -m "ci(frontier): burst ${{ github.event.inputs.target }} $(date -u +%Y-%m-%dT%H%MZ)"
+          git stash -u -q || true
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1
