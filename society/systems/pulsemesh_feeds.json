@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-16T23:49:37Z",
+  "ts": "2026-10-16T23:51:51Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,26 +8,10 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.2035891376139665,
+      "latest": -6.206403966778242,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
-        {
-          "t": "2026-10-16T23:43:00Z",
-          "v": -8.375529029395581
-        },
-        {
-          "t": "2026-10-16T23:43:00Z",
-          "v": -6.19706298924375
-        },
-        {
-          "t": "2026-10-16T23:44:00Z",
-          "v": -8.157302946282204
-        },
-        {
-          "t": "2026-10-16T23:44:00Z",
-          "v": -6.194840250169456
-        },
         {
           "t": "2026-10-16T23:45:00Z",
           "v": -8.136717343360946
@@ -43,10 +27,26 @@
         {
           "t": "2026-10-16T23:46:00Z",
           "v": -6.2035891376139665
+        },
+        {
+          "t": "2026-10-16T23:47:00Z",
+          "v": -8.305243577125042
+        },
+        {
+          "t": "2026-10-16T23:47:00Z",
+          "v": -6.203463190104806
+        },
+        {
+          "t": "2026-10-16T23:48:00Z",
+          "v": -8.15065022748926
+        },
+        {
+          "t": "2026-10-16T23:48:00Z",
+          "v": -6.206403966778242
         }
       ],
       "live": true,
-      "ts": "2026-10-16T23:49:37Z"
+      "ts": "2026-10-16T23:51:51Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
@@ -95,7 +95,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-16T23:49:37Z"
+      "ts": "2026-10-16T23:51:51Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -155,7 +155,7 @@
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-09&endtime=2026-10-16&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-16T23:49:37Z"
+      "ts": "2026-10-16T23:51:51Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.568359375,
-          "disk_free_percent": 59.23036101896014,
-          "process_count": 162,
-          "uptime_hours": 0.052116666666666665,
+          "load1": 0.72900390625,
+          "disk_free_percent": 59.230112446690505,
+          "process_count": 165,
+          "uptime_hours": 0.027147222222222222,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervm8k3b6",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.568359375,
+      "latest_load1": 0.72900390625,
       "live": true,
-      "ts": "2026-10-16T23:49:37Z"
+      "ts": "2026-10-16T23:51:51Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 1.3553569999942283,
-      "mean_ms": 1.6118292500024722,
+      "latest_ms": 8.170167999992373,
+      "mean_ms": 9.706671749999174,
       "items": [
         {
           "probe": 0,
-          "ms": 1.4298359999997956
+          "ms": 13.182512000000202
         },
         {
           "probe": 1,
-          "ms": 2.248127000001432
+          "ms": 8.230186999995226
         },
         {
           "probe": 2,
-          "ms": 1.413997000014433
+          "ms": 9.243820000008895
         },
         {
           "probe": 3,
-          "ms": 1.3553569999942283
+          "ms": 8.170167999992373
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-16T23:49:37Z"
+      "ts": "2026-10-16T23:51:51Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.568359375 tcp_probe mean_ms=1.6118292500024722 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.72900390625 tcp_probe mean_ms=9.706671749999174 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.568359375,
-        "probe_ms": 1.6118292500024722,
+        "load1": 0.72900390625,
+        "probe_ms": 9.706671749999174,
         "probe_ok": true
       },
       "domains": [

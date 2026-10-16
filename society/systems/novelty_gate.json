@@ -1,30 +1,34 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T23:46:50Z",
+  "updated_at": "2026-10-16T23:51:24Z",
   "hits": 19,
   "kills": 11,
   "latest": {
-    "ts": "2026-10-16T23:46:50Z",
-    "cycle_id": "20261016T234637Z_734f13",
-    "mutation": "authored_sum_first_n_odds__binomial_inversion_small_w1",
-    "kind": "hard_enable",
-    "novel_to_commons": true,
-    "kills": [],
-    "textbook_reuse": 0.3333,
+    "ts": "2026-10-16T23:51:24Z",
+    "cycle_id": "",
+    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 338)",
+    "kind": "process",
+    "novel_to_commons": false,
+    "kills": [
+      "stripped_baseline_does_not_fail_usefulness",
+      "held_out:hard_tier_green_and_hard_enable",
+      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
+    ],
+    "textbook_reuse": 0.0,
     "in_ledger": false,
-    "own_authoring_record_only": true,
-    "oracle_used": "caller_verdict",
+    "own_authoring_record_only": false,
+    "oracle_used": "own_run",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": true,
+      "in_catalog": false,
       "hard_pass": 111,
       "hard_n": 111,
-      "stripped_fails_usefulness": true,
-      "score": 0.9023,
+      "stripped_fails_usefulness": false,
+      "score": 0.9071,
       "impl_id": "lemma_impl_v2_basic10_hard111"
     },
     "held_out": {
-      "survives": true,
+      "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
       "hard_pass": 111,
       "ok": true

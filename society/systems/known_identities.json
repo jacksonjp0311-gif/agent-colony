@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T23:46:49Z",
-  "n": 215,
+  "updated_at": "2026-10-16T23:51:24Z",
+  "n": 216,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -74,6 +74,7 @@
     "authored_pell_companion__motzkin_bounded_w1",
     "authored_pell_companion__pythagorean_generation_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
+    "authored_sieve_hl_within_g2_w1",
     "authored_stirling_second_row__pythagorean_generation_w1",
     "authored_sum_first_n_cubes__pell_companion_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
@@ -200,8 +201,7 @@
     "seek `binomial_hockey_deep` citing new algebraic points on covers of elliptic curves (cycle 156)",
     "seek `lemma_hard_combinatorics` citing new algebraic points on covers of ellipti",
     "seek `lemma_hard_combinatorics` citing new algebraic points on covers of elliptic curves",
-    "seek `lemma_hard_combinatorics` citing new algebraic points on covers of elliptic curves (cycle 158)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves"
+    "seek `lemma_hard_combinatorics` citing new algebraic points on covers of elliptic curves (cycle 158)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
