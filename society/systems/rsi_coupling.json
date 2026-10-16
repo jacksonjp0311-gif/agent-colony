@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T16:44:06Z",
-  "updated_cycle": "20261016T164340Z_cf7015",
+  "updated_at": "2026-10-16T17:22:12Z",
+  "updated_cycle": "20261016T172120Z_6927aa",
   "signal": {
-    "ts": "2026-10-16T16:44:06Z",
-    "accepted_count": 5,
+    "ts": "2026-10-16T17:22:12Z",
+    "accepted_count": 6,
     "strong_candidate_count": 48,
     "unknown_caution_count": 125,
     "strength": 0.85,
@@ -25,7 +25,8 @@
       "fnd_996b756037a2",
       "fnd_c4032bdb2b03",
       "fnd_0bcaa683b3f1",
-      "fnd_5c5fe31c159d"
+      "fnd_5c5fe31c159d",
+      "fnd_17a72920e804"
     ],
     "strong_ids": [
       "fnd_012e8a235556",
@@ -42,12 +43,6 @@
       "fnd_9684478fa633"
     ],
     "lessons": [
-      {
-        "id": "fnd_4e13618dda89",
-        "title": "Authorize accepted: Lemma mutation keep: authored_bell_triangle_recurrence__binomial_inversion_small_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
-      },
       {
         "id": "fnd_996b756037a2",
         "title": "Authorize accepted: Lemma mutation keep: authored_binomial_inversion_small__legendre_duplication_small_w1",
@@ -69,6 +64,12 @@
       {
         "id": "fnd_5c5fe31c159d",
         "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__binomial_inversion_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
+      },
+      {
+        "id": "fnd_17a72920e804",
+        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__binomial_inversion_small_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
       }

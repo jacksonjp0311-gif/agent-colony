@@ -366,82 +366,85 @@
     "cycle_314_evolve_note",
     "cycle_315_evolve_note",
     "cycle_316_evolve_note",
-    "cycle_317_evolve_note"
+    "cycle_317_evolve_note",
+    "cycle_318_evolve_note",
+    "cycle_319_evolve_note",
+    "cycle_320_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 901,
+      "uses": 910,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 873,
+      "uses": 882,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 603,
+      "uses": 609,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 301,
+      "uses": 304,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1161,
+      "uses": 1173,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 650,
+      "uses": 654,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 868,
+      "uses": 877,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 289,
+      "uses": 292,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 289,
+      "uses": 292,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 274,
+      "uses": 277,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 274,
+      "uses": 277,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 271,
+      "uses": 274,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 271,
+      "uses": 274,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 268,
+      "uses": 271,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 268,
+      "uses": 271,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -716,8 +719,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1160,
-    "reused": 2605
+    "appended": 1172,
+    "reused": 2632
   },
   "commons_by_domain": {
     "science": 0,
@@ -736,8 +739,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-16T16:44:07Z",
-    "cycle_id": "20261016T164340Z_cf7015",
+    "ts": "2026-10-16T17:22:12Z",
+    "cycle_id": "20261016T172120Z_6927aa",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -749,23 +752,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-16T16:44:06Z",
-    "cycle_id": "20261016T164340Z_cf7015",
-    "tribute_quality": 1.0,
+    "ts": "2026-10-16T17:22:11Z",
+    "cycle_id": "20261016T172120Z_6927aa",
+    "tribute_quality": 0.9,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8145,
-    "compute_usefulness": 0.9135,
+    "math_prize": 0.8133,
+    "compute_usefulness": 0.9128,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8862,
-    "kill_rate": 0.3677,
-    "kill_rate_term": 0.8809,
-    "novelty": 0.8,
+    "prize_boost": 0.8855,
+    "kill_rate": 0.3669,
+    "kill_rate_term": 0.8802,
+    "novelty": 0.8333,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8587,
+    "aggregate": 0.8466,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -773,33 +776,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 16327,
-    "read": 77730,
-    "replied": 10282,
-    "actions_planned": 5322,
-    "actions_changed_from_message": 5322,
-    "reply_quality_sum": 9327.299999998759,
-    "reply_quality_n": 10230,
-    "peer_cite_opportunities": 10520,
-    "peer_cites": 10520
+    "posted": 16493,
+    "read": 78540,
+    "replied": 10387,
+    "actions_planned": 5376,
+    "actions_changed_from_message": 5376,
+    "reply_quality_sum": 9422.99999999873,
+    "reply_quality_n": 10335,
+    "peer_cite_opportunities": 10628,
+    "peer_cites": 10628
   },
   "bus_domains": {
-    "science": 863,
-    "history": 865,
-    "math": 2604,
-    "empire": 579,
-    "bulletin": 2267,
-    "forum": 3746,
-    "software": 865,
-    "nature": 863,
-    "life": 865,
-    "cosmos": 1253,
-    "rsi": 1449
+    "science": 872,
+    "history": 874,
+    "math": 2631,
+    "empire": 585,
+    "bulletin": 2288,
+    "forum": 3785,
+    "software": 874,
+    "nature": 872,
+    "life": 874,
+    "cosmos": 1266,
+    "rsi": 1464
   },
-  "communications_count": 16327,
+  "communications_count": 16493,
   "improvements": [
-    "Chain `authored_derangement_subfactorial__euler_totient_multiplicative_w1` citing An Infinite Family of Ap\u00e9ry-like Recurrences for E",
-    "Chain `authored_derangement_subfactorial__euler_totient_multiplicative_w1` citing An Infinite Family of Ap\u00e9ry-like Recurrences for E (cycle 269)",
     "Chain `authored_fibonacci_addition__hermite_recurrence_w1` citing (a, b)-Fibonacci\u2013Legendre Cordial Graphs and k-Pis",
     "Chain `authored_fibonacci_addition__hermite_recurrence_w1` citing (a, b)-Fibonacci\u2013Legendre Cordial Graphs and k-Pis (cycle 271)",
     "Chain `authored_geometric_sum__legendre_duplication_small_w1` citing The Tate Conjecture for Ordinary Calabi-Yau Threef",
@@ -847,18 +848,20 @@
     "Chain+seek `authored_cassini__derangement_subfactorial_w1` from invariant priors",
     "Chain+seek `authored_cassini__derangement_subfactorial_w1` from invariant priors (cycle 315)",
     "Chain `authored_catalan_bounded__binomial_inversion_small_w1` citing Factors of a kind of alternating sums of products ",
-    "Chain `authored_catalan_bounded__binomial_inversion_small_w1` citing Factors of a kind of alternating sums of products  (cycle 317)"
+    "Chain `authored_catalan_bounded__binomial_inversion_small_w1` citing Factors of a kind of alternating sums of products  (cycle 317)",
+    "Chain `authored_catalan_convolution__euler_totient_multiplicative_w1` citing An identity relating Catalan numbers to tangent nu",
+    "Chain `authored_catalan_convolution__euler_totient_multiplicative_w1` citing An identity relating Catalan numbers to tangent nu (cycle 319)"
   ],
-  "cycle_count": 317,
-  "ledger_count": 17558,
+  "cycle_count": 320,
+  "ledger_count": 17734,
   "status_counts": {
-    "candidate": 16922,
-    "accepted": 205,
-    "rejected": 307,
+    "candidate": 17093,
+    "accepted": 208,
+    "rejected": 309,
     "unknown": 124
   },
-  "witness_events": 25403,
-  "tribute_cycles_compliant": 317,
+  "witness_events": 25668,
+  "tribute_cycles_compliant": 320,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

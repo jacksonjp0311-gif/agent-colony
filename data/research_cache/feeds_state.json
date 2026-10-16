@@ -1,15 +1,39 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-16T16:42:15Z",
+    "fetched_at": "2026-10-16T17:19:01Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-16T17:18:45Z",
+        "id": 38938703631,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-16T17:18:49Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-10-16T16:52:34Z",
+        "id": 38935330075,
+        "name": "Frontier burst",
+        "status": "completed",
+        "updated_at": "2026-10-16T16:53:33Z"
+      },
+      {
+        "conclusion": "failure",
+        "created_at": "2026-10-16T16:50:03Z",
+        "id": 38935011324,
+        "name": "Colony evolve",
+        "status": "completed",
+        "updated_at": "2026-10-16T16:52:39Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-16T16:42:00Z",
         "id": 38933994988,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-16T16:42:04Z"
+        "status": "completed",
+        "updated_at": "2026-10-16T16:44:25Z"
       },
       {
         "conclusion": "success",
@@ -74,33 +98,9 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-15T11:53:00Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-15T04:57:00Z",
-        "id": 38684155267,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-15T04:59:50Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-14T21:51:01Z",
-        "id": 38643382876,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-14T21:54:01Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-14T17:25:00Z",
-        "id": 38606462678,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-14T17:28:56Z"
       }
     ],
-    "success_rate": 1.0
+    "success_rate": 0.9091
   },
   "health": {
     "arxiv": {
@@ -166,7 +166,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-10-16T16:42:15Z"
+    "ts": "2026-10-16T17:19:01Z"
   },
-  "runs": 47
+  "runs": 48
 }

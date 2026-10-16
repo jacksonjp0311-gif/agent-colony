@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T16:43:52Z",
-  "n": 201,
+  "updated_at": "2026-10-16T17:20:39Z",
+  "n": 202,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -29,6 +29,7 @@
     "authored_catalan_bounded__binomial_inversion_small_w1",
     "authored_catalan_bounded__catalan_convolution_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
+    "authored_catalan_convolution__euler_totient_multiplicative_w1",
     "authored_central_binom_bound__binomial_inversion_small_w1",
     "authored_central_binom_bound__derangement_subfactorial_w1",
     "authored_central_binom_bound__euler_totient_multiplicative_w1",
@@ -168,6 +169,7 @@
     "hard_enable",
     "hard_tier",
     "hockey_stick",
+    "human_recognition_a104062_a7",
     "human_recognition_first_authorize",
     "human_teaching",
     "kill_cooldown",
@@ -199,9 +201,7 @@
     "self_repair_schema",
     "stem_easy_pad_units",
     "stirling_second_row",
-    "sum_first_n_cubes",
-    "use_feeds_and_sensors_honestly",
-    "vandermonde"
+    "sum_first_n_cubes"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

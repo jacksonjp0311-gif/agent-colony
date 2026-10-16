@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_695676a8ebbd",
-      "title": "Authorize accepted: Lemma mutation keep: authored_geometric_sum__hermite_recurrence_w1"
+      "finding_id": "fnd_d97e6a0aca6a",
+      "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__motzkin_bounded_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-16T16:44:01Z",
-  "updated_cycle": "20261016T164340Z_cf7015",
+  "updated_at": "2026-10-16T17:21:52Z",
+  "updated_cycle": "20261016T172120Z_6927aa",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
