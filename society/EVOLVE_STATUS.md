@@ -4,9 +4,9 @@
 
 ![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
-- cycle_count: `332`
-- benches ok_all: `True` score `0.891`
-- novelty hits/kills: `21` / `9`
+- cycle_count: `333`
+- benches ok_all: `True` score `0.8848`
+- novelty hits/kills: `20` / `10`
 - debate action_changed: `True`
 - oracle passes/kills/easy_kills: `289` / `167` / `32`
 - CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.70→slim push

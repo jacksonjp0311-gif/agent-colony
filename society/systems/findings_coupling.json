@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T21:59:14Z",
-  "updated_cycle": "20261016T215839Z_d0a038",
+  "updated_at": "2026-10-16T23:18:16Z",
+  "updated_cycle": "20261016T231731Z_112d30",
   "signal": {
-    "ts": "2026-10-16T21:59:14Z",
+    "ts": "2026-10-16T23:18:16Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 83,
+    "accepted_compute": 84,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_b7cdd2cb8788",
-        "title": "Authorize accepted: Lemma mutation keep: authored_cassini__derangement_subfactorial_w1"
+        "finding_id": "fnd_17a72920e804",
+        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__binomial_inversion_small_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_c5c17433797a",
-        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_convolution__euler_tot",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_94a398562ca7",
         "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__legendre_d",
         "topic_id": "compute-useful-math",
@@ -92,6 +85,13 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_aaee4865426b",
+        "title": "Authorize accepted: Lemma mutation keep: authored_stirling_second_row__pythagore",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,12 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_c5c17433797a",
-        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_convolution__euler_totient_multiplicative_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_94a398562ca7",
         "title": "Authorize accepted: Lemma mutation keep: authored_fibonacci_addition__legendre_duplication_small_w1",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_pell_companion__motzkin_bounded_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_aaee4865426b",
+        "title": "Authorize accepted: Lemma mutation keep: authored_stirling_second_row__pythagorean_generation_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_b7cdd2cb8788",
         "fnd_17a72920e804",
         "fnd_c5c17433797a",
         "fnd_94a398562ca7",
         "fnd_a8472e778aae",
         "fnd_1f2bab67298a",
         "fnd_976078a58c74",
-        "fnd_42a7520dda1b"
+        "fnd_42a7520dda1b",
+        "fnd_aaee4865426b"
       ],
       "rsi": []
     },

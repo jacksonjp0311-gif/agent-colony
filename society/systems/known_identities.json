@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T21:59:19Z",
-  "n": 210,
+  "updated_at": "2026-10-16T23:17:47Z",
+  "n": 212,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -181,6 +181,7 @@
     "human_recognition_a104062_a7",
     "human_recognition_first_authorize",
     "human_teaching",
+    "instruments",
     "kill_cooldown",
     "lucas_addition",
     "motzkin_bounded",
@@ -189,6 +190,7 @@
     "pell_companion",
     "process",
     "pythagorean_generation",
+    "reward_sieve_instrument",
     "rsi",
     "seek `binomial_hockey_deep` citing new algebraic points on covers of elliptic cu",
     "seek `binomial_hockey_deep` citing new algebraic points on covers of elliptic curves",
@@ -199,9 +201,7 @@
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves",
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 150)",
     "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 151)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 152)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 153)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 154)"
+    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 152)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

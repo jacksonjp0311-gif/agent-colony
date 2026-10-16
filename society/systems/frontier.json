@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T21:58:49Z",
+  "updated_at": "2026-10-16T23:17:51Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -23,7 +23,7 @@
     "legendre_square_gap": {
       "family": "legendre",
       "status": "open",
-      "verified_hi": 220607,
+      "verified_hi": 236607,
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "window": 16000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "goldbach_even",
-    "lo": 19000004,
-    "hi": 20600003,
+    "target": "legendre_square_gap",
+    "lo": 220608,
+    "hi": 236607,
     "outcome": "extended",
-    "verified_hi": 20600003,
-    "cycle_id": "20261016T215839Z_d0a038"
+    "verified_hi": 236607,
+    "cycle_id": "20261016T231731Z_112d30"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
