@@ -1,0 +1,85 @@
+{
+ "version": 1,
+ "labels": {
+  "pool_v01_euler_odd_distinct": {
+   "label": "sound_useful",
+   "family": "partition",
+   "witness": null,
+   "note": ""
+  },
+  "pool_v02_binom_fib_double": {
+   "label": "sound_useful",
+   "family": "fibonacci_binomial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_v03_divcount_odd_iff_square": {
+   "label": "sound_useful",
+   "family": "divisor_count",
+   "witness": null,
+   "note": ""
+  },
+  "pool_v04_sigma_multiplicative": {
+   "label": "sound_useful",
+   "family": "divisor_sum",
+   "witness": null,
+   "note": ""
+  },
+  "pool_v05_lagrange_four_squares": {
+   "label": "sound_useful",
+   "family": "sums_of_squares",
+   "witness": null,
+   "note": ""
+  },
+  "pool_v06_fermat_little": {
+   "label": "sound_useful",
+   "family": "modular",
+   "witness": null,
+   "note": ""
+  },
+  "pool_v07_fermat_numbers_prime": {
+   "label": "unsound",
+   "family": "fermat_number",
+   "witness": {
+    "n": 5
+   },
+   "note": ""
+  },
+  "pool_v08_three_squares": {
+   "label": "unsound",
+   "family": "sums_of_squares",
+   "witness": {
+    "n": 7
+   },
+   "note": ""
+  },
+  "pool_v09_sigma_below_3n": {
+   "label": "unsound",
+   "family": "divisor_sum",
+   "witness": {
+    "n": 120
+   },
+   "note": ""
+  },
+  "pool_v10_pell991_no_solution": {
+   "label": "unsound",
+   "family": "pell",
+   "witness": {
+    "n": 12055735790331359447442538767
+   },
+   "note": "escape by design: smallest y solving x^2-991y^2=1 has 29 digits"
+  },
+  "pool_v11_diff_sq_expand": {
+   "label": "trivial",
+   "family": "polynomial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_v12_abs_symmetric": {
+   "label": "trivial",
+   "family": "polynomial",
+   "witness": null,
+   "note": ""
+  }
+ }
+}

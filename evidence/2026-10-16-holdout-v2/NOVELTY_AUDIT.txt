@@ -1,0 +1,16 @@
+Novelty audit for holdout_v2, 2026-10-16T12:27:09-04:00, HEAD 326437e
+Searched colony/ society/ data/ (case-insensitive) for each family/key term:
+odd_parts|odd parts|odd_distinct -> 0 files
+binom_fib|F\(2n\) -> 0 files
+divcount|odd_iff_square -> 0 files
+sigma_multiplicative|sigma\(m -> 0 files
+four_squares|four squares|lagrange -> 16 files
+fermat_little|fermat's little -> 0 files
+fermat_number|2 \*\* \(2 \*\* -> 0 files
+three_squares|three squares -> 0 files
+sigma_below|abundancy -> 0 files
+991 \*|x\^2-991|pell991 -> 0 files
+diff_sq_expand -> 0 files
+abs_symmetric -> 0 files
+pool_v -> 0 files
+Follow-up: the 16 hits are all the word 'Lagrange' in other contexts (paper titles etc.); 'four squares'/'four_squares' -> 0 files.

@@ -1,0 +1,65 @@
+{
+ "version": 1,
+ "candidates": [
+  {
+   "name": "pool_v01_euler_odd_distinct",
+   "helpers_src": "\ndef _pv_parts(n, allowed, distinct):\n    ways = [1] + [0] * n\n    for p in allowed:\n        if distinct:\n            for s in range(n, p - 1, -1):\n                ways[s] += ways[s - p]\n        else:\n            for s in range(p, n + 1):\n                ways[s] += ways[s - p]\n    return ways[n]\n",
+   "check_src": "\ndef check_pool_v01_euler_odd_distinct() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv_parts(n, range(1, n + 1, 2), False) == _pv_parts(n, range(1, n + 1), True) for n in range(0, 26))\n"
+  },
+  {
+   "name": "pool_v02_binom_fib_double",
+   "helpers_src": "\ndef _pv_fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+   "check_src": "\ndef check_pool_v02_binom_fib_double() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(sum(math.comb(n, k) * _pv_fib(k) for k in range(n + 1)) == _pv_fib(2 * n) for n in range(0, 30))\n"
+  },
+  {
+   "name": "pool_v03_divcount_odd_iff_square",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_v03_divcount_odd_iff_square() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all((sum(1 for d in range(1, n + 1) if n % d == 0) % 2 == 1) == (math.isqrt(n) ** 2 == n) for n in range(1, 200))\n"
+  },
+  {
+   "name": "pool_v04_sigma_multiplicative",
+   "helpers_src": "\ndef _pv_sigma(n):\n    return sum(d for d in range(1, n + 1) if n % d == 0)\n",
+   "check_src": "\ndef check_pool_v04_sigma_multiplicative() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv_sigma(m * n) == _pv_sigma(m) * _pv_sigma(n) for m in range(1, 30) for n in range(1, 30) if math.gcd(m, n) == 1)\n"
+  },
+  {
+   "name": "pool_v05_lagrange_four_squares",
+   "helpers_src": "\ndef _pv_sumsq(n, k):\n    if k == 0:\n        return n == 0\n    a = 0\n    while a * a <= n:\n        if _pv_sumsq(n - a * a, k - 1):\n            return True\n        a += 1\n    return False\n",
+   "check_src": "\ndef check_pool_v05_lagrange_four_squares() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv_sumsq(n, 4) for n in range(0, 150))\n"
+  },
+  {
+   "name": "pool_v06_fermat_little",
+   "helpers_src": "\ndef _pv_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_v06_fermat_little() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(pow(a, p, p) == a % p for p in range(2, 60) if _pv_isprime(p) for a in range(0, 20))\n"
+  },
+  {
+   "name": "pool_v07_fermat_numbers_prime",
+   "helpers_src": "\ndef _pv_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_v07_fermat_numbers_prime() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv_isprime(2 ** (2 ** k) + 1) for k in range(0, 5))\n"
+  },
+  {
+   "name": "pool_v08_three_squares",
+   "helpers_src": "\ndef _pv_sumsq(n, k):\n    if k == 0:\n        return n == 0\n    a = 0\n    while a * a <= n:\n        if _pv_sumsq(n - a * a, k - 1):\n            return True\n        a += 1\n    return False\n",
+   "check_src": "\ndef check_pool_v08_three_squares() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv_sumsq(n, 3) for n in range(0, 7))\n"
+  },
+  {
+   "name": "pool_v09_sigma_below_3n",
+   "helpers_src": "\ndef _pv_sigma(n):\n    return sum(d for d in range(1, n + 1) if n % d == 0)\n",
+   "check_src": "\ndef check_pool_v09_sigma_below_3n() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv_sigma(n) < 3 * n for n in range(1, 120))\n"
+  },
+  {
+   "name": "pool_v10_pell991_no_solution",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_v10_pell991_no_solution() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(math.isqrt(991 * y * y + 1) ** 2 != 991 * y * y + 1 for y in range(1, 3000))\n"
+  },
+  {
+   "name": "pool_v11_diff_sq_expand",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_v11_diff_sq_expand() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all((n + 3) * (n - 3) == n * n - 9 for n in range(-40, 40))\n"
+  },
+  {
+   "name": "pool_v12_abs_symmetric",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_v12_abs_symmetric() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(abs(n) >= 0 and abs(n) == abs(-n) for n in range(-40, 40))\n"
+  }
+ ]
+}

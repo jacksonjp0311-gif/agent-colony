@@ -29,6 +29,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "evaluation"))
 import evaluator  # noqa: E402
+import evaluator_v2  # noqa: E402
+
+
+def EV(pool: str):
+    """Pool -> its independent evaluator (holdout_v2 has its own reference code)."""
+    return evaluator_v2 if pool == "holdout_v2" else evaluator
 
 EVID = ROOT / "evidence" / "2026-10-11-trust-loop"
 WS_BASE = Path("/tmp/trust_ws")
@@ -115,9 +121,9 @@ def run_one(pool: str, arm: str, seed: int, cycles: int, code_root: Path = ROOT)
             picks[c["mutation"]] = picks.get(c["mutation"], 0) + 1
             if c["decision"] != "keep":
                 fails[c["mutation"]] = fails.get(c["mutation"], 0) + 1
-    sc = evaluator.score_run(pool, kept)
+    sc = EV(pool).score_run(pool, kept)
     blocked = sorted({c["mutation"] for c in cyc if c["self_rejected"]})
-    truth = evaluator.judge_pool(pool)
+    truth = EV(pool).judge_pool(pool)
     return {
         "pool": pool, "arm": arm, "seed": seed, "cycles": cycles, "pick_order_seeded": order,
         "wall_s": round(wall, 2), "oracle_calls": n_oracle, "challenger_calls": n_chal,
@@ -196,7 +202,7 @@ print("@@RESULT@@" + json.dumps(out))
     shutil.rmtree(ws, ignore_errors=True)
     res = json.loads(p.stdout.split("@@RESULT@@", 1)[1])
     kept = [n for n, ok in res.items() if ok]
-    sc = evaluator.score_run(pool, kept)
+    sc = EV(pool).score_run(pool, kept)
     return {"pool": pool, "rule": "bench_only_keep_if_in_window_green", "bench_green": res, **sc,
             "n_verified": len(sc["verified"]), "n_harmful_kept": len(sc["harmful_kept"])}
 
@@ -232,11 +238,12 @@ def main() -> int:
     else:
         pool = a.pool
         if a.cmd == "holdout":
-            pool = "holdout_v1"
+            pool = a.pool if a.pool.startswith("holdout_") else "holdout_v1"
             log = ROOT / "evaluation" / "EXPOSURES.jsonl"
             prior = [json.loads(l) for l in log.read_text().splitlines() if l.strip()] if log.exists() else []
+            prior = [e for e in prior if e.get("pool") == pool]
             if prior:
-                print(f"NOTE: holdout_v1 already exposed {len(prior)}x; this run is a RE-EXPOSURE "
+                print(f"NOTE: {pool} already exposed {len(prior)}x; this run is a RE-EXPOSURE "
                       "(results must be reported as reused data, not unseen)", file=sys.stderr)
         rows = ablation(pool, a.cycles, arms, seeds, a.jobs)
         base_rows: list[dict] = []
@@ -266,7 +273,7 @@ def main() -> int:
     res["elapsed_s"] = round(time.time() - t0, 1)
     if not manifest_ok():
         res["integrity"] = "MANIFEST_CHANGED_DURING_RUN"
-    out = Path(a.out) if a.out else EVID / f"{a.cmd}_{a.pool if a.cmd != 'holdout' else 'holdout_v1'}{('_' + a.label) if a.label else ''}.json"
+    out = Path(a.out) if a.out else EVID / f"{a.cmd}_{a.pool if a.cmd != 'holdout' else res.get('pool', 'holdout_v1')}{('_' + a.label) if a.label else ''}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(res, indent=1) + "\n")
     print(json.dumps(res.get("summary", {k: v for k, v in res.items() if k != "bench_green"}), indent=1))

@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 from trust_experiments import IGNORE, inject  # noqa: E402
 
-OUT = ROOT / "evidence" / "2026-10-11-trust-loop"
+OUT = Path(os.environ.get("TRUST_FAULTS_OUT") or (ROOT / "evidence" / "2026-10-11-trust-loop"))
 WS = Path("/tmp/trust_ws/faults")
 
 

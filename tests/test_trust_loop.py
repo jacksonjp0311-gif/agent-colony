@@ -53,11 +53,25 @@ def test_colony_never_references_holdout_or_evaluator():
                     offenders.append(f"{p.name}:import")
             if isinstance(n, ast.Constant) and isinstance(n.value, str) and id(n) not in docs:
                 v = n.value
-                if "holdout_v1" in v or "labels.json" in v or "pools" == v:
+                if "holdout_v1" in v or "holdout_v2" in v or v.startswith("pool_v") or "labels.json" in v or "pools" == v:
                     offenders.append(f"{p.name}:{v[:40]}")
                 if v == "evaluation" and p.name != "gate.py":
                     offenders.append(f"{p.name}:{v}")
     assert offenders == [], offenders
+
+
+def test_holdout_v2_never_in_colony_readable_state():
+    """holdout_v2 candidate names must not appear anywhere the colony reads during evolve
+    (colony/, society/, data/). The pool is injected only into throwaway /tmp workspaces."""
+    import json as _json
+    names = [c["name"] for c in _json.loads((ROOT / "evaluation" / "pools" / "holdout_v2" / "candidates.json").read_text())["candidates"]]
+    hits = []
+    for d in ("colony", "society", "data"):
+        for p in (ROOT / d).rglob("*"):
+            if p.is_file() and p.suffix in (".py", ".json", ".jsonl", ".md", ".txt"):
+                t = p.read_text(encoding="utf-8", errors="ignore")
+                hits += [f"{p.relative_to(ROOT)}:{n}" for n in names if n in t]
+    assert hits == [], hits[:10]
 
 
 def test_manifest_detects_tamper(tmp_path):
