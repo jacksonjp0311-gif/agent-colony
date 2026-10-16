@@ -1,0 +1,92 @@
+# A104062 sharded count (manual dispatch only; no schedule; free GitHub-hosted runners).
+# Counts consecutive prime quadruples p,p+6,p+12,p+18 fully inside the first N primes.
+# Pass A: tools/a104062/qs_range.c (primesieve iterator), 20 shards of [0, P].
+# Pass B: tools/a104062/qk_range.c (primesieve array API), 19 shards with DIFFERENT boundaries.
+# Each shard counts quadruples whose FIRST prime lies in its range and reads past its end for the
+# next 3 primes, so quadruples crossing shard edges are counted exactly once. Results are summed in
+# the "combine" job and shown in the run summary; nothing is committed. Computed, not proof.
+name: A104062 shards
+
+on:
+  workflow_dispatch:
+    inputs:
+      n_primes:
+        description: "N (count quadruples inside the first N primes)"
+        required: false
+        default: "2000000000000"
+
+permissions:
+  contents: read
+
+jobs:
+  nth:
+    runs-on: ubuntu-latest
+    outputs:
+      P: ${{ steps.p.outputs.P }}
+    steps:
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq primesieve
+      - id: p
+        run: |
+          primesieve --version | head -1
+          P=$(primesieve -n "${{ github.event.inputs.n_primes }}" -q)
+          echo "p(N)=$P"; echo "P=$P" >> "$GITHUB_OUTPUT"
+
+  shard:
+    needs: nth
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        pass: [A, B]
+        i: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+        exclude:
+          - pass: B
+            i: 19
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq libprimesieve-dev
+      - name: Count shard
+        env:
+          P: ${{ needs.nth.outputs.P }}
+        run: |
+          set -euo pipefail
+          if [ "${{ matrix.pass }}" = A ]; then S=20; else S=19; fi
+          I=${{ matrix.i }}
+          LO=$(python3 -c "print($P*$I//$S)"); HI=$(python3 -c "print($P+1 if $I==$S-1 else $P*($I+1)//$S)")
+          gcc -O2 -fopenmp tools/a104062/qs_range.c -o qs -lprimesieve
+          gcc -O2 -fopenmp tools/a104062/qk_range.c -o qk -lprimesieve
+          if [ "${{ matrix.pass }}" = A ]; then ./qs "$LO" "$HI" "$P" "$(nproc)" > out.json; else ./qk "$LO" "$HI" "$P" > out.json; fi
+          cat out.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ matrix.pass }}-${{ matrix.i }}
+          path: out.json
+
+  combine:
+    needs: [nth, shard]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: shards
+      - name: Sum
+        env:
+          P: ${{ needs.nth.outputs.P }}
+          N: ${{ github.event.inputs.n_primes }}
+        run: |
+          python3 - <<'PY' | tee result.json
+          import json, os, glob
+          P, N = int(os.environ["P"]), int(os.environ["N"])
+          res = {"N": N, "p_N": P}
+          for ps, S in (("A", 20), ("B", 19)):
+              rows = sorted((json.load(open(f)) for f in glob.glob(f"shards/shard-{ps}-*/out.json")), key=lambda r: r["lo"])
+              assert len(rows) == S, (ps, len(rows))
+              assert rows[0]["lo"] == 0 and rows[-1]["hi"] == P + 1 and all(a["hi"] == b["lo"] for a, b in zip(rows, rows[1:]))
+              res[ps] = {"primes": sum(r["primes"] for r in rows), "quads": sum(r["quads"] for r in rows)}
+          res["primes_ok"] = res["A"]["primes"] == N == res["B"]["primes"]
+          res["agree"] = res["A"]["quads"] == res["B"]["quads"]
+          print(json.dumps(res, indent=1))
+          assert res["primes_ok"] and res["agree"]
+          PY
+          { echo '```json'; cat result.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
