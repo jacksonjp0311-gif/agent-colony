@@ -1,19 +1,65 @@
 {
  "target": "erdos_699",
- "verified_up_to": 3,
+ "verified_up_to": 1000000000,
  "intervals": [
   [
-   10000001,
-   100000000
+   4,
+   1000000000
   ]
  ],
  "main_counterexamples": [],
- "strict_exceptions": [],
+ "strict_exceptions": [
+  [
+   10,
+   3,
+   5
+  ],
+  [
+   16,
+   2,
+   6
+  ],
+  [
+   28,
+   3,
+   14
+  ],
+  [
+   28,
+   5,
+   14
+  ],
+  [
+   244,
+   3,
+   122
+  ],
+  [
+   512,
+   2,
+   147
+  ],
+  [
+   2048,
+   2,
+   713
+  ],
+  [
+   2188,
+   3,
+   1094
+  ],
+  [
+   1594324,
+   3,
+   797162
+  ]
+ ],
  "new_strict_i_ge_4": [],
  "human_review_pending": 0,
- "cpu_seconds": 2974.7,
+ "cpu_seconds": 47028.5,
  "status": "open",
  "label": "bounded evidence, not proof",
  "proof": false,
- "ts": "2026-10-16T18:15:32Z"
+ "ts": "2026-10-16T18:29:47Z"
 }
