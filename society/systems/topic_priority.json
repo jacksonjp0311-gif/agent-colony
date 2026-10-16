@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_d3555d0bba7d",
-      "title": "Authorize accepted: Lemma mutation keep: authored_sum_first_n_odds__bell_triangle_recurrence_w1"
+      "finding_id": "fnd_0d591a504f39",
+      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__catalan_convolution_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-16T04:49:12Z",
-  "updated_cycle": "20261016T044854Z_92aaa5",
+  "updated_at": "2026-10-16T11:44:57Z",
+  "updated_cycle": "20261016T114438Z_2cde1e",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

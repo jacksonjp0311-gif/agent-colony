@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T04:48:25Z",
-  "n": 195,
+  "updated_at": "2026-10-16T11:44:49Z",
+  "n": 197,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -55,12 +55,14 @@
     "authored_oeis_a000079__binomial_sum_row",
     "authored_oeis_a000108__catalan_bounded",
     "authored_oeis_a000984__central_binom_bound",
+    "authored_pascal_identity__motzkin_bounded_w1",
     "authored_pascal_identity__narayana_sum_w1",
     "authored_pascal_identity__pell_companion_w1",
     "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pascal_identity__stirling_second_row_w1",
     "authored_pell_companion__pythagorean_generation_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
+    "authored_sum_first_n_cubes__pell_companion_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
     "authored_sum_first_n_cubes__vandermonde_conv_w1",
     "authored_sum_first_n_odds__bell_triangle_recurrence_w1",

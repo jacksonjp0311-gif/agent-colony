@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T04:48:25Z",
+  "updated_at": "2026-10-16T11:44:49Z",
   "hits": 24,
   "kills": 6,
   "latest": {
-    "ts": "2026-10-16T04:48:25Z",
-    "cycle_id": "20261016T044811Z_00a8db",
-    "mutation": "authored_hockey_stick__stirling_second_row_w1",
+    "ts": "2026-10-16T11:44:49Z",
+    "cycle_id": "20261016T114438Z_2cde1e",
+    "mutation": "authored_sum_first_n_cubes__pell_companion_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -17,16 +17,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 94,
-      "hard_n": 94,
+      "hard_pass": 96,
+      "hard_n": 96,
       "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard94"
+      "impl_id": "lemma_impl_v2_basic10_hard95"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 94,
+      "hard_pass": 96,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
