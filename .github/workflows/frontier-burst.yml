@@ -55,7 +55,7 @@ jobs:
           git config user.name "agent-colony-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add society/benchmarks/frontier.json society/systems/frontier.json data/commons/frontier.jsonl \
-            data/commons/self_challenge.jsonl data/commons/lessons.jsonl 2>/dev/null || true
+            data/commons/self_challenge.jsonl data/commons/lessons.jsonl data/commons/recipes.jsonl data/commons/recipe_uses.jsonl 2>/dev/null || true
           if git diff --staged --quiet; then echo "no frontier changes"; exit 0; fi
           git commit -m "ci(frontier): burst ${{ github.event.inputs.target }} $(date -u +%Y-%m-%dT%H%MZ)"
           for i in 1 2 3; do git pull --rebase --autostash && git push && exit 0; sleep 5; done

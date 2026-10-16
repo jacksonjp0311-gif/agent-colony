@@ -482,6 +482,7 @@ def run_cycle(cycle_id: str = "", *, witness: Any | None = None, max_tasks: int 
         if t is None:
             break
         tried.add(t["id"])
+        _recipe_hook("on_start", t)
         task, why = make_task(t, done=done)
         if task is None:
             blocked[t["id"]] = why
@@ -492,14 +493,25 @@ def run_cycle(cycle_id: str = "", *, witness: Any | None = None, max_tasks: int 
         _append_log(res)
         done.add(task["fingerprint"])
         apply_result(t, res)
+        _recipe_hook("on_result", t, res)
         results.append(res)
         _witness(witness, cycle_id, t, res)
+    _recipe_hook("distill", cat, load_log(limit=100000))
     save_catalog(cat)
     last = results[-1] if results else {}
     write_system(cat, {k: last.get(k) for k in ("target", "lo", "hi", "outcome", "verified_hi", "cycle_id")} if last else None)
     return {"ran": len(results), "added_oeis": added, "blocked": blocked,
             "results": [{k: r.get(k) for k in ("target", "lo", "hi", "outcome", "verified_hi", "counterexample")}
                         for r in results]}
+
+
+def _recipe_hook(name: str, *args: Any) -> Any:
+    """Success recipes (colony/recipes.py): advisory; a failure here never affects a run's checks."""
+    try:
+        from colony import recipes
+        return getattr(recipes, name)(*args)
+    except Exception as e:  # noqa: BLE001
+        return {"recipe_error": str(e)[:200]}
 
 
 def _witness(witness: Any | None, cycle_id: str, t: dict[str, Any], res: dict[str, Any]) -> None:
@@ -583,6 +595,7 @@ def burst(target_id: str, *, budget_s: float = 240.0, cycle_id: str = "", witnes
         if _time.monotonic() + last_s > t_end:
             stop = "budget"
             break
+        _recipe_hook("on_start", t)
         task, why = make_task(t, done=done)
         if task is None:
             stop = why
@@ -593,12 +606,14 @@ def burst(target_id: str, *, budget_s: float = 240.0, cycle_id: str = "", witnes
         _append_log({k: v for k, v in res.items() if k not in ("why_believe",)})
         done.add(task["fingerprint"])
         apply_result(t, res)
+        _recipe_hook("on_result", t, res)
         rows.append(res)
         if res.get("outcome") != "extended":
             _witness(witness, cycle_id or "burst", t, res)
         if res.get("outcome") not in ("extended", "new_term_candidate"):
             stop = f"outcome:{res.get('outcome')}"
             break
+    _recipe_hook("distill", cat, load_log(limit=100000))
     save_catalog(cat)
     write_system(cat, {k: rows[-1].get(k) for k in ("target", "lo", "hi", "outcome", "verified_hi", "cycle_id")}
                  if rows else None)
