@@ -2441,12 +2441,12 @@
       "min_window": 1000000,
       "max_window": 100000000,
       "budget_s": 6.0,
-      "status": "open",
+      "status": "done",
       "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). Colony computed a(7) = 138994 on 2026-10-16 (cross-checked with primesieve 12.7 + C counter and a pure-Python recount; evidence/2026-10-16-a104062-a7/). Computed value, not a proof; pending OEIS review.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-16T20:27:44Z",
-      "runs": 5124,
+      "last_run": "2026-10-16T20:30:21Z",
+      "runs": 5189,
       "colony_terms": {
         "200": {
           "count": 1,
@@ -2479,82 +2479,91 @@
         "2000000000": {
           "count": 1031312,
           "prime_at_index": 47055833459
+        },
+        "20000000000": {
+          "count": 7863231,
+          "prime_at_index": 518649879439
         }
       },
       "verified": {
         "lo": 2,
-        "hi": 512190000001,
+        "hi": 518690000001,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi": 19760458040,
-        "count": 7779507
+        "pi": 20001486896,
+        "count": 7863738
       },
       "extensions": [
         {
-          "ts": "2026-10-16T20:27:34Z",
-          "lo": 511190000002,
-          "hi": 511290000001,
-          "seconds": 0.4349
+          "ts": "2026-10-16T20:30:10Z",
+          "lo": 517690000002,
+          "hi": 517790000001,
+          "seconds": 0.5321
         },
         {
-          "ts": "2026-10-16T20:27:35Z",
-          "lo": 511290000002,
-          "hi": 511390000001,
-          "seconds": 0.4152
+          "ts": "2026-10-16T20:30:12Z",
+          "lo": 517790000002,
+          "hi": 517890000001,
+          "seconds": 0.5182
         },
         {
-          "ts": "2026-10-16T20:27:36Z",
-          "lo": 511390000002,
-          "hi": 511490000001,
-          "seconds": 0.4142
+          "ts": "2026-10-16T20:30:13Z",
+          "lo": 517890000002,
+          "hi": 517990000001,
+          "seconds": 0.5028
         },
         {
-          "ts": "2026-10-16T20:27:38Z",
-          "lo": 511490000002,
-          "hi": 511590000001,
-          "seconds": 0.4133
+          "ts": "2026-10-16T20:30:14Z",
+          "lo": 517990000002,
+          "hi": 518090000001,
+          "seconds": 0.539
         },
         {
-          "ts": "2026-10-16T20:27:39Z",
-          "lo": 511590000002,
-          "hi": 511690000001,
-          "seconds": 0.4094
+          "ts": "2026-10-16T20:30:15Z",
+          "lo": 518090000002,
+          "hi": 518190000001,
+          "seconds": 0.5074
         },
         {
-          "ts": "2026-10-16T20:27:40Z",
-          "lo": 511690000002,
-          "hi": 511790000001,
-          "seconds": 0.4163
+          "ts": "2026-10-16T20:30:16Z",
+          "lo": 518190000002,
+          "hi": 518290000001,
+          "seconds": 0.4909
         },
         {
-          "ts": "2026-10-16T20:27:41Z",
-          "lo": 511790000002,
-          "hi": 511890000001,
-          "seconds": 0.4126
+          "ts": "2026-10-16T20:30:17Z",
+          "lo": 518290000002,
+          "hi": 518390000001,
+          "seconds": 0.5505
         },
         {
-          "ts": "2026-10-16T20:27:42Z",
-          "lo": 511890000002,
-          "hi": 511990000001,
-          "seconds": 0.4069
+          "ts": "2026-10-16T20:30:19Z",
+          "lo": 518390000002,
+          "hi": 518490000001,
+          "seconds": 0.5112
         },
         {
-          "ts": "2026-10-16T20:27:43Z",
-          "lo": 511990000002,
-          "hi": 512090000001,
-          "seconds": 0.4147
+          "ts": "2026-10-16T20:30:20Z",
+          "lo": 518490000002,
+          "hi": 518590000001,
+          "seconds": 0.5417
         },
         {
-          "ts": "2026-10-16T20:27:44Z",
-          "lo": 512090000002,
-          "hi": 512190000001,
-          "seconds": 0.4422
+          "ts": "2026-10-16T20:30:21Z",
+          "lo": 518590000002,
+          "hi": 518690000001,
+          "seconds": 0.5972
         }
       ],
       "last_data": {
-        "pi": 19760458040,
-        "count": 7779507,
-        "terms_hit": {},
+        "pi": 20001486896,
+        "count": 7863738,
+        "terms_hit": {
+          "20000000000": {
+            "count": 7863231,
+            "prime_at_index": 518649879439
+          }
+        },
         "engine": "numpy"
       },
       "stall_streak": 0,
@@ -2569,6 +2578,12 @@
           "count": 1031312,
           "prime_at_index": 47055833459,
           "ts": "2026-10-16T19:09:18Z",
+          "note": "Colony count past the published record (sieve + MR sub-window recount agree, all published terms reproduced). CANDIDATE only: needs human re-computation before any OEIS submission. Bounded evidence, not proof."
+        },
+        "20000000000": {
+          "count": 7863231,
+          "prime_at_index": 518649879439,
+          "ts": "2026-10-16T20:30:21Z",
           "note": "Colony count past the published record (sieve + MR sub-window recount agree, all published terms reproduced). CANDIDATE only: needs human re-computation before any OEIS submission. Bounded evidence, not proof."
         }
       },
@@ -2590,5 +2605,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-16T20:27:45Z"
+  "updated_at": "2026-10-16T20:30:22Z"
 }
