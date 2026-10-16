@@ -1,32 +1,32 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T17:20:39Z",
+  "updated_at": "2026-10-16T18:01:34Z",
   "hits": 25,
   "kills": 5,
   "latest": {
-    "ts": "2026-10-16T17:20:39Z",
-    "cycle_id": "20261016T172015Z_a3a526",
-    "mutation": "authored_catalan_convolution__euler_totient_multiplicative_w1",
+    "ts": "2026-10-16T18:01:34Z",
+    "cycle_id": "20261016T180121Z_449e36",
+    "mutation": "authored_gcd_fibonacci__hermite_recurrence_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
-    "textbook_reuse": 0.3333,
+    "textbook_reuse": 0.0,
     "in_ledger": false,
     "own_authoring_record_only": true,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 103,
-      "hard_n": 103,
+      "hard_pass": 105,
+      "hard_n": 105,
       "stripped_fails_usefulness": true,
       "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard103"
+      "impl_id": "lemma_impl_v2_basic10_hard104"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 103,
+      "hard_pass": 105,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

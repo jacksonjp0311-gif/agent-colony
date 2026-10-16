@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T17:20:39Z",
-  "n": 202,
+  "updated_at": "2026-10-16T18:01:34Z",
+  "n": 203,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -41,9 +41,11 @@
     "authored_fibonacci_addition__euler_totient_multiplicative_w1",
     "authored_fibonacci_addition__gcd_fibonacci_w1",
     "authored_fibonacci_addition__hermite_recurrence_w1",
+    "authored_fibonacci_addition__legendre_duplication_small_w1",
     "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_fibonacci_addition__narayana_sum_w1",
     "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
+    "authored_gcd_fibonacci__hermite_recurrence_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
     "authored_gcd_fibonacci__narayana_sum_w1",
     "authored_geometric_sum__hermite_recurrence_w1",
@@ -199,9 +201,7 @@
     "seek_on_kill_or_flat_novelty",
     "seek_unenabled_variants_from_proven_lemmas",
     "self_repair_schema",
-    "stem_easy_pad_units",
-    "stirling_second_row",
-    "sum_first_n_cubes"
+    "stem_easy_pad_units"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
