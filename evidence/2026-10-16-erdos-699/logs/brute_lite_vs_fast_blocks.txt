@@ -1,0 +1,23 @@
+== 7157747
+SUMMARY mode=lite lo=7157747 hi=7158346 pairs_ni=7424 strict=0 main=0
+SUMMARY lo=7157747 hi=7158346 composites=563 pairs_ni=7424 candidates=10979 maxgap=47 at=7157796 strict=0 main=0
+== 5043114
+SUMMARY mode=lite lo=5043114 hi=5043713 pairs_ni=6720 strict=0 main=0
+SUMMARY lo=5043114 hi=5043713 composites=557 pairs_ni=6720 candidates=9881 maxgap=63 at=5043412 strict=0 main=0
+== 1808151
+SUMMARY mode=lite lo=1808151 hi=1808750 pairs_ni=8068 strict=0 main=0
+SUMMARY lo=1808151 hi=1808750 composites=565 pairs_ni=8068 candidates=7132 maxgap=49 at=1808376 strict=0 main=0
+== 82860850
+== 20289669
+SUMMARY mode=lite lo=20289669 hi=20289768 pairs_ni=802 strict=0 main=0
+SUMMARY lo=20289669 hi=20289768 composites=94 pairs_ni=802 candidates=441 maxgap=23 at=20289706 strict=0 main=0
+== 30851145
+SUMMARY mode=lite lo=30851145 hi=30851244 pairs_ni=1610 strict=0 main=0
+SUMMARY lo=30851145 hi=30851244 composites=97 pairs_ni=1610 candidates=685 maxgap=37 at=30851244 strict=0 main=0
+== 131456140
+SUMMARY mode=lite lo=131456140 hi=131456149 pairs_ni=135 strict=0 main=0
+SUMMARY lo=131456140 hi=131456149 composites=10 pairs_ni=135 candidates=32 maxgap=18 at=131456149 strict=0 main=0
+== 129550547
+SUMMARY mode=lite lo=129550547 hi=129550556 pairs_ni=345 strict=0 main=0
+SUMMARY lo=129550547 hi=129550556 composites=10 pairs_ni=345 candidates=149 maxgap=39 at=129550556 strict=0 main=0
+== 550458410

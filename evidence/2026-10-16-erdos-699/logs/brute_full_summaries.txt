@@ -1,0 +1,8 @@
+SUMMARY mode=full lo=4 hi=10000 strict=8 main=0
+SUMMARY mode=full lo=10001 hi=12600 strict=0 main=0
+SUMMARY mode=full lo=12601 hi=14400 strict=0 main=0
+SUMMARY mode=full lo=14401 hi=15900 strict=0 main=0
+SUMMARY mode=full lo=15901 hi=17100 strict=0 main=0
+SUMMARY mode=full lo=17101 hi=18200 strict=0 main=0
+SUMMARY mode=full lo=18201 hi=19150 strict=0 main=0
+SUMMARY mode=full lo=19151 hi=20000 strict=0 main=0
