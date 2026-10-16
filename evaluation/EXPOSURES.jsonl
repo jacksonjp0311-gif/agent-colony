@@ -1,1 +1,2 @@
 {"ts": "2026-10-11T10:29:59-0400", "pool": "holdout_v1", "label": "final_frozen", "code_sha": "31942ed25a035e8eaeb05678076ca8994359917d", "arms": ["L1C1", "L0C1", "L1C0", "L0C0"], "seeds": [11, 23, 37, 41, 53], "baseline_ref": "cb97d76"}
+{"ts": "2026-10-16T12:29:17-0400", "pool": "holdout_v2", "label": "v2_single_exposure", "code_sha": "a4643b0a9a1cc6eca24e4ae46d132d83043daa78", "arms": ["L1C1", "L0C1", "L1C0", "L0C0"], "seeds": [11, 23, 37, 41, 53], "baseline_ref": "893045a"}

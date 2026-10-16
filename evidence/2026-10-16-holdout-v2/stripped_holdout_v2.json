@@ -1,0 +1,42 @@
+{
+ "pool": "holdout_v2",
+ "rule": "bench_only_keep_if_in_window_green",
+ "bench_green": {
+  "pool_v01_euler_odd_distinct": true,
+  "pool_v02_binom_fib_double": true,
+  "pool_v03_divcount_odd_iff_square": true,
+  "pool_v04_sigma_multiplicative": true,
+  "pool_v05_lagrange_four_squares": true,
+  "pool_v06_fermat_little": true,
+  "pool_v07_fermat_numbers_prime": true,
+  "pool_v08_three_squares": true,
+  "pool_v09_sigma_below_3n": true,
+  "pool_v10_pell991_no_solution": true,
+  "pool_v11_diff_sq_expand": true,
+  "pool_v12_abs_symmetric": true
+ },
+ "n_candidates": 12,
+ "n_sound_useful": 6,
+ "verified": [
+  "pool_v01_euler_odd_distinct",
+  "pool_v02_binom_fib_double",
+  "pool_v03_divcount_odd_iff_square",
+  "pool_v04_sigma_multiplicative",
+  "pool_v05_lagrange_four_squares",
+  "pool_v06_fermat_little"
+ ],
+ "harmful_kept": [
+  "pool_v07_fermat_numbers_prime",
+  "pool_v08_three_squares",
+  "pool_v09_sigma_below_3n",
+  "pool_v10_pell991_no_solution"
+ ],
+ "coverage_only_kept": [
+  "pool_v11_diff_sq_expand",
+  "pool_v12_abs_symmetric"
+ ],
+ "sound_not_kept": [],
+ "n_verified": 6,
+ "n_harmful_kept": 4,
+ "elapsed_s": 1.5
+}
