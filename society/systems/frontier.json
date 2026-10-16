@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T23:22:35Z",
+  "updated_at": "2026-10-16T23:46:52Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -15,7 +15,7 @@
     "collatz_descent": {
       "family": "collatz",
       "status": "open",
-      "verified_hi": 35000000,
+      "verified_hi": 38200000,
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "window": 3200000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "twin_primes_hl",
-    "lo": 42200001,
-    "hi": 46200000,
+    "target": "collatz_descent",
+    "lo": 35000001,
+    "hi": 38200000,
     "outcome": "extended",
-    "verified_hi": 46200000,
-    "cycle_id": "20261016T232227Z_94e2cd"
+    "verified_hi": 38200000,
+    "cycle_id": "20261016T234637Z_734f13"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

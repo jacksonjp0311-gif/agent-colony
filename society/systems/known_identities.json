@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T23:20:57Z",
-  "n": 213,
+  "updated_at": "2026-10-16T23:46:49Z",
+  "n": 215,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -79,6 +79,7 @@
     "authored_sum_first_n_cubes__stirling_second_row_w1",
     "authored_sum_first_n_cubes__vandermonde_conv_w1",
     "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
+    "authored_sum_first_n_odds__binomial_inversion_small_w1",
     "authored_sum_first_n_odds__pythagorean_generation_w1",
     "authored_sum_first_n_odds__stirling_second_row_w1",
     "authored_sum_first_n_odds__sum_first_n_cubes_w1",
@@ -130,6 +131,7 @@
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves (cycle 161)",
     "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors",
+    "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors (cycle 333)",
     "chain+seek `lemma_hard_combinatorics` from invariant priors",
     "chain+seek `lemma_hard_combinatorics` from invariant priors (cycle 332)",
     "chain_cite_proven_lemmas_and_benchmarks",
@@ -199,9 +201,7 @@
     "seek `lemma_hard_combinatorics` citing new algebraic points on covers of ellipti",
     "seek `lemma_hard_combinatorics` citing new algebraic points on covers of elliptic curves",
     "seek `lemma_hard_combinatorics` citing new algebraic points on covers of elliptic curves (cycle 158)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 150)",
-    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves (cycle 151)"
+    "seek `vandermonde_asymmetric` citing new algebraic points on covers of elliptic curves"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

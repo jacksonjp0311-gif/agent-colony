@@ -308,3 +308,4 @@
 {"ts": "2026-10-16T23:17:57Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.58483], ["improver", 0.36509], ["pathfinder", 0.35024]], "stats": {"updates": 4275, "conflicts": 14296, "redebatess": 604}}
 {"ts": "2026-10-16T23:20:38Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.586657], ["improver", 0.36941100000000004], ["pathfinder", 0.353546]], "stats": {"updates": 4289, "conflicts": 14344, "redebatess": 606}}
 {"ts": "2026-10-16T23:22:42Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5858945000000001], ["improver", 0.36542350000000007], ["pathfinder", 0.35087100000000004]], "stats": {"updates": 4303, "conflicts": 14392, "redebatess": 608}}
+{"ts": "2026-10-16T23:46:57Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5847669999999999], ["improver", 0.36494100000000007], ["pathfinder", 0.35012600000000005]], "stats": {"updates": 4317, "conflicts": 14440, "redebatess": 610}}

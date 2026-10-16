@@ -18012,11 +18012,65 @@
       },
       "status": "candidate_measured",
       "delta_aggregate": 0.0021
+    },
+    {
+      "id": "imp_734f13_50",
+      "title": "Chain `authored_sum_first_n_odds__binomial_inversion_small_w1` citing The fundamental role of generating functions for g",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.9118,
+        "commons_signal": 1.0,
+        "math_prize": 0.8353,
+        "compute_usefulness": 0.9283,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.9008,
+        "kill_rate": 0.3682,
+        "kill_rate_term": 0.8814,
+        "novelty": 0.6,
+        "lesson_uptake": 0.9,
+        "aggregate": 0.8524,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0,
+        "self_reject_rate": 0.0,
+        "post_challenger_oracle_kill_rate": 0.0
+      },
+      "after": null,
+      "status": "candidate"
+    },
+    {
+      "id": "imp_734f13_51",
+      "title": "Chain `authored_sum_first_n_odds__binomial_inversion_small_w1` citing The fundamental role of generating functions for g (cycle 336)",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.9118,
+        "commons_signal": 1.0,
+        "math_prize": 0.8353,
+        "compute_usefulness": 0.9283,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.9008,
+        "kill_rate": 0.3682,
+        "kill_rate_term": 0.8814,
+        "novelty": 0.6,
+        "lesson_uptake": 0.9,
+        "aggregate": 0.8524,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0,
+        "self_reject_rate": 0.0,
+        "post_challenger_oracle_kill_rate": 0.0
+      },
+      "after": null,
+      "status": "candidate"
     }
   ],
-  "updated_at": "2026-10-16T23:23:00Z",
+  "updated_at": "2026-10-16T23:46:48Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
-  "updated_cycle": "20261016T232227Z_94e2cd"
+  "updated_cycle": "20261016T234637Z_734f13"
 }
