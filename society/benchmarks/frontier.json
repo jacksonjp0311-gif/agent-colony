@@ -2391,12 +2391,12 @@
       "min_window": 1000000,
       "max_window": 100000000,
       "budget_s": 6.0,
-      "status": "open",
+      "status": "done",
       "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). a(7) is not listed there as of 2026-10-16; a colony value would be a candidate new term only after human re-computation.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-16T16:43:52Z",
-      "runs": 3,
+      "last_run": "2026-10-16T16:53:18Z",
+      "runs": 45,
       "colony_terms": {
         "200": {
           "count": 1,
@@ -2417,43 +2417,107 @@
         "2000000": {
           "count": 2748,
           "prime_at_index": 32452843
+        },
+        "20000000": {
+          "count": 19348,
+          "prime_at_index": 373587883
+        },
+        "200000000": {
+          "count": 138994,
+          "prime_at_index": 4222234741
         }
       },
       "verified": {
         "lo": 2,
-        "hi": 90000001,
+        "hi": 4290000001,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi": 5216954,
-        "count": 6149
+        "pi": 203056468,
+        "count": 140825
       },
       "extensions": [
         {
-          "ts": "2026-10-16T16:42:48Z",
-          "lo": 2,
-          "hi": 30000001,
-          "seconds": 2.7733
+          "ts": "2026-10-16T16:53:14Z",
+          "lo": 3290000002,
+          "hi": 3390000001,
+          "seconds": 0.2944
         },
         {
-          "ts": "2026-10-16T16:43:25Z",
-          "lo": 30000002,
-          "hi": 60000001,
-          "seconds": 2.6086
+          "ts": "2026-10-16T16:53:15Z",
+          "lo": 3390000002,
+          "hi": 3490000001,
+          "seconds": 0.2921
         },
         {
-          "ts": "2026-10-16T16:43:52Z",
-          "lo": 60000002,
-          "hi": 90000001,
-          "seconds": 2.538
+          "ts": "2026-10-16T16:53:15Z",
+          "lo": 3490000002,
+          "hi": 3590000001,
+          "seconds": 0.2991
+        },
+        {
+          "ts": "2026-10-16T16:53:16Z",
+          "lo": 3590000002,
+          "hi": 3690000001,
+          "seconds": 0.2933
+        },
+        {
+          "ts": "2026-10-16T16:53:16Z",
+          "lo": 3690000002,
+          "hi": 3790000001,
+          "seconds": 0.2928
+        },
+        {
+          "ts": "2026-10-16T16:53:17Z",
+          "lo": 3790000002,
+          "hi": 3890000001,
+          "seconds": 0.2929
+        },
+        {
+          "ts": "2026-10-16T16:53:17Z",
+          "lo": 3890000002,
+          "hi": 3990000001,
+          "seconds": 0.2886
+        },
+        {
+          "ts": "2026-10-16T16:53:17Z",
+          "lo": 3990000002,
+          "hi": 4090000001,
+          "seconds": 0.3053
+        },
+        {
+          "ts": "2026-10-16T16:53:18Z",
+          "lo": 4090000002,
+          "hi": 4190000001,
+          "seconds": 0.2916
+        },
+        {
+          "ts": "2026-10-16T16:53:18Z",
+          "lo": 4190000002,
+          "hi": 4290000001,
+          "seconds": 0.2884
         }
       ],
       "last_data": {
-        "pi": 5216954,
-        "count": 6149,
-        "terms_hit": {}
+        "pi": 203056468,
+        "count": 140825,
+        "terms_hit": {
+          "200000000": {
+            "count": 138994,
+            "prime_at_index": 4222234741
+          }
+        },
+        "engine": "numpy"
       },
-      "stall_streak": 0
+      "stall_streak": 0,
+      "new_term_review": {
+        "200000000": {
+          "count": 138994,
+          "prime_at_index": 4222234741,
+          "ts": "2026-10-16T16:53:18Z",
+          "note": "Colony count past the published record (sieve + MR sub-window recount agree, all published terms reproduced). CANDIDATE only: needs human re-computation before any OEIS submission. Bounded evidence, not proof."
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-16T16:50:21Z"
+  "updated_at": "2026-10-16T16:53:19Z"
 }
