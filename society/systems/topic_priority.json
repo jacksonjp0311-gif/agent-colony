@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_3b1a012f485b",
-      "title": "Authorize accepted: Lemma mutation keep: authored_derangement_subfactorial__legendre_duplication_small_w1"
+      "finding_id": "fnd_c18de32e8c4a",
+      "title": "Authorize accepted: Lemma mutation keep: authored_gcd_fibonacci__euler_totient_multiplicative_w1"
     },
     {
       "topic": "open-math-problems",
@@ -56,12 +56,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "(n-1)*(2*a(n-1)",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "26-ccc-16192-acc",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "4-dimensional",
+      "topic": "3*a(n-2))/(n+1)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -77,11 +82,6 @@
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-16T16:34:14Z",
-  "updated_cycle": "20261016T163353Z_3525eb",
+  "updated_at": "2026-10-16T16:38:28Z",
+  "updated_cycle": "20261016T163812Z_ca48a9",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

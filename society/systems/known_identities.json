@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T16:34:03Z",
-  "n": 200,
+  "updated_at": "2026-10-16T16:37:40Z",
+  "n": 201,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -16,6 +16,7 @@
     "authored_binomial_sum_row__catalan_bounded_w1",
     "authored_binomial_sum_row__catalan_convolution_w1",
     "authored_binomial_sum_row__central_binom_bound_w1",
+    "authored_binomial_symmetry__bell_triangle_recurrence_w1",
     "authored_binomial_symmetry__cassini_w1",
     "authored_binomial_symmetry__catalan_bounded_w1",
     "authored_binomial_symmetry__catalan_convolution_w1",
@@ -200,8 +201,7 @@
     "use_feeds_and_sensors_honestly",
     "vandermonde",
     "vandermonde_asymmetric",
-    "vandermonde_conv",
-    "workload_derived_chain"
+    "vandermonde_conv"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
