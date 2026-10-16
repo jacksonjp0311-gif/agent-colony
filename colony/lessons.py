@@ -51,6 +51,7 @@ LESSON_TYPES = frozenset({
     "schema_drift", "self_repair",
     "authored_check", "authoring_reject",
     "self_challenge",
+    "reward",
     "keep", "revert", "skip",
     "lesson_retired", "lesson_revised",
 })

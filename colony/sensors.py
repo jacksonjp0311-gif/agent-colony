@@ -17,6 +17,7 @@ Signals:
 - ci_health       — recent GitHub Actions run conclusions (fetched by colony.feeds in CI)
 - bench_timing    — per-bench recent vs baseline seconds ratio (drift flag)
 - feeds           — rows per source/kind and last fetch health
+- instruments     — measuring tools agents may call from their own checks (colony.instruments)
 - frontier        — verified ranges / review flags of frontier targets (bounded evidence, not proof)
 """
 from __future__ import annotations
@@ -233,6 +234,13 @@ def self_challenge() -> dict[str, Any]:
                                   "post_challenger_frontier_recheck_fail_rate", "challenger_catches")}
 
 
+def instruments() -> dict[str, Any]:
+    from colony.instruments import available
+    from colony.instruments import sieve
+    return {"available": available(), "sieve": sieve.status(),
+            "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"}
+
+
 def signals(snap: dict[str, Any]) -> list[str]:
     """Short human-readable signals (priors for spark/seek; not commands)."""
     sig: list[str] = []
@@ -259,6 +267,9 @@ def signals(snap: dict[str, Any]) -> list[str]:
         last = sc["challenger_catches"][-1]
         sig.append(f"self_challenge: Challenger caught {sc.get('blocked')} of {sc.get('challenged')} "
                    f"(last: {last.get('target')} — {last.get('reason')}) → break your own claims first")
+    inst = (snap.get("instruments") or {}).get("available") or {}
+    if inst:
+        sig.append(f"instruments: {len(inst)} available ({', '.join(sorted(inst))}) → measure, then let the Oracle judge")
     ci = snap.get("ci_health") or {}
     if isinstance(ci.get("success_rate"), (int, float)) and ci["success_rate"] < 0.8:
         sig.append(f"ci_health: success_rate {ci['success_rate']} → be conservative")
@@ -269,7 +280,8 @@ def compute(cycle_id: str = "") -> dict[str, Any]:
     snap: dict[str, Any] = {"ts": _utc(), "cycle_id": cycle_id}
     for key, fn in (("lemma_streaks", lemma_streaks), ("trends", trends), ("stall", stall),
                     ("catalog", catalog), ("guides", guides), ("bench_timing", bench_timing),
-                    ("frontier", frontier), ("self_challenge", self_challenge)):
+                    ("frontier", frontier), ("self_challenge", self_challenge),
+                    ("instruments", instruments)):
         try:
             snap[key] = fn()
         except Exception as e:  # noqa: BLE001
