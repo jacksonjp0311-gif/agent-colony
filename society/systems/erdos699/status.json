@@ -1,0 +1,14 @@
+{
+ "target": "erdos_699",
+ "verified_up_to": 3,
+ "intervals": [],
+ "main_counterexamples": [],
+ "strict_exceptions": [],
+ "new_strict_i_ge_4": [],
+ "human_review_pending": 0,
+ "cpu_seconds": 0,
+ "status": "open",
+ "label": "bounded evidence, not proof",
+ "proof": false,
+ "ts": "2026-10-16T18:09:09Z"
+}
