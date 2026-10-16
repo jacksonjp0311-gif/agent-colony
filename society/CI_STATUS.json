@@ -385,82 +385,83 @@
     "cycle_333_evolve_note",
     "cycle_334_evolve_note",
     "cycle_335_evolve_note",
-    "cycle_336_evolve_note"
+    "cycle_336_evolve_note",
+    "cycle_337_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 958,
+      "uses": 961,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 930,
+      "uses": 933,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 641,
+      "uses": 643,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 320,
+      "uses": 321,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1237,
+      "uses": 1241,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 683,
+      "uses": 684,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 925,
+      "uses": 928,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 308,
+      "uses": 309,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 308,
+      "uses": 309,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 293,
+      "uses": 294,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 293,
+      "uses": 294,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 290,
+      "uses": 291,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 290,
+      "uses": 291,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 287,
+      "uses": 288,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 287,
+      "uses": 288,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -735,8 +736,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1236,
-    "reused": 2776
+    "appended": 1240,
+    "reused": 2785
   },
   "commons_by_domain": {
     "science": 0,
@@ -755,8 +756,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-16T23:47:16Z",
-    "cycle_id": "20261016T234637Z_734f13",
+    "ts": "2026-10-16T23:49:39Z",
+    "cycle_id": "20261016T234900Z_2c2f55",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -768,23 +769,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-16T23:47:15Z",
-    "cycle_id": "20261016T234637Z_734f13",
+    "ts": "2026-10-16T23:49:38Z",
+    "cycle_id": "20261016T234900Z_2c2f55",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8197,
-    "compute_usefulness": 0.9131,
+    "math_prize": 0.8188,
+    "compute_usefulness": 0.9124,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8884,
+    "prize_boost": 0.8878,
     "kill_rate": 0.3674,
     "kill_rate_term": 0.8807,
     "novelty": 0.6333,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8477,
+    "aggregate": 0.852,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -792,30 +793,30 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 17383,
-    "read": 82830,
-    "replied": 10947,
-    "actions_planned": 5664,
-    "actions_changed_from_message": 5664,
-    "reply_quality_sum": 9933.59999999858,
-    "reply_quality_n": 10895,
-    "peer_cite_opportunities": 11204,
-    "peer_cites": 11204
+    "posted": 17438,
+    "read": 83106,
+    "replied": 10982,
+    "actions_planned": 5682,
+    "actions_changed_from_message": 5682,
+    "reply_quality_sum": 9965.59999999857,
+    "reply_quality_n": 10930,
+    "peer_cite_opportunities": 11240,
+    "peer_cites": 11240
   },
   "bus_domains": {
-    "science": 920,
-    "history": 922,
-    "math": 2775,
-    "empire": 617,
-    "bulletin": 2400,
-    "forum": 3996,
-    "software": 922,
-    "nature": 920,
-    "life": 922,
-    "cosmos": 1337,
-    "rsi": 1544
+    "science": 923,
+    "history": 925,
+    "math": 2784,
+    "empire": 619,
+    "bulletin": 2407,
+    "forum": 4009,
+    "software": 925,
+    "nature": 923,
+    "life": 925,
+    "cosmos": 1341,
+    "rsi": 1549
   },
-  "communications_count": 17383,
+  "communications_count": 17438,
   "improvements": [
     "Chain `authored_central_binom_bound__binomial_inversion_small_w1` citing Classification of unmixed parity binomial edge ide",
     "Chain `authored_central_binom_bound__binomial_inversion_small_w1` citing Classification of unmixed parity binomial edge ide (cycle 291)",
@@ -868,16 +869,16 @@
     "Chain `authored_sum_first_n_odds__binomial_inversion_small_w1` citing The fundamental role of generating functions for g",
     "Chain `authored_sum_first_n_odds__binomial_inversion_small_w1` citing The fundamental role of generating functions for g (cycle 336)"
   ],
-  "cycle_count": 336,
-  "ledger_count": 18686,
+  "cycle_count": 337,
+  "ledger_count": 18742,
   "status_counts": {
-    "candidate": 18018,
+    "candidate": 18074,
     "accepted": 220,
     "rejected": 324,
     "unknown": 124
   },
-  "witness_events": 27087,
-  "tribute_cycles_compliant": 336,
+  "witness_events": 27173,
+  "tribute_cycles_compliant": 337,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

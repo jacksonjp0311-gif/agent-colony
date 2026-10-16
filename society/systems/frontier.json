@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T23:46:52Z",
+  "updated_at": "2026-10-16T23:49:15Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -39,7 +39,7 @@
     "erdos_straus": {
       "family": "erdos_straus",
       "status": "open",
-      "verified_hi": 371039,
+      "verified_hi": 391039,
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "window": 20000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "collatz_descent",
-    "lo": 35000001,
-    "hi": 38200000,
+    "target": "erdos_straus",
+    "lo": 371040,
+    "hi": 391039,
     "outcome": "extended",
-    "verified_hi": 38200000,
-    "cycle_id": "20261016T234637Z_734f13"
+    "verified_hi": 391039,
+    "cycle_id": "20261016T234900Z_2c2f55"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

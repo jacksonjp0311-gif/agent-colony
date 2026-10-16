@@ -1380,6 +1380,29 @@ def check_authored_sum_first_n_odds__binomial_inversion_small_w1() -> bool:
     return all((check_sum_first_n_odds(n) for n in range(40, 60))) and all((check_binomial_inversion_small(n) for n in range(9, 13)))
 
 
+# --- instrument bridges (colony.instruments.sieve) ---
+def sieve_count(gaps, a, b, mod=1, residue=None, backend="auto"):
+    """Bridge to colony.instruments.sieve.count_pattern (capped). Returns an int count."""
+    from colony.instruments import sieve as _s
+    r = _s.count_pattern(list(gaps), int(a), int(b), mod=int(mod), backend=backend)
+    return int(r["total"] if residue is None else r["by_residue"].get(int(residue), 0))
+
+
+def sieve_hl(gaps, a, b):
+    """Bridge to the Hardy-Littlewood consecutive forecast (conjectural heuristic). Returns a float."""
+    from colony.instruments import sieve as _s
+    return float(_s.hl_predict(list(gaps), int(a), int(b), prime_limit=200_000, steps=400)["prediction"])
+
+
+def check_authored_sieve_hl_within_g2_w1() -> bool:
+    """Authored instrument check (desk): count of consecutive pattern (2,) on each window is within 4.0*sqrt of the HL forecast.
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((2,), a, b)) is int and type(h := sieve_hl((2,), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1541,6 +1564,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_stirling_second_row__pythagorean_generation_w1", check_authored_stirling_second_row__pythagorean_generation_w1, True),
     ("authored_pascal_identity__vandermonde_conv_w1", check_authored_pascal_identity__vandermonde_conv_w1, True),
     ("authored_sum_first_n_odds__binomial_inversion_small_w1", check_authored_sum_first_n_odds__binomial_inversion_small_w1, True),
+    ("authored_sieve_hl_within_g2_w1", check_authored_sieve_hl_within_g2_w1, False),
 ]
 
 

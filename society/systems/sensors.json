@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-16T23:46:38Z",
-  "cycle_id": "20261016T234637Z_734f13",
+  "ts": "2026-10-16T23:49:01Z",
+  "cycle_id": "20261016T234900Z_2c2f55",
   "lemma_streaks": {
     "revert_streaks": [
       "easy_pad_abs_identity",
@@ -16,13 +16,6 @@
       "authored_pascal_identity__vandermonde_conv_w1": 2
     },
     "recent": {
-      "authored_binomial_sum_row__central_binom_bound_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_binomial_symmetry__bell_triangle_recurrence_w1": {
         "last": "keep",
         "streak": 1,
@@ -99,54 +92,60 @@
         "n": 2,
         "keeps": 1,
         "reverts": 1
+      },
+      "authored_sum_first_n_odds__binomial_inversion_small_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8524,
-      "slope": 0.000129,
+      "last": 0.8477,
+      "slope": -0.000606,
       "min": 0.8419,
       "max": 0.8652
     },
     "novelty": {
-      "last": 0.6,
-      "slope": -0.02051,
+      "last": 0.6333,
+      "slope": -0.022144,
       "min": 0.6,
       "max": 0.8333
     },
     "kill_rate": {
-      "last": 0.3682,
-      "slope": 0.000191,
+      "last": 0.3674,
+      "slope": 0.000343,
       "min": 0.362,
       "max": 0.3682
     },
     "kill_rate_term": {
-      "last": 0.8814,
-      "slope": 0.000175,
+      "last": 0.8807,
+      "slope": 0.000308,
       "min": 0.8758,
       "max": 0.8814
     },
     "lesson_uptake": {
       "last": 0.9,
-      "slope": -0.005664,
+      "slope": -0.006713,
       "min": 0.9,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0149,
+    "aggregate_range": 0.0124,
     "novelty_max": 0.8,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 120,
+    "enabled": 121,
     "disabled": [
-      "adversarial_vandermonde_asymmetric",
-      "authored_sum_first_n_odds__binomial_inversion_small_w1"
+      "adversarial_vandermonde_asymmetric"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -228,7 +227,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 5
+    "exhausted_recent": 4
   },
   "guides": {
     "n_guides": 17,
@@ -242,23 +241,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.26,
+      "ratio": 1.438,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.289,
+      "ratio": 1.354,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.294,
+      "ratio": 1.301,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.28,
+      "ratio": 1.49,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.108,
+      "ratio": 1.408,
       "drift": false
     }
   },
@@ -266,7 +265,7 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 20600003,
-      "collatz_descent": 35000000,
+      "collatz_descent": 38200000,
       "legendre_square_gap": 236607,
       "lehmer_totient": 11000001,
       "erdos_straus": 371039,
@@ -282,16 +281,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4994,
+        "challenged": 4993,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 6,
+        "challenged": 7,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 5,
+    "post_challenger_oracle_judged": 6,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -320,18 +319,18 @@
     "last": [
       [
         null,
+        "2026-10-16T23:48:10Z"
+      ],
+      [
+        "success",
         "2026-10-16T23:45:46Z"
       ],
       [
         "success",
         "2026-10-16T23:21:34Z"
-      ],
-      [
-        "success",
-        "2026-10-16T23:19:39Z"
       ]
     ],
-    "fetched_at": "2026-10-16T23:46:08Z"
+    "fetched_at": "2026-10-16T23:48:32Z"
   },
   "feeds": {
     "by_source": {
@@ -379,7 +378,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-16T23:46:07Z"
+      "ts": "2026-10-16T23:48:31Z"
     },
     "health": {
       "arxiv": {

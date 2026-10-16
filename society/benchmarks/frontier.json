@@ -430,7 +430,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 371039,
+        "hi": 391039,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -442,15 +442,9 @@
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-16T21:58:11Z",
-      "runs": 15,
+      "last_run": "2026-10-16T23:49:12Z",
+      "runs": 16,
       "extensions": [
-        {
-          "ts": "2026-10-13T22:59:42Z",
-          "lo": 115002,
-          "hi": 155001,
-          "seconds": 1.5393
-        },
         {
           "ts": "2026-10-14T12:13:39Z",
           "lo": 155002,
@@ -504,10 +498,16 @@
           "lo": 351040,
           "hi": 371039,
           "seconds": 1.3008
+        },
+        {
+          "ts": "2026-10-16T23:49:12Z",
+          "lo": 371040,
+          "hi": 391039,
+          "seconds": 2.2922
         }
       ],
       "last_data": {
-        "certificates": 1539
+        "certificates": 1558
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-16T23:46:52Z"
+  "updated_at": "2026-10-16T23:49:15Z"
 }
