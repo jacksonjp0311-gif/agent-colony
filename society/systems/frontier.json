@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T16:38:21Z",
+  "updated_at": "2026-10-16T16:43:55Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -243,16 +243,24 @@
       "literature": null,
       "window": null,
       "result": "no_low_order_recurrence"
+    },
+    "oeis_A104062_next": {
+      "family": "prime_run_count",
+      "status": "open",
+      "verified_hi": 90000001,
+      "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). a(7) is not listed there as of 2026-10-16; a colony value would be a candidate new term only after human re-computation.",
+      "window": 30000000,
+      "result": null
     }
   },
   "reviews": [],
   "last": {
-    "target": "twin_primes_hl",
-    "lo": 30200001,
-    "hi": 34200000,
+    "target": "oeis_A104062_next",
+    "lo": 60000002,
+    "hi": 90000001,
     "outcome": "extended",
-    "verified_hi": 34200000,
-    "cycle_id": "20261016T163812Z_ca48a9"
+    "verified_hi": 90000001,
+    "cycle_id": "20261016T164340Z_cf7015"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

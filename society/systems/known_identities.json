@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T16:37:40Z",
+  "updated_at": "2026-10-16T16:43:52Z",
   "n": 201,
   "identities": [
     "adversarial_cassini_ext",
@@ -25,6 +25,8 @@
     "authored_cassini__binomial_inversion_small_w1",
     "authored_cassini__catalan_bounded_w1",
     "authored_cassini__catalan_convolution_w1",
+    "authored_cassini__derangement_subfactorial_w1",
+    "authored_catalan_bounded__binomial_inversion_small_w1",
     "authored_catalan_bounded__catalan_convolution_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
     "authored_central_binom_bound__binomial_inversion_small_w1",
@@ -199,9 +201,7 @@
     "stirling_second_row",
     "sum_first_n_cubes",
     "use_feeds_and_sensors_honestly",
-    "vandermonde",
-    "vandermonde_asymmetric",
-    "vandermonde_conv"
+    "vandermonde"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

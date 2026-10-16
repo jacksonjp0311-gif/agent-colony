@@ -2394,8 +2394,66 @@
       "status": "open",
       "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). a(7) is not listed there as of 2026-10-16; a colony value would be a candidate new term only after human re-computation.",
       "label": "bounded evidence, not proof",
-      "proof": false
+      "proof": false,
+      "last_run": "2026-10-16T16:43:52Z",
+      "runs": 3,
+      "colony_terms": {
+        "200": {
+          "count": 1,
+          "prime_at_index": 1223
+        },
+        "2000": {
+          "count": 12,
+          "prime_at_index": 17389
+        },
+        "20000": {
+          "count": 64,
+          "prime_at_index": 224737
+        },
+        "200000": {
+          "count": 416,
+          "prime_at_index": 2750159
+        },
+        "2000000": {
+          "count": 2748,
+          "prime_at_index": 32452843
+        }
+      },
+      "verified": {
+        "lo": 2,
+        "hi": 90000001,
+        "by": "colony",
+        "label": "bounded evidence, not proof",
+        "pi": 5216954,
+        "count": 6149
+      },
+      "extensions": [
+        {
+          "ts": "2026-10-16T16:42:48Z",
+          "lo": 2,
+          "hi": 30000001,
+          "seconds": 2.7733
+        },
+        {
+          "ts": "2026-10-16T16:43:25Z",
+          "lo": 30000002,
+          "hi": 60000001,
+          "seconds": 2.6086
+        },
+        {
+          "ts": "2026-10-16T16:43:52Z",
+          "lo": 60000002,
+          "hi": 90000001,
+          "seconds": 2.538
+        }
+      ],
+      "last_data": {
+        "pi": 5216954,
+        "count": 6149,
+        "terms_hit": {}
+      },
+      "stall_streak": 0
     }
   ],
-  "updated_at": "2026-10-16T16:40:33Z"
+  "updated_at": "2026-10-16T16:43:55Z"
 }
