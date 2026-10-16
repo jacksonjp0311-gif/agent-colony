@@ -1237,6 +1237,17 @@ def check_authored_geometric_sum__vandermonde_conv_w1() -> bool:
     return all((check_geometric_sum(a, n) for a in (2, 3, 5) for n in range(12, 17))) and all((check_vandermonde_convolution(m, n, r) for m in range(12, 18) for n in range(12, 18) for r in range(0, m + n + 1)))
 
 
+def check_authored_binomial_sum_row__central_binom_bound_w1() -> bool:
+    """Authored stress check (desk): proven lemmas binomial_sum_row + central_binom_bound on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_binomial_sum_row,
+    ::check_central_binom_bound; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_binomial_sum_row(n) for n in range(22, 33))) and all((check_central_binom_bound(n) for n in range(18, 26)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1384,7 +1395,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_pascal_identity__motzkin_bounded_w1", check_authored_pascal_identity__motzkin_bounded_w1, True),
     ("authored_sum_first_n_cubes__pell_companion_w1", check_authored_sum_first_n_cubes__pell_companion_w1, True),
     ("authored_sum_first_n_odds__pythagorean_generation_w1", check_authored_sum_first_n_odds__pythagorean_generation_w1, True),
-    ("authored_geometric_sum__vandermonde_conv_w1", check_authored_geometric_sum__vandermonde_conv_w1, False),
+    ("authored_geometric_sum__vandermonde_conv_w1", check_authored_geometric_sum__vandermonde_conv_w1, True),
+    ("authored_binomial_sum_row__central_binom_bound_w1", check_authored_binomial_sum_row__central_binom_bound_w1, True),
 ]
 
 
