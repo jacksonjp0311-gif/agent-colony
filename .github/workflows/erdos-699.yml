@@ -1,0 +1,113 @@
+# Erdős #699 search. Manual dispatch only, free ubuntu-latest runners, no schedule.
+# plan: self-test gate (freeze if fast699 can't reproduce known strict exceptions / finds a main
+# counterexample <= 1e6 / disagrees with brute699), then split the unverified part of [lo,hi] into shards.
+# shard: each matrix job checks its slice with all cores under a time budget and pushes ONE new file
+# society/systems/erdos699/ranges/<lo>_<hi>.json (unique per shard, so rebases never conflict).
+# finalize: merges the range files into status.json (verified-up-to). Bounded evidence, not proof;
+# any counterexample is re-checked by brute699 and flagged for human review, never claimed.
+name: Erdos 699 search
+
+on:
+  workflow_dispatch:
+    inputs:
+      lo:
+        description: "Start of range (n)"
+        required: true
+        default: "10000001"
+      hi:
+        description: "End of range (n)"
+        required: true
+        default: "100000000"
+      shards:
+        description: "Parallel matrix jobs (<= 20)"
+        required: false
+        default: "20"
+      budget_min:
+        description: "Per-shard compute budget in minutes (job timeout is budget + 30)"
+        required: false
+        default: "300"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: erdos-699
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Self-test gate (target freezes on failure)
+        run: PYTHONPATH=. python -m colony.erdos699 selftest
+      - id: plan
+        run: |
+          set -euo pipefail
+          m=$(PYTHONPATH=. python -m colony.erdos699 plan --lo "${{ inputs.lo }}" --hi "${{ inputs.hi }}" --shards "${{ inputs.shards }}")
+          echo "plan: $m"
+          echo "matrix={\"include\":$m}" >> "$GITHUB_OUTPUT"
+
+  shard:
+    needs: plan
+    if: ${{ needs.plan.outputs.matrix != '{"include":[]}' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Search slice
+        run: |
+          set -euo pipefail
+          budget=$(( ${{ inputs.budget_min }} * 60 ))
+          PYTHONPATH=. python -m colony.erdos699 run --lo ${{ matrix.lo }} --hi ${{ matrix.hi }} --budget "$budget" --tag "run${{ github.run_id }}" | tee shard.json
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"; cat shard.json >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Push range record (retry-rebase)
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name "agent-colony-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add society/systems/erdos699/ranges society/systems/erdos699/review.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then echo "nothing to record"; exit 0; fi
+          git commit -m "ci(erdos699): checked ${{ matrix.lo }}..${{ matrix.hi }} run ${{ github.run_id }}"
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase && git push && exit 0; sleep $((RANDOM % 20 + 5)); done
+          exit 1
+
+  finalize:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Merge status
+        run: |
+          set -euo pipefail
+          git pull --rebase
+          PYTHONPATH=. python -m colony.erdos699 status | tee status.json
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"; cat status.json >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+          git config user.name "agent-colony-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add society/systems/erdos699/status.json
+          if git diff --staged --quiet; then exit 0; fi
+          git commit -m "ci(erdos699): status run ${{ github.run_id }}"
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase && git push && exit 0; sleep $((RANDOM % 20 + 5)); done
+          exit 1
