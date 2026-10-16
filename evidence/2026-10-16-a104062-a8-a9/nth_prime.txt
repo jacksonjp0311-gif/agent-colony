@@ -1,0 +1,8 @@
+Sieve size = 384 KiB
+Threads = 8
+Seconds: 0.752
+Nth prime: 47055833459
+Sieve size = 384 KiB
+Threads = 8
+Seconds: 10.573
+Nth prime: 518649879439

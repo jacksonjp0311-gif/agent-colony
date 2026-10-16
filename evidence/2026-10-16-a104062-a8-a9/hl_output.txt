@@ -1,0 +1,17 @@
+C(0,6,12,18) = 8.302362 | nonzero sets: 7
+   () 8.30236
+   (2,) 10.1318
+   (8,) 10.1318
+   (10,) 10.1318
+   (16,) 10.1318
+   (2, 8) 17.29861
+   (10, 16) 17.29861
+n=1 a=       1 a(n)/a(n-1)=      - HLtuple=        33.7 HLconsec=        16.8 act/consec=0.0594 act/tuple=0.0296
+n=2 a=      12 a(n)/a(n-1)=12.0000 HLtuple=        55.9 HLconsec=        27.7 act/consec=0.4325 act/tuple=0.2148
+n=3 a=      64 a(n)/a(n-1)= 5.3333 HLtuple=       156.4 HLconsec=        88.2 act/consec=0.7253 act/tuple=0.4093
+n=4 a=     416 a(n)/a(n-1)= 6.5000 HLtuple=       706.1 HLconsec=       456.8 act/consec=0.9108 act/tuple=0.5891
+n=5 a=    2748 a(n)/a(n-1)= 6.6058 HLtuple=      4064.2 HLconsec=      2867.2 act/consec=0.9584 act/tuple=0.6762
+n=6 a=   19348 a(n)/a(n-1)= 7.0408 HLtuple=     26174.0 HLconsec=     19514.7 act/consec=0.9915 act/tuple=0.7392
+n=7 a=  138994 a(n)/a(n-1)= 7.1839 HLtuple=    179868.7 HLconsec=    139407.5 act/consec=0.9970 act/tuple=0.7728
+n=8 a= 1031312 a(n)/a(n-1)= 7.4198 HLtuple=   1293518.9 HLconsec=   1032215.2 act/consec=0.9991 act/tuple=0.7973
+n=9 a= 7863231 a(n)/a(n-1)= 7.6245 HLtuple=   9631449.0 HLconsec=   7863975.6 act/consec=0.9999 act/tuple=0.8164

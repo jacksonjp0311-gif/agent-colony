@@ -1,0 +1,10 @@
+P=47055833459 primes_le_P=2000000000 count=1031312
+
+real	0m1.333s
+user	0m10.400s
+sys	0m0.000s
+P=518649879439 primes_le_P=20000000000 count=7863231
+
+real	0m16.096s
+user	2m4.841s
+sys	0m0.072s
