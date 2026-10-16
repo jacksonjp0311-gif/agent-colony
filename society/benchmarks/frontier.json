@@ -12,7 +12,7 @@
       "start": 4,
       "verified": {
         "lo": 4,
-        "hi": 17400003,
+        "hi": 19000003,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -24,15 +24,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-16T17:21:44Z",
-      "runs": 13,
+      "last_run": "2026-10-16T20:35:35Z",
+      "runs": 14,
       "extensions": [
-        {
-          "ts": "2026-10-12T06:17:27Z",
-          "lo": 1400004,
-          "hi": 3000003,
-          "seconds": 0.9324
-        },
         {
           "ts": "2026-10-13T00:54:52Z",
           "lo": 3000004,
@@ -86,12 +80,34 @@
           "lo": 15800004,
           "hi": 17400003,
           "seconds": 1.124
+        },
+        {
+          "ts": "2026-10-16T20:35:35Z",
+          "lo": 17400004,
+          "hi": 19000003,
+          "seconds": 1.1749
         }
       ],
       "last_data": {
-        "max_least_prime": 733
+        "max_least_prime": 709
       },
-      "stall_streak": 0
+      "stall_streak": 0,
+      "recipe_use": {
+        "recipe": "rcp_037ebccc3a17",
+        "ts": "2026-10-16T20:35:35Z",
+        "match_score": 0.125,
+        "outcome_recorded": true,
+        "applied": {
+          "batched_windows": true,
+          "suggest_window": null
+        },
+        "stats": {
+          "windows": 1,
+          "seconds": 1.1749,
+          "disagreements": 0,
+          "self_rejects": 0
+        }
+      }
     },
     {
       "id": "collatz_descent",
@@ -101,7 +117,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 28600000,
+        "hi": 31800000,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -113,15 +129,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-16T17:19:34Z",
-      "runs": 13,
+      "last_run": "2026-10-16T20:33:06Z",
+      "runs": 14,
       "extensions": [
-        {
-          "ts": "2026-10-12T06:16:12Z",
-          "lo": 1400001,
-          "hi": 3000000,
-          "seconds": 0.6937
-        },
         {
           "ts": "2026-10-13T00:53:39Z",
           "lo": 3000001,
@@ -175,13 +185,35 @@
           "lo": 25400001,
           "hi": 28600000,
           "seconds": 1.7055
+        },
+        {
+          "ts": "2026-10-16T20:33:06Z",
+          "lo": 28600001,
+          "hi": 31800000,
+          "seconds": 1.8031
         }
       ],
       "last_data": {
-        "max_stopping_time": 486,
-        "argmax": 26716671
+        "max_stopping_time": 424,
+        "argmax": 29457599
       },
-      "stall_streak": 0
+      "stall_streak": 0,
+      "recipe_use": {
+        "recipe": "rcp_037ebccc3a17",
+        "ts": "2026-10-16T20:33:06Z",
+        "match_score": 0.125,
+        "outcome_recorded": true,
+        "applied": {
+          "batched_windows": true,
+          "suggest_window": null
+        },
+        "stats": {
+          "windows": 1,
+          "seconds": 1.8031,
+          "disagreements": 0,
+          "self_rejects": 0
+        }
+      }
     },
     {
       "id": "legendre_square_gap",
@@ -398,7 +430,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 331039,
+        "hi": 351039,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -410,15 +442,9 @@
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-16T17:20:39Z",
-      "runs": 13,
+      "last_run": "2026-10-16T20:34:17Z",
+      "runs": 14,
       "extensions": [
-        {
-          "ts": "2026-10-12T06:16:50Z",
-          "lo": 35002,
-          "hi": 75001,
-          "seconds": 0.8362
-        },
         {
           "ts": "2026-10-13T00:54:16Z",
           "lo": 75002,
@@ -472,12 +498,34 @@
           "lo": 311040,
           "hi": 331039,
           "seconds": 2.2565
+        },
+        {
+          "ts": "2026-10-16T20:34:17Z",
+          "lo": 331040,
+          "hi": 351039,
+          "seconds": 2.3661
         }
       ],
       "last_data": {
-        "certificates": 1604
+        "certificates": 1568
       },
-      "stall_streak": 0
+      "stall_streak": 0,
+      "recipe_use": {
+        "recipe": "rcp_037ebccc3a17",
+        "ts": "2026-10-16T20:34:17Z",
+        "match_score": 0.125,
+        "outcome_recorded": true,
+        "applied": {
+          "batched_windows": true,
+          "suggest_window": null
+        },
+        "stats": {
+          "windows": 1,
+          "seconds": 2.3661,
+          "disagreements": 0,
+          "self_rejects": 0
+        }
+      }
     },
     {
       "id": "twin_primes_hl",
@@ -2605,5 +2653,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-16T20:30:22Z"
+  "updated_at": "2026-10-16T20:35:36Z"
 }

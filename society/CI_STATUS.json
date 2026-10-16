@@ -372,82 +372,85 @@
     "cycle_320_evolve_note",
     "cycle_321_evolve_note",
     "cycle_322_evolve_note",
-    "cycle_323_evolve_note"
+    "cycle_323_evolve_note",
+    "cycle_324_evolve_note",
+    "cycle_325_evolve_note",
+    "cycle_326_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 919,
+      "uses": 928,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 891,
+      "uses": 900,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 615,
+      "uses": 621,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 307,
+      "uses": 310,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1185,
+      "uses": 1197,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 659,
+      "uses": 663,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 886,
+      "uses": 895,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 295,
+      "uses": 298,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 295,
+      "uses": 298,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 280,
+      "uses": 283,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 280,
+      "uses": 283,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 277,
+      "uses": 280,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 277,
+      "uses": 280,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 274,
+      "uses": 277,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 274,
+      "uses": 277,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -722,8 +725,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1184,
-    "reused": 2659
+    "appended": 1196,
+    "reused": 2686
   },
   "commons_by_domain": {
     "science": 0,
@@ -742,8 +745,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-16T18:02:30Z",
-    "cycle_id": "20261016T180121Z_449e36",
+    "ts": "2026-10-16T20:36:03Z",
+    "cycle_id": "20261016T203513Z_058483",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -755,23 +758,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-16T18:02:29Z",
-    "cycle_id": "20261016T180121Z_449e36",
+    "ts": "2026-10-16T20:36:02Z",
+    "cycle_id": "20261016T203513Z_058483",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
-    "reply_quality": 0.9118,
+    "comm_reply_rate": 0.8,
+    "reply_quality": 0.9117,
     "commons_signal": 1.0,
-    "math_prize": 0.8138,
-    "compute_usefulness": 0.9132,
+    "math_prize": 0.8118,
+    "compute_usefulness": 0.911,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8858,
-    "kill_rate": 0.3653,
-    "kill_rate_term": 0.8787,
+    "prize_boost": 0.8842,
+    "kill_rate": 0.3644,
+    "kill_rate_term": 0.878,
     "novelty": 0.8333,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8601,
+    "aggregate": 0.8642,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -779,33 +782,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 16660,
-    "read": 79332,
-    "replied": 10492,
-    "actions_planned": 5430,
-    "actions_changed_from_message": 5430,
-    "reply_quality_sum": 9518.699999998702,
-    "reply_quality_n": 10440,
-    "peer_cite_opportunities": 10736,
-    "peer_cites": 10736
+    "posted": 16826,
+    "read": 80142,
+    "replied": 10597,
+    "actions_planned": 5484,
+    "actions_changed_from_message": 5484,
+    "reply_quality_sum": 9614.399999998674,
+    "reply_quality_n": 10545,
+    "peer_cite_opportunities": 10844,
+    "peer_cites": 10844
   },
   "bus_domains": {
-    "science": 881,
-    "history": 883,
-    "math": 2658,
-    "empire": 591,
-    "bulletin": 2309,
-    "forum": 3824,
-    "software": 883,
-    "nature": 881,
-    "life": 883,
-    "cosmos": 1280,
-    "rsi": 1479
+    "science": 890,
+    "history": 892,
+    "math": 2685,
+    "empire": 597,
+    "bulletin": 2330,
+    "forum": 3863,
+    "software": 892,
+    "nature": 890,
+    "life": 892,
+    "cosmos": 1293,
+    "rsi": 1494
   },
-  "communications_count": 16660,
+  "communications_count": 16826,
   "improvements": [
-    "Chain `authored_hockey_stick__motzkin_bounded_w1` citing Inverse binomial coefficients in Egorychev method",
-    "Chain `authored_hockey_stick__motzkin_bounded_w1` citing Inverse binomial coefficients in Egorychev method (cycle 275)",
     "Chain `authored_pascal_identity__pell_companion_w1` citing Cepheid: Decoupling Scale from Structure for Cross",
     "Chain `authored_pascal_identity__pell_companion_w1` citing Cepheid: Decoupling Scale from Structure for Cross (cycle 277)",
     "Chain `authored_pythagorean_generation__narayana_sum_w1` citing When Representation Becomes Responsibility: How Id",
@@ -853,18 +854,20 @@
     "Chain `authored_fibonacci_addition__legendre_duplication_small_w1` citing Computing the $q$-multiplicity of the positive roo",
     "Chain `authored_fibonacci_addition__legendre_duplication_small_w1` citing Computing the $q$-multiplicity of the positive roo (cycle 321)",
     "Chain `authored_gcd_fibonacci__hermite_recurrence_w1` citing A Gaussian integral formula for the Hermite polyno",
-    "Chain `authored_gcd_fibonacci__hermite_recurrence_w1` citing A Gaussian integral formula for the Hermite polyno (cycle 323)"
+    "Chain `authored_gcd_fibonacci__hermite_recurrence_w1` citing A Gaussian integral formula for the Hermite polyno (cycle 323)",
+    "Chain+seek `authored_hockey_stick__narayana_sum_w1` from invariant priors",
+    "Chain+seek `authored_hockey_stick__narayana_sum_w1` from invariant priors (cycle 325)"
   ],
-  "cycle_count": 323,
-  "ledger_count": 17913,
+  "cycle_count": 326,
+  "ledger_count": 18089,
   "status_counts": {
-    "candidate": 17267,
-    "accepted": 210,
-    "rejected": 312,
+    "candidate": 17438,
+    "accepted": 213,
+    "rejected": 314,
     "unknown": 124
   },
-  "witness_events": 25933,
-  "tribute_cycles_compliant": 323,
+  "witness_events": 26198,
+  "tribute_cycles_compliant": 326,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

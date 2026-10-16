@@ -1314,6 +1314,28 @@ def check_authored_gcd_fibonacci__hermite_recurrence_w1() -> bool:
     return all((check_gcd_fibonacci(m, n) for m in range(18, 27) for n in range(18, 27))) and all((check_hermite_recurrence(n, x) for n in range(10, 14) for x in range(-4, 5)))
 
 
+def check_authored_hockey_stick__narayana_sum_w1() -> bool:
+    """Authored stress check (desk): proven lemmas hockey_stick + narayana_sum on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_hockey_stick,
+    ::check_narayana_sum; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_hockey_stick(n, r) for n in range(25, 37) for r in range(0, n + 1))) and all((check_narayana_sum(n) for n in range(12, 17)))
+
+
+def check_authored_pascal_identity__sum_first_n_cubes_w1() -> bool:
+    """Authored stress check (desk): proven lemmas pascal_identity + sum_first_n_cubes on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_pascal_identity,
+    ::check_sum_first_n_cubes; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_pascal_identity(n, k) for n in range(16, 23) for k in range(1, n))) and all((check_sum_first_n_cubes(n) for n in range(30, 45)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1469,6 +1491,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_catalan_convolution__euler_totient_multiplicative_w1", check_authored_catalan_convolution__euler_totient_multiplicative_w1, True),
     ("authored_fibonacci_addition__legendre_duplication_small_w1", check_authored_fibonacci_addition__legendre_duplication_small_w1, True),
     ("authored_gcd_fibonacci__hermite_recurrence_w1", check_authored_gcd_fibonacci__hermite_recurrence_w1, True),
+    ("authored_hockey_stick__narayana_sum_w1", check_authored_hockey_stick__narayana_sum_w1, True),
+    ("authored_pascal_identity__sum_first_n_cubes_w1", check_authored_pascal_identity__sum_first_n_cubes_w1, False),
 ]
 
 
