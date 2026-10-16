@@ -14,6 +14,10 @@ on:
         description: "N (count quadruples inside the first N primes)"
         required: false
         default: "2000000000000"
+      shards:
+        description: "Pass A shard count S (pass B uses S-1 with different boundaries); keep S+S-1 <= 256"
+        required: false
+        default: "20"
 
 permissions:
   contents: read
@@ -23,6 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       P: ${{ steps.p.outputs.P }}
+      matrix: ${{ steps.m.outputs.matrix }}
     steps:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq primecount
       - id: p
@@ -32,6 +37,10 @@ jobs:
           primecount --version | head -1
           P=$(primecount --nth-prime "${{ github.event.inputs.n_primes }}")
           echo "p(N)=$P"; echo "P=$P" >> "$GITHUB_OUTPUT"
+      - id: m
+        run: |
+          S=${{ github.event.inputs.shards || '20' }}
+          python3 -c "import json; S=int('$S'); assert 2<=S<=128; print('matrix='+json.dumps({'include':[{'pass':'A','i':i,'S':S} for i in range(S)]+[{'pass':'B','i':i,'S':S-1} for i in range(S-1)]}))" >> "$GITHUB_OUTPUT"
 
   shard:
     needs: nth
@@ -39,12 +48,7 @@ jobs:
     timeout-minutes: 300
     strategy:
       fail-fast: false
-      matrix:
-        pass: [A, B]
-        i: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-        exclude:
-          - pass: B
-            i: 19
+      matrix: ${{ fromJSON(needs.nth.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq libprimesieve-dev
@@ -53,7 +57,7 @@ jobs:
           P: ${{ needs.nth.outputs.P }}
         run: |
           set -euo pipefail
-          if [ "${{ matrix.pass }}" = A ]; then S=20; else S=19; fi
+          S=${{ matrix.S }}
           I=${{ matrix.i }}
           LO=$(python3 -c "print($P*$I//$S)"); HI=$(python3 -c "print($P+1 if $I==$S-1 else $P*($I+1)//$S)")
           gcc -O2 -fopenmp tools/a104062/qs_range.c -o qs -lprimesieve
@@ -76,12 +80,14 @@ jobs:
         env:
           P: ${{ needs.nth.outputs.P }}
           N: ${{ github.event.inputs.n_primes }}
+          S: ${{ github.event.inputs.shards || '20' }}
         run: |
           python3 - <<'PY' | tee result.json
           import json, os, glob
           P, N = int(os.environ["P"]), int(os.environ["N"])
           res = {"N": N, "p_N": P}
-          for ps, S in (("A", 20), ("B", 19)):
+          SA = int(os.environ["S"])
+          for ps, S in (("A", SA), ("B", SA - 1)):
               rows = sorted((json.load(open(f)) for f in glob.glob(f"shards/shard-{ps}-*/out.json")), key=lambda r: r["lo"])
               assert len(rows) == S, (ps, len(rows))
               assert rows[0]["lo"] == 0 and rows[-1]["hi"] == P + 1 and all(a["hi"] == b["lo"] for a, b in zip(rows, rows[1:]))
