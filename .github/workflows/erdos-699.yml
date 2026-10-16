@@ -80,7 +80,8 @@ jobs:
           set -euo pipefail
           git config user.name "agent-colony-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add society/systems/erdos699/ranges society/systems/erdos699/review.jsonl 2>/dev/null || true
+          git add society/systems/erdos699/ranges
+          if [ -f society/systems/erdos699/review.jsonl ]; then git add society/systems/erdos699/review.jsonl; fi
           if git diff --staged --quiet; then echo "nothing to record"; exit 0; fi
           git commit -m "ci(erdos699): checked ${{ matrix.lo }}..${{ matrix.hi }} run ${{ github.run_id }}"
           for i in 1 2 3 4 5 6 7 8; do git pull --rebase && git push && exit 0; sleep $((RANDOM % 20 + 5)); done
