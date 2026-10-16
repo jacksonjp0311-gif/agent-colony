@@ -1,25 +1,25 @@
 {
-  "when": "2026-10-16T23:21:02Z",
+  "when": "2026-10-16T23:23:05Z",
   "mile": "spark3-port",
-  "cycle_count": 334,
+  "cycle_count": 335,
   "fitness_latest": {
-    "ts": "2026-10-16T23:20:56Z",
-    "cycle_id": "20261016T232017Z_0e2b33",
+    "ts": "2026-10-16T23:23:00Z",
+    "cycle_id": "20261016T232227Z_94e2cd",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.7692,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8364,
-    "compute_usefulness": 0.9285,
+    "math_prize": 0.8353,
+    "compute_usefulness": 0.9283,
     "citation_reuse": 1.0,
-    "prize_boost": 0.9014,
-    "kill_rate": 0.3654,
-    "kill_rate_term": 0.8789,
-    "novelty": 0.6333,
+    "prize_boost": 0.9008,
+    "kill_rate": 0.3682,
+    "kill_rate_term": 0.8814,
+    "novelty": 0.6,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8506,
+    "aggregate": 0.8524,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -44,7 +44,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8835
+    "aggregate_score": 0.891
   },
   "novelty_gate": {
     "hits": 18,
@@ -64,7 +64,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261016T232017Z_0e2b33"
+    "cycle_id": "20261016T232227Z_94e2cd"
   },
   "oracle": {
     "passes": 290,

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T23:20:31Z",
+  "updated_at": "2026-10-16T23:22:35Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -47,7 +47,7 @@
     "twin_primes_hl": {
       "family": "twin_hl",
       "status": "open",
-      "verified_hi": 42200000,
+      "verified_hi": 46200000,
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "window": 4000000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "lehmer_totient",
-    "lo": 10200002,
-    "hi": 11000001,
+    "target": "twin_primes_hl",
+    "lo": 42200001,
+    "hi": 46200000,
     "outcome": "extended",
-    "verified_hi": 11000001,
-    "cycle_id": "20261016T232017Z_0e2b33"
+    "verified_hi": 46200000,
+    "cycle_id": "20261016T232227Z_94e2cd"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
