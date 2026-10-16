@@ -2403,7 +2403,7 @@
       "id": "oeis_A104062_next",
       "family": "prime_run_count",
       "kind": "oeis_unknown_term",
-      "statement": "A104062: number of primes p(i), i = 1..20*10^n, whose next three consecutive primes are p+6, p+12, p+18. Published terms stop at n=6; the colony recomputes n=1..6 (must match) and then counts toward n=7 (first 2*10^8 primes, p up to ~4.22*10^9).",
+      "statement": "A104062: number of primes p(i), i = 1..20*10^n, whose next three consecutive primes are p+6, p+12, p+18. Published terms stop at n=6; the colony recomputes n=1..6 (must match) then counts on through n=7 (first 2*10^8 primes, p ~4.22*10^9), n=8 (2*10^9 primes, p ~4.71*10^10) and n=9 (2*10^10 primes, p ~5.19*10^11). Every term past n=6 is a review candidate.",
       "oeis_id": "A104062",
       "source": "https://oeis.org/A104062",
       "offsets": [
@@ -2418,7 +2418,9 @@
         200000,
         2000000,
         20000000,
-        200000000
+        200000000,
+        2000000000,
+        20000000000
       ],
       "known_terms": {
         "200": 1,
@@ -2439,7 +2441,7 @@
       "min_window": 1000000,
       "max_window": 100000000,
       "budget_s": 6.0,
-      "status": "done",
+      "status": "open",
       "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). Colony computed a(7) = 138994 on 2026-10-16 (cross-checked with primesieve 12.7 + C counter and a pure-Python recount; evidence/2026-10-16-a104062-a7/). Computed value, not a proof; pending OEIS review.",
       "label": "bounded evidence, not proof",
       "proof": false,
