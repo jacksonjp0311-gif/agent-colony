@@ -14280,8 +14280,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.002
+      "status": "accepted",
+      "delta_aggregate": 0.002,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7929 (>=0.70), target authored_binomial_sum_row__bell_triangle_recurrence_w1 Oracle PASS in own cycle 20261012T061602Z_0a45eb with no Oracle kill or textbook/novelty kill on record. Twin imp_0a45eb_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_0a45eb_51",
@@ -14376,8 +14378,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.002
+      "status": "accepted",
+      "delta_aggregate": 0.002,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7929 (>=0.70), target authored_cassini__binomial_inversion_small_w1 Oracle PASS in own cycle 20261012T061717Z_7d357f with no Oracle kill or textbook/novelty kill on record. Twin imp_7d357f_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_7d357f_51",
@@ -14472,8 +14476,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0011
+      "status": "accepted",
+      "delta_aggregate": 0.0011,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7923 (>=0.70), target authored_catalan_bounded__catalan_convolution_w1 Oracle PASS in own cycle 20261012T155135Z_151876 with no Oracle kill or textbook/novelty kill on record. Twin imp_151876_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_151876_51",
@@ -14568,8 +14574,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": -0.0006
+      "status": "accepted",
+      "delta_aggregate": -0.0006,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.825 (>=0.70), target authored_central_binom_bound__gcd_fibonacci_w1 Oracle PASS in own cycle 20261013T005329Z_a7a302 with no Oracle kill or textbook/novelty kill on record. Twin imp_a7a302_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_a7a302_51",
@@ -14664,8 +14672,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0005
+      "status": "accepted",
+      "delta_aggregate": 0.0005,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.8753 (>=0.70), target authored_derangement_subfactorial__euler_totient_multiplicative_w1 Oracle PASS in own cycle 20261013T005442Z_6dcbd0 with no Oracle kill or textbook/novelty kill on record. Twin imp_6dcbd0_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_6dcbd0_51",
@@ -14760,8 +14770,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": -0.0003
+      "status": "accepted",
+      "delta_aggregate": -0.0003,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_fibonacci_addition__hermite_recurrence_w1 Oracle PASS in own cycle 20261013T142817Z_9b6937 with no Oracle kill or textbook/novelty kill on record. Twin imp_9b6937_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_9b6937_51",
@@ -14856,8 +14868,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0007
+      "status": "accepted",
+      "delta_aggregate": 0.0007,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7921 (>=0.70), target authored_geometric_sum__legendre_duplication_small_w1 Oracle PASS in own cycle 20261013T225858Z_0eff45 with no Oracle kill or textbook/novelty kill on record. Twin imp_0eff45_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_0eff45_51",
@@ -14952,8 +14966,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": -0.0005
+      "status": "accepted",
+      "delta_aggregate": -0.0005,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_hockey_stick__motzkin_bounded_w1 Oracle PASS in own cycle 20261013T230012Z_91773d with no Oracle kill or textbook/novelty kill on record. Twin imp_91773d_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_91773d_51",
@@ -15048,8 +15064,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0012
+      "status": "accepted",
+      "delta_aggregate": 0.0012,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7924 (>=0.70), target authored_pascal_identity__pell_companion_w1 Oracle PASS in own cycle 20261014T051016Z_a3eace with no Oracle kill or textbook/novelty kill on record. Twin imp_a3eace_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_a3eace_51",
@@ -15144,8 +15162,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0021
+      "status": "accepted",
+      "delta_aggregate": 0.0021,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.793 (>=0.70), target authored_pythagorean_generation__narayana_sum_w1 Oracle PASS in own cycle 20261014T121251Z_a26dbd with no Oracle kill or textbook/novelty kill on record. Twin imp_a26dbd_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_a26dbd_51",
@@ -15240,8 +15260,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": -0.0145
+      "status": "accepted",
+      "delta_aggregate": -0.0145,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_vandermonde_conv__stirling_second_row_w1 Oracle PASS in own cycle 20261014T121408Z_0fa62f with no Oracle kill or textbook/novelty kill on record. Twin imp_0fa62f_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_0fa62f_51",
@@ -15432,8 +15454,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0182
+      "status": "accepted",
+      "delta_aggregate": 0.0182,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.803 (>=0.70), target authored_sum_first_n_odds__bell_triangle_recurrence_w1 Oracle PASS in own cycle 20261014T215145Z_f54406 with no Oracle kill or textbook/novelty kill on record. Twin imp_f54406_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_f54406_51",
@@ -15720,8 +15744,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": -0.0001
+      "status": "accepted",
+      "delta_aggregate": -0.0001,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.825 (>=0.70), target authored_central_binom_bound__binomial_inversion_small_w1 Oracle PASS in own cycle 20261015T115056Z_661eef with no Oracle kill or textbook/novelty kill on record. Twin imp_661eef_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_661eef_51",
@@ -15816,8 +15842,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0017
+      "status": "accepted",
+      "delta_aggregate": 0.0017,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.876 (>=0.70), target authored_derangement_subfactorial__legendre_duplication_small_w1 Oracle PASS in own cycle 20261015T115210Z_049e91 with no Oracle kill or textbook/novelty kill on record. Twin imp_049e91_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_049e91_51",
@@ -15912,8 +15940,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0012
+      "status": "accepted",
+      "delta_aggregate": 0.0012,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7924 (>=0.70), target authored_fibonacci_addition__narayana_sum_w1 Oracle PASS in own cycle 20261015T171453Z_0dc7af with no Oracle kill or textbook/novelty kill on record. Twin imp_0dc7af_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_0dc7af_51",
@@ -16008,8 +16038,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0016
+      "status": "accepted",
+      "delta_aggregate": 0.0016,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.876 (>=0.70), target authored_gcd_fibonacci__euler_totient_multiplicative_w1 Oracle PASS in own cycle 20261015T213547Z_649ae8 with no Oracle kill or textbook/novelty kill on record. Twin imp_649ae8_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_649ae8_51",
@@ -16104,8 +16136,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0018
+      "status": "accepted",
+      "delta_aggregate": 0.0018,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7928 (>=0.70), target authored_geometric_sum__hermite_recurrence_w1 Oracle PASS in own cycle 20261015T213646Z_e43c99 with no Oracle kill or textbook/novelty kill on record. Twin imp_e43c99_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_e43c99_51",
@@ -16200,8 +16234,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": 0.0015
+      "status": "accepted",
+      "delta_aggregate": 0.0015,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7926 (>=0.70), target authored_hockey_stick__stirling_second_row_w1 Oracle PASS in own cycle 20261016T044811Z_00a8db with no Oracle kill or textbook/novelty kill on record. Twin imp_00a8db_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_00a8db_51",
@@ -16296,8 +16332,10 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "status": "candidate_measured",
-      "delta_aggregate": -0.0001
+      "status": "accepted",
+      "delta_aggregate": -0.0001,
+      "authorize_rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_pascal_identity__motzkin_bounded_w1 Oracle PASS in own cycle 20261016T114317Z_e50fda with no Oracle kill or textbook/novelty kill on record. Twin imp_e50fda_51 (Hearing reject) left untouched.",
+      "authorized_at": "2026-10-16T16:15:53Z"
     },
     {
       "id": "imp_e50fda_51",
@@ -16402,7 +16440,7 @@
       "status": "candidate"
     }
   ],
-  "updated_at": "2026-10-16T11:44:48Z",
+  "updated_at": "2026-10-16T16:15:53Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",

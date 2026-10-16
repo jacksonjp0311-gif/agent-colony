@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 24328  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 24349  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -145145,6 +145145,132 @@
 - **id:** `wit_4a9129a52f` | **cycle:** `authorize_20261016T114511Z`
 - Authorize batch closed. accepted=3 rejected=1 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261016T114511Z.md.
 - detail: `{"accepted": 3, "rejected": 1, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261016T114511Z.md"}`
+
+### 2026-10-16T16:15:53Z — `authorize_batch_open` (human)
+
+- **id:** `wit_73b42e9ad5` | **cycle:** `authorize_20261016T161552Z`
+- Authorize batch opened by James Jackson via Grok Bot (James in chat 2026-10-16, selective under standing rule). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (James in chat 2026-10-16, selective under standing rule)", "item_count": 0}`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_745d6c55bd` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_0a45eb_50` (Chain `authored_binomial_sum_row__bell_triangle_recurrence_w1` citing Partitioning triangle-free planar graphs into a fo) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7929 (>=0.70), target authored_binomial_sum_row__bell_triangle_recurrence_w1 Oracle PASS in own cycle 20261012T061602Z_0a45eb with no Oracle kill or textbook/novelty kill on record. Twin imp_0a45eb_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_0a45eb_50", "title": "Chain `authored_binomial_sum_row__bell_triangle_recurrence_w1` citing Partitioning triangle-free planar graphs into a fo", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept th`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_32f6667445` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_7d357f_50` (Chain `authored_cassini__binomial_inversion_small_w1` citing An Infinite Family of Apéry-like Recurrences for E) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7929 (>=0.70), target authored_cassini__binomial_inversion_small_w1 Oracle PASS in own cycle 20261012T061717Z_7d357f with no Oracle kill or textbook/novelty kill on record. Twin imp_7d357f_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_7d357f_50", "title": "Chain `authored_cassini__binomial_inversion_small_w1` citing An Infinite Family of Apéry-like Recurrences for E", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') unde`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_2d00c7ba95` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_151876_50` (Chain `authored_catalan_bounded__catalan_convolution_w1` citing Lattice Points and Rational q-Catalan Numbers) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7923 (>=0.70), target authored_catalan_bounded__catalan_convolution_w1 Oracle PASS in own cycle 20261012T155135Z_151876 with no Oracle kill or textbook/novelty kill on record. Twin imp_151876_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_151876_50", "title": "Chain `authored_catalan_bounded__catalan_convolution_w1` citing Lattice Points and Rational q-Catalan Numbers", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under `
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_e0c2d8fa29` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_a7a302_50` (Chain `authored_central_binom_bound__gcd_fibonacci_w1` citing Inverse binomial coefficients in Egorychev method) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.825 (>=0.70), target authored_central_binom_bound__gcd_fibonacci_w1 Oracle PASS in own cycle 20261013T005329Z_a7a302 with no Oracle kill or textbook/novelty kill on record. Twin imp_a7a302_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_a7a302_50", "title": "Chain `authored_central_binom_bound__gcd_fibonacci_w1` citing Inverse binomial coefficients in Egorychev method", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') unde`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_d8ad64fe09` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_6dcbd0_50` (Chain `authored_derangement_subfactorial__euler_totient_multiplicative_w1` citing An Infinite Family of Apéry-like Recurrences for E) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.8753 (>=0.70), target authored_derangement_subfactorial__euler_totient_multiplicative_w1 Oracle PASS in own cycle 20261013T005442Z_6dcbd0 with no Oracle kill or textbook/novelty kill on record. Twin imp_6dcbd0_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_6dcbd0_50", "title": "Chain `authored_derangement_subfactorial__euler_totient_multiplicative_w1` citing An Infinite Family of Apéry-like Recurrences for E", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the b`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_25d871af0e` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_9b6937_50` (Chain `authored_fibonacci_addition__hermite_recurrence_w1` citing (a, b)-Fibonacci–Legendre Cordial Graphs and k-Pis) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_fibonacci_addition__hermite_recurrence_w1 Oracle PASS in own cycle 20261013T142817Z_9b6937 with no Oracle kill or textbook/novelty kill on record. Twin imp_9b6937_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_9b6937_50", "title": "Chain `authored_fibonacci_addition__hermite_recurrence_w1` citing (a, b)-Fibonacci–Legendre Cordial Graphs and k-Pis", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them')`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_b6cee99f4d` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_0eff45_50` (Chain `authored_geometric_sum__legendre_duplication_small_w1` citing The Tate Conjecture for Ordinary Calabi-Yau Threef) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7921 (>=0.70), target authored_geometric_sum__legendre_duplication_small_w1 Oracle PASS in own cycle 20261013T225858Z_0eff45 with no Oracle kill or textbook/novelty kill on record. Twin imp_0eff45_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_0eff45_50", "title": "Chain `authored_geometric_sum__legendre_duplication_small_w1` citing The Tate Conjecture for Ordinary Calabi-Yau Threef", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept the`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_cb1127ce41` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_91773d_50` (Chain `authored_hockey_stick__motzkin_bounded_w1` citing Inverse binomial coefficients in Egorychev method) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_hockey_stick__motzkin_bounded_w1 Oracle PASS in own cycle 20261013T230012Z_91773d with no Oracle kill or textbook/novelty kill on record. Twin imp_91773d_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_91773d_50", "title": "Chain `authored_hockey_stick__motzkin_bounded_w1` citing Inverse binomial coefficients in Egorychev method", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_8c941ac6bf` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_a3eace_50` (Chain `authored_pascal_identity__pell_companion_w1` citing Cepheid: Decoupling Scale from Structure for Cross) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7924 (>=0.70), target authored_pascal_identity__pell_companion_w1 Oracle PASS in own cycle 20261014T051016Z_a3eace with no Oracle kill or textbook/novelty kill on record. Twin imp_a3eace_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_a3eace_50", "title": "Chain `authored_pascal_identity__pell_companion_w1` citing Cepheid: Decoupling Scale from Structure for Cross", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under `
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_fe95990dad` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_a26dbd_50` (Chain `authored_pythagorean_generation__narayana_sum_w1` citing When Representation Becomes Responsibility: How Id) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.793 (>=0.70), target authored_pythagorean_generation__narayana_sum_w1 Oracle PASS in own cycle 20261014T121251Z_a26dbd with no Oracle kill or textbook/novelty kill on record. Twin imp_a26dbd_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_a26dbd_50", "title": "Chain `authored_pythagorean_generation__narayana_sum_w1` citing When Representation Becomes Responsibility: How Id", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') u`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_b7564e1cf2` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_0fa62f_50` (Chain `authored_vandermonde_conv__stirling_second_row_w1` citing Confluent Vandermonde matrix and related topics) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_vandermonde_conv__stirling_second_row_w1 Oracle PASS in own cycle 20261014T121408Z_0fa62f with no Oracle kill or textbook/novelty kill on record. Twin imp_0fa62f_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_0fa62f_50", "title": "Chain `authored_vandermonde_conv__stirling_second_row_w1` citing Confluent Vandermonde matrix and related topics", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') und`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_77ceaa4843` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_f54406_50` (Chain `authored_sum_first_n_odds__bell_triangle_recurrence_w1` citing Multidimensional Szemerédi Theorem for Pairwise In) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.803 (>=0.70), target authored_sum_first_n_odds__bell_triangle_recurrence_w1 Oracle PASS in own cycle 20261014T215145Z_f54406 with no Oracle kill or textbook/novelty kill on record. Twin imp_f54406_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_f54406_50", "title": "Chain `authored_sum_first_n_odds__bell_triangle_recurrence_w1` citing Multidimensional Szemerédi Theorem for Pairwise In", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept th`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_f4c1c9b9c3` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_661eef_50` (Chain `authored_central_binom_bound__binomial_inversion_small_w1` citing Classification of unmixed parity binomial edge ide) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.825 (>=0.70), target authored_central_binom_bound__binomial_inversion_small_w1 Oracle PASS in own cycle 20261015T115056Z_661eef with no Oracle kill or textbook/novelty kill on record. Twin imp_661eef_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_661eef_50", "title": "Chain `authored_central_binom_bound__binomial_inversion_small_w1` citing Classification of unmixed parity binomial edge ide", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_5e50ae77b6` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_049e91_50` (Chain `authored_derangement_subfactorial__legendre_duplication_small_w1` citing Decay-Ramsey Sequences) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.876 (>=0.70), target authored_derangement_subfactorial__legendre_duplication_small_w1 Oracle PASS in own cycle 20261015T115210Z_049e91 with no Oracle kill or textbook/novelty kill on record. Twin imp_049e91_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_049e91_50", "title": "Chain `authored_derangement_subfactorial__legendre_duplication_small_w1` citing Decay-Ramsey Sequences", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the sta`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_9f6984dc5e` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_0dc7af_50` (Chain `authored_fibonacci_addition__narayana_sum_w1` citing Computing the $q$-multiplicity of the positive roo) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7924 (>=0.70), target authored_fibonacci_addition__narayana_sum_w1 Oracle PASS in own cycle 20261015T171453Z_0dc7af with no Oracle kill or textbook/novelty kill on record. Twin imp_0dc7af_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_0dc7af_50", "title": "Chain `authored_fibonacci_addition__narayana_sum_w1` citing Computing the $q$-multiplicity of the positive roo", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_81473c9d92` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_649ae8_50` (Chain `authored_gcd_fibonacci__euler_totient_multiplicative_w1` citing The $k$-color poset Ramsey number of the diamond i) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.876 (>=0.70), target authored_gcd_fibonacci__euler_totient_multiplicative_w1 Oracle PASS in own cycle 20261015T213547Z_649ae8 with no Oracle kill or textbook/novelty kill on record. Twin imp_649ae8_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_649ae8_50", "title": "Chain `authored_gcd_fibonacci__euler_totient_multiplicative_w1` citing The $k$-color poset Ramsey number of the diamond i", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept t`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_660da3c675` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_e43c99_50` (Chain `authored_geometric_sum__hermite_recurrence_w1` citing Cyclic relative difference sets and circulant weig) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7928 (>=0.70), target authored_geometric_sum__hermite_recurrence_w1 Oracle PASS in own cycle 20261015T213646Z_e43c99 with no Oracle kill or textbook/novelty kill on record. Twin imp_e43c99_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_e43c99_50", "title": "Chain `authored_geometric_sum__hermite_recurrence_w1` citing Cyclic relative difference sets and circulant weig", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') unde`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_d2fed24ff3` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_00a8db_50` (Chain `authored_hockey_stick__stirling_second_row_w1` citing TANGO: RNA Topology and Geometry Co-Design) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7926 (>=0.70), target authored_hockey_stick__stirling_second_row_w1 Oracle PASS in own cycle 20261016T044811Z_00a8db with no Oracle kill or textbook/novelty kill on record. Twin imp_00a8db_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_00a8db_50", "title": "Chain `authored_hockey_stick__stirling_second_row_w1` citing TANGO: RNA Topology and Geometry Co-Design", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the st`
+
+### 2026-10-16T16:15:53Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_7b8fe517a3` | **cycle:** `authorize_20261016T161552Z`
+- Proposal accepted: `imp_e50fda_50` (Chain `authored_pascal_identity__motzkin_bounded_w1` citing Symmetry of meromorphic differentials produced by ) — Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under the standing rule. Verified from repo data: status candidate_measured, Hearing accept_candidate, P=0.7417 (>=0.70), target authored_pascal_identity__motzkin_bounded_w1 Oracle PASS in own cycle 20261016T114317Z_e50fda with no Oracle kill or textbook/novelty kill on record. Twin imp_e50fda_51 (Hearing reject) left untouched.
+- detail: `{"proposal_id": "imp_e50fda_50", "title": "Chain `authored_pascal_identity__motzkin_bounded_w1` citing Symmetry of meromorphic differentials produced by ", "decision": "accepted", "rationale": "Human authorize: James Jackson told Grok Bot in chat 2026-10-16 ('if they meet the bar accept them') under`
+
+### 2026-10-16T16:15:53Z — `authorize_batch_close` (human)
+
+- **id:** `wit_8a8072aeab` | **cycle:** `authorize_20261016T161552Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=19. Receipt=AUTHORIZE_authorize_20261016T161552Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 19, "receipt": "/tmp/ac2/society/receipts/AUTHORIZE_authorize_20261016T161552Z.md"}`
 
 ---
 
