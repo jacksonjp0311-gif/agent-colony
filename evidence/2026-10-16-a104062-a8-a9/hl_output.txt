@@ -15,3 +15,5 @@ n=6 a=   19348 a(n)/a(n-1)= 7.0408 HLtuple=     26174.0 HLconsec=     19514.7 ac
 n=7 a=  138994 a(n)/a(n-1)= 7.1839 HLtuple=    179868.7 HLconsec=    139407.5 act/consec=0.9970 act/tuple=0.7728
 n=8 a= 1031312 a(n)/a(n-1)= 7.4198 HLtuple=   1293518.9 HLconsec=   1032215.2 act/consec=0.9991 act/tuple=0.7973
 n=9 a= 7863231 a(n)/a(n-1)= 7.6245 HLtuple=   9631449.0 HLconsec=   7863975.6 act/consec=0.9999 act/tuple=0.8164
+n=10 a=61341010 a(n)/a(n-1)= 7.8010 HLtuple=  73737902.8 HLconsec=  61333608.5 act/consec=1.0001 act/tuple=0.8319
+n=11 a=487855645 a(n)/a(n-1)= 7.9532 HLtuple= 577585671.6 HLconsec= 487857895.1 act/consec=1.0000 act/tuple=0.8446

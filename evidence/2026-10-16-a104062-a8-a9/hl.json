@@ -134,6 +134,26 @@
    "hl_consecutive": 7863975.638466867,
    "actual_over_consecutive": 0.9999053101762899,
    "actual_over_tuple": 0.8164120518094676
+  },
+  {
+   "n": 10,
+   "N": 200000000000,
+   "p_N": 5665449960167,
+   "a": 61341010,
+   "hl_tuple_only": 73737902.7886312,
+   "hl_consecutive": 61333608.49052828,
+   "actual_over_consecutive": 1.0001206762434802,
+   "actual_over_tuple": 0.8318789615678827
+  },
+  {
+   "n": 11,
+   "N": 2000000000000,
+   "p_N": 61427839512211,
+   "a": 487855645,
+   "hl_tuple_only": 577585671.5742652,
+   "hl_consecutive": 487857895.0857093,
+   "actual_over_consecutive": 0.9999953878255698,
+   "actual_over_tuple": 0.8446463771691264
   }
  ]
 }

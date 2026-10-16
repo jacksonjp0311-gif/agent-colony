@@ -1,4 +1,4 @@
-# A104062 a(8) and a(9) — computed, not proof; pending OEIS review (2026-10-16)
+# A104062 a(8), a(9), a(10), a(11) — computed, not proof; pending OEIS review (2026-10-16)
 
 A104062(n) = number of primes p(i), i ≤ 2·10^n, whose next three consecutive primes are p+6, p+12, p+18.
 Boundary rule: a quadruple is counted only when all four primes lie inside the first N = 2·10^n primes.
@@ -13,7 +13,31 @@ primes around p(N): `primesieve <P-18> <P+60> -p`).
 a(1..6) = 1, 12, 64, 416, 2748, 19348 (published) and a(7) = 138994 (see `../2026-10-16-a104062-a7/`) were reproduced
 by every method below.
 
-## Verifications (all agree exactly)
+## a(10) and a(11) (added 2026-10-16 evening)
+
+| n | N | p(N) | a(n) |
+|---|---|---|---|
+| 10 | 2·10^11 | 5,665,449,960,167 | **61,341,010** |
+| 11 | 2·10^12 | 61,427,839,512,211 | **487,855,645** |
+
+- **a(10), on the box (8 cores), three counters agree exactly.** `qs` (iterator, sharded), `qk` and
+  `tools/a104062/qk_range.c` (array API, 10^9 blocks) each give 61341010 with π(P)=2·10^11 (`a10_outputs.txt`).
+  `primesieve -n 2e11` gives 5665449960167.
+- **a(11), on GitHub Actions, workflow "A104062 shards", run 38969154507 (green).** p(N) comes from `primecount --nth-prime`
+  (primecount 7.16 → 61427839512211). Pass A is `tools/a104062/qs_range.c` over 20 shards; pass B is
+  `tools/a104062/qk_range.c` over 19 shards with different boundaries. Each shard counts quadruples whose first prime is
+  in its range and reads past its end for the next 3 primes, so edge-crossing quadruples are counted exactly once.
+  Pass A gives 487855645 quadruples and Pass B gives 487855645; both count exactly 2·10^12 primes ≤ P, which independently
+  confirms P = p(2·10^12). The workflow was validated first on N = 2·10^8 (run 38965729478 → 138994). The runners use
+  primesieve 12.0; the box uses 12.7.
+- **p(2·10^12) confirmed on the box:** `primesieve -n 2e12` (primesieve 12.7) → **61427839512211** (2583 s, `nth_prime.txt`), matching primecount.
+- **Boundary:** no quadruple straddles p(N) at either cutoff (primes around P listed with `primesieve <P-18> <P+60> -p`).
+- **The colony burst was not run for a(10) or a(11).** About 5·10^4 windows of 10^8 would be needed, well over 50 burst
+  runs, which is not a reasonable use of free compute. So the a(10) and a(11) checks are independent C programs, not the colony.
+- **HL ratio actual/consecutive:** n=10: 1.000121, n=11: 0.999995. This crosses 1, so it is consistent with fluctuation
+  around the HL prediction. It is evidence, not proof.
+
+## Verifications of a(8), a(9) (all agree exactly)
 1. **primesieve 12.7 text pipeline + `q9.c`** (the a(7) counter `/workspace/q.c`, extended to N up to 2·10^10, 64-bit):
    `primesieve 1 518649879439 -p | ./q9` → `q9_pipeline_output.txt` (single thread, 21 min on the box).
 2. **libprimesieve iterator, sharded, OpenMP (`qs.c`)**: `./qs 47055833459 8`, `./qs 518649879439 8` →
@@ -52,6 +76,8 @@ Hardy–Littlewood-type prediction for **consecutive** primes p, p+6, p+12, p+18
 | 7 | 138994 | 7.1839 | 179868.7 | 139407.5 | 0.99703 |
 | 8 | 1031312 | 7.4198 | 1293518.9 | 1032215.2 | 0.99912 |
 | 9 | 7863231 | 7.6245 | 9631449.0 | 7863975.6 | 0.99991 |
+| 10 | 61341010 | 7.8010 | 73737902.8 | 61333608.5 | 1.000121 |
+| 11 | 487855645 | 7.9532 | 577585671.6 | 487857895.1 | 0.999995 |
 
 `hl.py` holds the derivation, `hl.json` the numbers, `plot.py` the plot, and the plot is `a104062_actual_vs_hl.png`.
 

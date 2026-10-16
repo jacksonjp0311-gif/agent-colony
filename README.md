@@ -16,9 +16,9 @@ keep a public, append-only record of everything. A human authorizes anything dur
   value was cross-checked independently with primesieve 12.7 plus a C counter, and with a pure-Python recount.
   *Computed value, not a proof; pending OEIS review.* Evidence and reproduction:
   [`evidence/2026-10-16-a104062-a7/`](evidence/2026-10-16-a104062-a7/README.md).
-- **OEIS A104062: computed a(8) = 1031312 and a(9) = 7863231** (first 2·10^9 and 2·10^10 primes). The colony's
+- **OEIS A104062: computed a(8) = 1031312, a(9) = 7863231, a(10) = 61341010, a(11) = 487855645** (first 2·10^9 … 2·10^12 primes; a(10) by three box counters, a(11) by two independently sharded passes on GitHub Actions). The colony's
   frontier burst and three primesieve-based C counters agree exactly. The Hardy–Littlewood prediction for *consecutive*
-  primes (inclusion–exclusion, constant 8.302 derived here) matches to within 0.01% at n=9. That agreement is evidence,
+  primes (inclusion–exclusion, constant 8.302 derived here) matches to within 0.013% from n=9 to n=11 (actual/predicted 1.000121 at n=10, 0.999995 at n=11). That agreement is evidence,
   not proof. *Computed, not proof; pending OEIS review.*
   [`evidence/2026-10-16-a104062-a8-a9/`](evidence/2026-10-16-a104062-a8-a9/README.md)
 - **Fresh holdout test (holdout_v2): no measured capability gain.** On 12 unseen problems, today's colony
