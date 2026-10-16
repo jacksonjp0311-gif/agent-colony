@@ -133,7 +133,9 @@ def pick_target(cat: dict[str, Any], cooldown: Any) -> tuple[dict[str, Any] | No
             blocked[t["id"]] = "done"
         else:
             ok.append(t)
-    ok.sort(key=lambda t: (str(t.get("last_run") or ""), t["id"]))
+    # Targets whose next result would be genuinely new (past the published record) go first;
+    # otherwise least-recently-run.
+    ok.sort(key=lambda t: (not t.get("beyond_record"), str(t.get("last_run") or ""), t["id"]))
     return (ok[0] if ok else None), blocked
 
 
@@ -227,6 +229,8 @@ def run_task(task: dict[str, Any], t: dict[str, Any], impl: Any | None = None, *
                         "verified_hi": None})
             return out
         check, holds = impl.FAMILIES[fam]
+        if fam == "prime_run_count":
+            return _run_prime_run_count(out, task, t, impl, deadline, cycle_id)
         if fam == "twin_hl":
             r = check(task["lo"], task["hi"], deadline, prior_count=int((t.get("verified") or {}).get("pi2") or 0))
         else:
@@ -278,6 +282,44 @@ def run_task(task: dict[str, Any], t: dict[str, Any], impl: Any | None = None, *
         return out
 
 
+def _run_prime_run_count(out: dict[str, Any], task: dict[str, Any], t: dict[str, Any], impl: Any,
+                         deadline: Any, cycle_id: str) -> dict[str, Any]:
+    """Count OEIS prime-run terms past the published ones. Independent checks:
+    (1) a sub-window recount by Miller-Rabin stepping must equal the sieve count there;
+    (2) every term the catalog already knows (published) must be reproduced exactly;
+    (3) the prime at each new threshold index is re-checked prime by Miller-Rabin.
+    A term past the published record is only a CANDIDATE for human review / OEIS submission."""
+    ver = t.get("verified") or {}
+    offs = [int(x) for x in t["offsets"]]
+    r = impl.check_prime_run_count(task["lo"], task["hi"], deadline, offsets=offs,
+                                   prior_pi=int(ver.get("pi") or 0), prior_count=int(ver.get("count") or 0),
+                                   thresholds=[int(x) for x in t.get("index_thresholds") or []])
+    out["primary"] = r
+    if _challenge(out, task, r, t, impl, cycle_id):
+        return out
+    if not r.get("complete"):
+        out.update({"outcome": "no_progress", "verified_hi": None})
+        return out
+    rng = random.Random(task["fingerprint"])
+    span = max(0, task["hi"] - task["lo"] - 20_000)
+    a = task["lo"] + (rng.randrange(span) if span else 0)
+    b = min(task["hi"], a + 20_000)
+    sub_ok = impl.prime_run_count_sieve(a, b, offs) == impl.prime_run_count_mr(a, b, offs)
+    out["independent_subwindow"] = [a, b]
+    known = {str(k): int(v) for k, v in (t.get("known_terms") or {}).items()}
+    hits = (r.get("data") or {}).get("terms_hit") or {}
+    mismatch = {T: {"colony": h["count"], "published": known[T]} for T, h in hits.items()
+                if T in known and int(h["count"]) != known[T]}
+    reproduced = sorted(T for T in hits if T in known and T not in mismatch)
+    new_terms = {T: h for T, h in hits.items() if T not in known and impl.is_prime_mr(int(h["prime_at_index"]))}
+    out.update({"published_reproduced": reproduced, "published_mismatch": mismatch, "new_term_candidates": new_terms})
+    if not sub_ok or mismatch:
+        out.update({"outcome": "disagreement", "verified_hi": None})
+        return out
+    out.update({"outcome": "new_term_candidate" if new_terms else "extended", "verified_hi": task["hi"]})
+    return out
+
+
 def apply_result(t: dict[str, Any], res: dict[str, Any]) -> None:
     """Update one catalog target from a judged result (in place)."""
     t["last_run"] = res["ts"]
@@ -309,6 +351,22 @@ def apply_result(t: dict[str, Any], res: dict[str, Any]) -> None:
             d = (res.get("primary") or {}).get("data") or {}
             ver["pi2"] = d.get("pi2")
             ver["hl_ratio"] = d.get("ratio")
+        if t.get("family") == "prime_run_count":
+            d = (res.get("primary") or {}).get("data") or {}
+            ver["pi"], ver["count"] = d.get("pi"), d.get("count")
+            terms = dict(t.get("colony_terms") or {})
+            for T, h in (d.get("terms_hit") or {}).items():
+                terms[T] = h
+            t["colony_terms"] = terms
+            for T, h in (res.get("new_term_candidates") or {}).items():
+                t.setdefault("new_term_review", {})[T] = {
+                    **h, "ts": res["ts"],
+                    "note": "Colony count past the published record (sieve + MR sub-window recount agree, all "
+                            "published terms reproduced). CANDIDATE only: needs human re-computation before any "
+                            "OEIS submission. Bounded evidence, not proof."}
+            mx = max((int(x) for x in t.get("index_thresholds") or [0]), default=0)
+            if int(ver.get("pi") or 0) >= mx:
+                t["status"] = "done"
         t["verified"] = ver
         ext = list(t.get("extensions") or [])
         ext.append({"ts": res["ts"], "lo": res["lo"], "hi": int(vhi), "seconds": (res.get("primary") or {}).get("seconds")})
@@ -426,7 +484,7 @@ def run_cycle(cycle_id: str = "", *, witness: Any | None = None, max_tasks: int 
             continue
         res = run_task(task, t, impl, cycle_id=cycle_id)
         res["cycle_id"] = cycle_id
-        res["enabled"] = res.get("outcome") in ("extended", "recurrence_verified_on_unused_terms")
+        res["enabled"] = res.get("outcome") in ("extended", "new_term_candidate", "recurrence_verified_on_unused_terms")
         _append_log(res)
         done.add(task["fingerprint"])
         apply_result(t, res)

@@ -2350,7 +2350,52 @@
         "unused_verified": 0,
         "label": "bounded evidence, not proof"
       }
+    },
+    {
+      "id": "oeis_A104062_next",
+      "family": "prime_run_count",
+      "kind": "oeis_unknown_term",
+      "statement": "A104062: number of primes p(i), i = 1..20*10^n, whose next three consecutive primes are p+6, p+12, p+18. Published terms stop at n=6; the colony recomputes n=1..6 (must match) and then counts toward n=7 (first 2*10^8 primes, p up to ~4.22*10^9).",
+      "oeis_id": "A104062",
+      "source": "https://oeis.org/A104062",
+      "offsets": [
+        6,
+        12,
+        18
+      ],
+      "index_thresholds": [
+        200,
+        2000,
+        20000,
+        200000,
+        2000000,
+        20000000,
+        200000000
+      ],
+      "known_terms": {
+        "200": 1,
+        "2000": 12,
+        "20000": 64,
+        "200000": 416,
+        "2000000": 2748,
+        "20000000": 19348
+      },
+      "published_record": {
+        "limit": "a(1)..a(6), i.e. the first 2*10^7 primes (p(2*10^7) = 373587883)",
+        "source": "https://oeis.org/A104062 (data 1, 12, 64, 416, 2748, 19348; keyword 'more'; b-file synthesized from the entry only; entry last edited 2024-11-03)",
+        "checked": "2026-10-16"
+      },
+      "beyond_record": true,
+      "start": 2,
+      "window": 30000000,
+      "min_window": 1000000,
+      "max_window": 50000000,
+      "budget_s": 4.0,
+      "status": "open",
+      "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). a(7) is not listed there as of 2026-10-16; a colony value would be a candidate new term only after human re-computation.",
+      "label": "bounded evidence, not proof",
+      "proof": false
     }
   ],
-  "updated_at": "2026-10-16T16:38:21Z"
+  "updated_at": "2026-10-16T16:40:33Z"
 }

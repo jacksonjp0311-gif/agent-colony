@@ -526,6 +526,83 @@ def reverify_oeis_recurrence(terms: list[int], order: int, coeffs: list[str]) ->
     return True
 
 
+# --------------------------------------------------------------------------- OEIS: prime-run counts past the published terms
+
+def _primes_in(a: int, b: int) -> list[int]:
+    """Primes in [a, b] via the segmented sieve (ascending)."""
+    import itertools
+    if b < max(a, 2):
+        return []
+    a = max(a, 2)
+    return list(itertools.compress(range(a, b + 1), segment_sieve(a, b)))
+
+
+def prime_run_scan(lo: int, hi: int, offsets: list[int], prior_pi: int, prior_count: int,
+                   thresholds: list[int]) -> dict[str, Any]:
+    """Walk primes p in [lo, hi] in order. p (the i-th prime) "matches" when the next len(offsets)
+    CONSECUTIVE primes are exactly p + offsets. Returns the running prime index pi, the running
+    match count, and {T: count of matches with index <= T} for every threshold T crossed here."""
+    span = max(offsets)
+    ps = _primes_in(lo, hi + span)
+    k = len(offsets)
+    pi, cnt, hit = int(prior_pi), int(prior_count), {}
+    want = sorted(int(t) for t in thresholds if int(t) > pi)
+    wi = 0
+    for j, p in enumerate(ps):
+        if p > hi:
+            break
+        pi += 1
+        if all(j + m + 1 < len(ps) and ps[j + m + 1] == p + offsets[m] for m in range(k)):
+            cnt += 1
+        while wi < len(want) and pi == want[wi]:
+            hit[str(want[wi])] = {"count": cnt, "prime_at_index": p}
+            wi += 1
+    return {"pi": pi, "count": cnt, "terms_hit": hit}
+
+
+def check_prime_run_count(lo: int, hi: int, deadline: Deadline, *, offsets: list[int], prior_pi: int = 0,
+                          prior_count: int = 0, thresholds: list[int] | None = None) -> dict[str, Any]:
+    data = prime_run_scan(lo, hi, offsets, prior_pi, prior_count, thresholds or [])
+    if deadline.hit():
+        return _result(lo, hi, lo - 1, data=data, deadline=deadline)
+    return _result(lo, hi, hi, data=data, deadline=deadline)
+
+
+def _next_prime_mr(n: int) -> int:
+    n += 1
+    while not is_prime_mr(n):
+        n += 1
+    return n
+
+
+def prime_run_count_mr(a: int, b: int, offsets: list[int]) -> tuple[int, int]:
+    """Independent recount on [a, b] with Miller-Rabin stepping (no sieve): (#primes, #matches)."""
+    npr = cnt = 0
+    n = a
+    while n <= b:
+        if n >= 2 and is_prime_mr(n):
+            npr += 1
+            q, ok = n, True
+            for off in offsets:
+                q = _next_prime_mr(q)
+                if q != n + off:
+                    ok = False
+                    break
+            cnt += ok
+        n += 1
+    return npr, cnt
+
+
+def prime_run_count_sieve(a: int, b: int, offsets: list[int]) -> tuple[int, int]:
+    d = prime_run_scan(a, b, offsets, 0, 0, [])
+    return d["pi"], d["count"]
+
+
+def holds_prime_run_count(n: int) -> bool:
+    """Counting statement: single points are not meaningful; sub-window recounts are used."""
+    return True
+
+
 FAMILIES = {
     "goldbach": (check_goldbach, holds_goldbach),
     "collatz": (check_collatz, holds_collatz),
@@ -533,4 +610,5 @@ FAMILIES = {
     "lehmer_totient": (check_lehmer_totient, holds_lehmer_totient),
     "erdos_straus": (check_erdos_straus, holds_erdos_straus),
     "twin_hl": (check_twin_hl, holds_twin_hl),
+    "prime_run_count": (check_prime_run_count, holds_prime_run_count),
 }

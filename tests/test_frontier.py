@@ -223,3 +223,60 @@ def test_run_cycle_needs_guide_then_runs_and_logs(sandbox):
     # second cycle picks a different (least recently run) target
     out2 = FR.run_cycle("c2")
     assert out2["results"][0]["target"] != out["results"][0]["target"]
+
+
+# ---------------------------------------------------------------- open targets past the published record
+
+def _prt(**kw):
+    t = {"id": "prt", "family": "prime_run_count", "offsets": [6, 12, 18], "start": 2,
+         "index_thresholds": [200, 2000, 20000], "known_terms": {"200": 1, "2000": 12},
+         "window": 300_000, "min_window": 1000, "max_window": 300_000, "budget_s": 5.0, "status": "open",
+         "beyond_record": True, "label": "bounded evidence, not proof", "proof": False}
+    t.update(kw)
+    return t
+
+
+def test_prime_run_scan_reproduces_published_a104062_and_is_window_invariant(impl):
+    T = [20 * 10 ** n for n in range(1, 5)]
+    whole = impl.prime_run_scan(2, 3_000_000, [6, 12, 18], 0, 0, T)
+    assert {k: v["count"] for k, v in whole["terms_hit"].items()} == {"200": 1, "2000": 12, "20000": 64, "200000": 416}
+    a = impl.prime_run_scan(2, 1_234_567, [6, 12, 18], 0, 0, T)
+    b = impl.prime_run_scan(1_234_568, 3_000_000, [6, 12, 18], a["pi"], a["count"], T)
+    assert (b["pi"], b["count"]) == (whole["pi"], whole["count"])
+    assert impl.prime_run_count_sieve(10 ** 6, 10 ** 6 + 5000, [6, 12, 18]) == impl.prime_run_count_mr(10 ** 6, 10 ** 6 + 5000, [6, 12, 18])
+
+
+def test_prime_run_new_term_is_candidate_only_and_published_terms_must_match(sandbox, impl):
+    t = _prt()
+    task, why = FR.make_task(t, done=set())
+    assert task and task["lo"] == 2 and task["label"] == "bounded evidence, not proof"
+    res = FR.run_task(task, t, impl, cycle_id="c1")
+    assert res["outcome"] == "new_term_candidate" and res["proof"] is False
+    assert res["published_reproduced"] == ["200", "2000"] and set(res["new_term_candidates"]) == {"20000"}
+    assert res["new_term_candidates"]["20000"]["count"] == 64
+    FR.apply_result(t, res)
+    assert t["new_term_review"]["20000"]["count"] == 64 and "CANDIDATE" in t["new_term_review"]["20000"]["note"]
+    assert t["status"] == "done"  # past the largest threshold
+    bad = _prt(known_terms={"200": 1, "2000": 13})
+    res2 = FR.run_task(FR.make_task(bad, done=set())[0], bad, impl, cycle_id="c2")
+    assert res2["outcome"] == "disagreement" and res2["verified_hi"] is None
+    FR.apply_result(bad, res2)
+    assert bad["status"] == "disagreement_review"
+
+
+def test_beyond_record_targets_run_first(sandbox):
+    from colony.lessons import mutation_cooldown
+    cat = {"targets": [{"id": "a", "family": "goldbach", "status": "open", "last_run": None},
+                       {"id": "z", "family": "prime_run_count", "status": "open", "last_run": "2026-10-16T00:00:00Z",
+                        "beyond_record": True}]}
+    t, _ = FR.pick_target(cat, mutation_cooldown())
+    assert t["id"] == "z"
+
+
+def test_catalog_open_targets_cite_published_record():
+    cat = json.loads(FR.CATALOG.read_text())
+    for t in cat["targets"]:
+        if t.get("beyond_record"):
+            rec = t.get("published_record") or {}
+            assert rec.get("limit") and str(rec.get("source", "")).startswith("https://oeis.org/")
+            assert t["label"] == "bounded evidence, not proof" and t["proof"] is False

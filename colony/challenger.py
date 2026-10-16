@@ -761,6 +761,13 @@ def _challenge_range(rep: ChallengeReport, task: dict[str, Any], r: dict[str, An
             return
         try:
             with _timer(min(PROBE_TIMEOUT_S * 2, max(0.01, budget.left()))):
+                if fam == "prime_run_count":
+                    offs = [int(x) for x in t.get("offsets") or []]
+                    same = impl.prime_run_count_sieve(a, b, offs) == impl.prime_run_count_mr(a, b, offs)
+                    rep.probes[family] += 1
+                    if not same:
+                        rep.block(f"counterexample_{family}", {"window": [a, b], "detail": "sieve vs MR prime-run count differ"})
+                    return
                 if fam == "twin_hl":
                     same = impl.twin_pairs_in(a, b) == impl.twin_pairs_in_mr(a, b)
                     rep.probes[family] += 1
