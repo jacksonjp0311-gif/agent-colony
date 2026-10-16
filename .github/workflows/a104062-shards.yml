@@ -24,11 +24,13 @@ jobs:
     outputs:
       P: ${{ steps.p.outputs.P }}
     steps:
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq primesieve
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq primecount
       - id: p
+        # primecount's nth prime (combinatorial pi(x)) is seconds; `primesieve -n` at 2e12 takes hours on a runner.
+        # p(N) is re-confirmed independently: both passes must count exactly N primes <= P (and P is prime).
         run: |
-          primesieve --version | head -1
-          P=$(primesieve -n "${{ github.event.inputs.n_primes }}" -q)
+          primecount --version | head -1
+          P=$(primecount --nth-prime "${{ github.event.inputs.n_primes }}")
           echo "p(N)=$P"; echo "P=$P" >> "$GITHUB_OUTPUT"
 
   shard:
