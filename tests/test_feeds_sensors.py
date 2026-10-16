@@ -132,7 +132,11 @@ def test_seek_theme_prefers_related_paper_and_skips_summaries(feeds_tmp):
     F._append(rows)
     for cyc in ("a", "b", "c", "d"):
         assert F.pick_seek_theme(cyc, target="authored_oeis_a000108__catalan_bounded")["id"] == "crossref:10.1/c"
-    assert all(F.pick_seek_theme(c)["kind"] == "paper" for c in ("a", "b", "c", "d"))
+    # No claim → nothing to support → no citation (never a random paper).
+    assert all(F.pick_seek_theme(c) is None for c in ("a", "b", "c", "d"))
+    # A paper sharing only the word, not the object, is not citable ("Graph minors" for a minors-free claim
+    # passes only via the generic object rule; "Catalan" must be "Catalan numbers" etc.).
+    assert F.pick_seek_theme("a", target="authored_cassini__hockey_stick_w1") is None
     assert F._target_tokens("authored_oeis_a000108__catalan_bounded_w1") == {"catalan"}
 
 
@@ -191,8 +195,11 @@ def test_seek_uses_feed_theme_with_cite_and_sensor_order(feeds_tmp, monkeypatch,
     assert pick is not None
     title, hyp, action = pick
     theme = F.pick_seek_theme("cyc1", target=action.split(":", 1)[1])
-    assert theme["kind"] == "paper" and theme["title"][:40] in title
-    assert "Feed cite:" in hyp and theme["url"] in hyp and "not evidence of truth" in hyp
+    if theme is None:  # no fixture paper states this claim's objects → explicit no-cite note
+        assert "Feed cite: none" in hyp and "citing" not in title
+    else:
+        assert theme["kind"] == "paper" and theme["title"][:40] in title and theme["citation_check"]["relevant"]
+        assert "Feed cite:" in hyp and theme["url"] in hyp and "not evidence of truth" in hyp and "Relevance:" in hyp
     first = L.theme_key(action.split(":", 1)[1])
     S.SENSORS_JSON.write_text(json.dumps({"lemma_streaks": {"revert_streaks": [first]}}))
     pick2 = L.seek_proposal_from_guides(cycle_id="cyc1")

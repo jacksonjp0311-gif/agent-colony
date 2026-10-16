@@ -1098,6 +1098,7 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
     theme_title = ""
     theme_url = ""
     feed_cite = ""
+    t0: dict[str, Any] = {}
     try:
         from colony.conjecture_desk import _load_paper_themes
         themes = _load_paper_themes() or []
@@ -1198,10 +1199,23 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
         if ft:
             theme_title = str(ft.get("title") or "")[:90]
             theme_url = str(ft.get("url") or "")[:120]
+            _chk = ft.get("citation_check") or {}
             feed_cite = (f" Feed cite: {ft.get('source')} `{ft.get('id')}` <{theme_url}> "
-                         f"fetched {ft.get('fetched_at')} (external pointer, not evidence of truth).")
+                         f"fetched {ft.get('fetched_at')} (external pointer, not evidence of truth). "
+                         f"Relevance: {str(_chk.get('reason') or 'unchecked')[:160]}.")
+        else:
+            # Legacy paper theme (papers.jsonl) is cited only if it passes the same relevance check.
+            from colony.citations import assess_paper
+            _chk = assess_paper(mut, t0) if t0 else {"relevant": False, "reason": "no paper theme"}
+            if not _chk["relevant"]:
+                theme_title, theme_url = "", ""
+                feed_cite = (" Feed cite: none — no recent feed paper states this claim's key objects "
+                             "(relevance check), so nothing is cited.")
+            else:
+                feed_cite = f" Paper theme relevance: {_chk['reason'][:160]}."
     except Exception:
         feed_cite = ""
+        theme_title, theme_url = "", ""  # fail closed: an unchecked theme is never cited
     cooled = blocked_themes()
     title = f"Seek+enable `{mut}` from papers/lessons"
     if theme_title:

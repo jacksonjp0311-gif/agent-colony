@@ -1,0 +1,703 @@
+{
+ "summary": {
+  "n_targets": 68,
+  "before_cited": 68,
+  "before_relevant": 14,
+  "before_share_relevant": 0.212,
+  "after_cited": 56,
+  "after_relevant": 55,
+  "after_share_relevant": 1.0,
+  "after_uncited": 12,
+  "unlabelled": 2,
+  "checker_vs_labels": {
+   "tp": 64,
+   "fp": 0,
+   "fn": 3,
+   "tn": 52,
+   "precision": 1.0,
+   "recall": 0.955
+  }
+ },
+ "rows": [
+  {
+   "target": "authored_binomial_sum_row__catalan_bounded_w1",
+   "before": "wikipedia:odds",
+   "before_title": "Odds",
+   "before_label": 0,
+   "after": "crossref:10.1016/j.ejc.2025.104283",
+   "after_title": "An identity relating Catalan numbers to tangent numbers with arithmetic applications",
+   "after_reason": "source names the claim's object(s): catalan_bounded:Catalan numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_oeis_a000108__catalan_bounded",
+   "before": "wikipedia:odds",
+   "before_title": "Odds",
+   "before_label": 0,
+   "after": "crossref:10.1007/s00026-026-00819-9",
+   "after_title": "Lattice Points and Rational q-Catalan Numbers",
+   "after_reason": "source names the claim's object(s): catalan_bounded:q-Catalan Numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_oeis_a000045__cassini",
+   "before": "crossref:10.1007/s00373-025-03000-w",
+   "before_title": "Square-free Word-representation of Word-representable Graphs",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_binomial_symmetry__catalan_convolution_w1",
+   "before": "arxiv:2610.08708",
+   "before_title": "Optimal bound for the polynomial Littlewood-Offord problem",
+   "before_label": 0,
+   "after": "crossref:10.19184/ijc.2025.9.2.5",
+   "after_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "after_reason": "source names the claim's object(s): binomial_symmetry:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_central_binom_bound__derangement_subfactorial_w1",
+   "before": "arxiv:2610.08708",
+   "before_title": "Optimal bound for the polynomial Littlewood-Offord problem",
+   "before_label": 0,
+   "after": "crossref:10.1007/s10801-026-01558-z",
+   "after_title": "Factors of a kind of alternating sums of products of q-binomial coefficients",
+   "after_reason": "source names the claim's object(s): central_binom_bound:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_euler_totient_multiplicative__hermite_recurrence_w1",
+   "before": "arxiv:2610.08633",
+   "before_title": "Local newforms, Pa\u0161k\u016bnas-Stevens Whittaker functions, and explicit test vectors for $\\mathrm{GL}(n)\\times \\mathrm{GL}(n)$",
+   "before_label": 0,
+   "after": "crossref:10.1214/26-ps37",
+   "after_title": "A Gaussian integral formula for the Hermite polynomials: Combinatorics, asymptotics and applications",
+   "after_reason": "source names the claim's object(s): hermite_recurrence:Hermite polynomials",
+   "after_label": 1
+  },
+  {
+   "target": "authored_fibonacci_addition__gcd_fibonacci_w1",
+   "before": "arxiv:2610.08707",
+   "before_title": "Random independent sets in uncrowded hypergraphs",
+   "before_label": 0,
+   "after": "crossref:10.65737/airmcs2026211",
+   "after_title": "GCD-Augmented Fibonacci Sequences: Closed Forms for Generalized Seeds",
+   "after_reason": "source names the claim's object(s): fibonacci_addition:Fibonacci; gcd_fibonacci:GCD",
+   "after_label": 1
+  },
+  {
+   "target": "stem_easy_pad_units",
+   "before": "arxiv:2610.08708",
+   "before_title": "Optimal bound for the polynomial Littlewood-Offord problem",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_geometric_sum__hockey_stick_w1",
+   "before": "arxiv:2610.08753",
+   "before_title": "New algebraic points on covers of elliptic curves",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "stem_easy_pad_units",
+   "before": "arxiv:2610.08636",
+   "before_title": "New integer sequence OEIS A392714 counts Wronskians: fast evaluation via late-growing permutations",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_motzkin_bounded__legendre_duplication_small_w1",
+   "before": "crossref:10.1080/00255572.2026.2652922",
+   "before_title": "Sum and square-sum of consecutive pentagonal numbers: proof via Cauchy integral formula for general derivatives",
+   "before_label": 0,
+   "after": "crossref:10.4310/joc.260511231044",
+   "after_title": "Enumeration of interval-closed sets via Motzkin paths and quarter-plane walks",
+   "after_reason": "source names the claim's object(s): motzkin_bounded:Motzkin",
+   "after_label": 1
+  },
+  {
+   "target": "authored_pascal_identity__narayana_sum_w1",
+   "before": "arxiv:2610.08706",
+   "before_title": "On the maximum degree and order of $K_t$-minor-free graphs with positive Lin--Lu--Yau curvature",
+   "before_label": 0,
+   "after": "crossref:10.37236/14995",
+   "after_title": "Hankel Determinants for Convolution Powers of Narayana Polynomials",
+   "after_reason": "source names the claim's object(s): narayana_sum:Narayana",
+   "after_label": 1
+  },
+  {
+   "target": "authored_oeis_a000984__central_binom_bound",
+   "before": "arxiv:2610.10424",
+   "before_title": "A counting version of Petersen's $2$-factor theorem",
+   "before_label": 0,
+   "after": "crossref:10.54254/3029-0880/2026.35799",
+   "after_title": "The fundamental role of generating functions for generalized binomial coefficients in combinatorics",
+   "after_reason": "source names the claim's object(s): central_binom_bound:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_pell_companion__pythagorean_generation_w1",
+   "before": "arxiv:2610.08753",
+   "before_title": "New algebraic points on covers of elliptic curves",
+   "before_label": 0,
+   "after": "crossref:10.65737/airmcs2026571",
+   "after_title": "Cofactor Dynamics and Pell Equations in GCD-Augmented Fibonacci Recurrences: The Algebraic Structure of Geometric Stabilization",
+   "after_reason": "source names the claim's object(s): pell_companion:Pell Equations",
+   "after_label": 1
+  },
+  {
+   "target": "authored_sum_first_n_cubes__stirling_second_row_w1",
+   "before": "arxiv:2610.10452",
+   "before_title": "$p$-class groups in the cyclotomic $\\mathbb{Z}_p$-extension of imaginary quadratic fields",
+   "before_label": 0,
+   "after": "crossref:10.54550/eca2027v7s1r1",
+   "after_title": "On two families of generalized Stirling numbers representable by Bell polynomials",
+   "after_reason": "source names the claim's object(s): stirling_second_row:Stirling numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_sum_first_n_odds__vandermonde_conv_w1",
+   "before": "arxiv:2610.08633",
+   "before_title": "Local newforms, Pa\u0161k\u016bnas-Stevens Whittaker functions, and explicit test vectors for $\\mathrm{GL}(n)\\times \\mathrm{GL}(n)$",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_bell_triangle_recurrence__hermite_recurrence_w1",
+   "before": "crossref:10.1016/j.ejc.2025.104242",
+   "before_title": "Polynomial expressions for the dimensions of the representations of symmetric groups and restricted standard Young tableaux",
+   "before_label": 0,
+   "after": "crossref:10.54550/eca2027v7s1r1",
+   "after_title": "On two families of generalized Stirling numbers representable by Bell polynomials",
+   "after_reason": "source names the claim's object(s): bell_triangle_recurrence:Bell polynomials",
+   "after_label": 1
+  },
+  {
+   "target": "authored_binomial_inversion_small__legendre_duplication_small_w1",
+   "before": "arxiv:2610.10433",
+   "before_title": "The replica symmetric solution for hypergraph independent sets in the critical regime",
+   "before_label": 0,
+   "after": "crossref:10.1007/s10801-026-01558-z",
+   "after_title": "Factors of a kind of alternating sums of products of q-binomial coefficients",
+   "after_reason": "source names the claim's object(s): binomial_inversion_small:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_oeis_a000079__binomial_sum_row",
+   "before": "arxiv:2610.10433",
+   "before_title": "The replica symmetric solution for hypergraph independent sets in the critical regime",
+   "before_label": 0,
+   "after": "crossref:10.61091/ojac21-04",
+   "after_title": "Inverse binomial coefficients in Egorychev method",
+   "after_reason": "source names the claim's object(s): binomial_sum_row:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_binomial_symmetry__cassini_w1",
+   "before": "arxiv:2610.10433",
+   "before_title": "The replica symmetric solution for hypergraph independent sets in the critical regime",
+   "before_label": 0,
+   "after": "crossref:10.19184/ijc.2025.9.2.5",
+   "after_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "after_reason": "source names the claim's object(s): binomial_symmetry:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_catalan_convolution__derangement_subfactorial_w1",
+   "before": "crossref:10.37236/14995",
+   "before_title": "Hankel Determinants for Convolution Powers of Narayana Polynomials",
+   "before_label": 1,
+   "after": "crossref:10.1007/s00026-026-00819-9",
+   "after_title": "Lattice Points and Rational q-Catalan Numbers",
+   "after_reason": "source names the claim's object(s): catalan_convolution:q-Catalan Numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_fibonacci_addition__euler_totient_multiplicative_w1",
+   "before": "arxiv:2610.12291",
+   "before_title": "Two Primes and Five Mixed Fibonacci-Lucas Summands",
+   "before_label": 1,
+   "after": "crossref:10.62072/acm.2026.09011",
+   "after_title": "(a, b)-Fibonacci\u2013Legendre Cordial Graphs and k-Pisano\u2013Legendre Primes",
+   "after_reason": "source names the claim's object(s): fibonacci_addition:Fibonacci",
+   "after_label": 1
+  },
+  {
+   "target": "authored_gcd_fibonacci__motzkin_bounded_w1",
+   "before": "arxiv:2610.12291",
+   "before_title": "Two Primes and Five Mixed Fibonacci-Lucas Summands",
+   "before_label": 1,
+   "after": "crossref:10.65737/airmcs2026571",
+   "after_title": "Cofactor Dynamics and Pell Equations in GCD-Augmented Fibonacci Recurrences: The Algebraic Structure of Geometric Stabilization",
+   "after_reason": "source names the claim's object(s): gcd_fibonacci:GCD",
+   "after_label": 1
+  },
+  {
+   "target": "authored_geometric_sum__narayana_sum_w1",
+   "before": "arxiv:2610.12344",
+   "before_title": "Geometrically Abelian Sections on Higher-Dimensional Varieties",
+   "before_label": 0,
+   "after": "crossref:10.37236/14995",
+   "after_title": "Hankel Determinants for Convolution Powers of Narayana Polynomials",
+   "after_reason": "source names the claim's object(s): narayana_sum:Narayana",
+   "after_label": 1
+  },
+  {
+   "target": "authored_hockey_stick__pell_companion_w1",
+   "before": "crossref:10.9734/aorj/2026/v9i1135",
+   "before_title": "Assessment of the Outcomes of a Modified Version of the Reverse Hockey Stick Incision (mRHSI): A single Institutional Ambispective Longitudinal Study",
+   "before_label": 0,
+   "after": "crossref:10.65737/airmcs2026571",
+   "after_title": "Cofactor Dynamics and Pell Equations in GCD-Augmented Fibonacci Recurrences: The Algebraic Structure of Geometric Stabilization",
+   "after_reason": "source names the claim's object(s): pell_companion:Pell Equations",
+   "after_label": 1
+  },
+  {
+   "target": "authored_pascal_identity__pythagorean_generation_w1",
+   "before": "arxiv:2610.12344",
+   "before_title": "Geometrically Abelian Sections on Higher-Dimensional Varieties",
+   "before_label": 0,
+   "after": "crossref:10.24297/jam.v24i.9832",
+   "after_title": "Metallic Means in Primitive Pythagorean Triples : Metallic Ratios substantiated in Pythagorean Triangles and other Right Angled Triangles",
+   "after_reason": "source names the claim's object(s): pythagorean_generation:Pythagorean Triples",
+   "after_label": 1
+  },
+  {
+   "target": "authored_sum_first_n_cubes__vandermonde_conv_w1",
+   "before": "arxiv:2610.10527",
+   "before_title": "Decentralized SGD under Heavy-Tailed Noise: Optimal Convergence Rates and the Role of Gradient Clipping",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_sum_first_n_odds__stirling_second_row_w1",
+   "before": "crossref:10.65520/erciyesfen.1968098",
+   "before_title": "An (\u03b5, \u03b4)-Differential Privacy Analysis of Adaptive Noise Calibration via Hockey-Stick Divergence",
+   "before_label": 0,
+   "after": "crossref:10.19184/ijc.2025.9.2.5",
+   "after_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "after_reason": "source names the claim's object(s): stirling_second_row:Stirling numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
+   "before": "crossref:10.1097/01.tp.0001253556.57319.5f",
+   "before_title": "P2.388: Minimal skin incision versus conventional hockey stick incision in kidney transplantation: A pilot randomized controlled trial.",
+   "before_label": 0,
+   "after": "crossref:10.19184/ijc.2025.9.2.5",
+   "after_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "after_reason": "source names the claim's object(s): bell_triangle_recurrence:Bell numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_binomial_sum_row__binomial_inversion_small_w1",
+   "before": "crossref:10.19184/ijc.2025.9.2.5",
+   "before_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "before_label": 1,
+   "after": "crossref:10.54254/3029-0880/2026.35799",
+   "after_title": "The fundamental role of generating functions for generalized binomial coefficients in combinatorics",
+   "after_reason": "source names the claim's object(s): binomial_sum_row:binomial coefficients; binomial_inversion_small:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_binomial_symmetry__catalan_bounded_w1",
+   "before": "arxiv:2610.12449",
+   "before_title": "Bi-FORK: Generative Modeling of High-Dimensional Bifurcating Systems",
+   "before_label": 0,
+   "after": "crossref:10.1007/s00026-026-00819-9",
+   "after_title": "Lattice Points and Rational q-Catalan Numbers",
+   "after_reason": "source names the claim's object(s): catalan_bounded:q-Catalan Numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_cassini__catalan_convolution_w1",
+   "before": "crossref:10.1051/0004-6361/202348044",
+   "before_title": "Seasonal variation of the main gases in Titan's ionosphere from Cassini INMS data",
+   "before_label": 0,
+   "after": "crossref:10.1007/s00026-026-00819-9",
+   "after_title": "Lattice Points and Rational q-Catalan Numbers",
+   "after_reason": "source names the claim's object(s): catalan_convolution:q-Catalan Numbers",
+   "after_label": 1
+  },
+  {
+   "target": "lemma_hard_combinatorics",
+   "before": "crossref:10.54550/eca2027v7s1r1",
+   "before_title": "On two families of generalized Stirling numbers representable by Bell polynomials",
+   "before_label": 1,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_central_binom_bound__euler_totient_multiplicative_w1",
+   "before": "crossref:10.54550/eca2026v6s4r27",
+   "before_title": "Central trinomial numbers, Motzkin trees, and the Riordan group",
+   "before_label": 0,
+   "after": "crossref:10.1007/s10801-026-01558-z",
+   "after_title": "Factors of a kind of alternating sums of products of q-binomial coefficients",
+   "after_reason": "source names the claim's object(s): central_binom_bound:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_derangement_subfactorial__hermite_recurrence_w1",
+   "before": "arxiv:2610.12448",
+   "before_title": "One Block, Multiple Depths: Recurrent Vision Transformers with Depth-Programmed Experts",
+   "before_label": 0,
+   "after": "crossref:10.1214/26-ps37",
+   "after_title": "A Gaussian integral formula for the Hermite polynomials: Combinatorics, asymptotics and applications",
+   "after_reason": "source names the claim's object(s): hermite_recurrence:Hermite polynomials",
+   "after_label": 1
+  },
+  {
+   "target": "authored_fibonacci_addition__motzkin_bounded_w1",
+   "before": "crossref:10.4310/joc.260511231044",
+   "before_title": "Enumeration of interval-closed sets via Motzkin paths and quarter-plane walks",
+   "before_label": 1,
+   "after": "crossref:10.46298/dmtcs.16955",
+   "after_title": "Balanced Fibonacci word rectangles, and beyond",
+   "after_reason": "source names the claim's object(s): fibonacci_addition:Fibonacci",
+   "after_label": 1
+  },
+  {
+   "target": "authored_gcd_fibonacci__narayana_sum_w1",
+   "before": "crossref:10.46298/dmtcs.16955",
+   "before_title": "Balanced Fibonacci word rectangles, and beyond",
+   "before_label": 1,
+   "after": "arxiv:2610.12291",
+   "after_title": "Two Primes and Five Mixed Fibonacci-Lucas Summands",
+   "after_reason": "source names the claim's object(s): gcd_fibonacci:Fibonacci",
+   "after_label": 1
+  },
+  {
+   "target": "authored_geometric_sum__pell_companion_w1",
+   "before": "crossref:10.65737/airmcs2026571",
+   "before_title": "Cofactor Dynamics and Pell Equations in GCD-Augmented Fibonacci Recurrences: The Algebraic Structure of Geometric Stabilization",
+   "before_label": 1,
+   "after": "crossref:10.65737/airmcs2026571",
+   "after_title": "Cofactor Dynamics and Pell Equations in GCD-Augmented Fibonacci Recurrences: The Algebraic Structure of Geometric Stabilization",
+   "after_reason": "source names the claim's object(s): pell_companion:Pell Equations",
+   "after_label": 1
+  },
+  {
+   "target": "authored_hockey_stick__pythagorean_generation_w1",
+   "before": "crossref:10.5269/bspm.77007",
+   "before_title": "Pythagorean Fuzzy Topological Polygroups",
+   "before_label": 0,
+   "after": "crossref:10.24297/jam.v24i.9832",
+   "after_title": "Metallic Means in Primitive Pythagorean Triples : Metallic Ratios substantiated in Pythagorean Triangles and other Right Angled Triangles",
+   "after_reason": "source names the claim's object(s): pythagorean_generation:Pythagorean Triples",
+   "after_label": 1
+  },
+  {
+   "target": "authored_pascal_identity__stirling_second_row_w1",
+   "before": "crossref:10.1016/j.disc.2025.114876",
+   "before_title": "Combinatorics of q,r-analogues of Stirling numbers of type B",
+   "before_label": 1,
+   "after": "crossref:10.1016/j.disc.2025.114876",
+   "after_title": "Combinatorics of q,r-analogues of Stirling numbers of type B",
+   "after_reason": "source names the claim's object(s): stirling_second_row:Stirling numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+   "before": "crossref:10.19184/ijc.2025.9.2.5",
+   "before_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_binomial_symmetry__vandermonde_conv_w1",
+   "before": "crossref:10.3828/catr.40.1",
+   "before_title": "\u201c LES VOSTRES CATALONIAN GIRLS PREFERIDES \u201d: NATIONAL IDENTITY AND FEMINIST KNOWLEDGE PRODUCTION IN CATALAN PODCASTING",
+   "before_label": 0,
+   "after": "crossref:10.1007/s10801-026-01558-z",
+   "after_title": "Factors of a kind of alternating sums of products of q-binomial coefficients",
+   "after_reason": "source names the claim's object(s): binomial_symmetry:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+   "before": "crossref:10.1016/j.ejc.2026.104411",
+   "before_title": "Partitioning triangle-free planar graphs into a forest and a linear forest",
+   "before_label": 0,
+   "after": "crossref:10.19184/ijc.2025.9.2.5",
+   "after_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "after_reason": "source names the claim's object(s): binomial_sum_row:binomial coefficients; bell_triangle_recurrence:Bell numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_cassini__binomial_inversion_small_w1",
+   "before": "arxiv:2610.13919",
+   "before_title": "An Infinite Family of Ap\u00e9ry-like Recurrences for Euler's Constant",
+   "before_label": 0,
+   "after": "crossref:10.1007/s10801-026-01558-z",
+   "after_title": "Factors of a kind of alternating sums of products of q-binomial coefficients",
+   "after_reason": "source names the claim's object(s): binomial_inversion_small:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_catalan_bounded__catalan_convolution_w1",
+   "before": "crossref:10.1007/s00026-026-00819-9",
+   "before_title": "Lattice Points and Rational q-Catalan Numbers",
+   "before_label": 1,
+   "after": "crossref:10.1016/j.ejc.2025.104283",
+   "after_title": "An identity relating Catalan numbers to tangent numbers with arithmetic applications",
+   "after_reason": "source names the claim's object(s): catalan_bounded:Catalan numbers; catalan_convolution:Catalan numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_central_binom_bound__gcd_fibonacci_w1",
+   "before": "crossref:10.61091/ojac21-04",
+   "before_title": "Inverse binomial coefficients in Egorychev method",
+   "before_label": 1,
+   "after": "crossref:10.19184/ijc.2025.9.2.5",
+   "after_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "after_reason": "source names the claim's object(s): central_binom_bound:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_derangement_subfactorial__euler_totient_multiplicative_w1",
+   "before": "arxiv:2610.13919",
+   "before_title": "An Infinite Family of Ap\u00e9ry-like Recurrences for Euler's Constant",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_fibonacci_addition__hermite_recurrence_w1",
+   "before": "crossref:10.62072/acm.2026.09011",
+   "before_title": "(a, b)-Fibonacci\u2013Legendre Cordial Graphs and k-Pisano\u2013Legendre Primes",
+   "before_label": 1,
+   "after": "arxiv:2610.12291",
+   "after_title": "Two Primes and Five Mixed Fibonacci-Lucas Summands",
+   "after_reason": "source names the claim's object(s): fibonacci_addition:Fibonacci",
+   "after_label": 1
+  },
+  {
+   "target": "authored_geometric_sum__legendre_duplication_small_w1",
+   "before": "arxiv:2610.13939",
+   "before_title": "The Tate Conjecture for Ordinary Calabi-Yau Threefolds",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_hockey_stick__motzkin_bounded_w1",
+   "before": "crossref:10.61091/ojac21-04",
+   "before_title": "Inverse binomial coefficients in Egorychev method",
+   "before_label": 1,
+   "after": "crossref:10.54550/eca2026v6s4r27",
+   "after_title": "Central trinomial numbers, Motzkin trees, and the Riordan group",
+   "after_reason": "source names the claim's object(s): motzkin_bounded:Motzkin",
+   "after_label": 1
+  },
+  {
+   "target": "authored_pascal_identity__pell_companion_w1",
+   "before": "arxiv:2610.18871",
+   "before_title": "Cepheid: Decoupling Scale from Structure for Cross-Family Motion Completion",
+   "before_label": 0,
+   "after": "crossref:10.65737/airmcs2026571",
+   "after_title": "Cofactor Dynamics and Pell Equations in GCD-Augmented Fibonacci Recurrences: The Algebraic Structure of Geometric Stabilization",
+   "after_reason": "source names the claim's object(s): pell_companion:Pell Equations",
+   "after_label": 1
+  },
+  {
+   "target": "authored_pythagorean_generation__narayana_sum_w1",
+   "before": "crossref:10.1177/07311214261471895",
+   "before_title": "When Representation Becomes Responsibility: How Identity Alignment in Teaching Increases Faculty Workload",
+   "before_label": 0,
+   "after": "crossref:10.37236/14995",
+   "after_title": "Hankel Determinants for Convolution Powers of Narayana Polynomials",
+   "after_reason": "source names the claim's object(s): narayana_sum:Narayana",
+   "after_label": 1
+  },
+  {
+   "target": "authored_vandermonde_conv__stirling_second_row_w1",
+   "before": "crossref:10.4171/em/570",
+   "before_title": "Confluent Vandermonde matrix and related topics",
+   "before_label": 0,
+   "after": "crossref:10.1016/j.disc.2025.114876",
+   "after_title": "Combinatorics of q,r-analogues of Stirling numbers of type B",
+   "after_reason": "source names the claim's object(s): stirling_second_row:Stirling numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_binomial_symmetry__sum_first_n_cubes_w1",
+   "before": "arxiv:2610.18538",
+   "before_title": "On Symmetry for Characterizing Agent Heterogeneity in Multi-Agent Systems",
+   "before_label": 0,
+   "after": "crossref:10.1007/s10801-026-01558-z",
+   "after_title": "Factors of a kind of alternating sums of products of q-binomial coefficients",
+   "after_reason": "source names the claim's object(s): binomial_symmetry:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
+   "before": "arxiv:2610.18657",
+   "before_title": "Multidimensional Szemer\u00e9di Theorem for Pairwise Independent Jointly Intersective Polynomials",
+   "before_label": 0,
+   "after": "crossref:10.19184/ijc.2025.9.2.5",
+   "after_title": "Sum rules for permutations with fixed points involving Stirling numbers of the first kind",
+   "after_reason": "source names the claim's object(s): bell_triangle_recurrence:Bell numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_binomial_sum_row__catalan_convolution_w1",
+   "before": "crossref:10.1007/s10801-026-01520-z",
+   "before_title": "Classification of unmixed parity binomial edge ideals of cactus and chordal graphs",
+   "before_label": 0,
+   "after": "crossref:10.54254/3029-0880/2026.35799",
+   "after_title": "The fundamental role of generating functions for generalized binomial coefficients in combinatorics",
+   "after_reason": "source names the claim's object(s): binomial_sum_row:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_cassini__catalan_bounded_w1",
+   "before": "arxiv:2610.20597",
+   "before_title": "Co-Evolving Acting and Forecasting for Language Agents",
+   "before_label": 0,
+   "after": "crossref:10.1016/j.ejc.2025.104283",
+   "after_title": "An identity relating Catalan numbers to tangent numbers with arithmetic applications",
+   "after_reason": "source names the claim's object(s): catalan_bounded:Catalan numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_central_binom_bound__binomial_inversion_small_w1",
+   "before": "crossref:10.1007/s10801-026-01520-z",
+   "before_title": "Classification of unmixed parity binomial edge ideals of cactus and chordal graphs",
+   "before_label": 0,
+   "after": "crossref:10.61091/ojac21-04",
+   "after_title": "Inverse binomial coefficients in Egorychev method",
+   "after_reason": "source names the claim's object(s): central_binom_bound:binomial coefficients; binomial_inversion_small:binomial coefficients",
+   "after_label": 1
+  },
+  {
+   "target": "authored_derangement_subfactorial__legendre_duplication_small_w1",
+   "before": "arxiv:2610.20577",
+   "before_title": "Decay-Ramsey Sequences",
+   "before_label": 0,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_fibonacci_addition__narayana_sum_w1",
+   "before": "crossref:10.4310/joc.260210032224",
+   "before_title": "Computing the $q$-multiplicity of the positive roots of $\\mathfrak{s l}_{r+1}(\\mathbb{C})$ and products of Fibonacci numbers",
+   "before_label": 1,
+   "after": "arxiv:2610.12291",
+   "after_title": "Two Primes and Five Mixed Fibonacci-Lucas Summands",
+   "after_reason": "source names the claim's object(s): fibonacci_addition:Fibonacci",
+   "after_label": 1
+  },
+  {
+   "target": "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
+   "before": "arxiv:2610.20545",
+   "before_title": "The $k$-color poset Ramsey number of the diamond is $2k$",
+   "before_label": 0,
+   "after": "crossref:10.62072/acm.2026.09011",
+   "after_title": "(a, b)-Fibonacci\u2013Legendre Cordial Graphs and k-Pisano\u2013Legendre Primes",
+   "after_reason": "source names the claim's object(s): gcd_fibonacci:Fibonacci",
+   "after_label": 1
+  },
+  {
+   "target": "authored_geometric_sum__hermite_recurrence_w1",
+   "before": "crossref:10.1007/s10801-026-01515-w",
+   "before_title": "Cyclic relative difference sets and circulant weighing matrices",
+   "before_label": 0,
+   "after": "crossref:10.1214/26-ps37",
+   "after_title": "A Gaussian integral formula for the Hermite polynomials: Combinatorics, asymptotics and applications",
+   "after_reason": "source names the claim's object(s): hermite_recurrence:Hermite polynomials",
+   "after_label": 1
+  },
+  {
+   "target": "authored_hockey_stick__stirling_second_row_w1",
+   "before": "arxiv:2610.20277",
+   "before_title": "TANGO: RNA Topology and Geometry Co-Design",
+   "before_label": 0,
+   "after": "crossref:10.54550/eca2027v7s1r1",
+   "after_title": "On two families of generalized Stirling numbers representable by Bell polynomials",
+   "after_reason": "source names the claim's object(s): stirling_second_row:Stirling numbers",
+   "after_label": 1
+  },
+  {
+   "target": "authored_pascal_identity__motzkin_bounded_w1",
+   "before": "crossref:10.4171/aihpd/231",
+   "before_title": "Symmetry of meromorphic differentials produced by involution identity and relation to integer partitions",
+   "before_label": 0,
+   "after": "crossref:10.54550/eca2026v6s4r27",
+   "after_title": "Central trinomial numbers, Motzkin trees, and the Riordan group",
+   "after_reason": "source names the claim's object(s): motzkin_bounded:Motzkin",
+   "after_label": 1
+  },
+  {
+   "target": "authored_sum_first_n_cubes__pell_companion_w1",
+   "before": "arxiv:2610.22241",
+   "before_title": "Geometric Graph Representations via Compact SAT Encodings",
+   "before_label": 0,
+   "after": "crossref:10.65737/airmcs2026571",
+   "after_title": "Cofactor Dynamics and Pell Equations in GCD-Augmented Fibonacci Recurrences: The Algebraic Structure of Geometric Stabilization",
+   "after_reason": "source names the claim's object(s): pell_companion:Pell Equations",
+   "after_label": 1
+  },
+  {
+   "target": "authored_sum_first_n_odds__pythagorean_generation_w1",
+   "before": "arxiv:2610.22353",
+   "before_title": "Rethinking Routing Exploration in Modern Mixture-of-Experts",
+   "before_label": 0,
+   "after": "crossref:10.24297/jam.v24i.9832",
+   "after_title": "Metallic Means in Primitive Pythagorean Triples : Metallic Ratios substantiated in Pythagorean Triangles and other Right Angled Triangles",
+   "after_reason": "source names the claim's object(s): pythagorean_generation:Pythagorean Triples",
+   "after_label": 1
+  },
+  {
+   "target": "authored_geometric_sum__vandermonde_conv_w1",
+   "before": "arxiv:2610.22241",
+   "before_title": "Geometric Graph Representations via Compact SAT Encodings",
+   "before_label": null,
+   "after": null,
+   "after_title": null,
+   "after_reason": "no feed paper states the claim's key objects",
+   "after_label": null
+  },
+  {
+   "target": "authored_binomial_sum_row__central_binom_bound_w1",
+   "before": "arxiv:2610.22322",
+   "before_title": "Learning Self-Orchestration in Decentralized Agent Swarms",
+   "before_label": null,
+   "after": "crossref:10.54254/3029-0880/2026.35799",
+   "after_title": "The fundamental role of generating functions for generalized binomial coefficients in combinatorics",
+   "after_reason": "source names the claim's object(s): binomial_sum_row:binomial coefficients; central_binom_bound:binomial coefficients",
+   "after_label": null
+  }
+ ]
+}

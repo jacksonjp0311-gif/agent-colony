@@ -615,7 +615,7 @@ _TARGET_STOP = {"authored", "oeis", "bounded", "small", "stress", "deep", "check
                 "derived", "identity", "recurrence", "row", "ext", "asymmetric"}
 
 
-def _target_tokens(target: str) -> set[str]:
+def _target_tokens(target: str) -> set[str]:  # legacy keyword overlap (kept for reference/tests)
     toks = set()
     for w in re.split(r"[^a-z0-9]+", (target or "").lower()):
         if len(w) >= 4 and w not in _TARGET_STOP and not re.fullmatch(r"a\d{6}|w\d+|\d+", w):
@@ -623,27 +623,31 @@ def _target_tokens(target: str) -> set[str]:
     return toks
 
 
-def pick_seek_theme(cycle_id: str = "", *, target: str = "", window: int = 24) -> dict[str, Any] | None:
-    """A recent feed PAPER (arXiv / Crossref) as the seek theme. Pointer only.
+def pick_seek_theme(cycle_id: str = "", *, target: str = "", window: int = 120) -> dict[str, Any] | None:
+    """A recent feed PAPER (arXiv / Crossref) that actually supports the target claim, or None.
 
-    Papers whose title/abstract share words with the target (e.g. "catalan") rank first;
-    ties rotate by cycle. Encyclopedia summaries are textbook context, not research themes —
-    they stay on the history channel and are never used as a seek theme.
+    Every candidate paper goes through :func:`colony.citations.assess_paper`: it is citable only
+    if its title/abstract states one of the claim's key mathematical objects (e.g. "Pell
+    equation", "Stirling numbers"), not merely a shared word. Among relevant papers the one
+    covering the most claim components wins; ties rotate by cycle. The check result is attached
+    as ``citation_check`` (relevant + reason). No relevant paper → None (no citation), never a
+    random fallback. Encyclopedia summaries are never seek themes.
     """
+    from colony.citations import assess_paper
     items = [e for e in load_items(limit=400) if e.get("kind") == "paper" and e.get("title")]
     items.sort(key=lambda e: str(e.get("fetched_at") or ""))
     items = items[-window:]
-    if not items:
+    if not items or not target:
         return None
-    toks = _target_tokens(target)
-    if toks:
-        def _score(e: dict[str, Any]) -> int:
-            blob = f"{e.get('title', '')} {e.get('text', '')}".lower()
-            return sum(1 for t in toks if t in blob)
-        best = max(_score(e) for e in items)
-        if best > 0:
-            items = [e for e in items if _score(e) == best]
-    return _pick(items, cycle_id)
+    judged = []
+    for e in items:
+        chk = assess_paper(target, e)
+        if chk["relevant"]:
+            judged.append((len(chk["matched"]), {**e, "citation_check": chk}))
+    if not judged:
+        return None
+    best = max(n for n, _ in judged)
+    return _pick([e for n, e in judged if n == best], cycle_id)
 
 
 def channel_item(channel: str, cycle_id: str = "", *, window: int = 8) -> dict[str, Any] | None:

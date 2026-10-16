@@ -252,6 +252,19 @@ def oeis_candidates(src: str, comps: list[dict[str, Any]]) -> list[dict[str, Any
         comp = next((by_fn[f] for f in gen["lemma_fns"] if f in by_fn), None)
         if comp is None:
             continue
+        # Real citation: the OEIS entry must reproduce the colony's generator on the queried run
+        # (recomputed now, not trusted from the cache); reason recorded with the check.
+        try:
+            from colony.citations import assess_oeis
+            from colony.feeds import generator_terms
+            qt = [int(t) for t in (it.get("query_terms") or [])]
+            qs = int(it.get("query_start") or 1)
+            chk = assess_oeis("", {"oeis_id": it["oeis_id"], "terms": qt},
+                              claim_terms=generator_terms(gen, qs, len(qt)) if qt else None)
+        except Exception:
+            chk = {"relevant": False, "reason": "relevance check failed"}
+        if not chk.get("relevant"):
+            continue
         anum = str(it["oeis_id"]).lower()
         feed_id = f"oeis:{it['oeis_id']}:{gen['name']}"  # rebuilt from validated parts only
         fetched = str(it.get("fetched_at") or "")
@@ -282,7 +295,9 @@ def oeis_candidates(src: str, comps: list[dict[str, Any]]) -> list[dict[str, Any
             "components": [comp], "verify_fns": [comp["function"], *gen["base_fns"]],
             "evidence": [f"oeis:{it['oeis_id']}", f"https://oeis.org/{it['oeis_id']}", f"feed:{feed_id}"],
             "what": (f"authored disabled feed cross-check `{name}`: OEIS {it['oeis_id']} held-out terms vs "
-                     f"`{gen['name']}` + proven lemma {comp['lemma']} on a new window; awaits Oracle via proposal"),
+                     f"`{gen['name']}` + proven lemma {comp['lemma']} on a new window; awaits Oracle via proposal. "
+                     f"Citation relevance: {chk['reason']}"),
+            "citation_check": chk,
             "source": "oeis",
         })
     return out
