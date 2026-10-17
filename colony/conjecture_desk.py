@@ -545,6 +545,20 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     if rose and oracle_passed and not promotion["eligible"]:
         rose = False
         oracle_note += f" | promotion=none ({promotion['explanation']})"
+    # Athanor v2.5-v2.7 gate (James Jackson's ATHANOR). Default COLONY_ATHANOR_GATE=shadow:
+    # report-only, it logs what it would gate and never changes this decision.
+    if not self_rejected and kind != "stem_easy_pad":
+        try:
+            from colony.trust.athanor_v27 import gate_desk_change
+            _ath = gate_desk_change(before=before, after=after, src=src, new_src=new_src,
+                                    before_score=_cmp_before, after_score=_cmp_after,
+                                    mutation=chosen or "", kind=kind or "", cycle_id=cycle_id,
+                                    tentative_keep=bool(rose and oracle_passed))
+            if _ath and _ath.get("block"):
+                rose = False
+                oracle_note += f" | athanor_gate=BLOCK ({_ath.get('verdict')}: {_ath.get('reason')})"
+        except Exception:  # noqa: BLE001
+            pass
     if rose and oracle_passed:
         decision = "keep"
         oracle_note += f" | promotion={promotion['category']}: {promotion['explanation']}"

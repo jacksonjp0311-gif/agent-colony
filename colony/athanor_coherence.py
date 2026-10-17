@@ -519,6 +519,66 @@ def run_governor_on_state(
     return persist_verdict(verdict, cycle_id=cycle_id, extra={"n_agents": len(agents)})
 
 
+# ---------------------------------------------------------------------------
+# Athanor v2.5 validity pre-gate (James Jackson, jacksonjp0311-gif/Athanor core/validity.py)
+# ---------------------------------------------------------------------------
+# H7 measures drift; it does not test correctness. A change that crashes or goes non-finite on
+# a few inputs can still be coherent on most of them. Athanor runs this check *before* the
+# coherence gate: any failure is a hard REJECT. Ported unchanged; the ΔΦ / C / H7 math above
+# is not touched.
+
+VALIDITY_ERRORS = (ArithmeticError, ValueError, TypeError)
+
+
+def validity_check(fn: Any, inputs: Any, errors: Sequence[type] = VALIDITY_ERRORS) -> dict[str, Any]:
+    """Call ``fn`` on every input; fail on an exception in ``errors`` or a non-finite numeric result."""
+    n = failures = 0
+    first = None
+    for x in inputs:
+        n += 1
+        try:
+            v = fn(x)
+            ok = all(math.isfinite(float(t)) for t in (v if isinstance(v, (list, tuple)) else [v]))
+        except tuple(errors) as exc:
+            ok, v = False, repr(exc)
+        if not ok:
+            failures += 1
+            if first is None:
+                first = {"input": x, "output": v if isinstance(v, str) else repr(v)}
+    return {"gate": "VALIDITY", "passed": failures == 0, "inputs": n, "failures": failures,
+            "first_failure": first}
+
+
+def snapshot_probe_values(snapshot: dict[str, Any] | None) -> list[tuple[str, Any]]:
+    """The values a bench snapshot reports: score, seconds and every check result."""
+    snap = snapshot if isinstance(snapshot, dict) else {}
+    out: list[tuple[str, Any]] = []
+    for key in ("score", "seconds"):
+        if key in snap:
+            out.append((key, snap.get(key)))
+    for k, v in sorted((snap.get("checks") or {}).items()):
+        out.append((f"check:{k}", v))
+    return out
+
+
+def snapshot_validity(snapshot: dict[str, Any] | None) -> dict[str, Any]:
+    """Validity pre-gate over a bench snapshot (the colony's 'validation inputs').
+
+    Fails when the snapshot is missing, carries an ``error``, or any reported value is
+    non-numeric (``None``, text) or non-finite (nan/inf).
+    """
+    if not isinstance(snapshot, dict) or not snapshot:
+        return {"gate": "VALIDITY", "passed": False, "inputs": 0, "failures": 1,
+                "first_failure": {"input": "snapshot", "output": "missing"}}
+    res = validity_check(lambda kv: kv[1], snapshot_probe_values(snapshot))
+    if snapshot.get("error"):
+        res = {**res, "passed": False, "failures": int(res["failures"]) + 1,
+               "first_failure": res["first_failure"] or {"input": "error", "output": str(snapshot["error"])[:200]}}
+    if res.get("first_failure") and isinstance(res["first_failure"].get("input"), tuple):
+        res["first_failure"]["input"] = res["first_failure"]["input"][0]
+    return res
+
+
 # numpy-compatible wrappers for adapted Athanor unit tests
 def _np_array(xs: Sequence[float] | Sequence[Sequence[float]], dtype: Any = None) -> Any:
     if _HAS_NUMPY:
@@ -550,6 +610,10 @@ __all__ = [
     "persist_verdict",
     "latest_verdict",
     "run_governor_on_state",
+    "VALIDITY_ERRORS",
+    "validity_check",
+    "snapshot_probe_values",
+    "snapshot_validity",
     "DEFAULT_H7_THRESHOLD",
     "DEFAULT_REFINE_FLOOR",
 ]
