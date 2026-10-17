@@ -34,6 +34,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Start from main as it is when the job actually starts, not the event SHA: a cron run
+          # queued behind a dispatch (concurrency group) otherwise evolves stale state and its
+          # slim-output push conflicts with the run that finished first (run 39046578411).
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
