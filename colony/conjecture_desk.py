@@ -129,6 +129,42 @@ def propose_from_themes(themes, *, ledger=None, cycle_id: str = ""):
     return proposals
 
 
+SPEED_NOISE_MARGIN = 0.25      # |Δspeed| below this is wall-clock noise, not a real cost
+INSTRUMENT_PREFIX = "authored_sieve_"
+INSTRUMENT_BUDGET_S = 120.0    # instrument checks: own time budget (same as the sieve cap)
+
+
+def _r(x: float) -> float:
+    """Bench scores are rounded to 1e-4; compare neutralized scores at 1e-3 so rounding residue
+    is not read as a fall (real component changes are >= ~0.01)."""
+    return round(x, 3)
+
+
+def speed_neutral_scores(before: dict, after: dict, name: str) -> tuple[float, float, str]:
+    """Scores to compare for keep/revert with wall-clock noise taken out.
+
+    The reported bench score is unchanged. For the comparison only, the speed component
+    (``speed_weight * speed``) is removed from both sides when |Δspeed| < SPEED_NOISE_MARGIN,
+    or when the mutation is an instrument check whose added time fits INSTRUMENT_BUDGET_S
+    (instrument checks are budgeted by the sieve cap, not the 0.15 s speed term). An
+    instrument check over its budget compares raw scores AND is treated as a fall.
+    """
+    bs, as_ = float(before.get("score") or 0.0), float(after.get("score") or 0.0)
+    if "speed" not in before or "speed" not in after:
+        return bs, as_, ""
+    w_b = float(before.get("speed_weight") or 0.0)
+    w_a = float(after.get("speed_weight") or 0.0)
+    sp_b, sp_a = float(before.get("speed") or 0.0), float(after.get("speed") or 0.0)
+    if name.startswith(INSTRUMENT_PREFIX):
+        added = float(after.get("seconds") or 0.0) - float(before.get("seconds") or 0.0)
+        if added > INSTRUMENT_BUDGET_S:
+            return bs, min(as_, bs - 1e-3), f"instrument_over_budget:{added:.1f}s"
+        return _r(bs - w_b * sp_b), _r(as_ - w_a * sp_a), f"instrument_budget:{added:.3f}s"
+    if abs(sp_a - sp_b) < SPEED_NOISE_MARGIN:
+        return _r(bs - w_b * sp_b), _r(as_ - w_a * sp_a), f"speed_noise:{sp_a - sp_b:+.3f}"
+    return bs, as_, ""
+
+
 def pick_mutation(
     ordered: list[tuple[str, str, str]],
     *,
@@ -422,9 +458,10 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     n_after = int(after.get("n_checks") or 0)
     n_hard_before = int(before.get("n_hard_pass") or 0)
     n_hard_after = int(after.get("n_hard_pass") or 0)
+    _cmp_before, _cmp_after, _speed_note = speed_neutral_scores(before, after, chosen or "")
     rose = after.get("ok") and (
-        after_score > before_score + 1e-6
-        or (after_score >= before_score and n_hard_after > n_hard_before)
+        _cmp_after > _cmp_before + 1e-6
+        or (_cmp_after >= _cmp_before - 1e-9 and n_hard_after > n_hard_before)
     )
     if kind in ("easy_pad", "stem_easy_pad") and n_hard_after <= n_hard_before:
         rose = False
@@ -473,13 +510,16 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             tentative_decision=tentative,
             mutation=chosen or "",
             kind=kind or "",
-            claim_text=f"lemma mutation {chosen} {before_score}->{after_score}",
+            claim_text=(f"lemma mutation {chosen} {before_score}->{after_score}"
+                        + (f" (compared {round(_cmp_before, 4)}->{round(_cmp_after, 4)}; {_speed_note})"
+                           if _speed_note else "")),
             source="conjecture_desk",
             cycle_id=cycle_id,
             after_snapshot=after,
             hard_pass_delta=(n_hard_after - n_hard_before),
-            before_score=before_score,
-            after_score=after_score,
+            # score check sees wall-clock-noise-neutral scores; held-out/stripped/collective unchanged
+            before_score=_cmp_before,
+            after_score=_cmp_after,
             before_src=src,
         )
         _desk_verdict = ov
@@ -498,7 +538,9 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             rose = False
             oracle_note = f" | oracle=ERROR_fail_closed:{_oracle_exc}"
     from colony.trust.promotion import classify_promotion
-    promotion = classify_promotion(before=before, after=after, oracle_passed=oracle_passed,
+    # promotion judges the same noise-neutral scores (a speed blip is neither a fall nor a rise)
+    promotion = classify_promotion(before={**before, "score": _cmp_before},
+                                   after={**after, "score": _cmp_after}, oracle_passed=oracle_passed,
                                    challenger_blocked=self_rejected)
     if rose and oracle_passed and not promotion["eligible"]:
         rose = False

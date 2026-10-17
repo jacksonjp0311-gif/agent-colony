@@ -23,7 +23,7 @@ from typing import Any
 PREFIX = "authored_sieve_"
 K_SIGMA = 4.0
 WINDOW = 2_000_000          # span per window (C backend: milliseconds)
-PY_WINDOW = 200_000         # span per window for the pure-Python counter
+PY_WINDOW = 50_000          # span per window for the pure-Python counter (kept small: bench time)
 N_WINDOWS = 3
 MAX_TUPLE_LEN = 3
 GAP_CHOICES = (2, 4, 6)

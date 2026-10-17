@@ -621,6 +621,60 @@ def blocked_themes(*, threshold: int = KILL_COOLDOWN_THRESHOLD) -> dict[str, str
             out[theme] = f"kill_cooldown:{n}"
     for theme in guide_avoid_themes():
         out.setdefault(theme, "guide_avoid")
+    for theme in same_day_killed_targets():
+        out.setdefault(theme, "same_day_kill")
+    return out
+
+
+def _et_date(ts: str) -> str:
+    from datetime import datetime, timezone
+    from zoneinfo import ZoneInfo
+    try:
+        d = datetime.strptime(str(ts)[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return ""
+    return d.astimezone(ZoneInfo("America/New_York")).date().isoformat()
+
+
+def same_day_killed_targets(*, now: str | None = None, lookback: int = 400) -> set[str]:
+    """Targets the Oracle killed today (America/New_York date) — blocked for the rest of the day.
+
+    Only target-level verdicts count: rows whose mutation IS a plain target name (desk/enable
+    judgments), not chain/process titles that merely mention one. History is read, never edited.
+    """
+    from datetime import datetime, timezone
+    try:
+        from colony.oracle import ORACLE_LOG
+    except Exception:  # noqa: BLE001
+        return set()
+    try:
+        from colony.novelty_gate import GATE_LOG
+    except Exception:  # noqa: BLE001
+        GATE_LOG = None
+    today = _et_date(now or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S"))
+    rows: list[dict[str, Any]] = []
+    for src in (ORACLE_LOG, GATE_LOG):
+        if src is None or not src.exists():
+            continue
+        for ln in src.read_text(encoding="utf-8").splitlines()[-lookback:]:
+            try:
+                e = json.loads(ln)
+            except json.JSONDecodeError:
+                continue
+            if src is GATE_LOG:
+                # gate rows carry the Oracle's verdict as an ``oracle_kill:`` entry
+                if not any(str(k).startswith("oracle_kill:") for k in (e.get("kills") or [])):
+                    continue
+                e = {"passed": False, "mutation": e.get("mutation"), "ts": e.get("ts")}
+            rows.append(e)
+    out: set[str] = set()
+    for e in rows:
+        if e.get("passed") is not False:
+            continue
+        m = str(e.get("mutation") or "").strip()
+        if not m or theme_key(m) != m.lower() or _et_date(e.get("ts") or "") != today:
+            continue
+        out.add(m.lower())
     return out
 
 

@@ -333,6 +333,24 @@ def evaluate(
     return verdict
 
 
+def per_target_tally(rows: list[dict[str, Any]]) -> tuple[int, int]:
+    """(hits, kills) counting each target once, by its latest row in the window.
+
+    Re-proposals of one target (chain titles, "(cycle N)" copies) map to the same target via
+    theme_key, so one target cannot stack kills. Rows themselves are never edited.
+    """
+    try:
+        from colony.lessons import theme_key
+    except Exception:  # noqa: BLE001
+        theme_key = lambda t: str(t or "").strip().lower()  # noqa: E731
+    latest: dict[str, bool] = {}
+    for i, e in enumerate(rows):
+        key = theme_key(str(e.get("mutation") or "")) or f"_row{i}"
+        latest[key] = bool(e.get("novel_to_commons"))
+    hits = sum(1 for v in latest.values() if v)
+    return hits, len(latest) - hits
+
+
 def _persist_system(latest: dict[str, Any]) -> None:
     recent: list[dict[str, Any]] = []
     if GATE_LOG.exists():
@@ -341,13 +359,15 @@ def _persist_system(latest: dict[str, Any]) -> None:
                 recent.append(json.loads(ln))
             except json.JSONDecodeError:
                 continue
-    hits = sum(1 for e in recent if e.get("novel_to_commons"))
-    kills = sum(1 for e in recent if not e.get("novel_to_commons"))
+    hits, kills = per_target_tally(recent)
     payload = {
         "version": 1,
         "updated_at": _utc(),
         "hits": hits,
         "kills": kills,
+        "rows": len(recent),
+        "kill_rows": sum(1 for e in recent if not e.get("novel_to_commons")),
+        "counting": "per_target_latest",
         "latest": latest,
         "note": "New-to-commons novelty gate. Textbook reuse≈0. Not novel theorems.",
     }

@@ -87,6 +87,9 @@ def run() -> dict[str, Any]:
         "max_abs_err": 0.0 if ok else 1.0,
         "seconds": round(seconds, 6),
         "score": score,
+        # exposed so keep/revert can neutralize wall-clock noise (score itself unchanged)
+        "speed": round(speed, 6),
+        "speed_weight": 0.0 if not basic_ok or (hard_n and not hard_ok) else 0.05,
         "impl_id": getattr(mod, "impl_id", lambda: "unknown")(),
         "checks": checks,
         "n_checks": len(basic) + hard_n,
