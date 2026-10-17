@@ -1,23 +1,23 @@
-# Proposal shortlist — 2026-10-17 12:31 PM ET
+# Proposal shortlist — 2026-10-17 12:38 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-40 of 58 proposals meet the authorize bar (40 after grouping near-duplicates; 17 colony-authored, 23 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+41 of 58 proposals meet the authorize bar (41 after grouping near-duplicates; 17 colony-authored, 24 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
-| 1 | imp_473855_50 | 0.8346 | 0.8333 | 0.5 | APPROVE | 1 | 1 (0.6679, below bar) | Enable `authored_sieve_two_counter_g6_4_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8346, novelty 0.8333. |
-| 2 | imp_9c2e0b_50 | 0.7833 | 0.8333 | 0.5 | n/a yet | 1 | 11 (0.6166, below bar) | Enable `authored_sieve_two_counter_g6_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333. |
-| 3 | imp_e4cf22_50 | 0.7833 | 0.8333 | 0.5 | APPROVE | 1 | 12 (0.6166, below bar) | Enable `authored_sieve_two_counter_g4_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333. |
-| 4 | imp_2bb1c6_50 | 0.7925 | 0.6667 | 0.5 | APPROVE | 1 | 2 (0.6675, below bar) | Enable `authored_sieve_residue_bal_g4_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7925, novelty 0.6667. |
-| 5 | imp_4e0736_50 | 0.7924 | 0.6667 | 0.5 | APPROVE | 1 | 3 (0.6674, below bar) | Enable `authored_sieve_residue_bal_g2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7924, novelty 0.6667. |
-| 6 | imp_00e76a_50 | 0.792 | 0.6667 | 0.5 | APPROVE | 1 | 5 (0.6648, below bar) | Enable `authored_sieve_hl_within_g4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.792, novelty 0.6667. |
-| 7 | imp_4871cc_50 | 0.7919 | 0.6667 | 0.5 | APPROVE | 1 | 4 (0.6669, below bar) | Enable `authored_sieve_residue_bal_g4_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7919, novelty 0.6667. |
-| 8 | imp_a304cf_50 | 0.7919 | 0.6667 | 0.5 | APPROVE | 1 | 6 (0.6647, below bar) | Enable `authored_sieve_hl_within_g6_2_4_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7919, novelty 0.6667. |
-| 9 | imp_1db20c_50 | 0.7417 | 0.6667 | 0.5 | APPROVE | 1 | 13 (0.6145, below bar) | Enable `authored_sieve_hl_within_g6_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7417, novelty 0.6667. |
-| 10 | imp_7078ce_50 | 0.7417 | 0.6667 | 0.5 | n/a yet | 1 | 7 (0.6167, below bar) | Enable `authored_sieve_two_counter_g6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7417, novelty 0.6667. |
+| 1 | imp_473855_50 | 0.8346 | 0.8333 | 0.5 | APPROVE | 1 | 4 (0.6657, below bar) | Enable `authored_sieve_two_counter_g6_4_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8346, novelty 0.8333. |
+| 2 | imp_9c2e0b_50 | 0.7833 | 0.8333 | 0.5 | n/a yet | 1 | 15 (0.6144, below bar) | Enable `authored_sieve_two_counter_g6_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333. |
+| 3 | imp_b95580_50 | 0.7833 | 0.8333 | 0.5 | APPROVE | 1 | 16 (0.6144, below bar) | Enable `authored_sieve_two_counter_g6_4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333. |
+| 4 | imp_e4cf22_50 | 0.7833 | 0.8333 | 0.5 | APPROVE | 1 | 17 (0.6144, below bar) | Enable `authored_sieve_two_counter_g4_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333. |
+| 5 | imp_2bb1c6_50 | 0.7925 | 0.6667 | 0.5 | APPROVE | 1 | 1 (0.6675, below bar) | Enable `authored_sieve_residue_bal_g4_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7925, novelty 0.6667. |
+| 6 | imp_4e0736_50 | 0.7924 | 0.6667 | 0.5 | APPROVE | 1 | 2 (0.6674, below bar) | Enable `authored_sieve_residue_bal_g2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7924, novelty 0.6667. |
+| 7 | imp_00e76a_50 | 0.792 | 0.6667 | 0.5 | APPROVE | 1 | 5 (0.6648, below bar) | Enable `authored_sieve_hl_within_g4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.792, novelty 0.6667. |
+| 8 | imp_4871cc_50 | 0.7919 | 0.6667 | 0.5 | APPROVE | 1 | 3 (0.6669, below bar) | Enable `authored_sieve_residue_bal_g4_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7919, novelty 0.6667. |
+| 9 | imp_a304cf_50 | 0.7919 | 0.6667 | 0.5 | APPROVE | 1 | 6 (0.6647, below bar) | Enable `authored_sieve_hl_within_g6_2_4_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7919, novelty 0.6667. |
+| 10 | imp_1db20c_50 | 0.7417 | 0.6667 | 0.5 | APPROVE | 1 | 9 (0.6145, below bar) | Enable `authored_sieve_hl_within_g6_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7417, novelty 0.6667. |
 
-## Building blocks enabled (23 groups meet the bar)
+## Building blocks enabled (24 groups meet the bar)
 
 Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classical identity). They meet the bar but are not novel: novelty counts as 0 for ranking and they are kept out of the top list above.
 
@@ -30,25 +30,25 @@ Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classic
 | 5 | imp_cef698_50 | 0.8754 | catalog_refill | APPROVE | 1 | 23 (0.6254, below bar) | Building block `complete_bipartite_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
 | 6 | imp_cd809b_50 | 0.8753 | catalog_refill | APPROVE | 1 | 22 (0.6253, below bar) | Building block `partition_conjugate_parts` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8753. |
 | 7 | imp_ca0b82_50 | 0.8751 | catalog_refill | APPROVE | 1 | 24 (0.6251, below bar) | Building block `multinomial_three` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8751. |
-| 8 | imp_1f6041_50 | 0.825 | catalog_refill | APPROVE | 1 | 25 (0.575, below bar) | Building block `lucas_theorem_binomial` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
-| 9 | imp_29279d_50 | 0.825 | catalog_refill | n/a yet | 1 | 26 (0.575, below bar) | Building block `euler_theorem` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
-| 10 | imp_413117_50 | 0.825 | catalog_refill | APPROVE | 1 | 27 (0.575, below bar) | Building block `bezout_identity` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 8 | imp_0bada5_50 | 0.825 | catalog_refill | APPROVE | 1 | 25 (0.575, below bar) | Building block `newton_identities` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 9 | imp_1f6041_50 | 0.825 | catalog_refill | APPROVE | 1 | 26 (0.575, below bar) | Building block `lucas_theorem_binomial` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 10 | imp_29279d_50 | 0.825 | catalog_refill | n/a yet | 1 | 27 (0.575, below bar) | Building block `euler_theorem` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 0 (actual 40). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 17 (0 with OEIS unchecked). Would drop out of the bar: 40; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 0 (actual 41). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 17 (0 with OEIS unchecked). Would drop out of the bar: 41; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
-| 1 | imp_473855_50 | `authored_sieve_two_counter_g6_4_2_w1` | 0.8346 → 0.6679 | below | yes | 0.8333 | 1 |
-| 2 | imp_2bb1c6_50 | `authored_sieve_residue_bal_g4_6_6_w1` | 0.7925 → 0.6675 | below | yes | 0.8333 | 4 |
-| 3 | imp_4e0736_50 | `authored_sieve_residue_bal_g2_6_w1` | 0.7924 → 0.6674 | below | yes | 0.8333 | 5 |
-| 4 | imp_4871cc_50 | `authored_sieve_residue_bal_g4_6_2_w1` | 0.7919 → 0.6669 | below | yes | 0.8333 | 7 |
-| 5 | imp_00e76a_50 | `authored_sieve_hl_within_g4_6_w1` | 0.792 → 0.6648 | below | yes | 0.8421 | 6 |
-| 6 | imp_a304cf_50 | `authored_sieve_hl_within_g6_2_4_w1` | 0.7919 → 0.6647 | below | yes | 0.8421 | 8 |
-| 7 | imp_7078ce_50 | `authored_sieve_two_counter_g6_w1` | 0.7417 → 0.6167 | below | yes | 0.8333 | 10 |
-| 8 | imp_a001a4_50 | `authored_sieve_residue_bal_g6_6_6_w1` | 0.7417 → 0.6167 | below | yes | 0.8333 | 12 |
-| 9 | imp_e0b942_50 | `authored_sieve_residue_bal_g2_4_6_w1` | 0.7417 → 0.6167 | below | yes | 0.8333 | 16 |
-| 10 | imp_f9b690_50 | `authored_sieve_residue_bal_g6_4_6_w1` | 0.7417 → 0.6167 | below | yes | 0.8333 | 17 |
+| 1 | imp_2bb1c6_50 | `authored_sieve_residue_bal_g4_6_6_w1` | 0.7925 → 0.6675 | below | yes | 0.8333 | 5 |
+| 2 | imp_4e0736_50 | `authored_sieve_residue_bal_g2_6_w1` | 0.7924 → 0.6674 | below | yes | 0.8333 | 6 |
+| 3 | imp_4871cc_50 | `authored_sieve_residue_bal_g4_6_2_w1` | 0.7919 → 0.6669 | below | yes | 0.8333 | 8 |
+| 4 | imp_473855_50 | `authored_sieve_two_counter_g6_4_2_w1` | 0.8346 → 0.6657 | below | yes | 0.8421 | 1 |
+| 5 | imp_00e76a_50 | `authored_sieve_hl_within_g4_6_w1` | 0.792 → 0.6648 | below | yes | 0.8421 | 7 |
+| 6 | imp_a304cf_50 | `authored_sieve_hl_within_g6_2_4_w1` | 0.7919 → 0.6647 | below | yes | 0.8421 | 9 |
+| 7 | imp_a001a4_50 | `authored_sieve_residue_bal_g6_6_6_w1` | 0.7417 → 0.6167 | below | yes | 0.8333 | 13 |
+| 8 | imp_e0b942_50 | `authored_sieve_residue_bal_g2_4_6_w1` | 0.7417 → 0.6167 | below | yes | 0.8333 | 17 |
+| 9 | imp_1db20c_50 | `authored_sieve_hl_within_g6_2_6_w1` | 0.7417 → 0.6145 | below | yes | 0.8421 | 10 |
+| 10 | imp_7078ce_50 | `authored_sieve_two_counter_g6_w1` | 0.7417 → 0.6145 | below | yes | 0.8421 | 11 |
 
-Excluded (reason: count): hearing: 4, no_oracle_pass_in_own_cycle: 8, novelty_killed: 18, status: 9, target_unresolved: 3
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 8, novelty_killed: 18, status: 9, target_unresolved: 1

@@ -1,29 +1,13 @@
 {
-  "ts": "2026-10-17T16:30:54Z",
-  "cycle_id": "20261017T163053Z_088f2d",
+  "ts": "2026-10-17T16:36:58Z",
+  "cycle_id": "20261017T163657Z_dfaa7b",
   "lemma_streaks": {
-    "revert_streaks": [
-      "authored_sieve_two_counter_g2_w1"
-    ],
+    "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_sieve_two_counter_g2_w1": 2,
-      "authored_sieve_hl_within_g2_w2": 2
+      "authored_sieve_hl_within_g2_w2": 2,
+      "newton_identities": 1
     },
     "recent": {
-      "partition_conjugate_parts": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_two_counter_g4_2_6_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "cayley_tree_count": {
         "last": "keep",
         "streak": 1,
@@ -93,59 +77,71 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "newton_identities": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_sieve_two_counter_g6_4_6_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8513,
-      "slope": 0.000393,
-      "min": 0.8464,
+      "last": 0.8461,
+      "slope": 4.3e-05,
+      "min": 0.845,
       "max": 0.8513
     },
     "novelty": {
-      "last": 0.9667,
-      "slope": 0.00536,
-      "min": 0.9,
+      "last": 0.8966,
+      "slope": 0.001501,
+      "min": 0.8966,
       "max": 0.9667
     },
     "kill_rate": {
-      "last": 0.326,
-      "slope": -0.000609,
-      "min": 0.326,
-      "max": 0.3327
+      "last": 0.3254,
+      "slope": -0.000554,
+      "min": 0.3248,
+      "max": 0.3308
     },
     "kill_rate_term": {
-      "last": 0.8434,
-      "slope": -0.00055,
-      "min": 0.8434,
-      "max": 0.8494
+      "last": 0.8429,
+      "slope": -0.000501,
+      "min": 0.8423,
+      "max": 0.8478
     },
     "lesson_uptake": {
       "last": 0.66,
-      "slope": 0.0,
-      "min": 0.66,
+      "slope": -0.001888,
+      "min": 0.6,
       "max": 0.66
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0032,
+    "aggregate_range": 0.0063,
     "novelty_max": 0.9667,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 196,
+    "enabled": 199,
     "disabled": [
       "abel_summation",
       "adversarial_vandermonde_asymmetric",
-      "authored_sieve_two_counter_g2_w1",
       "burnside_necklaces",
       "faulhaber_power_sums",
       "lagrange_cyclic_orders",
-      "newton_identities",
       "polynomial_remainder",
       "telescoping_sum"
     ],
@@ -266,6 +262,7 @@
       "authored_sieve_two_counter_g6_2_6_w1",
       "authored_sieve_two_counter_g6_2_w1",
       "authored_sieve_two_counter_g6_4_2_w1",
+      "authored_sieve_two_counter_g6_4_6_w1",
       "authored_sieve_two_counter_g6_4_w1",
       "authored_sieve_two_counter_g6_6_2_w1",
       "authored_sieve_two_counter_g6_6_w1",
@@ -296,33 +293,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.61,
+      "ratio": 1.232,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.605,
+      "ratio": 1.266,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.653,
+      "ratio": 1.31,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.693,
+      "ratio": 1.374,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.604,
+      "ratio": 1.08,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 78200003,
+      "goldbach_even": 81400003,
       "collatz_descent": 95800000,
-      "legendre_square_gap": 524607,
-      "lehmer_totient": 31000001,
+      "legendre_square_gap": 540607,
+      "lehmer_totient": 32600001,
       "erdos_straus": 589951,
       "twin_primes_hl": 118200000,
       "oeis_A104062_next": 518690000001
@@ -336,16 +333,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4914,
+        "challenged": 4911,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 86,
+        "challenged": 89,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 81,
+    "post_challenger_oracle_judged": 84,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -374,18 +371,18 @@
     "last": [
       [
         null,
+        "2026-10-17T16:32:33Z"
+      ],
+      [
+        "success",
         "2026-10-17T16:27:51Z"
       ],
       [
         "success",
         "2026-10-17T16:22:07Z"
-      ],
-      [
-        "success",
-        "2026-10-17T16:03:01Z"
       ]
     ],
-    "fetched_at": "2026-10-17T16:28:10Z"
+    "fetched_at": "2026-10-17T16:32:57Z"
   },
   "feeds": {
     "by_source": {
@@ -433,7 +430,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T16:28:09Z"
+      "ts": "2026-10-17T16:32:56Z"
     },
     "health": {
       "arxiv": {
@@ -459,7 +456,6 @@
     }
   },
   "signals": [
-    "revert_streaks: authored_sieve_two_counter_g2_w1 → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
