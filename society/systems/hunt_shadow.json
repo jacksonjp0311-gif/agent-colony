@@ -2,17 +2,17 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-17T20:52:25Z",
-    "cycle_id": "20261017T205118Z_9cbb4c",
+    "ts": "2026-10-17T22:15:40Z",
+    "cycle_id": "20261017T221422Z_cbc5c8",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 43,
-    "n_meet_bar_shadow": 20,
-    "n_unknown_claims": 23,
+    "n_meet_bar_actual": 42,
+    "n_meet_bar_shadow": 21,
+    "n_unknown_claims": 24,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
       "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
@@ -22,18 +22,18 @@
       "authored_crt_coprime_pair__cycle_spanning_trees_w1",
       "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+      "authored_fermat_little__lucas_theorem_binomial_w1",
+      "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "authored_sieve_hl_within_g2_6_4_w1",
       "authored_sieve_hl_within_g2_6_6_w1",
       "authored_sieve_hl_within_g6_2_4_w1",
       "authored_sieve_hl_within_g6_2_6_w1",
-      "authored_sieve_hl_within_g6_2_w1",
       "authored_sieve_hl_within_g6_6_6_w1",
       "authored_sieve_residue_bal_g2_4_6_w1",
       "authored_sieve_residue_bal_g4_6_2_w1",
       "authored_sieve_residue_bal_g4_6_6_w1",
       "authored_sieve_residue_bal_g6_6_2_w1",
-      "authored_sieve_residue_bal_g6_6_4_w1",
-      "authored_sieve_two_counter_g4_2_6_w1"
+      "authored_sieve_residue_bal_g6_6_4_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -49,7 +49,6 @@
       "imp_a304cf_50",
       "imp_1db20c_50",
       "imp_8d28f7_50",
-      "imp_a12fe2_50",
       "imp_b0787f_50",
       "imp_e0b942_50",
       "imp_dfaa7b_50",
@@ -58,7 +57,6 @@
       "imp_ca0b82_50",
       "imp_0bada5_50",
       "imp_1a4ec1_50",
-      "imp_1f6041_50",
       "imp_5c95a3_50"
     ],
     "enter_bar": [],
@@ -80,7 +78,7 @@
       {
         "id": "imp_40ec35_50",
         "target": "authored_cayley_tree_count__complete_bipartite_trees_w1",
-        "actual_pos": 8,
+        "actual_pos": 9,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.8105,
@@ -92,10 +90,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_c28eb5_50",
-        "target": "authored_bell_stirling_sum__burnside_necklaces_w1",
+        "id": "imp_b7f950_50",
+        "target": "authored_fermat_little__lucas_theorem_binomial_w1",
         "actual_pos": 2,
         "shadow_pos": 3,
+        "meets_bar_shadow": true,
+        "rank": 0.9263,
+        "rank_shadow": 0.9263,
+        "P": 0.8771,
+        "P_shadow": 0.8771,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_c28eb5_50",
+        "target": "authored_bell_stirling_sum__burnside_necklaces_w1",
+        "actual_pos": 3,
+        "shadow_pos": 4,
         "meets_bar_shadow": true,
         "rank": 0.9263,
         "rank_shadow": 0.9263,
@@ -108,8 +120,8 @@
       {
         "id": "imp_76124b_50",
         "target": "authored_bezout_identity__cayley_hamilton_3x3_w1",
-        "actual_pos": 3,
-        "shadow_pos": 4,
+        "actual_pos": 4,
+        "shadow_pos": 5,
         "meets_bar_shadow": true,
         "rank": 0.925,
         "rank_shadow": 0.925,
@@ -122,20 +134,6 @@
       {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 4,
-        "shadow_pos": 5,
-        "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_94edc4_50",
-        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 5,
         "shadow_pos": 6,
         "meets_bar_shadow": true,
@@ -148,8 +146,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_96efa1_49",
-        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
+        "id": "imp_94edc4_50",
+        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 6,
         "shadow_pos": 7,
         "meets_bar_shadow": true,
@@ -162,10 +160,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_b1face_50",
-        "target": "authored_abel_summation__faulhaber_power_sums_w1",
+        "id": "imp_96efa1_49",
+        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
         "actual_pos": 7,
         "shadow_pos": 8,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_b1face_50",
+        "target": "authored_abel_summation__faulhaber_power_sums_w1",
+        "actual_pos": 8,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.895,
         "rank_shadow": 0.895,
@@ -179,7 +191,7 @@
         "id": "imp_e8a630_50",
         "target": "cayley_hamilton_3x3",
         "actual_pos": 24,
-        "shadow_pos": 9,
+        "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.5261,
         "rank_shadow": 0.6511,
@@ -188,71 +200,15 @@
         "unknown": false,
         "building_block": "catalog_refill",
         "expected": 0.0
-      },
-      {
-        "id": "imp_79bbc6_50",
-        "target": "cycle_spanning_trees",
-        "actual_pos": 26,
-        "shadow_pos": 10,
-        "meets_bar_shadow": true,
-        "rank": 0.5257,
-        "rank_shadow": 0.6507,
-        "P": 0.8761,
-        "P_shadow": 0.7511,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-17T16:30:00Z",
-      "cycle_id": "20261017T162904Z_e8a630",
-      "n_meet_bar_actual": 38,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 16,
-      "drop_out_of_bar": 38,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T16:30:53Z",
-      "cycle_id": "20261017T163000Z_1db20c",
-      "n_meet_bar_actual": 39,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 39,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T16:31:49Z",
-      "cycle_id": "20261017T163053Z_088f2d",
-      "n_meet_bar_actual": 40,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 40,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-17T16:35:45Z",
       "cycle_id": "20261017T163420Z_0bada5",
@@ -645,6 +601,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:13:12Z",
+      "cycle_id": "20261017T221159Z_b7f950",
+      "n_meet_bar_actual": 42,
+      "n_meet_bar_shadow": 20,
+      "n_unknown_claims": 24,
+      "drop_out_of_bar": 22,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:14:22Z",
+      "cycle_id": "20261017T221312Z_6033f1",
+      "n_meet_bar_actual": 43,
+      "n_meet_bar_shadow": 21,
+      "n_unknown_claims": 24,
+      "drop_out_of_bar": 22,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:15:40Z",
+      "cycle_id": "20261017T221422Z_cbc5c8",
+      "n_meet_bar_actual": 42,
+      "n_meet_bar_shadow": 21,
+      "n_unknown_claims": 24,
+      "drop_out_of_bar": 21,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }

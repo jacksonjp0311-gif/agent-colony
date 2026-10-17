@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T20:52:13Z",
-  "updated_cycle": "20261017T205118Z_9cbb4c",
+  "updated_at": "2026-10-17T22:15:27Z",
+  "updated_cycle": "20261017T221422Z_cbc5c8",
   "signal": {
-    "ts": "2026-10-17T20:52:13Z",
+    "ts": "2026-10-17T22:15:27Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 120,
+    "accepted_compute": 121,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_c73ec1e5d168",
-        "title": "Authorize accepted: Lemma mutation keep: fermat_little"
+        "finding_id": "fnd_27c3c23bc2e9",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_6_2_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_219893ba1e22",
-        "title": "Authorize accepted: Lemma mutation keep: euler_theorem",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_20d46d1b739b",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g6_6_4_w1",
         "topic_id": "compute-useful-math",
@@ -89,6 +82,13 @@
       {
         "id": "fnd_d86cd7bc1add",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_86178da167c5",
+        "title": "Authorize accepted: Lemma mutation keep: authored_euler_theorem__gauss_phi_divis",
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
@@ -109,12 +109,6 @@
     },
     "lessons": [
       {
-        "id": "fnd_219893ba1e22",
-        "title": "Authorize accepted: Lemma mutation keep: euler_theorem",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
         "id": "fnd_20d46d1b739b",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g6_6_4_w1",
         "topic_id": "compute-useful-math",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_86178da167c5",
+        "title": "Authorize accepted: Lemma mutation keep: authored_euler_theorem__gauss_phi_divisor_sum_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_c73ec1e5d168",
         "fnd_27c3c23bc2e9",
         "fnd_219893ba1e22",
         "fnd_20d46d1b739b",
         "fnd_d27e76ba9391",
         "fnd_99113c984a82",
         "fnd_df755e6fd8df",
-        "fnd_d86cd7bc1add"
+        "fnd_d86cd7bc1add",
+        "fnd_86178da167c5"
       ],
       "rsi": []
     },

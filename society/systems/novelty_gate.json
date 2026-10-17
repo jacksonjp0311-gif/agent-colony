@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T20:50:35Z",
+  "updated_at": "2026-10-17T22:14:55Z",
   "hits": 23,
   "kills": 3,
   "rows": 30,
   "kill_rows": 6,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-17T20:50:35Z",
-    "cycle_id": "20261017T205002Z_15e6c5",
-    "mutation": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+    "ts": "2026-10-17T22:14:55Z",
+    "cycle_id": "20261017T221422Z_cbc5c8",
+    "mutation": "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 207,
-      "hard_n": 207,
+      "hard_pass": 209,
+      "hard_n": 209,
       "stripped_fails_usefulness": true,
-      "score": 0.8614,
-      "impl_id": "lemma_impl_v2_basic10_hard207"
+      "score": 0.8623,
+      "impl_id": "lemma_impl_v2_basic10_hard208"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 207,
+      "hard_pass": 209,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

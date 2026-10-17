@@ -2447,6 +2447,17 @@ def check_authored_fermat_little__lucas_theorem_binomial_w1() -> bool:
     return all((check_fermat_little(a) for a in range(40, 60))) and all((check_lucas_theorem_binomial(n) for n in range(30, 45)))
 
 
+def check_authored_mobius_divisor_sum__mobius_inversion_sigma_w1() -> bool:
+    """Authored stress check (desk): proven lemmas mobius_divisor_sum + mobius_inversion_sigma on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_mobius_divisor_sum,
+    ::check_mobius_inversion_sigma; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_mobius_divisor_sum(n) for n in range(120, 179))) and all((check_mobius_inversion_sigma(n) for n in range(80, 119)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2706,7 +2717,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_crt_coprime_pair__cycle_spanning_trees_w1", check_authored_crt_coprime_pair__cycle_spanning_trees_w1, True),
     ("authored_euler_pentagonal__lagrange_cyclic_orders_w1", check_authored_euler_pentagonal__lagrange_cyclic_orders_w1, True),
     ("authored_euler_theorem__gauss_phi_divisor_sum_w1", check_authored_euler_theorem__gauss_phi_divisor_sum_w1, True),
-    ("authored_fermat_little__lucas_theorem_binomial_w1", check_authored_fermat_little__lucas_theorem_binomial_w1, False),
+    ("authored_fermat_little__lucas_theorem_binomial_w1", check_authored_fermat_little__lucas_theorem_binomial_w1, True),
+    ("authored_mobius_divisor_sum__mobius_inversion_sigma_w1", check_authored_mobius_divisor_sum__mobius_inversion_sigma_w1, True),
 ]
 
 

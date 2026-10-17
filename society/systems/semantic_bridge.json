@@ -1,7 +1,7 @@
 {
   "version": 1,
   "totals": {
-    "ok": 44
+    "ok": 46
   },
   "rows": [
     {
@@ -663,8 +663,38 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_fermat_little__lucas_theorem_binomial_w1",
+      "status": "ok",
+      "family": "compose",
+      "template": null,
+      "mismatches": [],
+      "mutants_tested": 2,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-17T22:12:24Z",
+      "cycle_id": "20261017T221159Z_b7f950",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
+      "status": "ok",
+      "family": "compose",
+      "template": null,
+      "mismatches": [],
+      "mutants_tested": 2,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-17T22:14:52Z",
+      "cycle_id": "20261017T221422Z_cbc5c8",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-17T20:50:31Z",
+  "updated_at": "2026-10-17T22:14:52Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-17T20:52:25Z",
+  "ts": "2026-10-17T22:15:40Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 43,
-  "n_groups": 43,
+  "n_meet_bar": 42,
+  "n_groups": 42,
   "n_authored_groups": 23,
-  "n_building_block_groups": 20,
+  "n_building_block_groups": 19,
   "top": [
     {
       "id": "imp_17731c_50",
@@ -82,7 +82,7 @@
         "P_shadow": 0.8772,
         "meets_bar_shadow": true,
         "rank_shadow": 0.9263,
-        "shadow_pos": 3
+        "shadow_pos": 4
       },
       "group_count": 1,
       "group_ids": [
@@ -90,6 +90,48 @@
       ],
       "position": 2,
       "line": "Enable `authored_bell_stirling_sum__burnside_necklaces_w1` (Oracle passed it in its own cycle); builds on bell_stirling_sum, burnside_necklaces; P 0.8772, novelty 1.0."
+    },
+    {
+      "id": "imp_b7f950_50",
+      "title": "Chain `authored_fermat_little__lucas_theorem_binomial_w1` citing Sum rules for permutations with fixed points invol",
+      "cycle_id": "20261017T221159Z_b7f950",
+      "target": "authored_fermat_little__lucas_theorem_binomial_w1",
+      "family": "authored_fermat_little__lucas_theorem_binomial",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8771,
+      "P_stored": 0.8771,
+      "novelty": 1.0,
+      "novelty_raw": 1.0,
+      "building_block": null,
+      "builds_on": 1.0,
+      "building_blocks": [
+        "fermat_little",
+        "lucas_theorem_binomial"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.9263,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_fermat_little__lucas_theorem_binomial",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 1.0,
+        "chained_by": null,
+        "P_shadow": 0.8771,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.9263,
+        "shadow_pos": 3
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_b7f950_50"
+      ],
+      "position": 3,
+      "line": "Enable `authored_fermat_little__lucas_theorem_binomial_w1` (Oracle passed it in its own cycle); builds on fermat_little, lucas_theorem_binomial; P 0.8771, novelty 1.0."
     },
     {
       "id": "imp_76124b_50",
@@ -124,13 +166,13 @@
         "P_shadow": 0.875,
         "meets_bar_shadow": true,
         "rank_shadow": 0.925,
-        "shadow_pos": 4
+        "shadow_pos": 5
       },
       "group_count": 1,
       "group_ids": [
         "imp_76124b_50"
       ],
-      "position": 3,
+      "position": 4,
       "line": "Enable `authored_bezout_identity__cayley_hamilton_3x3_w1` (Oracle passed it in its own cycle); builds on bezout_identity, cayley_hamilton_3x3; P 0.875, novelty 1.0."
     },
     {
@@ -166,13 +208,13 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.895,
-        "shadow_pos": 5
+        "shadow_pos": 6
       },
       "group_count": 1,
       "group_ids": [
         "imp_15e6c5_50"
       ],
-      "position": 4,
+      "position": 5,
       "line": "Enable `authored_euler_theorem__gauss_phi_divisor_sum_w1` (Oracle passed it in its own cycle); builds on euler_theorem, gauss_phi_divisor_sum; P 0.825, novelty 1.0."
     },
     {
@@ -208,13 +250,13 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.895,
-        "shadow_pos": 6
+        "shadow_pos": 7
       },
       "group_count": 1,
       "group_ids": [
         "imp_94edc4_50"
       ],
-      "position": 5,
+      "position": 6,
       "line": "Enable `authored_alternating_binomial_row__cayley_hamilton_2x2_w1` (Oracle passed it in its own cycle); builds on alternating_binomial_row, cayley_hamilton_2x2; P 0.825, novelty 1.0."
     },
     {
@@ -250,13 +292,13 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.895,
-        "shadow_pos": 7
+        "shadow_pos": 8
       },
       "group_count": 1,
       "group_ids": [
         "imp_96efa1_49"
       ],
-      "position": 6,
+      "position": 7,
       "line": "Enable `authored_crt_coprime_pair__cycle_spanning_trees_w1` (Oracle passed it in its own cycle); builds on crt_coprime_pair, cycle_spanning_trees; P 0.825, novelty 1.0."
     },
     {
@@ -292,13 +334,13 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.895,
-        "shadow_pos": 8
+        "shadow_pos": 9
       },
       "group_count": 1,
       "group_ids": [
         "imp_b1face_50"
       ],
-      "position": 7,
+      "position": 8,
       "line": "Enable `authored_abel_summation__faulhaber_power_sums_w1` (Oracle passed it in its own cycle); builds on abel_summation, faulhaber_power_sums; P 0.825, novelty 1.0."
     },
     {
@@ -340,7 +382,7 @@
       "group_ids": [
         "imp_40ec35_50"
       ],
-      "position": 8,
+      "position": 9,
       "line": "Enable `authored_cayley_tree_count__complete_bipartite_trees_w1` (Oracle passed it in its own cycle); builds on cayley_tree_count, complete_bipartite_trees; P 0.7953, novelty 0.6667."
     },
     {
@@ -375,55 +417,14 @@
         "P_shadow": 0.6279,
         "meets_bar_shadow": false,
         "rank_shadow": 0.478,
-        "shadow_pos": 23
+        "shadow_pos": 24
       },
       "group_count": 1,
       "group_ids": [
         "imp_473855_50"
       ],
-      "position": 9,
-      "line": "Enable `authored_sieve_two_counter_g6_4_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8346, novelty 0.8333."
-    },
-    {
-      "id": "imp_b95580_50",
-      "title": "Chain `authored_sieve_two_counter_g6_4_6_w1` citing Effective equidistribution of polynomial trajector",
-      "cycle_id": "20261017T163545Z_b95580",
-      "target": "authored_sieve_two_counter_g6_4_6_w1",
-      "family": "authored_sieve_two_counter_g6_4_6",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.7833,
-      "P_stored": 0.7833,
-      "novelty": 0.8333,
-      "novelty_raw": 0.8333,
-      "building_block": null,
-      "builds_on": 0.5,
-      "building_blocks": [
-        "instrument:sieve.sieve_count"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.7366,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.1667,
-        "oeis_checked": true,
-        "family": "authored_sieve_two_counter",
-        "siblings_passed": 17,
-        "expected": 0.9936,
-        "novelty_shadow": 0.0064,
-        "chained_by": null,
-        "P_shadow": 0.5766,
-        "meets_bar_shadow": false,
-        "rank_shadow": 0.4472,
-        "shadow_pos": 33
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_b95580_50"
-      ],
       "position": 10,
-      "line": "Enable `authored_sieve_two_counter_g6_4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
+      "line": "Enable `authored_sieve_two_counter_g6_4_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8346, novelty 0.8333."
     }
   ],
   "building_blocks_enabled": [
@@ -457,7 +458,7 @@
         "P_shadow": 0.7518,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6511,
-        "shadow_pos": 9
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
@@ -535,7 +536,7 @@
         "P_shadow": 0.7511,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6507,
-        "shadow_pos": 10
+        "shadow_pos": 11
       },
       "group_count": 1,
       "group_ids": [
@@ -574,7 +575,7 @@
         "P_shadow": 0.751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6506,
-        "shadow_pos": 11
+        "shadow_pos": 12
       },
       "group_count": 1,
       "group_ids": [
@@ -652,7 +653,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 12
+        "shadow_pos": 13
       },
       "group_count": 1,
       "group_ids": [
@@ -691,7 +692,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 13
+        "shadow_pos": 14
       },
       "group_count": 1,
       "group_ids": [
@@ -819,17 +820,17 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-17T20:52:25Z",
-    "cycle_id": "20261017T205118Z_9cbb4c",
+    "ts": "2026-10-17T22:15:40Z",
+    "cycle_id": "20261017T221422Z_cbc5c8",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 43,
-    "n_meet_bar_shadow": 20,
-    "n_unknown_claims": 23,
+    "n_meet_bar_actual": 42,
+    "n_meet_bar_shadow": 21,
+    "n_unknown_claims": 24,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
       "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
@@ -839,18 +840,18 @@
       "authored_crt_coprime_pair__cycle_spanning_trees_w1",
       "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+      "authored_fermat_little__lucas_theorem_binomial_w1",
+      "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "authored_sieve_hl_within_g2_6_4_w1",
       "authored_sieve_hl_within_g2_6_6_w1",
       "authored_sieve_hl_within_g6_2_4_w1",
       "authored_sieve_hl_within_g6_2_6_w1",
-      "authored_sieve_hl_within_g6_2_w1",
       "authored_sieve_hl_within_g6_6_6_w1",
       "authored_sieve_residue_bal_g2_4_6_w1",
       "authored_sieve_residue_bal_g4_6_2_w1",
       "authored_sieve_residue_bal_g4_6_6_w1",
       "authored_sieve_residue_bal_g6_6_2_w1",
-      "authored_sieve_residue_bal_g6_6_4_w1",
-      "authored_sieve_two_counter_g4_2_6_w1"
+      "authored_sieve_residue_bal_g6_6_4_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -866,7 +867,6 @@
       "imp_a304cf_50",
       "imp_1db20c_50",
       "imp_8d28f7_50",
-      "imp_a12fe2_50",
       "imp_b0787f_50",
       "imp_e0b942_50",
       "imp_dfaa7b_50",
@@ -875,7 +875,6 @@
       "imp_ca0b82_50",
       "imp_0bada5_50",
       "imp_1a4ec1_50",
-      "imp_1f6041_50",
       "imp_5c95a3_50"
     ],
     "enter_bar": [],
@@ -897,7 +896,7 @@
       {
         "id": "imp_40ec35_50",
         "target": "authored_cayley_tree_count__complete_bipartite_trees_w1",
-        "actual_pos": 8,
+        "actual_pos": 9,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.8105,
@@ -909,10 +908,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_c28eb5_50",
-        "target": "authored_bell_stirling_sum__burnside_necklaces_w1",
+        "id": "imp_b7f950_50",
+        "target": "authored_fermat_little__lucas_theorem_binomial_w1",
         "actual_pos": 2,
         "shadow_pos": 3,
+        "meets_bar_shadow": true,
+        "rank": 0.9263,
+        "rank_shadow": 0.9263,
+        "P": 0.8771,
+        "P_shadow": 0.8771,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_c28eb5_50",
+        "target": "authored_bell_stirling_sum__burnside_necklaces_w1",
+        "actual_pos": 3,
+        "shadow_pos": 4,
         "meets_bar_shadow": true,
         "rank": 0.9263,
         "rank_shadow": 0.9263,
@@ -925,8 +938,8 @@
       {
         "id": "imp_76124b_50",
         "target": "authored_bezout_identity__cayley_hamilton_3x3_w1",
-        "actual_pos": 3,
-        "shadow_pos": 4,
+        "actual_pos": 4,
+        "shadow_pos": 5,
         "meets_bar_shadow": true,
         "rank": 0.925,
         "rank_shadow": 0.925,
@@ -939,20 +952,6 @@
       {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 4,
-        "shadow_pos": 5,
-        "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_94edc4_50",
-        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 5,
         "shadow_pos": 6,
         "meets_bar_shadow": true,
@@ -965,8 +964,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_96efa1_49",
-        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
+        "id": "imp_94edc4_50",
+        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 6,
         "shadow_pos": 7,
         "meets_bar_shadow": true,
@@ -979,10 +978,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_b1face_50",
-        "target": "authored_abel_summation__faulhaber_power_sums_w1",
+        "id": "imp_96efa1_49",
+        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
         "actual_pos": 7,
         "shadow_pos": 8,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_b1face_50",
+        "target": "authored_abel_summation__faulhaber_power_sums_w1",
+        "actual_pos": 8,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.895,
         "rank_shadow": 0.895,
@@ -996,7 +1009,7 @@
         "id": "imp_e8a630_50",
         "target": "cayley_hamilton_3x3",
         "actual_pos": 24,
-        "shadow_pos": 9,
+        "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.5261,
         "rank_shadow": 0.6511,
@@ -1005,24 +1018,10 @@
         "unknown": false,
         "building_block": "catalog_refill",
         "expected": 0.0
-      },
-      {
-        "id": "imp_79bbc6_50",
-        "target": "cycle_spanning_trees",
-        "actual_pos": 26,
-        "shadow_pos": 10,
-        "meets_bar_shadow": true,
-        "rank": 0.5257,
-        "rank_shadow": 0.6507,
-        "P": 0.8761,
-        "P_shadow": 0.7511,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
@@ -1030,7 +1029,7 @@
   "excluded_reasons": {
     "novelty_killed": 12,
     "no_oracle_pass_in_own_cycle": 11,
-    "status": 8,
+    "status": 9,
     "hearing": 2,
     "target_unresolved": 1
   },
@@ -1041,5 +1040,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T205118Z_9cbb4c"
+  "cycle_id": "20261017T221422Z_cbc5c8"
 }

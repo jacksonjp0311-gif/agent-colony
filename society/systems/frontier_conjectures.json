@@ -1,0 +1,2543 @@
+{
+ "family_surprises": {
+  "cong:digsum+lpf": 1
+ },
+ "history": [
+  {
+   "cycle_id": "20261017T221159Z_b7f950",
+   "duplicate": 11,
+   "expected_by_closure": 12,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 6,
+   "fitted": 181,
+   "machine_checked": 13,
+   "oeis_known": 12,
+   "oeis_unchecked": 0,
+   "retested": 0,
+   "surprises": 0,
+   "survived": 24,
+   "tested": 30,
+   "trivial_formal": 14,
+   "trivial_idle_part": 33,
+   "trivial_implied_parts": 16,
+   "trivial_shared_operand": 2,
+   "trivial_shuffle_null": 13,
+   "ts": "2026-10-17T22:13:03Z"
+  },
+  {
+   "cycle_id": "20261017T221312Z_6033f1",
+   "duplicate": 37,
+   "expected_by_closure": 6,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 6,
+   "fitted": 120,
+   "machine_checked": 6,
+   "oeis_known": 7,
+   "oeis_unchecked": 0,
+   "retested": 24,
+   "surprises": 1,
+   "survived": 14,
+   "tested": 20,
+   "trivial_formal": 7,
+   "trivial_idle_part": 16,
+   "trivial_implied_parts": 29,
+   "trivial_shared_operand": 5,
+   "trivial_shuffle_null": 6,
+   "ts": "2026-10-17T22:14:12Z"
+  },
+  {
+   "cycle_id": "20261017T221422Z_cbc5c8",
+   "duplicate": 70,
+   "expected_by_closure": 8,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 6,
+   "fitted": 163,
+   "machine_checked": 8,
+   "oeis_known": 1,
+   "oeis_unchecked": 0,
+   "retested": 14,
+   "surprises": 0,
+   "survived": 9,
+   "tested": 15,
+   "trivial_formal": 7,
+   "trivial_idle_part": 24,
+   "trivial_implied_parts": 33,
+   "trivial_shared_operand": 4,
+   "trivial_shuffle_null": 10,
+   "ts": "2026-10-17T22:15:31Z"
+  }
+ ],
+ "kind_stats": {
+  "cong": [
+   14,
+   12
+  ],
+  "divides": [
+   12,
+   4
+  ],
+  "identity": [
+   10,
+   6
+  ],
+  "le": [
+   9,
+   5
+  ],
+  "rec": [
+   20,
+   20
+  ]
+ },
+ "last": {
+  "brier": 0.1773,
+  "counts": {
+   "duplicate": 70,
+   "expected_by_closure": 8,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 6,
+   "fitted": 163,
+   "machine_checked": 8,
+   "oeis_known": 1,
+   "oeis_unchecked": 0,
+   "retested": 14,
+   "surprises": 0,
+   "survived": 9,
+   "tested": 15,
+   "trivial_formal": 7,
+   "trivial_idle_part": 24,
+   "trivial_implied_parts": 33,
+   "trivial_shared_operand": 4,
+   "trivial_shuffle_null": 10
+  },
+  "cycle_id": "20261017T221422Z_cbc5c8",
+  "fit_n": 12,
+  "mode": "shadow",
+  "new_survivors": [
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "found"
+    ],
+    "prediction": 0.9375,
+    "statement": "a(n) = D(pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "found"
+    ],
+    "prediction": 0.9412,
+    "statement": "a(n) = (fib+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "found"
+    ],
+    "prediction": 0.9444,
+    "statement": "a(n) = (lucas+lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "found"
+    ],
+    "prediction": 0.9474,
+    "statement": "a(n) = (lucas+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "not_found"
+    ],
+    "prediction": 0.95,
+    "statement": "a(n) = (pell+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "found"
+    ],
+    "prediction": 0.9524,
+    "statement": "a(n) = D(fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "found"
+    ],
+    "prediction": 0.8462,
+    "statement": "D(pell)(n) = 1 (mod 2) for all n >= 1",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "found"
+    ],
+    "prediction": 0.8571,
+    "statement": "D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "conjecture surviving 19988 checks",
+    "oeis": [
+     "found",
+     "primitive"
+    ],
+    "prediction": 0.7143,
+    "statement": "(omega+phi)(n) <= n(n) for all n >= 1 (with equality at some n)",
+    "unknown": false
+   }
+  ],
+  "oeis_index": "available",
+  "ts": "2026-10-17T22:15:31Z"
+ },
+ "mode": "shadow",
+ "note": "Self-chosen conjectures checked on held-out ranges. 'conjecture surviving N checks' is bounded evidence, never proof; 'machine-checked' carries a decidable certificate. Report-only unless COLONY_FRONTIER=live. See colony/frontier_conjectures.py.",
+ "op_stats": {
+  "*": [
+   7,
+   0
+  ],
+  "+": [
+   8,
+   0
+  ],
+  "-": [
+   3,
+   0
+  ],
+  "D": [
+   9,
+   1
+  ],
+  "S": [
+   9,
+   0
+  ],
+  "dbl": [
+   11,
+   0
+  ],
+  "gcd": [
+   3,
+   0
+  ],
+  "o": [
+   24,
+   0
+  ],
+  "p": [
+   14,
+   0
+  ],
+  "sh": [
+   8,
+   0
+  ]
+ },
+ "predictions": {
+  "bins": {
+   "3": [
+    3,
+    1.0512,
+    2
+   ],
+   "4": [
+    2,
+    0.8712,
+    0
+   ],
+   "5": [
+    10,
+    5.127,
+    6
+   ],
+   "6": [
+    15,
+    9.62,
+    10
+   ],
+   "7": [
+    7,
+    5.1286,
+    3
+   ],
+   "8": [
+    14,
+    11.9119,
+    13
+   ],
+   "9": [
+    14,
+    12.9928,
+    13
+   ]
+  },
+  "brier_sum": 11.523607,
+  "n": 65
+ },
+ "prim_stats": {
+  "bigomega": [
+   3,
+   0
+  ],
+  "digsum": [
+   5,
+   1
+  ],
+  "fib": [
+   6,
+   0
+  ],
+  "gpf": [
+   9,
+   0
+  ],
+  "lpf": [
+   10,
+   1
+  ],
+  "lucas": [
+   6,
+   0
+  ],
+  "mu": [
+   4,
+   0
+  ],
+  "n": [
+   11,
+   0
+  ],
+  "omega": [
+   6,
+   0
+  ],
+  "one": [
+   2,
+   0
+  ],
+  "part": [
+   3,
+   0
+  ],
+  "pell": [
+   8,
+   0
+  ],
+  "phi": [
+   3,
+   0
+  ],
+  "pi": [
+   4,
+   0
+  ],
+  "popcount": [
+   6,
+   0
+  ],
+  "pow2": [
+   9,
+   0
+  ],
+  "prime": [
+   5,
+   0
+  ],
+  "rad": [
+   9,
+   0
+  ],
+  "sigma": [
+   4,
+   0
+  ],
+  "sopfr": [
+   5,
+   0
+  ],
+  "sqfree": [
+   4,
+   0
+  ],
+  "tau": [
+   5,
+   0
+  ]
+ },
+ "registry": {
+  "cong|D((digsum+lpf))||{\"m\": 2, \"q\": 2, \"r\": 0, \"s\": 0}": {
+   "certificate": null,
+   "checks": 29994,
+   "family": "cong:digsum+lpf",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 1.0,
+   "kind": "cong",
+   "label": "conjecture surviving 29994 checks",
+   "lhs": "D((digsum+lpf))",
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "prediction": 0.8333,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "dd0b4153a1999942",
+   "statement": "D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "unknown": true,
+   "unknown_reason": "survived held-out; not trivial; a derived sequence is not in OEIS"
+  },
+  "cong|D(gcd(n,rad))||{\"m\": 2, \"q\": 2, \"r\": 1, \"s\": 0}": {
+   "certificate": null,
+   "checks": 29994,
+   "family": "cong:n+rad",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "conjecture surviving 29994 checks",
+   "lhs": "D(gcd(n,rad))",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A076334"
+   ],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "prediction": 0.75,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "7b60d9ab9f132d01",
+   "statement": "D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "cong|D(pell)||{\"m\": 2, \"q\": 1, \"r\": 1, \"s\": 0}": {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 1, state mod 2) repeats after 1 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     1,
+     2
+    ],
+    "states_checked": 1
+   },
+   "checks": 1988,
+   "family": "cong:pell",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(pell)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A001333",
+    "A078057"
+   ],
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "prediction": 0.8462,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "69f4c8029f297d56",
+   "statement": "D(pell)(n) = 1 (mod 2) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "cong|D(pell)||{\"m\": 2, \"q\": 2, \"r\": 1, \"s\": 0}": {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 2) repeats after 2 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     1,
+     2
+    ],
+    "states_checked": 2
+   },
+   "checks": 994,
+   "family": "cong:pell",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(pell)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A001333",
+    "A078057"
+   ],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "prediction": 0.8571,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "9854098efe4f4cb1",
+   "statement": "D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "cong|S(prime)||{\"m\": 2, \"q\": 2, \"r\": 1, \"s\": 0}": {
+   "certificate": null,
+   "checks": 29994,
+   "family": "cong:prime",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "conjecture surviving 29994 checks",
+   "lhs": "S(prime)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A007504",
+    "A301273"
+   ],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "prediction": 0.9,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "fa4c35b9e08c5372",
+   "statement": "S(prime)(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "cong|dbl(fib)||{\"m\": 3, \"q\": 2, \"r\": 0, \"s\": 0}": {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 3) repeats after 4 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     3
+    ],
+    "states_checked": 4
+   },
+   "checks": 1994,
+   "family": "cong:fib",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(fib)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A001906",
+    "A088305",
+    "A237268"
+   ],
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "prediction": 0.875,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "026fe992564224d4",
+   "statement": "dbl(fib)(n) = 0 (mod 3) for all n = 0 (mod 2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "cong|dbl(n)||{\"m\": 2, \"q\": 1, \"r\": 0, \"s\": 0}": {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 1, state mod 2) repeats after 1 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     2
+    ],
+    "states_checked": 1
+   },
+   "checks": 59988,
+   "family": "cong:n",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(n)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A004275",
+    "A004277",
+    "A004278",
+    "A005843"
+   ],
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "prediction": 0.8889,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "559ffbb7fc5e2f73",
+   "statement": "dbl(n)(n) = 0 (mod 2) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "cong|dbl(pell)||{\"m\": 2, \"q\": 1, \"r\": 0, \"s\": 0}": {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 1, state mod 2) repeats after 1 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     6
+    ],
+    "states_checked": 1
+   },
+   "checks": 3988,
+   "family": "cong:pell",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(pell)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A001542",
+    "A117547"
+   ],
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "prediction": 0.8333,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "3cfdd636746aa9bd",
+   "statement": "dbl(pell)(n) = 0 (mod 2) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "cong|dbl(rad)||{\"m\": 2, \"q\": 1, \"r\": 0, \"s\": 0}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "cong:rad",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "dbl(rad)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A099985"
+   ],
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "prediction": 0.5,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "61fbcbe9442a67e0",
+   "statement": "dbl(rad)(n) = 0 (mod 2) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "cong|pi[prime]||{\"m\": 2, \"q\": 2, \"r\": 0, \"s\": 0}": {
+   "certificate": null,
+   "checks": 14994,
+   "family": "cong:pi+prime",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "conjecture surviving 14994 checks",
+   "lhs": "pi[prime]",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A000926",
+    "A001477"
+   ],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "prediction": 0.8571,
+   "range": [
+    13,
+    20000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 30000,
+   "rhs": "",
+   "sig": "71e9051282319ae2",
+   "statement": "pi[prime](n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "cong|sh(n)||{\"m\": 2, \"q\": 2, \"r\": 1, \"s\": 0}": {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 2) repeats after 2 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     2
+    ],
+    "states_checked": 2
+   },
+   "checks": 29994,
+   "family": "cong:n",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh(n)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A001477",
+    "A002377"
+   ],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "prediction": 0.8,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "6e6fd5fa42f0e104",
+   "statement": "sh(n)(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "cong|sh(pell)||{\"m\": 2, \"q\": 2, \"r\": 1, \"s\": 0}": {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 2) repeats after 2 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     1,
+     2
+    ],
+    "states_checked": 2
+   },
+   "checks": 1994,
+   "family": "cong:pell",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh(pell)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000129",
+    "A048624",
+    "A069306",
+    "A215928"
+   ],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "prediction": 0.6667,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "0bfbad4529f7739e",
+   "statement": "sh(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "divides|D(pow2)|dbl(pow2)|{}": {
+   "certificate": null,
+   "checks": 3988,
+   "family": "divides:pow2",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "divides",
+   "label": "conjecture surviving 3988 checks",
+   "lhs": "D(pow2)",
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A000079",
+    "A000302",
+    "A008863",
+    "A011782"
+   ],
+   "params": {},
+   "prediction": 0.5714,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "dbl(pow2)",
+   "sig": "2c97f077b2afc6fa",
+   "statement": "D(pow2)(n) divides dbl(pow2)(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "divides|gpf[lpf]|dbl(n)|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "divides:gpf+lpf+n",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "divides",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "gpf[lpf]",
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A004275",
+    "A004277",
+    "A004278",
+    "A005843"
+   ],
+   "params": {},
+   "prediction": 0.5,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "dbl(n)",
+   "sig": "6daf3f18f7b091ee",
+   "statement": "gpf[lpf](n) divides dbl(n)(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "divides|gpf|pi[prime]|{}": {
+   "certificate": null,
+   "checks": 29988,
+   "family": "divides:gpf+pi+prime",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "divides",
+   "label": "conjecture surviving 29988 checks",
+   "lhs": "gpf",
+   "oeis": [
+    "primitive",
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A000926",
+    "A001477"
+   ],
+   "params": {},
+   "prediction": 0.6,
+   "range": [
+    13,
+    20000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 30000,
+   "rhs": "pi[prime]",
+   "sig": "65a2918553658ee0",
+   "statement": "gpf(n) divides pi[prime](n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "divides|sh(lpf)|sh(n)|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "divides:lpf+n",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "divides",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "sh(lpf)",
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A001477",
+    "A002377"
+   ],
+   "params": {},
+   "prediction": 0.3333,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "sh(n)",
+   "sig": "38a734cb3feb6e7b",
+   "statement": "sh(lpf)(n) divides sh(n)(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "identity|S(mu)|S((mu*sqfree))|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "identity:mu+sqfree",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "S(mu)",
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A002321",
+    "A197775"
+   ],
+   "params": {},
+   "prediction": 0.5,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "S((mu*sqfree))",
+   "sig": "724a5d34e1624217",
+   "statement": "S(mu)(n) = S((mu*sqfree))(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "identity|S(sqfree)|S(gcd(mu,sqfree))|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "identity:mu+sqfree",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "S(sqfree)",
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A006161",
+    "A013928",
+    "A132351",
+    "A172104"
+   ],
+   "params": {},
+   "prediction": 0.625,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "S(gcd(mu,sqfree))",
+   "sig": "e760e74f22f7c951",
+   "statement": "S(sqfree)(n) = S(gcd(mu,sqfree))(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "identity|mu[gpf]|mu[lpf]|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "identity:gpf+lpf+mu",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "mu[gpf]",
+   "oeis": [
+    "too_simple",
+    "too_simple"
+   ],
+   "oeis_anums": [],
+   "params": {},
+   "prediction": 0.6,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "mu[lpf]",
+   "sig": "4eef384ea51bb26b",
+   "statement": "mu[gpf](n) = mu[lpf](n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "identity|mu|(mu*sqfree)|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "identity:mu+sqfree",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "mu",
+   "oeis": [
+    "primitive",
+    "too_simple"
+   ],
+   "oeis_anums": [],
+   "params": {},
+   "prediction": 0.6667,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "(mu*sqfree)",
+   "sig": "2c1854a9e92f6160",
+   "statement": "mu(n) = (mu*sqfree)(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "identity|omega|bigomega[rad]|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "identity:bigomega+omega+rad",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "omega",
+   "oeis": [
+    "primitive",
+    "too_simple"
+   ],
+   "oeis_anums": [],
+   "params": {},
+   "prediction": 0.6667,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "bigomega[rad]",
+   "sig": "50942a6f1569bf32",
+   "statement": "omega(n) = bigomega[rad](n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "identity|pow2|D(pow2)|{}": {
+   "certificate": {
+    "argument": "both sides are C-finite (orders <= 1, 1); their difference has order <= 2 and vanishes on n = 1..2, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 3988,
+   "family": "identity:pow2",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "machine-checked (certificate)",
+   "lhs": "pow2",
+   "oeis": [
+    "primitive",
+    "found"
+   ],
+   "oeis_anums": [
+    "A000079",
+    "A008863",
+    "A011782",
+    "A020707"
+   ],
+   "params": {},
+   "prediction": 0.3333,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "D(pow2)",
+   "sig": "cae731b6e9bd2ba7",
+   "statement": "pow2(n) = D(pow2)(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "le|(omega+phi)|n|{}": {
+   "certificate": null,
+   "checks": 19988,
+   "family": "le:n+omega+phi",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "le",
+   "label": "conjecture surviving 19988 checks",
+   "lhs": "(omega+phi)",
+   "oeis": [
+    "found",
+    "primitive"
+   ],
+   "oeis_anums": [
+    "A057859",
+    "A242992"
+   ],
+   "params": {},
+   "prediction": 0.7143,
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "n",
+   "sig": "439d167b437ca395",
+   "statement": "(omega+phi)(n) <= n(n) for all n >= 1 (with equality at some n)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "le|gpf|pi[prime]|{}": {
+   "certificate": null,
+   "checks": 29988,
+   "family": "le:gpf+pi+prime",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "le",
+   "label": "conjecture surviving 29988 checks",
+   "lhs": "gpf",
+   "oeis": [
+    "primitive",
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A000926",
+    "A001477"
+   ],
+   "params": {},
+   "prediction": 0.6667,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 30000,
+   "rhs": "pi[prime]",
+   "sig": "5a218bfe2ba4b6dd",
+   "statement": "gpf(n) <= pi[prime](n) for all n >= 1 (with equality at some n)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "le|lpf[rad]|gpf|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "le:gpf+lpf+rad",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "lpf[rad]",
+   "oeis": [
+    "found",
+    "primitive"
+   ],
+   "oeis_anums": [
+    "A020639",
+    "A067695",
+    "A071889",
+    "A079879"
+   ],
+   "params": {},
+   "prediction": 0.5,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "gpf",
+   "sig": "dcc71c73764f250d",
+   "statement": "lpf[rad](n) <= gpf(n) for all n >= 1 (with equality at some n)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "le|rad[gpf]|(one+phi)|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "le:gpf+one+phi+rad",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "rad[gpf]",
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A006530",
+    "A015126",
+    "A039649",
+    "A039650"
+   ],
+   "params": {},
+   "prediction": 0.6,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "(one+phi)",
+   "sig": "5a00009c96c27208",
+   "statement": "rad[gpf](n) <= (one+phi)(n) for all n >= 1 (with equality at some n)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "le|sopfr[rad]|sopfr|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "le:rad+sopfr",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "sopfr[rad]",
+   "oeis": [
+    "found",
+    "primitive"
+   ],
+   "oeis_anums": [
+    "A008472",
+    "A075860",
+    "A086294",
+    "A095402"
+   ],
+   "params": {},
+   "prediction": 0.6667,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "sopfr",
+   "sig": "38e73c54a92f0f92",
+   "statement": "sopfr[rad](n) <= sopfr(n) for all n >= 1 (with equality at some n)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "rec|(fib+pow2)||{\"c\": [-2, -1, 3]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 1988,
+   "family": "rec:fib+pow2",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(fib+pow2)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A117591"
+   ],
+   "params": {
+    "c": [
+     -2,
+     -1,
+     3
+    ]
+   },
+   "prediction": 0.9412,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "dbd58e7cc6233d79",
+   "statement": "a(n) = (fib+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(lucas+lucas)||{\"c\": [1, 1]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 4 and vanishes on 4 consecutive terms, hence everywhere",
+    "checked_terms": 4,
+    "method": "C-finite order bound",
+    "order_bound": 4
+   },
+   "checks": 1988,
+   "family": "rec:lucas",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(lucas+lucas)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A022112"
+   ],
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "prediction": 0.9444,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "63e3c4d61a1bf441",
+   "statement": "a(n) = (lucas+lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(lucas+pow2)||{\"c\": [-2, -1, 3]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 1988,
+   "family": "rec:lucas+pow2",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(lucas+pow2)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A088859"
+   ],
+   "params": {
+    "c": [
+     -2,
+     -1,
+     3
+    ]
+   },
+   "prediction": 0.9474,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "89566b1c499d9be4",
+   "statement": "a(n) = (lucas+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(n*n)||{\"c\": [1, -3, 3]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 4 and vanishes on 4 consecutive terms, hence everywhere",
+    "checked_terms": 4,
+    "method": "C-finite order bound",
+    "order_bound": 4
+   },
+   "checks": 59988,
+   "family": "rec:n",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(n*n)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000290",
+    "A018885",
+    "A025741",
+    "A030476"
+   ],
+   "params": {
+    "c": [
+     1,
+     -3,
+     3
+    ]
+   },
+   "prediction": 0.6667,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "65059be9ccd0a460",
+   "statement": "a(n) = (n*n)(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(pell+pow2)||{\"c\": [-2, -3, 4]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 1988,
+   "family": "rec:pell+pow2",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pell+pow2)",
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     -2,
+     -3,
+     4
+    ]
+   },
+   "prediction": 0.95,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "7bc8f19bcd489288",
+   "statement": "a(n) = (pell+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(pow2-lucas)||{\"c\": [-2, -1, 3]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:lucas+pow2",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pow2-lucas)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A027973"
+   ],
+   "params": {
+    "c": [
+     -2,
+     -1,
+     3
+    ]
+   },
+   "prediction": 0.8889,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "816b6a9ef432f074",
+   "statement": "a(n) = (pow2-lucas)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(pow2-pell)||{\"c\": [-2, -3, 4]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:pell+pow2",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pow2-pell)",
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     -2,
+     -3,
+     4
+    ]
+   },
+   "prediction": 0.8,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "9f6506856afad9d2",
+   "statement": "a(n) = (pow2-pell)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|D(fib)||{\"c\": [1, 1]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 1988,
+   "family": "rec:fib",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(fib)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000044",
+    "A000045",
+    "A005181",
+    "A013987"
+   ],
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "prediction": 0.9524,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "210f1cb88f567118",
+   "statement": "a(n) = D(fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|D(lucas)||{\"c\": [1, 1]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 3988,
+   "family": "rec:lucas",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(lucas)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000032",
+    "A000204",
+    "A080023",
+    "A169985"
+   ],
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "prediction": 0.8333,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "2d8310993f6fa448",
+   "statement": "a(n) = D(lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|D(pell)||{\"c\": [1, 2]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 1988,
+   "family": "rec:pell",
+   "found_at": "2026-10-17T22:15:31Z",
+   "found_cycle": "20261017T221422Z_cbc5c8",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(pell)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A001333",
+    "A078057"
+   ],
+   "params": {
+    "c": [
+     1,
+     2
+    ]
+   },
+   "prediction": 0.9375,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "4adc81ff0769b734",
+   "statement": "a(n) = D(pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|S(fib)||{\"c\": [-1, 0, 2]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:fib",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "S(fib)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000071",
+    "A020732"
+   ],
+   "params": {
+    "c": [
+     -1,
+     0,
+     2
+    ]
+   },
+   "prediction": 0.9,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "c42ae1f2c4306882",
+   "statement": "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|S(pell)||{\"c\": [-1, -1, 3]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:pell",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "S(pell)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A048739",
+    "A090757"
+   ],
+   "params": {
+    "c": [
+     -1,
+     -1,
+     3
+    ]
+   },
+   "prediction": 0.9167,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "e6dcb4497a0ad5d3",
+   "statement": "a(n) = S(pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|S(pow2)||{\"c\": [-2, 3]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 3988,
+   "family": "rec:pow2",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "S(pow2)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000918",
+    "A095121",
+    "A134067",
+    "A283591"
+   ],
+   "params": {
+    "c": [
+     -2,
+     3
+    ]
+   },
+   "prediction": 0.9333,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "3ff6d9124f0e16c6",
+   "statement": "a(n) = S(pow2)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|dbl(n)||{\"c\": [-1, 2]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 59988,
+   "family": "rec:n",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(n)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A004275",
+    "A004277",
+    "A004278",
+    "A005843"
+   ],
+   "params": {
+    "c": [
+     -1,
+     2
+    ]
+   },
+   "prediction": 0.8571,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "46867b6fa45e8aea",
+   "statement": "a(n) = dbl(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|fib||{\"c\": [1, 1]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 3988,
+   "family": "rec:fib",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "fib",
+   "oeis": [
+    "primitive"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "prediction": 0.9091,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "f6501cd4dfef7553",
+   "statement": "a(n) = fib(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|lucas||{\"c\": [1, 1]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 3988,
+   "family": "rec:lucas",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "lucas",
+   "oeis": [
+    "primitive"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "prediction": 0.9286,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "f5a6fe489383fa0a",
+   "statement": "a(n) = lucas(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|pi[prime]||{\"c\": [-1, 2]}": {
+   "certificate": null,
+   "checks": 29988,
+   "family": "rec:pi+prime",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "conjecture surviving 29988 checks",
+   "lhs": "pi[prime]",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A000926",
+    "A001477"
+   ],
+   "params": {
+    "c": [
+     -1,
+     2
+    ]
+   },
+   "prediction": 0.5,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 30000,
+   "rhs": "",
+   "sig": "d0de15da336e7d79",
+   "statement": "a(n) = pi[prime](n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "rec|sh((fib-one))||{\"c\": [-1, 0, 2]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:fib+one",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh((fib-one))",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000071"
+   ],
+   "params": {
+    "c": [
+     -1,
+     0,
+     2
+    ]
+   },
+   "prediction": 0.875,
+   "range": [
+    13,
+    2000
+   ],
+   "retest_exhausted": true,
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "1e23008ee991ec93",
+   "statement": "a(n) = sh((fib-one))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|sh((n+pow2))||{\"c\": [2, -5, 4]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:n+pow2",
+   "found_at": "2026-10-17T22:14:12Z",
+   "found_cycle": "20261017T221312Z_6033f1",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh((n+pow2))",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A006127"
+   ],
+   "params": {
+    "c": [
+     2,
+     -5,
+     4
+    ]
+   },
+   "prediction": 0.9231,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "a1b5eab279e66eca",
+   "statement": "a(n) = sh((n+pow2))(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|sh(n)||{\"c\": [-1, 2]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 59988,
+   "family": "rec:n",
+   "found_at": "2026-10-17T22:13:03Z",
+   "found_cycle": "20261017T221159Z_b7f950",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh(n)",
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A001477",
+    "A002377"
+   ],
+   "params": {
+    "c": [
+     -1,
+     2
+    ]
+   },
+   "prediction": 0.75,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "da021e4e41ec8131",
+   "statement": "a(n) = sh(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  }
+ },
+ "rejected_ids": [
+  "0280cdb99ee3",
+  "08bd11d011ae",
+  "0e0a44b63e81",
+  "0f3876bbecf1",
+  "1983b017c6e0",
+  "2b599455ddb7",
+  "47a724e945a6",
+  "5aad2fc22c33",
+  "63c33075cdf1",
+  "697e4b20fb68",
+  "806c310932f5",
+  "909a2b97b5c3",
+  "90c34004f083",
+  "a16815a35351",
+  "ab67a15e3c75",
+  "d47b30d5106c",
+  "d4d0141c81d3",
+  "facb6b6a74ec"
+ ],
+ "signatures": [
+  "014c9fc50b5f25f3",
+  "01b66ffa7bda8aae",
+  "01c7d841f3c26252",
+  "024aeda9f5872fe6",
+  "024f11c374da0e8c",
+  "026fe992564224d4",
+  "0338a707a4d508d7",
+  "03f7a7ee4d77650e",
+  "04c189418eb801aa",
+  "059c8ecd4daa4056",
+  "0637ba18c93e3547",
+  "075654adcc467e18",
+  "078d8ba4258e114f",
+  "081865c27fd43d03",
+  "09047c0cdc860978",
+  "0a0c03704eb04d80",
+  "0a3a802409e7f4de",
+  "0bc4f238f71c1b36",
+  "0bfbad4529f7739e",
+  "0c9f555c029228e9",
+  "0d05e75c21f0f232",
+  "0f779d5599cb16a8",
+  "0f81dc2deceb94bf",
+  "0fb1205d66449611",
+  "10120a8dffb109ca",
+  "118fbe8c2257440b",
+  "1272c968bb018bcf",
+  "13c63953a725b04b",
+  "1535c84745cfad47",
+  "15789f5843c7f70f",
+  "15f0e0e21b01e827",
+  "1634058b5eb0123a",
+  "16845e0b4508cf78",
+  "1711a2cc3cb31503",
+  "1769cc065cd81adc",
+  "18ce6131fbb6c4d7",
+  "190e88953bec4674",
+  "1a3716f33e16e621",
+  "1b59381f7623c7f3",
+  "1bdf454dc1a2add1",
+  "1c144f78bf4e9e4d",
+  "1c313170b2bb7018",
+  "1e23008ee991ec93",
+  "1e2827075ff662af",
+  "1ea0a1716bac05a4",
+  "1ed00c7c8d5546a8",
+  "1fb034504e721df0",
+  "210f1cb88f567118",
+  "21cd941b124cc1ad",
+  "23c19813e2b6d86f",
+  "2464690930b739c5",
+  "25080440fb654f3e",
+  "259b4d27d1f36815",
+  "26a127a043bc9a01",
+  "26dae37933023a1b",
+  "27b0e2249ddfada9",
+  "28fe4d6a1f15a1a7",
+  "29667c5869c471d1",
+  "2b383d62bbbde1d0",
+  "2b70da5d82784dc1",
+  "2c1854a9e92f6160",
+  "2c97f077b2afc6fa",
+  "2d8310993f6fa448",
+  "2dc3d3a15284d65d",
+  "2e65f5184291e5e8",
+  "2e98ff0da120d830",
+  "2ecbc84ff2d651d2",
+  "2ee1f2490ee5bc19",
+  "2fd3d3a036c8f8a8",
+  "30ac3d0b535fbeb3",
+  "335eb8b99ec5f202",
+  "3619ae5e0cfda0b6",
+  "37d4c3b0605e361f",
+  "384bd85605fff546",
+  "38a734cb3feb6e7b",
+  "38b267200184c932",
+  "38e73c54a92f0f92",
+  "39590a6a9a2b963f",
+  "3a2b263421e1e50c",
+  "3a9a448847d7872a",
+  "3b0cd1786ae097dd",
+  "3be509f4214d8578",
+  "3cfdd636746aa9bd",
+  "3f3cc486477aad21",
+  "3ff6d9124f0e16c6",
+  "40a936d0585907b0",
+  "40b834eb872582dc",
+  "4208749d2526c2b1",
+  "421fc034266c61b6",
+  "42b21bf9fc3d9d01",
+  "439d167b437ca395",
+  "447475a80b535748",
+  "44dbf1fb7a0bebdc",
+  "4593d399db64134b",
+  "46867b6fa45e8aea",
+  "474e04454b6bd2a1",
+  "483a38f1a9d34d1f",
+  "48b73f16a5552ab2",
+  "4977e9d129adf745",
+  "49a291120a4eb8cd",
+  "4a4bf180566d263f",
+  "4aa59c9fbe6ff723",
+  "4adc81ff0769b734",
+  "4b049779411baadd",
+  "4b2ca0de548733ee",
+  "4b68b19c136c2aac",
+  "4c30d99f228d98ce",
+  "4c6d4a8efab8c63b",
+  "4db93545288ddbe5",
+  "4e6b99f558285bea",
+  "4e8a4ca0c99cccdd",
+  "4eef384ea51bb26b",
+  "4f008fd9cb11b97c",
+  "50942a6f1569bf32",
+  "50bf1974e5959bcd",
+  "5277a70d18f517a9",
+  "538bad7dbe397d06",
+  "53c5cfa6333ba62e",
+  "53d21d202e42c0ff",
+  "541eb0d5f396c0c2",
+  "54b81aba99912f69",
+  "559ffbb7fc5e2f73",
+  "567f333155070fd9",
+  "577c4474583144bc",
+  "57ae8d73c8274598",
+  "57af6a51736d041a",
+  "58e3a24158b499d7",
+  "5a00009c96c27208",
+  "5a218bfe2ba4b6dd",
+  "5c4b1eae39ed4b73",
+  "5cfab78ebb8ca655",
+  "5dfa4b3340417201",
+  "5e7f89049eae011e",
+  "5f2f69a089bf19b0",
+  "611a703fbeb216cd",
+  "61fbcbe9442a67e0",
+  "620ead5819693d2f",
+  "62759983eb49aa48",
+  "628f569abbc2da5c",
+  "62c86c100fb0955c",
+  "63c553639a931326",
+  "63e3c4d61a1bf441",
+  "6419dfbbbda753e4",
+  "65059be9ccd0a460",
+  "65a2918553658ee0",
+  "678d5f3cb4c9f0a8",
+  "67aa7c09bbd1c1c0",
+  "69623ec78626516f",
+  "69f4c8029f297d56",
+  "6a51a64ecf30121d",
+  "6a5456fa6967348c",
+  "6aff02aecc5982bb",
+  "6bebc6b7e04d0091",
+  "6ce76ffa057cc954",
+  "6d22be1e50145306",
+  "6daf3f18f7b091ee",
+  "6e6fd5fa42f0e104",
+  "6e809445a191821d",
+  "6fbdfe9ac6afe858",
+  "71e9051282319ae2",
+  "724a5d34e1624217",
+  "75e1fd86cd4cfc34",
+  "763be2431c46deec",
+  "7700b26de9ddde96",
+  "778ac964a04cfb62",
+  "79c9addd575c331b",
+  "7b60d9ab9f132d01",
+  "7b8599a90175a07f",
+  "7bc8f19bcd489288",
+  "7c49e9ed8d775fcb",
+  "7c73607a2076ce48",
+  "7e760378f676cac2",
+  "7fc230141445d00c",
+  "7fda842aa1481024",
+  "7fe34aa7ba94227d",
+  "80914b4d1b35dadc",
+  "80b04bc431ba2039",
+  "8125bc8be410cd94",
+  "813674381605a146",
+  "816b6a9ef432f074",
+  "820687560db5c27c",
+  "83643f60497d8cc7",
+  "836bfc589949f14a",
+  "84c367589433edaa",
+  "8540c3cd4310ebe0",
+  "859a8bd190ac2071",
+  "86d77d60ba3f410c",
+  "8884cb44f7f7ed36",
+  "89566b1c499d9be4",
+  "8bf486d5ab5744fa",
+  "8c1b50f492977ac5",
+  "8dc9c181f2b31ee3",
+  "8e8bce4ac7f73283",
+  "8eba0aca168d119d",
+  "8eda57d735340e17",
+  "90414200a592b2f4",
+  "91081145cd691dbf",
+  "97a795a7688a4ddd",
+  "984c37480c713547",
+  "9854098efe4f4cb1",
+  "990c074d14b8e660",
+  "9a375e990d6f0067",
+  "9ab475cf754949a0",
+  "9bc6c6d81d1afba3",
+  "9c4020a1795cfca8",
+  "9c8a83882d627531",
+  "9d9c19ec7dcdec43",
+  "9da54e45bc7ca285",
+  "9dc2eb4e2e654f73",
+  "9f6506856afad9d2",
+  "9f7b60e2d72edcf6",
+  "9fb31921254481bb",
+  "9fb77932cf97f3ec",
+  "a0154772dd458d7c",
+  "a0d1c8a57fad4a7e",
+  "a1b5eab279e66eca",
+  "a1e943ee31e84e03",
+  "a2c98c5c9eb9e2eb",
+  "a4a6d76e97f8e68f",
+  "a4a73d777d3fb710",
+  "a58e568cf6a64dc0",
+  "a60befc432242824",
+  "a64354c26c4100fe",
+  "a71336c8cba9f3bb",
+  "a7fa289284dc4c1e",
+  "a816081683cf638f",
+  "abc37ca3ab30dcdf",
+  "ac455d46ee3b0dd3",
+  "ac93ba429ee6b2e9",
+  "ada322b6eabb6523",
+  "ae4f91c4b06e87c7",
+  "aec189d45d0a4afe",
+  "afbddfcd3fe3372c",
+  "afc5a10bee44a890",
+  "afe91d04e95b5b15",
+  "b0105e0f06e3b121",
+  "b0f53025c442ae15",
+  "b1eabd1a309cb2ee",
+  "b23c64082c9fde6d",
+  "b277ddc4b1c80b53",
+  "b475ba63bf4d2f30",
+  "b6feadce2035ac5f",
+  "b7172a734557492a",
+  "b7c6c4ebc19f5623",
+  "b7e2312b3c69d7ee",
+  "b801d3b52bd662ca",
+  "b939ad3290937bf9",
+  "ba455624d6f138c7",
+  "badcc99ada9fdfc6",
+  "bc1160dad3a4ddde",
+  "bdbfd184609c5e61",
+  "bf147eb96cfbc7b3",
+  "bfeb4a75e6d1342c",
+  "c02cac9083535710",
+  "c043fefd1d9a4355",
+  "c12dfc455915a487",
+  "c1b43988133c128b",
+  "c1ec92479c03763e",
+  "c24f82d8d17fee4f",
+  "c27b1d25b8728d34",
+  "c369df2d9fd26ccf",
+  "c3a417898ab6ca21",
+  "c42ae1f2c4306882",
+  "c44a2cb6e0ee233c",
+  "c47506e7dbbd6277",
+  "c4fcc3a54bd77725",
+  "c5270f9adc10839d",
+  "c92c6aba24ad12a6",
+  "ca5a57468431e7d2",
+  "cae731b6e9bd2ba7",
+  "cecba8f80f584937",
+  "ced9081ddd80ef9f",
+  "cf4873e6cb475551",
+  "d05d4dcdc4871437",
+  "d0de15da336e7d79",
+  "d1190872d96109b8",
+  "d24f381b0a449245",
+  "d2d2daf00950239a",
+  "d3c62cca25288778",
+  "d54a03a009952bbc",
+  "d5791629bf184c20",
+  "d5c50ce9e1303ad2",
+  "d85132b4115814fc",
+  "d89a9c40f7dcdc93",
+  "d8af8e14b3b8f732",
+  "da021e4e41ec8131",
+  "dbd58e7cc6233d79",
+  "dcb2e7edf5119105",
+  "dcc71c73764f250d",
+  "dd0b4153a1999942",
+  "dd890839208a44d2",
+  "ddc66804779201dd",
+  "de0a29f8ffbd97d3",
+  "df099e17a169a1c6",
+  "df5bdf708fa879aa",
+  "df8695ea1bcf59d2",
+  "e0249b4a83178fbb",
+  "e1725d6598a4129f",
+  "e1af4dfac16ad618",
+  "e1cc58e55494643b",
+  "e2f396ee485cdd27",
+  "e312850e02708392",
+  "e31ab96e94d98f4b",
+  "e483e88c4cad6881",
+  "e4faef69a460b134",
+  "e62c9b8afb0f5aff",
+  "e6dcb4497a0ad5d3",
+  "e760e74f22f7c951",
+  "e7f203ce1643db5a",
+  "e9c3bea343b74e87",
+  "e9d0f2ce5f70190d",
+  "e9eeec33185db1c4",
+  "eb67ba60539e9586",
+  "eba2609512d46cd4",
+  "ec67eea8f7a89ecb",
+  "ec8d9e4f1c5140b2",
+  "ed749f0162fe5493",
+  "edd6e8c134b5c2e2",
+  "ee62172d6c3767c4",
+  "ee88ede5b97303a2",
+  "ee940459d0a0e418",
+  "f060e249dc54c3e0",
+  "f0be6ce58c4c7660",
+  "f1d93886b900f6dc",
+  "f2574e4fb5c6e922",
+  "f2bc2f0bb840d682",
+  "f32313be20b1c050",
+  "f3aa2338ada00d57",
+  "f462f5043dda20bc",
+  "f54ed0e75f99c4a3",
+  "f5a6fe489383fa0a",
+  "f6501cd4dfef7553",
+  "f71a5058c0fd2358",
+  "f743dbebc7c240d3",
+  "f7fedb99d147a848",
+  "f9e90ee302324076",
+  "fa4c35b9e08c5372",
+  "fab9c28a4bbb338a",
+  "fc86b7fba8037622",
+  "fd8adb93ad5c0170",
+  "fdbfd80ebd2fb4d9",
+  "fe0d3370b087c8ed",
+  "fe8419a86a2739ef",
+  "feca3e102fd05173",
+  "ff7c1fba80166b08",
+  "ffe90b9a77a8dbce"
+ ],
+ "totals": {
+  "duplicate": 118,
+  "expected_by_closure": 26,
+  "false_surprises": 0,
+  "falsified": 18,
+  "machine_checked": 27,
+  "oeis_known": 20,
+  "oeis_unchecked": 0,
+  "retested": 38,
+  "surprises": 1,
+  "survived": 47,
+  "tested": 65,
+  "trivial_formal": 28,
+  "trivial_idle_part": 73,
+  "trivial_implied_parts": 78,
+  "trivial_shared_operand": 11,
+  "trivial_shuffle_null": 29
+ }
+}
