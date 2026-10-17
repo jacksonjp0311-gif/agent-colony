@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T04:02:34Z",
-  "updated_cycle": "20261017T040151Z_e9653f",
+  "updated_at": "2026-10-17T04:49:17Z",
+  "updated_cycle": "20261017T044835Z_ef95fb",
   "signal": {
-    "ts": "2026-10-17T04:02:34Z",
+    "ts": "2026-10-17T04:49:17Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 96,
+    "accepted_compute": 97,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_d6a01e77adba",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_4_w1"
+        "finding_id": "fnd_56d15a80aa8b",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_6_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_b0273b68c4df",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g4_2_w1",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_9761d9fbd680",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g4_6_w1",
         "topic_id": "compute-useful-math",
@@ -89,6 +82,13 @@
       {
         "id": "fnd_5c21d9047a22",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_4_2_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_cc1e1f2ad4c0",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__derangement_",
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
@@ -109,12 +109,6 @@
     },
     "lessons": [
       {
-        "id": "fnd_b0273b68c4df",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g4_2_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
         "id": "fnd_9761d9fbd680",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g4_6_w1",
         "topic_id": "compute-useful-math",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_4_2_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_cc1e1f2ad4c0",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__derangement_subfactorial_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_d6a01e77adba",
         "fnd_56d15a80aa8b",
         "fnd_b0273b68c4df",
         "fnd_9761d9fbd680",
         "fnd_54c9e676619b",
         "fnd_65a85733aa71",
         "fnd_d001227bc4c8",
-        "fnd_5c21d9047a22"
+        "fnd_5c21d9047a22",
+        "fnd_cc1e1f2ad4c0"
       ],
       "rsi": []
     },

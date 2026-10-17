@@ -420,82 +420,85 @@
     "cycle_368_evolve_note",
     "cycle_369_evolve_note",
     "cycle_370_evolve_note",
-    "cycle_371_evolve_note"
+    "cycle_371_evolve_note",
+    "cycle_372_evolve_note",
+    "cycle_373_evolve_note",
+    "cycle_374_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1063,
+      "uses": 1072,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1035,
+      "uses": 1044,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 711,
+      "uses": 717,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 355,
+      "uses": 358,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1377,
+      "uses": 1389,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 743,
+      "uses": 749,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1030,
+      "uses": 1039,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 343,
+      "uses": 346,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 343,
+      "uses": 346,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 328,
+      "uses": 331,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 328,
+      "uses": 331,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 325,
+      "uses": 328,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 325,
+      "uses": 328,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 322,
+      "uses": 325,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 322,
+      "uses": 325,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -770,8 +773,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1376,
-    "reused": 3091
+    "appended": 1388,
+    "reused": 3118
   },
   "commons_by_domain": {
     "science": 0,
@@ -790,8 +793,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-17T04:02:34Z",
-    "cycle_id": "20261017T040151Z_e9653f",
+    "ts": "2026-10-17T04:49:17Z",
+    "cycle_id": "20261017T044835Z_ef95fb",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -803,23 +806,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-17T04:02:33Z",
-    "cycle_id": "20261017T040151Z_e9653f",
+    "ts": "2026-10-17T04:49:16Z",
+    "cycle_id": "20261017T044835Z_ef95fb",
     "tribute_quality": 0.9,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8133,
-    "compute_usefulness": 0.9128,
+    "math_prize": 0.8144,
+    "compute_usefulness": 0.9132,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8855,
-    "kill_rate": 0.3672,
-    "kill_rate_term": 0.8805,
-    "novelty": 0.7895,
+    "prize_boost": 0.8861,
+    "kill_rate": 0.3657,
+    "kill_rate_term": 0.8791,
+    "novelty": 0.8095,
     "lesson_uptake": 0.96,
-    "aggregate": 0.841,
+    "aggregate": 0.842,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -827,36 +830,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 19328,
-    "read": 92220,
-    "replied": 12172,
-    "actions_planned": 6294,
-    "actions_changed_from_message": 6294,
-    "reply_quality_sum": 11051.699999998254,
-    "reply_quality_n": 12120,
-    "peer_cite_opportunities": 12464,
-    "peer_cites": 12464
+    "posted": 19496,
+    "read": 93048,
+    "replied": 12277,
+    "actions_planned": 6348,
+    "actions_changed_from_message": 6348,
+    "reply_quality_sum": 11147.499999998226,
+    "reply_quality_n": 12225,
+    "peer_cite_opportunities": 12572,
+    "peer_cites": 12572
   },
   "bus_domains": {
-    "science": 1025,
-    "history": 1027,
-    "math": 3090,
-    "empire": 687,
-    "bulletin": 2645,
-    "forum": 4456,
-    "software": 1027,
-    "nature": 1025,
-    "life": 1027,
-    "cosmos": 1492,
-    "rsi": 1719
+    "science": 1034,
+    "history": 1036,
+    "math": 3117,
+    "empire": 693,
+    "bulletin": 2666,
+    "forum": 4498,
+    "software": 1036,
+    "nature": 1034,
+    "life": 1036,
+    "cosmos": 1504,
+    "rsi": 1734
   },
-  "communications_count": 19328,
+  "communications_count": 19496,
   "improvements": [
-    "Chain `authored_stirling_second_row__pythagorean_generation_w1` citing Metallic Means in Primitive Pythagorean Triples : ",
-    "Chain `authored_stirling_second_row__pythagorean_generation_w1` citing Metallic Means in Primitive Pythagorean Triples :  (cycle 331)",
-    "Chain+seek `lemma_hard_combinatorics` from invariant priors",
-    "Chain+seek `lemma_hard_combinatorics` from invariant priors (cycle 332)",
-    "Chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors",
     "Chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors (cycle 333)",
     "Chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors",
     "Chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors (cycle 334)",
@@ -901,18 +899,23 @@
     "Chain+seek `authored_sieve_hl_within_g2_w2` from invariant priors (cycle 369)",
     "Chain `authored_binomial_sum_row__derangement_subfactorial_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain `authored_binomial_sum_row__derangement_subfactorial_w1` citing Inverse binomial coefficients in Egorychev method (cycle 370)",
-    "Chain+seek `authored_sieve_hl_within_g2_w2` from invariant priors"
+    "Chain+seek `authored_sieve_hl_within_g2_w2` from invariant priors",
+    "Chain `authored_binomial_symmetry__central_binom_bound_w1` citing Sum rules for permutations with fixed points invol",
+    "Chain `authored_binomial_symmetry__central_binom_bound_w1` citing Sum rules for permutations with fixed points invol (cycle 372)",
+    "Chain+seek `authored_sieve_hl_within_g2_w2` from invariant priors",
+    "Chain `authored_cassini__bell_triangle_recurrence_w1` citing On two families of generalized Stirling numbers re",
+    "Chain `authored_cassini__bell_triangle_recurrence_w1` citing On two families of generalized Stirling numbers re (cycle 374)"
   ],
-  "cycle_count": 371,
-  "ledger_count": 20759,
+  "cycle_count": 374,
+  "ledger_count": 20940,
   "status_counts": {
-    "candidate": 20036,
-    "accepted": 242,
-    "rejected": 355,
+    "candidate": 20212,
+    "accepted": 244,
+    "rejected": 358,
     "unknown": 126
   },
-  "witness_events": 30150,
-  "tribute_cycles_compliant": 371,
+  "witness_events": 30413,
+  "tribute_cycles_compliant": 374,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
