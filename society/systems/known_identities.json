@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T22:14:52Z",
-  "n": 317,
+  "updated_at": "2026-10-17T22:27:09Z",
+  "n": 318,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -76,6 +76,7 @@
     "authored_hockey_stick__stirling_second_row_w1",
     "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
     "authored_motzkin_bounded__legendre_duplication_small_w1",
+    "authored_multinomial_three__newton_identities_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000079__binomial_sum_row",
     "authored_oeis_a000108__catalan_bounded",
@@ -200,8 +201,7 @@
     "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 164)",
     "chain `lemma_hard_combinatorics` citing on two families of generalized stirling numbers re",
     "chain `lemma_hard_combinatorics` citing on two families of generalized stirling numbers re (cycle 242)",
-    "chain `newton_identities` citing proofs of four takigiku--tsuchioka conjectures on",
-    "chain `stem_easy_pad_units` citing new algebraic points on covers of elliptic curves"
+    "chain `newton_identities` citing proofs of four takigiku--tsuchioka conjectures on"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

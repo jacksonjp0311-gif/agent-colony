@@ -66,6 +66,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.1007/s00026-026-00811-3>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -77,11 +82,6 @@
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T22:15:06Z",
-  "updated_cycle": "20261017T221422Z_cbc5c8",
+  "updated_at": "2026-10-17T22:28:39Z",
+  "updated_cycle": "20261017T222800Z_7f07ee",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

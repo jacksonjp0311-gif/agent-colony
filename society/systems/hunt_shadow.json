@@ -2,17 +2,17 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-17T22:15:40Z",
-    "cycle_id": "20261017T221422Z_cbc5c8",
+    "ts": "2026-10-17T22:29:15Z",
+    "cycle_id": "20261017T222800Z_7f07ee",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 42,
-    "n_meet_bar_shadow": 21,
-    "n_unknown_claims": 24,
+    "n_meet_bar_actual": 43,
+    "n_meet_bar_shadow": 25,
+    "n_unknown_claims": 25,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
       "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
@@ -24,6 +24,7 @@
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_fermat_little__lucas_theorem_binomial_w1",
       "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
+      "authored_multinomial_three__newton_identities_w1",
       "authored_sieve_hl_within_g2_6_4_w1",
       "authored_sieve_hl_within_g2_6_6_w1",
       "authored_sieve_hl_within_g6_2_4_w1",
@@ -32,8 +33,7 @@
       "authored_sieve_residue_bal_g2_4_6_w1",
       "authored_sieve_residue_bal_g4_6_2_w1",
       "authored_sieve_residue_bal_g4_6_6_w1",
-      "authored_sieve_residue_bal_g6_6_2_w1",
-      "authored_sieve_residue_bal_g6_6_4_w1"
+      "authored_sieve_residue_bal_g6_6_2_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -52,10 +52,7 @@
       "imp_b0787f_50",
       "imp_e0b942_50",
       "imp_dfaa7b_50",
-      "imp_64ee61_50",
       "imp_cd809b_50",
-      "imp_ca0b82_50",
-      "imp_0bada5_50",
       "imp_1a4ec1_50",
       "imp_5c95a3_50"
     ],
@@ -78,7 +75,7 @@
       {
         "id": "imp_40ec35_50",
         "target": "authored_cayley_tree_count__complete_bipartite_trees_w1",
-        "actual_pos": 9,
+        "actual_pos": 11,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.8105,
@@ -118,10 +115,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_76124b_50",
-        "target": "authored_bezout_identity__cayley_hamilton_3x3_w1",
+        "id": "imp_4b0785_50",
+        "target": "authored_multinomial_three__newton_identities_w1",
         "actual_pos": 4,
         "shadow_pos": 5,
+        "meets_bar_shadow": true,
+        "rank": 0.926,
+        "rank_shadow": 0.926,
+        "P": 0.8766,
+        "P_shadow": 0.8766,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_76124b_50",
+        "target": "authored_bezout_identity__cayley_hamilton_3x3_w1",
+        "actual_pos": 5,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.925,
         "rank_shadow": 0.925,
@@ -134,20 +145,6 @@
       {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 5,
-        "shadow_pos": 6,
-        "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_94edc4_50",
-        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 6,
         "shadow_pos": 7,
         "meets_bar_shadow": true,
@@ -160,8 +157,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_96efa1_49",
-        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
+        "id": "imp_94edc4_50",
+        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 7,
         "shadow_pos": 8,
         "meets_bar_shadow": true,
@@ -174,8 +171,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_b1face_50",
-        "target": "authored_abel_summation__faulhaber_power_sums_w1",
+        "id": "imp_96efa1_49",
+        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
         "actual_pos": 8,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
@@ -188,69 +185,27 @@
         "expected": 0.0
       },
       {
-        "id": "imp_e8a630_50",
-        "target": "cayley_hamilton_3x3",
-        "actual_pos": 24,
+        "id": "imp_b1face_50",
+        "target": "authored_abel_summation__faulhaber_power_sums_w1",
+        "actual_pos": 9,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
-        "rank": 0.5261,
-        "rank_shadow": 0.6511,
-        "P": 0.8768,
-        "P_shadow": 0.7518,
-        "unknown": false,
-        "building_block": "catalog_refill",
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
         "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-17T16:35:45Z",
-      "cycle_id": "20261017T163420Z_0bada5",
-      "n_meet_bar_actual": 40,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 40,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T16:36:57Z",
-      "cycle_id": "20261017T163545Z_b95580",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 18,
-      "drop_out_of_bar": 41,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T16:38:08Z",
-      "cycle_id": "20261017T163657Z_dfaa7b",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 41,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-17T16:41:10Z",
       "cycle_id": "20261017T164012Z_398d31",
@@ -646,6 +601,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:26:33Z",
+      "cycle_id": "20261017T222515Z_37f69b",
+      "n_meet_bar_actual": 43,
+      "n_meet_bar_shadow": 22,
+      "n_unknown_claims": 24,
+      "drop_out_of_bar": 21,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:28:00Z",
+      "cycle_id": "20261017T222633Z_4b0785",
+      "n_meet_bar_actual": 42,
+      "n_meet_bar_shadow": 24,
+      "n_unknown_claims": 25,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:29:15Z",
+      "cycle_id": "20261017T222800Z_7f07ee",
+      "n_meet_bar_actual": 43,
+      "n_meet_bar_shadow": 25,
+      "n_unknown_claims": 25,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }

@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T22:14:52Z",
-  "passes": 389,
+  "updated_at": "2026-10-17T22:27:09Z",
+  "passes": 390,
   "kills": 182,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3187,
+  "kill_rate": 0.3182,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -27,6 +27,7 @@
     "authored_euler_theorem__gauss_phi_divisor_sum_w1",
     "authored_fermat_little__lucas_theorem_binomial_w1",
     "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
+    "authored_multinomial_three__newton_identities_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
     "authored_sieve_hl_within_g2_6_6_w1",
     "authored_sieve_hl_within_g4_6_w1",
@@ -53,8 +54,7 @@
     "bezout_identity",
     "burnside_necklaces",
     "cayley_hamilton_2x2",
-    "cayley_hamilton_3x3",
-    "cayley_tree_count"
+    "cayley_hamilton_3x3"
   ],
   "unique_mutations_kill": [
     "Chain `newton_identities` citing Proofs of four Takigiku--Tsuchioka conjectures on",
@@ -90,7 +90,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-17T22:14:52Z",
+    "ts": "2026-10-17T22:27:09Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -100,16 +100,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mobius_divisor_sum__mobius_inversion_sigma_w1` kind=hard_enable. lemma mutation authored_mobius_divisor_sum__mobius_inversion_sigma_w1 0.8625->0.8623 (compared 0.857",
-      "attack": "WEIGH: `authored_mobius_divisor_sum__mobius_inversion_sigma_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_multinomial_three__newton_identities_w1` kind=hard_enable. lemma mutation authored_multinomial_three__newton_identities_w1 0.8613->0.8613 (compared 0.857->0.857; spe",
+      "attack": "WEIGH: `authored_multinomial_three__newton_identities_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 209,
-        "hard_n": 209,
-        "score": 0.8624,
+        "hard_pass": 210,
+        "hard_n": 210,
+        "score": 0.8613,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -120,17 +120,17 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 209,
-        "hard_n": 209,
+        "hard_pass": 210,
+        "hard_n": 210,
         "ok": true,
-        "score": 0.8623,
+        "score": 0.8613,
         "shifted_window": {
           "ok": true,
           "reason": "shift_window_pass",
           "applied": true,
           "ranges_shifted": 2,
-          "seconds": 0.03,
-          "window_expr": "all((check_mobius_divisor_sum(n) for n in range(179, 238))) and all((check_mobius_inversion_sigma(n) for n in range(119, 158)))"
+          "seconds": 0.032,
+          "window_expr": "all((check_multinomial_three(n) for n in range(30, 40))) and all((check_newton_identities(n) for n in range(14, 18)))"
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -155,7 +155,7 @@
             "ok": true
           },
           {
-            "label": "flourish_math_family",
+            "label": "hard_enable_probes",
             "ok": true
           }
         ]
@@ -207,15 +207,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
+      "mutation": "authored_multinomial_three__newton_identities_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
+    "mutation": "authored_multinomial_three__newton_identities_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261017T221422Z_cbc5c8",
+    "cycle_id": "20261017T222633Z_4b0785",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

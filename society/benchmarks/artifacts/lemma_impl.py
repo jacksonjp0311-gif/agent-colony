@@ -2458,6 +2458,34 @@ def check_authored_mobius_divisor_sum__mobius_inversion_sigma_w1() -> bool:
     return all((check_mobius_divisor_sum(n) for n in range(120, 179))) and all((check_mobius_inversion_sigma(n) for n in range(80, 119)))
 
 
+# --- frontier bridge (colony.frontier_conjectures) ---
+def frontier_holds(claim, a, b):
+    """Bridge to colony.frontier_conjectures.holds_on: checks done when the self-chosen
+    conjecture holds for every n in [a, b], else 0. Bounded evidence, not proof."""
+    from colony import frontier_conjectures as _f
+    return int(_f.holds_on(claim, int(a), int(b)))
+
+
+def check_authored_multinomial_three__newton_identities_w1() -> bool:
+    """Authored stress check (desk): proven lemmas multinomial_three + newton_identities on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_multinomial_three,
+    ::check_newton_identities; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_multinomial_three(n) for n in range(20, 30))) and all((check_newton_identities(n) for n in range(10, 14)))
+
+
+def check_authored_frontier_le_x46c5cc8a_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)
+    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 3988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'gcd(mu,n)', 'params': {}, 'rhs': 'gcd(lucas,sqfree)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2719,6 +2747,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_euler_theorem__gauss_phi_divisor_sum_w1", check_authored_euler_theorem__gauss_phi_divisor_sum_w1, True),
     ("authored_fermat_little__lucas_theorem_binomial_w1", check_authored_fermat_little__lucas_theorem_binomial_w1, True),
     ("authored_mobius_divisor_sum__mobius_inversion_sigma_w1", check_authored_mobius_divisor_sum__mobius_inversion_sigma_w1, True),
+    ("authored_multinomial_three__newton_identities_w1", check_authored_multinomial_three__newton_identities_w1, True),
+    ("authored_frontier_le_x46c5cc8a_w1", check_authored_frontier_le_x46c5cc8a_w1, False),
 ]
 
 
