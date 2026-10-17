@@ -2392,6 +2392,28 @@ def check_authored_bezout_identity__cayley_hamilton_3x3_w1() -> bool:
     return all((check_bezout_identity(a, b) for a in range(40, 59) for b in range(40, 59))) and all((check_cayley_hamilton_3x3(s) for s in range(20, 30)))
 
 
+def check_authored_cayley_tree_count__complete_bipartite_trees_w1() -> bool:
+    """Authored stress check (desk): proven lemmas cayley_tree_count + complete_bipartite_trees on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_cayley_tree_count,
+    ::check_complete_bipartite_trees; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_cayley_tree_count(n) for n in range(10, 14))) and all((check_complete_bipartite_trees(n) for n in range(8, 11)))
+
+
+def check_authored_crt_coprime_pair__cycle_spanning_trees_w1() -> bool:
+    """Authored stress check (desk): proven lemmas crt_coprime_pair + cycle_spanning_trees on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_crt_coprime_pair,
+    ::check_cycle_spanning_trees; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_crt_coprime_pair(m) for m in range(25, 37))) and all((check_cycle_spanning_trees(n) for n in range(14, 19)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2647,6 +2669,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_alternating_binomial_row__cayley_hamilton_2x2_w1", check_authored_alternating_binomial_row__cayley_hamilton_2x2_w1, True),
     ("authored_bell_stirling_sum__burnside_necklaces_w1", check_authored_bell_stirling_sum__burnside_necklaces_w1, True),
     ("authored_bezout_identity__cayley_hamilton_3x3_w1", check_authored_bezout_identity__cayley_hamilton_3x3_w1, True),
+    ("authored_cayley_tree_count__complete_bipartite_trees_w1", check_authored_cayley_tree_count__complete_bipartite_trees_w1, True),
+    ("authored_crt_coprime_pair__cycle_spanning_trees_w1", check_authored_crt_coprime_pair__cycle_spanning_trees_w1, False),
 ]
 
 
