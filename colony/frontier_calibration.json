@@ -1,0 +1,131 @@
+{
+ "version": 1,
+ "calibrated_at": "2026-10-17T22:06:18Z",
+ "FIT_N": 12,
+ "target_false_surprise_rate": 0.05,
+ "split": "2026-10-16T23:20:31Z",
+ "oeis_index": "available",
+ "seeds": {
+  "tuning": [
+   "2026-10-16T21:32:13Z",
+   "2026-10-16T21:57:35Z",
+   "2026-10-16T21:58:11Z",
+   "2026-10-16T21:58:48Z",
+   "2026-10-16T23:17:47Z",
+   "2026-10-16T23:20:30Z"
+  ],
+  "held_out": [
+   "2026-10-16T23:22:35Z",
+   "2026-10-16T23:46:50Z",
+   "2026-10-16T23:49:12Z",
+   "2026-10-16T23:51:26Z",
+   "2026-10-17T01:18:10Z",
+   "2026-10-17T01:18:57Z"
+  ]
+ },
+ "grid": {
+  "12": {
+   "tuning": {
+    "tested": 110,
+    "survived": 77,
+    "falsified": 33,
+    "surprises": 17,
+    "machine_checked": 29,
+    "trivial": 368,
+    "duplicate": 341,
+    "false_surprises": 0,
+    "false_surprise_rate": 0.0,
+    "heldout_kill_rate": 0.3,
+    "brier": 0.1956
+   },
+   "held_out": {
+    "tested": 113,
+    "survived": 72,
+    "falsified": 41,
+    "surprises": 15,
+    "machine_checked": 31,
+    "trivial": 419,
+    "duplicate": 362,
+    "false_surprises": 0,
+    "false_surprise_rate": 0.0,
+    "heldout_kill_rate": 0.3628,
+    "brier": 0.1828
+   }
+  },
+  "16": {
+   "tuning": {
+    "tested": 117,
+    "survived": 71,
+    "falsified": 46,
+    "surprises": 9,
+    "machine_checked": 37,
+    "trivial": 369,
+    "duplicate": 467,
+    "false_surprises": 0,
+    "false_surprise_rate": 0.0,
+    "heldout_kill_rate": 0.3932,
+    "brier": 0.1968
+   }
+  },
+  "20": {
+   "tuning": {
+    "tested": 133,
+    "survived": 95,
+    "falsified": 38,
+    "surprises": 12,
+    "machine_checked": 40,
+    "trivial": 355,
+    "duplicate": 608,
+    "false_surprises": 0,
+    "false_surprise_rate": 0.0,
+    "heldout_kill_rate": 0.2857,
+    "brier": 0.198
+   }
+  },
+  "24": {
+   "tuning": {
+    "tested": 119,
+    "survived": 76,
+    "falsified": 43,
+    "surprises": 11,
+    "machine_checked": 38,
+    "trivial": 323,
+    "duplicate": 886,
+    "false_surprises": 0,
+    "false_surprise_rate": 0.0,
+    "heldout_kill_rate": 0.3613,
+    "brier": 0.1964
+   }
+  },
+  "30": {
+   "tuning": {
+    "tested": 114,
+    "survived": 93,
+    "falsified": 21,
+    "surprises": 19,
+    "machine_checked": 34,
+    "trivial": 359,
+    "duplicate": 821,
+    "false_surprises": 0,
+    "false_surprise_rate": 0.0,
+    "heldout_kill_rate": 0.1842,
+    "brier": 0.1624
+   }
+  },
+  "40": {
+   "tuning": {
+    "tested": 131,
+    "survived": 98,
+    "falsified": 33,
+    "surprises": 18,
+    "machine_checked": 37,
+    "trivial": 338,
+    "duplicate": 1313,
+    "false_surprises": 0,
+    "false_surprise_rate": 0.0,
+    "heldout_kill_rate": 0.2519,
+    "brier": 0.1853
+   }
+  }
+ }
+}

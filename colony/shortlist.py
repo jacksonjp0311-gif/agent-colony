@@ -307,6 +307,14 @@ def to_markdown(sl: dict[str, Any]) -> str:
             lines.append("| – | no proposal clears the non-P bar conditions | | | | | | |")
     lines += ["", "Excluded (reason: count): " + (", ".join(f"{k}: {v}" for k, v in
                                                        sorted(sl["excluded_reasons"].items())) or "none"), ""]
+    try:  # report-only frontier section (self-chosen conjectures; scores untouched)
+        from colony.frontier_conjectures import markdown_section, mode as _fmode
+        if _fmode() != "off":
+            sec = markdown_section()
+            if sec:
+                lines += ["", sec]
+    except Exception:  # noqa: BLE001
+        pass
     return "\n".join(lines)
 
 

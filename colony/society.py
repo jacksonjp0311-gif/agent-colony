@@ -224,6 +224,12 @@ class Society:
             ),
         )
         result.report_path = self._write_report(result)
+        try:  # frontier conjectures (COLONY_FRONTIER; report-only in shadow; never touches scores)
+            from colony import frontier_conjectures as _fc
+            if _fc.mode() != "off":
+                _fc.run_cycle(cid)
+        except Exception:  # noqa: BLE001
+            pass
         try:  # VIEW ONLY: ranked shortlist for James (overwritten each cycle; never authorizes)
             from colony.shortlist import write as _write_shortlist
             _write_shortlist(cid)

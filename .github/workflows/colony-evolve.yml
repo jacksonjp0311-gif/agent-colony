@@ -120,6 +120,9 @@ jobs:
           # hunt guidance: live = order/reward exploration by the hunt rules (never kills, never
           # touches the Oracle, P or the authorize bar); shadow = report only (old behaviour)
           COLONY_HUNT: live
+          # frontier conjectures (self-chosen, held-out falsification): shadow = report only;
+          # live = surviving surprises also become authored checks the Oracle judges; off = none
+          COLONY_FRONTIER: shadow
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
