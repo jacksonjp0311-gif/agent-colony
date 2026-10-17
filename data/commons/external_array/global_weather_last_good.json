@@ -28,8 +28,8 @@
       "city": "Sydney",
       "lat": -33.87,
       "lon": 151.21,
-      "temperature_2m": 16.6,
-      "wind_speed_10m": 8.3,
+      "temperature_2m": 16.1,
+      "wind_speed_10m": 5.5,
       "weather_code": 2,
       "time": "2026-10-17T09:45",
       "source": "open_meteo"
@@ -37,5 +37,5 @@
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-10-17T09:48:24Z"
+  "ts": "2026-10-17T09:59:19Z"
 }
