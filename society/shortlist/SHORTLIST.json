@@ -1,34 +1,10 @@
 {
-  "ts": "2026-10-17T14:05:17Z",
+  "ts": "2026-10-17T14:09:58Z",
   "view_only": true,
   "n_considered": 58,
   "n_meet_bar": 24,
   "n_groups": 24,
   "top": [
-    {
-      "id": "imp_166922_50",
-      "title": "Chain `authored_sieve_two_counter_g6_2_w1` citing Effective equidistribution of polynomial trajector",
-      "cycle_id": "20261017T031324Z_166922",
-      "target": "authored_sieve_two_counter_g6_2_w1",
-      "family": "authored_sieve_two_counter_g6_2",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8352,
-      "P_stored": 0.8769,
-      "novelty": 0.8333,
-      "builds_on": 0.5,
-      "building_blocks": [
-        "instrument:sieve.sieve_count"
-      ],
-      "athanor_verdict": null,
-      "rank": 0.7678,
-      "group_count": 1,
-      "group_ids": [
-        "imp_166922_50"
-      ],
-      "position": 1,
-      "line": "Enable `authored_sieve_two_counter_g6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8352, novelty 0.8333."
-    },
     {
       "id": "imp_0f9c00_50",
       "title": "Chain `authored_sieve_two_counter_g6_2_6_w1` citing Effective equidistribution of polynomial trajector",
@@ -50,7 +26,7 @@
       "group_ids": [
         "imp_0f9c00_50"
       ],
-      "position": 2,
+      "position": 1,
       "line": "Enable `authored_sieve_two_counter_g6_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8339, novelty 0.8333."
     },
     {
@@ -74,7 +50,7 @@
       "group_ids": [
         "imp_9c2e0b_50"
       ],
-      "position": 3,
+      "position": 2,
       "line": "Enable `authored_sieve_two_counter_g6_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
     },
     {
@@ -98,7 +74,7 @@
       "group_ids": [
         "imp_9d2224_50"
       ],
-      "position": 4,
+      "position": 3,
       "line": "Enable `authored_sieve_two_counter_g2_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
     },
     {
@@ -122,8 +98,32 @@
       "group_ids": [
         "imp_8d4817_50"
       ],
-      "position": 5,
+      "position": 4,
       "line": "Enable `authored_sieve_residue_bal_g6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7947, novelty 0.6667."
+    },
+    {
+      "id": "imp_4e0736_50",
+      "title": "Chain `authored_sieve_residue_bal_g2_6_w1` citing Inverse binomial coefficients in Egorychev method",
+      "cycle_id": "20261017T140425Z_4e0736",
+      "target": "authored_sieve_residue_bal_g2_6_w1",
+      "family": "authored_sieve_residue_bal_g2_6",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7924,
+      "P_stored": 0.7924,
+      "novelty": 0.6667,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.7088,
+      "group_count": 1,
+      "group_ids": [
+        "imp_4e0736_50"
+      ],
+      "position": 5,
+      "line": "Enable `authored_sieve_residue_bal_g2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7924, novelty 0.6667."
     },
     {
       "id": "imp_29279d_50",
@@ -237,8 +237,8 @@
     }
   ],
   "excluded_reasons": {
-    "hearing": 18,
-    "novelty_killed": 16,
+    "hearing": 17,
+    "novelty_killed": 18,
     "no_oracle_pass_in_own_cycle": 9,
     "status": 13,
     "target_unresolved": 5
@@ -249,5 +249,5 @@
     "rank": "0.6*P + 0.2*novelty + 0.2*builds_on"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T140425Z_4e0736"
+  "cycle_id": "20261017T140900Z_413117"
 }

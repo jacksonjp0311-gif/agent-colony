@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-17T14:04:26Z",
-  "cycle_id": "20261017T140425Z_4e0736",
+  "ts": "2026-10-17T14:09:01Z",
+  "cycle_id": "20261017T140900Z_413117",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_sieve_two_counter_g2_w1"
@@ -13,27 +13,6 @@
       "authored_sieve_hl_within_g2_w2": 2
     },
     "recent": {
-      "authored_sieve_two_counter_g6_6_2_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "euler_theorem": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_hl_within_g6_6_4_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "wilson_theorem": {
         "last": "keep",
         "streak": 1,
@@ -96,56 +75,76 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_sieve_residue_bal_g2_6_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "mobius_inversion_sigma": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_sieve_residue_bal_g4_2_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8495,
-      "slope": -0.001304,
-      "min": 0.8495,
-      "max": 0.865
+      "last": 0.8483,
+      "slope": -0.000782,
+      "min": 0.8483,
+      "max": 0.8575
     },
     "novelty": {
-      "last": 0.9286,
-      "slope": -0.003994,
-      "min": 0.9286,
+      "last": 0.9,
+      "slope": -0.005262,
+      "min": 0.9,
       "max": 0.9643
     },
     "kill_rate": {
-      "last": 0.3471,
-      "slope": -0.000696,
-      "min": 0.3471,
-      "max": 0.3547
+      "last": 0.345,
+      "slope": -0.000689,
+      "min": 0.345,
+      "max": 0.3526
     },
     "kill_rate_term": {
-      "last": 0.8624,
-      "slope": -0.000622,
-      "min": 0.8624,
-      "max": 0.8692
+      "last": 0.8605,
+      "slope": -0.000619,
+      "min": 0.8605,
+      "max": 0.8673
     },
     "lesson_uptake": {
       "last": 0.66,
-      "slope": -0.022657,
+      "slope": -0.010909,
       "min": 0.66,
-      "max": 0.9
+      "max": 0.78
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0046,
-    "novelty_max": 0.9643,
+    "aggregate_range": 0.0028,
+    "novelty_max": 0.9333,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 163,
+    "enabled": 166,
     "disabled": [
       "abel_summation",
       "adversarial_vandermonde_asymmetric",
       "alternating_binomial_row",
-      "authored_sieve_residue_bal_g2_6_w1",
       "authored_sieve_two_counter_g2_w1",
       "bell_stirling_sum",
       "bezout_identity",
@@ -160,7 +159,6 @@
       "faulhaber_power_sums",
       "lagrange_cyclic_orders",
       "lucas_theorem_binomial",
-      "mobius_inversion_sigma",
       "multinomial_three",
       "newton_identities",
       "odd_distinct_partitions",
@@ -258,6 +256,7 @@
       "authored_sieve_residue_bal_g2_w1",
       "authored_sieve_residue_bal_g2_w2",
       "authored_sieve_residue_bal_g4_2_6_w1",
+      "authored_sieve_residue_bal_g4_2_w1",
       "authored_sieve_residue_bal_g4_6_w1",
       "authored_sieve_residue_bal_g6_2_4_w1",
       "authored_sieve_residue_bal_g6_4_6_w1",
@@ -300,23 +299,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.994,
+      "ratio": 0.933,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.004,
+      "ratio": 0.962,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.972,
+      "ratio": 0.876,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.029,
+      "ratio": 0.976,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.992,
+      "ratio": 0.859,
       "drift": false
     }
   },
@@ -324,11 +323,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 62200003,
-      "collatz_descent": 76600000,
+      "collatz_descent": 79800000,
       "legendre_square_gap": 444607,
       "lehmer_totient": 23000001,
-      "erdos_straus": 529951,
-      "twin_primes_hl": 94200000,
+      "erdos_straus": 539951,
+      "twin_primes_hl": 98200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -340,16 +339,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4947,
+        "challenged": 4944,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 53,
+        "challenged": 56,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 48,
+    "post_challenger_oracle_judged": 51,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -378,18 +377,18 @@
     "last": [
       [
         null,
+        "2026-10-17T14:05:50Z"
+      ],
+      [
+        "success",
         "2026-10-17T14:01:33Z"
       ],
       [
         "success",
         "2026-10-17T13:53:39Z"
-      ],
-      [
-        "success",
-        "2026-10-17T11:11:35Z"
       ]
     ],
-    "fetched_at": "2026-10-17T14:01:52Z"
+    "fetched_at": "2026-10-17T14:06:12Z"
   },
   "feeds": {
     "by_source": {
@@ -437,7 +436,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T14:01:52Z"
+      "ts": "2026-10-17T14:06:11Z"
     },
     "health": {
       "arxiv": {
