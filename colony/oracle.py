@@ -751,6 +751,11 @@ def evaluate(
     _persist(verdict)
     if not verdict.passed:
         _lesson_on_kill(verdict)
+    try:  # REPORT-ONLY: semantic bridge never alters the verdict
+        from colony.trust.semantic_bridge import report as _bridge_report
+        _bridge_report(mutation=name, kind=kind, oracle_passed=verdict.passed, cycle_id=cycle_id)
+    except Exception:  # noqa: BLE001
+        pass
     return verdict
 
 

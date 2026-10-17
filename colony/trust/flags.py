@@ -21,6 +21,11 @@ def challenger_enabled() -> bool:
     return os.environ.get("COLONY_CHALLENGER", "1") != "0"
 
 
+def semantic_bridge_enabled() -> bool:
+    """Report-only semantic bridge logging (never kills). COLONY_SEMANTIC_BRIDGE=0 turns logging off."""
+    return os.environ.get("COLONY_SEMANTIC_BRIDGE", "1") != "0"
+
+
 def ablation_active() -> list[str]:
     out = []
     if not learning_enabled():
