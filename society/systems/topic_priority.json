@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_9bc9d69d96cf",
-      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g4_6_2_w1"
+      "finding_id": "fnd_ac0edba0eb35",
+      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_2_6_w1"
     },
     {
       "topic": "open-math-problems",
@@ -66,11 +66,6 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s10801-025-01496-2>",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -82,6 +77,11 @@
     },
     {
       "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T11:05:12Z",
-  "updated_cycle": "20261017T110433Z_d44fcb",
+  "updated_at": "2026-10-17T11:15:53Z",
+  "updated_cycle": "20261017T111516Z_7078ce",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
