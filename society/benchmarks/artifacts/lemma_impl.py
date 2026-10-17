@@ -2258,6 +2258,15 @@ def check_authored_sieve_two_counter_g4_2_6_w1() -> bool:
     return all(type(c := sieve_count((4, 2, 6), a, b)) is int and c > 0 and c == sieve_count((4, 2, 6), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
 
 
+def check_authored_sieve_residue_bal_g4_6_2_w1() -> bool:
+    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (4, 6, 2) are balanced within 4.0*sqrt(total).
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(x := sieve_count((4, 6, 2), a, b, 4, 1)) is int and type(y := sieve_count((4, 6, 2), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2360,7 +2369,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("euler_pentagonal", lambda: all(check_euler_pentagonal(n) for n in range(0, 40)), True),
     ("odd_distinct_partitions", lambda: all(check_odd_distinct_partitions(n) for n in range(0, 40)), True),
     ("partition_conjugate_parts", lambda: all(check_partition_conjugate_parts(n) for n in range(0, 20)), True),
-    ("cayley_tree_count", lambda: all(check_cayley_tree_count(n) for n in range(2, 10)), False),
+    ("cayley_tree_count", lambda: all(check_cayley_tree_count(n) for n in range(2, 10)), True),
     ("cycle_spanning_trees", lambda: all(check_cycle_spanning_trees(n) for n in range(3, 14)), False),
     ("complete_bipartite_trees", lambda: all(check_complete_bipartite_trees(n) for n in range(1, 8)), False),
     ("cayley_hamilton_2x2", lambda: all(check_cayley_hamilton_2x2(a) for a in range(0, 9)), False),
@@ -2498,7 +2507,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_hl_within_g2_6_4_w1", check_authored_sieve_hl_within_g2_6_4_w1, True),
     ("authored_sieve_two_counter_g4_2_4_w1", check_authored_sieve_two_counter_g4_2_4_w1, True),
     ("authored_sieve_hl_within_g2_6_6_w1", check_authored_sieve_hl_within_g2_6_6_w1, True),
-    ("authored_sieve_two_counter_g4_2_6_w1", check_authored_sieve_two_counter_g4_2_6_w1, False),
+    ("authored_sieve_two_counter_g4_2_6_w1", check_authored_sieve_two_counter_g4_2_6_w1, True),
+    ("authored_sieve_residue_bal_g4_6_2_w1", check_authored_sieve_residue_bal_g4_6_2_w1, True),
 ]
 
 

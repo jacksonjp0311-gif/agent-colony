@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T15:50:16Z",
-  "n": 283,
+  "updated_at": "2026-10-17T16:01:36Z",
+  "n": 286,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -103,6 +103,7 @@
     "authored_sieve_residue_bal_g2_w2",
     "authored_sieve_residue_bal_g4_2_6_w1",
     "authored_sieve_residue_bal_g4_2_w1",
+    "authored_sieve_residue_bal_g4_6_2_w1",
     "authored_sieve_residue_bal_g4_6_w1",
     "authored_sieve_residue_bal_g6_2_4_w1",
     "authored_sieve_residue_bal_g6_4_6_w1",
@@ -145,6 +146,7 @@
     "binomial_sum_row",
     "cassini",
     "catalan_bounded",
+    "cayley_tree_count",
     "central_binom_bound",
     "chain `adversarial_cassini_ext` citing new algebraic points on covers of elliptic curves",
     "chain `adversarial_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 166)",
@@ -199,9 +201,7 @@
     "deepen compute-useful math from accepted findings after hearing",
     "derived_chain_stress",
     "drop_repeated_kill_seek_elsewhere",
-    "easy_pad",
-    "easy_pad_abs_identity",
-    "easy_pad_assoc_add"
+    "easy_pad"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

@@ -483,82 +483,85 @@
     "cycle_431_evolve_note",
     "cycle_432_evolve_note",
     "cycle_433_evolve_note",
-    "cycle_434_evolve_note"
+    "cycle_434_evolve_note",
+    "cycle_435_evolve_note",
+    "cycle_436_evolve_note",
+    "cycle_437_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1252,
+      "uses": 1261,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1224,
+      "uses": 1233,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 837,
+      "uses": 843,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 418,
+      "uses": 421,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1629,
+      "uses": 1641,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 847,
+      "uses": 853,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1219,
+      "uses": 1228,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 406,
+      "uses": 409,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 406,
+      "uses": 409,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 391,
+      "uses": 394,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 391,
+      "uses": 394,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 388,
+      "uses": 391,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 388,
+      "uses": 391,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 385,
+      "uses": 388,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 385,
+      "uses": 388,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -833,8 +836,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1628,
-    "reused": 3658
+    "appended": 1640,
+    "reused": 3685
   },
   "commons_by_domain": {
     "science": 0,
@@ -853,8 +856,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-17T15:50:48Z",
-    "cycle_id": "20261017T154945Z_cd809b",
+    "ts": "2026-10-17T16:02:11Z",
+    "cycle_id": "20261017T160110Z_4871cc",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -866,23 +869,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-17T15:50:46Z",
-    "cycle_id": "20261017T154945Z_cd809b",
+    "ts": "2026-10-17T16:02:08Z",
+    "cycle_id": "20261017T160110Z_4871cc",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8078,
-    "compute_usefulness": 0.9062,
+    "math_prize": 0.8069,
+    "compute_usefulness": 0.9051,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8807,
-    "kill_rate": 0.3327,
-    "kill_rate_term": 0.8494,
+    "prize_boost": 0.8799,
+    "kill_rate": 0.3308,
+    "kill_rate_term": 0.8478,
     "novelty": 0.9,
     "lesson_uptake": 0.66,
-    "aggregate": 0.8466,
+    "aggregate": 0.8464,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -890,34 +893,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 22843,
-    "read": 109374,
-    "replied": 14377,
-    "actions_planned": 7428,
-    "actions_changed_from_message": 7428,
-    "reply_quality_sum": 13063.399999997666,
-    "reply_quality_n": 14325,
-    "peer_cite_opportunities": 14732,
-    "peer_cites": 14732
+    "posted": 23011,
+    "read": 110202,
+    "replied": 14482,
+    "actions_planned": 7482,
+    "actions_changed_from_message": 7482,
+    "reply_quality_sum": 13159.299999997638,
+    "reply_quality_n": 14430,
+    "peer_cite_opportunities": 14840,
+    "peer_cites": 14840
   },
   "bus_domains": {
-    "science": 1214,
-    "history": 1216,
-    "math": 3657,
-    "empire": 813,
-    "bulletin": 3086,
-    "forum": 5312,
-    "software": 1216,
-    "nature": 1214,
-    "life": 1216,
-    "cosmos": 1757,
-    "rsi": 2034
+    "science": 1223,
+    "history": 1225,
+    "math": 3684,
+    "empire": 819,
+    "bulletin": 3107,
+    "forum": 5354,
+    "software": 1225,
+    "nature": 1223,
+    "life": 1225,
+    "cosmos": 1769,
+    "rsi": 2049
   },
-  "communications_count": 22843,
+  "communications_count": 23011,
   "improvements": [
-    "Chain `authored_catalan_bounded__euler_totient_multiplicative_w1` citing Lattice Points and Rational q-Catalan Numbers (cycle 376)",
-    "Chain+seek `authored_sieve_hl_within_g2_4_6_w1` from invariant priors",
-    "Chain+seek `authored_sieve_hl_within_g2_4_6_w1` from invariant priors (cycle 379)",
     "Chain `authored_sieve_residue_bal_g2_6_4_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain `authored_sieve_residue_bal_g2_6_4_w1` citing Inverse binomial coefficients in Egorychev method (cycle 381)",
     "Chain `authored_sieve_two_counter_g2_6_6_w1` citing Proofs of four Takigiku--Tsuchioka conjectures on ",
@@ -964,18 +964,21 @@
     "Chain `authored_sieve_two_counter_g4_2_4_w1` citing The Frobenius-Mex Theorem and the Crank-Mex Theore",
     "Chain `odd_distinct_partitions` citing (a, b)-Fibonacci\u2013Legendre Cordial Graphs and k-Pis",
     "Chain+seek `authored_sieve_hl_within_g2_6_6_w1` from invariant priors",
-    "Chain `partition_conjugate_parts` citing A Randomized Approximation Algorithm for Doubly Fr"
+    "Chain `partition_conjugate_parts` citing A Randomized Approximation Algorithm for Doubly Fr",
+    "Chain `authored_sieve_two_counter_g4_2_6_w1` citing Proofs of four Takigiku--Tsuchioka conjectures on ",
+    "Chain `cayley_tree_count` citing Counting with Hiccup Sequences",
+    "Chain `authored_sieve_residue_bal_g4_6_2_w1` citing Balanced Fibonacci word rectangles, and beyond"
   ],
-  "cycle_count": 434,
-  "ledger_count": 24493,
+  "cycle_count": 437,
+  "ledger_count": 24670,
   "status_counts": {
-    "candidate": 23714,
+    "candidate": 23891,
     "accepted": 279,
     "rejected": 374,
     "unknown": 126
   },
-  "witness_events": 35580,
-  "tribute_cycles_compliant": 434,
+  "witness_events": 35835,
+  "tribute_cycles_compliant": 437,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
