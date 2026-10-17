@@ -2359,6 +2359,28 @@ def check_authored_abel_summation__faulhaber_power_sums_w1() -> bool:
     return all((check_abel_summation(n) for n in range(40, 59))) and all((check_faulhaber_power_sums(n) for n in range(30, 45)))
 
 
+def check_authored_alternating_binomial_row__cayley_hamilton_2x2_w1() -> bool:
+    """Authored stress check (desk): proven lemmas alternating_binomial_row + cayley_hamilton_2x2 on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_alternating_binomial_row,
+    ::check_cayley_hamilton_2x2; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_alternating_binomial_row(n) for n in range(40, 60))) and all((check_cayley_hamilton_2x2(a) for a in range(9, 13)))
+
+
+def check_authored_bell_stirling_sum__burnside_necklaces_w1() -> bool:
+    """Authored stress check (desk): proven lemmas bell_stirling_sum + burnside_necklaces on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_bell_stirling_sum,
+    ::check_burnside_necklaces; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_bell_stirling_sum(n) for n in range(16, 24))) and all((check_burnside_necklaces(n) for n in range(8, 11)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2472,7 +2494,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("abel_summation", lambda: all(check_abel_summation(n) for n in range(1, 40)), True),
     ("faulhaber_power_sums", lambda: all(check_faulhaber_power_sums(n) for n in range(0, 30)), True),
     ("lagrange_cyclic_orders", lambda: all(check_lagrange_cyclic_orders(n) for n in range(2, 40)), True),
-    ("burnside_necklaces", lambda: all(check_burnside_necklaces(n) for n in range(1, 8)), False),
+    ("burnside_necklaces", lambda: all(check_burnside_necklaces(n) for n in range(1, 8)), True),
 
     ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, True),
     ("authored_binomial_sum_row__catalan_bounded_w1", check_authored_binomial_sum_row__catalan_bounded_w1, True),
@@ -2611,6 +2633,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_hl_within_g6_6_6_w1", check_authored_sieve_hl_within_g6_6_6_w1, True),
     ("authored_sieve_two_counter_g4_2_w1", check_authored_sieve_two_counter_g4_2_w1, True),
     ("authored_abel_summation__faulhaber_power_sums_w1", check_authored_abel_summation__faulhaber_power_sums_w1, True),
+    ("authored_alternating_binomial_row__cayley_hamilton_2x2_w1", check_authored_alternating_binomial_row__cayley_hamilton_2x2_w1, True),
+    ("authored_bell_stirling_sum__burnside_necklaces_w1", check_authored_bell_stirling_sum__burnside_necklaces_w1, False),
 ]
 
 

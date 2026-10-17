@@ -1,8 +1,8 @@
-# Conjecture desk witness — 2026-10-17T17:09:43Z
+# Conjecture desk witness — 2026-10-17T17:16:19Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `authored_abel_summation__faulhaber_power_sums_w1` (hard_enable) → **keep** 0.8649→0.8649 (+0.0000) — Kept `authored_abel_summation__faulhaber_power_sums_w1` (hard_enable): lemma score 0.8649→0.8649 checks 208→209 hard_pass 198→199 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 198->199 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]
+- `none` (-) → **skip** 0.8613→0.8613 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'stem_easy_pad_units', 'vandermonde_asymmetric']. Authored new disabled checks: ['authored_bell_stirling_sum__burnside_necklaces_w1'].
   - themes: MLExpert: Towards a Generalist Agentic Model for Autonomous , The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty

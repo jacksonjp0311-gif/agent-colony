@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T17:09:41Z",
-  "n": 306,
+  "updated_at": "2026-10-17T17:16:03Z",
+  "n": 308,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -10,6 +10,7 @@
     "alternating_binomial_row",
     "author_new_hard_checks_from_proven_lemmas",
     "authored_abel_summation__faulhaber_power_sums_w1",
+    "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
     "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_bell_triangle_recurrence__hermite_recurrence_w1",
     "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
@@ -155,6 +156,7 @@
     "binomial_hockey_deep",
     "binomial_identities",
     "binomial_sum_row",
+    "burnside_necklaces",
     "cassini",
     "catalan_bounded",
     "cayley_hamilton_2x2",
@@ -199,9 +201,7 @@
     "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 190)",
     "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 194)",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic",
-    "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves",
-    "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves (cycle 161)",
-    "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors"
+    "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "totals": {
-    "ok": 37
+    "ok": 38
   },
   "rows": [
     {
@@ -558,8 +558,23 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
+      "status": "ok",
+      "family": "compose",
+      "template": null,
+      "mismatches": [],
+      "mutants_tested": 2,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-17T17:14:58Z",
+      "cycle_id": "20261017T171429Z_94edc4",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-17T17:09:41Z",
+  "updated_at": "2026-10-17T17:14:58Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

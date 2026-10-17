@@ -21,6 +21,13 @@
       "snippet": "enable:binomial_hockey_deep",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "lemma_hard_combinatorics",
+      "kind": "hard_enable",
+      "snippet": "enable:lemma_hard_combinatorics",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

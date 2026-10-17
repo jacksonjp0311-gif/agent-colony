@@ -507,82 +507,85 @@
     "cycle_455_evolve_note",
     "cycle_456_evolve_note",
     "cycle_457_evolve_note",
-    "cycle_458_evolve_note"
+    "cycle_458_evolve_note",
+    "cycle_459_evolve_note",
+    "cycle_460_evolve_note",
+    "cycle_461_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1324,
+      "uses": 1333,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1296,
+      "uses": 1305,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 885,
+      "uses": 891,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 442,
+      "uses": 445,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1725,
+      "uses": 1737,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 895,
+      "uses": 901,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1291,
+      "uses": 1300,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 430,
+      "uses": 433,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 430,
+      "uses": 433,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 415,
+      "uses": 418,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 415,
+      "uses": 418,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 412,
+      "uses": 415,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 412,
+      "uses": 415,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 409,
+      "uses": 412,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 409,
+      "uses": 412,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -857,8 +860,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1724,
-    "reused": 3874
+    "appended": 1736,
+    "reused": 3901
   },
   "commons_by_domain": {
     "science": 0,
@@ -877,8 +880,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-17T17:10:09Z",
-    "cycle_id": "20261017T170923Z_b1face",
+    "ts": "2026-10-17T17:16:50Z",
+    "cycle_id": "20261017T171547Z_f79f01",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -890,23 +893,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-17T17:10:07Z",
-    "cycle_id": "20261017T170923Z_b1face",
+    "ts": "2026-10-17T17:16:47Z",
+    "cycle_id": "20261017T171547Z_f79f01",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8221,
-    "compute_usefulness": 0.923,
+    "math_prize": 0.8078,
+    "compute_usefulness": 0.9062,
     "citation_reuse": 1.0,
-    "prize_boost": 0.893,
+    "prize_boost": 0.8807,
     "kill_rate": 0.3196,
-    "kill_rate_term": 0.8376,
-    "novelty": 0.931,
+    "kill_rate_term": 0.8377,
+    "novelty": 0.8966,
     "lesson_uptake": 0.66,
-    "aggregate": 0.8493,
+    "aggregate": 0.8456,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -914,34 +917,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 24187,
-    "read": 115998,
-    "replied": 15217,
-    "actions_planned": 7860,
-    "actions_changed_from_message": 7860,
-    "reply_quality_sum": 13830.199999997443,
-    "reply_quality_n": 15165,
-    "peer_cite_opportunities": 15596,
-    "peer_cites": 15596
+    "posted": 24355,
+    "read": 116826,
+    "replied": 15322,
+    "actions_planned": 7914,
+    "actions_changed_from_message": 7914,
+    "reply_quality_sum": 13926.099999997416,
+    "reply_quality_n": 15270,
+    "peer_cite_opportunities": 15704,
+    "peer_cites": 15704
   },
   "bus_domains": {
-    "science": 1286,
-    "history": 1288,
-    "math": 3873,
-    "empire": 861,
-    "bulletin": 3254,
-    "forum": 5648,
-    "software": 1288,
-    "nature": 1286,
-    "life": 1288,
-    "cosmos": 1853,
-    "rsi": 2154
+    "science": 1295,
+    "history": 1297,
+    "math": 3900,
+    "empire": 867,
+    "bulletin": 3275,
+    "forum": 5690,
+    "software": 1297,
+    "nature": 1295,
+    "life": 1297,
+    "cosmos": 1865,
+    "rsi": 2169
   },
-  "communications_count": 24187,
+  "communications_count": 24355,
   "improvements": [
-    "Chain+seek `authored_sieve_hl_within_g4_w1` from invariant priors",
-    "Chain `gauss_phi_divisor_sum` citing A Gaussian integral formula for the Hermite polyno",
-    "Chain `authored_sieve_two_counter_g2_4_w1` citing The Frobenius-Mex Theorem and the Crank-Mex Theore",
     "Chain+seek `sigma_multiplicative` from invariant priors",
     "Chain `authored_sieve_residue_bal_g2_6_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain+seek `mobius_inversion_sigma` from invariant priors",
@@ -988,18 +988,21 @@
     "Chain `faulhaber_power_sums` citing Variation of Shafarevich-Tate groups in Hida famil",
     "Chain `authored_sieve_two_counter_g4_2_w1` citing Effective equidistribution of polynomial trajector",
     "Chain `lagrange_cyclic_orders` citing El Teorema de Markov y su relaci\u00f3n con el espectro",
-    "Chain `authored_abel_summation__faulhaber_power_sums_w1` citing Variation of Shafarevich-Tate groups in Hida famil"
+    "Chain `authored_abel_summation__faulhaber_power_sums_w1` citing Variation of Shafarevich-Tate groups in Hida famil",
+    "Chain+seek `burnside_necklaces` from invariant priors",
+    "Chain `authored_alternating_binomial_row__cayley_hamilton_2x2_w1` citing Sum rules for permutations with fixed points invol",
+    "Chain+seek `lemma_hard_combinatorics` from invariant priors"
   ],
-  "cycle_count": 458,
-  "ledger_count": 25909,
+  "cycle_count": 461,
+  "ledger_count": 26085,
   "status_counts": {
-    "candidate": 25130,
+    "candidate": 25306,
     "accepted": 279,
     "rejected": 374,
     "unknown": 126
   },
-  "witness_events": 37620,
-  "tribute_cycles_compliant": 458,
+  "witness_events": 37875,
+  "tribute_cycles_compliant": 461,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

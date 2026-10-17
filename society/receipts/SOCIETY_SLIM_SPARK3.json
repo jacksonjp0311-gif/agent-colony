@@ -1,25 +1,25 @@
 {
-  "when": "2026-10-17T17:10:20Z",
+  "when": "2026-10-17T17:17:10Z",
   "mile": "spark3-port",
-  "cycle_count": 458,
+  "cycle_count": 461,
   "fitness_latest": {
-    "ts": "2026-10-17T17:10:07Z",
-    "cycle_id": "20261017T170923Z_b1face",
+    "ts": "2026-10-17T17:16:47Z",
+    "cycle_id": "20261017T171547Z_f79f01",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8221,
-    "compute_usefulness": 0.923,
+    "math_prize": 0.8078,
+    "compute_usefulness": 0.9062,
     "citation_reuse": 1.0,
-    "prize_boost": 0.893,
+    "prize_boost": 0.8807,
     "kill_rate": 0.3196,
-    "kill_rate_term": 0.8376,
-    "novelty": 0.931,
+    "kill_rate_term": 0.8377,
+    "novelty": 0.8966,
     "lesson_uptake": 0.66,
-    "aggregate": 0.8493,
+    "aggregate": 0.8456,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -44,11 +44,11 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8826
+    "aggregate_score": 0.8653
   },
   "novelty_gate": {
-    "hits": 27,
-    "kills": 2
+    "hits": 26,
+    "kills": 3
   },
   "debate_multihop": {
     "action_changed": true,
@@ -64,13 +64,13 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261017T170923Z_b1face"
+    "cycle_id": "20261017T171547Z_f79f01"
   },
   "oracle": {
-    "passes": 379,
-    "kills": 178,
+    "passes": 381,
+    "kills": 179,
     "easy_pad_kills": 32,
-    "total": 557,
+    "total": 560,
     "kill_rate": 0.3196
   },
   "easy_pad_dies": true,
