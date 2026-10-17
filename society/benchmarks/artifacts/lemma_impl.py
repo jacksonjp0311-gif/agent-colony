@@ -1672,6 +1672,430 @@ def check_authored_sieve_residue_bal_g6_4_6_w1() -> bool:
     return all(type(x := sieve_count((6, 4, 6), a, b, 4, 1)) is int and type(y := sieve_count((6, 4, 6), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
+# --- Building-block lemma catalog refill (James 2026-10-17 6:32 AM ET) -------------------------
+# Classical PROVEN results, each a numeric machine check with parameters. Building blocks only:
+# they start DISABLED; the desk may hard_enable one only through the Oracle. Not discoveries.
+
+
+def _small_primes(limit: int) -> list[int]:
+    s = bytearray([1]) * (limit + 1)
+    s[0:2] = b"\x00\x00"
+    for i in range(2, int(limit ** 0.5) + 1):
+        if s[i]:
+            s[i * i :: i] = bytearray(len(s[i * i :: i]))
+    return [i for i in range(limit + 1) if s[i]]
+
+
+def _divisors(n: int) -> list[int]:
+    return [d for d in range(1, n + 1) if n % d == 0]
+
+
+def _phi(n: int) -> int:
+    return sum(1 for a in range(1, n + 1) if math.gcd(a, n) == 1)
+
+
+def _mobius(n: int) -> int:
+    if n == 1:
+        return 1
+    m, k, p = n, 0, 2
+    while p * p <= m:
+        if m % p == 0:
+            m //= p
+            if m % p == 0:
+                return 0
+            k += 1
+        p += 1
+    if m > 1:
+        k += 1
+    return -1 if k % 2 else 1
+
+
+def _sigma(n: int) -> int:
+    return sum(_divisors(n))
+
+
+def _is_prime(n: int) -> bool:
+    return n >= 2 and all(n % d for d in range(2, int(n ** 0.5) + 1))
+
+
+def check_fermat_little(a: int) -> bool:
+    """Fermat's little theorem: a^p ≡ a (mod p) for every prime p < 60 (classical)."""
+    return all(pow(a, p, p) == a % p for p in _small_primes(60))
+
+
+def check_euler_theorem(n: int) -> bool:
+    """Euler's theorem: a^phi(n) ≡ 1 (mod n) for every a coprime to n (classical)."""
+    if n < 2:
+        return True
+    ph = _phi(n)
+    return all(pow(a, ph, n) == 1 for a in range(1, n) if math.gcd(a, n) == 1)
+
+
+def check_wilson_theorem(n: int) -> bool:
+    """Wilson: (n-1)! ≡ -1 (mod n) iff n is prime, for n >= 2 (classical)."""
+    if n < 2:
+        return True
+    f = 1
+    for k in range(2, n):
+        f = f * k % n
+    return (f == n - 1) == _is_prime(n)
+
+
+def _legendre(a: int, p: int) -> int:
+    r = pow(a % p, (p - 1) // 2, p)
+    return -1 if r == p - 1 else r
+
+
+def check_quadratic_reciprocity(p: int) -> bool:
+    """Quadratic reciprocity (p/q)(q/p) = (-1)^((p-1)/2 (q-1)/2) for odd primes q < p (classical)."""
+    if p < 5 or not _is_prime(p):
+        return True
+    return all(_legendre(p, q) * _legendre(q, p) == (-1) ** (((p - 1) // 2) * ((q - 1) // 2))
+               for q in _small_primes(p - 1) if q > 2)
+
+
+def check_mobius_divisor_sum(n: int) -> bool:
+    """sum_{d|n} mu(d) = [n == 1] (Möbius function, classical)."""
+    if n < 1:
+        return True
+    return sum(_mobius(d) for d in _divisors(n)) == (1 if n == 1 else 0)
+
+
+def check_gauss_phi_divisor_sum(n: int) -> bool:
+    """Gauss: sum_{d|n} phi(d) = n (Dirichlet convolution phi * 1 = id, classical)."""
+    if n < 1:
+        return True
+    return sum(_phi(d) for d in _divisors(n)) == n
+
+
+def check_sigma_multiplicative(a: int, b: int) -> bool:
+    """sigma(ab) = sigma(a) sigma(b) when gcd(a, b) = 1 (classical)."""
+    if a < 1 or b < 1 or math.gcd(a, b) != 1:
+        return True
+    return _sigma(a * b) == _sigma(a) * _sigma(b)
+
+
+def check_mobius_inversion_sigma(n: int) -> bool:
+    """Möbius inversion of sigma = id * 1: sum_{d|n} mu(d) sigma(n/d) = n (classical)."""
+    if n < 1:
+        return True
+    return sum(_mobius(d) * _sigma(n // d) for d in _divisors(n)) == n
+
+
+def check_bezout_identity(a: int, b: int) -> bool:
+    """Bézout: extended Euclid gives x, y with a x + b y = gcd(a, b) (classical)."""
+    if a < 1 or b < 1:
+        return True
+    r0, r1, x0, x1, y0, y1 = a, b, 1, 0, 0, 1
+    while r1:
+        q = r0 // r1
+        r0, r1, x0, x1, y0, y1 = r1, r0 - q * r1, x1, x0 - q * x1, y1, y0 - q * y1
+    return r0 == math.gcd(a, b) and a * x0 + b * y0 == r0
+
+
+def check_crt_coprime_pair(m: int) -> bool:
+    """CRT: x -> (x mod m, x mod m+1) is a bijection Z/m(m+1) -> Z/m x Z/(m+1) (classical)."""
+    if m < 1:
+        return True
+    return len({(x % m, x % (m + 1)) for x in range(m * (m + 1))}) == m * (m + 1)
+
+
+def check_lucas_theorem_binomial(n: int) -> bool:
+    """Lucas' theorem: C(n,k) ≡ prod C(n_i,k_i) (mod p) over base-p digits, p in {2,3,5,7}."""
+    if n < 0:
+        return True
+
+    def digits_prod(k: int, p: int) -> int:
+        prod, nn, kk = 1, n, k
+        while nn or kk:
+            prod = prod * math.comb(nn % p, kk % p) % p
+            nn //= p
+            kk //= p
+        return prod
+
+    return all(math.comb(n, k) % p == digits_prod(k, p) for p in (2, 3, 5, 7) for k in range(0, n + 1))
+
+
+def check_stirling_first_row_sum(n: int) -> bool:
+    """Unsigned Stirling numbers of the first kind: sum_k c(n,k) = n! (classical)."""
+    if n < 0:
+        return True
+    c = [[0] * (n + 1) for _ in range(n + 1)]
+    c[0][0] = 1
+    for i in range(1, n + 1):
+        for k in range(1, i + 1):
+            c[i][k] = c[i - 1][k - 1] + (i - 1) * c[i - 1][k]
+    return sum(c[n]) == math.factorial(n)
+
+
+def check_bell_stirling_sum(n: int) -> bool:
+    """Bell(n) = sum_k S(n,k), with Bell from the recurrence B(n+1) = sum C(n,k) B(k) (classical)."""
+    if n < 0:
+        return True
+    B = [1]
+    for m in range(n):
+        B.append(sum(math.comb(m, k) * B[k] for k in range(m + 1)))
+    S = [[0] * (n + 1) for _ in range(n + 1)]
+    S[0][0] = 1
+    for i in range(1, n + 1):
+        for k in range(1, i + 1):
+            S[i][k] = k * S[i - 1][k] + S[i - 1][k - 1]
+    return sum(S[n]) == B[n]
+
+
+def check_alternating_binomial_row(n: int) -> bool:
+    """sum_k (-1)^k C(n,k) = [n == 0] (classical)."""
+    if n < 0:
+        return True
+    return sum((-1) ** k * math.comb(n, k) for k in range(n + 1)) == (1 if n == 0 else 0)
+
+
+def check_multinomial_three(n: int) -> bool:
+    """Multinomial theorem at 1+1+1: sum_{a+b+c=n} n!/(a!b!c!) = 3^n (classical)."""
+    if n < 0:
+        return True
+    f = math.factorial
+    return sum(f(n) // (f(a) * f(b) * f(n - a - b)) for a in range(n + 1) for b in range(n + 1 - a)) == 3 ** n
+
+
+def _partitions_dp(n: int, parts: list[int], distinct: bool = False) -> int:
+    ways = [1] + [0] * n
+    for p in parts:
+        rng = range(n, p - 1, -1) if distinct else range(p, n + 1)
+        for s in rng:
+            ways[s] += ways[s - p]
+    return ways[n]
+
+
+def check_euler_pentagonal(n: int) -> bool:
+    """Euler's pentagonal number theorem: p(n) by the pentagonal recurrence equals direct count."""
+    if n < 0:
+        return True
+    p = [1] + [0] * n
+    for m in range(1, n + 1):
+        s, k = 0, 1
+        while True:
+            g1, g2 = k * (3 * k - 1) // 2, k * (3 * k + 1) // 2
+            if g1 > m:
+                break
+            sign = 1 if k % 2 else -1
+            s += sign * p[m - g1]
+            if g2 <= m:
+                s += sign * p[m - g2]
+            k += 1
+        p[m] = s
+    return p[n] == _partitions_dp(n, list(range(1, n + 1)))
+
+
+def check_odd_distinct_partitions(n: int) -> bool:
+    """Euler: partitions of n into odd parts = partitions of n into distinct parts (classical)."""
+    if n < 0:
+        return True
+    return (_partitions_dp(n, list(range(1, n + 1, 2)))
+            == _partitions_dp(n, list(range(1, n + 1)), distinct=True))
+
+
+def check_partition_conjugate_parts(n: int) -> bool:
+    """Conjugation: #partitions of n with at most k parts = #with largest part <= k, all k <= n."""
+    if n < 0:
+        return True
+
+    def at_most_parts(m: int, k: int) -> int:
+        # q(m, k): partitions of m into at most k parts
+        t = [[0] * (k + 1) for _ in range(m + 1)]
+        for j in range(k + 1):
+            t[0][j] = 1
+        for i in range(1, m + 1):
+            for j in range(1, k + 1):
+                t[i][j] = t[i][j - 1] + (t[i - j][j] if i >= j else 0)
+        return t[m][k]
+
+    return all(at_most_parts(n, k) == _partitions_dp(n, list(range(1, k + 1))) for k in range(1, n + 1))
+
+
+def _det_int(M: list[list[int]]) -> int:
+    """Bareiss fraction-free integer determinant."""
+    A = [row[:] for row in M]
+    n = len(A)
+    if n == 0:
+        return 1
+    sign, prev = 1, 1
+    for k in range(n - 1):
+        if A[k][k] == 0:
+            sw = next((i for i in range(k + 1, n) if A[i][k]), None)
+            if sw is None:
+                return 0
+            A[k], A[sw] = A[sw], A[k]
+            sign = -sign
+        for i in range(k + 1, n):
+            for j in range(k + 1, n):
+                A[i][j] = (A[i][j] * A[k][k] - A[i][k] * A[k][j]) // prev
+        prev = A[k][k]
+    return sign * A[n - 1][n - 1]
+
+
+def _spanning_trees(n: int, edges: list[tuple[int, int]]) -> int:
+    L = [[0] * n for _ in range(n)]
+    for u, v in edges:
+        L[u][u] += 1
+        L[v][v] += 1
+        L[u][v] -= 1
+        L[v][u] -= 1
+    return _det_int([row[1:] for row in L[1:]])
+
+
+def check_cayley_tree_count(n: int) -> bool:
+    """Cayley: K_n has n^(n-2) spanning trees (matrix-tree theorem determinant)."""
+    if n < 2:
+        return True
+    return _spanning_trees(n, [(i, j) for i in range(n) for j in range(i + 1, n)]) == n ** (n - 2)
+
+
+def check_cycle_spanning_trees(n: int) -> bool:
+    """The cycle C_n (n >= 3) has exactly n spanning trees (matrix-tree theorem)."""
+    if n < 3:
+        return True
+    return _spanning_trees(n, [(i, (i + 1) % n) for i in range(n)]) == n
+
+
+def check_complete_bipartite_trees(n: int) -> bool:
+    """K_{m,n} has m^(n-1) n^(m-1) spanning trees, m in 1..4 (Scoins; matrix-tree theorem)."""
+    if n < 1:
+        return True
+    return all(_spanning_trees(m + n, [(i, m + j) for i in range(m) for j in range(n)])
+               == m ** (n - 1) * n ** (m - 1) for m in range(1, 5))
+
+
+def _matmul(A: list[list[int]], B: list[list[int]]) -> list[list[int]]:
+    return [[sum(A[i][k] * B[k][j] for k in range(len(B))) for j in range(len(B[0]))] for i in range(len(A))]
+
+
+def check_cayley_hamilton_2x2(a: int) -> bool:
+    """Cayley-Hamilton (2x2): A^2 - tr(A) A + det(A) I = 0 for A = [[a,b],[c,d]], |b|,|c|,|d| <= 3."""
+    def residual(b: int, c: int, d: int) -> list[list[int]]:
+        A = [[a, b], [c, d]]
+        A2 = _matmul(A, A)
+        tr, det = a + d, a * d - b * c
+        return [[A2[i][j] - tr * A[i][j] + (det if i == j else 0) for j in range(2)] for i in range(2)]
+
+    return all(residual(b, c, d) == [[0, 0], [0, 0]] for b in range(-3, 4) for c in range(-3, 4) for d in range(-3, 4))
+
+
+def check_cayley_hamilton_3x3(s: int) -> bool:
+    """Cayley-Hamilton (3x3): A^3 - c2 A^2 + c1 A - det(A) I = 0 for seeded integer matrices."""
+    def residual(t: int) -> list[list[int]]:
+        A = [[((s * 7 + t * 13 + 3 * i + 5 * j + i * j * s) % 11) - 5 for j in range(3)] for i in range(3)]
+        A2 = _matmul(A, A)
+        A3 = _matmul(A2, A)
+        c2 = A[0][0] + A[1][1] + A[2][2]
+        c1 = sum(A[i][i] * A[j][j] - A[i][j] * A[j][i] for i in range(3) for j in range(i + 1, 3))
+        c0 = _det_int(A)
+        return [[A3[i][j] - c2 * A2[i][j] + c1 * A[i][j] - (c0 if i == j else 0) for j in range(3)] for i in range(3)]
+
+    return all(residual(t) == [[0] * 3 for _ in range(3)] for t in range(6))
+
+
+def check_newton_identities(n: int) -> bool:
+    """Newton's identities k e_k = sum_{i=1..k} (-1)^(i-1) e_{k-i} p_i for roots 1..n, -1..-(n//2)."""
+    if n < 1:
+        return True
+    roots = list(range(1, n + 1)) + [-r for r in range(1, n // 2 + 1)]
+    e = [1]  # elementary symmetric polynomials via expansion of prod (1 + r x)
+    for r in roots:
+        e = [a + r * b for a, b in zip(e + [0], [0] + e)]
+    N = len(roots)
+    p = [sum(r ** i for r in roots) for i in range(N + 1)]
+    return all(k * e[k] == sum((-1) ** (i - 1) * e[k - i] * p[i] for i in range(1, k + 1)) for k in range(1, N + 1))
+
+
+def check_polynomial_remainder(a: int) -> bool:
+    """Remainder theorem: synthetic division of f by (x - a) leaves remainder f(a), f fixed degree 6."""
+    coeffs = [3, -2, 0, 5, -7, 1, 4]  # leading first
+    q, r = [], 0
+    for c in coeffs:
+        r = r * a + c
+        q.append(r)
+    rem = q.pop()
+    f_a = sum(c * a ** (len(coeffs) - 1 - i) for i, c in enumerate(coeffs))
+    # quotient check: f(x) = (x - a) q(x) + rem at several x
+    ok_q = all(sum(c * x ** (len(coeffs) - 1 - i) for i, c in enumerate(coeffs))
+               == (x - a) * sum(c * x ** (len(q) - 1 - i) for i, c in enumerate(q)) + rem for x in (-2, 0, 3))
+    return rem == f_a and ok_q
+
+
+def check_telescoping_sum(n: int) -> bool:
+    """Telescoping: sum_{k=1..n} 1/(k(k+1)) = n/(n+1) and sum 1/(k(k+1)(k+2)) = 1/4 - 1/(2(n+1)(n+2))."""
+    if n < 1:
+        return True
+    from fractions import Fraction as Fr
+    s1 = sum(Fr(1, k * (k + 1)) for k in range(1, n + 1))
+    s2 = sum(Fr(1, k * (k + 1) * (k + 2)) for k in range(1, n + 1))
+    return s1 == Fr(n, n + 1) and s2 == Fr(1, 4) - Fr(1, 2 * (n + 1) * (n + 2))
+
+
+def check_abel_summation(n: int) -> bool:
+    """Finite Abel summation: sum a_k b_k = A_n b_n - sum_{k<n} A_k (b_{k+1} - b_k), exact integers."""
+    if n < 1:
+        return True
+    a = [k * k - 3 * k + (k % 5) for k in range(1, n + 1)]
+    b = [(-1) ** k * (2 * k + 1) + k ** 3 % 7 for k in range(1, n + 1)]
+    A, acc = [], 0
+    for x in a:
+        acc += x
+        A.append(acc)
+    lhs = sum(x * y for x, y in zip(a, b))
+    rhs = A[-1] * b[-1] - sum(A[k] * (b[k + 1] - b[k]) for k in range(n - 1))
+    return lhs == rhs
+
+
+def check_faulhaber_power_sums(n: int) -> bool:
+    """Faulhaber: sum_{k=1..n} k^p = 1/(p+1) sum_j C(p+1,j) B_j^+ n^(p+1-j), p = 0..6 (Bernoulli)."""
+    if n < 0:
+        return True
+    from fractions import Fraction as Fr
+    B = [Fr(1)]
+    for m in range(1, 8):
+        B.append(-sum(math.comb(m + 1, j) * B[j] for j in range(m)) / (m + 1))
+    Bp = [b if j != 1 else -b for j, b in enumerate(B)]  # B_1^+ = +1/2
+    return all(sum(k ** p for k in range(1, n + 1))
+               == sum(math.comb(p + 1, j) * Bp[j] * n ** (p + 1 - j) for j in range(p + 1)) / (p + 1)
+               for p in range(7))
+
+
+def check_lagrange_cyclic_orders(n: int) -> bool:
+    """Lagrange: element orders divide |G| in Z/n (additive, order n) and (Z/n)^* (order phi(n))."""
+    if n < 2:
+        return True
+
+    def mult_order(a: int) -> int:
+        k, x = 1, a % n
+        while x != 1:
+            x = x * a % n
+            k += 1
+        return k
+
+    ph = _phi(n)
+    return (all(n % (n // math.gcd(a, n)) == 0 for a in range(n))
+            and all(ph % mult_order(a) == 0 for a in range(1, n) if math.gcd(a, n) == 1))
+
+
+def check_burnside_necklaces(n: int) -> bool:
+    """Burnside: binary necklaces of length n = (1/n) sum_{d|n} phi(d) 2^(n/d) = brute-force orbit count."""
+    if n < 1:
+        return True
+    seen, orbits = set(), 0
+    mask = (1 << n) - 1
+    for w in range(1 << n):
+        if w in seen:
+            continue
+        orbits += 1
+        x = w
+        for _ in range(n):
+            seen.add(x)
+            x = ((x << 1) | (x >> (n - 1))) & mask
+    return orbits * n == sum(_phi(d) * 2 ** (n // d) for d in _divisors(n))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1754,6 +2178,38 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("adversarial_cassini_ext", check_adversarial_cassini_ext, True),
     ("adversarial_catalan_convolution_stress", lambda: all(check_catalan_convolution(n) for n in range(0, 16)), True),
     ("adversarial_derived_chain_stress", check_adversarial_derived_chain_stress, True),
+
+    # Building-block refill (James 2026-10-17): classical PROVEN lemmas, start DISABLED (Oracle decides)
+    ("fermat_little", lambda: all(check_fermat_little(a) for a in range(0, 40)), False),
+    ("euler_theorem", lambda: all(check_euler_theorem(n) for n in range(2, 40)), False),
+    ("wilson_theorem", lambda: all(check_wilson_theorem(n) for n in range(2, 60)), False),
+    ("quadratic_reciprocity", lambda: all(check_quadratic_reciprocity(p) for p in range(5, 80)), False),
+    ("mobius_divisor_sum", lambda: all(check_mobius_divisor_sum(n) for n in range(1, 120)), False),
+    ("gauss_phi_divisor_sum", lambda: all(check_gauss_phi_divisor_sum(n) for n in range(1, 60)), False),
+    ("sigma_multiplicative", lambda: all(check_sigma_multiplicative(a, b) for a in range(1, 25) for b in range(1, 25)), False),
+    ("mobius_inversion_sigma", lambda: all(check_mobius_inversion_sigma(n) for n in range(1, 80)), False),
+    ("bezout_identity", lambda: all(check_bezout_identity(a, b) for a in range(1, 40) for b in range(1, 40)), False),
+    ("crt_coprime_pair", lambda: all(check_crt_coprime_pair(m) for m in range(1, 25)), False),
+    ("lucas_theorem_binomial", lambda: all(check_lucas_theorem_binomial(n) for n in range(0, 30)), False),
+    ("stirling_first_row_sum", lambda: all(check_stirling_first_row_sum(n) for n in range(0, 16)), False),
+    ("bell_stirling_sum", lambda: all(check_bell_stirling_sum(n) for n in range(0, 16)), False),
+    ("alternating_binomial_row", lambda: all(check_alternating_binomial_row(n) for n in range(0, 40)), False),
+    ("multinomial_three", lambda: all(check_multinomial_three(n) for n in range(0, 20)), False),
+    ("euler_pentagonal", lambda: all(check_euler_pentagonal(n) for n in range(0, 40)), False),
+    ("odd_distinct_partitions", lambda: all(check_odd_distinct_partitions(n) for n in range(0, 40)), False),
+    ("partition_conjugate_parts", lambda: all(check_partition_conjugate_parts(n) for n in range(0, 20)), False),
+    ("cayley_tree_count", lambda: all(check_cayley_tree_count(n) for n in range(2, 10)), False),
+    ("cycle_spanning_trees", lambda: all(check_cycle_spanning_trees(n) for n in range(3, 14)), False),
+    ("complete_bipartite_trees", lambda: all(check_complete_bipartite_trees(n) for n in range(1, 8)), False),
+    ("cayley_hamilton_2x2", lambda: all(check_cayley_hamilton_2x2(a) for a in range(0, 9)), False),
+    ("cayley_hamilton_3x3", lambda: all(check_cayley_hamilton_3x3(s) for s in range(0, 20)), False),
+    ("newton_identities", lambda: all(check_newton_identities(n) for n in range(1, 10)), False),
+    ("polynomial_remainder", lambda: all(check_polynomial_remainder(a) for a in range(0, 21)), False),
+    ("telescoping_sum", lambda: all(check_telescoping_sum(n) for n in range(1, 40)), False),
+    ("abel_summation", lambda: all(check_abel_summation(n) for n in range(1, 40)), False),
+    ("faulhaber_power_sums", lambda: all(check_faulhaber_power_sums(n) for n in range(0, 30)), False),
+    ("lagrange_cyclic_orders", lambda: all(check_lagrange_cyclic_orders(n) for n in range(2, 40)), False),
+    ("burnside_necklaces", lambda: all(check_burnside_necklaces(n) for n in range(1, 8)), False),
 
     ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, True),
     ("authored_binomial_sum_row__catalan_bounded_w1", check_authored_binomial_sum_row__catalan_bounded_w1, True),
