@@ -98,15 +98,16 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/colony/oeis
-          key: oeis-names-v1-${{ steps.oeiskey.outputs.month }}
+          key: oeis-names-terms-v2-${{ steps.oeiskey.outputs.month }}
 
       - name: Build novelty shadow corpus on cache miss (OEIS names, CC BY-SA 4.0; fail-soft)
         if: ${{ steps.oeiscache.outputs.cache-hit != 'true' && github.event.inputs.offline != 'true' }}
         continue-on-error: true
-        timeout-minutes: 4
+        timeout-minutes: 7
         run: |
           export PYTHONPATH=.
           python -m colony.novelty_shadow build || echo "::warning::novelty shadow corpus unavailable (report-only; live novelty unaffected)"
+          python -m colony.oeis_terms build || echo "::warning::OEIS terms index unavailable (frontier conjectures will say OEIS unchecked)"
 
       - name: Gather → claim → evolve (keep/revert + lessons)
         env:
