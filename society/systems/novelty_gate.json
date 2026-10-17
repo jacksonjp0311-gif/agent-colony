@@ -1,20 +1,21 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T01:42:46Z",
-  "hits": 17,
-  "kills": 13,
+  "updated_at": "2026-10-17T02:01:18Z",
+  "hits": 12,
+  "kills": 18,
   "latest": {
-    "ts": "2026-10-17T01:42:46Z",
-    "cycle_id": "20261017T014234Z_8a4b8f",
-    "mutation": "authored_sieve_two_counter_g2_w1",
+    "ts": "2026-10-17T02:01:18Z",
+    "cycle_id": "20261017T020104Z_be3fd9",
+    "mutation": "authored_sieve_hl_within_g2_w2",
     "kind": "hard_enable",
     "novel_to_commons": false,
     "kills": [
+      "already_in_lesson_ledger_or_history",
       "oracle_kill:['tentative_not_keep']"
     ],
     "textbook_reuse": 0.3333,
-    "in_ledger": false,
-    "own_authoring_record_only": true,
+    "in_ledger": true,
+    "own_authoring_record_only": false,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
@@ -22,8 +23,8 @@
       "hard_pass": 113,
       "hard_n": 113,
       "stripped_fails_usefulness": true,
-      "score": 0.9071,
-      "impl_id": "lemma_impl_v2_basic10_hard112"
+      "score": 0.8969,
+      "impl_id": "lemma_impl_v2_basic10_hard113"
     },
     "held_out": {
       "survives": true,

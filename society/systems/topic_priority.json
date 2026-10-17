@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_17a72920e804",
-      "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__binomial_inversion_small_w1"
+      "finding_id": "fnd_c5c17433797a",
+      "title": "Authorize accepted: Lemma mutation keep: authored_catalan_convolution__euler_totient_multiplicative_w1"
     },
     {
       "topic": "open-math-problems",
@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "3*a(n-2))/(n+1)",
+      "topic": "<https://doi.org/10.1007/s00026-026-00811-3>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T01:42:54Z",
-  "updated_cycle": "20261017T014234Z_8a4b8f",
+  "updated_at": "2026-10-17T02:01:41Z",
+  "updated_cycle": "20261017T020104Z_be3fd9",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

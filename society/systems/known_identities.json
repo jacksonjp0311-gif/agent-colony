@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T01:42:46Z",
-  "n": 222,
+  "updated_at": "2026-10-17T02:01:17Z",
+  "n": 226,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -116,6 +116,10 @@
     "chain `authored_oeis_a000045__cassini` citing square-free word-representation of word-representa (cycle 181)",
     "chain `authored_oeis_a000108__catalan_bounded` citing odds",
     "chain `authored_oeis_a000108__catalan_bounded` citing odds (cycle 179)",
+    "chain `authored_sieve_two_counter_g2_w1` citing effective equidistribution of polynomial trajector",
+    "chain `authored_sieve_two_counter_g2_w1` citing effective equidistribution of polynomial trajector (cycle 345)",
+    "chain `authored_sieve_two_counter_g2_w1` citing proofs of four takigiku--tsuchioka conjectures on",
+    "chain `authored_sieve_two_counter_g2_w1` citing proofs of four takigiku--tsuchioka conjectures on (cycle 344)",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic c",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves",
     "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves (cycle 159)",
@@ -197,11 +201,7 @@
     "motzkin_bounded",
     "novelty",
     "outcome",
-    "pell_companion",
-    "process",
-    "pythagorean_generation",
-    "reward_sieve_instrument",
-    "rsi"
+    "pell_companion"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
