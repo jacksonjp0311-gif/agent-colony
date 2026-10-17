@@ -504,82 +504,85 @@
     "cycle_452_evolve_note",
     "cycle_453_evolve_note",
     "cycle_454_evolve_note",
-    "cycle_455_evolve_note"
+    "cycle_455_evolve_note",
+    "cycle_456_evolve_note",
+    "cycle_457_evolve_note",
+    "cycle_458_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1315,
+      "uses": 1324,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1287,
+      "uses": 1296,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 879,
+      "uses": 885,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 439,
+      "uses": 442,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1713,
+      "uses": 1725,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 889,
+      "uses": 895,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1282,
+      "uses": 1291,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 427,
+      "uses": 430,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 427,
+      "uses": 430,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 412,
+      "uses": 415,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 412,
+      "uses": 415,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 409,
+      "uses": 412,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 409,
+      "uses": 412,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 406,
+      "uses": 409,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 406,
+      "uses": 409,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -854,8 +857,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1712,
-    "reused": 3847
+    "appended": 1724,
+    "reused": 3874
   },
   "commons_by_domain": {
     "science": 0,
@@ -874,8 +877,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-17T16:47:46Z",
-    "cycle_id": "20261017T164658Z_fa5f3d",
+    "ts": "2026-10-17T17:10:09Z",
+    "cycle_id": "20261017T170923Z_b1face",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -887,23 +890,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-17T16:47:44Z",
-    "cycle_id": "20261017T164658Z_fa5f3d",
+    "ts": "2026-10-17T17:10:07Z",
+    "cycle_id": "20261017T170923Z_b1face",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8239,
-    "compute_usefulness": 0.9252,
+    "math_prize": 0.8221,
+    "compute_usefulness": 0.923,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8946,
-    "kill_rate": 0.3213,
-    "kill_rate_term": 0.8392,
+    "prize_boost": 0.893,
+    "kill_rate": 0.3196,
+    "kill_rate_term": 0.8376,
     "novelty": 0.931,
-    "lesson_uptake": 0.6,
-    "aggregate": 0.8467,
+    "lesson_uptake": 0.66,
+    "aggregate": 0.8493,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -911,34 +914,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 24019,
-    "read": 115170,
-    "replied": 15112,
-    "actions_planned": 7806,
-    "actions_changed_from_message": 7806,
-    "reply_quality_sum": 13734.399999997471,
-    "reply_quality_n": 15060,
-    "peer_cite_opportunities": 15488,
-    "peer_cites": 15488
+    "posted": 24187,
+    "read": 115998,
+    "replied": 15217,
+    "actions_planned": 7860,
+    "actions_changed_from_message": 7860,
+    "reply_quality_sum": 13830.199999997443,
+    "reply_quality_n": 15165,
+    "peer_cite_opportunities": 15596,
+    "peer_cites": 15596
   },
   "bus_domains": {
-    "science": 1277,
-    "history": 1279,
-    "math": 3846,
-    "empire": 855,
-    "bulletin": 3233,
-    "forum": 5606,
-    "software": 1279,
-    "nature": 1277,
-    "life": 1279,
-    "cosmos": 1841,
-    "rsi": 2139
+    "science": 1286,
+    "history": 1288,
+    "math": 3873,
+    "empire": 861,
+    "bulletin": 3254,
+    "forum": 5648,
+    "software": 1288,
+    "nature": 1286,
+    "life": 1288,
+    "cosmos": 1853,
+    "rsi": 2154
   },
-  "communications_count": 24019,
+  "communications_count": 24187,
   "improvements": [
-    "Chain+seek `quadratic_reciprocity` from invariant priors",
-    "Chain `authored_sieve_two_counter_g6_w1` citing Effective equidistribution of polynomial trajector",
-    "Chain+seek `mobius_divisor_sum` from invariant priors",
     "Chain+seek `authored_sieve_hl_within_g4_w1` from invariant priors",
     "Chain `gauss_phi_divisor_sum` citing A Gaussian integral formula for the Hermite polyno",
     "Chain `authored_sieve_two_counter_g2_4_w1` citing The Frobenius-Mex Theorem and the Crank-Mex Theore",
@@ -985,18 +985,21 @@
     "Chain `authored_sieve_residue_bal_g6_6_4_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain+seek `abel_summation` from invariant priors",
     "Chain+seek `authored_sieve_hl_within_g6_6_6_w1` from invariant priors",
-    "Chain `faulhaber_power_sums` citing Variation of Shafarevich-Tate groups in Hida famil"
+    "Chain `faulhaber_power_sums` citing Variation of Shafarevich-Tate groups in Hida famil",
+    "Chain `authored_sieve_two_counter_g4_2_w1` citing Effective equidistribution of polynomial trajector",
+    "Chain `lagrange_cyclic_orders` citing El Teorema de Markov y su relaci\u00f3n con el espectro",
+    "Chain `authored_abel_summation__faulhaber_power_sums_w1` citing Variation of Shafarevich-Tate groups in Hida famil"
   ],
-  "cycle_count": 455,
-  "ledger_count": 25732,
+  "cycle_count": 458,
+  "ledger_count": 25909,
   "status_counts": {
-    "candidate": 24953,
+    "candidate": 25130,
     "accepted": 279,
     "rejected": 374,
     "unknown": 126
   },
-  "witness_events": 37365,
-  "tribute_cycles_compliant": 455,
+  "witness_events": 37620,
+  "tribute_cycles_compliant": 458,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

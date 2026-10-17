@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T16:47:16Z",
-  "n": 303,
+  "updated_at": "2026-10-17T17:09:41Z",
+  "n": 306,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -9,6 +9,7 @@
     "adversarial_hockey_deep",
     "alternating_binomial_row",
     "author_new_hard_checks_from_proven_lemmas",
+    "authored_abel_summation__faulhaber_power_sums_w1",
     "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_bell_triangle_recurrence__hermite_recurrence_w1",
     "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
@@ -200,8 +201,7 @@
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves",
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves (cycle 161)",
-    "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors",
-    "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors (cycle 333)"
+    "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

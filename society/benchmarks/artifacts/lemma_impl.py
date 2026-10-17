@@ -2348,6 +2348,17 @@ def check_authored_sieve_two_counter_g4_2_w1() -> bool:
     return all(type(c := sieve_count((4, 2), a, b)) is int and c > 0 and c == sieve_count((4, 2), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
 
 
+def check_authored_abel_summation__faulhaber_power_sums_w1() -> bool:
+    """Authored stress check (desk): proven lemmas abel_summation + faulhaber_power_sums on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_abel_summation,
+    ::check_faulhaber_power_sums; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_abel_summation(n) for n in range(40, 59))) and all((check_faulhaber_power_sums(n) for n in range(30, 45)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2460,7 +2471,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("telescoping_sum", lambda: all(check_telescoping_sum(n) for n in range(1, 40)), True),
     ("abel_summation", lambda: all(check_abel_summation(n) for n in range(1, 40)), True),
     ("faulhaber_power_sums", lambda: all(check_faulhaber_power_sums(n) for n in range(0, 30)), True),
-    ("lagrange_cyclic_orders", lambda: all(check_lagrange_cyclic_orders(n) for n in range(2, 40)), False),
+    ("lagrange_cyclic_orders", lambda: all(check_lagrange_cyclic_orders(n) for n in range(2, 40)), True),
     ("burnside_necklaces", lambda: all(check_burnside_necklaces(n) for n in range(1, 8)), False),
 
     ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, True),
@@ -2598,7 +2609,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_residue_bal_g6_6_2_w1", check_authored_sieve_residue_bal_g6_6_2_w1, True),
     ("authored_sieve_residue_bal_g6_6_4_w1", check_authored_sieve_residue_bal_g6_6_4_w1, True),
     ("authored_sieve_hl_within_g6_6_6_w1", check_authored_sieve_hl_within_g6_6_6_w1, True),
-    ("authored_sieve_two_counter_g4_2_w1", check_authored_sieve_two_counter_g4_2_w1, False),
+    ("authored_sieve_two_counter_g4_2_w1", check_authored_sieve_two_counter_g4_2_w1, True),
+    ("authored_abel_summation__faulhaber_power_sums_w1", check_authored_abel_summation__faulhaber_power_sums_w1, True),
 ]
 
 
