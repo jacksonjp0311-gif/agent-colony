@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T09:28:18Z",
-  "updated_cycle": "20261017T092750Z_aa4c44",
+  "updated_at": "2026-10-17T09:48:26Z",
+  "updated_cycle": "20261017T094751Z_0c472c",
   "signal": {
-    "ts": "2026-10-17T09:28:18Z",
+    "ts": "2026-10-17T09:48:26Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 104,
+    "accepted_compute": 105,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_cc1e1f2ad4c0",
-        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__derangement_subfactorial_w1"
+        "finding_id": "fnd_ae1e4e9d86bc",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__central_binom_bound_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,13 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_0e2f223fb590",
-        "title": "Authorize accepted: Lemma mutation keep: authored_cassini__bell_triangle_recurre",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_4babedf062b4",
         "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__euler_totient",
         "topic_id": "compute-useful-math",
@@ -92,6 +85,13 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_a2a4882d9de9",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g4_2_4_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,12 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_0e2f223fb590",
-        "title": "Authorize accepted: Lemma mutation keep: authored_cassini__bell_triangle_recurrence_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_4babedf062b4",
         "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__euler_totient_multiplicative_w1",
@@ -143,19 +137,25 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_6_6_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_a2a4882d9de9",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g4_2_4_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_cc1e1f2ad4c0",
         "fnd_ae1e4e9d86bc",
         "fnd_0e2f223fb590",
         "fnd_4babedf062b4",
         "fnd_db2b9b25132d",
         "fnd_3d7fd550d996",
         "fnd_762f217085bb",
-        "fnd_18a43df8ae6f"
+        "fnd_18a43df8ae6f",
+        "fnd_a2a4882d9de9"
       ],
       "rsi": []
     },

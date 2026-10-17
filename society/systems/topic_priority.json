@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_cc1e1f2ad4c0",
-      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__derangement_subfactorial_w1"
+      "finding_id": "fnd_ae1e4e9d86bc",
+      "title": "Authorize accepted: Lemma mutation keep: authored_binomial_symmetry__central_binom_bound_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T09:28:12Z",
-  "updated_cycle": "20261017T092750Z_aa4c44",
+  "updated_at": "2026-10-17T09:48:08Z",
+  "updated_cycle": "20261017T094751Z_0c472c",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
