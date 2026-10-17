@@ -33,7 +33,7 @@ def test_unknown_reward_credits_surviving_unknown_and_discounts_expected():
     sl = _sl([lone, sweep], ora)
     a, b = _by_id(sl, "imp_1")["hunt"], _by_id(sl, "imp_2")["hunt"]
     assert a["unknown"] and a["siblings_passed"] == 0 and a["novelty_shadow"] == 1.0
-    assert b["unknown"] and b["siblings_passed"] == 6 and b["novelty_shadow"] == round(1 - 6 / 9, 4)
+    assert b["unknown"] and b["siblings_passed"] == 6 and b["novelty_shadow"] == round(H.K_PRIOR / (6 + H.K_PRIOR), 4)
     assert a["rank_shadow"] > b["rank_shadow"]
 
 

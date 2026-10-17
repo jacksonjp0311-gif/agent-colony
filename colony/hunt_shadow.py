@@ -11,7 +11,9 @@ Rule 1 — unknown reward (replaces the novelty term in the shadow only):
             (OEIS-names novelty shadow, the shadow's own 0.75 flag line; "unchecked" when no
             corpus/row is available — then it is not treated as known)
   expected = s / (s + K): s = other distinct Oracle-passed targets in the same claim family
-             (target minus trailing parameter tokens like _g4_2_6_w1); K = 3 prior strength.
+             (target minus trailing parameter tokens like _g4_2_6_w1); K = K_PRIOR prior strength,
+             calibrated by evals/hunt/calibrate_k.py into colony/hunt_calibration.json (rule-of-
+             succession ML; falls back to K_PRIOR_DEFAULT = 3 when the file is absent/invalid).
              A parameter sweep of a family that already passed many times is a fully expected result.
   u = unknown * (1 - expected)
 Rule 2 — building blocks count only when combined:
@@ -38,7 +40,20 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "society" / "systems" / "hunt_shadow.json"
 NOVELTY_SHADOW = ROOT / "society" / "systems" / "novelty_shadow.json"
-K_PRIOR = 3.0
+CALIBRATION = ROOT / "colony" / "hunt_calibration.json"
+K_PRIOR_DEFAULT = 3.0
+
+
+def load_k_prior(path: Path = CALIBRATION) -> float:
+    """Named config param K (expected-discount prior strength); calibrated value or the default."""
+    try:
+        k = float(json.loads(path.read_text(encoding="utf-8"))["K_PRIOR"])
+        return k if k > 0 else K_PRIOR_DEFAULT
+    except Exception:  # noqa: BLE001
+        return K_PRIOR_DEFAULT
+
+
+K_PRIOR = load_k_prior()
 OEIS_FLAG = 0.75
 TEXTBOOK_KILL = 0.34
 W_NOV_IN_P = 0.25

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "calibrated_at": "2026-10-17T16:57:49Z",
+  "K_PRIOR": 0.10921,
+  "split": "2026-10-17T14:08:27Z",
+  "split_note": "fallback: the 2026-10-16T23:20:31Z split has no repeat-family members on its tuning side (K unidentifiable); chronological split at the 60th percentile of repeat members",
+  "source": "evals/hunt/calibrate_k.py (rule-of-succession ML on tuning desk history)",
+  "fitted": {
+    "K": 0.10921,
+    "loglik": -3.2298,
+    "at_grid_edge": false
+  },
+  "tuning": {
+    "events": 145,
+    "surprises": 3,
+    "surprises_after_first_member": 1,
+    "members_after_first": 29
+  },
+  "held_out": {
+    "events": 40,
+    "surprises": 0,
+    "surprises_after_first_member": 0,
+    "members_after_first": 20,
+    "logloss_per_event": {
+      "fitted_K": 0.0084,
+      "K=3": 0.2088,
+      "constant_rate_from_tuning": 0.0351
+    },
+    "mean_expected_fitted_K": 0.9916,
+    "mean_expected_K3": 0.8119
+  }
+}
