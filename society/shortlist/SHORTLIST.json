@@ -1,38 +1,12 @@
 {
-  "ts": "2026-10-17T16:08:13Z",
+  "ts": "2026-10-17T16:26:52Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 36,
-  "n_groups": 36,
-  "n_authored_groups": 16,
-  "n_building_block_groups": 20,
+  "n_meet_bar": 37,
+  "n_groups": 37,
+  "n_authored_groups": 15,
+  "n_building_block_groups": 22,
   "top": [
-    {
-      "id": "imp_0f9c00_50",
-      "title": "Chain `authored_sieve_two_counter_g6_2_6_w1` citing Effective equidistribution of polynomial trajector",
-      "cycle_id": "20261017T101444Z_0f9c00",
-      "target": "authored_sieve_two_counter_g6_2_6_w1",
-      "family": "authored_sieve_two_counter_g6_2_6",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8339,
-      "P_stored": 0.8756,
-      "novelty": 0.8333,
-      "novelty_raw": 0.8333,
-      "building_block": null,
-      "builds_on": 0.5,
-      "building_blocks": [
-        "instrument:sieve.sieve_count"
-      ],
-      "athanor_verdict": null,
-      "rank": 0.767,
-      "group_count": 1,
-      "group_ids": [
-        "imp_0f9c00_50"
-      ],
-      "position": 1,
-      "line": "Enable `authored_sieve_two_counter_g6_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8339, novelty 0.8333."
-    },
     {
       "id": "imp_9c2e0b_50",
       "title": "Chain `authored_sieve_two_counter_g6_6_2_w1` citing Effective equidistribution of polynomial trajector",
@@ -52,11 +26,26 @@
       ],
       "athanor_verdict": null,
       "rank": 0.7366,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "authored_sieve_two_counter",
+        "siblings_passed": 14,
+        "expected": 0.8235,
+        "novelty_shadow": 0.1765,
+        "chained_by": null,
+        "P_shadow": 0.6191,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5068,
+        "shadow_pos": 7
+      },
       "group_count": 1,
       "group_ids": [
         "imp_9c2e0b_50"
       ],
-      "position": 2,
+      "position": 1,
       "line": "Enable `authored_sieve_two_counter_g6_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
     },
     {
@@ -78,11 +67,26 @@
       ],
       "athanor_verdict": "APPROVE",
       "rank": 0.7366,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "authored_sieve_two_counter",
+        "siblings_passed": 14,
+        "expected": 0.8235,
+        "novelty_shadow": 0.1765,
+        "chained_by": null,
+        "P_shadow": 0.6191,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5068,
+        "shadow_pos": 8
+      },
       "group_count": 1,
       "group_ids": [
         "imp_e4cf22_50"
       ],
-      "position": 3,
+      "position": 2,
       "line": "Enable `authored_sieve_two_counter_g4_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
     },
     {
@@ -104,11 +108,26 @@
       ],
       "athanor_verdict": "APPROVE",
       "rank": 0.7088,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_sieve_residue_bal",
+        "siblings_passed": 15,
+        "expected": 0.8333,
+        "novelty_shadow": 0.1667,
+        "chained_by": null,
+        "P_shadow": 0.6675,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5338,
+        "shadow_pos": 1
+      },
       "group_count": 1,
       "group_ids": [
         "imp_2bb1c6_50"
       ],
-      "position": 4,
+      "position": 3,
       "line": "Enable `authored_sieve_residue_bal_g4_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7925, novelty 0.6667."
     },
     {
@@ -130,11 +149,26 @@
       ],
       "athanor_verdict": "APPROVE",
       "rank": 0.7088,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_sieve_residue_bal",
+        "siblings_passed": 15,
+        "expected": 0.8333,
+        "novelty_shadow": 0.1667,
+        "chained_by": null,
+        "P_shadow": 0.6674,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5338,
+        "shadow_pos": 2
+      },
       "group_count": 1,
       "group_ids": [
         "imp_4e0736_50"
       ],
-      "position": 5,
+      "position": 4,
       "line": "Enable `authored_sieve_residue_bal_g2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7924, novelty 0.6667."
     },
     {
@@ -157,11 +191,26 @@
       ],
       "athanor_verdict": "APPROVE",
       "rank": 0.7085,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_sieve_hl_within",
+        "siblings_passed": 15,
+        "expected": 0.8333,
+        "novelty_shadow": 0.1667,
+        "chained_by": null,
+        "P_shadow": 0.667,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5335,
+        "shadow_pos": 3
+      },
       "group_count": 1,
       "group_ids": [
         "imp_00e76a_50"
       ],
-      "position": 6,
+      "position": 5,
       "line": "Enable `authored_sieve_hl_within_g4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.792, novelty 0.6667."
     },
     {
@@ -183,12 +232,69 @@
       ],
       "athanor_verdict": "APPROVE",
       "rank": 0.7085,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_sieve_residue_bal",
+        "siblings_passed": 15,
+        "expected": 0.8333,
+        "novelty_shadow": 0.1667,
+        "chained_by": null,
+        "P_shadow": 0.6669,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5335,
+        "shadow_pos": 4
+      },
       "group_count": 1,
       "group_ids": [
         "imp_4871cc_50"
       ],
-      "position": 7,
+      "position": 6,
       "line": "Enable `authored_sieve_residue_bal_g4_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7919, novelty 0.6667."
+    },
+    {
+      "id": "imp_a304cf_50",
+      "title": "Chain+seek `authored_sieve_hl_within_g6_2_4_w1` from invariant priors",
+      "cycle_id": "20261017T162343Z_a304cf",
+      "target": "authored_sieve_hl_within_g6_2_4_w1",
+      "family": "authored_sieve_hl_within_g6_2_4",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7919,
+      "P_stored": 0.7919,
+      "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count",
+        "instrument:sieve.sieve_hl"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.7085,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_sieve_hl_within",
+        "siblings_passed": 15,
+        "expected": 0.8333,
+        "novelty_shadow": 0.1667,
+        "chained_by": null,
+        "P_shadow": 0.6669,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5335,
+        "shadow_pos": 5
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_a304cf_50"
+      ],
+      "position": 7,
+      "line": "Enable `authored_sieve_hl_within_g6_2_4_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7919, novelty 0.6667."
     },
     {
       "id": "imp_7078ce_50",
@@ -209,6 +315,21 @@
       ],
       "athanor_verdict": null,
       "rank": 0.6784,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "authored_sieve_two_counter",
+        "siblings_passed": 14,
+        "expected": 0.8235,
+        "novelty_shadow": 0.1765,
+        "chained_by": null,
+        "P_shadow": 0.6191,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5068,
+        "shadow_pos": 6
+      },
       "group_count": 1,
       "group_ids": [
         "imp_7078ce_50"
@@ -236,6 +357,21 @@
       ],
       "athanor_verdict": "APPROVE",
       "rank": 0.6784,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_sieve_hl_within",
+        "siblings_passed": 15,
+        "expected": 0.8333,
+        "novelty_shadow": 0.1667,
+        "chained_by": null,
+        "P_shadow": 0.6167,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5034,
+        "shadow_pos": 9
+      },
       "group_count": 1,
       "group_ids": [
         "imp_8d28f7_50"
@@ -262,6 +398,21 @@
       ],
       "athanor_verdict": null,
       "rank": 0.6784,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_sieve_residue_bal",
+        "siblings_passed": 15,
+        "expected": 0.8333,
+        "novelty_shadow": 0.1667,
+        "chained_by": null,
+        "P_shadow": 0.6167,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.5034,
+        "shadow_pos": 10
+      },
       "group_count": 1,
       "group_ids": [
         "imp_a001a4_50"
@@ -288,6 +439,21 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.5257,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "cycle_spanning_trees",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.6261,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.3757,
+        "shadow_pos": 16
+      },
       "group_count": 1,
       "group_ids": [
         "imp_79bbc6_50"
@@ -312,6 +478,21 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.5254,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "crt_coprime_pair",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.6257,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.3754,
+        "shadow_pos": 17
+      },
       "group_count": 1,
       "group_ids": [
         "imp_10cb56_50"
@@ -336,12 +517,66 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.5252,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "stirling_first_row_sum",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.6254,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.3752,
+        "shadow_pos": 18
+      },
       "group_count": 1,
       "group_ids": [
         "imp_64ee61_50"
       ],
       "position": 3,
       "line": "Building block `stirling_first_row_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8754."
+    },
+    {
+      "id": "imp_cef698_50",
+      "title": "Chain+seek `complete_bipartite_trees` from invariant priors",
+      "cycle_id": "20261017T160700Z_cef698",
+      "target": "complete_bipartite_trees",
+      "family": "complete_bipartite_trees",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8754,
+      "P_stored": 0.8754,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.5252,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "complete_bipartite_trees",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.6254,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.3752,
+        "shadow_pos": 20
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_cef698_50"
+      ],
+      "position": 4,
+      "line": "Building block `complete_bipartite_trees` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8754."
     },
     {
       "id": "imp_cd809b_50",
@@ -360,11 +595,26 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.5252,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "partition_conjugate_parts",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.6253,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.3752,
+        "shadow_pos": 19
+      },
       "group_count": 1,
       "group_ids": [
         "imp_cd809b_50"
       ],
-      "position": 4,
+      "position": 5,
       "line": "Building block `partition_conjugate_parts` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8753."
     },
     {
@@ -384,11 +634,26 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.5251,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "multinomial_three",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.6251,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.3751,
+        "shadow_pos": 21
+      },
       "group_count": 1,
       "group_ids": [
         "imp_ca0b82_50"
       ],
-      "position": 5,
+      "position": 6,
       "line": "Building block `multinomial_three` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8751."
     },
     {
@@ -408,11 +673,26 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.495,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "lucas_theorem_binomial",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.575,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.345,
+        "shadow_pos": 22
+      },
       "group_count": 1,
       "group_ids": [
         "imp_1f6041_50"
       ],
-      "position": 6,
+      "position": 7,
       "line": "Building block `lucas_theorem_binomial` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -432,11 +712,26 @@
       "building_blocks": [],
       "athanor_verdict": null,
       "rank": 0.495,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "euler_theorem",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.575,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.345,
+        "shadow_pos": 23
+      },
       "group_count": 1,
       "group_ids": [
         "imp_29279d_50"
       ],
-      "position": 7,
+      "position": 8,
       "line": "Building block `euler_theorem` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -456,11 +751,26 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.495,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "bezout_identity",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.575,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.345,
+        "shadow_pos": 24
+      },
       "group_count": 1,
       "group_ids": [
         "imp_413117_50"
       ],
-      "position": 8,
+      "position": 9,
       "line": "Building block `bezout_identity` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -480,40 +790,246 @@
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
       "rank": 0.495,
+      "hunt": {
+        "unknown": false,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "mobius_divisor_sum",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 0.0,
+        "chained_by": 0,
+        "P_shadow": 0.575,
+        "meets_bar_shadow": false,
+        "rank_shadow": 0.345,
+        "shadow_pos": 25
+      },
       "group_count": 1,
       "group_ids": [
         "imp_471d30_50"
       ],
-      "position": 9,
-      "line": "Building block `mobius_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
-    },
-    {
-      "id": "imp_50813c_50",
-      "title": "Chain `cayley_tree_count` citing Counting with Hiccup Sequences",
-      "cycle_id": "20261017T155955Z_50813c",
-      "target": "cayley_tree_count",
-      "family": "cayley_tree_count",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 0.0,
-      "novelty_raw": 1.0,
-      "building_block": "catalog_refill",
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.495,
-      "group_count": 1,
-      "group_ids": [
-        "imp_50813c_50"
-      ],
       "position": 10,
-      "line": "Building block `cayley_tree_count` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+      "line": "Building block `mobius_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     }
   ],
+  "hunt_shadow": {
+    "ts": "2026-10-17T16:26:52Z",
+    "cycle_id": "20261017T162551Z_473855",
+    "mode": "report_only",
+    "n_meet_bar_actual": 37,
+    "n_meet_bar_shadow": 0,
+    "n_unknown_claims": 17,
+    "unknown_targets": [
+      "authored_sieve_hl_within_g2_6_4_w1",
+      "authored_sieve_hl_within_g2_6_6_w1",
+      "authored_sieve_hl_within_g4_6_w1",
+      "authored_sieve_hl_within_g6_2_4_w1",
+      "authored_sieve_hl_within_g6_2_w1",
+      "authored_sieve_hl_within_g6_4_2_w1",
+      "authored_sieve_hl_within_g6_6_4_w1",
+      "authored_sieve_residue_bal_g2_4_6_w1",
+      "authored_sieve_residue_bal_g2_6_w1",
+      "authored_sieve_residue_bal_g4_6_2_w1",
+      "authored_sieve_residue_bal_g4_6_6_w1",
+      "authored_sieve_residue_bal_g6_4_6_w1",
+      "authored_sieve_residue_bal_g6_6_6_w1",
+      "authored_sieve_two_counter_g4_2_6_w1",
+      "authored_sieve_two_counter_g6_4_2_w1",
+      "authored_sieve_two_counter_g6_6_2_w1",
+      "authored_sieve_two_counter_g6_w1"
+    ],
+    "n_unknown_oeis_unchecked": 0,
+    "drop_out_of_bar": [
+      "imp_9c2e0b_50",
+      "imp_e4cf22_50",
+      "imp_2bb1c6_50",
+      "imp_4e0736_50",
+      "imp_00e76a_50",
+      "imp_4871cc_50",
+      "imp_a304cf_50",
+      "imp_7078ce_50",
+      "imp_8d28f7_50",
+      "imp_a001a4_50",
+      "imp_a12fe2_50",
+      "imp_b0787f_50",
+      "imp_cdfd57_50",
+      "imp_e0b942_50",
+      "imp_f9b690_50",
+      "imp_79bbc6_50",
+      "imp_10cb56_50",
+      "imp_64ee61_50",
+      "imp_cd809b_50",
+      "imp_cef698_50",
+      "imp_ca0b82_50",
+      "imp_1f6041_50",
+      "imp_29279d_50",
+      "imp_413117_50",
+      "imp_471d30_50",
+      "imp_50813c_50",
+      "imp_57362b_50",
+      "imp_5c95a3_50",
+      "imp_7e52ce_50",
+      "imp_8f9826_50",
+      "imp_b83c74_50",
+      "imp_b9e453_50",
+      "imp_bb0db0_50",
+      "imp_d44fcb_50",
+      "imp_e3db25_50",
+      "imp_eb8ed9_50",
+      "imp_f07a5b_50"
+    ],
+    "enter_bar": [],
+    "top_shadow": [
+      {
+        "id": "imp_2bb1c6_50",
+        "target": "authored_sieve_residue_bal_g4_6_6_w1",
+        "actual_pos": 3,
+        "shadow_pos": 1,
+        "meets_bar_shadow": false,
+        "rank": 0.7088,
+        "rank_shadow": 0.5338,
+        "P": 0.7925,
+        "P_shadow": 0.6675,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8333
+      },
+      {
+        "id": "imp_4e0736_50",
+        "target": "authored_sieve_residue_bal_g2_6_w1",
+        "actual_pos": 4,
+        "shadow_pos": 2,
+        "meets_bar_shadow": false,
+        "rank": 0.7088,
+        "rank_shadow": 0.5338,
+        "P": 0.7924,
+        "P_shadow": 0.6674,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8333
+      },
+      {
+        "id": "imp_00e76a_50",
+        "target": "authored_sieve_hl_within_g4_6_w1",
+        "actual_pos": 5,
+        "shadow_pos": 3,
+        "meets_bar_shadow": false,
+        "rank": 0.7085,
+        "rank_shadow": 0.5335,
+        "P": 0.792,
+        "P_shadow": 0.667,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8333
+      },
+      {
+        "id": "imp_4871cc_50",
+        "target": "authored_sieve_residue_bal_g4_6_2_w1",
+        "actual_pos": 6,
+        "shadow_pos": 4,
+        "meets_bar_shadow": false,
+        "rank": 0.7085,
+        "rank_shadow": 0.5335,
+        "P": 0.7919,
+        "P_shadow": 0.6669,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8333
+      },
+      {
+        "id": "imp_a304cf_50",
+        "target": "authored_sieve_hl_within_g6_2_4_w1",
+        "actual_pos": 7,
+        "shadow_pos": 5,
+        "meets_bar_shadow": false,
+        "rank": 0.7085,
+        "rank_shadow": 0.5335,
+        "P": 0.7919,
+        "P_shadow": 0.6669,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8333
+      },
+      {
+        "id": "imp_7078ce_50",
+        "target": "authored_sieve_two_counter_g6_w1",
+        "actual_pos": 8,
+        "shadow_pos": 6,
+        "meets_bar_shadow": false,
+        "rank": 0.6784,
+        "rank_shadow": 0.5068,
+        "P": 0.7417,
+        "P_shadow": 0.6191,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8235
+      },
+      {
+        "id": "imp_9c2e0b_50",
+        "target": "authored_sieve_two_counter_g6_6_2_w1",
+        "actual_pos": 1,
+        "shadow_pos": 7,
+        "meets_bar_shadow": false,
+        "rank": 0.7366,
+        "rank_shadow": 0.5068,
+        "P": 0.7833,
+        "P_shadow": 0.6191,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8235
+      },
+      {
+        "id": "imp_e4cf22_50",
+        "target": "authored_sieve_two_counter_g4_2_6_w1",
+        "actual_pos": 2,
+        "shadow_pos": 8,
+        "meets_bar_shadow": false,
+        "rank": 0.7366,
+        "rank_shadow": 0.5068,
+        "P": 0.7833,
+        "P_shadow": 0.6191,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8235
+      },
+      {
+        "id": "imp_8d28f7_50",
+        "target": "authored_sieve_hl_within_g2_6_6_w1",
+        "actual_pos": 9,
+        "shadow_pos": 9,
+        "meets_bar_shadow": false,
+        "rank": 0.6784,
+        "rank_shadow": 0.5034,
+        "P": 0.7417,
+        "P_shadow": 0.6167,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8333
+      },
+      {
+        "id": "imp_a001a4_50",
+        "target": "authored_sieve_residue_bal_g6_6_6_w1",
+        "actual_pos": 10,
+        "shadow_pos": 10,
+        "meets_bar_shadow": false,
+        "rank": 0.6784,
+        "rank_shadow": 0.5034,
+        "P": 0.7417,
+        "P_shadow": 0.6167,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.8333
+      }
+    ],
+    "near_misses": {
+      "oracle_rows": 1,
+      "shifted_window_failures": [],
+      "single_reason_kills": []
+    }
+  },
   "excluded_reasons": {
-    "status": 11,
+    "status": 10,
     "hearing": 6,
     "target_unresolved": 5,
     "novelty_killed": 18,
@@ -526,5 +1042,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T160700Z_cef698"
+  "cycle_id": "20261017T162551Z_473855"
 }
