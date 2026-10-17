@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T10:15:01Z",
-  "n": 246,
+  "updated_at": "2026-10-17T10:24:23Z",
+  "n": 247,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -84,6 +84,7 @@
     "authored_sieve_hl_within_g4_2_4_w1",
     "authored_sieve_hl_within_g4_2_w1",
     "authored_sieve_hl_within_g4_6_6_w1",
+    "authored_sieve_hl_within_g6_4_2_w1",
     "authored_sieve_hl_within_g6_4_w1",
     "authored_sieve_hl_within_g6_w1",
     "authored_sieve_residue_bal_g2_4_w1",
@@ -200,8 +201,7 @@
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 139)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 141)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 143)",
-    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 145)",
-    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 147)"
+    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 145)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
