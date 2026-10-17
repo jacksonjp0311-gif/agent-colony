@@ -1,11 +1,12 @@
 {
-  "updated_at": "2026-10-17T14:25:14Z",
-  "n": 274,
+  "updated_at": "2026-10-17T15:38:48Z",
+  "n": 277,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
     "adversarial_derived_chain_stress",
     "adversarial_hockey_deep",
+    "alternating_binomial_row",
     "author_new_hard_checks_from_proven_lemmas",
     "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_bell_triangle_recurrence__hermite_recurrence_w1",
@@ -79,6 +80,7 @@
     "authored_pell_companion__pythagorean_generation_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sieve_hl_within_g2_4_6_w1",
+    "authored_sieve_hl_within_g2_6_4_w1",
     "authored_sieve_hl_within_g2_w1",
     "authored_sieve_hl_within_g2_w2",
     "authored_sieve_hl_within_g4_2_4_w1",
@@ -92,6 +94,7 @@
     "authored_sieve_hl_within_g6_6_4_w1",
     "authored_sieve_hl_within_g6_w1",
     "authored_sieve_residue_bal_g2_4_2_w1",
+    "authored_sieve_residue_bal_g2_4_6_w1",
     "authored_sieve_residue_bal_g2_4_w1",
     "authored_sieve_residue_bal_g2_6_4_w1",
     "authored_sieve_residue_bal_g2_6_w1",
@@ -198,10 +201,7 @@
     "easy_pad_assoc_add",
     "easy_pad_commutativity",
     "easy_pad_diff_squares",
-    "easy_pad_square_again",
-    "easy_pad_zero_identity",
-    "euler_theorem",
-    "feed accepted/strong rsi findings into skill_router + genome bias"
+    "easy_pad_square_again"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

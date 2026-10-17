@@ -1,9 +1,11 @@
 {
-  "ts": "2026-10-17T14:25:45Z",
+  "ts": "2026-10-17T15:39:27Z",
   "view_only": true,
   "n_considered": 58,
   "n_meet_bar": 28,
   "n_groups": 28,
+  "n_authored_groups": 14,
+  "n_building_block_groups": 14,
   "top": [
     {
       "id": "imp_0f9c00_50",
@@ -16,6 +18,8 @@
       "P": 0.8339,
       "P_stored": 0.8756,
       "novelty": 0.8333,
+      "novelty_raw": 0.8333,
+      "building_block": null,
       "builds_on": 0.5,
       "building_blocks": [
         "instrument:sieve.sieve_count"
@@ -40,6 +44,8 @@
       "P": 0.7833,
       "P_stored": 0.7833,
       "novelty": 0.8333,
+      "novelty_raw": 0.8333,
+      "building_block": null,
       "builds_on": 0.5,
       "building_blocks": [
         "instrument:sieve.sieve_count"
@@ -64,6 +70,8 @@
       "P": 0.7833,
       "P_stored": 0.825,
       "novelty": 0.8333,
+      "novelty_raw": 0.8333,
+      "building_block": null,
       "builds_on": 0.5,
       "building_blocks": [
         "instrument:sieve.sieve_count"
@@ -78,50 +86,6 @@
       "line": "Enable `authored_sieve_two_counter_g2_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
     },
     {
-      "id": "imp_10cb56_50",
-      "title": "Chain `crt_coprime_pair` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In",
-      "cycle_id": "20261017T141314Z_10cb56",
-      "target": "crt_coprime_pair",
-      "family": "crt_coprime_pair",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8757,
-      "P_stored": 0.8757,
-      "novelty": 1.0,
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.7254,
-      "group_count": 1,
-      "group_ids": [
-        "imp_10cb56_50"
-      ],
-      "position": 4,
-      "line": "Enable `crt_coprime_pair` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.8757, novelty 1.0."
-    },
-    {
-      "id": "imp_64ee61_50",
-      "title": "Chain `stirling_first_row_sum` citing On two families of generalized Stirling numbers re",
-      "cycle_id": "20261017T141944Z_64ee61",
-      "target": "stirling_first_row_sum",
-      "family": "stirling_first_row_sum",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8754,
-      "P_stored": 0.8754,
-      "novelty": 1.0,
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.7252,
-      "group_count": 1,
-      "group_ids": [
-        "imp_64ee61_50"
-      ],
-      "position": 5,
-      "line": "Enable `stirling_first_row_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.8754, novelty 1.0."
-    },
-    {
       "id": "imp_4e0736_50",
       "title": "Chain `authored_sieve_residue_bal_g2_6_w1` citing Inverse binomial coefficients in Egorychev method",
       "cycle_id": "20261017T140425Z_4e0736",
@@ -132,6 +96,8 @@
       "P": 0.7924,
       "P_stored": 0.7924,
       "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
       "builds_on": 0.5,
       "building_blocks": [
         "instrument:sieve.sieve_count"
@@ -142,7 +108,7 @@
       "group_ids": [
         "imp_4e0736_50"
       ],
-      "position": 6,
+      "position": 4,
       "line": "Enable `authored_sieve_residue_bal_g2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7924, novelty 0.6667."
     },
     {
@@ -156,6 +122,8 @@
       "P": 0.792,
       "P_stored": 0.792,
       "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
       "builds_on": 0.5,
       "building_blocks": [
         "instrument:sieve.sieve_count",
@@ -167,8 +135,191 @@
       "group_ids": [
         "imp_00e76a_50"
       ],
-      "position": 7,
+      "position": 5,
       "line": "Enable `authored_sieve_hl_within_g4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.792, novelty 0.6667."
+    },
+    {
+      "id": "imp_491b3e_50",
+      "title": "Chain+seek `authored_sieve_hl_within_g4_2_4_w1` from invariant priors",
+      "cycle_id": "20261017T092707Z_491b3e",
+      "target": "authored_sieve_hl_within_g4_2_4_w1",
+      "family": "authored_sieve_hl_within_g4_2_4",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7417,
+      "P_stored": 0.825,
+      "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count",
+        "instrument:sieve.sieve_hl"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.6784,
+      "group_count": 1,
+      "group_ids": [
+        "imp_491b3e_50"
+      ],
+      "position": 6,
+      "line": "Enable `authored_sieve_hl_within_g4_2_4_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7417, novelty 0.6667."
+    },
+    {
+      "id": "imp_7078ce_50",
+      "title": "Chain `authored_sieve_two_counter_g6_w1` citing Effective equidistribution of polynomial trajector",
+      "cycle_id": "20261017T111516Z_7078ce",
+      "target": "authored_sieve_two_counter_g6_w1",
+      "family": "authored_sieve_two_counter_g6",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7417,
+      "P_stored": 0.7417,
+      "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.6784,
+      "group_count": 1,
+      "group_ids": [
+        "imp_7078ce_50"
+      ],
+      "position": 7,
+      "line": "Enable `authored_sieve_two_counter_g6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7417, novelty 0.6667."
+    },
+    {
+      "id": "imp_985c46_50",
+      "title": "Chain+seek `authored_sieve_hl_within_g2_4_6_w1` from invariant priors",
+      "cycle_id": "20261017T090630Z_985c46",
+      "target": "authored_sieve_hl_within_g2_4_6_w1",
+      "family": "authored_sieve_hl_within_g2_4_6",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7417,
+      "P_stored": 0.825,
+      "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count",
+        "instrument:sieve.sieve_hl"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.6784,
+      "group_count": 1,
+      "group_ids": [
+        "imp_985c46_50"
+      ],
+      "position": 8,
+      "line": "Enable `authored_sieve_hl_within_g2_4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7417, novelty 0.6667."
+    },
+    {
+      "id": "imp_a001a4_50",
+      "title": "Chain `authored_sieve_residue_bal_g6_6_6_w1` citing The large sieve inequality and additive decomposit",
+      "cycle_id": "20261017T111307Z_a001a4",
+      "target": "authored_sieve_residue_bal_g6_6_6_w1",
+      "family": "authored_sieve_residue_bal_g6_6_6",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7417,
+      "P_stored": 0.7417,
+      "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.6784,
+      "group_count": 1,
+      "group_ids": [
+        "imp_a001a4_50"
+      ],
+      "position": 9,
+      "line": "Enable `authored_sieve_residue_bal_g6_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7417, novelty 0.6667."
+    },
+    {
+      "id": "imp_a12fe2_50",
+      "title": "Chain+seek `authored_sieve_hl_within_g6_2_w1` from invariant priors",
+      "cycle_id": "20261017T141839Z_a12fe2",
+      "target": "authored_sieve_hl_within_g6_2_w1",
+      "family": "authored_sieve_hl_within_g6_2",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7417,
+      "P_stored": 0.7417,
+      "novelty": 0.6667,
+      "novelty_raw": 0.6667,
+      "building_block": null,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count",
+        "instrument:sieve.sieve_hl"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.6784,
+      "group_count": 1,
+      "group_ids": [
+        "imp_a12fe2_50"
+      ],
+      "position": 10,
+      "line": "Enable `authored_sieve_hl_within_g6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7417, novelty 0.6667."
+    }
+  ],
+  "building_blocks_enabled": [
+    {
+      "id": "imp_10cb56_50",
+      "title": "Chain `crt_coprime_pair` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In",
+      "cycle_id": "20261017T141314Z_10cb56",
+      "target": "crt_coprime_pair",
+      "family": "crt_coprime_pair",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8757,
+      "P_stored": 0.8757,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.5254,
+      "group_count": 1,
+      "group_ids": [
+        "imp_10cb56_50"
+      ],
+      "position": 1,
+      "line": "Building block `crt_coprime_pair` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8757."
+    },
+    {
+      "id": "imp_64ee61_50",
+      "title": "Chain `stirling_first_row_sum` citing On two families of generalized Stirling numbers re",
+      "cycle_id": "20261017T141944Z_64ee61",
+      "target": "stirling_first_row_sum",
+      "family": "stirling_first_row_sum",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8754,
+      "P_stored": 0.8754,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.5252,
+      "group_count": 1,
+      "group_ids": [
+        "imp_64ee61_50"
+      ],
+      "position": 2,
+      "line": "Building block `stirling_first_row_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8754."
     },
     {
       "id": "imp_1f6041_50",
@@ -180,17 +331,19 @@
       "why_not": [],
       "P": 0.825,
       "P_stored": 0.825,
-      "novelty": 1.0,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
       "builds_on": 0.0,
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
-      "rank": 0.695,
+      "rank": 0.495,
       "group_count": 1,
       "group_ids": [
         "imp_1f6041_50"
       ],
-      "position": 8,
-      "line": "Enable `lucas_theorem_binomial` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+      "position": 3,
+      "line": "Building block `lucas_theorem_binomial` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
       "id": "imp_29279d_50",
@@ -202,17 +355,19 @@
       "why_not": [],
       "P": 0.825,
       "P_stored": 0.825,
-      "novelty": 1.0,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
       "builds_on": 0.0,
       "building_blocks": [],
       "athanor_verdict": null,
-      "rank": 0.695,
+      "rank": 0.495,
       "group_count": 1,
       "group_ids": [
         "imp_29279d_50"
       ],
-      "position": 9,
-      "line": "Enable `euler_theorem` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+      "position": 4,
+      "line": "Building block `euler_theorem` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
       "id": "imp_413117_50",
@@ -224,21 +379,143 @@
       "why_not": [],
       "P": 0.825,
       "P_stored": 0.825,
-      "novelty": 1.0,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
       "builds_on": 0.0,
       "building_blocks": [],
       "athanor_verdict": "APPROVE",
-      "rank": 0.695,
+      "rank": 0.495,
       "group_count": 1,
       "group_ids": [
         "imp_413117_50"
       ],
+      "position": 5,
+      "line": "Building block `bezout_identity` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+    },
+    {
+      "id": "imp_471d30_50",
+      "title": "Chain+seek `mobius_divisor_sum` from invariant priors",
+      "cycle_id": "20261017T135450Z_471d30",
+      "target": "mobius_divisor_sum",
+      "family": "mobius_divisor_sum",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.495,
+      "group_count": 1,
+      "group_ids": [
+        "imp_471d30_50"
+      ],
+      "position": 6,
+      "line": "Building block `mobius_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+    },
+    {
+      "id": "imp_57362b_50",
+      "title": "Chain `alternating_binomial_row` citing ON A SUPER TELESCOPING SUM REPRESENTING BINOMIAL C",
+      "cycle_id": "20261017T153608Z_57362b",
+      "target": "alternating_binomial_row",
+      "family": "alternating_binomial_row",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.495,
+      "group_count": 1,
+      "group_ids": [
+        "imp_57362b_50"
+      ],
+      "position": 7,
+      "line": "Building block `alternating_binomial_row` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+    },
+    {
+      "id": "imp_7e52ce_50",
+      "title": "Chain `gauss_phi_divisor_sum` citing A Gaussian integral formula for the Hermite polyno",
+      "cycle_id": "20261017T135632Z_7e52ce",
+      "target": "gauss_phi_divisor_sum",
+      "family": "gauss_phi_divisor_sum",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.495,
+      "group_count": 1,
+      "group_ids": [
+        "imp_7e52ce_50"
+      ],
+      "position": 8,
+      "line": "Building block `gauss_phi_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+    },
+    {
+      "id": "imp_8f9826_50",
+      "title": "Chain `bell_stirling_sum` citing Sum rules for permutations with fixed points invol",
+      "cycle_id": "20261017T142352Z_8f9826",
+      "target": "bell_stirling_sum",
+      "family": "bell_stirling_sum",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.495,
+      "group_count": 1,
+      "group_ids": [
+        "imp_8f9826_50"
+      ],
+      "position": 9,
+      "line": "Building block `bell_stirling_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+    },
+    {
+      "id": "imp_b83c74_50",
+      "title": "Chain+seek `fermat_little` from invariant priors",
+      "cycle_id": "20261017T104417Z_b83c74",
+      "target": "fermat_little",
+      "family": "fermat_little",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": null,
+      "rank": 0.495,
+      "group_count": 1,
+      "group_ids": [
+        "imp_b83c74_50"
+      ],
       "position": 10,
-      "line": "Enable `bezout_identity` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+      "line": "Building block `fermat_little` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     }
   ],
   "excluded_reasons": {
-    "hearing": 12,
+    "hearing": 11,
     "no_oracle_pass_in_own_cycle": 9,
     "novelty_killed": 20,
     "status": 13,
@@ -247,8 +524,9 @@
   "rule": {
     "P_min": 0.7,
     "novelty_kill": 0.34,
-    "rank": "0.6*P + 0.2*novelty + 0.2*builds_on"
+    "rank": "0.6*P + 0.2*novelty + 0.2*builds_on",
+    "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T142450Z_2469eb"
+  "cycle_id": "20261017T153820Z_ca0b82"
 }

@@ -1,7 +1,7 @@
 {
-  "ts": "2026-10-17T14:25:50Z",
+  "ts": "2026-10-17T15:39:33Z",
   "ok_all": true,
-  "aggregate_score": 0.8716,
+  "aggregate_score": 0.8648,
   "benches": [
     {
       "bench": "fft_microbench",
@@ -10,7 +10,7 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.001957,
+      "seconds": 0.002536,
       "score": 1.0,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
@@ -23,8 +23,8 @@
       "ok": true,
       "max_abs_err": 7.367024535821709e-11,
       "mse": 6.228992808609339e-24,
-      "seconds": 0.009607,
-      "score": 0.6671,
+      "seconds": 0.013206,
+      "score": 0.6352,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
       "time_budget_s": 0.0025
@@ -51,7 +51,7 @@
         "b": 1.1677155874884049,
         "c": 0.062459317842766815
       },
-      "seconds": 0.000113,
+      "seconds": 0.00017,
       "score": 1.0,
       "impl_id": "autodiff_reverse_tape_v1",
       "grad_tol": 5e-05,
@@ -61,11 +61,11 @@
       "bench": "lemma_microbench",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 0.845754,
-      "score": 0.866,
-      "speed": 0.177357,
+      "seconds": 1.113961,
+      "score": 0.8639,
+      "speed": 0.134655,
       "speed_weight": 0.05,
-      "impl_id": "lemma_impl_v2_basic10_hard166",
+      "impl_id": "lemma_impl_v2_basic10_hard169",
       "checks": {
         "basic:square_of_sum": true,
         "basic:difference_of_squares": true,
@@ -123,6 +123,8 @@
         "hard:lucas_theorem_binomial": true,
         "hard:stirling_first_row_sum": true,
         "hard:bell_stirling_sum": true,
+        "hard:alternating_binomial_row": true,
+        "hard:multinomial_three": true,
         "hard:authored_bell_triangle_recurrence__binomial_inversion_small_w1": true,
         "hard:authored_binomial_sum_row__catalan_bounded_w1": true,
         "hard:authored_oeis_a000108__catalan_bounded": true,
@@ -242,14 +244,15 @@
         "hard:authored_sieve_two_counter_g6_4_w1": true,
         "hard:authored_sieve_hl_within_g6_2_w1": true,
         "hard:authored_sieve_two_counter_g6_6_w1": true,
-        "hard:authored_sieve_residue_bal_g2_4_2_w1": true
+        "hard:authored_sieve_residue_bal_g2_4_2_w1": true,
+        "hard:authored_sieve_residue_bal_g2_4_6_w1": true
       },
-      "n_checks": 176,
-      "n_pass": 176,
+      "n_checks": 179,
+      "n_pass": 179,
       "n_basic": 10,
       "n_basic_pass": 10,
-      "n_hard": 166,
-      "n_hard_pass": 166,
+      "n_hard": 169,
+      "n_hard_pass": 169,
       "basic_ok": true,
       "hard_ok": true,
       "note": "Machine-check of coded lemmas (basic + hard tier). Textbook-only cannot ace ~0.95. Not novel-theorem discovery."
@@ -259,7 +262,7 @@
       "domain": "stem_physics",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 9.2e-05,
+      "seconds": 0.000114,
       "score": 0.825,
       "impl_id": "kinematics_impl_v1_enabled4",
       "checks": {
