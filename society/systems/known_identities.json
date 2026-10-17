@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T02:58:34Z",
-  "n": 231,
+  "updated_at": "2026-10-17T03:13:39Z",
+  "n": 233,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -81,9 +81,11 @@
     "authored_sieve_residue_bal_g2_4_w1",
     "authored_sieve_residue_bal_g2_w1",
     "authored_sieve_residue_bal_g2_w2",
+    "authored_sieve_residue_bal_g4_6_w1",
     "authored_sieve_two_counter_g2_6_w1",
     "authored_sieve_two_counter_g2_w1",
     "authored_sieve_two_counter_g4_w1",
+    "authored_sieve_two_counter_g6_2_w1",
     "authored_stirling_second_row__pythagorean_generation_w1",
     "authored_sum_first_n_cubes__pell_companion_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
@@ -199,9 +201,7 @@
     "hockey_stick",
     "human_recognition_a104062_a7",
     "human_recognition_first_authorize",
-    "human_teaching",
-    "instruments",
-    "kill_cooldown"
+    "human_teaching"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

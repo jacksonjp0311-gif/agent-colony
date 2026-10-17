@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-17T02:59:13Z",
-  "cycle_id": "20261017T025912Z_d90587",
+  "ts": "2026-10-17T03:13:25Z",
+  "cycle_id": "20261017T031324Z_166922",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_sieve_hl_within_g2_w2",
@@ -20,13 +20,6 @@
       "skill_router": 2
     },
     "recent": {
-      "authored_pascal_identity__vandermonde_conv_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 2,
-        "keeps": 1,
-        "reverts": 1
-      },
       "authored_sum_first_n_odds__binomial_inversion_small_w1": {
         "last": "keep",
         "streak": 1,
@@ -103,55 +96,63 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_sieve_residue_bal_g4_6_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8334,
-      "slope": -0.000831,
+      "last": 0.8349,
+      "slope": -0.000849,
       "min": 0.8313,
       "max": 0.8515
     },
     "novelty": {
       "last": 0.6667,
-      "slope": 0.010258,
-      "min": 0.4,
+      "slope": 0.0,
+      "min": 0.6667,
       "max": 0.6667
     },
     "kill_rate": {
-      "last": 0.3692,
-      "slope": -0.000396,
-      "min": 0.3692,
-      "max": 0.3739
+      "last": 0.3684,
+      "slope": -0.00038,
+      "min": 0.3684,
+      "max": 0.3723
     },
     "kill_rate_term": {
-      "last": 0.8823,
-      "slope": -0.000357,
-      "min": 0.8823,
-      "max": 0.8865
+      "last": 0.8816,
+      "slope": -0.000343,
+      "min": 0.8816,
+      "max": 0.8851
     },
     "lesson_uptake": {
       "last": 0.9,
-      "slope": 0.001259,
+      "slope": 0.005874,
       "min": 0.84,
-      "max": 0.9
+      "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0027,
+    "aggregate_range": 0.0082,
     "novelty_max": 0.6667,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 129,
+    "enabled": 130,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_sieve_hl_within_g2_w2",
-      "authored_sieve_two_counter_g2_w1"
+      "authored_sieve_two_counter_g2_w1",
+      "authored_sieve_two_counter_g6_2_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -228,9 +229,11 @@
       "authored_sieve_residue_bal_g2_4_w1",
       "authored_sieve_residue_bal_g2_w1",
       "authored_sieve_residue_bal_g2_w2",
+      "authored_sieve_residue_bal_g4_6_w1",
       "authored_sieve_two_counter_g2_6_w1",
       "authored_sieve_two_counter_g2_w1",
       "authored_sieve_two_counter_g4_w1",
+      "authored_sieve_two_counter_g6_2_w1",
       "authored_stirling_second_row__pythagorean_generation_w1",
       "authored_sum_first_n_cubes__pell_companion_w1",
       "authored_sum_first_n_cubes__stirling_second_row_w1",
@@ -257,23 +260,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.634,
+      "ratio": 1.333,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.634,
+      "ratio": 1.362,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.721,
+      "ratio": 1.383,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.914,
-      "drift": false
+      "ratio": 1.59,
+      "drift": true
     },
     "kinematics_microbench": {
-      "ratio": 0.721,
+      "ratio": 1.294,
       "drift": false
     }
   },
@@ -281,11 +284,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 33400003,
-      "collatz_descent": 47800000,
+      "collatz_descent": 51000000,
       "legendre_square_gap": 300607,
       "lehmer_totient": 14200001,
-      "erdos_straus": 439951,
-      "twin_primes_hl": 58200000,
+      "erdos_straus": 449951,
+      "twin_primes_hl": 62200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -297,16 +300,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4981,
+        "challenged": 4980,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 19,
+        "challenged": 20,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 14,
+    "post_challenger_oracle_judged": 15,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -335,18 +338,18 @@
     "last": [
       [
         null,
+        "2026-10-17T03:10:43Z"
+      ],
+      [
+        "success",
         "2026-10-17T02:56:37Z"
       ],
       [
         "success",
         "2026-10-17T02:44:38Z"
-      ],
-      [
-        "success",
-        "2026-10-17T02:40:16Z"
       ]
     ],
-    "fetched_at": "2026-10-17T02:57:04Z"
+    "fetched_at": "2026-10-17T03:11:07Z"
   },
   "feeds": {
     "by_source": {
@@ -394,7 +397,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T02:57:04Z"
+      "ts": "2026-10-17T03:11:06Z"
     },
     "health": {
       "arxiv": {
@@ -422,6 +425,7 @@
   "signals": [
     "revert_streaks: authored_sieve_hl_within_g2_w2, authored_sieve_two_counter_g2_w1, easy_pad_abs_identity, easy_pad_assoc_add → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
+    "bench_timing_drift: lemma_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

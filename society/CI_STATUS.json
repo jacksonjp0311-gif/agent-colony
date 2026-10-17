@@ -408,82 +408,85 @@
     "cycle_356_evolve_note",
     "cycle_357_evolve_note",
     "cycle_358_evolve_note",
-    "cycle_359_evolve_note"
+    "cycle_359_evolve_note",
+    "cycle_360_evolve_note",
+    "cycle_361_evolve_note",
+    "cycle_362_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1027,
+      "uses": 1036,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 999,
+      "uses": 1008,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 687,
+      "uses": 693,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 343,
+      "uses": 346,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1329,
+      "uses": 1341,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 721,
+      "uses": 726,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 994,
+      "uses": 1003,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 331,
+      "uses": 334,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 331,
+      "uses": 334,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 316,
+      "uses": 319,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 316,
+      "uses": 319,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 313,
+      "uses": 316,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 313,
+      "uses": 316,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 310,
+      "uses": 313,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 310,
+      "uses": 313,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -758,8 +761,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1328,
-    "reused": 2983
+    "appended": 1340,
+    "reused": 3010
   },
   "commons_by_domain": {
     "science": 0,
@@ -778,8 +781,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-17T02:59:58Z",
-    "cycle_id": "20261017T025912Z_d90587",
+    "ts": "2026-10-17T03:14:09Z",
+    "cycle_id": "20261017T031324Z_166922",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -791,23 +794,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-17T02:59:57Z",
-    "cycle_id": "20261017T025912Z_d90587",
+    "ts": "2026-10-17T03:14:08Z",
+    "cycle_id": "20261017T031324Z_166922",
     "tribute_quality": 0.9,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8269,
-    "compute_usefulness": 0.9287,
+    "math_prize": 0.8103,
+    "compute_usefulness": 0.9093,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8971,
-    "kill_rate": 0.3692,
-    "kill_rate_term": 0.8823,
-    "novelty": 0.6667,
+    "prize_boost": 0.8829,
+    "kill_rate": 0.3676,
+    "kill_rate_term": 0.8809,
+    "novelty": 0.7222,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8402,
+    "aggregate": 0.8363,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -815,35 +818,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 18660,
-    "read": 88998,
-    "replied": 11752,
-    "actions_planned": 6078,
-    "actions_changed_from_message": 6078,
-    "reply_quality_sum": 10668.299999998366,
-    "reply_quality_n": 11700,
-    "peer_cite_opportunities": 12032,
-    "peer_cites": 12032
+    "posted": 18827,
+    "read": 89790,
+    "replied": 11857,
+    "actions_planned": 6132,
+    "actions_changed_from_message": 6132,
+    "reply_quality_sum": 10764.099999998338,
+    "reply_quality_n": 11805,
+    "peer_cite_opportunities": 12140,
+    "peer_cites": 12140
   },
   "bus_domains": {
-    "science": 989,
-    "history": 991,
-    "math": 2982,
-    "empire": 663,
-    "bulletin": 2561,
-    "forum": 4297,
-    "software": 991,
-    "nature": 989,
-    "life": 991,
-    "cosmos": 1439,
-    "rsi": 1659
+    "science": 998,
+    "history": 1000,
+    "math": 3009,
+    "empire": 669,
+    "bulletin": 2582,
+    "forum": 4336,
+    "software": 1000,
+    "nature": 998,
+    "life": 1000,
+    "cosmos": 1453,
+    "rsi": 1674
   },
-  "communications_count": 18660,
+  "communications_count": 18827,
   "improvements": [
-    "Chain+seek `authored_cassini__derangement_subfactorial_w1` from invariant priors (cycle 315)",
-    "Chain `authored_catalan_bounded__binomial_inversion_small_w1` citing Factors of a kind of alternating sums of products ",
-    "Chain `authored_catalan_bounded__binomial_inversion_small_w1` citing Factors of a kind of alternating sums of products  (cycle 317)",
-    "Chain `authored_catalan_convolution__euler_totient_multiplicative_w1` citing An identity relating Catalan numbers to tangent nu",
     "Chain `authored_catalan_convolution__euler_totient_multiplicative_w1` citing An identity relating Catalan numbers to tangent nu (cycle 319)",
     "Chain `authored_fibonacci_addition__legendre_duplication_small_w1` citing Computing the $q$-multiplicity of the positive roo",
     "Chain `authored_fibonacci_addition__legendre_duplication_small_w1` citing Computing the $q$-multiplicity of the positive roo (cycle 321)",
@@ -889,18 +888,22 @@
     "Chain `authored_sieve_two_counter_g2_6_w1` citing Proofs of four Takigiku--Tsuchioka conjectures on ",
     "Chain `authored_sieve_two_counter_g2_6_w1` citing Proofs of four Takigiku--Tsuchioka conjectures on (cycle 356)",
     "Chain+seek `authored_sieve_hl_within_g4_2_w1` from invariant priors",
-    "Chain+seek `authored_sieve_hl_within_g4_2_w1` from invariant priors (cycle 358)"
+    "Chain+seek `authored_sieve_hl_within_g4_2_w1` from invariant priors (cycle 358)",
+    "Chain `authored_sieve_residue_bal_g4_6_w1` citing Balanced Fibonacci word rectangles, and beyond",
+    "Chain `authored_sieve_residue_bal_g4_6_w1` citing Balanced Fibonacci word rectangles, and beyond (cycle 360)",
+    "Chain `authored_sieve_two_counter_g6_2_w1` citing Effective equidistribution of polynomial trajector",
+    "Chain `authored_sieve_two_counter_g6_2_w1` citing Effective equidistribution of polynomial trajector (cycle 362)"
   ],
-  "cycle_count": 359,
-  "ledger_count": 20044,
+  "cycle_count": 362,
+  "ledger_count": 20223,
   "status_counts": {
-    "candidate": 19342,
-    "accepted": 232,
-    "rejected": 344,
+    "candidate": 19516,
+    "accepted": 234,
+    "rejected": 347,
     "unknown": 126
   },
-  "witness_events": 29096,
-  "tribute_cycles_compliant": 359,
+  "witness_events": 29358,
+  "tribute_cycles_compliant": 362,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

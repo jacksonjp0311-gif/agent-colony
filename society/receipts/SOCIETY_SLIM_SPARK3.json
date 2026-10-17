@@ -1,25 +1,25 @@
 {
-  "when": "2026-10-17T03:00:06Z",
+  "when": "2026-10-17T03:14:19Z",
   "mile": "spark3-port",
-  "cycle_count": 359,
+  "cycle_count": 362,
   "fitness_latest": {
-    "ts": "2026-10-17T02:59:57Z",
-    "cycle_id": "20261017T025912Z_d90587",
+    "ts": "2026-10-17T03:14:08Z",
+    "cycle_id": "20261017T031324Z_166922",
     "tribute_quality": 0.9,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.9118,
     "commons_signal": 1.0,
-    "math_prize": 0.8269,
-    "compute_usefulness": 0.9287,
+    "math_prize": 0.8103,
+    "compute_usefulness": 0.9093,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8971,
-    "kill_rate": 0.3692,
-    "kill_rate_term": 0.8823,
-    "novelty": 0.6667,
+    "prize_boost": 0.8829,
+    "kill_rate": 0.3676,
+    "kill_rate_term": 0.8809,
+    "novelty": 0.7222,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8402,
+    "aggregate": 0.8363,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -44,17 +44,17 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8877
+    "aggregate_score": 0.8685
   },
   "novelty_gate": {
-    "hits": 12,
-    "kills": 6
+    "hits": 13,
+    "kills": 5
   },
   "debate_multihop": {
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.9643,
+      "reply_rate": 0.9286,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "reply_quality": 0.9118
@@ -64,14 +64,14 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261017T025912Z_d90587"
+    "cycle_id": "20261017T031324Z_166922"
   },
   "oracle": {
-    "passes": 299,
+    "passes": 301,
     "kills": 175,
     "easy_pad_kills": 32,
-    "total": 474,
-    "kill_rate": 0.3692
+    "total": 476,
+    "kill_rate": 0.3676
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."
