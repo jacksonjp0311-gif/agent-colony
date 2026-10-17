@@ -19,6 +19,12 @@ Rank = 0.6·P + 0.2·novelty + 0.2·builds_on, where
               [...]" and the components of a composed check ``authored_A__B``) of
               1 = Oracle-passed lemma, 0.5 = machine instrument (e.g. instrument:sieve.*), 0 = other;
               0 when it names none.
+Building blocks (textbook / classical lemmas) never rank as novel: a target that is a desk
+catalog lemma (no ``authored_`` prefix — e.g. the 30 classical lemmas refilled in 68954ec) or
+whose name is one of the novelty gate's TEXTBOOK_IDENTITIES (pascal_identity, cassini, ...) gets
+novelty 0 for ranking and is listed in a separate "building blocks enabled" section, so the
+top list is the colony's own authored work. View only: the live novelty killer and every score
+are untouched (``novelty_raw`` keeps the live value for reference).
 Near-duplicates (same target family = target name without its ``_wN`` window suffix) are
 grouped: one representative (highest rank) plus a count.
 """
@@ -37,6 +43,35 @@ NOVELTY_LOG = ROOT / "data" / "commons" / "novelty_gate.jsonl"
 STATE_PATH = ROOT / "data" / "society_state.json"
 ATHANOR_STATE = ROOT / "society" / "systems" / "athanor_gate.json"
 P_MIN = 0.70
+# The 30 classical building-block lemmas added to the desk catalog in 68954ec (listed for the
+# record; the rule below already covers them because none carries the ``authored_`` prefix).
+REFILL_68954EC = frozenset("""fermat_little euler_theorem wilson_theorem quadratic_reciprocity
+mobius_divisor_sum gauss_phi_divisor_sum sigma_multiplicative mobius_inversion_sigma bezout_identity
+crt_coprime_pair lucas_theorem_binomial stirling_first_row_sum bell_stirling_sum
+alternating_binomial_row multinomial_three euler_pentagonal odd_distinct_partitions
+partition_conjugate_parts cayley_tree_count cycle_spanning_trees complete_bipartite_trees
+cayley_hamilton_2x2 cayley_hamilton_3x3 newton_identities polynomial_remainder telescoping_sum
+abel_summation faulhaber_power_sums lagrange_cyclic_orders burnside_necklaces""".split())
+
+
+def building_block_kind(target: str, identities: Any = None) -> str | None:
+    """'catalog_refill' | 'catalog' | 'classical_identity' when the target is textbook material, else None."""
+    t = str(target or "")
+    if not t:
+        return None
+    if t in REFILL_68954EC:
+        return "catalog_refill"
+    if not t.startswith("authored_"):
+        return "catalog"
+    if identities is None:
+        try:
+            from colony.novelty_gate import TEXTBOOK_IDENTITIES as identities  # noqa: N811
+        except Exception:  # noqa: BLE001
+            identities = ()
+    low = t.lower()
+    if any(i in low for i in identities if i != "easy_pad"):
+        return "classical_identity"
+    return None
 NOVELTY_KILL = 0.34
 TOP_N = 10
 W_P, W_NOV, W_BUILD = 0.6, 0.2, 0.2
@@ -103,7 +138,7 @@ def _default_P(prop: dict[str, Any]) -> float | None:
 
 def evaluate(prop: dict[str, Any], *, oracle_rows: list[dict[str, Any]], novelty_rows: list[dict[str, Any]],
              athanor_rows: list[dict[str, Any]], resolve=_default_resolve, reuse=_default_reuse,
-             p_rule=_default_P) -> dict[str, Any]:
+             p_rule=_default_P, block_kind=None) -> dict[str, Any]:
     """Bar check + rank terms for one proposal. Pure given its inputs."""
     why: list[str] = []
     cid = prop.get("cycle_id") or ""
@@ -137,17 +172,23 @@ def evaluate(prop: dict[str, Any], *, oracle_rows: list[dict[str, Any]], novelty
     passed = {o.get("mutation") for o in oracle_rows if o.get("passed")}
     blocks = building_blocks(prop, target)
     b = builds_on(blocks, passed)
-    nov = round(1.0 - float(tr), 4) if tr is not None else None
+    nov_raw = round(1.0 - float(tr), 4) if tr is not None else None
+    bb = (block_kind or building_block_kind)(target)
+    nov = 0.0 if (bb and nov_raw is not None) else nov_raw
     ath = next((r for r in reversed(athanor_rows) if r.get("mutation") == target), None)
     rank = round(W_P * float(P) + W_NOV * float(nov or 0.0) + W_BUILD * b, 4) if P is not None else None
     return {"id": prop.get("id"), "title": prop.get("title"), "cycle_id": cid, "target": target,
             "family": family(target), "meets_bar": not why, "why_not": why, "P": P,
-            "P_stored": prop.get("P"), "novelty": nov, "builds_on": b, "building_blocks": blocks,
+            "P_stored": prop.get("P"), "novelty": nov, "novelty_raw": nov_raw,
+            "building_block": bb, "builds_on": b, "building_blocks": blocks,
             "athanor_verdict": (ath or {}).get("verdict"), "rank": rank}
 
 
 def plain_line(e: dict[str, Any]) -> str:
     t = e["target"]
+    if e.get("building_block"):
+        return (f"Building block `{t}` ({e['building_block'].replace('_', ' ')}; textbook, not novel) — "
+                f"Oracle passed it in its own cycle; P {e['P']}.")
     blocks = ", ".join(e["building_blocks"][:3]) or "no named building blocks"
     return (f"Enable `{t}` (Oracle passed it in its own cycle); builds on {blocks}; "
             f"P {e['P']}, novelty {e['novelty']}.")
@@ -173,18 +214,24 @@ def build(*, proposals: list[dict[str, Any]], oracle_rows: list[dict[str, Any]],
         else:
             g["group_count"] += 1
             g["group_ids"].append(e["id"])
-    ranked = list(groups.values())
-    for i, g in enumerate(ranked, 1):
-        g["position"] = i
-        g["line"] = plain_line(g)
+    allg = list(groups.values())
+    ranked = [g for g in allg if not g.get("building_block")]
+    blocks = [g for g in allg if g.get("building_block")]
+    for lst in (ranked, blocks):
+        for i, g in enumerate(lst, 1):
+            g["position"] = i
+            g["line"] = plain_line(g)
     reasons: dict[str, int] = {}
     for e in evals:
         for w in e["why_not"]:
             k = w.split(":")[0].split("=")[0]
             reasons[k] = reasons.get(k, 0) + 1
     return {"ts": _utc(), "view_only": True, "n_considered": len(evals), "n_meet_bar": len(ok),
-            "n_groups": len(ranked), "top": ranked[:top_n], "excluded_reasons": reasons,
-            "rule": {"P_min": P_MIN, "novelty_kill": NOVELTY_KILL, "rank": f"{W_P}*P + {W_NOV}*novelty + {W_BUILD}*builds_on"},
+            "n_groups": len(allg), "n_authored_groups": len(ranked),
+            "n_building_block_groups": len(blocks), "top": ranked[:top_n],
+            "building_blocks_enabled": blocks[:top_n], "excluded_reasons": reasons,
+            "rule": {"P_min": P_MIN, "novelty_kill": NOVELTY_KILL, "rank": f"{W_P}*P + {W_NOV}*novelty + {W_BUILD}*builds_on",
+                     "building_blocks": "novelty=0 for ranking; listed separately"},
             "note": "View only. Does not authorize or change anything. Only James authorizes."}
 
 
@@ -201,14 +248,27 @@ def to_markdown(sl: dict[str, Any]) -> str:
     lines = [f"# Proposal shortlist — {_et(sl['ts'])}", "",
              "View only: nothing here is authorized. Only James authorizes.", "",
              f"{sl['n_meet_bar']} of {sl['n_considered']} proposals meet the authorize bar "
-             f"({sl['n_groups']} after grouping near-duplicates). Rank = {sl['rule']['rank']}.", "",
+             f"({sl['n_groups']} after grouping near-duplicates; {sl.get('n_authored_groups', sl['n_groups'])} "
+             f"colony-authored, {sl.get('n_building_block_groups', 0)} building blocks). Rank = {sl['rule']['rank']}.", "",
              "| # | Proposal | P | Novelty | Builds on | Athanor | Similar | What it is |",
              "|---|---|---:|---:|---:|---|---:|---|"]
     for g in sl["top"]:
         lines.append(f"| {g['position']} | {g['id']} | {g['P']} | {g['novelty']} | {g['builds_on']} | "
                      f"{g['athanor_verdict'] or 'n/a yet'} | {g['group_count']} | {g['line']} |")
     if not sl["top"]:
-        lines.append("| – | none meet the bar this cycle | | | | | | |")
+        lines.append("| – | no colony-authored proposal meets the bar this cycle | | | | | | |")
+    bbs = sl.get("building_blocks_enabled") or []
+    lines += ["", f"## Building blocks enabled ({sl.get('n_building_block_groups', len(bbs))} groups meet the bar)", "",
+              "Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classical identity). "
+              "They meet the bar but are not novel: novelty counts as 0 for ranking and they are kept out "
+              "of the top list above.", ""]
+    if bbs:
+        lines += ["| # | Proposal | P | Kind | Athanor | Similar | What it is |", "|---|---|---:|---|---|---:|---|"]
+        for g in bbs:
+            lines.append(f"| {g['position']} | {g['id']} | {g['P']} | {g['building_block']} | "
+                         f"{g['athanor_verdict'] or 'n/a yet'} | {g['group_count']} | {g['line']} |")
+    else:
+        lines.append("None this cycle.")
     lines += ["", "Excluded (reason: count): " + (", ".join(f"{k}: {v}" for k, v in
                                                        sorted(sl["excluded_reasons"].items())) or "none"), ""]
     return "\n".join(lines)

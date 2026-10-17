@@ -21,8 +21,9 @@ def _ora(target, cycle, passed=True):
 KW = dict(resolve=lambda p: p["action"].split(":", 1)[1], reuse=lambda p: 0.1, p_rule=lambda p: p.get("_P", 0.8))
 
 
-def _build(props, ora, nov=(), ath=()):
-    return S.build(proposals=props, oracle_rows=list(ora), novelty_rows=list(nov), athanor_rows=list(ath), **KW)
+def _build(props, ora, nov=(), ath=(), **extra):
+    return S.build(proposals=props, oracle_rows=list(ora), novelty_rows=list(nov), athanor_rows=list(ath),
+                   **{"block_kind": lambda t: None, **KW, **extra})
 
 
 def test_bar_filters_each_condition():
@@ -99,3 +100,37 @@ def test_write_overwrites_and_changes_nothing_else(tmp_path, monkeypatch):
     assert out["cycle_id"] == "cyc2" and out["view_only"] is True   # overwritten, not appended
     assert sorted(p.name for p in (tmp_path / "shortlist").iterdir()) == ["SHORTLIST.json", "SHORTLIST.md"]
     assert st["improvement_proposals"][0]["P"] == 0.9 and "status" in st["improvement_proposals"][0]
+
+
+def test_textbook_building_blocks_never_rank_as_novel():
+    props = [_p(1, "crt_coprime_pair", "c1", _P=0.88),                # 68954ec refill
+             _p(2, "pell_unit", "c2", _P=0.85),                        # older catalog lemma
+             _p(3, "authored_pascal_identity_g3_w1", "c3", _P=0.86),   # classical identity
+             _p(4, "authored_sieve_two_counter_g6_w1", "c4", _P=0.75)]  # colony's own work
+    ora = [_ora("crt_coprime_pair", "c1"), _ora("pell_unit", "c2"),
+           _ora("authored_pascal_identity_g3_w1", "c3"), _ora("authored_sieve_two_counter_g6_w1", "c4")]
+    sl = _build(props, ora, block_kind=None)
+    assert [g["id"] for g in sl["top"]] == ["imp_4"]
+    kinds = {g["id"]: g["building_block"] for g in sl["building_blocks_enabled"]}
+    assert kinds == {"imp_1": "catalog_refill", "imp_2": "catalog", "imp_3": "classical_identity"}
+    for g in sl["building_blocks_enabled"]:
+        assert g["novelty"] == 0.0 and g["novelty_raw"] == 0.9   # raw live value kept, rank uses 0
+        assert g["rank"] == round(0.6 * g["P"] + 0.2 * g["builds_on"], 4)
+    md = S.to_markdown(sl)
+    assert "## Building blocks enabled (3 groups meet the bar)" in md
+    assert md.index("imp_4") < md.index("## Building blocks enabled") < md.index("crt_coprime_pair")
+
+
+def test_building_block_kind_rule():
+    assert S.building_block_kind("fermat_little") == "catalog_refill"
+    assert len(S.REFILL_68954EC) == 30
+    assert S.building_block_kind("authored_cassini_g2_w1", identities=("cassini",)) == "classical_identity"
+    assert S.building_block_kind("authored_sieve_hl_within_g4_6_w1", identities=("cassini",)) is None
+    assert S.building_block_kind("") is None
+
+
+def test_building_block_split_does_not_change_bar_or_P():
+    props = [_p(1, "crt_coprime_pair", "c1", _P=0.69), _p(2, "authored_x_w1", "c2")]
+    sl = _build(props, [_ora("crt_coprime_pair", "c1"), _ora("authored_x_w1", "c2")], block_kind=None)
+    assert sl["n_meet_bar"] == 1 and not sl["building_blocks_enabled"]
+    assert props[0]["_P"] == 0.69 and "novelty" not in props[0]
