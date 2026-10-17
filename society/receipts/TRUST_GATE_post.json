@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "when": "2026-10-17T02:44:01+0000",
+  "when": "2026-10-17T02:48:05+0000",
   "checks": [
     {
       "check": "ablation_switches_off",
@@ -11,7 +11,7 @@
       "check": "hard_benches_ok_all",
       "ok": true,
       "returncode": 0,
-      "aggregate_score": 0.8677,
+      "aggregate_score": 0.8896,
       "failing": []
     },
     {
