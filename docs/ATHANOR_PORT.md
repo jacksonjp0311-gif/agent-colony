@@ -48,3 +48,25 @@ the Oracle. It is monotone: it can only turn a keep into a revert, never the oth
 
 Athanor's own card says it plainly. H7 bounds the fraction of probes with large drift. It is not
 a correctness proof, and it cannot see failures outside the inputs it checks.
+
+## What the gate measures: legacy vs state probe
+
+`COLONY_ATHANOR_PROBE=legacy|state` (default `legacy`) picks which probe's verdict counts. Both are
+always computed and logged side by side in `society/systems/athanor_gate.json`
+(`legacy_verdict`, `state_verdict`, `state_dphi`, `state_drift_raw`, `would_block_by_probe`).
+
+- `legacy`: pass bit of every check present before and after, plus score/0.1. A desk keep adds one
+  passing check with the score flat, so dPhi = 0 every time; on replayed history it also approves
+  every perturbation control (it dilutes them over ~165 probes).
+- `state` (`colony/trust/athanor_probe.py`): ten blocks of the colony's state before vs after
+  (check pass bits per family with absent = 0.5, coverage, score components, tier ok bits, runtime,
+  AST structural distance, textbook share of enabled checks, Oracle pass rate over the last 20
+  verdicts). One probe per block; dPhi = L2 distance per block / calibrated scale; C, H7 and the
+  verdict rule are Athanor's, unchanged. Scales: `colony/trust/athanor_probe_calibration.json`,
+  calibrated on historical desk changes (tuning split) and evaluated on held-out ones, see
+  `docs/ATHANOR_PROBE_TUNING_LOG.md`. Reproduce: `python evals/athanor_probe/replay.py &&
+  python evals/athanor_probe/calibrate.py`.
+
+The gate stays downgrade-only (a keep can become a revert, never the reverse) and never touches the
+Oracle, P, authorization, the 0.70 authorize gate, charter, TributeKeeper or Ceiling.
+Flag-off: set `COLONY_ATHANOR_PROBE: legacy` (or remove it) in `.github/workflows/colony-evolve.yml`.

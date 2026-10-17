@@ -74,6 +74,11 @@ def gate_mode() -> str:
     return m if m in MODES else "shadow"
 
 
+def _probe_mode() -> str:
+    from colony.trust.athanor_probe import probe_mode
+    return probe_mode()
+
+
 def gate_profile() -> str:
     """The conservative setting, unless the promotion suite (or a human) names another registered
     profile in COLONY_ATHANOR_PROFILE."""
@@ -185,8 +190,12 @@ def _check(candidate: dict[str, Any]) -> bool:
 def assess_change(*, before: dict[str, Any] | None, after: dict[str, Any] | None,
                   src: str = "", new_src: str = "", before_score: float | None = None,
                   after_score: float | None = None, step: int = 0, best_e: float | None = None,
-                  guard: dict[str, Any] | None = None) -> dict[str, Any]:
-    """Pure assessment of one change (no side effects)."""
+                  guard: dict[str, Any] | None = None, mutation: str = "", probe: str | None = None,
+                  oracle: Any = None, calibration: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Pure assessment of one change (no side effects besides reading the Oracle log tail).
+
+    Both probes are computed; ``probe`` (default COLONY_ATHANOR_PROBE, legacy) picks the one
+    whose verdict counts."""
     validity = snapshot_validity(after)
     bs = before_score if before_score is not None else (before or {}).get("score")
     try:
@@ -199,14 +208,35 @@ def assess_change(*, before: dict[str, Any] | None, after: dict[str, Any] | None
                            "step": int(step), "source": SOURCE}
     if not _check(cand):
         why = "bench values" if not validity["passed"] else f"guarded run ({(guard or {}).get('reason')})"
-        out.update(verdict="REJECT", reason=f"validity pre-gate failed: {why}", profiles={}, gate_profile=gate_profile())
+        out.update(verdict="REJECT", reason=f"validity pre-gate failed: {why}", profiles={}, gate_profile=gate_profile(),
+                   probe=probe if probe in ("legacy", "state") else _probe_mode(),
+                   legacy_verdict="REJECT", state_verdict="REJECT")
         return out
     beh = behaviour_drift(before, after, before_score, after_score)
-    profiles = {name: profile_verdict(name, beh, e_cur=e_cur, e_best=e_best, step=step,
-                                      check=_check, candidate=cand) for name in ADAPTIVE_PROFILES}
+    legacy = {name: profile_verdict(name, beh, e_cur=e_cur, e_best=e_best, step=step,
+                                    check=_check, candidate=cand) for name in ADAPTIVE_PROFILES}
     gp = gate_profile()
+    st_probe: dict[str, Any] | None = None
+    state: dict[str, Any] = {}
+    try:  # the state-vector probe always runs (shadow) so both probes are logged side by side
+        from colony.trust.athanor_probe import state_probe
+        st_probe = state_probe(before, after, src=src, new_src=new_src, mutation=mutation, oracle=oracle,
+                               calibration=calibration)
+        state = {name: profile_verdict(name, st_probe["candidate"], e_cur=e_cur, e_best=e_best, step=step,
+                                       check=_check, candidate=cand) for name in ADAPTIVE_PROFILES}
+    except Exception as exc:  # noqa: BLE001
+        st_probe = {"error": f"{type(exc).__name__}:{exc}"[:200]}
+    pm = probe if probe in ("legacy", "state") else _probe_mode()
+    if pm == "state" and not state:
+        pm = "legacy"  # the state probe failed: fall back to today's behaviour, never to a block
+    profiles = state if pm == "state" else legacy
     g = profiles[gp]
-    out.update(verdict=g["verdict"], reason=f"{gp}: {g['reason']}", gate_profile=gp, profiles=profiles,
+    out.update(verdict=g["verdict"], reason=f"{gp}[{pm} probe]: {g['reason']}", gate_profile=gp, profiles=profiles,
+               probe=pm, legacy_profiles=legacy, state_profiles=state,
+               legacy_verdict=legacy[gp]["verdict"], state_verdict=(state.get(gp) or {}).get("verdict"),
+               state_drift_raw={k: round(v, 6) for k, v in ((st_probe or {}).get("raw") or {}).items()},
+               state_dphi={k: round(v, 6) for k, v in ((st_probe or {}).get("scaled") or {}).items()},
+               state_error=(st_probe or {}).get("error"),
                n_probes=len(beh), drift_nonzero=[round(x, 6) for x in beh if x],
                structural=round(structural_distance(src, new_src), 6) if (src or new_src) else 0.0)
     return out
@@ -244,13 +274,17 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
     try:
         a = assess_change(before=before, after=after, src=src, new_src=new_src, before_score=before_score,
                           after_score=after_score, step=int(sched.get("step") or 0),
-                          best_e=sched.get("best_e"), guard=guard)
+                          best_e=sched.get("best_e"), guard=guard, mutation=mutation)
         row.update(verdict=a["verdict"], reason=a["reason"], gate_profile=a.get("gate_profile"),
                    validity_passed=bool(_check({"validity": a["validity"], "guard": guard})),
                    validity_failures=a["validity"]["failures"],
                    validity_first_failure=a["validity"].get("first_failure"),
                    guard={k: v for k, v in (guard or {}).items() if k != "block"} or None,
-                   profiles=a.get("profiles"), n_probes=a.get("n_probes"),
+                   profiles=a.get("profiles"), n_probes=a.get("n_probes"), probe=a.get("probe"),
+                   legacy_verdict=a.get("legacy_verdict"), state_verdict=a.get("state_verdict"),
+                   state_dphi=a.get("state_dphi"), state_drift_raw=a.get("state_drift_raw"),
+                   state_error=a.get("state_error"),
+                   state_h7=((a.get("state_profiles") or {}).get(a.get("gate_profile") or "") or {}).get("h7"),
                    drift_nonzero=a.get("drift_nonzero"), structural=a.get("structural"),
                    e_cur=a["e_cur"], e_best=a["e_best"], step=a["step"])
         if a["e_best"] != float("inf"):
@@ -260,6 +294,10 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
         row.update(verdict="ERROR", reason=f"assess_error:{type(exc).__name__}:{exc}"[:200])
     row["would_block"] = bool(tentative_keep and row.get("verdict") != "APPROVE")
     row["block"] = bool(mode == "live" and row["would_block"])
+    row["would_block_by_probe"] = {"legacy": bool(tentative_keep and row.get("legacy_verdict") not in (None, "APPROVE")),
+                                   "state": bool(tentative_keep and row.get("state_verdict") not in (None, "APPROVE"))}
+    if row.get("verdict") == "REJECT" and row.get("validity_passed") is False:
+        row["would_block_by_probe"] = {"legacy": bool(tentative_keep), "state": bool(tentative_keep)}
     row["would_block_by_profile"] = {n: bool(tentative_keep and pv["verdict"] != "APPROVE")
                                      for n, pv in (row.get("profiles") or {}).items()}
     try:
@@ -278,6 +316,12 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
             _bump(tot, "would_block_keep")
         if row["block"]:
             _bump(tot, "blocked_keep_live")
+            _bump(tot, f"blocked_keep_live:{row.get('probe') or 'legacy'}")
+        for pn, wb in row["would_block_by_probe"].items():
+            if wb:
+                _bump(tot, f"probe:{pn}:would_block_keep")
+        if row.get("state_verdict"):
+            _bump(tot, f"probe:state:{row['state_verdict']}")
         for name, pv in (row.get("profiles") or {}).items():
             _bump(tot, f"profile:{name}:{pv['verdict']}")
             if row["would_block_by_profile"].get(name):

@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "calibrated_at": "2026-10-17T15:32:56Z",
+  "source": "evals/athanor_probe/calibrate.py on replay.jsonl",
+  "profile": "selfmod/adaptive@1.1.0",
+  "threshold_h7": 0.75,
+  "q": 0.5,
+  "coherent_limit": 0.33333333333333326,
+  "tolerance_floor": 0.7,
+  "units": {
+    "checks_basic": 0.5,
+    "checks_catalog": 0.5,
+    "checks_authored": 0.5,
+    "coverage": 0.03571428571428571,
+    "score": 0.01,
+    "tier_ok": 0.5,
+    "runtime": 0.22314355131420976,
+    "structure": 0.01,
+    "novelty_mix": 0.01,
+    "oracle_pattern": 0.05
+  },
+  "scales": {
+    "checks_basic": 2.142859285714286,
+    "checks_catalog": 2.142859285714286,
+    "checks_authored": 2.142859285714286,
+    "coverage": 0.15306137755102042,
+    "score": 0.04285718571428573,
+    "tier_ok": 2.142859285714286,
+    "runtime": 0.9563304619618335,
+    "structure": 0.04285718571428573,
+    "novelty_mix": 0.04285718571428573,
+    "oracle_pattern": 0.21428592857142864
+  },
+  "rule": "smallest q with tuning block rate on Oracle-passed keeps <= 0.10",
+  "split": {
+    "tuning": [
+      210,
+      "2026-09-26T15:08:05Z",
+      "2026-10-16T23:20:30Z"
+    ],
+    "held_out": [
+      140,
+      "2026-10-16T23:46:50Z",
+      "2026-10-17T14:25:16Z"
+    ]
+  },
+  "tuning": {
+    "oracle_passed_keeps": 85,
+    "block_rate_oracle_passed_keeps": 0.0,
+    "dphi_nonzero_share": 1.0,
+    "h7_min": 0.8,
+    "incoherent_probes_histogram": {
+      "0": 55,
+      "1": 26,
+      "2": 4
+    },
+    "dphi_max_quartiles": [
+      0.3333,
+      0.3333,
+      0.3333,
+      0.4606,
+      1.2363
+    ],
+    "control_bulk_enable_n": 0,
+    "control_bulk_enable_caught": null,
+    "control_drop_checks_n": 30,
+    "control_drop_checks_caught": 1.0,
+    "control_slow_n": 30,
+    "control_slow_caught": 0.1333,
+    "control_break_one_n": 30,
+    "control_break_one_caught": 1.0,
+    "control_all_caught": 0.7111,
+    "legacy_control_all_caught": 0.0,
+    "legacy_block_rate_oracle_passed_keeps": 0.0
+  },
+  "held_out": {
+    "oracle_passed_keeps": 56,
+    "block_rate_oracle_passed_keeps": 0.0,
+    "dphi_nonzero_share": 1.0,
+    "h7_min": 0.8,
+    "incoherent_probes_histogram": {
+      "0": 50,
+      "1": 4,
+      "2": 2
+    },
+    "dphi_max_quartiles": [
+      0.3333,
+      0.3333,
+      0.3333,
+      0.3333,
+      0.5453
+    ],
+    "control_bulk_enable_n": 9,
+    "control_bulk_enable_caught": 1.0,
+    "control_drop_checks_n": 20,
+    "control_drop_checks_caught": 0.85,
+    "control_slow_n": 20,
+    "control_slow_caught": 0.0,
+    "control_break_one_n": 20,
+    "control_break_one_caught": 1.0,
+    "control_all_caught": 0.6667,
+    "legacy_control_all_caught": 0.0,
+    "legacy_block_rate_oracle_passed_keeps": 0.0
+  },
+  "fallback_to_last_q": false
+}
