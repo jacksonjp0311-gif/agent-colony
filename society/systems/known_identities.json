@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T17:27:33Z",
-  "n": 312,
+  "updated_at": "2026-10-17T17:34:59Z",
+  "n": 314,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -45,9 +45,11 @@
     "authored_central_binom_bound__derangement_subfactorial_w1",
     "authored_central_binom_bound__euler_totient_multiplicative_w1",
     "authored_central_binom_bound__gcd_fibonacci_w1",
+    "authored_crt_coprime_pair__cycle_spanning_trees_w1",
     "authored_derangement_subfactorial__euler_totient_multiplicative_w1",
     "authored_derangement_subfactorial__hermite_recurrence_w1",
     "authored_derangement_subfactorial__legendre_duplication_small_w1",
+    "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
     "authored_euler_totient_multiplicative__hermite_recurrence_w1",
     "authored_fibonacci_addition__euler_totient_multiplicative_w1",
     "authored_fibonacci_addition__gcd_fibonacci_w1",
@@ -199,9 +201,7 @@
     "chain `stem_easy_pad_units` citing new algebraic points on covers of elliptic curves",
     "chain `stem_easy_pad_units` citing new algebraic points on covers of elliptic curves (cycle 169)",
     "chain `stem_easy_pad_units` citing new integer sequence oeis a392714 counts wronskian",
-    "chain `stem_easy_pad_units` citing new integer sequence oeis a392714 counts wronskian (cycle 192)",
-    "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord",
-    "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 190)"
+    "chain `stem_easy_pad_units` citing new integer sequence oeis a392714 counts wronskian (cycle 192)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
