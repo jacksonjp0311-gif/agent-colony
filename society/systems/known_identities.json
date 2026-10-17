@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T16:01:36Z",
-  "n": 286,
+  "updated_at": "2026-10-17T16:07:31Z",
+  "n": 289,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -89,6 +89,7 @@
     "authored_sieve_hl_within_g4_6_6_w1",
     "authored_sieve_hl_within_g4_6_w1",
     "authored_sieve_hl_within_g4_w1",
+    "authored_sieve_hl_within_g6_2_4_w1",
     "authored_sieve_hl_within_g6_2_w1",
     "authored_sieve_hl_within_g6_4_2_w1",
     "authored_sieve_hl_within_g6_4_w1",
@@ -104,6 +105,7 @@
     "authored_sieve_residue_bal_g4_2_6_w1",
     "authored_sieve_residue_bal_g4_2_w1",
     "authored_sieve_residue_bal_g4_6_2_w1",
+    "authored_sieve_residue_bal_g4_6_6_w1",
     "authored_sieve_residue_bal_g4_6_w1",
     "authored_sieve_residue_bal_g6_2_4_w1",
     "authored_sieve_residue_bal_g6_4_6_w1",
@@ -198,10 +200,8 @@
     "claim_theme",
     "compose_chain_proven_lemmas",
     "crt_coprime_pair",
-    "deepen compute-useful math from accepted findings after hearing",
-    "derived_chain_stress",
-    "drop_repeated_kill_seek_elsewhere",
-    "easy_pad"
+    "cycle_spanning_trees",
+    "deepen compute-useful math from accepted findings after hearing"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
