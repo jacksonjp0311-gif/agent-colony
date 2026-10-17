@@ -145,13 +145,53 @@ def _only_own_authoring_record(name: str, known: set[str]) -> bool:
     return authored
 
 
+# Prime-gap / k-tuple textbook topics (James 2026-10-17 6:32 AM ET). Partial weights, in the same
+# "hits" unit as TEXTBOOK_IDENTITIES (score = hits / 3; the gate kills at >= 0.34). Grouped so one
+# topic counts once whether it is named in the check name or in the claim text (max per group).
+PRIME_TOPIC_PHRASES: dict[str, dict[str, float]] = {
+    "shape": {"twin prime": 1.0, "cousin prime": 1.0, "sexy prime": 1.0, "prime triplet": 1.0,
+              "prime triple": 1.0, "prime quadruplet": 1.0, "prime quadruple": 1.0},
+    "estimate": {"hardy-littlewood": 0.5, "hardy littlewood": 0.5, "twin prime constant": 0.5,
+                 "prime k-tuple": 0.5, "k-tuple conjecture": 0.5},
+    "residue": {"dirichlet's theorem": 0.5, "dirichlet theorem": 0.5, "primes in arithmetic progression": 0.5,
+                "dirichlet balance": 0.5, "prime race": 0.5},
+    "brun": {"brun's constant": 1.0, "brun constant": 1.0, "brun sieve": 1.0},
+}
+# Classic admissible shapes (gap tuples): twin/cousin/sexy pairs, prime triplets, prime quadruplets.
+CLASSIC_PRIME_SHAPES = {(2,), (4,), (6,), (2, 4), (4, 2), (2, 4, 2)}
+SIEVE_TEMPLATE_GROUP = {"hl_within": ("estimate", 0.5), "residue_bal": ("residue", 0.5)}
+_SIEVE_NAME_RE = re.compile(r"sieve_(hl_within|residue_bal|two_counter)_g(\d+(?:_\d+)*)_w\d+")
+
+
+def prime_topic_hits(blob: str) -> float:
+    """Textbook weight of prime-gap / k-tuple topics in ``blob`` (lowercased name + claim text).
+
+    A sieve check on a classic shape (twin/cousin/sexy, triplet, quadruplet) counts 1.0; any
+    other multi-gap shape 0.5 (rarer, still the k-tuple topic). The Hardy-Littlewood estimate
+    template and the residue-class (Dirichlet) balance template add 0.5 each.
+    """
+    group: dict[str, float] = {}
+    for g, phrases in PRIME_TOPIC_PHRASES.items():
+        for ph, w in phrases.items():
+            if ph in blob:
+                group[g] = max(group.get(g, 0.0), w)
+    for m in _SIEVE_NAME_RE.finditer(blob):
+        gaps = tuple(int(x) for x in m.group(2).split("_"))
+        group["shape"] = max(group.get("shape", 0.0), 1.0 if gaps in CLASSIC_PRIME_SHAPES else 0.5)
+        tg = SIEVE_TEMPLATE_GROUP.get(m.group(1))
+        if tg:
+            group[tg[0]] = max(group.get(tg[0], 0.0), tg[1])
+    return sum(group.values())
+
+
 def textbook_reuse_score(name: str, claim_text: str = "") -> float:
     """≈0 means not textbook dump; high means textbook reuse (kill novelty claim)."""
     blob = f"{name} {claim_text}".lower()
-    hits = 0
+    hits = 0.0
     for tid in TEXTBOOK_IDENTITIES:
         if tid in blob or tid.replace("_", " ") in blob:
             hits += 1
+    hits += prime_topic_hits(blob)
     if name.lower().startswith("easy_pad"):
         hits += 2
     if "millennium" in blob or "riemann" in blob or "p vs np" in blob:
