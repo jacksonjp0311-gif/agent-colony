@@ -100,6 +100,13 @@ def _dphi(traj: list[list[float]]) -> list[float]:
     return delta_phi(traj)
 
 
+def gate_profile() -> str:
+    """Profile the gate verdict uses: the conservative setting, unless the promotion suite (or a
+    human) names another registered profile in COLONY_ATHANOR_PROFILE."""
+    p = (os.environ.get("COLONY_ATHANOR_PROFILE") or "").strip()
+    return p if p in ADAPTIVE_PROFILES else CONSERVATIVE_PROFILE
+
+
 def assess_change(*, before: dict[str, Any] | None, after: dict[str, Any] | None,
                   src: str = "", new_src: str = "", before_score: float | None = None,
                   after_score: float | None = None, step: int = 0,
@@ -120,8 +127,9 @@ def assess_change(*, before: dict[str, Any] | None, after: dict[str, Any] | None
     S = structural_distance(src, new_src) if (src or new_src) else 0.0
     profiles = {name: profile_verdict(name, beh, S, e_cur=e_cur, e_best=e_best, step=step)
                 for name in ADAPTIVE_PROFILES}
-    g = profiles[CONSERVATIVE_PROFILE]
-    out.update(verdict=g["verdict"], reason=f"{CONSERVATIVE_PROFILE}: {g['reason']}", profiles=profiles,
+    gp = gate_profile()
+    g = profiles[gp]
+    out.update(verdict=g["verdict"], reason=f"{gp}: {g['reason']}", gate_profile=gp, profiles=profiles,
                n_probes=len(beh), drift_nonzero=[round(x, 6) for x in beh if x], structural=round(S, 6))
     return out
 
@@ -159,7 +167,7 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
                    validity_first_failure=a["validity"].get("first_failure"),
                    profiles=a.get("profiles"), n_probes=a.get("n_probes"),
                    drift_nonzero=a.get("drift_nonzero"), structural=a.get("structural"),
-                   e_cur=a["e_cur"], e_best=a["e_best"], step=a["step"])
+                   e_cur=a["e_cur"], e_best=a["e_best"], step=a["step"], gate_profile=a.get("gate_profile"))
         if a["e_best"] == a["e_best"] and a["e_best"] != float("inf"):
             sched["best_e"] = a["e_best"]
         sched["step"] = int(sched.get("step") or 0) + 1
