@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_65a85733aa71",
-      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g6_4_w1"
+      "finding_id": "fnd_d001227bc4c8",
+      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g6_6_w1"
     },
     {
       "topic": "open-math-problems",
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T09:07:40Z",
-  "updated_cycle": "20261017T090716Z_c0c077",
+  "updated_at": "2026-10-17T09:17:27Z",
+  "updated_cycle": "20261017T091710Z_9d2224",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

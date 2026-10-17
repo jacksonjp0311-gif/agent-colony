@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T09:06:45Z",
+  "updated_at": "2026-10-17T09:17:19Z",
   "n": 240,
   "identities": [
     "adversarial_cassini_ext",
@@ -85,11 +85,13 @@
     "authored_sieve_hl_within_g6_4_w1",
     "authored_sieve_hl_within_g6_w1",
     "authored_sieve_residue_bal_g2_4_w1",
+    "authored_sieve_residue_bal_g2_6_4_w1",
     "authored_sieve_residue_bal_g2_w1",
     "authored_sieve_residue_bal_g2_w2",
     "authored_sieve_residue_bal_g4_6_w1",
     "authored_sieve_residue_bal_g6_6_w1",
     "authored_sieve_two_counter_g2_4_2_w1",
+    "authored_sieve_two_counter_g2_6_6_w1",
     "authored_sieve_two_counter_g2_6_w1",
     "authored_sieve_two_counter_g2_w1",
     "authored_sieve_two_counter_g4_w1",
@@ -199,9 +201,7 @@
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 225)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 227)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 338)",
-    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 340)",
-    "fft_add_slow_loops",
-    "fibonacci_addition"
+    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 340)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

@@ -1,14 +1,13 @@
 {
-  "ts": "2026-10-17T09:07:17Z",
-  "cycle_id": "20261017T090716Z_c0c077",
+  "ts": "2026-10-17T09:17:10Z",
+  "cycle_id": "20261017T091710Z_9d2224",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_sieve_two_counter_g2_w1",
       "easy_pad_assoc_add",
       "easy_pad_diff_squares",
       "easy_pad_square_again",
-      "easy_pad_zero_identity",
-      "stem_easy_pad_units"
+      "easy_pad_zero_identity"
     ],
     "oracle_kills_by_theme": {
       "authored_sieve_two_counter_g2_w1": 4,
@@ -18,13 +17,6 @@
       "authored_sieve_hl_within_g2_w2": 2
     },
     "recent": {
-      "authored_sieve_two_counter_g2_6_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_sieve_hl_within_g4_2_w1": {
         "last": "keep",
         "streak": 1,
@@ -101,53 +93,61 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_sieve_residue_bal_g2_6_4_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8576,
-      "slope": 0.002687,
-      "min": 0.8386,
-      "max": 0.8653
+      "last": 0.8667,
+      "slope": 0.002409,
+      "min": 0.841,
+      "max": 0.8667
     },
     "novelty": {
-      "last": 0.8571,
-      "slope": 0.011951,
-      "min": 0.7368,
-      "max": 0.8571
+      "last": 0.9048,
+      "slope": 0.010362,
+      "min": 0.7895,
+      "max": 0.9048
     },
     "kill_rate": {
-      "last": 0.3634,
-      "slope": -0.000169,
-      "min": 0.3634,
+      "last": 0.3627,
+      "slope": -0.000427,
+      "min": 0.3627,
       "max": 0.3672
     },
     "kill_rate_term": {
-      "last": 0.8771,
-      "slope": -0.000149,
-      "min": 0.8771,
+      "last": 0.8764,
+      "slope": -0.000382,
+      "min": 0.8764,
       "max": 0.8805
     },
     "lesson_uptake": {
       "last": 0.9,
-      "slope": -0.005664,
+      "slope": -0.007552,
       "min": 0.9,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0233,
-    "novelty_max": 0.8571,
+    "aggregate_range": 0.0091,
+    "novelty_max": 0.9048,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 140,
+    "enabled": 141,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
+      "authored_sieve_two_counter_g2_6_6_w1",
       "authored_sieve_two_counter_g2_w1"
     ],
     "authored": [
@@ -229,11 +229,13 @@
       "authored_sieve_hl_within_g6_4_w1",
       "authored_sieve_hl_within_g6_w1",
       "authored_sieve_residue_bal_g2_4_w1",
+      "authored_sieve_residue_bal_g2_6_4_w1",
       "authored_sieve_residue_bal_g2_w1",
       "authored_sieve_residue_bal_g2_w2",
       "authored_sieve_residue_bal_g4_6_w1",
       "authored_sieve_residue_bal_g6_6_w1",
       "authored_sieve_two_counter_g2_4_2_w1",
+      "authored_sieve_two_counter_g2_6_6_w1",
       "authored_sieve_two_counter_g2_6_w1",
       "authored_sieve_two_counter_g2_w1",
       "authored_sieve_two_counter_g4_w1",
@@ -250,7 +252,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 4
+    "exhausted_recent": 5
   },
   "guides": {
     "n_guides": 17,
@@ -264,33 +266,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.506,
-      "drift": true
+      "ratio": 0.687,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.514,
-      "drift": true
+      "ratio": 0.684,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.463,
+      "ratio": 0.705,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.486,
+      "ratio": 0.758,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.344,
+      "ratio": 0.707,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 43000003,
+      "goldbach_even": 46200003,
       "collatz_descent": 60600000,
-      "legendre_square_gap": 348607,
-      "lehmer_totient": 16600001,
+      "legendre_square_gap": 364607,
+      "lehmer_totient": 17400001,
       "erdos_straus": 479951,
       "twin_primes_hl": 74200000,
       "oeis_A104062_next": 518690000001
@@ -304,16 +306,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4970,
+        "challenged": 4969,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 30,
+        "challenged": 31,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 25,
+    "post_challenger_oracle_judged": 26,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -342,18 +344,18 @@
     "last": [
       [
         null,
+        "2026-10-17T09:14:57Z"
+      ],
+      [
+        "success",
         "2026-10-17T09:04:41Z"
       ],
       [
         "success",
         "2026-10-17T08:54:27Z"
-      ],
-      [
-        "success",
-        "2026-10-17T04:45:43Z"
       ]
     ],
-    "fetched_at": "2026-10-17T09:05:04Z"
+    "fetched_at": "2026-10-17T09:15:25Z"
   },
   "feeds": {
     "by_source": {
@@ -401,7 +403,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T09:05:04Z"
+      "ts": "2026-10-17T09:15:24Z"
     },
     "health": {
       "arxiv": {
@@ -429,7 +431,6 @@
   "signals": [
     "revert_streaks: authored_sieve_two_counter_g2_w1, easy_pad_assoc_add, easy_pad_diff_squares, easy_pad_square_again → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench, fft_stress_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

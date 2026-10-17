@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T09:06:45Z",
-  "passes": 310,
+  "updated_at": "2026-10-17T09:17:19Z",
+  "passes": 312,
   "kills": 177,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3634,
+  "kill_rate": 0.362,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -20,7 +20,6 @@
     "authored_binomial_sum_row__derangement_subfactorial_w1",
     "authored_binomial_symmetry__bell_triangle_recurrence_w1",
     "authored_binomial_symmetry__central_binom_bound_w1",
-    "authored_binomial_symmetry__sum_first_n_cubes_w1",
     "authored_cassini__bell_triangle_recurrence_w1",
     "authored_cassini__catalan_bounded_w1",
     "authored_cassini__derangement_subfactorial_w1",
@@ -48,13 +47,14 @@
     "authored_sieve_hl_within_g6_4_w1",
     "authored_sieve_hl_within_g6_w1",
     "authored_sieve_residue_bal_g2_4_w1",
+    "authored_sieve_residue_bal_g2_6_4_w1",
     "authored_sieve_residue_bal_g2_w1",
     "authored_sieve_residue_bal_g2_w2",
     "authored_sieve_residue_bal_g4_6_w1",
     "authored_sieve_residue_bal_g6_6_w1",
     "authored_sieve_two_counter_g2_4_2_w1",
-    "authored_sieve_two_counter_g2_6_w1",
-    "authored_sieve_two_counter_g4_w1"
+    "authored_sieve_two_counter_g2_6_6_w1",
+    "authored_sieve_two_counter_g2_6_w1"
   ],
   "unique_mutations_kill": [
     "Chain `authored_sieve_two_counter_g2_w1` citing Effective equidistribution of polynomial trajector",
@@ -100,7 +100,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-17T09:06:45Z",
+    "ts": "2026-10-17T09:17:19Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -110,16 +110,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_hl_within_g2_4_6_w1` kind=hard_enable. lemma mutation authored_sieve_hl_within_g2_4_6_w1 0.8754->0.8745 (compared 0.857->0.857; instrument_budget:0.023s) Not d",
-      "attack": "WEIGH: `authored_sieve_hl_within_g2_4_6_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_two_counter_g2_6_6_w1` kind=hard_enable. lemma mutation authored_sieve_two_counter_g2_6_6_w1 0.8883->0.8859 (compared 0.857->0.857; instrument_budget:0.020s) N",
+      "attack": "WEIGH: `authored_sieve_two_counter_g2_6_6_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 130,
-        "hard_n": 130,
-        "score": 0.8747,
+        "hard_pass": 132,
+        "hard_n": 132,
+        "score": 0.8858,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -130,10 +130,10 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 130,
-        "hard_n": 130,
+        "hard_pass": 132,
+        "hard_n": 132,
         "ok": true,
-        "score": 0.8745,
+        "score": 0.8859,
         "shifted_window": {
           "ok": true,
           "reason": "shift_not_applicable(no_literal_range)",
@@ -214,15 +214,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_sieve_hl_within_g2_4_6_w1",
+      "mutation": "authored_sieve_two_counter_g2_6_6_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_sieve_hl_within_g2_4_6_w1",
+    "mutation": "authored_sieve_two_counter_g2_6_6_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261017T090630Z_985c46",
+    "cycle_id": "20261017T091710Z_9d2224",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

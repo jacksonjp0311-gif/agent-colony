@@ -4,10 +4,10 @@
 
 ![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
-- cycle_count: `380`
-- benches ok_all: `True` score `0.8673`
-- novelty hits/kills: `18` / `3`
+- cycle_count: `383`
+- benches ok_all: `True` score `0.8833`
+- novelty hits/kills: `19` / `2`
 - debate action_changed: `True`
-- oracle passes/kills/easy_kills: `310` / `177` / `32`
+- oracle passes/kills/easy_kills: `312` / `177` / `32`
 - CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.70→slim push
 - Spark3: Athanor H7 inform-only + PulseMesh feeds; pressure reply_rate via load-bear multi-hop; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift; P≥0.70. Failure noisy; success quiet. Not AGI. Not Millennium.
