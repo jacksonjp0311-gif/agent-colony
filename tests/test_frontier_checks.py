@@ -47,3 +47,10 @@ def test_authoring_uses_frontier_candidates_only_when_live(monkeypatch):
     monkeypatch.setenv("COLONY_FRONTIER", "live")
     A.author_checks(write=False, cycle_id="t")
     assert calls == [1]
+
+
+def test_old_registry_rewrites_are_rescreened():
+    old = {"kind": "cong", "lhs": "D((digsum+lpf))", "rhs": "", "params": {"m": 2, "r": 0, "q": 2, "s": 0},
+           "unknown": True, "sig": "33333333aa", "hunt_value": 1.0, "statement": "s", "label": "l", "found_at": "t"}
+    assert not FK.still_new(old)
+    assert FK.still_new(REG["a"])

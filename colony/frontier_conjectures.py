@@ -934,7 +934,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
             r["label"] = f"conjecture surviving {r['checks']} checks"
     for c in tested:
         if c.get("survived"):
-            reg[c["id"]] = {k: c.get(k) for k in ("kind", "lhs", "rhs", "params", "label", "certificate", "checks",
+            reg[c["id"]] = {k: c.get(k) for k in ("kind", "lhs", "rhs", "params", "label", "certificate", "checks", "loose",
                                                    "range", "oeis", "oeis_anums", "unknown", "unknown_reason",
                                                    "family", "hunt_value", "prediction", "sig")} | {
                 "statement": statement(c), "found_cycle": cycle_id, "found_at": _utc()}

@@ -74,6 +74,22 @@ def build(r: dict[str, Any]) -> dict[str, Any] | None:
             "what": f"authored disabled frontier check `{name}`: {r['statement']}; awaits Oracle via proposal"}
 
 
+def still_new(r: dict[str, Any]) -> bool:
+    """Re-screen a registry surprise with the CURRENT rewrite filters (they get stricter over time)."""
+    import random
+    from colony import frontier_conjectures as FC
+    try:
+        if FC._BRIDGE_T is None:
+            FC._BRIDGE_T = FC.Tables(lim=FC.BRIDGE_LIM, exp_n=FC.BRIDGE_EXP)
+        c = {"kind": r["kind"], "params": r.get("params") or {}, "_le": FC.parse(r["lhs"]),
+             "_re": FC.parse(r["rhs"]) if r.get("rhs") else None}
+        if r.get("loose"):
+            return False
+        return FC.trivial_reason(c, FC._BRIDGE_T, random.Random(r.get("sig") or "x"), FC.fit_n()) == ""
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def candidates(existing_names: set[str], limit: int = 6, state: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     """Surprises not yet authored, highest hunt value first (the colony's own ranking)."""
     from colony.frontier_conjectures import load_state
@@ -83,7 +99,7 @@ def candidates(existing_names: set[str], limit: int = 6, state: dict[str, Any] |
     reg.sort(key=lambda r: (-(r.get("hunt_value") or 0), r.get("found_at") or ""))
     out = []
     for r in reg:
-        if check_name(r) in existing_names:
+        if check_name(r) in existing_names or not still_new(r):
             continue
         c = build(r)
         if c:
