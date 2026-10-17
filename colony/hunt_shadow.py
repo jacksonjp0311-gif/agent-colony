@@ -202,12 +202,19 @@ def record(summary: dict[str, Any]) -> None:
     except Exception:  # noqa: BLE001
         st = {}
     hist = [h for h in (st.get("history") or []) if h.get("cycle_id") != summary.get("cycle_id")]
-    hist.append({k: summary[k] for k in ("ts", "cycle_id", "n_meet_bar_actual", "n_meet_bar_shadow",
-                                         "n_unknown_claims", "drop_out_of_bar", "enter_bar")}
-                | {"near_misses": {k: (len(v) if isinstance(v, list) else v)
+    # history holds counts only (no id lists) so the committed file does not churn
+    hist = [{k: (len(v) if isinstance(v, list) else v) for k, v in h.items() if k != "near_misses"}
+            | {"near_misses": {k: (len(v) if isinstance(v, list) else v)
+                               for k, v in (h.get("near_misses") or {}).items()}} for h in hist]
+    hist.append({k: (len(summary[k]) if isinstance(summary[k], list) else summary[k])
+                 for k in ("ts", "cycle_id", "n_meet_bar_actual", "n_meet_bar_shadow",
+                           "n_unknown_claims", "drop_out_of_bar", "enter_bar")}
+                | {"guidance_mode": (summary.get("guidance") or {}).get("mode"),
+                   "near_misses": {k: (len(v) if isinstance(v, list) else v)
                                    for k, v in summary["near_misses"].items()}})
-    st = {"mode": "report_only", "note": "Shadow only: P, scores, novelty kills, desk decisions and "
-          "authorization are unchanged. See colony/hunt_shadow.py for the rules.",
+    st = {"mode": "report_only", "note": "P, scores, novelty kills, desk decisions and authorization are "
+          "unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); "
+          "see colony/hunt_shadow.py for the rules.",
           "last": summary, "history": hist[-KEEP_CYCLES:]}
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
