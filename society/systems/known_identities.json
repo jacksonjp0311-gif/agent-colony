@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T15:38:48Z",
-  "n": 277,
+  "updated_at": "2026-10-17T15:44:30Z",
+  "n": 280,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -112,6 +112,7 @@
     "authored_sieve_two_counter_g2_6_6_w1",
     "authored_sieve_two_counter_g2_6_w1",
     "authored_sieve_two_counter_g2_w1",
+    "authored_sieve_two_counter_g4_2_4_w1",
     "authored_sieve_two_counter_g4_6_2_w1",
     "authored_sieve_two_counter_g4_w1",
     "authored_sieve_two_counter_g6_2_6_w1",
@@ -200,8 +201,7 @@
     "easy_pad_abs_identity",
     "easy_pad_assoc_add",
     "easy_pad_commutativity",
-    "easy_pad_diff_squares",
-    "easy_pad_square_again"
+    "easy_pad_diff_squares"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

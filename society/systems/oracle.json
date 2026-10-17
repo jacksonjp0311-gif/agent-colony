@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T15:38:48Z",
-  "passes": 349,
+  "updated_at": "2026-10-17T15:44:29Z",
+  "passes": 352,
   "kills": 177,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3365,
+  "kill_rate": 0.3346,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 56,
-    "kills": 4,
+    "passes": 58,
+    "kills": 2,
     "easy_pad_kills": 0,
-    "kill_rate": 0.0667
+    "kill_rate": 0.0333
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -21,6 +21,7 @@
     "authored_cassini__bell_triangle_recurrence_w1",
     "authored_catalan_bounded__euler_totient_multiplicative_w1",
     "authored_sieve_hl_within_g2_4_6_w1",
+    "authored_sieve_hl_within_g2_6_4_w1",
     "authored_sieve_hl_within_g2_w2",
     "authored_sieve_hl_within_g4_2_4_w1",
     "authored_sieve_hl_within_g4_2_w1",
@@ -37,7 +38,6 @@
     "authored_sieve_residue_bal_g2_4_w1",
     "authored_sieve_residue_bal_g2_6_4_w1",
     "authored_sieve_residue_bal_g2_6_w1",
-    "authored_sieve_residue_bal_g2_w2",
     "authored_sieve_residue_bal_g4_2_6_w1",
     "authored_sieve_residue_bal_g4_2_w1",
     "authored_sieve_residue_bal_g4_6_w1",
@@ -49,16 +49,14 @@
     "authored_sieve_two_counter_g2_4_w1",
     "authored_sieve_two_counter_g2_6_6_w1",
     "authored_sieve_two_counter_g2_6_w1",
+    "authored_sieve_two_counter_g4_2_4_w1",
     "authored_sieve_two_counter_g4_6_2_w1",
     "authored_sieve_two_counter_g4_w1",
     "authored_sieve_two_counter_g6_2_6_w1",
     "authored_sieve_two_counter_g6_2_w1",
-    "authored_sieve_two_counter_g6_4_w1",
-    "authored_sieve_two_counter_g6_6_2_w1"
+    "authored_sieve_two_counter_g6_4_w1"
   ],
   "unique_mutations_kill": [
-    "Chain `authored_sieve_two_counter_g2_w1` citing Effective equidistribution of polynomial trajector",
-    "Chain `authored_sieve_two_counter_g2_w1` citing Effective equidistribution of polynomial trajector (cycle 345)",
     "Chain+seek `authored_sieve_hl_within_g2_w2` from invariant priors",
     "Chain+seek `authored_sieve_hl_within_g2_w2` from invariant priors (cycle 369)"
   ],
@@ -92,7 +90,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-17T15:38:48Z",
+    "ts": "2026-10-17T15:44:29Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -102,16 +100,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `multinomial_three` kind=hard_enable. lemma mutation multinomial_three 0.8644->0.8644 (compared 0.857->0.857; speed_noise:+0.000) Not discovery. cycle=20261017T153820Z_ca0b82.",
-      "attack": "WEIGH: `multinomial_three` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_two_counter_g4_2_4_w1` kind=hard_enable. lemma mutation authored_sieve_two_counter_g4_2_4_w1 0.8643->0.864 (compared 0.857->0.857; instrument_budget:0.050s) No",
+      "attack": "WEIGH: `authored_sieve_two_counter_g4_2_4_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 169,
-        "hard_n": 169,
-        "score": 0.8644,
+        "hard_pass": 172,
+        "hard_n": 172,
+        "score": 0.8641,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -122,17 +120,14 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 169,
-        "hard_n": 169,
+        "hard_pass": 172,
+        "hard_n": 172,
         "ok": true,
-        "score": 0.8644,
+        "score": 0.864,
         "shifted_window": {
           "ok": true,
-          "reason": "shift_window_pass",
-          "applied": true,
-          "ranges_shifted": 1,
-          "seconds": 0.028,
-          "window_expr": "all((check_multinomial_three(n) for n in range(20, 40)))"
+          "reason": "shift_not_applicable(no_literal_range)",
+          "applied": false
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -209,15 +204,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "multinomial_three",
+      "mutation": "authored_sieve_two_counter_g4_2_4_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "multinomial_three",
+    "mutation": "authored_sieve_two_counter_g4_2_4_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261017T153820Z_ca0b82",
+    "cycle_id": "20261017T154404Z_866859",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

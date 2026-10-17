@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-17T15:39:27Z",
+  "ts": "2026-10-17T15:45:07Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 28,
-  "n_groups": 28,
-  "n_authored_groups": 14,
-  "n_building_block_groups": 14,
+  "n_meet_bar": 31,
+  "n_groups": 31,
+  "n_authored_groups": 15,
+  "n_building_block_groups": 16,
   "top": [
     {
       "id": "imp_0f9c00_50",
@@ -322,6 +322,30 @@
       "line": "Building block `stirling_first_row_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8754."
     },
     {
+      "id": "imp_ca0b82_50",
+      "title": "Chain+seek `multinomial_three` from invariant priors",
+      "cycle_id": "20261017T153820Z_ca0b82",
+      "target": "multinomial_three",
+      "family": "multinomial_three",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8751,
+      "P_stored": 0.8751,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.5251,
+      "group_count": 1,
+      "group_ids": [
+        "imp_ca0b82_50"
+      ],
+      "position": 3,
+      "line": "Building block `multinomial_three` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8751."
+    },
+    {
       "id": "imp_1f6041_50",
       "title": "Chain `lucas_theorem_binomial` citing ON A SUPER TELESCOPING SUM REPRESENTING BINOMIAL C",
       "cycle_id": "20261017T141730Z_1f6041",
@@ -342,7 +366,7 @@
       "group_ids": [
         "imp_1f6041_50"
       ],
-      "position": 3,
+      "position": 4,
       "line": "Building block `lucas_theorem_binomial` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -366,7 +390,7 @@
       "group_ids": [
         "imp_29279d_50"
       ],
-      "position": 4,
+      "position": 5,
       "line": "Building block `euler_theorem` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -390,7 +414,7 @@
       "group_ids": [
         "imp_413117_50"
       ],
-      "position": 5,
+      "position": 6,
       "line": "Building block `bezout_identity` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -414,7 +438,7 @@
       "group_ids": [
         "imp_471d30_50"
       ],
-      "position": 6,
+      "position": 7,
       "line": "Building block `mobius_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -438,7 +462,7 @@
       "group_ids": [
         "imp_57362b_50"
       ],
-      "position": 7,
+      "position": 8,
       "line": "Building block `alternating_binomial_row` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -462,7 +486,7 @@
       "group_ids": [
         "imp_7e52ce_50"
       ],
-      "position": 8,
+      "position": 9,
       "line": "Building block `gauss_phi_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -486,40 +510,16 @@
       "group_ids": [
         "imp_8f9826_50"
       ],
-      "position": 9,
-      "line": "Building block `bell_stirling_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
-    },
-    {
-      "id": "imp_b83c74_50",
-      "title": "Chain+seek `fermat_little` from invariant priors",
-      "cycle_id": "20261017T104417Z_b83c74",
-      "target": "fermat_little",
-      "family": "fermat_little",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 0.0,
-      "novelty_raw": 1.0,
-      "building_block": "catalog_refill",
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": null,
-      "rank": 0.495,
-      "group_count": 1,
-      "group_ids": [
-        "imp_b83c74_50"
-      ],
       "position": 10,
-      "line": "Building block `fermat_little` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+      "line": "Building block `bell_stirling_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     }
   ],
   "excluded_reasons": {
-    "hearing": 11,
-    "no_oracle_pass_in_own_cycle": 9,
-    "novelty_killed": 20,
+    "hearing": 9,
     "status": 13,
-    "target_unresolved": 5
+    "novelty_killed": 19,
+    "target_unresolved": 5,
+    "no_oracle_pass_in_own_cycle": 7
   },
   "rule": {
     "P_min": 0.7,
@@ -528,5 +528,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T153820Z_ca0b82"
+  "cycle_id": "20261017T154404Z_866859"
 }
