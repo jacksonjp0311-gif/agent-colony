@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 31203  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 31207  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -186161,6 +186161,30 @@
 - **id:** `wit_55ca35418a` | **cycle:** `authorize_20261017T091752Z`
 - Authorize batch closed. accepted=3 rejected=1 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261017T091752Z.md.
 - detail: `{"accepted": 3, "rejected": 1, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261017T091752Z.md"}`
+
+### 2026-10-17T09:21:29Z — `authorize_batch_open` (human)
+
+- **id:** `wit_f0d14c2a2c` | **cycle:** `authorize_20261017T092129Z`
+- Authorize batch opened by James Jackson via Grok Bot (explicit human authorize by James in chat 2026-10-17 5:20 AM ET: 'Authorize top 2'; two items; selective not accept-all). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-17 5:20 AM ET: 'Authorize top 2'; two items; selective not accept-all)", "item_count": 0}`
+
+### 2026-10-17T09:21:29Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_9d78a1a1f0` | **cycle:** `authorize_20261017T092129Z`
+- Proposal accepted: `imp_e082ec_48` (Chain `authored_sieve_residue_bal_g2_w2` citing The large sieve inequality and additive decomposit) — Explicit human authorize (James Jackson, chat 2026-10-17 5:20 AM ET, 'Authorize top 2'). seek_enable for self-authored sieve-instrument check authored_sieve_residue_bal_g2_w2 (twin-prime residue balance on new windows); Oracle PASS in its own cycle 20261017T023536Z_e082ec with no kills, novelty gate novel (textbook_reuse 0.0), P=0.8852, Hearing accept_candidate, status candidate_measured. Machine check of known heuristics on new ranges — not a novel theorem. Duplicate imp_e082ec_49 not authorized.
+- detail: `{"proposal_id": "imp_e082ec_48", "title": "Chain `authored_sieve_residue_bal_g2_w2` citing The large sieve inequality and additive decomposit", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-17 5:20 AM ET, 'Authorize top 2'). seek_enable for self-authored`
+
+### 2026-10-17T09:21:29Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_a4b3a116df` | **cycle:** `authorize_20261017T092129Z`
+- Proposal accepted: `imp_acc7b0_50` (Chain `authored_sieve_residue_bal_g2_6_4_w1` citing Inverse binomial coefficients in Egorychev method) — Explicit human authorize (James Jackson, chat 2026-10-17 5:20 AM ET, 'Authorize top 2'). seek_enable for self-authored sieve-instrument check authored_sieve_residue_bal_g2_6_4_w1 (four-prime pattern 2-6-4 residue balance on new windows); Oracle PASS in its own cycle 20261017T091550Z_acc7b0 with no kills, novelty gate novel (textbook_reuse 0.0), P=0.8779, Hearing accept_candidate, status candidate_measured. Machine check of known heuristics on new ranges — not a novel theorem. Duplicate imp_acc7b0_51 not authorized.
+- detail: `{"proposal_id": "imp_acc7b0_50", "title": "Chain `authored_sieve_residue_bal_g2_6_4_w1` citing Inverse binomial coefficients in Egorychev method", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-17 5:20 AM ET, 'Authorize top 2'). seek_enable for self-autho`
+
+### 2026-10-17T09:21:29Z — `authorize_batch_close` (human)
+
+- **id:** `wit_42c879853b` | **cycle:** `authorize_20261017T092129Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=2. Receipt=AUTHORIZE_authorize_20261017T092129Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 2, "receipt": "/workspace/scratch/fc/society/receipts/AUTHORIZE_authorize_20261017T092129Z.md"}`
 
 ---
 
