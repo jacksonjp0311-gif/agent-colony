@@ -1,0 +1,6 @@
+{
+  "last_attempt_at": "2026-10-17T02:57:29Z",
+  "last_status": 429,
+  "retry_after_until": "2026-10-17T03:27:29Z",
+  "last_error": "HTTP 429 (throttled)"
+}

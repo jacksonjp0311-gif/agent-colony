@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T02:47:24Z",
-  "n": 230,
+  "updated_at": "2026-10-17T02:58:34Z",
+  "n": 231,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -76,6 +76,7 @@
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sieve_hl_within_g2_w1",
     "authored_sieve_hl_within_g2_w2",
+    "authored_sieve_hl_within_g4_2_w1",
     "authored_sieve_hl_within_g6_w1",
     "authored_sieve_residue_bal_g2_4_w1",
     "authored_sieve_residue_bal_g2_w1",
@@ -200,8 +201,7 @@
     "human_recognition_first_authorize",
     "human_teaching",
     "instruments",
-    "kill_cooldown",
-    "lucas_addition"
+    "kill_cooldown"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
