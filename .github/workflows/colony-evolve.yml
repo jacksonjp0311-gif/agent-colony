@@ -114,6 +114,8 @@ jobs:
           # live = a keep needs Athanor APPROVE. Set to "shadow" to restore report-only behaviour.
           COLONY_ATHANOR_GATE: live
           COLONY_ATHANOR_PROBE: state
+          # per-area hard veto beside the verdict; shadow = log only, off = not computed
+          COLONY_ATHANOR_VETO: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

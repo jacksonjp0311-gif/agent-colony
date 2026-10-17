@@ -77,3 +77,9 @@ def test_calibrated_veto_covers_integrity_areas_only():
     assert set(v["thresholds"]) == set(P.VETO_AREAS)
     assert "novelty_mix" not in v["thresholds"] and "oracle_pattern" not in v["thresholds"]
     assert v["tuning"]["veto_rate_oracle_passed_keeps"] <= 0.10       # anti-freeze rule held on tuning
+
+
+def test_workflow_runs_veto_live_with_state_probe():
+    from pathlib import Path
+    wf = (Path(__file__).resolve().parents[1] / ".github/workflows/colony-evolve.yml").read_text()
+    assert "COLONY_ATHANOR_VETO: live" in wf and "COLONY_ATHANOR_PROBE: state" in wf
