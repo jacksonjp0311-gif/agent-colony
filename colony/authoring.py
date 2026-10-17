@@ -438,6 +438,12 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
             "what": (f"authored disabled hard check `{name}` from proven lemmas "
                      f"{a['lemma']} + {b['lemma']} on new windows; awaits Oracle via proposal"),
         })
+    try:  # COLONY_HUNT=live: new families / new chains before sweeps of proven families
+        from colony import hunt
+        if hunt.live():
+            candidates = hunt.reorder(candidates, lambda c: c.get("name") or "")
+    except Exception:
+        pass
     out: list[dict[str, Any]] = []
     tried = 0
     for cand in candidates:

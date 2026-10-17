@@ -3,7 +3,8 @@
 Never changes P, scores, novelty kills, desk decisions or authorization: it reads the shortlist's
 evaluated proposals and Oracle rows, and writes society/systems/hunt_shadow.json (overwritten; a
 short bounded per-cycle history) plus shadow columns in the shortlist view.
-Flag: COLONY_HUNT_SHADOW=0 turns it off (default on, logs only).
+Flags: COLONY_HUNT_SHADOW=0 or COLONY_HUNT=off turn it off (default on, logs only). COLONY_HUNT=live
+additionally lets these values steer exploration order/reward (colony/hunt.py).
 
 Rule 1 — unknown reward (replaces the novelty term in the shadow only):
   unknown = 1 if the target survived the Oracle in its own cycle AND is not textbook (not a desk
@@ -63,7 +64,17 @@ _PARAM = re.compile(r"^(g?\d+|w\d+)$")
 
 
 def enabled() -> bool:
+    if os.environ.get("COLONY_HUNT", "").strip().lower() == "off":
+        return False
     return os.environ.get("COLONY_HUNT_SHADOW", "1") != "0"
+
+
+def _guidance() -> dict[str, Any]:
+    try:
+        from colony import hunt
+        return {"mode": hunt.mode(), "strength": hunt.strength() if hunt.live() else None, "K_PRIOR": K_PRIOR}
+    except Exception:  # noqa: BLE001
+        return {"mode": "unknown", "K_PRIOR": K_PRIOR}
 
 
 def _utc() -> str:
@@ -186,7 +197,8 @@ def summarize(evals: list[dict[str, Any]], *, cycle_id: str = "", oracle_rows: l
                       "P": e.get("P"), "P_shadow": e["hunt"]["P_shadow"], "unknown": e["hunt"]["unknown"],
                       "building_block": e.get("building_block"), "expected": e["hunt"]["expected"]})
     unknown = [e for e in evals if (e.get("hunt") or {}).get("unknown")]
-    return {"ts": _utc(), "cycle_id": cycle_id, "mode": "report_only",
+    g = _guidance()
+    return {"ts": _utc(), "cycle_id": cycle_id, "mode": "report_only", "guidance": g,
             "n_meet_bar_actual": len(act), "n_meet_bar_shadow": len(sh_bar),
             "n_unknown_claims": len(unknown), "unknown_targets": sorted({e["target"] for e in unknown})[:20],
             "n_unknown_oeis_unchecked": sum(1 for e in unknown if not e["hunt"]["oeis_checked"]),

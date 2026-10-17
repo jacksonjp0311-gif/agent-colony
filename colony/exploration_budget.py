@@ -98,7 +98,14 @@ def record_outcome(mutation: str, decision: str, *, kind: str = "") -> dict[str,
                 dist[n] = float(dist.get(n) or 0.05) * 1.15
     elif decision == "keep" and mutation:
         rewards[mutation] = int(rewards.get(mutation) or 0) + 1
-        dist[mutation] = float(dist.get(mutation) or 0.05) * 1.25
+        mult = 1.25
+        try:  # COLONY_HUNT=live: reward unknown/unexpected keeps, not sweeps of proven families
+            from colony import hunt
+            if hunt.live():
+                mult = hunt.keep_multiplier(mutation)
+        except Exception:
+            mult = 1.25
+        dist[mutation] = float(dist.get(mutation) or 0.05) * mult
         # slight explore toward unused hard_enable
         for n in names:
             if n.startswith("easy_pad"):
@@ -156,7 +163,19 @@ def pick_mutation_order(candidates: list[tuple[str, str, str]]) -> list[tuple[st
         boosted = []
     names = [n for n, _, _ in rest]
     dist = ensure_distribution(names) if names else {}
-    rest_sorted = sorted(rest, key=lambda t: float(dist.get(t[0]) or 0.0), reverse=True)
+    factor = None
+    try:  # COLONY_HUNT=live: weight by hunt value (order only; nothing removed)
+        from colony import hunt
+        if hunt.live():
+            _v, _s = hunt.Valuer(), hunt.strength()
+            factor = {n: hunt.weight_factor(n, valuer=_v, s=_s) for n in names}
+    except Exception:
+        factor = None
+    if factor:
+        rest_sorted = sorted(rest, key=lambda t: float(dist.get(t[0]) or 0.0) * factor.get(t[0], 1.0),
+                             reverse=True)
+    else:
+        rest_sorted = sorted(rest, key=lambda t: float(dist.get(t[0]) or 0.0), reverse=True)
     return boosted + rest_sorted
 
 

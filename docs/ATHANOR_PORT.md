@@ -82,3 +82,16 @@ only with `COLONY_ATHANOR_PROBE=state`). Runtime also needs a >= 0.5 s absolute 
 timing noise cannot trigger it. Athanor's dPhi, C, H7 and verdict are unchanged and logged as is;
 the veto is logged separately (`veto`, `would_veto`, `block_reason`). Calibration: the `veto`
 section of `colony/trust/athanor_probe_calibration.json` and `docs/ATHANOR_PROBE_TUNING_LOG.md`.
+
+## Hunt guidance (COLONY_HUNT=live|shadow|off)
+
+`colony/hunt.py`. In `live` (workflow default) the hunt rules steer the colony's own exploration:
+desk candidate order (`exploration_budget.pick_mutation_order`), authoring candidate order
+(`authoring.author_checks`) and the keep reward (`exploration_budget.record_outcome`, 1.25 flat →
+1 + 0.25·v). v = K/(s+K) for authored claims (s = Oracle-passed family members, K calibrated, see
+`docs/HUNT_TUNING_LOG.md`), min(1, n/2) for building blocks chained by n Oracle-passed authored
+claims, 0 for a bare enable. Order/reward only: nothing is removed or killed; the Oracle, P, the
+0.70 authorize bar and desk decisions are unchanged (P_shadow stays beside P on the shortlist).
+Anti-freeze: strength halves when >½ of the last 6 desk results were idle (¼ when all were).
+`shadow` (code default) = old behaviour; `off` also stops the hunt shadow report.
+Revert: set `COLONY_HUNT: shadow` in `.github/workflows/colony-evolve.yml`, or revert the commit.
