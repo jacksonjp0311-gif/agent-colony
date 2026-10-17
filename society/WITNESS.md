@@ -2,8 +2,8 @@
 
 > We light the spark and witness. We do not micromanage the city.
 
-**Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 33018  
+**Human Principal / Witness:** James Jackson  
+**Events recorded:** 33023  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -196988,6 +196988,36 @@
 - **id:** `wit_17a02b7995` | **cycle:** `authorize_20261017T110540Z`
 - Authorize batch closed. accepted=4 rejected=1 skipped=0 proposals=0. Receipt=AUTHORIZE_authorize_20261017T110540Z.md.
 - detail: `{"accepted": 4, "rejected": 1, "skipped": 0, "proposal_updates": 0, "receipt": "/home/runner/work/agent-colony/agent-colony/society/receipts/AUTHORIZE_authorize_20261017T110540Z.md"}`
+
+### 2026-10-17T11:08:05Z — `authorize_batch_open` (human)
+
+- **id:** `wit_e66d70a222` | **cycle:** `authorize_20261017T110804Z`
+- Authorize batch opened by James Jackson via Grok Bot (explicit human authorize by James in chat 2026-10-17 7:06 AM ET: 'Authorize top 3'). Items=0. Selective — not accept-all.
+- detail: `{"authorizer": "James Jackson", "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-17 7:06 AM ET: 'Authorize top 3')", "item_count": 0}`
+
+### 2026-10-17T11:08:05Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_3c36639c0c` | **cycle:** `authorize_20261017T110804Z`
+- Proposal accepted: `imp_c1a72c_50` (Chain `authored_sieve_residue_bal_g4_2_6_w1` citing The large sieve inequality and additive decomposit) — Explicit human authorize (James Jackson, chat 2026-10-17 7:06 AM ET, 'Authorize top 3'). seek_enable for self-authored sieve-instrument check authored_sieve_residue_bal_g4_2_6_w1 (residue-class balance for the 4-prime pattern 4-2-6); Oracle PASS in its own cycle 20261017T094635Z_c1a72c with no kills, Hearing accept_candidate, status candidate_measured, P=0.8764. Re-verified under the current live novelty rule (6de1880): textbook_reuse 0.3333 < 0.34 kill line (not novelty-killed); P recomputed with that novelty = 0.7931 >= 0.70. Machine check of known heuristics on new ranges — not a novel theorem.
+- detail: `{"proposal_id": "imp_c1a72c_50", "title": "Chain `authored_sieve_residue_bal_g4_2_6_w1` citing The large sieve inequality and additive decomposit", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-17 7:06 AM ET, 'Authorize top 3'). seek_enable for self-auth`
+
+### 2026-10-17T11:08:05Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_b3cb836f26` | **cycle:** `authorize_20261017T110804Z`
+- Proposal accepted: `imp_e71ad2_50` (Chain+seek `authored_sieve_hl_within_g6_4_2_w1` from invariant priors) — Explicit human authorize (James Jackson, chat 2026-10-17 7:06 AM ET, 'Authorize top 3'). seek_enable for self-authored sieve-instrument check authored_sieve_hl_within_g6_4_2_w1 (Hardy-Littlewood estimate within tolerance for the 4-prime pattern 6-4-2); Oracle PASS in its own cycle 20261017T102409Z_e71ad2 with no kills, Hearing accept_candidate, status candidate_measured, P=0.8767. Re-verified under the current live novelty rule (6de1880): textbook_reuse 0.3333 < 0.34 kill line (not novelty-killed); P recomputed with that novelty = 0.7933 >= 0.70. Machine check of known heuristics on new ranges — not a novel theorem.
+- detail: `{"proposal_id": "imp_e71ad2_50", "title": "Chain+seek `authored_sieve_hl_within_g6_4_2_w1` from invariant priors", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-17 7:06 AM ET, 'Authorize top 3'). seek_enable for self-authored sieve-instrument check autho`
+
+### 2026-10-17T11:08:05Z — `authorize_proposal_accepted` (human)
+
+- **id:** `wit_b945446155` | **cycle:** `authorize_20261017T110804Z`
+- Proposal accepted: `imp_b4a2bc_50` (Chain `authored_sieve_residue_bal_g6_2_4_w1` citing The large sieve inequality and additive decomposit) — Explicit human authorize (James Jackson, chat 2026-10-17 7:06 AM ET, 'Authorize top 3'). seek_enable for self-authored sieve-instrument check authored_sieve_residue_bal_g6_2_4_w1 (residue-class balance for the 4-prime pattern 6-2-4); Oracle PASS in its own cycle 20261017T101318Z_b4a2bc with no kills, Hearing accept_candidate, status candidate_measured, P=0.875. Re-verified under the current live novelty rule (6de1880): textbook_reuse 0.3333 < 0.34 kill line (not novelty-killed); P recomputed with that novelty = 0.7917 >= 0.70. Machine check of known heuristics on new ranges — not a novel theorem.
+- detail: `{"proposal_id": "imp_b4a2bc_50", "title": "Chain `authored_sieve_residue_bal_g6_2_4_w1` citing The large sieve inequality and additive decomposit", "decision": "accepted", "rationale": "Explicit human authorize (James Jackson, chat 2026-10-17 7:06 AM ET, 'Authorize top 3'). seek_enable for self-auth`
+
+### 2026-10-17T11:08:05Z — `authorize_batch_close` (human)
+
+- **id:** `wit_9e694d7dcc` | **cycle:** `authorize_20261017T110804Z`
+- Authorize batch closed. accepted=0 rejected=0 skipped=0 proposals=3. Receipt=AUTHORIZE_authorize_20261017T110804Z.md.
+- detail: `{"accepted": 0, "rejected": 0, "skipped": 0, "proposal_updates": 3, "receipt": "/workspace/scratch/fc/society/receipts/AUTHORIZE_authorize_20261017T110804Z.md"}`
 
 ---
 
