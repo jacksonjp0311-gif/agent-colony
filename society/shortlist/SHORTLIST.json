@@ -1,9 +1,9 @@
 {
-  "ts": "2026-10-17T14:20:53Z",
+  "ts": "2026-10-17T14:25:45Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 27,
-  "n_groups": 27,
+  "n_meet_bar": 28,
+  "n_groups": 28,
   "top": [
     {
       "id": "imp_0f9c00_50",
@@ -100,6 +100,28 @@
       "line": "Enable `crt_coprime_pair` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.8757, novelty 1.0."
     },
     {
+      "id": "imp_64ee61_50",
+      "title": "Chain `stirling_first_row_sum` citing On two families of generalized Stirling numbers re",
+      "cycle_id": "20261017T141944Z_64ee61",
+      "target": "stirling_first_row_sum",
+      "family": "stirling_first_row_sum",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8754,
+      "P_stored": 0.8754,
+      "novelty": 1.0,
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.7252,
+      "group_count": 1,
+      "group_ids": [
+        "imp_64ee61_50"
+      ],
+      "position": 5,
+      "line": "Enable `stirling_first_row_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.8754, novelty 1.0."
+    },
+    {
       "id": "imp_4e0736_50",
       "title": "Chain `authored_sieve_residue_bal_g2_6_w1` citing Inverse binomial coefficients in Egorychev method",
       "cycle_id": "20261017T140425Z_4e0736",
@@ -120,7 +142,7 @@
       "group_ids": [
         "imp_4e0736_50"
       ],
-      "position": 5,
+      "position": 6,
       "line": "Enable `authored_sieve_residue_bal_g2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7924, novelty 0.6667."
     },
     {
@@ -145,7 +167,7 @@
       "group_ids": [
         "imp_00e76a_50"
       ],
-      "position": 6,
+      "position": 7,
       "line": "Enable `authored_sieve_hl_within_g4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.792, novelty 0.6667."
     },
     {
@@ -167,7 +189,7 @@
       "group_ids": [
         "imp_1f6041_50"
       ],
-      "position": 7,
+      "position": 8,
       "line": "Enable `lucas_theorem_binomial` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
     },
     {
@@ -189,7 +211,7 @@
       "group_ids": [
         "imp_29279d_50"
       ],
-      "position": 8,
+      "position": 9,
       "line": "Enable `euler_theorem` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
     },
     {
@@ -211,36 +233,14 @@
       "group_ids": [
         "imp_413117_50"
       ],
-      "position": 9,
-      "line": "Enable `bezout_identity` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
-    },
-    {
-      "id": "imp_471d30_50",
-      "title": "Chain+seek `mobius_divisor_sum` from invariant priors",
-      "cycle_id": "20261017T135450Z_471d30",
-      "target": "mobius_divisor_sum",
-      "family": "mobius_divisor_sum",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 1.0,
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.695,
-      "group_count": 1,
-      "group_ids": [
-        "imp_471d30_50"
-      ],
       "position": 10,
-      "line": "Enable `mobius_divisor_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+      "line": "Enable `bezout_identity` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
     }
   ],
   "excluded_reasons": {
-    "hearing": 14,
+    "hearing": 12,
     "no_oracle_pass_in_own_cycle": 9,
-    "novelty_killed": 17,
+    "novelty_killed": 20,
     "status": 13,
     "target_unresolved": 5
   },
@@ -250,5 +250,5 @@
     "rank": "0.6*P + 0.2*novelty + 0.2*builds_on"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T141944Z_64ee61"
+  "cycle_id": "20261017T142450Z_2469eb"
 }
