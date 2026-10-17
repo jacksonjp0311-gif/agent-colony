@@ -2186,6 +2186,24 @@ def check_authored_sieve_two_counter_g6_4_w1() -> bool:
     return all(type(c := sieve_count((6, 4), a, b)) is int and c > 0 and c == sieve_count((6, 4), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
 
 
+def check_authored_sieve_hl_within_g6_2_w1() -> bool:
+    """Authored instrument check (desk): count of consecutive pattern (6, 2) on each window is within 4.0*sqrt of the HL forecast.
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((6, 2), a, b)) is int and type(h := sieve_hl((6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
+def check_authored_sieve_two_counter_g6_6_w1() -> bool:
+    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (6, 6).
+    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((6, 6), a, b)) is int and c > 0 and c == sieve_count((6, 6), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2280,8 +2298,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("mobius_inversion_sigma", lambda: all(check_mobius_inversion_sigma(n) for n in range(1, 80)), True),
     ("bezout_identity", lambda: all(check_bezout_identity(a, b) for a in range(1, 40) for b in range(1, 40)), True),
     ("crt_coprime_pair", lambda: all(check_crt_coprime_pair(m) for m in range(1, 25)), True),
-    ("lucas_theorem_binomial", lambda: all(check_lucas_theorem_binomial(n) for n in range(0, 30)), False),
-    ("stirling_first_row_sum", lambda: all(check_stirling_first_row_sum(n) for n in range(0, 16)), False),
+    ("lucas_theorem_binomial", lambda: all(check_lucas_theorem_binomial(n) for n in range(0, 30)), True),
+    ("stirling_first_row_sum", lambda: all(check_stirling_first_row_sum(n) for n in range(0, 16)), True),
     ("bell_stirling_sum", lambda: all(check_bell_stirling_sum(n) for n in range(0, 16)), False),
     ("alternating_binomial_row", lambda: all(check_alternating_binomial_row(n) for n in range(0, 40)), False),
     ("multinomial_three", lambda: all(check_multinomial_three(n) for n in range(0, 20)), False),
@@ -2419,6 +2437,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_residue_bal_g4_2_w1", check_authored_sieve_residue_bal_g4_2_w1, True),
     ("authored_sieve_hl_within_g4_6_w1", check_authored_sieve_hl_within_g4_6_w1, True),
     ("authored_sieve_two_counter_g6_4_w1", check_authored_sieve_two_counter_g6_4_w1, True),
+    ("authored_sieve_hl_within_g6_2_w1", check_authored_sieve_hl_within_g6_2_w1, True),
+    ("authored_sieve_two_counter_g6_6_w1", check_authored_sieve_two_counter_g6_6_w1, False),
 ]
 
 

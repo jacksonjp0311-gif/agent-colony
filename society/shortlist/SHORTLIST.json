@@ -1,9 +1,9 @@
 {
-  "ts": "2026-10-17T14:15:19Z",
+  "ts": "2026-10-17T14:20:53Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 26,
-  "n_groups": 26,
+  "n_meet_bar": 27,
+  "n_groups": 27,
   "top": [
     {
       "id": "imp_0f9c00_50",
@@ -149,6 +149,28 @@
       "line": "Enable `authored_sieve_hl_within_g4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.792, novelty 0.6667."
     },
     {
+      "id": "imp_1f6041_50",
+      "title": "Chain `lucas_theorem_binomial` citing ON A SUPER TELESCOPING SUM REPRESENTING BINOMIAL C",
+      "cycle_id": "20261017T141730Z_1f6041",
+      "target": "lucas_theorem_binomial",
+      "family": "lucas_theorem_binomial",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.695,
+      "group_count": 1,
+      "group_ids": [
+        "imp_1f6041_50"
+      ],
+      "position": 7,
+      "line": "Enable `lucas_theorem_binomial` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+    },
+    {
       "id": "imp_29279d_50",
       "title": "Chain+seek `euler_theorem` from invariant priors",
       "cycle_id": "20261017T110237Z_29279d",
@@ -167,7 +189,7 @@
       "group_ids": [
         "imp_29279d_50"
       ],
-      "position": 7,
+      "position": 8,
       "line": "Enable `euler_theorem` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
     },
     {
@@ -189,7 +211,7 @@
       "group_ids": [
         "imp_413117_50"
       ],
-      "position": 8,
+      "position": 9,
       "line": "Enable `bezout_identity` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
     },
     {
@@ -211,36 +233,14 @@
       "group_ids": [
         "imp_471d30_50"
       ],
-      "position": 9,
-      "line": "Enable `mobius_divisor_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
-    },
-    {
-      "id": "imp_7e52ce_50",
-      "title": "Chain `gauss_phi_divisor_sum` citing A Gaussian integral formula for the Hermite polyno",
-      "cycle_id": "20261017T135632Z_7e52ce",
-      "target": "gauss_phi_divisor_sum",
-      "family": "gauss_phi_divisor_sum",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 1.0,
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.695,
-      "group_count": 1,
-      "group_ids": [
-        "imp_7e52ce_50"
-      ],
       "position": 10,
-      "line": "Enable `gauss_phi_divisor_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+      "line": "Enable `mobius_divisor_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
     }
   ],
   "excluded_reasons": {
-    "novelty_killed": 19,
-    "hearing": 15,
+    "hearing": 14,
     "no_oracle_pass_in_own_cycle": 9,
+    "novelty_killed": 17,
     "status": 13,
     "target_unresolved": 5
   },
@@ -250,5 +250,5 @@
     "rank": "0.6*P + 0.2*novelty + 0.2*builds_on"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T141423Z_18da5d"
+  "cycle_id": "20261017T141944Z_64ee61"
 }
