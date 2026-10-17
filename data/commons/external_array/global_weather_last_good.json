@@ -1,9 +1,19 @@
 {
   "feed": "global_weather",
   "ok": true,
-  "note": "NYC:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; London:ok; Tokyo:ok; Sydney:ok",
+  "note": "NYC:ok; London:ok; Tokyo:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; Sydney:ok",
   "count": 3,
   "items": [
+    {
+      "city": "NYC",
+      "lat": 40.71,
+      "lon": -74.01,
+      "temperature_2m": 17.4,
+      "wind_speed_10m": 14.7,
+      "weather_code": 3,
+      "time": "2026-10-17T03:45",
+      "source": "open_meteo"
+    },
     {
       "city": "London",
       "lat": 51.51,
@@ -11,31 +21,21 @@
       "temperature_2m": 8.3,
       "wind_speed_10m": 11.5,
       "weather_code": 1,
-      "time": "2026-10-17T03:30",
-      "source": "open_meteo"
-    },
-    {
-      "city": "Tokyo",
-      "lat": 35.68,
-      "lon": 139.76,
-      "temperature_2m": 22.7,
-      "wind_speed_10m": 5.6,
-      "weather_code": 1,
-      "time": "2026-10-17T03:30",
+      "time": "2026-10-17T03:45",
       "source": "open_meteo"
     },
     {
       "city": "Sydney",
       "lat": -33.87,
       "lon": 151.21,
-      "temperature_2m": 19.2,
-      "wind_speed_10m": 15.3,
-      "weather_code": 1,
-      "time": "2026-10-17T03:30",
+      "temperature_2m": 19.1,
+      "wind_speed_10m": 15.1,
+      "weather_code": 0,
+      "time": "2026-10-17T03:45",
       "source": "open_meteo"
     }
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-10-17T03:42:10Z"
+  "ts": "2026-10-17T03:58:23Z"
 }
