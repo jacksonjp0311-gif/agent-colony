@@ -1,0 +1,253 @@
+{
+  "ts": "2026-10-17T14:05:17Z",
+  "view_only": true,
+  "n_considered": 58,
+  "n_meet_bar": 24,
+  "n_groups": 24,
+  "top": [
+    {
+      "id": "imp_166922_50",
+      "title": "Chain `authored_sieve_two_counter_g6_2_w1` citing Effective equidistribution of polynomial trajector",
+      "cycle_id": "20261017T031324Z_166922",
+      "target": "authored_sieve_two_counter_g6_2_w1",
+      "family": "authored_sieve_two_counter_g6_2",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8352,
+      "P_stored": 0.8769,
+      "novelty": 0.8333,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.7678,
+      "group_count": 1,
+      "group_ids": [
+        "imp_166922_50"
+      ],
+      "position": 1,
+      "line": "Enable `authored_sieve_two_counter_g6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8352, novelty 0.8333."
+    },
+    {
+      "id": "imp_0f9c00_50",
+      "title": "Chain `authored_sieve_two_counter_g6_2_6_w1` citing Effective equidistribution of polynomial trajector",
+      "cycle_id": "20261017T101444Z_0f9c00",
+      "target": "authored_sieve_two_counter_g6_2_6_w1",
+      "family": "authored_sieve_two_counter_g6_2_6",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8339,
+      "P_stored": 0.8756,
+      "novelty": 0.8333,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.767,
+      "group_count": 1,
+      "group_ids": [
+        "imp_0f9c00_50"
+      ],
+      "position": 2,
+      "line": "Enable `authored_sieve_two_counter_g6_2_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.8339, novelty 0.8333."
+    },
+    {
+      "id": "imp_9c2e0b_50",
+      "title": "Chain `authored_sieve_two_counter_g6_6_2_w1` citing Effective equidistribution of polynomial trajector",
+      "cycle_id": "20261017T104504Z_9c2e0b",
+      "target": "authored_sieve_two_counter_g6_6_2_w1",
+      "family": "authored_sieve_two_counter_g6_6_2",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7833,
+      "P_stored": 0.7833,
+      "novelty": 0.8333,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.7366,
+      "group_count": 1,
+      "group_ids": [
+        "imp_9c2e0b_50"
+      ],
+      "position": 3,
+      "line": "Enable `authored_sieve_two_counter_g6_6_2_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
+    },
+    {
+      "id": "imp_9d2224_50",
+      "title": "Chain `authored_sieve_two_counter_g2_6_6_w1` citing Proofs of four Takigiku--Tsuchioka conjectures on ",
+      "cycle_id": "20261017T091710Z_9d2224",
+      "target": "authored_sieve_two_counter_g2_6_6_w1",
+      "family": "authored_sieve_two_counter_g2_6_6",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7833,
+      "P_stored": 0.825,
+      "novelty": 0.8333,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.7366,
+      "group_count": 1,
+      "group_ids": [
+        "imp_9d2224_50"
+      ],
+      "position": 4,
+      "line": "Enable `authored_sieve_two_counter_g2_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7833, novelty 0.8333."
+    },
+    {
+      "id": "imp_8d4817_50",
+      "title": "Chain `authored_sieve_residue_bal_g6_6_w1` citing Balanced Fibonacci word rectangles, and beyond",
+      "cycle_id": "20261017T035639Z_8d4817",
+      "target": "authored_sieve_residue_bal_g6_6_w1",
+      "family": "authored_sieve_residue_bal_g6_6",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.7947,
+      "P_stored": 0.878,
+      "novelty": 0.6667,
+      "builds_on": 0.5,
+      "building_blocks": [
+        "instrument:sieve.sieve_count"
+      ],
+      "athanor_verdict": null,
+      "rank": 0.7102,
+      "group_count": 1,
+      "group_ids": [
+        "imp_8d4817_50"
+      ],
+      "position": 5,
+      "line": "Enable `authored_sieve_residue_bal_g6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7947, novelty 0.6667."
+    },
+    {
+      "id": "imp_29279d_50",
+      "title": "Chain+seek `euler_theorem` from invariant priors",
+      "cycle_id": "20261017T110237Z_29279d",
+      "target": "euler_theorem",
+      "family": "euler_theorem",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": null,
+      "rank": 0.695,
+      "group_count": 1,
+      "group_ids": [
+        "imp_29279d_50"
+      ],
+      "position": 6,
+      "line": "Enable `euler_theorem` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+    },
+    {
+      "id": "imp_471d30_50",
+      "title": "Chain+seek `mobius_divisor_sum` from invariant priors",
+      "cycle_id": "20261017T135450Z_471d30",
+      "target": "mobius_divisor_sum",
+      "family": "mobius_divisor_sum",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.695,
+      "group_count": 1,
+      "group_ids": [
+        "imp_471d30_50"
+      ],
+      "position": 7,
+      "line": "Enable `mobius_divisor_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+    },
+    {
+      "id": "imp_7e52ce_50",
+      "title": "Chain `gauss_phi_divisor_sum` citing A Gaussian integral formula for the Hermite polyno",
+      "cycle_id": "20261017T135632Z_7e52ce",
+      "target": "gauss_phi_divisor_sum",
+      "family": "gauss_phi_divisor_sum",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.695,
+      "group_count": 1,
+      "group_ids": [
+        "imp_7e52ce_50"
+      ],
+      "position": 8,
+      "line": "Enable `gauss_phi_divisor_sum` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+    },
+    {
+      "id": "imp_b83c74_50",
+      "title": "Chain+seek `fermat_little` from invariant priors",
+      "cycle_id": "20261017T104417Z_b83c74",
+      "target": "fermat_little",
+      "family": "fermat_little",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": null,
+      "rank": 0.695,
+      "group_count": 1,
+      "group_ids": [
+        "imp_b83c74_50"
+      ],
+      "position": 9,
+      "line": "Enable `fermat_little` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+    },
+    {
+      "id": "imp_b9e453_50",
+      "title": "Chain+seek `sigma_multiplicative` from invariant priors",
+      "cycle_id": "20261017T140329Z_b9e453",
+      "target": "sigma_multiplicative",
+      "family": "sigma_multiplicative",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.695,
+      "group_count": 1,
+      "group_ids": [
+        "imp_b9e453_50"
+      ],
+      "position": 10,
+      "line": "Enable `sigma_multiplicative` (Oracle passed it in its own cycle); builds on no named building blocks; P 0.825, novelty 1.0."
+    }
+  ],
+  "excluded_reasons": {
+    "hearing": 18,
+    "novelty_killed": 16,
+    "no_oracle_pass_in_own_cycle": 9,
+    "status": 13,
+    "target_unresolved": 5
+  },
+  "rule": {
+    "P_min": 0.7,
+    "novelty_kill": 0.34,
+    "rank": "0.6*P + 0.2*novelty + 0.2*builds_on"
+  },
+  "note": "View only. Does not authorize or change anything. Only James authorizes.",
+  "cycle_id": "20261017T140425Z_4e0736"
+}

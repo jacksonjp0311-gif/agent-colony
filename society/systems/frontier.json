@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T13:56:52Z",
+  "updated_at": "2026-10-17T14:04:49Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -23,7 +23,7 @@
     "legendre_square_gap": {
       "family": "legendre",
       "status": "open",
-      "verified_hi": 428607,
+      "verified_hi": 444607,
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "window": 16000,
       "result": null
@@ -31,7 +31,7 @@
     "lehmer_totient": {
       "family": "lehmer_totient",
       "status": "open",
-      "verified_hi": 21400001,
+      "verified_hi": 23000001,
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "window": 1600000,
       "result": null
@@ -47,7 +47,7 @@
     "twin_primes_hl": {
       "family": "twin_hl",
       "status": "open",
-      "verified_hi": 94200000,
+      "verified_hi": 98200000,
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "window": 4000000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "goldbach_even",
-    "lo": 59000004,
-    "hi": 62200003,
+    "target": "twin_primes_hl",
+    "lo": 94200001,
+    "hi": 98200000,
     "outcome": "extended",
-    "verified_hi": 62200003,
-    "cycle_id": "20261017T135632Z_7e52ce"
+    "verified_hi": 98200000,
+    "cycle_id": "20261017T140425Z_4e0736"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
