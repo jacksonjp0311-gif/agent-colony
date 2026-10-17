@@ -1,8 +1,8 @@
-# Conjecture desk witness — 2026-10-17T03:13:39Z
+# Conjecture desk witness — 2026-10-17T03:41:45Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `authored_sieve_two_counter_g6_2_w1` (hard_enable) → **keep** 0.881→0.8789 (-0.0021) — Kept `authored_sieve_two_counter_g6_2_w1` (hard_enable): lemma score 0.881→0.8789 checks 130→131 hard_pass 120→121 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 120->121 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]
+- `none` (-) → **skip** 0.8783→0.8783 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'stem_easy_pad_units', 'vandermonde_asymmetric']. Authored new disabled checks: ['authored_sieve_residue_bal_g6_6_w1'].
   - themes: AI Safety via Debate, The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty
