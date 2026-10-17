@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T16:37:37Z",
-  "updated_cycle": "20261017T163657Z_dfaa7b",
+  "updated_at": "2026-10-17T16:42:38Z",
+  "updated_cycle": "20261017T164207Z_658a85",
   "n_active": 80,
-  "n_keeps": 22,
+  "n_keeps": 23,
   "n_reverts": 1,
   "skill_bias": {
     "geometer.gather": 0.0766,
@@ -19,433 +19,6 @@
     "explore": 0.06
   },
   "recent": [
-    {
-      "id": "les_Z_0bada5_authored_sieve_two_counter_g6_4_6_w",
-      "ts": "2026-10-17T16:34:45Z",
-      "cycle_id": "20261017T163420Z_0bada5",
-      "type": "authored_check",
-      "decision": "skip",
-      "check": "authoring",
-      "mutation": "authored_sieve_two_counter_g6_4_6_w1",
-      "what": "authored disabled instrument check `authored_sieve_two_counter_g6_4_6_w1`: C/primesieve and pure-Python counters agree exactly on pattern (6, 4, 6); awaits Oracle via proposal",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "authoring",
-        "authored_check",
-        "instrument",
-        "sieve",
-        "two_counter"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::sieve_count",
-        "society/benchmarks/lemma_microbench.py",
-        "colony/instruments/sieve.py",
-        "pattern:(6, 4, 6)",
-        "template:two_counter"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261017T163420Z_0bada5",
-        "check": "authoring",
-        "evidence": [
-          "society/benchmarks/artifacts/lemma_impl.py::sieve_count",
-          "society/benchmarks/lemma_microbench.py",
-          "colony/instruments/sieve.py",
-          "pattern:(6, 4, 6)",
-          "template:two_counter"
-        ]
-      },
-      "scope": "mutation:authored_sieve_two_counter_g6_4_6_w1",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_sieve_two_counter_g6_4_6_w1` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_0bada5_newton_identities",
-      "ts": "2026-10-17T16:34:54Z",
-      "cycle_id": "20261017T163420Z_0bada5",
-      "type": "keep",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "newton_identities",
-      "what": "Kept `newton_identities` (hard_enable): lemma score 0.8627\u21920.8626 checks 197\u2192198 hard_pass 187\u2192188 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 187->188 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8627,
-      "after_score": 0.8626,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261017T163420Z_0bada5",
-        "check": "lemma_microbench",
-        "evidence": [
-          "society/benchmarks/lemma_microbench.py",
-          "artifacts:lemma_impl"
-        ]
-      },
-      "scope": "mutation:newton_identities",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `newton_identities` contradicts decision=keep"
-    },
-    {
-      "id": "les_Z_0bada5_vandermonde",
-      "ts": "2026-10-17T16:35:00Z",
-      "cycle_id": "20261017T163420Z_0bada5",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "claim_pipeline",
-        "cycle_id": "20261017T163420Z_0bada5",
-        "check": "oracle_seen_claim",
-        "evidence": []
-      },
-      "scope": "mutation:vandermonde",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_0bada5_pilot",
-      "ts": "2026-10-17T16:35:08Z",
-      "cycle_id": "20261017T163420Z_0bada5",
-      "type": "skip",
-      "decision": "skip",
-      "check": "pilot",
-      "mutation": "",
-      "what": "empty rsi_bias pilot suppressed",
-      "source": "pilot_lane",
-      "family": "rsi",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "empty_rsi_bias"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "pilot_lane",
-        "cycle_id": "20261017T163420Z_0bada5",
-        "check": "pilot",
-        "evidence": []
-      },
-      "scope": "check:pilot",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
-    },
-    {
-      "id": "les_6:35:32Z_Chain `newton_identities` citing Pr",
-      "ts": "2026-10-17T16:35:32Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain `newton_identities` citing Proofs of four Takigiku--Tsuchioka conjectures on",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate_deferred_title",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "novelty_gate_deferred_title",
-        "cycle_id": "",
-        "check": "oracle",
-        "evidence": [
-          "kill:stripped:stripped_not_useful_fail",
-          "kill:held_out:held_out_fail",
-          "kill:collective_kill"
-        ]
-      },
-      "scope": "mutation:Chain `newton_identities` citing Proofs of four Takigiku--Tsuchioka conjectures on",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `Chain `newton_identities` citing Proofs of four Takigiku--Tsuchioka conjectures on` contradicts decision=revert"
-    },
-    {
-      "id": "les_Z_b95580_authored_sieve_two_counter_g6_4_6_w",
-      "ts": "2026-10-17T16:36:16Z",
-      "cycle_id": "20261017T163545Z_b95580",
-      "type": "keep",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "authored_sieve_two_counter_g6_4_6_w1",
-      "what": "Kept `authored_sieve_two_counter_g6_4_6_w1` (hard_enable): lemma score 0.8627\u21920.8626 checks 198\u2192199 hard_pass 188\u2192189 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 188->189 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8627,
-      "after_score": 0.8626,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl",
-        "lesson:les_Z_0bada5_authored_sieve_two_counter_g6_4_6_w"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261017T163545Z_b95580",
-        "check": "lemma_microbench",
-        "evidence": [
-          "society/benchmarks/lemma_microbench.py",
-          "artifacts:lemma_impl",
-          "lesson:les_Z_0bada5_authored_sieve_two_counter_g6_4_6_w"
-        ]
-      },
-      "scope": "mutation:authored_sieve_two_counter_g6_4_6_w1",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_sieve_two_counter_g6_4_6_w1` contradicts decision=keep"
-    },
-    {
-      "id": "les_Z_b95580_vandermonde",
-      "ts": "2026-10-17T16:36:20Z",
-      "cycle_id": "20261017T163545Z_b95580",
-      "type": "skip",
-      "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "claim_pipeline",
-        "cycle_id": "20261017T163545Z_b95580",
-        "check": "oracle_seen_claim",
-        "evidence": []
-      },
-      "scope": "mutation:vandermonde",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_b95580_pilot",
-      "ts": "2026-10-17T16:36:26Z",
-      "cycle_id": "20261017T163545Z_b95580",
-      "type": "skip",
-      "decision": "skip",
-      "check": "pilot",
-      "mutation": "",
-      "what": "empty rsi_bias pilot suppressed",
-      "source": "pilot_lane",
-      "family": "rsi",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "empty_rsi_bias"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "pilot_lane",
-        "cycle_id": "20261017T163545Z_b95580",
-        "check": "pilot",
-        "evidence": []
-      },
-      "scope": "check:pilot",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_dfaa7b_authored_sieve_residue_bal_g6_6_2_w",
-      "ts": "2026-10-17T16:37:21Z",
-      "cycle_id": "20261017T163657Z_dfaa7b",
-      "type": "authored_check",
-      "decision": "skip",
-      "check": "authoring",
-      "mutation": "authored_sieve_residue_bal_g6_6_2_w1",
-      "what": "authored disabled instrument check `authored_sieve_residue_bal_g6_6_2_w1`: p mod 4 classes 1/3 of pattern (6, 6, 2) are balanced within 4.0*sqrt(total); awaits Oracle via proposal",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "authoring",
-        "authored_check",
-        "instrument",
-        "sieve",
-        "residue_bal"
-      ],
-      "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::sieve_count",
-        "society/benchmarks/lemma_microbench.py",
-        "colony/instruments/sieve.py",
-        "pattern:(6, 6, 2)",
-        "template:residue_bal"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261017T163657Z_dfaa7b",
-        "check": "authoring",
-        "evidence": [
-          "society/benchmarks/artifacts/lemma_impl.py::sieve_count",
-          "society/benchmarks/lemma_microbench.py",
-          "colony/instruments/sieve.py",
-          "pattern:(6, 6, 2)",
-          "template:residue_bal"
-        ]
-      },
-      "scope": "mutation:authored_sieve_residue_bal_g6_6_2_w1",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_sieve_residue_bal_g6_6_2_w1` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_dfaa7b_polynomial_remainder",
-      "ts": "2026-10-17T16:37:30Z",
-      "cycle_id": "20261017T163657Z_dfaa7b",
-      "type": "keep",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "polynomial_remainder",
-      "what": "Kept `polynomial_remainder` (hard_enable): lemma score 0.8625\u21920.8626 checks 199\u2192200 hard_pass 189\u2192190 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 189->190 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8625,
-      "after_score": 0.8626,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261017T163657Z_dfaa7b",
-        "check": "lemma_microbench",
-        "evidence": [
-          "society/benchmarks/lemma_microbench.py",
-          "artifacts:lemma_impl"
-        ]
-      },
-      "scope": "mutation:polynomial_remainder",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `polynomial_remainder` contradicts decision=keep"
-    },
     {
       "id": "les_Z_dfaa7b_vandermonde",
       "ts": "2026-10-17T16:37:32Z",
@@ -507,6 +80,402 @@
       "provenance": {
         "source": "pilot_lane",
         "cycle_id": "20261017T163657Z_dfaa7b",
+        "check": "pilot",
+        "evidence": []
+      },
+      "scope": "check:pilot",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_398d31_authored_sieve_residue_bal_g6_6_2_w",
+      "ts": "2026-10-17T16:40:32Z",
+      "cycle_id": "20261017T164012Z_398d31",
+      "type": "keep",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "authored_sieve_residue_bal_g6_6_2_w1",
+      "what": "Kept `authored_sieve_residue_bal_g6_6_2_w1` (hard_enable): lemma score 0.8668\u21920.8662 checks 200\u2192201 hard_pass 190\u2192191 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 190->191 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8668,
+      "after_score": 0.8662,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl",
+        "lesson:les_Z_dfaa7b_authored_sieve_residue_bal_g6_6_2_w"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261017T164012Z_398d31",
+        "check": "lemma_microbench",
+        "evidence": [
+          "society/benchmarks/lemma_microbench.py",
+          "artifacts:lemma_impl",
+          "lesson:les_Z_dfaa7b_authored_sieve_residue_bal_g6_6_2_w"
+        ]
+      },
+      "scope": "mutation:authored_sieve_residue_bal_g6_6_2_w1",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `authored_sieve_residue_bal_g6_6_2_w1` contradicts decision=keep"
+    },
+    {
+      "id": "les_Z_398d31_vandermonde",
+      "ts": "2026-10-17T16:40:34Z",
+      "cycle_id": "20261017T164012Z_398d31",
+      "type": "skip",
+      "decision": "skip",
+      "check": "oracle_seen_claim",
+      "mutation": "vandermonde",
+      "what": "skip re-oracle of vandermonde:1706.03762",
+      "source": "claim_pipeline",
+      "family": "novelty",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "vandermonde:1706.03762",
+      "tags": [
+        "repeat_claim"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "claim_pipeline",
+        "cycle_id": "20261017T164012Z_398d31",
+        "check": "oracle_seen_claim",
+        "evidence": []
+      },
+      "scope": "mutation:vandermonde",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_398d31_pilot",
+      "ts": "2026-10-17T16:40:42Z",
+      "cycle_id": "20261017T164012Z_398d31",
+      "type": "skip",
+      "decision": "skip",
+      "check": "pilot",
+      "mutation": "",
+      "what": "empty rsi_bias pilot suppressed",
+      "source": "pilot_lane",
+      "family": "rsi",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "empty_rsi_bias"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "pilot_lane",
+        "cycle_id": "20261017T164012Z_398d31",
+        "check": "pilot",
+        "evidence": []
+      },
+      "scope": "check:pilot",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_1a4ec1_authored_sieve_residue_bal_g6_6_4_w",
+      "ts": "2026-10-17T16:41:26Z",
+      "cycle_id": "20261017T164110Z_1a4ec1",
+      "type": "authored_check",
+      "decision": "skip",
+      "check": "authoring",
+      "mutation": "authored_sieve_residue_bal_g6_6_4_w1",
+      "what": "authored disabled instrument check `authored_sieve_residue_bal_g6_6_4_w1`: p mod 4 classes 1/3 of pattern (6, 6, 4) are balanced within 4.0*sqrt(total); awaits Oracle via proposal",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "authoring",
+        "authored_check",
+        "instrument",
+        "sieve",
+        "residue_bal"
+      ],
+      "evidence": [
+        "society/benchmarks/artifacts/lemma_impl.py::sieve_count",
+        "society/benchmarks/lemma_microbench.py",
+        "colony/instruments/sieve.py",
+        "pattern:(6, 6, 4)",
+        "template:residue_bal"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261017T164110Z_1a4ec1",
+        "check": "authoring",
+        "evidence": [
+          "society/benchmarks/artifacts/lemma_impl.py::sieve_count",
+          "society/benchmarks/lemma_microbench.py",
+          "colony/instruments/sieve.py",
+          "pattern:(6, 6, 4)",
+          "template:residue_bal"
+        ]
+      },
+      "scope": "mutation:authored_sieve_residue_bal_g6_6_4_w1",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `authored_sieve_residue_bal_g6_6_4_w1` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_1a4ec1_telescoping_sum",
+      "ts": "2026-10-17T16:41:31Z",
+      "cycle_id": "20261017T164110Z_1a4ec1",
+      "type": "keep",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "telescoping_sum",
+      "what": "Kept `telescoping_sum` (hard_enable): lemma score 0.8667\u21920.8661 checks 201\u2192202 hard_pass 191\u2192192 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 191->192 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8667,
+      "after_score": 0.8661,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261017T164110Z_1a4ec1",
+        "check": "lemma_microbench",
+        "evidence": [
+          "society/benchmarks/lemma_microbench.py",
+          "artifacts:lemma_impl"
+        ]
+      },
+      "scope": "mutation:telescoping_sum",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `telescoping_sum` contradicts decision=keep"
+    },
+    {
+      "id": "les_Z_1a4ec1_vandermonde",
+      "ts": "2026-10-17T16:41:33Z",
+      "cycle_id": "20261017T164110Z_1a4ec1",
+      "type": "skip",
+      "decision": "skip",
+      "check": "oracle_seen_claim",
+      "mutation": "vandermonde",
+      "what": "skip re-oracle of vandermonde:1706.03762",
+      "source": "claim_pipeline",
+      "family": "novelty",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "vandermonde:1706.03762",
+      "tags": [
+        "repeat_claim"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "claim_pipeline",
+        "cycle_id": "20261017T164110Z_1a4ec1",
+        "check": "oracle_seen_claim",
+        "evidence": []
+      },
+      "scope": "mutation:vandermonde",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_1a4ec1_pilot",
+      "ts": "2026-10-17T16:41:39Z",
+      "cycle_id": "20261017T164110Z_1a4ec1",
+      "type": "skip",
+      "decision": "skip",
+      "check": "pilot",
+      "mutation": "",
+      "what": "empty rsi_bias pilot suppressed",
+      "source": "pilot_lane",
+      "family": "rsi",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "empty_rsi_bias"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "pilot_lane",
+        "cycle_id": "20261017T164110Z_1a4ec1",
+        "check": "pilot",
+        "evidence": []
+      },
+      "scope": "check:pilot",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_658a85_authored_sieve_residue_bal_g6_6_4_w",
+      "ts": "2026-10-17T16:42:29Z",
+      "cycle_id": "20261017T164207Z_658a85",
+      "type": "keep",
+      "decision": "keep",
+      "check": "lemma_microbench",
+      "mutation": "authored_sieve_residue_bal_g6_6_4_w1",
+      "what": "Kept `authored_sieve_residue_bal_g6_6_4_w1` (hard_enable): lemma score 0.8664\u21920.8657 checks 202\u2192203 hard_pass 192\u2192193 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 192->193 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
+      "source": "conjecture_desk",
+      "family": "hard_enable",
+      "before_score": 0.8664,
+      "after_score": 0.8657,
+      "skill_bias": {
+        "geometer.gather": 0.08,
+        "improver.improve": 0.06,
+        "spark.emergence": 0.04
+      },
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "lemma",
+        "hard_enable",
+        "keep"
+      ],
+      "evidence": [
+        "society/benchmarks/lemma_microbench.py",
+        "artifacts:lemma_impl",
+        "lesson:les_Z_1a4ec1_authored_sieve_residue_bal_g6_6_4_w"
+      ],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261017T164207Z_658a85",
+        "check": "lemma_microbench",
+        "evidence": [
+          "society/benchmarks/lemma_microbench.py",
+          "artifacts:lemma_impl",
+          "lesson:les_Z_1a4ec1_authored_sieve_residue_bal_g6_6_4_w"
+        ]
+      },
+      "scope": "mutation:authored_sieve_residue_bal_g6_6_4_w1",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `authored_sieve_residue_bal_g6_6_4_w1` contradicts decision=keep"
+    },
+    {
+      "id": "les_Z_658a85_vandermonde",
+      "ts": "2026-10-17T16:42:31Z",
+      "cycle_id": "20261017T164207Z_658a85",
+      "type": "skip",
+      "decision": "skip",
+      "check": "oracle_seen_claim",
+      "mutation": "vandermonde",
+      "what": "skip re-oracle of vandermonde:1706.03762",
+      "source": "claim_pipeline",
+      "family": "novelty",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "vandermonde:1706.03762",
+      "tags": [
+        "repeat_claim"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "claim_pipeline",
+        "cycle_id": "20261017T164207Z_658a85",
+        "check": "oracle_seen_claim",
+        "evidence": []
+      },
+      "scope": "mutation:vandermonde",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_658a85_pilot",
+      "ts": "2026-10-17T16:42:38Z",
+      "cycle_id": "20261017T164207Z_658a85",
+      "type": "skip",
+      "decision": "skip",
+      "check": "pilot",
+      "mutation": "",
+      "what": "empty rsi_bias pilot suppressed",
+      "source": "pilot_lane",
+      "family": "rsi",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "empty_rsi_bias"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "pilot_lane",
+        "cycle_id": "20261017T164207Z_658a85",
         "check": "pilot",
         "evidence": []
       },

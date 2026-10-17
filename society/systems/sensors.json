@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-17T16:36:58Z",
-  "cycle_id": "20261017T163657Z_dfaa7b",
+  "ts": "2026-10-17T16:42:08Z",
+  "cycle_id": "20261017T164207Z_658a85",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -8,27 +8,6 @@
       "newton_identities": 1
     },
     "recent": {
-      "cayley_tree_count": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_residue_bal_g4_6_2_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "cycle_spanning_trees": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_sieve_residue_bal_g4_6_6_w1": {
         "last": "keep",
         "streak": 1,
@@ -91,59 +70,79 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "polynomial_remainder": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_sieve_residue_bal_g6_6_2_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "telescoping_sum": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8461,
-      "slope": 4.3e-05,
-      "min": 0.845,
+      "last": 0.8453,
+      "slope": -0.000357,
+      "min": 0.8429,
       "max": 0.8513
     },
     "novelty": {
       "last": 0.8966,
-      "slope": 0.001501,
+      "slope": -0.004223,
       "min": 0.8966,
       "max": 0.9667
     },
     "kill_rate": {
-      "last": 0.3254,
-      "slope": -0.000554,
-      "min": 0.3248,
-      "max": 0.3308
+      "last": 0.3236,
+      "slope": -0.000466,
+      "min": 0.3236,
+      "max": 0.329
     },
     "kill_rate_term": {
-      "last": 0.8429,
-      "slope": -0.000501,
-      "min": 0.8423,
-      "max": 0.8478
+      "last": 0.8413,
+      "slope": -0.000414,
+      "min": 0.8413,
+      "max": 0.8461
     },
     "lesson_uptake": {
-      "last": 0.66,
-      "slope": -0.001888,
+      "last": 0.6,
+      "slope": -0.004406,
       "min": 0.6,
       "max": 0.66
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0063,
-    "novelty_max": 0.9667,
+    "aggregate_range": 0.0069,
+    "novelty_max": 0.9333,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 199,
+    "enabled": 202,
     "disabled": [
       "abel_summation",
       "adversarial_vandermonde_asymmetric",
+      "authored_sieve_residue_bal_g6_6_4_w1",
       "burnside_necklaces",
       "faulhaber_power_sums",
-      "lagrange_cyclic_orders",
-      "polynomial_remainder",
-      "telescoping_sum"
+      "lagrange_cyclic_orders"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -248,6 +247,8 @@
       "authored_sieve_residue_bal_g4_6_w1",
       "authored_sieve_residue_bal_g6_2_4_w1",
       "authored_sieve_residue_bal_g6_4_6_w1",
+      "authored_sieve_residue_bal_g6_6_2_w1",
+      "authored_sieve_residue_bal_g6_6_4_w1",
       "authored_sieve_residue_bal_g6_6_6_w1",
       "authored_sieve_residue_bal_g6_6_w1",
       "authored_sieve_two_counter_g2_4_2_w1",
@@ -293,23 +294,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.232,
+      "ratio": 0.689,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.266,
+      "ratio": 0.686,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.31,
+      "ratio": 0.705,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.374,
+      "ratio": 0.743,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.08,
+      "ratio": 0.732,
       "drift": false
     }
   },
@@ -317,11 +318,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 81400003,
-      "collatz_descent": 95800000,
+      "collatz_descent": 99000000,
       "legendre_square_gap": 540607,
       "lehmer_totient": 32600001,
-      "erdos_straus": 589951,
-      "twin_primes_hl": 118200000,
+      "erdos_straus": 599951,
+      "twin_primes_hl": 122200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -333,16 +334,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4911,
+        "challenged": 4908,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 89,
+        "challenged": 92,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 84,
+    "post_challenger_oracle_judged": 87,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -371,18 +372,18 @@
     "last": [
       [
         null,
+        "2026-10-17T16:39:00Z"
+      ],
+      [
+        "success",
         "2026-10-17T16:32:33Z"
       ],
       [
         "success",
         "2026-10-17T16:27:51Z"
-      ],
-      [
-        "success",
-        "2026-10-17T16:22:07Z"
       ]
     ],
-    "fetched_at": "2026-10-17T16:32:57Z"
+    "fetched_at": "2026-10-17T16:39:20Z"
   },
   "feeds": {
     "by_source": {
@@ -430,7 +431,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T16:32:56Z"
+      "ts": "2026-10-17T16:39:20Z"
     },
     "health": {
       "arxiv": {

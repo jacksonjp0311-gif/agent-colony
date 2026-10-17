@@ -401,3 +401,6 @@
 {"ts": "2026-10-17T16:35:08Z", "cycle_id": "20261017T163420Z_0bada5", "kind": "memory_drift", "drift": 0.072415, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
 {"ts": "2026-10-17T16:36:26Z", "cycle_id": "20261017T163545Z_b95580", "kind": "memory_drift", "drift": 0.07282, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
 {"ts": "2026-10-17T16:37:37Z", "cycle_id": "20261017T163657Z_dfaa7b", "kind": "memory_drift", "drift": 0.072366, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-10-17T16:40:42Z", "cycle_id": "20261017T164012Z_398d31", "kind": "memory_drift", "drift": 0.072624, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-10-17T16:41:39Z", "cycle_id": "20261017T164110Z_1a4ec1", "kind": "memory_drift", "drift": 0.072931, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-10-17T16:42:38Z", "cycle_id": "20261017T164207Z_658a85", "kind": "memory_drift", "drift": 0.072636, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}

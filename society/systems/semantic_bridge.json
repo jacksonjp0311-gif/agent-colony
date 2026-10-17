@@ -1,7 +1,7 @@
 {
   "version": 1,
   "totals": {
-    "ok": 32
+    "ok": 34
   },
   "rows": [
     {
@@ -483,8 +483,38 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_residue_bal_g6_6_2_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "residue_bal",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-17T16:40:30Z",
+      "cycle_id": "20261017T164012Z_398d31",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_residue_bal_g6_6_4_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "residue_bal",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-17T16:42:27Z",
+      "cycle_id": "20261017T164207Z_658a85",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-17T16:36:13Z",
+  "updated_at": "2026-10-17T16:42:27Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }
