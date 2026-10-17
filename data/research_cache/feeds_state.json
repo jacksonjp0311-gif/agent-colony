@@ -1,15 +1,31 @@
 {
   "ci_health": {
-    "completed": 11,
-    "fetched_at": "2026-10-16T23:50:54Z",
+    "completed": 10,
+    "fetched_at": "2026-10-17T01:17:28Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-17T01:16:41Z",
+        "id": 38990161521,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-17T01:16:58Z"
+      },
+      {
+        "conclusion": null,
+        "created_at": "2026-10-16T23:53:41Z",
+        "id": 38983770983,
+        "name": "A104062 shards",
+        "status": "queued",
+        "updated_at": "2026-10-16T23:53:56Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-16T23:50:34Z",
         "id": 38983514453,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-16T23:50:38Z"
+        "status": "completed",
+        "updated_at": "2026-10-16T23:52:18Z"
       },
       {
         "conclusion": "success",
@@ -82,25 +98,9 @@
         "name": "A104062 shards",
         "status": "completed",
         "updated_at": "2026-10-16T21:23:47Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-16T20:55:28Z",
-        "id": 38965729478,
-        "name": "A104062 shards",
-        "status": "completed",
-        "updated_at": "2026-10-16T20:56:37Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-16T20:31:37Z",
-        "id": 38962875875,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-16T20:36:37Z"
       }
     ],
-    "success_rate": 0.9091
+    "success_rate": 0.9
   },
   "health": {
     "arxiv": {
@@ -109,19 +109,19 @@
     },
     "crossref": {
       "fail": 0,
-      "ok": 30
+      "ok": 31
     },
     "oeis": {
       "fail": 0,
-      "ok": 30
+      "ok": 31
     },
     "oeis_conj": {
       "fail": 1,
-      "ok": 26
+      "ok": 27
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 30
+      "ok": 31
     }
   },
   "last_error": {
@@ -130,10 +130,10 @@
   },
   "last_ok": {
     "arxiv": "2026-10-16T21:30:27Z",
-    "crossref": "2026-10-16T20:32:14Z",
-    "oeis": "2026-10-16T20:32:12Z",
-    "oeis_conj": "2026-10-16T20:32:14Z",
-    "wikipedia": "2026-10-16T20:32:17Z"
+    "crossref": "2026-10-17T01:17:27Z",
+    "oeis": "2026-10-17T01:17:26Z",
+    "oeis_conj": "2026-10-17T01:17:27Z",
+    "wikipedia": "2026-10-17T01:17:28Z"
   },
   "last_run": {
     "sources": {
@@ -147,27 +147,31 @@
         "ok": true
       },
       "crossref": {
+        "error": "",
+        "fetched": 3,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis": {
+        "error": "",
+        "fetched": 2,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis_conj": {
+        "error": "",
+        "fetched": 4,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "wikipedia": {
+        "error": "",
+        "fetched": 0,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       }
     },
-    "ts": "2026-10-16T23:50:53Z"
+    "ts": "2026-10-17T01:17:24Z"
   },
-  "runs": 58
+  "runs": 59
 }

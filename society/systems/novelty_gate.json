@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated_at": "2026-10-16T23:51:24Z",
-  "hits": 19,
-  "kills": 11,
+  "updated_at": "2026-10-17T01:18:56Z",
+  "hits": 18,
+  "kills": 12,
   "latest": {
-    "ts": "2026-10-16T23:51:24Z",
+    "ts": "2026-10-17T01:18:56Z",
     "cycle_id": "",
-    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 338)",
+    "mutation": "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 340)",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
@@ -24,7 +24,7 @@
       "hard_pass": 111,
       "hard_n": 111,
       "stripped_fails_usefulness": false,
-      "score": 0.9071,
+      "score": 0.9024,
       "impl_id": "lemma_impl_v2_basic10_hard111"
     },
     "held_out": {
