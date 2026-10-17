@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T02:38:11Z",
-  "updated_cycle": "20261017T023729Z_2bd232",
+  "updated_at": "2026-10-17T02:43:56Z",
+  "updated_cycle": "20261017T024304Z_dce000",
   "signal": {
-    "ts": "2026-10-17T02:38:11Z",
+    "ts": "2026-10-17T02:43:56Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 85,
+    "accepted_compute": 87,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_c5c17433797a",
-        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_convolution__euler_totient_multiplicative_w1"
+        "finding_id": "fnd_a8472e778aae",
+        "title": "Authorize accepted: Lemma mutation keep: authored_gcd_fibonacci__hermite_recurrence_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,20 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_a8472e778aae",
-        "title": "Authorize accepted: Lemma mutation keep: authored_gcd_fibonacci__hermite_recurre",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_1f2bab67298a",
-        "title": "Authorize accepted: Lemma mutation keep: authored_hockey_stick__narayana_sum_w1",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_976078a58c74",
         "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__sum_first_n_c",
         "topic_id": "compute-useful-math",
@@ -92,6 +78,20 @@
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
+      },
+      {
+        "id": "fnd_a27a42ac870e",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_w2",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_8201f16e562b",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g4_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
       }
     ],
     "persona_mandates": {
@@ -108,18 +108,6 @@
       "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
     },
     "lessons": [
-      {
-        "id": "fnd_a8472e778aae",
-        "title": "Authorize accepted: Lemma mutation keep: authored_gcd_fibonacci__hermite_recurrence_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_1f2bab67298a",
-        "title": "Authorize accepted: Lemma mutation keep: authored_hockey_stick__narayana_sum_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
       {
         "id": "fnd_976078a58c74",
         "title": "Authorize accepted: Lemma mutation keep: authored_pascal_identity__sum_first_n_cubes_w1",
@@ -143,19 +131,31 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_a27a42ac870e",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_w2",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_8201f16e562b",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g4_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_c5c17433797a",
-        "fnd_94a398562ca7",
         "fnd_a8472e778aae",
         "fnd_1f2bab67298a",
         "fnd_976078a58c74",
         "fnd_42a7520dda1b",
         "fnd_aaee4865426b",
-        "fnd_a4be22455457"
+        "fnd_a4be22455457",
+        "fnd_a27a42ac870e",
+        "fnd_8201f16e562b"
       ],
       "rsi": []
     },

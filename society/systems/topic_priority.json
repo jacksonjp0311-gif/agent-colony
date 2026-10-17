@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_c5c17433797a",
-      "title": "Authorize accepted: Lemma mutation keep: authored_catalan_convolution__euler_totient_multiplicative_w1"
+      "finding_id": "fnd_a8472e778aae",
+      "title": "Authorize accepted: Lemma mutation keep: authored_gcd_fibonacci__hermite_recurrence_w1"
     },
     {
       "topic": "open-math-problems",
@@ -66,6 +66,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.1007/s10801-026-01585-w>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -77,11 +82,6 @@
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T02:37:52Z",
-  "updated_cycle": "20261017T023729Z_2bd232",
+  "updated_at": "2026-10-17T02:43:37Z",
+  "updated_cycle": "20261017T024304Z_dce000",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
