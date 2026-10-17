@@ -1573,6 +1573,24 @@ def check_authored_catalan_bounded__euler_totient_multiplicative_w1() -> bool:
     return all((check_catalan_bounded(n) for n in range(12, 18))) and all((check_euler_totient_multiplicative(a, b) for a in range(16, 23) for b in range(16, 23)))
 
 
+def check_authored_sieve_hl_within_g2_4_6_w1() -> bool:
+    """Authored instrument check (desk): count of consecutive pattern (2, 4, 6) on each window is within 4.0*sqrt of the HL forecast.
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((2, 4, 6), a, b)) is int and type(h := sieve_hl((2, 4, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
+def check_authored_sieve_residue_bal_g2_6_4_w1() -> bool:
+    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (2, 6, 4) are balanced within 4.0*sqrt(total).
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(x := sieve_count((2, 6, 4), a, b, 4, 1)) is int and type(y := sieve_count((2, 6, 4), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1753,6 +1771,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_binomial_symmetry__central_binom_bound_w1", check_authored_binomial_symmetry__central_binom_bound_w1, True),
     ("authored_cassini__bell_triangle_recurrence_w1", check_authored_cassini__bell_triangle_recurrence_w1, True),
     ("authored_catalan_bounded__euler_totient_multiplicative_w1", check_authored_catalan_bounded__euler_totient_multiplicative_w1, True),
+    ("authored_sieve_hl_within_g2_4_6_w1", check_authored_sieve_hl_within_g2_4_6_w1, True),
+    ("authored_sieve_residue_bal_g2_6_4_w1", check_authored_sieve_residue_bal_g2_6_4_w1, False),
 ]
 
 

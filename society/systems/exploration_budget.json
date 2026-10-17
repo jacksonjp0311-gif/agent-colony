@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-17T08:57:20Z",
+  "ts": "2026-10-17T09:07:58Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261017T085643Z_a4ff3a"
+    "cycle_id": "20261017T090716Z_c0c077"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 309,
+  "last_oracle_passes": 310,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-16T23:51:53Z",
-      "cycle_id": "20261016T235115Z_5ce7b3",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-17T01:18:43Z",
-      "cycle_id": "20261017T011757Z_720a01",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-17T01:19:25Z",
-      "cycle_id": "20261017T011844Z_eb54f7",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-10-17T01:20:09Z",
       "cycle_id": "20261017T011926Z_2282aa",
@@ -289,46 +268,58 @@
       "event": "credit",
       "delta_pass": 1.0,
       "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-17T09:06:28Z",
+      "cycle_id": "20261017T090544Z_de233e",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-17T09:07:14Z",
+      "cycle_id": "20261017T090630Z_985c46",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-17T09:08:01Z",
+      "cycle_id": "20261017T090716Z_c0c077",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-10-17T08:57:22Z",
+  "updated_at": "2026-10-17T09:08:01Z",
   "mutate_distribution": {
-    "vandermonde_conv": 0.031727,
-    "hockey_stick": 0.031727,
-    "cassini": 0.031727,
-    "binomial_sum_row": 0.031727,
-    "fibonacci_addition": 0.031727,
-    "catalan_bounded": 0.031727,
-    "lucas_addition": 0.031727,
-    "central_binom_bound": 0.031727,
-    "pell_companion": 0.031727,
-    "gcd_fibonacci": 0.031727,
-    "stirling_second_row": 0.031727,
-    "pythagorean_generation": 0.031727,
-    "motzkin_bounded": 0.031727,
-    "derangement_subfactorial": 0.031727,
-    "narayana_sum": 0.031727,
-    "euler_totient_multiplicative": 0.031727,
-    "bell_triangle_recurrence": 0.031727,
-    "hermite_recurrence": 0.031727,
-    "binomial_inversion_small": 0.031727,
-    "legendre_duplication_small": 0.031727,
-    "stem_easy_pad_units": 0.031727,
-    "easy_pad_assoc_add": 0.001,
-    "easy_pad_zero_identity": 0.001,
-    "easy_pad_square_again": 0.001,
-    "easy_pad_diff_squares": 0.001,
-    "easy_pad_commutativity": 0.001,
-    "easy_pad_abs_identity": 0.001,
-    "workload_derived_chain": 0.033614,
-    "catalan_convolution": 0.033614,
-    "lagrange_identity": 0.033614,
-    "vandermonde_asymmetric": 0.033614,
-    "binomial_hockey_deep": 0.033614,
-    "fibonacci_cassini_ext": 0.033614,
-    "derived_chain_stress": 0.033614,
-    "energy_work": 0.033614,
-    "authored_sieve_hl_within_g2_w2": 0.058824
+    "vandermonde_conv": 0.047249,
+    "hockey_stick": 0.047249,
+    "cassini": 0.047249,
+    "binomial_sum_row": 0.047249,
+    "fibonacci_addition": 0.047249,
+    "catalan_bounded": 0.047249,
+    "lucas_addition": 0.047249,
+    "central_binom_bound": 0.047249,
+    "pell_companion": 0.047249,
+    "gcd_fibonacci": 0.047249,
+    "stirling_second_row": 0.047249,
+    "pythagorean_generation": 0.047249,
+    "motzkin_bounded": 0.047249,
+    "derangement_subfactorial": 0.047249,
+    "narayana_sum": 0.047249,
+    "euler_totient_multiplicative": 0.047249,
+    "bell_triangle_recurrence": 0.047249,
+    "hermite_recurrence": 0.047249,
+    "binomial_inversion_small": 0.047249,
+    "legendre_duplication_small": 0.047249,
+    "stem_easy_pad_units": 0.047249,
+    "easy_pad_assoc_add": 0.001295,
+    "easy_pad_zero_identity": 0.001295,
+    "easy_pad_square_again": 0.001295,
+    "easy_pad_diff_squares": 0.001295,
+    "easy_pad_commutativity": 0.001295,
+    "easy_pad_abs_identity": 0.001295
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -419,7 +410,8 @@
     "authored_binomial_symmetry__central_binom_bound_w1": 1,
     "authored_cassini__bell_triangle_recurrence_w1": 1,
     "authored_catalan_bounded__euler_totient_multiplicative_w1": 1,
-    "authored_sieve_hl_within_g2_w2": 1
+    "authored_sieve_hl_within_g2_w2": 1,
+    "authored_sieve_hl_within_g2_4_6_w1": 1
   },
   "charter_inform": {
     "bias": {

@@ -1,9 +1,8 @@
 {
-  "ts": "2026-10-17T08:56:44Z",
-  "cycle_id": "20261017T085643Z_a4ff3a",
+  "ts": "2026-10-17T09:07:17Z",
+  "cycle_id": "20261017T090716Z_c0c077",
   "lemma_streaks": {
     "revert_streaks": [
-      "authored_sieve_hl_within_g2_w2",
       "authored_sieve_two_counter_g2_w1",
       "easy_pad_assoc_add",
       "easy_pad_diff_squares",
@@ -19,13 +18,6 @@
       "authored_sieve_hl_within_g2_w2": 2
     },
     "recent": {
-      "authored_sieve_residue_bal_g2_4_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_sieve_two_counter_g2_6_w1": {
         "last": "keep",
         "streak": 1,
@@ -102,54 +94,60 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_sieve_hl_within_g2_4_6_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8628,
-      "slope": 0.001868,
-      "min": 0.8376,
+      "last": 0.8576,
+      "slope": 0.002687,
+      "min": 0.8386,
       "max": 0.8653
     },
     "novelty": {
       "last": 0.8571,
-      "slope": 0.011978,
-      "min": 0.7222,
+      "slope": 0.011951,
+      "min": 0.7368,
       "max": 0.8571
     },
     "kill_rate": {
-      "last": 0.3649,
-      "slope": -5.7e-05,
-      "min": 0.3646,
+      "last": 0.3634,
+      "slope": -0.000169,
+      "min": 0.3634,
       "max": 0.3672
     },
     "kill_rate_term": {
-      "last": 0.8785,
-      "slope": -5.1e-05,
-      "min": 0.8781,
+      "last": 0.8771,
+      "slope": -0.000149,
+      "min": 0.8771,
       "max": 0.8805
     },
     "lesson_uptake": {
-      "last": 0.96,
-      "slope": 0.002308,
+      "last": 0.9,
+      "slope": -0.005664,
       "min": 0.9,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0243,
+    "aggregate_range": 0.0233,
     "novelty_max": 0.8571,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 138,
+    "enabled": 140,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
-      "authored_sieve_hl_within_g2_w2",
       "authored_sieve_two_counter_g2_w1"
     ],
     "authored": [
@@ -224,6 +222,7 @@
       "authored_pell_companion__motzkin_bounded_w1",
       "authored_pell_companion__pythagorean_generation_w1",
       "authored_pythagorean_generation__narayana_sum_w1",
+      "authored_sieve_hl_within_g2_4_6_w1",
       "authored_sieve_hl_within_g2_w1",
       "authored_sieve_hl_within_g2_w2",
       "authored_sieve_hl_within_g4_2_w1",
@@ -251,7 +250,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 5
+    "exhausted_recent": 4
   },
   "guides": {
     "n_guides": 17,
@@ -265,23 +264,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.75,
-      "drift": false
+      "ratio": 1.506,
+      "drift": true
     },
     "fft_stress_microbench": {
-      "ratio": 0.71,
-      "drift": false
+      "ratio": 1.514,
+      "drift": true
     },
     "autodiff_microbench": {
-      "ratio": 0.762,
+      "ratio": 1.463,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.822,
+      "ratio": 1.486,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.727,
+      "ratio": 1.344,
       "drift": false
     }
   },
@@ -289,11 +288,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 43000003,
-      "collatz_descent": 57400000,
+      "collatz_descent": 60600000,
       "legendre_square_gap": 348607,
       "lehmer_totient": 16600001,
-      "erdos_straus": 469951,
-      "twin_primes_hl": 70200000,
+      "erdos_straus": 479951,
+      "twin_primes_hl": 74200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -305,16 +304,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4972,
+        "challenged": 4970,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 28,
+        "challenged": 30,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 23,
+    "post_challenger_oracle_judged": 25,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -343,18 +342,18 @@
     "last": [
       [
         null,
+        "2026-10-17T09:04:41Z"
+      ],
+      [
+        "success",
         "2026-10-17T08:54:27Z"
       ],
       [
         "success",
         "2026-10-17T04:45:43Z"
-      ],
-      [
-        "success",
-        "2026-10-17T03:59:09Z"
       ]
     ],
-    "fetched_at": "2026-10-17T08:54:53Z"
+    "fetched_at": "2026-10-17T09:05:04Z"
   },
   "feeds": {
     "by_source": {
@@ -373,41 +372,36 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 5,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 7,
-          "new": 1,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T08:54:45Z"
+      "ts": "2026-10-17T09:05:04Z"
     },
     "health": {
       "arxiv": {
@@ -433,8 +427,9 @@
     }
   },
   "signals": [
-    "revert_streaks: authored_sieve_hl_within_g2_w2, authored_sieve_two_counter_g2_w1, easy_pad_assoc_add, easy_pad_diff_squares → deprioritize in seek",
+    "revert_streaks: authored_sieve_two_counter_g2_w1, easy_pad_assoc_add, easy_pad_diff_squares, easy_pad_square_again → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
+    "bench_timing_drift: fft_microbench, fft_stress_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

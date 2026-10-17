@@ -426,82 +426,85 @@
     "cycle_374_evolve_note",
     "cycle_375_evolve_note",
     "cycle_376_evolve_note",
-    "cycle_377_evolve_note"
+    "cycle_377_evolve_note",
+    "cycle_378_evolve_note",
+    "cycle_379_evolve_note",
+    "cycle_380_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1081,
+      "uses": 1090,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1053,
+      "uses": 1062,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 723,
+      "uses": 729,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 361,
+      "uses": 364,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1401,
+      "uses": 1413,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 753,
+      "uses": 756,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1048,
+      "uses": 1057,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 349,
+      "uses": 352,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 349,
+      "uses": 352,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 334,
+      "uses": 337,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 334,
+      "uses": 337,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 331,
+      "uses": 334,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 331,
+      "uses": 334,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 328,
+      "uses": 331,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 328,
+      "uses": 331,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -776,8 +779,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1400,
-    "reused": 3145
+    "appended": 1412,
+    "reused": 3172
   },
   "commons_by_domain": {
     "science": 0,
@@ -796,8 +799,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-17T08:57:22Z",
-    "cycle_id": "20261017T085643Z_a4ff3a",
+    "ts": "2026-10-17T09:08:01Z",
+    "cycle_id": "20261017T090716Z_c0c077",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -809,23 +812,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-17T08:57:21Z",
-    "cycle_id": "20261017T085643Z_a4ff3a",
+    "ts": "2026-10-17T09:07:59Z",
+    "cycle_id": "20261017T090716Z_c0c077",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8254,
-    "compute_usefulness": 0.9264,
+    "math_prize": 0.809,
+    "compute_usefulness": 0.9078,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8957,
-    "kill_rate": 0.3642,
-    "kill_rate_term": 0.8778,
-    "novelty": 0.85,
+    "prize_boost": 0.8818,
+    "kill_rate": 0.3634,
+    "kill_rate_term": 0.8771,
+    "novelty": 0.8571,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8639,
+    "aggregate": 0.862,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -833,33 +836,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 19662,
-    "read": 93858,
-    "replied": 12382,
-    "actions_planned": 6402,
-    "actions_changed_from_message": 6402,
-    "reply_quality_sum": 11243.399999998199,
-    "reply_quality_n": 12330,
-    "peer_cite_opportunities": 12680,
-    "peer_cites": 12680
+    "posted": 19828,
+    "read": 94650,
+    "replied": 12487,
+    "actions_planned": 6456,
+    "actions_changed_from_message": 6456,
+    "reply_quality_sum": 11339.09999999817,
+    "reply_quality_n": 12435,
+    "peer_cite_opportunities": 12788,
+    "peer_cites": 12788
   },
   "bus_domains": {
-    "science": 1043,
-    "history": 1045,
-    "math": 3144,
-    "empire": 699,
-    "bulletin": 2687,
-    "forum": 4537,
-    "software": 1045,
-    "nature": 1043,
-    "life": 1045,
-    "cosmos": 1517,
-    "rsi": 1749
+    "science": 1052,
+    "history": 1054,
+    "math": 3171,
+    "empire": 705,
+    "bulletin": 2708,
+    "forum": 4575,
+    "software": 1054,
+    "nature": 1052,
+    "life": 1054,
+    "cosmos": 1531,
+    "rsi": 1764
   },
-  "communications_count": 19662,
+  "communications_count": 19828,
   "improvements": [
-    "Chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors (cycle 334)",
-    "Chain `authored_sum_first_n_odds__binomial_inversion_small_w1` citing The fundamental role of generating functions for g",
     "Chain `authored_sum_first_n_odds__binomial_inversion_small_w1` citing The fundamental role of generating functions for g (cycle 336)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 338)",
     "Feed accepted/strong RSI findings into skill_router + genome bias (cycle 340)",
@@ -907,18 +908,20 @@
     "Chain `authored_cassini__bell_triangle_recurrence_w1` citing On two families of generalized Stirling numbers re",
     "Chain `authored_cassini__bell_triangle_recurrence_w1` citing On two families of generalized Stirling numbers re (cycle 374)",
     "Chain `authored_catalan_bounded__euler_totient_multiplicative_w1` citing Lattice Points and Rational q-Catalan Numbers",
-    "Chain `authored_catalan_bounded__euler_totient_multiplicative_w1` citing Lattice Points and Rational q-Catalan Numbers (cycle 376)"
+    "Chain `authored_catalan_bounded__euler_totient_multiplicative_w1` citing Lattice Points and Rational q-Catalan Numbers (cycle 376)",
+    "Chain+seek `authored_sieve_hl_within_g2_4_6_w1` from invariant priors",
+    "Chain+seek `authored_sieve_hl_within_g2_4_6_w1` from invariant priors (cycle 379)"
   ],
-  "cycle_count": 377,
-  "ledger_count": 21117,
+  "cycle_count": 380,
+  "ledger_count": 21293,
   "status_counts": {
-    "candidate": 20384,
-    "accepted": 247,
-    "rejected": 360,
+    "candidate": 20555,
+    "accepted": 250,
+    "rejected": 362,
     "unknown": 126
   },
-  "witness_events": 30675,
-  "tribute_cycles_compliant": 377,
+  "witness_events": 30935,
+  "tribute_cycles_compliant": 380,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
