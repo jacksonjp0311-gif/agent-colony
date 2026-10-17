@@ -204,7 +204,20 @@ def build(*, proposals: list[dict[str, Any]], oracle_rows: list[dict[str, Any]],
             continue
         seen.add(p["id"])
         evals.append(evaluate(p, oracle_rows=oracle_rows, novelty_rows=novelty_rows,
-                              athanor_rows=athanor_rows or [], **kw))
+                              athanor_rows=athanor_rows or [], **{k: v for k, v in kw.items() if k != "oeis"}))
+    hunt = None
+    try:  # REPORT-ONLY hunt shadow: adds e["hunt"]; never changes P, rank or the bar
+        from colony.hunt_shadow import annotate, enabled as _hunt_on, summarize
+        if _hunt_on():
+            annotate(evals, oracle_rows=oracle_rows, oeis=kw.get("oeis"))
+            hunt = summarize(evals, oracle_rows=oracle_rows)
+            allsh = sorted([e for e in evals if e["hunt"]["rank_shadow"] is not None],
+                           key=lambda e: (-(e["hunt"]["rank_shadow"] or 0), e["id"]))
+            spos = {e["id"]: i for i, e in enumerate(allsh, 1)}
+            for e in evals:
+                e["hunt"]["shadow_pos"] = spos.get(e["id"])
+    except Exception:  # noqa: BLE001
+        hunt = None
     ok = sorted([e for e in evals if e["meets_bar"]], key=lambda e: (-e["rank"], -(e["P"] or 0), e["id"]))
     groups: dict[str, dict[str, Any]] = {}
     for e in ok:
@@ -229,7 +242,7 @@ def build(*, proposals: list[dict[str, Any]], oracle_rows: list[dict[str, Any]],
     return {"ts": _utc(), "view_only": True, "n_considered": len(evals), "n_meet_bar": len(ok),
             "n_groups": len(allg), "n_authored_groups": len(ranked),
             "n_building_block_groups": len(blocks), "top": ranked[:top_n],
-            "building_blocks_enabled": blocks[:top_n], "excluded_reasons": reasons,
+            "building_blocks_enabled": blocks[:top_n], "hunt_shadow": hunt, "excluded_reasons": reasons,
             "rule": {"P_min": P_MIN, "novelty_kill": NOVELTY_KILL, "rank": f"{W_P}*P + {W_NOV}*novelty + {W_BUILD}*builds_on",
                      "building_blocks": "novelty=0 for ranking; listed separately"},
             "note": "View only. Does not authorize or change anything. Only James authorizes."}
@@ -244,17 +257,24 @@ def _et(ts: str) -> str:
         return ts
 
 
+def _shadow_cell(g: dict[str, Any]) -> str:
+    h = g.get("hunt") or {}
+    if not h:
+        return "–"
+    return f"{h.get('shadow_pos') or '–'} ({h.get('P_shadow')}{'' if h.get('meets_bar_shadow') else ', below bar'})"
+
+
 def to_markdown(sl: dict[str, Any]) -> str:
     lines = [f"# Proposal shortlist — {_et(sl['ts'])}", "",
              "View only: nothing here is authorized. Only James authorizes.", "",
              f"{sl['n_meet_bar']} of {sl['n_considered']} proposals meet the authorize bar "
              f"({sl['n_groups']} after grouping near-duplicates; {sl.get('n_authored_groups', sl['n_groups'])} "
              f"colony-authored, {sl.get('n_building_block_groups', 0)} building blocks). Rank = {sl['rule']['rank']}.", "",
-             "| # | Proposal | P | Novelty | Builds on | Athanor | Similar | What it is |",
-             "|---|---|---:|---:|---:|---|---:|---|"]
+             "| # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |",
+             "|---|---|---:|---:|---:|---|---:|---|---|"]
     for g in sl["top"]:
         lines.append(f"| {g['position']} | {g['id']} | {g['P']} | {g['novelty']} | {g['builds_on']} | "
-                     f"{g['athanor_verdict'] or 'n/a yet'} | {g['group_count']} | {g['line']} |")
+                     f"{g['athanor_verdict'] or 'n/a yet'} | {g['group_count']} | {_shadow_cell(g)} | {g['line']} |")
     if not sl["top"]:
         lines.append("| – | no colony-authored proposal meets the bar this cycle | | | | | | |")
     bbs = sl.get("building_blocks_enabled") or []
@@ -263,12 +283,28 @@ def to_markdown(sl: dict[str, Any]) -> str:
               "They meet the bar but are not novel: novelty counts as 0 for ranking and they are kept out "
               "of the top list above.", ""]
     if bbs:
-        lines += ["| # | Proposal | P | Kind | Athanor | Similar | What it is |", "|---|---|---:|---|---|---:|---|"]
+        lines += ["| # | Proposal | P | Kind | Athanor | Similar | Shadow # (P) | What it is |",
+                  "|---|---|---:|---|---|---:|---|---|"]
         for g in bbs:
             lines.append(f"| {g['position']} | {g['id']} | {g['P']} | {g['building_block']} | "
-                         f"{g['athanor_verdict'] or 'n/a yet'} | {g['group_count']} | {g['line']} |")
+                         f"{g['athanor_verdict'] or 'n/a yet'} | {g['group_count']} | {_shadow_cell(g)} | {g['line']} |")
     else:
         lines.append("None this cycle.")
+    h = sl.get("hunt_shadow")
+    if h:
+        lines += ["", "## Hunt shadow (view only — would-be ranking if the unknown were rewarded)", "",
+                  f"Rules in colony/hunt_shadow.py. Would meet the bar: {h['n_meet_bar_shadow']} "
+                  f"(actual {h['n_meet_bar_actual']}). Unknown claims (Oracle-surviving, not textbook, not in "
+                  f"OEIS): {h['n_unknown_claims']} ({h['n_unknown_oeis_unchecked']} with OEIS unchecked). "
+                  f"Would drop out of the bar: {len(h['drop_out_of_bar'])}; would enter: {len(h['enter_bar'])}.", "",
+                  "| Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |",
+                  "|---:|---|---|---|---|---|---:|---:|"]
+        for m in h["top_shadow"]:
+            lines.append(f"| {m['shadow_pos']} | {m['id']} | `{m['target']}` | {m['P']} → {m['P_shadow']} | "
+                         f"{'meets' if m['meets_bar_shadow'] else 'below'} | {'yes' if m['unknown'] else 'no'} | "
+                         f"{m['expected']} | {m['actual_pos'] or '–'} |")
+        if not h["top_shadow"]:
+            lines.append("| – | no proposal clears the non-P bar conditions | | | | | | |")
     lines += ["", "Excluded (reason: count): " + (", ".join(f"{k}: {v}" for k, v in
                                                        sorted(sl["excluded_reasons"].items())) or "none"), ""]
     return "\n".join(lines)
@@ -286,6 +322,14 @@ def write(cycle_id: str = "", **kw: Any) -> dict[str, Any] | None:
         sl = build(proposals=props, oracle_rows=_jsonl(ORACLE_LOG), novelty_rows=_jsonl(NOVELTY_LOG),
                    athanor_rows=ath, **kw)
         sl["cycle_id"] = cycle_id
+        if sl.get("hunt_shadow"):
+            try:
+                from colony.hunt_shadow import near_misses, record
+                sl["hunt_shadow"]["cycle_id"] = cycle_id
+                sl["hunt_shadow"]["near_misses"] = near_misses(_jsonl(ORACLE_LOG), cycle_id)
+                record(sl["hunt_shadow"])
+            except Exception:  # noqa: BLE001
+                pass
         OUT_DIR.mkdir(parents=True, exist_ok=True)
         (OUT_DIR / "SHORTLIST.json").write_text(json.dumps(sl, indent=2) + "\n", encoding="utf-8")
         (OUT_DIR / "SHORTLIST.md").write_text(to_markdown(sl), encoding="utf-8")
