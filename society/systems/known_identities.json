@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T04:48:47Z",
+  "updated_at": "2026-10-17T08:56:54Z",
   "n": 239,
   "identities": [
     "adversarial_cassini_ext",
@@ -31,6 +31,7 @@
     "authored_cassini__derangement_subfactorial_w1",
     "authored_catalan_bounded__binomial_inversion_small_w1",
     "authored_catalan_bounded__catalan_convolution_w1",
+    "authored_catalan_bounded__euler_totient_multiplicative_w1",
     "authored_catalan_convolution__derangement_subfactorial_w1",
     "authored_catalan_convolution__euler_totient_multiplicative_w1",
     "authored_central_binom_bound__binomial_inversion_small_w1",
@@ -200,8 +201,7 @@
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 340)",
     "fft_add_slow_loops",
     "fibonacci_addition",
-    "fibonacci_cassini_ext",
-    "gcd_fibonacci"
+    "fibonacci_cassini_ext"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

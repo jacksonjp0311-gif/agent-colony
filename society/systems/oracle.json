@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T04:48:47Z",
-  "passes": 307,
+  "updated_at": "2026-10-17T08:56:54Z",
+  "passes": 309,
   "kills": 177,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3657,
+  "kill_rate": 0.3642,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -25,6 +25,7 @@
     "authored_cassini__catalan_bounded_w1",
     "authored_cassini__derangement_subfactorial_w1",
     "authored_catalan_bounded__binomial_inversion_small_w1",
+    "authored_catalan_bounded__euler_totient_multiplicative_w1",
     "authored_catalan_convolution__euler_totient_multiplicative_w1",
     "authored_central_binom_bound__binomial_inversion_small_w1",
     "authored_derangement_subfactorial__legendre_duplication_small_w1",
@@ -34,16 +35,15 @@
     "authored_gcd_fibonacci__hermite_recurrence_w1",
     "authored_geometric_sum__hermite_recurrence_w1",
     "authored_geometric_sum__vandermonde_conv_w1",
-    "authored_hockey_stick__motzkin_bounded_w1",
     "authored_hockey_stick__narayana_sum_w1",
     "authored_hockey_stick__stirling_second_row_w1",
     "authored_pascal_identity__motzkin_bounded_w1",
-    "authored_pascal_identity__pell_companion_w1",
     "authored_pascal_identity__sum_first_n_cubes_w1",
     "authored_pascal_identity__vandermonde_conv_w1",
     "authored_pell_companion__motzkin_bounded_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sieve_hl_within_g2_w1",
+    "authored_sieve_hl_within_g2_w2",
     "authored_sieve_hl_within_g4_2_w1",
     "authored_sieve_hl_within_g6_4_w1",
     "authored_sieve_hl_within_g6_w1",
@@ -100,7 +100,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-17T04:48:47Z",
+    "ts": "2026-10-17T08:56:54Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -110,16 +110,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_cassini__bell_triangle_recurrence_w1` kind=hard_enable. lemma mutation authored_cassini__bell_triangle_recurrence_w1 0.8812->0.8811 (compared 0.857->0.857; speed_noi",
-      "attack": "WEIGH: `authored_cassini__bell_triangle_recurrence_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_hl_within_g2_w2` kind=hard_enable. lemma mutation authored_sieve_hl_within_g2_w2 0.8907->0.8895 (compared 0.857->0.857; instrument_budget:0.008s) Not discovery",
+      "attack": "WEIGH: `authored_sieve_hl_within_g2_w2` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 127,
-        "hard_n": 127,
-        "score": 0.8812,
+        "hard_pass": 129,
+        "hard_n": 129,
+        "score": 0.8897,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -130,17 +130,14 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 127,
-        "hard_n": 127,
+        "hard_pass": 129,
+        "hard_n": 129,
         "ok": true,
-        "score": 0.8811,
+        "score": 0.8895,
         "shifted_window": {
           "ok": true,
-          "reason": "shift_window_pass",
-          "applied": true,
-          "ranges_shifted": 2,
-          "seconds": 0.011,
-          "window_expr": "all((check_cassini_identity(n) for n in range(59, 78))) and all((check_bell_triangle_recurrence(n) for n in range(18, 24)))"
+          "reason": "shift_not_applicable(no_literal_range)",
+          "applied": false
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -165,7 +162,7 @@
             "ok": true
           },
           {
-            "label": "cassini_numeric",
+            "label": "hard_enable_probes",
             "ok": true
           }
         ]
@@ -217,15 +214,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_cassini__bell_triangle_recurrence_w1",
+      "mutation": "authored_sieve_hl_within_g2_w2",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_cassini__bell_triangle_recurrence_w1",
+    "mutation": "authored_sieve_hl_within_g2_w2",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261017T044835Z_ef95fb",
+    "cycle_id": "20261017T085643Z_a4ff3a",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

@@ -1,35 +1,37 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T04:48:48Z",
+  "updated_at": "2026-10-17T08:56:54Z",
   "hits": 17,
-  "kills": 4,
+  "kills": 3,
   "rows": 30,
   "kill_rows": 13,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-17T04:48:48Z",
-    "cycle_id": "20261017T044835Z_ef95fb",
-    "mutation": "authored_cassini__bell_triangle_recurrence_w1",
+    "ts": "2026-10-17T08:56:54Z",
+    "cycle_id": "20261017T085643Z_a4ff3a",
+    "mutation": "authored_sieve_hl_within_g2_w2",
     "kind": "hard_enable",
-    "novel_to_commons": true,
-    "kills": [],
-    "textbook_reuse": 0.3333,
-    "in_ledger": false,
-    "own_authoring_record_only": true,
+    "novel_to_commons": false,
+    "kills": [
+      "already_in_lesson_ledger_or_history"
+    ],
+    "textbook_reuse": 0.0,
+    "in_ledger": true,
+    "own_authoring_record_only": false,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 127,
-      "hard_n": 127,
+      "hard_pass": 129,
+      "hard_n": 129,
       "stripped_fails_usefulness": true,
-      "score": 0.8813,
-      "impl_id": "lemma_impl_v2_basic10_hard126"
+      "score": 0.8902,
+      "impl_id": "lemma_impl_v2_basic10_hard128"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 127,
+      "hard_pass": 129,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

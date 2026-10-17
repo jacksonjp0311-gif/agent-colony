@@ -1,6 +1,128 @@
 {
-  "last_attempt_at": "2026-10-17T04:46:45Z",
-  "last_status": 429,
-  "retry_after_until": "2026-10-17T05:16:45Z",
-  "last_error": "HTTP 429 (throttled)"
+  "last_attempt_at": "2026-10-17T08:55:20Z",
+  "last_status": 200,
+  "retry_after_until": null,
+  "last_error": "",
+  "last_ok_at": "2026-10-17T08:55:20Z",
+  "hits": [
+    {
+      "source": "arxiv",
+      "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
+      "abstract_snippet": "Personalization is essential for general-purpose robots to transition into household environments and achieve true practicality. While general robotic manipulation has been extensively studied, personalized robotic manipulation (PeRM) lacks a controlled benchmark for separating task completion from preference satisfaction. We introduce LIBERO-PeRM, a benchmark for preference learning in embodied a",
+      "url": "https://arxiv.org/abs/2610.22372",
+      "arxiv_id": "2610.22372",
+      "doi": "",
+      "authors": [
+        "Zhixu Li",
+        "Keqian Tang",
+        "Litian Gong",
+        "Jingyu Yao",
+        "Wenqian Zhang",
+        "Tianze Xu"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-10-17T08:55:20Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "PathFM: Fast Generative Forecasting of Multivariate Trajectories",
+      "abstract_snippet": "Time series foundation models are becoming increasingly popular for general-purpose forecasting. However, most leading models predict marginal quantiles, leaving the dependence structure of future trajectories unspecified. This distinction matters for trajectory-dependent quantities such as cumulative demand, peak load, and event timing, yet point and marginal scores do not reveal it. To model thi",
+      "url": "https://arxiv.org/abs/2610.22358",
+      "arxiv_id": "2610.22358",
+      "doi": "",
+      "authors": [
+        "Jiachen Yao",
+        "Xiyuan Zhang",
+        "Annan Yu",
+        "Boran Han",
+        "Abdul Fatir Ansari",
+        "Shuai Zhang"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-10-17T08:55:20Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "Rethinking Routing Exploration in Modern Mixture-of-Experts",
+      "abstract_snippet": "Mixture-of-experts (MoE) models have become an important approach for scaling model parameters. Modern MoE architectures increasingly combine two design choices: fine-grained expert segmentation and shared experts. The former increases expressiveness by enabling more expert combinations at a fixed activation ratio, and the latter introduces experts that are active for every token. We identify an e",
+      "url": "https://arxiv.org/abs/2610.22353",
+      "arxiv_id": "2610.22353",
+      "doi": "",
+      "authors": [
+        "Bingcong Li",
+        "Hao Ma",
+        "Michael Muehlebach",
+        "Niao He",
+        "Yi Ma"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-10-17T08:55:20Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "On exponential sums with multiplicative coefficients",
+      "abstract_snippet": "Let $f:\\mathbb{N}\\to{z\\in\\mathbb{C}:|z|\\leq1}$ be multiplicative, and suppose that $α$ has a rational approximation $a/q$ with $|α-a/q|\\leq 1/(qx)$ and $q\\leq x/((\\log x)^2(\\log\\log x)^3)$. We prove that $\\left|\\sum_{n\\leq x}f(n)e(nα)\\right|\\leq \\left(\\frac4{\\sqrt6}+o(1)\\right)\\frac{x}{\\sqrt q} +O\\left(\\frac{x}{\\log x}\\right)$, whereas complete multiplicativity improves $4/\\sqrt6$ to $1$. Both con",
+      "url": "https://arxiv.org/abs/2610.22345",
+      "arxiv_id": "2610.22345",
+      "doi": "",
+      "authors": [
+        "Haozhe Gou"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-10-17T08:55:20Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
+      "abstract_snippet": "Large language models (LLMs) are expanding from assisting scientific research and engineering to autonomously developing and improving AI systems, advancing AI for AI (AI4AI) as a pathway toward recursive self-improvement (RSI). Workflow-driven machine learning engineering (MLE) systems provide a practical path toward this pursuit through complex orchestration that manages long-horizon experimenta",
+      "url": "https://arxiv.org/abs/2610.22344",
+      "arxiv_id": "2610.22344",
+      "doi": "",
+      "authors": [
+        "Shangheng Du",
+        "Jinxin Shi",
+        "Shuaiyu Zhang",
+        "Yiming Wu",
+        "Junpeng Zhao",
+        "Shiyang Feng"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-10-17T08:55:20Z"
+    }
+  ]
 }
