@@ -1,8 +1,9 @@
 {
-  "ts": "2026-10-17T02:01:05Z",
-  "cycle_id": "20261017T020104Z_be3fd9",
+  "ts": "2026-10-17T02:37:30Z",
+  "cycle_id": "20261017T023729Z_2bd232",
   "lemma_streaks": {
     "revert_streaks": [
+      "authored_sieve_hl_within_g2_w2",
       "authored_sieve_two_counter_g2_w1",
       "easy_pad_abs_identity",
       "easy_pad_assoc_add",
@@ -19,13 +20,6 @@
       "skill_router": 2
     },
     "recent": {
-      "authored_fibonacci_addition__legendre_duplication_small_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_gcd_fibonacci__hermite_recurrence_w1": {
         "last": "keep",
         "streak": 1,
@@ -98,60 +92,67 @@
       },
       "authored_sieve_hl_within_g2_w2": {
         "last": "revert",
+        "streak": 2,
+        "n": 2,
+        "keeps": 0,
+        "reverts": 2
+      },
+      "authored_sieve_residue_bal_g2_w2": {
+        "last": "keep",
         "streak": 1,
         "n": 1,
-        "keeps": 0,
-        "reverts": 1
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8382,
-      "slope": -0.001019,
-      "min": 0.8382,
+      "last": 0.8503,
+      "slope": -0.001415,
+      "min": 0.8322,
       "max": 0.8541
     },
     "novelty": {
-      "last": 0.4333,
-      "slope": -0.01212,
-      "min": 0.4333,
-      "max": 0.6333
+      "last": 0.6667,
+      "slope": -0.00629,
+      "min": 0.4,
+      "max": 0.6667
     },
     "kill_rate": {
-      "last": 0.3712,
-      "slope": 0.000177,
-      "min": 0.3674,
-      "max": 0.3712
+      "last": 0.3731,
+      "slope": 0.000405,
+      "min": 0.3685,
+      "max": 0.3739
     },
     "kill_rate_term": {
-      "last": 0.8841,
-      "slope": 0.000162,
-      "min": 0.8807,
-      "max": 0.8841
+      "last": 0.8858,
+      "slope": 0.000366,
+      "min": 0.8817,
+      "max": 0.8865
     },
     "lesson_uptake": {
-      "last": 0.9,
-      "slope": 0.0,
-      "min": 0.9,
+      "last": 0.84,
+      "slope": -0.003776,
+      "min": 0.84,
       "max": 0.9
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0118,
-    "novelty_max": 0.6,
+    "aggregate_range": 0.0181,
+    "novelty_max": 0.6667,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 123,
+    "enabled": 124,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_sieve_hl_within_g2_w2",
-      "authored_sieve_residue_bal_g2_w2",
-      "authored_sieve_two_counter_g2_w1"
+      "authored_sieve_two_counter_g2_w1",
+      "authored_sieve_two_counter_g4_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -226,6 +227,7 @@
       "authored_sieve_residue_bal_g2_w1",
       "authored_sieve_residue_bal_g2_w2",
       "authored_sieve_two_counter_g2_w1",
+      "authored_sieve_two_counter_g4_w1",
       "authored_stirling_second_row__pythagorean_generation_w1",
       "authored_sum_first_n_cubes__pell_companion_w1",
       "authored_sum_first_n_cubes__stirling_second_row_w1",
@@ -238,7 +240,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 5
+    "exhausted_recent": 3
   },
   "guides": {
     "n_guides": 17,
@@ -252,23 +254,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.142,
+      "ratio": 1.153,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.166,
+      "ratio": 1.18,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.154,
+      "ratio": 1.144,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.469,
+      "ratio": 1.297,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.172,
+      "ratio": 1.105,
       "drift": false
     }
   },
@@ -276,11 +278,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 27000003,
-      "collatz_descent": 41400000,
+      "collatz_descent": 44600000,
       "legendre_square_gap": 268607,
       "lehmer_totient": 12600001,
-      "erdos_straus": 411039,
-      "twin_primes_hl": 50200000,
+      "erdos_straus": 429951,
+      "twin_primes_hl": 54200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -292,16 +294,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4988,
+        "challenged": 4986,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 12,
+        "challenged": 14,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 8,
+    "post_challenger_oracle_judged": 9,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -330,18 +332,18 @@
     "last": [
       [
         null,
+        "2026-10-17T02:10:08Z"
+      ],
+      [
+        "success",
         "2026-10-17T01:50:55Z"
       ],
       [
         "success",
         "2026-10-17T01:28:07Z"
-      ],
-      [
-        "success",
-        "2026-10-17T01:16:41Z"
       ]
     ],
-    "fetched_at": "2026-10-17T01:58:50Z"
+    "fetched_at": "2026-10-17T02:35:05Z"
   },
   "feeds": {
     "by_source": {
@@ -389,7 +391,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T01:58:49Z"
+      "ts": "2026-10-17T02:35:05Z"
     },
     "health": {
       "arxiv": {
@@ -415,7 +417,7 @@
     }
   },
   "signals": [
-    "revert_streaks: authored_sieve_two_counter_g2_w1, easy_pad_abs_identity, easy_pad_assoc_add, easy_pad_commutativity → deprioritize in seek",
+    "revert_streaks: authored_sieve_hl_within_g2_w2, authored_sieve_two_counter_g2_w1, easy_pad_abs_identity, easy_pad_assoc_add → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],

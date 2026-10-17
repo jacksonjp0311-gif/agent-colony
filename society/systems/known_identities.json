@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T02:01:17Z",
-  "n": 226,
+  "updated_at": "2026-10-17T02:37:42Z",
+  "n": 227,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -79,6 +79,7 @@
     "authored_sieve_residue_bal_g2_w1",
     "authored_sieve_residue_bal_g2_w2",
     "authored_sieve_two_counter_g2_w1",
+    "authored_sieve_two_counter_g4_w1",
     "authored_stirling_second_row__pythagorean_generation_w1",
     "authored_sum_first_n_cubes__pell_companion_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
@@ -200,8 +201,7 @@
     "lucas_addition",
     "motzkin_bounded",
     "novelty",
-    "outcome",
-    "pell_companion"
+    "outcome"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
