@@ -49,7 +49,7 @@ def test_shadow_logs_but_never_blocks(gstate):
     assert row["would_block"] is True and row["block"] is False
     st = json.loads(gstate.read_text())
     assert st["totals"]["validity_failed"] == 1 and st["totals"]["would_block_keep"] == 1
-    ok = G.gate_desk_change(before={"score": 0.8}, after={"score": 0.9, "checks": {"x": True}},
+    ok = G.gate_desk_change(before={"score": 0.8}, after={"score": 0.8, "checks": {"x": True}},
                             tentative_keep=True)
     assert ok["verdict"] == "APPROVE" and not ok["would_block"] and not ok["block"]
 

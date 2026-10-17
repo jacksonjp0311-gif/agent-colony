@@ -579,6 +579,108 @@ def snapshot_validity(snapshot: dict[str, Any] | None) -> dict[str, Any]:
     return res
 
 
+# ---------------------------------------------------------------------------
+# Athanor v2.5 adaptive drift tolerance (James Jackson, Athanor selfmod/experiment.py)
+# ---------------------------------------------------------------------------
+# Only the behaviour term of ΔΦ is divided by ``tol``. ``tol`` is loose while the system is far
+# from its target and tightens as it improves; with basis "best" (best-so-far) it can only
+# tighten. Ported unchanged:
+#   e = sqrt(err2) / scale;  tol0 = clip(gamma * e**p, floor, cap)
+#   tol(t) = floor + (tol0 - floor) * 2**(-t / halflife)   (when a half-life is set)
+
+ADAPTIVE_PROFILES: dict[str, dict[str, Any]] = {
+    # Colony default: fixed tolerance, the gate the colony already uses (tau 0.70).
+    "colony/fixed@1.0.0": {"gamma": None, "threshold_h7": 0.70, "refine_floor": 0.50},
+    # Athanor 2.5 conservative tuned setting, registry selfmod/adaptive@1.1.0 (promoted in 2.7).
+    "selfmod/adaptive@1.1.0": {"gamma": 6.0, "threshold_h7": 0.75, "refine_floor": 0.50,
+                               "adaptive_power": 3.0, "adaptive_basis": "best", "adaptive_cap": 6.0,
+                               "adaptive_floor": 0.7, "adaptive_halflife": 50},
+    # Athanor 2.6 TSP retune on separate seeds, registry tsp/adaptive@1.1.0 (tau 0.78, no decay).
+    "tsp/adaptive@1.1.0": {"gamma": 6.0, "threshold_h7": 0.78, "refine_floor": 0.50,
+                           "adaptive_power": 3.0, "adaptive_basis": "best", "adaptive_cap": 6.0,
+                           "adaptive_floor": 0.7, "adaptive_halflife": None},
+}
+CONSERVATIVE_PROFILE = "selfmod/adaptive@1.1.0"
+
+
+def drift_tolerance(train_err2: float, scale: float, gamma: float | None, power: float = 1.0,
+                    floor: float = 1.0, cap: float | None = None) -> float:
+    """``tol = max(floor, gamma * (sqrt(err2) / scale) ** power)``, capped; ``gamma=None`` gives 1.0."""
+    if gamma is None:
+        return 1.0
+    if not math.isfinite(float(train_err2)):
+        return float(floor)  # a broken self gets no extra slack
+    tol = max(float(floor), float(gamma) * (math.sqrt(float(train_err2)) / float(scale)) ** float(power))
+    return min(tol, float(cap)) if cap is not None else tol
+
+
+def scheduled_tolerance(cur_err2: float, best_err2: float, scale: float, step: int,
+                        gamma: float | None, cfg: dict[str, Any]) -> float:
+    """Full adaptive schedule (basis, power, floor, cap, half-life), as in Athanor 2.5/2.6."""
+    if gamma is None:
+        return 1.0
+    basis = best_err2 if cfg.get("adaptive_basis", "current") == "best" else cur_err2
+    tol = drift_tolerance(basis, scale, gamma, float(cfg.get("adaptive_power", 1.0)),
+                          float(cfg.get("adaptive_floor", 1.0)), cfg.get("adaptive_cap"))
+    hl = cfg.get("adaptive_halflife")
+    if hl:
+        fl = float(cfg.get("adaptive_floor", 1.0))
+        tol = fl + (tol - fl) * 2.0 ** (-float(step) / float(hl))
+    return float(tol)
+
+
+def structure_tokens(src: str) -> dict[str, int]:
+    """Bag of AST node types (operators by name) for a Python source; empty bag if it does not parse."""
+    import ast
+    from collections import Counter
+
+    toks: Counter = Counter()
+    try:
+        tree = ast.parse(src or "")
+    except SyntaxError:
+        return {}
+    for n in ast.walk(tree):
+        if isinstance(n, (ast.BinOp, ast.UnaryOp, ast.BoolOp)):
+            toks[type(n.op).__name__] += 1
+        elif isinstance(n, ast.Compare):
+            for op in n.ops:
+                toks[type(op).__name__] += 1
+        elif isinstance(n, ast.Constant):
+            toks["const"] += 1
+        else:
+            toks[type(n).__name__] += 1
+    return dict(toks)
+
+
+def structural_distance(a: str, b: str) -> float:
+    """Normalised multiset distance between two sources' AST token bags, in [0, 1] (Athanor 2.5)."""
+    ta, tb = structure_tokens(a), structure_tokens(b)
+    keys = set(ta) | set(tb)
+    diff = sum(abs(ta.get(k, 0) - tb.get(k, 0)) for k in keys)
+    tot = sum(ta.values()) + sum(tb.values())
+    return float(diff / tot) if tot else 0.0
+
+
+EDIT_BIG = 1e3  # Athanor's drift for a probe that crashes or goes non-finite
+
+
+def edit_trajectory(behaviour: Sequence[float], structural: float = 0.0, *, tol: float = 1.0,
+                    structure_weight: float = 0.5) -> list[list[float]]:
+    """Athanor self-edit trajectory: d_t = [beh_t / tol, w_s * S]; X = [0; cumsum(d)], so ΔΦ_t = ‖d_t‖."""
+    t = float(tol) if float(tol) > 0 else 1.0
+    st = float(structure_weight) * float(structural)
+    rows = [[0.0, 0.0]]
+    acc0 = acc1 = 0.0
+    for b in behaviour:
+        v = float(b) / t
+        if not math.isfinite(v):
+            v = EDIT_BIG
+        acc0 += min(v, EDIT_BIG)
+        acc1 += st
+        rows.append([acc0, acc1])
+    return rows
+
+
 # numpy-compatible wrappers for adapted Athanor unit tests
 def _np_array(xs: Sequence[float] | Sequence[Sequence[float]], dtype: Any = None) -> Any:
     if _HAS_NUMPY:
@@ -614,6 +716,13 @@ __all__ = [
     "validity_check",
     "snapshot_probe_values",
     "snapshot_validity",
+    "ADAPTIVE_PROFILES",
+    "CONSERVATIVE_PROFILE",
+    "drift_tolerance",
+    "scheduled_tolerance",
+    "structure_tokens",
+    "structural_distance",
+    "edit_trajectory",
     "DEFAULT_H7_THRESHOLD",
     "DEFAULT_REFINE_FLOOR",
 ]
