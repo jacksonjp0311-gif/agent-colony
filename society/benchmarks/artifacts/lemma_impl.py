@@ -2772,7 +2772,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_multinomial_three__newton_identities_w1", check_authored_multinomial_three__newton_identities_w1, True),
     ("authored_frontier_le_x46c5cc8a_w1", check_authored_frontier_le_x46c5cc8a_w1, False),
     ("authored_odd_distinct_partitions__partition_conjugate_parts_w1", check_authored_odd_distinct_partitions__partition_conjugate_parts_w1, True),
-    ("authored_polynomial_remainder__telescoping_sum_w1", check_authored_polynomial_remainder__telescoping_sum_w1, False),
+    ("authored_polynomial_remainder__telescoping_sum_w1", check_authored_polynomial_remainder__telescoping_sum_w1, True),
 ]
 
 

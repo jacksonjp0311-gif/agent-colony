@@ -1,7 +1,7 @@
 {
-  "ts": "2026-10-17T22:36:09Z",
+  "ts": "2026-10-17T22:49:57Z",
   "ok_all": true,
-  "aggregate_score": 0.8651,
+  "aggregate_score": 0.8797,
   "benches": [
     {
       "bench": "fft_microbench",
@@ -10,7 +10,7 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.002543,
+      "seconds": 0.001525,
       "score": 1.0,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
@@ -23,8 +23,8 @@
       "ok": true,
       "max_abs_err": 7.367024535821709e-11,
       "mse": 6.228992808609339e-24,
-      "seconds": 0.012597,
-      "score": 0.6393,
+      "seconds": 0.007045,
+      "score": 0.7097,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
       "time_budget_s": 0.0025
@@ -51,7 +51,7 @@
         "b": 1.1677155874884049,
         "c": 0.062459317842766815
       },
-      "seconds": 0.000137,
+      "seconds": 8.4e-05,
       "score": 1.0,
       "impl_id": "autodiff_reverse_tape_v1",
       "grad_tol": 5e-05,
@@ -61,11 +61,11 @@
       "bench": "lemma_microbench",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 1.884155,
-      "score": 0.8611,
-      "speed": 0.079611,
+      "seconds": 1.114408,
+      "score": 0.8639,
+      "speed": 0.134601,
       "speed_weight": 0.05,
-      "impl_id": "lemma_impl_v2_basic10_hard211",
+      "impl_id": "lemma_impl_v2_basic10_hard212",
       "checks": {
         "basic:square_of_sum": true,
         "basic:difference_of_squares": true,
@@ -287,14 +287,15 @@
         "hard:authored_fermat_little__lucas_theorem_binomial_w1": true,
         "hard:authored_mobius_divisor_sum__mobius_inversion_sigma_w1": true,
         "hard:authored_multinomial_three__newton_identities_w1": true,
-        "hard:authored_odd_distinct_partitions__partition_conjugate_parts_w1": true
+        "hard:authored_odd_distinct_partitions__partition_conjugate_parts_w1": true,
+        "hard:authored_polynomial_remainder__telescoping_sum_w1": true
       },
-      "n_checks": 221,
-      "n_pass": 221,
+      "n_checks": 222,
+      "n_pass": 222,
       "n_basic": 10,
       "n_basic_pass": 10,
-      "n_hard": 211,
-      "n_hard_pass": 211,
+      "n_hard": 212,
+      "n_hard_pass": 212,
       "basic_ok": true,
       "hard_ok": true,
       "note": "Machine-check of coded lemmas (basic + hard tier). Textbook-only cannot ace ~0.95. Not novel-theorem discovery."
@@ -304,7 +305,7 @@
       "domain": "stem_physics",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 0.000111,
+      "seconds": 7e-05,
       "score": 0.825,
       "impl_id": "kinematics_impl_v1_enabled4",
       "checks": {

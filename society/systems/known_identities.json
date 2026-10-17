@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T22:33:55Z",
-  "n": 320,
+  "updated_at": "2026-10-17T22:47:18Z",
+  "n": 321,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -92,6 +92,7 @@
     "authored_pascal_identity__vandermonde_conv_w1",
     "authored_pell_companion__motzkin_bounded_w1",
     "authored_pell_companion__pythagorean_generation_w1",
+    "authored_polynomial_remainder__telescoping_sum_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sieve_hl_within_g2_4_6_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
@@ -200,8 +201,7 @@
     "chain `energy_work` citing new algebraic points on covers of elliptic curves",
     "chain `energy_work` citing new algebraic points on covers of elliptic curves (cycle 162)",
     "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves",
-    "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 164)",
-    "chain `lemma_hard_combinatorics` citing on two families of generalized stirling numbers re"
+    "chain `fibonacci_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 164)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

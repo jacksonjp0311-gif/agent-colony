@@ -1,84 +1,18 @@
 {
   "version": 1,
   "totals": {
-    "assessed": 63,
-    "verdict_APPROVE": 63,
-    "tentative_keeps": 63,
-    "guard_ran": 63,
-    "profile:colony/fixed@1.0.0:APPROVE": 63,
-    "profile:selfmod/adaptive@1.1.0:APPROVE": 63,
-    "profile:tsp/adaptive@1.1.0:APPROVE": 61,
-    "probe:state:APPROVE": 45,
+    "assessed": 64,
+    "verdict_APPROVE": 64,
+    "tentative_keeps": 64,
+    "guard_ran": 64,
+    "profile:colony/fixed@1.0.0:APPROVE": 64,
+    "profile:selfmod/adaptive@1.1.0:APPROVE": 64,
+    "profile:tsp/adaptive@1.1.0:APPROVE": 62,
+    "probe:state:APPROVE": 46,
     "profile:tsp/adaptive@1.1.0:REFINE": 2,
     "profile:tsp/adaptive@1.1.0:would_block_keep": 2
   },
   "rows": [
-    {
-      "ts": "2026-10-17T14:19:05Z",
-      "cycle_id": "20261017T141839Z_a12fe2",
-      "mutation": "authored_sieve_hl_within_g6_2_w1",
-      "kind": "hard_enable",
-      "mode": "live",
-      "tentative_keep": true,
-      "source": "Athanor 3.0.0 (James Jackson)",
-      "verdict": "APPROVE",
-      "reason": "selfmod/adaptive@1.1.0: H7>=threshold",
-      "gate_profile": "selfmod/adaptive@1.1.0",
-      "validity_passed": true,
-      "validity_failures": 0,
-      "validity_first_failure": null,
-      "guard": {
-        "ran": true,
-        "passed": true,
-        "reason": "ok",
-        "seconds": 1.093,
-        "n_basic": 10,
-        "n_hard": 162,
-        "n_pass": 172
-      },
-      "profiles": {
-        "colony/fixed@1.0.0": {
-          "verdict": "APPROVE",
-          "reason": "H7>=threshold",
-          "h7": 1.0,
-          "tau": 0.7,
-          "tol": 1.0,
-          "dphi_max": 0.0,
-          "valid": true
-        },
-        "selfmod/adaptive@1.1.0": {
-          "verdict": "APPROVE",
-          "reason": "H7>=threshold",
-          "h7": 1.0,
-          "tau": 0.75,
-          "tol": 0.7,
-          "dphi_max": 0.0,
-          "valid": true
-        },
-        "tsp/adaptive@1.1.0": {
-          "verdict": "APPROVE",
-          "reason": "H7>=threshold",
-          "h7": 1.0,
-          "tau": 0.78,
-          "tol": 0.7,
-          "dphi_max": 0.0,
-          "valid": true
-        }
-      },
-      "n_probes": 173,
-      "drift_nonzero": [],
-      "structural": 0.0,
-      "e_cur": 0.14300000000000002,
-      "e_best": 0.14300000000000002,
-      "step": 13,
-      "would_block": false,
-      "block": false,
-      "would_block_by_profile": {
-        "colony/fixed@1.0.0": false,
-        "selfmod/adaptive@1.1.0": false,
-        "tsp/adaptive@1.1.0": false
-      }
-    },
     {
       "ts": "2026-10-17T14:20:12Z",
       "cycle_id": "20261017T141944Z_64ee61",
@@ -5037,12 +4971,119 @@
         "selfmod/adaptive@1.1.0": false,
         "tsp/adaptive@1.1.0": false
       }
+    },
+    {
+      "ts": "2026-10-17T22:47:18Z",
+      "cycle_id": "20261017T224657Z_6921b4",
+      "mutation": "authored_polynomial_remainder__telescoping_sum_w1",
+      "kind": "hard_enable",
+      "mode": "live",
+      "tentative_keep": true,
+      "source": "Athanor 3.0.0 (James Jackson)",
+      "verdict": "APPROVE",
+      "reason": "selfmod/adaptive@1.1.0[state probe]: H7>=threshold",
+      "gate_profile": "selfmod/adaptive@1.1.0",
+      "validity_passed": true,
+      "validity_failures": 0,
+      "validity_first_failure": null,
+      "guard": {
+        "ran": true,
+        "passed": true,
+        "reason": "ok",
+        "seconds": 1.185,
+        "n_basic": 10,
+        "n_hard": 212,
+        "n_pass": 222
+      },
+      "profiles": {
+        "colony/fixed@1.0.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 1.0,
+          "tau": 0.7,
+          "tol": 1.0,
+          "dphi_max": 0.233333,
+          "valid": true
+        },
+        "selfmod/adaptive@1.1.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 1.0,
+          "tau": 0.75,
+          "tol": 0.7,
+          "dphi_max": 0.333333,
+          "valid": true
+        },
+        "tsp/adaptive@1.1.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 0.8,
+          "tau": 0.78,
+          "tol": 0.7,
+          "dphi_max": 0.333333,
+          "valid": true
+        }
+      },
+      "n_probes": 223,
+      "probe": "state",
+      "legacy_verdict": "APPROVE",
+      "state_verdict": "APPROVE",
+      "state_dphi": {
+        "checks_basic": 0.0,
+        "checks_catalog": 0.0,
+        "checks_authored": 0.233333,
+        "coverage": 0.233333,
+        "score": 0.002333,
+        "tier_ok": 0.0,
+        "runtime": 0.020171,
+        "structure": 0.0,
+        "novelty_mix": 0.065725,
+        "oracle_pattern": 0.0
+      },
+      "state_drift_raw": {
+        "checks_basic": 0.0,
+        "checks_catalog": 0.0,
+        "checks_authored": 0.5,
+        "coverage": 0.035714,
+        "score": 0.0001,
+        "tier_ok": 0.0,
+        "runtime": 0.019291,
+        "structure": 0.0,
+        "novelty_mix": 0.002817,
+        "oracle_pattern": 0.0
+      },
+      "state_error": null,
+      "veto": {
+        "vetoed": false,
+        "areas": [],
+        "thresholds": {},
+        "calibrated": true,
+        "mode": "live"
+      },
+      "state_h7": 1.0,
+      "drift_nonzero": [],
+      "structural": 0.0,
+      "e_cur": 0.14300000000000002,
+      "e_best": 0.14300000000000002,
+      "step": 63,
+      "would_block": false,
+      "block": false,
+      "would_veto": false,
+      "would_block_by_probe": {
+        "legacy": false,
+        "state": false
+      },
+      "would_block_by_profile": {
+        "colony/fixed@1.0.0": false,
+        "selfmod/adaptive@1.1.0": false,
+        "tsp/adaptive@1.1.0": false
+      }
     }
   ],
   "schedule": {
-    "step": 63,
+    "step": 64,
     "best_e": 0.14300000000000002
   },
-  "updated_at": "2026-10-17T22:33:55Z",
+  "updated_at": "2026-10-17T22:47:18Z",
   "note": "Athanor gate (Athanor 3.0.0 (James Jackson)) on lemma-desk self-edits. shadow = report-only; live = a keep needs APPROVE (monotone, after the Oracle; never changes Oracle, P or authorize)."
 }

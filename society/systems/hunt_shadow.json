@@ -2,8 +2,8 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-17T22:36:02Z",
-    "cycle_id": "20261017T223446Z_182da9",
+    "ts": "2026-10-17T22:49:52Z",
+    "cycle_id": "20261017T224856Z_28b40e",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -11,8 +11,8 @@
       "K_PRIOR": 0.10921
     },
     "n_meet_bar_actual": 44,
-    "n_meet_bar_shadow": 28,
-    "n_unknown_claims": 26,
+    "n_meet_bar_shadow": 30,
+    "n_unknown_claims": 27,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
       "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
@@ -26,14 +26,14 @@
       "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "authored_multinomial_three__newton_identities_w1",
       "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
+      "authored_polynomial_remainder__telescoping_sum_w1",
       "authored_sieve_hl_within_g2_6_4_w1",
       "authored_sieve_hl_within_g2_6_6_w1",
       "authored_sieve_hl_within_g6_2_4_w1",
       "authored_sieve_hl_within_g6_2_6_w1",
       "authored_sieve_hl_within_g6_6_6_w1",
       "authored_sieve_residue_bal_g2_4_6_w1",
-      "authored_sieve_residue_bal_g4_6_2_w1",
-      "authored_sieve_residue_bal_g4_6_6_w1"
+      "authored_sieve_residue_bal_g4_6_2_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -50,9 +50,7 @@
       "imp_1db20c_50",
       "imp_8d28f7_50",
       "imp_b0787f_50",
-      "imp_e0b942_50",
-      "imp_dfaa7b_50",
-      "imp_1a4ec1_50"
+      "imp_e0b942_50"
     ],
     "enter_bar": [],
     "top_shadow": [
@@ -73,7 +71,7 @@
       {
         "id": "imp_40ec35_50",
         "target": "authored_cayley_tree_count__complete_bipartite_trees_w1",
-        "actual_pos": 12,
+        "actual_pos": 13,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.8105,
@@ -85,10 +83,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_b7f950_50",
-        "target": "authored_fermat_little__lucas_theorem_binomial_w1",
+        "id": "imp_6921b4_50",
+        "target": "authored_polynomial_remainder__telescoping_sum_w1",
         "actual_pos": 2,
         "shadow_pos": 3,
+        "meets_bar_shadow": true,
+        "rank": 0.9264,
+        "rank_shadow": 0.9264,
+        "P": 0.8774,
+        "P_shadow": 0.8774,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_b7f950_50",
+        "target": "authored_fermat_little__lucas_theorem_binomial_w1",
+        "actual_pos": 3,
+        "shadow_pos": 4,
         "meets_bar_shadow": true,
         "rank": 0.9263,
         "rank_shadow": 0.9263,
@@ -101,8 +113,8 @@
       {
         "id": "imp_c28eb5_50",
         "target": "authored_bell_stirling_sum__burnside_necklaces_w1",
-        "actual_pos": 3,
-        "shadow_pos": 4,
+        "actual_pos": 4,
+        "shadow_pos": 5,
         "meets_bar_shadow": true,
         "rank": 0.9263,
         "rank_shadow": 0.9263,
@@ -115,8 +127,8 @@
       {
         "id": "imp_4b0785_50",
         "target": "authored_multinomial_three__newton_identities_w1",
-        "actual_pos": 4,
-        "shadow_pos": 5,
+        "actual_pos": 5,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.926,
         "rank_shadow": 0.926,
@@ -129,8 +141,8 @@
       {
         "id": "imp_76124b_50",
         "target": "authored_bezout_identity__cayley_hamilton_3x3_w1",
-        "actual_pos": 5,
-        "shadow_pos": 6,
+        "actual_pos": 6,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.925,
         "rank_shadow": 0.925,
@@ -143,20 +155,6 @@
       {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 6,
-        "shadow_pos": 7,
-        "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_94edc4_50",
-        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 7,
         "shadow_pos": 8,
         "meets_bar_shadow": true,
@@ -169,8 +167,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_96efa1_49",
-        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
+        "id": "imp_94edc4_50",
+        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
         "actual_pos": 8,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
@@ -183,8 +181,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_b1face_50",
-        "target": "authored_abel_summation__faulhaber_power_sums_w1",
+        "id": "imp_96efa1_49",
+        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
         "actual_pos": 9,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -204,48 +202,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-10-17T16:46:05Z",
-      "cycle_id": "20261017T164508Z_2eb8c7",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 41,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T16:46:58Z",
-      "cycle_id": "20261017T164605Z_92da4d",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 18,
-      "drop_out_of_bar": 41,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T16:47:52Z",
-      "cycle_id": "20261017T164658Z_fa5f3d",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 41,
-      "enter_bar": 0,
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-17T17:08:29Z",
       "cycle_id": "20261017T170736Z_84ca4e",
@@ -643,6 +599,51 @@
       "n_meet_bar_shadow": 28,
       "n_unknown_claims": 26,
       "drop_out_of_bar": 16,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:48:00Z",
+      "cycle_id": "20261017T224657Z_6921b4",
+      "n_meet_bar_actual": 43,
+      "n_meet_bar_shadow": 29,
+      "n_unknown_claims": 27,
+      "drop_out_of_bar": 14,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:48:55Z",
+      "cycle_id": "20261017T224800Z_f51ca1",
+      "n_meet_bar_actual": 44,
+      "n_meet_bar_shadow": 30,
+      "n_unknown_claims": 27,
+      "drop_out_of_bar": 14,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:49:52Z",
+      "cycle_id": "20261017T224856Z_28b40e",
+      "n_meet_bar_actual": 44,
+      "n_meet_bar_shadow": 30,
+      "n_unknown_claims": 27,
+      "drop_out_of_bar": 14,
       "enter_bar": 0,
       "guidance_mode": "live",
       "near_misses": {

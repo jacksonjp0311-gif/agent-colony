@@ -24541,11 +24541,59 @@
       },
       "status": "candidate_measured",
       "delta_aggregate": -0.0003
+    },
+    {
+      "id": "imp_6921b4_50",
+      "title": "Chain `authored_polynomial_remainder__telescoping_sum_w1` citing A Littlewood-type identity for Robbins polynomials",
+      "before": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8081,
+        "compute_usefulness": 0.9065,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8809,
+        "kill_rate": 0.3176,
+        "kill_rate_term": 0.8359,
+        "novelty": 0.8846,
+        "lesson_uptake": 0.96,
+        "aggregate": 0.8633,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0,
+        "self_reject_rate": 0.0,
+        "post_challenger_oracle_kill_rate": 0.0
+      },
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8225,
+        "compute_usefulness": 0.9221,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8929,
+        "kill_rate": 0.3171,
+        "kill_rate_term": 0.8354,
+        "novelty": 0.9231,
+        "lesson_uptake": 0.96,
+        "aggregate": 0.8671,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0,
+        "self_reject_rate": 0.0,
+        "post_challenger_oracle_kill_rate": 0.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0038
     }
   ],
-  "updated_at": "2026-10-17T22:35:46Z",
+  "updated_at": "2026-10-17T22:48:44Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
-  "updated_cycle": "20261017T223446Z_182da9"
+  "updated_cycle": "20261017T224800Z_f51ca1"
 }
