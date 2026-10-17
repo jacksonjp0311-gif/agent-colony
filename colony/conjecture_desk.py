@@ -571,7 +571,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                                     tentative_keep=bool(rose and oracle_passed), guard=_ath_guard)
             if _ath and _ath.get("block"):
                 rose = False
-                oracle_note += f" | athanor_gate=BLOCK ({_ath.get('verdict')}: {_ath.get('reason')})"
+                oracle_note += f" | athanor_gate=BLOCK ({_ath.get('verdict')}: {_ath.get('block_reason') or _ath.get('reason')})"
         except Exception:  # noqa: BLE001
             pass
     if rose and oracle_passed:

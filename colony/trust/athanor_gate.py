@@ -224,6 +224,11 @@ def assess_change(*, before: dict[str, Any] | None, after: dict[str, Any] | None
                                calibration=calibration)
         state = {name: profile_verdict(name, st_probe["candidate"], e_cur=e_cur, e_best=e_best, step=step,
                                        check=_check, candidate=cand) for name in ADAPTIVE_PROFILES}
+        from colony.trust.athanor_probe import veto_check, veto_mode
+        if veto_mode() != "off":
+            vchk = veto_check(st_probe["raw"], seconds_before=(before or {}).get("seconds"),
+                              seconds_after=(after or {}).get("seconds"), calibration=calibration)
+            out["veto"] = {**vchk, "mode": veto_mode()}
     except Exception as exc:  # noqa: BLE001
         st_probe = {"error": f"{type(exc).__name__}:{exc}"[:200]}
     pm = probe if probe in ("legacy", "state") else _probe_mode()
@@ -283,7 +288,7 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
                    profiles=a.get("profiles"), n_probes=a.get("n_probes"), probe=a.get("probe"),
                    legacy_verdict=a.get("legacy_verdict"), state_verdict=a.get("state_verdict"),
                    state_dphi=a.get("state_dphi"), state_drift_raw=a.get("state_drift_raw"),
-                   state_error=a.get("state_error"),
+                   state_error=a.get("state_error"), veto=a.get("veto"),
                    state_h7=((a.get("state_profiles") or {}).get(a.get("gate_profile") or "") or {}).get("h7"),
                    drift_nonzero=a.get("drift_nonzero"), structural=a.get("structural"),
                    e_cur=a["e_cur"], e_best=a["e_best"], step=a["step"])
@@ -294,6 +299,13 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
         row.update(verdict="ERROR", reason=f"assess_error:{type(exc).__name__}:{exc}"[:200])
     row["would_block"] = bool(tentative_keep and row.get("verdict") != "APPROVE")
     row["block"] = bool(mode == "live" and row["would_block"])
+    # per-area hard veto (added check beside Athanor's verdict; recorded separately)
+    vt = row.get("veto") or {}
+    row["would_veto"] = bool(tentative_keep and vt.get("vetoed"))
+    if (row["would_veto"] and mode == "live" and vt.get("mode") == "live" and row.get("probe") == "state"
+            and not row["block"]):
+        row["block"] = True
+        row["block_reason"] = f"area veto: {', '.join(vt.get('areas') or [])} beyond calibrated limit"
     row["would_block_by_probe"] = {"legacy": bool(tentative_keep and row.get("legacy_verdict") not in (None, "APPROVE")),
                                    "state": bool(tentative_keep and row.get("state_verdict") not in (None, "APPROVE"))}
     if row.get("verdict") == "REJECT" and row.get("validity_passed") is False:
@@ -314,6 +326,12 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
                 _bump(tot, "guard_failed")
         if row["would_block"]:
             _bump(tot, "would_block_keep")
+        if row["would_veto"]:
+            _bump(tot, f"veto:{vt.get('mode')}:would_veto_keep")
+            for ar in vt.get("areas") or []:
+                _bump(tot, f"veto_area:{ar}")
+        if row.get("block_reason"):
+            _bump(tot, "blocked_keep_live:veto")
         if row["block"]:
             _bump(tot, "blocked_keep_live")
             _bump(tot, f"blocked_keep_live:{row.get('probe') or 'legacy'}")

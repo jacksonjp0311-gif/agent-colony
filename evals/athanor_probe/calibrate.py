@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from colony.athanor_coherence import ADAPTIVE_PROFILES, CONSERVATIVE_PROFILE  # noqa: E402
 from colony.trust.athanor_gate import profile_verdict  # noqa: E402
-from colony.trust.athanor_probe import STEPS as BLOCKS, UNITS, scales_from, step_unit  # noqa: E402
+from colony.trust.athanor_probe import STEPS as BLOCKS, UNITS, scales_from, step_unit, veto_check, veto_thresholds_from  # noqa: E402
 
 REPLAY = Path(__file__).resolve().parent / "replay.jsonl"
 OUT = ROOT / "colony" / "trust" / "athanor_probe_calibration.json"
@@ -93,6 +93,47 @@ def evaluate(rows: list[dict], scales: dict[str, float]) -> dict:
     return out
 
 
+VETO_GRID = [(m, q) for m in (1.5, 2.0, 3.0, 4.0) for q in (0.90, 0.95, 0.99)]   # strictest first
+MAX_TUNING_VETO = 0.10
+DERIVED = ("score_inflate_0.05", "runtime_x5", "swap_8_same_count")
+
+
+def derived_controls(rows: list[dict]) -> list[dict]:
+    """Single-area alarms built from each historical Oracle-passed keep (vector-level, labelled synthetic)."""
+    import math
+    out = []
+    for r in rows:
+        if not (r["variant"] == "historical" and r["decision"] == "keep" and r.get("oracle_passed")):
+            continue
+        d = dict(r["drift"])
+        sb, sa = r["seconds"]
+        out.append({**r, "variant": "score_inflate_0.05", "drift": {**d, "score": math.hypot(d["score"], 0.05)}})
+        out.append({**r, "variant": "runtime_x5", "seconds": [sb, sa * 5],
+                    "drift": {**d, "runtime": abs(math.log(max(sa * 5, 1e-3)) - math.log(max(sb, 1e-3)))}})
+        out.append({**r, "variant": "swap_8_same_count",
+                    "drift": {**d, "checks_authored": math.hypot(d["checks_authored"], math.sqrt(16 * 0.25))}})
+    return out
+
+
+def gate_blocks(r: dict, scales: dict, vcal: dict | None) -> tuple[bool, bool]:
+    h = judge(r, scales)["verdict"] != "APPROVE"
+    v = bool(vcal) and veto_check(r["drift"], seconds_before=r["seconds"][0], seconds_after=r["seconds"][1],
+                                  calibration={"veto": vcal})["vetoed"]
+    return h, v
+
+
+def veto_eval(rows: list[dict], scales: dict, vcal: dict) -> dict:
+    clean = [r for r in rows if r["variant"] == "historical" and r["decision"] == "keep" and r.get("oracle_passed")]
+    out = {"veto_rate_oracle_passed_keeps": _rate([gate_blocks(r, scales, vcal)[1] for r in clean]),
+           "combined_block_rate_oracle_passed_keeps": _rate([any(gate_blocks(r, scales, vcal)) for r in clean])}
+    for c in CONTROLS + DERIVED:
+        cc = [r for r in rows if r["variant"] == c and (c in DERIVED or effective(r))]
+        hv = [gate_blocks(r, scales, vcal) for r in cc]
+        out[c] = {"n": len(cc), "h7_only": _rate([h for h, _ in hv]), "veto": _rate([v for _, v in hv]),
+                  "combined": _rate([h or v for h, v in hv])}
+    return out
+
+
 def main() -> None:
     rows = [json.loads(l) for l in REPLAY.read_text().splitlines() if l.strip()]
     rows = [r for r in rows if not r.get("error")]
@@ -105,8 +146,18 @@ def main() -> None:
     for q in QS:
         sc = scales_from(tune_clean, q, tol=TOL, threshold=TH)
         table.append({"q": q, "scales": sc, "tuning": evaluate(tune, sc), "held_out": evaluate(held, sc)})
+    tune = tune + derived_controls(tune)
+    held = held + derived_controls(held)
     ok = [t for t in table if (t["tuning"]["block_rate_oracle_passed_keeps"] or 0) <= MAX_TUNING_BLOCK]
     chosen = ok[0] if ok else table[-1]
+    vtable = []
+    for m, q in VETO_GRID:
+        vcal = {"q": q, "m": m, "runtime_abs_floor_s": 0.5,
+                "thresholds": veto_thresholds_from(tune_clean, q, m)}
+        vtable.append({"m": m, "q": q, "cal": vcal, "tuning": veto_eval(tune, chosen["scales"], vcal),
+                       "held_out": veto_eval(held, chosen["scales"], vcal)})
+    vok = [t for t in vtable if (t["tuning"]["veto_rate_oracle_passed_keeps"] or 0) <= MAX_TUNING_VETO]
+    vchosen = vok[0] if vok else vtable[-1]
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     first = lambda rr: min(r["ts"] for r in rr)  # noqa: E731
     last = lambda rr: max(r["ts"] for r in rr)  # noqa: E731
@@ -116,7 +167,10 @@ def main() -> None:
            "scales": dict(chosen["scales"]),  # full precision: a clean change sits exactly on the line
            "rule": "smallest q with tuning block rate on Oracle-passed keeps <= %.2f" % MAX_TUNING_BLOCK,
            "split": {"tuning": [len(tune), first(tune), last(tune)], "held_out": [len(held), first(held), last(held)]},
-           "tuning": chosen["tuning"], "held_out": chosen["held_out"], "fallback_to_last_q": not ok}
+           "tuning": chosen["tuning"], "held_out": chosen["held_out"], "fallback_to_last_q": not ok,
+           "veto": {**vchosen["cal"], "rule": "strictest (m, q) in VETO_GRID with tuning veto rate on Oracle-passed "
+                                             "keeps <= %.2f; runtime also needs >= 0.5 s absolute" % MAX_TUNING_VETO,
+                    "tuning": vchosen["tuning"], "held_out": vchosen["held_out"], "fallback": not vok}}
     OUT.write_text(json.dumps(cal, indent=2) + "\n", encoding="utf-8")
     L = ["# Athanor state-probe tuning log", "",
          f"Calibrated {ts} by `evals/athanor_probe/calibrate.py` from `evals/athanor_probe/replay.jsonl` "
@@ -144,8 +198,27 @@ def main() -> None:
     L += ["", "Legacy probe on the same held-out Oracle-passed keeps: block rate "
           f"{chosen['held_out']['legacy_block_rate_oracle_passed_keeps']}; state probe share with nonzero dPhi "
           f"{chosen['held_out']['dphi_nonzero_share']}.", ""]
+    L += ["## Per-area hard veto", "",
+          "Added check beside Athanor's verdict (math unchanged): veto when one area's raw drift exceeds "
+          "max(m*unit, m*q-quantile of that area over TUNING Oracle-passed keeps); runtime additionally needs "
+          ">= 0.5 s absolute slow-down. Rule: " + cal["veto"]["rule"] + f". Chosen m = {vchosen['m']}, q = {vchosen['q']}.", "",
+          "| m | q | tuning veto % (keeps) | held-out veto % (keeps) | held-out combined block % (keeps) |",
+          "|---:|---:|---:|---:|---:|"]
+    for t in vtable:
+        L.append(f"| {t['m']} | {t['q']} | {t['tuning']['veto_rate_oracle_passed_keeps']} | "
+                 f"{t['held_out']['veto_rate_oracle_passed_keeps']} | {t['held_out']['combined_block_rate_oracle_passed_keeps']} |")
+    L += ["", "Chosen veto, controls caught (H7 only / veto / combined):", "",
+          "| control | tuning n | tuning | held-out n | held-out |", "|---|---:|---|---:|---|"]
+    for c in CONTROLS + DERIVED:
+        a, b = vchosen["tuning"][c], vchosen["held_out"][c]
+        L.append(f"| {c} | {a['n']} | {a['h7_only']} / {a['veto']} / {a['combined']} | {b['n']} | "
+                 f"{b['h7_only']} / {b['veto']} / {b['combined']} |")
+    L += ["", "Veto thresholds (raw drift): " + ", ".join(f"`{k}` {v:.4f}" for k, v in vchosen["cal"]["thresholds"].items()), ""]
     LOG.write_text("\n".join(L), encoding="utf-8")
     print(json.dumps({"q": chosen["q"], "tuning": chosen["tuning"], "held_out": chosen["held_out"]}, indent=1))
+    for t in vtable:
+        print("veto", t["m"], t["q"], t["tuning"]["veto_rate_oracle_passed_keeps"], t["held_out"]["veto_rate_oracle_passed_keeps"],
+              {c: t["held_out"][c]["combined"] for c in CONTROLS + DERIVED})
     for t in table:
         print(t["q"], t["tuning"]["block_rate_oracle_passed_keeps"], t["held_out"]["block_rate_oracle_passed_keeps"],
               t["tuning"]["control_all_caught"], t["held_out"]["control_all_caught"])

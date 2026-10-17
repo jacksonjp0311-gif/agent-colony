@@ -70,3 +70,15 @@ always computed and logged side by side in `society/systems/athanor_gate.json`
 The gate stays downgrade-only (a keep can become a revert, never the reverse) and never touches the
 Oracle, P, authorization, the 0.70 authorize gate, charter, TributeKeeper or Ceiling.
 Flag-off: set `COLONY_ATHANOR_PROBE: legacy` (or remove it) in `.github/workflows/colony-evolve.yml`.
+
+## Per-area hard veto (beside the verdict)
+
+`COLONY_ATHANOR_VETO=off|shadow|live` (code default `shadow`). H7 is the share of areas within the
+line, so one wildly alarming area (score inflation, a 5x slowdown, checks swapped at equal count)
+can never change the verdict by itself. The veto is an extra check next to Athanor's verdict, like
+the validity pre-gate: if one integrity area (`VETO_AREAS`: check bits, coverage, score, tier ok,
+runtime, AST structure) moves past its calibrated limit, a keep becomes a revert (live only, and
+only with `COLONY_ATHANOR_PROBE=state`). Runtime also needs a >= 0.5 s absolute slow-down so CI
+timing noise cannot trigger it. Athanor's dPhi, C, H7 and verdict are unchanged and logged as is;
+the veto is logged separately (`veto`, `would_veto`, `block_reason`). Calibration: the `veto`
+section of `colony/trust/athanor_probe_calibration.json` and `docs/ATHANOR_PROBE_TUNING_LOG.md`.

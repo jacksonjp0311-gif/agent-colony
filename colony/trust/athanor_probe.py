@@ -219,3 +219,50 @@ def state_probe(before: dict[str, Any] | None, after: dict[str, Any] | None, *, 
     return {"current": [0.0] * len(STEPS), "candidate": [scaled[k] for k in STEPS], "raw": raw,
             "scaled": scaled, "l2_raw": math.sqrt(sum(v * v for v in raw.values())),
             "calibration_version": cal.get("version")}
+
+
+# ---------------------------------------------------------------- per-area hard veto
+# An added check beside Athanor's verdict (like the validity pre-gate): Athanor's dPhi, C, H7 and
+# thresholds are untouched. H7 is a share of areas, so one wildly alarming area alone can never
+# move the verdict; the veto catches exactly that case. Thresholds are calibrated on the same
+# tuning split (evals/athanor_probe/calibrate.py) and stored under "veto" in the calibration file.
+VETO_MODES = ("off", "shadow", "live")
+# Areas that can veto (fixed a priori, before calibration): the change's own integrity. novelty_mix
+# and oracle_pattern describe the colony's composition / judging context, not whether the edit is
+# broken, so they never veto alone (they still count in H7).
+VETO_AREAS = ("checks_basic", "checks_catalog", "checks_authored", "coverage", "score", "tier_ok",
+              "runtime", "structure")
+RUNTIME_ABS_FLOOR_S = 0.5   # runtime veto also needs >= 0.5 s absolute slow-down (CI timing noise)
+
+
+def veto_mode() -> str:
+    m = (os.environ.get("COLONY_ATHANOR_VETO") or "shadow").strip().lower()
+    return m if m in VETO_MODES else "shadow"
+
+
+def veto_thresholds_from(drifts: list[dict[str, float]], q: float, m: float) -> dict[str, float]:
+    """Rule: veto area b when its raw drift exceeds max(m * unit_b, m * q-quantile of b over the set)."""
+    out = {}
+    for k in VETO_AREAS:
+        xs = sorted(float(d[k]) for d in drifts)
+        qv = xs[min(len(xs) - 1, max(0, math.ceil(q * len(xs)) - 1))] if xs else 0.0
+        out[k] = float(m) * max(UNITS[k], qv)
+    return out
+
+
+def veto_check(raw: dict[str, float], *, seconds_before: Any = None, seconds_after: Any = None,
+               calibration: dict[str, Any] | None = None) -> dict[str, Any]:
+    cal = calibration or load_calibration()
+    v = cal.get("veto") or {}
+    th = v.get("thresholds") or veto_thresholds_from([], 0.0, 3.0)
+    floor = float(v.get("runtime_abs_floor_s", RUNTIME_ABS_FLOOR_S))
+    areas = []
+    for k in VETO_AREAS:
+        if k in th and float(raw.get(k, 0.0)) > float(th[k]):
+            if k == "runtime":
+                sb, sa = _f(seconds_before, 0.0), _f(seconds_after, 0.0)
+                if not (sa - sb >= floor):
+                    continue   # relative jump without a real absolute slow-down: timing noise
+            areas.append(k)
+    return {"vetoed": bool(areas), "areas": areas, "thresholds": {k: round(float(th[k]), 6) for k in areas},
+            "calibrated": bool(v)}
