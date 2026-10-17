@@ -4,8 +4,8 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 39,
-    "ok": 39
+    "n": 42,
+    "ok": 42
   },
   "rows": [
     {
@@ -2227,6 +2227,177 @@
           "name_sha256": "cda13f7e020d9580",
           "coverage": 0.0833,
           "bm25": -25.894
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-10-17T15:48:01Z",
+      "cycle_id": "20261017T154729Z_5c95a3",
+      "mutation": "odd_distinct_partitions",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": true,
+      "status": "ok",
+      "terms": [
+        "partitions",
+        "odd",
+        "distinct",
+        "kept",
+        "hard",
+        "enable",
+        "lemma",
+        "score",
+        "checks",
+        "pass",
+        "machine",
+        "checked"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A134337",
+          "name_sha256": "fc2084ace9b91cec",
+          "coverage": 0.25,
+          "bm25": -13.884
+        },
+        {
+          "anum": "A292547",
+          "name_sha256": "9c17ef4fbf68c110",
+          "coverage": 0.25,
+          "bm25": -13.49
+        },
+        {
+          "anum": "A167701",
+          "name_sha256": "ba8363b899dc77ef",
+          "coverage": 0.25,
+          "bm25": -13.49
+        },
+        {
+          "anum": "A167700",
+          "name_sha256": "765f3c9a35598337",
+          "coverage": 0.25,
+          "bm25": -13.49
+        },
+        {
+          "anum": "A024939",
+          "name_sha256": "bf124fd54783dd10",
+          "coverage": 0.25,
+          "bm25": -13.49
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-10-17T15:49:08Z",
+      "cycle_id": "20261017T154838Z_8d28f7",
+      "mutation": "authored_sieve_hl_within_g2_6_6_w1",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.3333,
+      "live_novel": true,
+      "status": "ok",
+      "terms": [
+        "quadruplets",
+        "hardy",
+        "littlewood",
+        "primes",
+        "kept",
+        "hard",
+        "enable",
+        "lemma",
+        "score",
+        "checks",
+        "pass",
+        "machine"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A152051",
+          "name_sha256": "d82d96e4cb96b35e",
+          "coverage": 0.25,
+          "bm25": -22.109
+        },
+        {
+          "anum": "A331942",
+          "name_sha256": "7243727eecb5c556",
+          "coverage": 0.25,
+          "bm25": -14.553
+        },
+        {
+          "anum": "A061642",
+          "name_sha256": "6f08d167013c67fa",
+          "coverage": 0.1667,
+          "bm25": -24.622
+        },
+        {
+          "anum": "A221713",
+          "name_sha256": "026f47ab0099cec4",
+          "coverage": 0.1667,
+          "bm25": -23.13
+        },
+        {
+          "anum": "A221712",
+          "name_sha256": "907bb7d3873a3db9",
+          "coverage": 0.1667,
+          "bm25": -23.13
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-10-17T15:50:18Z",
+      "cycle_id": "20261017T154945Z_cd809b",
+      "mutation": "partition_conjugate_parts",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": true,
+      "status": "ok",
+      "terms": [
+        "partitions",
+        "conjugate",
+        "parts",
+        "kept",
+        "hard",
+        "enable",
+        "lemma",
+        "score",
+        "checks",
+        "pass",
+        "machine",
+        "checked"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A350947",
+          "name_sha256": "76fa1891bbfc6d29",
+          "coverage": 0.25,
+          "bm25": -18.86
+        },
+        {
+          "anum": "A352129",
+          "name_sha256": "d1c0fcf0021a77df",
+          "coverage": 0.25,
+          "bm25": -18.831
+        },
+        {
+          "anum": "A067619",
+          "name_sha256": "3fd85f42c2084c54",
+          "coverage": 0.25,
+          "bm25": -18.378
+        },
+        {
+          "anum": "A351980",
+          "name_sha256": "3a061bbf875dfd42",
+          "coverage": 0.25,
+          "bm25": -18.343
+        },
+        {
+          "anum": "A350949",
+          "name_sha256": "cbca176f9d838358",
+          "coverage": 0.25,
+          "bm25": -18.343
         }
       ],
       "would_flag": false

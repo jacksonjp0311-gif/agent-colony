@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-17T15:45:07Z",
+  "ts": "2026-10-17T15:50:56Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 31,
-  "n_groups": 31,
+  "n_meet_bar": 32,
+  "n_groups": 32,
   "n_authored_groups": 15,
-  "n_building_block_groups": 16,
+  "n_building_block_groups": 17,
   "top": [
     {
       "id": "imp_0f9c00_50",
@@ -192,15 +192,15 @@
       "line": "Enable `authored_sieve_two_counter_g6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count; P 0.7417, novelty 0.6667."
     },
     {
-      "id": "imp_985c46_50",
-      "title": "Chain+seek `authored_sieve_hl_within_g2_4_6_w1` from invariant priors",
-      "cycle_id": "20261017T090630Z_985c46",
-      "target": "authored_sieve_hl_within_g2_4_6_w1",
-      "family": "authored_sieve_hl_within_g2_4_6",
+      "id": "imp_8d28f7_50",
+      "title": "Chain+seek `authored_sieve_hl_within_g2_6_6_w1` from invariant priors",
+      "cycle_id": "20261017T154838Z_8d28f7",
+      "target": "authored_sieve_hl_within_g2_6_6_w1",
+      "family": "authored_sieve_hl_within_g2_6_6",
       "meets_bar": true,
       "why_not": [],
       "P": 0.7417,
-      "P_stored": 0.825,
+      "P_stored": 0.7417,
       "novelty": 0.6667,
       "novelty_raw": 0.6667,
       "building_block": null,
@@ -209,14 +209,14 @@
         "instrument:sieve.sieve_count",
         "instrument:sieve.sieve_hl"
       ],
-      "athanor_verdict": null,
+      "athanor_verdict": "APPROVE",
       "rank": 0.6784,
       "group_count": 1,
       "group_ids": [
-        "imp_985c46_50"
+        "imp_8d28f7_50"
       ],
       "position": 8,
-      "line": "Enable `authored_sieve_hl_within_g2_4_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7417, novelty 0.6667."
+      "line": "Enable `authored_sieve_hl_within_g2_6_6_w1` (Oracle passed it in its own cycle); builds on instrument:sieve.sieve_count, instrument:sieve.sieve_hl; P 0.7417, novelty 0.6667."
     },
     {
       "id": "imp_a001a4_50",
@@ -466,6 +466,30 @@
       "line": "Building block `alternating_binomial_row` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
+      "id": "imp_5c95a3_50",
+      "title": "Chain `odd_distinct_partitions` citing (a, b)-Fibonacci\u2013Legendre Cordial Graphs and k-Pis",
+      "cycle_id": "20261017T154729Z_5c95a3",
+      "target": "odd_distinct_partitions",
+      "family": "odd_distinct_partitions",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 0.0,
+      "novelty_raw": 1.0,
+      "building_block": "catalog_refill",
+      "builds_on": 0.0,
+      "building_blocks": [],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.495,
+      "group_count": 1,
+      "group_ids": [
+        "imp_5c95a3_50"
+      ],
+      "position": 9,
+      "line": "Building block `odd_distinct_partitions` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+    },
+    {
       "id": "imp_7e52ce_50",
       "title": "Chain `gauss_phi_divisor_sum` citing A Gaussian integral formula for the Hermite polyno",
       "cycle_id": "20261017T135632Z_7e52ce",
@@ -486,37 +510,13 @@
       "group_ids": [
         "imp_7e52ce_50"
       ],
-      "position": 9,
-      "line": "Building block `gauss_phi_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
-    },
-    {
-      "id": "imp_8f9826_50",
-      "title": "Chain `bell_stirling_sum` citing Sum rules for permutations with fixed points invol",
-      "cycle_id": "20261017T142352Z_8f9826",
-      "target": "bell_stirling_sum",
-      "family": "bell_stirling_sum",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 0.0,
-      "novelty_raw": 1.0,
-      "building_block": "catalog_refill",
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.495,
-      "group_count": 1,
-      "group_ids": [
-        "imp_8f9826_50"
-      ],
       "position": 10,
-      "line": "Building block `bell_stirling_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
+      "line": "Building block `gauss_phi_divisor_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     }
   ],
   "excluded_reasons": {
-    "hearing": 9,
-    "status": 13,
+    "hearing": 8,
+    "status": 12,
     "novelty_killed": 19,
     "target_unresolved": 5,
     "no_oracle_pass_in_own_cycle": 7
@@ -528,5 +528,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T154404Z_866859"
+  "cycle_id": "20261017T154945Z_cd809b"
 }

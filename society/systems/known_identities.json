@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T15:44:30Z",
-  "n": 280,
+  "updated_at": "2026-10-17T15:50:16Z",
+  "n": 283,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -81,6 +81,7 @@
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sieve_hl_within_g2_4_6_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
+    "authored_sieve_hl_within_g2_6_6_w1",
     "authored_sieve_hl_within_g2_w1",
     "authored_sieve_hl_within_g2_w2",
     "authored_sieve_hl_within_g4_2_4_w1",
@@ -113,6 +114,7 @@
     "authored_sieve_two_counter_g2_6_w1",
     "authored_sieve_two_counter_g2_w1",
     "authored_sieve_two_counter_g4_2_4_w1",
+    "authored_sieve_two_counter_g4_2_6_w1",
     "authored_sieve_two_counter_g4_6_2_w1",
     "authored_sieve_two_counter_g4_w1",
     "authored_sieve_two_counter_g6_2_6_w1",
@@ -199,9 +201,7 @@
     "drop_repeated_kill_seek_elsewhere",
     "easy_pad",
     "easy_pad_abs_identity",
-    "easy_pad_assoc_add",
-    "easy_pad_commutativity",
-    "easy_pad_diff_squares"
+    "easy_pad_assoc_add"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
