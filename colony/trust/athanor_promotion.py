@@ -11,7 +11,9 @@ tuned setting is only a *candidate*; it may replace the incumbent only if
    the unchanged Athanor rule. Per recorded change i: sigma_i(p) = (H7_i(p), [verdict_i(p) =
    APPROVE]); d_i = (sigma_i(cand) - sigma_i(inc)) / sqrt(2); X = [0; cumsum(d)];
    ΔΦ_i = ‖d_i‖, C_i = 1/(1+ΔΦ_i), H7 = mean_i[C_i >= 0.70]. APPROVE -> promote, REFINE -> hold,
-   REJECT -> reject.
+   REJECT -> reject. Seed policy (Athanor 3.0): the gate uses a fresh block of desk changes that
+   no earlier promotion used; reuse needs ``--allow-reuse`` and is recorded; fewer than 8 fresh
+   changes -> HOLD.
 
 Report-only: the result is written to society/systems/athanor_gate_promotion.json and a
 hash-chained society/systems/athanor_gate_promotion_ledger.jsonl. Nothing reads it to pick a
@@ -102,6 +104,34 @@ def signature(profile: str, row: dict[str, Any]) -> tuple[float, float] | None:
     return float(pv["h7"]), 1.0 if pv["verdict"] == "APPROVE" else 0.0
 
 
+MIN_BLOCK = 8  # fewest fresh desk changes a promotion may be judged on
+
+
+def row_id(row: dict[str, Any]) -> str:
+    key = json.dumps([row.get("ts"), row.get("cycle_id"), row.get("mutation"), row.get("step")])
+    return hashlib.sha256(key.encode()).hexdigest()[:16]
+
+
+def used_row_ids(path: Path | None = None) -> set[str]:
+    path = path or LEDGER
+    out: set[str] = set()
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                out.update(json.loads(line).get("rows_used") or [])
+    return out
+
+
+def fresh_block(rows: list[dict[str, Any]], *, allow_reuse: bool = False) -> tuple[list[dict[str, Any]], int]:
+    """Athanor 3.0 seed-set policy for the colony: each promotion is judged on recorded desk changes
+    no earlier promotion used (a fresh block, never reused). Returns (block, n_reused_skipped)."""
+    if allow_reuse:
+        return list(rows), 0
+    used = used_row_ids()
+    block = [r for r in rows if row_id(r) not in used]
+    return block, len(rows) - len(block)
+
+
 def gate(candidate: str, incumbent: str, rows: list[dict[str, Any]]) -> dict[str, Any]:
     ds: list[list[float]] = []
     for r in rows:
@@ -167,7 +197,8 @@ def verify_ledger(path: Path | None = None) -> bool:
 
 
 def promote(candidate: str, incumbent: str = CONSERVATIVE_PROFILE, *, with_suite: bool = True,
-            rows: list[dict[str, Any]] | None = None,
+            rows: list[dict[str, Any]] | None = None, allow_reuse: bool = False,
+            min_block: int = MIN_BLOCK,
             runner: Callable[[str, dict[str, str]], int] = _run_pytest, write: bool = True) -> dict[str, Any]:
     if candidate not in ADAPTIVE_PROFILES or incumbent not in ADAPTIVE_PROFILES:
         raise ValueError(f"unknown profile; known: {sorted(ADAPTIVE_PROFILES)}")
@@ -177,11 +208,15 @@ def promote(candidate: str, incumbent: str = CONSERVATIVE_PROFILE, *, with_suite
             rows = json.loads(STATE.read_text(encoding="utf-8")).get("rows") or []
         except Exception:  # noqa: BLE001
             rows = []
+    block, skipped = fresh_block(rows, allow_reuse=allow_reuse)
     suite = run_suite(candidate, runner=runner) if with_suite else {"ran": False}
-    g = gate(candidate, incumbent, rows)
+    g = gate(candidate, incumbent, block)
     decision, why = decide(suite, g)
+    if decision == "promote" and len(block) < int(min_block):
+        decision, why = "hold", f"only {len(block)} fresh desk changes (< {min_block}); wait for more"
     out = {"ts": _utc(), "candidate": candidate, "incumbent": incumbent, "decision": decision,
            "reason": why, "suite": suite, "gate": g, "mode": "report_only",
+           "block": {"n": len(block), "reused_skipped": skipped, "allow_reuse": bool(allow_reuse)},
            "spec_hash": hashlib.sha256(json.dumps(ADAPTIVE_PROFILES[candidate], sort_keys=True).encode()).hexdigest(),
            "note": ("Athanor 2.7 eval-gated promotion (James Jackson). Report-only: the gate profile "
                     "in use is fixed in code; this never changes it.")}
@@ -190,7 +225,8 @@ def promote(candidate: str, incumbent: str = CONSERVATIVE_PROFILE, *, with_suite
         RESULT.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
         _append_ledger({"ts": out["ts"], "event": decision, "candidate": candidate, "incumbent": incumbent,
                         "spec_hash": out["spec_hash"], "suite_digest": suite.get("digest"),
-                        "verdict": g.get("verdict"), "h7": g.get("h7"), "n": g.get("n")})
+                        "verdict": g.get("verdict"), "h7": g.get("h7"), "n": g.get("n"),
+                        "rows_used": [row_id(r) for r in block], "allow_reuse": bool(allow_reuse)})
     return out
 
 
@@ -199,8 +235,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--candidate", required=True, choices=sorted(ADAPTIVE_PROFILES))
     ap.add_argument("--incumbent", default=CONSERVATIVE_PROFILE, choices=sorted(ADAPTIVE_PROFILES))
     ap.add_argument("--no-suite", action="store_true")
+    ap.add_argument("--allow-reuse", action="store_true", help="judge on already-used desk changes (recorded)")
     a = ap.parse_args(argv)
-    out = promote(a.candidate, a.incumbent, with_suite=not a.no_suite)
+    out = promote(a.candidate, a.incumbent, with_suite=not a.no_suite, allow_reuse=a.allow_reuse)
     print(json.dumps({k: out[k] for k in ("candidate", "incumbent", "decision", "reason", "gate")}, indent=2))
     print(json.dumps({"suite": [(c["case"], c["status"]) for c in out["suite"].get("cases") or []]}))
     return 0

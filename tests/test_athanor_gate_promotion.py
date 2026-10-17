@@ -8,9 +8,12 @@ import pytest
 import colony.trust.athanor_promotion as P
 
 
+_K = iter(range(10 ** 6))
+
+
 def _row(nz, n=20, e=0.1, step=0):
     return {"n_probes": n, "drift_nonzero": nz, "structural": 0.001, "e_cur": e, "e_best": e,
-            "step": step, "validity_passed": True}
+            "step": step, "validity_passed": True, "ts": f"t{next(_K)}", "mutation": "m"}
 
 
 @pytest.fixture
@@ -42,9 +45,9 @@ def test_suite_env_carries_candidate(out):
 
 def test_identical_profile_approves_and_ledger_chains(out):
     rows = [_row([1.0, 0.2]), _row([]), _row([3.0] * 10)]
-    r = P.promote("selfmod/adaptive@1.1.0", rows=rows, runner=lambda tf, env: 0)
+    r = P.promote("selfmod/adaptive@1.1.0", rows=rows, runner=lambda tf, env: 0, min_block=3)
     assert r["gate"]["verdict"] == "APPROVE" and r["gate"]["h7"] == 1.0 and r["decision"] == "promote"
-    P.promote("selfmod/adaptive@1.1.0", rows=rows, with_suite=False)
+    P.promote("selfmod/adaptive@1.1.0", rows=[_row([])], with_suite=False)
     assert P.verify_ledger(out / "ledger.jsonl")
     lines = (out / "ledger.jsonl").read_text().splitlines()
     assert [json.loads(l)["event"] for l in lines] == ["promote", "hold"]
@@ -74,3 +77,18 @@ def test_profile_env_selects_gate_profile(monkeypatch):
     assert r["gate_profile"] == "tsp/adaptive@1.1.0"
     monkeypatch.setenv("COLONY_ATHANOR_PROFILE", "not-a-profile")
     assert G.gate_profile() == "selfmod/adaptive@1.1.0"
+
+
+def test_fresh_block_never_reused(out):
+    rows = [_row([]) for _ in range(10)]
+    r1 = P.promote("selfmod/adaptive@1.1.0", rows=rows, runner=lambda tf, env: 0)
+    assert r1["decision"] == "promote" and r1["block"]["n"] == 10
+    r2 = P.promote("selfmod/adaptive@1.1.0", rows=rows, runner=lambda tf, env: 0)
+    assert r2["block"] == {"n": 0, "reused_skipped": 10, "allow_reuse": False} and r2["decision"] == "hold"
+    more = rows + [_row([]) for _ in range(3)]
+    r3 = P.promote("selfmod/adaptive@1.1.0", rows=more, runner=lambda tf, env: 0)
+    assert r3["block"]["n"] == 3 and r3["decision"] == "hold" and "fresh" in r3["reason"]
+    r4 = P.promote("selfmod/adaptive@1.1.0", rows=more, runner=lambda tf, env: 0, allow_reuse=True)
+    assert r4["decision"] == "promote" and r4["block"]["allow_reuse"] is True
+    last = json.loads((out / "ledger.jsonl").read_text().splitlines()[-1])
+    assert last["allow_reuse"] is True and len(last["rows_used"]) == 13
