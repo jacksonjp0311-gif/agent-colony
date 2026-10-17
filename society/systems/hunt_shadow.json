@@ -2,17 +2,17 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-17T22:49:52Z",
-    "cycle_id": "20261017T224856Z_28b40e",
+    "ts": "2026-10-17T22:56:13Z",
+    "cycle_id": "20261017T225501Z_425447",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 0.5,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 44,
-    "n_meet_bar_shadow": 30,
-    "n_unknown_claims": 27,
+    "n_meet_bar_actual": 45,
+    "n_meet_bar_shadow": 31,
+    "n_unknown_claims": 28,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
       "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
@@ -23,6 +23,7 @@
       "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_fermat_little__lucas_theorem_binomial_w1",
+      "authored_frontier_le_x46c5cc8a_w1",
       "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "authored_multinomial_three__newton_identities_w1",
       "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
@@ -32,8 +33,7 @@
       "authored_sieve_hl_within_g6_2_4_w1",
       "authored_sieve_hl_within_g6_2_6_w1",
       "authored_sieve_hl_within_g6_6_6_w1",
-      "authored_sieve_residue_bal_g2_4_6_w1",
-      "authored_sieve_residue_bal_g4_6_2_w1"
+      "authored_sieve_residue_bal_g2_4_6_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -202,51 +202,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-10-17T17:08:29Z",
-      "cycle_id": "20261017T170736Z_84ca4e",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 18,
-      "drop_out_of_bar": 41,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T17:09:23Z",
-      "cycle_id": "20261017T170829Z_f7b051",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 0,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 41,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T17:10:15Z",
-      "cycle_id": "20261017T170923Z_b1face",
-      "n_meet_bar_actual": 41,
-      "n_meet_bar_shadow": 2,
-      "n_unknown_claims": 18,
-      "drop_out_of_bar": 39,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-17T17:14:29Z",
       "cycle_id": "20261017T171305Z_3a02ab",
@@ -643,6 +598,51 @@
       "n_meet_bar_actual": 44,
       "n_meet_bar_shadow": 30,
       "n_unknown_claims": 27,
+      "drop_out_of_bar": 14,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:53:50Z",
+      "cycle_id": "20261017T225232Z_a8553b",
+      "n_meet_bar_actual": 44,
+      "n_meet_bar_shadow": 30,
+      "n_unknown_claims": 28,
+      "drop_out_of_bar": 14,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:55:00Z",
+      "cycle_id": "20261017T225350Z_cd0055",
+      "n_meet_bar_actual": 45,
+      "n_meet_bar_shadow": 31,
+      "n_unknown_claims": 28,
+      "drop_out_of_bar": 14,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-17T22:56:13Z",
+      "cycle_id": "20261017T225501Z_425447",
+      "n_meet_bar_actual": 45,
+      "n_meet_bar_shadow": 31,
+      "n_unknown_claims": 28,
       "drop_out_of_bar": 14,
       "enter_bar": 0,
       "guidance_mode": "live",

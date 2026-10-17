@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-17T22:49:40Z",
+  "ts": "2026-10-17T22:55:55Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261017T224856Z_28b40e"
+    "cycle_id": "20261017T225501Z_425447"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 392,
+  "last_oracle_passes": 393,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-17T16:31:42Z",
-      "cycle_id": "20261017T163053Z_088f2d",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-17T16:35:35Z",
-      "cycle_id": "20261017T163420Z_0bada5",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-17T16:36:47Z",
-      "cycle_id": "20261017T163545Z_b95580",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
     {
       "ts": "2026-10-17T16:37:58Z",
       "cycle_id": "20261017T163657Z_dfaa7b",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-17T22:53:36Z",
+      "cycle_id": "20261017T225232Z_a8553b",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-17T22:54:48Z",
+      "cycle_id": "20261017T225350Z_cd0055",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-17T22:55:59Z",
+      "cycle_id": "20261017T225501Z_425447",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-10-17T22:49:43Z",
+  "updated_at": "2026-10-17T22:55:59Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.016513,
     "hockey_stick": 0.016513,
@@ -314,12 +314,12 @@
     "binomial_inversion_small": 0.016513,
     "legendre_duplication_small": 0.016513,
     "stem_easy_pad_units": 0.016513,
-    "easy_pad_assoc_add": 0.001128,
-    "easy_pad_zero_identity": 0.001128,
-    "easy_pad_square_again": 0.001128,
-    "easy_pad_diff_squares": 0.001128,
-    "easy_pad_commutativity": 0.001128,
-    "easy_pad_abs_identity": 0.001128,
+    "easy_pad_assoc_add": 0.001127,
+    "easy_pad_zero_identity": 0.001127,
+    "easy_pad_square_again": 0.001127,
+    "easy_pad_diff_squares": 0.001127,
+    "easy_pad_commutativity": 0.001127,
+    "easy_pad_abs_identity": 0.001127,
     "fermat_little": 0.021829,
     "euler_theorem": 0.021829,
     "wilson_theorem": 0.021829,
@@ -344,10 +344,10 @@
     "cayley_hamilton_2x2": 0.021844,
     "cayley_hamilton_3x3": 0.02185,
     "newton_identities": 0.02185,
-    "polynomial_remainder": 0.021853,
-    "telescoping_sum": 0.021853,
-    "abel_summation": 0.021853,
-    "faulhaber_power_sums": 0.021853,
+    "polynomial_remainder": 0.021854,
+    "telescoping_sum": 0.021854,
+    "abel_summation": 0.021854,
+    "faulhaber_power_sums": 0.021854,
     "lagrange_cyclic_orders": 0.017478,
     "burnside_necklaces": 0.017478
   },
@@ -523,7 +523,8 @@
     "authored_mobius_divisor_sum__mobius_inversion_sigma_w1": 1,
     "authored_multinomial_three__newton_identities_w1": 1,
     "authored_odd_distinct_partitions__partition_conjugate_parts_w1": 1,
-    "authored_polynomial_remainder__telescoping_sum_w1": 1
+    "authored_polynomial_remainder__telescoping_sum_w1": 1,
+    "authored_frontier_le_x46c5cc8a_w1": 1
   },
   "charter_inform": {
     "bias": {

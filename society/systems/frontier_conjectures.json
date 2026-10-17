@@ -2,7 +2,9 @@
  "family_surprises": {
   "cong:digsum+lpf": 1,
   "cong:mu+n": 1,
+  "cong:mu+rad": 1,
   "cong:pell+sqfree": 1,
+  "cong:phi+pi": 1,
   "cong:pi": 1,
   "cong:sigma+sqfree": 1,
   "le:bigomega+gpf+tau": 1,
@@ -284,54 +286,123 @@
    "trivial_shared_operand": 1,
    "trivial_shuffle_null": 8,
    "ts": "2026-10-17T22:49:45Z"
+  },
+  {
+   "cycle_id": "20261017T225232Z_a8553b",
+   "duplicate": 78,
+   "expected_by_closure": 3,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 3,
+   "fitted": 118,
+   "loose_inequality": 0,
+   "machine_checked": 3,
+   "oeis_known": 0,
+   "oeis_unchecked": 0,
+   "retested": 3,
+   "surprises": 0,
+   "survived": 3,
+   "tested": 6,
+   "trivial_formal": 3,
+   "trivial_idle_part": 9,
+   "trivial_implied_parts": 20,
+   "trivial_shared_operand": 1,
+   "trivial_shuffle_null": 1,
+   "ts": "2026-10-17T22:53:40Z"
+  },
+  {
+   "cycle_id": "20261017T225350Z_cd0055",
+   "duplicate": 85,
+   "expected_by_closure": 1,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 5,
+   "fitted": 137,
+   "loose_inequality": 1,
+   "machine_checked": 1,
+   "oeis_known": 2,
+   "oeis_unchecked": 0,
+   "retested": 3,
+   "surprises": 1,
+   "survived": 5,
+   "tested": 10,
+   "trivial_formal": 7,
+   "trivial_idle_part": 8,
+   "trivial_implied_parts": 26,
+   "trivial_shared_operand": 0,
+   "trivial_shuffle_null": 1,
+   "ts": "2026-10-17T22:54:50Z"
+  },
+  {
+   "cycle_id": "20261017T225501Z_425447",
+   "duplicate": 93,
+   "expected_by_closure": 2,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 7,
+   "fitted": 139,
+   "loose_inequality": 0,
+   "machine_checked": 3,
+   "oeis_known": 2,
+   "oeis_unchecked": 0,
+   "retested": 5,
+   "surprises": 1,
+   "survived": 5,
+   "tested": 12,
+   "trivial_formal": 3,
+   "trivial_idle_part": 9,
+   "trivial_implied_parts": 18,
+   "trivial_shared_operand": 1,
+   "trivial_shuffle_null": 3,
+   "ts": "2026-10-17T22:56:02Z"
   }
  ],
  "kind_stats": {
   "cong": [
-   30,
-   20
+   35,
+   22
   ],
   "divides": [
-   56,
+   64,
    11
   ],
   "identity": [
-   13,
-   7
+   16,
+   10
   ],
   "le": [
-   26,
-   15
+   32,
+   17
   ],
   "rec": [
-   43,
-   40
+   49,
+   46
   ]
  },
  "last": {
-  "brier": 0.1849,
+  "brier": 0.1795,
   "counts": {
-   "duplicate": 72,
-   "expected_by_closure": 1,
+   "duplicate": 93,
+   "expected_by_closure": 2,
    "expressions": 260,
    "false_surprises": 0,
    "falsified": 7,
-   "fitted": 119,
+   "fitted": 139,
    "loose_inequality": 0,
-   "machine_checked": 1,
+   "machine_checked": 3,
    "oeis_known": 2,
    "oeis_unchecked": 0,
-   "retested": 1,
-   "surprises": 0,
-   "survived": 3,
-   "tested": 10,
+   "retested": 5,
+   "surprises": 1,
+   "survived": 5,
+   "tested": 12,
    "trivial_formal": 3,
-   "trivial_idle_part": 7,
+   "trivial_idle_part": 9,
    "trivial_implied_parts": 18,
    "trivial_shared_operand": 1,
-   "trivial_shuffle_null": 8
+   "trivial_shuffle_null": 3
   },
-  "cycle_id": "20261017T224856Z_28b40e",
+  "cycle_id": "20261017T225501Z_425447",
   "fit_n": 12,
   "mode": "live",
   "new_survivors": [
@@ -341,84 +412,110 @@
     "oeis": [
      "found"
     ],
-    "prediction": 0.9091,
-    "statement": "a(n) = (one+pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+    "prediction": 0.9184,
+    "statement": "a(n) = (lucas-fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
     "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "not_found"
+    ],
+    "prediction": 0.92,
+    "statement": "a(n) = (pell-pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 1.0,
+    "label": "conjecture surviving 9994 checks",
+    "oeis": [
+     "not_found"
+    ],
+    "prediction": 0.6111,
+    "statement": "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+    "unknown": true
    },
    {
     "hunt_value": 0.0,
     "label": "conjecture surviving 19988 checks",
     "oeis": [
+     "primitive",
      "found"
     ],
-    "prediction": 0.6452,
-    "statement": "S((sqfree*tau))(n) = 1 (mod 2) for all n >= 1",
+    "prediction": 0.5625,
+    "statement": "n(n) = pi[prime](n) for all n >= 1",
     "unknown": false
    },
    {
     "hunt_value": 0.0,
-    "label": "conjecture surviving 19988 checks",
+    "label": "machine-checked (certificate)",
     "oeis": [
-     "too_simple",
-     "too_simple"
+     "found",
+     "found"
     ],
-    "prediction": 0.2115,
-    "statement": "gpf[tau](n) divides (mu-sqfree)(n) for all n >= 1",
+    "prediction": 0.5882,
+    "statement": "sh(n)(n) = (n+one)(n) for all n >= 1",
     "unknown": false
    }
   ],
   "oeis_index": "available",
-  "ts": "2026-10-17T22:49:45Z"
+  "ts": "2026-10-17T22:56:02Z"
  },
  "mode": "live",
  "note": "Self-chosen conjectures checked on held-out ranges. 'conjecture surviving N checks' is bounded evidence, never proof; 'machine-checked' carries a decidable certificate. Report-only unless COLONY_FRONTIER=live. See colony/frontier_conjectures.py.",
  "op_stats": {
   "*": [
-   26,
+   29,
    1
   ],
   "+": [
-   20,
+   25,
    0
   ],
   "-": [
-   16,
+   22,
    1
   ],
   "D": [
-   19,
-   2
+   24,
+   3
   ],
   "S": [
    23,
    1
   ],
   "dbl": [
-   32,
-   5
+   41,
+   6
   ],
   "gcd": [
-   25,
+   27,
    4
   ],
   "o": [
-   49,
+   56,
    0
   ],
   "p": [
-   30,
+   32,
    1
   ],
   "sh": [
-   23,
+   29,
    0
   ]
  },
  "predictions": {
   "bins": {
+   "1": [
+    5,
+    0.9528,
+    0
+   ],
    "2": [
-    41,
-    9.6561,
+    44,
+    10.2664,
     7
    ],
    "3": [
@@ -432,14 +529,14 @@
     0
    ],
    "5": [
-    21,
-    11.2641,
-    12
+    30,
+    16.263,
+    17
    ],
    "6": [
-    37,
-    23.5725,
-    23
+    42,
+    26.7224,
+    25
    ],
    "7": [
     9,
@@ -452,93 +549,93 @@
     18
    ],
    "9": [
-    32,
-    29.6883,
-    28
+    38,
+    35.1824,
+    34
    ]
   },
-  "brier_sum": 31.058762,
-  "n": 168
+  "brier_sum": 35.181024,
+  "n": 196
  },
  "prim_stats": {
   "bigomega": [
-   12,
+   16,
    2
   ],
   "digsum": [
-   16,
+   20,
    1
   ],
   "fib": [
-   16,
+   19,
    0
   ],
   "gpf": [
-   25,
+   28,
    1
   ],
   "lpf": [
-   29,
+   32,
    2
   ],
   "lucas": [
-   17,
+   20,
    1
   ],
   "mu": [
-   21,
-   3
+   25,
+   4
   ],
   "n": [
-   27,
+   31,
    3
   ],
   "omega": [
-   15,
-   0
-  ],
-  "one": [
-   10,
-   0
-  ],
-  "part": [
-   8,
-   1
-  ],
-  "pell": [
-   17,
-   1
-  ],
-  "phi": [
    16,
    0
   ],
-  "pi": [
-   9,
-   1
-  ],
-  "popcount": [
-   18,
+  "one": [
+   12,
    0
   ],
-  "pow2": [
+  "part": [
+   11,
+   1
+  ],
+  "pell": [
+   21,
+   1
+  ],
+  "phi": [
+   23,
+   1
+  ],
+  "pi": [
+   12,
+   2
+  ],
+  "popcount": [
    21,
    0
   ],
+  "pow2": [
+   25,
+   0
+  ],
   "prime": [
-   8,
+   10,
    0
   ],
   "rad": [
-   24,
-   0
+   28,
+   1
   ],
   "sigma": [
-   18,
+   21,
    1
   ],
   "sopfr": [
-   20,
+   21,
    1
   ],
   "sqfree": [
@@ -546,7 +643,7 @@
    4
   ],
   "tau": [
-   22,
+   25,
    1
   ]
  },
@@ -649,6 +746,38 @@
    "statement": "D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2)",
    "unknown": false,
    "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "cong|D(gcd(phi,pi))||{\"m\": 2, \"q\": 2, \"r\": 0, \"s\": 1}": {
+   "certificate": null,
+   "checks": 9994,
+   "family": "cong:phi+pi",
+   "found_at": "2026-10-17T22:56:02Z",
+   "found_cycle": "20261017T225501Z_425447",
+   "hunt_value": 1.0,
+   "kind": "cong",
+   "label": "conjecture surviving 9994 checks",
+   "lhs": "D(gcd(phi,pi))",
+   "loose": null,
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 1
+   },
+   "prediction": 0.6111,
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "83358e42591cc9a4",
+   "statement": "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "unknown": true,
+   "unknown_reason": "survived held-out; not trivial; a derived sequence is not in OEIS"
   },
   "cong|D(pell)||{\"m\": 2, \"q\": 1, \"r\": 1, \"s\": 0}": {
    "certificate": {
@@ -773,13 +902,13 @@
   },
   "cong|S((sqfree*tau))||{\"m\": 2, \"q\": 1, \"r\": 1, \"s\": 0}": {
    "certificate": null,
-   "checks": 19988,
+   "checks": 59988,
    "family": "cong:sqfree+tau",
    "found_at": "2026-10-17T22:49:45Z",
    "found_cycle": "20261017T224856Z_28b40e",
    "hunt_value": 0.0,
    "kind": "cong",
-   "label": "conjecture surviving 19988 checks",
+   "label": "conjecture surviving 59988 checks",
    "lhs": "S((sqfree*tau))",
    "loose": null,
    "oeis": [
@@ -799,6 +928,7 @@
     13,
     20000
    ],
+   "retested_to": 60000,
    "rhs": "",
    "sig": "a2cc5e0bcb2e4f86",
    "statement": "S((sqfree*tau))(n) = 1 (mod 2) for all n >= 1",
@@ -954,6 +1084,39 @@
    "rhs": "",
    "sig": "b3a71189c278d1b7",
    "statement": "dbl(gcd(mu,n))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "unknown": true,
+   "unknown_reason": "survived held-out; not trivial; a derived sequence is not in OEIS"
+  },
+  "cong|dbl(gcd(mu,rad))||{\"m\": 2, \"q\": 2, \"r\": 0, \"s\": 0}": {
+   "certificate": null,
+   "checks": 29994,
+   "family": "cong:mu+rad",
+   "found_at": "2026-10-17T22:54:50Z",
+   "found_cycle": "20261017T225350Z_cd0055",
+   "hunt_value": 1.0,
+   "kind": "cong",
+   "label": "conjecture surviving 29994 checks",
+   "lhs": "dbl(gcd(mu,rad))",
+   "loose": null,
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "prediction": 0.6176,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "",
+   "sig": "170ff17c9770d027",
+   "statement": "dbl(gcd(mu,rad))(n) = 0 (mod 2) for all n = 0 (mod 2)",
    "unknown": true,
    "unknown_reason": "survived held-out; not trivial; a derived sequence is not in OEIS"
   },
@@ -1386,13 +1549,13 @@
   },
   "divides|gpf[tau]|(mu-sqfree)|{}": {
    "certificate": null,
-   "checks": 19988,
+   "checks": 59988,
    "family": "divides:gpf+mu+sqfree+tau",
    "found_at": "2026-10-17T22:49:45Z",
    "found_cycle": "20261017T224856Z_28b40e",
    "hunt_value": 0.0,
    "kind": "divides",
-   "label": "conjecture surviving 19988 checks",
+   "label": "conjecture surviving 59988 checks",
    "lhs": "gpf[tau]",
    "loose": null,
    "oeis": [
@@ -1406,6 +1569,7 @@
     13,
     20000
    ],
+   "retested_to": 60000,
    "rhs": "(mu-sqfree)",
    "sig": "0260f9aa3d05f6f2",
    "statement": "gpf[tau](n) divides (mu-sqfree)(n) for all n >= 1",
@@ -1732,6 +1896,40 @@
    "unknown": false,
    "unknown_reason": "involved sequences already in OEIS (relation may be known)"
   },
+  "identity|dbl(bigomega)|(bigomega+one)|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "identity:bigomega+one",
+   "found_at": "2026-10-17T22:54:50Z",
+   "found_cycle": "20261017T225350Z_cd0055",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "dbl(bigomega)",
+   "loose": null,
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A067554",
+    "A073093",
+    "A085082",
+    "A088873"
+   ],
+   "params": {},
+   "prediction": 0.5333,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "(bigomega+one)",
+   "sig": "cbba6b51407e5d3a",
+   "statement": "dbl(bigomega)(n) = (bigomega+one)(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
   "identity|dbl(pow2)|(pow2*pow2)|{}": {
    "certificate": {
     "argument": "both sides are C-finite (orders <= 1, 1); their difference has order <= 2 and vanishes on n = 1..2, hence everywhere",
@@ -1827,6 +2025,39 @@
    "unknown": false,
    "unknown_reason": "involved sequences already in OEIS (relation may be known)"
   },
+  "identity|n|pi[prime]|{}": {
+   "certificate": null,
+   "checks": 19988,
+   "family": "identity:n+pi+prime",
+   "found_at": "2026-10-17T22:56:02Z",
+   "found_cycle": "20261017T225501Z_425447",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "conjecture surviving 19988 checks",
+   "lhs": "n",
+   "loose": null,
+   "oeis": [
+    "primitive",
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A000926",
+    "A001477"
+   ],
+   "params": {},
+   "prediction": 0.5625,
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "pi[prime]",
+   "sig": "d0757d5564471c4a",
+   "statement": "n(n) = pi[prime](n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
   "identity|omega|bigomega[rad]|{}": {
    "certificate": null,
    "checks": 59988,
@@ -1894,6 +2125,44 @@
    "unknown": false,
    "unknown_reason": "involved sequences already in OEIS (relation may be known)"
   },
+  "identity|sh(n)|(n+one)|{}": {
+   "certificate": {
+    "argument": "both sides are C-finite (orders <= 2, 3); their difference has order <= 5 and vanishes on n = 1..5, hence everywhere",
+    "checked_terms": 5,
+    "method": "C-finite order bound",
+    "order_bound": 5
+   },
+   "checks": 19988,
+   "family": "identity:n+one",
+   "found_at": "2026-10-17T22:56:02Z",
+   "found_cycle": "20261017T225501Z_425447",
+   "hunt_value": 0.0,
+   "kind": "identity",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh(n)",
+   "loose": null,
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A000027",
+    "A000401",
+    "A001477",
+    "A002377"
+   ],
+   "params": {},
+   "prediction": 0.5882,
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "(n+one)",
+   "sig": "3f513f57bc92d245",
+   "statement": "sh(n)(n) = (n+one)(n) for all n >= 1",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
   "le|(bigomega*lpf)|sopfr|{}": {
    "certificate": null,
    "checks": 59988,
@@ -1922,6 +2191,40 @@
    "statement": "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)",
    "unknown": true,
    "unknown_reason": "survived held-out; not trivial; a derived sequence is not in OEIS"
+  },
+  "le|(digsum+n)|dbl(n)|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "le:digsum+n",
+   "found_at": "2026-10-17T22:54:50Z",
+   "found_cycle": "20261017T225350Z_cd0055",
+   "hunt_value": 0.0,
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "(digsum+n)",
+   "loose": true,
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A004275",
+    "A004277",
+    "A004278",
+    "A005843"
+   ],
+   "params": {},
+   "prediction": 0.5517,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "dbl(n)",
+   "sig": "b07c42b2f294e580",
+   "statement": "(digsum+n)(n) <= dbl(n)(n) for all n >= 1 (with equality at some n)",
+   "unknown": false,
+   "unknown_reason": "loose: equality only at small n (a growth-gap bound, not a tight relation)"
   },
   "le|(gpf-tau)|dbl((gpf-bigomega))|{}": {
    "certificate": null,
@@ -2275,6 +2578,40 @@
    "rhs": "dbl(rad)",
    "sig": "2deffb8812f9a378",
    "statement": "rad[lpf](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)",
+   "unknown": false,
+   "unknown_reason": "involved sequences already in OEIS (relation may be known)"
+  },
+  "le|sh(gpf)|sh(sopfr)|{}": {
+   "certificate": null,
+   "checks": 59988,
+   "family": "le:gpf+sopfr",
+   "found_at": "2026-10-17T22:54:50Z",
+   "found_cycle": "20261017T225350Z_cd0055",
+   "hunt_value": 0.0,
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "sh(gpf)",
+   "loose": false,
+   "oeis": [
+    "found",
+    "found"
+   ],
+   "oeis_anums": [
+    "A001414",
+    "A006530",
+    "A051664",
+    "A088387"
+   ],
+   "params": {},
+   "prediction": 0.5312,
+   "range": [
+    13,
+    20000
+   ],
+   "retested_to": 60000,
+   "rhs": "sh(sopfr)",
+   "sig": "82fd32fab34efbcc",
+   "statement": "sh(gpf)(n) <= sh(sopfr)(n) for all n >= 1 (with equality at some n)",
    "unknown": false,
    "unknown_reason": "involved sequences already in OEIS (relation may be known)"
   },
@@ -2795,6 +3132,48 @@
    "unknown": false,
    "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
   },
+  "rec|(lucas-fib)||{\"c\": [1, 1]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 4 and vanishes on 4 consecutive terms, hence everywhere",
+    "checked_terms": 4,
+    "method": "C-finite order bound",
+    "order_bound": 4
+   },
+   "checks": 1988,
+   "family": "rec:fib+lucas",
+   "found_at": "2026-10-17T22:56:02Z",
+   "found_cycle": "20261017T225501Z_425447",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(lucas-fib)",
+   "loose": null,
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A006355",
+    "A055389",
+    "A118658",
+    "A128588"
+   ],
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "prediction": 0.9184,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "6572dad767c240c9",
+   "statement": "a(n) = (lucas-fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
   "rec|(lucas-one)||{\"c\": [-1, 0, 2]}": {
    "certificate": {
     "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
@@ -2971,7 +3350,7 @@
     "method": "C-finite order bound",
     "order_bound": 3
    },
-   "checks": 1988,
+   "checks": 3988,
    "family": "rec:one+pell",
    "found_at": "2026-10-17T22:49:45Z",
    "found_cycle": "20261017T224856Z_28b40e",
@@ -2999,6 +3378,7 @@
     13,
     2000
    ],
+   "retested_to": 4000,
    "rhs": "",
    "sig": "15852e2d88f1a96a",
    "statement": "a(n) = (one+pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)",
@@ -3044,6 +3424,85 @@
    "rhs": "",
    "sig": "8bb1ca4088af3d6e",
    "statement": "a(n) = (pell*pell)(n) satisfies a(n+3) = -1*a(n+0) + 5*a(n+1) + 5*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(pell*pow2)||{\"c\": [4, 4]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "checks": 3988,
+   "family": "rec:pell+pow2",
+   "found_at": "2026-10-17T22:53:40Z",
+   "found_cycle": "20261017T225232Z_a8553b",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pell*pow2)",
+   "loose": null,
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     4,
+     4
+    ]
+   },
+   "prediction": 0.913,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "bf237d04fa001891",
+   "statement": "a(n) = (pell*pow2)(n) satisfies a(n+2) = 4*a(n+0) + 4*a(n+1)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(pell+pell)||{\"c\": [1, 2]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 4 and vanishes on 4 consecutive terms, hence everywhere",
+    "checked_terms": 4,
+    "method": "C-finite order bound",
+    "order_bound": 4
+   },
+   "checks": 3988,
+   "family": "rec:pell",
+   "found_at": "2026-10-17T22:53:40Z",
+   "found_cycle": "20261017T225232Z_a8553b",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pell+pell)",
+   "loose": null,
+   "oeis": [
+    "found"
+   ],
+   "oeis_anums": [
+    "A052542",
+    "A163271"
+   ],
+   "params": {
+    "c": [
+     1,
+     2
+    ]
+   },
+   "prediction": 0.9149,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "58f68a83c4e86f4b",
+   "statement": "a(n) = (pell+pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)",
    "unknown": false,
    "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
   },
@@ -3125,6 +3584,44 @@
    "rhs": "",
    "sig": "43e241990a3ec195",
    "statement": "a(n) = (pell-one)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|(pell-pow2)||{\"c\": [-2, -3, 4]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 1988,
+   "family": "rec:pell+pow2",
+   "found_at": "2026-10-17T22:56:02Z",
+   "found_cycle": "20261017T225501Z_425447",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pell-pow2)",
+   "loose": null,
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     -2,
+     -3,
+     4
+    ]
+   },
+   "prediction": 0.92,
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "40ed5d90f96bdded",
+   "statement": "a(n) = (pell-pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)",
    "unknown": false,
    "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
   },
@@ -3291,6 +3788,45 @@
    "rhs": "",
    "sig": "9f6506856afad9d2",
    "statement": "a(n) = (pow2-pell)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
+  "rec|D((fib+pow2))||{\"c\": [-2, -1, 3]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:fib+pow2",
+   "found_at": "2026-10-17T22:53:40Z",
+   "found_cycle": "20261017T225232Z_a8553b",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "D((fib+pow2))",
+   "loose": null,
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     -2,
+     -1,
+     3
+    ]
+   },
+   "prediction": 0.9111,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "6e51d0616b690b99",
+   "statement": "a(n) = D((fib+pow2))(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)",
    "unknown": false,
    "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
   },
@@ -3711,6 +4247,45 @@
    "unknown": false,
    "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
   },
+  "rec|dbl((pell+pow2))||{\"c\": [4, -25, 10]}": {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "checks": 3988,
+   "family": "rec:pell+pow2",
+   "found_at": "2026-10-17T22:54:50Z",
+   "found_cycle": "20261017T225350Z_cd0055",
+   "hunt_value": 0.0,
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl((pell+pow2))",
+   "loose": null,
+   "oeis": [
+    "not_found"
+   ],
+   "oeis_anums": [],
+   "params": {
+    "c": [
+     4,
+     -25,
+     10
+    ]
+   },
+   "prediction": 0.9167,
+   "range": [
+    13,
+    2000
+   ],
+   "retested_to": 4000,
+   "rhs": "",
+   "sig": "7e7f6cad3ade912b",
+   "statement": "a(n) = dbl((pell+pow2))(n) satisfies a(n+3) = 4*a(n+0) + -25*a(n+1) + 10*a(n+2)",
+   "unknown": false,
+   "unknown_reason": "expected (C-finite closure: a recurrence / periodic residues always exist)"
+  },
   "rec|dbl(n)||{\"c\": [-1, 2]}": {
    "certificate": {
     "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
@@ -4040,29 +4615,37 @@
   "03aebbcc33c5",
   "053f815f325e",
   "08bd11d011ae",
+  "0ce48f2a8549",
   "0e0a44b63e81",
   "0f3876bbecf1",
   "1983b017c6e0",
+  "1a7c7178a96d",
   "1c3a72783949",
   "1d367d662914",
   "227cb27d4d8d",
+  "24c7780908e4",
   "270575c9fc5c",
   "29227cd664f1",
   "2af56ad27d95",
   "2b599455ddb7",
   "31b804f4fd5e",
+  "37eb56c8c4a8",
   "399180ee1b4b",
+  "3c02358d2aa7",
   "3cb7378e4a6a",
   "3e618f8a7a98",
+  "3f7227e5fcdb",
   "3fab673dcd86",
   "40569cc4e658",
   "47872b6e830f",
   "47a724e945a6",
+  "4afb6edb1d5a",
   "524ebde7be79",
   "56a86270c139",
   "570889535861",
   "5aad2fc22c33",
   "5bf1cc848f79",
+  "5dd59214a80d",
   "5e37b405b09f",
   "63c33075cdf1",
   "6605fb17c743",
@@ -4071,13 +4654,16 @@
   "6a606d30ec95",
   "6e7caab987a7",
   "77e4eb1dc10f",
+  "797d41487f84",
   "7c80069ff50e",
   "806c310932f5",
   "8dd24287d528",
   "8f5110bcb399",
   "90315d3b1c9e",
+  "90371cf0b76d",
   "909a2b97b5c3",
   "90c34004f083",
+  "91ba85845d5d",
   "9c3bd85f6550",
   "a16815a35351",
   "a50846ba45dd",
@@ -4086,7 +4672,9 @@
   "acc84e7f6fd3",
   "ae76882868f3",
   "b1801569f453",
+  "b4ce9ecbf473",
   "b5a52527860a",
+  "bae3a3e47423",
   "bb19e9f018b3",
   "bdf59d841530",
   "bf6520ff1ab4",
@@ -4099,6 +4687,8 @@
   "d8deedef4c6f",
   "db15fbe0e1df",
   "dcdb729ff2f6",
+  "ddab3920976b",
+  "e582b31a9c4d",
   "ea0467f82be4",
   "ec24690516d9",
   "ecf4ab392261",
@@ -4134,6 +4724,7 @@
   "05c0dffa18d7d944",
   "0637ba18c93e3547",
   "064acee6f57812fe",
+  "06d08989a5466a47",
   "075654adcc467e18",
   "078d8ba4258e114f",
   "07ca19ad11b11909",
@@ -4144,6 +4735,7 @@
   "0872f43799e72c71",
   "08766e838b6f9293",
   "089c3bd7fc821cb4",
+  "08ab7b45cb342556",
   "08d334b2bd08d103",
   "09047c0cdc860978",
   "09221bf715bfbe1f",
@@ -4153,6 +4745,7 @@
   "0a4dcdb856716753",
   "0a524363ef49e408",
   "0a76fcf21a16ade8",
+  "0aa9ad5209b52be9",
   "0b14bbd196ed4ae5",
   "0bc4f238f71c1b36",
   "0bc89abe8593b0fb",
@@ -4163,6 +4756,7 @@
   "0c9f555c029228e9",
   "0cc3d459b108105e",
   "0d05e75c21f0f232",
+  "0d1ab85147bad725",
   "0d4cfaffaab8a376",
   "0d8b881c73250e62",
   "0d93b18b8abd29ed",
@@ -4194,9 +4788,11 @@
   "1694828782292aa0",
   "16b72492a3c0c5c9",
   "16bd6e92414c454c",
+  "170ff17c9770d027",
   "1711a2cc3cb31503",
   "17563bf86d2231f7",
   "1769cc065cd81adc",
+  "187e9659e6cd1fd5",
   "188748e247e2dd33",
   "18a3018b503d2e71",
   "18c8b78dbc81f1a2",
@@ -4218,6 +4814,7 @@
   "1d494e780c639fdc",
   "1d81ce2c56092e3e",
   "1db4e1e9a9691cb5",
+  "1e0fb237fd196ef7",
   "1e23008ee991ec93",
   "1e2827075ff662af",
   "1e8b018af390e61c",
@@ -4243,6 +4840,7 @@
   "228d59c47742412c",
   "22a8dfe5f0792964",
   "22afeca4804d67d7",
+  "22b1fba6ab1452f6",
   "23c19813e2b6d86f",
   "23fd164c456c0b1c",
   "2464690930b739c5",
@@ -4254,7 +4852,9 @@
   "261551e5acf04488",
   "26a127a043bc9a01",
   "26dae37933023a1b",
+  "274169723d05a73c",
   "2755f221c927c78b",
+  "275e8bd4fad646c7",
   "27b0e2249ddfada9",
   "27b6679fa8cc09ca",
   "2817ede2e01b7cf2",
@@ -4269,6 +4869,7 @@
   "2b383d62bbbde1d0",
   "2b615c3d577c5a63",
   "2b70da5d82784dc1",
+  "2b8db62cddad0921",
   "2c0da2372dd6ed5c",
   "2c0f9cfadc7b0c36",
   "2c1854a9e92f6160",
@@ -4276,6 +4877,7 @@
   "2cad349d8da91aeb",
   "2cb108f07dc088b9",
   "2cb2d6f9375f55b8",
+  "2d65360fe9703dc6",
   "2d65fd9b131a9d50",
   "2d8310993f6fa448",
   "2dc3d3a15284d65d",
@@ -4298,6 +4900,7 @@
   "305c1644065aa8f8",
   "30ac3d0b535fbeb3",
   "30cc7dca4c59a034",
+  "321201df373b572c",
   "32fce01a20a5b8ed",
   "3302cc982b713e11",
   "335eb8b99ec5f202",
@@ -4308,9 +4911,13 @@
   "34f429527448a7c0",
   "352214570a0ef311",
   "3619ae5e0cfda0b6",
+  "36aad614f9efa401",
+  "36f19702d3fed9d5",
   "36f4a95795cf4b58",
+  "372697d4360b8d98",
   "37363dd2789d3917",
   "37876df6ca7dec73",
+  "3796bfa6ded14347",
   "37bee253d0e6c0be",
   "37d4c3b0605e361f",
   "384bd85605fff546",
@@ -4329,14 +4936,18 @@
   "3c7def6079551fac",
   "3c9c2d7d6c2b7394",
   "3cfdd636746aa9bd",
+  "3ecf53bf3d3fae61",
   "3f3cc486477aad21",
+  "3f513f57bc92d245",
   "3f806675fb130d38",
   "3ff34261627cfc86",
   "3ff6d9124f0e16c6",
   "3ffaceeecd6e3ad2",
   "40075b3b8fedb1b0",
+  "403313a3cce0fc27",
   "40a936d0585907b0",
   "40b834eb872582dc",
+  "40ed5d90f96bdded",
   "4208749d2526c2b1",
   "4219658236e20e64",
   "421fc034266c61b6",
@@ -4344,18 +4955,22 @@
   "42f67a59348b78c0",
   "439d167b437ca395",
   "43e241990a3ec195",
+  "440850ee0fae3281",
   "4449e8c05cbc92ea",
   "447475a80b535748",
   "44dbf1fb7a0bebdc",
+  "44e3a5b3941ca332",
   "456ceccd78c34693",
   "4593d399db64134b",
   "464a343477f7d5c3",
   "466a19a54d740770",
+  "467f14d9305c87f4",
   "46867b6fa45e8aea",
   "4698940ea4fe287c",
   "46c5cc8a53b70f47",
   "46ea80bd0ba08437",
   "474e04454b6bd2a1",
+  "47a58b66376ee566",
   "48064540bb135d83",
   "482193a84b52f27e",
   "483a38f1a9d34d1f",
@@ -4368,6 +4983,8 @@
   "49434fb760858349",
   "4977e9d129adf745",
   "49a291120a4eb8cd",
+  "49ea54a8a9bfded1",
+  "4a44246a23c7ca92",
   "4a4bf180566d263f",
   "4a6c79582180f761",
   "4aa59c9fbe6ff723",
@@ -4375,6 +4992,7 @@
   "4b049779411baadd",
   "4b2ca0de548733ee",
   "4b68b19c136c2aac",
+  "4b928aa6fb404894",
   "4beae98679451477",
   "4c262606a99bf64a",
   "4c30d99f228d98ce",
@@ -4382,6 +5000,7 @@
   "4d2354917704b469",
   "4d56790d12597f8c",
   "4db93545288ddbe5",
+  "4dc238cad0cba19e",
   "4e13078657edc9fc",
   "4e6b99f558285bea",
   "4e8a4ca0c99cccdd",
@@ -4400,7 +5019,9 @@
   "517e5b58b912ff90",
   "51d5d50936d15710",
   "51df119958f62409",
+  "51f7a715978f1890",
   "51faff28da5a13ce",
+  "520b14559137889c",
   "52422ee2931ddc58",
   "5277a70d18f517a9",
   "52799a2bc16810c7",
@@ -4416,13 +5037,16 @@
   "557d27f59a59e4d7",
   "55879ca0c62bb21f",
   "559ffbb7fc5e2f73",
+  "561cccc44ae7d5ad",
   "567f333155070fd9",
   "57579aa28e9f02c8",
   "577c4474583144bc",
   "5783f30ec24fd75e",
   "57ae8d73c8274598",
   "57af6a51736d041a",
+  "57ddee29b54f1186",
   "58e3a24158b499d7",
+  "58f68a83c4e86f4b",
   "595e29319ed679fd",
   "5a00009c96c27208",
   "5a0c10ad15bd170d",
@@ -4437,8 +5061,10 @@
   "5c6a4ae7b7d7db96",
   "5cb0d811ed0493c7",
   "5cb35120fcdea383",
+  "5cd13762d56621e3",
   "5cfab78ebb8ca655",
   "5de685896c67f007",
+  "5dec8bb6987edd71",
   "5dfa4b3340417201",
   "5e43d8ff25d3cb04",
   "5e7f89049eae011e",
@@ -4453,6 +5079,7 @@
   "611ae5645a547339",
   "6161784c069574db",
   "61b703c304b62fa2",
+  "61e33fceaf8c12be",
   "61fbcbe9442a67e0",
   "620ead5819693d2f",
   "620ef676e6277ea9",
@@ -4463,12 +5090,14 @@
   "62c86c100fb0955c",
   "6355e0d19d71411f",
   "635a1f56cc26b833",
+  "635e874a2cf7fc7f",
   "63c553639a931326",
   "63e3c4d61a1bf441",
   "6413a88c0341cb6c",
   "6419dfbbbda753e4",
   "64c57eac1b3620cb",
   "65059be9ccd0a460",
+  "6572dad767c240c9",
   "65a2918553658ee0",
   "65abb9431c36bb14",
   "6625104dcbefcc2d",
@@ -4483,6 +5112,7 @@
   "681cae55f51e17f5",
   "68259d449193eb23",
   "689e695f84f67201",
+  "68a5a9b857ca67fd",
   "68a75e4b64b24ba3",
   "690d64903262c2f5",
   "69623ec78626516f",
@@ -4491,17 +5121,23 @@
   "6a2e80724cc6eba3",
   "6a51a64ecf30121d",
   "6a5456fa6967348c",
+  "6a9740c917d350c3",
   "6aff02aecc5982bb",
   "6b1e311641956296",
   "6b216068e9211883",
   "6b8866eec68afe6f",
+  "6be679ddd6ce046a",
   "6bebc6b7e04d0091",
   "6c69f01f488625c9",
+  "6cacfa3ac39ba0e9",
+  "6cbe4fa47d44af7d",
+  "6cd68a408d4b4efc",
   "6ce76ffa057cc954",
   "6d22be1e50145306",
   "6daf3f18f7b091ee",
   "6dc2e0cba44e798e",
   "6e190c43e532dcaf",
+  "6e51d0616b690b99",
   "6e6fd5fa42f0e104",
   "6e809445a191821d",
   "6ee113fe3f897f77",
@@ -4509,6 +5145,8 @@
   "7015518f84f8bced",
   "70704dbff49b9a95",
   "70b4806843b1a988",
+  "7108cf0862645bd4",
+  "712bfb49933f2d02",
   "71e9051282319ae2",
   "720999bf82d07bfb",
   "72107bc43885d3eb",
@@ -4524,7 +5162,10 @@
   "73d2a4c1671b4f21",
   "73d7d0a5e247f02b",
   "73f4a1041975c730",
+  "7434e41bb1948c14",
   "74ed17317b6dbcc5",
+  "7539a66fd386d3db",
+  "756230e861d33c7a",
   "75b0c04e7f8d1b4f",
   "75d42f91911cdb52",
   "75e1fd86cd4cfc34",
@@ -4543,16 +5184,21 @@
   "7a2567c4c2665fd4",
   "7b60d9ab9f132d01",
   "7b8599a90175a07f",
+  "7ba8ab9c38a3ff5c",
   "7bc8f19bcd489288",
   "7c10b396937196e9",
   "7c16d5e68f665d31",
   "7c3e1c9f4b8c0206",
   "7c49e9ed8d775fcb",
   "7c73607a2076ce48",
+  "7c897b3ae8bcb08b",
   "7ca3bdd7b813f240",
+  "7d90fb08d797dff7",
   "7e760378f676cac2",
+  "7e7f6cad3ade912b",
   "7e8ceaae2269dba2",
   "7f34bbcbffa7b948",
+  "7f81beb136ab66f6",
   "7fc230141445d00c",
   "7fda842aa1481024",
   "7fe34aa7ba94227d",
@@ -4568,15 +5214,21 @@
   "829bd241ae00318b",
   "82a9c90105334c50",
   "82c352fc55dbe182",
+  "82fd32fab34efbcc",
   "83264066b59da255",
+  "83358e42591cc9a4",
   "8363371e3025c685",
   "83643f60497d8cc7",
   "836bfc589949f14a",
+  "83dc98181f73723c",
   "84c367589433edaa",
   "84d32bfd88521548",
   "84e26767be45d843",
+  "84f40017d25ce274",
   "8524d9db27824dfe",
   "8540c3cd4310ebe0",
+  "856612a417ace35b",
+  "858ec613a5db797d",
   "8597343e5d08b567",
   "859a8bd190ac2071",
   "86142a6525a9cdde",
@@ -4587,10 +5239,13 @@
   "8760da9e4753300c",
   "88299cf94ffabf77",
   "8884cb44f7f7ed36",
+  "8894b6f3ff3ada97",
   "894afe884a47a4a1",
   "89566b1c499d9be4",
   "895b069abe6ff5f3",
+  "89d544608e52081a",
   "8b73c365afbb1123",
+  "8b986235a6519198",
   "8bb1ca4088af3d6e",
   "8bb70a16af2db3a0",
   "8bf486d5ab5744fa",
@@ -4601,6 +5256,7 @@
   "8ce2837f04c5e32a",
   "8cf642dee387505e",
   "8d74fcd481fa0eae",
+  "8d8db75b983d39e3",
   "8dba64207e0b6347",
   "8dc9c181f2b31ee3",
   "8e44c87321b866ee",
@@ -4608,14 +5264,19 @@
   "8e8bce4ac7f73283",
   "8e933e24845b851d",
   "8eba0aca168d119d",
+  "8ebf8211ed80f78b",
   "8eda57d735340e17",
   "8edfa0f1480cd56d",
   "8fe9894a2f6f80ae",
   "90414200a592b2f4",
+  "904f18c8a561cc22",
   "91081145cd691dbf",
   "9135d788748bbcaa",
   "91c250edaa827e5c",
   "920bc853e2bf32e3",
+  "92f77654979d20c1",
+  "930e960fb4cb3cc9",
+  "9326d97e9058c689",
   "9362cc071c61a967",
   "938293935e6d92ba",
   "9428725a5943a998",
@@ -4623,6 +5284,7 @@
   "951756ddc6df8b76",
   "96a94aa74f22a58d",
   "96cae378f86ac701",
+  "96def8bf6b7464f6",
   "96eee7579a775929",
   "97a795a7688a4ddd",
   "97e2388f4eff91dd",
@@ -4633,20 +5295,29 @@
   "990c074d14b8e660",
   "9941088c079fdda0",
   "9a375e990d6f0067",
+  "9a51544d6e2ce553",
   "9ab475cf754949a0",
   "9abb4c980ca40600",
   "9b07d5a4bc3652d0",
   "9b16066264a763e4",
+  "9b279e7392533e39",
   "9b6c67c01e5aefde",
   "9bc6c6d81d1afba3",
   "9bc8a8cf5e6162bc",
+  "9bf0ba521fb61df6",
+  "9c30680e73263125",
   "9c4020a1795cfca8",
   "9c5a38c3fb7680e5",
+  "9c65df11c312fb53",
   "9c8a83882d627531",
   "9d9c19ec7dcdec43",
   "9da54e45bc7ca285",
   "9dc2eb4e2e654f73",
+  "9e25a51e873ef637",
+  "9e308bdb732088d2",
+  "9e6a13f3ca9019df",
   "9e7aaae39f59b479",
+  "9f1b9278297a3aa3",
   "9f4967e11dc022d8",
   "9f4e7d60c1b4e012",
   "9f4f7d227d77a6f7",
@@ -4663,6 +5334,7 @@
   "a0d7d5d75856f030",
   "a1b5eab279e66eca",
   "a1e943ee31e84e03",
+  "a20665f1dbbc8e35",
   "a24ddea50d25f058",
   "a261d40f0a4e2e2f",
   "a2b65d3dd65b7309",
@@ -4675,6 +5347,7 @@
   "a47c4d7bf992cc59",
   "a4a6d76e97f8e68f",
   "a4a73d777d3fb710",
+  "a4ef033a9679ecf4",
   "a55400a9bd47f1ff",
   "a58e568cf6a64dc0",
   "a59a968328fc9ebb",
@@ -4686,6 +5359,7 @@
   "a7202c61462a3af6",
   "a741dc3da3ad4336",
   "a751af616f1e7e23",
+  "a7efe17cfd93e40e",
   "a7fa289284dc4c1e",
   "a81365bbae55a5a5",
   "a816081683cf638f",
@@ -4693,6 +5367,8 @@
   "a8a82f0879471d18",
   "a967de45df4d8d9d",
   "a9a562dbcc6abd94",
+  "a9f03b7b4a6164de",
+  "aa8b706148e7a2a8",
   "aa93568b1c378b11",
   "aad2aad63706ef5a",
   "aae7e624b3835bc4",
@@ -4704,6 +5380,8 @@
   "ac7ff321446848ff",
   "ac93ba429ee6b2e9",
   "ac9ac9199da2e5d7",
+  "acbd410e1ab26b5e",
+  "accd9582b25e252e",
   "ad3a0bc15a55a3c1",
   "ad8741896cf5dd55",
   "ada322b6eabb6523",
@@ -4712,9 +5390,15 @@
   "adbfd796d6c989b6",
   "adc2ee7d592b49bc",
   "add0807ee1a9548d",
+  "ae3a0b0176a48d5d",
   "ae4f91c4b06e87c7",
+  "ae992acbfbde1000",
   "aec189d45d0a4afe",
   "aede7315c1a7c3bd",
+  "af43791631190f52",
+  "af618a73f62baa94",
+  "af7d0907b713151a",
+  "af8630d65d67e980",
   "af8d99b824bedfb4",
   "afa55e4184a6c98d",
   "afb28f8a247ab34c",
@@ -4724,14 +5408,20 @@
   "b0105e0f06e3b121",
   "b033b84af9377a6e",
   "b077c19378e539fa",
+  "b07c42b2f294e580",
   "b0f53025c442ae15",
   "b1eabd1a309cb2ee",
   "b23c64082c9fde6d",
   "b277ddc4b1c80b53",
+  "b3372abe1cff55c2",
+  "b343110d7f472328",
+  "b371d56fd1985ead",
   "b3a71189c278d1b7",
   "b407698360a05c05",
   "b41e936ed13e4c4b",
+  "b464e3cd0c0b7b32",
   "b475ba63bf4d2f30",
+  "b4baa2de8f20e74c",
   "b4c07a27734d1e73",
   "b4c5fea108edbeea",
   "b4c90bce43cb6c85",
@@ -4761,20 +5451,26 @@
   "bc05edeb4b5d38fd",
   "bc1160dad3a4ddde",
   "bd52fea0aa9dfbd8",
+  "bd5a56bef6701651",
   "bda19e6518447c94",
   "bdbfd184609c5e61",
   "be2d2fd684d23cdb",
+  "bedb36b80ec430d1",
   "bf147eb96cfbc7b3",
+  "bf237d04fa001891",
   "bf4a875052703150",
   "bf60f97ca480d0e7",
   "bfdbe5d9ff629e8c",
+  "bfdd0e13d2559f6d",
   "bfeb4a75e6d1342c",
   "c0022e848b927e37",
+  "c004aa7241d0bc7c",
   "c02a29ca6692896d",
   "c02cac9083535710",
   "c043fefd1d9a4355",
   "c0a7342b764f9f3b",
   "c0b6ef95a3f4a7e3",
+  "c0c68a81c85cd674",
   "c0cd27cf2a50b0f1",
   "c0ed57ab7ec4a664",
   "c0eecbf4ec9aa90f",
@@ -4786,10 +5482,12 @@
   "c1b43988133c128b",
   "c1c4574fc03034ac",
   "c1ec92479c03763e",
+  "c21bde887a8c3124",
   "c24f82d8d17fee4f",
   "c277d6b8d3b29d3f",
   "c27b1d25b8728d34",
   "c28d0bfaf503fcca",
+  "c2c094c3c8e4b4a5",
   "c319412b85cce9a0",
   "c31f82414e3fc74f",
   "c369df2d9fd26ccf",
@@ -4800,6 +5498,7 @@
   "c42ae1f2c4306882",
   "c44a2cb6e0ee233c",
   "c47506e7dbbd6277",
+  "c4e42a00d9635b67",
   "c4fcc3a54bd77725",
   "c52543bb6ba211b8",
   "c5270f9adc10839d",
@@ -4807,15 +5506,19 @@
   "c80a363b2472ef7f",
   "c83ecaa5efb442cc",
   "c84be276bfc81ba6",
+  "c8a66f25917ff731",
   "c92c6aba24ad12a6",
+  "c9c6ea78d2c8add4",
   "ca5a57468431e7d2",
   "ca7971cfbc849648",
   "cada62da88610b1f",
   "cae731b6e9bd2ba7",
+  "cbba6b51407e5d3a",
   "cbcfa40d2ab3a15f",
   "cbd54e13772768ef",
   "cc51368107c1d10c",
   "cca928e7967e19fa",
+  "cd0a0d3569bdc75a",
   "cd9d510a2ac55dfd",
   "ce263bfad09a036e",
   "cecba8f80f584937",
@@ -4825,17 +5528,22 @@
   "cfd43b91497ab5cc",
   "d01ff3da24e96553",
   "d036dbc53168cb82",
+  "d05d2faaecb5febb",
   "d05d4dcdc4871437",
+  "d0757d5564471c4a",
   "d09d43646e5278d9",
   "d0de15da336e7d79",
+  "d0f58ec53c8ffaa8",
   "d0faba183d1c30b5",
   "d1190872d96109b8",
   "d16b89eb74da3da4",
   "d1a5c90b68ca2021",
+  "d1aec11b5a236a11",
   "d20e9b2de53d0abd",
   "d24f381b0a449245",
   "d29174d70777feda",
   "d2d2daf00950239a",
+  "d2d7aa887cd2a108",
   "d3102b5c90db045f",
   "d3693bcf119f5755",
   "d372ce34affa583a",
@@ -4848,6 +5556,8 @@
   "d54f826ca7414606",
   "d5791629bf184c20",
   "d5c50ce9e1303ad2",
+  "d73edf8b493664f7",
+  "d766b7d50bfef5b1",
   "d7eab1b790779f71",
   "d835234f3f73ea63",
   "d85132b4115814fc",
@@ -4857,9 +5567,14 @@
   "d8af8e14b3b8f732",
   "da021e4e41ec8131",
   "da3eef87ffd0064f",
+  "daa2b21101ec7bd6",
+  "daaf2f36047e255b",
+  "db19d3dbc6748eb1",
   "dbd58e7cc6233d79",
+  "dbf6f3f79f2c4979",
   "dbff107ceb487ae5",
   "dc0d724e61b97430",
+  "dc130e5476986070",
   "dc5134b2bad3b47c",
   "dc559db114eb1812",
   "dcb2e7edf5119105",
@@ -4875,6 +5590,7 @@
   "de52c39a49c9dc5a",
   "decb3bdc4bb8d3a5",
   "decc504c035af93b",
+  "dee570f10396f496",
   "df099e17a169a1c6",
   "df5bdf708fa879aa",
   "df6001503ec5d2ee",
@@ -4883,6 +5599,7 @@
   "df9fbbf7e703a601",
   "dfe91b523b4bd37d",
   "e0249b4a83178fbb",
+  "e0dd899a96899c96",
   "e126a56aaaedd1eb",
   "e1725d6598a4129f",
   "e1af4dfac16ad618",
@@ -4904,12 +5621,15 @@
   "e6b399235304485f",
   "e6dcb4497a0ad5d3",
   "e6e2a218fe6ae7ec",
+  "e6f0026c4799eb89",
   "e760e74f22f7c951",
   "e78229a5c76cccbc",
+  "e7c49d765e8875c8",
   "e7f203ce1643db5a",
   "e852ca99da2245cd",
   "e8bb16925d335445",
   "e92577427ade5b16",
+  "e96c61db54256f4a",
   "e99df971ca8ddd5b",
   "e9c3bea343b74e87",
   "e9d0f2ce5f70190d",
@@ -4917,6 +5637,7 @@
   "eaf1621996eba4c0",
   "eb0ae9b860a33e26",
   "eb1ae92e90864291",
+  "eb44ffee96331ded",
   "eb67ba60539e9586",
   "eba2609512d46cd4",
   "ebdf92b3d970ffda",
@@ -4930,6 +5651,7 @@
   "edb4229285e6cb10",
   "edb4281f45959f62",
   "edd6e8c134b5c2e2",
+  "ee2d77e531e2f374",
   "ee3216b3b502e86d",
   "ee62172d6c3767c4",
   "ee7884e4f62d9da6",
@@ -4937,8 +5659,10 @@
   "ee940459d0a0e418",
   "ee961699401b6f74",
   "eef9abf8c91a6efe",
+  "ef0a118de11e191b",
   "efa4ff60d6b9e34f",
   "f02a1dc11df3c46f",
+  "f0561baab14aad66",
   "f060e249dc54c3e0",
   "f0be6ce58c4c7660",
   "f0c96d47b914ae01",
@@ -4949,6 +5673,7 @@
   "f2d4358cfdb9d4bf",
   "f2eb504e0edf8f41",
   "f2eba57fdf0e7c92",
+  "f30291df9c46d9df",
   "f32313be20b1c050",
   "f3aa2338ada00d57",
   "f3c396b18f22a705",
@@ -4964,8 +5689,10 @@
   "f7d988239eba5ec9",
   "f7fedb99d147a848",
   "f82f3d51a2daf999",
+  "f89f1bd1cd47433e",
   "f8f1fe530aa8c217",
   "f90480afee84514a",
+  "f94598f271fa7907",
   "f9c8e62971d70b63",
   "f9e90ee302324076",
   "f9f71e31177c54da",
@@ -4980,6 +5707,7 @@
   "fb3d07d92c0b11c0",
   "fb5ee5705f781c61",
   "fbc420d29c7ff7ed",
+  "fbcc89c958485983",
   "fbd2a633076864ca",
   "fc412f02bca8ba6c",
   "fc86b7fba8037622",
@@ -5003,22 +5731,22 @@
   "ffe90b9a77a8dbce"
  ],
  "totals": {
-  "duplicate": 770,
-  "expected_by_closure": 45,
+  "duplicate": 1026,
+  "expected_by_closure": 51,
   "false_surprises": 0,
-  "falsified": 75,
-  "loose_inequality": 0,
-  "machine_checked": 47,
-  "oeis_known": 38,
+  "falsified": 90,
+  "loose_inequality": 1,
+  "machine_checked": 54,
+  "oeis_known": 42,
   "oeis_unchecked": 0,
-  "retested": 90,
-  "surprises": 10,
-  "survived": 93,
-  "tested": 168,
-  "trivial_formal": 62,
-  "trivial_idle_part": 188,
-  "trivial_implied_parts": 306,
-  "trivial_shared_operand": 30,
-  "trivial_shuffle_null": 74
+  "retested": 101,
+  "surprises": 12,
+  "survived": 106,
+  "tested": 196,
+  "trivial_formal": 75,
+  "trivial_idle_part": 214,
+  "trivial_implied_parts": 370,
+  "trivial_shared_operand": 32,
+  "trivial_shuffle_null": 79
  }
 }
