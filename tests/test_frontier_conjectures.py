@@ -139,3 +139,36 @@ def test_never_imports_scoring_or_oracle():
 def test_workflow_flag_present():
     wf = (Path(FC.__file__).resolve().parents[1] / ".github/workflows/colony-evolve.yml").read_text()
     assert "COLONY_FRONTIER:" in wf and "colony.oeis_terms build" in wf
+
+
+def test_linear_operator_split_catches_parity_rewrites():
+    rng = random.Random(2)
+    c = _claim("cong", ("D", ("+", P("digsum"), P("lpf"))), None, {"m": 2, "r": 0, "q": 2, "s": 0})
+    assert FC.trivial_reason(c, T, rng, 12) == "implied_parts"
+
+
+def test_one_congruence_per_expression_on_coarsest_class():
+    rng = random.Random(3)
+    cl = FC.fit_claims([("D", P("pell"))], T, 12, rng)
+    cong = [c for c in cl if c["kind"] == "cong"]
+    assert len(cong) == 1 and cong[0]["params"]["q"] == 1
+
+
+def test_periodic_parts_and_loose_inequalities_are_not_surprises():
+    rng = random.Random(4)
+    c = _claim("cong", ("D", ("*", P("lpf"), P("pell"))), None, {"m": 2, "r": 1, "q": 1, "s": 0})
+    assert FC.trivial_reason(c, T, rng, 12) == "implied_parts"
+    loose = _claim("le", ("+", P("bigomega"), P("digsum")), P("sigma"))
+    r = FC.test_claim(loose, T, 12, 5000, 500)
+    assert r["survived"] and r["loose"]
+    tight = _claim("le", P("phi"), ("-", P("n"), P("one")))     # equality at every prime
+    r = FC.test_claim(tight, T, 12, 5000, 500)
+    assert r["survived"] and not r["loose"]
+
+
+def test_divisibility_implied_by_a_factor_is_a_rewrite():
+    rng = random.Random(5)
+    c = _claim("divides", P("gpf"), ("+", P("rad"), P("rad")))
+    assert FC.trivial_reason(c, T, rng, 12) in ("implied_parts", "shared_operand", "idle_part")
+    c2 = _claim("divides", P("tau"), ("*", P("tau"), P("prime")))
+    assert FC.trivial_reason(c2, T, rng, 12) == "implied_parts"

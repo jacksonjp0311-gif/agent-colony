@@ -468,7 +468,10 @@ def _random_tables(rng: random.Random, T: Any, mode_: str) -> dict[str, list[int
 
 
 def _distribute(e: tuple) -> tuple:
-    """Push a shift / a(2n) through + - * so the parts of a(n+1)-style expressions are visible."""
+    """Push a shift / a(2n) through + - *, and S / D through + -, so the parts are visible."""
+    if e[0] in ("S", "D") and e[1][0] in ("+", "-"):   # linear operators split over + and -
+        inner = e[1]
+        return (inner[0], (e[0], inner[1]), (e[0], inner[2]))
     if e[0] in ("sh", "dbl") and e[1][0] in ("+", "-", "*"):
         inner = e[1]
         return (inner[0], (e[0], inner[1]), (e[0], inner[2]))
@@ -501,6 +504,38 @@ def _cong_implied_by_parts(c: dict[str, Any], T: Any, F: int) -> bool:
     return True
 
 
+def _periodic_mod(e: tuple, m: int, T: Any, period: int = 60, span: int = 240) -> bool:
+    """Every primitive of ``e`` is periodic mod m (period | 60) and ``e`` only uses + - * shifts,
+    a(2n) and D: then e(n) mod m is a function of n mod a small period, so any congruence on it
+    is a rewrite of the parts' periodic residues."""
+    op = e[0]
+    if op == "p":
+        arr = T.t[e[1]]
+        if len(arr) <= span + period:
+            return False
+        return all(arr[i] % m == arr[i + period] % m for i in range(1, span + 1))
+    if op in ("sh", "dbl", "D"):
+        return _periodic_mod(e[1], m, T, period, span)
+    if op in ("+", "-", "*"):
+        return _periodic_mod(e[1], m, T, period, span) and _periodic_mod(e[2], m, T, period, span)
+    return False
+
+
+def _divides_implied_by_parts(c: dict[str, Any], T: Any, F: int) -> bool:
+    """E1 | A*B with E1 | A (or E1 | B), or E1 | A+-B with E1 dividing both: implied by the parts."""
+    if c["kind"] != "divides":
+        return False
+    r = _distribute(c["_re"])
+    if r[0] not in ("+", "-", "*"):
+        return False
+    a = evaluate(c["_le"], F, T)
+    parts = [evaluate(x, F, T) for x in r[1:]]
+    if a is None or any(p is None for p in parts):
+        return False
+    div = [all(x != 0 and y % x == 0 for x, y in zip(a, p)) for p in parts]
+    return any(div) if r[0] == "*" else all(div)
+
+
 def _shared_operand(c: dict[str, Any]) -> bool:
     """Both sides apply the same operator to a common operand: the smaller claim is the real one."""
     a, b = c["_le"], c.get("_re")
@@ -521,7 +556,9 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int) -> str
     implied_parts  congruence implied by (periodic) congruences of its parts
     shared_operand both sides share an operand under the same operator
     """
-    if _cong_implied_by_parts(c, T, F):
+    if _cong_implied_by_parts(c, T, F) or (c["kind"] == "cong" and _periodic_mod(c["_le"], c["params"]["m"], T)):
+        return "implied_parts"
+    if _divides_implied_by_parts(c, T, F):
         return "implied_parts"
     if _shared_operand(c):
         return "shared_operand"
@@ -590,6 +627,9 @@ def fit_claims(exprs: list[tuple], T: Any, F: int, rng: random.Random) -> list[d
     for c in keys:
         e, v = vals[c]
         a = v[:F]
+        # at most one congruence per expression, on the coarsest class (q = 1 first): a claim on a
+        # sub-class of a class that already works is implied, not new
+        found = False
         for q in QS:
             for s in range(q):
                 sub = [x for i, x in enumerate(a) if (i + 1) % q == s]
@@ -599,9 +639,11 @@ def fit_claims(exprs: list[tuple], T: Any, F: int, rng: random.Random) -> list[d
                     r = sub[0] % m
                     if all(x % m == r for x in sub) and len({x for x in sub}) > 2:
                         out.append(mk("cong", e, None, {"m": m, "r": r, "q": q, "s": s}))
+                        found = True
                         break
-                else:
-                    continue
+                if found:
+                    break
+            if found:
                 break
         rec = berlekamp_massey_int(a)
         if rec and any(rec):
@@ -725,7 +767,11 @@ def test_claim(c: dict[str, Any], T: Any, lo: int, cap_cheap: int, cap_exp: int)
         ok, n = holds("rec", c["params"], a[lo - k:], None, start=start - k)
     else:
         ok, n = holds(c["kind"], c["params"], a[lo:], b[lo:] if b is not None else None, start=start)
-    return {"tested": True, "survived": ok, "checks": n, "range": [start, N]}
+    out = {"tested": True, "survived": ok, "checks": n, "range": [start, N]}
+    if c["kind"] == "le" and ok:
+        # tight only if equality keeps recurring beyond twice the fit range
+        out["loose"] = not any(x == y for x, y in zip(a[2 * lo:], b[2 * lo:]))
+    return out
 
 
 def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lookup: Any = "default",
@@ -754,7 +800,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
     counts = {"expressions": len(exprs), "fitted": len(cands), "duplicate": 0, "trivial_formal": 0,
               "trivial_shuffle_null": 0, "trivial_idle_part": 0,
               "trivial_implied_parts": 0, "trivial_shared_operand": 0, "expected_by_closure": 0,
-              "tested": 0, "survived": 0, "falsified": 0, "machine_checked": 0,
+              "loose_inequality": 0, "tested": 0, "survived": 0, "falsified": 0, "machine_checked": 0,
               "surprises": 0, "oeis_known": 0, "oeis_unchecked": 0, "retested": 0, "false_surprises": 0}
     fresh: list[dict[str, Any]] = []
     for c in cands:
@@ -822,6 +868,10 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
             counts["expected_by_closure"] += 1
             c["unknown"] = False
             c["unknown_reason"] = "expected (C-finite closure: a recurrence / periodic residues always exist)"
+        elif c.get("loose"):
+            counts["loose_inequality"] += 1
+            c["unknown"] = False
+            c["unknown_reason"] = "loose: equality only at small n (a growth-gap bound, not a tight relation)"
         elif any(s == "unchecked" for s in derived):
             counts["oeis_unchecked"] += 1
             c["unknown"] = False

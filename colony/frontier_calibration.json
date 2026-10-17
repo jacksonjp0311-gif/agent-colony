@@ -1,6 +1,6 @@
 {
  "version": 1,
- "calibrated_at": "2026-10-17T22:06:18Z",
+ "calibrated_at": "2026-10-17T22:19:21Z",
  "FIT_N": 12,
  "target_false_surprise_rate": 0.05,
  "split": "2026-10-16T23:20:31Z",
@@ -26,105 +26,105 @@
  "grid": {
   "12": {
    "tuning": {
-    "tested": 110,
-    "survived": 77,
-    "falsified": 33,
-    "surprises": 17,
-    "machine_checked": 29,
-    "trivial": 368,
-    "duplicate": 341,
+    "tested": 100,
+    "survived": 61,
+    "falsified": 39,
+    "surprises": 8,
+    "machine_checked": 27,
+    "trivial": 425,
+    "duplicate": 321,
     "false_surprises": 0,
     "false_surprise_rate": 0.0,
-    "heldout_kill_rate": 0.3,
-    "brier": 0.1956
+    "heldout_kill_rate": 0.39,
+    "brier": 0.2002
    },
    "held_out": {
-    "tested": 113,
-    "survived": 72,
-    "falsified": 41,
-    "surprises": 15,
-    "machine_checked": 31,
-    "trivial": 419,
-    "duplicate": 362,
+    "tested": 100,
+    "survived": 62,
+    "falsified": 38,
+    "surprises": 9,
+    "machine_checked": 25,
+    "trivial": 405,
+    "duplicate": 331,
     "false_surprises": 0,
     "false_surprise_rate": 0.0,
-    "heldout_kill_rate": 0.3628,
-    "brier": 0.1828
+    "heldout_kill_rate": 0.38,
+    "brier": 0.2207
    }
   },
   "16": {
    "tuning": {
-    "tested": 117,
-    "survived": 71,
-    "falsified": 46,
+    "tested": 121,
+    "survived": 79,
+    "falsified": 42,
     "surprises": 9,
-    "machine_checked": 37,
-    "trivial": 369,
-    "duplicate": 467,
+    "machine_checked": 34,
+    "trivial": 375,
+    "duplicate": 373,
     "false_surprises": 0,
     "false_surprise_rate": 0.0,
-    "heldout_kill_rate": 0.3932,
-    "brier": 0.1968
+    "heldout_kill_rate": 0.3471,
+    "brier": 0.1992
    }
   },
   "20": {
    "tuning": {
-    "tested": 133,
-    "survived": 95,
-    "falsified": 38,
+    "tested": 110,
+    "survived": 74,
+    "falsified": 36,
     "surprises": 12,
-    "machine_checked": 40,
-    "trivial": 355,
-    "duplicate": 608,
+    "machine_checked": 32,
+    "trivial": 366,
+    "duplicate": 405,
     "false_surprises": 0,
     "false_surprise_rate": 0.0,
-    "heldout_kill_rate": 0.2857,
-    "brier": 0.198
+    "heldout_kill_rate": 0.3273,
+    "brier": 0.1937
    }
   },
   "24": {
    "tuning": {
     "tested": 119,
-    "survived": 76,
-    "falsified": 43,
-    "surprises": 11,
-    "machine_checked": 38,
-    "trivial": 323,
-    "duplicate": 886,
+    "survived": 79,
+    "falsified": 40,
+    "surprises": 12,
+    "machine_checked": 34,
+    "trivial": 340,
+    "duplicate": 454,
     "false_surprises": 0,
     "false_surprise_rate": 0.0,
-    "heldout_kill_rate": 0.3613,
-    "brier": 0.1964
+    "heldout_kill_rate": 0.3361,
+    "brier": 0.1736
    }
   },
   "30": {
    "tuning": {
-    "tested": 114,
-    "survived": 93,
-    "falsified": 21,
-    "surprises": 19,
-    "machine_checked": 34,
-    "trivial": 359,
-    "duplicate": 821,
+    "tested": 136,
+    "survived": 94,
+    "falsified": 42,
+    "surprises": 15,
+    "machine_checked": 36,
+    "trivial": 317,
+    "duplicate": 416,
     "false_surprises": 0,
     "false_surprise_rate": 0.0,
-    "heldout_kill_rate": 0.1842,
-    "brier": 0.1624
+    "heldout_kill_rate": 0.3088,
+    "brier": 0.1947
    }
   },
   "40": {
    "tuning": {
-    "tested": 131,
-    "survived": 98,
-    "falsified": 33,
-    "surprises": 18,
-    "machine_checked": 37,
-    "trivial": 338,
-    "duplicate": 1313,
+    "tested": 127,
+    "survived": 75,
+    "falsified": 52,
+    "surprises": 7,
+    "machine_checked": 31,
+    "trivial": 337,
+    "duplicate": 499,
     "false_surprises": 0,
     "false_surprise_rate": 0.0,
-    "heldout_kill_rate": 0.2519,
-    "brier": 0.1853
+    "heldout_kill_rate": 0.4094,
+    "brier": 0.1805
    }
   }
  }
