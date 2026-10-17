@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T03:58:00Z",
-  "n": 236,
+  "updated_at": "2026-10-17T04:01:47Z",
+  "n": 237,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -16,6 +16,7 @@
     "authored_binomial_sum_row__catalan_bounded_w1",
     "authored_binomial_sum_row__catalan_convolution_w1",
     "authored_binomial_sum_row__central_binom_bound_w1",
+    "authored_binomial_sum_row__derangement_subfactorial_w1",
     "authored_binomial_symmetry__bell_triangle_recurrence_w1",
     "authored_binomial_symmetry__cassini_w1",
     "authored_binomial_symmetry__catalan_bounded_w1",
@@ -151,6 +152,7 @@
     "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves (cycle 161)",
     "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors",
     "chain+seek `authored_pascal_identity__vandermonde_conv_w1` from invariant priors (cycle 333)",
+    "chain+seek `authored_sieve_hl_within_g2_w2` from invariant priors",
     "chain+seek `lemma_hard_combinatorics` from invariant priors",
     "chain+seek `lemma_hard_combinatorics` from invariant priors (cycle 332)",
     "chain_cite_proven_lemmas_and_benchmarks",
@@ -199,9 +201,7 @@
     "gcd_fibonacci",
     "geometric_sum",
     "handshaking_small",
-    "hard_enable",
-    "hard_tier",
-    "hockey_stick"
+    "hard_enable"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

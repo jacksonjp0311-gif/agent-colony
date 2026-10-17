@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T03:58:25Z",
-  "updated_cycle": "20261017T035750Z_7c32ea",
+  "updated_at": "2026-10-17T04:02:34Z",
+  "updated_cycle": "20261017T040151Z_e9653f",
   "signal": {
-    "ts": "2026-10-17T03:58:25Z",
+    "ts": "2026-10-17T04:02:34Z",
     "strength": 0.4,
     "accepted_math": 0,
-    "accepted_compute": 94,
+    "accepted_compute": 96,
     "accepted_rsi": 0,
     "topic_boosts": [
       {
         "topic": "compute-useful-math",
         "priority": 1.15,
         "reason": "accepted_compute_finding",
-        "finding_id": "fnd_8201f16e562b",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g4_w1"
+        "finding_id": "fnd_d6a01e77adba",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_4_w1"
       },
       {
         "topic": "open-math-problems",
@@ -52,20 +52,6 @@
     },
     "citation_targets": [
       {
-        "id": "fnd_d6a01e77adba",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_4_w1",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
-        "id": "fnd_56d15a80aa8b",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_6_w1",
-        "topic_id": "compute-useful-math",
-        "family": "compute",
-        "useful_for": "compute"
-      },
-      {
         "id": "fnd_b0273b68c4df",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g4_2_w1",
         "topic_id": "compute-useful-math",
@@ -89,6 +75,20 @@
       {
         "id": "fnd_65a85733aa71",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g6_4_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_d001227bc4c8",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g6_6_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_5c21d9047a22",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_4_2_w1",
         "topic_id": "compute-useful-math",
         "family": "compute",
         "useful_for": "compute"
@@ -109,18 +109,6 @@
     },
     "lessons": [
       {
-        "id": "fnd_d6a01e77adba",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_4_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
-        "id": "fnd_56d15a80aa8b",
-        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_6_w1",
-        "topic_id": "compute-useful-math",
-        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
-      },
-      {
         "id": "fnd_b0273b68c4df",
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g4_2_w1",
         "topic_id": "compute-useful-math",
@@ -143,19 +131,31 @@
         "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g6_4_w1",
         "topic_id": "compute-useful-math",
         "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_d001227bc4c8",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g6_6_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_5c21d9047a22",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g2_4_2_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
       }
     ],
     "accepted_ids": {
       "math": [],
       "compute": [
-        "fnd_8201f16e562b",
-        "fnd_87604030890d",
         "fnd_d6a01e77adba",
         "fnd_56d15a80aa8b",
         "fnd_b0273b68c4df",
         "fnd_9761d9fbd680",
         "fnd_54c9e676619b",
-        "fnd_65a85733aa71"
+        "fnd_65a85733aa71",
+        "fnd_d001227bc4c8",
+        "fnd_5c21d9047a22"
       ],
       "rsi": []
     },

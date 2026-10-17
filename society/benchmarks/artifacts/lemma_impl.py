@@ -1529,6 +1529,28 @@ def check_authored_sieve_two_counter_g2_4_2_w1() -> bool:
     return all(type(c := sieve_count((2, 4, 2), a, b)) is int and c > 0 and c == sieve_count((2, 4, 2), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
 
 
+def check_authored_binomial_sum_row__derangement_subfactorial_w1() -> bool:
+    """Authored stress check (desk): proven lemmas binomial_sum_row + derangement_subfactorial on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_binomial_sum_row,
+    ::check_derangement_subfactorial; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_binomial_sum_row(n) for n in range(22, 33))) and all((check_derangement_subfactorial(n) for n in range(12, 18)))
+
+
+def check_authored_binomial_symmetry__central_binom_bound_w1() -> bool:
+    """Authored stress check (desk): proven lemmas binomial_symmetry + central_binom_bound on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_binomial_symmetry,
+    ::check_central_binom_bound; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_binomial_symmetry(n, k) for n in range(16, 24) for k in range(0, n + 1))) and all((check_central_binom_bound(n) for n in range(18, 26)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -1705,6 +1727,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_hl_within_g6_4_w1", check_authored_sieve_hl_within_g6_4_w1, True),
     ("authored_sieve_residue_bal_g6_6_w1", check_authored_sieve_residue_bal_g6_6_w1, True),
     ("authored_sieve_two_counter_g2_4_2_w1", check_authored_sieve_two_counter_g2_4_2_w1, True),
+    ("authored_binomial_sum_row__derangement_subfactorial_w1", check_authored_binomial_sum_row__derangement_subfactorial_w1, True),
+    ("authored_binomial_symmetry__central_binom_bound_w1", check_authored_binomial_symmetry__central_binom_bound_w1, False),
 ]
 
 

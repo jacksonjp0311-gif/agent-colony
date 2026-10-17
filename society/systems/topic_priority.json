@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_8201f16e562b",
-      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g4_w1"
+      "finding_id": "fnd_d6a01e77adba",
+      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g2_4_w1"
     },
     {
       "topic": "open-math-problems",
@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s00026-026-00811-3>",
+      "topic": "<https://doi.org/10.1007/s10801-025-01496-2>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T03:58:07Z",
-  "updated_cycle": "20261017T035750Z_7c32ea",
+  "updated_at": "2026-10-17T04:02:13Z",
+  "updated_cycle": "20261017T040151Z_e9653f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
