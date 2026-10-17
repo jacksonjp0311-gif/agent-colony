@@ -21,6 +21,11 @@ FINDINGS_CACHE = CACHE_DIR / "papers.jsonl"
 SEED_PAPERS = CACHE_DIR / "offline_seeds.json"
 USER_AGENT = "AgentColony/0.3 (+research-gather; math/CS education; not-AGI)"
 FETCH_TIMEOUT = 12
+ARXIV_API = "https://export.arxiv.org/api/query"   # plain http hangs instead of erroring
+ARXIV_STATE = ROOT / "society" / "systems" / "arxiv_feed.json"
+ARXIV_MIN_INTERVAL_S = 20 * 60      # arXiv asks for gentle use; reuse the last good result between
+ARXIV_DEFAULT_BACKOFF_S = 30 * 60   # 429/503 without a usable Retry-After
+CACHE_MAX_AGE_S = 24 * 3600         # older last-good results no longer count as live
 
 _FALLBACK = [
     {"source": "offline_seed", "arxiv_id": "1706.03762", "doi": "10.48550/arXiv.1706.03762",
@@ -59,6 +64,32 @@ def _http_get(url: str, *, accept: str = "application/json") -> tuple[bool, str]
     except Exception as e:
         return False, f"{type(e).__name__}: {e}"
 
+def _http_get_full(url: str, *, accept: str = "application/json") -> dict[str, Any]:
+    """GET with status + Retry-After exposed: {ok, status, body, retry_after, error}."""
+    out: dict[str, Any] = {"ok": False, "status": 0, "body": "", "retry_after": None, "error": ""}
+    try:
+        import httpx
+        with httpx.Client(timeout=FETCH_TIMEOUT, follow_redirects=True) as c:
+            r = c.get(url, headers={"User-Agent": USER_AGENT, "Accept": accept})
+            out.update(ok=r.is_success, status=r.status_code, body=r.text,
+                       retry_after=r.headers.get("Retry-After"))
+    except ImportError:
+        try:
+            req = Request(url, headers={"User-Agent": USER_AGENT, "Accept": accept})
+            with urlopen(req, timeout=FETCH_TIMEOUT) as resp:
+                out.update(ok=True, status=getattr(resp, "status", 200),
+                           body=resp.read(500_000).decode("utf-8", errors="replace"))
+        except HTTPError as e:
+            out.update(status=e.code, retry_after=(e.headers or {}).get("Retry-After"), error=f"HTTPError: {e.code}")
+        except Exception as e:  # noqa: BLE001
+            out["error"] = f"{type(e).__name__}: {e}"[:200]
+    except Exception as e:  # noqa: BLE001
+        out["error"] = f"{type(e).__name__}: {e}"[:200]
+    if not out["ok"] and not out["error"]:
+        out["error"] = f"HTTP {out['status']}"
+    return out
+
+
 def _snip(text: str, n: int = 400) -> str:
     return re.sub(r"\s+", " ", (text or "")).strip()[:n]
 
@@ -83,9 +114,13 @@ class PaperHit:
 def fetch_arxiv(*, query: str = "cat:math.CO OR cat:cs.DS OR cat:cs.LG OR cat:math.NT", max_results: int = 8) -> list[PaperHit]:
     params = urlencode({"search_query": query, "start": 0, "max_results": max_results,
                         "sortBy": "submittedDate", "sortOrder": "descending"})
-    ok, body = _http_get(f"http://export.arxiv.org/api/query?{params}", accept="application/atom+xml")
+    ok, body = _http_get(f"{ARXIV_API}?{params}", accept="application/atom+xml")
     if not ok:
         return []
+    return parse_arxiv(body)
+
+
+def parse_arxiv(body: str) -> list[PaperHit]:
     hits: list[PaperHit] = []
     for ent in re.split(r"<entry>", body)[1:]:
         title_m = re.search(r"<title>(.*?)</title>", ent, re.S)
@@ -132,6 +167,102 @@ def fetch_openalex(*, search: str = "mathematical lemma OR computational complex
             topic_id="compute-useful-math"))
     return hits
 
+def _parse_ts(ts: str | None) -> float | None:
+    if not ts:
+        return None
+    try:
+        return datetime.strptime(str(ts)[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc).timestamp()
+    except ValueError:
+        return None
+
+
+def _iso(t: float) -> str:
+    return datetime.fromtimestamp(t, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _retry_after_s(value: Any, now: float) -> float:
+    if value is None or str(value).strip() == "":
+        return ARXIV_DEFAULT_BACKOFF_S
+    v = str(value).strip()
+    if v.isdigit():
+        return max(60.0, float(v))
+    try:
+        from email.utils import parsedate_to_datetime
+        return max(60.0, parsedate_to_datetime(v).timestamp() - now)
+    except Exception:  # noqa: BLE001
+        return ARXIV_DEFAULT_BACKOFF_S
+
+
+def _load_arxiv_state() -> dict[str, Any]:
+    try:
+        return json.loads(ARXIV_STATE.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def _save_arxiv_state(st: dict[str, Any]) -> None:
+    ARXIV_STATE.parent.mkdir(parents=True, exist_ok=True)
+    ARXIV_STATE.write_text(json.dumps(st, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _cached_hits(st: dict[str, Any], now: float) -> list[PaperHit] | None:
+    """Last-good hits if younger than CACHE_MAX_AGE_S, else None."""
+    t = _parse_ts(st.get("last_ok_at"))
+    if t is None or now - t > CACHE_MAX_AGE_S or not st.get("hits"):
+        return None
+    from dataclasses import fields as _fields
+    keys = {f.name for f in _fields(PaperHit)}
+    out = []
+    for h in st["hits"]:
+        try:
+            out.append(PaperHit(**{k: v for k, v in h.items() if k in keys}))
+        except TypeError:
+            continue
+    return out or None
+
+
+def fetch_arxiv_cached(*, max_results: int = 8, now: float | None = None,
+                       getter: Any = None) -> tuple[list[PaperHit], str, str]:
+    """arXiv with rate-limit manners. Returns (hits, status, reason).
+
+    status: ``live_ok`` (fetched now) | ``cache_fresh`` (inside the min interval, last good < 24 h)
+    | ``throttled_cache_fresh`` (429/503 now, last good < 24 h) | ``fail`` (real failure, or
+    throttled / waiting with no fresh cache). Only ``live_ok`` and ``fail`` are live outcomes.
+    """
+    import time as _time
+    now = _time.time() if now is None else now
+    getter = getter or _http_get_full
+    st = _load_arxiv_state()
+    cached = _cached_hits(st, now)
+    wait_until = max(_parse_ts(st.get("retry_after_until")) or 0.0,
+                     (_parse_ts(st.get("last_attempt_at")) or 0.0) + ARXIV_MIN_INTERVAL_S)
+    if now < wait_until:
+        if cached is not None:
+            return cached, "cache_fresh", f"reusing last good from {st.get('last_ok_at')}"
+        return [], "fail", f"waiting until {_iso(wait_until)}; no fresh cache ({st.get('last_error') or 'none'})"
+    params = urlencode({"search_query": "cat:math.CO OR cat:cs.DS OR cat:cs.LG OR cat:math.NT", "start": 0,
+                        "max_results": max_results, "sortBy": "submittedDate", "sortOrder": "descending"})
+    r = getter(f"{ARXIV_API}?{params}", accept="application/atom+xml")
+    st["last_attempt_at"] = _iso(now)
+    st["last_status"] = int(r.get("status") or 0)
+    if int(r.get("status") or 0) in (429, 503):
+        st["retry_after_until"] = _iso(now + _retry_after_s(r.get("retry_after"), now))
+        st["last_error"] = f"HTTP {r.get('status')} (throttled)"
+        _save_arxiv_state(st)
+        if cached is not None:
+            return cached, "throttled_cache_fresh", st["last_error"]
+        return [], "fail", st["last_error"] + "; no fresh cache"
+    hits = parse_arxiv(r.get("body") or "") if r.get("ok") else []
+    if not hits:
+        st["last_error"] = r.get("error") or "empty feed"
+        _save_arxiv_state(st)
+        return [], "fail", st["last_error"]
+    st.update(last_ok_at=_iso(now), last_error="", retry_after_until=None,
+              hits=[h.to_dict() for h in hits[:max_results]])
+    _save_arxiv_state(st)
+    return hits, "live_ok", ""
+
+
 def load_offline_seeds() -> list[PaperHit]:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     entries = OFFLINE_SEED_ENTRIES
@@ -166,22 +297,33 @@ class GatherResult:
     live_fail: int = 0
     used_offline: bool = False
     findings_created: list[str] = field(default_factory=list)
+    cached: int = 0                       # served from a fresh last-good cache (not a live outcome)
+    feed_status: dict[str, dict[str, str]] = field(default_factory=dict)
 
 def gather_papers(*, live: bool = True, max_per_source: int = 6, ledger: Any | None = None,
                   cycle_id: str = "", role: str = "tribute_keeper") -> GatherResult:
     result = GatherResult()
     hits: list[PaperHit] = []
     if live:
-        arxiv = fetch_arxiv(max_results=max_per_source)
-        if arxiv:
-            result.live_ok += 1; hits.extend(arxiv)
+        arxiv, a_status, a_reason = fetch_arxiv_cached(max_results=max_per_source)
+        hits.extend(arxiv)
+        if a_status == "live_ok":
+            result.live_ok += 1
+        elif a_status in ("cache_fresh", "throttled_cache_fresh"):
+            result.cached += 1
         else:
             result.live_fail += 1
+        result.feed_status["arxiv"] = {"status": a_status, "reason": a_reason}
         oa = fetch_openalex(per_page=max_per_source)
         if oa:
             result.live_ok += 1; hits.extend(oa)
+            result.feed_status["openalex"] = {"status": "live_ok", "reason": ""}
         else:
             result.live_fail += 1
+            result.feed_status["openalex"] = {"status": "fail", "reason": "empty or HTTP error"}
+        for src, fs in result.feed_status.items():
+            print(f"[research_gather] source={src} status={fs['status']}"
+                  + (f" reason={fs['reason']}" if fs["reason"] else ""))
     if not hits:
         hits = load_offline_seeds(); result.used_offline = True
     seen: set[str] = set(); uniq: list[PaperHit] = []
