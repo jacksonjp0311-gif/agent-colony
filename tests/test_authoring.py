@@ -236,3 +236,14 @@ def test_fresh_pass_on_authored_check_gets_P_credit(tmp_path, monkeypatch):
         bench_delta=0.5, cycle_id="c2",
     )
     assert t2["P_oracle"] == 0.0 and P2 < ST.STANDING_TRUST_P_MIN == 0.70
+
+
+def test_total_cap_single_source(tmp_path, monkeypatch):
+    """The overall cap is MAX_AUTHORED_TOTAL (150) and author_checks enforces exactly that constant."""
+    assert A.MAX_AUTHORED_TOTAL == 150
+    path = _repo(tmp_path, monkeypatch)
+    _guide()
+    import ast as _ast
+    n = sum(1 for nm, _c, _f in A._entries(_ast.parse(path.read_text())) if nm.startswith(A.AUTHORED_PREFIX))
+    monkeypatch.setattr(A, "MAX_AUTHORED_TOTAL", n)
+    assert A.author_checks(cycle_id="t", max_new=1) == []
