@@ -122,7 +122,7 @@ jobs:
           COLONY_HUNT: live
           # frontier conjectures (self-chosen, held-out falsification): shadow = report only;
           # live = surviving surprises also become authored checks the Oracle judges; off = none
-          COLONY_FRONTIER: shadow
+          COLONY_FRONTIER: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
