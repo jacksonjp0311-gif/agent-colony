@@ -1,17 +1,22 @@
 {
   "items": [
     {
-      "finding_id": "fnd_a11e105f6b3f",
+      "finding_id": "fnd_cb91f8ebfbbc",
       "decision": "accepted",
       "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. Selective authorize."
     },
     {
-      "finding_id": "fnd_0b2fbe395d2a",
+      "finding_id": "fnd_1fc16f20cbf4",
       "decision": "accepted",
       "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. Selective authorize."
     },
     {
-      "finding_id": "fnd_6befccb95393",
+      "finding_id": "fnd_6a73ce660f4a",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_372889bd9ed1",
       "decision": "rejected",
       "rationale": "Standing trust: repeat multi-hop process receipt blocked (fingerprint)."
     }

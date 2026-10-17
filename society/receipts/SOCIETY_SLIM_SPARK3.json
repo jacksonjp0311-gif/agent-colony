@@ -1,25 +1,25 @@
 {
-  "when": "2026-10-17T09:59:33Z",
+  "when": "2026-10-17T10:15:41Z",
   "mile": "spark3-port",
-  "cycle_count": 392,
+  "cycle_count": 395,
   "fitness_latest": {
-    "ts": "2026-10-17T09:59:20Z",
-    "cycle_id": "20261017T095837Z_a31e3d",
+    "ts": "2026-10-17T10:15:28Z",
+    "cycle_id": "20261017T101444Z_0f9c00",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8088,
-    "compute_usefulness": 0.9075,
+    "math_prize": 0.8082,
+    "compute_usefulness": 0.9067,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8816,
-    "kill_rate": 0.359,
-    "kill_rate_term": 0.8731,
-    "novelty": 0.9167,
+    "prize_boost": 0.881,
+    "kill_rate": 0.3576,
+    "kill_rate_term": 0.8718,
+    "novelty": 0.9231,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8646,
+    "aggregate": 0.8604,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -44,17 +44,17 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8661
+    "aggregate_score": 0.8633
   },
   "novelty_gate": {
-    "hits": 22,
+    "hits": 24,
     "kills": 2
   },
   "debate_multihop": {
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.9643,
+      "reply_rate": 0.9286,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "reply_quality": 0.9119
@@ -64,14 +64,14 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261017T095837Z_a31e3d"
+    "cycle_id": "20261017T101444Z_0f9c00"
   },
   "oracle": {
-    "passes": 316,
+    "passes": 318,
     "kills": 177,
     "easy_pad_kills": 32,
-    "total": 493,
-    "kill_rate": 0.359
+    "total": 495,
+    "kill_rate": 0.3576
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."
