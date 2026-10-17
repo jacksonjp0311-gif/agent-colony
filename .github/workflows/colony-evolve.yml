@@ -332,7 +332,7 @@ jobs:
           git add -A data/commons society/systems society/benchmarks society/receipts \
             society/EVOLVE_STATUS.md society/DASHBOARD.html society/WITNESS_SUMMARY.md \
             society/BULLETIN.md society/report.md society/CI_STATUS.json \
-            society/genomes society/briefs docs .github || true
+            society/genomes society/briefs society/shortlist docs .github || true
           # Include society_state only if changed size reasonable — always add but message notes slim
           git add data/society_state.json data/ledger.jsonl data/witness.jsonl society/WITNESS.md 2>/dev/null || true
           # Feed cache + fetch state (append-only, size-bounded) so dedupe/TTL persist across runs

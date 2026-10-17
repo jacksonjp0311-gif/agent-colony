@@ -224,6 +224,11 @@ class Society:
             ),
         )
         result.report_path = self._write_report(result)
+        try:  # VIEW ONLY: ranked shortlist for James (overwritten each cycle; never authorizes)
+            from colony.shortlist import write as _write_shortlist
+            _write_shortlist(cid)
+        except Exception:  # noqa: BLE001
+            pass
         return result
 
     def evolve(self, cycles: int = 5) -> list[CycleResult]:
