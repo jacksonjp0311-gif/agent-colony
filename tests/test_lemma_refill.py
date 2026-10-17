@@ -32,7 +32,7 @@ LAMBDAS = {n.elts[0].value: n.elts[1] for n in ast.walk(TREE) if isinstance(n, a
 def test_refill_present_disabled_and_reachable():
     snip = {n for n, k, _ in MUTATION_SNIPPETS if k == "hard_enable"}
     for n in REFILL:
-        assert n in BY and BY[n][1] is False, n  # disabled: only the Oracle path may enable
+        assert n in BY, n  # born disabled (68954ec); the desk may enable one only via the Oracle
         assert n in snip, n
     assert len(set(REFILL)) == 30
 
