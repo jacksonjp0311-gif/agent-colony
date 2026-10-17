@@ -41,6 +41,7 @@ def test_authoring_uses_frontier_candidates_only_when_live(monkeypatch):
     calls = []
     monkeypatch.setattr(FK, "candidates", lambda names, **k: calls.append(1) or [])
     monkeypatch.setattr(FK, "pending", lambda src: [])
+    monkeypatch.setattr(A, "MAX_AUTHORED_TOTAL", 10 ** 6)   # independent of how many checks main holds
     monkeypatch.setenv("COLONY_FRONTIER", "shadow")
     A.author_checks(write=False, cycle_id="t")
     assert calls == []
