@@ -293,7 +293,12 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
             )
         # Lift 5: external_mind proposals under hard-tier (cross-agent debate already in evolve)
         try:
-            from colony.external_mind import propose as em_propose
+            from colony import external_mind as _em
+            em_propose = getattr(_em, "propose", None)
+            if em_propose is None:
+                # Intentionally not provided (see colony/external_mind.py docstring): skip
+                # quietly instead of logging an ImportError as an error every cycle.
+                raise LookupError("external_mind.propose not provided")
             batch = em_propose(n=4, ledger=self.ledger, cycle_id=cycle_id, state_data=self.state.data)
             self.witness.record(
                 cycle_id=cycle_id,
@@ -310,6 +315,8 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                     "not_consciousness": True,
                 },
             )
+        except LookupError:
+            pass  # propose intentionally absent; not an error
         except Exception as exc:  # noqa: BLE001
             self.witness.record(
                 cycle_id=cycle_id,

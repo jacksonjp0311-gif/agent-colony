@@ -506,10 +506,22 @@ def guide_process_spam_avoided() -> bool:
 KILL_COOLDOWN_THRESHOLD = 3  # repeated Oracle kills → drop theme, seek elsewhere
 
 
+_CYCLE_SUFFIX_RE = None
+
+
+def strip_cycle_suffix(text: str) -> str:
+    """Drop trailing ``(cycle N)`` de-dup suffixes so repeats share one title/fingerprint."""
+    import re
+    global _CYCLE_SUFFIX_RE
+    if _CYCLE_SUFFIX_RE is None:
+        _CYCLE_SUFFIX_RE = re.compile(r"(?:\s*\(cycle\s+\d+\))+\s*$", re.IGNORECASE)
+    return _CYCLE_SUFFIX_RE.sub("", str(text or "")).strip()
+
+
 def theme_key(text: str) -> str:
     """Normalize a mutation/theme from title, mutation field, or action string."""
     import re
-    s = (text or "").strip().lower()
+    s = strip_cycle_suffix(text).lower()
     if not s:
         return ""
     m = re.search(r"`([a-z][a-z0-9_]{2,})`", s)
@@ -1063,6 +1075,17 @@ def unenabled_chain_variants(*, respect_cooldown: bool = True) -> list[dict[str,
             if not cites:
                 continue
             links = cites.get("links") or []
+            if not links and name.startswith("authored_sieve_"):
+                # Instrument-sourced check: its components are instrument bridges, proven only
+                # when the bridge is present and the instrument's own self-test passes.
+                try:
+                    from colony import instrument_checks as _ic
+                    fn = _f.get(f"check_{name}")
+                    links = _ic.instrument_links(fn, path.read_text(encoding="utf-8")) if fn is not None else []
+                except Exception:
+                    links = []
+                if links:
+                    cites = dict(cites, links=links, chain_proven=all(l.get("proven") for l in links))
             if not links or not all(l.get("proven") for l in links):
                 continue  # only variants composed of machine-checked, passing lemmas
             out.append(

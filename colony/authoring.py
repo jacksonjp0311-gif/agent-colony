@@ -424,7 +424,10 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
             ast.parse(bridged)
             src, tree = bridged, ast.parse(bridged)
             bodies = _existing_bodies(tree)
-        candidates += instrument_checks.candidates(names | rejected)
+        # One instrument check in flight at a time: while an earlier one still waits for its
+        # Oracle verdict, do not author another (no slot burn toward MAX_AUTHORED_TOTAL).
+        if not instrument_checks.pending(src):
+            candidates += instrument_checks.candidates(names | rejected)
     except Exception:
         pass
     for _key, a, b, k in pairs:

@@ -121,20 +121,168 @@ def build(template: str, gaps: tuple[int, ...], w: int) -> dict[str, Any] | None
             "what": f"authored disabled instrument check `{name}`: {claim}; awaits Oracle via proposal"}
 
 
+def _uses(existing_names: set[str], template: str, gaps: tuple[int, ...]) -> int:
+    return sum(1 for n in existing_names if n.startswith(f"{PREFIX}{template}_{_sig(gaps)}_w"))
+
+
 def candidates(existing_names: set[str], limit: int = 12) -> list[dict[str, Any]]:
-    """Least-used template first, then shortest tuples; window index advances past used ones."""
+    """Rotate across gap patterns before re-windowing one.
+
+    Order key per (template, pattern): windows already written for that pair, then how often
+    the pattern has been used under ANY template (so a new pattern beats a new window of an
+    old one), then least-used template, then enumeration order. Window index advances past
+    used ones.
+    """
     try:
         tuples = gap_tuples()
     except Exception:
         return []
-    used = {t: sum(1 for n in existing_names if n.startswith(f"{PREFIX}{t}_")) for t in TEMPLATES}
+    names = set(existing_names)
+    t_used = {t: sum(1 for n in names if n.startswith(f"{PREFIX}{t}_")) for t in TEMPLATES}
+    pairs = []
+    for ti, t in enumerate(TEMPLATES):
+        for gi, gaps in enumerate(tuples):
+            pair_n = _uses(names, t, gaps)
+            pat_n = sum(_uses(names, tt, gaps) for tt in TEMPLATES)
+            pairs.append(((pair_n, pat_n, t_used[t], gi, ti), t, gaps, pair_n + 1))
+    pairs.sort(key=lambda r: r[0])
     out = []
-    for t in sorted(TEMPLATES, key=lambda t: (used[t], TEMPLATES.index(t))):
-        for gaps in tuples:
-            w = 1 + sum(1 for n in existing_names if n.startswith(f"{PREFIX}{t}_{_sig(gaps)}_w"))
-            c = build(t, gaps, w)
-            if c:
-                out.append(c)
-            if len(out) >= limit:
-                return out
+    for _k, t, gaps, w in pairs:
+        c = build(t, gaps, w)
+        if c:
+            out.append(c)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def _catalog_flags(src: str) -> dict[str, bool | None]:
+    """catalog name -> enabled flag, read from source (never executed)."""
+    out: dict[str, bool | None] = {}
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:
+        return out
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Tuple) and len(node.elts) >= 3 and isinstance(node.elts[0], ast.Constant) \
+                and isinstance(node.elts[0].value, str) and isinstance(node.elts[2], ast.Constant):
+            v = node.elts[2].value
+            out[node.elts[0].value] = v if isinstance(v, bool) else None
+    return out
+
+
+def oracle_judged(names: set[str] | None = None) -> set[str]:
+    """Mutation names that already have an Oracle verdict row (pass or kill)."""
+    try:
+        from colony.oracle import ORACLE_LOG
+    except Exception:
+        return set()
+    out: set[str] = set()
+    if not ORACLE_LOG.exists():
+        return out
+    import json
+    for ln in ORACLE_LOG.read_text(encoding="utf-8").splitlines():
+        if PREFIX not in ln:
+            continue
+        try:
+            m = str(json.loads(ln).get("mutation") or "")
+        except Exception:
+            continue
+        if m.startswith(PREFIX) and (names is None or m in names):
+            out.add(m)
+    return out
+
+
+def pending(src: str) -> list[str]:
+    """Instrument checks written but still DISABLED with no Oracle verdict yet (awaiting judgment).
+
+    While any exist the desk must not author another instrument check (no slot burn). A check
+    the Oracle killed is no longer pending; cooled names (kill cooldown / guide avoid) neither.
+    """
+    flags = _catalog_flags(src)
+    disabled = {n for n, f in flags.items() if n.startswith(PREFIX) and f is False}
+    if not disabled:
+        return []
+    judged = oracle_judged(disabled)
+    try:
+        from colony.lessons import mutation_cooldown
+        cd = mutation_cooldown()
+        cooled = {n for n in disabled if not cd.allows(n)}
+    except Exception:
+        cooled = set()
+    return sorted(disabled - judged - cooled)
+
+
+_SELF_TEST: dict[str, Any] = {}
+
+
+def _brute_pattern(gaps: tuple[int, ...], a: int, b: int) -> int:
+    """Independent reference: trial division, consecutive primes p in [a, b) with the given gaps."""
+    def isp(n: int) -> bool:
+        if n < 2:
+            return False
+        i = 2
+        while i * i <= n:
+            if n % i == 0:
+                return False
+            i += 1
+        return True
+    span = sum(gaps)
+    ps = [n for n in range(max(2, a), b + span + 200) if isp(n)]
+    c = 0
+    for i, p in enumerate(ps):
+        if p >= b:
+            break
+        if p < a or i + len(gaps) >= len(ps):
+            continue
+        if all(ps[i + j + 1] - ps[i + j] == g for j, g in enumerate(gaps)):
+            c += 1
+    return c
+
+
+def self_test(force: bool = False) -> dict[str, Any]:
+    """The instrument's own tests: counts vs an independent trial-division reference on small
+    ranges, C/Python backend agreement when C is present, and a finite positive HL forecast.
+    Cached per process. Any exception or mismatch => ok False (fail closed).
+    """
+    if _SELF_TEST and not force:
+        return dict(_SELF_TEST)
+    res: dict[str, Any] = {"ok": False, "checks": {}}
+    try:
+        from colony.instruments import sieve as _s
+        checks: dict[str, bool] = {}
+        for gaps, (a, b) in (((2,), (3, 20000)), ((2, 4), (5, 20000)), ((6,), (1000, 30000))):
+            ref = _brute_pattern(gaps, a, b)
+            py = int(_s.count_pattern(list(gaps), a, b, backend="python")["total"])
+            checks[f"python_vs_reference:{_sig(gaps)}"] = py == ref and ref > 0
+            if _s._helper() is not None:
+                cc = int(_s.count_pattern(list(gaps), a, b, backend="c")["total"])
+                checks[f"c_vs_python:{_sig(gaps)}"] = cc == py
+        hl = float(_s.hl_predict([2], 10 ** 6, 2 * 10 ** 6, prime_limit=20_000, steps=200)["prediction"])
+        checks["hl_finite_positive"] = hl > 0 and hl == hl and hl != float("inf")
+        res = {"ok": all(checks.values()), "checks": checks}
+    except Exception as exc:  # noqa: BLE001
+        res = {"ok": False, "checks": {}, "error": str(exc)[:200]}
+    _SELF_TEST.clear()
+    _SELF_TEST.update(res)
+    return dict(res)
+
+
+def instrument_links(fn_node: Any, artifact_src: str) -> list[dict[str, Any]]:
+    """Cite links for a disabled instrument check: one link per bridge it calls.
+
+    A link is ``proven`` only when the bridge is present in the artifact AND the instrument's
+    own self_test passes. Returns [] when the check calls no bridge (not instrument-sourced).
+    """
+    called = []
+    for sub in ast.walk(fn_node):
+        if isinstance(sub, ast.Call) and isinstance(sub.func, ast.Name) and sub.func.id in BRIDGE_FNS:
+            if sub.func.id not in called:
+                called.append(sub.func.id)
+    if not called:
+        return []
+    bridged = BRIDGE_MARKER in artifact_src and all(f"def {f}(" in artifact_src for f in called)
+    ok = bridged and bool(self_test().get("ok"))
+    return [{"lemma": f"instrument:sieve.{f}", "function": f, "proven": ok,
+             "source": "colony/instruments/sieve.py"} for f in called]
     return out

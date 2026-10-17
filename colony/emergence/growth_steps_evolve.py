@@ -306,8 +306,10 @@ class GrowthSteps3:
         else:
             title, hypothesis, action = self.evo.pick_improvement(metrics)
         # Avoid exact duplicate titles in a row
-        prior = {p.get("title") for p in (self.state.data.get("improvement_proposals") or [])[-3:]}
-        if title in prior:
+        from colony.lessons import strip_cycle_suffix
+        prior = {strip_cycle_suffix(p.get("title") or "") for p in (self.state.data.get("improvement_proposals") or [])[-3:]}
+        if strip_cycle_suffix(title) in prior:
+            title = strip_cycle_suffix(title)
             title = f"{title} (cycle {cycle_n})"
         # Hearing gate: weak improve proposals get REJECTED (status rejected + witness)
         behavior = getattr(g, "behavior_signal", None) or harvest_behavior_signal(self.ledger.all())
