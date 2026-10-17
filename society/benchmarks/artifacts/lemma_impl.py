@@ -2105,6 +2105,24 @@ def check_authored_sieve_two_counter_g6_6_2_w1() -> bool:
     return all(type(c := sieve_count((6, 6, 2), a, b)) is int and c > 0 and c == sieve_count((6, 6, 2), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
 
 
+def check_authored_sieve_hl_within_g6_6_4_w1() -> bool:
+    """Authored instrument check (desk): count of consecutive pattern (6, 6, 4) on each window is within 4.0*sqrt of the HL forecast.
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((6, 6, 4), a, b)) is int and type(h := sieve_hl((6, 6, 4), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
+def check_authored_sieve_residue_bal_g6_6_6_w1() -> bool:
+    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (6, 6, 6) are balanced within 4.0*sqrt(total).
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(x := sieve_count((6, 6, 6), a, b, 4, 1)) is int and type(y := sieve_count((6, 6, 6), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2190,8 +2208,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
 
     # Building-block refill (James 2026-10-17): classical PROVEN lemmas, start DISABLED (Oracle decides)
     ("fermat_little", lambda: all(check_fermat_little(a) for a in range(0, 40)), True),
-    ("euler_theorem", lambda: all(check_euler_theorem(n) for n in range(2, 40)), False),
-    ("wilson_theorem", lambda: all(check_wilson_theorem(n) for n in range(2, 60)), False),
+    ("euler_theorem", lambda: all(check_euler_theorem(n) for n in range(2, 40)), True),
+    ("wilson_theorem", lambda: all(check_wilson_theorem(n) for n in range(2, 60)), True),
     ("quadratic_reciprocity", lambda: all(check_quadratic_reciprocity(p) for p in range(5, 80)), False),
     ("mobius_divisor_sum", lambda: all(check_mobius_divisor_sum(n) for n in range(1, 120)), False),
     ("gauss_phi_divisor_sum", lambda: all(check_gauss_phi_divisor_sum(n) for n in range(1, 60)), False),
@@ -2329,6 +2347,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_hl_within_g6_4_2_w1", check_authored_sieve_hl_within_g6_4_2_w1, True),
     ("authored_sieve_residue_bal_g6_4_6_w1", check_authored_sieve_residue_bal_g6_4_6_w1, True),
     ("authored_sieve_two_counter_g6_6_2_w1", check_authored_sieve_two_counter_g6_6_2_w1, True),
+    ("authored_sieve_hl_within_g6_6_4_w1", check_authored_sieve_hl_within_g6_6_4_w1, True),
+    ("authored_sieve_residue_bal_g6_6_6_w1", check_authored_sieve_residue_bal_g6_6_6_w1, False),
 ]
 
 

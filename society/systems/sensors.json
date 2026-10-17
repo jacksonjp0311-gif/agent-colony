@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-17T10:45:05Z",
-  "cycle_id": "20261017T104504Z_9c2e0b",
+  "ts": "2026-10-17T11:04:34Z",
+  "cycle_id": "20261017T110433Z_d44fcb",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_sieve_two_counter_g2_w1",
@@ -14,27 +14,6 @@
       "authored_sieve_hl_within_g2_w2": 2
     },
     "recent": {
-      "authored_sieve_hl_within_g2_4_6_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_residue_bal_g2_6_4_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_two_counter_g2_6_6_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_sieve_hl_within_g4_2_4_w1": {
         "last": "keep",
         "streak": 1,
@@ -97,57 +76,77 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_sieve_two_counter_g6_6_2_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "euler_theorem": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_sieve_hl_within_g6_6_4_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8652,
-      "slope": 0.000415,
+      "last": 0.8603,
+      "slope": -4.3e-05,
       "min": 0.8603,
       "max": 0.8684
     },
     "novelty": {
       "last": 0.9643,
-      "slope": 0.003976,
-      "min": 0.913,
+      "slope": 0.005448,
+      "min": 0.9167,
       "max": 0.9643
     },
     "kill_rate": {
-      "last": 0.3554,
-      "slope": -0.000384,
-      "min": 0.3554,
-      "max": 0.3598
+      "last": 0.3533,
+      "slope": -0.000497,
+      "min": 0.3533,
+      "max": 0.359
     },
     "kill_rate_term": {
-      "last": 0.8699,
-      "slope": -0.000343,
-      "min": 0.8699,
-      "max": 0.8738
+      "last": 0.868,
+      "slope": -0.000447,
+      "min": 0.868,
+      "max": 0.8731
     },
     "lesson_uptake": {
-      "last": 0.9,
-      "slope": 0.004406,
-      "min": 0.9,
+      "last": 0.84,
+      "slope": -0.003566,
+      "min": 0.84,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.008,
+    "aggregate_range": 0.0081,
     "novelty_max": 0.9643,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 151,
+    "enabled": 154,
     "disabled": [
       "abel_summation",
       "adversarial_vandermonde_asymmetric",
       "alternating_binomial_row",
       "authored_sieve_two_counter_g2_w1",
-      "authored_sieve_two_counter_g6_6_2_w1",
       "bell_stirling_sum",
       "bezout_identity",
       "burnside_necklaces",
@@ -158,7 +157,6 @@
       "crt_coprime_pair",
       "cycle_spanning_trees",
       "euler_pentagonal",
-      "euler_theorem",
       "faulhaber_power_sums",
       "gauss_phi_divisor_sum",
       "lagrange_cyclic_orders",
@@ -256,6 +254,7 @@
       "authored_sieve_hl_within_g4_6_6_w1",
       "authored_sieve_hl_within_g6_4_2_w1",
       "authored_sieve_hl_within_g6_4_w1",
+      "authored_sieve_hl_within_g6_6_4_w1",
       "authored_sieve_hl_within_g6_w1",
       "authored_sieve_residue_bal_g2_4_w1",
       "authored_sieve_residue_bal_g2_6_4_w1",
@@ -287,7 +286,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 4
+    "exhausted_recent": 3
   },
   "guides": {
     "n_guides": 17,
@@ -301,23 +300,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.592,
+      "ratio": 1.239,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.581,
+      "ratio": 1.226,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.614,
+      "ratio": 1.297,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.782,
+      "ratio": 1.305,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.831,
+      "ratio": 1.21,
       "drift": false
     }
   },
@@ -325,11 +324,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 55800003,
-      "collatz_descent": 70200000,
+      "collatz_descent": 73400000,
       "legendre_square_gap": 412607,
       "lehmer_totient": 19800001,
-      "erdos_straus": 509951,
-      "twin_primes_hl": 86200000,
+      "erdos_straus": 519951,
+      "twin_primes_hl": 90200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -341,16 +340,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4959,
+        "challenged": 4956,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 41,
+        "challenged": 44,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 36,
+    "post_challenger_oracle_judged": 39,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -374,23 +373,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 1.0,
+    "success_rate": 0.9091,
     "completed": 11,
     "last": [
       [
         null,
+        "2026-10-17T11:01:17Z"
+      ],
+      [
+        "failure",
+        "2026-10-17T10:53:03Z"
+      ],
+      [
+        "success",
         "2026-10-17T10:42:38Z"
-      ],
-      [
-        "success",
-        "2026-10-17T10:22:22Z"
-      ],
-      [
-        "success",
-        "2026-10-17T10:12:06Z"
       ]
     ],
-    "fetched_at": "2026-10-17T10:42:59Z"
+    "fetched_at": "2026-10-17T11:01:39Z"
   },
   "feeds": {
     "by_source": {
@@ -438,7 +437,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-17T10:42:58Z"
+      "ts": "2026-10-17T11:01:38Z"
     },
     "health": {
       "arxiv": {
