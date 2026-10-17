@@ -55,3 +55,14 @@ def test_old_registry_rewrites_are_rescreened():
            "unknown": True, "sig": "33333333aa", "hunt_value": 1.0, "statement": "s", "label": "l", "found_at": "t"}
     assert not FK.still_new(old)
     assert FK.still_new(REG["a"])
+
+
+def test_frontier_links_proven_only_with_bridge_and_self_test():
+    cand = FK.candidates(set(), state={"registry": REG})[0]
+    fn = ast.parse(cand["fn_src"]).body[0]
+    assert FK.self_test()["ok"]
+    with_bridge = FK.BRIDGE_SRC + "\n" + cand["fn_src"]
+    links = FK.frontier_links(fn, with_bridge)
+    assert links and all(l["proven"] for l in links)
+    assert not any(l["proven"] for l in FK.frontier_links(fn, cand["fn_src"]))   # bridge missing
+    assert FK.frontier_links(ast.parse("def f():\n    return True\n").body[0], with_bridge) == []

@@ -133,3 +133,61 @@ def pending(src: str) -> list[str]:
     except Exception:  # noqa: BLE001
         cooled = set()
     return sorted(disabled - judged - cooled)
+
+
+_SELF_TEST: dict[str, Any] = {}
+
+
+def self_test(force: bool = False) -> dict[str, Any]:
+    """The frontier engine's own tests against independent brute force on small n (primitive
+    tables, the claim checker on a known-true and a known-false claim). Fail closed."""
+    if _SELF_TEST and not force:
+        return dict(_SELF_TEST)
+    import math
+    res: dict[str, Any] = {"ok": False, "checks": {}}
+    try:
+        from colony import frontier_conjectures as FC
+        T = FC.Tables(lim=3000, exp_n=60)
+        t = T.t
+        divs = lambda n: [d for d in range(1, n + 1) if n % d == 0]  # noqa: E731
+        isp = lambda n: n > 1 and all(n % d for d in range(2, int(n ** 0.5) + 1))  # noqa: E731
+
+        def mu(n):
+            ps = [p for p in range(2, n + 1) if n % p == 0 and isp(p)]
+            return 0 if any(n % (p * p) == 0 for p in ps) else (-1) ** len(ps)
+
+        def part(n, k=None):
+            k = n if k is None else k
+            return 1 if n == 0 else sum(part(n - j, j) for j in range(1, min(n, k) + 1))
+        rng = range(1, 400)
+        checks = {
+            "phi": all(t["phi"][n] == sum(1 for k in range(1, n + 1) if math.gcd(n, k) == 1) for n in rng),
+            "sigma_tau": all(t["sigma"][n] == sum(divs(n)) and t["tau"][n] == len(divs(n)) for n in rng),
+            "mu": all(t["mu"][n] == mu(n) for n in range(1, 200)),
+            "prime_pi": t["prime"][1:30] == [p for p in range(2, 200) if isp(p)][:29]
+                        and all(t["pi"][n] == sum(1 for p in range(2, n + 1) if isp(p)) for n in range(1, 300)),
+            "fib": all(t["fib"][n + 2] == t["fib"][n + 1] + t["fib"][n] for n in range(1, 50)),
+            "partitions": all(t["part"][n] == part(n) for n in range(1, 25)),
+            "true_claim_holds": FC.holds_on({"kind": "le", "lhs": "phi", "rhs": "n", "params": {}}, 1, 2000) > 0,
+            "false_claim_fails": FC.holds_on({"kind": "le", "lhs": "pi", "rhs": "(one+tau)", "params": {}}, 1, 2000) == 0,
+        }
+        res = {"ok": all(checks.values()), "checks": checks}
+    except Exception as exc:  # noqa: BLE001
+        res = {"ok": False, "checks": {}, "error": str(exc)[:200]}
+    _SELF_TEST.clear()
+    _SELF_TEST.update(res)
+    return dict(res)
+
+
+def frontier_links(fn_node: Any, artifact_src: str) -> list[dict[str, Any]]:
+    """Cite links for a disabled frontier check: proven only when the bridge is present in the
+    artifact AND the engine's own self_test passes (same rule as instrument checks)."""
+    import ast
+    called = [f for f in BRIDGE_FNS if any(isinstance(s, ast.Call) and isinstance(s.func, ast.Name)
+                                           and s.func.id == f for s in ast.walk(fn_node))]
+    if not called:
+        return []
+    bridged = BRIDGE_MARKER in artifact_src and all(f"def {f}(" in artifact_src for f in called)
+    ok = bridged and bool(self_test().get("ok"))
+    return [{"lemma": f"frontier:{f}", "function": f, "proven": ok, "source": "colony/frontier_conjectures.py"}
+            for f in called]
