@@ -1,8 +1,8 @@
-# Conjecture desk witness — 2026-10-17T22:28:30Z
+# Conjecture desk witness — 2026-10-17T22:35:15Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.8614→0.8614 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'lemma_hard_combinatorics', 'stem_easy_pad_units']. Authored new disabled checks: ['authored_frontier_le_x46c5cc8a_w1'].
+- `none` (-) → **skip** 0.8614→0.8614 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'lemma_hard_combinatorics', 'stem_easy_pad_units']. Authored new disabled checks: ['authored_polynomial_remainder__telescoping_sum_w1'].
   - themes: MLExpert: Towards a Generalist Agentic Model for Autonomous , The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty

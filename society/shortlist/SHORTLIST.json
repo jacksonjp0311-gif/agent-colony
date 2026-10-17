@@ -1,10 +1,10 @@
 {
-  "ts": "2026-10-17T22:29:15Z",
+  "ts": "2026-10-17T22:36:02Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 43,
-  "n_groups": 43,
-  "n_authored_groups": 25,
+  "n_meet_bar": 44,
+  "n_groups": 44,
+  "n_authored_groups": 26,
   "n_building_block_groups": 18,
   "top": [
     {
@@ -459,7 +459,7 @@
         "P_shadow": 0.7518,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6511,
-        "shadow_pos": 12
+        "shadow_pos": 13
       },
       "group_count": 1,
       "group_ids": [
@@ -498,7 +498,7 @@
         "P_shadow": 0.6266,
         "meets_bar_shadow": false,
         "rank_shadow": 0.376,
-        "shadow_pos": 40
+        "shadow_pos": 43
       },
       "group_count": 1,
       "group_ids": [
@@ -537,7 +537,7 @@
         "P_shadow": 0.7511,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6507,
-        "shadow_pos": 13
+        "shadow_pos": 14
       },
       "group_count": 1,
       "group_ids": [
@@ -576,7 +576,7 @@
         "P_shadow": 0.751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6506,
-        "shadow_pos": 14
+        "shadow_pos": 15
       },
       "group_count": 1,
       "group_ids": [
@@ -615,7 +615,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 15
+        "shadow_pos": 17
       },
       "group_count": 1,
       "group_ids": [
@@ -654,7 +654,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 16
+        "shadow_pos": 18
       },
       "group_count": 1,
       "group_ids": [
@@ -688,12 +688,12 @@
         "family": "partition_conjugate_parts",
         "siblings_passed": 0,
         "expected": 0.0,
-        "novelty_shadow": 0.0,
-        "chained_by": 0,
-        "P_shadow": 0.6253,
-        "meets_bar_shadow": false,
-        "rank_shadow": 0.3752,
-        "shadow_pos": 41
+        "novelty_shadow": 0.5,
+        "chained_by": 1,
+        "P_shadow": 0.7503,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.6502,
+        "shadow_pos": 16
       },
       "group_count": 1,
       "group_ids": [
@@ -732,7 +732,7 @@
         "P_shadow": 0.7501,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6501,
-        "shadow_pos": 17
+        "shadow_pos": 19
       },
       "group_count": 1,
       "group_ids": [
@@ -771,7 +771,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 18
+        "shadow_pos": 20
       },
       "group_count": 1,
       "group_ids": [
@@ -810,7 +810,7 @@
         "P_shadow": 0.575,
         "meets_bar_shadow": false,
         "rank_shadow": 0.345,
-        "shadow_pos": 42
+        "shadow_pos": 44
       },
       "group_count": 1,
       "group_ids": [
@@ -821,17 +821,17 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-17T22:29:15Z",
-    "cycle_id": "20261017T222800Z_7f07ee",
+    "ts": "2026-10-17T22:36:02Z",
+    "cycle_id": "20261017T223446Z_182da9",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 1.0,
+      "strength": 0.5,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 43,
-    "n_meet_bar_shadow": 25,
-    "n_unknown_claims": 25,
+    "n_meet_bar_actual": 44,
+    "n_meet_bar_shadow": 28,
+    "n_unknown_claims": 26,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
       "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
@@ -844,6 +844,7 @@
       "authored_fermat_little__lucas_theorem_binomial_w1",
       "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "authored_multinomial_three__newton_identities_w1",
+      "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
       "authored_sieve_hl_within_g2_6_4_w1",
       "authored_sieve_hl_within_g2_6_6_w1",
       "authored_sieve_hl_within_g6_2_4_w1",
@@ -851,8 +852,7 @@
       "authored_sieve_hl_within_g6_6_6_w1",
       "authored_sieve_residue_bal_g2_4_6_w1",
       "authored_sieve_residue_bal_g4_6_2_w1",
-      "authored_sieve_residue_bal_g4_6_6_w1",
-      "authored_sieve_residue_bal_g6_6_2_w1"
+      "authored_sieve_residue_bal_g4_6_6_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -871,9 +871,7 @@
       "imp_b0787f_50",
       "imp_e0b942_50",
       "imp_dfaa7b_50",
-      "imp_cd809b_50",
-      "imp_1a4ec1_50",
-      "imp_5c95a3_50"
+      "imp_1a4ec1_50"
     ],
     "enter_bar": [],
     "top_shadow": [
@@ -894,7 +892,7 @@
       {
         "id": "imp_40ec35_50",
         "target": "authored_cayley_tree_count__complete_bipartite_trees_w1",
-        "actual_pos": 11,
+        "actual_pos": 12,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.8105,
@@ -1025,7 +1023,7 @@
     }
   },
   "excluded_reasons": {
-    "novelty_killed": 12,
+    "novelty_killed": 11,
     "no_oracle_pass_in_own_cycle": 11,
     "status": 8,
     "hearing": 2,
@@ -1038,5 +1036,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T222800Z_7f07ee"
+  "cycle_id": "20261017T223446Z_182da9"
 }

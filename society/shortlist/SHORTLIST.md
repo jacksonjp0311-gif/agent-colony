@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-10-17 06:29 PM ET
+# Proposal shortlist — 2026-10-17 06:36 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-43 of 58 proposals meet the authorize bar (43 after grouping near-duplicates; 25 colony-authored, 18 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+44 of 58 proposals meet the authorize bar (44 after grouping near-duplicates; 26 colony-authored, 18 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -23,25 +23,25 @@ Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classic
 
 | # | Proposal | P | Kind | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---|---|---:|---|---|
-| 1 | imp_e8a630_50 | 0.8768 | catalog_refill | APPROVE | 1 | 12 (0.7518) | Building block `cayley_hamilton_3x3` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8768. |
-| 2 | imp_dfaa7b_50 | 0.8766 | catalog_refill | APPROVE | 1 | 40 (0.6266, below bar) | Building block `polynomial_remainder` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8766. |
-| 3 | imp_79bbc6_50 | 0.8761 | catalog_refill | APPROVE | 1 | 13 (0.7511) | Building block `cycle_spanning_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8761. |
-| 4 | imp_2eb8c7_50 | 0.876 | catalog_refill | APPROVE | 1 | 14 (0.751) | Building block `abel_summation` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.876. |
-| 5 | imp_cef698_50 | 0.8754 | catalog_refill | APPROVE | 1 | 15 (0.7504) | Building block `complete_bipartite_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
-| 6 | imp_fa5f3d_50 | 0.8754 | catalog_refill | APPROVE | 1 | 16 (0.7504) | Building block `faulhaber_power_sums` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
-| 7 | imp_cd809b_50 | 0.8753 | catalog_refill | APPROVE | 1 | 41 (0.6253, below bar) | Building block `partition_conjugate_parts` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8753. |
-| 8 | imp_ca0b82_50 | 0.8751 | catalog_refill | APPROVE | 1 | 17 (0.7501) | Building block `multinomial_three` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8751. |
-| 9 | imp_0bada5_50 | 0.825 | catalog_refill | APPROVE | 1 | 18 (0.7) | Building block `newton_identities` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
-| 10 | imp_1a4ec1_50 | 0.825 | catalog_refill | APPROVE | 1 | 42 (0.575, below bar) | Building block `telescoping_sum` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 1 | imp_e8a630_50 | 0.8768 | catalog_refill | APPROVE | 1 | 13 (0.7518) | Building block `cayley_hamilton_3x3` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8768. |
+| 2 | imp_dfaa7b_50 | 0.8766 | catalog_refill | APPROVE | 1 | 43 (0.6266, below bar) | Building block `polynomial_remainder` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8766. |
+| 3 | imp_79bbc6_50 | 0.8761 | catalog_refill | APPROVE | 1 | 14 (0.7511) | Building block `cycle_spanning_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8761. |
+| 4 | imp_2eb8c7_50 | 0.876 | catalog_refill | APPROVE | 1 | 15 (0.751) | Building block `abel_summation` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.876. |
+| 5 | imp_cef698_50 | 0.8754 | catalog_refill | APPROVE | 1 | 17 (0.7504) | Building block `complete_bipartite_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
+| 6 | imp_fa5f3d_50 | 0.8754 | catalog_refill | APPROVE | 1 | 18 (0.7504) | Building block `faulhaber_power_sums` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
+| 7 | imp_cd809b_50 | 0.8753 | catalog_refill | APPROVE | 1 | 16 (0.7503) | Building block `partition_conjugate_parts` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8753. |
+| 8 | imp_ca0b82_50 | 0.8751 | catalog_refill | APPROVE | 1 | 19 (0.7501) | Building block `multinomial_three` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8751. |
+| 9 | imp_0bada5_50 | 0.825 | catalog_refill | APPROVE | 1 | 20 (0.7) | Building block `newton_identities` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 10 | imp_1a4ec1_50 | 0.825 | catalog_refill | APPROVE | 1 | 44 (0.575, below bar) | Building block `telescoping_sum` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 25 (actual 43). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 25 (0 with OEIS unchecked). Would drop out of the bar: 18; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 28 (actual 44). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 26 (0 with OEIS unchecked). Would drop out of the bar: 16; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
 | 1 | imp_17731c_50 | `authored_euler_pentagonal__lagrange_cyclic_orders_w1` | 0.8792 → 0.8792 | meets | yes | 0.0 | 1 |
-| 2 | imp_40ec35_50 | `authored_cayley_tree_count__complete_bipartite_trees_w1` | 0.7953 → 0.8786 | meets | yes | 0.0 | 11 |
+| 2 | imp_40ec35_50 | `authored_cayley_tree_count__complete_bipartite_trees_w1` | 0.7953 → 0.8786 | meets | yes | 0.0 | 12 |
 | 3 | imp_b7f950_50 | `authored_fermat_little__lucas_theorem_binomial_w1` | 0.8771 → 0.8771 | meets | yes | 0.0 | 2 |
 | 4 | imp_c28eb5_50 | `authored_bell_stirling_sum__burnside_necklaces_w1` | 0.8772 → 0.8772 | meets | yes | 0.0 | 3 |
 | 5 | imp_4b0785_50 | `authored_multinomial_three__newton_identities_w1` | 0.8766 → 0.8766 | meets | yes | 0.0 | 4 |
@@ -51,18 +51,19 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 25 (actual 43). Unknown clai
 | 9 | imp_96efa1_49 | `authored_crt_coprime_pair__cycle_spanning_trees_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 8 |
 | 10 | imp_b1face_50 | `authored_abel_summation__faulhaber_power_sums_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 9 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 12, status: 8, target_unresolved: 1
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 11, status: 8, target_unresolved: 1
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 15 tested, 6 survived held-out, 9 falsified, 1 machine-checked, 0 surprises; dropped 62 duplicates, 64 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1904.
-Totals: tested 104, survived 62, surprises 3, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 11 tested, 4 survived held-out, 7 falsified, 4 machine-checked, 0 surprises; dropped 73 duplicates, 45 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1882.
+Totals: tested 138, survived 81, surprises 4, false surprises (failed later re-test) 0.
 
 | Statement | Label | OEIS | Hunt v |
 |---|---|---|---|
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | (bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n) | conjecture surviving 59988 checks | not_found,primitive | 1.0 |
+| (gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n) | conjecture surviving 59988 checks | not_found,not_found | 1.0 |
 | gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n) | conjecture surviving 3988 checks | found,not_found | 1.0 |
 | D(pell)(n) = 1 (mod 2) for all n >= 1 | machine-checked (certificate) | found | 0.0 |
 | D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-checked (certificate) | found | 0.0 |

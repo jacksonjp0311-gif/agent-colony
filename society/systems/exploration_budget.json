@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-17T22:28:57Z",
+  "ts": "2026-10-17T22:35:44Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261017T222800Z_7f07ee"
+    "cycle_id": "20261017T223446Z_182da9"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 390,
+  "last_oracle_passes": 391,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-17T16:08:05Z",
-      "cycle_id": "20261017T160700Z_cef698",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-17T16:24:40Z",
-      "cycle_id": "20261017T162343Z_a304cf",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-17T16:25:43Z",
-      "cycle_id": "20261017T162448Z_bb0db0",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
     {
       "ts": "2026-10-17T16:26:44Z",
       "cycle_id": "20261017T162551Z_473855",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-17T22:33:07Z",
+      "cycle_id": "20261017T223206Z_e7ed97",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-17T22:34:34Z",
+      "cycle_id": "20261017T223321Z_fa4b7d",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-17T22:35:49Z",
+      "cycle_id": "20261017T223446Z_182da9",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-10-17T22:29:02Z",
+  "updated_at": "2026-10-17T22:35:49Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.016496,
     "hockey_stick": 0.016496,
@@ -314,21 +314,21 @@
     "binomial_inversion_small": 0.016496,
     "legendre_duplication_small": 0.016496,
     "stem_easy_pad_units": 0.016496,
-    "easy_pad_assoc_add": 0.001295,
-    "easy_pad_zero_identity": 0.001295,
-    "easy_pad_square_again": 0.001295,
-    "easy_pad_diff_squares": 0.001295,
-    "easy_pad_commutativity": 0.001295,
-    "easy_pad_abs_identity": 0.001295,
-    "fermat_little": 0.021809,
-    "euler_theorem": 0.021809,
-    "wilson_theorem": 0.021809,
-    "quadratic_reciprocity": 0.021809,
-    "mobius_divisor_sum": 0.021809,
-    "gauss_phi_divisor_sum": 0.021809,
-    "sigma_multiplicative": 0.021809,
-    "mobius_inversion_sigma": 0.021809,
-    "bezout_identity": 0.021809,
+    "easy_pad_assoc_add": 0.001294,
+    "easy_pad_zero_identity": 0.001294,
+    "easy_pad_square_again": 0.001294,
+    "easy_pad_diff_squares": 0.001294,
+    "easy_pad_commutativity": 0.001294,
+    "easy_pad_abs_identity": 0.001294,
+    "fermat_little": 0.021808,
+    "euler_theorem": 0.021808,
+    "wilson_theorem": 0.021808,
+    "quadratic_reciprocity": 0.021808,
+    "mobius_divisor_sum": 0.021808,
+    "gauss_phi_divisor_sum": 0.021808,
+    "sigma_multiplicative": 0.021808,
+    "mobius_inversion_sigma": 0.021808,
+    "bezout_identity": 0.021808,
     "crt_coprime_pair": 0.021813,
     "lucas_theorem_binomial": 0.021813,
     "stirling_first_row_sum": 0.021813,
@@ -348,8 +348,8 @@
     "telescoping_sum": 0.021831,
     "abel_summation": 0.021831,
     "faulhaber_power_sums": 0.021831,
-    "lagrange_cyclic_orders": 0.017459,
-    "burnside_necklaces": 0.017459
+    "lagrange_cyclic_orders": 0.01746,
+    "burnside_necklaces": 0.01746
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -521,7 +521,8 @@
     "authored_euler_theorem__gauss_phi_divisor_sum_w1": 1,
     "authored_fermat_little__lucas_theorem_binomial_w1": 1,
     "authored_mobius_divisor_sum__mobius_inversion_sigma_w1": 1,
-    "authored_multinomial_three__newton_identities_w1": 1
+    "authored_multinomial_three__newton_identities_w1": 1,
+    "authored_odd_distinct_partitions__partition_conjugate_parts_w1": 1
   },
   "charter_inform": {
     "bias": {

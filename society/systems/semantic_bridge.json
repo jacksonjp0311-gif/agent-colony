@@ -1,7 +1,7 @@
 {
   "version": 1,
   "totals": {
-    "ok": 47
+    "ok": 48
   },
   "rows": [
     {
@@ -708,8 +708,23 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
+      "status": "ok",
+      "family": "compose",
+      "template": null,
+      "mismatches": [],
+      "mutants_tested": 2,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-17T22:33:55Z",
+      "cycle_id": "20261017T223321Z_fa4b7d",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-17T22:27:09Z",
+  "updated_at": "2026-10-17T22:33:55Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

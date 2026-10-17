@@ -2486,6 +2486,28 @@ def check_authored_frontier_le_x46c5cc8a_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'gcd(mu,n)', 'params': {}, 'rhs': 'gcd(lucas,sqfree)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
+def check_authored_odd_distinct_partitions__partition_conjugate_parts_w1() -> bool:
+    """Authored stress check (desk): proven lemmas odd_distinct_partitions + partition_conjugate_parts on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_odd_distinct_partitions,
+    ::check_partition_conjugate_parts; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_odd_distinct_partitions(n) for n in range(40, 60))) and all((check_partition_conjugate_parts(n) for n in range(20, 30)))
+
+
+def check_authored_polynomial_remainder__telescoping_sum_w1() -> bool:
+    """Authored stress check (desk): proven lemmas polynomial_remainder + telescoping_sum on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_polynomial_remainder,
+    ::check_telescoping_sum; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_polynomial_remainder(a) for a in range(21, 31))) and all((check_telescoping_sum(n) for n in range(40, 59)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2749,6 +2771,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mobius_divisor_sum__mobius_inversion_sigma_w1", check_authored_mobius_divisor_sum__mobius_inversion_sigma_w1, True),
     ("authored_multinomial_three__newton_identities_w1", check_authored_multinomial_three__newton_identities_w1, True),
     ("authored_frontier_le_x46c5cc8a_w1", check_authored_frontier_le_x46c5cc8a_w1, False),
+    ("authored_odd_distinct_partitions__partition_conjugate_parts_w1", check_authored_odd_distinct_partitions__partition_conjugate_parts_w1, True),
+    ("authored_polynomial_remainder__telescoping_sum_w1", check_authored_polynomial_remainder__telescoping_sum_w1, False),
 ]
 
 
