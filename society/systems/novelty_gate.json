@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T09:17:20Z",
+  "updated_at": "2026-10-17T09:27:24Z",
   "hits": 19,
   "kills": 2,
   "rows": 30,
   "kill_rows": 11,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-17T09:17:20Z",
-    "cycle_id": "20261017T091710Z_9d2224",
-    "mutation": "authored_sieve_two_counter_g2_6_6_w1",
+    "ts": "2026-10-17T09:27:24Z",
+    "cycle_id": "20261017T092707Z_491b3e",
+    "mutation": "authored_sieve_hl_within_g4_2_4_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 132,
-      "hard_n": 132,
+      "hard_pass": 133,
+      "hard_n": 133,
       "stripped_fails_usefulness": true,
-      "score": 0.8864,
-      "impl_id": "lemma_impl_v2_basic10_hard131"
+      "score": 0.8727,
+      "impl_id": "lemma_impl_v2_basic10_hard133"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 132,
+      "hard_pass": 133,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
