@@ -26,6 +26,29 @@ ARTIFACTS_DIR = ROOT / "society" / "artifacts"
 
 
 
+def dedupe_specs_this_cycle(g: Any, specs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Keep specs whose proposal fingerprint has not appeared yet this cycle; record the kept ones.
+
+    ``g`` is the per-cycle growth object; fingerprints live on ``g.cycle_proposal_fps``.
+    """
+    from colony.fitness import proposal_fingerprint
+    seen = getattr(g, "cycle_proposal_fps", None)
+    if seen is None:
+        seen = set()
+        try:
+            g.cycle_proposal_fps = seen
+        except Exception:  # noqa: BLE001
+            pass
+    out = []
+    for sp in specs:
+        fp = proposal_fingerprint(str(sp.get("title") or ""), str(sp.get("action") or ""))
+        if fp in seen:
+            continue
+        seen.add(fp)
+        out.append(sp)
+    return out
+
+
 def _chain_cite_ev(action: str) -> list[str]:
     """Bench artifact + proven lemma evidence for seek/chain actions (cite guide; fail-soft)."""
     if not str(action or "").startswith("seek_enable:"):
@@ -325,6 +348,8 @@ class GrowthSteps3:
                 cite_ev = chain_cite_evidence(action)
             except Exception:
                 cite_ev = []
+        if not dedupe_specs_this_cycle(g, [{"title": title, "action": action}]):
+            return  # same proposal (fingerprint) already made this cycle by _debate_then_propose
         verdict, rationale = hearing_score_proposal(
             title=title,
             hypothesis=hypothesis,
@@ -624,6 +649,9 @@ class GrowthSteps3:
                 }
             )
 
+        # One proposal per fingerprint per cycle: drop specs whose title+action already appeared
+        # this cycle (both proposal paths share g.cycle_proposal_fps).
+        proposals_spec = dedupe_specs_this_cycle(g, proposals_spec)
         g.hearing_verdicts = []  # type: ignore[attr-defined]
         for spec in proposals_spec:
             title = spec["title"]

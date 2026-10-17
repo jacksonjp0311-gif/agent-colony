@@ -40,6 +40,16 @@ STANDING_FALLBACK = [
 ]
 
 
+
+def proposal_fingerprint(title: str, action: str) -> str:
+    """Stable proposal id: title + action, whitespace/case folded, "(cycle N)" suffixes stripped."""
+    import re as _re
+    from colony.lessons import strip_cycle_suffix
+
+    def _canon(x: str) -> str:
+        return _re.sub(r"\s+", " ", strip_cycle_suffix(x).lower())
+    return hashlib.sha1(f"{_canon(title)}|{_canon(action)}".encode()).hexdigest()[:12]
+
 def _utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -759,11 +769,7 @@ class EvolutionEngine:
         hypothesis: str,
         action: str,
     ) -> dict[str, Any]:
-        import re as _re
-        def _canon(s: str) -> str:
-            from colony.lessons import strip_cycle_suffix
-            return _re.sub(r"\s+", " ", strip_cycle_suffix(s).lower())
-        fp = hashlib.sha1(f"{_canon(title)}|{_canon(action)}".encode()).hexdigest()[:12]
+        fp = proposal_fingerprint(title, action)
         # Kill cooldown: drop repeatedly Oracle-killed themes (human_guide prior).
         try:
             from colony.lessons import (
