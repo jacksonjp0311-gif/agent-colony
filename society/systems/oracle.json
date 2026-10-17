@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T17:16:10Z",
-  "passes": 381,
-  "kills": 179,
+  "updated_at": "2026-10-17T17:22:46Z",
+  "passes": 383,
+  "kills": 180,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3196,
+  "kill_rate": 0.3197,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 58,
-    "kills": 2,
+    "passes": 57,
+    "kills": 3,
     "easy_pad_kills": 0,
-    "kill_rate": 0.0333
+    "kill_rate": 0.05
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -19,6 +19,8 @@
     "alternating_binomial_row",
     "authored_abel_summation__faulhaber_power_sums_w1",
     "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
+    "authored_bell_stirling_sum__burnside_necklaces_w1",
+    "authored_bezout_identity__cayley_hamilton_3x3_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
     "authored_sieve_hl_within_g2_6_6_w1",
     "authored_sieve_hl_within_g4_6_w1",
@@ -26,7 +28,6 @@
     "authored_sieve_hl_within_g6_2_4_w1",
     "authored_sieve_hl_within_g6_2_6_w1",
     "authored_sieve_hl_within_g6_2_w1",
-    "authored_sieve_hl_within_g6_6_4_w1",
     "authored_sieve_hl_within_g6_6_6_w1",
     "authored_sieve_residue_bal_g2_4_2_w1",
     "authored_sieve_residue_bal_g2_4_6_w1",
@@ -36,7 +37,6 @@
     "authored_sieve_residue_bal_g4_6_6_w1",
     "authored_sieve_residue_bal_g6_6_2_w1",
     "authored_sieve_residue_bal_g6_6_4_w1",
-    "authored_sieve_residue_bal_g6_6_6_w1",
     "authored_sieve_two_counter_g2_4_w1",
     "authored_sieve_two_counter_g2_w1",
     "authored_sieve_two_counter_g4_2_4_w1",
@@ -90,7 +90,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-17T17:16:10Z",
+    "ts": "2026-10-17T17:22:46Z",
     "passed": false,
     "kills": [
       "stripped:stripped_not_useful_fail",
@@ -111,9 +111,9 @@
       "stripped": {
         "already_enabled": false,
         "in_catalog": false,
-        "hard_pass": 201,
-        "hard_n": 201,
-        "score": 0.8614,
+        "hard_pass": 203,
+        "hard_n": 203,
+        "score": 0.8627,
         "stripped_fails_usefulness": false,
         "ok_for_oracle": false,
         "reason": "stripped_not_useful_fail"
@@ -121,10 +121,10 @@
       "held_out": {
         "survives": false,
         "ok_for_oracle": false,
-        "hard_pass": 201,
-        "hard_n": 201,
+        "hard_pass": 203,
+        "hard_n": 203,
         "ok": true,
-        "score": 0.8614,
+        "score": 0.8626,
         "shifted_window": null,
         "reason": "held_out_fail"
       },
@@ -205,7 +205,7 @@
     "fitness_credit": false,
     "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
     "kind": "process",
-    "source": "novelty_gate",
+    "source": "novelty_gate_deferred_title",
     "cycle_id": "",
     "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
     "not_agi": true,

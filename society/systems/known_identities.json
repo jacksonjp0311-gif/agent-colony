@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T17:16:03Z",
-  "n": 308,
+  "updated_at": "2026-10-17T17:22:41Z",
+  "n": 311,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -11,9 +11,11 @@
     "author_new_hard_checks_from_proven_lemmas",
     "authored_abel_summation__faulhaber_power_sums_w1",
     "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
+    "authored_bell_stirling_sum__burnside_necklaces_w1",
     "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
     "authored_bell_triangle_recurrence__hermite_recurrence_w1",
     "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
+    "authored_bezout_identity__cayley_hamilton_3x3_w1",
     "authored_binomial_inversion_small__legendre_duplication_small_w1",
     "authored_binomial_sum_row__bell_triangle_recurrence_w1",
     "authored_binomial_sum_row__binomial_inversion_small_w1",
@@ -199,9 +201,7 @@
     "chain `stem_easy_pad_units` citing new integer sequence oeis a392714 counts wronskian (cycle 192)",
     "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord",
     "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 190)",
-    "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 194)",
-    "chain `workload_derived_chain` citing new algebraic points on covers of elliptic",
-    "chain `workload_derived_chain` citing new algebraic points on covers of elliptic curves"
+    "chain `stem_easy_pad_units` citing optimal bound for the polynomial littlewood-offord (cycle 194)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

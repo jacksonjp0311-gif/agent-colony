@@ -2381,6 +2381,17 @@ def check_authored_bell_stirling_sum__burnside_necklaces_w1() -> bool:
     return all((check_bell_stirling_sum(n) for n in range(16, 24))) and all((check_burnside_necklaces(n) for n in range(8, 11)))
 
 
+def check_authored_bezout_identity__cayley_hamilton_3x3_w1() -> bool:
+    """Authored stress check (desk): proven lemmas bezout_identity + cayley_hamilton_3x3 on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_bezout_identity,
+    ::check_cayley_hamilton_3x3; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_bezout_identity(a, b) for a in range(40, 59) for b in range(40, 59))) and all((check_cayley_hamilton_3x3(s) for s in range(20, 30)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2634,7 +2645,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_two_counter_g4_2_w1", check_authored_sieve_two_counter_g4_2_w1, True),
     ("authored_abel_summation__faulhaber_power_sums_w1", check_authored_abel_summation__faulhaber_power_sums_w1, True),
     ("authored_alternating_binomial_row__cayley_hamilton_2x2_w1", check_authored_alternating_binomial_row__cayley_hamilton_2x2_w1, True),
-    ("authored_bell_stirling_sum__burnside_necklaces_w1", check_authored_bell_stirling_sum__burnside_necklaces_w1, False),
+    ("authored_bell_stirling_sum__burnside_necklaces_w1", check_authored_bell_stirling_sum__burnside_necklaces_w1, True),
+    ("authored_bezout_identity__cayley_hamilton_3x3_w1", check_authored_bezout_identity__cayley_hamilton_3x3_w1, True),
 ]
 
 
