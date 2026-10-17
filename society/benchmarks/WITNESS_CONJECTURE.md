@@ -1,8 +1,8 @@
-# Conjecture desk witness — 2026-10-17T01:19:39Z
+# Conjecture desk witness — 2026-10-17T01:42:46Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.903→0.903 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'stem_easy_pad_units', 'vandermonde_asymmetric']. Authored new disabled checks: ['authored_sieve_residue_bal_g2_w2'].
+- `authored_sieve_two_counter_g2_w1` (hard_enable) → **revert** 0.9071→0.9071 (+0.0000) — Reverted `authored_sieve_two_counter_g2_w1` (hard_enable): score 0.9071→0.8945 ok=True hard_pass 113→114 — Oracle/hard-tier required for keep; easy pads die on Oracle. | oracle=KILL fitness_credit=False kills=['tentative_not_keep'] | novelty_gate novel=False kills=["oracle_kill:['tentative_not_keep']"]
   - themes: MLExpert: Towards a Generalist Agentic Model for Autonomous , The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty

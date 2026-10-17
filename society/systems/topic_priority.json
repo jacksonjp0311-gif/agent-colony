@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s00026-026-00811-3>",
+      "topic": "3*a(n-2))/(n+1)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T01:19:48Z",
-  "updated_cycle": "20261017T011926Z_2282aa",
+  "updated_at": "2026-10-17T01:42:54Z",
+  "updated_cycle": "20261017T014234Z_8a4b8f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

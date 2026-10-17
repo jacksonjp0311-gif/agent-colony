@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T01:18:55Z",
-  "n": 219,
+  "updated_at": "2026-10-17T01:42:46Z",
+  "n": 222,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -75,7 +75,9 @@
     "authored_pell_companion__pythagorean_generation_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_sieve_hl_within_g2_w1",
+    "authored_sieve_hl_within_g2_w2",
     "authored_sieve_residue_bal_g2_w1",
+    "authored_sieve_residue_bal_g2_w2",
     "authored_sieve_two_counter_g2_w1",
     "authored_stirling_second_row__pythagorean_generation_w1",
     "authored_sum_first_n_cubes__pell_companion_w1",
@@ -176,6 +178,7 @@
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 225)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 227)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 338)",
+    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 340)",
     "fft_add_slow_loops",
     "fibonacci_addition",
     "fibonacci_cassini_ext",
@@ -198,10 +201,7 @@
     "process",
     "pythagorean_generation",
     "reward_sieve_instrument",
-    "rsi",
-    "seek `binomial_hockey_deep` citing new algebraic points on covers of elliptic cu",
-    "seek `binomial_hockey_deep` citing new algebraic points on covers of elliptic curves",
-    "seek `binomial_hockey_deep` citing new algebraic points on covers of elliptic curves (cycle 156)"
+    "rsi"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
