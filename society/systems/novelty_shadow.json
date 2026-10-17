@@ -4,67 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 78,
-    "ok": 78
+    "n": 79,
+    "ok": 79
   },
   "rows": [
-    {
-      "ts": "2026-10-17T14:03:09Z",
-      "cycle_id": "20261017T140246Z_ec8349",
-      "mutation": "authored_sieve_two_counter_g2_4_w1",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.3333,
-      "live_novel": true,
-      "status": "ok",
-      "terms": [
-        "triplets",
-        "primes",
-        "kept",
-        "hard",
-        "enable",
-        "lemma",
-        "score",
-        "checks",
-        "pass",
-        "machine",
-        "checked",
-        "oracle"
-      ],
-      "shadow_textbook_reuse": 0.0833,
-      "matches": [
-        {
-          "anum": "A237042",
-          "name_sha256": "a186e436754bab79",
-          "coverage": 0.0833,
-          "bm25": -26.291
-        },
-        {
-          "anum": "A249855",
-          "name_sha256": "cda13f7e020d9580",
-          "coverage": 0.0833,
-          "bm25": -25.894
-        },
-        {
-          "anum": "A309180",
-          "name_sha256": "1f7d065e4f09223a",
-          "coverage": 0.0833,
-          "bm25": -23.984
-        },
-        {
-          "anum": "A075978",
-          "name_sha256": "8bad39b9fa8a18e3",
-          "coverage": 0.0833,
-          "bm25": -23.984
-        },
-        {
-          "anum": "A075975",
-          "name_sha256": "50d0fb9c26218698",
-          "coverage": 0.0833,
-          "bm25": -23.984
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-10-17T14:03:54Z",
       "cycle_id": "20261017T140329Z_b9e453",
@@ -3411,6 +3354,63 @@
           "name_sha256": "c1827617dd0ee1a3",
           "coverage": 0.2222,
           "bm25": -13.175
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-10-17T20:50:35Z",
+      "cycle_id": "20261017T205002Z_15e6c5",
+      "mutation": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": true,
+      "status": "ok",
+      "terms": [
+        "euler",
+        "theorem",
+        "gauss",
+        "phi",
+        "divisor",
+        "kept",
+        "hard",
+        "enable",
+        "lemma",
+        "score",
+        "checks",
+        "pass"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A238442",
+          "name_sha256": "12f65f9e590cd106",
+          "coverage": 0.25,
+          "bm25": -18.821
+        },
+        {
+          "anum": "A098189",
+          "name_sha256": "7d13c19aef4c9bbd",
+          "coverage": 0.25,
+          "bm25": -14.833
+        },
+        {
+          "anum": "A282515",
+          "name_sha256": "068cabb83597963c",
+          "coverage": 0.25,
+          "bm25": -14.814
+        },
+        {
+          "anum": "A065555",
+          "name_sha256": "a4a1bf595c5f7e21",
+          "coverage": 0.25,
+          "bm25": -14.528
+        },
+        {
+          "anum": "A161506",
+          "name_sha256": "655ffe04353fd943",
+          "coverage": 0.25,
+          "bm25": -14.515
         }
       ],
       "would_flag": false

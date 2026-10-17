@@ -1,7 +1,7 @@
 {
   "version": 1,
   "totals": {
-    "ok": 43
+    "ok": 44
   },
   "rows": [
     {
@@ -648,8 +648,23 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+      "status": "ok",
+      "family": "compose",
+      "template": null,
+      "mismatches": [],
+      "mutants_tested": 2,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-17T20:50:31Z",
+      "cycle_id": "20261017T205002Z_15e6c5",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-17T17:34:26Z",
+  "updated_at": "2026-10-17T20:50:31Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

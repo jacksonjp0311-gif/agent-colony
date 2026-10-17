@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T17:35:06Z",
-  "updated_cycle": "",
+  "updated_at": "2026-10-17T20:51:52Z",
+  "updated_cycle": "20261017T205118Z_9cbb4c",
   "n_active": 80,
-  "n_keeps": 17,
+  "n_keeps": 14,
   "n_reverts": 4,
   "skill_bias": {
-    "geometer.gather": 0.0618,
-    "improver.improve": 0.054,
+    "geometer.gather": 0.0642,
+    "improver.improve": 0.0555,
     "spark.emergence": 0.04,
     "gather": 0.0822,
     "oracle": 0.0683,
@@ -20,9 +20,64 @@
   },
   "recent": [
     {
-      "id": "les_Z_ab6fb4_vandermonde",
-      "ts": "2026-10-17T17:28:11Z",
-      "cycle_id": "20261017T172749Z_ab6fb4",
+      "id": "les_Z_d9150c_conjecture",
+      "ts": "2026-10-17T20:49:15Z",
+      "cycle_id": "20261017T204850Z_d9150c",
+      "type": "catalog_exhausted",
+      "decision": "skip",
+      "check": "conjecture",
+      "mutation": "",
+      "what": "catalog exhausted \u2014 queue next hard_enable stub from lessons/external mind",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {
+        "avoid": [
+          "vandermonde_asymmetric",
+          "process_spam"
+        ],
+        "drop_theme": [
+          "vandermonde_asymmetric"
+        ],
+        "seek": [
+          "papers.jsonl",
+          "ledger",
+          "domain_bus",
+          "arxiv"
+        ],
+        "prefer": [
+          "novelty",
+          "cite_sources",
+          "gather_before_propose",
+          "drop_cooled_theme"
+        ],
+        "add_mutation": "binomial_hockey_deep"
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "catalog_exhausted"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261017T204850Z_d9150c",
+        "check": "conjecture",
+        "evidence": []
+      },
+      "scope": "check:conjecture",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_d9150c_vandermonde",
+      "ts": "2026-10-17T20:49:22Z",
+      "cycle_id": "20261017T204850Z_d9150c",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -45,7 +100,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261017T172749Z_ab6fb4",
+        "cycle_id": "20261017T204850Z_d9150c",
         "check": "oracle_seen_claim",
         "evidence": []
       },
@@ -54,9 +109,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_ab6fb4_pilot",
-      "ts": "2026-10-17T17:28:17Z",
-      "cycle_id": "20261017T172749Z_ab6fb4",
+      "id": "les_Z_d9150c_pilot",
+      "ts": "2026-10-17T20:49:29Z",
+      "cycle_id": "20261017T204850Z_d9150c",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -79,7 +134,7 @@
       "status": "candidate",
       "provenance": {
         "source": "pilot_lane",
-        "cycle_id": "20261017T172749Z_ab6fb4",
+        "cycle_id": "20261017T204850Z_d9150c",
         "check": "pilot",
         "evidence": []
       },
@@ -88,18 +143,18 @@
       "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
     },
     {
-      "id": "les_Z_96efa1_authored_crt_coprime_pair__cycle_sp",
-      "ts": "2026-10-17T17:32:09Z",
-      "cycle_id": "20261017T173135Z_96efa1",
+      "id": "les_Z_15e6c5_authored_euler_theorem__gauss_phi_d",
+      "ts": "2026-10-17T20:50:35Z",
+      "cycle_id": "20261017T205002Z_15e6c5",
       "type": "keep",
       "decision": "keep",
       "check": "lemma_microbench",
-      "mutation": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
-      "what": "Kept `authored_crt_coprime_pair__cycle_spanning_trees_w1` (hard_enable): lemma score 0.8614\u21920.8615 checks 214\u2192215 hard_pass 204\u2192205 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 204->205 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
+      "mutation": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+      "what": "Kept `authored_euler_theorem__gauss_phi_divisor_sum_w1` (hard_enable): lemma score 0.8614\u21920.8614 checks 216\u2192217 hard_pass 206\u2192207 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 206->207 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
       "source": "conjecture_desk",
       "family": "hard_enable",
       "before_score": 0.8614,
-      "after_score": 0.8615,
+      "after_score": 0.8614,
       "skill_bias": {
         "geometer.gather": 0.08,
         "improver.improve": 0.06,
@@ -116,29 +171,29 @@
       "evidence": [
         "society/benchmarks/lemma_microbench.py",
         "artifacts:lemma_impl",
-        "lesson:les_Z_ab6fb4_authored_crt_coprime_pair__cycle_sp"
+        "lesson:les_Z_d9150c_authored_euler_theorem__gauss_phi_d"
       ],
       "author": null,
       "expired": false,
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261017T173135Z_96efa1",
+        "cycle_id": "20261017T205002Z_15e6c5",
         "check": "lemma_microbench",
         "evidence": [
           "society/benchmarks/lemma_microbench.py",
           "artifacts:lemma_impl",
-          "lesson:les_Z_ab6fb4_authored_crt_coprime_pair__cycle_sp"
+          "lesson:les_Z_d9150c_authored_euler_theorem__gauss_phi_d"
         ]
       },
-      "scope": "mutation:authored_crt_coprime_pair__cycle_spanning_trees_w1",
+      "scope": "mutation:authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_crt_coprime_pair__cycle_spanning_trees_w1` contradicts decision=keep"
+      "invalidated_if": "a later Oracle/holdout verdict on `authored_euler_theorem__gauss_phi_divisor_sum_w1` contradicts decision=keep"
     },
     {
-      "id": "les_Z_96efa1_vandermonde",
-      "ts": "2026-10-17T17:32:13Z",
-      "cycle_id": "20261017T173135Z_96efa1",
+      "id": "les_Z_15e6c5_vandermonde",
+      "ts": "2026-10-17T20:50:39Z",
+      "cycle_id": "20261017T205002Z_15e6c5",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -161,7 +216,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261017T173135Z_96efa1",
+        "cycle_id": "20261017T205002Z_15e6c5",
         "check": "oracle_seen_claim",
         "evidence": []
       },
@@ -170,9 +225,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_96efa1_pilot",
-      "ts": "2026-10-17T17:32:20Z",
-      "cycle_id": "20261017T173135Z_96efa1",
+      "id": "les_Z_15e6c5_pilot",
+      "ts": "2026-10-17T20:50:45Z",
+      "cycle_id": "20261017T205002Z_15e6c5",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -195,7 +250,7 @@
       "status": "candidate",
       "provenance": {
         "source": "pilot_lane",
-        "cycle_id": "20261017T173135Z_96efa1",
+        "cycle_id": "20261017T205002Z_15e6c5",
         "check": "pilot",
         "evidence": []
       },
@@ -204,14 +259,82 @@
       "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
     },
     {
-      "id": "les_Z_09716e_authored_euler_pentagonal__lagrange",
-      "ts": "2026-10-17T17:33:15Z",
-      "cycle_id": "20261017T173251Z_09716e",
+      "id": "les_Z_9cbb4c_dedupe",
+      "ts": "2026-10-17T20:51:34Z",
+      "cycle_id": "20261017T205118Z_9cbb4c",
+      "type": "repeat_proposal",
+      "decision": "block",
+      "check": "dedupe",
+      "mutation": "",
+      "what": "blocked repeat: Deepen compute-useful math from accepted findings after hearing",
+      "source": "growth_hearing",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "810bc050d326",
+      "tags": [
+        "repeat_proposal"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "growth_hearing",
+        "cycle_id": "20261017T205118Z_9cbb4c",
+        "check": "dedupe",
+        "evidence": []
+      },
+      "scope": "check:dedupe",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `dedupe` contradicts decision=block"
+    },
+    {
+      "id": "les_Z_9cbb4c_dedupe",
+      "ts": "2026-10-17T20:51:37Z",
+      "cycle_id": "20261017T205118Z_9cbb4c",
+      "type": "repeat_proposal",
+      "decision": "block",
+      "check": "dedupe",
+      "mutation": "",
+      "what": "blocked repeat: Feed accepted/strong RSI findings into skill_router + genome bias",
+      "source": "growth_hearing",
+      "family": "process",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "27e48156942c",
+      "tags": [
+        "repeat_proposal"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "growth_hearing",
+        "cycle_id": "20261017T205118Z_9cbb4c",
+        "check": "dedupe",
+        "evidence": []
+      },
+      "scope": "check:dedupe",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `dedupe` contradicts decision=block"
+    },
+    {
+      "id": "les_Z_9cbb4c_authored_fermat_little__lucas_theor",
+      "ts": "2026-10-17T20:51:42Z",
+      "cycle_id": "20261017T205118Z_9cbb4c",
       "type": "authored_check",
       "decision": "skip",
       "check": "authoring",
-      "mutation": "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
-      "what": "authored disabled hard check `authored_euler_pentagonal__lagrange_cyclic_orders_w1` from proven lemmas euler_pentagonal + lagrange_cyclic_orders on new windows; awaits Oracle via proposal",
+      "mutation": "authored_fermat_little__lucas_theorem_binomial_w1",
+      "what": "authored disabled hard check `authored_fermat_little__lucas_theorem_binomial_w1` from proven lemmas fermat_little + lucas_theorem_binomial on new windows; awaits Oracle via proposal",
       "source": "conjecture_desk",
       "family": "hard_tier",
       "before_score": null,
@@ -223,155 +346,94 @@
       "tags": [
         "authoring",
         "authored_check",
-        "euler_pentagonal",
-        "lagrange_cyclic_orders"
+        "fermat_little",
+        "lucas_theorem_binomial"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::check_euler_pentagonal",
-        "society/benchmarks/artifacts/lemma_impl.py::check_lagrange_cyclic_orders",
+        "society/benchmarks/artifacts/lemma_impl.py::check_fermat_little",
+        "society/benchmarks/artifacts/lemma_impl.py::check_lucas_theorem_binomial",
         "society/benchmarks/lemma_microbench.py",
-        "lemma:euler_pentagonal",
-        "lemma:lagrange_cyclic_orders"
+        "lemma:fermat_little",
+        "lemma:lucas_theorem_binomial"
       ],
       "author": null,
       "expired": false,
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261017T173251Z_09716e",
+        "cycle_id": "20261017T205118Z_9cbb4c",
         "check": "authoring",
         "evidence": [
-          "society/benchmarks/artifacts/lemma_impl.py::check_euler_pentagonal",
-          "society/benchmarks/artifacts/lemma_impl.py::check_lagrange_cyclic_orders",
+          "society/benchmarks/artifacts/lemma_impl.py::check_fermat_little",
+          "society/benchmarks/artifacts/lemma_impl.py::check_lucas_theorem_binomial",
           "society/benchmarks/lemma_microbench.py",
-          "lemma:euler_pentagonal",
-          "lemma:lagrange_cyclic_orders"
+          "lemma:fermat_little",
+          "lemma:lucas_theorem_binomial"
         ]
       },
-      "scope": "mutation:authored_euler_pentagonal__lagrange_cyclic_orders_w1",
+      "scope": "mutation:authored_fermat_little__lucas_theorem_binomial_w1",
       "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_euler_pentagonal__lagrange_cyclic_orders_w1` contradicts decision=skip"
+      "invalidated_if": "a later Oracle/holdout verdict on `authored_fermat_little__lucas_theorem_binomial_w1` contradicts decision=skip"
     },
     {
-      "id": "les_Z_09716e_vandermonde",
-      "ts": "2026-10-17T17:33:19Z",
-      "cycle_id": "20261017T173251Z_09716e",
-      "type": "skip",
+      "id": "les_Z_9cbb4c_conjecture",
+      "ts": "2026-10-17T20:51:43Z",
+      "cycle_id": "20261017T205118Z_9cbb4c",
+      "type": "catalog_exhausted",
       "decision": "skip",
-      "check": "oracle_seen_claim",
-      "mutation": "vandermonde",
-      "what": "skip re-oracle of vandermonde:1706.03762",
-      "source": "claim_pipeline",
-      "family": "novelty",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "vandermonde:1706.03762",
-      "tags": [
-        "repeat_claim"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "claim_pipeline",
-        "cycle_id": "20261017T173251Z_09716e",
-        "check": "oracle_seen_claim",
-        "evidence": []
-      },
-      "scope": "mutation:vandermonde",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_09716e_pilot",
-      "ts": "2026-10-17T17:33:25Z",
-      "cycle_id": "20261017T173251Z_09716e",
-      "type": "skip",
-      "decision": "skip",
-      "check": "pilot",
+      "check": "conjecture",
       "mutation": "",
-      "what": "empty rsi_bias pilot suppressed",
-      "source": "pilot_lane",
-      "family": "rsi",
+      "what": "catalog exhausted \u2014 queue next hard_enable stub from lessons/external mind",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
       "before_score": null,
       "after_score": null,
       "skill_bias": {},
       "genome_prior": {},
-      "catalog_hint": {},
+      "catalog_hint": {
+        "avoid": [
+          "vandermonde_asymmetric",
+          "process_spam"
+        ],
+        "drop_theme": [
+          "vandermonde_asymmetric"
+        ],
+        "seek": [
+          "papers.jsonl",
+          "ledger",
+          "domain_bus",
+          "arxiv"
+        ],
+        "prefer": [
+          "novelty",
+          "cite_sources",
+          "gather_before_propose",
+          "drop_cooled_theme"
+        ],
+        "add_mutation": "binomial_hockey_deep"
+      },
       "proposal_fingerprint": "",
       "tags": [
-        "empty_rsi_bias"
+        "catalog_exhausted"
       ],
       "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "pilot_lane",
-        "cycle_id": "20261017T173251Z_09716e",
-        "check": "pilot",
-        "evidence": []
-      },
-      "scope": "check:pilot",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_17731c_authored_euler_pentagonal__lagrange",
-      "ts": "2026-10-17T17:34:30Z",
-      "cycle_id": "20261017T173358Z_17731c",
-      "type": "keep",
-      "decision": "keep",
-      "check": "lemma_microbench",
-      "mutation": "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
-      "what": "Kept `authored_euler_pentagonal__lagrange_cyclic_orders_w1` (hard_enable): lemma score 0.8615\u21920.8613 checks 215\u2192216 hard_pass 205\u2192206 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 205->206 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]",
-      "source": "conjecture_desk",
-      "family": "hard_enable",
-      "before_score": 0.8615,
-      "after_score": 0.8613,
-      "skill_bias": {
-        "geometer.gather": 0.08,
-        "improver.improve": 0.06,
-        "spark.emergence": 0.04
-      },
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "lemma",
-        "hard_enable",
-        "keep"
-      ],
-      "evidence": [
-        "society/benchmarks/lemma_microbench.py",
-        "artifacts:lemma_impl",
-        "lesson:les_Z_09716e_authored_euler_pentagonal__lagrange"
-      ],
       "author": null,
       "expired": false,
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261017T173358Z_17731c",
-        "check": "lemma_microbench",
-        "evidence": [
-          "society/benchmarks/lemma_microbench.py",
-          "artifacts:lemma_impl",
-          "lesson:les_Z_09716e_authored_euler_pentagonal__lagrange"
-        ]
+        "cycle_id": "20261017T205118Z_9cbb4c",
+        "check": "conjecture",
+        "evidence": []
       },
-      "scope": "mutation:authored_euler_pentagonal__lagrange_cyclic_orders_w1",
+      "scope": "check:conjecture",
       "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_euler_pentagonal__lagrange_cyclic_orders_w1` contradicts decision=keep"
+      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
     },
     {
-      "id": "les_Z_17731c_vandermonde",
-      "ts": "2026-10-17T17:34:35Z",
-      "cycle_id": "20261017T173358Z_17731c",
+      "id": "les_Z_9cbb4c_vandermonde",
+      "ts": "2026-10-17T20:51:45Z",
+      "cycle_id": "20261017T205118Z_9cbb4c",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -394,7 +456,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261017T173358Z_17731c",
+        "cycle_id": "20261017T205118Z_9cbb4c",
         "check": "oracle_seen_claim",
         "evidence": []
       },
@@ -403,9 +465,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_17731c_pilot",
-      "ts": "2026-10-17T17:34:41Z",
-      "cycle_id": "20261017T173358Z_17731c",
+      "id": "les_Z_9cbb4c_pilot",
+      "ts": "2026-10-17T20:51:52Z",
+      "cycle_id": "20261017T205118Z_9cbb4c",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -428,64 +490,13 @@
       "status": "candidate",
       "provenance": {
         "source": "pilot_lane",
-        "cycle_id": "20261017T173358Z_17731c",
+        "cycle_id": "20261017T205118Z_9cbb4c",
         "check": "pilot",
         "evidence": []
       },
       "scope": "check:pilot",
       "counterexamples": [],
       "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
-    },
-    {
-      "id": "les_7:35:06Z_Chain+seek `lemma_hard_combinatoric",
-      "ts": "2026-10-17T17:35:06Z",
-      "cycle_id": "",
-      "type": "oracle_kill",
-      "decision": "revert",
-      "check": "oracle",
-      "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
-      "what": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
-      "source": "novelty_gate_deferred_title",
-      "family": "process",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {
-        "improver.improve": 0.02,
-        "geometer.gather": 0.02
-      },
-      "genome_prior": {
-        "explore": 0.02,
-        "gather": 0.0
-      },
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "oracle_kill",
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail",
-        "collective_kill"
-      ],
-      "evidence": [
-        "kill:stripped:stripped_not_useful_fail",
-        "kill:held_out:held_out_fail",
-        "kill:collective_kill"
-      ],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "novelty_gate_deferred_title",
-        "cycle_id": "",
-        "check": "oracle",
-        "evidence": [
-          "kill:stripped:stripped_not_useful_fail",
-          "kill:held_out:held_out_fail",
-          "kill:collective_kill"
-        ]
-      },
-      "scope": "mutation:Chain+seek `lemma_hard_combinatorics` from invariant priors",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `Chain+seek `lemma_hard_combinatorics` from invariant priors` contradicts decision=revert"
     }
   ],
   "note": "Lessons from keep/revert only. Stale easy wins expire under harder checks. Candidates until human authorize. Not AGI."

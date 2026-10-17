@@ -1,40 +1,35 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T17:35:06Z",
+  "updated_at": "2026-10-17T20:50:35Z",
   "hits": 23,
   "kills": 3,
   "rows": 30,
   "kill_rows": 6,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-17T17:35:06Z",
-    "cycle_id": "",
-    "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
-    "kind": "process",
-    "novel_to_commons": false,
-    "kills": [
-      "already_in_lesson_ledger_or_history",
-      "stripped_baseline_does_not_fail_usefulness",
-      "held_out:hard_tier_green_and_hard_enable",
-      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
-    ],
+    "ts": "2026-10-17T20:50:35Z",
+    "cycle_id": "20261017T205002Z_15e6c5",
+    "mutation": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+    "kind": "hard_enable",
+    "novel_to_commons": true,
+    "kills": [],
     "textbook_reuse": 0.0,
-    "in_ledger": true,
-    "own_authoring_record_only": false,
-    "oracle_used": "own_run",
+    "in_ledger": false,
+    "own_authoring_record_only": true,
+    "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": false,
-      "hard_pass": 206,
-      "hard_n": 206,
-      "stripped_fails_usefulness": false,
-      "score": 0.8615,
-      "impl_id": "lemma_impl_v2_basic10_hard205"
+      "in_catalog": true,
+      "hard_pass": 207,
+      "hard_n": 207,
+      "stripped_fails_usefulness": true,
+      "score": 0.8614,
+      "impl_id": "lemma_impl_v2_basic10_hard207"
     },
     "held_out": {
-      "survives": false,
+      "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 206,
+      "hard_pass": 207,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
