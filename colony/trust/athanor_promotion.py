@@ -1,6 +1,6 @@
-"""Eval-gated promotion of Athanor gate profiles (REPORT-ONLY). Athanor 2.7 idea, James Jackson.
+"""Eval-gated promotion of Athanor gate profiles (REPORT-ONLY). James Jackson's ATHANOR.
 
-Ported from ATHANOR v2.7.0 ``evals/promotion.py`` (github.com/jacksonjp0311-gif/Athanor): a
+Ported from ATHANOR 3.0.0 ``evals/promotion.py`` (introduced in 2.7.0) (github.com/jacksonjp0311-gif/Athanor): a
 tuned setting is only a *candidate*; it may replace the incumbent only if
 
 1. suite: every captured regression case still passes with the candidate active (the colony's
@@ -13,8 +13,8 @@ tuned setting is only a *candidate*; it may replace the incumbent only if
    ΔΦ_i = ‖d_i‖, C_i = 1/(1+ΔΦ_i), H7 = mean_i[C_i >= 0.70]. APPROVE -> promote, REFINE -> hold,
    REJECT -> reject.
 
-Report-only: the result is written to society/systems/athanor_v27_promotion.json and a
-hash-chained society/systems/athanor_v27_promotion_ledger.jsonl. Nothing reads it to pick a
+Report-only: the result is written to society/systems/athanor_gate_promotion.json and a
+hash-chained society/systems/athanor_gate_promotion_ledger.jsonl. Nothing reads it to pick a
 profile; the gate profile is fixed in code. It never touches the Oracle, P, authorize or 0.70.
 
 CLI: python -m colony.trust.athanor_promotion --candidate tsp/adaptive@1.1.0 [--no-suite]
@@ -37,8 +37,8 @@ from colony.athanor_coherence import ADAPTIVE_PROFILES, CONSERVATIVE_PROFILE, Co
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 CASES_DIR = ROOT / "evals" / "bug2eval" / "cases"
-RESULT = ROOT / "society" / "systems" / "athanor_v27_promotion.json"
-LEDGER = ROOT / "society" / "systems" / "athanor_v27_promotion_ledger.jsonl"
+RESULT = ROOT / "society" / "systems" / "athanor_gate_promotion.json"
+LEDGER = ROOT / "society" / "systems" / "athanor_gate_promotion_ledger.jsonl"
 
 
 def _utc() -> str:
@@ -93,12 +93,11 @@ def _rebuild(row: dict[str, Any]) -> list[float] | None:
 
 
 def signature(profile: str, row: dict[str, Any]) -> tuple[float, float] | None:
-    from colony.trust.athanor_v27 import profile_verdict
+    from colony.trust.athanor_gate import profile_verdict
     beh = _rebuild(row)
     if beh is None:
         return None
-    pv = profile_verdict(profile, beh, float(row.get("structural") or 0.0),
-                         e_cur=float(row.get("e_cur") or 0.0), e_best=float(row.get("e_best") or 0.0),
+    pv = profile_verdict(profile, beh, e_cur=float(row.get("e_cur") or 0.0), e_best=float(row.get("e_best") or 0.0),
                          step=int(row.get("step") or 0))
     return float(pv["h7"]), 1.0 if pv["verdict"] == "APPROVE" else 0.0
 
@@ -173,7 +172,7 @@ def promote(candidate: str, incumbent: str = CONSERVATIVE_PROFILE, *, with_suite
     if candidate not in ADAPTIVE_PROFILES or incumbent not in ADAPTIVE_PROFILES:
         raise ValueError(f"unknown profile; known: {sorted(ADAPTIVE_PROFILES)}")
     if rows is None:
-        from colony.trust.athanor_v27 import STATE
+        from colony.trust.athanor_gate import STATE
         try:
             rows = json.loads(STATE.read_text(encoding="utf-8")).get("rows") or []
         except Exception:  # noqa: BLE001

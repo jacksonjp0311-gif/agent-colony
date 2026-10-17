@@ -442,6 +442,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             finding_ids=[p.get("finding_id") for p in proposals if p.get("finding_id")],
         )
         _append_history(result); return result
+    _ath_guard = None
     if kind == "stem_easy_pad":
         after = dict(before); after_score = before_score
         # Do not write; oracle will kill
@@ -451,6 +452,13 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         target_impl.write_text(new_src, encoding="utf-8"); _invalidate_pyc(target_impl)
         if os.environ.get("COLONY_TEST_CRASH_AFTER_APPLY") == "1":  # fault-injection fixture only
             os._exit(17)
+        # Athanor 3.0 worker memory cap: run the candidate in a capped child process first
+        # (shadow: report-only, the in-process bench below always runs).
+        try:
+            from colony.trust.athanor_gate import pre_bench_guard
+            _ath_guard = pre_bench_guard(new_src=new_src, target_impl=target_impl, kind=kind or "")
+        except Exception:  # noqa: BLE001
+            _ath_guard = None
         after = run_bench()
     after_score = float(after.get("score") or 0.0)
     delta = round(after_score - before_score, 4)
@@ -545,15 +553,15 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     if rose and oracle_passed and not promotion["eligible"]:
         rose = False
         oracle_note += f" | promotion=none ({promotion['explanation']})"
-    # Athanor v2.5-v2.7 gate (James Jackson's ATHANOR). Default COLONY_ATHANOR_GATE=shadow:
+    # Athanor gate (James Jackson's ATHANOR 3.0.0). Default COLONY_ATHANOR_GATE=shadow:
     # report-only, it logs what it would gate and never changes this decision.
     if not self_rejected and kind != "stem_easy_pad":
         try:
-            from colony.trust.athanor_v27 import gate_desk_change
+            from colony.trust.athanor_gate import gate_desk_change
             _ath = gate_desk_change(before=before, after=after, src=src, new_src=new_src,
                                     before_score=_cmp_before, after_score=_cmp_after,
                                     mutation=chosen or "", kind=kind or "", cycle_id=cycle_id,
-                                    tentative_keep=bool(rose and oracle_passed))
+                                    tentative_keep=bool(rose and oracle_passed), guard=_ath_guard)
             if _ath and _ath.get("block"):
                 rose = False
                 oracle_note += f" | athanor_gate=BLOCK ({_ath.get('verdict')}: {_ath.get('reason')})"

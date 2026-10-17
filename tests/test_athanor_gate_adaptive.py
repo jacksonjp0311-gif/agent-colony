@@ -15,7 +15,7 @@ from colony.athanor_coherence import (
     scheduled_tolerance,
     structural_distance,
 )
-import colony.trust.athanor_v27 as G
+import colony.trust.athanor_gate as G
 
 CONS = ADAPTIVE_PROFILES["selfmod/adaptive@1.1.0"]
 TSP = ADAPTIVE_PROFILES["tsp/adaptive@1.1.0"]
@@ -23,9 +23,9 @@ TSP = ADAPTIVE_PROFILES["tsp/adaptive@1.1.0"]
 
 @pytest.fixture
 def gstate(tmp_path, monkeypatch):
-    monkeypatch.setattr(G, "STATE", tmp_path / "athanor_v27.json")
+    monkeypatch.setattr(G, "STATE", tmp_path / "athanor_gate.json")
     monkeypatch.delenv("COLONY_ATHANOR_GATE", raising=False)
-    return tmp_path / "athanor_v27.json"
+    return tmp_path / "athanor_gate.json"
 
 
 def test_profiles_match_athanor_registry():
@@ -97,8 +97,8 @@ def test_conservative_is_stricter_than_fixed_gate():
     # every probe drifts 0.3: fixed tol 1 -> C = 0.769 >= 0.70; conservative tol 0.7 -> 0.3/0.7 = 0.43,
     # C = 0.70 < 0.75. Same ΔΦ -> C -> H7 math, only the tolerance and tau differ.
     beh = [0.3] * 10
-    fixed = G.profile_verdict("colony/fixed@1.0.0", beh, 0.0, e_cur=0.1, e_best=0.1, step=0)
-    cons = G.profile_verdict("selfmod/adaptive@1.1.0", beh, 0.0, e_cur=0.1, e_best=0.1, step=0)
+    fixed = G.profile_verdict("colony/fixed@1.0.0", beh, e_cur=0.1, e_best=0.1, step=0)
+    cons = G.profile_verdict("selfmod/adaptive@1.1.0", beh, e_cur=0.1, e_best=0.1, step=0)
     assert fixed["verdict"] == "APPROVE" and fixed["tol"] == 1.0
     assert cons["verdict"] == "REJECT" and cons["tol"] == 0.7
     # the live colony governor gives the same verdict on the same trajectory

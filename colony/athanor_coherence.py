@@ -681,6 +681,83 @@ def edit_trajectory(behaviour: Sequence[float], structural: float = 0.0, *, tol:
     return rows
 
 
+# ---------------------------------------------------------------------------
+# Athanor 3.0.0 adapter API shape (James Jackson, Athanor src/athanor/governor.py), pure Python
+# ---------------------------------------------------------------------------
+# probe(program) -> numbers on fixed probe inputs; check(program) -> validity pre-gate (runs
+# first; False or raising rejects). Per probe i: d_i = min(|new_i - cur_i| / (scale * tol), BIG),
+# crash or non-finite => BIG. X = [0; cumsum(d)] => ΔΦ_i = d_i, C_i = 1/(1+d_i), H7 = share of
+# probes with C >= τ; verdict by the same rule as CoherenceGovernor (unchanged).
+
+GOVERNOR_BIG = 1e3
+
+
+def _probe_values(probe: Any, program: Any) -> list[float] | None:
+    try:
+        out = probe(program)
+    except Exception:  # noqa: BLE001 - a crashing program is a behaviour, not an adapter error
+        return None
+    vals = [float(v) for v in (out if isinstance(out, (list, tuple)) else list(out))]
+    if not vals:
+        raise ValueError("probe(program) returned no values")
+    return vals if all(math.isfinite(v) for v in vals) else None
+
+
+class Governor:
+    """Pure-Python port of Athanor 3.0.0 ``Governor(probe, scale=..., check=...).judge(cur, cand)``."""
+
+    def __init__(self, probe: Any = None, *, scale: float = 1.0, threshold: float = DEFAULT_H7_THRESHOLD,
+                 refine_floor: float = DEFAULT_REFINE_FLOOR, check: Any = None) -> None:
+        if not (math.isfinite(float(scale)) and float(scale) > 0):
+            raise ValueError(f"scale must be a positive number, got {scale!r}")
+        if not (0.0 < float(threshold) < 1.0) or not (0.0 <= float(refine_floor) <= float(threshold)):
+            raise ValueError("need 0 < threshold < 1 and 0 <= refine_floor <= threshold")
+        self.probe, self.check = probe, check
+        self.scale, self.threshold, self.refine_floor = float(scale), float(threshold), float(refine_floor)
+
+    def is_valid(self, program: Any) -> bool:
+        if self.check is None:
+            return True
+        try:
+            return bool(self.check(program))
+        except Exception:  # noqa: BLE001 - a failing check is a rejection
+            return False
+
+    def trajectory(self, cur: list[float] | None, new: list[float] | None, tolerance: float = 1.0) -> list[list[float]]:
+        if cur is None and new is None:
+            raise ValueError("both the current and the candidate program fail probe()")
+        n = len(cur if cur is not None else new)  # type: ignore[arg-type]
+        if cur is None or new is None:
+            d = [GOVERNOR_BIG] * n
+        else:
+            if len(cur) != len(new):
+                raise ValueError(f"probe() returned {len(cur)} values for current but {len(new)} for candidate")
+            den = self.scale * float(tolerance)
+            d = [min(abs(b - a) / den, GOVERNOR_BIG) for a, b in zip(cur, new)]
+        rows, acc = [[0.0]], 0.0
+        for x in d:
+            acc += x
+            rows.append([acc])
+        return rows
+
+    def judge(self, current: Any = None, candidate: Any = None, *, tolerance: float = 1.0,
+              current_probe: list[float] | None = None, candidate_probe: list[float] | None = None) -> dict[str, Any]:
+        """Gate one edit current -> candidate. The validity check (if any) runs first."""
+        valid = self.is_valid(candidate) if self.check is not None else None
+        if valid is False:
+            return {"verdict": "REJECT", "h7": 0.0, "dphi_mean": GOVERNOR_BIG, "dphi_max": GOVERNOR_BIG,
+                    "reason": "validity check failed", "valid": False, "tolerance": float(tolerance),
+                    "probes": 0, "probe_failed": False}
+        cur = current_probe if current_probe is not None else _probe_values(self.probe, current)
+        new = candidate_probe if candidate_probe is not None else _probe_values(self.probe, candidate)
+        traj = self.trajectory(cur, new, tolerance)
+        v = CoherenceGovernor(threshold_h7=self.threshold, refine_floor=self.refine_floor).verify_trajectory(traj)
+        d = delta_phi(traj)
+        return {"verdict": v.verdict, "h7": float(v.h7), "dphi_mean": float(sum(d) / len(d)) if d else 0.0,
+                "dphi_max": float(max(d)) if d else 0.0, "reason": v.reason, "valid": valid,
+                "tolerance": float(tolerance), "probes": len(traj) - 1, "probe_failed": new is None}
+
+
 # numpy-compatible wrappers for adapted Athanor unit tests
 def _np_array(xs: Sequence[float] | Sequence[Sequence[float]], dtype: Any = None) -> Any:
     if _HAS_NUMPY:
@@ -723,6 +800,8 @@ __all__ = [
     "structure_tokens",
     "structural_distance",
     "edit_trajectory",
+    "GOVERNOR_BIG",
+    "Governor",
     "DEFAULT_H7_THRESHOLD",
     "DEFAULT_REFINE_FLOOR",
 ]

@@ -66,7 +66,7 @@ def test_no_suite_holds(out):
 
 
 def test_profile_env_selects_gate_profile(monkeypatch):
-    import colony.trust.athanor_v27 as G
+    import colony.trust.athanor_gate as G
     monkeypatch.delenv("COLONY_ATHANOR_PROFILE", raising=False)
     assert G.gate_profile() == "selfmod/adaptive@1.1.0"
     monkeypatch.setenv("COLONY_ATHANOR_PROFILE", "tsp/adaptive@1.1.0")

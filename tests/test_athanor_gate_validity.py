@@ -7,15 +7,15 @@ import math
 import pytest
 
 from colony.athanor_coherence import snapshot_validity, validity_check
-import colony.trust.athanor_v27 as G
+import colony.trust.athanor_gate as G
 from test_challenger import _desk, art, sandbox  # noqa: F401  (fixture reuse)
 
 
 @pytest.fixture
 def gstate(tmp_path, monkeypatch):
-    monkeypatch.setattr(G, "STATE", tmp_path / "athanor_v27.json")
+    monkeypatch.setattr(G, "STATE", tmp_path / "athanor_gate.json")
     monkeypatch.delenv("COLONY_ATHANOR_GATE", raising=False)
-    return tmp_path / "athanor_v27.json"
+    return tmp_path / "athanor_gate.json"
 
 
 def test_validity_check_matches_athanor_rules():
