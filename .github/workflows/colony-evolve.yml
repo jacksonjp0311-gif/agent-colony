@@ -84,6 +84,25 @@ jobs:
               print("benches ok (quiet)")
           PY
 
+      - name: Novelty shadow corpus key (OEIS names, monthly)
+        id: oeiskey
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      - name: Novelty shadow corpus cache (report-only; free; no per-cycle download)
+        id: oeiscache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/colony/oeis
+          key: oeis-names-v1-${{ steps.oeiskey.outputs.month }}
+
+      - name: Build novelty shadow corpus on cache miss (OEIS names, CC BY-SA 4.0; fail-soft)
+        if: ${{ steps.oeiscache.outputs.cache-hit != 'true' && github.event.inputs.offline != 'true' }}
+        continue-on-error: true
+        timeout-minutes: 4
+        run: |
+          export PYTHONPATH=.
+          python -m colony.novelty_shadow build || echo "::warning::novelty shadow corpus unavailable (report-only; live novelty unaffected)"
+
       - name: Gather → claim → evolve (keep/revert + lessons)
         env:
           CYCLES: ${{ github.event.inputs.cycles || '3' }}

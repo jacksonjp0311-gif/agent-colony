@@ -26,6 +26,11 @@ def semantic_bridge_enabled() -> bool:
     return os.environ.get("COLONY_SEMANTIC_BRIDGE", "1") != "0"
 
 
+def novelty_shadow_enabled() -> bool:
+    """Report-only OEIS-names novelty shadow score (never changes live novelty). COLONY_NOVELTY_SHADOW=0 off."""
+    return os.environ.get("COLONY_NOVELTY_SHADOW", "1") != "0"
+
+
 def ablation_active() -> list[str]:
     out = []
     if not learning_enabled():

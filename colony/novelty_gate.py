@@ -308,6 +308,12 @@ def evaluate(
             kills.append(f"oracle_error_fail_closed:{_ox}")
 
     novel = len(kills) == 0
+    try:  # REPORT-ONLY novelty shadow (OEIS names corpus); never changes ``novel`` or ``kills``
+        from colony.novelty_shadow import report as _shadow_report
+        _shadow_report(mutation=name, claim_text=claim_text, live_textbook_reuse=reuse,
+                       live_novel=novel, cycle_id=cycle_id)
+    except Exception:  # noqa: BLE001
+        pass
     verdict = {
         "ts": _utc(),
         "cycle_id": cycle_id,
