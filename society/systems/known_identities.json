@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T14:09:22Z",
-  "n": 265,
+  "updated_at": "2026-10-17T14:14:51Z",
+  "n": 268,
   "identities": [
     "adversarial_cassini_ext",
     "adversarial_catalan_convolution_stress",
@@ -111,6 +111,7 @@
     "authored_sieve_two_counter_g4_w1",
     "authored_sieve_two_counter_g6_2_6_w1",
     "authored_sieve_two_counter_g6_2_w1",
+    "authored_sieve_two_counter_g6_4_w1",
     "authored_sieve_two_counter_g6_6_2_w1",
     "authored_sieve_two_counter_g6_w1",
     "authored_stirling_second_row__pythagorean_generation_w1",
@@ -128,6 +129,7 @@
     "autodiff_busy_loop",
     "become_fail_forward",
     "become_real_fitness",
+    "bezout_identity",
     "binomial_hockey_deep",
     "binomial_identities",
     "binomial_sum_row",
@@ -183,6 +185,7 @@
     "charter_seek_propose_authorize",
     "claim_theme",
     "compose_chain_proven_lemmas",
+    "crt_coprime_pair",
     "deepen compute-useful math from accepted findings after hearing",
     "derived_chain_stress",
     "drop_repeated_kill_seek_elsewhere",
@@ -198,10 +201,7 @@
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 111)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 113)",
     "feed accepted/strong rsi findings into skill_router + genome bias (cycle 115)",
-    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 117)",
-    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 119)",
-    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 121)",
-    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 123)"
+    "feed accepted/strong rsi findings into skill_router + genome bias (cycle 117)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

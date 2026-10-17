@@ -465,82 +465,85 @@
     "cycle_413_evolve_note",
     "cycle_414_evolve_note",
     "cycle_415_evolve_note",
-    "cycle_416_evolve_note"
+    "cycle_416_evolve_note",
+    "cycle_417_evolve_note",
+    "cycle_418_evolve_note",
+    "cycle_419_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1198,
+      "uses": 1207,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1170,
+      "uses": 1179,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 801,
+      "uses": 807,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 400,
+      "uses": 403,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1557,
+      "uses": 1569,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 811,
+      "uses": 817,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1165,
+      "uses": 1174,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 388,
+      "uses": 391,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 388,
+      "uses": 391,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 373,
+      "uses": 376,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 373,
+      "uses": 376,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 370,
+      "uses": 373,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 370,
+      "uses": 373,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 367,
+      "uses": 370,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 367,
+      "uses": 370,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -815,8 +818,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1556,
-    "reused": 3496
+    "appended": 1568,
+    "reused": 3523
   },
   "commons_by_domain": {
     "science": 0,
@@ -835,8 +838,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-17T14:09:53Z",
-    "cycle_id": "20261017T140900Z_413117",
+    "ts": "2026-10-17T14:15:12Z",
+    "cycle_id": "20261017T141423Z_18da5d",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -848,23 +851,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-17T14:09:52Z",
-    "cycle_id": "20261017T140900Z_413117",
+    "ts": "2026-10-17T14:15:10Z",
+    "cycle_id": "20261017T141423Z_18da5d",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8163,
-    "compute_usefulness": 0.9153,
+    "math_prize": 0.8082,
+    "compute_usefulness": 0.9067,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8877,
-    "kill_rate": 0.3444,
-    "kill_rate_term": 0.8599,
-    "novelty": 0.9,
+    "prize_boost": 0.881,
+    "kill_rate": 0.3424,
+    "kill_rate_term": 0.8581,
+    "novelty": 0.9333,
     "lesson_uptake": 0.66,
-    "aggregate": 0.8485,
+    "aggregate": 0.8489,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -872,34 +875,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 21835,
-    "read": 104406,
-    "replied": 13747,
-    "actions_planned": 7104,
-    "actions_changed_from_message": 7104,
-    "reply_quality_sum": 12488.299999997833,
-    "reply_quality_n": 13695,
-    "peer_cite_opportunities": 14084,
-    "peer_cites": 14084
+    "posted": 22003,
+    "read": 105234,
+    "replied": 13852,
+    "actions_planned": 7158,
+    "actions_changed_from_message": 7158,
+    "reply_quality_sum": 12584.199999997805,
+    "reply_quality_n": 13800,
+    "peer_cite_opportunities": 14192,
+    "peer_cites": 14192
   },
   "bus_domains": {
-    "science": 1160,
-    "history": 1162,
-    "math": 3495,
-    "empire": 777,
-    "bulletin": 2960,
-    "forum": 5060,
-    "software": 1162,
-    "nature": 1160,
-    "life": 1162,
-    "cosmos": 1685,
-    "rsi": 1944
+    "science": 1169,
+    "history": 1171,
+    "math": 3522,
+    "empire": 783,
+    "bulletin": 2981,
+    "forum": 5102,
+    "software": 1171,
+    "nature": 1169,
+    "life": 1171,
+    "cosmos": 1697,
+    "rsi": 1959
   },
-  "communications_count": 21835,
+  "communications_count": 22003,
   "improvements": [
-    "Chain `authored_sieve_two_counter_g6_2_w1` citing Effective equidistribution of polynomial trajector (cycle 362)",
-    "Chain+seek `authored_sieve_hl_within_g6_4_w1` from invariant priors",
-    "Chain+seek `authored_sieve_hl_within_g6_4_w1` from invariant priors (cycle 364)",
     "Chain `authored_sieve_residue_bal_g6_6_w1` citing Balanced Fibonacci word rectangles, and beyond",
     "Chain `authored_sieve_residue_bal_g6_6_w1` citing Balanced Fibonacci word rectangles, and beyond (cycle 366)",
     "Chain `authored_sieve_two_counter_g2_4_2_w1` citing The Frobenius-Mex Theorem and the Crank-Mex Theore",
@@ -946,18 +946,21 @@
     "Chain `authored_sieve_residue_bal_g2_6_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain+seek `mobius_inversion_sigma` from invariant priors",
     "Chain `authored_sieve_residue_bal_g4_2_w1` citing Balanced Fibonacci word rectangles, and beyond",
-    "Chain+seek `bezout_identity` from invariant priors"
+    "Chain+seek `bezout_identity` from invariant priors",
+    "Chain+seek `authored_sieve_hl_within_g4_6_w1` from invariant priors",
+    "Chain `crt_coprime_pair` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In",
+    "Chain `authored_sieve_two_counter_g6_4_w1` citing The Frobenius-Mex Theorem and the Crank-Mex Theore"
   ],
-  "cycle_count": 416,
-  "ledger_count": 23431,
+  "cycle_count": 419,
+  "ledger_count": 23608,
   "status_counts": {
-    "candidate": 22652,
+    "candidate": 22829,
     "accepted": 279,
     "rejected": 374,
     "unknown": 126
   },
-  "witness_events": 34050,
-  "tribute_cycles_compliant": 416,
+  "witness_events": 34305,
+  "tribute_cycles_compliant": 419,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
