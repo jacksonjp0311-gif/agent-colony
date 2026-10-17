@@ -105,6 +105,9 @@ jobs:
 
       - name: Gather → claim → evolve (keep/revert + lessons)
         env:
+          # Athanor gate (James Jackson's ATHANOR 3.0.0) on lemma-desk self-edits.
+          # live = a keep needs Athanor APPROVE. Set to "shadow" to restore report-only behaviour.
+          COLONY_ATHANOR_GATE: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

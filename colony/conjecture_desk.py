@@ -459,7 +459,12 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
             _ath_guard = pre_bench_guard(new_src=new_src, target_impl=target_impl, kind=kind or "")
         except Exception:  # noqa: BLE001
             _ath_guard = None
-        after = run_bench()
+        if _ath_guard and _ath_guard.get("block"):
+            # live gate: the capped run failed, so the candidate never runs in-process; revert
+            after = {**before, "ok": False, "score": before_score,
+                     "error": f"athanor_guard:{_ath_guard.get('reason')}"}
+        else:
+            after = run_bench()
     after_score = float(after.get("score") or 0.0)
     delta = round(after_score - before_score, 4)
     n_before = int(before.get("n_checks") or 0)
@@ -555,6 +560,8 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         oracle_note += f" | promotion=none ({promotion['explanation']})"
     # Athanor gate (James Jackson's ATHANOR 3.0.0). Default COLONY_ATHANOR_GATE=shadow:
     # report-only, it logs what it would gate and never changes this decision.
+    if _ath_guard and _ath_guard.get("block"):
+        oracle_note += f" | athanor_gate=BLOCK (guarded run: {_ath_guard.get('reason')}; candidate not run in-process)"
     if not self_rejected and kind != "stem_easy_pad":
         try:
             from colony.trust.athanor_gate import gate_desk_change

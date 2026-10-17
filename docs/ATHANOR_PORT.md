@@ -32,7 +32,14 @@ One env var, `COLONY_ATHANOR_GATE`:
 
 - `shadow` (default): assess and log to `society/systems/athanor_gate.json`. Never changes a
   keep/revert, score, P value, Oracle verdict, authorization or the 0.70 gate.
+- `live`: the same assessment, and it gates. A keep goes through only on APPROVE. If the
+  memory-capped run fails, the candidate never runs in-process and the change is reverted.
+  Assessment errors fail closed.
 - `off`: no assessment, no child process, no log.
+
+The evolve workflow sets `COLONY_ATHANOR_GATE: live` on its evolve step. To turn it off, change
+that one line to `shadow` (report-only) or `off`. Tests prove that either value restores the
+old keep/revert behaviour.
 
 The gate sits in the lemma desk after the Oracle and the promotion check, so it never touches
 the Oracle. It is monotone: it can only turn a keep into a revert, never the other way.

@@ -25,6 +25,10 @@ Mode (one env var, ``COLONY_ATHANOR_GATE``):
 
 * ``shadow`` (default) — assess and log only. Never changes a keep/revert, a score, a P value,
   an Oracle verdict, authorization or the 0.70 gate.
+* ``live``   — the same assessment, and it gates: a keep goes through only on APPROVE; a failed
+  memory-capped run skips the in-process bench and the change is reverted. Monotone: it can only
+  turn a keep into a revert. It runs after the Oracle and never changes an Oracle verdict, P,
+  authorization or the 0.70 gate. Assessment errors fail closed (no keep).
 * ``off``    — do nothing (no assessment, no subprocess, no log).
 
 State: society/systems/athanor_gate.json (totals + last rows).
@@ -54,7 +58,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 STATE = ROOT / "society" / "systems" / "athanor_gate.json"
 GUARDED_IMPL = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
 KEEP_ROWS = 50
-MODES = ("off", "shadow")
+MODES = ("off", "shadow", "live")
 KAPPA = 0.10                  # score probe scale
 GUARD_MEMORY_BYTES = 2 * 1024 ** 3   # Athanor 3.0 WORKER_MEMORY_LIMIT_GB = 2
 GUARD_TIMEOUT_S = 120.0
@@ -128,7 +132,7 @@ def pre_bench_guard(*, new_src: str | None, target_impl: Path | str | None, kind
         g = guarded_run(new_src)
     except Exception as exc:  # noqa: BLE001
         g = {"ran": False, "passed": False, "reason": f"guard_error:{type(exc).__name__}"}
-    g["block"] = False
+    g["block"] = bool(gate_mode() == "live" and not g.get("passed"))
     return g
 
 
@@ -255,7 +259,7 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
     except Exception as exc:  # noqa: BLE001
         row.update(verdict="ERROR", reason=f"assess_error:{type(exc).__name__}:{exc}"[:200])
     row["would_block"] = bool(tentative_keep and row.get("verdict") != "APPROVE")
-    row["block"] = False
+    row["block"] = bool(mode == "live" and row["would_block"])
     row["would_block_by_profile"] = {n: bool(tentative_keep and pv["verdict"] != "APPROVE")
                                      for n, pv in (row.get("profiles") or {}).items()}
     try:
@@ -272,14 +276,16 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
                 _bump(tot, "guard_failed")
         if row["would_block"]:
             _bump(tot, "would_block_keep")
+        if row["block"]:
+            _bump(tot, "blocked_keep_live")
         for name, pv in (row.get("profiles") or {}).items():
             _bump(tot, f"profile:{name}:{pv['verdict']}")
             if row["would_block_by_profile"].get(name):
                 _bump(tot, f"profile:{name}:would_block_keep")
         st["rows"] = (st.get("rows") or [])[-(KEEP_ROWS - 1):] + [row]
         st["updated_at"] = row["ts"]
-        st["note"] = (f"Athanor gate ({SOURCE}) on lemma-desk self-edits. shadow = report-only: never "
-                      "changes keep/revert, scores, P, Oracle or authorize.")
+        st["note"] = (f"Athanor gate ({SOURCE}) on lemma-desk self-edits. shadow = report-only; live = a keep "
+                      "needs APPROVE (monotone, after the Oracle; never changes Oracle, P or authorize).")
         _save(st)
     except Exception:  # noqa: BLE001
         pass
