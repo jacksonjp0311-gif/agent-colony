@@ -4,8 +4,8 @@
       "topic": "compute-useful-math",
       "priority": 1.15,
       "reason": "accepted_compute_finding",
-      "finding_id": "fnd_ac0edba0eb35",
-      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_2_6_w1"
+      "finding_id": "fnd_c73ec1e5d168",
+      "title": "Authorize accepted: Lemma mutation keep: fermat_little"
     },
     {
       "topic": "open-math-problems",
@@ -46,6 +46,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "'3rd-order'",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "'multi-hop",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "(n-1)*(2*a(n-1)",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "26-ccc-16192-acc",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-17T11:15:53Z",
-  "updated_cycle": "20261017T111516Z_7078ce",
+  "updated_at": "2026-10-17T13:57:00Z",
+  "updated_cycle": "20261017T135632Z_7e52ce",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

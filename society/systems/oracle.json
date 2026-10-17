@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T11:15:44Z",
-  "passes": 328,
+  "updated_at": "2026-10-17T13:56:50Z",
+  "passes": 331,
   "kills": 177,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3505,
+  "kill_rate": 0.3484,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -18,10 +18,7 @@
     "authored_binomial_sum_row__derangement_subfactorial_w1",
     "authored_binomial_symmetry__central_binom_bound_w1",
     "authored_cassini__bell_triangle_recurrence_w1",
-    "authored_catalan_bounded__binomial_inversion_small_w1",
     "authored_catalan_bounded__euler_totient_multiplicative_w1",
-    "authored_catalan_convolution__euler_totient_multiplicative_w1",
-    "authored_fibonacci_addition__legendre_duplication_small_w1",
     "authored_gcd_fibonacci__hermite_recurrence_w1",
     "authored_hockey_stick__narayana_sum_w1",
     "authored_pascal_identity__sum_first_n_cubes_w1",
@@ -33,6 +30,7 @@
     "authored_sieve_hl_within_g4_2_4_w1",
     "authored_sieve_hl_within_g4_2_w1",
     "authored_sieve_hl_within_g4_6_6_w1",
+    "authored_sieve_hl_within_g4_w1",
     "authored_sieve_hl_within_g6_4_2_w1",
     "authored_sieve_hl_within_g6_4_w1",
     "authored_sieve_hl_within_g6_6_4_w1",
@@ -54,7 +52,9 @@
     "authored_sieve_two_counter_g4_w1",
     "authored_sieve_two_counter_g6_2_6_w1",
     "authored_sieve_two_counter_g6_2_w1",
-    "authored_sieve_two_counter_g6_6_2_w1"
+    "authored_sieve_two_counter_g6_6_2_w1",
+    "authored_sieve_two_counter_g6_w1",
+    "authored_stirling_second_row__pythagorean_generation_w1"
   ],
   "unique_mutations_kill": [
     "Chain `authored_sieve_two_counter_g2_w1` citing Effective equidistribution of polynomial trajector",
@@ -100,7 +100,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-17T11:15:44Z",
+    "ts": "2026-10-17T13:56:50Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -110,16 +110,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_two_counter_g6_w1` kind=hard_enable. lemma mutation authored_sieve_two_counter_g6_w1 0.8659->0.8656 (compared 0.857->0.857; instrument_budget:0.038s) Not disco",
-      "attack": "WEIGH: `authored_sieve_two_counter_g6_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `gauss_phi_divisor_sum` kind=hard_enable. lemma mutation gauss_phi_divisor_sum 0.8722->0.8723 (compared 0.857->0.857; speed_noise:+0.002) Not discovery. cycle=20261017T135632Z",
+      "attack": "WEIGH: `gauss_phi_divisor_sum` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 148,
-        "hard_n": 148,
-        "score": 0.8654,
+        "hard_pass": 151,
+        "hard_n": 151,
+        "score": 0.8722,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -130,14 +130,17 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 148,
-        "hard_n": 148,
+        "hard_pass": 151,
+        "hard_n": 151,
         "ok": true,
-        "score": 0.8656,
+        "score": 0.8723,
         "shifted_window": {
           "ok": true,
-          "reason": "shift_not_applicable(no_literal_range)",
-          "applied": false
+          "reason": "shift_window_pass",
+          "applied": true,
+          "ranges_shifted": 1,
+          "seconds": 0.014,
+          "window_expr": "all((check_gauss_phi_divisor_sum(n) for n in range(60, 119)))"
         },
         "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
@@ -214,15 +217,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_sieve_two_counter_g6_w1",
+      "mutation": "gauss_phi_divisor_sum",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_sieve_two_counter_g6_w1",
+    "mutation": "gauss_phi_divisor_sum",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261017T111516Z_7078ce",
+    "cycle_id": "20261017T135632Z_7e52ce",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
