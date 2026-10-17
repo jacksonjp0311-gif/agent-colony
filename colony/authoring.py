@@ -430,6 +430,19 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
             candidates += instrument_checks.candidates(names | rejected)
     except Exception:
         pass
+    try:  # COLONY_FRONTIER=live: the colony's own surviving conjectures (same disabled-until-Oracle path)
+        from colony import frontier_conjectures, frontier_checks
+        if frontier_conjectures.mode() == "live":
+            marker = INSERT_MARKER if INSERT_MARKER in src else FALLBACK_MARKER
+            bridged = frontier_checks.ensure_bridges(src, marker)
+            if bridged != src:
+                ast.parse(bridged)
+                src, tree = bridged, ast.parse(bridged)
+                bodies = _existing_bodies(tree)
+            if not frontier_checks.pending(src):
+                candidates += frontier_checks.candidates(names | rejected)
+    except Exception:
+        pass
     for _key, a, b, k in pairs:
         name, fn_src, body, expr = _build_candidate(a, b, k)
         candidates.append({
