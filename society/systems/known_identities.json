@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T14:49:20Z",
-  "n": 363,
+  "updated_at": "2026-10-18T15:01:23Z",
+  "n": 365,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -167,6 +167,7 @@
     "authored_sieve_residue_bal_g6_2_4_w1",
     "authored_sieve_residue_bal_g6_2_w1",
     "authored_sieve_residue_bal_g6_4_6_w1",
+    "authored_sieve_residue_bal_g6_4_w1",
     "authored_sieve_residue_bal_g6_6_2_w1",
     "authored_sieve_residue_bal_g6_6_4_w1",
     "authored_sieve_residue_bal_g6_6_6_w1",
@@ -175,6 +176,7 @@
     "authored_sieve_two_counter_g2_4_2_w1",
     "authored_sieve_two_counter_g2_4_6_w1",
     "authored_sieve_two_counter_g2_4_w1",
+    "authored_sieve_two_counter_g2_6_4_w1",
     "authored_sieve_two_counter_g2_6_6_w1",
     "authored_sieve_two_counter_g2_6_w1",
     "authored_sieve_two_counter_g2_w1",
@@ -199,9 +201,7 @@
     "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
     "authored_sum_first_n_odds__binomial_inversion_small_w1",
     "authored_sum_first_n_odds__pythagorean_generation_w1",
-    "authored_sum_first_n_odds__stirling_second_row_w1",
-    "authored_sum_first_n_odds__sum_first_n_cubes_w1",
-    "authored_sum_first_n_odds__vandermonde_conv_w1"
+    "authored_sum_first_n_odds__stirling_second_row_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

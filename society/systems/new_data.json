@@ -7,6 +7,7 @@
   "instrument",
   "instrument",
   "frontier",
+  "instrument",
   "instrument"
  ],
  "history": [
@@ -1847,27 +1848,149 @@
     ]
    },
    "ts": "2026-10-18T14:52:43Z"
+  },
+  {
+   "cpu_s": 118.013,
+   "cycle_id": "20261018T145524Z_7fd69f",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1_c:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1_c:recval",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 335,
+    "cpu_s": 4.837,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"d(k)\" @10",
+     "keyword:more \"d(k)\" @20",
+     "keyword:more subsets sum prime @0"
+    ]
+   },
+   "ts": "2026-10-18T14:58:48Z"
+  },
+  {
+   "cpu_s": 3.496,
+   "cycle_id": "20261018T145856Z_0ab9ef",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls6_5_c:terms",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_5_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_5_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 355,
+    "cpu_s": 2.733,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more subsets sum prime @10",
+     "keyword:more subsets sum prime @20"
+    ]
+   },
+   "ts": "2026-10-18T15:00:33Z"
+  },
+  {
+   "cpu_s": 115.434,
+   "cycle_id": "20261018T150041Z_a3d628",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls6_5_c:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_5_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_5_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 381,
+    "cpu_s": 0.849,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more subsets sum square @0",
+     "keyword:more subsets sum square @10",
+     "keyword:more subsets sum square @20"
+    ]
+   },
+   "ts": "2026-10-18T15:04:10Z"
   }
  ],
  "last": {
-  "cpu_s": 1.693,
-  "cycle_id": "20261018T145137Z_12ead5",
+  "cpu_s": 115.434,
+  "cycle_id": "20261018T150041Z_a3d628",
   "discovered": [
    {
     "anum": null,
-    "item": "gb_cls6_1_c:terms",
-    "status": "no_alignment",
-    "why": "OEIS terms differ beyond the probe"
-   },
-   {
-    "anum": null,
-    "item": "gb_cls6_1_c:recpos",
+    "item": "gb_min_cls6_5_c:terms",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_cls6_1_c:recval",
+    "item": "gb_min_cls6_5_c:recpos",
+    "status": "not_in_oeis",
+    "why": "not found in the local OEIS index (frontier unknown)"
+   },
+   {
+    "anum": null,
+    "item": "gb_min_cls6_5_c:recval",
     "status": "no_alignment",
     "why": "OEIS terms differ beyond the probe"
    }
@@ -1877,22 +2000,22 @@
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 307,
-   "cpu_s": 1.566,
+   "candidates_seen": 381,
+   "cpu_s": 0.849,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": [
-    "keyword:more sigma records @10",
-    "keyword:more sigma records @20",
-    "keyword:more \"d(k)\" @0"
+    "keyword:more subsets sum square @0",
+    "keyword:more subsets sum square @10",
+    "keyword:more subsets sum square @20"
    ]
   },
-  "ts": "2026-10-18T14:52:43Z"
+  "ts": "2026-10-18T15:04:10Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 46,
+  "cursor": 54,
   "exhausted": [
    "keyword:hard Collatz",
    "keyword:more \"cousin primes\"",
@@ -1900,10 +2023,17 @@
    "keyword:more \"prime triples\"",
    "keyword:more \"sexy primes\"",
    "keyword:more \"sum of two primes\"",
-   "keyword:more Lemoine"
+   "keyword:more Lemoine",
+   "keyword:more subsets sum square"
   ],
   "queue": {},
   "seen": {
+   "A003022": {
+    "n_pub": 27,
+    "name": "Length of shortest (or optimal) Golomb ruler with n marks.",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
    "A003419": {
     "n_pub": 16,
     "name": "Values of m in the discriminant D = 4*m leading to a new minimum of the L-function of the Dirichlet ",
@@ -1921,6 +2051,12 @@
     "name": "Values of m in the discriminant D = -4*m leading to a new minimum of the L-function of the Dirichlet",
     "query": "keyword:more \"d(k)\"",
     "status": "no engine family for its definition"
+   },
+   "A004136": {
+    "n_pub": 18,
+    "name": "Additive bases: a(n) is the least integer k such that in the cyclic group Z_k there is a subset of n",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
    },
    "A005184": {
     "n_pub": 7,
@@ -2018,11 +2154,29 @@
     "query": "keyword:more \"twin primes\"",
     "status": "too few published terms to identify"
    },
+   "A051602": {
+    "n_pub": 18,
+    "name": "a(n) is the maximal number of squares that can be formed from n points in the plane.",
+    "query": "keyword:more subsets sum square",
+    "status": "no family item reproduces all published terms"
+   },
+   "A052349": {
+    "n_pub": 12,
+    "name": "Lexicographically earliest sequence of distinct positive integers such that no subsequence sums to a",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
+   },
    "A055737": {
     "n_pub": 14,
     "name": "Number of prime triples < 10^n, where a prime triple means 3 successive primes of the form {p, p+2, ",
     "query": "keyword:more \"prime triples\"",
     "status": "no engine family for its definition"
+   },
+   "A055971": {
+    "n_pub": 16,
+    "name": "Numbers k such that k | (sigma(k) - d(k) - phi(k)) and k is not a prime or twice a prime.",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
    },
    "A058047": {
     "n_pub": 6,
@@ -2096,6 +2250,18 @@
     "query": "keyword:more Goldbach",
     "status": "no engine family for its definition"
    },
+   "A073082": {
+    "n_pub": 21,
+    "name": "Numbers n such that sum k/d(k) is an integer, where d(k) is the k-th divisor of n (the divisors of n",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A073083": {
+    "n_pub": 18,
+    "name": "Numbers n such that sum k/d(k) is an integer, where d(k) is the k-th divisor of n (the divisors of n",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
    "A075028": {
     "n_pub": 12,
     "name": "a(1) = 1, then a(n) = the smallest number k such that the number of divisors of the n numbers from k",
@@ -2118,6 +2284,12 @@
     "n_pub": 18,
     "name": "a(n) = the smallest number k such that the number of divisors of the n numbers from k through k+n-1 ",
     "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A075227": {
+    "n_pub": 38,
+    "name": "Smallest odd prime not occurring in the numerator of any of the 2^n subset sums generated from the s",
+    "query": "keyword:more subsets sum prime",
     "status": "beyond engine reach to verify"
    },
    "A076172": {
@@ -2180,6 +2352,12 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "too few published terms to identify"
    },
+   "A081521": {
+    "n_pub": 78,
+    "name": "Triangle read by rows: row n contains n terms in increasing order, relatively prime to n, whose sum ",
+    "query": "keyword:more subsets sum prime",
+    "status": "keyword tabl"
+   },
    "A082984": {
     "n_pub": 31,
     "name": "Numbers k for which the 3x+1 problem takes at least k halving and tripling steps to reach 1.",
@@ -2202,6 +2380,12 @@
     "n_pub": 11,
     "name": "Start of the first sequence of exactly n consecutive pairs of twin primes.",
     "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A087671": {
+    "n_pub": 31,
+    "name": "Number of subsets S of {0,1,2,...,n-1} which are idempotent under squaring modulo n, where S*S mod n",
+    "query": "keyword:more subsets sum square",
     "status": "beyond engine reach to verify"
    },
    "A087858": {
@@ -2324,11 +2508,35 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
    },
+   "A104906": {
+    "n_pub": 4,
+    "name": "Numbers k such that d(k)*reversal(k)=phi(k), where d(k) is number of positive divisors of k.",
+    "query": "keyword:more \"d(k)\"",
+    "status": "too few published terms to identify"
+   },
    "A107318": {
     "n_pub": 15,
     "name": "Number of ordered Goldbach partitions of 10^n.",
     "query": "keyword:more Goldbach",
     "status": "beyond engine reach to verify"
+   },
+   "A107754": {
+    "n_pub": 32,
+    "name": "Number of subsets of the n-th roots of unity that sum to 1.",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A107861": {
+    "n_pub": 32,
+    "name": "Number of distinct values taken by the sums of all subsets of the n-th roots of unity.",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A108235": {
+    "n_pub": 20,
+    "name": "Number of partitions of {1,2,...,3n} into n triples (X,Y,Z) each satisfying X+Y=Z.",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
    },
    "A110760": {
     "n_pub": 55,
@@ -2348,6 +2556,12 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A113505": {
+    "n_pub": 15,
+    "name": "Numbers not the sum of at most three perfect powers (A001597).",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
    "A115786": {
     "n_pub": 20,
     "name": "Smallest prime number p such that p + 2#, p + 3#, ..., p + prime(n)# are all prime, where x# = A0343",
@@ -2359,6 +2573,12 @@
     "name": "Number of distinct representations of primorials as the sum of two primes.",
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
+   },
+   "A117065": {
+    "n_pub": 25,
+    "name": "Primes that are not the sum of 3 pentagonal numbers.",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
    },
    "A120120": {
     "n_pub": 14,
@@ -2383,6 +2603,12 @@
     "name": "Integers which are not the sum of a 3-almost prime and a prime.",
     "query": "keyword:more Goldbach",
     "status": "keyword fini"
+   },
+   "A133660": {
+    "n_pub": 10,
+    "name": "No sum of 2 or more terms equals a prime.",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
    },
    "A134865": {
     "n_pub": 31,
@@ -2480,6 +2706,12 @@
     "query": "keyword:more sigma records",
     "status": "no engine family for its definition"
    },
+   "A168368": {
+    "n_pub": 8,
+    "name": "Number of stable connected piles of n bricks.",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
    "A171619": {
     "n_pub": 29,
     "name": "Primes in A171490.",
@@ -2491,6 +2723,12 @@
     "name": "Record values in A138753 (a \"prime\" variation of the Collatz (3n+1) problem).",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A177240": {
+    "n_pub": 15,
+    "name": "Number of K-toothpicks after n stages of 3-D K-toothpick structure defined in Comments.",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no engine family for its definition"
    },
    "A177710": {
     "n_pub": 30,
@@ -2528,6 +2766,12 @@
     "query": "keyword:more \"twin primes\"",
     "status": "too few published terms to identify"
    },
+   "A181620": {
+    "n_pub": 14,
+    "name": "Sequence starting with 2 such that the sum of any two distinct terms is a semiprime having two disti",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
+   },
    "A188591": {
     "n_pub": 36,
     "name": "Records of A188550.",
@@ -2551,6 +2795,12 @@
     "name": "Number of Goldbach partitions of 4^n.",
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
+   },
+   "A195854": {
+    "n_pub": 5,
+    "name": "Smallest possible largest number in a set of n integers such that sum of two elements is always a pe",
+    "query": "keyword:more subsets sum square",
+    "status": "too few published terms to identify"
    },
    "A208123": {
     "n_pub": 45,
@@ -2594,11 +2844,23 @@
     "query": "keyword:more \"cousin primes\"",
     "status": "beyond engine reach to verify"
    },
+   "A215614": {
+    "n_pub": 6,
+    "name": "Numbers k that are not multiples of 10 and such that sum of digits of k^2 is 7.",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
    "A217016": {
     "n_pub": 12,
     "name": "Least r > 1 without Goldbach partition 2r = p+q such that |p-q| is prime(n)-smooth.",
     "query": "keyword:more Goldbach",
     "status": "beyond engine reach to verify"
+   },
+   "A217056": {
+    "n_pub": 7,
+    "name": "Highly composite numbers (A002182) which are the product of 4 consecutive integers (A052762).",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
    },
    "A217935": {
     "n_pub": 6,
@@ -2672,6 +2934,12 @@
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A226802": {
+    "n_pub": 8,
+    "name": "Primes p where the digital sum of p^2 is equal to 10.",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
+   },
    "A227456": {
     "n_pub": 10,
     "name": "Number of permutations i_0, i_1, ..., i_n of 0, 1, ..., n with i_0 = 0 and i_n = 1 such that all the",
@@ -2714,6 +2982,18 @@
     "query": "keyword:more sigma records",
     "status": "no engine family for its definition"
    },
+   "A236429": {
+    "n_pub": 25,
+    "name": "Number of representations of 0 as a sum of numbers d*k with d in {-1,1} and k in {1,2,...,n}, where ",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no engine family for its definition"
+   },
+   "A237434": {
+    "n_pub": 24,
+    "name": "Primitive, symmetric octuples of distinct numbers a,b,c,d,x,y,z,w with 0<a<b<c<d and a<x<y<z<w<d suc",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A238716": {
     "n_pub": 71,
     "name": "Run lengths of decadal prime triples.",
@@ -2732,11 +3012,47 @@
     "query": "keyword:more \"sexy primes\"",
     "status": "too few published terms to identify"
    },
+   "A239491": {
+    "n_pub": 15,
+    "name": "Numbers n such that Sum_{i=1..j} 1/pn(i) - Sum_{i=1..k} 1/pd(i) is an integer, where pn are the prim",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
+   },
    "A239663": {
     "n_pub": 22,
     "name": "a(n) is the smallest number k such that the symmetric representation of sigma(k) has n parts.",
     "query": "keyword:more sigma records",
     "status": "beyond engine reach to verify"
+   },
+   "A240895": {
+    "n_pub": 26,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A240896": {
+    "n_pub": 8,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A240899": {
+    "n_pub": 13,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A240900": {
+    "n_pub": 29,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A240901": {
+    "n_pub": 3,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "too few published terms to identify"
    },
    "A240902": {
     "n_pub": 14,
@@ -2767,6 +3083,12 @@
     "name": "Consider a decimal number of k >= 2 digits m = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + ... + d_(2)*10 + ",
     "query": "keyword:more \"d(k)\"",
     "status": "no engine family for its definition"
+   },
+   "A245252": {
+    "n_pub": 7,
+    "name": "Consider a decimal number of k>=2 digits x = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no family item reproduces all published terms"
    },
    "A245583": {
     "n_pub": 7,
@@ -2808,6 +3130,12 @@
     "n_pub": 30,
     "name": "Numbers n such that A033493(n)/n is an integer.",
     "query": "keyword:hard Collatz",
+    "status": "no engine family for its definition"
+   },
+   "A255305": {
+    "n_pub": 6,
+    "name": "The largest number that cannot be written as a sum of squarefree numbers that are the product of n p",
+    "query": "keyword:more subsets sum prime",
     "status": "no engine family for its definition"
    },
    "A257374": {
@@ -2876,6 +3204,18 @@
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
    },
+   "A269745": {
+    "n_pub": 19,
+    "name": "Maximal number of 1's in an n X n {0,1} Toeplitz matrix with property that no four 1's form a square",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
+   "A269746": {
+    "n_pub": 20,
+    "name": "Maximal number of 1's in an equilateral triangle of 0's and 1's with n points on each side, the entr",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
    "A274792": {
     "n_pub": 8,
     "name": "a(n) = smallest prime p(1) in a symmetrical constellation of n consecutive twin primes: p(1), p(1)+2",
@@ -2942,11 +3282,23 @@
     "query": "keyword:more \"prime triples\"",
     "status": "keyword cons"
    },
+   "A278329": {
+    "n_pub": 17,
+    "name": "Number of set partitions of [3n] into n subsets of size three such that all element sums are squares",
+    "query": "keyword:more subsets sum square",
+    "status": "beyond engine reach to verify"
+   },
    "A279286": {
     "n_pub": 28,
     "name": "a(n) = d if the point (d,d) is shared by a record of different Dyck paths in the main diagonal of th",
     "query": "keyword:more sigma records",
     "status": "no family item reproduces all published terms"
+   },
+   "A280708": {
+    "n_pub": 11,
+    "name": "Lexicographically earliest sequence such that no subsequence sums to a prime.",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
    },
    "A284597": {
     "n_pub": 18,
@@ -3008,6 +3360,12 @@
     "query": "keyword:more sigma records",
     "status": "keyword fini"
    },
+   "A295124": {
+    "n_pub": 5,
+    "name": "a(n) = smallest number k with n prime factors such that 2d + k/d is prime for every d | k.",
+    "query": "keyword:more \"d(k)\"",
+    "status": "too few published terms to identify"
+   },
    "A301776": {
     "n_pub": 7,
     "name": "Prime numbers p with the property that all even numbers n (2 < n <= 2p) are the sum of two primes <=",
@@ -3018,6 +3376,12 @@
     "n_pub": 15,
     "name": "Numbers k whose trajectory in the Collatz (or '3x+1') problem includes another multiple of k.",
     "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A305884": {
+    "n_pub": 28,
+    "name": "Lexicographically first sequence of positive squares, no two or more of which sum to a square.",
+    "query": "keyword:more subsets sum square",
     "status": "beyond engine reach to verify"
    },
    "A306539": {
@@ -3032,6 +3396,18 @@
     "query": "keyword:more Goldbach",
     "status": "too few published terms to identify"
    },
+   "A308550": {
+    "n_pub": 7,
+    "name": "a(n) is the largest number k such that all subset sums of the n-th powers of the first k primes are ",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A308838": {
+    "n_pub": 16,
+    "name": "Orders of Parker finite fields of odd characteristic.",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
    "A319139": {
     "n_pub": 25,
     "name": "a(n) is the smallest position k >= 1 on the diagonal at which a record gap of size n between two adj",
@@ -3042,6 +3418,18 @@
     "n_pub": 6,
     "name": "n such that all n - p are prime where p is prime in range n/2 <= p < n.",
     "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
+   "A321723": {
+    "n_pub": 18,
+    "name": "Number of non-normal magic squares whose entries are all 0 or 1 and sum to n.",
+    "query": "keyword:more subsets sum square",
+    "status": "no family item reproduces all published terms"
+   },
+   "A321730": {
+    "n_pub": 13,
+    "name": "Number of ways to partition the Young diagram of an integer partition of n into vertical sections of",
+    "query": "keyword:more subsets sum square",
     "status": "no engine family for its definition"
    },
    "A321995": {
@@ -3084,6 +3472,18 @@
     "n_pub": 11,
     "name": "Numbers all of whose divisors are binary palindromes (A329419) with a record number of divisors.",
     "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A330076": {
+    "n_pub": 14,
+    "name": "Numbers k such that H(k) > d(k), where H(k) = Sum_{1 <= i < j <= d(k)} 1/(d_j - d_i) is sum over ord",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A330203": {
+    "n_pub": 20,
+    "name": "Composite numbers k such that D(k) == 3 (mod k), where D(k) is the k-th central Delannoy number (A00",
+    "query": "keyword:more \"d(k)\"",
     "status": "beyond engine reach to verify"
    },
    "A330816": {
@@ -3295,6 +3695,12 @@
     "name": "a(n) is the number of divisors of A342834(n).",
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A345296": {
+    "n_pub": 5,
+    "name": "Integers whose sum of digits in base b is the same for every prime b up to 17.",
+    "query": "keyword:more subsets sum prime",
+    "status": "keyword less"
    },
    "A347668": {
     "n_pub": 27,
@@ -3536,6 +3942,18 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A358212": {
+    "n_pub": 5,
+    "name": "a(n) is the maximal possible sum of squares of the side lengths of an n^2-gon supported on a subset ",
+    "query": "keyword:more subsets sum square",
+    "status": "too few published terms to identify"
+   },
+   "A359013": {
+    "n_pub": 9,
+    "name": "Numbers k that can be written as the sum of a perfect square and a factorial in exactly 3 distinct w",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
    "A359083": {
     "n_pub": 11,
     "name": "Numbers k such that A246600(k) = A000005(k) and A000005(k) sets a new record.",
@@ -3560,11 +3978,35 @@
     "query": "keyword:more \"(n+1)^2\" primes",
     "status": "no family item reproduces all published terms"
    },
+   "A361365": {
+    "n_pub": 11,
+    "name": "a(n) is the minimum possible sum of 2*n distinct positive numbers in a set, arranged in two subsets ",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
    "A361624": {
     "n_pub": 55,
     "name": "Number of distinct prime factors in decimal concatenation of integer (n, n-1, ..., 2, 1, 2, ..., n-1",
     "query": "keyword:more \"(n+1)^2\" primes",
     "status": "no engine family for its definition"
+   },
+   "A363212": {
+    "n_pub": 14,
+    "name": "Sums of distinct factorials that are of the form x^2 - 1.",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
+   "A364237": {
+    "n_pub": 9,
+    "name": "a(n) is the number of non-equivalent permutations of {1,2,...,2n-1} such that no subset of consecuti",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A364527": {
+    "n_pub": 16,
+    "name": "Triangle read by rows giving the number of square arrays composed of the numbers from 1 to n^2, coun",
+    "query": "keyword:more subsets sum square",
+    "status": "keyword tabf"
    },
    "A365482": {
     "n_pub": 8,
@@ -3589,6 +4031,30 @@
     "name": "In the Collatz (3x+1) problem, number of odd iterates before reaching 1 corresponding to the startin",
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
+   },
+   "A366127": {
+    "n_pub": 11,
+    "name": "Number of finite incomplete multisets of positive integers with greatest non-subset-sum n.",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A366129": {
+    "n_pub": 42,
+    "name": "Number of finite sets of positive integers with greatest non-subset-sum n.",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A367093": {
+    "n_pub": 18,
+    "name": "Least positive integer with n more semiprime divisors than semi-sums of prime indices.",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A367097": {
+    "n_pub": 29,
+    "name": "Least positive integer whose multiset of prime indices has exactly n distinct semi-sums.",
+    "query": "keyword:more subsets sum prime",
+    "status": "no engine family for its definition"
    },
    "A367377": {
     "n_pub": 23,
@@ -3626,6 +4092,12 @@
     "query": "keyword:more sigma records",
     "status": "no engine family for its definition"
    },
+   "A372040": {
+    "n_pub": 13,
+    "name": "Smallest k such that there is an n-element subset of {1, 2, ..., k} that does not contain a (nonempt",
+    "query": "keyword:more subsets sum square",
+    "status": "beyond engine reach to verify"
+   },
    "A374527": {
     "n_pub": 24,
     "name": "Odd numbers whose Collatz trajectory is a Sidon sequence.",
@@ -3650,6 +4122,18 @@
     "query": "keyword:more sigma records",
     "status": "beyond engine reach to verify"
    },
+   "A383858": {
+    "n_pub": 28,
+    "name": "Irregular triangle read by rows: T(n,k) (n >= 4, 4 <= k <= A384502(n)) is the smallest n-digit numbe",
+    "query": "keyword:more subsets sum prime",
+    "status": "keyword tabf"
+   },
+   "A384391": {
+    "n_pub": 15,
+    "name": "Number of subsets of {1..n} containing n and some element that is a sum of distinct non-elements.",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
    "A384629": {
     "n_pub": 8,
     "name": "Instruction-Limited Busy Beaver Sequence: BBi(n). Maximum number of steps that an n-instruction Turi",
@@ -3668,6 +4152,18 @@
     "query": "keyword:more Lemoine",
     "status": "no family item reproduces all published terms"
    },
+   "A385382": {
+    "n_pub": 5,
+    "name": "Number of polyominoes, i.e., connected nonempty subsets of square cells (or vertices), of the n X n ",
+    "query": "keyword:more subsets sum square",
+    "status": "too few published terms to identify"
+   },
+   "A385384": {
+    "n_pub": 5,
+    "name": "Number of polyominoes, i.e., connected nonempty subsets of square cells (or vertices), of the n X n ",
+    "query": "keyword:more subsets sum square",
+    "status": "too few published terms to identify"
+   },
    "A386419": {
     "n_pub": 16,
     "name": "Odd numbers k that are closer to being perfect than previous terms, and also satisfy the condition t",
@@ -3680,11 +4176,29 @@
     "query": "keyword:more sigma records",
     "status": "no family item reproduces all published terms"
    },
+   "A386820": {
+    "n_pub": 79,
+    "name": "a(n) is the size of largest subset of {1, 1/2, ..., 1/n} that can be partitioned into two parts with",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A389254": {
+    "n_pub": 10,
+    "name": "Smallest k for which the number of divisors d of k such that A000005(d*k) = A000005(k + d) is equal ",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
    "A389507": {
     "n_pub": 9,
     "name": "Largest even number that is not the sum of two elements coprime to the primorial prime(n)# and each ",
     "query": "keyword:more \"sum of two primes\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A390531": {
+    "n_pub": 37,
+    "name": "a(n) is the smallest number k such that the first k prime numbers can be partitioned into n subsets ",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
    },
    "A391016": {
     "n_pub": 12,
@@ -3697,6 +4211,18 @@
     "name": "The records of min(d(k), d(k+2)), where d(k) is the number of divisors of k (A000005).",
     "query": "keyword:more \"number of divisors\" records",
     "status": "no family item reproduces all published terms"
+   },
+   "A392387": {
+    "n_pub": 33,
+    "name": "Nullspace dimension of the periodic XX Heisenberg chain with n > 1 sites.",
+    "query": "keyword:more subsets sum square",
+    "status": "no engine family for its definition"
+   },
+   "A392506": {
+    "n_pub": 19,
+    "name": "Numbers k such that the abundancy index of sigma(k) is equal to the abundancy index of d(k).",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
    },
    "A393379": {
     "n_pub": 26,
@@ -3716,11 +4242,29 @@
     "query": "keyword:hard Collatz",
     "status": "no engine family for its definition"
    },
+   "A395434": {
+    "n_pub": 7,
+    "name": "Minimum number of hexagonal cells in a connected polyhex that contains every one-sided n-hex as a ro",
+    "query": "keyword:more subsets sum square",
+    "status": "beyond engine reach to verify"
+   },
+   "A396570": {
+    "n_pub": 16,
+    "name": "Numbers == 2 (mod 6) that are not the sum of two distinct upper twin primes.",
+    "query": "keyword:more subsets sum prime",
+    "status": "no family item reproduces all published terms"
+   },
    "A397705": {
     "n_pub": 6,
     "name": "Odd numbers m > 5, with no representation m = p + 2q with p, q prime and p <= q.",
     "query": "keyword:more Lemoine",
     "status": "no family item reproduces all published terms"
+   },
+   "A397767": {
+    "n_pub": 10,
+    "name": "Number of partitions of {1,...,4*n} into 4-element subsets {w,x,y,z} satisfying w+x=y+z, where the c",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
    },
    "A398003": {
     "n_pub": 15,
@@ -3728,16 +4272,40 @@
     "query": "keyword:more sigma records",
     "status": "no engine family for its definition"
    },
+   "A398173": {
+    "n_pub": 20,
+    "name": "a(n) is the minimum size of a subset of Z/pZ with at least 2 elements and no unique sum, where p is ",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
    "A398473": {
     "n_pub": 40,
     "name": "Maximum dropping time for numbers between 2^n and 2^(n+1)-1 under the Collatz map A014682.",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A399244": {
+    "n_pub": 24,
+    "name": "Number of set partitions of [n] into subsets whose element sums are distinct primes.",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
    "A399300": {
     "n_pub": 10,
     "name": "a(n) is the least even number whose n-th smallest Goldbach prime equals A398545(n).",
     "query": "keyword:more Goldbach",
+    "status": "beyond engine reach to verify"
+   },
+   "A399437": {
+    "n_pub": 20,
+    "name": "a(n) is the number of affinely inequivalent subsets of Z/pZ of the minimum size A398173(n) with at l",
+    "query": "keyword:more subsets sum prime",
+    "status": "beyond engine reach to verify"
+   },
+   "A399757": {
+    "n_pub": 11,
+    "name": "Largest integer k such that {1, 2, ..., k} can be partitioned into two subsets, with no two distinct",
+    "query": "keyword:more subsets sum square",
     "status": "beyond engine reach to verify"
    },
    "A400487": {
@@ -4055,6 +4623,24 @@
    "ts": "2026-10-18T14:24:15Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
+  "gb_cls6_5_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T15:00:23Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_cls6_5_c:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T15:00:23Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_cls6_5_c:terms": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T15:00:18Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
   "gb_min:recpos": {
    "anum": null,
    "status": "no_alignment",
@@ -4235,6 +4821,24 @@
    "ts": "2026-10-18T14:22:14Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
+  "gb_min_cls6_1_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:57:43Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_1_c:recval": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:58:39Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_1_c:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:56:46Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
   "gb_min_cls6_5:recpos": {
    "anum": null,
    "status": "not_in_oeis",
@@ -4251,6 +4855,24 @@
    "anum": null,
    "status": "not_in_oeis",
    "ts": "2026-10-18T14:26:10Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_5_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T15:03:08Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_5_c:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T15:04:05Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_min_cls6_5_c:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T15:02:11Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_o_all:recpos": {
