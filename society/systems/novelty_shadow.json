@@ -4,67 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 91,
-    "ok": 91
+    "n": 92,
+    "ok": 92
   },
   "rows": [
-    {
-      "ts": "2026-10-17T14:24:18Z",
-      "cycle_id": "20261017T142352Z_8f9826",
-      "mutation": "bell_stirling_sum",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.0,
-      "live_novel": true,
-      "status": "ok",
-      "terms": [
-        "stirling",
-        "bell",
-        "kept",
-        "hard",
-        "enable",
-        "lemma",
-        "score",
-        "checks",
-        "pass",
-        "machine",
-        "checked",
-        "oracle"
-      ],
-      "shadow_textbook_reuse": 0.1667,
-      "matches": [
-        {
-          "anum": "A069471",
-          "name_sha256": "c8886df1f510fe3d",
-          "coverage": 0.1667,
-          "bm25": -14.779
-        },
-        {
-          "anum": "A244489",
-          "name_sha256": "7f8caff70b41bcdd",
-          "coverage": 0.1667,
-          "bm25": -12.446
-        },
-        {
-          "anum": "A091046",
-          "name_sha256": "d327d00aba1a375c",
-          "coverage": 0.1667,
-          "bm25": -11.978
-        },
-        {
-          "anum": "A237042",
-          "name_sha256": "a186e436754bab79",
-          "coverage": 0.0833,
-          "bm25": -26.291
-        },
-        {
-          "anum": "A249855",
-          "name_sha256": "cda13f7e020d9580",
-          "coverage": 0.0833,
-          "bm25": -25.894
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-10-17T14:25:16Z",
       "cycle_id": "20261017T142450Z_2469eb",
@@ -3370,6 +3313,63 @@
         "frontier",
         "cong",
         "x0058ae91",
+        "kept",
+        "hard",
+        "enable",
+        "lemma",
+        "score",
+        "checks",
+        "pass",
+        "machine",
+        "checked"
+      ],
+      "shadow_textbook_reuse": 0.0833,
+      "matches": [
+        {
+          "anum": "A237042",
+          "name_sha256": "a186e436754bab79",
+          "coverage": 0.0833,
+          "bm25": -26.291
+        },
+        {
+          "anum": "A249855",
+          "name_sha256": "cda13f7e020d9580",
+          "coverage": 0.0833,
+          "bm25": -25.894
+        },
+        {
+          "anum": "A309180",
+          "name_sha256": "1f7d065e4f09223a",
+          "coverage": 0.0833,
+          "bm25": -23.984
+        },
+        {
+          "anum": "A075978",
+          "name_sha256": "8bad39b9fa8a18e3",
+          "coverage": 0.0833,
+          "bm25": -23.984
+        },
+        {
+          "anum": "A075975",
+          "name_sha256": "50d0fb9c26218698",
+          "coverage": 0.0833,
+          "bm25": -23.984
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-10-18T03:19:57Z",
+      "cycle_id": "20261018T031925Z_f2f5a4",
+      "mutation": "authored_frontier_divides_x575aa435_w1",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": true,
+      "status": "ok",
+      "terms": [
+        "frontier",
+        "divides",
+        "x575aa435",
         "kept",
         "hard",
         "enable",

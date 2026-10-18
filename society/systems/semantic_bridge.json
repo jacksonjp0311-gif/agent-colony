@@ -2,7 +2,7 @@
   "version": 1,
   "totals": {
     "ok": 49,
-    "unbridged": 7
+    "unbridged": 8
   },
   "rows": [
     {
@@ -809,8 +809,18 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_divides_x575aa435_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-18T03:19:55Z",
+      "cycle_id": "20261018T031925Z_f2f5a4",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-18T03:14:04Z",
+  "updated_at": "2026-10-18T03:19:55Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }
