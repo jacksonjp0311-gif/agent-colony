@@ -343,7 +343,7 @@ def run(cycle_id: str, net: Any, st: dict[str, Any], idx: dict[str, Any], claims
     exhausted = set(sp.get("exhausted") or [])
     i_last = -1
     for i in range(len(pages)):
-        if net.n - n_req0 >= SEARCH_PER_CYCLE:
+        if net.n - n_req0 >= SEARCH_PER_CYCLE * (6 if deep else 1):
             break
         i_last = i
         q, s0 = pages[(sp.get("cursor", 0) + i) % len(pages)]
@@ -486,6 +486,7 @@ def run_deep(budget_s: float = 1500.0) -> dict[str, Any]:
     m = deep_mode()
     if m == "off":
         return {"skipped": "COLONY_NEWDATA_DEEP=off"}
+    N.NET_MAX_PER_CYCLE = max(N.NET_MAX_PER_CYCLE, 24)    # one nightly job: more polite searches (2 s apart, cached)
     net = N.Net()
     st, idx = N._load(N.STATE, {}), N._load(N.INDEX, {"entries": {}})
     claims = N._load(N.CLAIMS, {"claims": []})

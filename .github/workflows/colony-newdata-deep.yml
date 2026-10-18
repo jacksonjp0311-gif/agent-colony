@@ -47,7 +47,7 @@ jobs:
       - name: Deep sparse new-data search
         timeout-minutes: 32
         env:
-          COLONY_NEWDATA_DEEP: shadow
+          COLONY_NEWDATA_DEEP: live
           COLONY_NEWDATA_DEEP_BUDGET_S: "1500"
         run: python -m colony.sparse deep
 
