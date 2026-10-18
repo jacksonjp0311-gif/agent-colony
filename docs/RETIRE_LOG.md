@@ -81,3 +81,16 @@ Protected (reason counts):
 - on a receipt (authorized / decided): 112
 - named in colony/ or tests/ code: 3
 
+
+### Applied (Oct 18, 2026 ~2:05 AM ET)
+
+27 retired (11 sweeps, 12 textbook pairs, 4 trivial frontier claims); 28 proposals withdrawn
+(27 for these + 1 for the earlier-retired `authored_frontier_le_x46c5cc8a_w1`), each with
+status `withdrawn_retired`, the reason and its prior status (restore brings it back).
+
+| | before | after |
+|---|---|---|
+| lemma bench score | 0.8634 / 0.8636 / 0.8637 | 0.8657 / 0.8664 / 0.8667 |
+| hard checks passing | 208 / 208 | 181 / 181 |
+| lemma bench seconds | 1.14 to 1.19 | 0.78 to 0.88 |
+| ok_all | true | true |

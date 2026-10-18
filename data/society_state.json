@@ -44627,7 +44627,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T155955Z_50813c",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "afb217a17040",
       "P": 0.7833,
@@ -44650,7 +44650,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4833
+      "P_propose": 0.4833,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_two_counter`: 10 other Oracle-passed members, expected = s/(s+K) = 0.989 >= 0.95 (K=0.10921); 10 members stay",
+        "retired_check": "authored_sieve_two_counter_g4_2_6_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_50813c_50",
@@ -44777,7 +44783,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T160443Z_79bbc6",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "f33a755d219f",
       "P": 0.7919,
@@ -44800,7 +44806,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 10 other Oracle-passed members, expected = s/(s+K) = 0.989 >= 0.95 (K=0.10921); 10 members stay",
+        "retired_check": "authored_sieve_residue_bal_g4_6_2_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_79bbc6_50",
@@ -44927,7 +44939,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T160700Z_cef698",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "713f28e65bb0",
       "P": 0.7925,
@@ -44950,7 +44962,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 11 other Oracle-passed members, expected = s/(s+K) = 0.990 >= 0.95 (K=0.10921); 11 members stay",
+        "retired_check": "authored_sieve_residue_bal_g4_6_6_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_cef698_50",
@@ -45077,7 +45095,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T162448Z_bb0db0",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "53b755314faa",
       "P": 0.7919,
@@ -45100,7 +45118,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 12 other Oracle-passed members, expected = s/(s+K) = 0.991 >= 0.95 (K=0.10921); 12 members stay",
+        "retired_check": "authored_sieve_hl_within_g6_2_4_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_bb0db0_50",
@@ -45227,7 +45251,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T162904Z_e8a630",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "1a70f0c52ce3",
       "P": 0.8346,
@@ -45250,7 +45274,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4833
+      "P_propose": 0.4833,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_two_counter`: 11 other Oracle-passed members, expected = s/(s+K) = 0.990 >= 0.95 (K=0.10921); 11 members stay",
+        "retired_check": "authored_sieve_two_counter_g6_4_2_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_e8a630_50",
@@ -45377,7 +45407,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T163053Z_088f2d",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "1657d8a9db58",
       "P": 0.7417,
@@ -45400,7 +45430,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 13 other Oracle-passed members, expected = s/(s+K) = 0.992 >= 0.95 (K=0.10921); 13 members stay",
+        "retired_check": "authored_sieve_hl_within_g6_2_6_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_088f2d_50",
@@ -45596,7 +45632,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T163657Z_dfaa7b",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "71e4549a3ff6",
       "P": 0.7833,
@@ -45619,7 +45655,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4833
+      "P_propose": 0.4833,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_two_counter`: 12 other Oracle-passed members, expected = s/(s+K) = 0.991 >= 0.95 (K=0.10921); 12 members stay",
+        "retired_check": "authored_sieve_two_counter_g6_4_6_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_dfaa7b_50",
@@ -45746,7 +45788,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T164110Z_1a4ec1",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "60fcda6a75da",
       "P": 0.7932,
@@ -45769,7 +45811,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 12 other Oracle-passed members, expected = s/(s+K) = 0.991 >= 0.95 (K=0.10921); 12 members stay",
+        "retired_check": "authored_sieve_residue_bal_g6_6_2_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_1a4ec1_50",
@@ -45896,7 +45944,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T164508Z_2eb8c7",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "94369128ba36",
       "P": 0.792,
@@ -45919,7 +45967,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 13 other Oracle-passed members, expected = s/(s+K) = 0.992 >= 0.95 (K=0.10921); 13 members stay",
+        "retired_check": "authored_sieve_residue_bal_g6_6_4_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_2eb8c7_50",
@@ -46046,7 +46100,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T164658Z_fa5f3d",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "555df931fb16",
       "P": 0.7922,
@@ -46069,7 +46123,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 14 other Oracle-passed members, expected = s/(s+K) = 0.992 >= 0.95 (K=0.10921); 14 members stay",
+        "retired_check": "authored_sieve_hl_within_g6_6_6_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_fa5f3d_50",
@@ -46196,7 +46256,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T170829Z_f7b051",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "270920fe3f4e",
       "P": 0.7934,
@@ -46219,7 +46279,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (sweep): near-duplicate parameter sweep of proven family `authored_sieve_two_counter`: 13 other Oracle-passed members, expected = s/(s+K) = 0.992 >= 0.95 (K=0.10921); 13 members stay",
+        "retired_check": "authored_sieve_two_counter_g4_2_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_f7b051_50",
@@ -46346,7 +46412,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T171305Z_3a02ab",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "f2ef3990a6b7",
       "P": 0.825,
@@ -46369,7 +46435,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas abel_summation + faulhaber_power_sums on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_abel_summation__faulhaber_power_sums_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_3a02ab_50",
@@ -46496,7 +46568,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T171547Z_f79f01",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "c0dd63fc1352",
       "P": 0.825,
@@ -46519,7 +46591,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas alternating_binomial_row + cayley_hamilton_2x2 on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_c28eb5_50",
@@ -46571,7 +46649,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T172043Z_3cd70b",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "1878292ceaae",
       "P": 0.8772,
@@ -46594,7 +46672,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas bell_stirling_sum + burnside_necklaces on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_bell_stirling_sum__burnside_necklaces_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_76124b_50",
@@ -46646,7 +46730,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T172532Z_f6c353",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "9232e8f5733b",
       "P": 0.875,
@@ -46669,7 +46753,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas bezout_identity + cayley_hamilton_3x3 on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_bezout_identity__cayley_hamilton_3x3_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_40ec35_50",
@@ -46721,7 +46811,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T172749Z_ab6fb4",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "0c641105736f",
       "P": 0.7953,
@@ -46744,7 +46834,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.4417
+      "P_propose": 0.4417,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas cayley_tree_count + complete_bipartite_trees on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_cayley_tree_count__complete_bipartite_trees_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_3cd70b_50",
@@ -46934,7 +47030,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T173251Z_09716e",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "5a89a7864dde",
       "P": 0.825,
@@ -46957,7 +47053,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas crt_coprime_pair + cycle_spanning_trees on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_09716e_50",
@@ -47078,7 +47180,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T204850Z_d9150c",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "e8324d756a78",
       "P": 0.8792,
@@ -47101,7 +47203,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas euler_pentagonal + lagrange_cyclic_orders on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_15e6c5_50",
@@ -47228,7 +47336,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T221312Z_6033f1",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "b7a572c68771",
       "P": 0.8771,
@@ -47251,7 +47359,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas fermat_little + lucas_theorem_binomial on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_fermat_little__lucas_theorem_binomial_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_cbc5c8_50",
@@ -47303,7 +47417,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T222515Z_37f69b",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "bfb791ed0461",
       "P": 0.825,
@@ -47326,7 +47440,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas mobius_divisor_sum + mobius_inversion_sigma on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_4b0785_50",
@@ -47378,7 +47498,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T222800Z_7f07ee",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "03b2e2a359ea",
       "P": 0.8766,
@@ -47401,7 +47521,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas multinomial_three + newton_identities on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_multinomial_three__newton_identities_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_fa4b7d_50",
@@ -47453,7 +47579,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T223446Z_182da9",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "395e8b2a7a18",
       "P": 0.825,
@@ -47476,7 +47602,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas odd_distinct_partitions + partition_conjugate_parts on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_6921b4_50",
@@ -47528,7 +47660,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T224800Z_f51ca1",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "03de72b49a91",
       "P": 0.8774,
@@ -47551,7 +47683,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (textbook_pair): plain pairing of textbook lemmas polynomial_remainder + telescoping_sum on separate windows: the claim is implied by its two parts",
+        "retired_check": "authored_polynomial_remainder__telescoping_sum_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_a8553b_50",
@@ -47603,7 +47741,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261017T225350Z_cd0055",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "84fc56e16f43",
       "P": 0.825,
@@ -47626,7 +47764,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (trivial_frontier): the current triviality filter flags this frontier claim as a rewrite",
+        "retired_check": "authored_frontier_le_x46c5cc8a_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_ac9ddf_50",
@@ -47678,7 +47822,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261018T024910Z_03659d",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "a663c4d1323b",
       "P": 0.8759,
@@ -47701,7 +47845,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (trivial_frontier): the current triviality filter flags this frontier claim as a rewrite",
+        "retired_check": "authored_frontier_le_x9abb4c98_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_62c867_50",
@@ -47753,7 +47903,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261018T025606Z_70f8b2",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "225625b34e07",
       "P": 0.825,
@@ -47776,7 +47926,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (trivial_frontier): the current triviality filter flags this frontier claim as a rewrite",
+        "retired_check": "authored_frontier_cong_x16b72492_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_67f9cd_50",
@@ -48053,7 +48209,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261018T031816Z_934325",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "44994fd6bc5b",
       "P": 0.825,
@@ -48076,7 +48232,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (trivial_frontier): the current triviality filter flags this frontier claim as a rewrite",
+        "retired_check": "authored_frontier_cong_x0058ae91_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_f2f5a4_50",
@@ -48128,7 +48290,7 @@
         "post_challenger_oracle_kill_rate": 0.0
       },
       "measured_cycle": "20261018T032038Z_78b8d1",
-      "status": "candidate_measured",
+      "status": "withdrawn_retired",
       "attempted_by": "spark",
       "fingerprint": "9de5aa0064bc",
       "P": 0.876,
@@ -48151,7 +48313,13 @@
         "fitness_credit": true,
         "kills": []
       },
-      "P_propose": 0.525
+      "P_propose": 0.525,
+      "withdrawn": {
+        "reason": "subject check retired (trivial_frontier): the current triviality filter flags this frontier claim as a rewrite",
+        "retired_check": "authored_frontier_divides_x575aa435_w1",
+        "prior_status": "candidate_measured",
+        "ts": "2026-10-18T06:01:50Z"
+      }
     },
     {
       "id": "imp_e4f31b_50",

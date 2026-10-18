@@ -422,10 +422,11 @@ def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, re
                     r["proposals_withdrawn"] = ids
         record.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
         try:  # earlier retirements too (idempotent)
-            st = json.loads(state_path.read_text(encoding="utf-8"))
+            raw = state_path.read_text(encoding="utf-8")
+            st = json.loads(raw)
             more = withdraw_all_retired(st, record)
             if more:
-                state_path.write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
+                state_path.write_text(_dump_like(st, raw), encoding="utf-8")
                 withdrawn += more
         except Exception:  # noqa: BLE001
             pass
@@ -442,6 +443,18 @@ def _subject(p: dict[str, Any]) -> str:
         if m:
             return m.group(0)
     return ""
+
+
+def _dump_like(st: dict[str, Any], original: str) -> str:
+    """Serialize in the same style as the file already on disk (no reformatting churn)."""
+    try:
+        d0 = json.loads(original)
+        for ea in (True, False):
+            if json.dumps(d0, indent=2, ensure_ascii=ea) + "\n" == original:
+                return json.dumps(st, indent=2, ensure_ascii=ea) + "\n"
+    except Exception:  # noqa: BLE001
+        pass
+    return json.dumps(st, indent=2, ensure_ascii=False) + "\n"
 
 
 def withdraw_in(data: dict[str, Any], names: set[str], reasons: dict[str, str]) -> list[str]:
@@ -474,18 +487,20 @@ def withdraw_all_retired(data: dict[str, Any], record: Path = RECORD) -> list[st
 
 def withdraw_proposals(names: set[str], *, reason: str, state_path: Path = STATE) -> list[str]:
     try:
-        st = json.loads(state_path.read_text(encoding="utf-8"))
+        raw = state_path.read_text(encoding="utf-8")
+        st = json.loads(raw)
     except Exception:  # noqa: BLE001
         return []
     out = withdraw_in(st, names, {n: reason for n in names})
     if out:
-        state_path.write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
+        state_path.write_text(_dump_like(st, raw), encoding="utf-8")
     return out
 
 
 def unwithdraw_proposals(name: str, *, state_path: Path = STATE) -> list[str]:
     try:
-        st = json.loads(state_path.read_text(encoding="utf-8"))
+        raw = state_path.read_text(encoding="utf-8")
+        st = json.loads(raw)
     except Exception:  # noqa: BLE001
         return []
     out = []
@@ -497,7 +512,7 @@ def unwithdraw_proposals(name: str, *, state_path: Path = STATE) -> list[str]:
                 p["withdrawn"] = {**w, "restored_at": _utc()}
                 out.append(p.get("id"))
     if out:
-        state_path.write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
+        state_path.write_text(_dump_like(st, raw), encoding="utf-8")
     return out
 
 
