@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T11:23:44Z",
-  "n": 346,
+  "updated_at": "2026-10-18T11:31:53Z",
+  "n": 348,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -72,6 +72,7 @@
     "authored_frontier_cong_x23fb70a1_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
+    "authored_frontier_cong_x94023555_w1",
     "authored_frontier_cong_xa68963c2_w1",
     "authored_frontier_divides_x0b1db873_w1",
     "authored_frontier_divides_x575aa435_w1",
@@ -117,6 +118,7 @@
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_quadratic_reciprocity__sigma_multiplicative_w1",
     "authored_sieve_hl_within_g2_4_6_w1",
+    "authored_sieve_hl_within_g2_4_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
     "authored_sieve_hl_within_g2_6_6_w1",
     "authored_sieve_hl_within_g2_w1",
@@ -199,9 +201,7 @@
     "cayley_hamilton_3x3",
     "cayley_tree_count",
     "central_binom_bound",
-    "chain `adversarial_cassini_ext` citing new algebraic points on covers of elliptic curves",
-    "chain `adversarial_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 166)",
-    "chain `adversarial_catalan_convolution_stress` citing new algebraic points on covers of elliptic curves"
+    "chain `adversarial_cassini_ext` citing new algebraic points on covers of elliptic curves"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
