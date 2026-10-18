@@ -632,8 +632,40 @@
    "proposals_withdrawn": [
     "imp_f2f5a4_50"
    ]
+  },
+  {
+   "name": "authored_quadratic_reciprocity__sigma_multiplicative_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas quadratic_reciprocity + sigma_multiplicative on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T06:06:26Z",
+   "cycle_id": "20261018T060618Z_57940a",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_quadratic_reciprocity__sigma_multiplicative_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas quadratic_reciprocity + sigma_multiplicative on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_quadratic_reciprocity,\n    ::check_sigma_multiplicative; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_quadratic_reciprocity(p) for p in range(80, 117))) and all((check_sigma_multiplicative(a, b) for a in range(25, 37) for b in range(25, 37)))\n",
+   "entry": "    (\"authored_quadratic_reciprocity__sigma_multiplicative_w1\", check_authored_quadratic_reciprocity__sigma_multiplicative_w1, False),\n",
+   "components": [
+    "quadratic_reciprocity",
+    "sigma_multiplicative"
+   ],
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_wilson_theorem__stirling_first_row_sum_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas wilson_theorem + stirling_first_row_sum on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T06:07:47Z",
+   "cycle_id": "20261018T060740Z_9e8cfb",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_wilson_theorem__stirling_first_row_sum_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas wilson_theorem + stirling_first_row_sum on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_wilson_theorem,\n    ::check_stirling_first_row_sum; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_wilson_theorem(n) for n in range(60, 89))) and all((check_stirling_first_row_sum(n) for n in range(16, 24)))\n",
+   "entry": "    (\"authored_wilson_theorem__stirling_first_row_sum_w1\", check_authored_wilson_theorem__stirling_first_row_sum_w1, False),\n",
+   "components": [
+    "wilson_theorem",
+    "stirling_first_row_sum"
+   ],
+   "proposals_withdrawn": []
   }
  ],
- "n_retired": 41,
+ "n_retired": 43,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

@@ -4,8 +4,8 @@
 
 ![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
-- cycle_count: `506`
-- benches ok_all: `True` score `0.8638`
+- cycle_count: `509`
+- benches ok_all: `True` score `0.8657`
 - novelty hits/kills: `26` / `1`
 - debate action_changed: `True`
 - oracle passes/kills/easy_kills: `402` / `182` / `32`

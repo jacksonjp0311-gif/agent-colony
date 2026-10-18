@@ -1,264 +1,12 @@
 {
-  "ts": "2026-10-18T04:58:58Z",
+  "ts": "2026-10-18T06:08:57Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 44,
-  "n_groups": 44,
-  "n_authored_groups": 32,
+  "n_meet_bar": 16,
+  "n_groups": 16,
+  "n_authored_groups": 4,
   "n_building_block_groups": 12,
   "top": [
-    {
-      "id": "imp_17731c_50",
-      "title": "Chain `authored_euler_pentagonal__lagrange_cyclic_orders_w1` citing The Lagrange Identity and Dynamics in a Potential ",
-      "cycle_id": "20261017T173358Z_17731c",
-      "target": "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
-      "family": "authored_euler_pentagonal__lagrange_cyclic_orders",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8792,
-      "P_stored": 0.8792,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 1.0,
-      "building_blocks": [
-        "euler_pentagonal",
-        "lagrange_cyclic_orders"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.9275,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.1667,
-        "oeis_checked": true,
-        "family": "authored_euler_pentagonal__lagrange_cyclic_orders",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.8792,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.9275,
-        "shadow_pos": 1
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_17731c_50"
-      ],
-      "position": 1,
-      "line": "Enable `authored_euler_pentagonal__lagrange_cyclic_orders_w1` (Oracle passed it in its own cycle); builds on euler_pentagonal, lagrange_cyclic_orders; P 0.8792, novelty 1.0."
-    },
-    {
-      "id": "imp_6921b4_50",
-      "title": "Chain `authored_polynomial_remainder__telescoping_sum_w1` citing A Littlewood-type identity for Robbins polynomials",
-      "cycle_id": "20261017T224657Z_6921b4",
-      "target": "authored_polynomial_remainder__telescoping_sum_w1",
-      "family": "authored_polynomial_remainder__telescoping_sum",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8774,
-      "P_stored": 0.8774,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 1.0,
-      "building_blocks": [
-        "polynomial_remainder",
-        "telescoping_sum"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.9264,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "authored_polynomial_remainder__telescoping_sum",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.8774,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.9264,
-        "shadow_pos": 3
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_6921b4_50"
-      ],
-      "position": 2,
-      "line": "Enable `authored_polynomial_remainder__telescoping_sum_w1` (Oracle passed it in its own cycle); builds on polynomial_remainder, telescoping_sum; P 0.8774, novelty 1.0."
-    },
-    {
-      "id": "imp_c28eb5_50",
-      "title": "Chain `authored_bell_stirling_sum__burnside_necklaces_w1` citing On two families of generalized Stirling numbers re",
-      "cycle_id": "20261017T171935Z_c28eb5",
-      "target": "authored_bell_stirling_sum__burnside_necklaces_w1",
-      "family": "authored_bell_stirling_sum__burnside_necklaces",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8772,
-      "P_stored": 0.8772,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 1.0,
-      "building_blocks": [
-        "bell_stirling_sum",
-        "burnside_necklaces"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.9263,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.1667,
-        "oeis_checked": true,
-        "family": "authored_bell_stirling_sum__burnside_necklaces",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.8772,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.9263,
-        "shadow_pos": 5
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_c28eb5_50"
-      ],
-      "position": 3,
-      "line": "Enable `authored_bell_stirling_sum__burnside_necklaces_w1` (Oracle passed it in its own cycle); builds on bell_stirling_sum, burnside_necklaces; P 0.8772, novelty 1.0."
-    },
-    {
-      "id": "imp_b7f950_50",
-      "title": "Chain `authored_fermat_little__lucas_theorem_binomial_w1` citing Sum rules for permutations with fixed points invol",
-      "cycle_id": "20261017T221159Z_b7f950",
-      "target": "authored_fermat_little__lucas_theorem_binomial_w1",
-      "family": "authored_fermat_little__lucas_theorem_binomial",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8771,
-      "P_stored": 0.8771,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 1.0,
-      "building_blocks": [
-        "fermat_little",
-        "lucas_theorem_binomial"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.9263,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.25,
-        "oeis_checked": true,
-        "family": "authored_fermat_little__lucas_theorem_binomial",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.8771,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.9263,
-        "shadow_pos": 4
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_b7f950_50"
-      ],
-      "position": 4,
-      "line": "Enable `authored_fermat_little__lucas_theorem_binomial_w1` (Oracle passed it in its own cycle); builds on fermat_little, lucas_theorem_binomial; P 0.8771, novelty 1.0."
-    },
-    {
-      "id": "imp_4b0785_50",
-      "title": "Chain `authored_multinomial_three__newton_identities_w1` citing Sum rules for permutations with fixed points invol",
-      "cycle_id": "20261017T222633Z_4b0785",
-      "target": "authored_multinomial_three__newton_identities_w1",
-      "family": "authored_multinomial_three__newton_identities",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8766,
-      "P_stored": 0.8766,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 1.0,
-      "building_blocks": [
-        "multinomial_three",
-        "newton_identities"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.926,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.1667,
-        "oeis_checked": true,
-        "family": "authored_multinomial_three__newton_identities",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.8766,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.926,
-        "shadow_pos": 6
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_4b0785_50"
-      ],
-      "position": 5,
-      "line": "Enable `authored_multinomial_three__newton_identities_w1` (Oracle passed it in its own cycle); builds on multinomial_three, newton_identities; P 0.8766, novelty 1.0."
-    },
-    {
-      "id": "imp_76124b_50",
-      "title": "Chain+seek `authored_bezout_identity__cayley_hamilton_3x3_w1` from invariant priors",
-      "cycle_id": "20261017T172144Z_76124b",
-      "target": "authored_bezout_identity__cayley_hamilton_3x3_w1",
-      "family": "authored_bezout_identity__cayley_hamilton_3x3",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.875,
-      "P_stored": 0.875,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 1.0,
-      "building_blocks": [
-        "bezout_identity",
-        "cayley_hamilton_3x3"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.925,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "authored_bezout_identity__cayley_hamilton_3x3",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.875,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.925,
-        "shadow_pos": 7
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_76124b_50"
-      ],
-      "position": 6,
-      "line": "Enable `authored_bezout_identity__cayley_hamilton_3x3_w1` (Oracle passed it in its own cycle); builds on bezout_identity, cayley_hamilton_3x3; P 0.875, novelty 1.0."
-    },
     {
       "id": "imp_15e6c5_50",
       "title": "Chain `authored_euler_theorem__gauss_phi_divisor_sum_w1` citing A Gaussian integral formula for the Hermite polyno",
@@ -292,105 +40,103 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.895,
-        "shadow_pos": 8
+        "shadow_pos": 1
       },
       "group_count": 1,
       "group_ids": [
         "imp_15e6c5_50"
       ],
-      "position": 7,
+      "position": 1,
       "line": "Enable `authored_euler_theorem__gauss_phi_divisor_sum_w1` (Oracle passed it in its own cycle); builds on euler_theorem, gauss_phi_divisor_sum; P 0.825, novelty 1.0."
     },
     {
-      "id": "imp_94edc4_50",
-      "title": "Chain `authored_alternating_binomial_row__cayley_hamilton_2x2_w1` citing Sum rules for permutations with fixed points invol",
-      "cycle_id": "20261017T171429Z_94edc4",
-      "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
-      "family": "authored_alternating_binomial_row__cayley_hamilton_2x2",
+      "id": "imp_cf6d5a_50",
+      "title": "Chain+seek `authored_frontier_le_x1c0eba57_w1` from invariant priors",
+      "cycle_id": "20261018T031043Z_cf6d5a",
+      "target": "authored_frontier_le_x1c0eba57_w1",
+      "family": "authored_frontier_le_x1c0eba57",
       "meets_bar": true,
       "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
+      "P": 0.8752,
+      "P_stored": 0.8752,
       "novelty": 1.0,
       "novelty_raw": 1.0,
       "building_block": null,
-      "builds_on": 1.0,
+      "builds_on": 0.0,
       "building_blocks": [
-        "alternating_binomial_row",
-        "cayley_hamilton_2x2"
+        "frontier:frontier_holds"
       ],
       "athanor_verdict": "APPROVE",
-      "rank": 0.895,
+      "rank": 0.7251,
       "hunt": {
         "unknown": true,
         "in_oeis": false,
-        "oeis_reuse": 0.1667,
+        "oeis_reuse": 0.0833,
         "oeis_checked": true,
-        "family": "authored_alternating_binomial_row__cayley_hamilton_2x2",
+        "family": "authored_frontier_le_x1c0eba57",
         "siblings_passed": 0,
         "expected": 0.0,
         "novelty_shadow": 1.0,
         "chained_by": null,
-        "P_shadow": 0.825,
+        "P_shadow": 0.8752,
         "meets_bar_shadow": true,
-        "rank_shadow": 0.895,
-        "shadow_pos": 9
+        "rank_shadow": 0.7251,
+        "shadow_pos": 3
       },
       "group_count": 1,
       "group_ids": [
-        "imp_94edc4_50"
+        "imp_cf6d5a_50"
       ],
-      "position": 8,
-      "line": "Enable `authored_alternating_binomial_row__cayley_hamilton_2x2_w1` (Oracle passed it in its own cycle); builds on alternating_binomial_row, cayley_hamilton_2x2; P 0.825, novelty 1.0."
+      "position": 2,
+      "line": "Enable `authored_frontier_le_x1c0eba57_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8752, novelty 1.0."
     },
     {
-      "id": "imp_96efa1_49",
-      "title": "Chain `authored_crt_coprime_pair__cycle_spanning_trees_w1` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In",
-      "cycle_id": "20261017T173135Z_96efa1",
-      "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
-      "family": "authored_crt_coprime_pair__cycle_spanning_trees",
+      "id": "imp_67f9cd_50",
+      "title": "Chain+seek `authored_frontier_cong_x5cb35120_w1` from invariant priors",
+      "cycle_id": "20261018T025744Z_67f9cd",
+      "target": "authored_frontier_cong_x5cb35120_w1",
+      "family": "authored_frontier_cong_x5cb35120",
       "meets_bar": true,
       "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
+      "P": 0.8751,
+      "P_stored": 0.8751,
       "novelty": 1.0,
       "novelty_raw": 1.0,
       "building_block": null,
-      "builds_on": 1.0,
+      "builds_on": 0.0,
       "building_blocks": [
-        "crt_coprime_pair",
-        "cycle_spanning_trees"
+        "frontier:frontier_holds"
       ],
       "athanor_verdict": "APPROVE",
-      "rank": 0.895,
+      "rank": 0.7251,
       "hunt": {
         "unknown": true,
         "in_oeis": false,
-        "oeis_reuse": 0.25,
+        "oeis_reuse": 0.0833,
         "oeis_checked": true,
-        "family": "authored_crt_coprime_pair__cycle_spanning_trees",
+        "family": "authored_frontier_cong_x5cb35120",
         "siblings_passed": 0,
         "expected": 0.0,
         "novelty_shadow": 1.0,
         "chained_by": null,
-        "P_shadow": 0.825,
+        "P_shadow": 0.8751,
         "meets_bar_shadow": true,
-        "rank_shadow": 0.895,
-        "shadow_pos": 10
+        "rank_shadow": 0.7251,
+        "shadow_pos": 2
       },
       "group_count": 1,
       "group_ids": [
-        "imp_96efa1_49"
+        "imp_67f9cd_50"
       ],
-      "position": 9,
-      "line": "Enable `authored_crt_coprime_pair__cycle_spanning_trees_w1` (Oracle passed it in its own cycle); builds on crt_coprime_pair, cycle_spanning_trees; P 0.825, novelty 1.0."
+      "position": 3,
+      "line": "Enable `authored_frontier_cong_x5cb35120_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8751, novelty 1.0."
     },
     {
-      "id": "imp_b1face_50",
-      "title": "Chain `authored_abel_summation__faulhaber_power_sums_w1` citing Variation of Shafarevich-Tate groups in Hida famil",
-      "cycle_id": "20261017T170923Z_b1face",
-      "target": "authored_abel_summation__faulhaber_power_sums_w1",
-      "family": "authored_abel_summation__faulhaber_power_sums",
+      "id": "imp_98f913_50",
+      "title": "Chain+seek `authored_frontier_cong_x83358e42_w1` from invariant priors",
+      "cycle_id": "20261018T030422Z_98f913",
+      "target": "authored_frontier_cong_x83358e42_w1",
+      "family": "authored_frontier_cong_x83358e42",
       "meets_bar": true,
       "why_not": [],
       "P": 0.825,
@@ -398,34 +144,33 @@
       "novelty": 1.0,
       "novelty_raw": 1.0,
       "building_block": null,
-      "builds_on": 1.0,
+      "builds_on": 0.0,
       "building_blocks": [
-        "abel_summation",
-        "faulhaber_power_sums"
+        "frontier:frontier_holds"
       ],
       "athanor_verdict": "APPROVE",
-      "rank": 0.895,
+      "rank": 0.695,
       "hunt": {
         "unknown": true,
         "in_oeis": false,
-        "oeis_reuse": 0.25,
+        "oeis_reuse": 0.0833,
         "oeis_checked": true,
-        "family": "authored_abel_summation__faulhaber_power_sums",
+        "family": "authored_frontier_cong_x83358e42",
         "siblings_passed": 0,
         "expected": 0.0,
         "novelty_shadow": 1.0,
         "chained_by": null,
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
-        "rank_shadow": 0.895,
-        "shadow_pos": 11
+        "rank_shadow": 0.695,
+        "shadow_pos": 4
       },
       "group_count": 1,
       "group_ids": [
-        "imp_b1face_50"
+        "imp_98f913_50"
       ],
-      "position": 10,
-      "line": "Enable `authored_abel_summation__faulhaber_power_sums_w1` (Oracle passed it in its own cycle); builds on abel_summation, faulhaber_power_sums; P 0.825, novelty 1.0."
+      "position": 4,
+      "line": "Enable `authored_frontier_cong_x83358e42_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0."
     }
   ],
   "building_blocks_enabled": [
@@ -459,7 +204,7 @@
         "P_shadow": 0.7518,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6511,
-        "shadow_pos": 22
+        "shadow_pos": 5
       },
       "group_count": 1,
       "group_ids": [
@@ -498,7 +243,7 @@
         "P_shadow": 0.7516,
         "meets_bar_shadow": true,
         "rank_shadow": 0.651,
-        "shadow_pos": 23
+        "shadow_pos": 6
       },
       "group_count": 1,
       "group_ids": [
@@ -537,7 +282,7 @@
         "P_shadow": 0.7511,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6507,
-        "shadow_pos": 24
+        "shadow_pos": 7
       },
       "group_count": 1,
       "group_ids": [
@@ -576,7 +321,7 @@
         "P_shadow": 0.751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6506,
-        "shadow_pos": 25
+        "shadow_pos": 8
       },
       "group_count": 1,
       "group_ids": [
@@ -615,7 +360,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 26
+        "shadow_pos": 9
       },
       "group_count": 1,
       "group_ids": [
@@ -654,7 +399,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 27
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
@@ -693,7 +438,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 28
+        "shadow_pos": 11
       },
       "group_count": 1,
       "group_ids": [
@@ -732,7 +477,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 29
+        "shadow_pos": 12
       },
       "group_count": 1,
       "group_ids": [
@@ -771,7 +516,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 30
+        "shadow_pos": 13
       },
       "group_count": 1,
       "group_ids": [
@@ -810,7 +555,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 31
+        "shadow_pos": 14
       },
       "group_count": 1,
       "group_ids": [
@@ -821,206 +566,181 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-18T04:58:58Z",
-    "cycle_id": "20261018T045720Z_308fb9",
+    "ts": "2026-10-18T06:08:57Z",
+    "cycle_id": "20261018T060740Z_9e8cfb",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 1.0,
+      "strength": 0.5,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 44,
-    "n_meet_bar_shadow": 33,
-    "n_unknown_claims": 33,
+    "n_meet_bar_actual": 16,
+    "n_meet_bar_shadow": 16,
+    "n_unknown_claims": 6,
     "unknown_targets": [
-      "authored_abel_summation__faulhaber_power_sums_w1",
-      "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
-      "authored_bell_stirling_sum__burnside_necklaces_w1",
-      "authored_bezout_identity__cayley_hamilton_3x3_w1",
-      "authored_cayley_tree_count__complete_bipartite_trees_w1",
-      "authored_crt_coprime_pair__cycle_spanning_trees_w1",
-      "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-      "authored_fermat_little__lucas_theorem_binomial_w1",
-      "authored_frontier_cong_x0058ae91_w1",
-      "authored_frontier_cong_x16b72492_w1",
       "authored_frontier_cong_x23fb70a1_w1",
       "authored_frontier_cong_x5cb35120_w1",
       "authored_frontier_cong_x83358e42_w1",
-      "authored_frontier_divides_x575aa435_w1",
       "authored_frontier_le_x1c0eba57_w1",
-      "authored_frontier_le_x9abb4c98_w1",
-      "authored_frontier_rec_xa92258f8_w1",
-      "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
-      "authored_multinomial_three__newton_identities_w1"
+      "authored_frontier_rec_xa92258f8_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
-    "drop_out_of_bar": [
-      "imp_473855_50",
-      "imp_b95580_50",
-      "imp_e4cf22_50",
-      "imp_84ca4e_50",
-      "imp_398d31_50",
-      "imp_2bb1c6_50",
-      "imp_92da4d_50",
-      "imp_4871cc_50",
-      "imp_658a85_50",
-      "imp_a304cf_50",
-      "imp_1db20c_50"
-    ],
+    "drop_out_of_bar": [],
     "enter_bar": [],
     "top_shadow": [
       {
-        "id": "imp_17731c_50",
-        "target": "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
+        "id": "imp_15e6c5_50",
+        "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
         "actual_pos": 1,
         "shadow_pos": 1,
         "meets_bar_shadow": true,
-        "rank": 0.9275,
-        "rank_shadow": 0.9275,
-        "P": 0.8792,
-        "P_shadow": 0.8792,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
       },
       {
-        "id": "imp_40ec35_50",
-        "target": "authored_cayley_tree_count__complete_bipartite_trees_w1",
-        "actual_pos": 13,
+        "id": "imp_67f9cd_50",
+        "target": "authored_frontier_cong_x5cb35120_w1",
+        "actual_pos": 2,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
-        "rank": 0.8105,
-        "rank_shadow": 0.9272,
-        "P": 0.7953,
-        "P_shadow": 0.8786,
+        "rank": 0.7251,
+        "rank_shadow": 0.7251,
+        "P": 0.8751,
+        "P_shadow": 0.8751,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
       },
       {
-        "id": "imp_6921b4_50",
-        "target": "authored_polynomial_remainder__telescoping_sum_w1",
-        "actual_pos": 2,
+        "id": "imp_cf6d5a_50",
+        "target": "authored_frontier_le_x1c0eba57_w1",
+        "actual_pos": 3,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
-        "rank": 0.9264,
-        "rank_shadow": 0.9264,
-        "P": 0.8774,
-        "P_shadow": 0.8774,
+        "rank": 0.7251,
+        "rank_shadow": 0.7251,
+        "P": 0.8752,
+        "P_shadow": 0.8752,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
       },
       {
-        "id": "imp_b7f950_50",
-        "target": "authored_fermat_little__lucas_theorem_binomial_w1",
-        "actual_pos": 3,
+        "id": "imp_98f913_50",
+        "target": "authored_frontier_cong_x83358e42_w1",
+        "actual_pos": 4,
         "shadow_pos": 4,
         "meets_bar_shadow": true,
-        "rank": 0.9263,
-        "rank_shadow": 0.9263,
-        "P": 0.8771,
-        "P_shadow": 0.8771,
+        "rank": 0.695,
+        "rank_shadow": 0.695,
+        "P": 0.825,
+        "P_shadow": 0.825,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
       },
       {
-        "id": "imp_c28eb5_50",
-        "target": "authored_bell_stirling_sum__burnside_necklaces_w1",
-        "actual_pos": 4,
+        "id": "imp_e8a630_50",
+        "target": "cayley_hamilton_3x3",
+        "actual_pos": 5,
         "shadow_pos": 5,
         "meets_bar_shadow": true,
-        "rank": 0.9263,
-        "rank_shadow": 0.9263,
-        "P": 0.8772,
-        "P_shadow": 0.8772,
-        "unknown": true,
-        "building_block": null,
+        "rank": 0.5261,
+        "rank_shadow": 0.6511,
+        "P": 0.8768,
+        "P_shadow": 0.7518,
+        "unknown": false,
+        "building_block": "catalog_refill",
         "expected": 0.0
       },
       {
-        "id": "imp_4b0785_50",
-        "target": "authored_multinomial_three__newton_identities_w1",
-        "actual_pos": 5,
+        "id": "imp_dfaa7b_50",
+        "target": "polynomial_remainder",
+        "actual_pos": 6,
         "shadow_pos": 6,
         "meets_bar_shadow": true,
-        "rank": 0.926,
-        "rank_shadow": 0.926,
+        "rank": 0.526,
+        "rank_shadow": 0.651,
         "P": 0.8766,
-        "P_shadow": 0.8766,
-        "unknown": true,
-        "building_block": null,
+        "P_shadow": 0.7516,
+        "unknown": false,
+        "building_block": "catalog_refill",
         "expected": 0.0
       },
       {
-        "id": "imp_76124b_50",
-        "target": "authored_bezout_identity__cayley_hamilton_3x3_w1",
-        "actual_pos": 6,
+        "id": "imp_79bbc6_50",
+        "target": "cycle_spanning_trees",
+        "actual_pos": 7,
         "shadow_pos": 7,
         "meets_bar_shadow": true,
-        "rank": 0.925,
-        "rank_shadow": 0.925,
-        "P": 0.875,
-        "P_shadow": 0.875,
-        "unknown": true,
-        "building_block": null,
+        "rank": 0.5257,
+        "rank_shadow": 0.6507,
+        "P": 0.8761,
+        "P_shadow": 0.7511,
+        "unknown": false,
+        "building_block": "catalog_refill",
         "expected": 0.0
       },
       {
-        "id": "imp_15e6c5_50",
-        "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 7,
+        "id": "imp_2eb8c7_50",
+        "target": "abel_summation",
+        "actual_pos": 8,
         "shadow_pos": 8,
         "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
+        "rank": 0.5256,
+        "rank_shadow": 0.6506,
+        "P": 0.876,
+        "P_shadow": 0.751,
+        "unknown": false,
+        "building_block": "catalog_refill",
         "expected": 0.0
       },
       {
-        "id": "imp_94edc4_50",
-        "target": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
-        "actual_pos": 8,
+        "id": "imp_cef698_50",
+        "target": "complete_bipartite_trees",
+        "actual_pos": 9,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
+        "rank": 0.5252,
+        "rank_shadow": 0.6502,
+        "P": 0.8754,
+        "P_shadow": 0.7504,
+        "unknown": false,
+        "building_block": "catalog_refill",
         "expected": 0.0
       },
       {
-        "id": "imp_96efa1_49",
-        "target": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
-        "actual_pos": 9,
+        "id": "imp_fa5f3d_50",
+        "target": "faulhaber_power_sums",
+        "actual_pos": 10,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
+        "rank": 0.5252,
+        "rank_shadow": 0.6502,
+        "P": 0.8754,
+        "P_shadow": 0.7504,
+        "unknown": false,
+        "building_block": "catalog_refill",
         "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
+    "status": 36,
+    "target_unresolved": 29,
     "no_oracle_pass_in_own_cycle": 11,
-    "target_unresolved": 2,
-    "status": 9,
+    "trivial_by_filter": 2,
     "hearing": 2,
     "novelty_killed": 8
   },
@@ -1031,5 +751,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T045720Z_308fb9"
+  "cycle_id": "20261018T060740Z_9e8cfb"
 }

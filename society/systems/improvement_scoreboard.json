@@ -25046,13 +25046,34 @@
         "self_reject_rate": 0.0,
         "post_challenger_oracle_kill_rate": 0.0
       },
-      "after": null,
-      "status": "candidate"
+      "after": {
+        "tribute_quality": 1.0,
+        "gather_coverage": 0.6522,
+        "build_reuse": 0.84,
+        "comm_reply_rate": 0.8,
+        "reply_quality": 0.912,
+        "commons_signal": 1.0,
+        "math_prize": 0.8107,
+        "compute_usefulness": 0.9049,
+        "citation_reuse": 1.0,
+        "prize_boost": 0.8815,
+        "kill_rate": 0.3116,
+        "kill_rate_term": 0.8305,
+        "novelty": 0.963,
+        "lesson_uptake": 0.9,
+        "aggregate": 0.864,
+        "peer_cite_rate": 1.0,
+        "action_changed_from_message": 1.0,
+        "self_reject_rate": 0.0,
+        "post_challenger_oracle_kill_rate": 0.0
+      },
+      "status": "candidate_measured",
+      "delta_aggregate": 0.0001
     }
   ],
-  "updated_at": "2026-10-18T04:57:53Z",
+  "updated_at": "2026-10-18T06:06:04Z",
   "version": 1,
   "built_by": "builder",
   "built_cycle": "20260926T093114Z_ed883e",
-  "updated_cycle": "20261018T045720Z_308fb9"
+  "updated_cycle": "20261018T060458Z_c05b9a"
 }
