@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T03:19:55Z",
-  "n": 328,
+  "updated_at": "2026-10-18T04:58:07Z",
+  "n": 331,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -61,12 +61,15 @@
     "authored_fibonacci_addition__narayana_sum_w1",
     "authored_frontier_cong_x0058ae91_w1",
     "authored_frontier_cong_x16b72492_w1",
+    "authored_frontier_cong_x23fb70a1_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_divides_x575aa435_w1",
+    "authored_frontier_divides_x69004ae3_w1",
     "authored_frontier_le_x1c0eba57_w1",
     "authored_frontier_le_x46c5cc8a_w1",
     "authored_frontier_le_x9abb4c98_w1",
+    "authored_frontier_rec_xa92258f8_w1",
     "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
     "authored_gcd_fibonacci__hermite_recurrence_w1",
     "authored_gcd_fibonacci__motzkin_bounded_w1",
@@ -198,10 +201,7 @@
     "chain `authored_oeis_a000045__cassini` citing square-free word-representation of word-representa (cycle 181)",
     "chain `authored_oeis_a000108__catalan_bounded` citing odds",
     "chain `authored_oeis_a000108__catalan_bounded` citing odds (cycle 179)",
-    "chain `authored_sieve_two_counter_g2_w1` citing effective equidistribution of polynomial trajector",
-    "chain `authored_sieve_two_counter_g2_w1` citing effective equidistribution of polynomial trajector (cycle 345)",
-    "chain `authored_sieve_two_counter_g2_w1` citing proofs of four takigiku--tsuchioka conjectures on",
-    "chain `authored_sieve_two_counter_g2_w1` citing proofs of four takigiku--tsuchioka conjectures on (cycle 344)"
+    "chain `authored_sieve_two_counter_g2_w1` citing effective equidistribution of polynomial trajector"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

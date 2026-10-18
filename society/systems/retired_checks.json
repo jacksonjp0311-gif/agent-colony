@@ -171,8 +171,21 @@
    "entry": "    (\"authored_sieve_hl_within_g2_6_4_w1\", check_authored_sieve_hl_within_g2_6_4_w1, True),\n",
    "family": "authored_sieve_hl_within",
    "expected": 0.9932
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_6_w1",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 15 other Oracle-passed members, expected = s/(s+K) = 0.993 >= 0.95 (K=0.10921); 15 members stay",
+   "ts": "2026-10-18T04:56:01Z",
+   "cycle_id": "20261018T045547Z_6fda0b",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_hl_within_g2_6_6_w1() -> bool:\n    \"\"\"Authored instrument check (desk): count of consecutive pattern (2, 6, 6) on each window is within 4.0*sqrt of the HL forecast.\n    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((2, 6, 6), a, b)) is int and type(h := sieve_hl((2, 6, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])\n",
+   "entry": "    (\"authored_sieve_hl_within_g2_6_6_w1\", check_authored_sieve_hl_within_g2_6_6_w1, True),\n",
+   "family": "authored_sieve_hl_within",
+   "expected": 0.9928
   }
  ],
- "n_retired": 13,
+ "n_retired": 14,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }
