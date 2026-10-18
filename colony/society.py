@@ -239,6 +239,12 @@ class Society:
                 _fc.run_cycle(cid)
         except Exception:  # noqa: BLE001
             pass
+        try:  # new data past the OEIS frontier (COLONY_NEWDATA; shadow = compute + ledger, nothing authored)
+            from colony import new_data as _nd
+            if _nd.mode() != "off":
+                _nd.run_cycle(cid)
+        except Exception:  # noqa: BLE001
+            pass
         try:  # VIEW ONLY: ranked shortlist for James (overwritten each cycle; never authorizes)
             from colony.shortlist import write as _write_shortlist
             _write_shortlist(cid)

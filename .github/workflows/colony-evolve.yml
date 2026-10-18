@@ -100,6 +100,14 @@ jobs:
           path: ~/.cache/colony/oeis
           key: oeis-names-terms-v2-${{ steps.oeiskey.outputs.month }}
 
+      - name: OEIS b-file cache (new-data frontier; polite fetches are cached for the month)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/colony/bfiles
+          key: oeis-bfiles-v1-${{ steps.oeiskey.outputs.month }}-${{ github.run_id }}
+          restore-keys: |
+            oeis-bfiles-v1-${{ steps.oeiskey.outputs.month }}-
+
       - name: Build novelty shadow corpus on cache miss (OEIS names, CC BY-SA 4.0; fail-soft)
         if: ${{ steps.oeiscache.outputs.cache-hit != 'true' && github.event.inputs.offline != 'true' }}
         continue-on-error: true
@@ -128,6 +136,9 @@ jobs:
           COLONY_RETIRE: live
           COLONY_AUTHOR_PAIRS: "off"
           COLONY_FRONTIER_MENU: wide
+          # new data past the OEIS frontier (colony/new_data.py): shadow = compute + ledger only;
+          # live = verified terms also become authored checks the Oracle judges by recomputation
+          COLONY_NEWDATA: shadow
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
@@ -353,7 +364,7 @@ jobs:
           git config user.name "agent-colony-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Prefer slim paths; still allow data/society but avoid forcing giant churn messages
-          git add -A data/commons society/systems society/benchmarks society/receipts \
+          git add -A data/commons society/systems society/benchmarks society/receipts society/frontier \
             society/EVOLVE_STATUS.md society/DASHBOARD.html society/WITNESS_SUMMARY.md \
             society/BULLETIN.md society/report.md society/CI_STATUS.json \
             society/genomes society/briefs society/shortlist docs .github || true

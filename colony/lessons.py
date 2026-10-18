@@ -1151,6 +1151,17 @@ def unenabled_chain_variants(*, respect_cooldown: bool = True) -> list[dict[str,
                     links = []
                 if links:
                     cites = dict(cites, links=links, chain_proven=all(l.get("proven") for l in links))
+            if not links and name.startswith("authored_newdata_"):
+                # New-data check: its component is the new-data bridge (independent recomputation),
+                # proven only when the bridge is present and the engine's own self-test passes.
+                try:
+                    from colony import newdata_checks as _nk
+                    fn = _f.get(f"check_{name}")
+                    links = _nk.newdata_links(fn, path.read_text(encoding="utf-8")) if fn is not None else []
+                except Exception:
+                    links = []
+                if links:
+                    cites = dict(cites, links=links, chain_proven=all(l.get("proven") for l in links))
             if not links or not all(l.get("proven") for l in links):
                 continue  # only variants composed of machine-checked, passing lemmas
             out.append(

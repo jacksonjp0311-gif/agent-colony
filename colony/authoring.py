@@ -485,6 +485,19 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
                 candidates += frontier_checks.candidates(names | rejected)
     except Exception:
         pass
+    try:  # COLONY_NEWDATA=live: verified terms past the OEIS frontier (same disabled-until-Oracle path)
+        from colony import new_data, newdata_checks
+        if new_data.mode() == "live":
+            marker = INSERT_MARKER if INSERT_MARKER in src else FALLBACK_MARKER
+            bridged = newdata_checks.ensure_bridges(src, marker)
+            if bridged != src:
+                ast.parse(bridged)
+                src, tree = bridged, ast.parse(bridged)
+                bodies = _existing_bodies(tree)
+            if not newdata_checks.pending(src):
+                candidates = newdata_checks.candidates(names | rejected) + candidates
+    except Exception:
+        pass
     for _key, a, b, k in pairs:
         name, fn_src, body, expr = _build_candidate(a, b, k)
         candidates.append({
