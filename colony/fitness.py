@@ -59,11 +59,17 @@ def hard_tier_snapshot() -> dict[str, float | int | bool]:
     try:
         from society.benchmarks.lemma_microbench import run as run_lemma
         r = run_lemma()
+        try:  # checks retired by colony.retire are not a hard-tier regression
+            from colony.retire import count_retired
+            retired = count_retired()
+        except Exception:
+            retired = 0
         return {
             "score": float(r.get("score") or 0),
             "n_hard": int(r.get("n_hard") or 0),
             "n_hard_pass": int(r.get("n_hard_pass") or 0),
             "ok": bool(r.get("ok")),
+            "n_retired": retired,
         }
     except Exception:
         return {"score": 0.0, "n_hard": 0, "n_hard_pass": 0, "ok": False}
@@ -75,6 +81,8 @@ def hard_tier_delta(data: dict) -> float:
     cur = hard_tier_snapshot()
     prev = hist[-1] if hist else None
     delta_pass = int(cur["n_hard_pass"]) - int((prev or {}).get("n_hard_pass") or cur["n_hard_pass"])
+    if prev is not None:  # add back checks retired since the previous snapshot (not a regression)
+        delta_pass += int(cur.get("n_retired") or 0) - int(prev.get("n_retired") or 0)
     delta_score = float(cur["score"]) - float((prev or {}).get("score") or cur["score"])
     cur["delta_pass"] = delta_pass
     cur["delta_score"] = round(delta_score, 4)

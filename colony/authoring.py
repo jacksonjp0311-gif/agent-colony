@@ -402,9 +402,15 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
         }
     except Exception:
         rejected = set()
+    try:  # retired checks (colony.retire) are never re-authored; a retired textbook pair stays retired
+        from colony.retire import retired_names, retired_pair_families
+        retired, retired_pairs = retired_names(), retired_pair_families()
+    except Exception:
+        retired, retired_pairs = set(), set()
+    rejected |= retired
     comps = eligible_components(src)
     bodies = _existing_bodies(tree)
-    authored_names = [n for n in names if n.startswith(AUTHORED_PREFIX)]
+    authored_names = [n for n in names | retired if n.startswith(AUTHORED_PREFIX)]
     comp_use = {c["lemma"]: sum(1 for n in authored_names if f"_{c['lemma']}_" in f"_{n}_") for c in comps}
     pairs = []
     for i, a in enumerate(comps):
@@ -463,6 +469,8 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
         if len(out) >= max_new or tried >= MAX_CANDIDATES_TRIED:
             break
         name, body = cand["name"], cand["body"]
+        if cand.get("source") == "compose" and re.sub(r"_w\d+$", "", name) in retired_pairs:
+            continue  # retired as a plain textbook pairing
         if name in names or name in blocked or name in rejected or ast.dump(body) in bodies:
             continue  # duplicate / cooled
         new_src = insert_disabled(src, name, cand["fn_src"])

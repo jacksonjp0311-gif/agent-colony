@@ -123,6 +123,13 @@ class Society:
             detail={"active_ask": ask},
         )
 
+        try:  # retire low-value authored checks (COLONY_RETIRE; shadow = report only)
+            from colony import retire as _retire
+            if _retire.mode() != "off":
+                _retire.run_cycle(cid)
+        except Exception:  # noqa: BLE001
+            pass
+
         payment = TributeKeeper(
             self.ledger,
             seed_path=self.root / "data" / "seed_corpus.json",
