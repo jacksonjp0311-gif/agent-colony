@@ -1,0 +1,1402 @@
+{
+ "ts": "2026-10-18T15:13:25Z",
+ "mode": "shadow",
+ "n_keeps": 245,
+ "n_frontier": 19,
+ "n_hand_trivial": 12,
+ "n_surprise": 7,
+ "max_trivial_credit": 0.0,
+ "min_surprise_credit": 0.0544,
+ "trivial_ranked_lowest": true,
+ "calibration_check": {
+  "hand_settled": 12,
+  "still_surprise": 5,
+  "max_hand_settled_credit": 0.0,
+  "min_still_surprise_credit": 0.4324,
+  "hand_settled_ranked_lowest": true
+ },
+ "sieve_mean_credit": 0.0053,
+ "rows": [
+  {
+   "name": "sum_first_n_cubes",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "geometric_sum",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "vandermonde_conv",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "hockey_stick",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "cassini",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "binomial_sum_row",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "fibonacci_addition",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "catalan_bounded",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "central_binom_bound",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "pell_companion",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "gcd_fibonacci",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "stirling_second_row",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "pythagorean_generation",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "motzkin_bounded",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_central_binom_bound__derangement_subfactorial_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_euler_totient_multiplicative__hermite_recurrence_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_motzkin_bounded__legendre_duplication_small_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_oeis_a000984__central_binom_bound",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_bell_triangle_recurrence__hermite_recurrence_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_binomial_inversion_small__legendre_duplication_small_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_gcd_fibonacci__motzkin_bounded_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_bell_triangle_recurrence__legendre_duplication_small_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_central_binom_bound__euler_totient_multiplicative_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_derangement_subfactorial__hermite_recurrence_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_gcd_fibonacci__narayana_sum_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_central_binom_bound__gcd_fibonacci_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_derangement_subfactorial__euler_totient_multiplicative_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_central_binom_bound__binomial_inversion_small_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_derangement_subfactorial__legendre_duplication_small_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_gcd_fibonacci__hermite_recurrence_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_pell_companion__motzkin_bounded_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "euler_theorem",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "bezout_identity",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "crt_coprime_pair",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "lucas_theorem_binomial",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "euler_pentagonal",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "cayley_tree_count",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "cycle_spanning_trees",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "complete_bipartite_trees",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "faulhaber_power_sums",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "lagrange_cyclic_orders",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_abel_summation__faulhaber_power_sums_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_bell_stirling_sum__burnside_necklaces_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_bezout_identity__cayley_hamilton_3x3_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_cayley_tree_count__complete_bipartite_trees_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_fermat_little__lucas_theorem_binomial_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_multinomial_three__newton_identities_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_polynomial_remainder__telescoping_sum_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_bezout_identity__cayley_tree_count_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_crt_coprime_pair__euler_pentagonal_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_cycle_spanning_trees__lagrange_cyclic_orders_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_euler_theorem__lucas_theorem_binomial_w1",
+   "kind": "other",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_newdata_a002375_k20001_w1",
+   "kind": "newdata",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_newdata_a035026_k10001_w1",
+   "kind": "newdata",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_newdata_a047160_k10001_w1",
+   "kind": "newdata",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_newdata_a006577_k10001_w1",
+   "kind": "newdata",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_newdata_a006667_k10001_w1",
+   "kind": "newdata",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_newdata_a006666_k10001_w1",
+   "kind": "newdata",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_newdata_a025586_k10001_w1",
+   "kind": "newdata",
+   "credit": 1.0
+  },
+  {
+   "name": "authored_frontier_cong_x29d14f44_w1",
+   "kind": "frontier",
+   "statement": "D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "hand_trivial": false,
+   "credit": 0.6088,
+   "unlikely": 0.7345,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry",
+   "hand_settled_in_calibration": false
+  },
+  {
+   "name": "authored_frontier_cong_x06b60875_w1",
+   "kind": "frontier",
+   "statement": "sigma[rev](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "hand_trivial": false,
+   "credit": 0.5916,
+   "unlikely": 0.7137,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry",
+   "hand_settled_in_calibration": false
+  },
+  {
+   "name": "authored_frontier_cong_x2f9c7891_w1",
+   "kind": "frontier",
+   "statement": "D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3)",
+   "hand_trivial": false,
+   "credit": 0.5746,
+   "unlikely": 0.6932,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry",
+   "hand_settled_in_calibration": false
+  },
+  {
+   "name": "authored_frontier_cong_x94023555_w1",
+   "kind": "frontier",
+   "statement": "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "hand_trivial": false,
+   "credit": 0.5323,
+   "unlikely": 0.6422,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry",
+   "hand_settled_in_calibration": false
+  },
+  {
+   "name": "fermat_little",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "mobius_divisor_sum",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "gauss_phi_divisor_sum",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "mobius_inversion_sigma",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "bell_stirling_sum",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "alternating_binomial_row",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "multinomial_three",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "odd_distinct_partitions",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "partition_conjugate_parts",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "cayley_hamilton_2x2",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "cayley_hamilton_3x3",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "newton_identities",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "polynomial_remainder",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "telescoping_sum",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "abel_summation",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "burnside_necklaces",
+   "kind": "other",
+   "credit": 0.5
+  },
+  {
+   "name": "authored_frontier_le_xc2340063_w1",
+   "kind": "frontier",
+   "statement": "sopfr[phi](n) <= (sopfr-omega)(n) for all n >= 1 (with equality at some n)",
+   "hand_trivial": false,
+   "credit": 0.4905,
+   "unlikely": 0.5917,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry"
+  },
+  {
+   "name": "authored_frontier_cong_xa68963c2_w1",
+   "kind": "frontier",
+   "statement": "S(gcd(digsum,phi))(n) = 1 (mod 2) for all n = 3 (mod 4)",
+   "hand_trivial": false,
+   "credit": 0.4324,
+   "unlikely": 0.5217,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry",
+   "hand_settled_in_calibration": false
+  },
+  {
+   "name": "authored_frontier_cong_xbb82919e_w1",
+   "kind": "frontier",
+   "statement": "dbl(gcd(rev,sigma))(n) = 0 (mod 3) for all n = 3 (mod 6)",
+   "hand_trivial": false,
+   "credit": 0.0544,
+   "unlikely": 0.6667,
+   "effort": 0.8289,
+   "family": 0.0985,
+   "explained": "",
+   "source": "registry"
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_w2",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0054
+  },
+  {
+   "name": "authored_sieve_residue_bal_g2_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g2_w2",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g2_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g4_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g2_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g2_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g4_6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g4_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g4_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0052
+  },
+  {
+   "name": "handshaking_small",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "workload_derived_chain",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "lucas_addition",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "vandermonde_asymmetric",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "binomial_hockey_deep",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "fibonacci_cassini_ext",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "derived_chain_stress",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "adversarial_hockey_deep",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "adversarial_cassini_ext",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "adversarial_catalan_convolution_stress",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "adversarial_derived_chain_stress",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_sum_row__catalan_bounded_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_oeis_a000108__catalan_bounded",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_oeis_a000045__cassini",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_symmetry__catalan_convolution_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_fibonacci_addition__gcd_fibonacci_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_geometric_sum__hockey_stick_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pascal_identity__narayana_sum_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pell_companion__pythagorean_generation_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_cubes__stirling_second_row_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_odds__vandermonde_conv_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_oeis_a000079__binomial_sum_row",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_symmetry__cassini_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_catalan_convolution__derangement_subfactorial_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_fibonacci_addition__euler_totient_multiplicative_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_geometric_sum__narayana_sum_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_hockey_stick__pell_companion_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pascal_identity__pythagorean_generation_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_cubes__vandermonde_conv_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_odds__stirling_second_row_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_sum_row__binomial_inversion_small_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_symmetry__catalan_bounded_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_cassini__catalan_convolution_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_fibonacci_addition__motzkin_bounded_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_geometric_sum__pell_companion_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_hockey_stick__pythagorean_generation_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pascal_identity__stirling_second_row_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_odds__sum_first_n_cubes_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_symmetry__vandermonde_conv_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_sum_row__bell_triangle_recurrence_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_cassini__binomial_inversion_small_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_catalan_bounded__catalan_convolution_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_fibonacci_addition__hermite_recurrence_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_geometric_sum__legendre_duplication_small_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_hockey_stick__motzkin_bounded_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pascal_identity__pell_companion_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pythagorean_generation__narayana_sum_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_vandermonde_conv__stirling_second_row_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_symmetry__sum_first_n_cubes_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_sum_row__catalan_convolution_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_cassini__catalan_bounded_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_fibonacci_addition__narayana_sum_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_geometric_sum__hermite_recurrence_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_hockey_stick__stirling_second_row_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pascal_identity__motzkin_bounded_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_cubes__pell_companion_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_odds__pythagorean_generation_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_geometric_sum__vandermonde_conv_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_sum_row__central_binom_bound_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_symmetry__bell_triangle_recurrence_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_cassini__derangement_subfactorial_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_catalan_bounded__binomial_inversion_small_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_catalan_convolution__euler_totient_multiplicative_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_fibonacci_addition__legendre_duplication_small_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_hockey_stick__narayana_sum_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pascal_identity__sum_first_n_cubes_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_stirling_second_row__pythagorean_generation_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_pascal_identity__vandermonde_conv_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_sum_first_n_odds__binomial_inversion_small_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_sum_row__derangement_subfactorial_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_binomial_symmetry__central_binom_bound_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_cassini__bell_triangle_recurrence_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_catalan_bounded__euler_totient_multiplicative_w1",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "wilson_theorem",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "quadratic_reciprocity",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "sigma_multiplicative",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "stirling_first_row_sum",
+   "kind": "other",
+   "credit": 0.0
+  },
+  {
+   "name": "authored_frontier_le_x46c5cc8a_w1",
+   "kind": "frontier",
+   "statement": "gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.4545,
+   "effort": 0.6441,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_le_x9abb4c98_w1",
+   "kind": "frontier",
+   "statement": "(gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.381,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_cong_x16b72492_w1",
+   "kind": "frontier",
+   "statement": "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.3571,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_cong_x5cb35120_w1",
+   "kind": "frontier",
+   "statement": "S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.3448,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_cong_x83358e42_w1",
+   "kind": "frontier",
+   "statement": "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.3889,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_le_x1c0eba57_w1",
+   "kind": "frontier",
+   "statement": "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.5,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_cong_x0058ae91_w1",
+   "kind": "frontier",
+   "statement": "S((part*phi))(n) = 1 (mod 2) for all n >= 1",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.3784,
+   "effort": 0.6441,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_divides_x575aa435_w1",
+   "kind": "frontier",
+   "statement": "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.8133,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_cong_x23fb70a1_w1",
+   "kind": "frontier",
+   "statement": "dbl(gcd(n,pell))(n) = 0 (mod 2) for all n >= 1",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.4048,
+   "effort": 0.6441,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_rec_xa92258f8_w1",
+   "kind": "frontier",
+   "statement": "a(n) = dbl((pow2-lpf))(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.0645,
+   "effort": 0.6441,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_le_xdbff107c_w1",
+   "kind": "frontier",
+   "statement": "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.4615,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_divides_x0b1db873_w1",
+   "kind": "frontier",
+   "statement": "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.7938,
+   "effort": 0.6441,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": true
+  }
+ ],
+ "rule": {
+  "span_ref": 60000,
+  "retest_ref": 8,
+  "w_span": 0.75,
+  "w_retest": 0.25
+ }
+}

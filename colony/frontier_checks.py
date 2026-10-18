@@ -117,7 +117,14 @@ def candidates(existing_names: set[str], limit: int = 6, state: dict[str, Any] |
     st = state if state is not None else load_state()
     reg = [r for r in (st.get("registry") or {}).values()
            if r.get("unknown") and not r.get("falsified_later") and r.get("sig")]
-    reg.sort(key=lambda r: (-(r.get("hunt_value") or 0), r.get("found_at") or ""))
+    key = lambda r: r.get("hunt_value") or 0  # noqa: E731
+    try:  # Stage 3 (COLONY_SURPRISE=live): order by surprise credit (unlikely x effort, 0 if explained)
+        from colony import surprise_credit
+        if surprise_credit.live():
+            key = lambda r: surprise_credit.credit(r)["credit"]  # noqa: E731
+    except Exception:  # noqa: BLE001
+        pass
+    reg.sort(key=lambda r: (-key(r), r.get("found_at") or ""))
     out = []
     for r in reg:
         if check_name(r) in existing_names or not still_new(r):

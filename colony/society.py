@@ -131,6 +131,12 @@ class Society:
                 _retire.withdraw_all_retired(self.state.data)
         except Exception:  # noqa: BLE001
             pass
+        try:  # Stage 3 surprise credit: ranking report (COLONY_SURPRISE; selection layer only)
+            from colony import surprise_credit as _sc
+            if _sc.mode() != "off":
+                _sc.ranking_check()
+        except Exception:  # noqa: BLE001
+            pass
 
         payment = TributeKeeper(
             self.ledger,

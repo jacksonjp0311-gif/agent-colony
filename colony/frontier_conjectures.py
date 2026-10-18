@@ -1717,6 +1717,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
             r["retest_exhausted"] = True
             continue
         counts["retested"] += 1
+        r["retests"] = int(r.get("retests") or 0) + 1
         r["retested_to"] = res["range"][1]
         r["checks"] = int(r.get("checks") or 0) + res["checks"]
         if not res["survived"]:

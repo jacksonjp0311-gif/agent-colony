@@ -18,7 +18,9 @@ the target or a building block of a proposal currently meeting the shortlist bar
 in a human_guide lesson; catalog / hard-bench lemmas (not authored_*); anything named in colony/ or
 tests/ code; anything another remaining check calls; anything the Oracle has not judged yet or
 judged in the last
-GRACE_HOURS (its proposal may not be evaluated yet).
+GRACE_HOURS (its proposal may not be evaluated yet; SIEVE_GRACE_HOURS for sieve sweeps).
+Extra sieve sweeps are listed first, so they are retired before any other category, and
+sieve_sweep_blocked() lets authoring skip a sweep this rule would retire at once.
 
 Retire = remove the check's function and catalog entry from lemma_impl.py and append a record
 (name, category, reason, ts, cycle, catalog flag, full source) to society/systems/retired_checks.json.
@@ -49,6 +51,7 @@ MODES = ("live", "shadow", "off")
 EXPECTED_MIN = 0.95
 KEEP_MIN = 3
 GRACE_HOURS = 2.0
+SIEVE_GRACE_HOURS = 0.25   # Stage 3 (James 2026-10-18 11:06 AM ET): extra sieve sweeps go first, short grace
 MAX_PER_RUN = 60
 PREFIX = "authored_"
 _NAME = re.compile(r"authored_[a-z0-9_]+")
@@ -137,6 +140,22 @@ def plain_pair(fn: ast.FunctionDef, catalog: dict[str, str]) -> tuple[str, str] 
             return None
         out.append(lem)
     return (out[0], out[1]) if out[0] != out[1] else None
+
+
+def sieve_sweep_blocked(name: str, oracle_rows: list[dict[str, Any]] | None = None,
+                        k_prior: float | None = None) -> bool:
+    """True when ``name`` is a NEW sieve sweep that the sweep rule would retire right after it
+    passed: its family already has >= KEEP_MIN Oracle-passed members and expected >= EXPECTED_MIN."""
+    if not name.startswith(PREFIX + "sieve_"):
+        return False
+    from colony.hunt_shadow import claim_family
+    if k_prior is None:
+        from colony.hunt_shadow import K_PRIOR as k_prior
+    rows = oracle_rows if oracle_rows is not None else _jsonl(ORACLE)
+    fam = claim_family(name)
+    s = len({r.get("mutation") for r in rows if r.get("passed") and r.get("mutation")
+             and r.get("mutation") != name and claim_family(r["mutation"]) == fam})
+    return s >= KEEP_MIN and s / (s + k_prior) >= EXPECTED_MIN
 
 
 def receipt_names(root: Path = RECEIPTS) -> set[str]:
@@ -255,8 +274,9 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
             why = "not judged by the Oracle yet"
         else:
             lv = _ts(last_verdict.get(n, ""))
-            if lv and now - lv < timedelta(hours=GRACE_HOURS):
-                why = f"Oracle verdict within {GRACE_HOURS:g}h (grace)"
+            g = SIEVE_GRACE_HOURS if n.startswith(PREFIX + "sieve_") else GRACE_HOURS
+            if lv and now - lv < timedelta(hours=g):
+                why = f"Oracle verdict within {g:g}h (grace)"
         if why is None and protected_extra and n in protected_extra:
             why = protected_extra[n]
         if why:
@@ -299,6 +319,8 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
             if ok is False:
                 cands.append({"name": n, "category": "trivial_frontier",
                               "reason": "the current triviality filter flags this frontier claim as a rewrite"})
+    # extra sieve sweeps first (they crowded the keeps), then the rest in rule order
+    cands.sort(key=lambda c: (not (c["category"] == "sweep" and c["name"].startswith(PREFIX + "sieve_")),))
     cands = cands[:MAX_PER_RUN]
     by_cat: dict[str, int] = {}
     for c in cands:
@@ -306,7 +328,7 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
     return {"ts": _utc(), "mode": mode(), "n_authored": len(authored), "n_candidates": len(cands),
             "by_category": by_cat, "candidates": cands,
             "protected": {k: v for k, v in sorted(protected.items())},
-            "rule": {"expected_min": EXPECTED_MIN, "keep_min": KEEP_MIN, "K": k_prior, "grace_hours": GRACE_HOURS,
+            "rule": {"expected_min": EXPECTED_MIN, "keep_min": KEEP_MIN, "K": k_prior, "grace_hours": GRACE_HOURS, "sieve_grace_hours": SIEVE_GRACE_HOURS,
                      "max_per_run": MAX_PER_RUN}}
 
 

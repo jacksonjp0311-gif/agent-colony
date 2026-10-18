@@ -469,7 +469,15 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
         # One instrument check in flight at a time: while an earlier one still waits for its
         # Oracle verdict, do not author another (no slot burn toward MAX_AUTHORED_TOTAL).
         if not instrument_checks.pending(src):
-            candidates += instrument_checks.candidates(names | rejected)
+            inst = instrument_checks.candidates(names | rejected)
+            try:  # Stage 3 (COLONY_SURPRISE=live): no new sieve sweep the retire rule would remove at once
+                from colony import surprise_credit, retire as _rt
+                if surprise_credit.live():
+                    _orc = _rt._jsonl(_rt.ORACLE)
+                    inst = [c for c in inst if not _rt.sieve_sweep_blocked(c.get("name") or "", _orc)]
+            except Exception:
+                pass
+            candidates += inst
     except Exception:
         pass
     try:  # COLONY_FRONTIER=live: the colony's own surviving conjectures (same disabled-until-Oracle path)

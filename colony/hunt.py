@@ -96,7 +96,14 @@ class Valuer:
         if building_block_kind(name):
             return min(1.0, len(self.chains.get(name, set())) / 2.0)
         s = len(self.fam.get(HS.claim_family(name), set()) - {name})
-        return self.k / (s + self.k)
+        base = self.k / (s + self.k)
+        try:  # Stage 3 (COLONY_SURPRISE=live): frontier conjectures earn surprise credit, not passing
+            from colony import surprise_credit
+            if surprise_credit.live():
+                return surprise_credit.value(name, base)
+        except Exception:
+            pass
+        return base
 
 
 def reorder(items: list[Any], name_of, *, valuer: Valuer | None = None, s: float | None = None) -> list[Any]:
