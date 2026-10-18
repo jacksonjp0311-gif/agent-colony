@@ -696,7 +696,7 @@
  "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data.",
  "sparse": {
   "A228014": {
-   "a_per_k_s": 2.3900000000018906e-06,
+   "a_per_k_s": 8.413024843749728e-07,
    "anum": "A228014",
    "checked": "2026-10-18T13:58:43Z",
    "comment_hint": [],
@@ -713,11 +713,11 @@
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.01,
-    "searched_to": 4000,
+    "cpu_s": 0.054,
+    "searched_to": 64000,
     "status": "matches published",
-    "ts": "2026-10-18T13:58:44Z",
-    "why": "no further term up to k = 4000"
+    "ts": "2026-10-18T14:15:54Z",
+    "why": "no further term up to k = 64000"
    },
    "n_pub": 28,
    "name": "Numbers k whose Collatz sequence length is greater than k+1 (counting both the x/2 and the 3x+1 steps).",
@@ -836,12 +836,12 @@
      110
     ]
    ],
-   "searched_to": 4000,
+   "searched_to": 64000,
    "source": "https://oeis.org/A228014 (data section, 28 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.01,
-    "tries": 1
+    "cpu_s": 0.078,
+    "tries": 3
    },
    "status": "matched"
   }

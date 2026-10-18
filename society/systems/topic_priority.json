@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s00026-026-00827-9>",
+      "topic": "-core",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -81,7 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "binomial(2*n-2*k-1",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-18T13:58:07Z",
-  "updated_cycle": "20261018T135708Z_b26b2e",
+  "updated_at": "2026-10-18T14:15:20Z",
+  "updated_cycle": "20261018T141447Z_1f40b3",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

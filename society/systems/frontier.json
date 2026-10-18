@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T13:57:58Z",
+  "updated_at": "2026-10-18T14:15:14Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -15,7 +15,7 @@
     "collatz_descent": {
       "family": "collatz",
       "status": "open",
-      "verified_hi": 153400000,
+      "verified_hi": 156600000,
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "window": 3200000,
       "result": null
@@ -47,7 +47,7 @@
     "twin_primes_hl": {
       "family": "twin_hl",
       "status": "open",
-      "verified_hi": 190200000,
+      "verified_hi": 194200000,
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "window": 4000000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "lehmer_totient",
-    "lo": 59800002,
-    "hi": 61400001,
+    "target": "collatz_descent",
+    "lo": 153400001,
+    "hi": 156600000,
     "outcome": "extended",
-    "verified_hi": 61400001,
-    "cycle_id": "20261018T135708Z_b26b2e"
+    "verified_hi": 156600000,
+    "cycle_id": "20261018T141447Z_1f40b3"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

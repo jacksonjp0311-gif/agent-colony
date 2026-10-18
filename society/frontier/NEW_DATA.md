@@ -25,7 +25,7 @@ Found by OEIS search; identified by recomputing every published term; method B r
 
 | OEIS | name | published terms | matched as | status | scanned to k | tries | new terms | CPU s |
 |---|---|---|---|---|---|---|---|---|
-| A228014 | Numbers k whose Collatz sequence length is greater than k+1 (counting both the x | 28 | col_steps:fgtk (shift 0) | matches published | 4000 | 1 | 0 | 0.01 |
+| A228014 | Numbers k whose Collatz sequence length is greater than k+1 (counting both the x | 28 | col_steps:fgtk (shift 0) | matches published | 64000 | 3 | 0 | 0.078 |
 
 Full values: `society/frontier/data/<A-number>_beyond.txt` (b-file format).
 

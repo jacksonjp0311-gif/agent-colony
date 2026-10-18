@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T13:16:06Z",
-  "n": 356,
+  "updated_at": "2026-10-18T14:14:15Z",
+  "n": 357,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -70,6 +70,7 @@
     "authored_frontier_cong_x0058ae91_w1",
     "authored_frontier_cong_x16b72492_w1",
     "authored_frontier_cong_x23fb70a1_w1",
+    "authored_frontier_cong_x29d14f44_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_cong_x94023555_w1",
@@ -107,6 +108,7 @@
     "authored_newdata_a025586_k10001_w1",
     "authored_newdata_a035026_k10001_w1",
     "authored_newdata_a047160_k10001_w1",
+    "authored_newdata_a102419_k10001_w1",
     "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000079__binomial_sum_row",
@@ -199,9 +201,7 @@
     "autodiff",
     "autodiff_busy_loop",
     "become_fail_forward",
-    "become_real_fitness",
-    "bell_stirling_sum",
-    "bezout_identity"
+    "become_real_fitness"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

@@ -1,41 +1,10 @@
 {
- "ts": "2026-10-18T13:57:15Z",
+ "ts": "2026-10-18T14:14:51Z",
  "mode": "live",
- "n_authored": 132,
- "n_candidates": 4,
- "by_category": {
-  "sweep": 4
- },
- "candidates": [
-  {
-   "name": "authored_sieve_hl_within_g2_6_w1",
-   "category": "sweep",
-   "family": "authored_sieve_hl_within",
-   "expected": 0.9917,
-   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 13 other Oracle-passed members, expected = s/(s+K) = 0.992 >= 0.95 (K=0.10921); 13 members stay"
-  },
-  {
-   "name": "authored_sieve_residue_bal_g6_w1",
-   "category": "sweep",
-   "family": "authored_sieve_residue_bal",
-   "expected": 0.9902,
-   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 11 other Oracle-passed members, expected = s/(s+K) = 0.990 >= 0.95 (K=0.10921); 11 members stay"
-  },
-  {
-   "name": "authored_sieve_residue_bal_g4_w1",
-   "category": "sweep",
-   "family": "authored_sieve_residue_bal",
-   "expected": 0.9892,
-   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 10 other Oracle-passed members, expected = s/(s+K) = 0.989 >= 0.95 (K=0.10921); 10 members stay"
-  },
-  {
-   "name": "authored_sieve_two_counter_g4_6_w1",
-   "category": "sweep",
-   "family": "authored_sieve_two_counter",
-   "expected": 0.9902,
-   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_two_counter`: 11 other Oracle-passed members, expected = s/(s+K) = 0.990 >= 0.95 (K=0.10921); 11 members stay"
-  }
- ],
+ "n_authored": 129,
+ "n_candidates": 0,
+ "by_category": {},
+ "candidates": [],
  "rule": {
   "expected_min": 0.95,
   "keep_min": 3,
@@ -43,21 +12,9 @@
   "grace_hours": 2.0,
   "max_per_run": 60
  },
- "cycle_id": "20261018T135708Z_b26b2e",
+ "cycle_id": "20261018T141447Z_1f40b3",
  "applied": {
-  "applied": 4,
-  "names": [
-   "authored_sieve_hl_within_g2_6_w1",
-   "authored_sieve_residue_bal_g6_w1",
-   "authored_sieve_residue_bal_g4_w1",
-   "authored_sieve_two_counter_g4_6_w1"
-  ],
-  "withdrawn": [
-   "imp_16b0ba_50",
-   "imp_871a2f_50",
-   "imp_ad376a_50",
-   "imp_e730e7_50"
-  ]
+  "applied": 0
  },
- "n_protected": 124
+ "n_protected": 125
 }
