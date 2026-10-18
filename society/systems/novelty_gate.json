@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T06:57:18Z",
+  "updated_at": "2026-10-18T07:03:30Z",
   "hits": 26,
   "kills": 1,
   "rows": 30,
   "kill_rows": 4,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-18T06:57:18Z",
-    "cycle_id": "20261018T065643Z_e09c90",
-    "mutation": "authored_crt_coprime_pair__euler_pentagonal_w1",
+    "ts": "2026-10-18T07:03:30Z",
+    "cycle_id": "20261018T070305Z_fc9df3",
+    "mutation": "authored_euler_theorem__lucas_theorem_binomial_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 184,
-      "hard_n": 184,
+      "hard_pass": 186,
+      "hard_n": 186,
       "stripped_fails_usefulness": true,
-      "score": 0.8669,
-      "impl_id": "lemma_impl_v2_basic10_hard184"
+      "score": 0.8709,
+      "impl_id": "lemma_impl_v2_basic10_hard185"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 184,
+      "hard_pass": 186,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

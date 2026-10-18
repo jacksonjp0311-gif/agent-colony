@@ -56,6 +56,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "(-1)^k",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "(-1)^n",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -76,12 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
+      "topic": "binomial(2*n-2*k-1",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-18T06:58:41Z",
-  "updated_cycle": "20261018T065759Z_6acf54",
+  "updated_at": "2026-10-18T07:03:38Z",
+  "updated_cycle": "20261018T070305Z_fc9df3",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

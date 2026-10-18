@@ -2,8 +2,8 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-18T06:59:13Z",
-    "cycle_id": "20261018T065759Z_6acf54",
+    "ts": "2026-10-18T07:04:04Z",
+    "cycle_id": "20261018T070305Z_fc9df3",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -12,12 +12,14 @@
     },
     "n_meet_bar_actual": 18,
     "n_meet_bar_shadow": 18,
-    "n_unknown_claims": 9,
+    "n_unknown_claims": 11,
     "unknown_targets": [
       "authored_bezout_identity__cayley_tree_count_w1",
       "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
       "authored_crt_coprime_pair__euler_pentagonal_w1",
+      "authored_cycle_spanning_trees__lagrange_cyclic_orders_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+      "authored_euler_theorem__lucas_theorem_binomial_w1",
       "authored_frontier_cong_x23fb70a1_w1",
       "authored_frontier_cong_x5cb35120_w1",
       "authored_frontier_cong_x83358e42_w1",
@@ -29,10 +31,24 @@
     "enter_bar": [],
     "top_shadow": [
       {
-        "id": "imp_cdaccd_50",
-        "target": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+        "id": "imp_4c1ae3_50",
+        "target": "authored_cycle_spanning_trees__lagrange_cyclic_orders_w1",
         "actual_pos": 1,
         "shadow_pos": 1,
+        "meets_bar_shadow": true,
+        "rank": 0.9256,
+        "rank_shadow": 0.9256,
+        "P": 0.876,
+        "P_shadow": 0.876,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_cdaccd_50",
+        "target": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+        "actual_pos": 2,
+        "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.9252,
         "rank_shadow": 0.9252,
@@ -46,7 +62,7 @@
         "id": "imp_cef698_50",
         "target": "complete_bipartite_trees",
         "actual_pos": 12,
-        "shadow_pos": 2,
+        "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.5252,
         "rank_shadow": 0.9252,
@@ -60,7 +76,7 @@
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
         "actual_pos": 13,
-        "shadow_pos": 3,
+        "shadow_pos": 4,
         "meets_bar_shadow": true,
         "rank": 0.5252,
         "rank_shadow": 0.9252,
@@ -73,20 +89,6 @@
       {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 2,
-        "shadow_pos": 4,
-        "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_1e346a_50",
-        "target": "authored_bezout_identity__cayley_tree_count_w1",
         "actual_pos": 3,
         "shadow_pos": 5,
         "meets_bar_shadow": true,
@@ -99,8 +101,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_e09c90_50",
-        "target": "authored_crt_coprime_pair__euler_pentagonal_w1",
+        "id": "imp_1e346a_50",
+        "target": "authored_bezout_identity__cayley_tree_count_w1",
         "actual_pos": 4,
         "shadow_pos": 6,
         "meets_bar_shadow": true,
@@ -113,10 +115,38 @@
         "expected": 0.0
       },
       {
-        "id": "imp_67f9cd_50",
-        "target": "authored_frontier_cong_x5cb35120_w1",
+        "id": "imp_e09c90_50",
+        "target": "authored_crt_coprime_pair__euler_pentagonal_w1",
         "actual_pos": 5,
         "shadow_pos": 7,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_f7b051_50",
+        "target": "lagrange_cyclic_orders",
+        "actual_pos": 18,
+        "shadow_pos": 8,
+        "meets_bar_shadow": true,
+        "rank": 0.495,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": false,
+        "building_block": "catalog_refill",
+        "expected": 0.0
+      },
+      {
+        "id": "imp_67f9cd_50",
+        "target": "authored_frontier_cong_x5cb35120_w1",
+        "actual_pos": 6,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -129,8 +159,8 @@
       {
         "id": "imp_cf6d5a_50",
         "target": "authored_frontier_le_x1c0eba57_w1",
-        "actual_pos": 6,
-        "shadow_pos": 8,
+        "actual_pos": 7,
+        "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -139,88 +169,15 @@
         "unknown": true,
         "building_block": null,
         "expected": 0.0
-      },
-      {
-        "id": "imp_98f913_50",
-        "target": "authored_frontier_cong_x83358e42_w1",
-        "actual_pos": 7,
-        "shadow_pos": 9,
-        "meets_bar_shadow": true,
-        "rank": 0.695,
-        "rank_shadow": 0.695,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_e8a630_50",
-        "target": "cayley_hamilton_3x3",
-        "actual_pos": 8,
-        "shadow_pos": 10,
-        "meets_bar_shadow": true,
-        "rank": 0.5261,
-        "rank_shadow": 0.6511,
-        "P": 0.8768,
-        "P_shadow": 0.7518,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-18T02:47:24Z",
-      "cycle_id": "20261018T024545Z_11caed",
-      "n_meet_bar_actual": 44,
-      "n_meet_bar_shadow": 30,
-      "n_unknown_claims": 27,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T02:49:10Z",
-      "cycle_id": "20261018T024724Z_ac9ddf",
-      "n_meet_bar_actual": 43,
-      "n_meet_bar_shadow": 29,
-      "n_unknown_claims": 28,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T02:51:04Z",
-      "cycle_id": "20261018T024910Z_03659d",
-      "n_meet_bar_actual": 44,
-      "n_meet_bar_shadow": 30,
-      "n_unknown_claims": 28,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-18T02:56:06Z",
       "cycle_id": "20261018T025424Z_62c867",
@@ -622,6 +579,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T07:02:07Z",
+      "cycle_id": "20261018T070105Z_4c1ae3",
+      "n_meet_bar_actual": 17,
+      "n_meet_bar_shadow": 17,
+      "n_unknown_claims": 10,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T07:03:05Z",
+      "cycle_id": "20261018T070207Z_37ccfa",
+      "n_meet_bar_actual": 18,
+      "n_meet_bar_shadow": 18,
+      "n_unknown_claims": 10,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T07:04:04Z",
+      "cycle_id": "20261018T070305Z_fc9df3",
+      "n_meet_bar_actual": 18,
+      "n_meet_bar_shadow": 18,
+      "n_unknown_claims": 11,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }
