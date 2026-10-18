@@ -141,6 +141,10 @@ jobs:
           COLONY_NEWDATA: live
           COLONY_NEWDATA_SPARSE: live
           COLONY_REFCHECK: live
+          # Stage 3: hunt/selection credit = unlikely x effort, 0 when explained (colony/surprise_credit.py)
+          COLONY_SURPRISE: live
+          # Stage 4: proof path with checker-verified certificates (colony/proof_path.py)
+          COLONY_PROOF: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
