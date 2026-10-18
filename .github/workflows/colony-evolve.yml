@@ -125,7 +125,7 @@ jobs:
           COLONY_FRONTIER: live
           # retire low-value authored checks (colony/retire.py): shadow = report only
           # (society/systems/retire_report.json); live = also retire + archive; off = none
-          COLONY_RETIRE: shadow
+          COLONY_RETIRE: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
