@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T11:36:49Z",
-  "n": 349,
+  "updated_at": "2026-10-18T11:44:38Z",
+  "n": 351,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -121,6 +121,7 @@
     "authored_sieve_hl_within_g2_4_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
     "authored_sieve_hl_within_g2_6_6_w1",
+    "authored_sieve_hl_within_g2_6_w1",
     "authored_sieve_hl_within_g2_w1",
     "authored_sieve_hl_within_g2_w2",
     "authored_sieve_hl_within_g4_2_4_w1",
@@ -155,6 +156,7 @@
     "authored_sieve_residue_bal_g6_6_4_w1",
     "authored_sieve_residue_bal_g6_6_6_w1",
     "authored_sieve_residue_bal_g6_6_w1",
+    "authored_sieve_residue_bal_g6_w1",
     "authored_sieve_two_counter_g2_4_2_w1",
     "authored_sieve_two_counter_g2_4_w1",
     "authored_sieve_two_counter_g2_6_6_w1",
@@ -199,9 +201,7 @@
     "cassini",
     "catalan_bounded",
     "cayley_hamilton_2x2",
-    "cayley_hamilton_3x3",
-    "cayley_tree_count",
-    "central_binom_bound"
+    "cayley_hamilton_3x3"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

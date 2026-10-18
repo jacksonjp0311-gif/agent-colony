@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T11:36:49Z",
-  "passes": 414,
+  "updated_at": "2026-10-18T11:44:38Z",
+  "passes": 416,
   "kills": 183,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3065,
+  "kill_rate": 0.3055,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -49,7 +49,7 @@
     "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
     "authored_polynomial_remainder__telescoping_sum_w1",
     "authored_sieve_hl_within_g2_4_w1",
-    "authored_sieve_hl_within_g6_2_4_w1",
+    "authored_sieve_hl_within_g2_6_w1",
     "authored_sieve_hl_within_g6_2_6_w1",
     "authored_sieve_hl_within_g6_6_6_w1",
     "authored_sieve_residue_bal_g4_w1",
@@ -91,7 +91,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-18T11:36:49Z",
+    "ts": "2026-10-18T11:44:38Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -101,16 +101,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_two_counter_g4_6_w1` kind=hard_enable. lemma mutation authored_sieve_two_counter_g4_6_w1 0.866->0.8656 (compared 0.857->0.857; instrument_budget:0.033s) Not di",
-      "attack": "WEIGH: `authored_sieve_two_counter_g4_6_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_hl_within_g2_6_w1` kind=hard_enable. lemma mutation authored_sieve_hl_within_g2_6_w1 0.8644->0.8644 (compared 0.857->0.857; instrument_budget:0.009s) Not disco",
+      "attack": "WEIGH: `authored_sieve_hl_within_g2_6_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 185,
-        "hard_n": 185,
-        "score": 0.8658,
+        "hard_pass": 187,
+        "hard_n": 187,
+        "score": 0.8644,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -121,10 +121,10 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 185,
-        "hard_n": 185,
+        "hard_pass": 187,
+        "hard_n": 187,
         "ok": true,
-        "score": 0.8656,
+        "score": 0.8644,
         "shifted_window": {
           "ok": true,
           "reason": "shift_not_applicable(no_literal_range)",
@@ -205,15 +205,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_sieve_two_counter_g4_6_w1",
+      "mutation": "authored_sieve_hl_within_g2_6_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_sieve_two_counter_g4_6_w1",
+    "mutation": "authored_sieve_hl_within_g2_6_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261018T113615Z_e730e7",
+    "cycle_id": "20261018T114358Z_16b0ba",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

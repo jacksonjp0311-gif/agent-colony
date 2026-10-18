@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-18T11:38:40Z",
+  "ts": "2026-10-18T11:45:21Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 13,
-  "n_groups": 13,
+  "n_meet_bar": 12,
+  "n_groups": 12,
   "n_authored_groups": 6,
-  "n_building_block_groups": 7,
+  "n_building_block_groups": 6,
   "top": [
     {
       "id": "imp_15e6c5_50",
@@ -81,7 +81,7 @@
         "P_shadow": 0.5765,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4471,
-        "shadow_pos": 13
+        "shadow_pos": 12
       },
       "group_count": 1,
       "group_ids": [
@@ -374,45 +374,6 @@
       "line": "Building block `faulhaber_power_sums` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8754."
     },
     {
-      "id": "imp_0bada5_50",
-      "title": "Chain `newton_identities` citing Sum rules for permutations with fixed points invol",
-      "cycle_id": "20261017T163420Z_0bada5",
-      "target": "newton_identities",
-      "family": "newton_identities",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 0.0,
-      "novelty_raw": 1.0,
-      "building_block": "catalog_refill",
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.495,
-      "hunt": {
-        "unknown": false,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "newton_identities",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 0.5,
-        "chained_by": 1,
-        "P_shadow": 0.7,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.62,
-        "shadow_pos": 10
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_0bada5_50"
-      ],
-      "position": 4,
-      "line": "Building block `newton_identities` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
-    },
-    {
       "id": "imp_1a4ec1_50",
       "title": "Chain `telescoping_sum` citing ON A SUPER TELESCOPING SUM REPRESENTING BINOMIAL C",
       "cycle_id": "20261017T164110Z_1a4ec1",
@@ -442,13 +403,13 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 11
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
         "imp_1a4ec1_50"
       ],
-      "position": 5,
+      "position": 4,
       "line": "Building block `telescoping_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -481,13 +442,13 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 12
+        "shadow_pos": 11
       },
       "group_count": 1,
       "group_ids": [
         "imp_3a02ab_50"
       ],
-      "position": 6,
+      "position": 5,
       "line": "Building block `burnside_necklaces` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -526,22 +487,22 @@
       "group_ids": [
         "imp_f7b051_50"
       ],
-      "position": 7,
+      "position": 6,
       "line": "Building block `lagrange_cyclic_orders` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-18T11:38:40Z",
-    "cycle_id": "20261018T113729Z_e8b70a",
+    "ts": "2026-10-18T11:45:21Z",
+    "cycle_id": "20261018T114358Z_16b0ba",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 13,
-    "n_meet_bar_shadow": 12,
-    "n_unknown_claims": 8,
+    "n_meet_bar_actual": 12,
+    "n_meet_bar_shadow": 11,
+    "n_unknown_claims": 9,
     "unknown_targets": [
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
@@ -550,6 +511,7 @@
       "authored_frontier_divides_x0b1db873_w1",
       "authored_frontier_le_xdbff107c_w1",
       "authored_frontier_rec_xa92258f8_w1",
+      "authored_sieve_hl_within_g2_6_w1",
       "authored_sieve_two_counter_g4_6_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
@@ -589,7 +551,7 @@
       {
         "id": "imp_f7b051_50",
         "target": "lagrange_cyclic_orders",
-        "actual_pos": 13,
+        "actual_pos": 12,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.495,
@@ -685,8 +647,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_0bada5_50",
-        "target": "newton_identities",
+        "id": "imp_1a4ec1_50",
+        "target": "telescoping_sum",
         "actual_pos": 10,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -700,17 +662,17 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
     "status": 38,
-    "target_unresolved": 31,
+    "target_unresolved": 30,
     "no_oracle_pass_in_own_cycle": 10,
     "trivial_by_filter": 2,
-    "novelty_killed": 12,
+    "novelty_killed": 14,
     "hearing": 2
   },
   "rule": {
@@ -720,5 +682,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T113729Z_e8b70a"
+  "cycle_id": "20261018T114358Z_16b0ba"
 }
