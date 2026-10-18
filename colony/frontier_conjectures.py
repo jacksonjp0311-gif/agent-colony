@@ -71,11 +71,33 @@ PERIOD = 12  # parts periodic mod m with this period make a congruence a rewrite
 
 ARITH = ("n", "one", "phi", "sigma", "tau", "omega", "bigomega", "mu", "rad", "lpf", "gpf", "sopfr",
          "digsum", "popcount", "pi", "prime", "sqfree")
+# Wider menu (COLONY_FRONTIER_MENU=wide): sequences from open problems, as generator ingredients only.
+# Nothing definable from the base menu is added (prime gaps are D(prime), aliquot s(n) is sigma - n),
+# so no definitional identity can masquerade as a find.
+WIDE = ("csteps", "cmax", "maxgap", "gold", "cheb4", "cheb3", "ds3", "rev")
+ARITH = ARITH + WIDE
 EXPO = ("pow2", "fib", "lucas", "pell", "part")
 PRIMS = ARITH + EXPO
+WIDE_QS = (5, 7, 11)     # residue classes for Ramanujan-type congruences
+WIDE_MODS = (11,)
+CONG_FIT_PER_CLASS = 6   # wide menu: congruence on n = s (mod q) fitted on 6 members of the class
+MODPAT_MODS = (2, 3, 4, 5)
+MODPAT_MAX_P = 12
 CF_ORDER = {"n": 2, "one": 1, "pow2": 1, "fib": 2, "lucas": 2, "pell": 2}
 OPS = ("p", "S", "D", "sh", "dbl", "+", "-", "*", "gcd", "o")
-POSITIVE = {"n", "one", "phi", "sigma", "tau", "rad", "lpf", "gpf", "prime", "digsum", "popcount"}
+POSITIVE = {"n", "one", "phi", "sigma", "tau", "rad", "lpf", "gpf", "prime", "digsum", "popcount",
+            "cmax", "maxgap", "ds3", "rev"}
+
+
+def menu() -> str:
+    """COLONY_FRONTIER_MENU: base (old ingredients) | wide (adds WIDE primitives, residue classes
+    mod 5/7/11 and the mod-m pattern claim kind). The filter and the Oracle are the same for both."""
+    v = os.environ.get("COLONY_FRONTIER_MENU", "base").strip().lower()
+    return "wide" if v == "wide" else "base"
+
+
+def menu_prims() -> tuple[str, ...]:
+    return PRIMS if menu() == "wide" else tuple(k for k in PRIMS if k not in WIDE)
 
 
 def mode() -> str:
@@ -165,6 +187,59 @@ class Tables:
                 s[i * i::i] = bytearray(len(range(i * i, P + 1, i)))
         primes = [i for i in range(P + 1) if s[i]]
         self.t["prime"] = [0] + primes[:L]
+        self._wide(L, s, primes)
+
+    def _wide(self, L: int, sieve: bytearray, primes: list[int]) -> None:
+        """Open-problem-derived ingredients, n = 1..L (index 0 unused)."""
+        cs, cm = [0] * (L + 1), [0] * (L + 1)   # Collatz total stopping time, max excursion
+        cs[1], cm[1] = 0, 1
+        for n in range(2, L + 1):
+            v, k, mx = n, 0, n
+            while v >= n:
+                v = v // 2 if v % 2 == 0 else 3 * v + 1
+                k += 1
+                if v > mx:
+                    mx = v
+            cs[n], cm[n] = k + cs[v], max(mx, cm[v])
+        mg, best = [0] * (L + 1), 0                # record prime gap among the first n+1 primes
+        for n in range(1, L + 1):
+            best = max(best, primes[n] - primes[n - 1])
+            mg[n] = best
+        try:                                       # Goldbach: #{p <= q primes : p + q = 2n}
+            import numpy as _np
+            M = 2 * L + 1
+            ind = _np.frombuffer(bytes(sieve[:M]), dtype=_np.uint8).astype(_np.float64)
+            sz = 1 << (2 * M - 1).bit_length()
+            f = _np.fft.rfft(ind, sz)
+            conv = _np.rint(_np.fft.irfft(f * f, sz)[:M]).astype(_np.int64)
+            gold = [0] * (L + 1)
+            for n in range(1, L + 1):
+                gold[n] = int((conv[2 * n] + sieve[n]) // 2)
+        except Exception:  # noqa: BLE001
+            G = min(L, 30000)
+            ps = [p for p in primes if p <= 2 * G]
+            gold = [0] * (G + 1)
+            for i, p in enumerate(ps):
+                for q in ps[i:]:
+                    if p + q > 2 * G:
+                        break
+                    if (p + q) % 2 == 0:
+                        gold[(p + q) // 2] += 1
+        c4, c3, a4, a3 = [0] * (L + 1), [0] * (L + 1), 0, 0   # prime races: #(3 mod 4) - #(1 mod 4) etc.
+        for n in range(1, L + 1):
+            if sieve[n]:
+                a4 += 1 if n % 4 == 3 else (-1 if n % 4 == 1 else 0)
+                a3 += 1 if n % 3 == 2 else (-1 if n % 3 == 1 else 0)
+            c4[n], c3[n] = a4, a3
+
+        def ds3(n: int) -> int:
+            t = 0
+            while n:
+                t += n % 3
+                n //= 3
+            return t
+        self.t.update({"csteps": cs, "cmax": cm, "maxgap": mg, "gold": gold, "cheb4": c4, "cheb3": c3,
+                       "ds3": [ds3(i) for i in range(L + 1)], "rev": [int(str(i)[::-1]) for i in range(L + 1)]})
 
     def _expo(self, N: int) -> None:
         f, l, pe, p2 = [0, 1, 1], [0, 1, 3], [0, 1, 2], [0, 2]
@@ -327,6 +402,8 @@ def _choice(rng: random.Random, w: dict[str, float], allowed: tuple[str, ...]) -
 
 
 def sample_expressions(rng: random.Random, n: int, state: dict[str, Any]) -> list[tuple]:
+    PRIMS = menu_prims()  # noqa: N806 (menu-limited ingredients)
+    ARITH = tuple(k for k in globals()["ARITH"] if k in PRIMS)  # noqa: N806
     pw = ucb_weights(state.get("prim_stats") or {}, PRIMS)
     ow = ucb_weights(state.get("op_stats") or {}, OPS)
     seen, out = set(), []
@@ -344,7 +421,7 @@ def sample_expressions(rng: random.Random, n: int, state: dict[str, Any]) -> lis
                 inner = (op2, inner, p(PRIMS if op2 in ("+", "-") else tuple(k for k in PRIMS if k != "one")))
             e = (op, inner)
         elif op == "o":
-            e = ("o", _choice(rng, pw, ARITH[2:]), p(tuple(k for k in POSITIVE if k != "one")))
+            e = ("o", _choice(rng, pw, ARITH[2:]), p(tuple(k for k in POSITIVE if k != "one" and k in PRIMS)))
         else:
             second = PRIMS if op in ("+", "-") else tuple(k for k in PRIMS if k != "one")
             e = (op, p(tuple(k for k in PRIMS if k != "one")), p(second))
@@ -385,6 +462,13 @@ def holds(kind: str, params: dict[str, Any], a: list[int], b: list[int] | None, 
                 n_chk += 1
                 if x % m != r:
                     return False, n_chk
+        return True, n_chk
+    if kind == "modpat":
+        m, P, pat = params["m"], params["P"], params["pat"]
+        for i, x in enumerate(a):
+            n_chk += 1
+            if x % m != pat[(start + i - 1) % P]:
+                return False, n_chk
         return True, n_chk
     if kind == "rec":
         c = params["c"]  # a(n+k) = sum c[i] a(n+i), integer coefficients
@@ -445,6 +529,8 @@ def statement(c: dict[str, Any]) -> str:
     if k == "cong":
         cls = "all n >= 1" if p["q"] == 1 else f"all n = {p['s']} (mod {p['q']})"
         return f"{L}(n) = {p['r']} (mod {p['m']}) for {cls}"
+    if k == "modpat":
+        return f"{L}(n) mod {p['m']} depends only on n mod {p['P']} (residues {p['pat']} for n = 1..{p['P']}), all n >= 1"
     if k == "rec":
         k_ = len(p["c"])
         terms = " + ".join(f"{ci}*a(n+{j})" for j, ci in enumerate(p["c"]) if ci)
@@ -675,6 +761,19 @@ def _dominates(c: dict[str, Any], T: Any, idx: list[int] | None = None) -> bool:
     return poly and gap
 
 
+MULT_AT2 = {"phi": 1, "sigma": 3, "tau": 2, "mu": -1, "sqfree": 1, "rad": 2}
+
+
+def _dbl_odd(e: tuple) -> tuple:
+    if e[0] == "dbl" and e[1][0] == "p" and e[1][1] in MULT_AT2:
+        return ("*", ("p", f"_c{MULT_AT2[e[1][1]]}"), e[1])
+    if e[0] == "p" or e[0] == "o":
+        return e
+    if e[0] in POINTWISE:
+        return (e[0],) + tuple(_dbl_odd(x) for x in e[1:])
+    return e
+
+
 def _case_split_trivial(c: dict[str, Any], T: Any, rng: random.Random, F: int) -> bool:
     """Few-valued parts (mu, the squarefree indicator, parity-like 0/1 or +-1 terms, any pointwise
     subterm with <= 3 values on the claim's domain, including ones constant there such as mu(4k)): split n by the joint values of those parts; the claim is a rewrite when on EVERY
@@ -713,13 +812,17 @@ def _case_split_trivial(c: dict[str, Any], T: Any, rng: random.Random, F: int) -
         combos.setdefault(tuple(vals[k][n - 1] for k in keys), []).append(n)
     if len(combos) > SPLIT_MAX_BRANCHES:
         return False
-    Tc = _WithConsts(T, {v for combo in combos for v in combo})
+    Tc = _WithConsts(T, {v for combo in combos for v in combo} | set(MULT_AT2.values()))
     for combo, idx in combos.items():
         b = dict(c)
         for k, v in zip(keys, combo):
             b["_le"] = _subst(b["_le"], k, ("p", f"_c{v}"))
             if b.get("_re") is not None:
                 b["_re"] = _subst(b["_re"], k, ("p", f"_c{v}"))
+        if all(n % 2 for n in idx):                    # odd n only: f(2n) = f(2) f(n), f multiplicative
+            b["_le"] = _dbl_odd(b["_le"])
+            if b.get("_re") is not None:
+                b["_re"] = _dbl_odd(b["_re"])
         b["_le"] = _simplify_consts(b["_le"], Tc, N)
         if b.get("_re") is not None:
             b["_re"] = _simplify_consts(b["_re"], Tc, N)
@@ -774,11 +877,18 @@ def _parity_tables(L: int) -> dict[str, list[int]]:
         "gpf": [0 if pow2[n] else 1 for n in rng_], "prime": [0 if n == 1 else 1 for n in rng_],
         "pow2": [0] * (L + 1), "fib": [0 if n % 3 == 0 else 1 for n in rng_],
         "lucas": [0 if n % 3 == 0 else 1 for n in rng_], "pell": [n % 2 for n in rng_],
+        "maxgap": [1 if n <= 1 else 0 for n in rng_],   # record gaps after 2 -> 3 are even
+        "ds3": [n % 2 for n in rng_],                     # base-b digit sum = n (mod b - 1)
+        "cmax": [1 if n <= 1 else 0 for n in rng_],       # a Collatz maximum is never odd (3v+1 > v)
     }
     _PARITY.clear()
     _PARITY.update(out)
     _PARITY["_L"] = [L]
     return _PARITY
+
+
+def _isprime_small(n: int) -> bool:
+    return n > 1 and all(n % d for d in range(2, int(n ** 0.5) + 1))
 
 
 def _has_op(e: tuple, op: str) -> bool:
@@ -795,7 +905,7 @@ def _parity_rules(c: dict[str, Any], T: Any, rng: random.Random) -> bool:
     other primitive by its true parity up to PARITY_SMALL and random parities beyond; if the claim
     still holds (3 draws), it is a consequence of the rules. Exact because + - * gcd S D shifts and
     a(2n) all respect parity; composition does not, so it is skipped."""
-    if c["kind"] != "cong" or c["params"]["m"] != 2 or _has_op(c["_le"], "o"):
+    if c["kind"] not in ("cong", "modpat") or c["params"]["m"] != 2 or _has_op(c["_le"], "o"):
         return False
     N = max_n(c["_le"], T, PARITY_N)
     if N < 200:
@@ -804,8 +914,22 @@ def _parity_rules(c: dict[str, Any], T: Any, rng: random.Random) -> bool:
     rules = _parity_tables(L)
     for _ in range(3):
         tab = {}
+        # primes > 2 are odd: pi, cheb4, cheb3 are counts over a random set of odd numbers (true
+        # values up to PARITY_SMALL); cheb4 = pi - [n >= 2], cheb3 = pi - [n >= 3] (mod 2)
+        ind = [0] * (L + 1)
+        for i in range(2, L + 1):
+            ind[i] = (1 if T.t["sqfree"][i] and _isprime_small(i) else 0) if i <= PARITY_SMALL else \
+                (rng.randint(0, 1) if i % 2 else 0)
+        pi_par, acc = [0] * (L + 1), 0
+        for i in range(1, L + 1):
+            acc ^= ind[i]
+            pi_par[i] = acc
+        counts = {"pi": pi_par, "cheb4": [(pi_par[i] - (i >= 2)) % 2 for i in range(L + 1)],
+                  "cheb3": [(pi_par[i] - (i >= 3)) % 2 for i in range(L + 1)]}
         for k in prims_of(c["_le"]):
-            if k in rules:
+            if k in counts:
+                tab[k] = counts[k]
+            elif k in rules:
                 tab[k] = rules[k]
             elif k in ("mu", "sqfree"):          # mu odd iff squarefree; the indicator is itself
                 tab[k] = [x % 2 for x in T.t["sqfree"][:L + 1]]
@@ -816,7 +940,7 @@ def _parity_rules(c: dict[str, Any], T: Any, rng: random.Random) -> bool:
                 tab[k] = [arr[i] % 2 if (i <= PARITY_SMALL and i < len(arr)) else rng.randint(0, 1)
                           for i in range(min(len(arr), L + 1))]
         a = evaluate(c["_le"], N, T, tab)
-        if a is None or not holds("cong", c["params"], a, None)[0]:
+        if a is None or not holds(c["kind"], c["params"], a, None)[0]:
             return False
     return True
 
@@ -848,6 +972,7 @@ def _running_sum_tail(c: dict[str, Any], T: Any) -> bool:
 # basic textbook inequalities between primitives, as linear forms that are >= 0 for n >= 2
 BASIC_INEQ: tuple[dict[str, int], ...] = (
     {"tau": 1, "bigomega": -1, "_k": -1},   # tau(n) >= Omega(n) + 1
+    {"tau": 1, "bigomega": -1, "omega": -1},  # tau(n) >= Omega(n) + omega(n)
     {"bigomega": 1, "omega": -1},           # Omega >= omega
     {"omega": 1, "_k": -1},                 # omega >= 1 (n >= 2)
     {"n": 1, "phi": -1}, {"phi": 1, "_k": -1}, {"phi": 1, "gpf": -1, "_k": 1},  # phi <= n; phi >= p - 1
@@ -859,12 +984,17 @@ BASIC_INEQ: tuple[dict[str, int], ...] = (
     {"sqfree": 1}, {"_k": 1, "sqfree": -1}, {"mu": 1, "_k": 1}, {"_k": 1, "mu": -1},
     {"digsum": 1, "_k": -1}, {"n": 1, "digsum": -1}, {"popcount": 1, "_k": -1}, {"n": 1, "popcount": -1},
     {"n": 1, "_k": -2}, {"_k": 1},
+    {"cmax": 1, "n": -1}, {"cmax": 1, "_k": -4}, {"csteps": 1, "_k": -1},   # Collatz: max >= n, >= 4 (n >= 2)
+    {"maxgap": 1, "_k": -1}, {"prime": 1, "maxgap": -1}, {"gold": 1}, {"ds3": 1, "_k": -1}, {"n": 1, "ds3": -1},
+    {"rev": 1, "_k": -1},
+    {"pell": 1, "part": -1}, {"pow2": 1, "part": -1},
+    {"sigma": 1, "gpf": -1, "_k": -1},   # sigma(n) >= n + 1 >= gpf(n) + 1   # p(n) <= 2^(n-1) (compositions) <= Pell(n)
 )
 
 
 DBL_MONO = ("n", "omega", "bigomega", "tau", "sigma", "phi", "rad", "sopfr", "pi", "prime", "gpf",
-            "pow2", "fib", "lucas", "pell", "part")   # f(2n) >= f(n) for n >= 2
-SH_MONO = ("n", "pi", "prime", "pow2", "fib", "lucas", "pell", "part")  # non-decreasing
+            "pow2", "fib", "lucas", "pell", "part", "maxgap", "cmax")   # f(2n) >= f(n) for n >= 2 (2n -> n)
+SH_MONO = ("n", "pi", "prime", "pow2", "fib", "lucas", "pell", "part", "maxgap")  # non-decreasing
 
 
 def _linear(e: tuple, coef: int, out: dict[str, int], atoms: dict[str, tuple]) -> None:
@@ -992,6 +1122,55 @@ def _rewrite_atoms(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
     return out
 
 
+DIGIT_MOD = {"digsum": 9, "rev": 9, "ds3": 2}   # base-b digit sums / reversal keep n mod (b - 1)
+
+
+def _digit_rule(c: dict[str, Any]) -> bool:
+    """A congruence mod m | (b - 1) on digsum / rev / ds3 of something: those keep their argument
+    mod b - 1, so the claim is a rewrite of the same claim on the argument (or on n)."""
+    if c["kind"] not in ("cong", "modpat"):
+        return False
+    m = c["params"]["m"]
+
+    def walk(e: tuple) -> bool:
+        if e[0] == "p":
+            return e[1] in DIGIT_MOD and DIGIT_MOD[e[1]] % m == 0
+        if e[0] == "o":
+            return (e[1] in DIGIT_MOD and DIGIT_MOD[e[1]] % m == 0) or False
+        if e[0] in ("+", "-", "*"):
+            return walk(e[1]) or walk(e[2])
+        if e[0] in ("S", "D", "sh", "dbl"):
+            return walk(e[1])
+        return False
+    return walk(c["_le"])
+
+
+MONO_OUTER = ("prime", "pi", "pow2", "fib", "lucas", "pell", "part", "n")
+
+
+def _monotone_outer(c: dict[str, Any], T: Any) -> bool:
+    """f(X) <= f(Y) with f non-decreasing (f(n) counts as f(n)) reduces to X <= Y; trivial when that
+    is a basic inequality."""
+    if c["kind"] != "le" or c.get("_re") is None:
+        return False
+    def arg(e):
+        if e[0] == "o" and e[1] in MONO_OUTER:
+            return e[1], e[2]
+        if e[0] == "p" and e[1] in MONO_OUTER:
+            return e[1], ("p", "n")
+        return None, None
+    fa, xa = arg(c["_le"])
+    fb, xb = arg(c["_re"])
+    if fa is None or fa != fb or xa == xb:
+        return False
+    r = {"kind": "le", "params": {}, "_le": xa, "_re": xb}
+    N = min(max_n(xa, T, 2000), max_n(xb, T, 2000))
+    va, vb = evaluate(xa, N, T), evaluate(xb, N, T)
+    if va is None or vb is None or not all(x <= y for x, y in zip(va, vb)):
+        return False
+    return _basic_inequality(r, T) or (xa[0] == "p" and xb[0] == "p" and xa[1] in ("one",))
+
+
 def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split: bool = True) -> str:
     """Why the claim is a rewrite rather than new, else ''.
 
@@ -1012,10 +1191,16 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
     case_split     on every branch of its few-valued parts (mu, squarefree indicator, parity...)
                    the claim reduces to one of the above or to a constant comparison
     """
-    if _cong_implied_by_parts(c, T, F) or (c["kind"] == "cong" and _periodic_mod(c["_le"], c["params"]["m"], T)):
+    if _cong_implied_by_parts(c, T, F) or (c["kind"] in ("cong", "modpat") and _periodic_mod(c["_le"], c["params"]["m"], T)):
         return "implied_parts"
     if _divides_implied_by_parts(c, T, F):
         return "implied_parts"
+    if not known_result(c) and _known_cong_parts(c, T, rng):
+        return "implied_parts"
+    if _digit_rule(c):
+        return "digit_rule"
+    if _monotone_outer(c, T):
+        return "basic_inequality"
     if _shared_operand(c):
         return "shared_operand"
     if split and not c.get("_rewritten"):
@@ -1064,9 +1249,12 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
 
 
 def fit_claims(exprs: list[tuple], T: Any, F: int, rng: random.Random) -> list[dict[str, Any]]:
+    wide = menu() == "wide"
+    qs, mods = (QS + WIDE_QS, MODS + WIDE_MODS) if wide else (QS, MODS)
+    LEN = max(F + MAX_REC + 2, CONG_FIT_PER_CLASS * max(qs), 4 * MODPAT_MAX_P) if wide else F + MAX_REC + 2
     vals = {}
     for e in exprs:
-        v = evaluate(e, F + MAX_REC + 2, T)
+        v = evaluate(e, LEN, T)
         if v is not None and len(set(v)) > 1:
             vals[canon(e)] = (e, v)
     out: list[dict[str, Any]] = []
@@ -1108,12 +1296,13 @@ def fit_claims(exprs: list[tuple], T: Any, F: int, rng: random.Random) -> list[d
         # at most one congruence per expression, on the coarsest class (q = 1 first): a claim on a
         # sub-class of a class that already works is implied, not new
         found = False
-        for q in QS:
+        for q in qs:
+            w = v[:max(F, CONG_FIT_PER_CLASS * q)] if wide else a
             for s in range(q):
-                sub = [x for i, x in enumerate(a) if (i + 1) % q == s]
+                sub = [x for i, x in enumerate(w) if (i + 1) % q == s]
                 if len(sub) < 6:
                     continue
-                for m in MODS:
+                for m in mods:
                     r = sub[0] % m
                     if all(x % m == r for x in sub) and len({x for x in sub}) > 2:
                         out.append(mk("cong", e, None, {"m": m, "r": r, "q": q, "s": s}))
@@ -1126,7 +1315,107 @@ def fit_claims(exprs: list[tuple], T: Any, F: int, rng: random.Random) -> list[d
         rec = berlekamp_massey_int(a)
         if rec and any(rec):
             out.append(mk("rec", e, None, {"c": rec}))
+        if wide and not found:   # mod-m pattern: residues depend only on n mod P (smallest P, 4 periods)
+            mp = _fit_modpat(v)
+            if mp:
+                out.append(mk("modpat", e, None, mp))
     return out
+
+
+def _fit_modpat(v: list[int]) -> dict[str, Any] | None:
+    for m in MODPAT_MODS:
+        r = [x % m for x in v]
+        if len(set(r)) < 2:
+            continue
+        for P in range(2, MODPAT_MAX_P + 1):
+            w = r[:max(4 * P, 24)]
+            if len(w) < max(4 * P, 24):
+                break
+            if all(w[i] == w[i % P] for i in range(len(w))):
+                pat = w[:P]
+                if len(set(pat)) >= 2:
+                    return {"m": m, "P": P, "pat": pat}
+                break
+    return None
+
+
+# known results: recognized as known, never counted as surprises
+RAMANUJAN = ((5, 4), (7, 5), (11, 6))   # p(Mk + d) = 0 (mod M)
+
+
+def _affine_index(e: tuple) -> tuple[str, int, int] | None:
+    """e = primitive under shifts / a(2n) only -> (primitive, a, b) with e(n) = prim(a n + b)."""
+    if e[0] == "p":
+        return e[1], 1, 0
+    if e[0] in ("sh", "dbl"):
+        r = _affine_index(e[1])
+        if r is None:
+            return None
+        k, a, b = r
+        return (k, a, a + b) if e[0] == "sh" else (k, 2 * a, b)
+    return None
+
+
+def _known_cong_parts(c: dict[str, Any], T: Any, rng: random.Random) -> bool:
+    """A congruence / mod pattern on an expression in p(n) that follows from Ramanujan's congruences
+    plus periodic residues of the other parts: p(n) is replaced by random values that only keep
+    p(Mk + d) = 0 (mod M) for the M | m; parts periodic mod m keep their true values, every other
+    part is random (3 draws). Still holding means the claim is implied by known congruences."""
+    if c["kind"] not in ("cong", "modpat") or "part" not in prims_of(c["_le"]) or _has_op(c["_le"], "o"):
+        return False
+    m = c["params"]["m"]
+    Ms = [(M, d) for M, d in RAMANUJAN if m % M == 0]
+    if not Ms:
+        return False
+    N = max_n(c["_le"], T, 600)
+    if N < 100:
+        return False
+    for _ in range(3):
+        tab = {}
+        for k in prims_of(c["_le"]):
+            arr = T.t[k]
+            L = min(len(arr), 2 * N + 4)
+            if k == "part":
+                tab[k] = [0] + [(0 if any(i % M == d for M, d in Ms) else rng.randint(1, 10 ** 6)) * 1
+                                for i in range(1, L)]
+                tab[k] = [v if v == 0 else v for v in tab[k]]
+                for M, d in Ms:      # keep the class residue 0 mod M but random beyond it
+                    tab[k] = [v if (i % M != d) else M * rng.randint(0, 10 ** 5) for i, v in enumerate(tab[k])]
+            elif k.startswith("_c") or _periodic_mod(("p", k), m, T):
+                tab[k] = arr[:L]
+            else:
+                tab[k] = [0] + [rng.randint(0, 10 ** 6) for _ in range(1, L)]
+        a = evaluate(c["_le"], N, T, tab)
+        if a is None or not holds(c["kind"], c["params"], a, None)[0]:
+            return False
+    return True
+
+
+def known_result(c: dict[str, Any]) -> str:
+    """Name of a known theorem / famous open problem the claim is an instance of, else ''."""
+    k, prm = c["kind"], c.get("params") or {}
+    ps = prims_of(c["_le"]) | (prims_of(c["_re"]) if c.get("_re") is not None else set())
+    if k == "cong" and prm.get("r") == 0:
+        ai = _affine_index(_push(c["_le"]))
+        if ai and ai[0] == "part":
+            _k, a, b = ai
+            q, s0 = prm["q"], prm["s"] % prm["q"]
+            for M, d in RAMANUJAN:
+                if prm["m"] % M == 0 and prm["m"] == M and (a * q) % M == 0 and (a * s0 + b) % M == d:
+                    return f"Ramanujan congruence p({M}k+{d}) = 0 (mod {M})"
+    if k == "modpat" and "part" in ps:
+        ai = _affine_index(_push(c["_le"]))
+        if ai and ai[0] == "part" and prm["m"] in (5, 7, 11):
+            return "partition residues (Ramanujan-type congruences; known)"
+    if ps & {"cheb3", "cheb4"} and k == "le":
+        return ("Chebyshev bias (prime races: the leader changes far out, e.g. mod 4 first at 26861, "
+                "mod 3 first near 6.08e11); finite checks cannot separate")
+    re_ps = prims_of(c["_re"]) if c.get("_re") is not None else set()
+    if k == "le" and "gold" in re_ps:
+        return "lower bound on Goldbach counts (Goldbach / Hardy-Littlewood: famously open, verified far beyond here)"
+    if k == "le" and "maxgap" in prims_of(c["_le"]):
+        return "upper bound on prime gaps (Bertrand / Legendre / Cramer: known or famously open)"
+    return ""
 
 
 # ----------------------------------------------------------------------------- proofs
@@ -1280,9 +1569,9 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
               "trivial_implied_parts": 0, "trivial_shared_operand": 0,
               "trivial_growth_dominance": 0, "trivial_case_split": 0, "trivial_parity_rules": 0,
               "trivial_running_sum_tail": 0, "trivial_basic_inequality": 0,
-              "trivial_rewrite_closure": 0, "expected_by_closure": 0,
+              "trivial_rewrite_closure": 0, "trivial_digit_rule": 0, "expected_by_closure": 0,
               "loose_inequality": 0, "tested": 0, "survived": 0, "falsified": 0, "machine_checked": 0,
-              "surprises": 0, "oeis_known": 0, "oeis_unchecked": 0, "retested": 0, "false_surprises": 0}
+              "surprises": 0, "known_result": 0, "oeis_known": 0, "oeis_unchecked": 0, "retested": 0, "false_surprises": 0}
     fresh: list[dict[str, Any]] = []
     for c in cands:
         if _h(c["id"]) in seen_ids:
@@ -1343,8 +1632,13 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         c["oeis"] = [o.get("status") for o in oe]
         c["oeis_anums"] = sorted({a for o in oe for a in (o.get("anums") or [])})[:4]
         derived = [o.get("status") for o in oe if o.get("status") != "primitive"]
-        closure = c["kind"] in ("rec", "cong") and cf_order(c["_le"]) is not None
-        if closure:
+        closure = c["kind"] in ("rec", "cong", "modpat") and cf_order(c["_le"]) is not None
+        known = known_result(c)
+        if known:
+            counts["known_result"] = counts.get("known_result", 0) + 1
+            c["unknown"] = False
+            c["unknown_reason"] = f"known: {known}"
+        elif closure:
             # C-finite sequences always satisfy a recurrence and are periodic mod m: expected
             counts["expected_by_closure"] += 1
             c["unknown"] = False

@@ -85,6 +85,8 @@ def still_new(r: dict[str, Any]) -> bool:
              "_re": FC.parse(r["rhs"]) if r.get("rhs") else None}
         if r.get("loose"):
             return False
+        if FC.known_result(c):
+            return False
         return FC.trivial_reason(c, FC._BRIDGE_T, random.Random(r.get("sig") or "x"), FC.fit_n()) == ""
     except Exception:  # noqa: BLE001
         return False
@@ -190,12 +192,37 @@ def self_test(force: bool = False) -> dict[str, Any]:
             "true_claim_holds": FC.holds_on({"kind": "le", "lhs": "phi", "rhs": "n", "params": {}}, 1, 2000) > 0,
             "false_claim_fails": FC.holds_on({"kind": "le", "lhs": "pi", "rhs": "(one+tau)", "params": {}}, 1, 2000) == 0,
         }
+        checks.update(_wide_self_test(t, isp))
         res = {"ok": all(checks.values()), "checks": checks}
     except Exception as exc:  # noqa: BLE001
         res = {"ok": False, "checks": {}, "error": str(exc)[:200]}
     _SELF_TEST.clear()
     _SELF_TEST.update(res)
     return dict(res)
+
+
+def _wide_self_test(t: dict[str, list[int]], isp: Any) -> dict[str, bool]:
+    """Brute force for the wide-menu ingredients on small n."""
+    def collatz(n):
+        k, mx = 0, n
+        while n != 1:
+            n = n // 2 if n % 2 == 0 else 3 * n + 1
+            k, mx = k + 1, max(mx, n)
+        return k, mx
+
+    def ds3(n):
+        return 0 if n == 0 else n % 3 + ds3(n // 3)
+    P = [p for p in range(2, 5000) if isp(p)]
+    return {
+        "collatz": all((t["csteps"][n], t["cmax"][n]) == collatz(n) for n in range(1, 400)),
+        "maxgap": all(t["maxgap"][n] == max(P[i + 1] - P[i] for i in range(n)) for n in range(1, 300)),
+        "goldbach": all(t["gold"][n] == sum(1 for p in range(2, n + 1) if isp(p) and isp(2 * n - p))
+                        for n in range(1, 400)),
+        "prime_races": all(t["cheb4"][n] == sum(1 for p in P if p <= n and p % 4 == 3) - sum(1 for p in P if p <= n and p % 4 == 1)
+                           and t["cheb3"][n] == sum(1 for p in P if p <= n and p % 3 == 2) - sum(1 for p in P if p <= n and p % 3 == 1)
+                           for n in range(1, 400)),
+        "digits": all(t["ds3"][n] == ds3(n) and t["rev"][n] == int(str(n)[::-1]) for n in range(1, 400)),
+    }
 
 
 def frontier_links(fn_node: Any, artifact_src: str) -> list[dict[str, Any]]:

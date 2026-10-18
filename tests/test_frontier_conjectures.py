@@ -207,7 +207,8 @@ def test_parity_rules_and_running_sums():
     assert _triv("cong", "S((part*phi))", None, {"m": 2, "r": 1, "q": 1, "s": 0}) == "parity_rules"  # phi even, n >= 3
     assert _triv("cong", "S((sqfree*tau))", None, {"m": 2, "r": 1, "q": 1, "s": 0}) == "parity_rules"  # tau odd iff square
     # no textbook rule for pi(n) parity: kept
-    assert _triv("cong", "S((pi*pi))", None, {"m": 2, "r": 1, "q": 2, "s": 0}) == ""
+    # primes > 2 are odd: sum_{k<=n} pi(k) = sum_{p<=n} (n+1-p) is odd for even n (now explained)
+    assert _triv("cong", "S((pi*pi))", None, {"m": 2, "r": 1, "q": 2, "s": 0}) == "parity_rules"
     import random as _r
     c = {"kind": "cong", "params": {"m": 3, "r": 0, "q": 1, "s": 0}, "_le": FC.parse("S((pow2*(n*(n*n))))"), "_re": None}
     assert not FC._running_sum_tail(c, T)
@@ -240,3 +241,55 @@ def test_growth_dominance():
     import random as _r
     c = {"kind": "le", "params": {}, "_le": FC.parse("lpf"), "_re": FC.parse("gpf")}
     assert not FC._dominates(c, T)
+
+
+# ----------------------------------------------------------------------------- wide menu
+
+def test_wide_menu_is_opt_in(monkeypatch):
+    monkeypatch.delenv("COLONY_FRONTIER_MENU", raising=False)
+    assert FC.menu() == "base" and not set(FC.WIDE) & set(FC.menu_prims())
+    monkeypatch.setenv("COLONY_FRONTIER_MENU", "wide")
+    assert set(FC.WIDE) <= set(FC.menu_prims())
+    rng = random.Random(1)
+    exprs = FC.sample_expressions(rng, 200, {})
+    assert any(FC.prims_of(e) & set(FC.WIDE) for e in exprs)
+
+
+def test_ramanujan_is_known_not_a_surprise():
+    c = _claim("cong", FC.parse("sh(part)"), None, {"m": 5, "r": 0, "q": 5, "s": 3})
+    assert "Ramanujan" in FC.known_result(c)
+    c = _claim("cong", FC.parse("part"), None, {"m": 7, "r": 0, "q": 7, "s": 5})
+    assert "Ramanujan" in FC.known_result(c)
+    c = _claim("cong", FC.parse("part"), None, {"m": 5, "r": 0, "q": 5, "s": 3})
+    assert FC.known_result(c) == ""
+    # consequences of Ramanujan + periodic parts are implied, not new
+    c = _claim("cong", FC.parse("D((fib*part))"), None, {"m": 5, "r": 0, "q": 5, "s": 4})
+    assert FC.trivial_reason(c, T, random.Random(0), 12) == "implied_parts"
+
+
+def test_wide_rules_parity_digits_monotone_and_odd_dbl():
+    r = random.Random(0)
+    # S(gcd(phi, pi)) parity follows from "primes > 2 are odd" + phi even
+    c = _claim("cong", FC.parse("S(gcd(phi,pi))"), None, {"m": 2, "r": 0, "q": 2, "s": 0})
+    assert FC.trivial_reason(c, T, r, 12) == "parity_rules"
+    # Collatz maxima are even for n >= 2
+    c = _claim("cong", FC.parse("S(gcd(cheb4,cmax))"), None, {"m": 2, "r": 1, "q": 2, "s": 0})
+    assert FC.trivial_reason(c, T, r, 12) == "parity_rules"
+    # base-10 digit sum / reversal keep n mod 9
+    c = _claim("cong", FC.parse("rev[sigma]"), None, {"m": 3, "r": 0, "q": 3, "s": 2})
+    assert FC.trivial_reason(c, T, r, 12) == "digit_rule"
+    # prime(rad n) <= gpf(prime n) = prime(n): monotone outer + rad <= n
+    c = _claim("le", FC.parse("prime[rad]"), FC.parse("gpf[prime]"))
+    assert FC.trivial_reason(c, T, r, 12) != ""
+    # sigma(n) | sigma(2n) sqfree(2n): on odd squarefree n, sigma(2n) = 3 sigma(n)
+    c = _claim("divides", FC.parse("sigma"), FC.parse("dbl((sigma*sqfree))"))
+    assert FC.trivial_reason(c, T, r, 12) != ""
+
+
+def test_modpat_kind_holds_and_bridge():
+    pat = [FC.tables().t["fib"][i] % 2 for i in range(1, 4)]
+    claim = {"kind": "modpat", "lhs": "fib", "rhs": "", "params": {"m": 2, "P": 3, "pat": pat}}
+    assert FC.holds_on(claim, 1, 900) > 0
+    bad = dict(claim, params={"m": 2, "P": 3, "pat": [1, 1, 1]})
+    assert FC.holds_on(bad, 1, 900) == 0
+    assert "depends only on n mod 3" in FC.statement(dict(claim, lhs="fib"))

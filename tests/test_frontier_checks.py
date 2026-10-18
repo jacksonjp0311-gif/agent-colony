@@ -7,8 +7,8 @@ import colony.authoring as A
 import colony.frontier_checks as FK
 
 REG = {
-    "a": {"kind": "divides", "lhs": "sigma", "rhs": "dbl((sigma*sqfree))", "params": {}, "unknown": True,
-          "sig": "f0461a58aa", "hunt_value": 1.0, "statement": "sigma(n) divides dbl((sigma*sqfree))(n) for all n >= 1",
+    "a": {"kind": "divides", "lhs": "(n+n)", "rhs": "dbl((mu*rad))", "params": {}, "unknown": True,
+          "sig": "f0461a58aa", "hunt_value": 1.0, "statement": "(n+n)(n) divides dbl((mu*rad))(n) for all n >= 1",
           "label": "conjecture surviving 59970 checks", "found_at": "t1"},
     "b": {"kind": "le", "lhs": "phi", "rhs": "n", "params": {}, "unknown": False, "sig": "11111111aa",
           "hunt_value": 0.0, "statement": "x", "label": "y", "found_at": "t0"},
