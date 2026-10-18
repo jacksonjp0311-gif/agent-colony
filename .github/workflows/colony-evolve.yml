@@ -127,6 +127,7 @@ jobs:
           # (society/systems/retire_report.json); live = also retire + archive; off = none
           COLONY_RETIRE: live
           COLONY_AUTHOR_PAIRS: "off"
+          COLONY_FRONTIER_MENU: wide
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
