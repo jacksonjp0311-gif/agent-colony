@@ -2,17 +2,17 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-18T13:04:45Z",
-    "cycle_id": "20261018T130337Z_925ac5",
+    "ts": "2026-10-18T13:09:52Z",
+    "cycle_id": "20261018T130845Z_a8bc9d",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 13,
-    "n_meet_bar_shadow": 11,
-    "n_unknown_claims": 13,
+    "n_meet_bar_actual": 15,
+    "n_meet_bar_shadow": 13,
+    "n_unknown_claims": 14,
     "unknown_targets": [
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
@@ -23,6 +23,7 @@
       "authored_frontier_rec_xa92258f8_w1",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
+      "authored_newdata_a006667_k10001_w1",
       "authored_newdata_a035026_k10001_w1",
       "authored_newdata_a047160_k10001_w1",
       "authored_sieve_hl_within_g2_6_w1",
@@ -38,7 +39,7 @@
       {
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
-        "actual_pos": 11,
+        "actual_pos": 13,
         "shadow_pos": 1,
         "meets_bar_shadow": true,
         "rank": 0.5252,
@@ -66,7 +67,7 @@
       {
         "id": "imp_f7b051_50",
         "target": "lagrange_cyclic_orders",
-        "actual_pos": 13,
+        "actual_pos": 15,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.495,
@@ -120,10 +121,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_d077dc_50",
-        "target": "authored_newdata_a002375_k20001_w1",
+        "id": "imp_925ac5_50",
+        "target": "authored_newdata_a006577_k10001_w1",
         "actual_pos": 6,
         "shadow_pos": 7,
+        "meets_bar_shadow": true,
+        "rank": 0.7252,
+        "rank_shadow": 0.7252,
+        "P": 0.8753,
+        "P_shadow": 0.8753,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_d077dc_50",
+        "target": "authored_newdata_a002375_k20001_w1",
+        "actual_pos": 7,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -136,20 +151,6 @@
       {
         "id": "imp_6ff40f_50",
         "target": "authored_frontier_cong_xa68963c2_w1",
-        "actual_pos": 8,
-        "shadow_pos": 8,
-        "meets_bar_shadow": true,
-        "rank": 0.695,
-        "rank_shadow": 0.695,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_a08606_50",
-        "target": "authored_newdata_a035026_k10001_w1",
         "actual_pos": 9,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
@@ -162,8 +163,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_bc7717_50",
-        "target": "authored_frontier_le_xdbff107c_w1",
+        "id": "imp_8926cc_50",
+        "target": "authored_newdata_a006667_k10001_w1",
         "actual_pos": 10,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -177,57 +178,12 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-18T07:03:05Z",
-      "cycle_id": "20261018T070207Z_37ccfa",
-      "n_meet_bar_actual": 18,
-      "n_meet_bar_shadow": 18,
-      "n_unknown_claims": 10,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T07:04:04Z",
-      "cycle_id": "20261018T070305Z_fc9df3",
-      "n_meet_bar_actual": 18,
-      "n_meet_bar_shadow": 18,
-      "n_unknown_claims": 11,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T11:12:17Z",
-      "cycle_id": "20261018T111043Z_b5875c",
-      "n_meet_bar_actual": 11,
-      "n_meet_bar_shadow": 11,
-      "n_unknown_claims": 3,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-18T11:13:37Z",
       "cycle_id": "20261018T111217Z_bc7717",
@@ -629,6 +585,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T13:07:38Z",
+      "cycle_id": "20261018T130638Z_2e72eb",
+      "n_meet_bar_actual": 14,
+      "n_meet_bar_shadow": 12,
+      "n_unknown_claims": 13,
+      "drop_out_of_bar": 2,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T13:08:45Z",
+      "cycle_id": "20261018T130738Z_8926cc",
+      "n_meet_bar_actual": 14,
+      "n_meet_bar_shadow": 12,
+      "n_unknown_claims": 14,
+      "drop_out_of_bar": 2,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T13:09:52Z",
+      "cycle_id": "20261018T130845Z_a8bc9d",
+      "n_meet_bar_actual": 15,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 14,
+      "drop_out_of_bar": 2,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }
