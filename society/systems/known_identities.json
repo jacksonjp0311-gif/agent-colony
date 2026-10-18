@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T03:05:07Z",
-  "n": 325,
+  "updated_at": "2026-10-18T03:14:04Z",
+  "n": 327,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -59,9 +59,11 @@
     "authored_fibonacci_addition__legendre_duplication_small_w1",
     "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_fibonacci_addition__narayana_sum_w1",
+    "authored_frontier_cong_x0058ae91_w1",
     "authored_frontier_cong_x16b72492_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
+    "authored_frontier_le_x1c0eba57_w1",
     "authored_frontier_le_x46c5cc8a_w1",
     "authored_frontier_le_x9abb4c98_w1",
     "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
@@ -199,9 +201,7 @@
     "chain `authored_sieve_two_counter_g2_w1` citing effective equidistribution of polynomial trajector (cycle 345)",
     "chain `authored_sieve_two_counter_g2_w1` citing proofs of four takigiku--tsuchioka conjectures on",
     "chain `authored_sieve_two_counter_g2_w1` citing proofs of four takigiku--tsuchioka conjectures on (cycle 344)",
-    "chain `derived_chain_stress` citing new algebraic points on covers of elliptic c",
-    "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves",
-    "chain `derived_chain_stress` citing new algebraic points on covers of elliptic curves (cycle 159)"
+    "chain `derived_chain_stress` citing new algebraic points on covers of elliptic c"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

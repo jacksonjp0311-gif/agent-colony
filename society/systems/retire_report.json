@@ -1,20 +1,10 @@
 {
- "ts": "2026-10-18T03:06:16Z",
+ "ts": "2026-10-18T03:13:36Z",
  "mode": "live",
- "n_authored": 142,
- "n_candidates": 1,
- "by_category": {
-  "sweep": 1
- },
- "candidates": [
-  {
-   "name": "authored_sieve_hl_within_g2_6_4_w1",
-   "category": "sweep",
-   "family": "authored_sieve_hl_within",
-   "expected": 0.9932,
-   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 16 other Oracle-passed members, expected = s/(s+K) = 0.993 >= 0.95 (K=0.10921); 16 members stay"
-  }
- ],
+ "n_authored": 143,
+ "n_candidates": 0,
+ "by_category": {},
+ "candidates": [],
  "rule": {
   "expected_min": 0.95,
   "keep_min": 3,
@@ -22,12 +12,9 @@
   "grace_hours": 2.0,
   "max_per_run": 60
  },
- "cycle_id": "20261018T030605Z_f8a3d1",
+ "cycle_id": "20261018T031327Z_bd0fe1",
  "applied": {
-  "applied": 1,
-  "names": [
-   "authored_sieve_hl_within_g2_6_4_w1"
-  ]
+  "applied": 0
  },
- "n_protected": 141
+ "n_protected": 142
 }

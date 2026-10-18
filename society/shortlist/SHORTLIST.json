@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-18T03:07:50Z",
+  "ts": "2026-10-18T03:14:51Z",
   "view_only": true,
   "n_considered": 58,
   "n_meet_bar": 44,
   "n_groups": 44,
-  "n_authored_groups": 29,
-  "n_building_block_groups": 15,
+  "n_authored_groups": 30,
+  "n_building_block_groups": 14,
   "top": [
     {
       "id": "imp_17731c_50",
@@ -459,7 +459,7 @@
         "P_shadow": 0.7518,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6511,
-        "shadow_pos": 18
+        "shadow_pos": 19
       },
       "group_count": 1,
       "group_ids": [
@@ -498,7 +498,7 @@
         "P_shadow": 0.7516,
         "meets_bar_shadow": true,
         "rank_shadow": 0.651,
-        "shadow_pos": 19
+        "shadow_pos": 20
       },
       "group_count": 1,
       "group_ids": [
@@ -537,7 +537,7 @@
         "P_shadow": 0.7511,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6507,
-        "shadow_pos": 20
+        "shadow_pos": 21
       },
       "group_count": 1,
       "group_ids": [
@@ -576,7 +576,7 @@
         "P_shadow": 0.751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6506,
-        "shadow_pos": 21
+        "shadow_pos": 22
       },
       "group_count": 1,
       "group_ids": [
@@ -615,7 +615,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 23
+        "shadow_pos": 24
       },
       "group_count": 1,
       "group_ids": [
@@ -654,7 +654,7 @@
         "P_shadow": 0.7504,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 24
+        "shadow_pos": 25
       },
       "group_count": 1,
       "group_ids": [
@@ -693,7 +693,7 @@
         "P_shadow": 0.7503,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6502,
-        "shadow_pos": 22
+        "shadow_pos": 23
       },
       "group_count": 1,
       "group_ids": [
@@ -732,7 +732,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 25
+        "shadow_pos": 26
       },
       "group_count": 1,
       "group_ids": [
@@ -771,7 +771,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 26
+        "shadow_pos": 27
       },
       "group_count": 1,
       "group_ids": [
@@ -810,7 +810,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 27
+        "shadow_pos": 28
       },
       "group_count": 1,
       "group_ids": [
@@ -821,8 +821,8 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-18T03:07:50Z",
-    "cycle_id": "20261018T030605Z_f8a3d1",
+    "ts": "2026-10-18T03:14:51Z",
+    "cycle_id": "20261018T031327Z_bd0fe1",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -831,7 +831,7 @@
     },
     "n_meet_bar_actual": 44,
     "n_meet_bar_shadow": 32,
-    "n_unknown_claims": 29,
+    "n_unknown_claims": 31,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
       "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
@@ -842,17 +842,17 @@
       "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_fermat_little__lucas_theorem_binomial_w1",
+      "authored_frontier_cong_x0058ae91_w1",
       "authored_frontier_cong_x16b72492_w1",
       "authored_frontier_cong_x5cb35120_w1",
       "authored_frontier_cong_x83358e42_w1",
+      "authored_frontier_le_x1c0eba57_w1",
       "authored_frontier_le_x9abb4c98_w1",
       "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "authored_multinomial_three__newton_identities_w1",
       "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
       "authored_polynomial_remainder__telescoping_sum_w1",
-      "authored_sieve_hl_within_g2_6_6_w1",
-      "authored_sieve_hl_within_g6_2_4_w1",
-      "authored_sieve_hl_within_g6_2_6_w1"
+      "authored_sieve_hl_within_g2_6_6_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -1013,15 +1013,15 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
-    "target_unresolved": 3,
     "no_oracle_pass_in_own_cycle": 11,
-    "status": 8,
+    "target_unresolved": 2,
+    "status": 9,
     "hearing": 2,
     "novelty_killed": 8
   },
@@ -1032,5 +1032,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T030605Z_f8a3d1"
+  "cycle_id": "20261018T031327Z_bd0fe1"
 }
