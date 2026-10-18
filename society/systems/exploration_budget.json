@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-18T15:41:37Z",
+  "ts": "2026-10-18T15:48:40Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261018T154023Z_e569db"
+    "cycle_id": "20261018T154734Z_95ce77"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
   "last_oracle_passes": 433,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-18T11:42:36Z",
-      "cycle_id": "20261018T114121Z_871a2f",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-18T11:43:48Z",
-      "cycle_id": "20261018T114248Z_ec24ad",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-18T11:45:11Z",
-      "cycle_id": "20261018T114358Z_16b0ba",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
     {
       "ts": "2026-10-18T12:22:16Z",
       "cycle_id": "20261018T122117Z_9369ae",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-18T15:45:52Z",
+      "cycle_id": "20261018T154448Z_465afd",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-18T15:47:18Z",
+      "cycle_id": "20261018T154610Z_6bc395",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-18T15:48:44Z",
+      "cycle_id": "20261018T154734Z_95ce77",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-10-18T15:41:42Z",
+  "updated_at": "2026-10-18T15:48:44Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.016524,
     "hockey_stick": 0.016524,
@@ -314,12 +314,12 @@
     "binomial_inversion_small": 0.016524,
     "legendre_duplication_small": 0.016524,
     "stem_easy_pad_units": 0.016524,
-    "easy_pad_assoc_add": 0.001001,
-    "easy_pad_zero_identity": 0.001001,
-    "easy_pad_square_again": 0.001001,
-    "easy_pad_diff_squares": 0.001001,
-    "easy_pad_commutativity": 0.001001,
-    "easy_pad_abs_identity": 0.001001,
+    "easy_pad_assoc_add": 0.001,
+    "easy_pad_zero_identity": 0.001,
+    "easy_pad_square_again": 0.001,
+    "easy_pad_diff_squares": 0.001,
+    "easy_pad_commutativity": 0.001,
+    "easy_pad_abs_identity": 0.001,
     "fermat_little": 0.02185,
     "euler_theorem": 0.02185,
     "wilson_theorem": 0.02185,

@@ -2036,33 +2036,95 @@
     ]
    },
    "ts": "2026-10-18T15:41:52Z"
+  },
+  {
+   "cpu_s": 1.311,
+   "cycle_id": "20261018T154448Z_465afd",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 433,
+    "cpu_s": 1.311,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"smallest number\" \"number of divisors\" @0",
+     "keyword:more \"smallest number\" \"number of divisors\" @10",
+     "keyword:more \"smallest number\" \"number of divisors\" @20"
+    ]
+   },
+   "ts": "2026-10-18T15:46:03Z"
+  },
+  {
+   "cpu_s": 0.955,
+   "cycle_id": "20261018T154610Z_6bc395",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 455,
+    "cpu_s": 0.955,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"p + 2q\" @0",
+     "keyword:more trajectory @0",
+     "keyword:more trajectory @10"
+    ]
+   },
+   "ts": "2026-10-18T15:47:27Z"
+  },
+  {
+   "cpu_s": 0.024,
+   "cycle_id": "20261018T154734Z_95ce77",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 1,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.024,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more trajectory @20"
+    ]
+   },
+   "ts": "2026-10-18T15:48:48Z"
   }
  ],
  "last": {
-  "cpu_s": 0.216,
-  "cycle_id": "20261018T154023Z_e569db",
+  "cpu_s": 0.024,
+  "cycle_id": "20261018T154734Z_95ce77",
   "discovered": [],
   "mode": "live",
-  "net_requests": 3,
+  "net_requests": 1,
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 421,
-   "cpu_s": 0.215,
+   "candidates_seen": 462,
+   "cpu_s": 0.024,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": [
-    "keyword:more \"no twin primes\" @0",
-    "keyword:more \"between n^2 and (n+1)^2\" @0",
-    "keyword:more \"least even number\" primes @0"
+    "keyword:more trajectory @20"
    ]
   },
-  "ts": "2026-10-18T15:41:52Z"
+  "ts": "2026-10-18T15:48:48Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 67,
+  "cursor": 77,
   "exhausted": [
    "keyword:hard Collatz",
    "keyword:hard Goldbach",
@@ -2070,6 +2132,7 @@
    "keyword:more \"cousin primes\"",
    "keyword:more \"least even number\" primes",
    "keyword:more \"no twin primes\"",
+   "keyword:more \"p + 2q\"",
    "keyword:more \"prime quadruplets\"",
    "keyword:more \"prime triples\"",
    "keyword:more \"sexy primes\"",
@@ -2138,6 +2201,12 @@
     "name": "Number of twin prime pairs below 10^n.",
     "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
+   },
+   "A007539": {
+    "n_pub": 8,
+    "name": "a(n) = first n-fold perfect (or n-multiperfect) number.",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "no engine family for its definition"
    },
    "A007671": {
     "n_pub": 18,
@@ -2349,6 +2418,30 @@
     "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
    },
+   "A070743": {
+    "n_pub": 13,
+    "name": "n sets a new record for the index of the (presumably) last palindrome in the 'Reverse and Add' traje",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A070744": {
+    "n_pub": 13,
+    "name": "Records for the index of the (presumably) last palindrome in the 'Reverse and Add' trajectory of n.",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A071887": {
+    "n_pub": 8,
+    "name": "Conjectured values of n whose trajectory under map x -> A002487(x)*A002487(x+1) does not go into a c",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A072147": {
+    "n_pub": 44,
+    "name": "Records for the length of the preperiodic part of the 'Reverse and Subtract' trajectories.",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
    "A072296": {
     "n_pub": 16,
     "name": "Least number starting a chain of exactly n consecutive even integers that do not have cototient-inve",
@@ -2372,6 +2465,12 @@
     "name": "Numbers n such that sum k/d(k) is an integer, where d(k) is the k-th divisor of n (the divisors of n",
     "query": "keyword:more \"d(k)\"",
     "status": "beyond engine reach to verify"
+   },
+   "A073144": {
+    "n_pub": 5,
+    "name": "Smallest m such that the 'Reverse and Subtract' trajectory (cf. A072137) of m leads to A073142(n).",
+    "query": "keyword:more trajectory",
+    "status": "too few published terms to identify"
    },
    "A074700": {
     "n_pub": 11,
@@ -2529,6 +2628,12 @@
     "query": "keyword:more \"twin primes\"",
     "status": "matched"
    },
+   "A092212": {
+    "n_pub": 8,
+    "name": "a(n) = smallest non-palindromic k such that the base-2 Reverse and Add! trajectory of k is palindrom",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
    "A093737": {
     "n_pub": 18,
     "name": "Number of prime pairs below 10^n having a difference of 4.",
@@ -2552,6 +2657,12 @@
     "name": "Number of divisor chains of length 2n+1 which are both cyclic and anchored.",
     "query": "keyword:more \"number of divisors\"",
     "status": "beyond engine reach to verify"
+   },
+   "A098202": {
+    "n_pub": 54,
+    "name": "a(n) is the length of the iteration trajectory when the cototient function (A051953) is applied to t",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
    },
    "A098860": {
     "n_pub": 16,
@@ -2805,6 +2916,18 @@
     "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
    },
+   "A145078": {
+    "n_pub": 51,
+    "name": "Minimal value of cycle of trajectory of n described in A098282, or -1 if no cycle is ever reached.",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A145079": {
+    "n_pub": 51,
+    "name": "Length of cycle of trajectory of n described in A098282, or -1 if no cycle is ever reached.",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
    "A146214": {
     "n_pub": 11,
     "name": "a(n) = (10^n)-th lower twin prime.",
@@ -2823,11 +2946,35 @@
     "query": "keyword:more \"number of divisors\" records",
     "status": "no family item reproduces all published terms"
    },
+   "A156055": {
+    "n_pub": 39,
+    "name": "Define a map f by f(0) = f(1) = 0, otherwise f(k) = A087712(k); then a(n) is the number of steps for",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A160560": {
+    "n_pub": 41,
+    "name": "Almost covering numbers.",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "no engine family for its definition"
+   },
    "A160910": {
     "n_pub": 11,
     "name": "Decimal expansion of c = sum over twin primes (p, p+2) of (1/p^2 + 1/(p+2)^2).",
     "query": "keyword:more \"twin primes\"",
     "status": "keyword cons"
+   },
+   "A161590": {
+    "n_pub": 14,
+    "name": "Initial value x of a RATS trajectory x->A036839(x) ending in a cycle unreachable by any smaller init",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A164829": {
+    "n_pub": 937,
+    "name": "a(1) = 2; a(n) for n > 1 is the smallest k > a(n-1) such that the harmonic mean of the divisors of k",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "too few published terms to identify"
    },
    "A164950": {
     "n_pub": 20,
@@ -3033,6 +3180,12 @@
     "query": "keyword:more subsets sum square",
     "status": "no engine family for its definition"
    },
+   "A217541": {
+    "n_pub": 11,
+    "name": "Smallest numbers n such that s! + n^2 and (s+1)! + n^2 are squares for some s.",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A217935": {
     "n_pub": 6,
     "name": "Strength records in 3x+1 problem.",
@@ -3050,6 +3203,12 @@
     "name": "Numbers achieving strength records in 3x+1 problem.",
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
+   },
+   "A218830": {
+    "n_pub": 20,
+    "name": "Largest odd integer not of the form p+2q with p, q, p^2+4(2^n-1)q^2 all prime, or 0 if there would b",
+    "query": "keyword:more \"p + 2q\"",
+    "status": "no family item reproduces all published terms"
    },
    "A219696": {
     "n_pub": 35,
@@ -3273,6 +3432,12 @@
     "query": "keyword:more \"d(k)\"",
     "status": "beyond engine reach to verify"
    },
+   "A241813": {
+    "n_pub": 22,
+    "name": "Numbers disqualified from being in A019505 for not being the smallest number with their respective n",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A243885": {
     "n_pub": 7,
     "name": "Smallest prime p_n which generates n primes of the form (p_n^i - 4) when i runs through the first n ",
@@ -3326,6 +3491,18 @@
     "name": "Numbers n such that the ratio of tripling steps to halving steps in the Collatz (3x+1) trajectory of",
     "query": "keyword:more Collatz",
     "status": "beyond engine reach to verify"
+   },
+   "A252801": {
+    "n_pub": 11,
+    "name": "Primes whose trajectories under the map x -> A039951(x) enter the cycle {2, 1093}.",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A252802": {
+    "n_pub": 3,
+    "name": "Primes whose trajectory under the map x -> A039951(x) enters the cycle {3, 11, 71}.",
+    "query": "keyword:more trajectory",
+    "status": "too few published terms to identify"
    },
    "A254783": {
     "n_pub": 30,
@@ -3398,6 +3575,12 @@
     "name": "Least k starting a chain or (2n+1)-tuple of consecutive integers {h(k+i)}, i=0,1,...,2n (excluding t",
     "query": "keyword:more Collatz",
     "status": "beyond engine reach to verify"
+   },
+   "A268479": {
+    "n_pub": 14,
+    "name": "For p = prime(n), number of primes (including p) in the trajectory of p under the procedure in A2445",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
    },
    "A268486": {
     "n_pub": 25,
@@ -3555,6 +3738,12 @@
     "query": "keyword:hard Goldbach",
     "status": "no engine family for its definition"
    },
+   "A291788": {
+    "n_pub": 59,
+    "name": "Numbers n whose trajectory under the map k -> (psi(k)+phi(k))/2 (A291784) grows without limit.",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
    "A292366": {
     "n_pub": 14,
     "name": "Numbers n with record number of primes p such that n*p is a Carmichael number.",
@@ -3609,6 +3798,12 @@
     "query": "keyword:more subsets sum square",
     "status": "beyond engine reach to verify"
    },
+   "A306482": {
+    "n_pub": 17,
+    "name": "Records for the number of 'Reverse and Add' steps in base 2 needed for a Lychrel number to join the ",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
    "A306539": {
     "n_pub": 15,
     "name": "Decimal expansion of Sum (1/p - 1/q) as (p, q) runs through the twin primes.",
@@ -3620,6 +3815,12 @@
     "name": "A Goldbug number is an even number 2m for which there exists a subset of the prime non-divisors of 2",
     "query": "keyword:more Goldbach",
     "status": "too few published terms to identify"
+   },
+   "A306851": {
+    "n_pub": 7,
+    "name": "Records for the number of 'Reverse and Add' steps in base 8, needed for a Lychrel number to join the",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
    },
    "A308550": {
     "n_pub": 7,
@@ -3668,6 +3869,12 @@
     "name": "Indices of highly composite numbers A002182 which are between a twin prime pair.",
     "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
+   },
+   "A323976": {
+    "n_pub": 11,
+    "name": "Records for the number of 'Reverse and Add' steps, needed for a Lychrel number to join the trajector",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
    },
    "A326383": {
     "n_pub": 18,
@@ -3722,6 +3929,12 @@
     "name": "Composite numbers k such that D(k) == 3 (mod k), where D(k) is the k-th central Delannoy number (A00",
     "query": "keyword:more \"d(k)\"",
     "status": "beyond engine reach to verify"
+   },
+   "A330777": {
+    "n_pub": 48,
+    "name": "Numbers k such that k and Lucas(k) have the same number of divisors.",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A330816": {
     "n_pub": 28,
@@ -3855,6 +4068,12 @@
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A335917": {
+    "n_pub": 49,
+    "name": "a(n) is the number of similarity classes of abelian groups with exactly n subgroups (see reference f",
+    "query": "keyword:more \"p + 2q\"",
+    "status": "no engine family for its definition"
+   },
    "A336093": {
     "n_pub": 24,
     "name": "Let P(n) = primorial(n) = A002110(n); a(n) is the number of primes q < P(n) such that P(n) - q is al",
@@ -3878,6 +4097,12 @@
     "name": "Terms of A083209 with a record number of divisors.",
     "query": "keyword:more \"number of divisors\" records",
     "status": "no family item reproduces all published terms"
+   },
+   "A337924": {
+    "n_pub": 5,
+    "name": "Odd numbers, x, such that for all primes (p,q) such that x = p + 2q, x + 2p and x + 2q are composite",
+    "query": "keyword:more \"p + 2q\"",
+    "status": "too few published terms to identify"
    },
    "A338381": {
     "n_pub": 5,
@@ -3927,11 +4152,35 @@
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A340159": {
+    "n_pub": 8,
+    "name": "a(n) is the smallest number m such that numbers m, m + 1, m + 2, ..., m + n - 1 have k, 2*k, 3*k, ..",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A340230": {
+    "n_pub": 7,
+    "name": "a(n) is the smallest number m such that numbers m, m + 1, m + 2, ..., m + n - 1 have k, 2*k, 4*k, 8*",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A340514": {
+    "n_pub": 23,
+    "name": "a(n) is the minimal order of a group in which all groups of order n can be embedded.",
+    "query": "keyword:more \"p + 2q\"",
+    "status": "no engine family for its definition"
+   },
    "A341211": {
     "n_pub": 15,
     "name": "Smallest prime p such that (p^(2^n) + 1)/2 is prime.",
     "query": "keyword:more \"(n+1)^2\" primes",
     "status": "no engine family for its definition"
+   },
+   "A341213": {
+    "n_pub": 8,
+    "name": "a(n) is the smallest number m such that numbers m, m - 1, m - 2, ..., m - n + 1 have k, 2*k, 3*k, ..",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A342714": {
     "n_pub": 9,
@@ -3957,6 +4206,12 @@
     "query": "keyword:more subsets sum prime",
     "status": "keyword less"
    },
+   "A347332": {
+    "n_pub": 5,
+    "name": "Unsafe primes (primes in A059456) for which there is exactly one divisor d of p - 1 such that o(d) =",
+    "query": "keyword:more \"p + 2q\"",
+    "status": "too few published terms to identify"
+   },
    "A347422": {
     "n_pub": 7,
     "name": "Numbers k such that the product of the number of divisors of k and the number of pairs of primes sum",
@@ -3979,6 +4234,12 @@
     "n_pub": 9,
     "name": "Primes p such that q divides p^2 + p + 1, r divides q^2 + q + 1 and p divides r^2 + r + 1 for some p",
     "query": "keyword:more \"prime triples\"",
+    "status": "no engine family for its definition"
+   },
+   "A348184": {
+    "n_pub": 7,
+    "name": "a(n) is the least k such that A348172(k) = n or -1 if no such k exists.",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
     "status": "no engine family for its definition"
    },
    "A348453": {
@@ -4035,6 +4296,18 @@
     "query": "keyword:more Goldbach",
     "status": "no engine family for its definition"
    },
+   "A351041": {
+    "n_pub": 35,
+    "name": "Minimal number of steps for a Racetrack car (using Moore neighborhood) to go around a circle of radi",
+    "query": "keyword:more \"p + 2q\"",
+    "status": "no engine family for its definition"
+   },
+   "A351042": {
+    "n_pub": 25,
+    "name": "Minimal number of steps for a Racetrack car (using von Neumann neighborhood) to go around a circle o",
+    "query": "keyword:more \"p + 2q\"",
+    "status": "no engine family for its definition"
+   },
    "A351224": {
     "n_pub": 32,
     "name": "Length of record run of consecutive numbers having the same Collatz trajectory length.",
@@ -4089,6 +4362,12 @@
     "query": "keyword:more \"number of divisors\" records",
     "status": "no family item reproduces all published terms"
    },
+   "A353858": {
+    "n_pub": 25,
+    "name": "Number of integer compositions of n with run-sum trajectory ending in a singleton.",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
    "A354444": {
     "n_pub": 4,
     "name": "Least initial term of a set of n consecutive primes {p_1 .. p_n} such that Sum_{k=p_1..p_2} d(k) = .",
@@ -4136,6 +4415,12 @@
     "name": "Position of first appearance of n in A355382, where A355382(m) = number of divisors d of m such that",
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A355550": {
+    "n_pub": 8,
+    "name": "a(n) is the smallest number k such that k occurs in the Reverse-and-Multiply trajectories of exactly",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
    },
    "A355568": {
     "n_pub": 36,
@@ -4202,6 +4487,12 @@
     "name": "Index k of partition function p such that p(k) is a member of a cousin prime pair.",
     "query": "keyword:more \"cousin primes\"",
     "status": "beyond engine reach to verify"
+   },
+   "A356136": {
+    "n_pub": 9,
+    "name": "a(n) is the smallest number k > 1 such that, in the interval 1..k, there are as many integers that h",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A356793": {
     "n_pub": 12,
@@ -4574,6 +4865,24 @@
     "name": "Maximum dropping time for numbers between 2^n and 2^(n+1)-1 under the Collatz map A014682.",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A398670": {
+    "n_pub": 24,
+    "name": "a(n) is the smallest number m with n divisors such that m+1 has 2*n divisors; or 0 if no such number",
+    "query": "keyword:more \"smallest number\" \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A398794": {
+    "n_pub": 29,
+    "name": "Number of values 0 <= r < 2^n such that the trajectories of r and r+1 under the 5x+1 map f (A185452)",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
+   },
+   "A398795": {
+    "n_pub": 29,
+    "name": "Number of values 0 <= r < 2^n such that the trajectories of r and r+1 under the map f(x) = x/2 for x",
+    "query": "keyword:more trajectory",
+    "status": "no engine family for its definition"
    },
    "A399244": {
     "n_pub": 24,
