@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T15:59:08Z",
-  "passes": 434,
+  "updated_at": "2026-10-18T16:50:22Z",
+  "passes": 435,
   "kills": 186,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3,
+  "kill_rate": 0.2995,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -15,7 +15,6 @@
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
-    "authored_bell_stirling_sum__burnside_necklaces_w1",
     "authored_bezout_identity__cayley_hamilton_3x3_w1",
     "authored_bezout_identity__cayley_tree_count_w1",
     "authored_cayley_tree_count__complete_bipartite_trees_w1",
@@ -33,6 +32,7 @@
     "authored_frontier_cong_x23fb70a1_w1",
     "authored_frontier_cong_x29d14f44_w1",
     "authored_frontier_cong_x2f9c7891_w1",
+    "authored_frontier_cong_x396d7d8c_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_cong_x94023555_w1",
@@ -91,7 +91,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-18T15:59:08Z",
+    "ts": "2026-10-18T16:50:22Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -101,16 +101,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_divides_xdd6cdac8_w1` kind=hard_enable. lemma mutation authored_frontier_divides_xdd6cdac8_w1 0.8656->0.8656 (compared 0.857->0.857; speed_noise:+0.001) Not",
-      "attack": "WEIGH: `authored_frontier_divides_xdd6cdac8_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_cong_x396d7d8c_w1` kind=hard_enable. lemma mutation authored_frontier_cong_x396d7d8c_w1 0.8667->0.8667 (compared 0.857->0.857; speed_noise:+0.001) Not disco",
+      "attack": "WEIGH: `authored_frontier_cong_x396d7d8c_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 196,
-        "hard_n": 196,
-        "score": 0.8656,
+        "hard_pass": 197,
+        "hard_n": 197,
+        "score": 0.8663,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -121,10 +121,10 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 196,
-        "hard_n": 196,
+        "hard_pass": 197,
+        "hard_n": 197,
         "ok": true,
-        "score": 0.8656,
+        "score": 0.8667,
         "shifted_window": {
           "ok": true,
           "reason": "shift_not_applicable(no_literal_range)",
@@ -205,15 +205,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_frontier_divides_xdd6cdac8_w1",
+      "mutation": "authored_frontier_cong_x396d7d8c_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_frontier_divides_xdd6cdac8_w1",
+    "mutation": "authored_frontier_cong_x396d7d8c_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261018T155833Z_f5f384",
+    "cycle_id": "20261018T164942Z_e2631f",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
