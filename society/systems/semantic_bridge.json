@@ -2,39 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 60,
-    "unbridged": 19
+    "unbridged": 21
   },
   "rows": [
-    {
-      "mutation": "authored_sieve_residue_bal_g2_4_2_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "residue_bal",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T14:25:14Z",
-      "cycle_id": "20261017T142450Z_2469eb",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_sieve_residue_bal_g2_4_6_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "residue_bal",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T15:37:42Z",
-      "cycle_id": "20261017T153715Z_e0b942",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_sieve_hl_within_g2_6_4_w1",
       "status": "ok",
@@ -809,8 +779,28 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_newdata_a006666_k10001_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-18T13:12:57Z",
+      "cycle_id": "20261018T131222Z_022700",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_newdata_a025586_k10001_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-18T13:16:06Z",
+      "cycle_id": "20261018T131524Z_a78a7f",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-18T13:08:04Z",
+  "updated_at": "2026-10-18T13:16:06Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

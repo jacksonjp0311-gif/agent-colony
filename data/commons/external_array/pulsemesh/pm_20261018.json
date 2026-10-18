@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-18T13:09:35Z",
+  "ts": "2026-10-18T13:16:38Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,45 +8,45 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.288000918559598,
+      "latest": -6.2616523494980125,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-18T13:02:00Z",
-          "v": -8.480447429909656
+          "t": "2026-10-18T13:10:00Z",
+          "v": -8.043791340919967
         },
         {
-          "t": "2026-10-18T13:02:00Z",
-          "v": -6.279747821837047
+          "t": "2026-10-18T13:10:00Z",
+          "v": -6.250099805523148
         },
         {
-          "t": "2026-10-18T13:03:00Z",
-          "v": -8.64818134265776
+          "t": "2026-10-18T13:11:00Z",
+          "v": -8.059848617233104
         },
         {
-          "t": "2026-10-18T13:03:00Z",
-          "v": -6.283733477364544
+          "t": "2026-10-18T13:11:00Z",
+          "v": -6.252745880463835
         },
         {
-          "t": "2026-10-18T13:04:00Z",
-          "v": -8.39969758783084
+          "t": "2026-10-18T13:12:00Z",
+          "v": -8.138651083259575
         },
         {
-          "t": "2026-10-18T13:04:00Z",
-          "v": -6.285836520458565
+          "t": "2026-10-18T13:12:00Z",
+          "v": -6.256603794552252
         },
         {
-          "t": "2026-10-18T13:05:00Z",
-          "v": -8.325056465754386
+          "t": "2026-10-18T13:13:00Z",
+          "v": -8.086408293087455
         },
         {
-          "t": "2026-10-18T13:05:00Z",
-          "v": -6.288000918559598
+          "t": "2026-10-18T13:13:00Z",
+          "v": -6.2616523494980125
         }
       ],
       "live": true,
-      "ts": "2026-10-18T13:09:35Z"
+      "ts": "2026-10-18T13:16:38Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
@@ -95,7 +95,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-18T13:09:35Z"
+      "ts": "2026-10-18T13:16:38Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -155,7 +155,7 @@
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-11&endtime=2026-10-18&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-18T13:09:35Z"
+      "ts": "2026-10-18T13:16:38Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.58056640625,
-          "disk_free_percent": 59.05257895845257,
-          "process_count": 151,
-          "uptime_hours": 0.07503888888888889,
+          "load1": 0.64501953125,
+          "disk_free_percent": 59.05165077902021,
+          "process_count": 154,
+          "uptime_hours": 0.14438055555555554,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervm8k3b6",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.58056640625,
+      "latest_load1": 0.64501953125,
       "live": true,
-      "ts": "2026-10-18T13:09:35Z"
+      "ts": "2026-10-18T13:16:38Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 10.13757399999804,
-      "mean_ms": 11.724518500003,
+      "latest_ms": 5.593445000044994,
+      "mean_ms": 5.724121249983227,
       "items": [
         {
           "probe": 0,
-          "ms": 8.871128000009776
+          "ms": 5.931674999942516
         },
         {
           "probe": 1,
-          "ms": 15.121480999994219
+          "ms": 5.69796000002043
         },
         {
           "probe": 2,
-          "ms": 12.767891000009968
+          "ms": 5.673404999924969
         },
         {
           "probe": 3,
-          "ms": 10.13757399999804
+          "ms": 5.593445000044994
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-18T13:09:35Z"
+      "ts": "2026-10-18T13:16:38Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.58056640625 tcp_probe mean_ms=11.724518500003 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.64501953125 tcp_probe mean_ms=5.724121249983227 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.58056640625,
-        "probe_ms": 11.724518500003,
+        "load1": 0.64501953125,
+        "probe_ms": 5.724121249983227,
         "probe_ok": true
       },
       "domains": [
