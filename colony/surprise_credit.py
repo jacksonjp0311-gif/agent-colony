@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import ast
 import json
+import re
 import math
 import os
 from datetime import datetime, timezone
@@ -118,11 +119,14 @@ def value(name: str, base: float) -> float:
         except Exception:  # noqa: BLE001
             _CACHE["reg"] = {}
     r = _CACHE["reg"].get(name)
+    tier_w = 1.0
+    if r is None and re.search(r"_w[23]$", name):   # farther re-test of a kept, open surprise: half credit
+        r, tier_w = _CACHE["reg"].get(re.sub(r"_w[23]$", "_w1", name)), 0.5
     if r is None:
         return base
     key = "c:" + name
     if key not in _CACHE:
-        _CACHE[key] = credit(r)["credit"]
+        _CACHE[key] = round(tier_w * credit(r)["credit"], 4)
     return _CACHE[key]
 
 

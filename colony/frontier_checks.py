@@ -34,24 +34,42 @@ def ensure_bridges(src: str, marker: str) -> str:
     return src.replace(marker, BRIDGE_SRC + "\n\n" + marker, 1)
 
 
-def check_name(r: dict[str, Any]) -> str:
-    return f"{PREFIX}{r['kind']}_x{(r.get('sig') or '0' * 8)[:8]}_w1"
+def check_name(r: dict[str, Any], tier: int = 1) -> str:
+    return f"{PREFIX}{r['kind']}_x{(r.get('sig') or '0' * 8)[:8]}_w{tier}"
 
 
-def windows(r: dict[str, Any]) -> list[tuple[int, int]]:
+# idle fix (James 2026-10-18 12:24 PM ET): several frontier checks may wait for the Oracle at once,
+# and a kept, still-open surprise earns farther re-test windows (w2, w3) as the next frontier work.
+INFLIGHT_DEFAULT = 1
+RETEST_TIERS = (2, 3)
+TIER_RANGES = {2: {"cheap": (6000, 24000), "exp": (900, 1400)}, 3: {"cheap": (24000, 42000), "exp": (1400, 2000)}}
+
+
+def inflight_cap() -> int:
+    import os
+    try:
+        return max(1, min(5, int(os.environ.get("COLONY_FRONTIER_INFLIGHT", INFLIGHT_DEFAULT))))
+    except ValueError:
+        return INFLIGHT_DEFAULT
+
+
+def windows(r: dict[str, Any], tier: int = 1) -> list[tuple[int, int]]:
     from colony.frontier_conjectures import EXPO, parse, prims_of
     ps = prims_of(parse(r["lhs"])) | (prims_of(parse(r["rhs"])) if r.get("rhs") else set())
-    hi = EXP_HI if ps & set(EXPO) else CHEAP_HI
-    lo = 40
+    expo = bool(ps & set(EXPO))
+    if tier == 1:
+        lo, hi = 40, EXP_HI if expo else CHEAP_HI
+    else:
+        lo, hi = TIER_RANGES[tier]["exp" if expo else "cheap"]
     step = (hi - lo) // 3
     return [(lo + i * step + 1, lo + (i + 1) * step) for i in range(3)]
 
 
-def build(r: dict[str, Any]) -> dict[str, Any] | None:
+def build(r: dict[str, Any], tier: int = 1) -> dict[str, Any] | None:
     import ast
-    name = check_name(r)
+    name = check_name(r, tier)
     claim = {"kind": r["kind"], "lhs": r["lhs"], "rhs": r.get("rhs") or "", "params": r.get("params") or {}}
-    wins = windows(r)
+    wins = windows(r, tier)
     lit = repr(dict(sorted(claim.items())))
     expr = f"all(type(c := frontier_holds({lit}, a, b)) is int and c > 0 for a, b in {wins!r})"
     try:
@@ -134,6 +152,54 @@ def candidates(existing_names: set[str], limit: int = 6, state: dict[str, Any] |
             out.append(c)
         if len(out) >= limit:
             break
+    if not out:
+        out = retest_candidates(existing_names, reg, limit)
+    return out
+
+
+def retest_candidates(existing_names: set[str], reg: list[dict[str, Any]], limit: int = 6) -> list[dict[str, Any]]:
+    """Farther re-test windows for kept surprises that are still OPEN: their w1 check passed the
+    Oracle, no certificate proves them (colony.proof_path), nothing explains them (surprise
+    credit > 0). Ordered by surprise credit; at most tiers w2, w3 per claim."""
+    try:
+        from colony.oracle import ORACLE_LOG
+        passed = {json.loads(ln).get("mutation") for ln in ORACLE_LOG.read_text(encoding="utf-8").splitlines()
+                  if PREFIX in ln and '"passed": true' in ln}
+    except Exception:  # noqa: BLE001
+        passed = set()
+    try:
+        from colony import surprise_credit
+        cred = lambda r: surprise_credit.credit(r)["credit"]  # noqa: E731
+    except Exception:  # noqa: BLE001
+        cred = lambda r: 0.0  # noqa: E731
+    proved = set()
+    try:
+        from colony.proof_path import REPORT
+        res = json.loads(REPORT.read_text(encoding="utf-8")).get("results") or {}
+        proved = {s for s, x in res.items() if x.get("status") == "proved"}
+    except Exception:  # noqa: BLE001
+        pass
+    rows = []
+    for r in reg:
+        if r.get("certificate") or r.get("statement") in proved or check_name(r) not in passed:
+            continue
+        c = cred(r)
+        if c <= 0:
+            continue
+        for tier in RETEST_TIERS:
+            if check_name(r, tier) not in existing_names:
+                prev = check_name(r, tier - 1)
+                if tier == 2 or prev in passed:
+                    rows.append((-c, tier, r))
+                break
+    rows.sort(key=lambda x: (x[1], x[0]))
+    out = []
+    for _c, tier, r in rows[:limit]:
+        b = build(r, tier)
+        if b:
+            b["what"] = b["what"].replace("authored disabled frontier check",
+                                          f"authored disabled frontier RE-TEST (window tier {tier})")
+            out.append(b)
     return out
 
 

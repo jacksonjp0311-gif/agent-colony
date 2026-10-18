@@ -52,6 +52,11 @@ def slot_allows() -> bool:
     return "newdata" not in recent
 
 
+def recent_slots(k: int) -> list[str]:
+    from colony.new_data import STATE, _load
+    return list((_load(STATE, {}).get("author_slots") or [])[-k:])
+
+
 def note_slot(source: str) -> None:
     from colony.new_data import STATE, _load, _save
     st = _load(STATE, {})

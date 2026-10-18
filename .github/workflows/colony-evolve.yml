@@ -145,6 +145,8 @@ jobs:
           COLONY_SURPRISE: live
           # Stage 4: proof path with checker-verified certificates (colony/proof_path.py)
           COLONY_PROOF: live
+          # idle fix: up to 3 frontier checks waiting for the Oracle at once (code default 1)
+          COLONY_FRONTIER_INFLIGHT: "3"
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

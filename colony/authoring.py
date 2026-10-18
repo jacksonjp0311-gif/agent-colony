@@ -473,8 +473,13 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
             try:  # Stage 3 (COLONY_SURPRISE=live): no new sieve sweep the retire rule would remove at once
                 from colony import surprise_credit, retire as _rt
                 if surprise_credit.live():
-                    _orc = _rt._jsonl(_rt.ORACLE)
-                    inst = [c for c in inst if not _rt.sieve_sweep_blocked(c.get("name") or "", _orc)]
+                    # a sieve sweep the retire rule would remove is only a LAST resort: allowed
+                    # when no instrument check filled either of the last two authoring slots (the
+                    # hunt order already puts frontier and new-data work ahead of it)
+                    from colony import newdata_checks as _nk2
+                    if "instrument" in _nk2.recent_slots(2):
+                        _orc = _rt._jsonl(_rt.ORACLE)
+                        inst = [c for c in inst if not _rt.sieve_sweep_blocked(c.get("name") or "", _orc)]
             except Exception:
                 pass
             candidates += inst
@@ -489,7 +494,7 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
                 ast.parse(bridged)
                 src, tree = bridged, ast.parse(bridged)
                 bodies = _existing_bodies(tree)
-            if not frontier_checks.pending(src):
+            if len(frontier_checks.pending(src)) < frontier_checks.inflight_cap():
                 candidates += frontier_checks.candidates(names | rejected)
     except Exception:
         pass
