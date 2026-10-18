@@ -1,0 +1,139 @@
+{
+ "history": [
+  {
+   "cpu_s": 0.737,
+   "cycle_id": "20261018T122117Z_9369ae",
+   "discovered": [
+    {
+     "anum": "A002375",
+     "item": "gb_u_odd:terms",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": null,
+     "item": "gb_u_odd:recpos",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_u_odd:recval",
+     "status": "frontier unknown",
+     "why": "b-file not fetched (network / rate limit)"
+    }
+   ],
+   "mode": "shadow",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A002375",
+     "checked": "2026-10-18T12:22:31Z",
+     "cpu_a": 0.018,
+     "cpu_b": 0.624,
+     "cpu_s": 0.642,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 20000,
+     "item": "gb_u_odd:terms",
+     "linked_k_max": 20000,
+     "methods": [
+      "numpy FFT convolution of the prime indicator (floating point, rounded)",
+      "direct integer enumeration over an independent odd-only sieve"
+     ],
+     "n_values": 1000,
+     "ns": [
+      20001,
+      21000
+     ],
+     "op": "terms",
+     "pub_k_max": 20000,
+     "sha256": "e917a47a97e47f19",
+     "source": "https://oeis.org/A002375/b002375.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-10-18T12:22:31Z"
+    }
+   ],
+   "ts": "2026-10-18T12:22:32Z"
+  }
+ ],
+ "last": {
+  "cpu_s": 0.737,
+  "cycle_id": "20261018T122117Z_9369ae",
+  "discovered": [
+   {
+    "anum": "A002375",
+    "item": "gb_u_odd:terms",
+    "status": "matched",
+    "why": null
+   },
+   {
+    "anum": null,
+    "item": "gb_u_odd:recpos",
+    "status": "no_alignment",
+    "why": "OEIS terms differ beyond the probe"
+   },
+   {
+    "anum": null,
+    "item": "gb_u_odd:recval",
+    "status": "frontier unknown",
+    "why": "b-file not fetched (network / rate limit)"
+   }
+  ],
+  "mode": "shadow",
+  "net_requests": 6,
+  "oeis_index": "available",
+  "pushed": [
+   {
+    "anum": "A002375",
+    "checked": "2026-10-18T12:22:31Z",
+    "cpu_a": 0.018,
+    "cpu_b": 0.624,
+    "cpu_s": 0.642,
+    "d": 0,
+    "first_disagreement": null,
+    "frontier_n": 20000,
+    "item": "gb_u_odd:terms",
+    "linked_k_max": 20000,
+    "methods": [
+     "numpy FFT convolution of the prime indicator (floating point, rounded)",
+     "direct integer enumeration over an independent odd-only sieve"
+    ],
+    "n_values": 1000,
+    "ns": [
+     20001,
+     21000
+    ],
+    "op": "terms",
+    "pub_k_max": 20000,
+    "sha256": "e917a47a97e47f19",
+    "source": "https://oeis.org/A002375/b002375.txt",
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:22:31Z"
+   }
+  ],
+  "ts": "2026-10-18T12:22:32Z"
+ },
+ "mode": "shadow",
+ "tried_items": {
+  "gb_u_odd:recpos": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T12:22:23Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_u_odd:recval": {
+   "anum": null,
+   "status": "frontier unknown",
+   "ts": "2026-10-18T12:22:31Z",
+   "why": "b-file not fetched (network / rate limit)"
+  },
+  "gb_u_odd:terms": {
+   "anum": "A002375",
+   "status": "matched",
+   "ts": "2026-10-18T12:22:21Z",
+   "why": null
+  }
+ }
+}

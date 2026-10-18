@@ -1,0 +1,39 @@
+{
+ "claims": [
+  {
+   "anum": "A002375",
+   "bfile_sha256": "e917a47a97e47f19",
+   "checked": "2026-10-18T12:22:31Z",
+   "cpu_s": 0.642,
+   "cycle_id": "20261018T122117Z_9369ae",
+   "d": 0,
+   "data_file": "society/frontier/data/A002375_beyond.txt",
+   "first": [
+    20001,
+    593
+   ],
+   "frontier_k_max": 20000,
+   "frontier_source": "https://oeis.org/A002375/b002375.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "gb_u_odd:terms",
+   "k_range": [
+    20001,
+    21000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    21000,
+    984
+   ],
+   "linked_k_max": 20000,
+   "methods": [
+    "numpy FFT convolution of the prime indicator (floating point, rounded)",
+    "direct integer enumeration over an independent odd-only sieve"
+   ],
+   "n_terms": 1000,
+   "name": "From Goldbach conjecture: number of decompositions of 2n into an unordered sum of two odd primes.",
+   "op": "terms",
+   "ts": "2026-10-18T12:22:32Z"
+  }
+ ]
+}

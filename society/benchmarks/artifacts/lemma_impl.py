@@ -2246,6 +2246,15 @@ def check_authored_sieve_hl_within_g2_6_w1() -> bool:
     return all(type(c := sieve_count((2, 6), a, b)) is int and type(h := sieve_hl((2, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
+def check_authored_sieve_two_counter_g2_4_6_w1() -> bool:
+    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (2, 4, 6).
+    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((2, 4, 6), a, b)) is int and c > 0 and c == sieve_count((2, 4, 6), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2485,6 +2494,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_two_counter_g4_6_w1", check_authored_sieve_two_counter_g4_6_w1, True),
     ("authored_sieve_residue_bal_g6_w1", check_authored_sieve_residue_bal_g6_w1, True),
     ("authored_sieve_hl_within_g2_6_w1", check_authored_sieve_hl_within_g2_6_w1, True),
+    ("authored_sieve_two_counter_g2_4_6_w1", check_authored_sieve_two_counter_g2_4_6_w1, False),
 ]
 
 

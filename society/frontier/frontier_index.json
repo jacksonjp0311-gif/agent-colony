@@ -1,0 +1,47 @@
+{
+ "entries": {
+  "A002375": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A002375",
+   "checked": "2026-10-18T12:22:31Z",
+   "cost": {
+    "N": 21000,
+    "cpu_s": 0.018117893999999524
+   },
+   "done_for_sha": "e917a47a97e47f19",
+   "item": "gb_u_odd:terms",
+   "last": {
+    "cpu_s": 0.642,
+    "ns": [
+     20001,
+     21000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:22:31Z",
+    "why": null
+   },
+   "n_pub_terms": 20000,
+   "name": "From Goldbach conjecture: number of decompositions of 2n into an unordered sum of two odd primes.",
+   "probe_cpu_s": 0.0002,
+   "pub_k_max": 20000,
+   "pub_k_min": 1,
+   "pub_last": 389,
+   "sha256": "e917a47a97e47f19",
+   "source": "https://oeis.org/A002375/b002375.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.642,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:22:21Z",
+   "what": "unordered Goldbach partitions of 2n into odd primes"
+  }
+ },
+ "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data."
+}

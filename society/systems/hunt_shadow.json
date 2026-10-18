@@ -2,15 +2,15 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-18T11:45:21Z",
-    "cycle_id": "20261018T114358Z_16b0ba",
+    "ts": "2026-10-18T12:22:38Z",
+    "cycle_id": "20261018T122117Z_9369ae",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 12,
+    "n_meet_bar_actual": 13,
     "n_meet_bar_shadow": 11,
     "n_unknown_claims": 9,
     "unknown_targets": [
@@ -26,14 +26,15 @@
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
-      "imp_e730e7_50"
+      "imp_e730e7_50",
+      "imp_16b0ba_50"
     ],
     "enter_bar": [],
     "top_shadow": [
       {
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
-        "actual_pos": 9,
+        "actual_pos": 10,
         "shadow_pos": 1,
         "meets_bar_shadow": true,
         "rank": 0.5252,
@@ -61,7 +62,7 @@
       {
         "id": "imp_f7b051_50",
         "target": "lagrange_cyclic_orders",
-        "actual_pos": 12,
+        "actual_pos": 13,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.495,
@@ -103,7 +104,7 @@
       {
         "id": "imp_6ff40f_50",
         "target": "authored_frontier_cong_xa68963c2_w1",
-        "actual_pos": 5,
+        "actual_pos": 6,
         "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -117,7 +118,7 @@
       {
         "id": "imp_bc7717_50",
         "target": "authored_frontier_le_xdbff107c_w1",
-        "actual_pos": 6,
+        "actual_pos": 7,
         "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -131,7 +132,7 @@
       {
         "id": "imp_dfaa7b_50",
         "target": "polynomial_remainder",
-        "actual_pos": 7,
+        "actual_pos": 8,
         "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.526,
@@ -145,7 +146,7 @@
       {
         "id": "imp_2eb8c7_50",
         "target": "abel_summation",
-        "actual_pos": 8,
+        "actual_pos": 9,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.5256,
@@ -159,7 +160,7 @@
       {
         "id": "imp_1a4ec1_50",
         "target": "telescoping_sum",
-        "actual_pos": 10,
+        "actual_pos": 11,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.495,
@@ -172,27 +173,12 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-18T06:12:34Z",
-      "cycle_id": "20261018T061126Z_a0511d",
-      "n_meet_bar_actual": 16,
-      "n_meet_bar_shadow": 16,
-      "n_unknown_claims": 6,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-18T06:13:46Z",
       "cycle_id": "20261018T061234Z_f61849",
@@ -624,6 +610,21 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T12:22:38Z",
+      "cycle_id": "20261018T122117Z_9369ae",
+      "n_meet_bar_actual": 13,
+      "n_meet_bar_shadow": 11,
+      "n_unknown_claims": 9,
+      "drop_out_of_bar": 2,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }
