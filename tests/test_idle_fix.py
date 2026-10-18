@@ -39,3 +39,13 @@ def test_retest_tiers(tmp_path, monkeypatch):
     assert F.retest_candidates({w1}, [dict(r, certificate={"m": 1})]) == []   # proved: no re-test
     log.write_text("")
     assert F.retest_candidates({w1}, [r]) == []                          # w1 not passed yet
+
+
+def test_retest_windows_stay_inside_bridge_tables():
+    """A re-test window past the bridge tables must not read as 'does not hold'."""
+    from colony import frontier_checks as F, frontier_conjectures as fc
+    r = {"kind": "cong", "lhs": "dbl(gcd(fib,tau))", "rhs": "", "params": {"m": 3, "q": 4, "r": 0, "s": 2}}
+    wins = F.windows(r, 2)
+    claim = {k: r[k] for k in ("kind", "lhs", "rhs", "params")}
+    assert all(fc.holds_on(claim, a, b) > 0 for a, b in wins) or wins == []
+    assert all(b <= F.evaluable_hi(r, 10 ** 6) for _a, b in wins)

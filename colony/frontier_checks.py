@@ -53,6 +53,23 @@ def inflight_cap() -> int:
         return INFLIGHT_DEFAULT
 
 
+def evaluable_hi(r: dict[str, Any], hi: int) -> int:
+    """Largest h <= hi at which the bridge tables can evaluate both sides (0 if none). Without this a
+    re-test window past the tables reads as 'does not hold' (2026-10-18: x396d7d8c_w2, dbl(fib) > 2004)."""
+    from colony import frontier_conjectures as fc
+    if fc._BRIDGE_T is None:
+        fc._BRIDGE_T = fc.Tables(lim=fc.BRIDGE_LIM, exp_n=fc.BRIDGE_EXP)
+    exprs = [fc.parse(r["lhs"])] + ([fc.parse(r["rhs"])] if r.get("rhs") else [])
+    ok = lambda h: all(fc.evaluate(e, h, fc._BRIDGE_T) is not None for e in exprs)  # noqa: E731
+    if ok(hi):
+        return hi
+    lo_, hi_ = 0, hi
+    while hi_ - lo_ > 1:
+        mid = (lo_ + hi_) // 2
+        lo_, hi_ = (mid, hi_) if ok(mid) else (lo_, mid)
+    return lo_
+
+
 def windows(r: dict[str, Any], tier: int = 1) -> list[tuple[int, int]]:
     from colony.frontier_conjectures import EXPO, parse, prims_of
     ps = prims_of(parse(r["lhs"])) | (prims_of(parse(r["rhs"])) if r.get("rhs") else set())
@@ -61,6 +78,9 @@ def windows(r: dict[str, Any], tier: int = 1) -> list[tuple[int, int]]:
         lo, hi = 40, EXP_HI if expo else CHEAP_HI
     else:
         lo, hi = TIER_RANGES[tier]["exp" if expo else "cheap"]
+        hi = evaluable_hi(r, hi)   # dbl/sh/composition can push points past the bridge tables
+        if hi - lo < 90:
+            return []
     step = (hi - lo) // 3
     return [(lo + i * step + 1, lo + (i + 1) * step) for i in range(3)]
 
@@ -70,6 +90,8 @@ def build(r: dict[str, Any], tier: int = 1) -> dict[str, Any] | None:
     name = check_name(r, tier)
     claim = {"kind": r["kind"], "lhs": r["lhs"], "rhs": r.get("rhs") or "", "params": r.get("params") or {}}
     wins = windows(r, tier)
+    if not wins:
+        return None
     lit = repr(dict(sorted(claim.items())))
     expr = f"all(type(c := frontier_holds({lit}, a, b)) is int and c > 0 for a, b in {wins!r})"
     try:
