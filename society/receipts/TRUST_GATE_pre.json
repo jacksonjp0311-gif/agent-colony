@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "when": "2026-10-18T17:07:06+0000",
+  "when": "2026-10-18T17:13:59+0000",
   "checks": [
     {
       "check": "ablation_switches_off",
@@ -11,8 +11,8 @@
       "check": "pytest_full_suite",
       "ok": true,
       "returncode": 0,
-      "summary": "533 passed, 1 skipped in 81.06s (0:01:21)",
-      "seconds": 82.44,
+      "summary": "533 passed, 1 skipped in 87.17s (0:01:27)",
+      "seconds": 88.58,
       "failures": []
     },
     {
@@ -23,7 +23,7 @@
       "check": "hard_benches_ok_all",
       "ok": true,
       "returncode": 0,
-      "aggregate_score": 0.8653,
+      "aggregate_score": 0.8654,
       "failing": []
     },
     {
