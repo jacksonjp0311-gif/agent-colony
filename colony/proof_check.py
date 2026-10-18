@@ -1,0 +1,767 @@
+"""Stage 4 proof certificates: the small trusted kernel and the separate CHECKER.
+
+colony.proof_path (the prover) searches for a proof of a surviving frontier conjecture and records
+every step; this module re-verifies a certificate step by step without running the search:
+  * the value algebra (kernel): a value is c + sum(coef * atom) (mod d), d = 0 meaning exact;
+    atoms stand for unknown sequence values at a point a*n + b ("phi@1,0");
+  * LEMMAS: classical facts, each a named theorem with its condition (phi(x) even for x >= 3,
+    casting out nines, sigma(x) = 0 mod k when x = -1 mod k for k | 24 with 3|k or 4|k, Ramanujan's
+    partition congruences, multiplicativity rewrites f(2x) in terms of f(x), periodicity of
+    C-finite sequences mod m computed from their defining recurrence, basic inequalities, ...).
+    Every lemma is also re-validated numerically on the tables (a guard against a mis-typed lemma);
+  * check(cert, T): walks the derivation tree of every residue class, re-derives each node from its
+    children with the kernel / lemma functions, checks node expressions are the right
+    sub-expressions at the right points, recomputes the running-sum anchor values and the direct
+    finite check below N0 from the tables, and checks the conclusion follows.
+Certificates are 'machine-proved (certificate)': correct relative to the kernel, the lemma table
+(textbook theorems) and the tables used for the finite part. The Collatz lemma is stated for
+bounded trajectories (cmax defined), which the colony's tables assume.
+"""
+from __future__ import annotations
+
+import math
+from typing import Any
+
+N0 = 64            # facts marked 'big' are used only for points >= N0; n < N0 is checked directly
+NONNEG = {"n", "one", "phi", "sigma", "tau", "omega", "bigomega", "rad", "lpf", "gpf", "sopfr", "digsum",
+          "popcount", "pi", "prime", "sqfree", "csteps", "cmax", "maxgap", "gold", "ds3", "rev",
+          "pow2", "fib", "lucas", "pell", "part"}
+POS = {"n", "one", "phi", "sigma", "tau", "rad", "lpf", "gpf", "prime", "digsum", "popcount", "cmax",
+       "maxgap", "ds3", "rev", "pow2", "fib", "lucas", "pell", "part"}
+
+
+# ----------------------------------------------------------------------------- kernel
+
+def V(c: int = 0, a: dict[str, int] | None = None, d: int = 0) -> dict[str, Any]:
+    d = abs(int(d))
+    a = {k: int(v) for k, v in (a or {}).items()}
+    if d:
+        c %= d
+        a = {k: v % d for k, v in a.items()}
+    a = {k: v for k, v in sorted(a.items()) if v}
+    if d == 1:
+        c, a = 0, {}
+    return {"c": int(c), "a": a, "d": d}
+
+
+def pure(v: dict[str, Any]) -> bool:
+    return not v["a"]
+
+
+def add(u, v, sign: int = 1):
+    a = dict(u["a"])
+    for k, x in v["a"].items():
+        a[k] = a.get(k, 0) + sign * x
+    return V(u["c"] + sign * v["c"], a, math.gcd(u["d"], v["d"]))
+
+
+def scale(u, k: int):
+    return V(k * u["c"], {a: k * x for a, x in u["a"].items()}, k * u["d"])
+
+
+def mul(u, v):
+    if pure(u) and pure(v):
+        return V(u["c"] * v["c"], {}, math.gcd(math.gcd(u["d"] * v["d"], u["c"] * v["d"]), v["c"] * u["d"]))
+    if not pure(u) and pure(v):
+        u, v = v, u
+    if pure(u):
+        return V(u["c"] * v["c"], {k: u["c"] * x for k, x in v["a"].items()}, math.gcd(u["d"], u["c"] * v["d"]))
+    if u["d"] == 0 and v["d"] == 0:   # exact polynomial product; monomials are '*'-joined atoms
+        out: dict[str, int] = {}
+        tu = [("", u["c"])] + list(u["a"].items())
+        tv = [("", v["c"])] + list(v["a"].items())
+        for k1, c1 in tu:
+            for k2, c2 in tv:
+                k = "*".join(sorted([x for x in k1.split("*") + k2.split("*") if x]))
+                out[k] = out.get(k, 0) + c1 * c2
+        c = out.pop("", 0)
+        return V(c, out, 0)
+    return None
+
+
+def reduce_mod(v, M: int):
+    """c + sum(coef * atom) with every coef = 0 (mod M) and d = 0 (mod M) is just c (mod M)."""
+    if M and (v["d"] == 0 or v["d"] % M == 0) and v["a"] and all(x % M == 0 for x in v["a"].values()):
+        return V(v["c"], {}, M)
+    return v
+
+
+def crt(x, y):
+    """Combine two pure facts about the same integer; None when inconsistent."""
+    (r1, m1), (r2, m2) = (x["c"], x["d"]), (y["c"], y["d"])
+    if m1 == 0 or m2 == 0:
+        e, o = (x, y) if m1 == 0 else (y, x)
+        return e if (o["d"] == 0 and o["c"] == e["c"]) or (o["d"] and (e["c"] - o["c"]) % o["d"] == 0) else None
+    g = math.gcd(m1, m2)
+    if (r2 - r1) % g:
+        return None
+    L = m1 // g * m2
+    for k in range(m2 // g):
+        r = r1 + k * m1
+        if (r - r2) % m2 == 0:
+            return V(r, {}, L)
+    return None
+
+
+def join(vals):
+    """What all of several pure values have in common."""
+    c0, d = vals[0]["c"], 0
+    for v in vals:
+        d = math.gcd(d, v["d"])
+        d = math.gcd(d, v["c"] - c0)
+    return V(c0, {}, d)
+
+
+def gcd_val(u, v, u_nonneg: bool, v_nonneg: bool):
+    """Value of gcd(x, y) from values of x and y (math.gcd: always >= 0)."""
+    facts = []
+    for x, y, yn in ((u, v, v_nonneg), (v, u, u_nonneg)):
+        if pure(x) and x["d"] == 0:
+            c = abs(x["c"])
+            if c == 0:              # gcd(0, y) = |y|
+                if yn:
+                    return y
+                if pure(y):
+                    g = math.gcd(y["d"], 2)
+                    return V(y["c"], {}, g)
+                return None
+            if c == 1:
+                return V(1)
+            if pure(y) and (y["d"] % c == 0):
+                return V(math.gcd(c, y["c"]))
+    gs = []
+    for x in (u, v):
+        gs.append(math.gcd(x["c"], x["d"]) if pure(x) else None)
+    if gs[0] is not None and gs[1] is not None and math.gcd(gs[0], gs[1]) > 1:
+        facts.append(V(0, {}, math.gcd(gs[0], gs[1])))
+    if any(pure(x) and x["d"] % 2 == 0 and x["c"] % 2 == 1 for x in (u, v)):
+        facts.append(V(1, {}, 2))
+    if not facts:
+        return None
+    out = facts[0]
+    for f in facts[1:]:
+        out = crt(out, f) or out
+    return out
+
+
+# ----------------------------------------------------------------------------- lemmas
+# value lemmas: f(x) for x = r (mod d), x >= 1 (big: x >= N0). Return a pure value or None.
+
+def _sqres(r: int, d: int) -> bool:
+    return any((y * y - r) % d == 0 for y in range(d))
+
+
+def _small_primes(lim: int = 12) -> list[int]:
+    return [p for p in range(2, lim) if all(p % q for q in range(2, p))]
+
+
+def _cfin_rec(name: str):
+    return {"fib": ((1, 1), (1, 1)), "lucas": ((1, 3), (1, 1)), "pell": ((1, 2), (2, 1)),
+            "pow2": ((2,), (2,))}.get(name)
+
+
+def cfinite_mod(name: str, m: int) -> tuple[int, int, list[int]] | None:
+    """(preperiod start index, period, residues r[1..start+period]) of a C-finite primitive mod m,
+    computed from its DEFINING recurrence (fib, lucas: a(n+2) = a(n+1) + a(n); pell: a(n+2) =
+    2a(n+1) + a(n); pow2: a(n+1) = 2a(n)): the state repeats (pigeonhole), so it is periodic."""
+    spec = _cfin_rec(name)
+    if spec is None or m < 2:
+        return None
+    init, coef = spec
+    k = len(init)
+    seq = [None] + [x % m for x in init]
+    seen = {}
+    n = 1
+    while True:
+        st = tuple(seq[n:n + k])
+        if st in seen:
+            s0 = seen[st]
+            return s0, n - s0, seq
+        seen[st] = n
+        if len(seq) <= n + k:
+            pass
+        nxt = 0
+        if k == 1:
+            nxt = coef[0] * seq[n] % m
+        else:
+            nxt = (coef[0] * seq[n + 1] + coef[1] * seq[n]) % m
+        seq.append(nxt)
+        n += 1
+        if n > 10 * m * m + 10:
+            return None
+
+
+def _cfin_fact(name: str, r: int, d: int, big: bool):
+    best = None
+    for pk in (16, 8, 4, 2, 27, 9, 3, 25, 5, 49, 7, 11, 13):
+        if best is not None and math.gcd(best["d"], pk) > 1:
+            continue
+        cm = cfinite_mod(name, pk)
+        if cm is None:
+            continue
+        s0, P, seq = cm
+        lo = N0 if big else 1
+        if d % P or s0 > lo:
+            continue
+        x = r % P
+        while x < s0:
+            x += P
+        while len(seq) <= x:
+            break
+        if x >= len(seq):
+            continue
+        f = V(seq[x], {}, pk)
+        best = f if best is None else (crt(best, f) or best)
+    return best
+
+
+def value_lemma(name: str, r: int, d: int, big: bool) -> tuple[str, dict[str, Any]] | None:
+    """(lemma id, value) for f(x), x = r (mod d), d >= 1."""
+    out: list[tuple[str, dict[str, Any]]] = []
+    if name == "phi" and big:
+        out.append(("phi(x) is even for x >= 3", V(0, {}, 2)))
+    if name in ("digsum", "rev") and math.gcd(d, 9) > 1:
+        g = math.gcd(d, 9)
+        out.append((f"{name}(x) = x (mod 9) (casting out nines)", V(r, {}, g)))
+    if name == "ds3" and d % 2 == 0:
+        out.append(("base-3 digit sum = x (mod 2)", V(r, {}, 2)))
+    if name == "prime" and big:
+        out.append(("prime(x) is odd for x >= 2", V(1, {}, 2)))
+    if name == "lpf":
+        for p in _small_primes():
+            if d % p == 0 and r % p == 0 and all(d % q == 0 and r % q for q in _small_primes(p)):
+                out.append((f"lpf(x) = {p} when {p} | x and no smaller prime divides x", V(p)))
+                break
+    if name in ("lpf", "gpf", "rad") and d % 2 == 0 and r % 2 == 1:
+        out.append((f"{name}(x) is odd for odd x", V(1, {}, 2)))
+    if name == "rad":
+        P = 1
+        for p in _small_primes():
+            if d % p == 0 and r % p == 0:
+                P *= p
+        if P > 1:
+            out.append(("p | x implies p | rad(x)", V(0, {}, P)))
+    if name in ("mu", "sqfree"):
+        for p in (2, 3, 5, 7):
+            if d % (p * p) == 0 and r % (p * p) == 0:
+                out.append((f"{name}(x) = 0 when {p * p} | x", V(0)))
+                break
+    if name == "tau" and not _sqres(r, d):
+        out.append(("tau(x) is odd iff x is a square", V(0, {}, 2)))
+    if name == "sigma":
+        if not _sqres(r, d) and not any((2 * y * y - r) % d == 0 for y in range(d)):
+            out.append(("sigma(x) is odd iff x is a square or twice a square", V(0, {}, 2)))
+        for k in (24, 12, 8, 6, 4, 3):
+            if d % k == 0 and (r + 1) % k == 0:
+                out.append((f"sigma(x) = 0 (mod {k}) when x = -1 (mod {k}) (divisor pairs d, x/d with d^2 = 1 mod {k})",
+                            V(0, {}, k)))
+                break
+    if name == "cmax" and ((d % 2 == 0 and r % 2 == 1) or (d % 3 == 0 and r % 3 == 1)):
+        out.append(("Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); "
+                    "so it is 1 (mod 3) when x is odd or x = 1 (mod 3)", V(1, {}, 3)))
+    if name == "part":
+        for q, s in ((5, 4), (7, 5), (11, 6)):
+            if d % q == 0 and r % q == s:
+                out.append((f"Ramanujan: p({q}k+{s}) = 0 (mod {q})", V(0, {}, q)))
+    if name in ("fib", "lucas", "pell", "pow2"):
+        f = _cfin_fact(name, r, d, big)
+        if f is not None:
+            out.append((f"{name} is periodic mod {f['d']} (defining recurrence; state repeats)", f))
+    if name == "one":
+        out.append(("one(x) = 1", V(1)))
+    if not out:
+        return None
+    lem, val = out[0]
+    for l2, v2 in out[1:]:
+        c = crt(val, v2)
+        if c is not None:
+            lem, val = lem + "; " + l2, c
+    return lem, val
+
+
+def d_lemma(name: str, r: int, d: int, big: bool) -> tuple[str, dict[str, Any]] | None:
+    """f(x+1) - f(x) for x = r (mod d)."""
+    if name == "digsum" and d % 10 == 0 and r % 10 != 9:
+        return "digsum(x+1) = digsum(x) + 1 when x does not end in 9", V(1)
+    if name == "pi" and big and d % 2 == 0 and r % 2 == 1:
+        return "x+1 is even and > 2, so pi(x+1) = pi(x)", V(0)
+    if name == "one":
+        return "one is constant", V(0)
+    return None
+
+
+def dbl_lemma(name: str, parity: int | None) -> tuple[str, dict[str, int], int] | None:
+    """f(2x) = c + k * f(x) for x >= 2 (parity of x when needed): (lemma, {name: k}, c)."""
+    always = {"lpf": ({}, 2), "bigomega": ({"bigomega": 1}, 1), "sopfr": ({"sopfr": 1}, 2),
+              "gpf": ({"gpf": 1}, 0), "popcount": ({"popcount": 1}, 0)}
+    odd = {"omega": ({"omega": 1}, 1), "phi": ({"phi": 1}, 0), "rad": ({"rad": 2}, 0), "mu": ({"mu": -1}, 0),
+           "sqfree": ({"sqfree": 1}, 0), "sigma": ({"sigma": 3}, 0), "tau": ({"tau": 2}, 0)}
+    even = {"omega": ({"omega": 1}, 0), "phi": ({"phi": 2}, 0), "rad": ({"rad": 1}, 0), "mu": ({}, 0),
+            "sqfree": ({}, 0)}
+    if name in always:
+        f, c = always[name]
+        return f"{name}(2x) in terms of {name}(x) (multiplicativity / binary digits)", f, c
+    if parity == 1 and name in odd:
+        f, c = odd[name]
+        return f"{name}(2x) for odd x (multiplicativity, gcd(2, x) = 1)", f, c
+    if parity == 0 and name in even:
+        f, c = even[name]
+        return f"{name}(2x) for even x", f, c
+    return None
+
+
+# inequality library (each valid for x >= N0; instantiated at any point a*n + b, a >= 1, b >= 0)
+from colony.frontier_conjectures import BASIC_INEQ, DBL_MONO, SH_MONO  # noqa: E402
+
+INEQ = tuple(dict(f) for f in BASIC_INEQ)
+
+
+def atom(name: str, a: int, b: int) -> str:
+    return f"{name}@{a},{b}"
+
+
+def split_atom(k: str) -> tuple[str, int, int]:
+    if "*" in k:
+        raise ValueError("monomial")
+    nm, pt = k.rsplit("@", 1)
+    a, b = pt.split(",")
+    return nm, int(a), int(b)
+
+
+def ineq_instance(kind: str, idx: Any, a: int, b: int) -> dict[str, int]:
+    """Linear form (>= 0) of a library inequality at point (a, b); '_k' = constant."""
+    if kind == "basic":
+        f = INEQ[idx]
+        out = {}
+        for k, v in f.items():
+            if k == "_k":
+                out["_k"] = out.get("_k", 0) + v
+            elif k == "n":
+                out["n@1,0"] = out.get("n@1,0", 0) + v * a
+                out["_k"] = out.get("_k", 0) + v * b
+            elif k == "one":
+                out["_k"] = out.get("_k", 0) + v
+            else:
+                out[atom(k, a, b)] = out.get(atom(k, a, b), 0) + v
+        return out
+    if kind == "dbl_mono":
+        if idx == "n":
+            return {"n@1,0": a, "_k": b}
+        return {atom(idx, 2 * a, 2 * b): 1, atom(idx, a, b): -1}
+    if kind == "sh_mono":
+        if idx == "n":
+            return {"_k": 1}
+        return {atom(idx, a, b + 1): 1, atom(idx, a, b): -1}
+    raise ValueError(kind)
+
+
+# ----------------------------------------------------------------------------- numeric lemma guard
+
+_GUARD: dict[str, Any] = {}
+
+
+def guard(T: Any, N: int = 3000) -> dict[str, Any]:
+    """Re-validate every lemma family on the tables (a typo guard, not the proof)."""
+    if _GUARD:
+        return _GUARD
+    t = T.t
+    bad = []
+    lim = min(N, len(t["n"]) - 1)
+    for name in ("phi", "digsum", "rev", "ds3", "prime", "lpf", "gpf", "rad", "mu", "sqfree", "tau", "sigma", "cmax",
+                 "part", "fib", "lucas", "pell", "pow2"):
+        arr = t.get(name)
+        if arr is None:
+            continue
+        L = min(lim, len(arr) - 1)
+        for d in (2, 3, 4, 6, 8, 9, 10, 12, 24, 36):
+            for r in range(d):
+                for big in (False, True):
+                    lv = value_lemma(name, r, d, big)
+                    if lv is None:
+                        continue
+                    v = lv[1]
+                    for x in range(N0 if big else 1, L + 1):
+                        if x % d != r % d:
+                            continue
+                        if (v["d"] == 0 and arr[x] != v["c"]) or (v["d"] and (arr[x] - v["c"]) % v["d"]):
+                            bad.append((name, r, d, big, x))
+                            break
+    for name in ("digsum", "pi"):
+        arr = t[name]
+        for d in (2, 10, 20):
+            for r in range(d):
+                lv = d_lemma(name, r, d, True)
+                if lv is None:
+                    continue
+                for x in range(N0, lim):
+                    if x % d == r and arr[x + 1] - arr[x] != lv[1]["c"]:
+                        bad.append(("D" + name, r, d, x))
+                        break
+    for name in ("lpf", "bigomega", "sopfr", "gpf", "popcount", "omega", "phi", "rad", "mu", "sqfree", "sigma", "tau"):
+        arr = t[name]
+        for x in range(2, lim // 2):
+            lm = dbl_lemma(name, x % 2)
+            if lm is None:
+                continue
+            _l, f, c = lm
+            if arr[2 * x] != c + sum(k * arr[x] for k in f.values()):
+                bad.append(("dbl" + name, x))
+                break
+    for i, f in enumerate(INEQ):
+        for x in range(N0, lim):
+            s = f.get("_k", 0)
+            ok = True
+            for k, v in f.items():
+                if k == "_k":
+                    continue
+                arr = t.get(k) if k != "n" else t["n"]
+                if arr is None or len(arr) <= x:
+                    ok = False
+                    break
+                s += v * arr[x]
+            if ok and s < 0:
+                bad.append(("ineq", i, x))
+                break
+    _GUARD.update({"ok": not bad, "bad": bad[:10]})
+    return _GUARD
+
+
+# ----------------------------------------------------------------------------- the checker
+
+def _expr_at(e: tuple, a: int, b: int):
+    return e, a, b
+
+
+def _class_of(cls: tuple[int, int], a: int, b: int) -> tuple[int, int]:
+    t, Q = cls
+    return (a * t + b) % (a * Q), a * Q
+
+
+def check_node(nd: dict[str, Any], e: tuple, a: int, b: int, cls: tuple[int, int], big: bool, T: Any) -> dict[str, Any]:
+    """Re-derive node ``nd`` for expression e at point a*n+b, n in class cls; returns its value or raises."""
+    from colony.frontier_conjectures import canon
+    if nd.get("e") != canon(e) or nd.get("pt") != [a, b]:
+        raise ValueError(f"structure mismatch at {nd.get('e')} vs {canon(e)}")
+    rule, val = nd["rule"], nd["val"]
+    kids = nd.get("kids") or []
+    op = e[0]
+    r, d = _class_of(cls, a, b)
+
+    def want(v):
+        if nd.get("mod"):
+            v = reduce_mod(v, int(nd["mod"]))
+        if v != val:
+            raise ValueError(f"{rule} at {canon(e)}: recorded {val} != derived {v}")
+        return v
+
+    if rule == "atom":
+        return want(V(0, {f"{canon(e)}@{a},{b}": 1}))
+    if op == "p":
+        name = e[1]
+        if rule == "n":
+            if name != "n":
+                raise ValueError("n rule on non-n")
+            return want(V(b, {"n@1,0": a}))
+        if rule == "nclass":
+            if name != "n":
+                raise ValueError("n rule on non-n")
+            return want(V(r, {}, d))
+        if rule == "lemma":
+            lv = value_lemma(name, r, d, big)
+            if lv is None or lv[0] != nd["lemma"]:
+                raise ValueError(f"lemma not applicable: {nd.get('lemma')}")
+            return want(lv[1])
+        if rule == "dbl_rw":
+            if a % 2 or b % 2:
+                raise ValueError("dbl rewrite needs an even point")
+            a2, b2 = a // 2, b // 2
+            r2, d2 = _class_of(cls, a2, b2)
+            par = r2 % 2 if d2 % 2 == 0 else None
+            lm = dbl_lemma(name, par)
+            if lm is None or lm[0] != nd["lemma"] or not big:
+                raise ValueError("dbl lemma not applicable")
+            _l, f, c = lm
+            return want(V(c, {atom(k, a2, b2): v for k, v in f.items()}))
+        raise ValueError(rule)
+    if op in ("+", "-", "*"):
+        u = check_node(kids[0], e[1], a, b, cls, big, T)
+        v = check_node(kids[1], e[2], a, b, cls, big, T)
+        if rule == "arith":
+            w = add(u, v, 1 if op == "+" else -1) if op != "*" else mul(u, v)
+            if w is None:
+                raise ValueError("product of two unknowns")
+            return want(w)
+        raise ValueError(rule)
+    if op == "gcd":
+        u = check_node(kids[0], e[1], a, b, cls, big, T)
+        v = check_node(kids[1], e[2], a, b, cls, big, T)
+        w = gcd_val(u, v, nonneg(e[1]), nonneg(e[2]))
+        if w is None:
+            raise ValueError("gcd: no fact")
+        return want(w)
+    if op == "sh":
+        return want(check_node(kids[0], e[1], a, b + 1, cls, big, T))
+    if op == "dbl":
+        return want(check_node(kids[0], e[1], 2 * a, 2 * b, cls, big, T))
+    if op == "D":
+        if rule == "Dlemma":
+            if e[1][0] != "p":
+                raise ValueError("D lemma needs a primitive")
+            lv = d_lemma(e[1][1], r, d, big)
+            if lv is None or lv[0] != nd["lemma"]:
+                raise ValueError("D lemma not applicable")
+            return want(lv[1])
+        if rule == "Dsum":
+            u = check_node(kids[0], ("D", e[1][1]), a, b, cls, big, T)
+            v = check_node(kids[1], ("D", e[1][2]), a, b, cls, big, T)
+            return want(add(u, v, 1 if e[1][0] == "+" else -1))
+        if rule == "Dprod":
+            A, B = e[1][1], e[1][2]
+            da = check_node(kids[0], ("D", A), a, b, cls, big, T)
+            db = check_node(kids[1], ("D", B), a, b, cls, big, T)
+            va = check_node(kids[2], A, a, b, cls, big, T)
+            vb = check_node(kids[3], B, a, b, cls, big, T)
+            p1, p2, p3 = mul(da, db), mul(da, vb), mul(va, db)
+            if None in (p1, p2, p3):
+                raise ValueError("Dprod: product of unknowns")
+            return want(add(add(p1, p2), p3))
+        if rule == "Ddiff":
+            u = check_node(kids[0], e[1], a, b + 1, cls, big, T)
+            v = check_node(kids[1], e[1], a, b, cls, big, T)
+            return want(add(u, v, -1))
+        raise ValueError(rule)
+    if op == "o" and rule == "pi_prime":
+        if e[1] != "pi" or e[2] != ("p", "prime"):
+            raise ValueError("pi_prime rule")
+        return want(check_node(kids[0], ("p", "n"), a, b, cls, big, T))
+    if op == "o":
+        g = check_node(kids[0], e[2], a, b, cls, big, T)
+        if not pure(g):
+            raise ValueError("composition of an unknown argument")
+        if g["d"] == 0:
+            arr = T.t[e[1]]
+            if not (1 <= g["c"] < len(arr)):
+                raise ValueError("argument out of table")
+            return want(V(arr[g["c"]]))
+        lv = value_lemma(e[1], g["c"], g["d"], False)
+        if lv is None or lv[0] != nd["lemma"]:
+            raise ValueError("composition lemma not applicable")
+        return want(lv[1])
+    if op == "S":
+        Qe, de = nd["Qe"], nd["de"]
+        if a * cls[1] % Qe or de < 1:
+            raise ValueError("S: class modulus")
+        inner = nd["inner"]
+        if len(inner) != Qe:
+            raise ValueError("S: inner classes")
+        for j in range(Qe):
+            w = check_node(inner[j], e[1], 1, 0, (j, Qe), True, T)
+            if not pure(w) or (w["d"] % de if w["d"] else False):
+                raise ValueError("S: inner value not known mod de")
+        P = Qe * de
+        r0, d0 = _class_of(cls, a, b)
+        L = d0 * P // math.gcd(d0, P)
+        x = evaluate_prefix(e[1], T, N0 + L + 1)
+        vals = []
+        for j in range(L // d0):
+            rr = (r0 + j * d0) % L
+            Ns = rr
+            while Ns < N0:
+                Ns += L
+            vals.append(V(x[Ns - 1], {}, de))
+        return want(join(vals))
+    raise ValueError(f"unknown op {op}")
+
+
+def evaluate_prefix(e: tuple, T: Any, N: int) -> list[int]:
+    from colony.frontier_conjectures import evaluate
+    s = evaluate(("S", e), N, T)
+    if s is None:
+        raise ValueError("S anchor out of table")
+    return s
+
+
+def nonneg(e: tuple) -> bool:
+    op = e[0]
+    if op == "p":
+        return e[1] in NONNEG
+    if op == "gcd":
+        return True
+    if op in ("S", "sh", "dbl"):
+        return nonneg(e[1])
+    if op in ("+", "*"):
+        return nonneg(e[1]) and nonneg(e[2])
+    if op == "o":
+        return e[1] in NONNEG
+    return False
+
+
+def positive(e: tuple) -> bool:
+    op = e[0]
+    if op == "p":
+        return e[1] in POS
+    if op == "gcd":
+        return positive(e[1]) or positive(e[2])
+    if op in ("sh", "dbl"):
+        return positive(e[1])
+    if op == "S":
+        return positive(e[1])
+    if op in ("+", "*"):
+        return positive(e[1]) and positive(e[2])
+    if op == "o":
+        return e[1] in POS
+    return False
+
+
+def _finite(c: dict[str, Any], T: Any, lo: int, hi: int) -> bool:
+    from colony.frontier_conjectures import evaluate, holds
+    if hi < lo:
+        return True
+    if c["kind"] == "rec":
+        k = len(c["params"]["c"])
+        a = evaluate(c["_le"], hi + k, T)
+        return a is not None and holds("rec", c["params"], a[lo - 1:], None, start=lo)[0]
+    a = evaluate(c["_le"], hi, T)
+    b = evaluate(c["_re"], hi, T) if c.get("_re") is not None else None
+    if a is None or (c.get("_re") is not None and b is None):
+        return False
+    return holds(c["kind"], c["params"], a[lo - 1:], b[lo - 1:] if b is not None else None, start=lo)[0]
+
+
+def check(cert: dict[str, Any], claim: dict[str, Any], T: Any) -> tuple[bool, str]:
+    """Re-verify a Stage 4 certificate for ``claim`` (registry form: kind, lhs, rhs, params)."""
+    from colony import frontier_conjectures as FC
+    try:
+        g = guard(T)
+        if not g["ok"]:
+            return False, f"lemma guard failed: {g['bad'][:2]}"
+        c = {"kind": claim["kind"], "params": claim.get("params") or {}, "_le": FC.parse(claim["lhs"]),
+             "_re": FC.parse(claim["rhs"]) if claim.get("rhs") else None}
+        Q, method = int(cert["Q"]), cert["method"]
+        if cert.get("N0") != N0:
+            return False, "N0 mismatch"
+        p = c["params"]
+        need = [t for t in range(Q) if c["kind"] != "cong" or t % p["q"] == p["s"]]
+        if c["kind"] == "cong" and Q % p["q"]:
+            return False, "Q must be a multiple of q"
+        if sorted(int(k) for k in cert["classes"]) != need:
+            return False, "classes do not cover the claim"
+        for t in need:
+            node = cert["classes"][str(t)]
+            cls = (t, Q)
+            if method == "periodic residues":
+                if c["kind"] == "cong":
+                    v = reduce_mod(check_node(node["lhs"], c["_le"], 1, 0, cls, True, T), p["m"])
+                    if not pure(v) or (v["d"] and v["d"] % p["m"]) or (v["c"] - p["r"]) % p["m"]:
+                        return False, f"class {t}: value {v} does not give {p['r']} mod {p['m']}"
+                elif c["kind"] == "divides":
+                    u = check_node(node["lhs"], c["_le"], 1, 0, cls, True, T)
+                    v = check_node(node["rhs"], c["_re"], 1, 0, cls, True, T)
+                    if not (pure(v) and v["d"] == 0 and v["c"] == 0 and positive(c["_le"])):
+                        if not (pure(u) and u["d"] == 0 and u["c"] != 0 and pure(v)
+                                and (v["d"] == 0 and v["c"] % u["c"] == 0 or v["d"] and v["d"] % u["c"] == 0
+                                     and v["c"] % u["c"] == 0)):
+                            return False, f"class {t}: divisibility not derived"
+                else:
+                    return False, "kind"
+            elif method in ("basic-inequality derivation", "closed form (sympy)"):
+                if c["kind"] == "le":
+                    u = check_node(node["lhs"], c["_le"], 1, 0, cls, True, T)
+                    v = check_node(node["rhs"], c["_re"], 1, 0, cls, True, T)
+                    if u["d"] or v["d"]:
+                        return False, "inequality needs exact values"
+                    form = add(v, u, -1)
+                    rem = dict(form["a"])
+                    rem["_k"] = form["c"]
+                    for kind, idx, a, b, lam in node["steps"]:
+                        if a < 1 or b < 0 or lam < 0:
+                            return False, "bad instance"
+                        if kind == "basic" and not (0 <= idx < len(INEQ)):
+                            return False, "bad lemma"
+                        if kind == "dbl_mono" and idx not in DBL_MONO or kind == "sh_mono" and idx not in SH_MONO:
+                            return False, "bad mono lemma"
+                        for k, x in ineq_instance(kind, idx, a, b).items():
+                            rem[k] = rem.get(k, 0) - lam * x
+                    if any(x for k, x in rem.items() if k != "_k") or rem.get("_k", 0) < 0:
+                        return False, f"class {t}: derivation leaves {rem}"
+                else:
+                    ok, why = _check_closed(c, node, cls, T)
+                    if not ok:
+                        return False, f"class {t}: {why}"
+            else:
+                return False, "method"
+        start = 1
+        if not _finite(c, T, start, N0 - 1):
+            return False, "finite check below N0 failed"
+        return True, "ok"
+    except Exception as exc:  # noqa: BLE001
+        return False, f"error: {str(exc)[:160]}"
+
+
+# closed forms of C-finite atoms (sympy), used by method 'closed form (sympy)'
+def closed_atom(name: str, a: int, b: int, n):
+    import sympy as sp
+    x = a * n + b
+    s5, s2 = sp.sqrt(5), sp.sqrt(2)
+    phi_, psi_ = (1 + s5) / 2, (1 - s5) / 2
+    if name == "pow2":
+        return sp.Integer(2) ** x
+    if name == "fib":
+        return (phi_ ** x - psi_ ** x) / s5
+    if name == "lucas":
+        return phi_ ** x + psi_ ** x
+    if name == "pell":
+        return ((1 + s2) ** x - (1 - s2) ** x) / (2 * s2)
+    if name == "n":
+        return x
+    return None
+
+
+def closed_value(v: dict[str, Any], n):
+    import sympy as sp
+    if v["d"]:
+        return None
+    out = sp.Integer(v["c"])
+    for k, co in v["a"].items():
+        term = sp.Integer(co)
+        for part in k.split("*"):
+            nm, a, b = split_atom(part)
+            f = closed_atom(nm, a, b, n)
+            if f is None:
+                return None
+            term *= f
+        out += term
+    return out
+
+
+def sym_zero(expr) -> bool:
+    import sympy as sp
+    z = sp.simplify(sp.expand(sp.powsimp(sp.expand(expr), force=True)))
+    if z == 0:
+        return True
+    z = sp.nsimplify(sp.simplify(sp.expand(sp.expand_power_base(sp.expand(expr), force=True))))
+    return z == 0
+
+
+def _check_closed(c: dict[str, Any], node: dict[str, Any], cls: tuple[int, int], T: Any) -> tuple[bool, str]:
+    import sympy as sp
+    n = sp.Symbol("n", integer=True, positive=True)
+    if c["kind"] == "identity":
+        u = check_node(node["lhs"], c["_le"], 1, 0, cls, True, T)
+        v = check_node(node["rhs"], c["_re"], 1, 0, cls, True, T)
+        cu, cv = closed_value(u, n), closed_value(v, n)
+        if cu is None or cv is None:
+            return False, "no closed form"
+        return (True, "ok") if sym_zero(cu - cv) else (False, "closed forms differ")
+    if c["kind"] == "rec":
+        co = c["params"]["c"]
+        k = len(co)
+        vals = []
+        for i in range(k + 1):
+            vals.append(check_node(node["shifts"][i], c["_le"], 1, i, cls, True, T))
+        cl = [closed_value(v, n) for v in vals]
+        if any(x is None for x in cl):
+            return False, "no closed form"
+        res = cl[k] - sum(ci * cl[j] for j, ci in enumerate(co))
+        return (True, "ok") if sym_zero(res) else (False, "recurrence residual is not 0")
+    return False, "kind"

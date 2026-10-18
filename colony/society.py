@@ -243,6 +243,12 @@ class Society:
             from colony import frontier_conjectures as _fc
             if _fc.mode() != "off":
                 _fc.run_cycle(cid)
+                try:  # Stage 4 proof path (COLONY_PROOF; shadow = report only)
+                    from colony import proof_path as _pp
+                    if _pp.mode() != "off":
+                        _pp.run(T=_fc._TABLES)
+                except Exception:  # noqa: BLE001
+                    pass
         except Exception:  # noqa: BLE001
             pass
         try:  # new data past the OEIS frontier (COLONY_NEWDATA; shadow = compute + ledger, nothing authored)
