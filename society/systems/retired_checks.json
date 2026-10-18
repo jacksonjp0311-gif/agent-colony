@@ -664,8 +664,56 @@
     "stirling_first_row_sum"
    ],
    "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_abel_summation__burnside_necklaces_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas abel_summation + burnside_necklaces on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T06:11:32Z",
+   "cycle_id": "20261018T061126Z_a0511d",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_abel_summation__burnside_necklaces_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas abel_summation + burnside_necklaces on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_abel_summation,\n    ::check_burnside_necklaces; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_abel_summation(n) for n in range(40, 59))) and all((check_burnside_necklaces(n) for n in range(8, 11)))\n",
+   "entry": "    (\"authored_abel_summation__burnside_necklaces_w1\", check_authored_abel_summation__burnside_necklaces_w1, False),\n",
+   "components": [
+    "abel_summation",
+    "burnside_necklaces"
+   ],
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_alternating_binomial_row__cayley_hamilton_3x3_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas alternating_binomial_row + cayley_hamilton_3x3 on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T06:12:40Z",
+   "cycle_id": "20261018T061234Z_f61849",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_alternating_binomial_row__cayley_hamilton_3x3_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas alternating_binomial_row + cayley_hamilton_3x3 on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_alternating_binomial_row,\n    ::check_cayley_hamilton_3x3; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_alternating_binomial_row(n) for n in range(40, 60))) and all((check_cayley_hamilton_3x3(s) for s in range(20, 30)))\n",
+   "entry": "    (\"authored_alternating_binomial_row__cayley_hamilton_3x3_w1\", check_authored_alternating_binomial_row__cayley_hamilton_3x3_w1, False),\n",
+   "components": [
+    "alternating_binomial_row",
+    "cayley_hamilton_3x3"
+   ],
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_bell_stirling_sum__cayley_hamilton_2x2_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas bell_stirling_sum + cayley_hamilton_2x2 on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T06:13:53Z",
+   "cycle_id": "20261018T061346Z_8638b3",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_bell_stirling_sum__cayley_hamilton_2x2_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas bell_stirling_sum + cayley_hamilton_2x2 on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_bell_stirling_sum,\n    ::check_cayley_hamilton_2x2; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_bell_stirling_sum(n) for n in range(16, 24))) and all((check_cayley_hamilton_2x2(a) for a in range(9, 13)))\n",
+   "entry": "    (\"authored_bell_stirling_sum__cayley_hamilton_2x2_w1\", check_authored_bell_stirling_sum__cayley_hamilton_2x2_w1, False),\n",
+   "components": [
+    "bell_stirling_sum",
+    "cayley_hamilton_2x2"
+   ],
+   "proposals_withdrawn": []
   }
  ],
- "n_retired": 43,
+ "n_retired": 46,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T06:08:25Z",
-  "updated_cycle": "20261018T060740Z_9e8cfb",
+  "updated_at": "2026-10-18T06:14:28Z",
+  "updated_cycle": "20261018T061346Z_8638b3",
   "n_active": 80,
-  "n_keeps": 7,
+  "n_keeps": 5,
   "n_reverts": 0,
   "skill_bias": {
     "geometer.gather": 0.08,
-    "improver.improve": 0.0618,
+    "improver.improve": 0.0621,
     "spark.emergence": 0.04,
     "gather": 0.0822,
     "oracle": 0.0683,
@@ -20,9 +20,9 @@
   },
   "recent": [
     {
-      "id": "les_Z_57940a_dedupe",
-      "ts": "2026-10-18T06:06:46Z",
-      "cycle_id": "20261018T060618Z_57940a",
+      "id": "les_Z_f61849_dedupe",
+      "ts": "2026-10-18T06:12:59Z",
+      "cycle_id": "20261018T061234Z_f61849",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -45,7 +45,7 @@
       "status": "candidate",
       "provenance": {
         "source": "growth_hearing",
-        "cycle_id": "20261018T060618Z_57940a",
+        "cycle_id": "20261018T061234Z_f61849",
         "check": "dedupe",
         "evidence": []
       },
@@ -54,9 +54,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `dedupe` contradicts decision=block"
     },
     {
-      "id": "les_Z_57940a_dedupe",
-      "ts": "2026-10-18T06:06:49Z",
-      "cycle_id": "20261018T060618Z_57940a",
+      "id": "les_Z_f61849_dedupe",
+      "ts": "2026-10-18T06:13:02Z",
+      "cycle_id": "20261018T061234Z_f61849",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -79,7 +79,7 @@
       "status": "candidate",
       "provenance": {
         "source": "growth_hearing",
-        "cycle_id": "20261018T060618Z_57940a",
+        "cycle_id": "20261018T061234Z_f61849",
         "check": "dedupe",
         "evidence": []
       },
@@ -88,14 +88,14 @@
       "invalidated_if": "a later Oracle/holdout verdict on `dedupe` contradicts decision=block"
     },
     {
-      "id": "les_Z_57940a_authored_wilson_theorem__stirling_f",
-      "ts": "2026-10-18T06:06:53Z",
-      "cycle_id": "20261018T060618Z_57940a",
+      "id": "les_Z_f61849_authored_bell_stirling_sum__cayley_",
+      "ts": "2026-10-18T06:13:06Z",
+      "cycle_id": "20261018T061234Z_f61849",
       "type": "authored_check",
       "decision": "skip",
       "check": "authoring",
-      "mutation": "authored_wilson_theorem__stirling_first_row_sum_w1",
-      "what": "authored disabled hard check `authored_wilson_theorem__stirling_first_row_sum_w1` from proven lemmas wilson_theorem + stirling_first_row_sum on new windows; awaits Oracle via proposal",
+      "mutation": "authored_bell_stirling_sum__cayley_hamilton_2x2_w1",
+      "what": "authored disabled hard check `authored_bell_stirling_sum__cayley_hamilton_2x2_w1` from proven lemmas bell_stirling_sum + cayley_hamilton_2x2 on new windows; awaits Oracle via proposal",
       "source": "conjecture_desk",
       "family": "hard_tier",
       "before_score": null,
@@ -107,39 +107,39 @@
       "tags": [
         "authoring",
         "authored_check",
-        "wilson_theorem",
-        "stirling_first_row_sum"
+        "bell_stirling_sum",
+        "cayley_hamilton_2x2"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::check_wilson_theorem",
-        "society/benchmarks/artifacts/lemma_impl.py::check_stirling_first_row_sum",
+        "society/benchmarks/artifacts/lemma_impl.py::check_bell_stirling_sum",
+        "society/benchmarks/artifacts/lemma_impl.py::check_cayley_hamilton_2x2",
         "society/benchmarks/lemma_microbench.py",
-        "lemma:wilson_theorem",
-        "lemma:stirling_first_row_sum"
+        "lemma:bell_stirling_sum",
+        "lemma:cayley_hamilton_2x2"
       ],
       "author": null,
       "expired": false,
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261018T060618Z_57940a",
+        "cycle_id": "20261018T061234Z_f61849",
         "check": "authoring",
         "evidence": [
-          "society/benchmarks/artifacts/lemma_impl.py::check_wilson_theorem",
-          "society/benchmarks/artifacts/lemma_impl.py::check_stirling_first_row_sum",
+          "society/benchmarks/artifacts/lemma_impl.py::check_bell_stirling_sum",
+          "society/benchmarks/artifacts/lemma_impl.py::check_cayley_hamilton_2x2",
           "society/benchmarks/lemma_microbench.py",
-          "lemma:wilson_theorem",
-          "lemma:stirling_first_row_sum"
+          "lemma:bell_stirling_sum",
+          "lemma:cayley_hamilton_2x2"
         ]
       },
-      "scope": "mutation:authored_wilson_theorem__stirling_first_row_sum_w1",
+      "scope": "mutation:authored_bell_stirling_sum__cayley_hamilton_2x2_w1",
       "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_wilson_theorem__stirling_first_row_sum_w1` contradicts decision=skip"
+      "invalidated_if": "a later Oracle/holdout verdict on `authored_bell_stirling_sum__cayley_hamilton_2x2_w1` contradicts decision=skip"
     },
     {
-      "id": "les_Z_57940a_conjecture",
-      "ts": "2026-10-18T06:06:54Z",
-      "cycle_id": "20261018T060618Z_57940a",
+      "id": "les_Z_f61849_conjecture",
+      "ts": "2026-10-18T06:13:06Z",
+      "cycle_id": "20261018T061234Z_f61849",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -183,7 +183,7 @@
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261018T060618Z_57940a",
+        "cycle_id": "20261018T061234Z_f61849",
         "check": "conjecture",
         "evidence": []
       },
@@ -192,9 +192,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
     },
     {
-      "id": "les_Z_57940a_vandermonde",
-      "ts": "2026-10-18T06:06:59Z",
-      "cycle_id": "20261018T060618Z_57940a",
+      "id": "les_Z_f61849_vandermonde",
+      "ts": "2026-10-18T06:13:10Z",
+      "cycle_id": "20261018T061234Z_f61849",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -217,7 +217,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261018T060618Z_57940a",
+        "cycle_id": "20261018T061234Z_f61849",
         "check": "oracle_seen_claim",
         "evidence": []
       },
@@ -226,9 +226,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_57940a_pilot",
-      "ts": "2026-10-18T06:07:07Z",
-      "cycle_id": "20261018T060618Z_57940a",
+      "id": "les_Z_f61849_pilot",
+      "ts": "2026-10-18T06:13:16Z",
+      "cycle_id": "20261018T061234Z_f61849",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -251,7 +251,7 @@
       "status": "candidate",
       "provenance": {
         "source": "pilot_lane",
-        "cycle_id": "20261018T060618Z_57940a",
+        "cycle_id": "20261018T061234Z_f61849",
         "check": "pilot",
         "evidence": []
       },
@@ -260,9 +260,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `pilot` contradicts decision=skip"
     },
     {
-      "id": "les_Z_9e8cfb_dedupe",
-      "ts": "2026-10-18T06:08:08Z",
-      "cycle_id": "20261018T060740Z_9e8cfb",
+      "id": "les_Z_8638b3_dedupe",
+      "ts": "2026-10-18T06:14:12Z",
+      "cycle_id": "20261018T061346Z_8638b3",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -285,7 +285,7 @@
       "status": "candidate",
       "provenance": {
         "source": "growth_hearing",
-        "cycle_id": "20261018T060740Z_9e8cfb",
+        "cycle_id": "20261018T061346Z_8638b3",
         "check": "dedupe",
         "evidence": []
       },
@@ -294,9 +294,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `dedupe` contradicts decision=block"
     },
     {
-      "id": "les_Z_9e8cfb_dedupe",
-      "ts": "2026-10-18T06:08:11Z",
-      "cycle_id": "20261018T060740Z_9e8cfb",
+      "id": "les_Z_8638b3_dedupe",
+      "ts": "2026-10-18T06:14:14Z",
+      "cycle_id": "20261018T061346Z_8638b3",
       "type": "repeat_proposal",
       "decision": "block",
       "check": "dedupe",
@@ -319,7 +319,7 @@
       "status": "candidate",
       "provenance": {
         "source": "growth_hearing",
-        "cycle_id": "20261018T060740Z_9e8cfb",
+        "cycle_id": "20261018T061346Z_8638b3",
         "check": "dedupe",
         "evidence": []
       },
@@ -328,14 +328,14 @@
       "invalidated_if": "a later Oracle/holdout verdict on `dedupe` contradicts decision=block"
     },
     {
-      "id": "les_Z_9e8cfb_authored_abel_summation__burnside_n",
-      "ts": "2026-10-18T06:08:15Z",
-      "cycle_id": "20261018T060740Z_9e8cfb",
+      "id": "les_Z_8638b3_authored_bezout_identity__cayley_tr",
+      "ts": "2026-10-18T06:14:18Z",
+      "cycle_id": "20261018T061346Z_8638b3",
       "type": "authored_check",
       "decision": "skip",
       "check": "authoring",
-      "mutation": "authored_abel_summation__burnside_necklaces_w1",
-      "what": "authored disabled hard check `authored_abel_summation__burnside_necklaces_w1` from proven lemmas abel_summation + burnside_necklaces on new windows; awaits Oracle via proposal",
+      "mutation": "authored_bezout_identity__cayley_tree_count_w1",
+      "what": "authored disabled hard check `authored_bezout_identity__cayley_tree_count_w1` from proven lemmas bezout_identity + cayley_tree_count on new windows; awaits Oracle via proposal",
       "source": "conjecture_desk",
       "family": "hard_tier",
       "before_score": null,
@@ -347,39 +347,39 @@
       "tags": [
         "authoring",
         "authored_check",
-        "abel_summation",
-        "burnside_necklaces"
+        "bezout_identity",
+        "cayley_tree_count"
       ],
       "evidence": [
-        "society/benchmarks/artifacts/lemma_impl.py::check_abel_summation",
-        "society/benchmarks/artifacts/lemma_impl.py::check_burnside_necklaces",
+        "society/benchmarks/artifacts/lemma_impl.py::check_bezout_identity",
+        "society/benchmarks/artifacts/lemma_impl.py::check_cayley_tree_count",
         "society/benchmarks/lemma_microbench.py",
-        "lemma:abel_summation",
-        "lemma:burnside_necklaces"
+        "lemma:bezout_identity",
+        "lemma:cayley_tree_count"
       ],
       "author": null,
       "expired": false,
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261018T060740Z_9e8cfb",
+        "cycle_id": "20261018T061346Z_8638b3",
         "check": "authoring",
         "evidence": [
-          "society/benchmarks/artifacts/lemma_impl.py::check_abel_summation",
-          "society/benchmarks/artifacts/lemma_impl.py::check_burnside_necklaces",
+          "society/benchmarks/artifacts/lemma_impl.py::check_bezout_identity",
+          "society/benchmarks/artifacts/lemma_impl.py::check_cayley_tree_count",
           "society/benchmarks/lemma_microbench.py",
-          "lemma:abel_summation",
-          "lemma:burnside_necklaces"
+          "lemma:bezout_identity",
+          "lemma:cayley_tree_count"
         ]
       },
-      "scope": "mutation:authored_abel_summation__burnside_necklaces_w1",
+      "scope": "mutation:authored_bezout_identity__cayley_tree_count_w1",
       "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `authored_abel_summation__burnside_necklaces_w1` contradicts decision=skip"
+      "invalidated_if": "a later Oracle/holdout verdict on `authored_bezout_identity__cayley_tree_count_w1` contradicts decision=skip"
     },
     {
-      "id": "les_Z_9e8cfb_conjecture",
-      "ts": "2026-10-18T06:08:16Z",
-      "cycle_id": "20261018T060740Z_9e8cfb",
+      "id": "les_Z_8638b3_conjecture",
+      "ts": "2026-10-18T06:14:19Z",
+      "cycle_id": "20261018T061346Z_8638b3",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -423,7 +423,7 @@
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261018T060740Z_9e8cfb",
+        "cycle_id": "20261018T061346Z_8638b3",
         "check": "conjecture",
         "evidence": []
       },
@@ -432,9 +432,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
     },
     {
-      "id": "les_Z_9e8cfb_vandermonde",
-      "ts": "2026-10-18T06:08:18Z",
-      "cycle_id": "20261018T060740Z_9e8cfb",
+      "id": "les_Z_8638b3_vandermonde",
+      "ts": "2026-10-18T06:14:22Z",
+      "cycle_id": "20261018T061346Z_8638b3",
       "type": "skip",
       "decision": "skip",
       "check": "oracle_seen_claim",
@@ -457,7 +457,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261018T060740Z_9e8cfb",
+        "cycle_id": "20261018T061346Z_8638b3",
         "check": "oracle_seen_claim",
         "evidence": []
       },
@@ -466,9 +466,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_9e8cfb_pilot",
-      "ts": "2026-10-18T06:08:25Z",
-      "cycle_id": "20261018T060740Z_9e8cfb",
+      "id": "les_Z_8638b3_pilot",
+      "ts": "2026-10-18T06:14:28Z",
+      "cycle_id": "20261018T061346Z_8638b3",
       "type": "skip",
       "decision": "skip",
       "check": "pilot",
@@ -491,7 +491,7 @@
       "status": "candidate",
       "provenance": {
         "source": "pilot_lane",
-        "cycle_id": "20261018T060740Z_9e8cfb",
+        "cycle_id": "20261018T061346Z_8638b3",
         "check": "pilot",
         "evidence": []
       },

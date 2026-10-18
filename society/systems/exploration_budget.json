@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-18T06:08:43Z",
+  "ts": "2026-10-18T06:14:46Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261018T060740Z_9e8cfb"
+    "cycle_id": "20261018T061346Z_8638b3"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
   "last_oracle_passes": 402,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-17T17:35:09Z",
-      "cycle_id": "20261017T173358Z_17731c",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-17T20:49:51Z",
-      "cycle_id": "20261017T204850Z_d9150c",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-17T20:51:08Z",
-      "cycle_id": "20261017T205002Z_15e6c5",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
     {
       "ts": "2026-10-17T20:52:15Z",
       "cycle_id": "20261017T205118Z_9cbb4c",
@@ -289,9 +268,30 @@
       "event": "credit",
       "delta_pass": 1.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-18T06:12:24Z",
+      "cycle_id": "20261018T061126Z_a0511d",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-18T06:13:38Z",
+      "cycle_id": "20261018T061234Z_f61849",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-18T06:14:49Z",
+      "cycle_id": "20261018T061346Z_8638b3",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-10-18T06:08:47Z",
+  "updated_at": "2026-10-18T06:14:49Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.016526,
     "hockey_stick": 0.016526,
@@ -314,12 +314,12 @@
     "binomial_inversion_small": 0.016526,
     "legendre_duplication_small": 0.016526,
     "stem_easy_pad_units": 0.016526,
-    "easy_pad_assoc_add": 0.001001,
-    "easy_pad_zero_identity": 0.001001,
-    "easy_pad_square_again": 0.001001,
-    "easy_pad_diff_squares": 0.001001,
-    "easy_pad_commutativity": 0.001001,
-    "easy_pad_abs_identity": 0.001001,
+    "easy_pad_assoc_add": 0.001,
+    "easy_pad_zero_identity": 0.001,
+    "easy_pad_square_again": 0.001,
+    "easy_pad_diff_squares": 0.001,
+    "easy_pad_commutativity": 0.001,
+    "easy_pad_abs_identity": 0.001,
     "fermat_little": 0.021846,
     "euler_theorem": 0.021846,
     "wilson_theorem": 0.021846,

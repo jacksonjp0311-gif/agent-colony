@@ -2192,15 +2192,15 @@ def check_authored_frontier_rec_xa92258f8_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'rec', 'lhs': 'dbl((pow2-lpf))', 'params': {'c': [-4, 5]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
-def check_authored_abel_summation__burnside_necklaces_w1() -> bool:
-    """Authored stress check (desk): proven lemmas abel_summation + burnside_necklaces on
+def check_authored_bezout_identity__cayley_tree_count_w1() -> bool:
+    """Authored stress check (desk): proven lemmas bezout_identity + cayley_tree_count on
     larger windows disjoint from their base windows (generation 1).
 
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_abel_summation,
-    ::check_burnside_necklaces; checked by society/benchmarks/lemma_microbench.py.
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_bezout_identity,
+    ::check_cayley_tree_count; checked by society/benchmarks/lemma_microbench.py.
     Machine check only — not a novel theorem. Disabled until the Oracle passes it.
     """
-    return all((check_abel_summation(n) for n in range(40, 59))) and all((check_burnside_necklaces(n) for n in range(8, 11)))
+    return all((check_bezout_identity(a, b) for a in range(40, 59) for b in range(40, 59))) and all((check_cayley_tree_count(n) for n in range(10, 14)))
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2436,7 +2436,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_x1c0eba57_w1", check_authored_frontier_le_x1c0eba57_w1, True),
     ("authored_frontier_cong_x23fb70a1_w1", check_authored_frontier_cong_x23fb70a1_w1, True),
     ("authored_frontier_rec_xa92258f8_w1", check_authored_frontier_rec_xa92258f8_w1, True),
-    ("authored_abel_summation__burnside_necklaces_w1", check_authored_abel_summation__burnside_necklaces_w1, False),
+    ("authored_bezout_identity__cayley_tree_count_w1", check_authored_bezout_identity__cayley_tree_count_w1, False),
 ]
 
 
