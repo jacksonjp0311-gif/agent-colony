@@ -2183,6 +2183,15 @@ def check_authored_frontier_divides_x0b1db873_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(pell,tau)', 'params': {}, 'rhs': '(rad*sqfree)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
+def check_authored_frontier_cong_xa68963c2_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    S(gcd(digsum,phi))(n) = 1 (mod 2) for all n = 3 (mod 4)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 14997 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(gcd(digsum,phi))', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 3}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2414,7 +2423,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x23fb70a1_w1", check_authored_frontier_cong_x23fb70a1_w1, True),
     ("authored_frontier_rec_xa92258f8_w1", check_authored_frontier_rec_xa92258f8_w1, True),
     ("authored_frontier_le_xdbff107c_w1", check_authored_frontier_le_xdbff107c_w1, True),
-    ("authored_frontier_divides_x0b1db873_w1", check_authored_frontier_divides_x0b1db873_w1, False),
+    ("authored_frontier_divides_x0b1db873_w1", check_authored_frontier_divides_x0b1db873_w1, True),
+    ("authored_frontier_cong_xa68963c2_w1", check_authored_frontier_cong_xa68963c2_w1, True),
 ]
 
 

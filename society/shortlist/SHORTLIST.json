@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-18T11:14:52Z",
+  "ts": "2026-10-18T11:19:42Z",
   "view_only": true,
   "n_considered": 58,
   "n_meet_bar": 11,
   "n_groups": 11,
-  "n_authored_groups": 2,
-  "n_building_block_groups": 9,
+  "n_authored_groups": 3,
+  "n_building_block_groups": 8,
   "top": [
     {
       "id": "imp_15e6c5_50",
@@ -50,6 +50,47 @@
       "line": "Enable `authored_euler_theorem__gauss_phi_divisor_sum_w1` (Oracle passed it in its own cycle); builds on euler_theorem, gauss_phi_divisor_sum; P 0.825, novelty 1.0."
     },
     {
+      "id": "imp_554165_50",
+      "title": "Chain+seek `authored_frontier_divides_x0b1db873_w1` from invariant priors",
+      "cycle_id": "20261018T111646Z_554165",
+      "target": "authored_frontier_divides_x0b1db873_w1",
+      "family": "authored_frontier_divides_x0b1db873",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8764,
+      "P_stored": 0.8764,
+      "novelty": 1.0,
+      "novelty_raw": 1.0,
+      "building_block": null,
+      "builds_on": 0.0,
+      "building_blocks": [
+        "frontier:frontier_holds"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.7258,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.0833,
+        "oeis_checked": true,
+        "family": "authored_frontier_divides_x0b1db873",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 1.0,
+        "chained_by": null,
+        "P_shadow": 0.8764,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.7258,
+        "shadow_pos": 4
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_554165_50"
+      ],
+      "position": 2,
+      "line": "Enable `authored_frontier_divides_x0b1db873_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8764, novelty 1.0."
+    },
+    {
       "id": "imp_bc7717_50",
       "title": "Chain+seek `authored_frontier_le_xdbff107c_w1` from invariant priors",
       "cycle_id": "20261018T111217Z_bc7717",
@@ -81,13 +122,13 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.695,
-        "shadow_pos": 4
+        "shadow_pos": 5
       },
       "group_count": 1,
       "group_ids": [
         "imp_bc7717_50"
       ],
-      "position": 2,
+      "position": 3,
       "line": "Enable `authored_frontier_le_xdbff107c_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0."
     }
   ],
@@ -122,7 +163,7 @@
         "P_shadow": 0.7518,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6511,
-        "shadow_pos": 5
+        "shadow_pos": 6
       },
       "group_count": 1,
       "group_ids": [
@@ -161,7 +202,7 @@
         "P_shadow": 0.7516,
         "meets_bar_shadow": true,
         "rank_shadow": 0.651,
-        "shadow_pos": 6
+        "shadow_pos": 7
       },
       "group_count": 1,
       "group_ids": [
@@ -200,7 +241,7 @@
         "P_shadow": 0.751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6506,
-        "shadow_pos": 7
+        "shadow_pos": 8
       },
       "group_count": 1,
       "group_ids": [
@@ -278,7 +319,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 8
+        "shadow_pos": 9
       },
       "group_count": 1,
       "group_ids": [
@@ -317,7 +358,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 9
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
@@ -356,7 +397,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 10
+        "shadow_pos": 11
       },
       "group_count": 1,
       "group_ids": [
@@ -364,45 +405,6 @@
       ],
       "position": 7,
       "line": "Building block `burnside_necklaces` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
-    },
-    {
-      "id": "imp_bb0db0_50",
-      "title": "Chain+seek `cayley_hamilton_2x2` from invariant priors",
-      "cycle_id": "20261017T162448Z_bb0db0",
-      "target": "cayley_hamilton_2x2",
-      "family": "cayley_hamilton_2x2",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 0.0,
-      "novelty_raw": 1.0,
-      "building_block": "catalog_refill",
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.495,
-      "hunt": {
-        "unknown": false,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "cayley_hamilton_2x2",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 0.5,
-        "chained_by": 1,
-        "P_shadow": 0.7,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.62,
-        "shadow_pos": 11
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_bb0db0_50"
-      ],
-      "position": 8,
-      "line": "Building block `cayley_hamilton_2x2` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
       "id": "imp_f7b051_50",
@@ -440,13 +442,13 @@
       "group_ids": [
         "imp_f7b051_50"
       ],
-      "position": 9,
+      "position": 8,
       "line": "Building block `lagrange_cyclic_orders` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-18T11:14:52Z",
-    "cycle_id": "20261018T111337Z_5bf423",
+    "ts": "2026-10-18T11:19:42Z",
+    "cycle_id": "20261018T111843Z_6ff40f",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -455,10 +457,12 @@
     },
     "n_meet_bar_actual": 11,
     "n_meet_bar_shadow": 11,
-    "n_unknown_claims": 4,
+    "n_unknown_claims": 6,
     "unknown_targets": [
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
+      "authored_frontier_cong_xa68963c2_w1",
+      "authored_frontier_divides_x0b1db873_w1",
       "authored_frontier_le_xdbff107c_w1",
       "authored_frontier_rec_xa92258f8_w1"
     ],
@@ -469,7 +473,7 @@
       {
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
-        "actual_pos": 6,
+        "actual_pos": 7,
         "shadow_pos": 1,
         "meets_bar_shadow": true,
         "rank": 0.5252,
@@ -509,10 +513,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_bc7717_50",
-        "target": "authored_frontier_le_xdbff107c_w1",
+        "id": "imp_554165_50",
+        "target": "authored_frontier_divides_x0b1db873_w1",
         "actual_pos": 2,
         "shadow_pos": 4,
+        "meets_bar_shadow": true,
+        "rank": 0.7258,
+        "rank_shadow": 0.7258,
+        "P": 0.8764,
+        "P_shadow": 0.8764,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_bc7717_50",
+        "target": "authored_frontier_le_xdbff107c_w1",
+        "actual_pos": 3,
+        "shadow_pos": 5,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -525,8 +543,8 @@
       {
         "id": "imp_e8a630_50",
         "target": "cayley_hamilton_3x3",
-        "actual_pos": 3,
-        "shadow_pos": 5,
+        "actual_pos": 4,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.5261,
         "rank_shadow": 0.6511,
@@ -539,8 +557,8 @@
       {
         "id": "imp_dfaa7b_50",
         "target": "polynomial_remainder",
-        "actual_pos": 4,
-        "shadow_pos": 6,
+        "actual_pos": 5,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.526,
         "rank_shadow": 0.651,
@@ -553,8 +571,8 @@
       {
         "id": "imp_2eb8c7_50",
         "target": "abel_summation",
-        "actual_pos": 5,
-        "shadow_pos": 7,
+        "actual_pos": 6,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.5256,
         "rank_shadow": 0.6506,
@@ -567,20 +585,6 @@
       {
         "id": "imp_0bada5_50",
         "target": "newton_identities",
-        "actual_pos": 7,
-        "shadow_pos": 8,
-        "meets_bar_shadow": true,
-        "rank": 0.495,
-        "rank_shadow": 0.62,
-        "P": 0.825,
-        "P_shadow": 0.7,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
-      },
-      {
-        "id": "imp_1a4ec1_50",
-        "target": "telescoping_sum",
         "actual_pos": 8,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
@@ -593,8 +597,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_3a02ab_50",
-        "target": "burnside_necklaces",
+        "id": "imp_1a4ec1_50",
+        "target": "telescoping_sum",
         "actual_pos": 9,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -608,14 +612,14 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
     "status": 41,
-    "target_unresolved": 34,
+    "target_unresolved": 33,
     "no_oracle_pass_in_own_cycle": 11,
     "trivial_by_filter": 2,
     "hearing": 2,
@@ -628,5 +632,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T111337Z_5bf423"
+  "cycle_id": "20261018T111843Z_6ff40f"
 }
