@@ -1358,28 +1358,6 @@ def check_authored_stirling_second_row__pythagorean_generation_w1() -> bool:
     return all((check_stirling_second_row(n) for n in range(12, 17))) and all((check_pythagorean_generation(u, v) for u in range(16, 23) for v in range(1, u)))
 
 
-def check_authored_pascal_identity__vandermonde_conv_w1() -> bool:
-    """Authored stress check (desk): proven lemmas pascal_identity + vandermonde_conv on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_pascal_identity,
-    ::check_vandermonde_convolution; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_pascal_identity(n, k) for n in range(16, 23) for k in range(1, n))) and all((check_vandermonde_convolution(m, n, r) for m in range(12, 18) for n in range(12, 18) for r in range(0, m + n + 1)))
-
-
-def check_authored_sum_first_n_odds__binomial_inversion_small_w1() -> bool:
-    """Authored stress check (desk): proven lemmas sum_first_n_odds + binomial_inversion_small on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_sum_first_n_odds,
-    ::check_binomial_inversion_small; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_sum_first_n_odds(n) for n in range(40, 60))) and all((check_binomial_inversion_small(n) for n in range(9, 13)))
-
-
 # --- instrument bridges (colony.instruments.sieve) ---
 def sieve_count(gaps, a, b, mod=1, residue=None, backend="auto"):
     """Bridge to colony.instruments.sieve.count_pattern (capped). Returns an int count."""
@@ -2141,33 +2119,6 @@ def check_authored_sieve_hl_within_g4_w1() -> bool:
     return all(type(c := sieve_count((4,), a, b)) is int and type(h := sieve_hl((4,), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
-def check_authored_sieve_two_counter_g2_4_w1() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (2, 4).
-    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((2, 4), a, b)) is int and c > 0 and c == sieve_count((2, 4), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
-
-
-def check_authored_sieve_residue_bal_g2_6_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (2, 6) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((2, 6), a, b, 4, 1)) is int and type(y := sieve_count((2, 6), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
-def check_authored_sieve_residue_bal_g4_2_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (4, 2) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((4, 2), a, b, 4, 1)) is int and type(y := sieve_count((4, 2), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
 def check_authored_sieve_hl_within_g4_6_w1() -> bool:
     """Authored instrument check (desk): count of consecutive pattern (4, 6) on each window is within 4.0*sqrt of the HL forecast.
     Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
@@ -2175,42 +2126,6 @@ def check_authored_sieve_hl_within_g4_6_w1() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := sieve_count((4, 6), a, b)) is int and type(h := sieve_hl((4, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
-def check_authored_sieve_two_counter_g6_4_w1() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (6, 4).
-    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((6, 4), a, b)) is int and c > 0 and c == sieve_count((6, 4), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
-
-
-def check_authored_sieve_hl_within_g6_2_w1() -> bool:
-    """Authored instrument check (desk): count of consecutive pattern (6, 2) on each window is within 4.0*sqrt of the HL forecast.
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((6, 2), a, b)) is int and type(h := sieve_hl((6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
-def check_authored_sieve_two_counter_g6_6_w1() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (6, 6).
-    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((6, 6), a, b)) is int and c > 0 and c == sieve_count((6, 6), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
-
-
-def check_authored_sieve_residue_bal_g2_4_2_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (2, 4, 2) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((2, 4, 2), a, b, 4, 1)) is int and type(y := sieve_count((2, 4, 2), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
 def check_authored_sieve_residue_bal_g2_4_6_w1() -> bool:
@@ -2229,15 +2144,6 @@ def check_authored_sieve_hl_within_g2_6_4_w1() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := sieve_count((2, 6, 4), a, b)) is int and type(h := sieve_hl((2, 6, 4), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
-def check_authored_sieve_two_counter_g4_2_4_w1() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (4, 2, 4).
-    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((4, 2, 4), a, b)) is int and c > 0 and c == sieve_count((4, 2, 4), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
 
 
 def check_authored_sieve_hl_within_g2_6_6_w1() -> bool:
@@ -2477,15 +2383,6 @@ def check_authored_multinomial_three__newton_identities_w1() -> bool:
     return all((check_multinomial_three(n) for n in range(20, 30))) and all((check_newton_identities(n) for n in range(10, 14)))
 
 
-def check_authored_frontier_le_x46c5cc8a_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)
-    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 3988 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'gcd(mu,n)', 'params': {}, 'rhs': 'gcd(lucas,sqfree)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
-
-
 def check_authored_odd_distinct_partitions__partition_conjugate_parts_w1() -> bool:
     """Authored stress check (desk): proven lemmas odd_distinct_partitions + partition_conjugate_parts on
     larger windows disjoint from their base windows (generation 1).
@@ -2699,8 +2596,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_pascal_identity__sum_first_n_cubes_w1", check_authored_pascal_identity__sum_first_n_cubes_w1, True),
     ("authored_pell_companion__motzkin_bounded_w1", check_authored_pell_companion__motzkin_bounded_w1, True),
     ("authored_stirling_second_row__pythagorean_generation_w1", check_authored_stirling_second_row__pythagorean_generation_w1, True),
-    ("authored_pascal_identity__vandermonde_conv_w1", check_authored_pascal_identity__vandermonde_conv_w1, True),
-    ("authored_sum_first_n_odds__binomial_inversion_small_w1", check_authored_sum_first_n_odds__binomial_inversion_small_w1, True),
     ("authored_sieve_hl_within_g2_w1", check_authored_sieve_hl_within_g2_w1, True),
     ("authored_sieve_residue_bal_g2_w1", check_authored_sieve_residue_bal_g2_w1, True),
     ("authored_sieve_two_counter_g2_w1", check_authored_sieve_two_counter_g2_w1, True),
@@ -2736,17 +2631,9 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_residue_bal_g6_6_6_w1", check_authored_sieve_residue_bal_g6_6_6_w1, True),
     ("authored_sieve_two_counter_g6_w1", check_authored_sieve_two_counter_g6_w1, True),
     ("authored_sieve_hl_within_g4_w1", check_authored_sieve_hl_within_g4_w1, True),
-    ("authored_sieve_two_counter_g2_4_w1", check_authored_sieve_two_counter_g2_4_w1, True),
-    ("authored_sieve_residue_bal_g2_6_w1", check_authored_sieve_residue_bal_g2_6_w1, True),
-    ("authored_sieve_residue_bal_g4_2_w1", check_authored_sieve_residue_bal_g4_2_w1, True),
     ("authored_sieve_hl_within_g4_6_w1", check_authored_sieve_hl_within_g4_6_w1, True),
-    ("authored_sieve_two_counter_g6_4_w1", check_authored_sieve_two_counter_g6_4_w1, True),
-    ("authored_sieve_hl_within_g6_2_w1", check_authored_sieve_hl_within_g6_2_w1, True),
-    ("authored_sieve_two_counter_g6_6_w1", check_authored_sieve_two_counter_g6_6_w1, True),
-    ("authored_sieve_residue_bal_g2_4_2_w1", check_authored_sieve_residue_bal_g2_4_2_w1, True),
     ("authored_sieve_residue_bal_g2_4_6_w1", check_authored_sieve_residue_bal_g2_4_6_w1, True),
     ("authored_sieve_hl_within_g2_6_4_w1", check_authored_sieve_hl_within_g2_6_4_w1, True),
-    ("authored_sieve_two_counter_g4_2_4_w1", check_authored_sieve_two_counter_g4_2_4_w1, True),
     ("authored_sieve_hl_within_g2_6_6_w1", check_authored_sieve_hl_within_g2_6_6_w1, True),
     ("authored_sieve_two_counter_g4_2_6_w1", check_authored_sieve_two_counter_g4_2_6_w1, True),
     ("authored_sieve_residue_bal_g4_6_2_w1", check_authored_sieve_residue_bal_g4_6_2_w1, True),
@@ -2770,7 +2657,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_fermat_little__lucas_theorem_binomial_w1", check_authored_fermat_little__lucas_theorem_binomial_w1, True),
     ("authored_mobius_divisor_sum__mobius_inversion_sigma_w1", check_authored_mobius_divisor_sum__mobius_inversion_sigma_w1, True),
     ("authored_multinomial_three__newton_identities_w1", check_authored_multinomial_three__newton_identities_w1, True),
-    ("authored_frontier_le_x46c5cc8a_w1", check_authored_frontier_le_x46c5cc8a_w1, True),
     ("authored_odd_distinct_partitions__partition_conjugate_parts_w1", check_authored_odd_distinct_partitions__partition_conjugate_parts_w1, True),
     ("authored_polynomial_remainder__telescoping_sum_w1", check_authored_polynomial_remainder__telescoping_sum_w1, True),
 ]

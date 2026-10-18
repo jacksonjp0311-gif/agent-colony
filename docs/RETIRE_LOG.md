@@ -24,3 +24,21 @@ Protected:
 - on a receipt (authorized / decided): 110
 - a proposal meeting the bar depends on it: 26
 - named in colony/ or tests/ code: 3
+
+## Applied (Oct 17, 2026 ~10:45 PM ET, `COLONY_RETIRE=live`, one run)
+
+The 11 checks above were retired and archived (full source + catalog entry + reason) in
+`society/systems/retired_checks.json`. The bench check inside `apply` re-ran every remaining check first (all pass).
+
+Sanity check (local, 3 runs each, `society/benchmarks/run_benchmarks`):
+
+| | before | after |
+|---|---|---|
+| lemma bench score | 0.8629 / 0.8631 / 0.8632 | 0.8645 / 0.8648 / 0.8649 |
+| hard checks passing | 213 / 213 | 202 / 202 |
+| lemma bench seconds | 1.25 to 1.31 | 0.96 to 1.02 |
+| aggregate (noisy fft_stress timing) | 0.8968 to 0.9016 | 0.8813 to 0.9021 |
+| ok_all | true | true |
+
+The lemma score does not drop because the hard component is capped (HARD_DENOM = 28 << 202) and fewer checks run faster.
+`fitness.hard_tier_delta` adds retired checks back, so retirement is not read as a hard-tier regression.
