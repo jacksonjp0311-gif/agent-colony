@@ -57,3 +57,31 @@ def test_inequality_and_closed_form(T):
 def test_mode_default(monkeypatch):
     monkeypatch.delenv("COLONY_PROOF", raising=False)
     assert PP.mode() == "shadow"
+
+
+def test_textbook_lemmas(T):
+    """Prime-race steps, digit-pair parity, tau(p) = 2, sopfr(p-1) <= p-1, squarefree split."""
+    goods = [C("cong", "D(gcd(cheb4,phi))", m=2, r=0, q=3, s=2),
+             C("cong", "S(gcd(digsum,phi))", m=2, r=1, q=4, s=3),
+             C("le", "sopfr[phi]", "(sopfr-omega)"),
+             C("divides", "tau[lpf]", "(lpf-pell)")]
+    rules = []
+    for g in goods:
+        cert = PP.prove(g, T)
+        assert cert and K.check(cert, g, T)[0], g
+        rules.append(cert)
+    assert PP.prove(C("cong", "D(gcd(cheb4,phi))", m=2, r=1, q=3, s=2), T) is None
+    assert PP.prove(C("cong", "S(gcd(digsum,phi))", m=2, r=0, q=4, s=3), T) is None
+    assert PP.prove(C("le", "(sopfr-omega)", "sopfr[phi]"), T) is None
+    assert PP.prove(C("divides", "tau[lpf]", "(lpf-fib)"), T) is None
+    bad = C("cong", "S(gcd(digsum,phi))", m=2, r=0, q=4, s=3)
+    assert not K.check(rules[1], bad, T)[0]
+
+
+def test_step_and_branch_unit():
+    assert K.step_lemma("pi", 0, 2, True) and K.step_lemma("pi", 1, 2, True) is None
+    assert K.step_lemma("digsum", 1, 2, True)[1] == 1 and K.step_lemma("digsum", 0, 2, True) is None
+    assert K.compose_prime_lemma("tau", "lpf", True)[2] == 2
+    assert K.compose_prime_lemma("tau", "lpf", False) is None and K.compose_prime_lemma("tau", "rad", True) is None
+    assert K.branch_value("tau", (0, 1, 1), 1, 0)[1] == K.V(0, {}, 2)
+    assert K.branch_value("tau", (0, 1, 1), 2, 0) is None and K.branch_value("tau", (0, 1), 1, 0) is None

@@ -85,6 +85,10 @@ class Prover:
                 else:
                     nd.update(rule="n", val=K.V(b, {"n@1,0": a}))
                 return nd
+            bv = K.branch_value(name, cls, a, b)
+            if bv:
+                nd.update(rule="branch", lemma=bv[0], val=bv[1])
+                return nd
             lv = K.value_lemma(name, r, d, big)
             if lv and (lv[1]["d"] == 0 or (M and math.gcd(lv[1]["d"], M) > 1)):
                 nd.update(rule="lemma", lemma=lv[0], val=lv[1])
@@ -95,6 +99,11 @@ class Prover:
                 if lm:
                     nd.update(rule="dbl_rw", lemma=lm[0],
                               val=K.V(lm[2], {K.atom(k, a // 2, b // 2): v for k, v in lm[1].items()}))
+                    return nd
+            if b >= 1:
+                sl = K.step_lemma(name, r, d, big)
+                if sl:
+                    nd.update(rule="step_rw", lemma=sl[0], val=K.V(sl[1], {K.atom(name, a, b - 1): 1}))
                     return nd
             return atom()
         if op in ("+", "-", "*"):
@@ -108,6 +117,9 @@ class Prover:
         if op == "gcd":
             u = self.node(e[1], a, b, cls, big, M or ARG_M)
             v = self.node(e[2], a, b, cls, big, M or ARG_M)
+            if K.gcd_tau_applies(e, a, b, cls, u["val"], v["val"]):
+                nd.update(rule="gcd_tau", kids=[u, v], val=K.V(1))
+                return nd
             w = K.gcd_val(u["val"], v["val"], K.nonneg(e[1]), K.nonneg(e[2]))
             if w is None or (M == 0 and w["d"]):
                 return atom()
@@ -152,6 +164,12 @@ class Prover:
             g = self.node(("p", "n"), a, b, cls, big, M)       # pi(prime(x)) = x
             nd.update(rule="pi_prime", kids=[g], val=g["val"])
             return nd
+        if op == "o" and e[2][0] == "p":
+            lm = K.compose_prime_lemma(e[1], e[2][1], big)
+            if lm:
+                nd.update(rule="o_prime", lemma=lm[0],
+                          val=K.V(lm[2], {K.atom(e[2][1], a, b): k for k in lm[1].values()}))
+                return nd
         if op == "o":
             g = self.node(e[2], a, b, cls, big, ARG_M)
             gv = g["val"]
@@ -170,28 +188,71 @@ class Prover:
         if op == "S":
             if M == 0:
                 return atom()
+            got = self._S1(e, a, b, cls, M, nd)
+            if got is None:
+                got = self._S2(e, a, b, cls, M, nd)
+            return got if got is not None else atom()
+        return atom()
+
+    def _S2(self, e, a, b, cls, M, nd):
+        """Running sum over pairs (2j, 2j+1): S(N) for odd N from block sums e(2j) + e(2j+1)."""
+        r0, d0 = K._class_of(cls, a, b)
+        if d0 % 2 or r0 % 2 == 0 or d0 > 120:
+            return None
+        Qj = d0
+        blocks, de = [], 0
+        for u in range(Qj):
+            w0 = self.node(e[1], 2, 0, (u, Qj), True, M)
+            w1 = self.node(e[1], 2, 1, (u, Qj), True, M)
+            w = K.reduce_mod(K.add(w0["val"], w1["val"]), M)
+            if not K.pure(w):
+                return None
+            blocks.append([w0, w1])
+            de = math.gcd(de, w["d"])
+        de = math.gcd(de, M) if de else M
+        if de < 2:
+            return None
+        P = 2 * Qj * de
+        L = d0 * P // math.gcd(d0, P)
+        if L > 20000:
+            return None
+        try:
+            x = K.evaluate_prefix(e[1], self.T, K.N0 + L + 3)
+        except ValueError:
+            return None
+        vals = []
+        for j in range(L // d0):
+            Ns = (r0 + j * d0) % L
+            while Ns < K.N0 + 2:
+                Ns += L
+            vals.append(K.V(x[Ns - 1], {}, de))
+        nd.update(rule="S2", Qj=Qj, de=de, blocks=blocks, val=K.join(vals))
+        return nd
+
+    def _S1(self, e, a, b, cls, M, nd):
+        if True:
             Qe = a * cls[1]
             if Qe > 240:
-                return atom()
+                return None
             inner, de = [], 0
             for j in range(Qe):
                 w = self.node(e[1], 1, 0, (j, Qe), True, M)
                 if not K.pure(w["val"]):
-                    return atom()
+                    return None
                 inner.append(w)
                 de = math.gcd(de, w["val"]["d"])
             de = math.gcd(de, M) if de else M
             if de < 2:
-                return atom()
+                return None
             P = Qe * de
             r0, d0 = K._class_of(cls, a, b)
             L = d0 * P // math.gcd(d0, P)
             if L > 20000:
-                return atom()
+                return None
             try:
                 x = K.evaluate_prefix(e[1], self.T, K.N0 + L + 1)
             except ValueError:
-                return atom()
+                return None
             vals = []
             for j in range(L // d0):
                 Ns = (r0 + j * d0) % L
@@ -200,7 +261,6 @@ class Prover:
                 vals.append(K.V(x[Ns - 1], {}, de))
             nd.update(rule="S", Qe=Qe, de=de, inner=inner, val=K.join(vals))
             return nd
-        return atom()
 
 
 def _qs(q: int) -> list[int]:
@@ -270,25 +330,16 @@ def prove(claim: dict[str, Any], T: Any, budget_s: float = PER_CLAIM_S) -> dict[
         try:
             for t in classes:
                 cls = (t, Q)
-                if kind == "cong":
+                if kind in ("cong", "divides"):
                     method = "periodic residues"
-                    nd = P.node(le, 1, 0, cls, True, p["m"])
-                    v = nd["val"]
-                    v = K.reduce_mod(v, p["m"])
-                    if not K.pure(v) or (v["d"] and v["d"] % p["m"]) or (v["c"] - p["r"]) % p["m"]:
-                        raise ValueError("class")
-                    out[str(t)] = {"lhs": nd}
-                elif kind == "divides":
-                    method = "periodic residues"
-                    u = P.node(le, 1, 0, cls, True, 0)
-                    v = P.node(re_, 1, 0, cls, True, ARG_M)
-                    uv, vv = u["val"], v["val"]
-                    ok = (K.pure(vv) and vv["d"] == 0 and vv["c"] == 0 and K.positive(le)) or \
-                         (K.pure(uv) and uv["d"] == 0 and uv["c"] != 0 and K.pure(vv) and vv["c"] % uv["c"] == 0
-                          and (vv["d"] == 0 or vv["d"] % uv["c"] == 0))
-                    if not ok:
-                        raise ValueError("class")
-                    out[str(t)] = {"lhs": u, "rhs": v}
+                    one = _residue_class(P, kind, le, re_, p, cls)
+                    if one is None:   # squarefree case split: sqfree(n) = 0 / sqfree(n) = 1
+                        b0 = _residue_class(P, kind, le, re_, p, (t, Q, 0))
+                        b1 = _residue_class(P, kind, le, re_, p, (t, Q, 1)) if b0 is not None else None
+                        if b1 is None:
+                            raise ValueError("class")
+                        one = {"split": "sqfree", "b0": b0, "b1": b1}
+                    out[str(t)] = one
                 elif kind == "le":
                     method = "basic-inequality derivation"
                     u = P.node(le, 1, 0, cls, True, 0)
@@ -318,6 +369,21 @@ def prove(claim: dict[str, Any], T: Any, budget_s: float = PER_CLAIM_S) -> dict[
         if ok:
             cert["checker"] = "colony.proof_check.check: ok"
             return cert
+    return None
+
+
+def _residue_class(P: "Prover", kind: str, le: tuple, re_: tuple | None, p: dict[str, Any], cls: tuple):
+    if kind == "cong":
+        nd = P.node(le, 1, 0, cls, True, p["m"])
+        v = K.reduce_mod(nd["val"], p["m"])
+        if not K.pure(v) or (v["d"] and v["d"] % p["m"]) or (v["c"] - p["r"]) % p["m"]:
+            return None
+        return {"lhs": nd}
+    for Mv in (ARG_M, 0):
+        u = P.node(le, 1, 0, cls, True, 0)
+        v = P.node(re_, 1, 0, cls, True, Mv)
+        if K.divides_ok(u["val"], v["val"], K.positive(le)):
+            return {"lhs": u, "rhs": v}
     return None
 
 
@@ -383,7 +449,7 @@ def run(T: Any = None, *, state_path: Path | None = None, write: bool = True,
     n_new = 0
     for s, c in sorted(claims.items(), key=lambda kv: (kv[1].get("kind") == "rec", kv[0])):
         old = prev.get(s)
-        if old and old.get("status") in ("proved", "not proved") and old.get("v") == 1:
+        if old and old.get("status") in ("proved", "not proved") and old.get("v") == 2:
             results[s] = dict(old, authored=bool(c.get("authored")), unknown=bool(c.get("unknown")))
             continue
         if time.time() - t0 > budget_s:
@@ -391,7 +457,7 @@ def run(T: Any = None, *, state_path: Path | None = None, write: bool = True,
             continue
         cert = prove(c, T)
         n_new += 1
-        results[s] = {"v": 1, "status": "proved" if cert else "not proved", "kind": c["kind"],
+        results[s] = {"v": 2, "status": "proved" if cert else "not proved", "kind": c["kind"],
                       "check": c.get("check"), "authored": bool(c.get("authored")),
                       "prior_certificate": bool(c.get("certificate")),
                       "unknown": bool(c.get("unknown")), "checks": c.get("checks"),

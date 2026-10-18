@@ -129,6 +129,10 @@ def gcd_val(u, v, u_nonneg: bool, v_nonneg: bool):
                 return V(1)
             if pure(y) and (y["d"] % c == 0):
                 return V(math.gcd(c, y["c"]))
+    for x, y in ((u, v), (v, u)):   # gcd(x, y) with y even has the parity of x
+        if pure(y) and y["d"] and y["d"] % 2 == 0 and y["c"] % 2 == 0 and (x["d"] == 0 or x["d"] % 2 == 0) \
+                and not pure(x):
+            return V(x["c"], x["a"], 2)
     gs = []
     for x in (u, v):
         gs.append(math.gcd(x["c"], x["d"]) if pure(x) else None)
@@ -279,14 +283,55 @@ def value_lemma(name: str, r: int, d: int, big: bool) -> tuple[str, dict[str, An
     return lem, val
 
 
+STEP_COUNTS = ("pi", "cheb4", "cheb3")   # prime counts / prime races: change only at primes
+
+
+def _no_carry(r: int, d: int) -> bool:
+    """x = r (mod d) never ends in the digit 9 (so digsum(x+1) = digsum(x) + 1)."""
+    return (d % 10 == 0 and r % 10 != 9) or (d % 2 == 0 and r % 2 == 0)
+
+
+def _composite_step(r: int, d: int) -> int | None:
+    """A small prime p with p | x for every x = r (mod d) (x > p when x >= N0)."""
+    for p in _small_primes():
+        if d % p == 0 and r % p == 0:
+            return p
+    return None
+
+
 def d_lemma(name: str, r: int, d: int, big: bool) -> tuple[str, dict[str, Any]] | None:
     """f(x+1) - f(x) for x = r (mod d)."""
-    if name == "digsum" and d % 10 == 0 and r % 10 != 9:
-        return "digsum(x+1) = digsum(x) + 1 when x does not end in 9", V(1)
-    if name == "pi" and big and d % 2 == 0 and r % 2 == 1:
-        return "x+1 is even and > 2, so pi(x+1) = pi(x)", V(0)
+    if name == "digsum" and _no_carry(r, d):
+        return "digsum(x+1) = digsum(x) + 1 when x does not end in 9 (no carry; e.g. x even)", V(1)
+    if name in STEP_COUNTS and big and _composite_step(r + 1, d):
+        return (f"{name} changes only at primes; x+1 is a multiple of {_composite_step(r + 1, d)} "
+                f"and > it, so {name}(x+1) = {name}(x)"), V(0)
     if name == "one":
         return "one is constant", V(0)
+    return None
+
+
+def step_lemma(name: str, r: int, d: int, big: bool) -> tuple[str, int] | None:
+    """f(x) = f(x-1) + c for x = r (mod d) (a rewrite to the previous point)."""
+    if name in STEP_COUNTS and big and _composite_step(r, d):
+        return f"{name} changes only at primes; x is composite (a multiple of {_composite_step(r, d)})", 0
+    if name == "digsum" and _no_carry(r - 1, d):
+        return "digsum(x) = digsum(x-1) + 1 when x-1 does not end in 9 (no carry)", 1
+    return None
+
+
+PRIME_VALUED = {"lpf": "x >= 2", "gpf": "x >= 2", "prime": "x >= 1"}
+PRIME_COMPOSE = {"tau": ({}, 2), "omega": ({}, 1), "bigomega": ({}, 1), "mu": ({}, -1), "sqfree": ({}, 1),
+                 "phi": ({"g": 1}, -1), "sigma": ({"g": 1}, 1), "rad": ({"g": 1}, 0), "lpf": ({"g": 1}, 0),
+                 "gpf": ({"g": 1}, 0), "sopfr": ({"g": 1}, 0)}
+
+
+def compose_prime_lemma(f: str, g: str, big: bool) -> tuple[str, dict[str, int], int] | None:
+    """f(g(x)) when g(x) is a prime p: tau(p) = 2, omega(p) = Omega(p) = 1, mu(p) = -1, phi(p) = p - 1,
+    sigma(p) = p + 1, rad = lpf = gpf = sopfr = p."""
+    if g in PRIME_VALUED and f in PRIME_COMPOSE and (big or g == "prime"):
+        co, c = PRIME_COMPOSE[f]
+        return f"{g}(x) is prime ({PRIME_VALUED[g]}); {f} of a prime p is {c:+d}{' + p' if co else ''}", co, c
     return None
 
 
@@ -313,7 +358,11 @@ def dbl_lemma(name: str, parity: int | None) -> tuple[str, dict[str, int], int] 
 # inequality library (each valid for x >= N0; instantiated at any point a*n + b, a >= 1, b >= 0)
 from colony.frontier_conjectures import BASIC_INEQ, DBL_MONO, SH_MONO  # noqa: E402
 
-INEQ = tuple(dict(f) for f in BASIC_INEQ)
+# sopfr is completely additive and phi(x) = prod p^(e-1) (p - 1), so
+# sopfr(phi(x)) = sum[(e-1) p + sopfr(p-1)] <= sum[(e-1) p + p - 1] = sopfr(x) - omega(x),
+# using sopfr(m) <= m for m = p - 1 (with sopfr(1) = 0).
+DERIVED_INEQ = ({"sopfr[phi]": -1, "sopfr": 1, "omega": -1},)
+INEQ = tuple(dict(f) for f in BASIC_INEQ) + DERIVED_INEQ
 
 
 def atom(name: str, a: int, b: int) -> str:
@@ -407,6 +456,29 @@ def guard(T: Any, N: int = 3000) -> dict[str, Any]:
             if arr[2 * x] != c + sum(k * arr[x] for k in f.values()):
                 bad.append(("dbl" + name, x))
                 break
+    for name in STEP_COUNTS + ("digsum",):
+        arr = t.get(name)
+        for d in (2, 3, 6, 10):
+            for r in range(d):
+                lv = step_lemma(name, r, d, True)
+                if arr is None or lv is None:
+                    continue
+                for x in range(N0, lim):
+                    if x % d == r and arr[x] != arr[x - 1] + lv[1]:
+                        bad.append(("step" + name, r, d, x))
+                        break
+    for g in PRIME_VALUED:
+        for f in PRIME_COMPOSE:
+            lm = compose_prime_lemma(f, g, True)
+            ga, fa = t.get(g), t.get(f)
+            for x in range(2, lim):
+                if ga[x] >= len(fa):
+                    break
+                want = lm[2] + sum(k * ga[x] for k in lm[1].values())
+                if fa[ga[x]] != want:
+                    bad.append(("compose", f, g, x))
+                    break
+    comp = {"sopfr[phi]": [0] + [t["sopfr"][t["phi"][x]] for x in range(1, lim + 1)]}
     for i, f in enumerate(INEQ):
         for x in range(N0, lim):
             s = f.get("_k", 0)
@@ -414,7 +486,7 @@ def guard(T: Any, N: int = 3000) -> dict[str, Any]:
             for k, v in f.items():
                 if k == "_k":
                     continue
-                arr = t.get(k) if k != "n" else t["n"]
+                arr = comp.get(k) or (t.get(k) if k != "n" else t["n"])
                 if arr is None or len(arr) <= x:
                     ok = False
                     break
@@ -433,7 +505,7 @@ def _expr_at(e: tuple, a: int, b: int):
 
 
 def _class_of(cls: tuple[int, int], a: int, b: int) -> tuple[int, int]:
-    t, Q = cls
+    t, Q = cls[0], cls[1]
     return (a * t + b) % (a * Q), a * Q
 
 
@@ -471,6 +543,16 @@ def check_node(nd: dict[str, Any], e: tuple, a: int, b: int, cls: tuple[int, int
             if lv is None or lv[0] != nd["lemma"]:
                 raise ValueError(f"lemma not applicable: {nd.get('lemma')}")
             return want(lv[1])
+        if rule == "step_rw":
+            lv = step_lemma(name, r, d, big)
+            if lv is None or lv[0] != nd["lemma"] or b < 1:
+                raise ValueError("step lemma not applicable")
+            return want(V(lv[1], {atom(name, a, b - 1): 1}))
+        if rule == "branch":
+            bv = branch_value(name, cls, a, b)
+            if bv is None or bv[0] != nd["lemma"]:
+                raise ValueError("branch value not applicable")
+            return want(bv[1])
         if rule == "dbl_rw":
             if a % 2 or b % 2:
                 raise ValueError("dbl rewrite needs an even point")
@@ -495,6 +577,10 @@ def check_node(nd: dict[str, Any], e: tuple, a: int, b: int, cls: tuple[int, int
     if op == "gcd":
         u = check_node(kids[0], e[1], a, b, cls, big, T)
         v = check_node(kids[1], e[2], a, b, cls, big, T)
+        if rule == "gcd_tau":
+            if gcd_tau_applies(e, a, b, cls, u, v):
+                return want(V(1))
+            raise ValueError("gcd_tau not applicable")
         w = gcd_val(u, v, nonneg(e[1]), nonneg(e[2]))
         if w is None:
             raise ValueError("gcd: no fact")
@@ -534,6 +620,11 @@ def check_node(nd: dict[str, Any], e: tuple, a: int, b: int, cls: tuple[int, int
         if e[1] != "pi" or e[2] != ("p", "prime"):
             raise ValueError("pi_prime rule")
         return want(check_node(kids[0], ("p", "n"), a, b, cls, big, T))
+    if op == "o" and rule == "o_prime":
+        lm = compose_prime_lemma(e[1], e[2][1] if e[2][0] == "p" else "", big)
+        if lm is None or lm[0] != nd["lemma"]:
+            raise ValueError("o_prime not applicable")
+        return want(V(lm[2], {atom(e[2][1], a, b): k for k in lm[1].values()}))
     if op == "o":
         g = check_node(kids[0], e[2], a, b, cls, big, T)
         if not pure(g):
@@ -547,6 +638,29 @@ def check_node(nd: dict[str, Any], e: tuple, a: int, b: int, cls: tuple[int, int
         if lv is None or lv[0] != nd["lemma"]:
             raise ValueError("composition lemma not applicable")
         return want(lv[1])
+    if op == "S" and rule == "S2":
+        Qj, de = nd["Qj"], nd["de"]
+        r0, d0 = _class_of(cls, a, b)
+        if d0 % 2 or r0 % 2 == 0 or Qj < 1 or de < 1:
+            raise ValueError("S2 needs an odd point")
+        if len(nd["blocks"]) != Qj:
+            raise ValueError("S2 blocks")
+        for u in range(Qj):
+            w0 = check_node(nd["blocks"][u][0], e[1], 2, 0, (u, Qj), True, T)
+            w1 = check_node(nd["blocks"][u][1], e[1], 2, 1, (u, Qj), True, T)
+            w = reduce_mod(add(w0, w1), de)
+            if not pure(w) or (w["d"] % de if w["d"] else False):
+                raise ValueError("S2: block sum not known mod de")
+        P = 2 * Qj * de
+        L = d0 * P // math.gcd(d0, P)
+        x = evaluate_prefix(e[1], T, N0 + L + 3)
+        vals = []
+        for j in range(L // d0):
+            Ns = (r0 + j * d0) % L
+            while Ns < N0 + 2:
+                Ns += L
+            vals.append(V(x[Ns - 1], {}, de))
+        return want(join(vals))
     if op == "S":
         Qe, de = nd["Qe"], nd["de"]
         if a * cls[1] % Qe or de < 1:
@@ -571,6 +685,35 @@ def check_node(nd: dict[str, Any], e: tuple, a: int, b: int, cls: tuple[int, int
             vals.append(V(x[Ns - 1], {}, de))
         return want(join(vals))
     raise ValueError(f"unknown op {op}")
+
+
+def branch_value(name: str, cls: tuple, a: int, b: int):
+    """Squarefree case split: cls[2] = 0 (sqfree(n) = 0) or 1 (sqfree(n) = 1); only at the point n."""
+    br = cls[2] if len(cls) > 2 else None
+    if br is None or (a, b) != (1, 0):
+        return None
+    if br == 0 and name in ("sqfree", "mu"):
+        return f"case sqfree(n) = 0: {name}(n) = 0", V(0)
+    if br == 1:
+        if name == "sqfree":
+            return "case sqfree(n) = 1", V(1)
+        if name == "mu":
+            return "case sqfree(n) = 1: mu(n) = +-1 is odd", V(1, {}, 2)
+        if name == "rad":
+            return "case sqfree(n) = 1: rad(n) = n", V(0, {"n@1,0": 1})
+        if name == "tau":
+            return "case sqfree(n) = 1: tau(n) = 2^omega(n) is even (n >= 2)", V(0, {}, 2)
+    return None
+
+
+def gcd_tau_applies(e: tuple, a: int, b: int, cls: tuple, u, v) -> bool:
+    """case sqfree(n) = 1: tau(n) = 2^omega(n), so gcd(odd, tau(n)) = 1."""
+    if len(cls) < 3 or cls[2] != 1 or (a, b) != (1, 0):
+        return False
+    for ex, y in ((e[1], v), (e[2], u)):   # ex = the tau operand, y = the other operand's value
+        if ex == ("p", "tau") and pure(y) and y["d"] and y["d"] % 2 == 0 and y["c"] % 2 == 1:
+            return True
+    return False
 
 
 def evaluate_prefix(e: tuple, T: Any, N: int) -> list[int]:
@@ -628,6 +771,27 @@ def _finite(c: dict[str, Any], T: Any, lo: int, hi: int) -> bool:
     return holds(c["kind"], c["params"], a[lo - 1:], b[lo - 1:] if b is not None else None, start=lo)[0]
 
 
+def _branches(node: dict[str, Any], cls: tuple):
+    if node.get("split") == "sqfree":
+        return [(node["b0"], (cls[0], cls[1], 0)), (node["b1"], (cls[0], cls[1], 1))]
+    return [(node, cls)]
+
+
+def divides_ok(u, v, lhs_positive: bool) -> bool:
+    if pure(v) and v["d"] == 0 and v["c"] == 0 and lhs_positive:
+        return True
+    if pure(u) and u["d"] == 0 and u["c"] != 0 and pure(v) and v["c"] % u["c"] == 0 \
+            and (v["d"] == 0 or v["d"] % u["c"] == 0):
+        return True
+    if u["d"] == 0 and v["d"] == 0 and u["a"] and lhs_positive:     # v = k * u exactly
+        k0, x0 = next(iter(u["a"].items()))
+        if v["a"].get(k0, 0) % x0 == 0:
+            k = v["a"].get(k0, 0) // x0
+            if scale(u, k) == v:
+                return True
+    return False
+
+
 def check(cert: dict[str, Any], claim: dict[str, Any], T: Any) -> tuple[bool, str]:
     """Re-verify a Stage 4 certificate for ``claim`` (registry form: kind, lhs, rhs, params)."""
     from colony import frontier_conjectures as FC
@@ -651,16 +815,15 @@ def check(cert: dict[str, Any], claim: dict[str, Any], T: Any) -> tuple[bool, st
             cls = (t, Q)
             if method == "periodic residues":
                 if c["kind"] == "cong":
-                    v = reduce_mod(check_node(node["lhs"], c["_le"], 1, 0, cls, True, T), p["m"])
-                    if not pure(v) or (v["d"] and v["d"] % p["m"]) or (v["c"] - p["r"]) % p["m"]:
-                        return False, f"class {t}: value {v} does not give {p['r']} mod {p['m']}"
+                    for sub, bcls in _branches(node, cls):
+                        v = reduce_mod(check_node(sub["lhs"], c["_le"], 1, 0, bcls, True, T), p["m"])
+                        if not pure(v) or (v["d"] and v["d"] % p["m"]) or (v["c"] - p["r"]) % p["m"]:
+                            return False, f"class {t}: value {v} does not give {p['r']} mod {p['m']}"
                 elif c["kind"] == "divides":
-                    u = check_node(node["lhs"], c["_le"], 1, 0, cls, True, T)
-                    v = check_node(node["rhs"], c["_re"], 1, 0, cls, True, T)
-                    if not (pure(v) and v["d"] == 0 and v["c"] == 0 and positive(c["_le"])):
-                        if not (pure(u) and u["d"] == 0 and u["c"] != 0 and pure(v)
-                                and (v["d"] == 0 and v["c"] % u["c"] == 0 or v["d"] and v["d"] % u["c"] == 0
-                                     and v["c"] % u["c"] == 0)):
+                    for sub, bcls in _branches(node, cls):
+                        u = check_node(sub["lhs"], c["_le"], 1, 0, bcls, True, T)
+                        v = check_node(sub["rhs"], c["_re"], 1, 0, bcls, True, T)
+                        if not divides_ok(u, v, positive(c["_le"])):
                             return False, f"class {t}: divisibility not derived"
                 else:
                     return False, "kind"
