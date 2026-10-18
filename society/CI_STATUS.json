@@ -595,82 +595,85 @@
     "cycle_543_evolve_note",
     "cycle_544_evolve_note",
     "cycle_545_evolve_note",
-    "cycle_546_evolve_note"
+    "cycle_546_evolve_note",
+    "cycle_547_evolve_note",
+    "cycle_548_evolve_note",
+    "cycle_549_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1588,
+      "uses": 1597,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1560,
+      "uses": 1569,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 1061,
+      "uses": 1067,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 530,
+      "uses": 533,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 2077,
+      "uses": 2089,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 984,
+      "uses": 987,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1555,
+      "uses": 1564,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 518,
+      "uses": 521,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 518,
+      "uses": 521,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 503,
+      "uses": 506,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 503,
+      "uses": 506,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 500,
+      "uses": 503,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 500,
+      "uses": 503,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 497,
+      "uses": 500,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 497,
+      "uses": 500,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -945,8 +948,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 2076,
-    "reused": 4666
+    "appended": 2088,
+    "reused": 4693
   },
   "commons_by_domain": {
     "science": 0,
@@ -965,8 +968,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-18T12:58:42Z",
-    "cycle_id": "20261018T125730Z_b17c0b",
+    "ts": "2026-10-18T13:04:36Z",
+    "cycle_id": "20261018T130337Z_925ac5",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -978,23 +981,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-18T12:58:38Z",
-    "cycle_id": "20261018T125730Z_b17c0b",
+    "ts": "2026-10-18T13:04:34Z",
+    "cycle_id": "20261018T130337Z_925ac5",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8078,
-    "compute_usefulness": 0.9062,
+    "math_prize": 0.8264,
+    "compute_usefulness": 0.9264,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8807,
-    "kill_rate": 0.304,
-    "kill_rate_term": 0.8236,
+    "prize_boost": 0.8961,
+    "kill_rate": 0.303,
+    "kill_rate_term": 0.8227,
     "novelty": 0.8621,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8613,
+    "aggregate": 0.8593,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -1002,33 +1005,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 29071,
-    "read": 139512,
-    "replied": 18297,
-    "actions_planned": 9444,
-    "actions_changed_from_message": 9444,
-    "reply_quality_sum": 16639.499999996966,
-    "reply_quality_n": 18245,
-    "peer_cite_opportunities": 18764,
-    "peer_cites": 18764
+    "posted": 29238,
+    "read": 140304,
+    "replied": 18402,
+    "actions_planned": 9498,
+    "actions_changed_from_message": 9498,
+    "reply_quality_sum": 16735.19999999707,
+    "reply_quality_n": 18350,
+    "peer_cite_opportunities": 18872,
+    "peer_cites": 18872
   },
   "bus_domains": {
-    "science": 1550,
-    "history": 1552,
-    "math": 4665,
-    "empire": 1037,
-    "bulletin": 3870,
-    "forum": 6793,
-    "software": 1552,
-    "nature": 1550,
-    "life": 1552,
-    "cosmos": 2248,
-    "rsi": 2594
+    "science": 1559,
+    "history": 1561,
+    "math": 4692,
+    "empire": 1043,
+    "bulletin": 3891,
+    "forum": 6832,
+    "software": 1561,
+    "nature": 1559,
+    "life": 1561,
+    "cosmos": 2262,
+    "rsi": 2609
   },
-  "communications_count": 29071,
+  "communications_count": 29238,
   "improvements": [
-    "Chain+seek `abel_summation` from invariant priors",
-    "Chain+seek `authored_sieve_hl_within_g6_6_6_w1` from invariant priors",
     "Chain `faulhaber_power_sums` citing Variation of Shafarevich-Tate groups in Hida famil",
     "Chain `authored_sieve_two_counter_g4_2_w1` citing Effective equidistribution of polynomial trajector",
     "Chain `lagrange_cyclic_orders` citing El Teorema de Markov y su relaci\u00f3n con el espectro",
@@ -1076,18 +1077,20 @@
     "Chain+seek `authored_sieve_hl_within_g2_6_w1` from invariant priors",
     "Chain `authored_sieve_two_counter_g2_4_6_w1` citing The Frobenius-Mex Theorem and the Crank-Mex Theore",
     "Chain+seek `authored_newdata_a002375_k20001_w1` from invariant priors",
-    "Chain+seek `authored_newdata_a035026_k10001_w1` from invariant priors"
+    "Chain+seek `authored_newdata_a035026_k10001_w1` from invariant priors",
+    "Chain+seek `authored_newdata_a047160_k10001_w1` from invariant priors",
+    "Chain+seek `authored_newdata_a006577_k10001_w1` from invariant priors"
   ],
-  "cycle_count": 546,
-  "ledger_count": 30972,
+  "cycle_count": 549,
+  "ledger_count": 31146,
   "status_counts": {
-    "candidate": 30186,
+    "candidate": 30360,
     "accepted": 284,
     "rejected": 376,
     "unknown": 126
   },
-  "witness_events": 45024,
-  "tribute_cycles_compliant": 546,
+  "witness_events": 45276,
+  "tribute_cycles_compliant": 549,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",

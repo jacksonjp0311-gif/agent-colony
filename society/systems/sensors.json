@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-18T12:57:38Z",
-  "cycle_id": "20261018T125730Z_b17c0b",
+  "ts": "2026-10-18T13:03:42Z",
+  "cycle_id": "20261018T130337Z_925ac5",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -8,13 +8,6 @@
       "authored_euler_theorem__lucas_theorem_binomial_w1": 1
     },
     "recent": {
-      "authored_frontier_le_xdbff107c_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_frontier_divides_x0b1db873_w1": {
         "last": "keep",
         "streak": 1,
@@ -91,16 +84,23 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_newdata_a047160_k10001_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.857,
-      "slope": -0.000156,
+      "last": 0.8634,
+      "slope": 0.000224,
       "min": 0.8569,
-      "max": 0.8624
+      "max": 0.8634
     },
     "novelty": {
       "last": 0.8621,
@@ -109,16 +109,16 @@
       "max": 0.8621
     },
     "kill_rate": {
-      "last": 0.304,
-      "slope": -0.000255,
-      "min": 0.304,
-      "max": 0.307
+      "last": 0.3035,
+      "slope": -0.000245,
+      "min": 0.3035,
+      "max": 0.306
     },
     "kill_rate_term": {
-      "last": 0.8236,
-      "slope": -0.000235,
-      "min": 0.8236,
-      "max": 0.8263
+      "last": 0.8231,
+      "slope": -0.000227,
+      "min": 0.8231,
+      "max": 0.8254
     },
     "lesson_uptake": {
       "last": 0.96,
@@ -129,15 +129,16 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0053,
+    "aggregate_range": 0.0065,
     "novelty_max": 0.8621,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 200,
+    "enabled": 201,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_newdata_a006577_k10001_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -205,7 +206,9 @@
       "authored_hockey_stick__stirling_second_row_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
       "authored_newdata_a002375_k20001_w1",
+      "authored_newdata_a006577_k10001_w1",
       "authored_newdata_a035026_k10001_w1",
+      "authored_newdata_a047160_k10001_w1",
       "authored_oeis_a000045__cassini",
       "authored_oeis_a000079__binomial_sum_row",
       "authored_oeis_a000108__catalan_bounded",
@@ -282,34 +285,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.083,
+      "ratio": 0.553,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.083,
+      "ratio": 0.546,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.032,
+      "ratio": 0.576,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.126,
+      "ratio": 0.589,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.063,
+      "ratio": 0.597,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 132600003,
-      "collatz_descent": 147000000,
+      "goldbach_even": 135800003,
+      "collatz_descent": 150200000,
       "legendre_square_gap": 796607,
       "lehmer_totient": 58200001,
-      "erdos_straus": 749951,
+      "erdos_straus": 759951,
       "twin_primes_hl": 186200000,
       "oeis_A104062_next": 518690000001
     },
@@ -322,16 +325,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4861,
+        "challenged": 4860,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 139,
+        "challenged": 140,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 134,
+    "post_challenger_oracle_judged": 135,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -360,18 +363,18 @@
     "last": [
       [
         null,
+        "2026-10-18T12:59:49Z"
+      ],
+      [
+        "success",
         "2026-10-18T12:52:28Z"
       ],
       [
         "success",
         "2026-10-18T12:44:54Z"
-      ],
-      [
-        "success",
-        "2026-10-18T12:19:32Z"
       ]
     ],
-    "fetched_at": "2026-10-18T12:52:55Z"
+    "fetched_at": "2026-10-18T13:00:08Z"
   },
   "feeds": {
     "by_source": {
@@ -419,7 +422,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-18T12:52:55Z"
+      "ts": "2026-10-18T13:00:07Z"
     },
     "health": {
       "arxiv": {

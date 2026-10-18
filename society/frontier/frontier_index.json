@@ -84,6 +84,48 @@
    "ts": "2026-10-18T12:57:14Z",
    "what": "Collatz 3x+1 steps to reach 1"
   },
+  "A006666": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A006666",
+   "checked": "2026-10-18T13:02:20Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.013842075999999537
+   },
+   "done_for_sha": "b4541b86d1985fa2",
+   "item": "col_even:terms",
+   "last": {
+    "cpu_s": 0.02,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T13:02:20Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of halving steps to reach 1 in '3x+1' problem, or -1 if this never happens.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 23,
+   "sha256": "b4541b86d1985fa2",
+   "source": "https://oeis.org/A006666/b006666.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.02,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:02:18Z",
+   "what": "Collatz halving steps"
+  },
   "A006667": {
    "align": {
     "alpha": 1,
@@ -204,6 +246,127 @@
    "status": "matched",
    "ts": "2026-10-18T12:57:20Z",
    "what": "Collatz 3x+1 steps to reach 1 (recval)"
+  },
+  "A006884": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 22
+   },
+   "anum": "A006884",
+   "checked": "2026-10-18T13:03:33Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 7.140619047840162e-06,
+    "cpu_s": 0.016787438999998017
+   },
+   "intractable": "published records reach n ~ 2358909599867980429760; beyond the CPU budget",
+   "item": "col_max:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T13:03:33Z",
+    "why": "published records reach n ~ 2358909599867980429760; beyond the CPU budget"
+   },
+   "n_pub_terms": 98,
+   "name": "In the '3x+1' problem, these values for the starting value set new records for highest point of trajectory before reaching 1.",
+   "probe_cpu_s": 0.1721,
+   "pub_k_max": 98,
+   "pub_k_min": 1,
+   "pub_last": 2358909599867980429759,
+   "sha256": "657ec2fbc0ade279",
+   "source": "https://oeis.org/A006884/b006884.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:03:25Z",
+   "what": "Collatz maximum excursion (recpos)"
+  },
+  "A006885": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 22
+   },
+   "anum": "A006885",
+   "checked": "2026-10-18T13:03:33Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.18717607100001032
+   },
+   "done_for_sha": "7007b273e50fc2d5",
+   "item": "col_max:recval",
+   "last": {
+    "cpu_s": 0.187,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T13:03:33Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 97,
+   "name": "Record highest point of trajectory before reaching 1 in '3x+1' problem, corresponding to starting values in A006884.",
+   "probe_cpu_s": 0.1728,
+   "pub_k_max": 97,
+   "pub_k_min": 1,
+   "pub_last": 788340337342148717335104033908060039028328,
+   "sha256": "7007b273e50fc2d5",
+   "source": "https://oeis.org/A006885/b006885.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.187,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:03:29Z",
+   "what": "Collatz maximum excursion (recval)"
+  },
+  "A025586": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A025586",
+   "checked": "2026-10-18T13:03:33Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.013803527999996845
+   },
+   "done_for_sha": "9778c2d36745e53e",
+   "item": "col_max:terms",
+   "last": {
+    "cpu_s": 0.02,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T13:03:33Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Largest value in '3x+1' trajectory of n.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 10000,
+   "sha256": "9778c2d36745e53e",
+   "source": "https://oeis.org/A025586/b025586.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.02,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:03:23Z",
+   "what": "Collatz maximum excursion"
   },
   "A033958": {
    "align": {
@@ -407,6 +570,48 @@
    "status": "matched",
    "ts": "2026-10-18T12:48:12Z",
    "what": "unordered Goldbach partitions of 2n (2 allowed) (recpos)"
+  },
+  "A102419": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A102419",
+   "checked": "2026-10-18T13:04:41Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.013756157999992524
+   },
+   "done_for_sha": "2e4226aa560903dd",
+   "item": "col_stop:terms",
+   "last": {
+    "cpu_s": 0.02,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T13:04:41Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "\"Dropping time\" in 3x+1 problem starting at n (number of steps to reach a lower number than starting value); a(1) = 0 by convention. Also called glide(n).",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 1,
+   "sha256": "2e4226aa560903dd",
+   "source": "https://oeis.org/A102419/b102419.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.02,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:04:39Z",
+   "what": "Collatz stopping time (first iterate below n)"
   },
   "A155764": {
    "align": {

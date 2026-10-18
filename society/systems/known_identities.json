@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T12:56:35Z",
+  "updated_at": "2026-10-18T13:04:03Z",
   "n": 354,
   "identities": [
     "abel_summation",
@@ -101,7 +101,9 @@
     "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_multinomial_three__newton_identities_w1",
     "authored_newdata_a002375_k20001_w1",
+    "authored_newdata_a006577_k10001_w1",
     "authored_newdata_a035026_k10001_w1",
+    "authored_newdata_a047160_k10001_w1",
     "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000079__binomial_sum_row",
@@ -199,9 +201,7 @@
     "bezout_identity",
     "binomial_hockey_deep",
     "binomial_identities",
-    "binomial_sum_row",
-    "burnside_necklaces",
-    "cassini"
+    "binomial_sum_row"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

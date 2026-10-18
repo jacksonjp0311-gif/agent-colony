@@ -2290,6 +2290,15 @@ def check_authored_newdata_a047160_k10001_w1() -> bool:
     return all(type(x := newdata_term('gb_close', n)) is int and x == v for n, v in [(10001, 60), (10002, 35), (10003, 36)])
 
 
+def check_authored_newdata_a006577_k10001_w1() -> bool:
+    """Authored new-data check (desk): A006577 terms a(10001)..a(10003) computed past the
+    OEIS frontier (https://oeis.org/A006577/b006577.txt, checked 2026-10-18T12:57:24Z) by memoized iteration (stops at the first smaller value);
+    recomputed here by naive bit-level iteration with the (3x+1)/2 shortcut. New data, not a theorem; papers may go further.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(x := newdata_term('col_steps', n)) is int and x == v for n, v in [(10001, 179), (10002, 65), (10003, 65)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2532,7 +2541,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_two_counter_g2_4_6_w1", check_authored_sieve_two_counter_g2_4_6_w1, True),
     ("authored_newdata_a002375_k20001_w1", check_authored_newdata_a002375_k20001_w1, True),
     ("authored_newdata_a035026_k10001_w1", check_authored_newdata_a035026_k10001_w1, True),
-    ("authored_newdata_a047160_k10001_w1", check_authored_newdata_a047160_k10001_w1, False),
+    ("authored_newdata_a047160_k10001_w1", check_authored_newdata_a047160_k10001_w1, True),
+    ("authored_newdata_a006577_k10001_w1", check_authored_newdata_a006577_k10001_w1, True),
 ]
 
 
