@@ -8,105 +8,10 @@
   "instrument",
   "frontier",
   "instrument",
-  "instrument"
+  "instrument",
+  "frontier"
  ],
  "history": [
-  {
-   "cpu_s": 0.737,
-   "cycle_id": "20261018T122117Z_9369ae",
-   "discovered": [
-    {
-     "anum": "A002375",
-     "item": "gb_u_odd:terms",
-     "status": "matched",
-     "why": null
-    },
-    {
-     "anum": null,
-     "item": "gb_u_odd:recpos",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    },
-    {
-     "anum": null,
-     "item": "gb_u_odd:recval",
-     "status": "frontier unknown",
-     "why": "b-file not fetched (network / rate limit)"
-    }
-   ],
-   "mode": "shadow",
-   "net_requests": 6,
-   "oeis_index": "available",
-   "pushed": [
-    {
-     "anum": "A002375",
-     "checked": "2026-10-18T12:22:31Z",
-     "cpu_a": 0.018,
-     "cpu_b": 0.624,
-     "cpu_s": 0.642,
-     "d": 0,
-     "first_disagreement": null,
-     "frontier_n": 20000,
-     "item": "gb_u_odd:terms",
-     "linked_k_max": 20000,
-     "methods": [
-      "numpy FFT convolution of the prime indicator (floating point, rounded)",
-      "direct integer enumeration over an independent odd-only sieve"
-     ],
-     "n_values": 1000,
-     "ns": [
-      20001,
-      21000
-     ],
-     "op": "terms",
-     "pub_k_max": 20000,
-     "sha256": "e917a47a97e47f19",
-     "source": "https://oeis.org/A002375/b002375.txt",
-     "status": "computed beyond published frontier (verified 2 ways)",
-     "ts": "2026-10-18T12:22:31Z"
-    }
-   ],
-   "ts": "2026-10-18T12:22:32Z"
-  },
-  {
-   "cpu_s": 0.649,
-   "cycle_id": "20261018T124652Z_9c8fd6",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_u_all:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": "A053033",
-     "item": "gb_u_all:recpos",
-     "status": "matched",
-     "why": null
-    },
-    {
-     "anum": null,
-     "item": "gb_u_all:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 6,
-   "oeis_index": "available",
-   "pushed": [
-    {
-     "anum": "A053033",
-     "est_cpu_s": 391.9,
-     "item": "gb_u_all:recpos",
-     "n_values": 0,
-     "status": "intractable",
-     "ts": "2026-10-18T12:48:22Z",
-     "why": "published records reach n ~ 9699691; beyond the CPU budget"
-    }
-   ],
-   "ts": "2026-10-18T12:48:22Z"
-  },
   {
    "cpu_s": 0.475,
    "cycle_id": "20261018T124829Z_74e36f",
@@ -2100,27 +2005,79 @@
     ]
    },
    "ts": "2026-10-18T15:48:48Z"
+  },
+  {
+   "cpu_s": 0.028,
+   "cycle_id": "20261018T155142Z_a3bf08",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.027,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T15:52:54Z"
+  },
+  {
+   "cpu_s": 0.027,
+   "cycle_id": "20261018T155302Z_68327d",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.027,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T15:54:15Z"
+  },
+  {
+   "cpu_s": 0.028,
+   "cycle_id": "20261018T155423Z_cad965",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.027,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T15:55:39Z"
   }
  ],
  "last": {
-  "cpu_s": 0.024,
-  "cycle_id": "20261018T154734Z_95ce77",
+  "cpu_s": 0.028,
+  "cycle_id": "20261018T155423Z_cad965",
   "discovered": [],
   "mode": "live",
-  "net_requests": 1,
+  "net_requests": 0,
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
    "candidates_seen": 462,
-   "cpu_s": 0.024,
+   "cpu_s": 0.027,
    "matched": [],
    "pushed": [],
    "queue": 0,
-   "searches": [
-    "keyword:more trajectory @20"
-   ]
+   "searches": []
   },
-  "ts": "2026-10-18T15:48:48Z"
+  "ts": "2026-10-18T15:55:39Z"
  },
  "mode": "live",
  "sparse": {
