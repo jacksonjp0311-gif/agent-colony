@@ -2,24 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 64,
-    "unbridged": 26
+    "unbridged": 27
   },
   "rows": [
-    {
-      "mutation": "authored_sieve_two_counter_g2_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "two_counter",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T16:31:12Z",
-      "cycle_id": "20261017T163053Z_088f2d",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_sieve_two_counter_g6_4_6_w1",
       "status": "ok",
@@ -774,8 +759,18 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_divides_xdd6cdac8_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-18T15:59:08Z",
+      "cycle_id": "20261018T155833Z_f5f384",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-18T15:01:23Z",
+  "updated_at": "2026-10-18T15:59:08Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

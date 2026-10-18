@@ -1,10 +1,10 @@
 {
- "ts": "2026-10-18T15:54:32Z",
+ "ts": "2026-10-18T16:01:35Z",
  "mode": "live",
- "n_keeps": 245,
- "n_frontier": 19,
+ "n_keeps": 246,
+ "n_frontier": 20,
  "n_hand_trivial": 12,
- "n_surprise": 7,
+ "n_surprise": 8,
  "max_trivial_credit": 0.0,
  "min_surprise_credit": 0.0544,
  "trivial_ranked_lowest": true,
@@ -395,6 +395,18 @@
    "explained": "",
    "source": "registry",
    "hand_settled_in_calibration": false
+  },
+  {
+   "name": "authored_frontier_divides_xdd6cdac8_w1",
+   "kind": "frontier",
+   "statement": "tau[lpf](n) divides (lpf-pell)(n) for all n >= 1",
+   "hand_trivial": false,
+   "credit": 0.551,
+   "unlikely": 0.8555,
+   "effort": 0.6441,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry"
   },
   {
    "name": "authored_frontier_cong_x94023555_w1",

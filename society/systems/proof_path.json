@@ -2,8 +2,8 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   31,
-   26
+   32,
+   27
   ],
   "divides": [
    7,
@@ -18,8 +18,8 @@
    2
   ],
   "rec": [
-   97,
-   87
+   96,
+   86
   ]
  },
  "mode": "live",
@@ -27,8 +27,8 @@
  "n_authored_proved": 6,
  "n_claims": 150,
  "n_proved": 121,
- "n_proved_new": 22,
- "n_surprises_proved": 19,
+ "n_proved_new": 23,
+ "n_surprises_proved": 20,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
  "results": {
   "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)": {
@@ -20058,226 +20058,6 @@
    "unknown": false,
    "v": 1
   },
-  "a(n) = sh((lucas*pow2))(n) satisfies a(n+2) = 4*a(n+0) + 2*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "sh((lucas*pow2))",
-        "kids": [
-         {
-          "e": "(lucas*pow2)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,1": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,1": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "lucas@1,1*pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "lucas@1,1*pow2@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((lucas*pow2))",
-        "kids": [
-         {
-          "e": "(lucas*pow2)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "lucas@1,2*pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "lucas@1,2*pow2@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((lucas*pow2))",
-        "kids": [
-         {
-          "e": "(lucas*pow2)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,3": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,3": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "lucas@1,3*pow2@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "lucas@1,3*pow2@1,3": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x3ad3a278_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 1
-  },
   "a(n) = sh((lucas+one))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
    "certificate": {
@@ -22625,6 +22405,65 @@
    "unknown": true,
    "v": 1
   },
+  "cmax[lpf](n) = 1 (mod 3) for all n = 1 (mod 2)": {
+   "authored": false,
+   "certificate": {
+    "N0": 64,
+    "Q": 2,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {
+     "1": {
+      "lhs": {
+       "e": "cmax[lpf]",
+       "kids": [
+        {
+         "e": "lpf",
+         "lemma": "lpf(x) is odd for odd x",
+         "pt": [
+          1,
+          0
+         ],
+         "rule": "lemma",
+         "val": {
+          "a": {},
+          "c": 1,
+          "d": 2
+         }
+        }
+       ],
+       "lemma": "Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3)",
+       "pt": [
+        1,
+        0
+       ],
+       "rule": "o",
+       "val": {
+        "a": {},
+        "c": 1,
+        "d": 3
+       }
+      }
+     }
+    },
+    "finite_check": [
+     1,
+     63
+    ],
+    "lemmas": [
+     "Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3)",
+     "lpf(x) is odd for odd x"
+    ],
+    "method": "periodic residues"
+   },
+   "check": "authored_frontier_cong_x2e4ae6af_w1",
+   "checks": 9994,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "proved",
+   "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); lpf(x) is odd for odd x; n < 64 checked directly",
+   "unknown": true,
+   "v": 1
+  },
   "cmax[rad](n) = 1 (mod 3) for all n = 1 (mod 2)": {
    "authored": false,
    "certificate": {
@@ -24539,5 +24378,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-18T15:55:39Z"
+ "ts": "2026-10-18T16:02:50Z"
 }

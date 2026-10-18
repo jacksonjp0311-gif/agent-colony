@@ -2589,7 +2589,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x2f9c7891_w1", check_authored_frontier_cong_x2f9c7891_w1, True),
     ("authored_frontier_le_xc2340063_w1", check_authored_frontier_le_xc2340063_w1, True),
     ("authored_frontier_cong_xbb82919e_w1", check_authored_frontier_cong_xbb82919e_w1, True),
-    ("authored_frontier_divides_xdd6cdac8_w1", check_authored_frontier_divides_xdd6cdac8_w1, False),
+    ("authored_frontier_divides_xdd6cdac8_w1", check_authored_frontier_divides_xdd6cdac8_w1, True),
 ]
 
 
