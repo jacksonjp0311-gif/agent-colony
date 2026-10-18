@@ -25,7 +25,12 @@ Found by OEIS search; identified by recomputing every published term; method B r
 
 | OEIS | name | published terms | matched as | status | scanned to k | tries | new terms | CPU s |
 |---|---|---|---|---|---|---|---|---|
-| A228014 | Numbers k whose Collatz sequence length is greater than k+1 (counting both the x | 28 | col_steps:fgtk (shift 0) | matches published | 64000 | 3 | 0 | 0.078 |
+| A091592 | Numbers n such that there are no twin primes between n^2 and (n+1)^2. | 12 | pat_twin_sq_all:zeros (shift 0) | matches published | 4000 | 1 | 0 | 0.119 |
+| A228014 | Numbers k whose Collatz sequence length is greater than k+1 (counting both the x | 28 | col_steps:fgtk (shift 0) | matches published | 256000 | 4 | 0 | 0.481 |
+| A352229 | Numbers that can be expressed as the sum of two primes in exactly 7 ways. | 18 | gb_prime_m:eq7 (shift 0) | matches published | 16000 | 2 | 0 | 0.002 |
+| A352230 | Numbers that can be expressed as the sum of two primes in exactly 8 ways. | 20 | gb_prime_m:eq8 (shift 0) | matches published | 16000 | 2 | 0 | 0.002 |
+| A352231 | Numbers that can be expressed as the sum of two primes in exactly 9 ways. | 23 | gb_prime_m:eq9 (shift 0) | matches published | 4000 | 1 | 0 | 0.0 |
+| A352233 | Numbers that can be expressed as the sum of two primes in exactly 10 ways. | 16 | gb_prime_m:eq10 (shift 0) | matches published | 16000 | 2 | 0 | 0.003 |
 
 Full values: `society/frontier/data/<A-number>_beyond.txt` (b-file format).
 

@@ -1,6 +1,7 @@
 {
  "author_slots": [
   "frontier",
+  "frontier",
   "frontier"
  ],
  "history": [
@@ -943,27 +944,333 @@
     ]
    },
    "ts": "2026-10-18T14:15:54Z"
+  },
+  {
+   "cpu_s": 28.787,
+   "cycle_id": "20261018T142048Z_53f6c2",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1:recval",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 88,
+    "cpu_s": 15.111,
+    "matched": [],
+    "pushed": [
+     {
+      "anum": "A228014",
+      "cpu_s": 0.403,
+      "item": "col_steps",
+      "n_values": 0,
+      "op": "fgtk",
+      "searched_to": 256000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:22:46Z",
+      "why": "no further term up to k = 256000"
+     }
+    ],
+    "queue": 6,
+    "searches": [
+     "keyword:hard Collatz @20",
+     "keyword:more Goldbach @0",
+     "keyword:more Goldbach @10"
+    ]
+   },
+   "ts": "2026-10-18T14:22:47Z"
+  },
+  {
+   "cpu_s": 14.625,
+   "cycle_id": "20261018T142253Z_66e47d",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls6_5:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_5:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_5:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 106,
+    "cpu_s": 14.057,
+    "matched": [
+     {
+      "anum": "A352233",
+      "hits": [
+       {
+        "N": 633,
+        "d": 0,
+        "item": "gb_prime_m",
+        "op": "eq10"
+       },
+       {
+        "N": 633,
+        "d": 0,
+        "item": "gb_odd_m",
+        "op": "eq10"
+       }
+      ]
+     },
+     {
+      "anum": "A352229",
+      "hits": [
+       {
+        "N": 399,
+        "d": 0,
+        "item": "gb_prime_m",
+        "op": "eq7"
+       },
+       {
+        "N": 399,
+        "d": 0,
+        "item": "gb_odd_m",
+        "op": "eq7"
+       }
+      ]
+     },
+     {
+      "anum": "A352230",
+      "hits": [
+       {
+        "N": 369,
+        "d": 0,
+        "item": "gb_prime_m",
+        "op": "eq8"
+       },
+       {
+        "N": 369,
+        "d": 0,
+        "item": "gb_odd_m",
+        "op": "eq8"
+       }
+      ]
+     },
+     {
+      "anum": "A352231",
+      "hits": [
+       {
+        "N": 489,
+        "d": 0,
+        "item": "gb_prime_m",
+        "op": "eq9"
+       },
+       {
+        "N": 489,
+        "d": 0,
+        "item": "gb_odd_m",
+        "op": "eq9"
+       }
+      ]
+     }
+    ],
+    "pushed": [
+     {
+      "anum": "A352233",
+      "cpu_s": 0.001,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq10",
+      "searched_to": 4000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:24:34Z",
+      "why": "no further term up to k = 4000"
+     },
+     {
+      "anum": "A352229",
+      "cpu_s": 0.0,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq7",
+      "searched_to": 4000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:24:34Z",
+      "why": "no further term up to k = 4000"
+     },
+     {
+      "anum": "A352230",
+      "cpu_s": 0.0,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq8",
+      "searched_to": 4000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:24:34Z",
+      "why": "no further term up to k = 4000"
+     },
+     {
+      "anum": "A352231",
+      "cpu_s": 0.0,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq9",
+      "searched_to": 4000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:24:34Z",
+      "why": "no further term up to k = 4000"
+     }
+    ],
+    "queue": 0,
+    "searches": [
+     "keyword:more Goldbach @20",
+     "keyword:more \"sum of two primes\" @0",
+     "keyword:more \"sum of two primes\" @10"
+    ]
+   },
+   "ts": "2026-10-18T14:24:34Z"
+  },
+  {
+   "cpu_s": 18.253,
+   "cycle_id": "20261018T142441Z_dbe023",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls6_5:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_5:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_5:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 130,
+    "cpu_s": 5.187,
+    "matched": [
+     {
+      "anum": "A091592",
+      "hits": [
+       {
+        "N": 123,
+        "d": 0,
+        "item": "pat_twin_sq_all",
+        "op": "zeros"
+       }
+      ]
+     }
+    ],
+    "pushed": [
+     {
+      "anum": "A091592",
+      "cpu_s": 0.119,
+      "item": "pat_twin_sq_all",
+      "n_values": 0,
+      "op": "zeros",
+      "searched_to": 4000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:26:34Z",
+      "why": "no further term up to k = 4000"
+     },
+     {
+      "anum": "A352233",
+      "cpu_s": 0.002,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq10",
+      "searched_to": 16000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:26:34Z",
+      "why": "no further term up to k = 16000"
+     },
+     {
+      "anum": "A352229",
+      "cpu_s": 0.002,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq7",
+      "searched_to": 16000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:26:34Z",
+      "why": "no further term up to k = 16000"
+     },
+     {
+      "anum": "A352230",
+      "cpu_s": 0.002,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq8",
+      "searched_to": 16000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:26:34Z",
+      "why": "no further term up to k = 16000"
+     }
+    ],
+    "queue": 0,
+    "searches": [
+     "keyword:more Lemoine @0",
+     "keyword:more \"twin primes\" @0",
+     "keyword:more \"twin primes\" @10"
+    ]
+   },
+   "ts": "2026-10-18T14:26:34Z"
   }
  ],
  "last": {
-  "cpu_s": 1.212,
-  "cycle_id": "20261018T141447Z_1f40b3",
+  "cpu_s": 18.253,
+  "cycle_id": "20261018T142441Z_dbe023",
   "discovered": [
    {
     "anum": null,
-    "item": "gb_cls6_1:terms",
+    "item": "gb_min_cls6_5:terms",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_cls6_1:recpos",
+    "item": "gb_min_cls6_5:recpos",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_cls6_1:recval",
+    "item": "gb_min_cls6_5:recval",
     "status": "no_alignment",
     "why": "OEIS terms differ beyond the probe"
    }
@@ -973,35 +1280,84 @@
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 61,
-   "cpu_s": 1.183,
-   "matched": [],
+   "candidates_seen": 130,
+   "cpu_s": 5.187,
+   "matched": [
+    {
+     "anum": "A091592",
+     "hits": [
+      {
+       "N": 123,
+       "d": 0,
+       "item": "pat_twin_sq_all",
+       "op": "zeros"
+      }
+     ]
+    }
+   ],
    "pushed": [
     {
-     "anum": "A228014",
-     "cpu_s": 0.054,
-     "item": "col_steps",
+     "anum": "A091592",
+     "cpu_s": 0.119,
+     "item": "pat_twin_sq_all",
      "n_values": 0,
-     "op": "fgtk",
-     "searched_to": 64000,
+     "op": "zeros",
+     "searched_to": 4000,
      "status": "matches published",
-     "ts": "2026-10-18T14:15:54Z",
-     "why": "no further term up to k = 64000"
+     "ts": "2026-10-18T14:26:34Z",
+     "why": "no further term up to k = 4000"
+    },
+    {
+     "anum": "A352233",
+     "cpu_s": 0.002,
+     "item": "gb_prime_m",
+     "n_values": 0,
+     "op": "eq10",
+     "searched_to": 16000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:26:34Z",
+     "why": "no further term up to k = 16000"
+    },
+    {
+     "anum": "A352229",
+     "cpu_s": 0.002,
+     "item": "gb_prime_m",
+     "n_values": 0,
+     "op": "eq7",
+     "searched_to": 16000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:26:34Z",
+     "why": "no further term up to k = 16000"
+    },
+    {
+     "anum": "A352230",
+     "cpu_s": 0.002,
+     "item": "gb_prime_m",
+     "n_values": 0,
+     "op": "eq8",
+     "searched_to": 16000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:26:34Z",
+     "why": "no further term up to k = 16000"
     }
    ],
    "queue": 0,
    "searches": [
-    "keyword:more 3x+1 @20",
-    "keyword:hard Collatz @0",
-    "keyword:hard Collatz @10"
+    "keyword:more Lemoine @0",
+    "keyword:more \"twin primes\" @0",
+    "keyword:more \"twin primes\" @10"
    ]
   },
-  "ts": "2026-10-18T14:15:54Z"
+  "ts": "2026-10-18T14:26:34Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 8,
-  "exhausted": [],
+  "cursor": 20,
+  "exhausted": [
+   "keyword:hard Collatz",
+   "keyword:more \"sum of two primes\"",
+   "keyword:more Lemoine"
+  ],
   "queue": {},
   "seen": {
    "A005184": {
@@ -1010,11 +1366,35 @@
     "query": "keyword:more Collatz",
     "status": "beyond engine reach to verify"
    },
+   "A007508": {
+    "n_pub": 19,
+    "name": "Number of twin prime pairs below 10^n.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A008932": {
+    "n_pub": 20,
+    "name": "Number of increasing sequences of Goldbach type of length n; a(0) = 1 by convention.",
+    "query": "keyword:more Goldbach",
+    "status": "beyond engine reach to verify"
+   },
+   "A008933": {
+    "n_pub": 16,
+    "name": "Number of strictly increasing addition chains of length n.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
    "A028444": {
     "n_pub": 6,
     "name": "Busy Beaver sequence, or Rado's sigma function: maximal number of 1's that an n-state Turing machine",
     "query": "keyword:hard Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A042978": {
+    "n_pub": 8,
+    "name": "Stern primes: primes not of the form p + 2b^2 for p prime and b > 0.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
    },
    "A045475": {
     "n_pub": 30,
@@ -1028,17 +1408,35 @@
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
    },
+   "A050507": {
+    "n_pub": 3,
+    "name": "Solutions to sigma(x)+2=sigma(x+2) other than the smaller of twin primes.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "too few published terms to identify"
+   },
    "A058047": {
     "n_pub": 6,
     "name": "Generalized Collatz sequences: primes resulting in a cycle containing 1.",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A060003": {
+    "n_pub": 10,
+    "name": "Odd numbers not of the form p + 2*k^2, k>0, p prime.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
    "A060843": {
     "n_pub": 5,
     "name": "Busy Beaver problem: a(n) is the maximal number of steps that an n-state Turing machine can make on ",
     "query": "keyword:hard Collatz",
     "status": "too few published terms to identify"
+   },
+   "A062311": {
+    "n_pub": 16,
+    "name": "Number of ways writing n! as a sum of two primes.",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "no family item reproduces all published terms"
    },
    "A063045": {
     "n_pub": 45,
@@ -1052,11 +1450,35 @@
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A065421": {
+    "n_pub": 9,
+    "name": "Decimal expansion of Viggo Brun's constant B, also known as the twin primes constant B_2: Sum (1/p +",
+    "query": "keyword:more \"twin primes\"",
+    "status": "keyword cons"
+   },
+   "A065577": {
+    "n_pub": 15,
+    "name": "Number of Goldbach partitions of 10^n.",
+    "query": "keyword:more Goldbach",
+    "status": "beyond engine reach to verify"
+   },
    "A066756": {
     "n_pub": 11,
     "name": "Smallest number that requires n^3 steps to reach 1 in its Collatz trajectory (counting x/2 and 3x+1 ",
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
+   },
+   "A070076": {
+    "n_pub": 18,
+    "name": "Number of n-digit twin prime pairs.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A072753": {
+    "n_pub": 19,
+    "name": "Maximum gap in two-stage prime-sieves.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
    },
    "A078421": {
     "n_pub": 16,
@@ -1070,11 +1492,23 @@
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
    },
+   "A080742": {
+    "n_pub": 28,
+    "name": "Largest element of n-th row of A080738.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
    "A082984": {
     "n_pub": 31,
     "name": "Numbers k for which the 3x+1 problem takes at least k halving and tripling steps to reach 1.",
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
+   },
+   "A087641": {
+    "n_pub": 11,
+    "name": "Start of the first sequence of exactly n consecutive pairs of twin primes.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
    },
    "A087975": {
     "n_pub": 12,
@@ -1082,10 +1516,52 @@
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
    },
+   "A091592": {
+    "n_pub": 12,
+    "name": "Numbers n such that there are no twin primes between n^2 and (n+1)^2.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "matched"
+   },
+   "A093737": {
+    "n_pub": 18,
+    "name": "Number of prime pairs below 10^n having a difference of 4.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
+   "A093738": {
+    "n_pub": 19,
+    "name": "Number of pairs of consecutive prime (p,q) with q-p=6 and q < 10^n.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
    "A098860": {
     "n_pub": 16,
     "name": "Primes that are conjectured to lead to a one-cycle for every natural number x in the following (nont",
     "query": "keyword:more 3x+1",
+    "status": "no family item reproduces all published terms"
+   },
+   "A100570": {
+    "n_pub": 12,
+    "name": "Numbers that are not the sum of a square and a semiprime.",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A107318": {
+    "n_pub": 15,
+    "name": "Number of ordered Goldbach partitions of 10^n.",
+    "query": "keyword:more Goldbach",
+    "status": "beyond engine reach to verify"
+   },
+   "A112827": {
+    "n_pub": 6,
+    "name": "Least value k which is the beginning of a null Goldbach chain of length exactly n.",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A116979": {
+    "n_pub": 13,
+    "name": "Number of distinct representations of primorials as the sum of two primes.",
+    "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
    "A122599": {
@@ -1100,17 +1576,89 @@
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
    },
+   "A130588": {
+    "n_pub": 22,
+    "name": "Integers which are not the sum of a 3-almost prime and a prime.",
+    "query": "keyword:more Goldbach",
+    "status": "keyword fini"
+   },
    "A138756": {
     "n_pub": 19,
     "name": "Indices of record values in A138753 (a \"prime\" variation of the Collatz (3n+1) problem).",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A140315": {
+    "n_pub": 6,
+    "name": "Numbers k such that k!/k#-1 and k!/k#+1 are a twin prime pair.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A160910": {
+    "n_pub": 11,
+    "name": "Decimal expansion of c = sum over twin primes (p, p+2) of (1/p^2 + 1/(p+2)^2).",
+    "query": "keyword:more \"twin primes\"",
+    "status": "keyword cons"
+   },
+   "A164950": {
+    "n_pub": 20,
+    "name": "1 if there is a winning strategy for mis\u00e8re Sprouts with n initial points, else 0.",
+    "query": "keyword:more Lemoine",
+    "status": "too few published terms to identify"
+   },
+   "A164951": {
+    "n_pub": 5,
+    "name": "Number of different canonical trees in game trees obtained from a starting position with n initial p",
+    "query": "keyword:more Lemoine",
+    "status": "too few published terms to identify"
+   },
+   "A171619": {
+    "n_pub": 29,
+    "name": "Primes in A171490.",
+    "query": "keyword:hard Collatz",
+    "status": "no engine family for its definition"
+   },
    "A171938": {
     "n_pub": 19,
     "name": "Record values in A138753 (a \"prime\" variation of the Collatz (3n+1) problem).",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A180041": {
+    "n_pub": 9,
+    "name": "Number of Goldbach partitions of (2n)^n.",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A181490": {
+    "n_pub": 4,
+    "name": "Numbers k such that 3*2^k-1 and 3*2^k+1 are twin primes (A001097).",
+    "query": "keyword:more \"twin primes\"",
+    "status": "too few published terms to identify"
+   },
+   "A181493": {
+    "n_pub": 4,
+    "name": "Numbers of the form 3*2^k which are the average of twin primes, i.e., a(n)-1 and a(n)+1 are both pri",
+    "query": "keyword:more \"twin primes\"",
+    "status": "too few published terms to identify"
+   },
+   "A195295": {
+    "n_pub": 21,
+    "name": "Number of Goldbach partitions of 4^n.",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A209328": {
+    "n_pub": 11,
+    "name": "Decimal expansion of the sum of the inverse twin prime products.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "keyword cons"
+   },
+   "A217016": {
+    "n_pub": 12,
+    "name": "Least r > 1 without Goldbach partition 2r = p+q such that |p-q| is prime(n)-smooth.",
+    "query": "keyword:more Goldbach",
+    "status": "beyond engine reach to verify"
    },
    "A217935": {
     "n_pub": 6,
@@ -1184,6 +1732,18 @@
     "query": "keyword:more Collatz",
     "status": "beyond engine reach to verify"
    },
+   "A254783": {
+    "n_pub": 30,
+    "name": "Numbers n such that A033493(n)/n is an integer.",
+    "query": "keyword:hard Collatz",
+    "status": "no engine family for its definition"
+   },
+   "A258828": {
+    "n_pub": 4,
+    "name": "Least number k such that A258825(k) = n.",
+    "query": "keyword:hard Collatz",
+    "status": "too few published terms to identify"
+   },
    "A260389": {
     "n_pub": 27,
     "name": "For the Collatz (3x+1) iteration starting at k, the sequence lists the smallest k such that Fibonacc",
@@ -1208,6 +1768,12 @@
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
    },
+   "A274792": {
+    "n_pub": 8,
+    "name": "a(n) = smallest prime p(1) in a symmetrical constellation of n consecutive twin primes: p(1), p(1)+2",
+    "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
+   },
    "A276260": {
     "n_pub": 9,
     "name": "Odd primes p such that p is in the trajectory of p+1 under the Collatz 3x+1 map (A014682).",
@@ -1220,10 +1786,88 @@
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
    },
+   "A286181": {
+    "n_pub": 3,
+    "name": "Lesser of Wilson's pseudo-twin primes: primes p such that p! == 1 (mod q), where q=A151800(p) is the",
+    "query": "keyword:more \"twin primes\"",
+    "status": "too few published terms to identify"
+   },
+   "A301776": {
+    "n_pub": 7,
+    "name": "Prime numbers p with the property that all even numbers n (2 < n <= 2p) are the sum of two primes <=",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A303698": {
     "n_pub": 15,
     "name": "Numbers k whose trajectory in the Collatz (or '3x+1') problem includes another multiple of k.",
     "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A306746": {
+    "n_pub": 5,
+    "name": "A Goldbug number is an even number 2m for which there exists a subset of the prime non-divisors of 2",
+    "query": "keyword:more Goldbach",
+    "status": "too few published terms to identify"
+   },
+   "A320447": {
+    "n_pub": 6,
+    "name": "n such that all n - p are prime where p is prime in range n/2 <= p < n.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
+   "A321995": {
+    "n_pub": 21,
+    "name": "Indices of highly composite numbers A002182 which are between a twin prime pair.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A327772": {
+    "n_pub": 6,
+    "name": "Integers for which the Goldbach factorization graph contains exceptional autonomous component (see l",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A329159": {
+    "n_pub": 35,
+    "name": "2*a(n) are the lengths of record prime gaps immediately preceding twin primes.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A329161": {
+    "n_pub": 40,
+    "name": "2*a(n) are the lengths of record prime gaps immediately following twin primes.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A329165": {
+    "n_pub": 58,
+    "name": "Let P1, P2, P3, P4 be consecutive primes with P2-P1=P4-P3=2. a(n)=(P3-P1)/6 when the length of the g",
+    "query": "keyword:more \"twin primes\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A332704": {
+    "n_pub": 7,
+    "name": "Record indices of the ratio A280008(n) / A002375(n) (Goldbach conjecture related).",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A335250": {
+    "n_pub": 45,
+    "name": "Numbers m such that twice the number of unordered Goldbach partitions of 2m equals the number of uno",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A335360": {
+    "n_pub": 5,
+    "name": "Numbers m such that the number of unordered Goldbach partitions of 2m is greater than the number of ",
+    "query": "keyword:more Goldbach",
+    "status": "too few published terms to identify"
+   },
+   "A335394": {
+    "n_pub": 8,
+    "name": "Primes starting 16-tuples of consecutive primes that have symmetrical gaps about their mean and form",
+    "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
    },
    "A335569": {
@@ -1231,6 +1875,12 @@
     "name": "a(n) is the maximum height achieved in the Collatz ('3x+1') problem when starting from numbers in th",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A336093": {
+    "n_pub": 24,
+    "name": "Let P(n) = primorial(n) = A002110(n); a(n) is the number of primes q < P(n) such that P(n) - q is al",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "no engine family for its definition"
    },
    "A339769": {
     "n_pub": 28,
@@ -1262,10 +1912,58 @@
     "query": "keyword:hard Collatz",
     "status": "no engine family for its definition"
    },
+   "A350713": {
+    "n_pub": 18,
+    "name": "Maximum smallest prime required to generate all Goldbach partitions to 10^n.",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A351029": {
+    "n_pub": 12,
+    "name": "Number of integers whose arithmetic derivative is equal to the n-th primorial.",
+    "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
    "A351224": {
     "n_pub": 32,
     "name": "Length of record run of consecutive numbers having the same Collatz trajectory length.",
     "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A352229": {
+    "n_pub": 18,
+    "name": "Numbers that can be expressed as the sum of two primes in exactly 7 ways.",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "matched"
+   },
+   "A352230": {
+    "n_pub": 20,
+    "name": "Numbers that can be expressed as the sum of two primes in exactly 8 ways.",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "matched"
+   },
+   "A352231": {
+    "n_pub": 23,
+    "name": "Numbers that can be expressed as the sum of two primes in exactly 9 ways.",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "matched"
+   },
+   "A352233": {
+    "n_pub": 16,
+    "name": "Numbers that can be expressed as the sum of two primes in exactly 10 ways.",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "matched"
+   },
+   "A352283": {
+    "n_pub": 17,
+    "name": "Smallest nonnegative even integer with exactly n pairs of Goldbach partitions, (p,q) and (r,s) with ",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A352787": {
+    "n_pub": 21,
+    "name": "Numbers with as many divisors as Goldbach partitions.",
+    "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
    "A354883": {
@@ -1273,6 +1971,12 @@
     "name": "a(n) is the number of tuples of length n corresponding to cycles of a \"pseudo-Collatz\" iteration.",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A355125": {
+    "n_pub": 9,
+    "name": "Positions of nonzero terms in A354883.",
+    "query": "keyword:hard Collatz",
+    "status": "no engine family for its definition"
    },
    "A355187": {
     "n_pub": 8,
@@ -1296,6 +2000,24 @@
     "n_pub": 39,
     "name": "Numbers k > 4 in a Collatz trajectory reaching k after starting at k+1.",
     "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A355704": {
+    "n_pub": 5,
+    "name": "Indices k of partition function p where p(k) and p(k) + 2 are twin primes.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "too few published terms to identify"
+   },
+   "A355706": {
+    "n_pub": 8,
+    "name": "Indices k of partition function p where p(k) is a twin prime.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A357128": {
+    "n_pub": 11,
+    "name": "a(n) is the least even number k > 2 such that the sum of the lower elements and the sum of the upper",
+    "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
    "A359221": {
@@ -1352,17 +2074,65 @@
     "query": "keyword:more Collatz",
     "status": "beyond engine reach to verify"
    },
+   "A375886": {
+    "n_pub": 22,
+    "name": "Numbers k such that 2k and 4k have the same number of Goldbach partitions into primes.",
+    "query": "keyword:more Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A384629": {
+    "n_pub": 8,
+    "name": "Instruction-Limited Busy Beaver Sequence: BBi(n). Maximum number of steps that an n-instruction Turi",
+    "query": "keyword:hard Collatz",
+    "status": "no engine family for its definition"
+   },
+   "A384766": {
+    "n_pub": 8,
+    "name": "Instruction-Limited Symbols Busy Beaver Sequence: Sigma_i(n). Maximum number of non-blank symbols th",
+    "query": "keyword:hard Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A385077": {
+    "n_pub": 8,
+    "name": "Primes x that cannot be written as x = p + 2*q where p < q are primes.",
+    "query": "keyword:more Lemoine",
+    "status": "no family item reproduces all published terms"
+   },
+   "A389507": {
+    "n_pub": 9,
+    "name": "Largest even number that is not the sum of two elements coprime to the primorial prime(n)# and each ",
+    "query": "keyword:more \"sum of two primes\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A391016": {
     "n_pub": 12,
     "name": "Decimal expansion of an observed ratio describing the separation of level sets in Collatz orbits.",
     "query": "keyword:more Collatz",
     "status": "keyword cons"
    },
+   "A395424": {
+    "n_pub": 20,
+    "name": "Busy Beaver problem for FRACTRAN: a(n) is the maximal number of steps that a FRACTRAN program of siz",
+    "query": "keyword:hard Collatz",
+    "status": "no engine family for its definition"
+   },
+   "A397705": {
+    "n_pub": 6,
+    "name": "Odd numbers m > 5, with no representation m = p + 2q with p, q prime and p <= q.",
+    "query": "keyword:more Lemoine",
+    "status": "no family item reproduces all published terms"
+   },
    "A398473": {
     "n_pub": 40,
     "name": "Maximum dropping time for numbers between 2^n and 2^(n+1)-1 under the Collatz map A014682.",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A399300": {
+    "n_pub": 10,
+    "name": "a(n) is the least even number whose n-th smallest Goldbach prime equals A398545(n).",
+    "query": "keyword:more Goldbach",
+    "status": "beyond engine reach to verify"
    },
    "A400487": {
     "n_pub": 29,
@@ -1571,6 +2341,24 @@
    "ts": "2026-10-18T14:15:49Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
+  "gb_cls6_5:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:24:15Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_cls6_5:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:24:15Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_cls6_5:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:24:15Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
   "gb_min:recpos": {
    "anum": null,
    "status": "no_alignment",
@@ -1659,6 +2447,42 @@
    "anum": null,
    "status": "not_in_oeis",
    "ts": "2026-10-18T13:13:35Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_1:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:22:21Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_1:recval": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:22:27Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_1:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:22:14Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_5:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:26:16Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls6_5:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:26:23Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_min_cls6_5:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:26:10Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_o_all:recpos": {

@@ -1,21 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T14:14:17Z",
-  "passes": 425,
-  "kills": 184,
+  "updated_at": "2026-10-18T14:26:03Z",
+  "passes": 427,
+  "kills": 185,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3021,
+  "kill_rate": 0.3023,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 54,
-    "kills": 6,
+    "passes": 53,
+    "kills": 7,
     "easy_pad_kills": 0,
-    "kill_rate": 0.1
+    "kill_rate": 0.1167
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
-    "abel_summation",
     "authored_abel_summation__faulhaber_power_sums_w1",
     "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
     "authored_bell_stirling_sum__burnside_necklaces_w1",
@@ -31,9 +30,11 @@
     "authored_euler_theorem__lucas_theorem_binomial_w1",
     "authored_fermat_little__lucas_theorem_binomial_w1",
     "authored_frontier_cong_x0058ae91_w1",
+    "authored_frontier_cong_x06b60875_w1",
     "authored_frontier_cong_x16b72492_w1",
     "authored_frontier_cong_x23fb70a1_w1",
     "authored_frontier_cong_x29d14f44_w1",
+    "authored_frontier_cong_x2f9c7891_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_cong_x94023555_w1",
@@ -53,8 +54,7 @@
     "authored_newdata_a006667_k10001_w1",
     "authored_newdata_a025586_k10001_w1",
     "authored_newdata_a035026_k10001_w1",
-    "authored_newdata_a047160_k10001_w1",
-    "authored_odd_distinct_partitions__partition_conjugate_parts_w1"
+    "authored_newdata_a047160_k10001_w1"
   ],
   "unique_mutations_kill": [
     "Chain `authored_euler_theorem__lucas_theorem_binomial_w1` citing The fundamental role of generating functions for g",
@@ -90,7 +90,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-18T14:14:17Z",
+    "ts": "2026-10-18T14:26:03Z",
     "passed": false,
     "kills": [
       "stripped:stripped_not_useful_fail",
@@ -111,9 +111,9 @@
       "stripped": {
         "already_enabled": false,
         "in_catalog": false,
-        "hard_pass": 192,
-        "hard_n": 192,
-        "score": 0.87,
+        "hard_pass": 194,
+        "hard_n": 194,
+        "score": 0.8644,
         "stripped_fails_usefulness": false,
         "ok_for_oracle": false,
         "reason": "stripped_not_useful_fail"
@@ -121,10 +121,10 @@
       "held_out": {
         "survives": false,
         "ok_for_oracle": false,
-        "hard_pass": 192,
-        "hard_n": 192,
+        "hard_pass": 194,
+        "hard_n": 194,
         "ok": true,
-        "score": 0.8699,
+        "score": 0.8644,
         "shifted_window": null,
         "reason": "held_out_fail"
       },

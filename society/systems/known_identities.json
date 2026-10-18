@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T14:14:15Z",
-  "n": 357,
+  "updated_at": "2026-10-18T14:25:59Z",
+  "n": 359,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -68,9 +68,11 @@
     "authored_fibonacci_addition__motzkin_bounded_w1",
     "authored_fibonacci_addition__narayana_sum_w1",
     "authored_frontier_cong_x0058ae91_w1",
+    "authored_frontier_cong_x06b60875_w1",
     "authored_frontier_cong_x16b72492_w1",
     "authored_frontier_cong_x23fb70a1_w1",
     "authored_frontier_cong_x29d14f44_w1",
+    "authored_frontier_cong_x2f9c7891_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_cong_x94023555_w1",
@@ -199,9 +201,7 @@
     "authored_vandermonde_conv__stirling_second_row_w1",
     "authored_wilson_theorem__stirling_first_row_sum_w1",
     "autodiff",
-    "autodiff_busy_loop",
-    "become_fail_forward",
-    "become_real_fitness"
+    "autodiff_busy_loop"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

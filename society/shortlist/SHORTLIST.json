@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-18T14:15:59Z",
+  "ts": "2026-10-18T14:26:41Z",
   "view_only": true,
-  "n_considered": 57,
+  "n_considered": 58,
   "n_meet_bar": 14,
   "n_groups": 14,
-  "n_authored_groups": 13,
-  "n_building_block_groups": 1,
+  "n_authored_groups": 14,
+  "n_building_block_groups": 0,
   "top": [
     {
       "id": "imp_15e6c5_50",
@@ -337,6 +337,47 @@
       "line": "Enable `authored_newdata_a006666_k10001_w1` (Oracle passed it in its own cycle); builds on newdata:newdata_term; P 0.825, novelty 1.0."
     },
     {
+      "id": "imp_53f6c2_49",
+      "title": "Chain+seek `authored_frontier_cong_x06b60875_w1` from invariant priors",
+      "cycle_id": "20261018T142048Z_53f6c2",
+      "target": "authored_frontier_cong_x06b60875_w1",
+      "family": "authored_frontier_cong_x06b60875",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "novelty_raw": 1.0,
+      "building_block": null,
+      "builds_on": 0.0,
+      "building_blocks": [
+        "frontier:frontier_holds"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.695,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.0833,
+        "oeis_checked": true,
+        "family": "authored_frontier_cong_x06b60875",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 1.0,
+        "chained_by": null,
+        "P_shadow": 0.825,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.695,
+        "shadow_pos": 9
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_53f6c2_49"
+      ],
+      "position": 9,
+      "line": "Enable `authored_frontier_cong_x06b60875_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0."
+    },
+    {
       "id": "imp_6ff40f_50",
       "title": "Chain+seek `authored_frontier_cong_xa68963c2_w1` from invariant priors",
       "cycle_id": "20261018T111843Z_6ff40f",
@@ -368,101 +409,20 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.695,
-        "shadow_pos": 9
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
         "imp_6ff40f_50"
       ],
-      "position": 9,
-      "line": "Enable `authored_frontier_cong_xa68963c2_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0."
-    },
-    {
-      "id": "imp_8926cc_50",
-      "title": "Chain+seek `authored_newdata_a006667_k10001_w1` from invariant priors",
-      "cycle_id": "20261018T130738Z_8926cc",
-      "target": "authored_newdata_a006667_k10001_w1",
-      "family": "authored_newdata_a006667_k10001",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 0.0,
-      "building_blocks": [
-        "newdata:newdata_term"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.695,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "authored_newdata_a006667_k10001",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.825,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.695,
-        "shadow_pos": 10
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_8926cc_50"
-      ],
       "position": 10,
-      "line": "Enable `authored_newdata_a006667_k10001_w1` (Oracle passed it in its own cycle); builds on newdata:newdata_term; P 0.825, novelty 1.0."
+      "line": "Enable `authored_frontier_cong_xa68963c2_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0."
     }
   ],
-  "building_blocks_enabled": [
-    {
-      "id": "imp_3a02ab_50",
-      "title": "Chain+seek `burnside_necklaces` from invariant priors",
-      "cycle_id": "20261017T171305Z_3a02ab",
-      "target": "burnside_necklaces",
-      "family": "burnside_necklaces",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 0.0,
-      "novelty_raw": 1.0,
-      "building_block": "catalog_refill",
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.495,
-      "hunt": {
-        "unknown": false,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "burnside_necklaces",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 0.5,
-        "chained_by": 1,
-        "P_shadow": 0.7,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.62,
-        "shadow_pos": 14
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_3a02ab_50"
-      ],
-      "position": 1,
-      "line": "Building block `burnside_necklaces` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
-    }
-  ],
+  "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-10-18T14:15:59Z",
-    "cycle_id": "20261018T141447Z_1f40b3",
+    "ts": "2026-10-18T14:26:41Z",
+    "cycle_id": "20261018T142441Z_dbe023",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -471,11 +431,13 @@
     },
     "n_meet_bar_actual": 14,
     "n_meet_bar_shadow": 14,
-    "n_unknown_claims": 15,
+    "n_unknown_claims": 17,
     "unknown_targets": [
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
+      "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x23fb70a1_w1",
       "authored_frontier_cong_x29d14f44_w1",
+      "authored_frontier_cong_x2f9c7891_w1",
       "authored_frontier_cong_x94023555_w1",
       "authored_frontier_cong_xa68963c2_w1",
       "authored_frontier_divides_x0b1db873_w1",
@@ -606,8 +568,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_6ff40f_50",
-        "target": "authored_frontier_cong_xa68963c2_w1",
+        "id": "imp_53f6c2_49",
+        "target": "authored_frontier_cong_x06b60875_w1",
         "actual_pos": 9,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
@@ -620,8 +582,8 @@
         "expected": 0.0
       },
       {
-        "id": "imp_8926cc_50",
-        "target": "authored_newdata_a006667_k10001_w1",
+        "id": "imp_6ff40f_50",
+        "target": "authored_frontier_cong_xa68963c2_w1",
         "actual_pos": 10,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -635,17 +597,17 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
     "status": 37,
-    "target_unresolved": 30,
+    "target_unresolved": 29,
     "trivial_by_filter": 2,
     "novelty_killed": 11,
-    "no_oracle_pass_in_own_cycle": 9,
+    "no_oracle_pass_in_own_cycle": 10,
     "hearing": 2
   },
   "rule": {
@@ -655,5 +617,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T141447Z_1f40b3"
+  "cycle_id": "20261018T142441Z_dbe023"
 }
