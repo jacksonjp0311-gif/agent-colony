@@ -786,7 +786,7 @@
    "status": "matched"
   },
   "A228014": {
-   "a_per_k_s": 1.5705822304687423e-06,
+   "a_per_k_s": 9.475007940000068e-07,
    "anum": "A228014",
    "checked": "2026-10-18T13:58:43Z",
    "comment_hint": [],
@@ -798,16 +798,17 @@
      "op": "fgtk"
     }
    ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
    "keywords": [
     "more",
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.403,
-    "searched_to": 256000,
-    "status": "matches published",
-    "ts": "2026-10-18T14:22:46Z",
-    "why": "no further term up to k = 256000"
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-18T14:45:11Z",
+    "why": "engine cap k = 1000000 reached (cycle budget)"
    },
    "n_pub": 28,
    "name": "Numbers k whose Collatz sequence length is greater than k+1 (counting both the x/2 and the 3x+1 steps).",
@@ -926,17 +927,17 @@
      110
     ]
    ],
-   "searched_to": 256000,
+   "searched_to": 1000000,
    "source": "https://oeis.org/A228014 (data section, 28 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.481,
-    "tries": 4
+    "cpu_s": 1.43,
+    "tries": 6
    },
    "status": "matched"
   },
   "A352229": {
-   "a_per_k_s": 1.0209892187496016e-07,
+   "a_per_k_s": 1.461059299999974e-07,
    "anum": "A352229",
    "checked": "2026-10-18T14:24:27Z",
    "comment_hint": [],
@@ -954,16 +955,17 @@
      "op": "eq7"
     }
    ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
    "keywords": [
     "more",
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.026,
-    "searched_to": 256000,
-    "status": "matches published",
-    "ts": "2026-10-18T14:37:19Z",
-    "why": "no further term up to k = 256000"
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-18T14:42:43Z",
+    "why": "engine cap k = 1000000 reached (cycle budget)"
    },
    "n_pub": 18,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 7 ways.",
@@ -1042,17 +1044,17 @@
      398
     ]
    ],
-   "searched_to": 256000,
+   "searched_to": 1000000,
    "source": "https://oeis.org/A352229 (data section, 18 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.034,
-    "tries": 4
+    "cpu_s": 0.181,
+    "tries": 6
    },
    "status": "matched"
   },
   "A352230": {
-   "a_per_k_s": 1.0044677343756803e-07,
+   "a_per_k_s": 1.4016204899999706e-07,
    "anum": "A352230",
    "checked": "2026-10-18T14:24:29Z",
    "comment_hint": [],
@@ -1070,16 +1072,17 @@
      "op": "eq8"
     }
    ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
    "keywords": [
     "more",
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.026,
-    "searched_to": 256000,
-    "status": "matches published",
-    "ts": "2026-10-18T14:37:19Z",
-    "why": "no further term up to k = 256000"
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-18T14:42:43Z",
+    "why": "engine cap k = 1000000 reached (cycle budget)"
    },
    "n_pub": 20,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 8 ways.",
@@ -1166,17 +1169,17 @@
      368
     ]
    ],
-   "searched_to": 256000,
+   "searched_to": 1000000,
    "source": "https://oeis.org/A352230 (data section, 20 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.034,
-    "tries": 4
+    "cpu_s": 0.175,
+    "tries": 6
    },
    "status": "matched"
   },
   "A352231": {
-   "a_per_k_s": 1.0236846484379392e-07,
+   "a_per_k_s": 1.4046413799999868e-07,
    "anum": "A352231",
    "checked": "2026-10-18T14:24:33Z",
    "comment_hint": [],
@@ -1194,16 +1197,17 @@
      "op": "eq9"
     }
    ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
    "keywords": [
     "more",
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.026,
-    "searched_to": 256000,
-    "status": "matches published",
-    "ts": "2026-10-18T14:37:19Z",
-    "why": "no further term up to k = 256000"
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-18T14:42:43Z",
+    "why": "engine cap k = 1000000 reached (cycle budget)"
    },
    "n_pub": 23,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 9 ways.",
@@ -1302,12 +1306,12 @@
      488
     ]
    ],
-   "searched_to": 256000,
+   "searched_to": 1000000,
    "source": "https://oeis.org/A352231 (data section, 23 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.034,
-    "tries": 4
+    "cpu_s": 0.175,
+    "tries": 6
    },
    "status": "matched"
   },
@@ -1330,16 +1334,17 @@
      "op": "eq10"
     }
    ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
    "keywords": [
     "more",
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.179,
-    "searched_to": 1000000,
-    "status": "matches published",
-    "ts": "2026-10-18T14:37:19Z",
-    "why": "no further term up to k = 1000000"
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-18T14:41:23Z",
+    "why": "engine cap k = 1000000 reached (cycle budget)"
    },
    "n_pub": 16,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 10 ways.",
@@ -1415,7 +1420,7 @@
    "stats": {
     "beyond": 0,
     "cpu_s": 0.214,
-    "tries": 5
+    "tries": 6
    },
    "status": "matched"
   }

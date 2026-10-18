@@ -4,6 +4,7 @@
   "frontier",
   "frontier",
   "frontier",
+  "instrument",
   "instrument"
  ],
  "history": [
@@ -1509,29 +1510,245 @@
     ]
    },
    "ts": "2026-10-18T14:37:19Z"
+  },
+  {
+   "cpu_s": 24.789,
+   "cycle_id": "20261018T143951Z_abd041",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls4_3_c:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls4_3_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls4_3_c:recval",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 220,
+    "cpu_s": 1.701,
+    "matched": [],
+    "pushed": [
+     {
+      "anum": "A352229",
+      "cpu_s": 0.147,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq7",
+      "searched_to": 1000000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:41:23Z",
+      "why": "no further term up to k = 1000000"
+     },
+     {
+      "anum": "A352230",
+      "cpu_s": 0.141,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq8",
+      "searched_to": 1000000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:41:23Z",
+      "why": "no further term up to k = 1000000"
+     },
+     {
+      "anum": "A352231",
+      "cpu_s": 0.141,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq9",
+      "searched_to": 1000000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:41:23Z",
+      "why": "no further term up to k = 1000000"
+     },
+     {
+      "anum": "A352233",
+      "cpu_s": 0.0,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq10",
+      "status": "intractable",
+      "ts": "2026-10-18T14:41:23Z",
+      "why": "engine cap k = 1000000 reached (cycle budget)"
+     }
+    ],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"(n+1)^2\" primes @10",
+     "keyword:more \"(n+1)^2\" primes @20",
+     "keyword:more \"number of divisors\" @0"
+    ]
+   },
+   "ts": "2026-10-18T14:41:23Z"
+  },
+  {
+   "cpu_s": 1.102,
+   "cycle_id": "20261018T144128Z_dec2b8",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls3_1_c:terms",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls3_1_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls3_1_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 220,
+    "cpu_s": 0.956,
+    "matched": [],
+    "pushed": [
+     {
+      "anum": "A352229",
+      "cpu_s": 0.0,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq7",
+      "status": "intractable",
+      "ts": "2026-10-18T14:42:43Z",
+      "why": "engine cap k = 1000000 reached (cycle budget)"
+     },
+     {
+      "anum": "A352230",
+      "cpu_s": 0.0,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq8",
+      "status": "intractable",
+      "ts": "2026-10-18T14:42:43Z",
+      "why": "engine cap k = 1000000 reached (cycle budget)"
+     },
+     {
+      "anum": "A352231",
+      "cpu_s": 0.0,
+      "item": "gb_prime_m",
+      "n_values": 0,
+      "op": "eq9",
+      "status": "intractable",
+      "ts": "2026-10-18T14:42:43Z",
+      "why": "engine cap k = 1000000 reached (cycle budget)"
+     },
+     {
+      "anum": "A228014",
+      "cpu_s": 0.949,
+      "item": "col_steps",
+      "n_values": 0,
+      "op": "fgtk",
+      "searched_to": 1000000,
+      "status": "matches published",
+      "ts": "2026-10-18T14:42:43Z",
+      "why": "no further term up to k = 1000000"
+     }
+    ],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T14:42:44Z"
+  },
+  {
+   "cpu_s": 65.479,
+   "cycle_id": "20261018T144249Z_cd531f",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls3_1_c:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls3_1_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls3_1_c:recval",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 249,
+    "cpu_s": 3.756,
+    "matched": [],
+    "pushed": [
+     {
+      "anum": "A228014",
+      "cpu_s": 0.0,
+      "item": "col_steps",
+      "n_values": 0,
+      "op": "fgtk",
+      "status": "intractable",
+      "ts": "2026-10-18T14:45:11Z",
+      "why": "engine cap k = 1000000 reached (cycle budget)"
+     }
+    ],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"number of divisors\" @10",
+     "keyword:more \"number of divisors\" @20",
+     "keyword:more \"number of divisors\" records @0"
+    ]
+   },
+   "ts": "2026-10-18T14:45:11Z"
   }
  ],
  "last": {
-  "cpu_s": 1.041,
-  "cycle_id": "20261018T143603Z_10bdfe",
+  "cpu_s": 65.479,
+  "cycle_id": "20261018T144249Z_cd531f",
   "discovered": [
    {
     "anum": null,
-    "item": "gb_cls4_3_c:terms",
+    "item": "gb_min_cls3_1_c:terms",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_cls4_3_c:recpos",
+    "item": "gb_min_cls3_1_c:recpos",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_cls4_3_c:recval",
-    "status": "no_alignment",
-    "why": "OEIS terms differ beyond the probe"
+    "item": "gb_min_cls3_1_c:recval",
+    "status": "not_in_oeis",
+    "why": "not found in the local OEIS index (frontier unknown)"
    }
   ],
   "mode": "live",
@@ -1539,67 +1756,33 @@
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 190,
-   "cpu_s": 0.991,
+   "candidates_seen": 249,
+   "cpu_s": 3.756,
    "matched": [],
    "pushed": [
     {
-     "anum": "A352229",
-     "cpu_s": 0.026,
-     "item": "gb_prime_m",
+     "anum": "A228014",
+     "cpu_s": 0.0,
+     "item": "col_steps",
      "n_values": 0,
-     "op": "eq7",
-     "searched_to": 256000,
-     "status": "matches published",
-     "ts": "2026-10-18T14:37:19Z",
-     "why": "no further term up to k = 256000"
-    },
-    {
-     "anum": "A352230",
-     "cpu_s": 0.026,
-     "item": "gb_prime_m",
-     "n_values": 0,
-     "op": "eq8",
-     "searched_to": 256000,
-     "status": "matches published",
-     "ts": "2026-10-18T14:37:19Z",
-     "why": "no further term up to k = 256000"
-    },
-    {
-     "anum": "A352231",
-     "cpu_s": 0.026,
-     "item": "gb_prime_m",
-     "n_values": 0,
-     "op": "eq9",
-     "searched_to": 256000,
-     "status": "matches published",
-     "ts": "2026-10-18T14:37:19Z",
-     "why": "no further term up to k = 256000"
-    },
-    {
-     "anum": "A352233",
-     "cpu_s": 0.179,
-     "item": "gb_prime_m",
-     "n_values": 0,
-     "op": "eq10",
-     "searched_to": 1000000,
-     "status": "matches published",
-     "ts": "2026-10-18T14:37:19Z",
-     "why": "no further term up to k = 1000000"
+     "op": "fgtk",
+     "status": "intractable",
+     "ts": "2026-10-18T14:45:11Z",
+     "why": "engine cap k = 1000000 reached (cycle budget)"
     }
    ],
    "queue": 0,
    "searches": [
-    "keyword:more \"prime quadruplets\" @0",
-    "keyword:more \"prime quadruplets\" @10",
-    "keyword:more \"(n+1)^2\" primes @0"
+    "keyword:more \"number of divisors\" @10",
+    "keyword:more \"number of divisors\" @20",
+    "keyword:more \"number of divisors\" records @0"
    ]
   },
-  "ts": "2026-10-18T14:37:19Z"
+  "ts": "2026-10-18T14:45:11Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 34,
+  "cursor": 40,
   "exhausted": [
    "keyword:hard Collatz",
    "keyword:more \"cousin primes\"",
@@ -1617,11 +1800,23 @@
     "query": "keyword:more Collatz",
     "status": "beyond engine reach to verify"
    },
+   "A006558": {
+    "n_pub": 11,
+    "name": "Start of first run of n consecutive integers with same number of divisors.",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A007508": {
     "n_pub": 19,
     "name": "Number of twin prime pairs below 10^n.",
     "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
+   },
+   "A007671": {
+    "n_pub": 18,
+    "name": "Numbers n such that 2^n + 2^((n + 1)/2) + 1 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
    },
    "A008932": {
     "n_pub": 20,
@@ -1641,6 +1836,12 @@
     "query": "keyword:hard Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A036484": {
+    "n_pub": 32,
+    "name": "a(n) is the minimal number of binary order n which has maximal number of divisors in this interval.",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A042978": {
     "n_pub": 8,
     "name": "Stern primes: primes not of the form p + 2b^2 for p prime and b > 0.",
@@ -1658,6 +1859,18 @@
     "name": "Normalized extreme values for \"3x+1\" trees of depth n.",
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
+   },
+   "A046808": {
+    "n_pub": 23,
+    "name": "a(n) is the least integer greater than a(n-1) such that a(n-1)*2^a(n) + 1 is prime, a(1) = 1.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A048892": {
+    "n_pub": 18,
+    "name": "Start of n consecutive integers with distinct number of divisors.",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A050258": {
     "n_pub": 17,
@@ -1743,6 +1956,30 @@
     "query": "keyword:more Goldbach",
     "status": "no engine family for its definition"
    },
+   "A075028": {
+    "n_pub": 12,
+    "name": "a(1) = 1, then a(n) = the smallest number k such that the number of divisors of the n numbers from k",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A075029": {
+    "n_pub": 12,
+    "name": "a(n) is the smallest number k such that the number of divisors of the n numbers from k through k+n-1",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A075031": {
+    "n_pub": 19,
+    "name": "a(n) is the smallest number k such that the number of divisors of the n numbers from k through k+n-1",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A075046": {
+    "n_pub": 18,
+    "name": "a(n) = the smallest number k such that the number of divisors of the n numbers from k through k+n-1 ",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A078421": {
     "n_pub": 16,
     "name": "Least positive integer solution k to h(k) = n h(k-1), where h(n) is the length of n, f(n), f(f(n)), ",
@@ -1754,6 +1991,24 @@
     "name": "a(n) = least positive integer solution k to h(k) = h(k-1)+h(k-2)+...+h(k-n), where h(n) is the lengt",
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
+   },
+   "A080121": {
+    "n_pub": 10,
+    "name": "a(n) is the smallest k > 0 such that n^2^k + (n+1)^2^k is prime, or -1 if no such k exists.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A080131": {
+    "n_pub": 16,
+    "name": "Conjectured number of generalized Fermat primes of the form (n+1)^2^k + n^2^k, with k>1.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A080133": {
+    "n_pub": 16,
+    "name": "Conjectured number of generalized Fermat primes of the form (n+1)^2^k + n^2^k, with k>0.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
    },
    "A080134": {
     "n_pub": 16,
@@ -1773,10 +2028,22 @@
     "query": "keyword:more \"cousin primes\"",
     "status": "beyond engine reach to verify"
    },
+   "A081357": {
+    "n_pub": 2,
+    "name": "Sublime numbers, numbers for which the number of divisors and the sum of the divisors are both perfe",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "too few published terms to identify"
+   },
    "A082984": {
     "n_pub": 31,
     "name": "Numbers k for which the 3x+1 problem takes at least k halving and tripling steps to reach 1.",
     "query": "keyword:more 3x+1",
+    "status": "no family item reproduces all published terms"
+   },
+   "A085544": {
+    "n_pub": 25,
+    "name": "n-th partition number (A000041) sets a new record for number of divisors.",
+    "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
    },
    "A087641": {
@@ -1815,6 +2082,18 @@
     "query": "keyword:more Goldbach",
     "status": "no engine family for its definition"
    },
+   "A094098": {
+    "n_pub": 41,
+    "name": "Number of divisor chains of length n in which the first term is a divisor of n(n+1)/2 (\"cyclic\" divi",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A094099": {
+    "n_pub": 22,
+    "name": "Number of divisor chains of length 2n+1 which are both cyclic and anchored.",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A098860": {
     "n_pub": 16,
     "name": "Primes that are conjectured to lead to a one-cycle for every natural number x in the following (nont",
@@ -1827,17 +2106,77 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A100901": {
+    "n_pub": 20,
+    "name": "Numbers n such that (6^n-1)^2-2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A100902": {
+    "n_pub": 22,
+    "name": "Numbers n such that (6^n+1)^2-2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A100903": {
+    "n_pub": 9,
+    "name": "Numbers n such that (10^n-1)^2-2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A100905": {
+    "n_pub": 9,
+    "name": "Numbers n such that (14^n-1)^2-2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A100906": {
+    "n_pub": 15,
+    "name": "Numbers n such that (14^n+1)^2-2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A100907": {
+    "n_pub": 8,
+    "name": "Numbers n such that (22^n-1)^2-2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A100908": {
+    "n_pub": 8,
+    "name": "Numbers n such that (22^n+1)^2-2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
    "A102891": {
     "n_pub": 8,
     "name": "Start of the first string of exactly n consecutive pairs of cousin primes.",
     "query": "keyword:more \"cousin primes\"",
     "status": "beyond engine reach to verify"
    },
+   "A103859": {
+    "n_pub": 27,
+    "name": "Number of divisors of prime(n)! - prime(n)# + 1.",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A103894": {
+    "n_pub": 30,
+    "name": "Number of divisors of prime(n)! / prime(n)# + 1.",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A107318": {
     "n_pub": 15,
     "name": "Number of ordered Goldbach partitions of 10^n.",
     "query": "keyword:more Goldbach",
     "status": "beyond engine reach to verify"
+   },
+   "A110760": {
+    "n_pub": 55,
+    "name": "a(n) = number of divisors of the concatenation of n,n-1,...3,2,1,2,3,...,n-1,n.",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A111950": {
     "n_pub": 11,
@@ -1887,6 +2226,12 @@
     "query": "keyword:more Goldbach",
     "status": "keyword fini"
    },
+   "A134865": {
+    "n_pub": 31,
+    "name": "Numbers k meeting the following criterion: if k is a multiple of d, then it is also a multiple of th",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A135563": {
     "n_pub": 17,
     "name": "First member of smallest n-digit prime quadruplet.",
@@ -1911,6 +2256,12 @@
     "query": "keyword:more \"twin primes\"",
     "status": "no family item reproduces all published terms"
    },
+   "A141283": {
+    "n_pub": 33,
+    "name": "Record values for number of divisors from A084260.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no family item reproduces all published terms"
+   },
    "A143385": {
     "n_pub": 15,
     "name": "Least a(n) such that M(n)*(M(n)+a(n))-1 and M(n)*(M(n)+a(n))+1 are twin primes with M(i)=i-th Mersen",
@@ -1928,6 +2279,12 @@
     "name": "Number of cousin primes < 10^n, such that only the lower member of each prime cousin pair is counted",
     "query": "keyword:more \"cousin primes\"",
     "status": "beyond engine reach to verify"
+   },
+   "A154907": {
+    "n_pub": 33,
+    "name": "Where records occur in (A063375: Number of divisors of Fibonacci(n)).",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no family item reproduces all published terms"
    },
    "A160910": {
     "n_pub": 11,
@@ -1952,6 +2309,12 @@
     "name": "Least prime p such that the n+1 numbers p + 2^k - 2, k=1..n+1, are all prime.",
     "query": "keyword:more \"prime triples\"",
     "status": "no engine family for its definition"
+   },
+   "A165497": {
+    "n_pub": 23,
+    "name": "a(n) starts arithmetic progression of n terms separated by tau(a(n)), each term having the same numb",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A171619": {
     "n_pub": 29,
@@ -2097,6 +2460,12 @@
     "query": "keyword:hard Collatz",
     "status": "beyond engine reach to verify"
    },
+   "A226647": {
+    "n_pub": 6,
+    "name": "Numbers k such that Sum_{i=1..k} sigma(i) is divisible by Sum_{i=1..k} d(i), where sigma(i) = sum of",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A226676": {
     "n_pub": 26,
     "name": "Smallest positive integer k (or 0 if no such k) with a primitive cycle of n positive integers under ",
@@ -2115,11 +2484,35 @@
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A227456": {
+    "n_pub": 10,
+    "name": "Number of permutations i_0, i_1, ..., i_n of 0, 1, ..., n with i_0 = 0 and i_n = 1 such that all the",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
    "A228014": {
     "n_pub": 28,
     "name": "Numbers k whose Collatz sequence length is greater than k+1 (counting both the x/2 and the 3x+1 step",
     "query": "keyword:more Collatz",
     "status": "matched"
+   },
+   "A229095": {
+    "n_pub": 22,
+    "name": "Numbers k such that Sum_{i=1..k} i^tau(i) == 0 (mod k), where tau(i) = A000005(i), the number of div",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A229207": {
+    "n_pub": 13,
+    "name": "Numbers k such that Sum_{j=1..k} tau(j)^j == 0 (mod k), where tau(j) = A000005(j), the number of div",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A229210": {
+    "n_pub": 13,
+    "name": "Numbers k such that Sum_{i=1..k} (i-tau(i))^i == 0 (mod k), where tau(i) = A000005(i), the number of",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A238716": {
     "n_pub": 71,
@@ -2253,6 +2646,12 @@
     "query": "keyword:more \"prime triples\"",
     "status": "keyword cons"
    },
+   "A275530": {
+    "n_pub": 20,
+    "name": "Smallest positive integer m such that (m^(2^n) + 1)/2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
    "A275683": {
     "n_pub": 4,
     "name": "Difference between the smallest 10^n-digit member of a prime triple and 10^(10^n - 1).",
@@ -2300,6 +2699,12 @@
     "name": "Decimal expansion of the prime triples constant, also known as Brun's constant B_{3b} = Sum (1/p + 1",
     "query": "keyword:more \"prime triples\"",
     "status": "keyword cons"
+   },
+   "A284597": {
+    "n_pub": 18,
+    "name": "a(n) is the least number that begins a run of exactly n consecutive numbers with a nondecreasing num",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A285088": {
     "n_pub": 6,
@@ -2355,6 +2760,12 @@
     "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
    },
+   "A326383": {
+    "n_pub": 18,
+    "name": "Numbers m such that beta(m) = tau(m)/2 + 3 where beta(m) is the number of Brazilian representations ",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A327772": {
     "n_pub": 6,
     "name": "Integers for which the Goldbach factorization graph contains exceptional autonomous component (see l",
@@ -2378,6 +2789,18 @@
     "name": "Let P1, P2, P3, P4 be consecutive primes with P2-P1=P4-P3=2. a(n)=(P3-P1)/6 when the length of the g",
     "query": "keyword:more \"twin primes\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A329420": {
+    "n_pub": 11,
+    "name": "Numbers all of whose divisors are binary palindromes (A329419) with a record number of divisors.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A330816": {
+    "n_pub": 28,
+    "name": "Numbers that reach 1 under the iterations of the map k -> k/d(k) if d(k) | k, and k -> k otherwise, ",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A331937": {
     "n_pub": 15,
@@ -2427,17 +2850,77 @@
     "query": "keyword:more \"sum of two primes\"",
     "status": "no engine family for its definition"
    },
+   "A336419": {
+    "n_pub": 21,
+    "name": "Number of divisors d of the n-th superprimorial A006939(n) with distinct prime exponents such that t",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A337738": {
+    "n_pub": 9,
+    "name": "Terms of A171641 with a record number of divisors.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A337739": {
+    "n_pub": 9,
+    "name": "Terms of A083209 with a record number of divisors.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no family item reproduces all published terms"
+   },
+   "A338381": {
+    "n_pub": 5,
+    "name": "Smallest number m such that tau(k) * k = m has exactly n solutions when tau(k) is the number of divi",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "too few published terms to identify"
+   },
+   "A339680": {
+    "n_pub": 14,
+    "name": "Lesser of amicable pair a < b such that the ratio of their number of divisors d(a)/d(b) sets a new r",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A339681": {
+    "n_pub": 14,
+    "name": "Larger of amicable pair a < b such that the ratio of their number of divisors d(a)/d(b) sets a new r",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A339682": {
+    "n_pub": 12,
+    "name": "Lesser of amicable pair a < b such that the ratio of their number of divisors d(b)/d(a) sets a new r",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A339683": {
+    "n_pub": 12,
+    "name": "Larger of amicable pair a < b such that the ratio of their number of divisors d(b)/d(a) sets a new r",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
    "A339769": {
     "n_pub": 28,
     "name": "Number of unique heights that are achieved by only one starting number in the Collatz (or '3x+1') pr",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A341211": {
+    "n_pub": 15,
+    "name": "Smallest prime p such that (p^(2^n) + 1)/2 is prime.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
    "A342714": {
     "n_pub": 9,
     "name": "Decimal expansion of infinite sum of reciprocals of lesser twin primes, Sum_{n>=1} 1/A001359(n).",
     "query": "keyword:more \"twin primes\"",
     "status": "keyword cons"
+   },
+   "A342835": {
+    "n_pub": 19,
+    "name": "a(n) is the number of divisors of A342834(n).",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A347668": {
     "n_pub": 27,
@@ -2456,6 +2939,24 @@
     "name": "Primes p such that q divides p^2 + p + 1, r divides q^2 + q + 1 and p divides r^2 + r + 1 for some p",
     "query": "keyword:more \"prime triples\"",
     "status": "no engine family for its definition"
+   },
+   "A348453": {
+    "n_pub": 28,
+    "name": "Irregular triangle read by rows: T(n,k) (n >= 1, 1 <= k <= number of divisors of n^2) is the number ",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "keyword tabf"
+   },
+   "A348455": {
+    "n_pub": 27,
+    "name": "Irregular triangle read by rows: T(n,k) (n >= 1, 1 <= k <= number of divisors of n^2) is the number ",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "keyword tabf"
+   },
+   "A350132": {
+    "n_pub": 10,
+    "name": "a(n) is the smallest number m such that tau(m-1) = tau(m+1) = tau(m)^n, where tau(m) is the number o",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A350277": {
     "n_pub": 39,
@@ -2553,6 +3054,12 @@
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
    },
+   "A355386": {
+    "n_pub": 17,
+    "name": "Position of first appearance of n in A355382, where A355382(m) = number of divisors d of m such that",
+    "query": "keyword:more \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A355568": {
     "n_pub": 36,
     "name": "Numbers k > 4 in a Collatz trajectory reaching k after starting at k-1.",
@@ -2586,6 +3093,18 @@
    "A355600": {
     "n_pub": 16,
     "name": "a(1) = 37. For n > 1, a(n) = smallest prime q such that q^(a(n-1)-1) == 1 (mod a(n-1)^2).",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A355601": {
+    "n_pub": 15,
+    "name": "a(1) = 47. For n > 1, a(n) = smallest prime q such that q^(a(n-1)-1) == 1 (mod a(n-1)^2).",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A355602": {
+    "n_pub": 12,
+    "name": "a(1) = 61. For n > 1, a(n) = smallest prime q such that q^(a(n-1)-1) == 1 (mod a(n-1)^2).",
     "query": "keyword:more \"(n+1)^2\" primes",
     "status": "no engine family for its definition"
    },
@@ -2631,6 +3150,18 @@
     "query": "keyword:hard Collatz",
     "status": "no engine family for its definition"
    },
+   "A360736": {
+    "n_pub": 54,
+    "name": "Number of prime divisors of A007942(n) = decimal concatenation of sequence (n, n-1, ..., 2, 1, 2, ..",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no family item reproduces all published terms"
+   },
+   "A361624": {
+    "n_pub": 55,
+    "name": "Number of distinct prime factors in decimal concatenation of integer (n, n-1, ..., 2, 1, 2, ..., n-1",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
    "A365482": {
     "n_pub": 8,
     "name": "In the Collatz (3x+1) problem, values in A006884 for which the maximum excursion ratio (see comments",
@@ -2660,6 +3191,12 @@
     "name": "Numbers k for which a generalized Collatz trajectory (x / k if k divides x, x + ceiling(x / k) other",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A368460": {
+    "n_pub": 61,
+    "name": "a(n) = card(k: prime(n)^2 <= k < prime(n + 1)^2 and k term of A368458).",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
    },
    "A369109": {
     "n_pub": 12,
@@ -2880,6 +3417,24 @@
    "ts": "2026-10-18T13:15:07Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
+  "gb_cls3_1_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:42:43Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_cls3_1_c:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:42:43Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_cls3_1_c:terms": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:42:32Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
   "gb_cls3_2:recpos": {
    "anum": null,
    "status": "not_in_oeis",
@@ -3042,6 +3597,24 @@
    "ts": "2026-10-18T13:16:48Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
+  "gb_min_cls3_1_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:44:32Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls3_1_c:recval": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:45:03Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls3_1_c:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:44:02Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
   "gb_min_cls3_2:recpos": {
    "anum": null,
    "status": "not_in_oeis",
@@ -3112,6 +3685,24 @@
    "anum": null,
    "status": "not_in_oeis",
    "ts": "2026-10-18T13:13:35Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls4_3_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:41:06Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls4_3_c:recval": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:41:17Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls4_3_c:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:40:54Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_min_cls6_1:recpos": {
