@@ -10,167 +10,10 @@
   "instrument",
   "instrument",
   "frontier",
-  "frontier"
+  "frontier",
+  "instrument"
  ],
  "history": [
-  {
-   "cpu_s": 8.946,
-   "cycle_id": "20261018T141326Z_8790f7",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls3_2:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls3_2:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls3_2:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 6,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 41,
-    "cpu_s": 0.863,
-    "matched": [],
-    "pushed": [
-     {
-      "anum": "A228014",
-      "cpu_s": 0.014,
-      "item": "col_steps",
-      "n_values": 0,
-      "op": "fgtk",
-      "searched_to": 16000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:14:42Z",
-      "why": "no further term up to k = 16000"
-     }
-    ],
-    "queue": 0,
-    "searches": [
-     "keyword:more 3x+1 @0",
-     "keyword:more 3x+1 @10"
-    ]
-   },
-   "ts": "2026-10-18T14:14:42Z"
-  },
-  {
-   "cpu_s": 1.212,
-   "cycle_id": "20261018T141447Z_1f40b3",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_cls6_1:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls6_1:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls6_1:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 61,
-    "cpu_s": 1.183,
-    "matched": [],
-    "pushed": [
-     {
-      "anum": "A228014",
-      "cpu_s": 0.054,
-      "item": "col_steps",
-      "n_values": 0,
-      "op": "fgtk",
-      "searched_to": 64000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:15:54Z",
-      "why": "no further term up to k = 64000"
-     }
-    ],
-    "queue": 0,
-    "searches": [
-     "keyword:more 3x+1 @20",
-     "keyword:hard Collatz @0",
-     "keyword:hard Collatz @10"
-    ]
-   },
-   "ts": "2026-10-18T14:15:54Z"
-  },
-  {
-   "cpu_s": 28.787,
-   "cycle_id": "20261018T142048Z_53f6c2",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls6_1:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls6_1:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls6_1:recval",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 88,
-    "cpu_s": 15.111,
-    "matched": [],
-    "pushed": [
-     {
-      "anum": "A228014",
-      "cpu_s": 0.403,
-      "item": "col_steps",
-      "n_values": 0,
-      "op": "fgtk",
-      "searched_to": 256000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:22:46Z",
-      "why": "no further term up to k = 256000"
-     }
-    ],
-    "queue": 6,
-    "searches": [
-     "keyword:hard Collatz @20",
-     "keyword:more Goldbach @0",
-     "keyword:more Goldbach @10"
-    ]
-   },
-   "ts": "2026-10-18T14:22:47Z"
-  },
   {
    "cpu_s": 14.625,
    "cycle_id": "20261018T142253Z_66e47d",
@@ -1591,11 +1434,65 @@
     "searches": []
    },
    "ts": "2026-10-18T16:51:04Z"
+  },
+  {
+   "cpu_s": 0.021,
+   "cycle_id": "20261018T165617Z_43c45e",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T16:57:28Z"
+  },
+  {
+   "cpu_s": 0.02,
+   "cycle_id": "20261018T165735Z_1f8d5d",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.02,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T16:58:52Z"
+  },
+  {
+   "cpu_s": 0.02,
+   "cycle_id": "20261018T165858Z_3c5062",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.02,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T17:00:15Z"
   }
  ],
  "last": {
   "cpu_s": 0.02,
-  "cycle_id": "20261018T164942Z_e2631f",
+  "cycle_id": "20261018T165858Z_3c5062",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -1609,7 +1506,7 @@
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-10-18T16:51:04Z"
+  "ts": "2026-10-18T17:00:15Z"
  },
  "mode": "live",
  "sparse": {

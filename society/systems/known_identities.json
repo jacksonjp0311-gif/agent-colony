@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T16:50:23Z",
-  "n": 368,
+  "updated_at": "2026-10-18T16:58:14Z",
+  "n": 370,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -74,6 +74,7 @@
     "authored_frontier_cong_x29d14f44_w1",
     "authored_frontier_cong_x2f9c7891_w1",
     "authored_frontier_cong_x396d7d8c_w1",
+    "authored_frontier_cong_x396d7d8c_w2",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_cong_x94023555_w1",
@@ -132,6 +133,7 @@
     "authored_polynomial_remainder__telescoping_sum_w1",
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_quadratic_reciprocity__sigma_multiplicative_w1",
+    "authored_sieve_hl_within_g2_4_2_w1",
     "authored_sieve_hl_within_g2_4_6_w1",
     "authored_sieve_hl_within_g2_4_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
@@ -199,9 +201,7 @@
     "authored_stirling_second_row__pythagorean_generation_w1",
     "authored_sum_first_n_cubes__pell_companion_w1",
     "authored_sum_first_n_cubes__stirling_second_row_w1",
-    "authored_sum_first_n_cubes__vandermonde_conv_w1",
-    "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
-    "authored_sum_first_n_odds__binomial_inversion_small_w1"
+    "authored_sum_first_n_cubes__vandermonde_conv_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

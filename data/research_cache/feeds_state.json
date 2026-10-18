@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-18T16:45:26Z",
+    "fetched_at": "2026-10-18T16:54:53Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-18T16:54:24Z",
+        "id": 39147131767,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-18T16:54:28Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-18T16:44:42Z",
         "id": 39146396734,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-18T16:44:46Z"
+        "status": "completed",
+        "updated_at": "2026-10-18T16:51:51Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-18T14:45:53Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-18T14:31:14Z",
-        "id": 39136359261,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-18T14:38:05Z"
       }
     ],
     "success_rate": 1.0
@@ -167,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-10-18T16:45:25Z"
+    "ts": "2026-10-18T16:54:53Z"
   },
-  "runs": 146
+  "runs": 147
 }

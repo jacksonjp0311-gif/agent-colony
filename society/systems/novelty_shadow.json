@@ -4,67 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 131,
-    "ok": 131
+    "n": 132,
+    "ok": 132
   },
   "rows": [
-    {
-      "ts": "2026-10-17T17:22:11Z",
-      "cycle_id": "20261017T172144Z_76124b",
-      "mutation": "authored_bezout_identity__cayley_hamilton_3x3_w1",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.0,
-      "live_novel": true,
-      "status": "ok",
-      "terms": [
-        "bezout",
-        "cayley",
-        "hamilton",
-        "3x3",
-        "kept",
-        "hard",
-        "enable",
-        "lemma",
-        "score",
-        "checks",
-        "pass",
-        "machine"
-      ],
-      "shadow_textbook_reuse": 0.0833,
-      "matches": [
-        {
-          "anum": "A000905",
-          "name_sha256": "1ed533a8f5e5a51f",
-          "coverage": 0.0833,
-          "bm25": -15.975
-        },
-        {
-          "anum": "A134294",
-          "name_sha256": "28e8551b62088763",
-          "coverage": 0.0833,
-          "bm25": -15.439
-        },
-        {
-          "anum": "A400960",
-          "name_sha256": "d97741d710b6a864",
-          "coverage": 0.0833,
-          "bm25": -14.916
-        },
-        {
-          "anum": "A399668",
-          "name_sha256": "d97741d710b6a864",
-          "coverage": 0.0833,
-          "bm25": -14.916
-        },
-        {
-          "anum": "A398918",
-          "name_sha256": "d97741d710b6a864",
-          "coverage": 0.0833,
-          "bm25": -14.916
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-10-17T17:22:46Z",
       "cycle_id": "",
@@ -3409,6 +3352,63 @@
           "name_sha256": "50d0fb9c26218698",
           "coverage": 0.0833,
           "bm25": -23.984
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-10-18T16:58:16Z",
+      "cycle_id": "20261018T165735Z_1f8d5d",
+      "mutation": "authored_sieve_hl_within_g2_4_2_w1",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.5,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "quadruplets",
+        "hardy",
+        "littlewood",
+        "primes",
+        "kept",
+        "hard",
+        "enable",
+        "lemma",
+        "score",
+        "checks",
+        "pass",
+        "machine"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A152051",
+          "name_sha256": "d82d96e4cb96b35e",
+          "coverage": 0.25,
+          "bm25": -22.109
+        },
+        {
+          "anum": "A331942",
+          "name_sha256": "7243727eecb5c556",
+          "coverage": 0.25,
+          "bm25": -14.553
+        },
+        {
+          "anum": "A061642",
+          "name_sha256": "6f08d167013c67fa",
+          "coverage": 0.1667,
+          "bm25": -24.622
+        },
+        {
+          "anum": "A221713",
+          "name_sha256": "026f47ab0099cec4",
+          "coverage": 0.1667,
+          "bm25": -23.13
+        },
+        {
+          "anum": "A221712",
+          "name_sha256": "907bb7d3873a3db9",
+          "coverage": 0.1667,
+          "bm25": -23.13
         }
       ],
       "would_flag": false
