@@ -1590,6 +1590,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
     rng.shuffle(fresh)
     fresh.sort(key=lambda c: -(k_prior / (fam_s.get(family(c), 0) + k_prior)) * predict(c["kind"], st))
     tested: list[dict[str, Any]] = []
+    _rc_net = None
     per_kind: dict[str, int] = {}
     kinds_present = {c["kind"] for c in fresh} or {"x"}
     cap_kind = max(4, MAX_TEST // len(kinds_present))
@@ -1658,6 +1659,25 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         else:
             c["unknown"] = True
             c["unknown_reason"] = "survived held-out; not trivial; a derived sequence is not in OEIS"
+        if c["unknown"]:
+            # Stage 2: a surprise only if no reference explains it (colony.reference_check; the
+            # filters above are the prefilter). shadow = label only; live = explained -> not a surprise
+            try:
+                from colony import reference_check as _rc
+                if _rc.mode() != "off":
+                    if _rc_net is None:
+                        _rc_net = _rc.Net()
+                    ref = _rc.check(c, T, _rc_net, lookup)
+                    c["reference"] = ref["label"]
+                    if ref["explained"]:
+                        counts["explained_by_reference"] = counts.get("explained_by_reference", 0) + 1
+                        if _rc.mode() == "live":
+                            c["unknown"] = False
+                            c["unknown_reason"] = ref["label"]
+                    else:
+                        counts["no_reference_found"] = counts.get("no_reference_found", 0) + 1
+            except Exception as exc:  # noqa: BLE001
+                c["reference"] = f"reference check failed: {str(exc)[:80]}"
         cert = prove(c, T)
         c["label"] = "machine-checked (certificate)" if cert else f"conjecture surviving {c['checks']} checks"
         c["certificate"] = cert
@@ -1711,7 +1731,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         if c.get("survived"):
             reg[c["id"]] = {k: c.get(k) for k in ("kind", "lhs", "rhs", "params", "label", "certificate", "checks", "loose",
                                                    "range", "oeis", "oeis_anums", "unknown", "unknown_reason",
-                                                   "family", "hunt_value", "prediction", "sig")} | {
+                                                   "family", "hunt_value", "prediction", "sig", "reference")} | {
                 "statement": statement(c), "found_cycle": cycle_id, "found_at": _utc()}
     if len(reg) > REGISTRY_CAP:  # keep surprises / certified first, then most recent
         keep = sorted(reg.items(), key=lambda kv: (not kv[1].get("unknown"), not kv[1].get("certificate"),
@@ -1809,10 +1829,13 @@ def markdown_section(st: dict[str, Any] | None = None, top: int = 8) -> str:
              f"OEIS index: {L['oeis_index']}. Pre-registration Brier: {L.get('brier')}.",
              f"Totals: tested {tot.get('tested', 0)}, survived {tot.get('survived', 0)}, surprises "
              f"{tot.get('surprises', 0)}, false surprises (failed later re-test) {tot.get('false_surprises', 0)}.",
-             "", "| Statement | Label | OEIS | Hunt v |", "|---|---|---|---|"]
+             f"Reference check (Stage 2, `{os.environ.get('COLONY_REFCHECK') or 'shadow'}`): last cycle "
+             f"{c.get('explained_by_reference', 0)} explained by a reference, {c.get('no_reference_found', 0)} with no reference found.",
+             "", "| Statement | Label | Reference check | OEIS | Hunt v |", "|---|---|---|---|---|"]
     show = sorted(sur, key=lambda r: -(r.get("hunt_value") or 0))[:top] + mc[: max(0, top // 2)]
     for r in show:
-        lines.append(f"| {r['statement']} | {r['label']} | {','.join(r.get('oeis') or [])} | {r.get('hunt_value')} |")
+        lines.append(f"| {r['statement']} | {r['label']} | {(r.get('reference') or '')[:160]} "
+                     f"| {','.join(r.get('oeis') or [])} | {r.get('hunt_value')} |")
     return "\n".join(lines) + "\n"
 
 

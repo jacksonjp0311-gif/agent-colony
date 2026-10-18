@@ -140,6 +140,7 @@ jobs:
           # live = verified terms also become authored checks the Oracle judges by recomputation
           COLONY_NEWDATA: live
           COLONY_NEWDATA_SPARSE: shadow
+          COLONY_REFCHECK: shadow
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
