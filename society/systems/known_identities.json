@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T07:03:28Z",
-  "n": 341,
+  "updated_at": "2026-10-18T11:12:54Z",
+  "n": 343,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -77,6 +77,7 @@
     "authored_frontier_le_x1c0eba57_w1",
     "authored_frontier_le_x46c5cc8a_w1",
     "authored_frontier_le_x9abb4c98_w1",
+    "authored_frontier_le_xdbff107c_w1",
     "authored_frontier_rec_xa92258f8_w1",
     "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
     "authored_gcd_fibonacci__hermite_recurrence_w1",
@@ -200,8 +201,7 @@
     "chain `adversarial_catalan_convolution_stress` citing new algebraic points on covers of elliptic curves",
     "chain `adversarial_catalan_convolution_stress` citing new algebraic points on covers of elliptic curves (cycle 167)",
     "chain `adversarial_derived_chain_stress` citing new algebraic points on covers of elliptic curves",
-    "chain `adversarial_derived_chain_stress` citing new algebraic points on covers of elliptic curves (cycle 168)",
-    "chain `adversarial_hockey_deep` citing new algebraic points on covers of elliptic curves"
+    "chain `adversarial_derived_chain_stress` citing new algebraic points on covers of elliptic curves (cycle 168)"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

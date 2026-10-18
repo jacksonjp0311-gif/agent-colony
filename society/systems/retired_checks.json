@@ -712,8 +712,140 @@
     "cayley_hamilton_2x2"
    ],
    "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_frontier_cong_x5cb35120_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x5cb35120_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)\n    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 29994 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((pi*pi))', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])\n",
+   "entry": "    (\"authored_frontier_cong_x5cb35120_w1\", check_authored_frontier_cong_x5cb35120_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_67f9cd_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x83358e42_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x83358e42_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)\n    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 29994 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(gcd(phi,pi))', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])\n",
+   "entry": "    (\"authored_frontier_cong_x83358e42_w1\", check_authored_frontier_cong_x83358e42_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_98f913_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_le_x1c0eba57_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_le_x1c0eba57_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    (gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)\n    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf-sqfree)', 'params': {}, 'rhs': 'phi'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])\n",
+   "entry": "    (\"authored_frontier_le_x1c0eba57_w1\", check_authored_frontier_le_x1c0eba57_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_cf6d5a_50"
+   ]
+  },
+  {
+   "name": "authored_bezout_identity__cayley_tree_count_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas bezout_identity + cayley_tree_count on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_bezout_identity__cayley_tree_count_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas bezout_identity + cayley_tree_count on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_bezout_identity,\n    ::check_cayley_tree_count; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_bezout_identity(a, b) for a in range(40, 59) for b in range(40, 59))) and all((check_cayley_tree_count(n) for n in range(10, 14)))\n",
+   "entry": "    (\"authored_bezout_identity__cayley_tree_count_w1\", check_authored_bezout_identity__cayley_tree_count_w1, True),\n",
+   "components": [
+    "bezout_identity",
+    "cayley_tree_count"
+   ],
+   "proposals_withdrawn": [
+    "imp_1e346a_50"
+   ]
+  },
+  {
+   "name": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas complete_bipartite_trees + faulhaber_power_sums on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_complete_bipartite_trees__faulhaber_power_sums_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas complete_bipartite_trees + faulhaber_power_sums on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_complete_bipartite_trees,\n    ::check_faulhaber_power_sums; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_complete_bipartite_trees(n) for n in range(8, 11))) and all((check_faulhaber_power_sums(n) for n in range(30, 45)))\n",
+   "entry": "    (\"authored_complete_bipartite_trees__faulhaber_power_sums_w1\", check_authored_complete_bipartite_trees__faulhaber_power_sums_w1, True),\n",
+   "components": [
+    "complete_bipartite_trees",
+    "faulhaber_power_sums"
+   ],
+   "proposals_withdrawn": [
+    "imp_cdaccd_50"
+   ]
+  },
+  {
+   "name": "authored_crt_coprime_pair__euler_pentagonal_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas crt_coprime_pair + euler_pentagonal on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_crt_coprime_pair__euler_pentagonal_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas crt_coprime_pair + euler_pentagonal on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_crt_coprime_pair,\n    ::check_euler_pentagonal; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_crt_coprime_pair(m) for m in range(25, 37))) and all((check_euler_pentagonal(n) for n in range(40, 60)))\n",
+   "entry": "    (\"authored_crt_coprime_pair__euler_pentagonal_w1\", check_authored_crt_coprime_pair__euler_pentagonal_w1, True),\n",
+   "components": [
+    "crt_coprime_pair",
+    "euler_pentagonal"
+   ],
+   "proposals_withdrawn": [
+    "imp_e09c90_50"
+   ]
+  },
+  {
+   "name": "authored_cycle_spanning_trees__lagrange_cyclic_orders_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas cycle_spanning_trees + lagrange_cyclic_orders on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_cycle_spanning_trees__lagrange_cyclic_orders_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas cycle_spanning_trees + lagrange_cyclic_orders on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_cycle_spanning_trees,\n    ::check_lagrange_cyclic_orders; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_cycle_spanning_trees(n) for n in range(14, 19))) and all((check_lagrange_cyclic_orders(n) for n in range(40, 59)))\n",
+   "entry": "    (\"authored_cycle_spanning_trees__lagrange_cyclic_orders_w1\", check_authored_cycle_spanning_trees__lagrange_cyclic_orders_w1, True),\n",
+   "components": [
+    "cycle_spanning_trees",
+    "lagrange_cyclic_orders"
+   ],
+   "proposals_withdrawn": [
+    "imp_4c1ae3_50"
+   ]
+  },
+  {
+   "name": "authored_euler_theorem__lucas_theorem_binomial_w1",
+   "category": "textbook_pair",
+   "reason": "plain pairing of textbook lemmas euler_theorem + lucas_theorem_binomial on separate windows: the claim is implied by its two parts",
+   "ts": "2026-10-18T11:10:51Z",
+   "cycle_id": "20261018T111043Z_b5875c",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_euler_theorem__lucas_theorem_binomial_w1() -> bool:\n    \"\"\"Authored stress check (desk): proven lemmas euler_theorem + lucas_theorem_binomial on\n    larger windows disjoint from their base windows (generation 1).\n\n    Components: society/benchmarks/artifacts/lemma_impl.py::check_euler_theorem,\n    ::check_lucas_theorem_binomial; checked by society/benchmarks/lemma_microbench.py.\n    Machine check only \u2014 not a novel theorem. Disabled until the Oracle passes it.\n    \"\"\"\n    return all((check_euler_theorem(n) for n in range(40, 59))) and all((check_lucas_theorem_binomial(n) for n in range(30, 45)))\n",
+   "entry": "    (\"authored_euler_theorem__lucas_theorem_binomial_w1\", check_authored_euler_theorem__lucas_theorem_binomial_w1, True),\n",
+   "components": [
+    "euler_theorem",
+    "lucas_theorem_binomial"
+   ],
+   "proposals_withdrawn": [
+    "imp_fc9df3_50"
+   ]
   }
  ],
- "n_retired": 46,
+ "n_retired": 54,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

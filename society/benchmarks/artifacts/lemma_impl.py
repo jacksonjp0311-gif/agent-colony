@@ -2147,33 +2147,6 @@ def frontier_holds(claim, a, b):
     return int(_f.holds_on(claim, int(a), int(b)))
 
 
-def check_authored_frontier_cong_x5cb35120_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)
-    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 29994 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((pi*pi))', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
-
-
-def check_authored_frontier_cong_x83358e42_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)
-    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 29994 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(gcd(phi,pi))', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
-
-
-def check_authored_frontier_le_x1c0eba57_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    (gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)
-    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf-sqfree)', 'params': {}, 'rhs': 'phi'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
-
-
 def check_authored_frontier_cong_x23fb70a1_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     dbl(gcd(n,pell))(n) = 0 (mod 2) for all n >= 1
@@ -2192,59 +2165,22 @@ def check_authored_frontier_rec_xa92258f8_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'rec', 'lhs': 'dbl((pow2-lpf))', 'params': {'c': [-4, 5]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
-def check_authored_bezout_identity__cayley_tree_count_w1() -> bool:
-    """Authored stress check (desk): proven lemmas bezout_identity + cayley_tree_count on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_bezout_identity,
-    ::check_cayley_tree_count; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+def check_authored_frontier_le_xdbff107c_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    (bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
     """
-    return all((check_bezout_identity(a, b) for a in range(40, 59) for b in range(40, 59))) and all((check_cayley_tree_count(n) for n in range(10, 14)))
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(bigomega*lpf)', 'params': {}, 'rhs': 'sopfr'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
-def check_authored_complete_bipartite_trees__faulhaber_power_sums_w1() -> bool:
-    """Authored stress check (desk): proven lemmas complete_bipartite_trees + faulhaber_power_sums on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_complete_bipartite_trees,
-    ::check_faulhaber_power_sums; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+def check_authored_frontier_divides_x0b1db873_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1
+    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 3988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
     """
-    return all((check_complete_bipartite_trees(n) for n in range(8, 11))) and all((check_faulhaber_power_sums(n) for n in range(30, 45)))
-
-
-def check_authored_crt_coprime_pair__euler_pentagonal_w1() -> bool:
-    """Authored stress check (desk): proven lemmas crt_coprime_pair + euler_pentagonal on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_crt_coprime_pair,
-    ::check_euler_pentagonal; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_crt_coprime_pair(m) for m in range(25, 37))) and all((check_euler_pentagonal(n) for n in range(40, 60)))
-
-
-def check_authored_cycle_spanning_trees__lagrange_cyclic_orders_w1() -> bool:
-    """Authored stress check (desk): proven lemmas cycle_spanning_trees + lagrange_cyclic_orders on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_cycle_spanning_trees,
-    ::check_lagrange_cyclic_orders; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_cycle_spanning_trees(n) for n in range(14, 19))) and all((check_lagrange_cyclic_orders(n) for n in range(40, 59)))
-
-
-def check_authored_euler_theorem__lucas_theorem_binomial_w1() -> bool:
-    """Authored stress check (desk): proven lemmas euler_theorem + lucas_theorem_binomial on
-    larger windows disjoint from their base windows (generation 1).
-
-    Components: society/benchmarks/artifacts/lemma_impl.py::check_euler_theorem,
-    ::check_lucas_theorem_binomial; checked by society/benchmarks/lemma_microbench.py.
-    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
-    """
-    return all((check_euler_theorem(n) for n in range(40, 59))) and all((check_lucas_theorem_binomial(n) for n in range(30, 45)))
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(pell,tau)', 'params': {}, 'rhs': '(rad*sqfree)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2475,16 +2411,10 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_hl_within_g4_w1", check_authored_sieve_hl_within_g4_w1, True),
     ("authored_sieve_hl_within_g4_6_w1", check_authored_sieve_hl_within_g4_6_w1, True),
     ("authored_euler_theorem__gauss_phi_divisor_sum_w1", check_authored_euler_theorem__gauss_phi_divisor_sum_w1, True),
-    ("authored_frontier_cong_x5cb35120_w1", check_authored_frontier_cong_x5cb35120_w1, True),
-    ("authored_frontier_cong_x83358e42_w1", check_authored_frontier_cong_x83358e42_w1, True),
-    ("authored_frontier_le_x1c0eba57_w1", check_authored_frontier_le_x1c0eba57_w1, True),
     ("authored_frontier_cong_x23fb70a1_w1", check_authored_frontier_cong_x23fb70a1_w1, True),
     ("authored_frontier_rec_xa92258f8_w1", check_authored_frontier_rec_xa92258f8_w1, True),
-    ("authored_bezout_identity__cayley_tree_count_w1", check_authored_bezout_identity__cayley_tree_count_w1, True),
-    ("authored_complete_bipartite_trees__faulhaber_power_sums_w1", check_authored_complete_bipartite_trees__faulhaber_power_sums_w1, True),
-    ("authored_crt_coprime_pair__euler_pentagonal_w1", check_authored_crt_coprime_pair__euler_pentagonal_w1, True),
-    ("authored_cycle_spanning_trees__lagrange_cyclic_orders_w1", check_authored_cycle_spanning_trees__lagrange_cyclic_orders_w1, True),
-    ("authored_euler_theorem__lucas_theorem_binomial_w1", check_authored_euler_theorem__lucas_theorem_binomial_w1, True),
+    ("authored_frontier_le_xdbff107c_w1", check_authored_frontier_le_xdbff107c_w1, True),
+    ("authored_frontier_divides_x0b1db873_w1", check_authored_frontier_divides_x0b1db873_w1, False),
 ]
 
 

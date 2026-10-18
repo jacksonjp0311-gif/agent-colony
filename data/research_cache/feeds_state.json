@@ -1,15 +1,39 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-18T07:00:17Z",
+    "fetched_at": "2026-10-18T11:09:19Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-18T11:08:47Z",
+        "id": 39122052871,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-18T11:08:51Z"
+      },
+      {
+        "conclusion": "failure",
+        "created_at": "2026-10-18T09:20:36Z",
+        "id": 39114952575,
+        "name": "Colony evolve",
+        "status": "completed",
+        "updated_at": "2026-10-18T09:21:23Z"
+      },
+      {
+        "conclusion": "failure",
+        "created_at": "2026-10-18T09:19:33Z",
+        "id": 39114881696,
+        "name": "Colony evolve",
+        "status": "completed",
+        "updated_at": "2026-10-18T09:20:06Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-18T06:59:54Z",
         "id": 39106019536,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-18T06:59:58Z"
+        "status": "completed",
+        "updated_at": "2026-10-18T07:04:34Z"
       },
       {
         "conclusion": "success",
@@ -74,54 +98,30 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-18T03:08:29Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-18T02:52:04Z",
-        "id": 39091597049,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-18T03:00:05Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-18T02:43:34Z",
-        "id": 39091109923,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-18T02:51:41Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-17T22:50:33Z",
-        "id": 39076685249,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-17T22:56:51Z"
       }
     ],
-    "success_rate": 1.0
+    "success_rate": 0.8182
   },
   "health": {
     "arxiv": {
       "fail": 4,
-      "ok": 35
+      "ok": 36
     },
     "crossref": {
       "fail": 0,
-      "ok": 36
+      "ok": 37
     },
     "oeis": {
       "fail": 0,
-      "ok": 36
+      "ok": 37
     },
     "oeis_conj": {
       "fail": 1,
-      "ok": 32
+      "ok": 33
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 36
+      "ok": 37
     }
   },
   "last_error": {
@@ -129,45 +129,50 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-10-18T03:09:20Z",
-    "crossref": "2026-10-18T06:48:04Z",
-    "oeis": "2026-10-18T06:48:02Z",
-    "oeis_conj": "2026-10-18T06:48:03Z",
-    "wikipedia": "2026-10-18T06:48:05Z"
+    "arxiv": "2026-10-18T11:09:14Z",
+    "crossref": "2026-10-18T11:09:16Z",
+    "oeis": "2026-10-18T11:09:15Z",
+    "oeis_conj": "2026-10-18T11:09:16Z",
+    "wikipedia": "2026-10-18T11:09:19Z"
   },
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "",
+        "fetched": 8,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 5,
+        "new": 5,
+        "ok": true
       },
       "oeis": {
+        "error": "",
+        "fetched": 2,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis_conj": {
+        "error": "",
+        "fetched": 2,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "wikipedia": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 1,
+        "new": 1,
+        "ok": true
       }
     },
-    "ts": "2026-10-18T07:00:16Z"
+    "ts": "2026-10-18T11:09:11Z"
   },
-  "runs": 119
+  "runs": 120
 }
