@@ -190,13 +190,48 @@ def test_case_split_flags_mu_lucas_claim():
 
 def test_case_split_sees_through_a_2n_and_constant_branches():
     # mu(4k) = 0, so gcd(mu(2n), 2n) = 2n is even on even n
-    assert _triv("cong", "dbl(gcd(mu,n))", None, {"m": 2, "r": 0, "q": 2, "s": 0}) == "case_split"
+    assert _triv("cong", "dbl(gcd(mu,n))", None, {"m": 2, "r": 0, "q": 2, "s": 0}) in ("case_split", "parity_rules")
     assert _triv("identity", "mu[gpf]", "mu[lpf]") == "case_split"  # mu(prime) = -1
 
 
 def test_case_split_does_not_reach_inside_D_wrongly():
-    # sigma(n+1) - sigma(n) even for odd n with both squarefree is not a per-branch rewrite
-    assert _triv("cong", "D((sigma*sqfree))", None, {"m": 2, "r": 0, "q": 2, "s": 1}) == ""
+    import random as _r
+    c = {"kind": "cong", "params": {"m": 2, "r": 0, "q": 2, "s": 1}, "_le": FC.parse("D((sigma*sqfree))"), "_re": None}
+    # sigma(n+1) - sigma(n) for odd n with both squarefree is not a per-branch rewrite ...
+    assert not FC._case_split_trivial(c, T, _r.Random(0), 12)
+    # ... but it does follow from the textbook rule "sigma(n) odd iff n is a square or twice a square"
+    assert _triv("cong", "D((sigma*sqfree))", None, {"m": 2, "r": 0, "q": 2, "s": 1}) == "parity_rules"
+
+
+def test_parity_rules_and_running_sums():
+    assert _triv("cong", "S((part*phi))", None, {"m": 2, "r": 1, "q": 1, "s": 0}) == "parity_rules"  # phi even, n >= 3
+    assert _triv("cong", "S((sqfree*tau))", None, {"m": 2, "r": 1, "q": 1, "s": 0}) == "parity_rules"  # tau odd iff square
+    # no textbook rule for pi(n) parity: kept
+    assert _triv("cong", "S((pi*pi))", None, {"m": 2, "r": 1, "q": 2, "s": 0}) == ""
+    import random as _r
+    c = {"kind": "cong", "params": {"m": 3, "r": 0, "q": 1, "s": 0}, "_le": FC.parse("S((pow2*(n*(n*n))))"), "_re": None}
+    assert not FC._running_sum_tail(c, T)
+
+
+def test_divides_parts_n1_edge_and_products():
+    assert _triv("divides", "dbl(gpf)", "(prime*rad)") == "implied_parts"     # gpf(2n) = gpf(n) | rad(n), n >= 2
+    assert _triv("divides", "(gpf*phi)", "dbl((phi*rad))") == "implied_parts"  # gpf | rad(2n), phi(n) | phi(2n)
+
+
+def test_basic_inequalities_by_reduction():
+    assert _triv("le", "(gpf-tau)", "dbl((gpf-bigomega))") == "basic_inequality"  # tau >= Omega + 1
+    assert _triv("le", "(omega-gpf)", "dbl((omega-gpf))") == "basic_inequality"   # omega(2n) >= omega(n)
+    assert _triv("le", "gpf", "rad") == "basic_inequality"
+    import random as _r
+    c = {"kind": "le", "params": {}, "_le": FC.parse("gpf"), "_re": FC.parse("phi")}
+    assert not FC._basic_inequality(c, T)          # gpf <= phi is false (n = 2) and not in the library
+
+
+def test_rewrite_atoms_closure_but_not_plain_cfinite():
+    assert _triv("rec", "dbl((pow2-lpf))", None, {"c": [-4, 5]}) == "rewrite_closure"  # lpf(2n) = 2
+    import random as _r
+    c = {"kind": "rec", "params": {"c": [4, 4]}, "_le": FC.parse("sh((pell*pow2))"), "_re": None}
+    assert FC.trivial_reason(c, T, _r.Random(0), 12) != "rewrite_closure"   # already C-finite: proved, not dropped
 
 
 def test_growth_dominance():

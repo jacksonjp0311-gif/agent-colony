@@ -246,7 +246,7 @@ def cf_order(e: tuple) -> int | None:
     """Upper bound on the C-finite order, None when not provably C-finite."""
     op = e[0]
     if op == "p":
-        return CF_ORDER.get(e[1])
+        return 1 if e[1].startswith("_c") else CF_ORDER.get(e[1])
     if op in ("o", "gcd"):
         return None
     if op in ("S",):
@@ -485,6 +485,11 @@ def _cong_implied_by_parts(c: dict[str, Any], T: Any, F: int) -> bool:
     """A congruence on A op B (op in + - *) is a rewrite when, on every refined residue class
     n = t (mod PERIOD) inside its class, it follows from the parts: each part is constant mod m
     there, or (product) one part is 0 mod m there."""
+    if c["kind"] == "cong" and c["params"]["r"] == 0 and _push(c["_le"])[0] == "gcd":
+        g = _push(c["_le"])                            # m | gcd(X, Y) iff m | X and m | Y
+        m, q, s0 = c["params"]["m"], c["params"]["q"], c["params"]["s"]
+        if all(_periodic_mod(x, m, T) for x in g[1:]):
+            return True
     e = _distribute(c["_le"])
     if c["kind"] != "cong" or e[0] not in ("+", "-", "*"):
         return False
@@ -507,8 +512,8 @@ def _cong_implied_by_parts(c: dict[str, Any], T: Any, F: int) -> bool:
     return True
 
 
-def _periodic_mod(e: tuple, m: int, T: Any, period: int = 60, span: int = 240) -> bool:
-    """Every primitive of ``e`` is periodic mod m (period | 60) and ``e`` only uses + - * shifts,
+def _periodic_mod(e: tuple, m: int, T: Any, period: int = 240, span: int = 480) -> bool:
+    """Every primitive of ``e`` is periodic mod m (period | 240, covers the Pisano periods for m <= 12) and ``e`` only uses + - * shifts,
     a(2n) and D: then e(n) mod m is a function of n mod a small period, so any congruence on it
     is a rewrite of the parts' periodic residues."""
     op = e[0]
@@ -525,18 +530,31 @@ def _periodic_mod(e: tuple, m: int, T: Any, period: int = 60, span: int = 240) -
 
 
 def _divides_implied_by_parts(c: dict[str, Any], T: Any, F: int) -> bool:
-    """E1 | A*B with E1 | A (or E1 | B), or E1 | A+-B with E1 dividing both: implied by the parts."""
+    """E1 | A*B with E1 | A (or E1 | B), or E1 | A+-B with E1 dividing both: implied by the parts.
+    Shifts / a(2n) are pushed through first; the part relation may fail at n = 1 (the claim itself
+    was checked there), e.g. gpf(2n) | rad(n) for n >= 2."""
     if c["kind"] != "divides":
         return False
-    r = _distribute(c["_re"])
+    r = _push(_distribute(c["_re"]))
     if r[0] not in ("+", "-", "*"):
         return False
-    a = evaluate(c["_le"], F, T)
-    parts = [evaluate(x, F, T) for x in r[1:]]
+    N = min(max_n(c["_le"], T, 400), *(max_n(x, T, 400) for x in r[1:]))
+    N = max(N, 0) if N >= F else F
+    a = evaluate(c["_le"], N, T)
+    parts = [evaluate(x, N, T) for x in r[1:]]
     if a is None or any(p is None for p in parts):
         return False
-    div = [all(x != 0 and y % x == 0 for x, y in zip(a, p)) for p in parts]
-    return any(div) if r[0] == "*" else all(div)
+    div = [all(x != 0 and y % x == 0 for x, y in zip(a[1:], p[1:])) for p in parts]
+    if (any(div) if r[0] == "*" else all(div)):
+        return True
+    le = _push(c["_le"])
+    if r[0] == "*" and le[0] == "*":                   # X*Y | A*B with X | A and Y | B (n >= 2)
+        xs = [evaluate(x, N, T) for x in le[1:]]
+        if any(x is None for x in xs):
+            return False
+        d = lambda u, w: all(x != 0 and y % x == 0 for x, y in zip(u[1:], w[1:]))
+        return (d(xs[0], parts[0]) and d(xs[1], parts[1])) or (d(xs[0], parts[1]) and d(xs[1], parts[0]))
+    return False
 
 
 def _shared_operand(c: dict[str, Any]) -> bool:
@@ -710,10 +728,268 @@ def _case_split_trivial(c: dict[str, Any], T: Any, rng: random.Random, F: int) -
             continue                                   # constant / elementary-in-n claim on this branch
         if _dominates(b, Tc, idx) or _monotone_shift(b, Tc, idx):
             continue
-        if trivial_reason(b, Tc, rng, max(F, SPLIT_F), split=False):
+        if b["kind"] in ("le", "divides", "identity") and b.get("_re") is not None:
+            va, vb = evaluate(b["_le"], N, Tc), evaluate(b["_re"], N, Tc)
+            if va is not None and vb is not None and all(va[n - 1] == vb[n - 1] for n in idx):
+                continue                               # the two sides coincide on this branch: X op X
+        if _basic_inequality(b, Tc) or trivial_reason(b, Tc, rng, max(F, SPLIT_F), split=False):
             continue
         return False
     return True
+
+
+# ----------------------------------------------------------------------------- textbook rules
+PARITY_N = 2000
+PARITY_SMALL = 24   # values of rule-less primitives up to here are kept (a finite check)
+_PARITY: dict[str, list[int]] = {}
+
+
+def _parity_tables(L: int) -> dict[str, list[int]]:
+    """Textbook parity rules (value mod 2 as a function of n), n = 1..L (index 0 unused):
+    phi(n) even for n >= 3; sigma(n) odd iff n is a square or twice a square; tau(n) odd iff n is
+    a square; mu(n) odd iff n squarefree; rad(n), lpf(n) have the parity of n; gpf(n) even iff n is
+    a power of 2 (> 1); prime(n) even iff n = 1; 2^n even; F(n), L(n) even iff 3 | n; Pell(n) even
+    iff n even."""
+    if _PARITY.get("_L") == [L]:
+        return _PARITY
+    import math as _m
+    sq = [0] * (L + 1)
+    for k in range(1, _m.isqrt(L) + 1):
+        sq[k * k] = 1
+    sq2 = [0] * (L + 1)
+    for k in range(1, _m.isqrt(L // 2) + 1):
+        sq2[2 * k * k] = 1
+    pow2 = [0] * (L + 1)
+    k = 2
+    while k <= L:
+        pow2[k] = 1
+        k *= 2
+    rng_ = range(L + 1)
+    out = {
+        "n": [n % 2 for n in rng_], "one": [1] * (L + 1),
+        "phi": [1 if n <= 2 else 0 for n in rng_],
+        "sigma": [1 if (sq[n] or sq2[n]) else 0 for n in rng_],
+        "tau": [sq[n] for n in rng_],
+        "rad": [n % 2 if n > 1 else 1 for n in rng_], "lpf": [n % 2 if n > 1 else 1 for n in rng_],
+        "gpf": [0 if pow2[n] else 1 for n in rng_], "prime": [0 if n == 1 else 1 for n in rng_],
+        "pow2": [0] * (L + 1), "fib": [0 if n % 3 == 0 else 1 for n in rng_],
+        "lucas": [0 if n % 3 == 0 else 1 for n in rng_], "pell": [n % 2 for n in rng_],
+    }
+    _PARITY.clear()
+    _PARITY.update(out)
+    _PARITY["_L"] = [L]
+    return _PARITY
+
+
+def _has_op(e: tuple, op: str) -> bool:
+    if e[0] == op:
+        return True
+    if e[0] == "p":
+        return False
+    return any(_has_op(x, op) for x in (e[2:] if e[0] == "o" else e[1:]))
+
+
+def _parity_rules(c: dict[str, Any], T: Any, rng: random.Random) -> bool:
+    """A mod-2 congruence that follows from textbook parity rules plus finitely many small cases:
+    every primitive with a rule is replaced by its rule, mu by the squarefree indicator, and every
+    other primitive by its true parity up to PARITY_SMALL and random parities beyond; if the claim
+    still holds (3 draws), it is a consequence of the rules. Exact because + - * gcd S D shifts and
+    a(2n) all respect parity; composition does not, so it is skipped."""
+    if c["kind"] != "cong" or c["params"]["m"] != 2 or _has_op(c["_le"], "o"):
+        return False
+    N = max_n(c["_le"], T, PARITY_N)
+    if N < 200:
+        return False
+    L = min(len(T.t["n"]) - 1, 4 * PARITY_N + 8)
+    rules = _parity_tables(L)
+    for _ in range(3):
+        tab = {}
+        for k in prims_of(c["_le"]):
+            if k in rules:
+                tab[k] = rules[k]
+            elif k in ("mu", "sqfree"):          # mu odd iff squarefree; the indicator is itself
+                tab[k] = [x % 2 for x in T.t["sqfree"][:L + 1]]
+            elif k.startswith("_c"):
+                tab[k] = T.t[k][:L + 1]
+            else:
+                arr = T.t[k]
+                tab[k] = [arr[i] % 2 if (i <= PARITY_SMALL and i < len(arr)) else rng.randint(0, 1)
+                          for i in range(min(len(arr), L + 1))]
+        a = evaluate(c["_le"], N, T, tab)
+        if a is None or not holds("cong", c["params"], a, None)[0]:
+            return False
+    return True
+
+
+def _running_sum_tail(c: dict[str, Any], T: Any) -> bool:
+    """A congruence on a running sum S(X) where X = 0 (mod m) from some small n0 on: the claim is
+    just the finite sum of the first terms (the smaller claim X = 0 mod m is the real one)."""
+    if c["kind"] != "cong":
+        return False
+    e = _push(c["_le"])
+    terms = [e]
+    while terms and terms[0][0] in ("+", "-") and len(terms) < 8:
+        x = terms.pop(0)
+        terms += [x[1], x[2]]
+    sums = [t for t in terms if t[0] == "S"]
+    if not sums or len(sums) != len(terms):
+        return False
+    m = c["params"]["m"]
+    for t in sums:
+        N = max_n(t[1], T, PARITY_N)
+        if N < 500:
+            return False
+        v = evaluate(t[1], N, T)
+        if not all(x % m == 0 for x in v[PARITY_SMALL:]):
+            return False
+    return True
+
+
+# basic textbook inequalities between primitives, as linear forms that are >= 0 for n >= 2
+BASIC_INEQ: tuple[dict[str, int], ...] = (
+    {"tau": 1, "bigomega": -1, "_k": -1},   # tau(n) >= Omega(n) + 1
+    {"bigomega": 1, "omega": -1},           # Omega >= omega
+    {"omega": 1, "_k": -1},                 # omega >= 1 (n >= 2)
+    {"n": 1, "phi": -1}, {"phi": 1, "_k": -1}, {"phi": 1, "gpf": -1, "_k": 1},  # phi <= n; phi >= p - 1
+    {"sigma": 1, "n": -1, "_k": -1}, {"sigma": 1, "tau": -1},
+    {"n": 1, "rad": -1}, {"rad": 1, "gpf": -1}, {"gpf": 1, "lpf": -1}, {"lpf": 1, "_k": -2},
+    {"n": 1, "tau": -1}, {"tau": 1, "_k": -2},
+    {"n": 1, "sopfr": -1}, {"sopfr": 1, "gpf": -1},
+    {"n": 1, "pi": -1}, {"pi": 1}, {"prime": 1, "n": -1}, {"prime": 1, "_k": -2},
+    {"sqfree": 1}, {"_k": 1, "sqfree": -1}, {"mu": 1, "_k": 1}, {"_k": 1, "mu": -1},
+    {"digsum": 1, "_k": -1}, {"n": 1, "digsum": -1}, {"popcount": 1, "_k": -1}, {"n": 1, "popcount": -1},
+    {"n": 1, "_k": -2}, {"_k": 1},
+)
+
+
+DBL_MONO = ("n", "omega", "bigomega", "tau", "sigma", "phi", "rad", "sopfr", "pi", "prime", "gpf",
+            "pow2", "fib", "lucas", "pell", "part")   # f(2n) >= f(n) for n >= 2
+SH_MONO = ("n", "pi", "prime", "pow2", "fib", "lucas", "pell", "part")  # non-decreasing
+
+
+def _linear(e: tuple, coef: int, out: dict[str, int], atoms: dict[str, tuple]) -> None:
+    if e[0] in ("+", "-"):
+        _linear(e[1], coef, out, atoms)
+        _linear(e[2], coef if e[0] == "+" else -coef, out, atoms)
+        return
+    if e == ("p", "one"):
+        out["_k"] = out.get("_k", 0) + coef
+        return
+    if e[0] == "p" and e[1].startswith("_c"):
+        out["_k"] = out.get("_k", 0) + coef * int(e[1][2:])
+        return
+    k = canon(e)
+    atoms[k] = e
+    out[k] = out.get(k, 0) + coef
+
+
+def _basic_inequality(c: dict[str, Any], T: Any) -> bool:
+    """A <= B that reduces, for n >= 2, to a known basic inequality (or a sum of a few): both sides
+    are split into + - parts; parts that differ from a primitive by a constant (e.g. gpf(2n) = gpf(n),
+    Omega(2n) = Omega(n) + 1 for n >= 2) are rewritten; what is left must be a non-negative
+    combination of BASIC_INEQ plus a non-negative constant."""
+    if c["kind"] != "le" or c.get("_re") is None:
+        return False
+    A, B = _push(c["_le"]), _push(c["_re"])
+    form: dict[str, int] = {}
+    atoms: dict[str, tuple] = {}
+    _linear(B, 1, form, atoms)
+    _linear(A, -1, form, atoms)
+    N = min([max_n(x, T, 400) for x in atoms.values()] or [400])
+    if N < 100:
+        return False
+    vals = {}
+    for k, x in atoms.items():
+        v = evaluate(x, N, T)
+        if v is None:
+            return False
+        vals[k] = v
+    red: dict[str, int] = {"_k": form.get("_k", 0)}
+    for k, co in form.items():
+        if k == "_k" or co == 0:
+            continue
+        x, v = atoms[k], vals[k]
+        if len(set(v[1:])) == 1:                       # constant for n >= 2
+            red["_k"] += co * v[1]
+            continue
+        base = None
+        cands = [y for y in PRIMS if T.t.get(y) is not None]
+        if x[0] == "p":
+            base = (x[1], 0)
+        else:
+            for y in cands:
+                w = evaluate(("p", y), N, T)
+                if w is None:
+                    continue
+                d = {v[i] - w[i] for i in range(1, N)}
+                if len(d) == 1:
+                    base = (y, d.pop())
+                    break
+        if base is None and co > 0 and x[0] in ("dbl", "sh") and x[1][0] == "p" and \
+                x[1][1] in (DBL_MONO if x[0] == "dbl" else SH_MONO):
+            base = (x[1][1], 0)                        # f(2n) >= f(n) / f(n+1) >= f(n): drop the slack
+        if base is None:
+            return False
+        red[base[0]] = red.get(base[0], 0) + co
+        red["_k"] += co * base[1]
+    red = {k: v for k, v in red.items() if v or k == "_k"}
+    names = [k for k in red if k != "_k"]
+    lib = [f for f in BASIC_INEQ if set(f) - {"_k"} <= set(names) or set(f) == {"_k"}]
+
+    def ok(rem: dict[str, int], depth: int, start: int) -> bool:
+        if all(v == 0 for k, v in rem.items() if k != "_k") and rem.get("_k", 0) >= 0:
+            return True
+        if depth == 0:
+            return False
+        for i in range(start, len(lib)):
+            for lam in (1, 2):
+                nxt = dict(rem)
+                for k, v in lib[i].items():
+                    nxt[k] = nxt.get(k, 0) - lam * v
+                if ok(nxt, depth - 1, i + 1):
+                    return True
+        return False
+    return ok(red, 3, 0)
+
+
+def _rewrite_atoms(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
+    """Replace pointwise subterms that equal a constant or a primitive on n = 1..400 (e.g.
+    pi(prime(n)) = n, lpf(2n) = 2, lpf(rad(n)) = lpf(n)); None when nothing changes."""
+    def walk(e: tuple, consts: set[int], top: bool = False) -> tuple:
+        if e[0] == "p":
+            return e
+        if top and c["kind"] == "identity":     # an identity's sides are the claim itself
+            if e[0] in POINTWISE:
+                return (e[0],) + tuple(walk(x, consts) for x in e[1:])
+            if e[0] in ("S", "D", "sh", "dbl"):
+                return (e[0], walk(e[1], consts))
+            return e
+        N = max_n(e, T, 400)
+        v = evaluate(e, N, T) if N >= 200 else None
+        if v is not None:
+            if len(set(v)) == 1:
+                consts.add(v[0])
+                hit.append(1)
+                return ("p", f"_c{v[0]}")
+            for y in PRIMS:
+                if y != "one" and T.t[y][1:N + 1] == v:
+                    hit.append(1)
+                    return ("p", y)
+        if e[0] in POINTWISE:
+            return (e[0],) + tuple(walk(x, consts) for x in e[1:])
+        if e[0] in ("S", "D", "sh", "dbl"):
+            return (e[0], walk(e[1], consts))
+        return e
+    consts: set[int] = set()
+    hit: list[int] = []
+    push = (lambda e: e) if c["kind"] == "identity" else _push
+    le = walk(push(c["_le"]), consts, True)
+    re_ = walk(push(c["_re"]), consts, True) if c.get("_re") is not None else None
+    if not hit:
+        return None
+    out = dict(c)
+    out["_le"], out["_re"], out["_consts"] = le, re_, consts
+    return out
 
 
 def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split: bool = True) -> str:
@@ -727,6 +1003,12 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
     shared_operand both sides share an operand under the same operator
     growth_dominance  A <= B only because B grows exponentially past a polynomially bounded A
                    (or A <= 0 <= B by sign)
+    parity_rules   a mod-2 congruence that follows from textbook parity rules (sigma odd iff square
+                   or twice a square, phi even for n >= 3, tau odd iff square, ...) + small cases
+    running_sum_tail  a congruence on a running sum whose terms are 0 mod m from a small n on
+    rewrite_closure  after replacing subterms that equal a constant / a primitive (pi(prime(n)) = n,
+                   lpf(2n) = 2) a recurrence / congruence on C-finite parts: expected
+    basic_inequality  A <= B reduces (n >= 2) to known basic inequalities such as tau >= Omega + 1
     case_split     on every branch of its few-valued parts (mu, squarefree indicator, parity...)
                    the claim reduces to one of the above or to a constant comparison
     """
@@ -736,8 +1018,25 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
         return "implied_parts"
     if _shared_operand(c):
         return "shared_operand"
+    if split and not c.get("_rewritten"):
+        rw = _rewrite_atoms(c, T)
+        if rw is not None:
+            rw["_rewritten"] = True
+            Tw = _WithConsts(T, rw.pop("_consts")) if not isinstance(T, _WithConsts) else T
+            if rw["kind"] in ("rec", "cong") and all(cf_order(x) is not None for x in _sides(rw)) \
+                    and not all(cf_order(x) is not None for x in _sides(c)):
+                return "rewrite_closure"
+            r = trivial_reason(rw, Tw, rng, F, split=True)
+            if r:
+                return r
     if split and _dominates(c, T):
         return "growth_dominance"
+    if _parity_rules(c, T, rng):
+        return "parity_rules"
+    if _running_sum_tail(c, T):
+        return "running_sum_tail"
+    if _basic_inequality(c, T):
+        return "basic_inequality"
     prims = sorted(p for p in prims_of(c["_le"]) | (prims_of(c["_re"]) if c.get("_re") is not None else set())
                    if not p.startswith("_c"))
     for mode_ in ("random", "shuffle") + tuple(f"one:{p}" for p in prims if len(prims) > 1 and p != "one"):
@@ -979,7 +1278,9 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
     counts = {"expressions": len(exprs), "fitted": len(cands), "duplicate": 0, "trivial_formal": 0,
               "trivial_shuffle_null": 0, "trivial_idle_part": 0,
               "trivial_implied_parts": 0, "trivial_shared_operand": 0,
-              "trivial_growth_dominance": 0, "trivial_case_split": 0, "expected_by_closure": 0,
+              "trivial_growth_dominance": 0, "trivial_case_split": 0, "trivial_parity_rules": 0,
+              "trivial_running_sum_tail": 0, "trivial_basic_inequality": 0,
+              "trivial_rewrite_closure": 0, "expected_by_closure": 0,
               "loose_inequality": 0, "tested": 0, "survived": 0, "falsified": 0, "machine_checked": 0,
               "surprises": 0, "oeis_known": 0, "oeis_unchecked": 0, "retested": 0, "false_surprises": 0}
     fresh: list[dict[str, Any]] = []
