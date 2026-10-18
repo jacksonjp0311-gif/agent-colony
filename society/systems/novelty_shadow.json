@@ -4,67 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 128,
-    "ok": 128
+    "n": 129,
+    "ok": 129
   },
   "rows": [
-    {
-      "ts": "2026-10-17T17:15:02Z",
-      "cycle_id": "20261017T171429Z_94edc4",
-      "mutation": "authored_alternating_binomial_row__cayley_hamilton_2x2_w1",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.0,
-      "live_novel": true,
-      "status": "ok",
-      "terms": [
-        "alternating",
-        "binomial",
-        "cayley",
-        "hamilton",
-        "2x2",
-        "kept",
-        "hard",
-        "enable",
-        "lemma",
-        "score",
-        "checks",
-        "pass"
-      ],
-      "shadow_textbook_reuse": 0.1667,
-      "matches": [
-        {
-          "anum": "A276537",
-          "name_sha256": "df5434e2a1b3c071",
-          "coverage": 0.1667,
-          "bm25": -12.584
-        },
-        {
-          "anum": "A156290",
-          "name_sha256": "b0bc26eab2e233d3",
-          "coverage": 0.1667,
-          "bm25": -11.829
-        },
-        {
-          "anum": "A073358",
-          "name_sha256": "c9ebbd57e42b54ac",
-          "coverage": 0.1667,
-          "bm25": -11.829
-        },
-        {
-          "anum": "A000905",
-          "name_sha256": "1ed533a8f5e5a51f",
-          "coverage": 0.0833,
-          "bm25": -15.975
-        },
-        {
-          "anum": "A134294",
-          "name_sha256": "28e8551b62088763",
-          "coverage": 0.0833,
-          "bm25": -15.439
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-10-17T17:16:10Z",
       "cycle_id": "",
@@ -3406,6 +3349,63 @@
           "name_sha256": "c954deb74f50dc63",
           "coverage": 0.25,
           "bm25": -14.979
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-10-18T15:38:14Z",
+      "cycle_id": "",
+      "mutation": "Chain `authored_sieve_residue_bal_g6_4_w1` citing Inverse binomial coefficients in Egorychev method",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.3333,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "primes",
+        "congruent",
+        "mod",
+        "chain",
+        "residue",
+        "citing",
+        "inverse",
+        "binomial",
+        "coefficients",
+        "egorychev",
+        "method",
+        "seek"
+      ],
+      "shadow_textbook_reuse": 0.3333,
+      "matches": [
+        {
+          "anum": "A094497",
+          "name_sha256": "2369c7a0da0fd7f1",
+          "coverage": 0.3333,
+          "bm25": -16.049
+        },
+        {
+          "anum": "A207982",
+          "name_sha256": "9822c947e76f1214",
+          "coverage": 0.3333,
+          "bm25": -15.487
+        },
+        {
+          "anum": "A381525",
+          "name_sha256": "643a76b11f0a09ea",
+          "coverage": 0.25,
+          "bm25": -16.931
+        },
+        {
+          "anum": "A131764",
+          "name_sha256": "fb3d472b353f478a",
+          "coverage": 0.25,
+          "bm25": -16.296
+        },
+        {
+          "anum": "A270799",
+          "name_sha256": "6f4b546f4562c8de",
+          "coverage": 0.25,
+          "bm25": -16.098
         }
       ],
       "would_flag": false

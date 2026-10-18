@@ -1,7 +1,7 @@
 {
-  "ts": "2026-10-18T15:04:26Z",
+  "ts": "2026-10-18T15:42:07Z",
   "ok_all": true,
-  "aggregate_score": 0.8654,
+  "aggregate_score": 0.8655,
   "benches": [
     {
       "bench": "fft_microbench",
@@ -10,7 +10,7 @@
       "ok": true,
       "max_abs_err": 6.253262709264633e-12,
       "mse": 1.5810077868598205e-25,
-      "seconds": 0.002534,
+      "seconds": 0.002596,
       "score": 1.0,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
@@ -23,8 +23,8 @@
       "ok": true,
       "max_abs_err": 7.367024535821709e-11,
       "mse": 6.228992808609339e-24,
-      "seconds": 0.012546,
-      "score": 0.6397,
+      "seconds": 0.012486,
+      "score": 0.6401,
       "impl_id": "fft_impl_cooley_tukey_iter_v1_slow0",
       "err_tol": 1e-06,
       "time_budget_s": 0.0025
@@ -51,7 +51,7 @@
         "b": 1.1677155874884049,
         "c": 0.062459317842766815
       },
-      "seconds": 0.000137,
+      "seconds": 0.000136,
       "score": 1.0,
       "impl_id": "autodiff_reverse_tape_v1",
       "grad_tol": 5e-05,
@@ -61,11 +61,11 @@
       "bench": "lemma_microbench",
       "ok": true,
       "max_abs_err": 0.0,
-      "seconds": 1.485223,
-      "score": 0.8622,
-      "speed": 0.100995,
+      "seconds": 1.427039,
+      "score": 0.8624,
+      "speed": 0.105113,
       "speed_weight": 0.05,
-      "impl_id": "lemma_impl_v2_basic10_hard199",
+      "impl_id": "lemma_impl_v2_basic10_hard195",
       "checks": {
         "basic:square_of_sum": true,
         "basic:difference_of_squares": true,
@@ -271,18 +271,14 @@
         "hard:authored_frontier_cong_x06b60875_w1": true,
         "hard:authored_frontier_cong_x2f9c7891_w1": true,
         "hard:authored_frontier_le_xc2340063_w1": true,
-        "hard:authored_sieve_residue_bal_g6_2_w1": true,
-        "hard:authored_sieve_hl_within_g6_6_w1": true,
-        "hard:authored_frontier_cong_xbb82919e_w1": true,
-        "hard:authored_sieve_two_counter_g2_6_4_w1": true,
-        "hard:authored_sieve_residue_bal_g6_4_w1": true
+        "hard:authored_frontier_cong_xbb82919e_w1": true
       },
-      "n_checks": 209,
-      "n_pass": 209,
+      "n_checks": 205,
+      "n_pass": 205,
       "n_basic": 10,
       "n_basic_pass": 10,
-      "n_hard": 199,
-      "n_hard_pass": 199,
+      "n_hard": 195,
+      "n_hard_pass": 195,
       "basic_ok": true,
       "hard_ok": true,
       "note": "Machine-check of coded lemmas (basic + hard tier). Textbook-only cannot ace ~0.95. Not novel-theorem discovery."

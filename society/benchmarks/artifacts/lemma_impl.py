@@ -2324,24 +2324,6 @@ def check_authored_frontier_le_xc2340063_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'sopfr[phi]', 'params': {}, 'rhs': '(sopfr-omega)'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
-def check_authored_sieve_residue_bal_g6_2_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (6, 2) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((6, 2), a, b, 4, 1)) is int and type(y := sieve_count((6, 2), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
-def check_authored_sieve_hl_within_g6_6_w1() -> bool:
-    """Authored instrument check (desk): count of consecutive pattern (6, 6) on each window is within 4.0*sqrt of the HL forecast.
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((6, 6), a, b)) is int and type(h := sieve_hl((6, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
 def check_authored_frontier_cong_xbb82919e_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     dbl(gcd(rev,sigma))(n) = 0 (mod 3) for all n = 3 (mod 6)
@@ -2349,24 +2331,6 @@ def check_authored_frontier_cong_xbb82919e_w1() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(gcd(rev,sigma))', 'params': {'m': 3, 'q': 6, 'r': 0, 's': 3}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
-
-
-def check_authored_sieve_two_counter_g2_6_4_w1() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (2, 6, 4).
-    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((2, 6, 4), a, b)) is int and c > 0 and c == sieve_count((2, 6, 4), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
-
-
-def check_authored_sieve_residue_bal_g6_4_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (6, 4) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((6, 4), a, b, 4, 1)) is int and type(y := sieve_count((6, 4), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2615,11 +2579,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x06b60875_w1", check_authored_frontier_cong_x06b60875_w1, True),
     ("authored_frontier_cong_x2f9c7891_w1", check_authored_frontier_cong_x2f9c7891_w1, True),
     ("authored_frontier_le_xc2340063_w1", check_authored_frontier_le_xc2340063_w1, True),
-    ("authored_sieve_residue_bal_g6_2_w1", check_authored_sieve_residue_bal_g6_2_w1, True),
-    ("authored_sieve_hl_within_g6_6_w1", check_authored_sieve_hl_within_g6_6_w1, True),
     ("authored_frontier_cong_xbb82919e_w1", check_authored_frontier_cong_xbb82919e_w1, True),
-    ("authored_sieve_two_counter_g2_6_4_w1", check_authored_sieve_two_counter_g2_6_4_w1, True),
-    ("authored_sieve_residue_bal_g6_4_w1", check_authored_sieve_residue_bal_g6_4_w1, True),
 ]
 
 

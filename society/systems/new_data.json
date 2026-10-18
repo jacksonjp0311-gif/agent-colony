@@ -1970,55 +1970,106 @@
     ]
    },
    "ts": "2026-10-18T15:04:10Z"
+  },
+  {
+   "cpu_s": 2.981,
+   "cycle_id": "20261018T153652Z_521067",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 406,
+    "cpu_s": 2.981,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:hard \"number of divisors\" @0",
+     "keyword:hard \"number of divisors\" @10",
+     "keyword:hard \"number of divisors\" @20"
+    ]
+   },
+   "ts": "2026-10-18T15:38:36Z"
+  },
+  {
+   "cpu_s": 3.229,
+   "cycle_id": "20261018T153844Z_c72619",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 417,
+    "cpu_s": 3.229,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:hard Goldbach @0",
+     "keyword:hard Goldbach @10",
+     "keyword:hard Goldbach @20"
+    ]
+   },
+   "ts": "2026-10-18T15:40:16Z"
+  },
+  {
+   "cpu_s": 0.216,
+   "cycle_id": "20261018T154023Z_e569db",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 421,
+    "cpu_s": 0.215,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"no twin primes\" @0",
+     "keyword:more \"between n^2 and (n+1)^2\" @0",
+     "keyword:more \"least even number\" primes @0"
+    ]
+   },
+   "ts": "2026-10-18T15:41:52Z"
   }
  ],
  "last": {
-  "cpu_s": 115.434,
-  "cycle_id": "20261018T150041Z_a3d628",
-  "discovered": [
-   {
-    "anum": null,
-    "item": "gb_min_cls6_5_c:terms",
-    "status": "not_in_oeis",
-    "why": "not found in the local OEIS index (frontier unknown)"
-   },
-   {
-    "anum": null,
-    "item": "gb_min_cls6_5_c:recpos",
-    "status": "not_in_oeis",
-    "why": "not found in the local OEIS index (frontier unknown)"
-   },
-   {
-    "anum": null,
-    "item": "gb_min_cls6_5_c:recval",
-    "status": "no_alignment",
-    "why": "OEIS terms differ beyond the probe"
-   }
-  ],
+  "cpu_s": 0.216,
+  "cycle_id": "20261018T154023Z_e569db",
+  "discovered": [],
   "mode": "live",
   "net_requests": 3,
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 381,
-   "cpu_s": 0.849,
+   "candidates_seen": 421,
+   "cpu_s": 0.215,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": [
-    "keyword:more subsets sum square @0",
-    "keyword:more subsets sum square @10",
-    "keyword:more subsets sum square @20"
+    "keyword:more \"no twin primes\" @0",
+    "keyword:more \"between n^2 and (n+1)^2\" @0",
+    "keyword:more \"least even number\" primes @0"
    ]
   },
-  "ts": "2026-10-18T15:04:10Z"
+  "ts": "2026-10-18T15:41:52Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 54,
+  "cursor": 67,
   "exhausted": [
    "keyword:hard Collatz",
+   "keyword:hard Goldbach",
+   "keyword:more \"between n^2 and (n+1)^2\"",
    "keyword:more \"cousin primes\"",
+   "keyword:more \"least even number\" primes",
+   "keyword:more \"no twin primes\"",
    "keyword:more \"prime quadruplets\"",
    "keyword:more \"prime triples\"",
    "keyword:more \"sexy primes\"",
@@ -2028,6 +2079,18 @@
   ],
   "queue": {},
   "seen": {
+   "A000043": {
+    "n_pub": 51,
+    "name": "Mersenne exponents: primes p such that 2^p - 1 is prime. Then 2^p - 1 is called a Mersenne prime.",
+    "query": "keyword:hard Goldbach",
+    "status": "no engine family for its definition"
+   },
+   "A000668": {
+    "n_pub": 18,
+    "name": "Mersenne primes (primes of the form 2^n - 1).",
+    "query": "keyword:hard Goldbach",
+    "status": "no engine family for its definition"
+   },
    "A003022": {
     "n_pub": 27,
     "name": "Length of shortest (or optimal) Golomb ruler with n marks.",
@@ -2100,6 +2163,18 @@
     "query": "keyword:more sigma records",
     "status": "no engine family for its definition"
    },
+   "A019273": {
+    "n_pub": 11,
+    "name": "First run of n consecutive integers with same number of divisors ends at a(n).",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A019434": {
+    "n_pub": 5,
+    "name": "Fermat primes: primes of the form 2^(2^k) + 1, for some k >= 0.",
+    "query": "keyword:hard Goldbach",
+    "status": "too few published terms to identify"
+   },
    "A028444": {
     "n_pub": 6,
     "name": "Busy Beaver sequence, or Rado's sigma function: maximal number of 1's that an n-state Turing machine",
@@ -2154,6 +2229,12 @@
     "query": "keyword:more \"twin primes\"",
     "status": "too few published terms to identify"
    },
+   "A051522": {
+    "n_pub": 8,
+    "name": "Least positive integer with exactly n representations as k/d(k), where d(k) = number of divisors of ",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A051602": {
     "n_pub": 18,
     "name": "a(n) is the maximal number of squares that can be formed from n points in the plane.",
@@ -2202,11 +2283,23 @@
     "query": "keyword:hard Collatz",
     "status": "too few published terms to identify"
    },
+   "A061300": {
+    "n_pub": 31,
+    "name": "Least number whose number of divisors is n!.",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A062311": {
     "n_pub": 16,
     "name": "Number of ways writing n! as a sum of two primes.",
     "query": "keyword:more \"sum of two primes\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A062962": {
+    "n_pub": 13,
+    "name": "Number of divisors of n-th term of sequence a(n+1) = a(n)*(a(0) + ... + a(n)) (A001697).",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A063045": {
     "n_pub": 45,
@@ -2219,6 +2312,12 @@
     "name": "Length of non-periodic head in Collatz-2 (A063041) trajectory starting at n.",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A063069": {
+    "n_pub": 411,
+    "name": "Positive integers n such that phi(n) - d(n) = phi(n+1) - d(n+1) where d(n) is the number of divisors",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "long frontier (411 published terms)"
    },
    "A065421": {
     "n_pub": 9,
@@ -2238,11 +2337,23 @@
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
    },
+   "A068435": {
+    "n_pub": 10,
+    "name": "Consecutive prime powers without a prime between them.",
+    "query": "keyword:more \"between n^2 and (n+1)^2\"",
+    "status": "no engine family for its definition"
+   },
    "A070076": {
     "n_pub": 18,
     "name": "Number of n-digit twin prime pairs.",
     "query": "keyword:more \"twin primes\"",
     "status": "beyond engine reach to verify"
+   },
+   "A072296": {
+    "n_pub": 16,
+    "name": "Least number starting a chain of exactly n consecutive even integers that do not have cototient-inve",
+    "query": "keyword:hard Goldbach",
+    "status": "no engine family for its definition"
    },
    "A072753": {
     "n_pub": 19,
@@ -2261,6 +2372,12 @@
     "name": "Numbers n such that sum k/d(k) is an integer, where d(k) is the k-th divisor of n (the divisors of n",
     "query": "keyword:more \"d(k)\"",
     "status": "beyond engine reach to verify"
+   },
+   "A074700": {
+    "n_pub": 11,
+    "name": "a(n) = tau(F(2^n)) where tau(x) is the number of divisors of x (A000005(x)) and F(k) the k-th Fibona",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A075028": {
     "n_pub": 12,
@@ -2544,6 +2661,18 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
    },
+   "A111042": {
+    "n_pub": 227,
+    "name": "Odd terms of A059756.",
+    "query": "keyword:hard Goldbach",
+    "status": "no engine family for its definition"
+   },
+   "A111303": {
+    "n_pub": 7,
+    "name": "Numbers n such that 2^tau(n) = n + 1 (where tau(n) = number of divisors of n).",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A111950": {
     "n_pub": 11,
     "name": "Smallest order n twin prime cluster.",
@@ -2556,11 +2685,23 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A113466": {
+    "n_pub": 15,
+    "name": "Least number that begins an n-term arithmetic progression with common difference 2 in which all term",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "keyword less"
+   },
    "A113505": {
     "n_pub": 15,
     "name": "Numbers not the sum of at most three perfect powers (A001597).",
     "query": "keyword:more subsets sum square",
     "status": "no engine family for its definition"
+   },
+   "A115158": {
+    "n_pub": 11,
+    "name": "Number of divisors of A006558(n).",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A115786": {
     "n_pub": 20,
@@ -2591,6 +2732,18 @@
     "name": "Maximal number of iterations required for analog of 3x+1 problem applied to polynomials of degree n ",
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
+   },
+   "A125584": {
+    "n_pub": 29,
+    "name": "Maximum number of divisors of Product(a_i) + Product(b_j) over all (disjoint) partitions of {1..n} i",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A126016": {
+    "n_pub": 7,
+    "name": "Numbers whose aliquot sequence does not terminate in 1.",
+    "query": "keyword:hard Goldbach",
+    "status": "no engine family for its definition"
    },
    "A127789": {
     "n_pub": 8,
@@ -2784,6 +2937,18 @@
     "query": "keyword:more \"prime triples\"",
     "status": "too few published terms to identify"
    },
+   "A193733": {
+    "n_pub": 15,
+    "name": "Start of n consecutive indices k such that Fibonacci(k) contains distinct number of divisors.",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
+   "A193901": {
+    "n_pub": 36,
+    "name": "Start of n consecutive indices k such that phi(k) contains distinct number of divisors.",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A194098": {
     "n_pub": 8,
     "name": "Decimal expansion of sum of reciprocals of cousin primes.",
@@ -2801,6 +2966,12 @@
     "name": "Smallest possible largest number in a set of n integers such that sum of two elements is always a pe",
     "query": "keyword:more subsets sum square",
     "status": "too few published terms to identify"
+   },
+   "A202463": {
+    "n_pub": 12,
+    "name": "First number of divisor symmetry n: d(n-k) = d(n+k) for 1 <= k <= n, but d(n-k-1) != d(n+k+1).",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
    },
    "A208123": {
     "n_pub": 45,
@@ -2952,6 +3123,12 @@
     "query": "keyword:more Collatz",
     "status": "matched"
    },
+   "A228956": {
+    "n_pub": 32,
+    "name": "Number of undirected circular permutations i_0, i_1, ..., i_n of 0, 1, ..., n such that all the 2*n+",
+    "query": "keyword:hard Goldbach",
+    "status": "no engine family for its definition"
+   },
    "A229095": {
     "n_pub": 22,
     "name": "Numbers k such that Sum_{i=1..k} i^tau(i) == 0 (mod k), where tau(i) = A000005(i), the number of div",
@@ -2969,6 +3146,18 @@
     "name": "Numbers k such that Sum_{i=1..k} (i-tau(i))^i == 0 (mod k), where tau(i) = A000005(i), the number of",
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A230762": {
+    "n_pub": 45,
+    "name": "List of commonest number of decompositions of 2k into an unordered sum of two odd primes in range 3 ",
+    "query": "keyword:hard Goldbach",
+    "status": "no family item reproduces all published terms"
+   },
+   "A230822": {
+    "n_pub": 45,
+    "name": "a(n) is the smallest integer that makes A230762(n) the commonest number of decompositions of 2k into",
+    "query": "keyword:hard Goldbach",
+    "status": "beyond engine reach to verify"
    },
    "A236355": {
     "n_pub": 10,
@@ -2993,6 +3182,12 @@
     "name": "Primitive, symmetric octuples of distinct numbers a,b,c,d,x,y,z,w with 0<a<b<c<d and a<x<y<z<w<d suc",
     "query": "keyword:more \"d(k)\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A237628": {
+    "n_pub": 77,
+    "name": "a(n) is the smallest product of prime numbers such that all numbers from 6 and 2n can be written as ",
+    "query": "keyword:hard Goldbach",
+    "status": "beyond engine reach to verify"
    },
    "A238716": {
     "n_pub": 71,
@@ -3064,6 +3259,12 @@
     "n_pub": 12,
     "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
     "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A240915": {
+    "n_pub": 23,
+    "name": "a(n) is the smallest number k such that digsum(k)/tau(k) = prime(n) where tau(k) is the number of di",
+    "query": "keyword:hard \"number of divisors\"",
     "status": "beyond engine reach to verify"
    },
    "A241207": {
@@ -3258,6 +3459,12 @@
     "query": "keyword:more \"sexy primes\"",
     "status": "too few published terms to identify"
    },
+   "A276192": {
+    "n_pub": 36,
+    "name": "Numbers n such that there is no twin prime pair between A000217(n) and A000217(n+1) (n > 0).",
+    "query": "keyword:more \"no twin primes\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A276260": {
     "n_pub": 9,
     "name": "Odd primes p such that p is in the trajectory of p+1 under the Collatz 3x+1 map (A014682).",
@@ -3300,6 +3507,12 @@
     "query": "keyword:more subsets sum prime",
     "status": "no engine family for its definition"
    },
+   "A284596": {
+    "n_pub": 10,
+    "name": "a(n) is the minimum number that is the first of n consecutive integers with an increasing number of ",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A284597": {
     "n_pub": 18,
     "name": "a(n) is the least number that begins a run of exactly n consecutive numbers with a nondecreasing num",
@@ -3335,6 +3548,12 @@
     "name": "a(n) is the least number that enters a cycle of length 2n in the iteration sequence s(0)=n, s(k+1) =",
     "query": "keyword:more \"number of divisors\" records",
     "status": "beyond engine reach to verify"
+   },
+   "A288815": {
+    "n_pub": 21,
+    "name": "Paired Jacobsthal function applied to the product of the first n primes.",
+    "query": "keyword:hard Goldbach",
+    "status": "no engine family for its definition"
    },
    "A292366": {
     "n_pub": 14,
@@ -3378,6 +3597,12 @@
     "query": "keyword:more Collatz",
     "status": "beyond engine reach to verify"
    },
+   "A304916": {
+    "n_pub": 14,
+    "name": "Numbers k such that the number of divisors of the k-th central binomial coefficient is a power of 2.",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A305884": {
     "n_pub": 28,
     "name": "Lexicographically first sequence of positive squares, no two or more of which sum to a square.",
@@ -3420,6 +3645,12 @@
     "query": "keyword:more Goldbach",
     "status": "no engine family for its definition"
    },
+   "A321213": {
+    "n_pub": 12,
+    "name": "a(n) is the number of divisors of n-th Fermat number (A000215).",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A321723": {
     "n_pub": 18,
     "name": "Number of non-normal magic squares whose entries are all 0 or 1 and sum to n.",
@@ -3442,6 +3673,12 @@
     "n_pub": 18,
     "name": "Numbers m such that beta(m) = tau(m)/2 + 3 where beta(m) is the number of Brazilian representations ",
     "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A326706": {
+    "n_pub": 10,
+    "name": "Numbers m such that beta(m) = tau(m)/2 + k for some k >= 4, where beta(m) is the number of Brazilian",
+    "query": "keyword:hard \"number of divisors\"",
     "status": "beyond engine reach to verify"
    },
    "A327772": {
@@ -3491,6 +3728,12 @@
     "name": "Numbers that reach 1 under the iterations of the map k -> k/d(k) if d(k) | k, and k -> k otherwise, ",
     "query": "keyword:more \"number of divisors\"",
     "status": "beyond engine reach to verify"
+   },
+   "A331547": {
+    "n_pub": 12,
+    "name": "Numbers k such that k and k! - 1 have the same number of divisors.",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
    },
    "A331897": {
     "n_pub": 5,
@@ -3672,6 +3915,12 @@
     "query": "keyword:more \"number of divisors\" records",
     "status": "beyond engine reach to verify"
    },
+   "A339709": {
+    "n_pub": 801,
+    "name": "a(n) is the least even number that has exactly n decompositions as the sum of an odd prime and a sem",
+    "query": "keyword:more \"least even number\" primes",
+    "status": "long frontier (801 published terms)"
+   },
    "A339769": {
     "n_pub": 28,
     "name": "Number of unique heights that are achieved by only one starting number in the Collatz (or '3x+1') pr",
@@ -3696,10 +3945,22 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
    },
+   "A343733": {
+    "n_pub": 13,
+    "name": "Primes p at which tau(p^p) is a prime power, where tau is the number-of-divisors function A000005.",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A345296": {
     "n_pub": 5,
     "name": "Integers whose sum of digits in base b is the same for every prime b up to 17.",
     "query": "keyword:more subsets sum prime",
+    "status": "keyword less"
+   },
+   "A347422": {
+    "n_pub": 7,
+    "name": "Numbers k such that the product of the number of divisors of k and the number of pairs of primes sum",
+    "query": "keyword:hard \"number of divisors\"",
     "status": "keyword less"
    },
    "A347668": {
@@ -3762,6 +4023,12 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A350780": {
+    "n_pub": 192,
+    "name": "Numbers that are the number of divisors of p^2 - 1 for some prime p.",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "no family item reproduces all published terms"
+   },
    "A351029": {
     "n_pub": 12,
     "name": "Number of integers whose arithmetic derivative is equal to the n-th primorial.",
@@ -3821,6 +4088,12 @@
     "name": "Let S(k) be the subsequence of multiples of k from k*positive integers where each element of S(k) se",
     "query": "keyword:more \"number of divisors\" records",
     "status": "no family item reproduces all published terms"
+   },
+   "A354444": {
+    "n_pub": 4,
+    "name": "Least initial term of a set of n consecutive primes {p_1 .. p_n} such that Sum_{k=p_1..p_2} d(k) = .",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "too few published terms to identify"
    },
    "A354723": {
     "n_pub": 10,
@@ -4182,6 +4455,12 @@
     "query": "keyword:more subsets sum prime",
     "status": "beyond engine reach to verify"
    },
+   "A388269": {
+    "n_pub": 52,
+    "name": "Odd numbers k for which A000005(k) >= A017665(k), where A000005 is the number of divisors function, ",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
    "A389254": {
     "n_pub": 10,
     "name": "Smallest k for which the number of divisors d of k such that A000005(d*k) = A000005(k + d) is equal ",
@@ -4193,6 +4472,18 @@
     "name": "Largest even number that is not the sum of two elements coprime to the primorial prime(n)# and each ",
     "query": "keyword:more \"sum of two primes\"",
     "status": "no family item reproduces all published terms"
+   },
+   "A389878": {
+    "n_pub": 3,
+    "name": "Nonprime solutions m to Subbarao's congruence phi(m)*tau(m)+ 2 == 0 (mod m), where phi is Euler's to",
+    "query": "keyword:hard \"number of divisors\"",
+    "status": "too few published terms to identify"
+   },
+   "A390050": {
+    "n_pub": 14,
+    "name": "Numbers k such that 256 * 3^k - 1 is prime.",
+    "query": "keyword:more \"no twin primes\"",
+    "status": "no engine family for its definition"
    },
    "A390531": {
     "n_pub": 37,
