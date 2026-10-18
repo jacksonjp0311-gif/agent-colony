@@ -17,9 +17,9 @@ on:
         required: false
         default: "false"
       authorize:
-        description: "Run selective standing-trust authorize (true/false)"
+        description: "Run selective standing-trust authorize (true/false). Off unless a human dispatches with true; scheduled runs never authorize."
         required: false
-        default: "true"
+        default: "false"
 
 permissions:
   contents: write
@@ -159,7 +159,8 @@ jobs:
           if-no-files-found: warn
 
       - name: Selective authorize (standing trust P≥0.70 — never accept-all)
-        if: ${{ github.event.inputs.authorize != 'false' }}
+        # Standing trust is off by default: only a human workflow_dispatch with authorize=true runs it.
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.authorize == 'true' }}
         run: |
           set -euo pipefail
           export PYTHONPATH=.
