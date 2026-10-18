@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-18T17:17:08Z",
-  "cycle_id": "20261018T171657Z_ad55ed",
+  "ts": "2026-10-18T21:01:15Z",
+  "cycle_id": "20261018T210103Z_8ee2e8",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -98,32 +98,32 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8522,
-      "slope": -0.00198,
+      "last": 0.8573,
+      "slope": 0.000355,
       "min": 0.817,
-      "max": 0.8594
+      "max": 0.8577
     },
     "novelty": {
       "last": 0.7857,
-      "slope": -0.004369,
+      "slope": -0.002497,
       "min": 0.7857,
       "max": 0.8214
     },
     "kill_rate": {
       "last": 0.299,
-      "slope": -0.000108,
+      "slope": -3.5e-05,
       "min": 0.299,
-      "max": 0.3
+      "max": 0.2995
     },
     "kill_rate_term": {
       "last": 0.8191,
-      "slope": -9.9e-05,
+      "slope": -3.5e-05,
       "min": 0.8191,
-      "max": 0.82
+      "max": 0.8196
     },
     "lesson_uptake": {
-      "last": 0.86,
-      "slope": -0.002009,
+      "last": 0.96,
+      "slope": 0.001099,
       "min": 0.86,
       "max": 0.96
     }
@@ -138,7 +138,8 @@
   "catalog": {
     "enabled": 208,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_frontier_le_x7a9213ec_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -193,6 +194,7 @@
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_divides_x0b1db873_w1",
       "authored_frontier_divides_xdd6cdac8_w1",
+      "authored_frontier_le_x7a9213ec_w1",
       "authored_frontier_le_xc2340063_w1",
       "authored_frontier_le_xdbff107c_w1",
       "authored_frontier_rec_xa92258f8_w1",
@@ -291,34 +293,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.183,
+      "ratio": 1.166,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.179,
+      "ratio": 1.142,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.168,
+      "ratio": 1.205,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.182,
+      "ratio": 1.13,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.287,
+      "ratio": 1.199,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 164600003,
-      "collatz_descent": 179000000,
+      "goldbach_even": 167800003,
+      "collatz_descent": 182200000,
       "legendre_square_gap": 956607,
       "lehmer_totient": 74200001,
-      "erdos_straus": 849951,
+      "erdos_straus": 859951,
       "twin_primes_hl": 226200000,
       "oeis_A104062_next": 518690000001
     },
@@ -369,29 +371,29 @@
     "last": [
       [
         null,
+        "2026-10-18T20:55:34Z"
+      ],
+      [
+        "success",
         "2026-10-18T17:11:57Z"
       ],
       [
         "success",
         "2026-10-18T17:05:12Z"
-      ],
-      [
-        "success",
-        "2026-10-18T16:54:24Z"
       ]
     ],
-    "fetched_at": "2026-10-18T17:12:28Z"
+    "fetched_at": "2026-10-18T20:56:14Z"
   },
   "feeds": {
     "by_source": {
       "arxiv": 99,
       "oeis": 5,
-      "crossref": 82,
+      "crossref": 86,
       "wikipedia": 16,
       "oeis_conj": 150
     },
     "by_kind": {
-      "paper": 181,
+      "paper": 185,
       "sequence": 5,
       "summary": 16,
       "conj_sequence": 150
@@ -399,57 +401,62 @@
     "last_run": {
       "sources": {
         "arxiv": {
+          "error": "",
+          "fetched": 8,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 4,
+          "new": 4,
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-10-18T17:12:28Z"
+      "ts": "2026-10-18T20:56:07Z"
     },
     "health": {
       "arxiv": {
         "fail": 4,
-        "ok": 37
+        "ok": 38
       },
       "crossref": {
         "fail": 0,
-        "ok": 38
+        "ok": 39
       },
       "oeis": {
         "fail": 0,
-        "ok": 38
+        "ok": 39
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 34
+        "ok": 35
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 38
+        "ok": 39
       }
     }
   },

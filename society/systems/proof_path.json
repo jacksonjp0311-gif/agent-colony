@@ -14,19 +14,19 @@
    6
   ],
   "le": [
-   9,
+   10,
    3
   ],
   "rec": [
-   95,
-   85
+   94,
+   84
   ]
  },
  "mode": "live",
- "n_authored": 13,
+ "n_authored": 14,
  "n_authored_proved": 10,
  "n_claims": 150,
- "n_proved": 127,
+ "n_proved": 126,
  "n_proved_new": 7,
  "n_surprises_proved": 27,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -230,6 +230,18 @@
    "prior_certificate": true,
    "status": "proved",
    "summary": "basic-inequality derivation: n split mod 1, every class derived from 2 lemma(s): bigomega(2x) in terms of bigomega(x) (multiplicativity / binary digits); gpf(2x) in terms of gpf(x) (multiplicativity / binary digits); n < 64 checked directly",
+   "unknown": true,
+   "v": 2
+  },
+  "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)": {
+   "authored": true,
+   "certificate": null,
+   "check": "authored_frontier_le_x7a9213ec_w1",
+   "checks": 19988,
+   "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
    "unknown": true,
    "v": 2
   },
@@ -18391,130 +18403,6 @@
    "unknown": false,
    "v": 2
   },
-  "a(n) = dbl(pell)(n) satisfies a(n+2) = -1*a(n+0) + 6*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "dbl(pell)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           2,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@2,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl(pell)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           2,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@2,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl(pell)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           2,
-           4
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@2,4": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,4": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_xa8160816_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 2
-  },
   "a(n) = fib(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
    "certificate": {
@@ -24845,5 +24733,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-18T17:18:17Z"
+ "ts": "2026-10-18T21:02:27Z"
 }

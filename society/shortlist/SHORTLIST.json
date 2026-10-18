@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-18T17:18:24Z",
+  "ts": "2026-10-18T21:02:35Z",
   "view_only": true,
   "n_considered": 58,
   "n_meet_bar": 18,
@@ -420,17 +420,17 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-10-18T17:18:24Z",
-    "cycle_id": "20261018T171657Z_ad55ed",
+    "ts": "2026-10-18T21:02:35Z",
+    "cycle_id": "20261018T210103Z_8ee2e8",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.25,
+      "strength": 0.5,
       "K_PRIOR": 0.10921
     },
     "n_meet_bar_actual": 18,
     "n_meet_bar_shadow": 18,
-    "n_unknown_claims": 20,
+    "n_unknown_claims": 21,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x23fb70a1_w1",
@@ -442,6 +442,7 @@
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_divides_x0b1db873_w1",
       "authored_frontier_divides_xdd6cdac8_w1",
+      "authored_frontier_le_x7a9213ec_w1",
       "authored_frontier_le_xc2340063_w1",
       "authored_frontier_le_xdbff107c_w1",
       "authored_frontier_rec_xa92258f8_w1",
@@ -450,8 +451,7 @@
       "authored_newdata_a006666_k10001_w1",
       "authored_newdata_a006667_k10001_w1",
       "authored_newdata_a025586_k10001_w1",
-      "authored_newdata_a035026_k10001_w1",
-      "authored_newdata_a047160_k10001_w1"
+      "authored_newdata_a035026_k10001_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [],
@@ -599,14 +599,14 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
     "status": 34,
-    "target_unresolved": 27,
+    "target_unresolved": 26,
     "trivial_by_filter": 2,
     "novelty_killed": 12,
     "no_oracle_pass_in_own_cycle": 9,
@@ -619,5 +619,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T171657Z_ad55ed"
+  "cycle_id": "20261018T210103Z_8ee2e8"
 }

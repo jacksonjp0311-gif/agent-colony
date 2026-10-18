@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-10-18 01:18 PM ET
+# Proposal shortlist — 2026-10-18 05:02 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -25,7 +25,7 @@ None this cycle.
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 18 (actual 18). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 20 (0 with OEIS unchecked). Would drop out of the bar: 0; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 18 (actual 18). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 21 (0 with OEIS unchecked). Would drop out of the bar: 0; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
@@ -40,13 +40,13 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 18 (actual 18). Unknown clai
 | 9 | imp_e2631f_50 | `authored_frontier_cong_x396d7d8c_w1` | 0.8752 → 0.8752 | meets | yes | 0.0 | 9 |
 | 10 | imp_022700_50 | `authored_newdata_a006666_k10001_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 10 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_killed: 12, status: 34, target_unresolved: 27, trivial_by_filter: 2
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_killed: 12, status: 34, target_unresolved: 26, trivial_by_filter: 2
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 11 tested, 2 survived held-out, 9 falsified, 0 machine-checked, 0 surprises; dropped 99 duplicates, 167 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1962.
-Totals: tested 1444, survived 545, surprises 40, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 10 tested, 3 survived held-out, 7 falsified, 1 machine-checked, 0 surprises; dropped 96 duplicates, 149 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1956.
+Totals: tested 1480, survived 558, surprises 41, false surprises (failed later re-test) 0.
 Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
