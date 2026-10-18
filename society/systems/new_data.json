@@ -15,345 +15,6 @@
  ],
  "history": [
   {
-   "cpu_s": 14.625,
-   "cycle_id": "20261018T142253Z_66e47d",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_cls6_5:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls6_5:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls6_5:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 106,
-    "cpu_s": 14.057,
-    "matched": [
-     {
-      "anum": "A352233",
-      "hits": [
-       {
-        "N": 633,
-        "d": 0,
-        "item": "gb_prime_m",
-        "op": "eq10"
-       },
-       {
-        "N": 633,
-        "d": 0,
-        "item": "gb_odd_m",
-        "op": "eq10"
-       }
-      ]
-     },
-     {
-      "anum": "A352229",
-      "hits": [
-       {
-        "N": 399,
-        "d": 0,
-        "item": "gb_prime_m",
-        "op": "eq7"
-       },
-       {
-        "N": 399,
-        "d": 0,
-        "item": "gb_odd_m",
-        "op": "eq7"
-       }
-      ]
-     },
-     {
-      "anum": "A352230",
-      "hits": [
-       {
-        "N": 369,
-        "d": 0,
-        "item": "gb_prime_m",
-        "op": "eq8"
-       },
-       {
-        "N": 369,
-        "d": 0,
-        "item": "gb_odd_m",
-        "op": "eq8"
-       }
-      ]
-     },
-     {
-      "anum": "A352231",
-      "hits": [
-       {
-        "N": 489,
-        "d": 0,
-        "item": "gb_prime_m",
-        "op": "eq9"
-       },
-       {
-        "N": 489,
-        "d": 0,
-        "item": "gb_odd_m",
-        "op": "eq9"
-       }
-      ]
-     }
-    ],
-    "pushed": [
-     {
-      "anum": "A352233",
-      "cpu_s": 0.001,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq10",
-      "searched_to": 4000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:24:34Z",
-      "why": "no further term up to k = 4000"
-     },
-     {
-      "anum": "A352229",
-      "cpu_s": 0.0,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq7",
-      "searched_to": 4000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:24:34Z",
-      "why": "no further term up to k = 4000"
-     },
-     {
-      "anum": "A352230",
-      "cpu_s": 0.0,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq8",
-      "searched_to": 4000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:24:34Z",
-      "why": "no further term up to k = 4000"
-     },
-     {
-      "anum": "A352231",
-      "cpu_s": 0.0,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq9",
-      "searched_to": 4000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:24:34Z",
-      "why": "no further term up to k = 4000"
-     }
-    ],
-    "queue": 0,
-    "searches": [
-     "keyword:more Goldbach @20",
-     "keyword:more \"sum of two primes\" @0",
-     "keyword:more \"sum of two primes\" @10"
-    ]
-   },
-   "ts": "2026-10-18T14:24:34Z"
-  },
-  {
-   "cpu_s": 18.253,
-   "cycle_id": "20261018T142441Z_dbe023",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls6_5:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls6_5:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls6_5:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 130,
-    "cpu_s": 5.187,
-    "matched": [
-     {
-      "anum": "A091592",
-      "hits": [
-       {
-        "N": 123,
-        "d": 0,
-        "item": "pat_twin_sq_all",
-        "op": "zeros"
-       }
-      ]
-     }
-    ],
-    "pushed": [
-     {
-      "anum": "A091592",
-      "cpu_s": 0.119,
-      "item": "pat_twin_sq_all",
-      "n_values": 0,
-      "op": "zeros",
-      "searched_to": 4000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:26:34Z",
-      "why": "no further term up to k = 4000"
-     },
-     {
-      "anum": "A352233",
-      "cpu_s": 0.002,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq10",
-      "searched_to": 16000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:26:34Z",
-      "why": "no further term up to k = 16000"
-     },
-     {
-      "anum": "A352229",
-      "cpu_s": 0.002,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq7",
-      "searched_to": 16000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:26:34Z",
-      "why": "no further term up to k = 16000"
-     },
-     {
-      "anum": "A352230",
-      "cpu_s": 0.002,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq8",
-      "searched_to": 16000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:26:34Z",
-      "why": "no further term up to k = 16000"
-     }
-    ],
-    "queue": 0,
-    "searches": [
-     "keyword:more Lemoine @0",
-     "keyword:more \"twin primes\" @0",
-     "keyword:more \"twin primes\" @10"
-    ]
-   },
-   "ts": "2026-10-18T14:26:34Z"
-  },
-  {
-   "cpu_s": 1.424,
-   "cycle_id": "20261018T143303Z_bd2756",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_cls4_1_c:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls4_1_c:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls4_1_c:recval",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 151,
-    "cpu_s": 1.375,
-    "matched": [],
-    "pushed": [
-     {
-      "anum": "A091592",
-      "cpu_s": 0.087,
-      "item": "pat_twin_sq_all",
-      "n_values": 0,
-      "op": "zeros",
-      "searched_to": 5000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:34:17Z",
-      "why": "no further term up to k = 5000"
-     },
-     {
-      "anum": "A352231",
-      "cpu_s": 0.002,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq9",
-      "searched_to": 16000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:34:17Z",
-      "why": "no further term up to k = 16000"
-     },
-     {
-      "anum": "A352233",
-      "cpu_s": 0.007,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq10",
-      "searched_to": 64000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:34:17Z",
-      "why": "no further term up to k = 64000"
-     },
-     {
-      "anum": "A352229",
-      "cpu_s": 0.006,
-      "item": "gb_prime_m",
-      "n_values": 0,
-      "op": "eq7",
-      "searched_to": 64000,
-      "status": "matches published",
-      "ts": "2026-10-18T14:34:17Z",
-      "why": "no further term up to k = 64000"
-     }
-    ],
-    "queue": 0,
-    "searches": [
-     "keyword:more \"twin primes\" @20",
-     "keyword:more \"cousin primes\" @0",
-     "keyword:more \"cousin primes\" @10"
-    ]
-   },
-   "ts": "2026-10-18T14:34:17Z"
-  },
-  {
    "cpu_s": 31.554,
    "cycle_id": "20261018T143423Z_b760d9",
    "discovered": [
@@ -1488,11 +1149,65 @@
     "searches": []
    },
    "ts": "2026-10-18T17:00:15Z"
+  },
+  {
+   "cpu_s": 0.028,
+   "cycle_id": "20261018T170713Z_19420a",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.028,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T17:08:29Z"
+  },
+  {
+   "cpu_s": 0.027,
+   "cycle_id": "20261018T170837Z_9ddad7",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.027,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T17:09:45Z"
+  },
+  {
+   "cpu_s": 0.027,
+   "cycle_id": "20261018T170952Z_d9f2eb",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.027,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T17:11:03Z"
   }
  ],
  "last": {
-  "cpu_s": 0.02,
-  "cycle_id": "20261018T165858Z_3c5062",
+  "cpu_s": 0.027,
+  "cycle_id": "20261018T170952Z_d9f2eb",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -1500,13 +1215,13 @@
   "pushed": [],
   "sparse": {
    "candidates_seen": 462,
-   "cpu_s": 0.02,
+   "cpu_s": 0.027,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-10-18T17:00:15Z"
+  "ts": "2026-10-18T17:11:03Z"
  },
  "mode": "live",
  "sparse": {
