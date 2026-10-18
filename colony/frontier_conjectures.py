@@ -456,6 +456,9 @@ def _random_tables(rng: random.Random, T: Any, mode_: str) -> dict[str, list[int
     """'random' = independent random sequences; 'shuffle' = each primitive's own values permuted."""
     out = {}
     for k, arr in T.t.items():
+        if k.startswith("_c"):      # case-split constants stay constant
+            out[k] = arr
+            continue
         n = min(len(arr), 400)
         if mode_ == "random":
             out[k] = [0] + [rng.randint(1, 1000) for _ in range(n - 1)]
@@ -546,7 +549,174 @@ def _shared_operand(c: dict[str, Any]) -> bool:
     return bool({canon(x) for x in a[1:]} & {canon(x) for x in b[1:]})
 
 
-def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int) -> str:
+SPLIT_N = 2000      # range used to find few-valued subterms and their joint values
+SPLIT_MAX_VALUES = 3
+SPLIT_MAX_TERMS = 3
+SPLIT_MAX_BRANCHES = 12
+SPLIT_F = 120       # branch claims are screened on a longer range (residue tests need samples)
+
+
+class _WithConsts:
+    """T plus constant sequences "_c<v>" (case-split branches)."""
+
+    def __init__(self, T: Any, values: set[int]):
+        self.t = dict(T.t)
+        L = len(T.t["n"])
+        for v in values:
+            self.t[f"_c{v}"] = [v] * L
+
+
+POINTWISE = ("+", "-", "*", "gcd")
+
+
+def _subterms(e: tuple) -> list[tuple]:
+    """Subterms evaluated at the same n as ``e`` (only through pointwise + - * gcd; S, D, shifts,
+    a(2n) and composition look at other n, so a case split cannot reach inside them)."""
+    out = [e]
+    if e[0] in POINTWISE:
+        for x in e[1:]:
+            out += _subterms(x)
+    return out
+
+
+def _subst(e: tuple, key: str, rep: tuple) -> tuple:
+    if canon(e) == key:
+        return rep
+    if e[0] in POINTWISE:
+        return (e[0],) + tuple(_subst(x, key, rep) for x in e[1:])
+    return e
+
+
+def _push(e: tuple) -> tuple:
+    """Exact rewrite that exposes pointwise parts: shifts / a(2n) distribute over + - * gcd, and
+    D(x) = sh(x) - x. Values are unchanged; it only lets a case split see e.g. mu(2n)."""
+    op = e[0]
+    if op == "D" and e[1][0] in POINTWISE:
+        return _push(("-", ("sh", e[1]), e[1]))
+    if op in ("sh", "dbl") and e[1][0] in POINTWISE:
+        return (e[1][0],) + tuple(_push((op, x)) for x in e[1][1:])
+    if op in POINTWISE:
+        return (op,) + tuple(_push(x) for x in e[1:])
+    return e
+
+
+def _simplify_consts(e: tuple, T: Any, N: int) -> tuple:
+    """gcd(x, 0) = x when x >= 0, gcd(x, +-1) = 1 (exact on the tested range)."""
+    if e[0] not in POINTWISE:
+        return e
+    e = (e[0],) + tuple(_simplify_consts(x, T, N) for x in e[1:])
+    if e[0] == "gcd":
+        for i, j in ((1, 2), (2, 1)):
+            if e[i] in (("p", "_c1"), ("p", "_c-1")):
+                return ("p", "_c1")
+            if e[i] == ("p", "_c0"):
+                v = evaluate(e[j], N, T)
+                if v is not None and min(v) >= 0:
+                    return e[j]
+    return e
+
+
+def _monotone_shift(c: dict[str, Any], T: Any, idx: list[int]) -> bool:
+    """A <= A(n+1) or A <= A(2n) for a non-decreasing A: true by monotonicity alone."""
+    if c["kind"] != "le" or c.get("_re") is None:
+        return False
+    A, B = c["_le"], c["_re"]
+    if B[0] not in ("sh", "dbl") or canon(B[1]) != canon(A):
+        return False
+    N = max_n(A, T, 2 * SPLIT_N)
+    a = evaluate(A, N, T) if N else None
+    return bool(a) and all(x <= y for x, y in zip(a, a[1:]))
+
+
+def _sides(c: dict[str, Any]) -> list[tuple]:
+    return [c["_le"]] + ([c["_re"]] if c.get("_re") is not None else [])
+
+
+def _dominates(c: dict[str, Any], T: Any, idx: list[int] | None = None) -> bool:
+    """A <= B that holds only because of size: B grows exponentially while A stays polynomially
+    bounded (huge gap on the tail), or A <= 0 <= B by sign. ``idx`` restricts to these n (1-based)."""
+    if c["kind"] != "le" or c.get("_re") is None:
+        return False
+    A, B = c["_le"], c["_re"]
+    N = min(max_n(A, T, HELD_EXP), max_n(B, T, HELD_EXP))
+    if N < 40:
+        return False
+    a, b = evaluate(A, N, T), evaluate(B, N, T)
+    ns = [n for n in (idx or range(1, N + 1)) if n <= N]
+    if len(ns) < 10:
+        return False
+    if all(a[n - 1] <= 0 for n in ns) and all(b[n - 1] >= 0 for n in ns):
+        return True
+    if not is_expo(B) or is_expo(A):
+        return False
+    tail = [n for n in ns if n >= N // 2]
+    if len(tail) < 5:
+        return False
+    poly = all(abs(a[n - 1]) <= n ** 5 + 10 for n in tail)
+    gap = all(b[n - 1] > (abs(a[n - 1]) + 2) ** 3 for n in tail)
+    return poly and gap
+
+
+def _case_split_trivial(c: dict[str, Any], T: Any, rng: random.Random, F: int) -> bool:
+    """Few-valued parts (mu, the squarefree indicator, parity-like 0/1 or +-1 terms, any pointwise
+    subterm with <= 3 values on the claim's domain, including ones constant there such as mu(4k)): split n by the joint values of those parts; the claim is a rewrite when on EVERY
+    branch that actually occurs it reduces to something trivial (constant, formal / shuffle / idle
+    part, or a pure growth / sign comparison)."""
+    if c["kind"] == "rec":
+        return False
+    c = dict(c)
+    c["_le"] = _push(c["_le"])
+    if c.get("_re") is not None:
+        c["_re"] = _push(c["_re"])
+    sides = _sides(c)
+    N = min([max_n(e, T, SPLIT_N) for e in sides])
+    if N < 40:
+        return False
+    if c["kind"] == "cong":
+        q, s0 = c["params"]["q"], c["params"]["s"]
+        domain = [n for n in range(1, N + 1) if n % q == s0 % q]
+    else:
+        domain = list(range(1, N + 1))
+    found: dict[str, tuple] = {}
+    for e in sides:
+        for sub in _subterms(e):
+            if sub == ("p", "one") or canon(sub) in found:
+                continue
+            v = evaluate(sub, N, T)
+            if v is not None and 1 <= len({v[n - 1] for n in domain}) <= SPLIT_MAX_VALUES:
+                found[canon(sub)] = sub
+    # keep maximal few-valued subterms only
+    keys = [k for k in found if not any(k != o and k in {canon(x) for x in _subterms(found[o])} for o in found)]
+    if not keys or len(keys) > SPLIT_MAX_TERMS:
+        return False
+    vals = {k: evaluate(found[k], N, T) for k in keys}
+    combos: dict[tuple, list[int]] = {}
+    for n in domain:
+        combos.setdefault(tuple(vals[k][n - 1] for k in keys), []).append(n)
+    if len(combos) > SPLIT_MAX_BRANCHES:
+        return False
+    Tc = _WithConsts(T, {v for combo in combos for v in combo})
+    for combo, idx in combos.items():
+        b = dict(c)
+        for k, v in zip(keys, combo):
+            b["_le"] = _subst(b["_le"], k, ("p", f"_c{v}"))
+            if b.get("_re") is not None:
+                b["_re"] = _subst(b["_re"], k, ("p", f"_c{v}"))
+        b["_le"] = _simplify_consts(b["_le"], Tc, N)
+        if b.get("_re") is not None:
+            b["_re"] = _simplify_consts(b["_re"], Tc, N)
+        live = {p for e in _sides(b) for p in prims_of(e)} - {"one"}
+        if all(p.startswith("_c") or p == "n" for p in live):
+            continue                                   # constant / elementary-in-n claim on this branch
+        if _dominates(b, Tc, idx) or _monotone_shift(b, Tc, idx):
+            continue
+        if trivial_reason(b, Tc, rng, max(F, SPLIT_F), split=False):
+            continue
+        return False
+    return True
+
+
+def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split: bool = True) -> str:
     """Why the claim is a rewrite rather than new, else ''.
 
     formal         still true when every primitive is an independent random sequence
@@ -555,6 +725,10 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int) -> str
                    smaller claim is the real one)
     implied_parts  congruence implied by (periodic) congruences of its parts
     shared_operand both sides share an operand under the same operator
+    growth_dominance  A <= B only because B grows exponentially past a polynomially bounded A
+                   (or A <= 0 <= B by sign)
+    case_split     on every branch of its few-valued parts (mu, squarefree indicator, parity...)
+                   the claim reduces to one of the above or to a constant comparison
     """
     if _cong_implied_by_parts(c, T, F) or (c["kind"] == "cong" and _periodic_mod(c["_le"], c["params"]["m"], T)):
         return "implied_parts"
@@ -562,7 +736,10 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int) -> str
         return "implied_parts"
     if _shared_operand(c):
         return "shared_operand"
-    prims = sorted(prims_of(c["_le"]) | (prims_of(c["_re"]) if c.get("_re") is not None else set()))
+    if split and _dominates(c, T):
+        return "growth_dominance"
+    prims = sorted(p for p in prims_of(c["_le"]) | (prims_of(c["_re"]) if c.get("_re") is not None else set())
+                   if not p.startswith("_c"))
     for mode_ in ("random", "shuffle") + tuple(f"one:{p}" for p in prims if len(prims) > 1 and p != "one"):
         held_all = True
         for _ in range(3):
@@ -582,6 +759,8 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int) -> str
                 break
         if held_all:
             return {"random": "formal", "shuffle": "shuffle_null"}.get(mode_, "idle_part")
+    if split and _case_split_trivial(c, T, rng, F):
+        return "case_split"
     return ""
 
 
@@ -799,7 +978,8 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
     seen_ids = {_h(i) for i in st["registry"]} | set(st.get("rejected_ids") or [])
     counts = {"expressions": len(exprs), "fitted": len(cands), "duplicate": 0, "trivial_formal": 0,
               "trivial_shuffle_null": 0, "trivial_idle_part": 0,
-              "trivial_implied_parts": 0, "trivial_shared_operand": 0, "expected_by_closure": 0,
+              "trivial_implied_parts": 0, "trivial_shared_operand": 0,
+              "trivial_growth_dominance": 0, "trivial_case_split": 0, "expected_by_closure": 0,
               "loose_inequality": 0, "tested": 0, "survived": 0, "falsified": 0, "machine_checked": 0,
               "surprises": 0, "oeis_known": 0, "oeis_unchecked": 0, "retested": 0, "false_surprises": 0}
     fresh: list[dict[str, Any]] = []

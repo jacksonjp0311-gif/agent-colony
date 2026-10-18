@@ -172,3 +172,36 @@ def test_divisibility_implied_by_a_factor_is_a_rewrite():
     assert FC.trivial_reason(c, T, rng, 12) in ("implied_parts", "shared_operand", "idle_part")
     c2 = _claim("divides", P("tau"), ("*", P("tau"), P("prime")))
     assert FC.trivial_reason(c2, T, rng, 12) == "implied_parts"
+
+
+def _triv(kind, lhs, rhs, params=None):
+    import random as _r
+    c = {"kind": kind, "params": params or {}, "_le": FC.parse(lhs), "_re": FC.parse(rhs) if rhs else None}
+    return FC.trivial_reason(c, T, _r.Random("x46c5cc8a"), 12)
+
+
+def test_case_split_flags_mu_lucas_claim():
+    # the first Oracle-passed frontier check: on squarefree n both sides are 1, otherwise n <= Lucas(n)
+    assert _triv("le", "gcd(mu,n)", "gcd(lucas,sqfree)") in ("case_split", "idle_part")
+    import random as _r
+    c = {"kind": "le", "params": {}, "_le": FC.parse("gcd(mu,n)"), "_re": FC.parse("gcd(lucas,sqfree)")}
+    assert FC._case_split_trivial(c, T, _r.Random(0), 12)
+
+
+def test_case_split_sees_through_a_2n_and_constant_branches():
+    # mu(4k) = 0, so gcd(mu(2n), 2n) = 2n is even on even n
+    assert _triv("cong", "dbl(gcd(mu,n))", None, {"m": 2, "r": 0, "q": 2, "s": 0}) == "case_split"
+    assert _triv("identity", "mu[gpf]", "mu[lpf]") == "case_split"  # mu(prime) = -1
+
+
+def test_case_split_does_not_reach_inside_D_wrongly():
+    # sigma(n+1) - sigma(n) even for odd n with both squarefree is not a per-branch rewrite
+    assert _triv("cong", "D((sigma*sqfree))", None, {"m": 2, "r": 0, "q": 2, "s": 1}) == ""
+
+
+def test_growth_dominance():
+    assert _triv("le", "n", "lucas") == "growth_dominance"
+    assert _triv("le", "(sigma+tau)", "pow2") == "growth_dominance"
+    import random as _r
+    c = {"kind": "le", "params": {}, "_le": FC.parse("lpf"), "_re": FC.parse("gpf")}
+    assert not FC._dominates(c, T)
