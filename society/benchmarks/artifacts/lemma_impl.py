@@ -2272,6 +2272,24 @@ def check_authored_newdata_a002375_k20001_w1() -> bool:
     return all(type(x := newdata_term('gb_u_odd', n)) is int and x == v for n, v in [(20001, 593), (20002, 305), (20003, 289)])
 
 
+def check_authored_newdata_a035026_k10001_w1() -> bool:
+    """Authored new-data check (desk): A035026 terms a(10001)..a(10003) computed past the
+    OEIS frontier (https://oeis.org/A035026/b035026.txt, checked 2026-10-18T12:50:00Z) by numpy FFT convolution of the prime indicator (floating point, rounded);
+    recomputed here by direct integer enumeration over an independent odd-only sieve. New data, not a theorem; papers may go further.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(x := newdata_term('gb_o_all', n)) is int and x == v for n, v in [(10001, 352), (10002, 674), (10003, 402)])
+
+
+def check_authored_newdata_a047160_k10001_w1() -> bool:
+    """Authored new-data check (desk): A047160 terms a(10001)..a(10003) computed past the
+    OEIS frontier (https://oeis.org/A047160/b047160.txt, checked 2026-10-18T12:55:48Z) by sieve scan downward from n;
+    recomputed here by Miller-Rabin scan outward from n. New data, not a theorem; papers may go further.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(x := newdata_term('gb_close', n)) is int and x == v for n, v in [(10001, 60), (10002, 35), (10003, 36)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2513,6 +2531,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_hl_within_g2_6_w1", check_authored_sieve_hl_within_g2_6_w1, True),
     ("authored_sieve_two_counter_g2_4_6_w1", check_authored_sieve_two_counter_g2_4_6_w1, True),
     ("authored_newdata_a002375_k20001_w1", check_authored_newdata_a002375_k20001_w1, True),
+    ("authored_newdata_a035026_k10001_w1", check_authored_newdata_a035026_k10001_w1, True),
+    ("authored_newdata_a047160_k10001_w1", check_authored_newdata_a047160_k10001_w1, False),
 ]
 
 

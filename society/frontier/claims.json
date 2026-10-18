@@ -69,6 +69,111 @@
    "name": "Number of times that i and 2n-i are both prime, for i = 1, ..., 2n-1.",
    "op": "terms",
    "ts": "2026-10-18T12:50:01Z"
+  },
+  {
+   "anum": "A047160",
+   "bfile_sha256": "72ce0134afaabba4",
+   "checked": "2026-10-18T12:55:48Z",
+   "cpu_s": 0.091,
+   "cycle_id": "20261018T125426Z_5c71ab",
+   "d": 0,
+   "data_file": "society/frontier/data/A047160_beyond.txt",
+   "first": [
+    10001,
+    60
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A047160/b047160.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "gb_close:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    27
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "sieve scan downward from n",
+    "Miller-Rabin scan outward from n"
+   ],
+   "n_terms": 1000,
+   "name": "For n >= 2, a(n) = smallest number m >= 0 such that n-m and n+m are both primes, or -1 if no such m exists.",
+   "op": "terms",
+   "ts": "2026-10-18T12:55:48Z"
+  },
+  {
+   "anum": "A006577",
+   "bfile_sha256": "45d02dc2e7bbc236",
+   "checked": "2026-10-18T12:57:24Z",
+   "cpu_s": 0.039,
+   "cycle_id": "20261018T125555Z_a08606",
+   "d": 0,
+   "data_file": "society/frontier/data/A006577_beyond.txt",
+   "first": [
+    10001,
+    179
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A006577/b006577.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_steps:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    42
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Number of halving and tripling steps to reach 1 in '3x+1' problem, or -1 if 1 is never reached.",
+   "op": "terms",
+   "ts": "2026-10-18T12:57:24Z"
+  },
+  {
+   "anum": "A006667",
+   "bfile_sha256": "23235908a8daf58b",
+   "checked": "2026-10-18T12:58:56Z",
+   "cpu_s": 0.039,
+   "cycle_id": "20261018T125730Z_b17c0b",
+   "d": 0,
+   "data_file": "society/frontier/data/A006667_beyond.txt",
+   "first": [
+    10001,
+    64
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A006667/b006667.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_odd:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    11
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
+   "op": "terms",
+   "ts": "2026-10-18T12:58:56Z"
   }
  ]
 }

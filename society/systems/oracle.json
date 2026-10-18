@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T12:50:48Z",
-  "passes": 418,
+  "updated_at": "2026-10-18T12:56:35Z",
+  "passes": 419,
   "kills": 183,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3045,
+  "kill_rate": 0.304,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -47,14 +47,14 @@
     "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
     "authored_multinomial_three__newton_identities_w1",
     "authored_newdata_a002375_k20001_w1",
+    "authored_newdata_a035026_k10001_w1",
     "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
     "authored_polynomial_remainder__telescoping_sum_w1",
     "authored_sieve_hl_within_g2_4_w1",
     "authored_sieve_hl_within_g2_6_w1",
     "authored_sieve_hl_within_g6_2_6_w1",
     "authored_sieve_hl_within_g6_6_6_w1",
-    "authored_sieve_residue_bal_g4_w1",
-    "authored_sieve_residue_bal_g6_6_2_w1"
+    "authored_sieve_residue_bal_g4_w1"
   ],
   "unique_mutations_kill": [
     "Chain `authored_euler_theorem__lucas_theorem_binomial_w1` citing The fundamental role of generating functions for g",
@@ -91,7 +91,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-18T12:50:48Z",
+    "ts": "2026-10-18T12:56:35Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -101,15 +101,15 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_newdata_a002375_k20001_w1` kind=hard_enable. lemma mutation authored_newdata_a002375_k20001_w1 0.864->0.864 (compared 0.857->0.857; speed_noise:+0.000) Not discovery",
-      "attack": "WEIGH: `authored_newdata_a002375_k20001_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_newdata_a035026_k10001_w1` kind=hard_enable. lemma mutation authored_newdata_a035026_k10001_w1 0.8641->0.8641 (compared 0.857->0.857; speed_noise:+0.000) Not discove",
+      "attack": "WEIGH: `authored_newdata_a035026_k10001_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 189,
-        "hard_n": 189,
+        "hard_pass": 190,
+        "hard_n": 190,
         "score": 0.864,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
@@ -121,10 +121,10 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 189,
-        "hard_n": 189,
+        "hard_pass": 190,
+        "hard_n": 190,
         "ok": true,
-        "score": 0.864,
+        "score": 0.8641,
         "shifted_window": {
           "ok": true,
           "reason": "shift_not_applicable(no_literal_range)",
@@ -205,15 +205,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_newdata_a002375_k20001_w1",
+      "mutation": "authored_newdata_a035026_k10001_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_newdata_a002375_k20001_w1",
+    "mutation": "authored_newdata_a035026_k10001_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261018T125007Z_d077dc",
+    "cycle_id": "20261018T125555Z_a08606",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

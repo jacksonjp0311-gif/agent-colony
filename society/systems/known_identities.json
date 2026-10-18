@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T12:50:48Z",
-  "n": 353,
+  "updated_at": "2026-10-18T12:56:35Z",
+  "n": 354,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -101,6 +101,7 @@
     "authored_motzkin_bounded__legendre_duplication_small_w1",
     "authored_multinomial_three__newton_identities_w1",
     "authored_newdata_a002375_k20001_w1",
+    "authored_newdata_a035026_k10001_w1",
     "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
     "authored_oeis_a000045__cassini",
     "authored_oeis_a000079__binomial_sum_row",
@@ -200,8 +201,7 @@
     "binomial_identities",
     "binomial_sum_row",
     "burnside_necklaces",
-    "cassini",
-    "catalan_bounded"
+    "cassini"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

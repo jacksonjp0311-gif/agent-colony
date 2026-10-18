@@ -181,39 +181,364 @@
    "oeis_index": "available",
    "pushed": [],
    "ts": "2026-10-18T12:51:38Z"
+  },
+  {
+   "cpu_s": 1.069,
+   "cycle_id": "20261018T125426Z_5c71ab",
+   "discovered": [
+    {
+     "anum": "A047160",
+     "item": "gb_close:terms",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": "A155765",
+     "item": "gb_close:recpos",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": "A155764",
+     "item": "gb_close:recval",
+     "status": "matched",
+     "why": null
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A047160",
+     "checked": "2026-10-18T12:55:48Z",
+     "cpu_a": 0.026,
+     "cpu_b": 0.065,
+     "cpu_s": 0.091,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 10000,
+     "item": "gb_close:terms",
+     "linked_k_max": 10000,
+     "methods": [
+      "sieve scan downward from n",
+      "Miller-Rabin scan outward from n"
+     ],
+     "n_values": 1000,
+     "ns": [
+      10001,
+      11000
+     ],
+     "op": "terms",
+     "pub_k_max": 10000,
+     "sha256": "72ce0134afaabba4",
+     "source": "https://oeis.org/A047160/b047160.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-10-18T12:55:48Z"
+    },
+    {
+     "anum": "A155765",
+     "est_cpu_s": 47433.0,
+     "item": "gb_close:recpos",
+     "n_values": 0,
+     "status": "intractable",
+     "ts": "2026-10-18T12:55:48Z",
+     "why": "published records reach n ~ 2117398595; beyond the CPU budget"
+    },
+    {
+     "anum": "A155764",
+     "cpu_s": 0.611,
+     "item": "gb_close:recval",
+     "n_values": 0,
+     "status": "matches published",
+     "ts": "2026-10-18T12:55:48Z",
+     "why": "no record beyond the published ones up to n = 200000"
+    }
+   ],
+   "ts": "2026-10-18T12:55:49Z"
+  },
+  {
+   "cpu_s": 1.374,
+   "cycle_id": "20261018T125555Z_a08606",
+   "discovered": [
+    {
+     "anum": "A006577",
+     "item": "col_steps:terms",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": "A006877",
+     "item": "col_steps:recpos",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": "A006878",
+     "item": "col_steps:recval",
+     "status": "matched",
+     "why": null
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A006577",
+     "checked": "2026-10-18T12:57:24Z",
+     "cpu_a": 0.028,
+     "cpu_b": 0.012,
+     "cpu_s": 0.039,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 10000,
+     "item": "col_steps:terms",
+     "linked_k_max": 10000,
+     "methods": [
+      "memoized iteration (stops at the first smaller value)",
+      "naive bit-level iteration with the (3x+1)/2 shortcut"
+     ],
+     "n_values": 1000,
+     "ns": [
+      10001,
+      11000
+     ],
+     "op": "terms",
+     "pub_k_max": 10000,
+     "sha256": "45d02dc2e7bbc236",
+     "source": "https://oeis.org/A006577/b006577.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-10-18T12:57:24Z"
+    },
+    {
+     "anum": "A006877",
+     "est_cpu_s": 2.3856367309283476e+16,
+     "item": "col_steps:recpos",
+     "n_values": 0,
+     "status": "intractable",
+     "ts": "2026-10-18T12:57:24Z",
+     "why": "published records reach n ~ 14727207461063895712; beyond the CPU budget"
+    },
+    {
+     "anum": "A006878",
+     "cpu_s": 0.387,
+     "item": "col_steps:recval",
+     "n_values": 0,
+     "status": "matches published",
+     "ts": "2026-10-18T12:57:24Z",
+     "why": "no record beyond the published ones up to n = 200000"
+    }
+   ],
+   "ts": "2026-10-18T12:57:24Z"
+  },
+  {
+   "cpu_s": 1.348,
+   "cycle_id": "20261018T125730Z_b17c0b",
+   "discovered": [
+    {
+     "anum": "A006667",
+     "item": "col_odd:terms",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": "A033958",
+     "item": "col_odd:recpos",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": "A033959",
+     "item": "col_odd:recval",
+     "status": "matched",
+     "why": null
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A006667",
+     "checked": "2026-10-18T12:58:56Z",
+     "cpu_a": 0.027,
+     "cpu_b": 0.012,
+     "cpu_s": 0.039,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 10000,
+     "item": "col_odd:terms",
+     "linked_k_max": 10000,
+     "methods": [
+      "memoized iteration (stops at the first smaller value)",
+      "naive bit-level iteration with the (3x+1)/2 shortcut"
+     ],
+     "n_values": 1000,
+     "ns": [
+      10001,
+      11000
+     ],
+     "op": "terms",
+     "pub_k_max": 10000,
+     "sha256": "23235908a8daf58b",
+     "source": "https://oeis.org/A006667/b006667.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-10-18T12:58:56Z"
+    },
+    {
+     "anum": "A033958",
+     "est_cpu_s": 6982983.6,
+     "item": "col_odd:recpos",
+     "n_values": 0,
+     "status": "intractable",
+     "ts": "2026-10-18T12:58:56Z",
+     "why": "published records reach n ~ 166763117680; beyond the CPU budget"
+    },
+    {
+     "anum": "A033959",
+     "cpu_s": 0.385,
+     "item": "col_odd:recval",
+     "n_values": 0,
+     "status": "matches published",
+     "ts": "2026-10-18T12:58:56Z",
+     "why": "no record beyond the published ones up to n = 200000"
+    }
+   ],
+   "ts": "2026-10-18T12:58:56Z"
   }
  ],
  "last": {
-  "cpu_s": 0.059,
-  "cycle_id": "20261018T125007Z_d077dc",
+  "cpu_s": 1.348,
+  "cycle_id": "20261018T125730Z_b17c0b",
   "discovered": [
    {
-    "anum": null,
-    "item": "gb_min:terms",
-    "status": "not_in_oeis",
-    "why": "not found in the local OEIS index (frontier unknown)"
+    "anum": "A006667",
+    "item": "col_odd:terms",
+    "status": "matched",
+    "why": null
    },
    {
-    "anum": null,
-    "item": "gb_min:recpos",
-    "status": "no_alignment",
-    "why": "OEIS terms differ beyond the probe"
+    "anum": "A033958",
+    "item": "col_odd:recpos",
+    "status": "matched",
+    "why": null
    },
    {
-    "anum": null,
-    "item": "gb_min:recval",
-    "status": "no_alignment",
-    "why": "OEIS terms differ beyond the probe"
+    "anum": "A033959",
+    "item": "col_odd:recval",
+    "status": "matched",
+    "why": null
    }
   ],
   "mode": "live",
-  "net_requests": 4,
+  "net_requests": 6,
   "oeis_index": "available",
-  "pushed": [],
-  "ts": "2026-10-18T12:51:38Z"
+  "pushed": [
+   {
+    "anum": "A006667",
+    "checked": "2026-10-18T12:58:56Z",
+    "cpu_a": 0.027,
+    "cpu_b": 0.012,
+    "cpu_s": 0.039,
+    "d": 0,
+    "first_disagreement": null,
+    "frontier_n": 10000,
+    "item": "col_odd:terms",
+    "linked_k_max": 10000,
+    "methods": [
+     "memoized iteration (stops at the first smaller value)",
+     "naive bit-level iteration with the (3x+1)/2 shortcut"
+    ],
+    "n_values": 1000,
+    "ns": [
+     10001,
+     11000
+    ],
+    "op": "terms",
+    "pub_k_max": 10000,
+    "sha256": "23235908a8daf58b",
+    "source": "https://oeis.org/A006667/b006667.txt",
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:58:56Z"
+   },
+   {
+    "anum": "A033958",
+    "est_cpu_s": 6982983.6,
+    "item": "col_odd:recpos",
+    "n_values": 0,
+    "status": "intractable",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": "published records reach n ~ 166763117680; beyond the CPU budget"
+   },
+   {
+    "anum": "A033959",
+    "cpu_s": 0.385,
+    "item": "col_odd:recval",
+    "n_values": 0,
+    "status": "matches published",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   }
+  ],
+  "ts": "2026-10-18T12:58:56Z"
  },
  "mode": "live",
  "tried_items": {
+  "col_odd:recpos": {
+   "anum": "A033958",
+   "status": "matched",
+   "ts": "2026-10-18T12:58:48Z",
+   "why": null
+  },
+  "col_odd:recval": {
+   "anum": "A033959",
+   "status": "matched",
+   "ts": "2026-10-18T12:58:52Z",
+   "why": null
+  },
+  "col_odd:terms": {
+   "anum": "A006667",
+   "status": "matched",
+   "ts": "2026-10-18T12:58:46Z",
+   "why": null
+  },
+  "col_steps:recpos": {
+   "anum": "A006877",
+   "status": "matched",
+   "ts": "2026-10-18T12:57:16Z",
+   "why": null
+  },
+  "col_steps:recval": {
+   "anum": "A006878",
+   "status": "matched",
+   "ts": "2026-10-18T12:57:20Z",
+   "why": null
+  },
+  "col_steps:terms": {
+   "anum": "A006577",
+   "status": "matched",
+   "ts": "2026-10-18T12:57:14Z",
+   "why": null
+  },
+  "gb_close:recpos": {
+   "anum": "A155765",
+   "status": "matched",
+   "ts": "2026-10-18T12:55:40Z",
+   "why": null
+  },
+  "gb_close:recval": {
+   "anum": "A155764",
+   "status": "matched",
+   "ts": "2026-10-18T12:55:44Z",
+   "why": null
+  },
+  "gb_close:terms": {
+   "anum": "A047160",
+   "status": "matched",
+   "ts": "2026-10-18T12:55:38Z",
+   "why": null
+  },
   "gb_min:recpos": {
    "anum": null,
    "status": "no_alignment",

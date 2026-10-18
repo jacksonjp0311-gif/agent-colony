@@ -42,6 +42,248 @@
    "ts": "2026-10-18T12:22:21Z",
    "what": "unordered Goldbach partitions of 2n into odd primes"
   },
+  "A006577": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A006577",
+   "checked": "2026-10-18T12:57:24Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.027605307000001744
+   },
+   "done_for_sha": "45d02dc2e7bbc236",
+   "item": "col_steps:terms",
+   "last": {
+    "cpu_s": 0.039,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:57:24Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of halving and tripling steps to reach 1 in '3x+1' problem, or -1 if 1 is never reached.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 29,
+   "sha256": "45d02dc2e7bbc236",
+   "source": "https://oeis.org/A006577/b006577.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.039,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:57:14Z",
+   "what": "Collatz 3x+1 steps to reach 1"
+  },
+  "A006667": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A006667",
+   "checked": "2026-10-18T12:58:56Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.027497806999974728
+   },
+   "done_for_sha": "23235908a8daf58b",
+   "item": "col_odd:terms",
+   "last": {
+    "cpu_s": 0.039,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 6,
+   "sha256": "23235908a8daf58b",
+   "source": "https://oeis.org/A006667/b006667.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.039,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:58:46Z",
+   "what": "Collatz tripling steps"
+  },
+  "A006877": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 38
+   },
+   "anum": "A006877",
+   "checked": "2026-10-18T12:57:24Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 1.4295285714367656e-05,
+    "cpu_s": 0.03442739399999084
+   },
+   "intractable": "published records reach n ~ 14727207461063895712; beyond the CPU budget",
+   "item": "col_steps:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:57:24Z",
+    "why": "published records reach n ~ 14727207461063895712; beyond the CPU budget"
+   },
+   "n_pub_terms": 148,
+   "name": "In the '3x+1' problem, these values for the starting value set new records for number of steps to reach 1.",
+   "probe_cpu_s": 0.3547,
+   "pub_k_max": 148,
+   "pub_k_min": 1,
+   "pub_last": 14727207461063895711,
+   "sha256": "4bdd9c264ffb33f6",
+   "source": "https://oeis.org/A006877/b006877.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:57:16Z",
+   "what": "Collatz 3x+1 steps to reach 1 (recpos)"
+  },
+  "A006878": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 38
+   },
+   "anum": "A006878",
+   "checked": "2026-10-18T12:57:24Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.387079724000003
+   },
+   "done_for_sha": "1aebb537ac7cbb02",
+   "item": "col_steps:recval",
+   "last": {
+    "cpu_s": 0.387,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T12:57:24Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 148,
+   "name": "Record number of steps to reach 1 in '3x+1' problem, corresponding to starting values in A006877.",
+   "probe_cpu_s": 0.3539,
+   "pub_k_max": 148,
+   "pub_k_min": 1,
+   "pub_last": 2442,
+   "sha256": "1aebb537ac7cbb02",
+   "source": "https://oeis.org/A006878/b006878.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.387,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:57:20Z",
+   "what": "Collatz 3x+1 steps to reach 1 (recval)"
+  },
+  "A033958": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 32
+   },
+   "anum": "A033958",
+   "checked": "2026-10-18T12:58:56Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 1.4549095238537899e-05,
+    "cpu_s": 0.033973937000013166
+   },
+   "intractable": "published records reach n ~ 166763117680; beyond the CPU budget",
+   "item": "col_odd:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": "published records reach n ~ 166763117680; beyond the CPU budget"
+   },
+   "n_pub_terms": 71,
+   "name": "In the '3x+1' problem, these values for the starting value set new records for number of steps to reach 1.",
+   "probe_cpu_s": 0.3464,
+   "pub_k_max": 71,
+   "pub_k_min": 1,
+   "pub_last": 166763117679,
+   "sha256": "4e1cf45af4e431de",
+   "source": "https://oeis.org/A033958/b033958.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:58:48Z",
+   "what": "Collatz tripling steps (recpos)"
+  },
+  "A033959": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 32
+   },
+   "anum": "A033959",
+   "checked": "2026-10-18T12:58:56Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.3845498809999981
+   },
+   "done_for_sha": "131a4c0d0740e5db",
+   "item": "col_odd:recval",
+   "last": {
+    "cpu_s": 0.385,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 57,
+   "name": "Record number of steps to reach 1 in '3x+1' problem, corresponding to starting values in A033958.",
+   "probe_cpu_s": 0.3632,
+   "pub_k_max": 57,
+   "pub_k_min": 1,
+   "pub_last": 370,
+   "sha256": "131a4c0d0740e5db",
+   "source": "https://oeis.org/A033959/b033959.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.385,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:58:52Z",
+   "what": "Collatz tripling steps (recval)"
+  },
   "A035026": {
    "align": {
     "alpha": 1,
@@ -84,6 +326,48 @@
    "ts": "2026-10-18T12:49:50Z",
    "what": "ordered Goldbach partitions of 2n"
   },
+  "A047160": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 59
+   },
+   "anum": "A047160",
+   "checked": "2026-10-18T12:55:48Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.025994928999999445
+   },
+   "done_for_sha": "72ce0134afaabba4",
+   "item": "gb_close:terms",
+   "last": {
+    "cpu_s": 0.091,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:55:48Z",
+    "why": null
+   },
+   "n_pub_terms": 9999,
+   "name": "For n >= 2, a(n) = smallest number m >= 0 such that n-m and n+m are both primes, or -1 if no such m exists.",
+   "probe_cpu_s": 0.0,
+   "pub_k_max": 10000,
+   "pub_k_min": 2,
+   "pub_last": 69,
+   "sha256": "72ce0134afaabba4",
+   "source": "https://oeis.org/A047160/b047160.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.091,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:55:38Z",
+   "what": "distance from n to the closest Goldbach pair n -/+ k"
+  },
   "A053033": {
    "align": {
     "alpha": 1,
@@ -123,6 +407,85 @@
    "status": "matched",
    "ts": "2026-10-18T12:48:12Z",
    "what": "unordered Goldbach partitions of 2n (2 allowed) (recpos)"
+  },
+  "A155764": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": -1,
+    "overlap": 28
+   },
+   "anum": "A155764",
+   "checked": "2026-10-18T12:55:48Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.6108249210000025
+   },
+   "done_for_sha": "64b088f1a0d94825",
+   "item": "gb_close:recval",
+   "last": {
+    "cpu_s": 0.611,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T12:55:48Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 64,
+   "name": "Records in A047160.",
+   "probe_cpu_s": 0.0379,
+   "pub_k_max": 64,
+   "pub_k_min": 1,
+   "pub_last": 8370,
+   "sha256": "64b088f1a0d94825",
+   "source": "https://oeis.org/A155764/b155764.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.611,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:55:44Z",
+   "what": "distance from n to the closest Goldbach pair n -/+ k (recval)"
+  },
+  "A155765": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": -1,
+    "overlap": 28
+   },
+   "anum": "A155765",
+   "checked": "2026-10-18T12:55:48Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 5.884938095218353e-05,
+    "cpu_s": 0.038476723999998796
+   },
+   "intractable": "published records reach n ~ 2117398595; beyond the CPU budget",
+   "item": "gb_close:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:55:48Z",
+    "why": "published records reach n ~ 2117398595; beyond the CPU budget"
+   },
+   "n_pub_terms": 61,
+   "name": "Where records occur in A047160.",
+   "probe_cpu_s": 0.0387,
+   "pub_k_max": 61,
+   "pub_k_min": 1,
+   "pub_last": 2117398594,
+   "sha256": "c5b0f61a3b74716d",
+   "source": "https://oeis.org/A155765/b155765.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:55:40Z",
+   "what": "distance from n to the closest Goldbach pair n -/+ k (recpos)"
   }
  },
  "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data."
