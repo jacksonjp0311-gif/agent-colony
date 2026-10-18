@@ -1,14 +1,15 @@
-# Proposal shortlist — 2026-10-18 07:19 AM ET
+# Proposal shortlist — 2026-10-18 07:25 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-11 of 58 proposals meet the authorize bar (11 after grouping near-duplicates; 3 colony-authored, 8 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+12 of 58 proposals meet the authorize bar (12 after grouping near-duplicates; 4 colony-authored, 8 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
 | 1 | imp_15e6c5_50 | 0.825 | 1.0 | 1.0 | APPROVE | 1 | 2 (0.825) | Enable `authored_euler_theorem__gauss_phi_divisor_sum_w1` (Oracle passed it in its own cycle); builds on euler_theorem, gauss_phi_divisor_sum; P 0.825, novelty 1.0. |
 | 2 | imp_554165_50 | 0.8764 | 1.0 | 0.0 | APPROVE | 1 | 4 (0.8764) | Enable `authored_frontier_divides_x0b1db873_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8764, novelty 1.0. |
-| 3 | imp_bc7717_50 | 0.825 | 1.0 | 0.0 | APPROVE | 1 | 5 (0.825) | Enable `authored_frontier_le_xdbff107c_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0. |
+| 3 | imp_6ff40f_50 | 0.825 | 1.0 | 0.0 | APPROVE | 1 | 5 (0.825) | Enable `authored_frontier_cong_xa68963c2_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0. |
+| 4 | imp_bc7717_50 | 0.825 | 1.0 | 0.0 | APPROVE | 1 | 6 (0.825) | Enable `authored_frontier_le_xdbff107c_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0. |
 
 ## Building blocks enabled (8 groups meet the bar)
 
@@ -16,39 +17,39 @@ Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classic
 
 | # | Proposal | P | Kind | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---|---|---:|---|---|
-| 1 | imp_e8a630_50 | 0.8768 | catalog_refill | APPROVE | 1 | 6 (0.7518) | Building block `cayley_hamilton_3x3` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8768. |
-| 2 | imp_dfaa7b_50 | 0.8766 | catalog_refill | APPROVE | 1 | 7 (0.7516) | Building block `polynomial_remainder` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8766. |
-| 3 | imp_2eb8c7_50 | 0.876 | catalog_refill | APPROVE | 1 | 8 (0.751) | Building block `abel_summation` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.876. |
+| 1 | imp_e8a630_50 | 0.8768 | catalog_refill | APPROVE | 1 | 7 (0.7518) | Building block `cayley_hamilton_3x3` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8768. |
+| 2 | imp_dfaa7b_50 | 0.8766 | catalog_refill | APPROVE | 1 | 8 (0.7516) | Building block `polynomial_remainder` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8766. |
+| 3 | imp_2eb8c7_50 | 0.876 | catalog_refill | APPROVE | 1 | 9 (0.751) | Building block `abel_summation` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.876. |
 | 4 | imp_fa5f3d_50 | 0.8754 | catalog_refill | APPROVE | 1 | 1 (0.8754) | Building block `faulhaber_power_sums` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
-| 5 | imp_0bada5_50 | 0.825 | catalog_refill | APPROVE | 1 | 9 (0.7) | Building block `newton_identities` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
-| 6 | imp_1a4ec1_50 | 0.825 | catalog_refill | APPROVE | 1 | 10 (0.7) | Building block `telescoping_sum` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
-| 7 | imp_3a02ab_50 | 0.825 | catalog_refill | APPROVE | 1 | 11 (0.7) | Building block `burnside_necklaces` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 5 | imp_0bada5_50 | 0.825 | catalog_refill | APPROVE | 1 | 10 (0.7) | Building block `newton_identities` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 6 | imp_1a4ec1_50 | 0.825 | catalog_refill | APPROVE | 1 | 11 (0.7) | Building block `telescoping_sum` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 7 | imp_3a02ab_50 | 0.825 | catalog_refill | APPROVE | 1 | 12 (0.7) | Building block `burnside_necklaces` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 | 8 | imp_f7b051_50 | 0.825 | catalog_refill | APPROVE | 1 | 3 (0.825) | Building block `lagrange_cyclic_orders` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 11 (actual 11). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 6 (0 with OEIS unchecked). Would drop out of the bar: 0; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 12 (actual 12). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 6 (0 with OEIS unchecked). Would drop out of the bar: 0; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
-| 1 | imp_fa5f3d_50 | `faulhaber_power_sums` | 0.8754 → 0.8754 | meets | no | 0.0 | 7 |
+| 1 | imp_fa5f3d_50 | `faulhaber_power_sums` | 0.8754 → 0.8754 | meets | no | 0.0 | 8 |
 | 2 | imp_15e6c5_50 | `authored_euler_theorem__gauss_phi_divisor_sum_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 1 |
-| 3 | imp_f7b051_50 | `lagrange_cyclic_orders` | 0.825 → 0.825 | meets | no | 0.0 | 11 |
+| 3 | imp_f7b051_50 | `lagrange_cyclic_orders` | 0.825 → 0.825 | meets | no | 0.0 | 12 |
 | 4 | imp_554165_50 | `authored_frontier_divides_x0b1db873_w1` | 0.8764 → 0.8764 | meets | yes | 0.0 | 2 |
-| 5 | imp_bc7717_50 | `authored_frontier_le_xdbff107c_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 3 |
-| 6 | imp_e8a630_50 | `cayley_hamilton_3x3` | 0.8768 → 0.7518 | meets | no | 0.0 | 4 |
-| 7 | imp_dfaa7b_50 | `polynomial_remainder` | 0.8766 → 0.7516 | meets | no | 0.0 | 5 |
-| 8 | imp_2eb8c7_50 | `abel_summation` | 0.876 → 0.751 | meets | no | 0.0 | 6 |
-| 9 | imp_0bada5_50 | `newton_identities` | 0.825 → 0.7 | meets | no | 0.0 | 8 |
-| 10 | imp_1a4ec1_50 | `telescoping_sum` | 0.825 → 0.7 | meets | no | 0.0 | 9 |
+| 5 | imp_6ff40f_50 | `authored_frontier_cong_xa68963c2_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 3 |
+| 6 | imp_bc7717_50 | `authored_frontier_le_xdbff107c_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 4 |
+| 7 | imp_e8a630_50 | `cayley_hamilton_3x3` | 0.8768 → 0.7518 | meets | no | 0.0 | 5 |
+| 8 | imp_dfaa7b_50 | `polynomial_remainder` | 0.8766 → 0.7516 | meets | no | 0.0 | 6 |
+| 9 | imp_2eb8c7_50 | `abel_summation` | 0.876 → 0.751 | meets | no | 0.0 | 7 |
+| 10 | imp_0bada5_50 | `newton_identities` | 0.825 → 0.7 | meets | no | 0.0 | 9 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 8, status: 41, target_unresolved: 33, trivial_by_filter: 2
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 10, status: 39, target_unresolved: 32, trivial_by_filter: 2
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 14 tested, 0 survived held-out, 14 falsified, 0 machine-checked, 0 surprises; dropped 87 duplicates, 101 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1876.
-Totals: tested 488, survived 210, surprises 26, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 16 tested, 4 survived held-out, 12 falsified, 1 machine-checked, 1 surprises; dropped 103 duplicates, 69 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1894.
+Totals: tested 537, survived 226, surprises 28, false surprises (failed later re-test) 0.
 
 | Statement | Label | OEIS | Hunt v |
 |---|---|---|---|

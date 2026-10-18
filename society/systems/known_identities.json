@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T11:19:09Z",
-  "n": 345,
+  "updated_at": "2026-10-18T11:23:44Z",
+  "n": 346,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -146,6 +146,7 @@
     "authored_sieve_residue_bal_g4_6_2_w1",
     "authored_sieve_residue_bal_g4_6_6_w1",
     "authored_sieve_residue_bal_g4_6_w1",
+    "authored_sieve_residue_bal_g4_w1",
     "authored_sieve_residue_bal_g6_2_4_w1",
     "authored_sieve_residue_bal_g6_4_6_w1",
     "authored_sieve_residue_bal_g6_6_2_w1",
@@ -200,8 +201,7 @@
     "central_binom_bound",
     "chain `adversarial_cassini_ext` citing new algebraic points on covers of elliptic curves",
     "chain `adversarial_cassini_ext` citing new algebraic points on covers of elliptic curves (cycle 166)",
-    "chain `adversarial_catalan_convolution_stress` citing new algebraic points on covers of elliptic curves",
-    "chain `adversarial_catalan_convolution_stress` citing new algebraic points on covers of elliptic curves (cycle 167)"
+    "chain `adversarial_catalan_convolution_stress` citing new algebraic points on covers of elliptic curves"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
