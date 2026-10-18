@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T11:31:57Z",
+  "updated_at": "2026-10-18T11:38:04Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
     "goldbach_even": {
       "family": "goldbach",
       "status": "open",
-      "verified_hi": 126200003,
+      "verified_hi": 129400003,
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "window": 3200000,
       "result": null
@@ -15,7 +15,7 @@
     "collatz_descent": {
       "family": "collatz",
       "status": "open",
-      "verified_hi": 140600000,
+      "verified_hi": 143800000,
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "window": 3200000,
       "result": null
@@ -39,7 +39,7 @@
     "erdos_straus": {
       "family": "erdos_straus",
       "status": "open",
-      "verified_hi": 729951,
+      "verified_hi": 739951,
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "window": 10000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "twin_primes_hl",
-    "lo": 174200001,
-    "hi": 178200000,
+    "target": "goldbach_even",
+    "lo": 126200004,
+    "hi": 129400003,
     "outcome": "extended",
-    "verified_hi": 178200000,
-    "cycle_id": "20261018T113113Z_9e7a9a"
+    "verified_hi": 129400003,
+    "cycle_id": "20261018T113729Z_e8b70a"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
