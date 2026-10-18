@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-10-17 10:51 PM ET
+# Proposal shortlist — 2026-10-17 10:59 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-44 of 58 proposals meet the authorize bar (44 after grouping near-duplicates; 28 colony-authored, 16 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+43 of 58 proposals meet the authorize bar (43 after grouping near-duplicates; 28 colony-authored, 15 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -17,26 +17,26 @@ View only: nothing here is authorized. Only James authorizes.
 | 9 | imp_96efa1_49 | 0.825 | 1.0 | 1.0 | APPROVE | 1 | 10 (0.825) | Enable `authored_crt_coprime_pair__cycle_spanning_trees_w1` (Oracle passed it in its own cycle); builds on crt_coprime_pair, cycle_spanning_trees; P 0.825, novelty 1.0. |
 | 10 | imp_b1face_50 | 0.825 | 1.0 | 1.0 | APPROVE | 1 | 11 (0.825) | Enable `authored_abel_summation__faulhaber_power_sums_w1` (Oracle passed it in its own cycle); builds on abel_summation, faulhaber_power_sums; P 0.825, novelty 1.0. |
 
-## Building blocks enabled (16 groups meet the bar)
+## Building blocks enabled (15 groups meet the bar)
 
 Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classical identity). They meet the bar but are not novel: novelty counts as 0 for ranking and they are kept out of the top list above.
 
 | # | Proposal | P | Kind | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---|---|---:|---|---|
-| 1 | imp_e8a630_50 | 0.8768 | catalog_refill | APPROVE | 1 | 15 (0.7518) | Building block `cayley_hamilton_3x3` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8768. |
-| 2 | imp_dfaa7b_50 | 0.8766 | catalog_refill | APPROVE | 1 | 16 (0.7516) | Building block `polynomial_remainder` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8766. |
-| 3 | imp_79bbc6_50 | 0.8761 | catalog_refill | APPROVE | 1 | 17 (0.7511) | Building block `cycle_spanning_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8761. |
-| 4 | imp_2eb8c7_50 | 0.876 | catalog_refill | APPROVE | 1 | 18 (0.751) | Building block `abel_summation` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.876. |
-| 5 | imp_cef698_50 | 0.8754 | catalog_refill | APPROVE | 1 | 20 (0.7504) | Building block `complete_bipartite_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
-| 6 | imp_fa5f3d_50 | 0.8754 | catalog_refill | APPROVE | 1 | 21 (0.7504) | Building block `faulhaber_power_sums` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
-| 7 | imp_cd809b_50 | 0.8753 | catalog_refill | APPROVE | 1 | 19 (0.7503) | Building block `partition_conjugate_parts` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8753. |
-| 8 | imp_ca0b82_50 | 0.8751 | catalog_refill | APPROVE | 1 | 22 (0.7501) | Building block `multinomial_three` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8751. |
-| 9 | imp_0bada5_50 | 0.825 | catalog_refill | APPROVE | 1 | 23 (0.7) | Building block `newton_identities` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
-| 10 | imp_1a4ec1_50 | 0.825 | catalog_refill | APPROVE | 1 | 24 (0.7) | Building block `telescoping_sum` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 1 | imp_e8a630_50 | 0.8768 | catalog_refill | APPROVE | 1 | 16 (0.7518) | Building block `cayley_hamilton_3x3` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8768. |
+| 2 | imp_dfaa7b_50 | 0.8766 | catalog_refill | APPROVE | 1 | 17 (0.7516) | Building block `polynomial_remainder` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8766. |
+| 3 | imp_79bbc6_50 | 0.8761 | catalog_refill | APPROVE | 1 | 18 (0.7511) | Building block `cycle_spanning_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8761. |
+| 4 | imp_2eb8c7_50 | 0.876 | catalog_refill | APPROVE | 1 | 19 (0.751) | Building block `abel_summation` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.876. |
+| 5 | imp_cef698_50 | 0.8754 | catalog_refill | APPROVE | 1 | 21 (0.7504) | Building block `complete_bipartite_trees` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
+| 6 | imp_fa5f3d_50 | 0.8754 | catalog_refill | APPROVE | 1 | 22 (0.7504) | Building block `faulhaber_power_sums` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8754. |
+| 7 | imp_cd809b_50 | 0.8753 | catalog_refill | APPROVE | 1 | 20 (0.7503) | Building block `partition_conjugate_parts` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.8753. |
+| 8 | imp_0bada5_50 | 0.825 | catalog_refill | APPROVE | 1 | 23 (0.7) | Building block `newton_identities` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 9 | imp_1a4ec1_50 | 0.825 | catalog_refill | APPROVE | 1 | 24 (0.7) | Building block `telescoping_sum` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 10 | imp_3a02ab_50 | 0.825 | catalog_refill | APPROVE | 1 | 25 (0.7) | Building block `burnside_necklaces` (catalog refill; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 30 (actual 44). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 28 (0 with OEIS unchecked). Would drop out of the bar: 14; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 30 (actual 43). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 29 (0 with OEIS unchecked). Would drop out of the bar: 13; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
@@ -51,20 +51,20 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 30 (actual 44). Unknown clai
 | 9 | imp_94edc4_50 | `authored_alternating_binomial_row__cayley_hamilton_2x2_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 8 |
 | 10 | imp_96efa1_49 | `authored_crt_coprime_pair__cycle_spanning_trees_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 9 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 8, status: 8, target_unresolved: 3
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 8, status: 9, target_unresolved: 3
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 10 tested, 7 survived held-out, 3 falsified, 2 machine-checked, 1 surprises; dropped 90 duplicates, 31 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1799.
-Totals: tested 224, survived 119, surprises 15, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 10 tested, 4 survived held-out, 6 falsified, 0 machine-checked, 0 surprises; dropped 104 duplicates, 43 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1862.
+Totals: tested 248, survived 130, surprises 17, false surprises (failed later re-test) 0.
 
 | Statement | Label | OEIS | Hunt v |
 |---|---|---|---|
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
-| S((part*phi))(n) = 1 (mod 2) for all n >= 1 | conjecture surviving 1988 checks | not_found | 1.0 |
+| S((part*phi))(n) = 1 (mod 2) for all n >= 1 | conjecture surviving 3988 checks | not_found | 1.0 |
 | S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | dbl(gcd(mu,n))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | dbl(gcd(mu,rad))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |

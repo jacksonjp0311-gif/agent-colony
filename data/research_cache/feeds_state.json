@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-18T02:44:07Z",
+    "fetched_at": "2026-10-18T02:52:44Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-18T02:52:04Z",
+        "id": 39091597049,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-18T02:52:07Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-18T02:43:34Z",
         "id": 39091109923,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-18T02:43:38Z"
+        "status": "completed",
+        "updated_at": "2026-10-18T02:51:41Z"
       },
       {
         "conclusion": "success",
@@ -90,21 +98,13 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-17T17:23:31Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-17T17:10:59Z",
-        "id": 39052625715,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-17T17:17:38Z"
       }
     ],
     "success_rate": 0.9091
   },
   "health": {
     "arxiv": {
-      "fail": 2,
+      "fail": 3,
       "ok": 34
     },
     "crossref": {
@@ -125,7 +125,7 @@
     }
   },
   "last_error": {
-    "arxiv": "math.CO:HTTPError: HTTP Error 429: Unknown Error; math.NT:HTTPError: HTTP Error 429: Unknown Error",
+    "arxiv": "cs.LG:TimeoutError: The read operation timed out; cs.MA:HTTPError: HTTP Error 429: Unknown Error",
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
@@ -138,7 +138,7 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "math.CO:HTTPError: HTTP Error 429: Unknown Error; math.NT:HTTPError: HTTP Error 429: Unknown Error",
+        "error": "cs.LG:TimeoutError: The read operation timed out; cs.MA:HTTPError: HTTP Error 429: Unknown Error",
         "fetched": 0,
         "new": 0,
         "ok": false
@@ -148,31 +148,27 @@
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 10,
-        "new": 6,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-10-18T02:43:57Z"
+    "ts": "2026-10-18T02:52:28Z"
   },
-  "runs": 109
+  "runs": 110
 }

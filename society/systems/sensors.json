@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-18T02:49:21Z",
-  "cycle_id": "20261018T024910Z_03659d",
+  "ts": "2026-10-18T02:57:55Z",
+  "cycle_id": "20261018T025744Z_67f9cd",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -8,13 +8,6 @@
       "newton_identities": 1
     },
     "recent": {
-      "authored_bezout_identity__cayley_hamilton_3x3_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_cayley_tree_count__complete_bipartite_trees_w1": {
         "last": "keep",
         "streak": 1,
@@ -91,34 +84,41 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_frontier_cong_x16b72492_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8627,
-      "slope": 0.000234,
-      "min": 0.859,
+      "last": 0.8671,
+      "slope": 0.000113,
+      "min": 0.862,
       "max": 0.8671
     },
     "novelty": {
       "last": 0.963,
-      "slope": 0.006077,
+      "slope": 0.005945,
       "min": 0.8846,
       "max": 0.963
     },
     "kill_rate": {
-      "last": 0.316,
-      "slope": -0.000191,
-      "min": 0.316,
-      "max": 0.3182
+      "last": 0.3154,
+      "slope": -0.000184,
+      "min": 0.3154,
+      "max": 0.3176
     },
     "kill_rate_term": {
-      "last": 0.8344,
-      "slope": -0.000171,
-      "min": 0.8344,
-      "max": 0.8364
+      "last": 0.8339,
+      "slope": -0.000166,
+      "min": 0.8339,
+      "max": 0.8359
     },
     "lesson_uptake": {
       "last": 0.96,
@@ -129,7 +129,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.005,
+    "aggregate_range": 0.0044,
     "novelty_max": 0.963,
     "window": 6,
     "reason": "moving"
@@ -137,7 +137,8 @@
   "catalog": {
     "enabled": 213,
     "disabled": [
-      "adversarial_vandermonde_asymmetric"
+      "adversarial_vandermonde_asymmetric",
+      "authored_frontier_cong_x5cb35120_w1"
     ],
     "authored": [
       "authored_abel_summation__faulhaber_power_sums_w1",
@@ -190,6 +191,8 @@
       "authored_fibonacci_addition__legendre_duplication_small_w1",
       "authored_fibonacci_addition__motzkin_bounded_w1",
       "authored_fibonacci_addition__narayana_sum_w1",
+      "authored_frontier_cong_x16b72492_w1",
+      "authored_frontier_cong_x5cb35120_w1",
       "authored_frontier_le_x9abb4c98_w1",
       "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
       "authored_gcd_fibonacci__hermite_recurrence_w1",
@@ -241,7 +244,6 @@
       "authored_sieve_hl_within_g6_6_4_w1",
       "authored_sieve_hl_within_g6_6_6_w1",
       "authored_sieve_hl_within_g6_w1",
-      "authored_sieve_residue_bal_g2_4_6_w1",
       "authored_sieve_residue_bal_g2_4_w1",
       "authored_sieve_residue_bal_g2_6_4_w1",
       "authored_sieve_residue_bal_g2_w1",
@@ -281,7 +283,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 6
+    "exhausted_recent": 7
   },
   "guides": {
     "n_guides": 17,
@@ -295,23 +297,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.141,
+      "ratio": 1.127,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.134,
+      "ratio": 1.131,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.191,
+      "ratio": 1.29,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.045,
+      "ratio": 1.14,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.203,
+      "ratio": 1.112,
       "drift": false
     }
   },
@@ -319,11 +321,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 103800003,
-      "collatz_descent": 118200000,
+      "collatz_descent": 121400000,
       "legendre_square_gap": 652607,
       "lehmer_totient": 43800001,
-      "erdos_straus": 659951,
-      "twin_primes_hl": 146200000,
+      "erdos_straus": 669951,
+      "twin_primes_hl": 150200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -335,16 +337,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4886,
+        "challenged": 4885,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 114,
+        "challenged": 115,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 109,
+    "post_challenger_oracle_judged": 110,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -373,18 +375,18 @@
     "last": [
       [
         null,
+        "2026-10-18T02:52:04Z"
+      ],
+      [
+        "success",
         "2026-10-18T02:43:34Z"
       ],
       [
         "success",
         "2026-10-17T22:50:33Z"
-      ],
-      [
-        "success",
-        "2026-10-17T22:45:31Z"
       ]
     ],
-    "fetched_at": "2026-10-18T02:44:07Z"
+    "fetched_at": "2026-10-18T02:52:44Z"
   },
   "feeds": {
     "by_source": {
@@ -403,7 +405,7 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "math.CO:HTTPError: HTTP Error 429: Unknown Error; math.NT:HTTPError: HTTP Error 429: Unknown Error",
+          "error": "cs.LG:TimeoutError: The read operation timed out; cs.MA:HTTPError: HTTP Error 429: Unknown Error",
           "fetched": 0,
           "new": 0,
           "ok": false
@@ -413,35 +415,31 @@
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 10,
-          "new": 6,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-10-18T02:43:57Z"
+      "ts": "2026-10-18T02:52:28Z"
     },
     "health": {
       "arxiv": {
-        "fail": 2,
+        "fail": 3,
         "ok": 34
       },
       "crossref": {
