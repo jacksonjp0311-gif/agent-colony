@@ -1,12 +1,54 @@
 {
-  "ts": "2026-10-18T06:53:15Z",
+  "ts": "2026-10-18T06:59:13Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 16,
-  "n_groups": 16,
-  "n_authored_groups": 5,
+  "n_meet_bar": 18,
+  "n_groups": 18,
+  "n_authored_groups": 7,
   "n_building_block_groups": 11,
   "top": [
+    {
+      "id": "imp_cdaccd_50",
+      "title": "Chain `authored_complete_bipartite_trees__faulhaber_power_sums_w1` citing Clique and chromatic numbers of graph powers: spec",
+      "cycle_id": "20261018T065152Z_cdaccd",
+      "target": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+      "family": "authored_complete_bipartite_trees__faulhaber_power_sums",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8754,
+      "P_stored": 0.8754,
+      "novelty": 1.0,
+      "novelty_raw": 1.0,
+      "building_block": null,
+      "builds_on": 1.0,
+      "building_blocks": [
+        "complete_bipartite_trees",
+        "faulhaber_power_sums"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.9252,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.25,
+        "oeis_checked": true,
+        "family": "authored_complete_bipartite_trees__faulhaber_power_sums",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 1.0,
+        "chained_by": null,
+        "P_shadow": 0.8754,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.9252,
+        "shadow_pos": 1
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_cdaccd_50"
+      ],
+      "position": 1,
+      "line": "Enable `authored_complete_bipartite_trees__faulhaber_power_sums_w1` (Oracle passed it in its own cycle); builds on complete_bipartite_trees, faulhaber_power_sums; P 0.8754, novelty 1.0."
+    },
     {
       "id": "imp_15e6c5_50",
       "title": "Chain `authored_euler_theorem__gauss_phi_divisor_sum_w1` citing A Gaussian integral formula for the Hermite polyno",
@@ -40,13 +82,13 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.895,
-        "shadow_pos": 3
+        "shadow_pos": 4
       },
       "group_count": 1,
       "group_ids": [
         "imp_15e6c5_50"
       ],
-      "position": 1,
+      "position": 2,
       "line": "Enable `authored_euler_theorem__gauss_phi_divisor_sum_w1` (Oracle passed it in its own cycle); builds on euler_theorem, gauss_phi_divisor_sum; P 0.825, novelty 1.0."
     },
     {
@@ -82,14 +124,56 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.895,
-        "shadow_pos": 4
+        "shadow_pos": 5
       },
       "group_count": 1,
       "group_ids": [
         "imp_1e346a_50"
       ],
-      "position": 2,
+      "position": 3,
       "line": "Enable `authored_bezout_identity__cayley_tree_count_w1` (Oracle passed it in its own cycle); builds on bezout_identity, cayley_tree_count; P 0.825, novelty 1.0."
+    },
+    {
+      "id": "imp_e09c90_50",
+      "title": "Chain `authored_crt_coprime_pair__euler_pentagonal_w1` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In",
+      "cycle_id": "20261018T065643Z_e09c90",
+      "target": "authored_crt_coprime_pair__euler_pentagonal_w1",
+      "family": "authored_crt_coprime_pair__euler_pentagonal",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.825,
+      "P_stored": 0.825,
+      "novelty": 1.0,
+      "novelty_raw": 1.0,
+      "building_block": null,
+      "builds_on": 1.0,
+      "building_blocks": [
+        "crt_coprime_pair",
+        "euler_pentagonal"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.895,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.1667,
+        "oeis_checked": true,
+        "family": "authored_crt_coprime_pair__euler_pentagonal",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 1.0,
+        "chained_by": null,
+        "P_shadow": 0.825,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.895,
+        "shadow_pos": 6
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_e09c90_50"
+      ],
+      "position": 4,
+      "line": "Enable `authored_crt_coprime_pair__euler_pentagonal_w1` (Oracle passed it in its own cycle); builds on crt_coprime_pair, euler_pentagonal; P 0.825, novelty 1.0."
     },
     {
       "id": "imp_cf6d5a_50",
@@ -123,13 +207,13 @@
         "P_shadow": 0.8752,
         "meets_bar_shadow": true,
         "rank_shadow": 0.7251,
-        "shadow_pos": 6
+        "shadow_pos": 8
       },
       "group_count": 1,
       "group_ids": [
         "imp_cf6d5a_50"
       ],
-      "position": 3,
+      "position": 5,
       "line": "Enable `authored_frontier_le_x1c0eba57_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8752, novelty 1.0."
     },
     {
@@ -164,13 +248,13 @@
         "P_shadow": 0.8751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.7251,
-        "shadow_pos": 5
+        "shadow_pos": 7
       },
       "group_count": 1,
       "group_ids": [
         "imp_67f9cd_50"
       ],
-      "position": 4,
+      "position": 6,
       "line": "Enable `authored_frontier_cong_x5cb35120_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8751, novelty 1.0."
     },
     {
@@ -205,13 +289,13 @@
         "P_shadow": 0.825,
         "meets_bar_shadow": true,
         "rank_shadow": 0.695,
-        "shadow_pos": 7
+        "shadow_pos": 9
       },
       "group_count": 1,
       "group_ids": [
         "imp_98f913_50"
       ],
-      "position": 5,
+      "position": 7,
       "line": "Enable `authored_frontier_cong_x83358e42_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0."
     }
   ],
@@ -246,7 +330,7 @@
         "P_shadow": 0.7518,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6511,
-        "shadow_pos": 8
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
@@ -285,7 +369,7 @@
         "P_shadow": 0.7516,
         "meets_bar_shadow": true,
         "rank_shadow": 0.651,
-        "shadow_pos": 9
+        "shadow_pos": 11
       },
       "group_count": 1,
       "group_ids": [
@@ -324,7 +408,7 @@
         "P_shadow": 0.7511,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6507,
-        "shadow_pos": 10
+        "shadow_pos": 12
       },
       "group_count": 1,
       "group_ids": [
@@ -363,7 +447,7 @@
         "P_shadow": 0.751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6506,
-        "shadow_pos": 11
+        "shadow_pos": 13
       },
       "group_count": 1,
       "group_ids": [
@@ -402,7 +486,7 @@
         "P_shadow": 0.8754,
         "meets_bar_shadow": true,
         "rank_shadow": 0.9252,
-        "shadow_pos": 1
+        "shadow_pos": 2
       },
       "group_count": 1,
       "group_ids": [
@@ -441,7 +525,7 @@
         "P_shadow": 0.8754,
         "meets_bar_shadow": true,
         "rank_shadow": 0.9252,
-        "shadow_pos": 2
+        "shadow_pos": 3
       },
       "group_count": 1,
       "group_ids": [
@@ -480,7 +564,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 12
+        "shadow_pos": 14
       },
       "group_count": 1,
       "group_ids": [
@@ -519,7 +603,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 13
+        "shadow_pos": 15
       },
       "group_count": 1,
       "group_ids": [
@@ -558,7 +642,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 14
+        "shadow_pos": 16
       },
       "group_count": 1,
       "group_ids": [
@@ -597,7 +681,7 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 15
+        "shadow_pos": 17
       },
       "group_count": 1,
       "group_ids": [
@@ -608,20 +692,21 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-18T06:53:15Z",
-    "cycle_id": "20261018T065152Z_cdaccd",
+    "ts": "2026-10-18T06:59:13Z",
+    "cycle_id": "20261018T065759Z_6acf54",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.5,
+      "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 16,
-    "n_meet_bar_shadow": 16,
-    "n_unknown_claims": 8,
+    "n_meet_bar_actual": 18,
+    "n_meet_bar_shadow": 18,
+    "n_unknown_claims": 9,
     "unknown_targets": [
       "authored_bezout_identity__cayley_tree_count_w1",
       "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+      "authored_crt_coprime_pair__euler_pentagonal_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
       "authored_frontier_cong_x5cb35120_w1",
@@ -634,10 +719,24 @@
     "enter_bar": [],
     "top_shadow": [
       {
+        "id": "imp_cdaccd_50",
+        "target": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+        "actual_pos": 1,
+        "shadow_pos": 1,
+        "meets_bar_shadow": true,
+        "rank": 0.9252,
+        "rank_shadow": 0.9252,
+        "P": 0.8754,
+        "P_shadow": 0.8754,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
         "id": "imp_cef698_50",
         "target": "complete_bipartite_trees",
-        "actual_pos": 10,
-        "shadow_pos": 1,
+        "actual_pos": 12,
+        "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.5252,
         "rank_shadow": 0.9252,
@@ -650,8 +749,8 @@
       {
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
-        "actual_pos": 11,
-        "shadow_pos": 2,
+        "actual_pos": 13,
+        "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.5252,
         "rank_shadow": 0.9252,
@@ -664,20 +763,6 @@
       {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 1,
-        "shadow_pos": 3,
-        "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_1e346a_50",
-        "target": "authored_bezout_identity__cayley_tree_count_w1",
         "actual_pos": 2,
         "shadow_pos": 4,
         "meets_bar_shadow": true,
@@ -690,10 +775,38 @@
         "expected": 0.0
       },
       {
-        "id": "imp_67f9cd_50",
-        "target": "authored_frontier_cong_x5cb35120_w1",
+        "id": "imp_1e346a_50",
+        "target": "authored_bezout_identity__cayley_tree_count_w1",
         "actual_pos": 3,
         "shadow_pos": 5,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_e09c90_50",
+        "target": "authored_crt_coprime_pair__euler_pentagonal_w1",
+        "actual_pos": 4,
+        "shadow_pos": 6,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_67f9cd_50",
+        "target": "authored_frontier_cong_x5cb35120_w1",
+        "actual_pos": 5,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -706,8 +819,8 @@
       {
         "id": "imp_cf6d5a_50",
         "target": "authored_frontier_le_x1c0eba57_w1",
-        "actual_pos": 4,
-        "shadow_pos": 6,
+        "actual_pos": 6,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -720,8 +833,8 @@
       {
         "id": "imp_98f913_50",
         "target": "authored_frontier_cong_x83358e42_w1",
-        "actual_pos": 5,
-        "shadow_pos": 7,
+        "actual_pos": 7,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -734,8 +847,8 @@
       {
         "id": "imp_e8a630_50",
         "target": "cayley_hamilton_3x3",
-        "actual_pos": 6,
-        "shadow_pos": 8,
+        "actual_pos": 8,
+        "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.5261,
         "rank_shadow": 0.6511,
@@ -744,45 +857,17 @@
         "unknown": false,
         "building_block": "catalog_refill",
         "expected": 0.0
-      },
-      {
-        "id": "imp_dfaa7b_50",
-        "target": "polynomial_remainder",
-        "actual_pos": 7,
-        "shadow_pos": 9,
-        "meets_bar_shadow": true,
-        "rank": 0.526,
-        "rank_shadow": 0.651,
-        "P": 0.8766,
-        "P_shadow": 0.7516,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
-      },
-      {
-        "id": "imp_79bbc6_50",
-        "target": "cycle_spanning_trees",
-        "actual_pos": 8,
-        "shadow_pos": 10,
-        "meets_bar_shadow": true,
-        "rank": 0.5257,
-        "rank_shadow": 0.6507,
-        "P": 0.8761,
-        "P_shadow": 0.7511,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
-    "status": 36,
-    "target_unresolved": 28,
+    "status": 34,
+    "target_unresolved": 27,
     "no_oracle_pass_in_own_cycle": 11,
     "trivial_by_filter": 2,
     "hearing": 2,
@@ -795,5 +880,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T065152Z_cdaccd"
+  "cycle_id": "20261018T065759Z_6acf54"
 }

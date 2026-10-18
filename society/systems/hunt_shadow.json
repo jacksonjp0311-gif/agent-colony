@@ -2,20 +2,21 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-18T06:53:15Z",
-    "cycle_id": "20261018T065152Z_cdaccd",
+    "ts": "2026-10-18T06:59:13Z",
+    "cycle_id": "20261018T065759Z_6acf54",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.5,
+      "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 16,
-    "n_meet_bar_shadow": 16,
-    "n_unknown_claims": 8,
+    "n_meet_bar_actual": 18,
+    "n_meet_bar_shadow": 18,
+    "n_unknown_claims": 9,
     "unknown_targets": [
       "authored_bezout_identity__cayley_tree_count_w1",
       "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+      "authored_crt_coprime_pair__euler_pentagonal_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
       "authored_frontier_cong_x5cb35120_w1",
@@ -28,10 +29,24 @@
     "enter_bar": [],
     "top_shadow": [
       {
+        "id": "imp_cdaccd_50",
+        "target": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+        "actual_pos": 1,
+        "shadow_pos": 1,
+        "meets_bar_shadow": true,
+        "rank": 0.9252,
+        "rank_shadow": 0.9252,
+        "P": 0.8754,
+        "P_shadow": 0.8754,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
         "id": "imp_cef698_50",
         "target": "complete_bipartite_trees",
-        "actual_pos": 10,
-        "shadow_pos": 1,
+        "actual_pos": 12,
+        "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.5252,
         "rank_shadow": 0.9252,
@@ -44,8 +59,8 @@
       {
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
-        "actual_pos": 11,
-        "shadow_pos": 2,
+        "actual_pos": 13,
+        "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.5252,
         "rank_shadow": 0.9252,
@@ -58,20 +73,6 @@
       {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-        "actual_pos": 1,
-        "shadow_pos": 3,
-        "meets_bar_shadow": true,
-        "rank": 0.895,
-        "rank_shadow": 0.895,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_1e346a_50",
-        "target": "authored_bezout_identity__cayley_tree_count_w1",
         "actual_pos": 2,
         "shadow_pos": 4,
         "meets_bar_shadow": true,
@@ -84,10 +85,38 @@
         "expected": 0.0
       },
       {
-        "id": "imp_67f9cd_50",
-        "target": "authored_frontier_cong_x5cb35120_w1",
+        "id": "imp_1e346a_50",
+        "target": "authored_bezout_identity__cayley_tree_count_w1",
         "actual_pos": 3,
         "shadow_pos": 5,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_e09c90_50",
+        "target": "authored_crt_coprime_pair__euler_pentagonal_w1",
+        "actual_pos": 4,
+        "shadow_pos": 6,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_67f9cd_50",
+        "target": "authored_frontier_cong_x5cb35120_w1",
+        "actual_pos": 5,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -100,8 +129,8 @@
       {
         "id": "imp_cf6d5a_50",
         "target": "authored_frontier_le_x1c0eba57_w1",
-        "actual_pos": 4,
-        "shadow_pos": 6,
+        "actual_pos": 6,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -114,8 +143,8 @@
       {
         "id": "imp_98f913_50",
         "target": "authored_frontier_cong_x83358e42_w1",
-        "actual_pos": 5,
-        "shadow_pos": 7,
+        "actual_pos": 7,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -128,8 +157,8 @@
       {
         "id": "imp_e8a630_50",
         "target": "cayley_hamilton_3x3",
-        "actual_pos": 6,
-        "shadow_pos": 8,
+        "actual_pos": 8,
+        "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.5261,
         "rank_shadow": 0.6511,
@@ -138,88 +167,15 @@
         "unknown": false,
         "building_block": "catalog_refill",
         "expected": 0.0
-      },
-      {
-        "id": "imp_dfaa7b_50",
-        "target": "polynomial_remainder",
-        "actual_pos": 7,
-        "shadow_pos": 9,
-        "meets_bar_shadow": true,
-        "rank": 0.526,
-        "rank_shadow": 0.651,
-        "P": 0.8766,
-        "P_shadow": 0.7516,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
-      },
-      {
-        "id": "imp_79bbc6_50",
-        "target": "cycle_spanning_trees",
-        "actual_pos": 8,
-        "shadow_pos": 10,
-        "meets_bar_shadow": true,
-        "rank": 0.5257,
-        "rank_shadow": 0.6507,
-        "P": 0.8761,
-        "P_shadow": 0.7511,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-17T22:53:50Z",
-      "cycle_id": "20261017T225232Z_a8553b",
-      "n_meet_bar_actual": 44,
-      "n_meet_bar_shadow": 30,
-      "n_unknown_claims": 28,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T22:55:00Z",
-      "cycle_id": "20261017T225350Z_cd0055",
-      "n_meet_bar_actual": 45,
-      "n_meet_bar_shadow": 31,
-      "n_unknown_claims": 28,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T22:56:13Z",
-      "cycle_id": "20261017T225501Z_425447",
-      "n_meet_bar_actual": 45,
-      "n_meet_bar_shadow": 31,
-      "n_unknown_claims": 28,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-18T02:47:24Z",
       "cycle_id": "20261018T024545Z_11caed",
@@ -621,6 +577,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T06:56:43Z",
+      "cycle_id": "20261018T065534Z_cd5782",
+      "n_meet_bar_actual": 17,
+      "n_meet_bar_shadow": 17,
+      "n_unknown_claims": 8,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T06:57:59Z",
+      "cycle_id": "20261018T065643Z_e09c90",
+      "n_meet_bar_actual": 17,
+      "n_meet_bar_shadow": 17,
+      "n_unknown_claims": 9,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T06:59:13Z",
+      "cycle_id": "20261018T065759Z_6acf54",
+      "n_meet_bar_actual": 18,
+      "n_meet_bar_shadow": 18,
+      "n_unknown_claims": 9,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }

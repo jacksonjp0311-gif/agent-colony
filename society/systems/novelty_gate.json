@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T06:52:35Z",
+  "updated_at": "2026-10-18T06:57:18Z",
   "hits": 26,
   "kills": 1,
   "rows": 30,
   "kill_rows": 4,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-18T06:52:35Z",
-    "cycle_id": "20261018T065152Z_cdaccd",
-    "mutation": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+    "ts": "2026-10-18T06:57:18Z",
+    "cycle_id": "20261018T065643Z_e09c90",
+    "mutation": "authored_crt_coprime_pair__euler_pentagonal_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 183,
-      "hard_n": 183,
+      "hard_pass": 184,
+      "hard_n": 184,
       "stripped_fails_usefulness": true,
-      "score": 0.8647,
-      "impl_id": "lemma_impl_v2_basic10_hard182"
+      "score": 0.8669,
+      "impl_id": "lemma_impl_v2_basic10_hard184"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 183,
+      "hard_pass": 184,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

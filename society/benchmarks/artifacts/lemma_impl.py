@@ -2214,6 +2214,28 @@ def check_authored_complete_bipartite_trees__faulhaber_power_sums_w1() -> bool:
     return all((check_complete_bipartite_trees(n) for n in range(8, 11))) and all((check_faulhaber_power_sums(n) for n in range(30, 45)))
 
 
+def check_authored_crt_coprime_pair__euler_pentagonal_w1() -> bool:
+    """Authored stress check (desk): proven lemmas crt_coprime_pair + euler_pentagonal on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_crt_coprime_pair,
+    ::check_euler_pentagonal; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_crt_coprime_pair(m) for m in range(25, 37))) and all((check_euler_pentagonal(n) for n in range(40, 60)))
+
+
+def check_authored_cycle_spanning_trees__lagrange_cyclic_orders_w1() -> bool:
+    """Authored stress check (desk): proven lemmas cycle_spanning_trees + lagrange_cyclic_orders on
+    larger windows disjoint from their base windows (generation 1).
+
+    Components: society/benchmarks/artifacts/lemma_impl.py::check_cycle_spanning_trees,
+    ::check_lagrange_cyclic_orders; checked by society/benchmarks/lemma_microbench.py.
+    Machine check only — not a novel theorem. Disabled until the Oracle passes it.
+    """
+    return all((check_cycle_spanning_trees(n) for n in range(14, 19))) and all((check_lagrange_cyclic_orders(n) for n in range(40, 59)))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2449,6 +2471,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_rec_xa92258f8_w1", check_authored_frontier_rec_xa92258f8_w1, True),
     ("authored_bezout_identity__cayley_tree_count_w1", check_authored_bezout_identity__cayley_tree_count_w1, True),
     ("authored_complete_bipartite_trees__faulhaber_power_sums_w1", check_authored_complete_bipartite_trees__faulhaber_power_sums_w1, True),
+    ("authored_crt_coprime_pair__euler_pentagonal_w1", check_authored_crt_coprime_pair__euler_pentagonal_w1, True),
+    ("authored_cycle_spanning_trees__lagrange_cyclic_orders_w1", check_authored_cycle_spanning_trees__lagrange_cyclic_orders_w1, False),
 ]
 
 

@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-18T06:48:06Z",
+    "fetched_at": "2026-10-18T06:54:27Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-18T06:53:56Z",
+        "id": 39105669245,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-18T06:54:00Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-18T06:47:38Z",
         "id": 39105299113,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-18T06:47:42Z"
+        "status": "completed",
+        "updated_at": "2026-10-18T06:53:53Z"
       },
       {
         "conclusion": "success",
@@ -90,17 +98,9 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-17T22:50:22Z"
-      },
-      {
-        "conclusion": "failure",
-        "created_at": "2026-10-17T22:37:06Z",
-        "id": 39075803333,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-17T22:39:04Z"
       }
     ],
-    "success_rate": 0.9091
+    "success_rate": 1.0
   },
   "health": {
     "arxiv": {
@@ -147,31 +147,27 @@
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 3,
-        "new": 3,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 7,
-        "new": 6,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-10-18T06:48:01Z"
+    "ts": "2026-10-18T06:54:26Z"
   },
-  "runs": 117
+  "runs": 118
 }
