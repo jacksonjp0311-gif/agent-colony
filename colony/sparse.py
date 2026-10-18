@@ -371,7 +371,7 @@ def run(cycle_id: str, net: Any, st: dict[str, Any], idx: dict[str, Any], claims
     # 2. identify queued candidates by recomputation
     matched_now = []
     queue = sp.setdefault("queue", {})
-    for anum in sorted(queue, key=lambda a: queue[a]["n_pub"])[:MATCH_PER_CYCLE]:
+    for anum in sorted(queue, key=lambda a: queue[a]["n_pub"])[:MATCH_PER_CYCLE * (25 if deep else 1)]:
         left = budget_s * 0.6 - (time.process_time() - t0)
         if left < 1:
             break
@@ -393,11 +393,23 @@ def run(cycle_id: str, net: Any, st: dict[str, Any], idx: dict[str, Any], claims
                 "stats": {"tries": 0, "beyond": 0, "cpu_s": 0.0}, "status": "matched"}
             matched_now.append({"anum": anum, "hits": m["hits"][:3]})
     # 3. push past the frontier, best expected new terms per CPU-second (short frontiers weighted up)
+    pushed = []
+    for _round in range(50 if deep else 1):     # the deep job keeps pushing until its budget is spent
+        n_before = len(pushed)
+        _push_round(ents, pushed, t0, budget_s, deep, record, push_max, claims, cycle_id)
+        if len(pushed) == n_before or budget_s - (time.process_time() - t0) < 1:
+            break
+    return {"searches": fetched, "matched": matched_now, "pushed": pushed, "queue": len(queue),
+            "candidates_seen": len(sp["seen"]), "cpu_s": round(time.process_time() - t0, 3)}
+
+
+def _push_round(ents: dict[str, Any], pushed: list[dict[str, Any]], t0: float, budget_s: float, deep: bool,
+                record: bool, push_max: int, claims: dict[str, Any], cycle_id: str) -> None:
+    cap_key = "intractable_deep" if deep else "intractable"
     live = [e for e in ents.values() if e.get("status") == "matched" and not e.get("claimed")
-            and not (e.get("intractable") and not deep)]
+            and not e.get(cap_key)]
     total = sum((e.get("stats") or {}).get("tries", 0) for e in live)
     live.sort(key=lambda e: -score(e, total))
-    pushed = []
     for e in live[:push_max]:
         left = budget_s - (time.process_time() - t0)
         if left < 1:
@@ -412,7 +424,7 @@ def run(cycle_id: str, net: Any, st: dict[str, Any], idx: dict[str, Any], claims
         s["tries"] += 1
         s["cpu_s"] = round(s["cpu_s"] + float(r.get("cpu_s") or 0), 3)
         if r["status"] == "intractable":
-            e["intractable"] = r.get("why")
+            e[cap_key] = r.get("why")
         if r["status"] in ("mismatch", "ambiguous definition"):
             e["status"] = r["status"]
         if r["status"] == LABEL_NEW:
@@ -423,8 +435,6 @@ def run(cycle_id: str, net: Any, st: dict[str, Any], idx: dict[str, Any], claims
         e["last"] = {k: r.get(k) for k in ("status", "why", "searched_to", "cpu_s", "ts")}
         pushed.append({k: v for k, v in r.items() if k not in ("values",)} | {"n_values": len(r.get("values") or [])}
                       | ({"values_head": r["values"][:5]} if r.get("values") else {}))
-    return {"searches": fetched, "matched": matched_now, "pushed": pushed, "queue": len(queue),
-            "candidates_seen": len(sp["seen"]), "cpu_s": round(time.process_time() - t0, 3)}
 
 
 def record_claim(claims: dict[str, Any], e: dict[str, Any], r: dict[str, Any], cycle_id: str, deep: bool) -> None:
