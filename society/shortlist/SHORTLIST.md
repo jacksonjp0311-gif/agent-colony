@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-10-17 06:56 PM ET
+# Proposal shortlist — 2026-10-17 10:51 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-45 of 58 proposals meet the authorize bar (45 after grouping near-duplicates; 28 colony-authored, 17 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+44 of 58 proposals meet the authorize bar (44 after grouping near-duplicates; 28 colony-authored, 16 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -17,7 +17,7 @@ View only: nothing here is authorized. Only James authorizes.
 | 9 | imp_96efa1_49 | 0.825 | 1.0 | 1.0 | APPROVE | 1 | 10 (0.825) | Enable `authored_crt_coprime_pair__cycle_spanning_trees_w1` (Oracle passed it in its own cycle); builds on crt_coprime_pair, cycle_spanning_trees; P 0.825, novelty 1.0. |
 | 10 | imp_b1face_50 | 0.825 | 1.0 | 1.0 | APPROVE | 1 | 11 (0.825) | Enable `authored_abel_summation__faulhaber_power_sums_w1` (Oracle passed it in its own cycle); builds on abel_summation, faulhaber_power_sums; P 0.825, novelty 1.0. |
 
-## Building blocks enabled (17 groups meet the bar)
+## Building blocks enabled (16 groups meet the bar)
 
 Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classical identity). They meet the bar but are not novel: novelty counts as 0 for ranking and they are kept out of the top list above.
 
@@ -36,7 +36,7 @@ Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classic
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 31 (actual 45). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 28 (0 with OEIS unchecked). Would drop out of the bar: 14; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 30 (actual 44). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 28 (0 with OEIS unchecked). Would drop out of the bar: 14; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
@@ -51,24 +51,24 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 31 (actual 45). Unknown clai
 | 9 | imp_94edc4_50 | `authored_alternating_binomial_row__cayley_hamilton_2x2_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 8 |
 | 10 | imp_96efa1_49 | `authored_crt_coprime_pair__cycle_spanning_trees_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 9 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 9, status: 8, target_unresolved: 1
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 11, novelty_killed: 8, status: 8, target_unresolved: 3
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 12 tested, 5 survived held-out, 7 falsified, 3 machine-checked, 1 surprises; dropped 93 duplicates, 34 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1795.
-Totals: tested 196, survived 106, surprises 12, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 10 tested, 7 survived held-out, 3 falsified, 2 machine-checked, 1 surprises; dropped 90 duplicates, 31 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1799.
+Totals: tested 224, survived 119, surprises 15, false surprises (failed later re-test) 0.
 
 | Statement | Label | OEIS | Hunt v |
 |---|---|---|---|
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
-| D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 9994 checks | not_found | 1.0 |
+| D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
+| S((part*phi))(n) = 1 (mod 2) for all n >= 1 | conjecture surviving 1988 checks | not_found | 1.0 |
 | S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | dbl(gcd(mu,n))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | dbl(gcd(mu,rad))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 29994 checks | not_found | 1.0 |
 | dbl(gcd(pell,sqfree))(n) = 0 (mod 2) for all n = 0 (mod 2) | conjecture surviving 1994 checks | not_found | 1.0 |
-| (bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n) | conjecture surviving 59988 checks | not_found,primitive | 1.0 |
 | D(pell)(n) = 1 (mod 2) for all n >= 1 | machine-checked (certificate) | found | 0.0 |
 | D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-checked (certificate) | found | 0.0 |
 | dbl(fib)(n) = 0 (mod 3) for all n = 0 (mod 2) | machine-checked (certificate) | found | 0.0 |

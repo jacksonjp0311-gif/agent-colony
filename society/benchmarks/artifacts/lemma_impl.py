@@ -2405,6 +2405,24 @@ def check_authored_polynomial_remainder__telescoping_sum_w1() -> bool:
     return all((check_polynomial_remainder(a) for a in range(21, 31))) and all((check_telescoping_sum(n) for n in range(40, 59)))
 
 
+def check_authored_frontier_le_x9abb4c98_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    (gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf-tau)', 'params': {}, 'rhs': 'dbl((gpf-bigomega))'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
+def check_authored_frontier_cong_x16b72492_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 29994 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D((sigma*sqfree))', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2659,6 +2677,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_multinomial_three__newton_identities_w1", check_authored_multinomial_three__newton_identities_w1, True),
     ("authored_odd_distinct_partitions__partition_conjugate_parts_w1", check_authored_odd_distinct_partitions__partition_conjugate_parts_w1, True),
     ("authored_polynomial_remainder__telescoping_sum_w1", check_authored_polynomial_remainder__telescoping_sum_w1, True),
+    ("authored_frontier_le_x9abb4c98_w1", check_authored_frontier_le_x9abb4c98_w1, True),
+    ("authored_frontier_cong_x16b72492_w1", check_authored_frontier_cong_x16b72492_w1, False),
 ]
 
 

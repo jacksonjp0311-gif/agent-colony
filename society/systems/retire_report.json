@@ -1,0 +1,20 @@
+{
+ "ts": "2026-10-18T02:49:19Z",
+ "mode": "live",
+ "n_authored": 140,
+ "n_candidates": 0,
+ "by_category": {},
+ "candidates": [],
+ "rule": {
+  "expected_min": 0.95,
+  "keep_min": 3,
+  "K": 0.10921,
+  "grace_hours": 2.0,
+  "max_per_run": 60
+ },
+ "cycle_id": "20261018T024910Z_03659d",
+ "applied": {
+  "applied": 0
+ },
+ "n_protected": 140
+}

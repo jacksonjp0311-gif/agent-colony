@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-17T22:56:13Z",
+  "ts": "2026-10-18T02:51:04Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 45,
-  "n_groups": 45,
+  "n_meet_bar": 44,
+  "n_groups": 44,
   "n_authored_groups": 28,
-  "n_building_block_groups": 17,
+  "n_building_block_groups": 16,
   "top": [
     {
       "id": "imp_17731c_50",
@@ -821,16 +821,16 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-17T22:56:13Z",
-    "cycle_id": "20261017T225501Z_425447",
+    "ts": "2026-10-18T02:51:04Z",
+    "cycle_id": "20261018T024910Z_03659d",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 0.5,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 45,
-    "n_meet_bar_shadow": 31,
+    "n_meet_bar_actual": 44,
+    "n_meet_bar_shadow": 30,
     "n_unknown_claims": 28,
     "unknown_targets": [
       "authored_abel_summation__faulhaber_power_sums_w1",
@@ -842,7 +842,7 @@
       "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_fermat_little__lucas_theorem_binomial_w1",
-      "authored_frontier_le_x46c5cc8a_w1",
+      "authored_frontier_le_x9abb4c98_w1",
       "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "authored_multinomial_three__newton_identities_w1",
       "authored_odd_distinct_partitions__partition_conjugate_parts_w1",
@@ -1021,11 +1021,11 @@
     }
   },
   "excluded_reasons": {
-    "novelty_killed": 9,
+    "target_unresolved": 3,
     "no_oracle_pass_in_own_cycle": 11,
     "status": 8,
     "hearing": 2,
-    "target_unresolved": 1
+    "novelty_killed": 8
   },
   "rule": {
     "P_min": 0.7,
@@ -1034,5 +1034,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261017T225501Z_425447"
+  "cycle_id": "20261018T024910Z_03659d"
 }
