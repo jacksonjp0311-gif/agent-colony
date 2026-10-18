@@ -88,10 +88,11 @@ def test_trivial_frontier_category():
     src = SRC.replace(FALLBACK_MARKER, 'def check_authored_frontier_le_xabc_w1() -> bool:\n    return True\n\n\n'
                       + FALLBACK_MARKER).replace(
         "HARD_TIER_LEMMAS: list = [\n", 'HARD_TIER_LEMMAS: list = [\n    ("authored_frontier_le_xabc_w1", check_authored_frontier_le_xabc_w1, True),\n')
-    p = _plan(src=src, frontier_new=lambda n: False)
+    rows = _oracle() + [{"mutation": "authored_frontier_le_xabc_w1", "passed": True, "ts": "2026-10-17T05:00:00Z"}]
+    p = _plan(src=src, oracle_rows=rows, frontier_new=lambda n: False)
     assert any(c["name"] == "authored_frontier_le_xabc_w1" and c["category"] == "trivial_frontier"
                for c in p["candidates"])
-    p = _plan(src=src, frontier_new=lambda n: None)  # cannot tell -> keep
+    p = _plan(src=src, oracle_rows=rows, frontier_new=lambda n: None)  # cannot tell -> keep
     assert not any(c["category"] == "trivial_frontier" for c in p["candidates"])
 
 
@@ -187,3 +188,10 @@ def test_apply_withdraws_proposals_and_restore_brings_them_back(tmp_path):
     assert R.restore("authored_alpha__beta_w1", path=lemma, record=rec, state_path=state)
     p1 = next(x for x in json.loads(state.read_text())["improvement_proposals"] if x["id"] == "p1")
     assert p1["status"] == "candidate_measured" and p1["withdrawn"]["restored_at"]
+
+
+def test_unjudged_checks_are_never_retired():
+    rows = [r for r in _oracle() if r["mutation"] != "authored_alpha__beta_w1"]
+    p = _plan(oracle_rows=rows)
+    assert "authored_alpha__beta_w1" not in {c["name"] for c in p["candidates"]}
+    assert p["protected"]["authored_alpha__beta_w1"] == "not judged by the Oracle yet"

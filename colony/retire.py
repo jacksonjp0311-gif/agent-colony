@@ -16,7 +16,8 @@ Rules (first match wins):
 Never retired (protected): anything on a receipt under society/receipts (authorized or decided);
 the target or a building block of a proposal currently meeting the shortlist bar; anything named
 in a human_guide lesson; catalog / hard-bench lemmas (not authored_*); anything named in colony/ or
-tests/ code; anything another remaining check calls; anything with an Oracle verdict in the last
+tests/ code; anything another remaining check calls; anything the Oracle has not judged yet or
+judged in the last
 GRACE_HOURS (its proposal may not be evaluated yet).
 
 Retire = remove the check's function and catalog entry from lemma_impl.py and append a record
@@ -250,6 +251,8 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
             why = "named in colony/ or tests/ code"
         elif n in called:
             why = "another check calls it"
+        elif n not in last_verdict:
+            why = "not judged by the Oracle yet"
         else:
             lv = _ts(last_verdict.get(n, ""))
             if lv and now - lv < timedelta(hours=GRACE_HOURS):
