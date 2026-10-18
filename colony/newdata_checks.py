@@ -19,24 +19,86 @@ def newdata_term(key, n):
     scratch by the independent method B. Bounded recomputation, not proof of novelty."""
     from colony import new_data as _nd
     return int(_nd.MENU[str(key)]["b"]([int(n)])[0])
+
+
+def newdata_point(item, k):
+    """Bridge to colony.sparse: f(k) of a sparse engine item, recomputed from scratch by method B
+    (single value). Bounded recomputation, not proof of novelty."""
+    from colony import sparse as _sp
+    return _sp.point_b(str(item), int(k))
 '''
-BRIDGE_FNS = ("newdata_term",)
+BRIDGE_FNS = ("newdata_term", "newdata_point")
+SLOT_EVERY = 3            # at most one new-data check in any SLOT_EVERY consecutive authoring slots
 N_TERMS = 3
 
 
 def ensure_bridges(src: str, marker: str) -> str:
+    if BRIDGE_MARKER in src and "def newdata_point(" not in src:      # upgrade an older bridge in place
+        i = src.index(BRIDGE_MARKER)
+        j = src.find("\n\n\n", src.index("def newdata_term(", i))
+        if j > 0:
+            return src[:i] + BRIDGE_SRC.rstrip("\n") + src[j:]
     if BRIDGE_MARKER in src or marker not in src:
         return src
     return src.replace(marker, BRIDGE_SRC + "\n\n" + marker, 1)
+
+
+# ----------------------------------------------------------------------------- authoring slots
+def slot_allows() -> bool:
+    """New-data checks are capped at one in every SLOT_EVERY authoring slots, so 'term = value' checks
+    cannot crowd out conjecture authoring."""
+    from colony.new_data import STATE, _load
+    recent = (_load(STATE, {}).get("author_slots") or [])[-(SLOT_EVERY - 1):]
+    return "newdata" not in recent
+
+
+def note_slot(source: str) -> None:
+    from colony.new_data import STATE, _load, _save
+    st = _load(STATE, {})
+    st["author_slots"] = (st.get("author_slots") or [])[-20:] + [str(source or "")]
+    _save(STATE, st)
 
 
 def check_name(c: dict[str, Any]) -> str:
     return f"{PREFIX}{c['anum'].lower()}_k{c['k_range'][0]}_w1"
 
 
+def build_sparse(c: dict[str, Any]) -> dict[str, Any] | None:
+    import ast
+    pairs = [[int(k), int(v)] for k, v in (c.get("pairs") or [])][:N_TERMS]
+    if not pairs or c.get("label") != "computed beyond published frontier (verified 2 ways)":
+        return None
+    name = check_name(c)
+    item = c["item"]
+    expr = f"all(type(x := newdata_point({item!r}, k)) is int and x == v for k, v in {pairs!r})"
+    try:
+        body = ast.parse(expr, mode="eval").body
+    except SyntaxError:
+        return None
+    what = {"terms": "the new terms", "first": "f(k) = n at each claimed first occurrence k",
+            "recpos": "the record value at each claimed record position", "recval": "each claimed record value"}.get(
+        c["op"], "the defining property at each claimed member")
+    fn_src = (
+        f"def check_{name}() -> bool:\n"
+        f'    """Authored new-data check (desk, sparse entry): {c["anum"]} ({c["op"]}) past the OEIS entry\n'
+        f"    ({c['frontier_source']}, checked {c['checked']}); scanned k <= {c.get('searched_to')} by {c['methods'][0]},\n"
+        f"    rescanned by {c['methods'][1]}. Recomputes {what} here from scratch (method B, single values;\n"
+        f"    minimality over the scanned range is in the ledger, not re-proved here). New data, not a theorem.\n"
+        f'    Disabled until the Oracle passes it.\n'
+        f'    """\n'
+        f"    return {expr}\n"
+    )
+    return {"name": name, "fn_src": fn_src, "body": body, "expr": expr, "components": [],
+            "verify_fns": ["newdata_point"], "evidence": ["colony/sparse.py", f"oeis:{c['anum']}", c["data_file"]],
+            "source": "newdata",
+            "what": f"authored disabled new-data check `{name}`: {c['anum']} {c['op']} past a short OEIS frontier"}
+
+
 def build(c: dict[str, Any]) -> dict[str, Any] | None:
     import ast
     from colony.new_data import ROOT
+    if c.get("kind") == "sparse":
+        return build_sparse(c)
     if c.get("op") != "terms" or c.get("label") != "computed beyond published frontier (verified 2 ways)":
         return None
     key = c["item"].split(":")[0]
@@ -73,14 +135,23 @@ def build(c: dict[str, Any]) -> dict[str, Any] | None:
 
 
 def candidates(existing_names: set[str], limit: int = 3) -> list[dict[str, Any]]:
+    """At most one check per sequence (any authored_newdata_<anum>_* name, kept, retired or rejected,
+    blocks the rest); sparse claims (short frontiers) first; sparse claims only when COLONY_NEWDATA_SPARSE=live."""
     from colony.new_data import CLAIMS, _load
+    from colony import sparse as _sp
     out = []
-    for c in sorted((_load(CLAIMS, {}).get("claims") or []), key=lambda c: c.get("ts") or ""):
-        if check_name(c) in existing_names:
+    taken = {n[len(PREFIX):].split("_k")[0] for n in existing_names if n.startswith(PREFIX)}
+    rows = sorted((_load(CLAIMS, {}).get("claims") or []),
+                  key=lambda c: (c.get("kind") != "sparse", c.get("ts") or ""))
+    for c in rows:
+        if c["anum"].lower() in taken or check_name(c) in existing_names:
+            continue
+        if c.get("kind") == "sparse" and _sp.mode() != "live":
             continue
         b = build(c)
         if b:
             out.append(b)
+            taken.add(c["anum"].lower())
         if len(out) >= limit:
             break
     return out
@@ -128,6 +199,8 @@ def self_test(force: bool = False) -> dict[str, Any]:
         checks["A002375"] = N.MENU["gb_u_odd"]["a"](12) == [0, 0, 1, 1, 2, 1, 2, 2, 2, 2, 3, 3]
         checks["A006577"] = N.MENU["col_steps"]["a"](10) == [0, 1, 7, 2, 5, 8, 16, 3, 19, 6]
         checks["A047160"] = N.MENU["gb_close"]["a"](12)[1:] == [0, 0, 1, 0, 1, 0, 3, 2, 3, 0, 1]
+        from colony import sparse as _sp
+        checks["sparse_engine"] = bool(_sp.self_test().get("ok"))
         res = {"ok": all(checks.values()), "checks": checks}
     except Exception as exc:  # noqa: BLE001
         res = {"ok": False, "checks": {}, "error": str(exc)[:200]}

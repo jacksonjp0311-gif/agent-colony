@@ -1,0 +1,70 @@
+# Agent Colony — nightly deep new-data search (Stage 1b; free GitHub Actions only)
+# One longer CPU budget (~25 min) for sparse OEIS targets (keyword more/hard, short frontier).
+# COLONY_NEWDATA_DEEP: shadow (default) = report only (society/frontier/deep_shadow.json; nothing
+# claimed or authored) | live = verified terms join society/frontier/claims.json | off.
+# Never authorizes; never touches the Oracle, the charter, TributeKeeper, the Ceiling or the gate.
+name: Colony new-data deep
+
+on:
+  schedule:
+    - cron: "17 7 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: colony-evolve
+  cancel-in-progress: false
+
+jobs:
+  deep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: OEIS search / b-file cache (polite fetches are cached for the month)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/colony/bfiles
+          key: oeis-bfiles-v1-${{ github.run_id }}
+          restore-keys: oeis-bfiles-v1-
+
+      - name: Deep sparse new-data search
+        timeout-minutes: 32
+        env:
+          COLONY_NEWDATA_DEEP: shadow
+          COLONY_NEWDATA_DEEP_BUDGET_S: "1500"
+        run: python -m colony.sparse deep
+
+      - name: Commit new-data outputs
+        run: |
+          set -euo pipefail
+          git config user.name "agent-colony-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A society/frontier society/systems/new_data.json || true
+          if git diff --staged --quiet; then
+            echo "No new-data changes (quiet success)"
+          else
+            git commit -m "ci(colony): new-data deep search $(date -u +%Y-%m-%dT%H%MZ)"
+            ok=0
+            for i in 1 2 3; do
+              if git pull --rebase --autostash && git push; then ok=1; break; fi
+              sleep 5
+            done
+            [ "$ok" = 1 ] || { echo "::error::push failed after 3 rebase attempts"; exit 1; }
+          fi

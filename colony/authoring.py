@@ -494,7 +494,9 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
                 ast.parse(bridged)
                 src, tree = bridged, ast.parse(bridged)
                 bodies = _existing_bodies(tree)
-            if not newdata_checks.pending(src):
+            # one in flight at a time; at most one new-data check per SLOT_EVERY authoring slots;
+            # at most one check per sequence (newdata_checks.candidates)
+            if not newdata_checks.pending(src) and newdata_checks.slot_allows():
                 candidates = newdata_checks.candidates(names | rejected) + candidates
     except Exception:
         pass
@@ -554,6 +556,11 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
         }
         if write:
             _lesson_for(row, cand, cycle_id)
+            try:
+                from colony import newdata_checks as _nk
+                _nk.note_slot(cand["source"])
+            except Exception:
+                pass
         out.append(row)
     return out
 

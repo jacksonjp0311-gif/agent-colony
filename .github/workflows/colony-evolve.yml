@@ -139,6 +139,7 @@ jobs:
           # new data past the OEIS frontier (colony/new_data.py): shadow = compute + ledger only;
           # live = verified terms also become authored checks the Oracle judges by recomputation
           COLONY_NEWDATA: live
+          COLONY_NEWDATA_SPARSE: shadow
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

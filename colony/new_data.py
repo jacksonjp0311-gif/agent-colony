@@ -49,6 +49,7 @@ TARGET_BUDGET_S = 20.0       # CPU seconds for one target
 DISCOVER_PER_CYCLE = 3
 MAX_BEYOND = 1000            # at most this many new terms per target per claim
 PROBE_N = 60
+SPARSE_BUDGET_S = 25.0       # of the cycle budget, spent first on sparse entries (colony.sparse)
 LABEL_NEW = "computed beyond published frontier (verified 2 ways)"
 LABEL_MATCH = "matches published"
 LABEL_UNVERIFIED = "unverified"
@@ -654,6 +655,8 @@ def score(entry: dict[str, Any], total_tries: int) -> float:
     st = entry.get("stats") or {}
     tries, beyond, cpu = st.get("tries", 0), st.get("beyond", 0), st.get("cpu_s", 0.0)
     ev = (beyond + 1.0) / (cpu + 1.0)
+    # extending a long b-file earns little: weight by 1 / (1 + published terms / 50)
+    ev *= 1.0 / (1.0 + float(entry.get("n_pub_terms") or 0) / 50.0)
     return ev + math.sqrt(2 * math.log(total_tries + 2) / (tries + 1))
 
 
@@ -682,6 +685,14 @@ def run_cycle(cycle_id: str = "", *, net: Net | None = None, lookup: Any = "defa
             e = idx["entries"].get(d["anum"])
             if e is None or e.get("item") is None:
                 idx["entries"][d["anum"]] = d | {"stats": {"tries": 0, "beyond": 0, "cpu_s": 0.0}}
+    # Stage 1b first: sparse OEIS entries (keyword more/hard, short frontier) found by OEIS search
+    sparse_res = None
+    from colony import sparse as _sp
+    if _sp.mode() != "off":
+        try:
+            sparse_res = _sp.run(cycle_id, net, st, idx, claims, min(SPARSE_BUDGET_S, budget_s))
+        except Exception as exc:  # noqa: BLE001
+            sparse_res = {"error": str(exc)[:200]}
     # choose: tractable entries ranked by learned EV per CPU-second
     ents = [e for e in idx["entries"].values() if e.get("status") == "matched" and not e.get("intractable")
             and not _done(e)]
@@ -712,7 +723,7 @@ def run_cycle(cycle_id: str = "", *, net: Net | None = None, lookup: Any = "defa
             break
     summary = {"ts": _utc(), "cycle_id": cycle_id, "mode": mode(), "discovered": [
         {k: d.get(k) for k in ("item", "status", "anum", "why")} for d in disc], "pushed": pushed,
-        "net_requests": net.n, "cpu_s": round(time.process_time() - t_start, 3),
+        "sparse": sparse_res, "net_requests": net.n, "cpu_s": round(time.process_time() - t_start, 3),
         "oeis_index": "available" if lookup else "absent"}
     st["last"] = summary
     st["history"] = (st.get("history") or [])[-40:] + [summary]
@@ -761,7 +772,9 @@ def _record_claim(claims: dict[str, Any], e: dict[str, Any], r: dict[str, Any], 
 
 
 def write_ledger(claims: dict[str, Any], idx: dict[str, Any]) -> None:
-    rows = sorted(claims.get("claims") or [], key=lambda c: (c["anum"], c["k_range"][0]))
+    allc = claims.get("claims") or []
+    rows = sorted([c for c in allc if c.get("kind") != "sparse"], key=lambda c: (c["anum"], c["k_range"][0]))
+    sparse = sorted([c for c in allc if c.get("kind") == "sparse"], key=lambda c: (c["anum"], c["k_range"][0]))
     lines = ["# New data ledger (colony.new_data)", "",
              "Every term here was computed past the OEIS b-file of its entry and recomputed by an independent "
              "second method; both agree. \"Beyond published frontier\" means beyond the OEIS b-file on the date "
@@ -775,6 +788,29 @@ def write_ledger(claims: dict[str, Any], idx: dict[str, Any]) -> None:
                      f"| {c['checked']} | {c['cpu_s']} | {c.get('how_sure', '')} |")
     if not rows:
         lines.append("| (none yet) | | | | | | | | | |")
+    lines += ["", "## Sparse entries (Stage 1b: OEIS keyword more/hard, short published frontier)", "",
+              "Found by OEIS search; identified by recomputing every published term; method B rescans the whole "
+              "range. These are the claims that could be genuinely new data.", "",
+              "| OEIS | name | keywords | published terms | new terms | first new | last new | item:op | scanned to k | "
+              "methods (A / B) | frontier source | checked | how sure it is unpublished |",
+              "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+    for c in sparse:
+        lines.append(f"| {c['anum']} | {(c.get('name') or '')[:80]} | {','.join(c.get('keywords') or [])} "
+                     f"| {c.get('n_pub_terms')} | {c['n_terms']} | a({c['first'][0]}) = {c['first'][1]} "
+                     f"| a({c['last'][0]}) = {c['last'][1]} | {c['item']}:{c['op']} | {c.get('searched_to')} "
+                     f"| {c['methods'][0]} / {c['methods'][1]} | {c['frontier_source']} | {c['checked']} "
+                     f"| {c.get('how_sure', '')} |")
+    if not sparse:
+        lines.append("| (none yet) | | | | | | | | | | | | |")
+    lines += ["", "### Sparse targets the colony identified", "",
+              "| OEIS | name | published terms | matched as | status | scanned to k | tries | new terms | CPU s |",
+              "|---|---|---|---|---|---|---|---|---|"]
+    for a, e in sorted((idx.get("sparse") or {}).items()):
+        s = e.get("stats") or {}
+        h = (e.get("hits") or [{}])[0]
+        lines.append(f"| {a} | {(e.get('name') or '')[:80]} | {e.get('n_pub')} | {h.get('item')}:{h.get('op')} "
+                     f"(shift {h.get('d')}) | {e.get('intractable') or (e.get('last') or {}).get('status') or e.get('status')} "
+                     f"| {e.get('searched_to', '')} | {s.get('tries', 0)} | {s.get('beyond', 0)} | {s.get('cpu_s', 0)} |")
     lines += ["", "Full values: `society/frontier/data/<A-number>_beyond.txt` (b-file format).", "",
               "## Targets the colony identified", "",
               "| OEIS | menu item | published frontier (b-file k max) | status | tries | new terms | CPU s |",
