@@ -2,17 +2,17 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-18T12:22:38Z",
-    "cycle_id": "20261018T122117Z_9369ae",
+    "ts": "2026-10-18T12:51:45Z",
+    "cycle_id": "20261018T125007Z_d077dc",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 13,
-    "n_meet_bar_shadow": 11,
-    "n_unknown_claims": 9,
+    "n_meet_bar_actual": 12,
+    "n_meet_bar_shadow": 10,
+    "n_unknown_claims": 10,
     "unknown_targets": [
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
@@ -21,6 +21,7 @@
       "authored_frontier_divides_x0b1db873_w1",
       "authored_frontier_le_xdbff107c_w1",
       "authored_frontier_rec_xa92258f8_w1",
+      "authored_newdata_a002375_k20001_w1",
       "authored_sieve_hl_within_g2_6_w1",
       "authored_sieve_two_counter_g4_6_w1"
     ],
@@ -34,7 +35,7 @@
       {
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
-        "actual_pos": 10,
+        "actual_pos": 9,
         "shadow_pos": 1,
         "meets_bar_shadow": true,
         "rank": 0.5252,
@@ -62,7 +63,7 @@
       {
         "id": "imp_f7b051_50",
         "target": "lagrange_cyclic_orders",
-        "actual_pos": 13,
+        "actual_pos": 12,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.495,
@@ -130,24 +131,10 @@
         "expected": 0.0
       },
       {
-        "id": "imp_dfaa7b_50",
-        "target": "polynomial_remainder",
-        "actual_pos": 8,
-        "shadow_pos": 8,
-        "meets_bar_shadow": true,
-        "rank": 0.526,
-        "rank_shadow": 0.651,
-        "P": 0.8766,
-        "P_shadow": 0.7516,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
-      },
-      {
         "id": "imp_2eb8c7_50",
         "target": "abel_summation",
-        "actual_pos": 9,
-        "shadow_pos": 9,
+        "actual_pos": 8,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.5256,
         "rank_shadow": 0.6506,
@@ -160,6 +147,20 @@
       {
         "id": "imp_1a4ec1_50",
         "target": "telescoping_sum",
+        "actual_pos": 10,
+        "shadow_pos": 9,
+        "meets_bar_shadow": true,
+        "rank": 0.495,
+        "rank_shadow": 0.62,
+        "P": 0.825,
+        "P_shadow": 0.7,
+        "unknown": false,
+        "building_block": "catalog_refill",
+        "expected": 0.0
+      },
+      {
+        "id": "imp_3a02ab_50",
+        "target": "burnside_necklaces",
         "actual_pos": 11,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -173,57 +174,12 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-18T06:13:46Z",
-      "cycle_id": "20261018T061234Z_f61849",
-      "n_meet_bar_actual": 16,
-      "n_meet_bar_shadow": 16,
-      "n_unknown_claims": 6,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T06:14:58Z",
-      "cycle_id": "20261018T061346Z_8638b3",
-      "n_meet_bar_actual": 16,
-      "n_meet_bar_shadow": 16,
-      "n_unknown_claims": 6,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T06:50:48Z",
-      "cycle_id": "20261018T064925Z_1e346a",
-      "n_meet_bar_actual": 16,
-      "n_meet_bar_shadow": 16,
-      "n_unknown_claims": 7,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-18T06:51:52Z",
       "cycle_id": "20261018T065048Z_aa0bb0",
@@ -625,6 +581,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T12:48:29Z",
+      "cycle_id": "20261018T124652Z_9c8fd6",
+      "n_meet_bar_actual": 12,
+      "n_meet_bar_shadow": 10,
+      "n_unknown_claims": 9,
+      "drop_out_of_bar": 2,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T12:50:07Z",
+      "cycle_id": "20261018T124829Z_74e36f",
+      "n_meet_bar_actual": 12,
+      "n_meet_bar_shadow": 10,
+      "n_unknown_claims": 9,
+      "drop_out_of_bar": 2,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T12:51:45Z",
+      "cycle_id": "20261018T125007Z_d077dc",
+      "n_meet_bar_actual": 12,
+      "n_meet_bar_shadow": 10,
+      "n_unknown_claims": 10,
+      "drop_out_of_bar": 2,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }

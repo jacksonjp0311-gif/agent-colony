@@ -56,67 +56,218 @@
     }
    ],
    "ts": "2026-10-18T12:22:32Z"
+  },
+  {
+   "cpu_s": 0.649,
+   "cycle_id": "20261018T124652Z_9c8fd6",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_u_all:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": "A053033",
+     "item": "gb_u_all:recpos",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": null,
+     "item": "gb_u_all:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A053033",
+     "est_cpu_s": 391.9,
+     "item": "gb_u_all:recpos",
+     "n_values": 0,
+     "status": "intractable",
+     "ts": "2026-10-18T12:48:22Z",
+     "why": "published records reach n ~ 9699691; beyond the CPU budget"
+    }
+   ],
+   "ts": "2026-10-18T12:48:22Z"
+  },
+  {
+   "cpu_s": 0.475,
+   "cycle_id": "20261018T124829Z_74e36f",
+   "discovered": [
+    {
+     "anum": "A035026",
+     "item": "gb_o_all:terms",
+     "status": "matched",
+     "why": null
+    },
+    {
+     "anum": null,
+     "item": "gb_o_all:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_o_all:recval",
+     "status": "frontier unknown",
+     "why": "b-file not fetched (network / rate limit)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A035026",
+     "checked": "2026-10-18T12:50:00Z",
+     "cpu_a": 0.009,
+     "cpu_b": 0.366,
+     "cpu_s": 0.376,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 10000,
+     "item": "gb_o_all:terms",
+     "linked_k_max": 10000,
+     "methods": [
+      "numpy FFT convolution of the prime indicator (floating point, rounded)",
+      "direct integer enumeration over an independent odd-only sieve"
+     ],
+     "n_values": 1000,
+     "ns": [
+      10001,
+      11000
+     ],
+     "op": "terms",
+     "pub_k_max": 10000,
+     "sha256": "7587365638dd226b",
+     "source": "https://oeis.org/A035026/b035026.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-10-18T12:50:00Z"
+    }
+   ],
+   "ts": "2026-10-18T12:50:01Z"
+  },
+  {
+   "cpu_s": 0.059,
+   "cycle_id": "20261018T125007Z_d077dc",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min:recpos",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_min:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 4,
+   "oeis_index": "available",
+   "pushed": [],
+   "ts": "2026-10-18T12:51:38Z"
   }
  ],
  "last": {
-  "cpu_s": 0.737,
-  "cycle_id": "20261018T122117Z_9369ae",
+  "cpu_s": 0.059,
+  "cycle_id": "20261018T125007Z_d077dc",
   "discovered": [
    {
-    "anum": "A002375",
-    "item": "gb_u_odd:terms",
-    "status": "matched",
-    "why": null
+    "anum": null,
+    "item": "gb_min:terms",
+    "status": "not_in_oeis",
+    "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_u_odd:recpos",
+    "item": "gb_min:recpos",
     "status": "no_alignment",
     "why": "OEIS terms differ beyond the probe"
    },
    {
     "anum": null,
-    "item": "gb_u_odd:recval",
-    "status": "frontier unknown",
-    "why": "b-file not fetched (network / rate limit)"
+    "item": "gb_min:recval",
+    "status": "no_alignment",
+    "why": "OEIS terms differ beyond the probe"
    }
   ],
-  "mode": "shadow",
-  "net_requests": 6,
+  "mode": "live",
+  "net_requests": 4,
   "oeis_index": "available",
-  "pushed": [
-   {
-    "anum": "A002375",
-    "checked": "2026-10-18T12:22:31Z",
-    "cpu_a": 0.018,
-    "cpu_b": 0.624,
-    "cpu_s": 0.642,
-    "d": 0,
-    "first_disagreement": null,
-    "frontier_n": 20000,
-    "item": "gb_u_odd:terms",
-    "linked_k_max": 20000,
-    "methods": [
-     "numpy FFT convolution of the prime indicator (floating point, rounded)",
-     "direct integer enumeration over an independent odd-only sieve"
-    ],
-    "n_values": 1000,
-    "ns": [
-     20001,
-     21000
-    ],
-    "op": "terms",
-    "pub_k_max": 20000,
-    "sha256": "e917a47a97e47f19",
-    "source": "https://oeis.org/A002375/b002375.txt",
-    "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T12:22:31Z"
-   }
-  ],
-  "ts": "2026-10-18T12:22:32Z"
+  "pushed": [],
+  "ts": "2026-10-18T12:51:38Z"
  },
- "mode": "shadow",
+ "mode": "live",
  "tried_items": {
+  "gb_min:recpos": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T12:51:32Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_min:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T12:51:34Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_min:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T12:51:32Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_o_all:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T12:49:56Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_o_all:recval": {
+   "anum": null,
+   "status": "frontier unknown",
+   "ts": "2026-10-18T12:49:56Z",
+   "why": "b-file not fetched (network / rate limit)"
+  },
+  "gb_o_all:terms": {
+   "anum": "A035026",
+   "status": "matched",
+   "ts": "2026-10-18T12:49:50Z",
+   "why": null
+  },
+  "gb_u_all:recpos": {
+   "anum": "A053033",
+   "status": "matched",
+   "ts": "2026-10-18T12:48:12Z",
+   "why": null
+  },
+  "gb_u_all:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T12:48:12Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_u_all:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T12:48:12Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
   "gb_u_odd:recpos": {
    "anum": null,
    "status": "no_alignment",

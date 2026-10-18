@@ -41,6 +41,88 @@
    "status": "matched",
    "ts": "2026-10-18T12:22:21Z",
    "what": "unordered Goldbach partitions of 2n into odd primes"
+  },
+  "A035026": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A035026",
+   "checked": "2026-10-18T12:50:00Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.009062708000001862
+   },
+   "done_for_sha": "7587365638dd226b",
+   "item": "gb_o_all:terms",
+   "last": {
+    "cpu_s": 0.376,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:50:00Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of times that i and 2n-i are both prime, for i = 1, ..., 2n-1.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 462,
+   "sha256": "7587365638dd226b",
+   "source": "https://oeis.org/A035026/b035026.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.376,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:49:50Z",
+   "what": "ordered Goldbach partitions of 2n"
+  },
+  "A053033": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A053033",
+   "checked": "2026-10-18T12:48:22Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 0.0007549032380954454,
+    "cpu_s": 0.015433313999999143
+   },
+   "intractable": "published records reach n ~ 9699691; beyond the CPU budget",
+   "item": "gb_u_all:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:48:22Z",
+    "why": "published records reach n ~ 9699691; beyond the CPU budget"
+   },
+   "n_pub_terms": 266,
+   "name": "Numbers which are the average of two primes in more ways than any smaller number.",
+   "probe_cpu_s": 0.0161,
+   "pub_k_max": 266,
+   "pub_k_min": 1,
+   "pub_last": 9699690,
+   "sha256": "1d44bac0854427bb",
+   "source": "https://oeis.org/A053033/b053033.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:48:12Z",
+   "what": "unordered Goldbach partitions of 2n (2 allowed) (recpos)"
   }
  },
  "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data."

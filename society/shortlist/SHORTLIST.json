@@ -1,11 +1,11 @@
 {
-  "ts": "2026-10-18T12:22:38Z",
+  "ts": "2026-10-18T12:51:45Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 13,
-  "n_groups": 13,
+  "n_meet_bar": 12,
+  "n_groups": 12,
   "n_authored_groups": 7,
-  "n_building_block_groups": 6,
+  "n_building_block_groups": 5,
   "top": [
     {
       "id": "imp_15e6c5_50",
@@ -74,14 +74,14 @@
         "oeis_reuse": 0.0833,
         "oeis_checked": true,
         "family": "authored_sieve_two_counter",
-        "siblings_passed": 18,
-        "expected": 0.994,
-        "novelty_shadow": 0.006,
+        "siblings_passed": 19,
+        "expected": 0.9943,
+        "novelty_shadow": 0.0057,
         "chained_by": null,
-        "P_shadow": 0.5765,
+        "P_shadow": 0.5764,
         "meets_bar_shadow": false,
-        "rank_shadow": 0.4471,
-        "shadow_pos": 13
+        "rank_shadow": 0.447,
+        "shadow_pos": 12
       },
       "group_count": 1,
       "group_ids": [
@@ -205,7 +205,7 @@
         "P_shadow": 0.6269,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4773,
-        "shadow_pos": 12
+        "shadow_pos": 11
       },
       "group_count": 1,
       "group_ids": [
@@ -299,45 +299,6 @@
   ],
   "building_blocks_enabled": [
     {
-      "id": "imp_dfaa7b_50",
-      "title": "Chain `polynomial_remainder` citing Multidimensional Szemer\u00e9di Theorem for Pairwise In",
-      "cycle_id": "20261017T163657Z_dfaa7b",
-      "target": "polynomial_remainder",
-      "family": "polynomial_remainder",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.8766,
-      "P_stored": 0.8766,
-      "novelty": 0.0,
-      "novelty_raw": 1.0,
-      "building_block": "catalog_refill",
-      "builds_on": 0.0,
-      "building_blocks": [],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.526,
-      "hunt": {
-        "unknown": false,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "polynomial_remainder",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 0.5,
-        "chained_by": 1,
-        "P_shadow": 0.7516,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.651,
-        "shadow_pos": 8
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_dfaa7b_50"
-      ],
-      "position": 1,
-      "line": "Building block `polynomial_remainder` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8766."
-    },
-    {
       "id": "imp_2eb8c7_50",
       "title": "Chain+seek `abel_summation` from invariant priors",
       "cycle_id": "20261017T164508Z_2eb8c7",
@@ -367,13 +328,13 @@
         "P_shadow": 0.751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.6506,
-        "shadow_pos": 9
+        "shadow_pos": 8
       },
       "group_count": 1,
       "group_ids": [
         "imp_2eb8c7_50"
       ],
-      "position": 2,
+      "position": 1,
       "line": "Building block `abel_summation` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.876."
     },
     {
@@ -412,7 +373,7 @@
       "group_ids": [
         "imp_fa5f3d_50"
       ],
-      "position": 3,
+      "position": 2,
       "line": "Building block `faulhaber_power_sums` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.8754."
     },
     {
@@ -445,13 +406,13 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 10
+        "shadow_pos": 9
       },
       "group_count": 1,
       "group_ids": [
         "imp_1a4ec1_50"
       ],
-      "position": 4,
+      "position": 3,
       "line": "Building block `telescoping_sum` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -484,13 +445,13 @@
         "P_shadow": 0.7,
         "meets_bar_shadow": true,
         "rank_shadow": 0.62,
-        "shadow_pos": 11
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
         "imp_3a02ab_50"
       ],
-      "position": 5,
+      "position": 4,
       "line": "Building block `burnside_necklaces` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     },
     {
@@ -529,22 +490,22 @@
       "group_ids": [
         "imp_f7b051_50"
       ],
-      "position": 6,
+      "position": 5,
       "line": "Building block `lagrange_cyclic_orders` (catalog refill; textbook, not novel) \u2014 Oracle passed it in its own cycle; P 0.825."
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-10-18T12:22:38Z",
-    "cycle_id": "20261018T122117Z_9369ae",
+    "ts": "2026-10-18T12:51:45Z",
+    "cycle_id": "20261018T125007Z_d077dc",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 13,
-    "n_meet_bar_shadow": 11,
-    "n_unknown_claims": 9,
+    "n_meet_bar_actual": 12,
+    "n_meet_bar_shadow": 10,
+    "n_unknown_claims": 10,
     "unknown_targets": [
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
@@ -553,6 +514,7 @@
       "authored_frontier_divides_x0b1db873_w1",
       "authored_frontier_le_xdbff107c_w1",
       "authored_frontier_rec_xa92258f8_w1",
+      "authored_newdata_a002375_k20001_w1",
       "authored_sieve_hl_within_g2_6_w1",
       "authored_sieve_two_counter_g4_6_w1"
     ],
@@ -566,7 +528,7 @@
       {
         "id": "imp_fa5f3d_50",
         "target": "faulhaber_power_sums",
-        "actual_pos": 10,
+        "actual_pos": 9,
         "shadow_pos": 1,
         "meets_bar_shadow": true,
         "rank": 0.5252,
@@ -594,7 +556,7 @@
       {
         "id": "imp_f7b051_50",
         "target": "lagrange_cyclic_orders",
-        "actual_pos": 13,
+        "actual_pos": 12,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.495,
@@ -662,24 +624,10 @@
         "expected": 0.0
       },
       {
-        "id": "imp_dfaa7b_50",
-        "target": "polynomial_remainder",
-        "actual_pos": 8,
-        "shadow_pos": 8,
-        "meets_bar_shadow": true,
-        "rank": 0.526,
-        "rank_shadow": 0.651,
-        "P": 0.8766,
-        "P_shadow": 0.7516,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
-      },
-      {
         "id": "imp_2eb8c7_50",
         "target": "abel_summation",
-        "actual_pos": 9,
-        "shadow_pos": 9,
+        "actual_pos": 8,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.5256,
         "rank_shadow": 0.6506,
@@ -692,6 +640,20 @@
       {
         "id": "imp_1a4ec1_50",
         "target": "telescoping_sum",
+        "actual_pos": 10,
+        "shadow_pos": 9,
+        "meets_bar_shadow": true,
+        "rank": 0.495,
+        "rank_shadow": 0.62,
+        "P": 0.825,
+        "P_shadow": 0.7,
+        "unknown": false,
+        "building_block": "catalog_refill",
+        "expected": 0.0
+      },
+      {
+        "id": "imp_3a02ab_50",
+        "target": "burnside_necklaces",
         "actual_pos": 11,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -705,17 +667,17 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
     "status": 37,
-    "target_unresolved": 30,
+    "target_unresolved": 29,
     "no_oracle_pass_in_own_cycle": 10,
     "trivial_by_filter": 2,
-    "novelty_killed": 14,
+    "novelty_killed": 15,
     "hearing": 2
   },
   "rule": {
@@ -725,5 +687,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261018T122117Z_9369ae"
+  "cycle_id": "20261018T125007Z_d077dc"
 }

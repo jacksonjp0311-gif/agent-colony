@@ -34,6 +34,41 @@
    "name": "From Goldbach conjecture: number of decompositions of 2n into an unordered sum of two odd primes.",
    "op": "terms",
    "ts": "2026-10-18T12:22:32Z"
+  },
+  {
+   "anum": "A035026",
+   "bfile_sha256": "7587365638dd226b",
+   "checked": "2026-10-18T12:50:00Z",
+   "cpu_s": 0.376,
+   "cycle_id": "20261018T124829Z_74e36f",
+   "d": 0,
+   "data_file": "society/frontier/data/A035026_beyond.txt",
+   "first": [
+    10001,
+    352
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A035026/b035026.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "gb_o_all:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    544
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "numpy FFT convolution of the prime indicator (floating point, rounded)",
+    "direct integer enumeration over an independent odd-only sieve"
+   ],
+   "n_terms": 1000,
+   "name": "Number of times that i and 2n-i are both prime, for i = 1, ..., 2n-1.",
+   "op": "terms",
+   "ts": "2026-10-18T12:50:01Z"
   }
  ]
 }
