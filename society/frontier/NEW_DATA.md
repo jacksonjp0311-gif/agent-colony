@@ -13,6 +13,20 @@ Every term here was computed past the OEIS b-file of its entry and recomputed by
 | A047160 | For n >= 2, a(n) = smallest number m >= 0 such that n-m and n+m are bo | 10001..11000 | a(10001) = 60 | a(11000) = 27 | sieve scan downward from n / Miller-Rabin scan outward from n | https://oeis.org/A047160/b047160.txt (k <= 10000) | 2026-10-18T12:55:48Z | 0.091 | beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere |
 | A102419 | "Dropping time" in 3x+1 problem starting at n (number of steps to reac | 10001..11000 | a(10001) = 3 | a(11000) = 1 | memoized iteration (stops at the first smaller value) / naive bit-level iteration with the (3x+1)/2 shortcut | https://oeis.org/A102419/b102419.txt (k <= 10000) | 2026-10-18T13:04:41Z | 0.02 | beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere |
 
+## Sparse entries (Stage 1b: OEIS keyword more/hard, short published frontier)
+
+Found by OEIS search; identified by recomputing every published term; method B rescans the whole range. These are the claims that could be genuinely new data.
+
+| OEIS | name | keywords | published terms | new terms | first new | last new | item:op | scanned to k | methods (A / B) | frontier source | checked | how sure it is unpublished |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| (none yet) | | | | | | | | | | | | |
+
+### Sparse targets the colony identified
+
+| OEIS | name | published terms | matched as | status | scanned to k | tries | new terms | CPU s |
+|---|---|---|---|---|---|---|---|---|
+| A228014 | Numbers k whose Collatz sequence length is greater than k+1 (counting both the x | 28 | col_steps:fgtk (shift 0) | matches published | 4000 | 1 | 0 | 0.01 |
+
 Full values: `society/frontier/data/<A-number>_beyond.txt` (b-file format).
 
 ## Targets the colony identified

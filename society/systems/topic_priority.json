@@ -66,6 +66,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.1007/s00026-026-00827-9>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -76,12 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
+      "topic": "binomial(2*n-2*k-1",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-18T13:16:22Z",
-  "updated_cycle": "20261018T131524Z_a78a7f",
+  "updated_at": "2026-10-18T13:58:07Z",
+  "updated_cycle": "20261018T135708Z_b26b2e",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

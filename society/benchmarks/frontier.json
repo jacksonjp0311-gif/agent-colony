@@ -328,7 +328,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 59800001,
+        "hi": 61400001,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -340,15 +340,9 @@
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-10-18T13:06:58Z",
-      "runs": 51,
+      "last_run": "2026-10-18T13:57:55Z",
+      "runs": 52,
       "extensions": [
-        {
-          "ts": "2026-10-18T03:05:11Z",
-          "lo": 43800002,
-          "hi": 45400001,
-          "seconds": 2.1715
-        },
         {
           "ts": "2026-10-18T03:19:57Z",
           "lo": 45400002,
@@ -402,6 +396,12 @@
           "lo": 58200002,
           "hi": 59800001,
           "seconds": 1.6046
+        },
+        {
+          "ts": "2026-10-18T13:57:55Z",
+          "lo": 59800002,
+          "hi": 61400001,
+          "seconds": 2.5178
         }
       ],
       "stall_streak": 0,
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-18T13:16:14Z"
+  "updated_at": "2026-10-18T13:57:58Z"
 }

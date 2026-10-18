@@ -2192,15 +2192,6 @@ def check_authored_frontier_cong_xa68963c2_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(gcd(digsum,phi))', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 3}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
-def check_authored_sieve_residue_bal_g4_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (4,) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((4,), a, b, 4, 1)) is int and type(y := sieve_count((4,), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
 def check_authored_sieve_hl_within_g2_4_w1() -> bool:
     """Authored instrument check (desk): count of consecutive pattern (2, 4) on each window is within 4.0*sqrt of the HL forecast.
     Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
@@ -2219,33 +2210,6 @@ def check_authored_frontier_cong_x94023555_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'sigma[digsum]', 'params': {'m': 3, 'q': 3, 'r': 0, 's': 2}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
-def check_authored_sieve_two_counter_g4_6_w1() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (4, 6).
-    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((4, 6), a, b)) is int and c > 0 and c == sieve_count((4, 6), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
-
-
-def check_authored_sieve_residue_bal_g6_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (6,) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((6,), a, b, 4, 1)) is int and type(y := sieve_count((6,), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
-def check_authored_sieve_hl_within_g2_6_w1() -> bool:
-    """Authored instrument check (desk): count of consecutive pattern (2, 6) on each window is within 4.0*sqrt of the HL forecast.
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((2, 6), a, b)) is int and type(h := sieve_hl((2, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
 def check_authored_sieve_two_counter_g2_4_6_w1() -> bool:
     """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (2, 4, 6).
     Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
@@ -2261,6 +2225,13 @@ def newdata_term(key, n):
     scratch by the independent method B. Bounded recomputation, not proof of novelty."""
     from colony import new_data as _nd
     return int(_nd.MENU[str(key)]["b"]([int(n)])[0])
+
+
+def newdata_point(item, k):
+    """Bridge to colony.sparse: f(k) of a sparse engine item, recomputed from scratch by method B
+    (single value). Bounded recomputation, not proof of novelty."""
+    from colony import sparse as _sp
+    return _sp.point_b(str(item), int(k))
 
 
 def check_authored_newdata_a002375_k20001_w1() -> bool:
@@ -2324,6 +2295,15 @@ def check_authored_newdata_a025586_k10001_w1() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(x := newdata_term('col_max', n)) is int and x == v for n, v in [(10001, 250504), (10002, 32056), (10003, 45016)])
+
+
+def check_authored_frontier_cong_x29d14f44_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 29994 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D((digsum*digsum))', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2559,12 +2539,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_xdbff107c_w1", check_authored_frontier_le_xdbff107c_w1, True),
     ("authored_frontier_divides_x0b1db873_w1", check_authored_frontier_divides_x0b1db873_w1, True),
     ("authored_frontier_cong_xa68963c2_w1", check_authored_frontier_cong_xa68963c2_w1, True),
-    ("authored_sieve_residue_bal_g4_w1", check_authored_sieve_residue_bal_g4_w1, True),
     ("authored_sieve_hl_within_g2_4_w1", check_authored_sieve_hl_within_g2_4_w1, True),
     ("authored_frontier_cong_x94023555_w1", check_authored_frontier_cong_x94023555_w1, True),
-    ("authored_sieve_two_counter_g4_6_w1", check_authored_sieve_two_counter_g4_6_w1, True),
-    ("authored_sieve_residue_bal_g6_w1", check_authored_sieve_residue_bal_g6_w1, True),
-    ("authored_sieve_hl_within_g2_6_w1", check_authored_sieve_hl_within_g2_6_w1, True),
     ("authored_sieve_two_counter_g2_4_6_w1", check_authored_sieve_two_counter_g2_4_6_w1, True),
     ("authored_newdata_a002375_k20001_w1", check_authored_newdata_a002375_k20001_w1, True),
     ("authored_newdata_a035026_k10001_w1", check_authored_newdata_a035026_k10001_w1, True),
@@ -2573,6 +2549,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_newdata_a006667_k10001_w1", check_authored_newdata_a006667_k10001_w1, True),
     ("authored_newdata_a006666_k10001_w1", check_authored_newdata_a006666_k10001_w1, True),
     ("authored_newdata_a025586_k10001_w1", check_authored_newdata_a025586_k10001_w1, True),
+    ("authored_frontier_cong_x29d14f44_w1", check_authored_frontier_cong_x29d14f44_w1, False),
 ]
 
 

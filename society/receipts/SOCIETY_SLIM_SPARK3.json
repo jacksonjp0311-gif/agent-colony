@@ -1,25 +1,25 @@
 {
-  "when": "2026-10-18T13:17:18Z",
+  "when": "2026-10-18T13:59:03Z",
   "mile": "spark3-port",
-  "cycle_count": 555,
+  "cycle_count": 556,
   "fitness_latest": {
-    "ts": "2026-10-18T13:16:40Z",
-    "cycle_id": "20261018T131524Z_a78a7f",
+    "ts": "2026-10-18T13:58:26Z",
+    "cycle_id": "20261018T135708Z_b26b2e",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.76,
+    "comm_reply_rate": 0.7692,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8087,
-    "compute_usefulness": 0.9069,
+    "math_prize": 0.8135,
+    "compute_usefulness": 0.9064,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8813,
+    "prize_boost": 0.8833,
     "kill_rate": 0.3015,
     "kill_rate_term": 0.8213,
     "novelty": 0.8621,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8568,
+    "aggregate": 0.8582,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -44,7 +44,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8654
+    "aggregate_score": 0.8638
   },
   "novelty_gate": {
     "hits": 25,
@@ -54,7 +54,7 @@
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.9286,
+      "reply_rate": 0.9643,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "reply_quality": 0.912
@@ -64,7 +64,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261018T131524Z_a78a7f"
+    "cycle_id": "20261018T135708Z_b26b2e"
   },
   "oracle": {
     "passes": 424,

@@ -1,4 +1,7 @@
 {
+ "author_slots": [
+  "frontier"
+ ],
  "history": [
   {
    "cpu_s": 0.737,
@@ -769,38 +772,326 @@
    "oeis_index": "available",
    "pushed": [],
    "ts": "2026-10-18T13:17:02Z"
+  },
+  {
+   "cpu_s": 4.086,
+   "cycle_id": "20261018T135708Z_b26b2e",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls3_2:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls3_2:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls3_2:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 30,
+    "cpu_s": 3.49,
+    "matched": [
+     {
+      "anum": "A228014",
+      "hits": [
+       {
+        "N": 111,
+        "d": 0,
+        "item": "col_steps",
+        "op": "fgtk"
+       }
+      ]
+     }
+    ],
+    "pushed": [
+     {
+      "anum": "A228014",
+      "cpu_s": 0.01,
+      "item": "col_steps",
+      "n_values": 0,
+      "op": "fgtk",
+      "searched_to": 4000,
+      "status": "matches published",
+      "ts": "2026-10-18T13:58:44Z",
+      "why": "no further term up to k = 4000"
+     }
+    ],
+    "queue": 0,
+    "searches": [
+     "keyword:more Collatz @0",
+     "keyword:more Collatz @10",
+     "keyword:more Collatz @20"
+    ]
+   },
+   "ts": "2026-10-18T13:58:44Z"
   }
  ],
  "last": {
-  "cpu_s": 13.838,
-  "cycle_id": "20261018T131524Z_a78a7f",
+  "cpu_s": 4.086,
+  "cycle_id": "20261018T135708Z_b26b2e",
   "discovered": [
    {
     "anum": null,
-    "item": "gb_min_cls3_1:terms",
+    "item": "gb_cls3_2:terms",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_min_cls3_1:recpos",
+    "item": "gb_cls3_2:recpos",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_min_cls3_1:recval",
-    "status": "not_in_oeis",
-    "why": "not found in the local OEIS index (frontier unknown)"
+    "item": "gb_cls3_2:recval",
+    "status": "no_alignment",
+    "why": "OEIS terms differ beyond the probe"
    }
   ],
   "mode": "live",
-  "net_requests": 0,
+  "net_requests": 3,
   "oeis_index": "available",
   "pushed": [],
-  "ts": "2026-10-18T13:17:02Z"
+  "sparse": {
+   "candidates_seen": 30,
+   "cpu_s": 3.49,
+   "matched": [
+    {
+     "anum": "A228014",
+     "hits": [
+      {
+       "N": 111,
+       "d": 0,
+       "item": "col_steps",
+       "op": "fgtk"
+      }
+     ]
+    }
+   ],
+   "pushed": [
+    {
+     "anum": "A228014",
+     "cpu_s": 0.01,
+     "item": "col_steps",
+     "n_values": 0,
+     "op": "fgtk",
+     "searched_to": 4000,
+     "status": "matches published",
+     "ts": "2026-10-18T13:58:44Z",
+     "why": "no further term up to k = 4000"
+    }
+   ],
+   "queue": 0,
+   "searches": [
+    "keyword:more Collatz @0",
+    "keyword:more Collatz @10",
+    "keyword:more Collatz @20"
+   ]
+  },
+  "ts": "2026-10-18T13:58:44Z"
  },
  "mode": "live",
+ "sparse": {
+  "cursor": 3,
+  "exhausted": [],
+  "queue": {},
+  "seen": {
+   "A005184": {
+    "n_pub": 7,
+    "name": "Self-contained numbers: odd numbers k whose Collatz sequence contains a higher multiple of k.",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A058047": {
+    "n_pub": 6,
+    "name": "Generalized Collatz sequences: primes resulting in a cycle containing 1.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A063045": {
+    "n_pub": 45,
+    "name": "Largest value in Collatz-2 (A063041) trajectory starting at n.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A063046": {
+    "n_pub": 45,
+    "name": "Length of non-periodic head in Collatz-2 (A063041) trajectory starting at n.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A138756": {
+    "n_pub": 19,
+    "name": "Indices of record values in A138753 (a \"prime\" variation of the Collatz (3n+1) problem).",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A171938": {
+    "n_pub": 19,
+    "name": "Record values in A138753 (a \"prime\" variation of the Collatz (3n+1) problem).",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A224538": {
+    "n_pub": 11,
+    "name": "Number of numbers k such that all terms of the Collatz (3x+1) iteration of k are <= 10^n.",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A224540": {
+    "n_pub": 29,
+    "name": "Number of k such that all terms of the Collatz (3x+1) iteration of k are <= 3^n.",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A226676": {
+    "n_pub": 26,
+    "name": "Smallest positive integer k (or 0 if no such k) with a primitive cycle of n positive integers under ",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A226679": {
+    "n_pub": 7,
+    "name": "Record-breaking values, for increasing k = A226630(n), of the conjectured number of primitive cycles",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A226680": {
+    "n_pub": 7,
+    "name": "Integer k associated with the record-breaking number A226679(n) of primitive Collatz-like 3x-k cycle",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A228014": {
+    "n_pub": 28,
+    "name": "Numbers k whose Collatz sequence length is greater than k+1 (counting both the x/2 and the 3x+1 step",
+    "query": "keyword:more Collatz",
+    "status": "matched"
+   },
+   "A248037": {
+    "n_pub": 17,
+    "name": "Numbers n such that the ratio of tripling steps to halving steps in the Collatz (3x+1) trajectory of",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A268468": {
+    "n_pub": 24,
+    "name": "Least k starting a chain or (2n+1)-tuple of consecutive integers {h(k+i)}, i=0,1,...,2n (excluding t",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A276260": {
+    "n_pub": 9,
+    "name": "Odd primes p such that p is in the trajectory of p+1 under the Collatz 3x+1 map (A014682).",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A303698": {
+    "n_pub": 15,
+    "name": "Numbers k whose trajectory in the Collatz (or '3x+1') problem includes another multiple of k.",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A335569": {
+    "n_pub": 39,
+    "name": "a(n) is the maximum height achieved in the Collatz ('3x+1') problem when starting from numbers in th",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A339769": {
+    "n_pub": 28,
+    "name": "Number of unique heights that are achieved by only one starting number in the Collatz (or '3x+1') pr",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A351224": {
+    "n_pub": 32,
+    "name": "Length of record run of consecutive numbers having the same Collatz trajectory length.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A354883": {
+    "n_pub": 45,
+    "name": "a(n) is the number of tuples of length n corresponding to cycles of a \"pseudo-Collatz\" iteration.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A355187": {
+    "n_pub": 8,
+    "name": "Number of Collatz trajectories (A070165) for all positive integers <= 10^n that contain 2^4 as the g",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A355240": {
+    "n_pub": 8,
+    "name": "Numbers of steps until the Collatz iteration started at k > 4 returns to either k-1 or k+1.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A355568": {
+    "n_pub": 36,
+    "name": "Numbers k > 4 in a Collatz trajectory reaching k after starting at k-1.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A355569": {
+    "n_pub": 39,
+    "name": "Numbers k > 4 in a Collatz trajectory reaching k after starting at k+1.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A368136": {
+    "n_pub": 47,
+    "name": "Numbers k for which a generalized Collatz trajectory (x / k if k divides x, x + ceiling(x / k) other",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A374527": {
+    "n_pub": 24,
+    "name": "Odd numbers whose Collatz trajectory is a Sidon sequence.",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A375093": {
+    "n_pub": 16,
+    "name": "Numbers for which the number of squares in their Collatz trajectory sets a new record.",
+    "query": "keyword:more Collatz",
+    "status": "beyond engine reach to verify"
+   },
+   "A391016": {
+    "n_pub": 12,
+    "name": "Decimal expansion of an observed ratio describing the separation of level sets in Collatz orbits.",
+    "query": "keyword:more Collatz",
+    "status": "keyword cons"
+   },
+   "A398473": {
+    "n_pub": 40,
+    "name": "Maximum dropping time for numbers between 2^n and 2^(n+1)-1 under the Collatz map A014682.",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   },
+   "A400487": {
+    "n_pub": 29,
+    "name": "Number of positive integers k < 2^n that take the same number of Collatz steps to reach 1 as k-1 or ",
+    "query": "keyword:more Collatz",
+    "status": "no family item reproduces all published terms"
+   }
+  }
+ },
  "tried_items": {
   "col_even:recpos": {
    "anum": "A006877",
@@ -926,6 +1217,24 @@
    "anum": null,
    "status": "not_in_oeis",
    "ts": "2026-10-18T13:15:07Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_cls3_2:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T13:58:36Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_cls3_2:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T13:58:36Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_cls3_2:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T13:58:36Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_cls4_1:recpos": {

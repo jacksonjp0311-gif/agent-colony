@@ -693,5 +693,157 @@
    "what": "distance from n to the closest Goldbach pair n -/+ k (recpos)"
   }
  },
- "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data."
+ "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data.",
+ "sparse": {
+  "A228014": {
+   "a_per_k_s": 2.3900000000018906e-06,
+   "anum": "A228014",
+   "checked": "2026-10-18T13:58:43Z",
+   "comment_hint": [],
+   "hits": [
+    {
+     "N": 111,
+     "d": 0,
+     "item": "col_steps",
+     "op": "fgtk"
+    }
+   ],
+   "keywords": [
+    "more",
+    "nonn"
+   ],
+   "last": {
+    "cpu_s": 0.01,
+    "searched_to": 4000,
+    "status": "matches published",
+    "ts": "2026-10-18T13:58:44Z",
+    "why": "no further term up to k = 4000"
+   },
+   "n_pub": 28,
+   "name": "Numbers k whose Collatz sequence length is greater than k+1 (counting both the x/2 and the 3x+1 steps).",
+   "offset": 1,
+   "rows": [
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     6,
+     14
+    ],
+    [
+     7,
+     15
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     9,
+     19
+    ],
+    [
+     10,
+     27
+    ],
+    [
+     11,
+     31
+    ],
+    [
+     12,
+     41
+    ],
+    [
+     13,
+     47
+    ],
+    [
+     14,
+     54
+    ],
+    [
+     15,
+     55
+    ],
+    [
+     16,
+     62
+    ],
+    [
+     17,
+     63
+    ],
+    [
+     18,
+     71
+    ],
+    [
+     19,
+     73
+    ],
+    [
+     20,
+     82
+    ],
+    [
+     21,
+     83
+    ],
+    [
+     22,
+     91
+    ],
+    [
+     23,
+     94
+    ],
+    [
+     24,
+     95
+    ],
+    [
+     25,
+     97
+    ],
+    [
+     26,
+     108
+    ],
+    [
+     27,
+     109
+    ],
+    [
+     28,
+     110
+    ]
+   ],
+   "searched_to": 4000,
+   "source": "https://oeis.org/A228014 (data section, 28 terms)",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.01,
+    "tries": 1
+   },
+   "status": "matched"
+  }
+ }
 }
