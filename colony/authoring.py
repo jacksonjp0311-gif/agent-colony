@@ -27,6 +27,7 @@ Same guards, same verification, same disabled-until-Oracle path.
 from __future__ import annotations
 
 import ast
+import os
 import copy
 import json
 import re
@@ -220,6 +221,41 @@ def _build_candidate(a: dict[str, Any], b: dict[str, Any], k: int) -> tuple[str,
         f"    return {expr}\n"
     )
     return name, fn_src, body, expr
+
+
+def pairs_mode() -> str:
+    """COLONY_AUTHOR_PAIRS: off (default) = never author a plain textbook pairing (two catalog lemmas side
+    by side); on = old behaviour. A genuine composition (one component's output feeds the other's input)
+    is still allowed when off, but only when that is visible in the expression itself."""
+    return "on" if os.environ.get("COLONY_AUTHOR_PAIRS", "off").strip().lower() in {"on", "1", "true", "live"} else "off"
+
+
+def feeds(body: ast.AST) -> bool:
+    """True when some ``check_*``/component call takes another such call's result as an argument
+    (mechanically detected composition). Side-by-side ``all(..) and all(..)`` is not."""
+    for node in ast.walk(body):
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id != "all":
+            for arg in list(node.args) + [k.value for k in node.keywords]:
+                for sub in ast.walk(arg):
+                    if (isinstance(sub, ast.Call) and isinstance(sub.func, ast.Name)
+                            and sub.func.id not in {"all", "any", "range", "len", "abs", "min", "max", "int", "sum"}):
+                        return True
+    return False
+
+
+def is_plain_pairing(cand: dict[str, Any]) -> bool:
+    body = cand.get("body")
+    if body is None:
+        return False
+    if cand.get("source") == "compose":
+        return not feeds(body)
+    v = body
+    return (isinstance(v, ast.BoolOp) and isinstance(v.op, ast.And) and len(v.values) == 2
+            and all(isinstance(x, ast.Call) and isinstance(x.func, ast.Name) and x.func.id == "all"
+                    and len(x.args) == 1 and isinstance(x.args[0], ast.GeneratorExp)
+                    and isinstance(x.args[0].elt, ast.Call) and isinstance(x.args[0].elt.func, ast.Name)
+                    and x.args[0].elt.func.id.startswith("check_") for x in v.values)
+            and not feeds(body))
 
 
 def _defined_functions(src: str) -> set[str]:
@@ -471,6 +507,8 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
         name, body = cand["name"], cand["body"]
         if cand.get("source") == "compose" and re.sub(r"_w\d+$", "", name) in retired_pairs:
             continue  # retired as a plain textbook pairing
+        if pairs_mode() == "off" and is_plain_pairing(cand):
+            continue  # COLONY_AUTHOR_PAIRS=off: no plain textbook pairings
         if name in names or name in blocked or name in rejected or ast.dump(body) in bodies:
             continue  # duplicate / cooled
         new_src = insert_disabled(src, name, cand["fn_src"])

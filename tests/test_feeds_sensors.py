@@ -214,6 +214,7 @@ def test_seek_uses_feed_theme_with_cite_and_sensor_order(feeds_tmp, monkeypatch,
 
 
 def test_authoring_turns_oeis_feed_into_verified_disabled_check(feeds_tmp, tmp_path, monkeypatch):
+    monkeypatch.setenv("COLONY_AUTHOR_PAIRS", "on")  # second half checks the compose fallback
     from tests.test_authoring import _guide, _repo
     import colony.authoring as A
     extra_fns = '''

@@ -85,6 +85,13 @@ def _guide():
     )
 
 
+
+@pytest.fixture(autouse=True)
+def _pairs_on(monkeypatch):
+    """These tests exercise the compose mechanism itself (kept behind COLONY_AUTHOR_PAIRS=on)."""
+    monkeypatch.setenv("COLONY_AUTHOR_PAIRS", "on")
+
+
 def test_generates_disabled_check_from_proven_lemmas(tmp_path, monkeypatch):
     path = _repo(tmp_path, monkeypatch)
     _guide()
@@ -247,3 +254,18 @@ def test_total_cap_single_source(tmp_path, monkeypatch):
     n = sum(1 for nm, _c, _f in A._entries(_ast.parse(path.read_text())) if nm.startswith(A.AUTHORED_PREFIX))
     monkeypatch.setattr(A, "MAX_AUTHORED_TOTAL", n)
     assert A.author_checks(cycle_id="t", max_new=1) == []
+
+
+def test_plain_pairings_off_by_default_but_feeding_compositions_allowed(monkeypatch):
+    import ast as _ast
+    from colony import authoring as A
+    monkeypatch.delenv("COLONY_AUTHOR_PAIRS", raising=False)
+    assert A.pairs_mode() == "off"
+    side = _ast.parse("all(check_a(n) for n in range(3)) and all(check_b(n) for n in range(3))", mode="eval").body
+    fed = _ast.parse("all(check_b(fib(n)) for n in range(3))", mode="eval").body
+    assert A.is_plain_pairing({"source": "compose", "body": side})
+    assert not A.is_plain_pairing({"source": "compose", "body": fed})
+    oeis = _ast.parse("all(seq(n) == t for n, t in X) and all(check_a(n) for n in range(3))", mode="eval").body
+    assert not A.is_plain_pairing({"source": "oeis", "body": oeis})
+    monkeypatch.setenv("COLONY_AUTHOR_PAIRS", "on")
+    assert A.pairs_mode() == "on"
