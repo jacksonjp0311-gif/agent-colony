@@ -142,6 +142,14 @@ def plain_pair(fn: ast.FunctionDef, catalog: dict[str, str]) -> tuple[str, str] 
     return (out[0], out[1]) if out[0] != out[1] else None
 
 
+def _surprise_live() -> bool:
+    try:
+        from colony import surprise_credit
+        return surprise_credit.live()
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def sieve_sweep_blocked(name: str, oracle_rows: list[dict[str, Any]] | None = None,
                         k_prior: float | None = None) -> bool:
     """True when ``name`` is a NEW sieve sweep that the sweep rule would retire right after it
@@ -274,7 +282,7 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
             why = "not judged by the Oracle yet"
         else:
             lv = _ts(last_verdict.get(n, ""))
-            g = SIEVE_GRACE_HOURS if n.startswith(PREFIX + "sieve_") else GRACE_HOURS
+            g = SIEVE_GRACE_HOURS if n.startswith(PREFIX + "sieve_") and _surprise_live() else GRACE_HOURS
             if lv and now - lv < timedelta(hours=g):
                 why = f"Oracle verdict within {g:g}h (grace)"
         if why is None and protected_extra and n in protected_extra:
