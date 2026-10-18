@@ -127,6 +127,8 @@ class Society:
             from colony import retire as _retire
             if _retire.mode() != "off":
                 _retire.run_cycle(cid)
+            if _retire.mode() == "live":  # in-memory state is what this cycle saves: withdraw there too
+                _retire.withdraw_all_retired(self.state.data)
         except Exception:  # noqa: BLE001
             pass
 

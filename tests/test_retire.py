@@ -100,7 +100,7 @@ def test_apply_archives_and_restore_comes_back_disabled(tmp_path):
     lemma.write_text(SRC)
     rec = tmp_path / "retired.json"
     p = _plan()
-    out = R.apply(p, cycle_id="c1", path=lemma, record=rec, check_bench=False)
+    out = R.apply(p, cycle_id="c1", path=lemma, record=rec, check_bench=False, state_path=None)
     assert out["applied"] == len(p["candidates"])
     new = lemma.read_text()
     left = {n for n, _c, _f in _entries(ast.parse(new))}
@@ -111,7 +111,7 @@ def test_apply_archives_and_restore_comes_back_disabled(tmp_path):
     assert row["category"] == "textbook_pair" and row["enabled"] is True and "def check_" in row["fn_src"]
     assert R.retired_names(rec) >= {"authored_alpha__beta_w1"}
     assert R.retired_pair_families(rec) == {"authored_alpha__beta"}
-    assert R.restore("authored_alpha__beta_w1", path=lemma, record=rec)
+    assert R.restore("authored_alpha__beta_w1", path=lemma, record=rec, state_path=None)
     ents = {n: f for n, _c, f in _entries(ast.parse(lemma.read_text()))}
     assert ents["authored_alpha__beta_w1"] is False      # back, disabled: must pass the Oracle again
     assert "authored_alpha__beta_w1" not in R.retired_names(rec)
@@ -164,3 +164,26 @@ def test_shortlist_drops_frontier_target_flagged_trivial(monkeypatch):
                     novelty_rows=[], athanor_rows=[], resolve=lambda p: "authored_frontier_le_xabc_w1",
                     reuse=lambda p: 0.0, p_rule=lambda p: 0.9)
     assert not e["meets_bar"] and "trivial_by_filter" in e["why_not"]
+
+
+def test_apply_withdraws_proposals_and_restore_brings_them_back(tmp_path):
+    lemma = tmp_path / "lemma_impl.py"
+    lemma.write_text(SRC)
+    rec = tmp_path / "retired.json"
+    state = tmp_path / "state.json"
+    state.write_text(json.dumps({"improvement_proposals": [
+        {"id": "p1", "status": "candidate_measured", "title": "Chain `authored_alpha__beta_w1` citing X",
+         "action": "hard_enable authored_alpha__beta_w1"},
+        {"id": "p2", "status": "candidate_measured", "title": "Chain `authored_linked` citing Y",
+         "action": "hard_enable authored_linked"}], "improvement_proposals_archived": []}))
+    p = _plan()
+    out = R.apply(p, path=lemma, record=rec, check_bench=False, state_path=state)
+    assert out["withdrawn"] == ["p1"]
+    st = json.loads(state.read_text())
+    p1 = next(x for x in st["improvement_proposals"] if x["id"] == "p1")
+    assert p1["status"] == R.WITHDRAWN and p1["withdrawn"]["prior_status"] == "candidate_measured"
+    assert "textbook_pair" in p1["withdrawn"]["reason"]
+    assert next(x for x in st["improvement_proposals"] if x["id"] == "p2")["status"] == "candidate_measured"
+    assert R.restore("authored_alpha__beta_w1", path=lemma, record=rec, state_path=state)
+    p1 = next(x for x in json.loads(state.read_text())["improvement_proposals"] if x["id"] == "p1")
+    assert p1["status"] == "candidate_measured" and p1["withdrawn"]["restored_at"]

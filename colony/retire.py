@@ -42,6 +42,8 @@ RECORD = ROOT / "society" / "systems" / "retired_checks.json"
 REPORT = ROOT / "society" / "systems" / "retire_report.json"
 RECEIPTS = ROOT / "society" / "receipts"
 ORACLE = ROOT / "data" / "commons" / "oracle.jsonl"
+STATE = ROOT / "data" / "society_state.json"
+WITHDRAWN = "withdrawn_retired"
 MODES = ("live", "shadow", "off")
 EXPECTED_MIN = 0.95
 KEEP_MIN = 3
@@ -169,7 +171,8 @@ def guide_names() -> set[str]:
 
 
 def bar_dependencies() -> set[str] | None:
-    """Targets + building blocks of every proposal that currently meets the shortlist bar.
+    """Building blocks of every proposal that currently meets the shortlist bar (the check a
+    proposal is about is not protected by this; its proposal is withdrawn when it is retired).
     None when it cannot be computed (then nothing is retired)."""
     try:
         from colony import shortlist as SL
@@ -183,8 +186,7 @@ def bar_dependencies() -> set[str] | None:
                 continue
             seen.add(p["id"])
             e = SL.evaluate(p, oracle_rows=orc, novelty_rows=nov, athanor_rows=[])
-            if e.get("meets_bar"):
-                out.add(e.get("target") or "")
+            if e.get("meets_bar"):   # James 2026-10-18 1:48 AM ET: building blocks only, not the subject check
                 out |= set(e.get("building_blocks") or [])
         return out
     except Exception:  # noqa: BLE001
@@ -241,7 +243,7 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
         elif deps is None:
             why = "shortlist bar unavailable (fail closed)"
         elif n in deps:
-            why = "a proposal meeting the bar depends on it"
+            why = "a building block of a proposal meeting the bar"
         elif n in guides:
             why = "named in a human_guide"
         elif n in code:
@@ -379,7 +381,7 @@ def bench_ok(src: str) -> dict[str, Any]:
 
 
 def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, record: Path = RECORD,
-          check_bench: bool = True) -> dict[str, Any]:
+          check_bench: bool = True, state_path: Path | None = STATE) -> dict[str, Any]:
     path = path or _lemma_path()
     names = [c["name"] for c in p.get("candidates") or []]
     if not names:
@@ -409,10 +411,97 @@ def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, re
         _invalidate(path)
     except Exception:  # noqa: BLE001
         pass
-    return {"applied": len(names), "names": names}
+    withdrawn = []
+    if state_path is not None:
+        for c in p["candidates"]:
+            ids = withdraw_proposals({c["name"]}, reason=f"subject check retired ({c['category']}): {c['reason']}",
+                                     state_path=state_path)
+            withdrawn += ids
+            for r in rec["records"]:
+                if r["name"] == c["name"] and r["ts"] == ts:
+                    r["proposals_withdrawn"] = ids
+        record.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
+        try:  # earlier retirements too (idempotent)
+            st = json.loads(state_path.read_text(encoding="utf-8"))
+            more = withdraw_all_retired(st, record)
+            if more:
+                state_path.write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
+                withdrawn += more
+        except Exception:  # noqa: BLE001
+            pass
+    return {"applied": len(names), "names": names, "withdrawn": withdrawn}
 
 
-def restore(name: str, *, path: Path | None = None, record: Path = RECORD) -> bool:
+
+
+def _subject(p: dict[str, Any]) -> str:
+    """The authored check a proposal is about (action first, e.g. seek_enable:NAME; else title).
+    Parsed directly: the shortlist resolver needs the check to still be in the catalog."""
+    for field in (p.get("action") or "", p.get("title") or ""):
+        m = _NAME.search(field)
+        if m:
+            return m.group(0)
+    return ""
+
+
+def withdraw_in(data: dict[str, Any], names: set[str], reasons: dict[str, str]) -> list[str]:
+    """In-place on a society state dict: proposals whose subject check is in ``names`` get
+    status withdrawn_retired + the reason + their prior status (so restore can undo it)."""
+    out = []
+    for key in ("improvement_proposals", "improvement_proposals_archived"):
+        for p in data.get(key) or []:
+            if p.get("status") == WITHDRAWN:
+                continue
+            t = _subject(p)
+            if t in names:
+                p["withdrawn"] = {"reason": reasons.get(t, "subject check retired"), "retired_check": t,
+                                  "prior_status": p.get("status"), "ts": _utc()}
+                p["status"] = WITHDRAWN
+                out.append(p.get("id"))
+    return out
+
+
+def _active_reasons(record: Path = RECORD) -> dict[str, str]:
+    return {r["name"]: f"subject check retired ({r['category']}): {r['reason']}"
+            for r in load_record(record).get("records") or [] if not r.get("restored_at")}
+
+
+def withdraw_all_retired(data: dict[str, Any], record: Path = RECORD) -> list[str]:
+    """Catch-up, idempotent: withdraw the proposals of every currently retired check."""
+    reasons = _active_reasons(record)
+    return withdraw_in(data, set(reasons), reasons)
+
+
+def withdraw_proposals(names: set[str], *, reason: str, state_path: Path = STATE) -> list[str]:
+    try:
+        st = json.loads(state_path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return []
+    out = withdraw_in(st, names, {n: reason for n in names})
+    if out:
+        state_path.write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
+    return out
+
+
+def unwithdraw_proposals(name: str, *, state_path: Path = STATE) -> list[str]:
+    try:
+        st = json.loads(state_path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return []
+    out = []
+    for key in ("improvement_proposals", "improvement_proposals_archived"):
+        for p in st.get(key) or []:
+            w = p.get("withdrawn") or {}
+            if p.get("status") == WITHDRAWN and w.get("retired_check") == name:
+                p["status"] = w.get("prior_status") or "candidate_measured"
+                p["withdrawn"] = {**w, "restored_at": _utc()}
+                out.append(p.get("id"))
+    if out:
+        state_path.write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
+    return out
+
+
+def restore(name: str, *, path: Path | None = None, record: Path = RECORD, state_path: Path | None = STATE) -> bool:
     """Put a retired check back, DISABLED (it must pass the Oracle again)."""
     from colony.authoring import insert_disabled
     path = path or _lemma_path()
@@ -425,6 +514,8 @@ def restore(name: str, *, path: Path | None = None, record: Path = RECORD) -> bo
         return False
     path.write_text(new_src, encoding="utf-8")
     row["restored_at"] = _utc()
+    if state_path is not None:
+        row["proposals_restored"] = unwithdraw_proposals(name, state_path=state_path)
     rec["n_retired"] = len([r for r in rec["records"] if not r.get("restored_at")])
     record.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
     return True
