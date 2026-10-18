@@ -154,6 +154,13 @@ def evaluate(prop: dict[str, Any], *, oracle_rows: list[dict[str, Any]], novelty
     if not target:
         why.append("target_unresolved")
     own = [o for o in oracle_rows if o.get("mutation") == target and o.get("cycle_id") == cid] if target else []
+    if target.startswith("authored_frontier_"):
+        try:  # stricter only: a frontier claim the current triviality filter flags is not shortlisted
+            from colony.frontier_checks import trivial_now
+            if trivial_now(target) is True:
+                why.append("trivial_by_filter")
+        except Exception:  # noqa: BLE001
+            pass
     if target and not (own and own[-1].get("passed")):
         why.append("no_oracle_pass_in_own_cycle" if not own else "oracle_killed_in_own_cycle")
     nov_rows = [n for n in novelty_rows if n.get("mutation") == target and n.get("cycle_id") == cid] if target else []

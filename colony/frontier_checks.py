@@ -90,6 +90,25 @@ def still_new(r: dict[str, Any]) -> bool:
         return False
 
 
+def trivial_now(name: str, src: str | None = None) -> bool | None:
+    """True when the CURRENT rewrite filters flag the claim behind authored frontier check ``name``
+    (registry entry, else the claim literal in lemma_impl.py); None when it cannot be told."""
+    import ast
+    from colony.frontier_conjectures import load_state
+    try:
+        for r in (load_state().get("registry") or {}).values():
+            if r.get("sig") and check_name(r) == name:
+                return not still_new(r)
+        if src is None:
+            from colony.authoring import _lemma_impl
+            src = _lemma_impl().read_text(encoding="utf-8")
+        fn = next((n for n in ast.parse(src).body if isinstance(n, ast.FunctionDef) and n.name == f"check_{name}"), None)
+        lit = next((x for x in ast.walk(fn) if isinstance(x, ast.Dict)), None) if fn else None
+        return None if lit is None else not still_new(ast.literal_eval(lit))
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def candidates(existing_names: set[str], limit: int = 6, state: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     """Surprises not yet authored, highest hunt value first (the colony's own ranking)."""
     from colony.frontier_conjectures import load_state
