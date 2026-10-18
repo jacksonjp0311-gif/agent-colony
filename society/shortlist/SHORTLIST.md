@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-10-18 12:16 PM ET
+# Proposal shortlist — 2026-10-18 12:43 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -45,8 +45,8 @@ Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_ki
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 8 tested, 5 survived held-out, 3 falsified, 0 machine-checked, 0 surprises; dropped 99 duplicates, 142 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1933.
-Totals: tested 1285, survived 474, surprises 39, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 13 tested, 7 survived held-out, 6 falsified, 2 machine-checked, 0 surprises; dropped 99 duplicates, 138 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.194.
+Totals: tested 1320, survived 488, surprises 39, false surprises (failed later re-test) 0.
 Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
@@ -54,12 +54,12 @@ Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks |  | not_found | 1.0 |
-| D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | conjecture surviving 19996 checks |  | not_found | 1.0 |
-| D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks |  | not_found | 1.0 |
+| D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |
+| D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | S((lpf*phi))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
 | S((part*phi))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
 | S((phi*rad))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
+| D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | found | 0.0 |
-| D(pell)(n) = 1 (mod 2) for all n >= 1 | machine-checked (certificate) |  | found | 0.0 |

@@ -22,7 +22,7 @@
    86
   ]
  },
- "mode": "shadow",
+ "mode": "live",
  "n_authored": 12,
  "n_authored_proved": 10,
  "n_claims": 150,
@@ -25304,6 +25304,6 @@
    "v": 2
   }
  },
- "seconds": 0.3,
- "ts": "2026-10-18T16:30:59Z"
+ "seconds": 0.03,
+ "ts": "2026-10-18T16:43:49Z"
 }
