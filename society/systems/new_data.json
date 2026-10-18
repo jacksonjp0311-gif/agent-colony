@@ -5,6 +5,8 @@
   "frontier",
   "frontier",
   "instrument",
+  "instrument",
+  "frontier",
   "instrument"
  ],
  "history": [
@@ -1726,29 +1728,148 @@
     ]
    },
    "ts": "2026-10-18T14:45:11Z"
+  },
+  {
+   "cpu_s": 0.458,
+   "cycle_id": "20261018T144737Z_e72ada",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls3_2_c:terms",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls3_2_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls3_2_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 249,
+    "cpu_s": 0.009,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-18T14:48:48Z"
+  },
+  {
+   "cpu_s": 94.208,
+   "cycle_id": "20261018T144853Z_18d1e0",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls3_2_c:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls3_2_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls3_2_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 279,
+    "cpu_s": 14.32,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"number of divisors\" records @10",
+     "keyword:more \"number of divisors\" records @20",
+     "keyword:more sigma records @0"
+    ]
+   },
+   "ts": "2026-10-18T14:51:32Z"
+  },
+  {
+   "cpu_s": 1.693,
+   "cycle_id": "20261018T145137Z_12ead5",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls6_1_c:terms",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_1_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_1_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 307,
+    "cpu_s": 1.566,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more sigma records @10",
+     "keyword:more sigma records @20",
+     "keyword:more \"d(k)\" @0"
+    ]
+   },
+   "ts": "2026-10-18T14:52:43Z"
   }
  ],
  "last": {
-  "cpu_s": 65.479,
-  "cycle_id": "20261018T144249Z_cd531f",
+  "cpu_s": 1.693,
+  "cycle_id": "20261018T145137Z_12ead5",
   "discovered": [
    {
     "anum": null,
-    "item": "gb_min_cls3_1_c:terms",
+    "item": "gb_cls6_1_c:terms",
+    "status": "no_alignment",
+    "why": "OEIS terms differ beyond the probe"
+   },
+   {
+    "anum": null,
+    "item": "gb_cls6_1_c:recpos",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    },
    {
     "anum": null,
-    "item": "gb_min_cls3_1_c:recpos",
-    "status": "not_in_oeis",
-    "why": "not found in the local OEIS index (frontier unknown)"
-   },
-   {
-    "anum": null,
-    "item": "gb_min_cls3_1_c:recval",
-    "status": "not_in_oeis",
-    "why": "not found in the local OEIS index (frontier unknown)"
+    "item": "gb_cls6_1_c:recval",
+    "status": "no_alignment",
+    "why": "OEIS terms differ beyond the probe"
    }
   ],
   "mode": "live",
@@ -1756,33 +1877,22 @@
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 249,
-   "cpu_s": 3.756,
+   "candidates_seen": 307,
+   "cpu_s": 1.566,
    "matched": [],
-   "pushed": [
-    {
-     "anum": "A228014",
-     "cpu_s": 0.0,
-     "item": "col_steps",
-     "n_values": 0,
-     "op": "fgtk",
-     "status": "intractable",
-     "ts": "2026-10-18T14:45:11Z",
-     "why": "engine cap k = 1000000 reached (cycle budget)"
-    }
-   ],
+   "pushed": [],
    "queue": 0,
    "searches": [
-    "keyword:more \"number of divisors\" @10",
-    "keyword:more \"number of divisors\" @20",
-    "keyword:more \"number of divisors\" records @0"
+    "keyword:more sigma records @10",
+    "keyword:more sigma records @20",
+    "keyword:more \"d(k)\" @0"
    ]
   },
-  "ts": "2026-10-18T14:45:11Z"
+  "ts": "2026-10-18T14:52:43Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 40,
+  "cursor": 46,
   "exhausted": [
    "keyword:hard Collatz",
    "keyword:more \"cousin primes\"",
@@ -1794,6 +1904,24 @@
   ],
   "queue": {},
   "seen": {
+   "A003419": {
+    "n_pub": 16,
+    "name": "Values of m in the discriminant D = 4*m leading to a new minimum of the L-function of the Dirichlet ",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no engine family for its definition"
+   },
+   "A003420": {
+    "n_pub": 36,
+    "name": "Values of m in the discriminant D = -4*m leading to a new maximum of the L-function of the Dirichlet",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no engine family for its definition"
+   },
+   "A003521": {
+    "n_pub": 14,
+    "name": "Values of m in the discriminant D = -4*m leading to a new minimum of the L-function of the Dirichlet",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no engine family for its definition"
+   },
    "A005184": {
     "n_pub": 7,
     "name": "Self-contained numbers: odd numbers k whose Collatz sequence contains a higher multiple of k.",
@@ -1828,6 +1956,12 @@
     "n_pub": 16,
     "name": "Number of strictly increasing addition chains of length n.",
     "query": "keyword:more Goldbach",
+    "status": "no engine family for its definition"
+   },
+   "A014224": {
+    "n_pub": 35,
+    "name": "Numbers k such that 3^k - 2 is prime.",
+    "query": "keyword:more sigma records",
     "status": "no engine family for its definition"
    },
    "A028444": {
@@ -1895,6 +2029,12 @@
     "name": "Generalized Collatz sequences: primes resulting in a cycle containing 1.",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A058959": {
+    "n_pub": 24,
+    "name": "Numbers k such that 3^k - 4 is prime.",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
    },
    "A060003": {
     "n_pub": 10,
@@ -1980,6 +2120,12 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "beyond engine reach to verify"
    },
+   "A076172": {
+    "n_pub": 16,
+    "name": "Triangular numbers with a triangular number of divisors which set a new record for number of divisor",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
    "A078421": {
     "n_pub": 16,
     "name": "Least positive integer solution k to h(k) = n h(k-1), where h(n) is the length of n, f(n), f(f(n)), ",
@@ -2046,6 +2192,12 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
    },
+   "A087280": {
+    "n_pub": 5,
+    "name": "Solutions k of max(m+d(m)) = k+2 for m<k; d(m) is the number of divisors of m.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "too few published terms to identify"
+   },
    "A087641": {
     "n_pub": 11,
     "name": "Start of the first sequence of exactly n consecutive pairs of twin primes.",
@@ -2063,6 +2215,12 @@
     "name": "a(n) is the smallest number having n as the largest number of distinct prime factors of any term in ",
     "query": "keyword:more 3x+1",
     "status": "beyond engine reach to verify"
+   },
+   "A089180": {
+    "n_pub": 4,
+    "name": "a(n) is the smallest number m such that d(m) = d(m+1) = ... = d(m+n), where d(k) = prime(k+1) - prim",
+    "query": "keyword:more \"d(k)\"",
+    "status": "too few published terms to identify"
    },
    "A091592": {
     "n_pub": 12,
@@ -2316,6 +2474,12 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "beyond engine reach to verify"
    },
+   "A165701": {
+    "n_pub": 26,
+    "name": "Numbers n such that 5^n-6 is prime.",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
    "A171619": {
     "n_pub": 29,
     "name": "Primes in A171490.",
@@ -2327,6 +2491,12 @@
     "name": "Record values in A138753 (a \"prime\" variation of the Collatz (3n+1) problem).",
     "query": "keyword:more Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A177710": {
+    "n_pub": 30,
+    "name": "Values of n where A046801(n) produces a record.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no engine family for its definition"
    },
    "A179511": {
     "n_pub": 14,
@@ -2340,6 +2510,12 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A180632": {
+    "n_pub": 6,
+    "name": "Minimum length of a string over the alphabet A = {1,2,...,n} that contains every permutation of A as",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
    "A181490": {
     "n_pub": 4,
     "name": "Numbers k such that 3*2^k-1 and 3*2^k+1 are twin primes (A001097).",
@@ -2351,6 +2527,12 @@
     "name": "Numbers of the form 3*2^k which are the average of twin primes, i.e., a(n)-1 and a(n)+1 are both pri",
     "query": "keyword:more \"twin primes\"",
     "status": "too few published terms to identify"
+   },
+   "A188591": {
+    "n_pub": 36,
+    "name": "Records of A188550.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no engine family for its definition"
    },
    "A192870": {
     "n_pub": 5,
@@ -2393,6 +2575,12 @@
     "name": "The minimal Skewes number for prime n-tuplets.",
     "query": "keyword:more \"prime triples\"",
     "status": "beyond engine reach to verify"
+   },
+   "A212490": {
+    "n_pub": 5,
+    "name": "Least number m > 1 such that A000203(x)*x = m has exactly n solutions.",
+    "query": "keyword:more sigma records",
+    "status": "too few published terms to identify"
    },
    "A213007": {
     "n_pub": 8,
@@ -2514,6 +2702,18 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "no family item reproduces all published terms"
    },
+   "A236355": {
+    "n_pub": 10,
+    "name": "Terms of A050973 that give maximum record values for A050973(k)/A050972(k).",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
+   "A236372": {
+    "n_pub": 6,
+    "name": "Terms of A050973 that give minimum record values for A050973(k)/A050972(k).",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
    "A238716": {
     "n_pub": 71,
     "name": "Run lengths of decadal prime triples.",
@@ -2532,10 +2732,40 @@
     "query": "keyword:more \"sexy primes\"",
     "status": "too few published terms to identify"
    },
+   "A239663": {
+    "n_pub": 22,
+    "name": "a(n) is the smallest number k such that the symmetric representation of sigma(k) has n parts.",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
+   },
+   "A240902": {
+    "n_pub": 14,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A240903": {
+    "n_pub": 12,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A241207": {
+    "n_pub": 15,
+    "name": "Consider a number of k digits n = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + \u2026 + d_(2)*10 + d_(1). Sequence",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
+   },
    "A243885": {
     "n_pub": 7,
     "name": "Smallest prime p_n which generates n primes of the form (p_n^i - 4) when i runs through the first n ",
     "query": "keyword:more \"cousin primes\"",
+    "status": "no engine family for its definition"
+   },
+   "A243993": {
+    "n_pub": 33,
+    "name": "Consider a decimal number of k >= 2 digits m = d_(k)*10^(k-1) + d_(k-1)*10^(k-2) + ... + d_(2)*10 + ",
+    "query": "keyword:more \"d(k)\"",
     "status": "no engine family for its definition"
    },
    "A245583": {
@@ -2543,6 +2773,12 @@
     "name": "Wieferich prime candidates: primes of the form A242139(n)+1 also having the form {m*(2^rs - 1)/(2^r ",
     "query": "keyword:more \"prime triples\"",
     "status": "no engine family for its definition"
+   },
+   "A247141": {
+    "n_pub": 25,
+    "name": "Record values obtained in the iterative process related to the abundancy function sigma(n)/n describ",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
    },
    "A247846": {
     "n_pub": 12,
@@ -2615,6 +2851,12 @@
     "name": "For the Collatz (3x+1) iteration starting at k, the sequence lists the smallest k such that Fibonacc",
     "query": "keyword:hard Collatz",
     "status": "no family item reproduces all published terms"
+   },
+   "A260551": {
+    "n_pub": 7,
+    "name": "Number of polynomials P = Sum_{k=0..m} x^{d(k)} with 0 = d(0) < ... < d(m) and P^2 = Sum_{k>=0} B(k)",
+    "query": "keyword:more \"d(k)\"",
+    "status": "beyond engine reach to verify"
    },
    "A265687": {
     "n_pub": 9,
@@ -2700,10 +2942,22 @@
     "query": "keyword:more \"prime triples\"",
     "status": "keyword cons"
    },
+   "A279286": {
+    "n_pub": 28,
+    "name": "a(n) = d if the point (d,d) is shared by a record of different Dyck paths in the main diagonal of th",
+    "query": "keyword:more sigma records",
+    "status": "no family item reproduces all published terms"
+   },
    "A284597": {
     "n_pub": 18,
     "name": "a(n) is the least number that begins a run of exactly n consecutive numbers with a nondecreasing num",
     "query": "keyword:more \"number of divisors\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A285004": {
+    "n_pub": 18,
+    "name": "Numbers n that enter a cycle of greater length than that for any k < n in the iteration sequence s(0",
+    "query": "keyword:more \"number of divisors\" records",
     "status": "beyond engine reach to verify"
    },
    "A285088": {
@@ -2723,6 +2977,36 @@
     "name": "Greater of Wilson's pseudo-twin primes: primes q such that p! == 1 (mod q), where p=A151799(q) is th",
     "query": "keyword:more \"twin primes\"",
     "status": "too few published terms to identify"
+   },
+   "A288070": {
+    "n_pub": 27,
+    "name": "a(n) is the least number that enters a cycle of length 2n in the iteration sequence s(0)=n, s(k+1) =",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A292366": {
+    "n_pub": 14,
+    "name": "Numbers n with record number of primes p such that n*p is a Carmichael number.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no engine family for its definition"
+   },
+   "A292368": {
+    "n_pub": 12,
+    "name": "Numbers n with record number of primes p such that n*p is a Lucas-Carmichael number.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no engine family for its definition"
+   },
+   "A293756": {
+    "n_pub": 6,
+    "name": "a(n) = smallest number k with n prime factors such that d + k/d is prime for every d | k.",
+    "query": "keyword:more \"d(k)\"",
+    "status": "no engine family for its definition"
+   },
+   "A294025": {
+    "n_pub": 8,
+    "name": "Odd abundant numbers with a record small gap to the next odd abundant number.",
+    "query": "keyword:more sigma records",
+    "status": "keyword fini"
    },
    "A301776": {
     "n_pub": 7,
@@ -2747,6 +3031,12 @@
     "name": "A Goldbug number is an even number 2m for which there exists a subset of the prime non-divisors of 2",
     "query": "keyword:more Goldbach",
     "status": "too few published terms to identify"
+   },
+   "A319139": {
+    "n_pub": 25,
+    "name": "a(n) is the smallest position k >= 1 on the diagonal at which a record gap of size n between two adj",
+    "query": "keyword:more sigma records",
+    "status": "no family item reproduces all published terms"
    },
    "A320447": {
     "n_pub": 6,
@@ -2802,6 +3092,12 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "beyond engine reach to verify"
    },
+   "A331897": {
+    "n_pub": 5,
+    "name": "Positive numbers all of whose divisors are negabinary palindromes (A331891) with a record number of ",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "too few published terms to identify"
+   },
    "A331937": {
     "n_pub": 15,
     "name": "a(1) = 1; a(2) = 2; a(n + 1) = 2 * prime(a(n)).",
@@ -2814,11 +3110,35 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A333053": {
+    "n_pub": 32,
+    "name": "Numbers m such that min(d(m), d(m+1)) > min(d(k), d(k+1)) for all k < m, where d(m) is the number of",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A333054": {
+    "n_pub": 27,
+    "name": "Numbers m such that r(m) > r(k) for all k < m, where r(m) = min(sigma(m)/m, sigma(m+1)/(m+1)), and s",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
+   },
    "A333587": {
     "n_pub": 5,
     "name": "a(n) is the least prime p1 starting an n-tuple of consecutive primes p1, ..., pn of minimal span pn ",
     "query": "keyword:more \"cousin primes\"",
     "status": "too few published terms to identify"
+   },
+   "A334876": {
+    "n_pub": 9,
+    "name": "Numbers m with the property that sigma(2^m+1)/(2^m+1) > sigma(2^k+1)/(2^k+1) for all k < m, where si",
+    "query": "keyword:more sigma records",
+    "status": "no family item reproduces all published terms"
+   },
+   "A335030": {
+    "n_pub": 28,
+    "name": "Numbers m that are not practical and have an abundancy index sigma(m)/m which is larger than that of",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
    },
    "A335250": {
     "n_pub": 45,
@@ -2826,16 +3146,64 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A335287": {
+    "n_pub": 24,
+    "name": "Balanced numbers (A020492) k with a record value of sigma(k)/phi(k).",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
+   },
+   "A335318": {
+    "n_pub": 22,
+    "name": "Harmonic numbers (A001599) k with a record abundancy index sigma(k)/k.",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
+   },
    "A335360": {
     "n_pub": 5,
     "name": "Numbers m such that the number of unordered Goldbach partitions of 2m is greater than the number of ",
     "query": "keyword:more Goldbach",
     "status": "too few published terms to identify"
    },
+   "A335368": {
+    "n_pub": 14,
+    "name": "Harmonic numbers k with a record number of primes p not dividing k such that k*p is also a harmonic ",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
+   "A335370": {
+    "n_pub": 8,
+    "name": "Harmonic numbers m with a record number k of distinct prime numbers p_i (i = 1..k) that do not divid",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
+   "A335371": {
+    "n_pub": 19,
+    "name": "Harmonic numbers with a record number of harmonic numbers that can be generated from them using an i",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
+   "A335388": {
+    "n_pub": 19,
+    "name": "Harmonic numbers (A001599) with a record number of divisors that are harmonic numbers.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
    "A335394": {
     "n_pub": 8,
     "name": "Primes starting 16-tuples of consecutive primes that have symmetrical gaps about their mean and form",
     "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
+   },
+   "A335396": {
+    "n_pub": 22,
+    "name": "Numbers m such that sigma(m)/esigma(m) > sigma(k)/esigma(k) for all k < m, where sigma(m) is the sum",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
+   },
+   "A335400": {
+    "n_pub": 15,
+    "name": "Numbers m such that sigma(m)/isigma(m) > sigma(k)/isigma(k) for all k < m, where sigma(m) is the sum",
+    "query": "keyword:more sigma records",
     "status": "beyond engine reach to verify"
    },
    "A335569": {
@@ -2873,6 +3241,12 @@
     "name": "Smallest number m such that tau(k) * k = m has exactly n solutions when tau(k) is the number of divi",
     "query": "keyword:more \"number of divisors\"",
     "status": "too few published terms to identify"
+   },
+   "A338611": {
+    "n_pub": 12,
+    "name": "Numbers all of whose divisors, excluding the divisor 1, are evil numbers (A001969) with a record num",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
    },
    "A339680": {
     "n_pub": 14,
@@ -2952,6 +3326,12 @@
     "query": "keyword:more \"number of divisors\"",
     "status": "keyword tabf"
    },
+   "A348716": {
+    "n_pub": 30,
+    "name": "Numbers whose divisors can be partitioned into two disjoint sets without singletons whose harmonic m",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no family item reproduces all published terms"
+   },
    "A350132": {
     "n_pub": 10,
     "name": "a(n) is the smallest number m such that tau(m-1) = tau(m+1) = tau(m)^n, where tau(m) is the number o",
@@ -3029,6 +3409,24 @@
     "name": "Numbers with as many divisors as Goldbach partitions.",
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
+   },
+   "A352797": {
+    "n_pub": 11,
+    "name": "Let S(k) be the subsequence of multiples of k from k*positive integers where each element of S(k) se",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no family item reproduces all published terms"
+   },
+   "A354723": {
+    "n_pub": 10,
+    "name": "Terms of A354722 whose number of divisors sets a new record.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
+   "A354725": {
+    "n_pub": 12,
+    "name": "Terms of A354724 whose number of divisors sets a new record.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
    },
    "A354883": {
     "n_pub": 45,
@@ -3138,6 +3536,12 @@
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
    },
+   "A359083": {
+    "n_pub": 11,
+    "name": "Numbers k such that A246600(k) = A000005(k) and A000005(k) sets a new record.",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
    "A359221": {
     "n_pub": 12,
     "name": "Starting numbers which reach a new record high value when iterating the map x->A359194(x) (binary co",
@@ -3186,6 +3590,12 @@
     "query": "keyword:more 3x+1",
     "status": "no family item reproduces all published terms"
    },
+   "A367377": {
+    "n_pub": 23,
+    "name": "Square array T(n, k), n >= 1, k >= 1, read by antidiagonals, of the least numbers whose symmetric re",
+    "query": "keyword:more sigma records",
+    "status": "keyword tabl"
+   },
    "A368136": {
     "n_pub": 47,
     "name": "Numbers k for which a generalized Collatz trajectory (x / k if k divides x, x + ceiling(x / k) other",
@@ -3210,6 +3620,12 @@
     "query": "keyword:more \"sexy primes\"",
     "status": "no engine family for its definition"
    },
+   "A371922": {
+    "n_pub": 33,
+    "name": "Indices of records in A371921: numbers k such that A371921(k) > A371921(m) for all m < k.",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
+   },
    "A374527": {
     "n_pub": 24,
     "name": "Odd numbers whose Collatz trajectory is a Sidon sequence.",
@@ -3227,6 +3643,12 @@
     "name": "Numbers k such that 2k and 4k have the same number of Goldbach partitions into primes.",
     "query": "keyword:more Goldbach",
     "status": "no family item reproduces all published terms"
+   },
+   "A378267": {
+    "n_pub": 25,
+    "name": "Numbers k that have a record number of common divisors with sigma(k).",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
    },
    "A384629": {
     "n_pub": 8,
@@ -3246,6 +3668,18 @@
     "query": "keyword:more Lemoine",
     "status": "no family item reproduces all published terms"
    },
+   "A386419": {
+    "n_pub": 16,
+    "name": "Odd numbers k that are closer to being perfect than previous terms, and also satisfy the condition t",
+    "query": "keyword:more sigma records",
+    "status": "beyond engine reach to verify"
+   },
+   "A386423": {
+    "n_pub": 45,
+    "name": "Odd numbers k such that k/(1+A347381(k)) obtains record values, where A347381 gives the distance fro",
+    "query": "keyword:more sigma records",
+    "status": "no family item reproduces all published terms"
+   },
    "A389507": {
     "n_pub": 9,
     "name": "Largest even number that is not the sum of two elements coprime to the primorial prime(n)# and each ",
@@ -3258,6 +3692,24 @@
     "query": "keyword:more Collatz",
     "status": "keyword cons"
    },
+   "A392071": {
+    "n_pub": 36,
+    "name": "The records of min(d(k), d(k+2)), where d(k) is the number of divisors of k (A000005).",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no family item reproduces all published terms"
+   },
+   "A393379": {
+    "n_pub": 26,
+    "name": "The records of min(d(k), d(k+1), d(k+2)), where d(k) is the number of divisors of k (A000005).",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "no family item reproduces all published terms"
+   },
+   "A394361": {
+    "n_pub": 27,
+    "name": "Numbers k such that the values of d(k^2+1) set records, where d(k) is the number of divisors of k (A",
+    "query": "keyword:more \"number of divisors\" records",
+    "status": "beyond engine reach to verify"
+   },
    "A395424": {
     "n_pub": 20,
     "name": "Busy Beaver problem for FRACTRAN: a(n) is the maximal number of steps that a FRACTRAN program of siz",
@@ -3269,6 +3721,12 @@
     "name": "Odd numbers m > 5, with no representation m = p + 2q with p, q prime and p <= q.",
     "query": "keyword:more Lemoine",
     "status": "no family item reproduces all published terms"
+   },
+   "A398003": {
+    "n_pub": 15,
+    "name": "Sum of excess shadings of all permutations of [n] using a special circular shading.",
+    "query": "keyword:more sigma records",
+    "status": "no engine family for its definition"
    },
    "A398473": {
     "n_pub": 40,
@@ -3453,6 +3911,24 @@
    "ts": "2026-10-18T13:58:36Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
+  "gb_cls3_2_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:48:47Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_cls3_2_c:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:48:47Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_cls3_2_c:terms": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:48:37Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
   "gb_cls4_1:recpos": {
    "anum": null,
    "status": "not_in_oeis",
@@ -3543,6 +4019,24 @@
    "ts": "2026-10-18T14:15:49Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
+  "gb_cls6_1_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:52:37Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_cls6_1_c:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:52:37Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_cls6_1_c:terms": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:52:37Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
   "gb_cls6_5:recpos": {
    "anum": null,
    "status": "not_in_oeis",
@@ -3631,6 +4125,24 @@
    "anum": null,
    "status": "not_in_oeis",
    "ts": "2026-10-18T14:14:23Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls3_2_c:recpos": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:50:33Z",
+   "why": "not found in the local OEIS index (frontier unknown)"
+  },
+  "gb_min_cls3_2_c:recval": {
+   "anum": null,
+   "status": "no_alignment",
+   "ts": "2026-10-18T14:51:14Z",
+   "why": "OEIS terms differ beyond the probe"
+  },
+  "gb_min_cls3_2_c:terms": {
+   "anum": null,
+   "status": "not_in_oeis",
+   "ts": "2026-10-18T14:49:54Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_min_cls4_1:recpos": {

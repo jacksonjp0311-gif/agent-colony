@@ -2210,15 +2210,6 @@ def check_authored_frontier_cong_x94023555_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'sigma[digsum]', 'params': {'m': 3, 'q': 3, 'r': 0, 's': 2}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
-def check_authored_sieve_two_counter_g2_4_6_w1() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (2, 4, 6).
-    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((2, 4, 6), a, b)) is int and c > 0 and c == sieve_count((2, 4, 6), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
-
-
 # --- new-data bridge (colony.new_data) ---
 def newdata_term(key, n):
     """Bridge to colony.new_data: term n (colony indexing) of menu sequence ``key``, recomputed from
@@ -2349,6 +2340,24 @@ def check_authored_sieve_hl_within_g6_6_w1() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := sieve_count((6, 6), a, b)) is int and type(h := sieve_hl((6, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
+def check_authored_frontier_cong_xbb82919e_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    dbl(gcd(rev,sigma))(n) = 0 (mod 3) for all n = 3 (mod 6)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 3331 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(gcd(rev,sigma))', 'params': {'m': 3, 'q': 6, 'r': 0, 's': 3}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
+def check_authored_sieve_two_counter_g2_6_4_w1() -> bool:
+    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (2, 6, 4).
+    Windows [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((2, 6, 4), a, b)) is int and c > 0 and c == sieve_count((2, 6, 4), a, b, backend='python') for a, b in [(10000000, 10050000), (10050000, 10100000), (10100000, 10150000)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2586,7 +2595,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_xa68963c2_w1", check_authored_frontier_cong_xa68963c2_w1, True),
     ("authored_sieve_hl_within_g2_4_w1", check_authored_sieve_hl_within_g2_4_w1, True),
     ("authored_frontier_cong_x94023555_w1", check_authored_frontier_cong_x94023555_w1, True),
-    ("authored_sieve_two_counter_g2_4_6_w1", check_authored_sieve_two_counter_g2_4_6_w1, True),
     ("authored_newdata_a002375_k20001_w1", check_authored_newdata_a002375_k20001_w1, True),
     ("authored_newdata_a035026_k10001_w1", check_authored_newdata_a035026_k10001_w1, True),
     ("authored_newdata_a047160_k10001_w1", check_authored_newdata_a047160_k10001_w1, True),
@@ -2600,6 +2608,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_xc2340063_w1", check_authored_frontier_le_xc2340063_w1, True),
     ("authored_sieve_residue_bal_g6_2_w1", check_authored_sieve_residue_bal_g6_2_w1, True),
     ("authored_sieve_hl_within_g6_6_w1", check_authored_sieve_hl_within_g6_6_w1, True),
+    ("authored_frontier_cong_xbb82919e_w1", check_authored_frontier_cong_xbb82919e_w1, True),
+    ("authored_sieve_two_counter_g2_6_4_w1", check_authored_sieve_two_counter_g2_6_4_w1, False),
 ]
 
 
