@@ -2,18 +2,20 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-18T06:14:58Z",
-    "cycle_id": "20261018T061346Z_8638b3",
+    "ts": "2026-10-18T06:53:15Z",
+    "cycle_id": "20261018T065152Z_cdaccd",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.25,
+      "strength": 0.5,
       "K_PRIOR": 0.10921
     },
     "n_meet_bar_actual": 16,
     "n_meet_bar_shadow": 16,
-    "n_unknown_claims": 6,
+    "n_unknown_claims": 8,
     "unknown_targets": [
+      "authored_bezout_identity__cayley_tree_count_w1",
+      "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
       "authored_euler_theorem__gauss_phi_divisor_sum_w1",
       "authored_frontier_cong_x23fb70a1_w1",
       "authored_frontier_cong_x5cb35120_w1",
@@ -26,10 +28,52 @@
     "enter_bar": [],
     "top_shadow": [
       {
+        "id": "imp_cef698_50",
+        "target": "complete_bipartite_trees",
+        "actual_pos": 10,
+        "shadow_pos": 1,
+        "meets_bar_shadow": true,
+        "rank": 0.5252,
+        "rank_shadow": 0.9252,
+        "P": 0.8754,
+        "P_shadow": 0.8754,
+        "unknown": false,
+        "building_block": "catalog_refill",
+        "expected": 0.0
+      },
+      {
+        "id": "imp_fa5f3d_50",
+        "target": "faulhaber_power_sums",
+        "actual_pos": 11,
+        "shadow_pos": 2,
+        "meets_bar_shadow": true,
+        "rank": 0.5252,
+        "rank_shadow": 0.9252,
+        "P": 0.8754,
+        "P_shadow": 0.8754,
+        "unknown": false,
+        "building_block": "catalog_refill",
+        "expected": 0.0
+      },
+      {
         "id": "imp_15e6c5_50",
         "target": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
         "actual_pos": 1,
-        "shadow_pos": 1,
+        "shadow_pos": 3,
+        "meets_bar_shadow": true,
+        "rank": 0.895,
+        "rank_shadow": 0.895,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_1e346a_50",
+        "target": "authored_bezout_identity__cayley_tree_count_w1",
+        "actual_pos": 2,
+        "shadow_pos": 4,
         "meets_bar_shadow": true,
         "rank": 0.895,
         "rank_shadow": 0.895,
@@ -42,8 +86,8 @@
       {
         "id": "imp_67f9cd_50",
         "target": "authored_frontier_cong_x5cb35120_w1",
-        "actual_pos": 2,
-        "shadow_pos": 2,
+        "actual_pos": 3,
+        "shadow_pos": 5,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -56,8 +100,8 @@
       {
         "id": "imp_cf6d5a_50",
         "target": "authored_frontier_le_x1c0eba57_w1",
-        "actual_pos": 3,
-        "shadow_pos": 3,
+        "actual_pos": 4,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -70,8 +114,8 @@
       {
         "id": "imp_98f913_50",
         "target": "authored_frontier_cong_x83358e42_w1",
-        "actual_pos": 4,
-        "shadow_pos": 4,
+        "actual_pos": 5,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -84,8 +128,8 @@
       {
         "id": "imp_e8a630_50",
         "target": "cayley_hamilton_3x3",
-        "actual_pos": 5,
-        "shadow_pos": 5,
+        "actual_pos": 6,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.5261,
         "rank_shadow": 0.6511,
@@ -98,8 +142,8 @@
       {
         "id": "imp_dfaa7b_50",
         "target": "polynomial_remainder",
-        "actual_pos": 6,
-        "shadow_pos": 6,
+        "actual_pos": 7,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.526,
         "rank_shadow": 0.651,
@@ -112,8 +156,8 @@
       {
         "id": "imp_79bbc6_50",
         "target": "cycle_spanning_trees",
-        "actual_pos": 7,
-        "shadow_pos": 7,
+        "actual_pos": 8,
+        "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.5257,
         "rank_shadow": 0.6507,
@@ -122,102 +166,15 @@
         "unknown": false,
         "building_block": "catalog_refill",
         "expected": 0.0
-      },
-      {
-        "id": "imp_2eb8c7_50",
-        "target": "abel_summation",
-        "actual_pos": 8,
-        "shadow_pos": 8,
-        "meets_bar_shadow": true,
-        "rank": 0.5256,
-        "rank_shadow": 0.6506,
-        "P": 0.876,
-        "P_shadow": 0.751,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
-      },
-      {
-        "id": "imp_cef698_50",
-        "target": "complete_bipartite_trees",
-        "actual_pos": 9,
-        "shadow_pos": 9,
-        "meets_bar_shadow": true,
-        "rank": 0.5252,
-        "rank_shadow": 0.6502,
-        "P": 0.8754,
-        "P_shadow": 0.7504,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
-      },
-      {
-        "id": "imp_fa5f3d_50",
-        "target": "faulhaber_power_sums",
-        "actual_pos": 10,
-        "shadow_pos": 10,
-        "meets_bar_shadow": true,
-        "rank": 0.5252,
-        "rank_shadow": 0.6502,
-        "P": 0.8754,
-        "P_shadow": 0.7504,
-        "unknown": false,
-        "building_block": "catalog_refill",
-        "expected": 0.0
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-10-17T22:48:00Z",
-      "cycle_id": "20261017T224657Z_6921b4",
-      "n_meet_bar_actual": 43,
-      "n_meet_bar_shadow": 29,
-      "n_unknown_claims": 27,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T22:48:55Z",
-      "cycle_id": "20261017T224800Z_f51ca1",
-      "n_meet_bar_actual": 44,
-      "n_meet_bar_shadow": 30,
-      "n_unknown_claims": 27,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-17T22:49:52Z",
-      "cycle_id": "20261017T224856Z_28b40e",
-      "n_meet_bar_actual": 44,
-      "n_meet_bar_shadow": 30,
-      "n_unknown_claims": 27,
-      "drop_out_of_bar": 14,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-17T22:53:50Z",
       "cycle_id": "20261017T225232Z_a8553b",
@@ -619,6 +576,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T06:50:48Z",
+      "cycle_id": "20261018T064925Z_1e346a",
+      "n_meet_bar_actual": 16,
+      "n_meet_bar_shadow": 16,
+      "n_unknown_claims": 7,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T06:51:52Z",
+      "cycle_id": "20261018T065048Z_aa0bb0",
+      "n_meet_bar_actual": 17,
+      "n_meet_bar_shadow": 17,
+      "n_unknown_claims": 7,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-18T06:53:15Z",
+      "cycle_id": "20261018T065152Z_cdaccd",
+      "n_meet_bar_actual": 16,
+      "n_meet_bar_shadow": 16,
+      "n_unknown_claims": 8,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }

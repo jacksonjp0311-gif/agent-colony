@@ -1,25 +1,10 @@
 {
   "version": 1,
   "totals": {
-    "ok": 49,
+    "ok": 51,
     "unbridged": 10
   },
   "rows": [
-    {
-      "mutation": "authored_sieve_residue_bal_g4_2_6_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "residue_bal",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T09:46:47Z",
-      "cycle_id": "20261017T094635Z_c1a72c",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_sieve_two_counter_g4_6_2_w1",
       "status": "ok",
@@ -839,8 +824,38 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_bezout_identity__cayley_tree_count_w1",
+      "status": "ok",
+      "family": "compose",
+      "template": null,
+      "mismatches": [],
+      "mutants_tested": 2,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-18T06:49:59Z",
+      "cycle_id": "20261018T064925Z_1e346a",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_complete_bipartite_trees__faulhaber_power_sums_w1",
+      "status": "ok",
+      "family": "compose",
+      "template": null,
+      "mismatches": [],
+      "mutants_tested": 2,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-18T06:52:32Z",
+      "cycle_id": "20261018T065152Z_cdaccd",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-18T04:58:06Z",
+  "updated_at": "2026-10-18T06:52:32Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

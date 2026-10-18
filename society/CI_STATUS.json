@@ -561,82 +561,85 @@
     "cycle_509_evolve_note",
     "cycle_510_evolve_note",
     "cycle_511_evolve_note",
-    "cycle_512_evolve_note"
+    "cycle_512_evolve_note",
+    "cycle_513_evolve_note",
+    "cycle_514_evolve_note",
+    "cycle_515_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1486,
+      "uses": 1495,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1458,
+      "uses": 1467,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 993,
+      "uses": 999,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 496,
+      "uses": 499,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 1941,
+      "uses": 1953,
       "path": "society/systems/topic_priority.json"
     },
     {
       "name": "improvement_scoreboard",
-      "uses": 950,
+      "uses": 953,
       "path": "society/systems/improvement_scoreboard.json"
     },
     {
       "name": "common_knowledge",
-      "uses": 1453,
+      "uses": 1462,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 484,
+      "uses": 487,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 484,
+      "uses": 487,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 469,
+      "uses": 472,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 469,
+      "uses": 472,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 466,
+      "uses": 469,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 466,
+      "uses": 469,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 463,
+      "uses": 466,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 463,
+      "uses": 466,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -911,8 +914,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 1940,
-    "reused": 4360
+    "appended": 1952,
+    "reused": 4387
   },
   "commons_by_domain": {
     "science": 0,
@@ -931,8 +934,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-18T06:14:49Z",
-    "cycle_id": "20261018T061346Z_8638b3",
+    "ts": "2026-10-18T06:53:06Z",
+    "cycle_id": "20261018T065152Z_cdaccd",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -944,23 +947,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-18T06:14:47Z",
-    "cycle_id": "20261018T061346Z_8638b3",
+    "ts": "2026-10-18T06:53:03Z",
+    "cycle_id": "20261018T065152Z_cdaccd",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8,
+    "comm_reply_rate": 0.76,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8117,
-    "compute_usefulness": 0.9108,
+    "math_prize": 0.8082,
+    "compute_usefulness": 0.9068,
     "citation_reuse": 1.0,
-    "prize_boost": 0.884,
-    "kill_rate": 0.3116,
-    "kill_rate_term": 0.8305,
+    "prize_boost": 0.8811,
+    "kill_rate": 0.3106,
+    "kill_rate_term": 0.8295,
     "novelty": 0.963,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8674,
+    "aggregate": 0.8624,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -968,33 +971,31 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 27184,
-    "read": 130434,
-    "replied": 17107,
-    "actions_planned": 8832,
-    "actions_changed_from_message": 8832,
-    "reply_quality_sum": 15554.89999999694,
-    "reply_quality_n": 17055,
-    "peer_cite_opportunities": 17540,
-    "peer_cites": 17540
+    "posted": 27351,
+    "read": 131226,
+    "replied": 17212,
+    "actions_planned": 8886,
+    "actions_changed_from_message": 8886,
+    "reply_quality_sum": 15650.599999996912,
+    "reply_quality_n": 17160,
+    "peer_cite_opportunities": 17648,
+    "peer_cites": 17648
   },
   "bus_domains": {
-    "science": 1448,
-    "history": 1450,
-    "math": 4359,
-    "empire": 969,
-    "bulletin": 3632,
-    "forum": 6351,
-    "software": 1450,
-    "nature": 1448,
-    "life": 1450,
-    "cosmos": 2095,
-    "rsi": 2424
+    "science": 1457,
+    "history": 1459,
+    "math": 4386,
+    "empire": 975,
+    "bulletin": 3653,
+    "forum": 6390,
+    "software": 1459,
+    "nature": 1457,
+    "life": 1459,
+    "cosmos": 2109,
+    "rsi": 2439
   },
-  "communications_count": 27184,
+  "communications_count": 27351,
   "improvements": [
-    "Chain `cayley_tree_count` citing Counting with Hiccup Sequences",
-    "Chain `authored_sieve_residue_bal_g4_6_2_w1` citing Balanced Fibonacci word rectangles, and beyond",
     "Chain+seek `cycle_spanning_trees` from invariant priors",
     "Chain `authored_sieve_residue_bal_g4_6_6_w1` citing The large sieve inequality and additive decomposit",
     "Chain+seek `complete_bipartite_trees` from invariant priors",
@@ -1042,18 +1043,20 @@
     "Chain+seek `authored_frontier_cong_x0058ae91_w1` from invariant priors",
     "Chain+seek `authored_frontier_divides_x575aa435_w1` from invariant priors",
     "Chain+seek `authored_frontier_cong_x23fb70a1_w1` from invariant priors",
-    "Chain `authored_frontier_rec_xa92258f8_w1` citing Counting with Hiccup Sequences"
+    "Chain `authored_frontier_rec_xa92258f8_w1` citing Counting with Hiccup Sequences",
+    "Chain `authored_bezout_identity__cayley_tree_count_w1` citing Counting with Hiccup Sequences",
+    "Chain `authored_complete_bipartite_trees__faulhaber_power_sums_w1` citing Clique and chromatic numbers of graph powers: spec"
   ],
-  "cycle_count": 512,
-  "ledger_count": 29017,
+  "cycle_count": 515,
+  "ledger_count": 29191,
   "status_counts": {
-    "candidate": 28231,
+    "candidate": 28405,
     "accepted": 284,
     "rejected": 376,
     "unknown": 126
   },
-  "witness_events": 42168,
-  "tribute_cycles_compliant": 512,
+  "witness_events": 42420,
+  "tribute_cycles_compliant": 515,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
