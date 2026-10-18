@@ -696,7 +696,7 @@
  "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data.",
  "sparse": {
   "A091592": {
-   "a_per_k_s": 2.9757812500001534e-05,
+   "a_per_k_s": 1.7300788200000738e-05,
    "anum": "A091592",
    "checked": "2026-10-18T14:26:32Z",
    "comment_hint": [
@@ -710,17 +710,18 @@
      "op": "zeros"
     }
    ],
+   "intractable": "engine cap k = 5000 reached (cycle budget)",
    "keywords": [
     "hard",
     "more",
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.119,
-    "searched_to": 4000,
-    "status": "matches published",
-    "ts": "2026-10-18T14:26:34Z",
-    "why": "no further term up to k = 4000"
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-18T14:35:57Z",
+    "why": "engine cap k = 5000 reached (cycle budget)"
    },
    "n_pub": 12,
    "name": "Numbers n such that there are no twin primes between n^2 and (n+1)^2.",
@@ -775,12 +776,12 @@
      122
     ]
    ],
-   "searched_to": 4000,
+   "searched_to": 5000,
    "source": "https://oeis.org/A091592 (data section, 12 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.119,
-    "tries": 1
+    "cpu_s": 0.206,
+    "tries": 3
    },
    "status": "matched"
   },
@@ -935,7 +936,7 @@
    "status": "matched"
   },
   "A352229": {
-   "a_per_k_s": 1.182906250001281e-07,
+   "a_per_k_s": 1.0209892187496016e-07,
    "anum": "A352229",
    "checked": "2026-10-18T14:24:27Z",
    "comment_hint": [],
@@ -958,11 +959,11 @@
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.002,
-    "searched_to": 16000,
+    "cpu_s": 0.026,
+    "searched_to": 256000,
     "status": "matches published",
-    "ts": "2026-10-18T14:26:34Z",
-    "why": "no further term up to k = 16000"
+    "ts": "2026-10-18T14:37:19Z",
+    "why": "no further term up to k = 256000"
    },
    "n_pub": 18,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 7 ways.",
@@ -1041,17 +1042,17 @@
      398
     ]
    ],
-   "searched_to": 16000,
+   "searched_to": 256000,
    "source": "https://oeis.org/A352229 (data section, 18 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.002,
-    "tries": 2
+    "cpu_s": 0.034,
+    "tries": 4
    },
    "status": "matched"
   },
   "A352230": {
-   "a_per_k_s": 1.1061443749937894e-07,
+   "a_per_k_s": 1.0044677343756803e-07,
    "anum": "A352230",
    "checked": "2026-10-18T14:24:29Z",
    "comment_hint": [],
@@ -1074,11 +1075,11 @@
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.002,
-    "searched_to": 16000,
+    "cpu_s": 0.026,
+    "searched_to": 256000,
     "status": "matches published",
-    "ts": "2026-10-18T14:26:34Z",
-    "why": "no further term up to k = 16000"
+    "ts": "2026-10-18T14:37:19Z",
+    "why": "no further term up to k = 256000"
    },
    "n_pub": 20,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 8 ways.",
@@ -1165,17 +1166,17 @@
      368
     ]
    ],
-   "searched_to": 16000,
+   "searched_to": 256000,
    "source": "https://oeis.org/A352230 (data section, 20 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.002,
-    "tries": 2
+    "cpu_s": 0.034,
+    "tries": 4
    },
    "status": "matched"
   },
   "A352231": {
-   "a_per_k_s": 1.0609550000140189e-07,
+   "a_per_k_s": 1.0236846484379392e-07,
    "anum": "A352231",
    "checked": "2026-10-18T14:24:33Z",
    "comment_hint": [],
@@ -1198,11 +1199,11 @@
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.0,
-    "searched_to": 4000,
+    "cpu_s": 0.026,
+    "searched_to": 256000,
     "status": "matches published",
-    "ts": "2026-10-18T14:24:34Z",
-    "why": "no further term up to k = 4000"
+    "ts": "2026-10-18T14:37:19Z",
+    "why": "no further term up to k = 256000"
    },
    "n_pub": 23,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 9 ways.",
@@ -1301,17 +1302,17 @@
      488
     ]
    ],
-   "searched_to": 4000,
+   "searched_to": 256000,
    "source": "https://oeis.org/A352231 (data section, 23 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.0,
-    "tries": 1
+    "cpu_s": 0.034,
+    "tries": 4
    },
    "status": "matched"
   },
   "A352233": {
-   "a_per_k_s": 1.2889037500052325e-07,
+   "a_per_k_s": 1.786123120000127e-07,
    "anum": "A352233",
    "checked": "2026-10-18T14:24:23Z",
    "comment_hint": [],
@@ -1334,11 +1335,11 @@
     "nonn"
    ],
    "last": {
-    "cpu_s": 0.002,
-    "searched_to": 16000,
+    "cpu_s": 0.179,
+    "searched_to": 1000000,
     "status": "matches published",
-    "ts": "2026-10-18T14:26:34Z",
-    "why": "no further term up to k = 16000"
+    "ts": "2026-10-18T14:37:19Z",
+    "why": "no further term up to k = 1000000"
    },
    "n_pub": 16,
    "name": "Numbers that can be expressed as the sum of two primes in exactly 10 ways.",
@@ -1409,12 +1410,12 @@
      632
     ]
    ],
-   "searched_to": 16000,
+   "searched_to": 1000000,
    "source": "https://oeis.org/A352233 (data section, 16 terms)",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.003,
-    "tries": 2
+    "cpu_s": 0.214,
+    "tries": 5
    },
    "status": "matched"
   }

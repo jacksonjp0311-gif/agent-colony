@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T14:25:59Z",
-  "n": 359,
+  "updated_at": "2026-10-18T14:34:58Z",
+  "n": 360,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -83,6 +83,7 @@
     "authored_frontier_le_x1c0eba57_w1",
     "authored_frontier_le_x46c5cc8a_w1",
     "authored_frontier_le_x9abb4c98_w1",
+    "authored_frontier_le_xc2340063_w1",
     "authored_frontier_le_xdbff107c_w1",
     "authored_frontier_rec_xa92258f8_w1",
     "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
@@ -200,8 +201,7 @@
     "authored_sum_first_n_odds__vandermonde_conv_w1",
     "authored_vandermonde_conv__stirling_second_row_w1",
     "authored_wilson_theorem__stirling_first_row_sum_w1",
-    "autodiff",
-    "autodiff_busy_loop"
+    "autodiff"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
