@@ -1,0 +1,86 @@
+{
+ "runs": [
+  {
+   "budget_s": 1500.0,
+   "candidates_seen": 88,
+   "cpu_s": 91.73,
+   "matched": [],
+   "mode": "shadow",
+   "net_requests": 3,
+   "pushed": [
+    {
+     "anum": "A228014",
+     "cpu_s": 0.39,
+     "item": "col_steps",
+     "n_values": 0,
+     "op": "fgtk",
+     "searched_to": 256000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:17:16Z",
+     "why": "no further term up to k = 256000"
+    },
+    {
+     "anum": "A228014",
+     "cpu_s": 1.614,
+     "item": "col_steps",
+     "n_values": 0,
+     "op": "fgtk",
+     "searched_to": 1024000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:17:16Z",
+     "why": "no further term up to k = 1024000"
+    },
+    {
+     "anum": "A228014",
+     "cpu_s": 6.582,
+     "item": "col_steps",
+     "n_values": 0,
+     "op": "fgtk",
+     "searched_to": 4096000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:17:18Z",
+     "why": "no further term up to k = 4096000"
+    },
+    {
+     "anum": "A228014",
+     "cpu_s": 27.069,
+     "item": "col_steps",
+     "n_values": 0,
+     "op": "fgtk",
+     "searched_to": 16384000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:17:24Z",
+     "why": "no further term up to k = 16384000"
+    },
+    {
+     "anum": "A228014",
+     "cpu_s": 33.354,
+     "item": "col_steps",
+     "n_values": 0,
+     "op": "fgtk",
+     "searched_to": 20000000,
+     "status": "matches published",
+     "ts": "2026-10-18T14:17:51Z",
+     "why": "no further term up to k = 20000000"
+    },
+    {
+     "anum": "A228014",
+     "cpu_s": 0.0,
+     "item": "col_steps",
+     "n_values": 0,
+     "op": "fgtk",
+     "status": "intractable",
+     "ts": "2026-10-18T14:18:25Z",
+     "why": "engine cap k = 20000000 reached (deep budget)"
+    }
+   ],
+   "queue": 0,
+   "searches": [
+    "keyword:hard Collatz @20",
+    "keyword:more Goldbach @0",
+    "keyword:more Goldbach @10"
+   ],
+   "ts": "2026-10-18T14:18:25Z"
+  }
+ ]
+}
