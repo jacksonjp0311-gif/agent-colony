@@ -2128,15 +2128,6 @@ def check_authored_sieve_hl_within_g4_6_w1() -> bool:
     return all(type(c := sieve_count((4, 6), a, b)) is int and type(h := sieve_hl((4, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
-def check_authored_sieve_hl_within_g2_6_4_w1() -> bool:
-    """Authored instrument check (desk): count of consecutive pattern (2, 6, 4) on each window is within 4.0*sqrt of the HL forecast.
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((2, 6, 4), a, b)) is int and type(h := sieve_hl((2, 6, 4), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
 def check_authored_sieve_hl_within_g2_6_6_w1() -> bool:
     """Authored instrument check (desk): count of consecutive pattern (2, 6, 6) on each window is within 4.0*sqrt of the HL forecast.
     Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
@@ -2423,6 +2414,24 @@ def check_authored_frontier_cong_x5cb35120_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((pi*pi))', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
+def check_authored_frontier_cong_x83358e42_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 29994 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(gcd(phi,pi))', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
+def check_authored_frontier_le_x1c0eba57_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    (gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf-sqfree)', 'params': {}, 'rhs': 'phi'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2650,7 +2659,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_two_counter_g6_w1", check_authored_sieve_two_counter_g6_w1, True),
     ("authored_sieve_hl_within_g4_w1", check_authored_sieve_hl_within_g4_w1, True),
     ("authored_sieve_hl_within_g4_6_w1", check_authored_sieve_hl_within_g4_6_w1, True),
-    ("authored_sieve_hl_within_g2_6_4_w1", check_authored_sieve_hl_within_g2_6_4_w1, True),
     ("authored_sieve_hl_within_g2_6_6_w1", check_authored_sieve_hl_within_g2_6_6_w1, True),
     ("authored_sieve_two_counter_g4_2_6_w1", check_authored_sieve_two_counter_g4_2_6_w1, True),
     ("authored_sieve_residue_bal_g4_6_2_w1", check_authored_sieve_residue_bal_g4_6_2_w1, True),
@@ -2679,6 +2687,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_x9abb4c98_w1", check_authored_frontier_le_x9abb4c98_w1, True),
     ("authored_frontier_cong_x16b72492_w1", check_authored_frontier_cong_x16b72492_w1, True),
     ("authored_frontier_cong_x5cb35120_w1", check_authored_frontier_cong_x5cb35120_w1, True),
+    ("authored_frontier_cong_x83358e42_w1", check_authored_frontier_cong_x83358e42_w1, True),
+    ("authored_frontier_le_x1c0eba57_w1", check_authored_frontier_le_x1c0eba57_w1, False),
 ]
 
 

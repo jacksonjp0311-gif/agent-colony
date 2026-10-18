@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-18T02:57:55Z",
-  "cycle_id": "20261018T025744Z_67f9cd",
+  "ts": "2026-10-18T03:06:20Z",
+  "cycle_id": "20261018T030605Z_f8a3d1",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -8,20 +8,6 @@
       "newton_identities": 1
     },
     "recent": {
-      "authored_cayley_tree_count__complete_bipartite_trees_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_crt_coprime_pair__cycle_spanning_trees_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_euler_pentagonal__lagrange_cyclic_orders_w1": {
         "last": "keep",
         "streak": 1,
@@ -91,34 +77,48 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_frontier_cong_x5cb35120_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_frontier_cong_x83358e42_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8671,
-      "slope": 0.000113,
+      "last": 0.8626,
+      "slope": -6.2e-05,
       "min": 0.862,
-      "max": 0.8671
+      "max": 0.8673
     },
     "novelty": {
       "last": 0.963,
-      "slope": 0.005945,
-      "min": 0.8846,
+      "slope": 0.004648,
+      "min": 0.9231,
       "max": 0.963
     },
     "kill_rate": {
-      "last": 0.3154,
-      "slope": -0.000184,
-      "min": 0.3154,
-      "max": 0.3176
+      "last": 0.3143,
+      "slope": -0.000228,
+      "min": 0.3143,
+      "max": 0.3171
     },
     "kill_rate_term": {
-      "last": 0.8339,
-      "slope": -0.000166,
-      "min": 0.8339,
-      "max": 0.8359
+      "last": 0.8329,
+      "slope": -0.000208,
+      "min": 0.8329,
+      "max": 0.8354
     },
     "lesson_uptake": {
       "last": 0.96,
@@ -129,16 +129,15 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0044,
+    "aggregate_range": 0.0047,
     "novelty_max": 0.963,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 213,
+    "enabled": 214,
     "disabled": [
-      "adversarial_vandermonde_asymmetric",
-      "authored_frontier_cong_x5cb35120_w1"
+      "adversarial_vandermonde_asymmetric"
     ],
     "authored": [
       "authored_abel_summation__faulhaber_power_sums_w1",
@@ -193,6 +192,7 @@
       "authored_fibonacci_addition__narayana_sum_w1",
       "authored_frontier_cong_x16b72492_w1",
       "authored_frontier_cong_x5cb35120_w1",
+      "authored_frontier_cong_x83358e42_w1",
       "authored_frontier_le_x9abb4c98_w1",
       "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
       "authored_gcd_fibonacci__hermite_recurrence_w1",
@@ -228,7 +228,6 @@
       "authored_polynomial_remainder__telescoping_sum_w1",
       "authored_pythagorean_generation__narayana_sum_w1",
       "authored_sieve_hl_within_g2_4_6_w1",
-      "authored_sieve_hl_within_g2_6_4_w1",
       "authored_sieve_hl_within_g2_6_6_w1",
       "authored_sieve_hl_within_g2_w1",
       "authored_sieve_hl_within_g2_w2",
@@ -283,7 +282,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 7
+    "exhausted_recent": 6
   },
   "guides": {
     "n_guides": 17,
@@ -297,33 +296,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.127,
+      "ratio": 1.087,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.131,
+      "ratio": 1.094,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.29,
+      "ratio": 1.126,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.14,
+      "ratio": 1.11,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.112,
+      "ratio": 1.118,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 103800003,
+      "goldbach_even": 107000003,
       "collatz_descent": 121400000,
-      "legendre_square_gap": 652607,
-      "lehmer_totient": 43800001,
+      "legendre_square_gap": 668607,
+      "lehmer_totient": 45400001,
       "erdos_straus": 669951,
       "twin_primes_hl": 150200000,
       "oeis_A104062_next": 518690000001
@@ -337,16 +336,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4885,
+        "challenged": 4883,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 115,
+        "challenged": 117,
         "blocked": 0
       }
     },
     "post_challenger_oracle_kill_rate": 0.0,
-    "post_challenger_oracle_judged": 110,
+    "post_challenger_oracle_judged": 112,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -375,18 +374,18 @@
     "last": [
       [
         null,
+        "2026-10-18T03:00:14Z"
+      ],
+      [
+        "success",
         "2026-10-18T02:52:04Z"
       ],
       [
         "success",
         "2026-10-18T02:43:34Z"
-      ],
-      [
-        "success",
-        "2026-10-17T22:50:33Z"
       ]
     ],
-    "fetched_at": "2026-10-18T02:52:44Z"
+    "fetched_at": "2026-10-18T03:00:51Z"
   },
   "feeds": {
     "by_source": {
@@ -405,7 +404,7 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "cs.LG:TimeoutError: The read operation timed out; cs.MA:HTTPError: HTTP Error 429: Unknown Error",
+          "error": "math.CO:HTTPError: HTTP Error 429: Unknown Error; math.NT:HTTPError: HTTP Error 429: Unknown Error",
           "fetched": 0,
           "new": 0,
           "ok": false
@@ -435,11 +434,11 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-18T02:52:28Z"
+      "ts": "2026-10-18T03:00:37Z"
     },
     "health": {
       "arxiv": {
-        "fail": 3,
+        "fail": 4,
         "ok": 34
       },
       "crossref": {

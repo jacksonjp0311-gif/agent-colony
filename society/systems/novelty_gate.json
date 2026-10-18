@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-18T02:58:30Z",
+  "updated_at": "2026-10-18T03:05:11Z",
   "hits": 26,
   "kills": 1,
   "rows": 30,
   "kill_rows": 4,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-18T02:58:30Z",
-    "cycle_id": "20261018T025744Z_67f9cd",
-    "mutation": "authored_frontier_cong_x5cb35120_w1",
+    "ts": "2026-10-18T03:05:11Z",
+    "cycle_id": "20261018T030422Z_98f913",
+    "mutation": "authored_frontier_cong_x83358e42_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 204,
-      "hard_n": 204,
+      "hard_pass": 205,
+      "hard_n": 205,
       "stripped_fails_usefulness": true,
-      "score": 0.8619,
-      "impl_id": "lemma_impl_v2_basic10_hard204"
+      "score": 0.8618,
+      "impl_id": "lemma_impl_v2_basic10_hard205"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 204,
+      "hard_pass": 205,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
