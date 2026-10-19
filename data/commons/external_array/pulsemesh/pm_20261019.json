@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-19T13:52:31Z",
+  "ts": "2026-10-19T22:38:32Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.288932509126811,
+      "latest": -6.28145032330209,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-19T13:45:00Z",
-          "v": -8.562412065166642
+          "t": "2026-10-19T22:32:00Z",
+          "v": -8.410741509635454
         },
         {
-          "t": "2026-10-19T13:45:00Z",
-          "v": -6.2929829121754945
+          "t": "2026-10-19T22:32:00Z",
+          "v": -6.273542908611174
         },
         {
-          "t": "2026-10-19T13:46:00Z",
-          "v": -8.726736114332025
+          "t": "2026-10-19T22:33:00Z",
+          "v": -8.280478834421631
         },
         {
-          "t": "2026-10-19T13:46:00Z",
-          "v": -6.293322896820355
+          "t": "2026-10-19T22:33:00Z",
+          "v": -6.263579508911822
         },
         {
-          "t": "2026-10-19T13:47:00Z",
-          "v": -8.827587723794549
+          "t": "2026-10-19T22:34:00Z",
+          "v": -8.612342263812867
         },
         {
-          "t": "2026-10-19T13:47:00Z",
-          "v": -6.29476852088499
+          "t": "2026-10-19T22:34:00Z",
+          "v": -6.275340192609954
         },
         {
-          "t": "2026-10-19T13:48:00Z",
-          "v": -8.556380825431384
+          "t": "2026-10-19T22:35:00Z",
+          "v": -8.641806390670764
         },
         {
-          "t": "2026-10-19T13:48:00Z",
-          "v": -6.288932509126811
+          "t": "2026-10-19T22:35:00Z",
+          "v": -6.28145032330209
         }
       ],
       "live": true,
-      "ts": "2026-10-19T13:52:31Z"
+      "ts": "2026-10-19T22:38:20Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 11.0,
+      "latest": 13.1,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -95,67 +95,18 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-19T13:52:31Z"
+      "ts": "2026-10-19T22:38:20Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
-      "ok": true,
-      "note": "ok",
-      "count": 100,
-      "latest": 4.4,
-      "items": [
-        {
-          "mag": 4.4,
-          "place": "33 km SE of Sơn La, Vietnam",
-          "time": 1792367962511,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.4,
-          "place": "Kermadec Islands region",
-          "time": 1792366243709,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.5,
-          "place": "Fiji region",
-          "time": 1792362862230,
-          "source": "usgs"
-        },
-        {
-          "mag": 5.1,
-          "place": "129 km SSE of Kokopo, Papua New Guinea",
-          "time": 1792362703272,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.7,
-          "place": "147 km SSW of Kokopo, Papua New Guinea",
-          "time": 1792361173969,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.7,
-          "place": "61 km NNE of Miches, Dominican Republic",
-          "time": 1792358140811,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.4,
-          "place": "223 km NE of Lospalos, Timor Leste",
-          "time": 1792355049032,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.88,
-          "place": "14 km NNE of Hawaiian Ocean View, Hawaii",
-          "time": 1792354791090,
-          "source": "usgs"
-        }
-      ],
-      "live": true,
+      "ok": false,
+      "note": "TimeoutError: The read operation timed out",
+      "count": 0,
+      "latest": null,
+      "items": [],
+      "live": false,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-12&endtime=2026-10-19&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-19T13:52:31Z"
+      "ts": "2026-10-19T22:38:32Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +115,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.4326171875,
-          "disk_free_percent": 58.97636511395029,
-          "process_count": 145,
-          "uptime_hours": 0.13516944444444445,
+          "load1": 0.35888671875,
+          "disk_free_percent": 58.975931434671345,
+          "process_count": 150,
+          "uptime_hours": 0.12365555555555556,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervm8k3b6",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.4326171875,
+      "latest_load1": 0.35888671875,
       "live": true,
-      "ts": "2026-10-19T13:52:31Z"
+      "ts": "2026-10-19T22:38:32Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 7.641008000007332,
-      "mean_ms": 8.652057000006153,
+      "latest_ms": 2.124358999992637,
+      "mean_ms": 2.4043709999972407,
       "items": [
         {
           "probe": 0,
-          "ms": 6.051050999985819
+          "ms": 2.217005000034078
         },
         {
           "probe": 1,
-          "ms": 11.562376000028962
+          "ms": 2.5558739999951285
         },
         {
           "probe": 2,
-          "ms": 9.353793000002497
+          "ms": 2.720245999967119
         },
         {
           "probe": 3,
-          "ms": 7.641008000007332
+          "ms": 2.124358999992637
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-19T13:52:31Z"
+      "ts": "2026-10-19T22:38:32Z"
     }
   },
   "feed_health": {
@@ -220,9 +171,9 @@
       "count": 48
     },
     "usgs_quakes": {
-      "ok": true,
-      "note": "ok",
-      "count": 100
+      "ok": false,
+      "note": "TimeoutError: The read operation timed out",
+      "count": 0
     },
     "system_stat": {
       "ok": true,
@@ -238,10 +189,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.4326171875 tcp_probe mean_ms=8.652057000006153 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.35888671875 tcp_probe mean_ms=2.4043709999972407 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.4326171875,
-        "probe_ms": 8.652057000006153,
+        "load1": 0.35888671875,
+        "probe_ms": 2.4043709999972407,
         "probe_ok": true
       },
       "domains": [
