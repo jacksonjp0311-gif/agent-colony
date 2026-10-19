@@ -1,24 +1,24 @@
 {
-  "last_attempt_at": "2026-10-19T02:06:17Z",
-  "last_status": 0,
+  "last_attempt_at": "2026-10-19T02:31:25Z",
+  "last_status": 200,
   "retry_after_until": null,
-  "last_error": "ReadTimeout: The read operation timed out",
-  "last_ok_at": "2026-10-18T20:58:04Z",
+  "last_error": "",
+  "last_ok_at": "2026-10-19T02:31:25Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
-      "abstract_snippet": "Personalization is essential for general-purpose robots to transition into household environments and achieve true practicality. While general robotic manipulation has been extensively studied, personalized robotic manipulation (PeRM) lacks a controlled benchmark for separating task completion from preference satisfaction. We introduce LIBERO-PeRM, a benchmark for preference learning in embodied a",
-      "url": "https://arxiv.org/abs/2610.22372",
-      "arxiv_id": "2610.22372",
+      "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
+      "abstract_snippet": "Fine-tuning large language models (LLMs) can induce behaviors beyond those explicitly targeted. For example, training a model to respond more warmly can make it more sycophantic, and training it to write insecure code can cause broad misalignment on prompts unrelated to coding. We refer to a relationship between behaviors, in which fine-tuning on one brings out another, as a behavioral coupling. I",
+      "url": "https://arxiv.org/abs/2610.23847",
+      "arxiv_id": "2610.23847",
       "doi": "",
       "authors": [
-        "Zhixu Li",
-        "Keqian Tang",
-        "Litian Gong",
-        "Jingyu Yao",
-        "Wenqian Zhang",
-        "Tianze Xu"
+        "Dongyoon Hahm",
+        "Woogyeol Jin",
+        "Dennis Wei",
+        "Yi Zhou",
+        "Nathalie Baracaldo",
+        "Kimin Lee"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +28,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-18T20:58:05Z"
+      "fetched_at": "2026-10-19T02:31:25Z"
     },
     {
       "source": "arxiv",
-      "title": "PathFM: Fast Generative Forecasting of Multivariate Trajectories",
-      "abstract_snippet": "Time series foundation models are becoming increasingly popular for general-purpose forecasting. However, most leading models predict marginal quantiles, leaving the dependence structure of future trajectories unspecified. This distinction matters for trajectory-dependent quantities such as cumulative demand, peak load, and event timing, yet point and marginal scores do not reveal it. To model thi",
-      "url": "https://arxiv.org/abs/2610.22358",
-      "arxiv_id": "2610.22358",
+      "title": "Task-aligned spectral inductive biases in parameterized quantum circuits",
+      "abstract_snippet": "Parameterized quantum circuits are widely investigated in quantum machine learning, yet how their architecture can provide task-aligned inductive biases remains poorly understood. We study data reuploading quantum circuits with two distinct inputs: a signal that varies between samples and a fixed, task-defined spectral query that specifies how the signal should be probed. We show that encoding the",
+      "url": "https://arxiv.org/abs/2610.23834",
+      "arxiv_id": "2610.23834",
       "doi": "",
       "authors": [
-        "Jiachen Yao",
-        "Xiyuan Zhang",
-        "Annan Yu",
-        "Boran Han",
-        "Abdul Fatir Ansari",
-        "Shuai Zhang"
+        "Felix Frohnert",
+        "Adrián Pérez-Salinas",
+        "Sebastian Lange",
+        "Marcus Schwaebisch",
+        "Evert van Nieuwenburg",
+        "Vedran Dunjko"
       ],
       "year": 2026,
       "tags": [
@@ -53,21 +53,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-18T20:58:05Z"
+      "fetched_at": "2026-10-19T02:31:25Z"
     },
     {
       "source": "arxiv",
-      "title": "Rethinking Routing Exploration in Modern Mixture-of-Experts",
-      "abstract_snippet": "Mixture-of-experts (MoE) models have become an important approach for scaling model parameters. Modern MoE architectures increasingly combine two design choices: fine-grained expert segmentation and shared experts. The former increases expressiveness by enabling more expert combinations at a fixed activation ratio, and the latter introduces experts that are active for every token. We identify an e",
-      "url": "https://arxiv.org/abs/2610.22353",
-      "arxiv_id": "2610.22353",
+      "title": "Beyond the Answer: Student-Conditioned Trace Construction for Reasoning Distillation",
+      "abstract_snippet": "A reasoning trace can accompany a correct answer without providing effective supervision for a particular student. We study how to construct traces that improve learning beyond answer-only supervision by considering both their intermediate content and their accessibility to the target learner. We introduce ReDiST, a student-conditioned trace-construction and distillation framework for evidence-ric",
+      "url": "https://arxiv.org/abs/2610.23831",
+      "arxiv_id": "2610.23831",
       "doi": "",
       "authors": [
-        "Bingcong Li",
-        "Hao Ma",
-        "Michael Muehlebach",
-        "Niao He",
-        "Yi Ma"
+        "Shaoang Li",
+        "Yanhang Shi",
+        "Yufei Li",
+        "Mingfu Liang",
+        "Frank Shyu",
+        "Sandeep Pandey"
       ],
       "year": 2026,
       "tags": [
@@ -77,17 +78,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-18T20:58:05Z"
+      "fetched_at": "2026-10-19T02:31:25Z"
     },
     {
       "source": "arxiv",
-      "title": "On exponential sums with multiplicative coefficients",
-      "abstract_snippet": "Let $f:\\mathbb{N}\\to{z\\in\\mathbb{C}:|z|\\leq1}$ be multiplicative, and suppose that $α$ has a rational approximation $a/q$ with $|α-a/q|\\leq 1/(qx)$ and $q\\leq x/((\\log x)^2(\\log\\log x)^3)$. We prove that $\\left|\\sum_{n\\leq x}f(n)e(nα)\\right|\\leq \\left(\\frac4{\\sqrt6}+o(1)\\right)\\frac{x}{\\sqrt q} +O\\left(\\frac{x}{\\log x}\\right)$, whereas complete multiplicativity improves $4/\\sqrt6$ to $1$. Both con",
-      "url": "https://arxiv.org/abs/2610.22345",
-      "arxiv_id": "2610.22345",
+      "title": "Waiting Buys Exactly Two Moments: Endogenous Identification in Prediction-Driven Allocation",
+      "abstract_snippet": "A planner with a fixed budget of preventive help must decide whom to help and when. Waiting reveals risk but removes intervention opportunities as higher-risk individuals leave first. We characterize this tradeoff under repeated noisy signals and risk-dependent attrition: in the canonical model, a length-$τ$ observation prefix identifies exactly the latent risk moments $m_j=\\mathbb E[p^j]$ for $j=",
+      "url": "https://arxiv.org/abs/2610.23830",
+      "arxiv_id": "2610.23830",
       "doi": "",
       "authors": [
-        "Haozhe Gou"
+        "Rama AlHamidi",
+        "Rasul Khanbayov",
+        "Erchin Serpedin",
+        "Hasan Kurban"
       ],
       "year": 2026,
       "tags": [
@@ -97,22 +101,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-18T20:58:05Z"
+      "fetched_at": "2026-10-19T02:31:25Z"
     },
     {
       "source": "arxiv",
-      "title": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
-      "abstract_snippet": "Large language models (LLMs) are expanding from assisting scientific research and engineering to autonomously developing and improving AI systems, advancing AI for AI (AI4AI) as a pathway toward recursive self-improvement (RSI). Workflow-driven machine learning engineering (MLE) systems provide a practical path toward this pursuit through complex orchestration that manages long-horizon experimenta",
-      "url": "https://arxiv.org/abs/2610.22344",
-      "arxiv_id": "2610.22344",
+      "title": "Quality-of-Transmission Estimation in Quantum Networks: Compute, Simulate, or Learn?",
+      "abstract_snippet": "Future quantum networks will rely on control-plane decisions such as routing, scheduling, entanglement provisioning, purification, and memory allocation. Each decision depends on a timely and reliable estimate of the quality of the entanglement that a candidate path can deliver, with end-to-end fidelity as a central metric. Inspired by the optical-networking experience with quality-of-transmission",
+      "url": "https://arxiv.org/abs/2610.23827",
+      "arxiv_id": "2610.23827",
       "doi": "",
       "authors": [
-        "Shangheng Du",
-        "Jinxin Shi",
-        "Shuaiyu Zhang",
-        "Yiming Wu",
-        "Junpeng Zhao",
-        "Shiyang Feng"
+        "Anis Bekri",
+        "Amar Abane",
+        "Van Sy Mai",
+        "Abdella Battou",
+        "Saddek Bensalem"
       ],
       "year": 2026,
       "tags": [
@@ -122,7 +125,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-18T20:58:05Z"
+      "fetched_at": "2026-10-19T02:31:25Z"
     }
   ]
 }

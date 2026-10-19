@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-10-19T02:15:39Z",
+    "fetched_at": "2026-10-19T02:29:37Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-19T02:28:57Z",
+        "id": 39190164714,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-10-19T02:29:01Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-19T02:14:36Z",
         "id": 39189039368,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-10-19T02:14:40Z"
+        "status": "completed",
+        "updated_at": "2026-10-19T02:23:19Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-10-18T16:03:42Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-18T15:49:38Z",
-        "id": 39142225305,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-18T15:56:28Z"
       }
     ],
     "success_rate": 1.0
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 6,
-      "ok": 38
+      "ok": 39
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-10-18T20:56:10Z",
+    "arxiv": "2026-10-19T02:29:36Z",
     "crossref": "2026-10-19T02:04:10Z",
     "oeis": "2026-10-19T02:04:09Z",
     "oeis_conj": "2026-10-19T02:04:10Z",
@@ -138,10 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "cs.LG:TimeoutError: The read operation timed out; cs.MA:TimeoutError: The read operation timed out",
-        "fetched": 0,
-        "new": 0,
-        "ok": false
+        "error": "",
+        "fetched": 8,
+        "new": 6,
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-10-19T02:15:08Z"
+    "ts": "2026-10-19T02:29:33Z"
   },
-  "runs": 152
+  "runs": 153
 }

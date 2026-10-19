@@ -3,7 +3,6 @@
   "frontier",
   "frontier",
   "frontier",
-  "frontier",
   "instrument",
   "instrument",
   "frontier",
@@ -17,76 +16,13 @@
   "instrument",
   "frontier",
   "frontier",
+  "frontier",
+  "frontier",
+  "instrument",
   "frontier",
   "frontier"
  ],
  "history": [
-  {
-   "cpu_s": 3.229,
-   "cycle_id": "20261018T153844Z_c72619",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 6,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 417,
-    "cpu_s": 3.229,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": [
-     "keyword:hard Goldbach @0",
-     "keyword:hard Goldbach @10",
-     "keyword:hard Goldbach @20"
-    ]
-   },
-   "ts": "2026-10-18T15:40:16Z"
-  },
-  {
-   "cpu_s": 0.216,
-   "cycle_id": "20261018T154023Z_e569db",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 421,
-    "cpu_s": 0.215,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": [
-     "keyword:more \"no twin primes\" @0",
-     "keyword:more \"between n^2 and (n+1)^2\" @0",
-     "keyword:more \"least even number\" primes @0"
-    ]
-   },
-   "ts": "2026-10-18T15:41:52Z"
-  },
-  {
-   "cpu_s": 1.311,
-   "cycle_id": "20261018T154448Z_465afd",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 433,
-    "cpu_s": 1.311,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": [
-     "keyword:more \"smallest number\" \"number of divisors\" @0",
-     "keyword:more \"smallest number\" \"number of divisors\" @10",
-     "keyword:more \"smallest number\" \"number of divisors\" @20"
-    ]
-   },
-   "ts": "2026-10-18T15:46:03Z"
-  },
   {
    "cpu_s": 0.955,
    "cycle_id": "20261018T154610Z_6bc395",
@@ -776,11 +712,65 @@
     "searches": []
    },
    "ts": "2026-10-19T02:22:25Z"
+  },
+  {
+   "cpu_s": 0.021,
+   "cycle_id": "20261019T023111Z_ddc9ae",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.02,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-19T02:32:41Z"
+  },
+  {
+   "cpu_s": 0.02,
+   "cycle_id": "20261019T023249Z_55f126",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.02,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-19T02:34:14Z"
+  },
+  {
+   "cpu_s": 0.02,
+   "cycle_id": "20261019T023422Z_ee477a",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.02,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-19T02:35:50Z"
   }
  ],
  "last": {
-  "cpu_s": 0.024,
-  "cycle_id": "20261019T022049Z_831fcd",
+  "cpu_s": 0.02,
+  "cycle_id": "20261019T023422Z_ee477a",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -788,13 +778,13 @@
   "pushed": [],
   "sparse": {
    "candidates_seen": 462,
-   "cpu_s": 0.024,
+   "cpu_s": 0.02,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-10-19T02:22:25Z"
+  "ts": "2026-10-19T02:35:50Z"
  },
  "mode": "live",
  "sparse": {
