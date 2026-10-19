@@ -77,16 +77,21 @@ ARITH = ("n", "one", "phi", "sigma", "tau", "omega", "bigomega", "mu", "rad", "l
 WIDE = ("csteps", "cmax", "maxgap", "gold", "cheb4", "cheb3", "ds3", "rev")
 ARITH = ARITH + WIDE
 EXPO = ("pow2", "fib", "lucas", "pell", "part")
+# New ingredients (COLONY_FRONTIER_INGREDIENTS; colony/frontier_ingredients.py): graph invariants,
+# restricted partitions, matrix sequences. Tabulated always; sampled only when active().
+from colony import frontier_ingredients as _ING  # noqa: E402
+ARITH = ARITH + _ING.CHEAP
+EXPO = EXPO + _ING.EXPO_NEW
 PRIMS = ARITH + EXPO
 WIDE_QS = (5, 7, 11)     # residue classes for Ramanujan-type congruences
 WIDE_MODS = (11,)
 CONG_FIT_PER_CLASS = 6   # wide menu: congruence on n = s (mod q) fitted on 6 members of the class
 MODPAT_MODS = (2, 3, 4, 5)
 MODPAT_MAX_P = 12
-CF_ORDER = {"n": 2, "one": 1, "pow2": 1, "fib": 2, "lucas": 2, "pell": 2}
+CF_ORDER = {"n": 2, "one": 1, "pow2": 1, "fib": 2, "lucas": 2, "pell": 2} | _ING.CF_ORDER_NEW
 OPS = ("p", "S", "D", "sh", "dbl", "+", "-", "*", "gcd", "o")
 POSITIVE = {"n", "one", "phi", "sigma", "tau", "rad", "lpf", "gpf", "prime", "digsum", "popcount",
-            "cmax", "maxgap", "ds3", "rev"}
+            "cmax", "maxgap", "ds3", "rev"} | set(_ING.POSITIVE_NEW)
 
 
 def menu() -> str:
@@ -97,7 +102,8 @@ def menu() -> str:
 
 
 def menu_prims() -> tuple[str, ...]:
-    return PRIMS if menu() == "wide" else tuple(k for k in PRIMS if k not in WIDE)
+    ps = PRIMS if menu() == "wide" else tuple(k for k in PRIMS if k not in WIDE)
+    return ps if _ING.active() else tuple(k for k in ps if k not in _ING.NEW)
 
 
 def mode() -> str:
@@ -133,6 +139,7 @@ class Tables:
         self.t: dict[str, list[int]] = {}
         self._arith(lim)
         self._expo(exp_n)
+        _ING.extend(self)
 
     def _arith(self, L: int) -> None:
         spf = list(range(L + 1))
@@ -340,7 +347,7 @@ def evaluate(e: tuple, N: int, T: Any, tab: dict[str, list[int]] | None = None) 
     t = tab if tab is not None else T.t
     op = e[0]
     if op == "p":
-        arr = t[e[1]]
+        arr = t[e[1]] if e[1] in t else T.t[e[1]]
         return None if len(arr) <= N else arr[1:N + 1]
     if op == "S":
         x = evaluate(e[1], N, T, tab)
@@ -361,7 +368,7 @@ def evaluate(e: tuple, N: int, T: Any, tab: dict[str, list[int]] | None = None) 
         return None if x is None else x[1::2]
     if op == "o":
         x = evaluate(e[2], N, T, tab)
-        arr = t[e[1]]
+        arr = t[e[1]] if e[1] in t else T.t[e[1]]
         if x is None or not x or min(x) < 1 or max(x) >= len(arr):
             return None
         return [arr[v] for v in x]
@@ -1543,9 +1550,13 @@ def test_claim(c: dict[str, Any], T: Any, lo: int, cap_cheap: int, cap_exp: int)
 
 def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lookup: Any = "default",
               write: bool = True, seed: str | None = None, F: int | None = None,
-              k_prior: float | None = None) -> dict[str, Any]:
+              k_prior: float | None = None, tally: dict | None = None) -> dict[str, Any]:
     if mode() == "off":
         return {"skipped": "COLONY_FRONTIER=off"}
+    live_tally = tally is None and _ING.mode() == "live" and write
+    if live_tally:
+        tally = _ING.new_tally()
+    _pr = lambda c: prims_of(c["_le"]) | (prims_of(c["_re"]) if c.get("_re") is not None else set())  # noqa: E731
     T = T or tables()
     F = F or fit_n()
     if lookup == "default":
@@ -1574,6 +1585,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
               "surprises": 0, "known_result": 0, "oeis_known": 0, "oeis_unchecked": 0, "retested": 0, "false_surprises": 0}
     fresh: list[dict[str, Any]] = []
     for c in cands:
+        _ING.mark(tally, _pr(c), "produced")
         if _h(c["id"]) in seen_ids:
             counts["duplicate"] += 1
             continue
@@ -1585,6 +1597,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         seen_ids.add(_h(c["id"]))
         c["sig"] = sg
         fresh.append(c)
+        _ING.mark(tally, _pr(c), "fresh")
     # colony's own priority for what to test first: unexplored families, then kind survival
     fam_s = st["family_surprises"]
     rng.shuffle(fresh)
@@ -1604,6 +1617,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
             counts[f"trivial_{tr}"] = counts.get(f"trivial_{tr}", 0) + 1
             continue
         per_kind[c["kind"]] = per_kind.get(c["kind"], 0) + 1
+        _ING.mark(tally, _pr(c), "passed_filter")
         c["prediction"] = round(predict(c["kind"], st), 4)          # pre-registered BEFORE testing
         c["predicted_at"] = _utc()
         res = test_claim(c, T, F, HELD_CHEAP, HELD_EXP)
@@ -1611,6 +1625,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
             continue
         c.update(res)
         counts["tested"] += 1
+        _ING.mark(tally, _pr(c), "tested")
         y = 1.0 if res["survived"] else 0.0
         P = st["predictions"]
         P["n"] += 1
@@ -1628,6 +1643,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
             counts["falsified"] += 1
             continue
         counts["survived"] += 1
+        _ING.mark(tally, _pr(c), "survived")
         sides = [c["_le"]] + ([c["_re"]] if c.get("_re") is not None else [])
         oe = [oeis_status(e, T, lookup) for e in sides]
         c["oeis"] = [o.get("status") for o in oe]
@@ -1669,6 +1685,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
                         _rc_net = _rc.Net()
                     ref = _rc.check(c, T, _rc_net, lookup)
                     c["reference"] = ref["label"]
+                    _ING.mark(tally, _pr(c), "explained_by_reference" if ref["explained"] else "no_reference_found")
                     if ref["explained"]:
                         counts["explained_by_reference"] = counts.get("explained_by_reference", 0) + 1
                         if _rc.mode() == "live":
@@ -1683,6 +1700,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         c["certificate"] = cert
         if cert:
             counts["machine_checked"] += 1
+            _ING.mark(tally, _pr(c), "machine_checked")
         fam = family(c)
         s_prev = fam_s.get(fam, 0)
         c["family"] = fam
@@ -1690,6 +1708,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         if c["unknown"]:
             counts["surprises"] += 1
             fam_s[fam] = s_prev + 1
+            _ING.mark(tally, _pr(c), "surprise")
     # learning signal for the colony's own sampling: primitives / operators of surprises
     for c in tested:
         good = int(bool(c.get("unknown")))
@@ -1761,6 +1780,11 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
     if write:
         state_path.parent.mkdir(parents=True, exist_ok=True)
         state_path.write_text(json.dumps(st, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        if live_tally:
+            try:
+                _ING.record(cycle_id, "live", tally, summary)
+            except Exception:  # noqa: BLE001
+                pass
     return summary
 
 

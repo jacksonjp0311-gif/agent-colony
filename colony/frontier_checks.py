@@ -76,6 +76,9 @@ def windows(r: dict[str, Any], tier: int = 1) -> list[tuple[int, int]]:
     expo = bool(ps & set(EXPO))
     if tier == 1:
         lo, hi = 40, EXP_HI if expo else CHEAP_HI
+        hi = evaluable_hi(r, hi)   # short tables (new ingredients): never a window past the table
+        if hi - lo < 90:
+            return []
     else:
         lo, hi = TIER_RANGES[tier]["exp" if expo else "cheap"]
         hi = evaluable_hi(r, hi)   # dbl/sh/composition can push points past the bridge tables

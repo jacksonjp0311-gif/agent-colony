@@ -243,6 +243,12 @@ class Society:
             from colony import frontier_conjectures as _fc
             if _fc.mode() != "off":
                 _fc.run_cycle(cid)
+                try:  # new ingredients, report-only pass (COLONY_FRONTIER_INGREDIENTS=shadow)
+                    from colony import frontier_ingredients as _fi
+                    if _fi.mode() == "shadow":
+                        _fi.shadow_cycle(cid, T=_fc._TABLES)
+                except Exception:  # noqa: BLE001
+                    pass
                 try:  # Stage 4 proof path (COLONY_PROOF; shadow = report only)
                     from colony import proof_path as _pp
                     if _pp.mode() != "off":
