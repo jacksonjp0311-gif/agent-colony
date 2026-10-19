@@ -1178,6 +1178,19 @@ def _monotone_outer(c: dict[str, Any], T: Any) -> bool:
     return _basic_inequality(r, T) or (xa[0] == "p" and xb[0] == "p" and xa[1] in ("one",))
 
 
+OUTER_DIVIDES = ("gpf", "lpf", "rad")                       # g(x) | x for x >= 1
+OUTER_LE = ("gpf", "lpf", "rad", "sopfr", "phi", "tau", "omega", "bigomega", "digsum", "popcount", "ds3")  # g(x) <= x
+
+
+def _outer_self(c: dict[str, Any]) -> bool:
+    """g(f(n)) | f(n) or g(f(n)) <= f(n) for g with g(x) | x (gpf, lpf, rad) or g(x) <= x: a
+    property of g alone, true for every f (2026-10-19: gpf[pnot3] | pnot3 reached the registry)."""
+    a, b = c["_le"], c.get("_re")
+    if b is None or a[0] != "o" or canon(a[2]) != canon(b):
+        return False
+    return (c["kind"] == "divides" and a[1] in OUTER_DIVIDES) or (c["kind"] == "le" and a[1] in OUTER_LE)
+
+
 def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split: bool = True) -> str:
     """Why the claim is a rewrite rather than new, else ''.
 
@@ -1198,6 +1211,8 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
     case_split     on every branch of its few-valued parts (mu, squarefree indicator, parity...)
                    the claim reduces to one of the above or to a constant comparison
     """
+    if _outer_self(c):
+        return "outer_self"
     if _cong_implied_by_parts(c, T, F) or (c["kind"] in ("cong", "modpat") and _periodic_mod(c["_le"], c["params"]["m"], T)):
         return "implied_parts"
     if _divides_implied_by_parts(c, T, F):

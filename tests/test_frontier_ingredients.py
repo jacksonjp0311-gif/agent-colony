@@ -117,3 +117,11 @@ def test_short_table_gets_no_window():
     from colony import frontier_checks as F
     r = {"kind": "cong", "lhs": "hankel_part", "rhs": "", "params": {"m": 2, "r": 0, "q": 1, "s": 0}}
     assert F.windows(r, 1) == [] and F.build(r) is None
+
+
+def test_outer_self_tautology_is_trivial():
+    for kind, lhs in (("divides", "gpf[pnot3]"), ("le", "gpf[pnot3]"), ("divides", "rad[part]")):
+        c = {"kind": kind, "_le": FC.parse(lhs), "_re": FC.parse(lhs.split("[")[1].rstrip("]")), "params": {}}
+        assert FC._outer_self(c)
+    c = {"kind": "divides", "_le": FC.parse("tau[pnot3]"), "_re": FC.parse("pnot3"), "params": {}}
+    assert not FC._outer_self(c)
