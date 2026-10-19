@@ -66,22 +66,22 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "(12-4*sqrt(7))*a(n-2)",
+      "topic": "<https://doi.org/10.47974/jios-1940>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "(6-sqrt(7))*a(n-1)",
+      "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "(8-3*sqrt(7))*a(n-3)",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s00373-026-03057-1>",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-19T02:42:23Z",
-  "updated_cycle": "20261019T024123Z_26dce3",
+  "updated_at": "2026-10-19T02:56:10Z",
+  "updated_cycle": "20261019T025513Z_61639d",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

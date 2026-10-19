@@ -23,7 +23,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 20,
+ "n_authored": 21,
  "n_authored_proved": 13,
  "n_claims": 150,
  "n_proved": 119,
@@ -21844,7 +21844,7 @@
    "v": 3
   },
   "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_cong_x22ed9f43_w1",
    "checks": 662,
@@ -22768,6 +22768,6 @@
    "v": 3
   }
  },
- "seconds": 0.21,
- "ts": "2026-10-19T02:42:49Z"
+ "seconds": 0.03,
+ "ts": "2026-10-19T02:56:37Z"
 }
