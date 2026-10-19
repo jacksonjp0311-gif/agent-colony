@@ -1,8 +1,8 @@
 {
-  "ts": "2026-10-19T02:56:45Z",
+  "ts": "2026-10-19T05:09:02Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 26,
+  "n_meet_bar": 28,
   "n_groups": 26,
   "n_authored_groups": 26,
   "n_building_block_groups": 0,
@@ -420,17 +420,17 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-10-19T02:56:45Z",
-    "cycle_id": "20261019T025513Z_61639d",
+    "ts": "2026-10-19T05:09:02Z",
+    "cycle_id": "20261019T050704Z_ed50db",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 26,
-    "n_meet_bar_shadow": 25,
-    "n_unknown_claims": 27,
+    "n_meet_bar_actual": 28,
+    "n_meet_bar_shadow": 24,
+    "n_unknown_claims": 29,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x22ed9f43_w1",
@@ -445,17 +445,20 @@
       "authored_frontier_cong_xfdcb3b60_w1",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x3562d07e_w1",
+      "authored_frontier_divides_x3562d07e_w2",
       "authored_frontier_divides_xb94616a2_w1",
       "authored_frontier_divides_xba575886_w1",
       "authored_frontier_divides_xc90ee275_w1",
       "authored_frontier_divides_xdd6cdac8_w1",
       "authored_frontier_le_x7a9213ec_w1",
-      "authored_frontier_le_xc2340063_w1",
-      "authored_newdata_a002375_k20001_w1"
+      "authored_frontier_le_x7a9213ec_w2"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
-      "imp_716af1_50"
+      "imp_df0e1a_50",
+      "imp_9e87d3_50",
+      "imp_12c82c_50",
+      "imp_8ee2e8_50"
     ],
     "enter_bar": [],
     "top_shadow": [
@@ -607,9 +610,9 @@
     }
   },
   "excluded_reasons": {
-    "status": 27,
-    "target_unresolved": 19,
-    "novelty_killed": 13,
+    "status": 26,
+    "target_unresolved": 18,
+    "novelty_killed": 12,
     "no_oracle_pass_in_own_cycle": 9,
     "hearing": 2
   },
@@ -620,5 +623,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261019T025513Z_61639d"
+  "cycle_id": "20261019T050704Z_ed50db"
 }

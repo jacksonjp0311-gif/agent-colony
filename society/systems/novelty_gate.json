@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T02:56:01Z",
-  "hits": 25,
+  "updated_at": "2026-10-19T05:08:09Z",
+  "hits": 26,
   "kills": 3,
   "rows": 30,
-  "kill_rows": 4,
+  "kill_rows": 3,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-19T02:56:01Z",
-    "cycle_id": "20261019T025513Z_61639d",
-    "mutation": "authored_frontier_cong_x22ed9f43_w1",
+    "ts": "2026-10-19T05:08:09Z",
+    "cycle_id": "20261019T050704Z_ed50db",
+    "mutation": "authored_frontier_le_x7a9213ec_w3",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 208,
-      "hard_n": 208,
+      "hard_pass": 209,
+      "hard_n": 209,
       "stripped_fails_usefulness": true,
-      "score": 0.8676,
-      "impl_id": "lemma_impl_v2_basic10_hard206"
+      "score": 0.8641,
+      "impl_id": "lemma_impl_v2_basic10_hard207"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 208,
+      "hard_pass": 209,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

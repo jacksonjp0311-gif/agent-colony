@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-19T02:55:59Z",
-  "passes": 451,
+  "updated_at": "2026-10-19T05:08:07Z",
+  "passes": 454,
   "kills": 186,
   "easy_pad_kills": 32,
-  "kill_rate": 0.292,
+  "kill_rate": 0.2906,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -28,8 +28,6 @@
     "authored_frontier_cong_x2f9c7891_w1",
     "authored_frontier_cong_x396d7d8c_w1",
     "authored_frontier_cong_x3fa7829a_w1",
-    "authored_frontier_cong_x5cb35120_w1",
-    "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_cong_x94023555_w1",
     "authored_frontier_cong_x9eef1668_w1",
     "authored_frontier_cong_xa68963c2_w1",
@@ -39,13 +37,15 @@
     "authored_frontier_divides_x0b1db873_w1",
     "authored_frontier_divides_x318ee14a_w1",
     "authored_frontier_divides_x3562d07e_w1",
+    "authored_frontier_divides_x3562d07e_w2",
     "authored_frontier_divides_x575aa435_w1",
     "authored_frontier_divides_xb94616a2_w1",
     "authored_frontier_divides_xba575886_w1",
     "authored_frontier_divides_xc90ee275_w1",
     "authored_frontier_divides_xdd6cdac8_w1",
-    "authored_frontier_le_x1c0eba57_w1",
     "authored_frontier_le_x7a9213ec_w1",
+    "authored_frontier_le_x7a9213ec_w2",
+    "authored_frontier_le_x7a9213ec_w3",
     "authored_frontier_le_xc2340063_w1",
     "authored_frontier_le_xdbff107c_w1",
     "authored_frontier_rec_xa92258f8_w1",
@@ -91,7 +91,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-19T02:55:59Z",
+    "ts": "2026-10-19T05:08:07Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -101,16 +101,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_cong_x22ed9f43_w1` kind=hard_enable. lemma mutation authored_frontier_cong_x22ed9f43_w1 0.8681->0.8686 (compared 0.857->0.857; speed_noise:+0.010) Not disco",
-      "attack": "WEIGH: `authored_frontier_cong_x22ed9f43_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_le_x7a9213ec_w3` kind=hard_enable. lemma mutation authored_frontier_le_x7a9213ec_w3 0.8642->0.864 (compared 0.857->0.857; speed_noise:-0.003) Not discovery.",
+      "attack": "WEIGH: `authored_frontier_le_x7a9213ec_w3` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 208,
-        "hard_n": 208,
-        "score": 0.8685,
+        "hard_pass": 209,
+        "hard_n": 209,
+        "score": 0.864,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -121,10 +121,10 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 208,
-        "hard_n": 208,
+        "hard_pass": 209,
+        "hard_n": 209,
         "ok": true,
-        "score": 0.8686,
+        "score": 0.864,
         "shifted_window": {
           "ok": true,
           "reason": "shift_not_applicable(no_literal_range)",
@@ -205,15 +205,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_frontier_cong_x22ed9f43_w1",
+      "mutation": "authored_frontier_le_x7a9213ec_w3",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_frontier_cong_x22ed9f43_w1",
+    "mutation": "authored_frontier_le_x7a9213ec_w3",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261019T025513Z_61639d",
+    "cycle_id": "20261019T050704Z_ed50db",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
