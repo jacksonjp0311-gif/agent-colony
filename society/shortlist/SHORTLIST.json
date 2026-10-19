@@ -1,10 +1,10 @@
 {
-  "ts": "2026-10-19T02:11:44Z",
+  "ts": "2026-10-19T02:22:33Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 17,
-  "n_groups": 17,
-  "n_authored_groups": 17,
+  "n_meet_bar": 19,
+  "n_groups": 19,
+  "n_authored_groups": 19,
   "n_building_block_groups": 0,
   "top": [
     {
@@ -213,6 +213,47 @@
       "line": "Enable `authored_newdata_a047160_k10001_w1` (Oracle passed it in its own cycle); builds on newdata:newdata_term; P 0.8763, novelty 1.0."
     },
     {
+      "id": "imp_15e790_50",
+      "title": "Chain+seek `authored_frontier_divides_xba575886_w1` from invariant priors",
+      "cycle_id": "20261019T021910Z_15e790",
+      "target": "authored_frontier_divides_xba575886_w1",
+      "family": "authored_frontier_divides_xba575886",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8756,
+      "P_stored": 0.8756,
+      "novelty": 1.0,
+      "novelty_raw": 1.0,
+      "building_block": null,
+      "builds_on": 0.0,
+      "building_blocks": [
+        "frontier:frontier_holds"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.7254,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.0833,
+        "oeis_checked": true,
+        "family": "authored_frontier_divides_xba575886",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 1.0,
+        "chained_by": null,
+        "P_shadow": 0.8756,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.7254,
+        "shadow_pos": 6
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_15e790_50"
+      ],
+      "position": 6,
+      "line": "Enable `authored_frontier_divides_xba575886_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8756, novelty 1.0."
+    },
+    {
       "id": "imp_925ac5_50",
       "title": "Chain+seek `authored_newdata_a006577_k10001_w1` from invariant priors",
       "cycle_id": "20261018T130337Z_925ac5",
@@ -244,14 +285,55 @@
         "P_shadow": 0.8753,
         "meets_bar_shadow": true,
         "rank_shadow": 0.7252,
-        "shadow_pos": 6
+        "shadow_pos": 7
       },
       "group_count": 1,
       "group_ids": [
         "imp_925ac5_50"
       ],
-      "position": 6,
+      "position": 7,
       "line": "Enable `authored_newdata_a006577_k10001_w1` (Oracle passed it in its own cycle); builds on newdata:newdata_term; P 0.8753, novelty 1.0."
+    },
+    {
+      "id": "imp_df0e1a_50",
+      "title": "Chain+seek `authored_frontier_divides_x3562d07e_w1` from invariant priors",
+      "cycle_id": "20261019T021730Z_df0e1a",
+      "target": "authored_frontier_divides_x3562d07e_w1",
+      "family": "authored_frontier_divides_x3562d07e",
+      "meets_bar": true,
+      "why_not": [],
+      "P": 0.8752,
+      "P_stored": 0.8752,
+      "novelty": 1.0,
+      "novelty_raw": 1.0,
+      "building_block": null,
+      "builds_on": 0.0,
+      "building_blocks": [
+        "frontier:frontier_holds"
+      ],
+      "athanor_verdict": "APPROVE",
+      "rank": 0.7251,
+      "hunt": {
+        "unknown": true,
+        "in_oeis": false,
+        "oeis_reuse": 0.0833,
+        "oeis_checked": true,
+        "family": "authored_frontier_divides_x3562d07e",
+        "siblings_passed": 0,
+        "expected": 0.0,
+        "novelty_shadow": 1.0,
+        "chained_by": null,
+        "P_shadow": 0.8752,
+        "meets_bar_shadow": true,
+        "rank_shadow": 0.7251,
+        "shadow_pos": 9
+      },
+      "group_count": 1,
+      "group_ids": [
+        "imp_df0e1a_50"
+      ],
+      "position": 8,
+      "line": "Enable `authored_frontier_divides_x3562d07e_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8752, novelty 1.0."
     },
     {
       "id": "imp_e2631f_50",
@@ -285,13 +367,13 @@
         "P_shadow": 0.8752,
         "meets_bar_shadow": true,
         "rank_shadow": 0.7251,
-        "shadow_pos": 8
+        "shadow_pos": 10
       },
       "group_count": 1,
       "group_ids": [
         "imp_e2631f_50"
       ],
-      "position": 7,
+      "position": 9,
       "line": "Enable `authored_frontier_cong_x396d7d8c_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8752, novelty 1.0."
     },
     {
@@ -326,111 +408,29 @@
         "P_shadow": 0.8751,
         "meets_bar_shadow": true,
         "rank_shadow": 0.7251,
-        "shadow_pos": 7
+        "shadow_pos": 8
       },
       "group_count": 1,
       "group_ids": [
         "imp_d077dc_50"
       ],
-      "position": 8,
-      "line": "Enable `authored_newdata_a002375_k20001_w1` (Oracle passed it in its own cycle); builds on newdata:newdata_term; P 0.8751, novelty 1.0."
-    },
-    {
-      "id": "imp_022700_50",
-      "title": "Chain+seek `authored_newdata_a006666_k10001_w1` from invariant priors",
-      "cycle_id": "20261018T131222Z_022700",
-      "target": "authored_newdata_a006666_k10001_w1",
-      "family": "authored_newdata_a006666_k10001",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 0.0,
-      "building_blocks": [
-        "newdata:newdata_term"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.695,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "authored_newdata_a006666_k10001",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.825,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.695,
-        "shadow_pos": 9
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_022700_50"
-      ],
-      "position": 9,
-      "line": "Enable `authored_newdata_a006666_k10001_w1` (Oracle passed it in its own cycle); builds on newdata:newdata_term; P 0.825, novelty 1.0."
-    },
-    {
-      "id": "imp_18d1e0_50",
-      "title": "Chain+seek `authored_frontier_cong_xbb82919e_w1` from invariant priors",
-      "cycle_id": "20261018T144853Z_18d1e0",
-      "target": "authored_frontier_cong_xbb82919e_w1",
-      "family": "authored_frontier_cong_xbb82919e",
-      "meets_bar": true,
-      "why_not": [],
-      "P": 0.825,
-      "P_stored": 0.825,
-      "novelty": 1.0,
-      "novelty_raw": 1.0,
-      "building_block": null,
-      "builds_on": 0.0,
-      "building_blocks": [
-        "frontier:frontier_holds"
-      ],
-      "athanor_verdict": "APPROVE",
-      "rank": 0.695,
-      "hunt": {
-        "unknown": true,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
-        "oeis_checked": true,
-        "family": "authored_frontier_cong_xbb82919e",
-        "siblings_passed": 0,
-        "expected": 0.0,
-        "novelty_shadow": 1.0,
-        "chained_by": null,
-        "P_shadow": 0.825,
-        "meets_bar_shadow": true,
-        "rank_shadow": 0.695,
-        "shadow_pos": 10
-      },
-      "group_count": 1,
-      "group_ids": [
-        "imp_18d1e0_50"
-      ],
       "position": 10,
-      "line": "Enable `authored_frontier_cong_xbb82919e_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.825, novelty 1.0."
+      "line": "Enable `authored_newdata_a002375_k20001_w1` (Oracle passed it in its own cycle); builds on newdata:newdata_term; P 0.8751, novelty 1.0."
     }
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-10-19T02:11:44Z",
-    "cycle_id": "20261019T020957Z_6ec00e",
+    "ts": "2026-10-19T02:22:33Z",
+    "cycle_id": "20261019T022049Z_831fcd",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 17,
-    "n_meet_bar_shadow": 17,
-    "n_unknown_claims": 19,
+    "n_meet_bar_actual": 19,
+    "n_meet_bar_shadow": 19,
+    "n_unknown_claims": 22,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x23fb70a1_w1",
@@ -440,6 +440,9 @@
       "authored_frontier_cong_x3fa7829a_w1",
       "authored_frontier_cong_xa68963c2_w1",
       "authored_frontier_cong_xbb82919e_w1",
+      "authored_frontier_divides_x3562d07e_w1",
+      "authored_frontier_divides_xba575886_w1",
+      "authored_frontier_divides_xc90ee275_w1",
       "authored_frontier_divides_xdd6cdac8_w1",
       "authored_frontier_le_x7a9213ec_w1",
       "authored_frontier_le_xc2340063_w1",
@@ -448,9 +451,7 @@
       "authored_newdata_a006577_k10001_w1",
       "authored_newdata_a006666_k10001_w1",
       "authored_newdata_a006667_k10001_w1",
-      "authored_newdata_a025586_k10001_w1",
-      "authored_newdata_a035026_k10001_w1",
-      "authored_newdata_a047160_k10001_w1"
+      "authored_newdata_a025586_k10001_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [],
@@ -527,10 +528,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_925ac5_50",
-        "target": "authored_newdata_a006577_k10001_w1",
+        "id": "imp_15e790_50",
+        "target": "authored_frontier_divides_xba575886_w1",
         "actual_pos": 6,
         "shadow_pos": 6,
+        "meets_bar_shadow": true,
+        "rank": 0.7254,
+        "rank_shadow": 0.7254,
+        "P": 0.8756,
+        "P_shadow": 0.8756,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_925ac5_50",
+        "target": "authored_newdata_a006577_k10001_w1",
+        "actual_pos": 7,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.7252,
         "rank_shadow": 0.7252,
@@ -543,8 +558,8 @@
       {
         "id": "imp_d077dc_50",
         "target": "authored_newdata_a002375_k20001_w1",
-        "actual_pos": 7,
-        "shadow_pos": 7,
+        "actual_pos": 8,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -555,10 +570,10 @@
         "expected": 0.0
       },
       {
-        "id": "imp_e2631f_50",
-        "target": "authored_frontier_cong_x396d7d8c_w1",
-        "actual_pos": 8,
-        "shadow_pos": 8,
+        "id": "imp_df0e1a_50",
+        "target": "authored_frontier_divides_x3562d07e_w1",
+        "actual_pos": 9,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -569,29 +584,15 @@
         "expected": 0.0
       },
       {
-        "id": "imp_022700_50",
-        "target": "authored_newdata_a006666_k10001_w1",
-        "actual_pos": 9,
-        "shadow_pos": 9,
-        "meets_bar_shadow": true,
-        "rank": 0.695,
-        "rank_shadow": 0.695,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_18d1e0_50",
-        "target": "authored_frontier_cong_xbb82919e_w1",
+        "id": "imp_e2631f_50",
+        "target": "authored_frontier_cong_x396d7d8c_w1",
         "actual_pos": 10,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
-        "rank": 0.695,
-        "rank_shadow": 0.695,
-        "P": 0.825,
-        "P_shadow": 0.825,
+        "rank": 0.7251,
+        "rank_shadow": 0.7251,
+        "P": 0.8752,
+        "P_shadow": 0.8752,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
@@ -604,8 +605,8 @@
     }
   },
   "excluded_reasons": {
-    "status": 35,
-    "target_unresolved": 27,
+    "status": 32,
+    "target_unresolved": 24,
     "trivial_by_filter": 2,
     "novelty_killed": 13,
     "no_oracle_pass_in_own_cycle": 9,
@@ -618,5 +619,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261019T020957Z_6ec00e"
+  "cycle_id": "20261019T022049Z_831fcd"
 }
