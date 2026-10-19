@@ -179,6 +179,13 @@ def candidates(existing_names: set[str], limit: int = 6, state: dict[str, Any] |
     return out
 
 
+def fallback_live() -> bool:
+    """COLONY_RETEST_FALLBACK=live: when nothing new is waiting, re-test every OPEN surviving claim
+    (unproved, not falsified) on farther pre-registered windows, not only Oracle-passed surprises."""
+    import os
+    return os.environ.get("COLONY_RETEST_FALLBACK", "off").strip().lower() == "live"
+
+
 def retest_candidates(existing_names: set[str], reg: list[dict[str, Any]], limit: int = 6) -> list[dict[str, Any]]:
     """Farther re-test windows for kept surprises that are still OPEN: their w1 check passed the
     Oracle, no certificate proves them (colony.proof_path), nothing explains them (surprise
@@ -201,12 +208,18 @@ def retest_candidates(existing_names: set[str], reg: list[dict[str, Any]], limit
         proved = {s for s, x in res.items() if x.get("status") == "proved"}
     except Exception:  # noqa: BLE001
         pass
+    fb = fallback_live()
     rows = []
     for r in reg:
-        if r.get("certificate") or r.get("statement") in proved or check_name(r) not in passed:
+        if r.get("certificate") or r.get("statement") in proved or r.get("falsified_later"):
+            continue
+        w1 = check_name(r)
+        # strict: the w1 check passed the Oracle. fallback: also open claims never authored as w1
+        # (they start at the farther tier directly); a w1 that failed or is still waiting is skipped
+        if w1 not in passed and not (fb and w1 not in existing_names):
             continue
         c = cred(r)
-        if c <= 0:
+        if c <= 0 and not fb:
             continue
         for tier in RETEST_TIERS:
             if check_name(r, tier) not in existing_names:
@@ -214,13 +227,16 @@ def retest_candidates(existing_names: set[str], reg: list[dict[str, Any]], limit
                 if tier == 2 or prev in passed:
                     rows.append((-c, tier, r))
                 break
-    rows.sort(key=lambda x: (x[1], x[0]))
+    rows.sort(key=lambda x: (x[0] >= 0, x[1], x[0]))   # credited claims first, then nearer tier
     out = []
-    for _c, tier, r in rows[:limit]:
+    for _c, tier, r in rows:
+        if len(out) >= limit:
+            break
         b = build(r, tier)
         if b:
+            tag = "RE-TEST" if -_c > 0 else "FALLBACK RE-TEST (open claim, no surprise credit)"
             b["what"] = b["what"].replace("authored disabled frontier check",
-                                          f"authored disabled frontier RE-TEST (window tier {tier})")
+                                          f"authored disabled frontier {tag} (pre-registered window tier {tier})")
             out.append(b)
     return out
 

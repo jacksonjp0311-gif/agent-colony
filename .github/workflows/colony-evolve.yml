@@ -147,6 +147,7 @@ jobs:
           COLONY_PROOF: live
           # idle fix: up to 3 frontier checks waiting for the Oracle at once (code default 1)
           COLONY_FRONTIER_INFLIGHT: "3"
+          COLONY_RETEST_FALLBACK: "live"
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

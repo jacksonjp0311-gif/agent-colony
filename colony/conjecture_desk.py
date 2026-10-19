@@ -204,6 +204,9 @@ def pick_mutation(
             return name, k, snip, cooled
         if _already_has(lemma_src, name):
             continue
+        if k == "hard_enable" and snip == f"enable:{name}" and lemma_src and f'("{name}"' not in lemma_src:
+            cooled[name] = "no_check_to_enable"   # an enable stub with no check behind it always fails
+            continue
         return name, k, snip, cooled
     return None, "", "", cooled
 
@@ -292,7 +295,10 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
     try:
         from colony.authoring import guide_authoring_active, author_checks
         from colony.lessons import variant_mutation_snippets as _vms
-        if not _variants and not _vms() and guide_authoring_active():
+        from colony.frontier_checks import fallback_live as _fb_live
+        # COLONY_RETEST_FALLBACK=live: author (at most MAX_AUTHORED_PER_CYCLE) every cycle, so the
+        # next cycle always has a disabled check waiting instead of alternating author / enable
+        if (not _variants and not _vms() or _fb_live()) and guide_authoring_active():
             authoring_ran = True
             fresh_authored = {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
             src = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else src

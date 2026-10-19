@@ -49,3 +49,28 @@ def test_retest_windows_stay_inside_bridge_tables():
     claim = {k: r[k] for k in ("kind", "lhs", "rhs", "params")}
     assert all(fc.holds_on(claim, a, b) > 0 for a, b in wins) or wins == []
     assert all(b <= F.evaluable_hi(r, 10 ** 6) for _a, b in wins)
+
+
+def test_unbacked_enable_stub_is_skipped():
+    from colony import conjecture_desk as D
+
+    class CD:
+        def reason(self, n):
+            return ""
+    src = 'CHECKS = [("real_check", check_real_check, False)]\n'
+    got = D.pick_mutation([("lemma_hard_combinatorics", "hard_enable", "enable:lemma_hard_combinatorics"),
+                           ("real_check", "hard_enable", "enable:real_check")], cooldown=CD(), lemma_src=src)
+    assert got[0] == "real_check" and got[3]["lemma_hard_combinatorics"] == "no_check_to_enable"
+
+
+def test_fallback_retests_open_claims(monkeypatch):
+    from colony import frontier_checks as F
+    r = {"kind": "cong", "lhs": "S((pi*pi))", "rhs": "", "params": {"m": 2, "r": 1, "q": 2, "s": 0},
+         "statement": "zz-open-claim", "unknown": True, "sig": "s1"}
+    monkeypatch.setenv("COLONY_RETEST_FALLBACK", "off")
+    assert F.retest_candidates(set(), [r]) == []
+    monkeypatch.setenv("COLONY_RETEST_FALLBACK", "live")
+    out = F.retest_candidates(set(), [r])
+    assert out and out[0]["name"].endswith("_w2") and "FALLBACK RE-TEST" in out[0]["what"]
+    assert F.retest_candidates({F.check_name(r)}, [r]) == []      # a w1 without an Oracle pass waits
+    assert F.retest_candidates(set(), [dict(r, falsified_later=True)]) == []
