@@ -25,12 +25,12 @@ Found by OEIS search; identified by recomputing every published term; method B r
 
 | OEIS | name | published terms | matched as | status | scanned to k | tries | new terms | CPU s |
 |---|---|---|---|---|---|---|---|---|
-| A091592 | Numbers n such that there are no twin primes between n^2 and (n+1)^2. | 12 | pat_twin_sq_all:zeros (shift 0) | engine cap k = 5000 reached (cycle budget) | 5000 | 3 | 0 | 0.206 |
-| A228014 | Numbers k whose Collatz sequence length is greater than k+1 (counting both the x | 28 | col_steps:fgtk (shift 0) | engine cap k = 1000000 reached (cycle budget) | 1000000 | 6 | 0 | 1.43 |
-| A352229 | Numbers that can be expressed as the sum of two primes in exactly 7 ways. | 18 | gb_prime_m:eq7 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 1000000 | 6 | 0 | 0.181 |
-| A352230 | Numbers that can be expressed as the sum of two primes in exactly 8 ways. | 20 | gb_prime_m:eq8 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 1000000 | 6 | 0 | 0.175 |
-| A352231 | Numbers that can be expressed as the sum of two primes in exactly 9 ways. | 23 | gb_prime_m:eq9 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 1000000 | 6 | 0 | 0.175 |
-| A352233 | Numbers that can be expressed as the sum of two primes in exactly 10 ways. | 16 | gb_prime_m:eq10 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 1000000 | 6 | 0 | 0.214 |
+| A091592 | Numbers n such that there are no twin primes between n^2 and (n+1)^2. | 12 | pat_twin_sq_all:zeros (shift 0) | engine cap k = 5000 reached (cycle budget) | 15000 | 5 | 0 | 2.182 |
+| A228014 | Numbers k whose Collatz sequence length is greater than k+1 (counting both the x | 28 | col_steps:fgtk (shift 0) | engine cap k = 1000000 reached (cycle budget) | 20000000 | 10 | 0 | 68.46 |
+| A352229 | Numbers that can be expressed as the sum of two primes in exactly 7 ways. | 18 | gb_prime_m:eq7 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 8000000 | 9 | 0 | 2.943 |
+| A352230 | Numbers that can be expressed as the sum of two primes in exactly 8 ways. | 20 | gb_prime_m:eq8 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 8000000 | 9 | 0 | 2.968 |
+| A352231 | Numbers that can be expressed as the sum of two primes in exactly 9 ways. | 23 | gb_prime_m:eq9 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 8000000 | 9 | 0 | 2.963 |
+| A352233 | Numbers that can be expressed as the sum of two primes in exactly 10 ways. | 16 | gb_prime_m:eq10 (shift 0) | engine cap k = 1000000 reached (cycle budget) | 8000000 | 9 | 0 | 2.989 |
 
 Full values: `society/frontier/data/<A-number>_beyond.txt` (b-file format).
 
