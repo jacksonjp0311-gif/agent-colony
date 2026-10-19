@@ -1,40 +1,10 @@
 {
   "version": 1,
   "totals": {
-    "ok": 65,
-    "unbridged": 29
+    "ok": 66,
+    "unbridged": 30
   },
   "rows": [
-    {
-      "mutation": "authored_sieve_hl_within_g6_6_6_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "hl_within",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T16:46:21Z",
-      "cycle_id": "20261017T164605Z_92da4d",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_sieve_two_counter_g4_2_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "two_counter",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T17:07:54Z",
-      "cycle_id": "20261017T170736Z_84ca4e",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_abel_summation__faulhaber_power_sums_w1",
       "status": "ok",
@@ -759,8 +729,33 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_cong_x3fa7829a_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-19T02:08:56Z",
+      "cycle_id": "20261019T020803Z_11c1b3",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_two_counter_g4_6_6_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "two_counter",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-19T02:10:51Z",
+      "cycle_id": "20261019T020957Z_6ec00e",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-18T21:01:49Z",
+  "updated_at": "2026-10-19T02:10:51Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

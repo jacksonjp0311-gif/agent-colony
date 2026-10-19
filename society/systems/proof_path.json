@@ -1,12 +1,12 @@
 {
- "attempted_now": 150,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
-   33,
+   34,
    31
   ],
   "divides": [
-   7,
+   9,
    3
   ],
   "identity": [
@@ -18,21 +18,21 @@
    3
   ],
   "rec": [
-   94,
-   84
+   91,
+   82
   ]
  },
  "mode": "live",
- "n_authored": 14,
+ "n_authored": 13,
  "n_authored_proved": 11,
  "n_claims": 150,
- "n_proved": 127,
+ "n_proved": 125,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
  "results": {
   "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_le_xdbff107c_w1",
    "checks": 59988,
@@ -14563,18 +14563,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = S((lucas+lucas))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
-   "authored": false,
-   "certificate": null,
-   "check": "authored_frontier_rec_xae623c82_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "not proved",
-   "summary": null,
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = S((lucas-fib))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
    "certificate": null,
@@ -16212,288 +16200,6 @@
    "prior_certificate": true,
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = dbl((one+pell))(n) satisfies a(n+3) = 1*a(n+0) + -7*a(n+1) + 7*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "dbl((one+pell))",
-        "kids": [
-         {
-          "e": "(one+pell)",
-          "kids": [
-           {
-            "e": "one",
-            "lemma": "one(x) = 1",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "lemma",
-            "val": {
-             "a": {},
-             "c": 1,
-             "d": 0
-            }
-           },
-           {
-            "e": "pell",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pell@2,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           0
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "pell@2,0": 1
-           },
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,0": 1
-         },
-         "c": 1,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((one+pell))",
-        "kids": [
-         {
-          "e": "(one+pell)",
-          "kids": [
-           {
-            "e": "one",
-            "lemma": "one(x) = 1",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "lemma",
-            "val": {
-             "a": {},
-             "c": 1,
-             "d": 0
-            }
-           },
-           {
-            "e": "pell",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pell@2,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           2
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "pell@2,2": 1
-           },
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,2": 1
-         },
-         "c": 1,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((one+pell))",
-        "kids": [
-         {
-          "e": "(one+pell)",
-          "kids": [
-           {
-            "e": "one",
-            "lemma": "one(x) = 1",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "lemma",
-            "val": {
-             "a": {},
-             "c": 1,
-             "d": 0
-            }
-           },
-           {
-            "e": "pell",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pell@2,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           4
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "pell@2,4": 1
-           },
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,4": 1
-         },
-         "c": 1,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((one+pell))",
-        "kids": [
-         {
-          "e": "(one+pell)",
-          "kids": [
-           {
-            "e": "one",
-            "lemma": "one(x) = 1",
-            "pt": [
-             2,
-             6
-            ],
-            "rule": "lemma",
-            "val": {
-             "a": {},
-             "c": 1,
-             "d": 0
-            }
-           },
-           {
-            "e": "pell",
-            "pt": [
-             2,
-             6
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pell@2,6": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           6
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "pell@2,6": 1
-           },
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,6": 1
-         },
-         "c": 1,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "one(x) = 1"
-    ],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x619e7dcb_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
    "v": 3
   },
@@ -18956,298 +18662,6 @@
     "method": "closed form (sympy)"
    },
    "check": "authored_frontier_rec_x864ede22_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = sh((fib+pow2))(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "sh((fib+pow2))",
-        "kids": [
-         {
-          "e": "(fib+pow2)",
-          "kids": [
-           {
-            "e": "fib",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "fib@1,1": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,1": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "fib@1,1": 1,
-            "pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "fib@1,1": 1,
-          "pow2@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((fib+pow2))",
-        "kids": [
-         {
-          "e": "(fib+pow2)",
-          "kids": [
-           {
-            "e": "fib",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "fib@1,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "fib@1,2": 1,
-            "pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "fib@1,2": 1,
-          "pow2@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((fib+pow2))",
-        "kids": [
-         {
-          "e": "(fib+pow2)",
-          "kids": [
-           {
-            "e": "fib",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "fib@1,3": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,3": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "fib@1,3": 1,
-            "pow2@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "fib@1,3": 1,
-          "pow2@1,3": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((fib+pow2))",
-        "kids": [
-         {
-          "e": "(fib+pow2)",
-          "kids": [
-           {
-            "e": "fib",
-            "pt": [
-             1,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "fib@1,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           4
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "fib@1,4": 1,
-            "pow2@1,4": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "fib@1,4": 1,
-          "pow2@1,4": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x245d4ed5_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -21768,7 +21182,7 @@
    "v": 3
   },
   "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)": {
-   "authored": false,
+   "authored": true,
    "certificate": {
     "N0": 64,
     "Q": 3,
@@ -23252,6 +22666,18 @@
    "unknown": false,
    "v": 3
   },
+  "fib(n) divides dbl(stree_grid3)(n) for all n >= 1": {
+   "authored": true,
+   "certificate": null,
+   "check": "authored_frontier_divides_x3562d07e_w1",
+   "checks": 988,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "gcd(lpf,tau)(n) divides (mu*pell)(n) for all n >= 1": {
    "authored": false,
    "certificate": {
@@ -23918,6 +23344,18 @@
    "unknown": true,
    "v": 3
   },
+  "gcd(match_ladder,stree_ladder)(n) = 1 (mod 2) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xfdcb3b60_w1",
+   "checks": 1988,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
    "certificate": null,
@@ -23955,7 +23393,7 @@
    "v": 3
   },
   "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_divides_x0b1db873_w1",
    "checks": 3988,
@@ -24444,7 +23882,7 @@
    "v": 3
   },
   "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)": {
-   "authored": true,
+   "authored": false,
    "certificate": {
     "N0": 64,
     "Q": 3,
@@ -24659,6 +24097,18 @@
    "unknown": true,
    "v": 3
   },
+  "stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_xba575886_w1",
+   "checks": 988,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "tau[lpf](n) divides (lpf-pell)(n) for all n >= 1": {
    "authored": true,
    "certificate": {
@@ -24807,6 +24257,6 @@
    "v": 3
   }
  },
- "seconds": 1.42,
- "ts": "2026-10-19T01:38:28Z"
+ "seconds": 0.03,
+ "ts": "2026-10-19T02:11:36Z"
 }

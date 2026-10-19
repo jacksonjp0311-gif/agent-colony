@@ -12,132 +12,12 @@
   "frontier",
   "frontier",
   "instrument",
+  "frontier",
+  "frontier",
+  "instrument",
   "frontier"
  ],
  "history": [
-  {
-   "cpu_s": 94.208,
-   "cycle_id": "20261018T144853Z_18d1e0",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls3_2_c:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls3_2_c:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls3_2_c:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 279,
-    "cpu_s": 14.32,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": [
-     "keyword:more \"number of divisors\" records @10",
-     "keyword:more \"number of divisors\" records @20",
-     "keyword:more sigma records @0"
-    ]
-   },
-   "ts": "2026-10-18T14:51:32Z"
-  },
-  {
-   "cpu_s": 1.693,
-   "cycle_id": "20261018T145137Z_12ead5",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_cls6_1_c:terms",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls6_1_c:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls6_1_c:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 307,
-    "cpu_s": 1.566,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": [
-     "keyword:more sigma records @10",
-     "keyword:more sigma records @20",
-     "keyword:more \"d(k)\" @0"
-    ]
-   },
-   "ts": "2026-10-18T14:52:43Z"
-  },
-  {
-   "cpu_s": 118.013,
-   "cycle_id": "20261018T145524Z_7fd69f",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls6_1_c:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls6_1_c:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls6_1_c:recval",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 3,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 335,
-    "cpu_s": 4.837,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": [
-     "keyword:more \"d(k)\" @10",
-     "keyword:more \"d(k)\" @20",
-     "keyword:more subsets sum prime @0"
-    ]
-   },
-   "ts": "2026-10-18T14:58:48Z"
-  },
   {
    "cpu_s": 3.496,
    "cycle_id": "20261018T145856Z_0ab9ef",
@@ -888,11 +768,65 @@
     "searches": []
    },
    "ts": "2026-10-18T21:02:27Z"
+  },
+  {
+   "cpu_s": 0.028,
+   "cycle_id": "20261019T020559Z_99247d",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.028,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-19T02:07:56Z"
+  },
+  {
+   "cpu_s": 0.027,
+   "cycle_id": "20261019T020803Z_11c1b3",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.027,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-19T02:09:49Z"
+  },
+  {
+   "cpu_s": 0.027,
+   "cycle_id": "20261019T020957Z_6ec00e",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 462,
+    "cpu_s": 0.027,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-10-19T02:11:36Z"
   }
  ],
  "last": {
   "cpu_s": 0.027,
-  "cycle_id": "20261018T210103Z_8ee2e8",
+  "cycle_id": "20261019T020957Z_6ec00e",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -906,7 +840,7 @@
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-10-18T21:02:27Z"
+  "ts": "2026-10-19T02:11:36Z"
  },
  "mode": "live",
  "sparse": {

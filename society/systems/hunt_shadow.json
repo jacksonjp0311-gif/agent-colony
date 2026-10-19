@@ -2,38 +2,37 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-18T21:02:35Z",
-    "cycle_id": "20261018T210103Z_8ee2e8",
+    "ts": "2026-10-19T02:11:44Z",
+    "cycle_id": "20261019T020957Z_6ec00e",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.5,
+      "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 18,
-    "n_meet_bar_shadow": 18,
-    "n_unknown_claims": 21,
+    "n_meet_bar_actual": 17,
+    "n_meet_bar_shadow": 17,
+    "n_unknown_claims": 19,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x23fb70a1_w1",
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
       "authored_frontier_cong_x396d7d8c_w1",
-      "authored_frontier_cong_x94023555_w1",
+      "authored_frontier_cong_x3fa7829a_w1",
       "authored_frontier_cong_xa68963c2_w1",
       "authored_frontier_cong_xbb82919e_w1",
-      "authored_frontier_divides_x0b1db873_w1",
       "authored_frontier_divides_xdd6cdac8_w1",
       "authored_frontier_le_x7a9213ec_w1",
       "authored_frontier_le_xc2340063_w1",
-      "authored_frontier_le_xdbff107c_w1",
       "authored_frontier_rec_xa92258f8_w1",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
       "authored_newdata_a006666_k10001_w1",
       "authored_newdata_a006667_k10001_w1",
       "authored_newdata_a025586_k10001_w1",
-      "authored_newdata_a035026_k10001_w1"
+      "authored_newdata_a035026_k10001_w1",
+      "authored_newdata_a047160_k10001_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [],
@@ -54,22 +53,22 @@
         "expected": 0.0
       },
       {
-        "id": "imp_8790f7_50",
-        "target": "authored_frontier_cong_x29d14f44_w1",
+        "id": "imp_11c1b3_50",
+        "target": "authored_frontier_cong_x3fa7829a_w1",
         "actual_pos": 2,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
-        "rank": 0.7264,
-        "rank_shadow": 0.7264,
-        "P": 0.8774,
-        "P_shadow": 0.8774,
+        "rank": 0.7317,
+        "rank_shadow": 0.7317,
+        "P": 0.8861,
+        "P_shadow": 0.8861,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
       },
       {
-        "id": "imp_dbe023_50",
-        "target": "authored_frontier_cong_x2f9c7891_w1",
+        "id": "imp_8790f7_50",
+        "target": "authored_frontier_cong_x29d14f44_w1",
         "actual_pos": 3,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
@@ -82,15 +81,15 @@
         "expected": 0.0
       },
       {
-        "id": "imp_554165_50",
-        "target": "authored_frontier_divides_x0b1db873_w1",
+        "id": "imp_dbe023_50",
+        "target": "authored_frontier_cong_x2f9c7891_w1",
         "actual_pos": 4,
         "shadow_pos": 4,
         "meets_bar_shadow": true,
-        "rank": 0.7258,
-        "rank_shadow": 0.7258,
-        "P": 0.8764,
-        "P_shadow": 0.8764,
+        "rank": 0.7264,
+        "rank_shadow": 0.7264,
+        "P": 0.8774,
+        "P_shadow": 0.8774,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
@@ -110,24 +109,10 @@
         "expected": 0.0
       },
       {
-        "id": "imp_9e7a9a_50",
-        "target": "authored_frontier_cong_x94023555_w1",
-        "actual_pos": 6,
-        "shadow_pos": 6,
-        "meets_bar_shadow": true,
-        "rank": 0.7253,
-        "rank_shadow": 0.7253,
-        "P": 0.8755,
-        "P_shadow": 0.8755,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
         "id": "imp_925ac5_50",
         "target": "authored_newdata_a006577_k10001_w1",
-        "actual_pos": 7,
-        "shadow_pos": 7,
+        "actual_pos": 6,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.7252,
         "rank_shadow": 0.7252,
@@ -140,8 +125,8 @@
       {
         "id": "imp_d077dc_50",
         "target": "authored_newdata_a002375_k20001_w1",
-        "actual_pos": 8,
-        "shadow_pos": 8,
+        "actual_pos": 7,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -154,8 +139,8 @@
       {
         "id": "imp_e2631f_50",
         "target": "authored_frontier_cong_x396d7d8c_w1",
-        "actual_pos": 9,
-        "shadow_pos": 9,
+        "actual_pos": 8,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -168,6 +153,20 @@
       {
         "id": "imp_022700_50",
         "target": "authored_newdata_a006666_k10001_w1",
+        "actual_pos": 9,
+        "shadow_pos": 9,
+        "meets_bar_shadow": true,
+        "rank": 0.695,
+        "rank_shadow": 0.695,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_18d1e0_50",
+        "target": "authored_frontier_cong_xbb82919e_w1",
         "actual_pos": 10,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -187,51 +186,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-10-18T15:53:02Z",
-      "cycle_id": "20261018T155142Z_a3bf08",
-      "n_meet_bar_actual": 17,
-      "n_meet_bar_shadow": 17,
-      "n_unknown_claims": 19,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T15:54:23Z",
-      "cycle_id": "20261018T155302Z_68327d",
-      "n_meet_bar_actual": 17,
-      "n_meet_bar_shadow": 17,
-      "n_unknown_claims": 19,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-18T15:55:47Z",
-      "cycle_id": "20261018T155423Z_cad965",
-      "n_meet_bar_actual": 17,
-      "n_meet_bar_shadow": 17,
-      "n_unknown_claims": 19,
-      "drop_out_of_bar": 0,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-18T15:59:56Z",
       "cycle_id": "20261018T155833Z_f5f384",
@@ -628,6 +582,51 @@
       "n_meet_bar_actual": 18,
       "n_meet_bar_shadow": 18,
       "n_unknown_claims": 21,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-19T02:08:03Z",
+      "cycle_id": "20261019T020559Z_99247d",
+      "n_meet_bar_actual": 16,
+      "n_meet_bar_shadow": 16,
+      "n_unknown_claims": 18,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-19T02:09:57Z",
+      "cycle_id": "20261019T020803Z_11c1b3",
+      "n_meet_bar_actual": 16,
+      "n_meet_bar_shadow": 16,
+      "n_unknown_claims": 19,
+      "drop_out_of_bar": 0,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-19T02:11:44Z",
+      "cycle_id": "20261019T020957Z_6ec00e",
+      "n_meet_bar_actual": 17,
+      "n_meet_bar_shadow": 17,
+      "n_unknown_claims": 19,
       "drop_out_of_bar": 0,
       "enter_bar": 0,
       "guidance_mode": "live",

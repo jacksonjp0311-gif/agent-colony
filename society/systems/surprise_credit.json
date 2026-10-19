@@ -1,18 +1,18 @@
 {
- "ts": "2026-10-18T21:01:13Z",
+ "ts": "2026-10-19T02:10:07Z",
  "mode": "live",
- "n_keeps": 248,
- "n_frontier": 21,
- "n_hand_trivial": 12,
+ "n_keeps": 250,
+ "n_frontier": 23,
+ "n_hand_trivial": 14,
  "n_surprise": 9,
  "max_trivial_credit": 0.0,
  "min_surprise_credit": 0.0544,
  "trivial_ranked_lowest": true,
  "calibration_check": {
   "hand_settled": 12,
-  "still_surprise": 5,
+  "still_surprise": 6,
   "max_hand_settled_credit": 0.0,
-  "min_still_surprise_credit": 0.4324,
+  "min_still_surprise_credit": 0.0,
   "hand_settled_ranked_lowest": true
  },
  "sieve_mean_credit": 0.0053,
@@ -409,17 +409,16 @@
    "source": "registry"
   },
   {
-   "name": "authored_frontier_cong_x94023555_w1",
+   "name": "authored_frontier_le_x7a9213ec_w1",
    "kind": "frontier",
-   "statement": "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "statement": "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)",
    "hand_trivial": false,
-   "credit": 0.5323,
-   "unlikely": 0.6422,
+   "credit": 0.5113,
+   "unlikely": 0.6169,
    "effort": 0.8289,
    "family": 1.0,
    "explained": "",
-   "source": "registry",
-   "hand_settled_in_calibration": false
+   "source": "registry"
   },
   {
    "name": "fermat_little",
@@ -1420,6 +1419,32 @@
    "explained": "the current triviality filter explains it",
    "source": "registry",
    "hand_settled_in_calibration": true
+  },
+  {
+   "name": "authored_frontier_cong_x94023555_w1",
+   "kind": "frontier",
+   "statement": "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.6422,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": false
+  },
+  {
+   "name": "authored_frontier_cong_x3fa7829a_w1",
+   "kind": "frontier",
+   "statement": "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.625,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry",
+   "hand_settled_in_calibration": false
   }
  ],
  "rule": {
