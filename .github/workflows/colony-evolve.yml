@@ -149,7 +149,7 @@ jobs:
           COLONY_FRONTIER_INFLIGHT: "3"
           COLONY_RETEST_FALLBACK: "live"
           # new generator ingredients (graph invariants, restricted partitions, matrix sequences)
-          COLONY_FRONTIER_INGREDIENTS: shadow
+          COLONY_FRONTIER_INGREDIENTS: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
