@@ -1619,6 +1619,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
     fresh.sort(key=lambda c: -(k_prior / (fam_s.get(family(c), 0) + k_prior)) * predict(c["kind"], st))
     tested: list[dict[str, Any]] = []
     _rc_net = None
+    _kc_net = None
     per_kind: dict[str, int] = {}
     kinds_present = {c["kind"] for c in fresh} or {"x"}
     cap_kind = max(4, MAX_TEST // len(kinds_present))
@@ -1710,6 +1711,24 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
                         counts["no_reference_found"] = counts.get("no_reference_found", 0) + 1
             except Exception as exc:  # noqa: BLE001
                 c["reference"] = f"reference check failed: {str(exc)[:80]}"
+        if c["unknown"]:
+            # strong known-results check (COLONY_REFCHECK_STRONG): kernel / C-finite identity /
+            # periodic residues / OEIS derived sequence / OEIS texts. shadow = label; live = not a surprise
+            try:
+                from colony import known_check as _kc
+                if _kc.mode() != "off":
+                    if _kc_net is None:
+                        _kc_net = _kc.Net()
+                    kc = _kc.check(c, T, _kc_net, lookup)
+                    c["known_check"] = kc["label"][:300]
+                    if kc["explained"]:
+                        counts["explained_by_known_check"] = counts.get("explained_by_known_check", 0) + 1
+                        _ING.mark(tally, _pr(c), "explained_by_known_check")
+                        if _kc.mode() == "live":
+                            c["unknown"] = False
+                            c["unknown_reason"] = kc["label"][:300]
+            except Exception as exc:  # noqa: BLE001
+                c["known_check"] = f"known check failed: {str(exc)[:80]}"
         cert = prove(c, T)
         c["label"] = "machine-checked (certificate)" if cert else f"conjecture surviving {c['checks']} checks"
         c["certificate"] = cert
@@ -1766,7 +1785,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         if c.get("survived"):
             reg[c["id"]] = {k: c.get(k) for k in ("kind", "lhs", "rhs", "params", "label", "certificate", "checks", "loose",
                                                    "range", "oeis", "oeis_anums", "unknown", "unknown_reason",
-                                                   "family", "hunt_value", "prediction", "sig", "reference")} | {
+                                                   "family", "hunt_value", "prediction", "sig", "reference", "known_check")} | {
                 "statement": statement(c), "found_cycle": cycle_id, "found_at": _utc()}
     if len(reg) > REGISTRY_CAP:  # keep surprises / certified first, then most recent
         keep = sorted(reg.items(), key=lambda kv: (not kv[1].get("unknown"), not kv[1].get("certificate"),

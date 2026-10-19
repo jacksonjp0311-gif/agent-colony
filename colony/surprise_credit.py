@@ -72,6 +72,29 @@ def trivial_any_seed(r: dict[str, Any]) -> bool | None:
         return None
 
 
+_KNOWN: dict[str, str] = {}
+
+
+def strong_known(r: dict[str, Any]) -> str:
+    """COLONY_REFCHECK_STRONG=live: the strong known-results check on a stored claim (computed, never
+    written back; OEIS texts from the disk cache only, no new fetches here)."""
+    try:
+        from colony import known_check as KC
+        if KC.mode() != "live":
+            return ""
+        key = str(r.get("statement") or r.get("sig") or "")
+        if key not in _KNOWN:
+            from colony import frontier_conjectures as FC
+            c = {"kind": r["kind"], "lhs": r["lhs"], "rhs": r.get("rhs") or "", "params": r.get("params") or {},
+                 "_le": FC.parse(r["lhs"]), "_re": FC.parse(r["rhs"]) if r.get("rhs") else None,
+                 "oeis_anums": r.get("oeis_anums") or []}
+            res = KC.check(c, FC.tables(), KC.Net(budget=0), FC.default_lookup())
+            _KNOWN[key] = res["label"] if res["explained"] else ""
+        return _KNOWN[key]
+    except Exception:  # noqa: BLE001
+        return ""
+
+
 def explained(r: dict[str, Any], *, trivial: bool | None = None) -> str:
     """Why the claim earns zero ('' when it is not explained)."""
     if r.get("falsified_later"):
@@ -81,6 +104,12 @@ def explained(r: dict[str, Any], *, trivial: bool | None = None) -> str:
         return ref[:120]
     if not r.get("unknown"):
         return str(r.get("unknown_reason") or "not a surprise")[:120]
+    kc = str(r.get("known_check") or "")
+    if kc.startswith(("derived", "known")):
+        return kc[:120]
+    kc = strong_known(r)
+    if kc:
+        return kc[:120]
     if trivial is None:
         trivial = trivial_any_seed(r)
     if trivial:

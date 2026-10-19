@@ -306,7 +306,7 @@ def extend(T: Any) -> None:
 # ----------------------------------------------------------------------------- per-ingredient tally
 
 STAGES = ("produced", "fresh", "passed_filter", "tested", "survived", "surprise", "explained_by_reference",
-          "no_reference_found", "machine_checked")
+          "no_reference_found", "machine_checked", "explained_by_known_check")
 
 
 def new_tally() -> dict[str, dict[str, int]]:
