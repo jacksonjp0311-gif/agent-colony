@@ -1,55 +1,10 @@
 {
   "version": 1,
   "totals": {
-    "ok": 67,
-    "unbridged": 35
+    "ok": 68,
+    "unbridged": 37
   },
   "rows": [
-    {
-      "mutation": "authored_euler_pentagonal__lagrange_cyclic_orders_w1",
-      "status": "ok",
-      "family": "compose",
-      "template": null,
-      "mismatches": [],
-      "mutants_tested": 2,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T17:34:26Z",
-      "cycle_id": "20261017T173358Z_17731c",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_euler_theorem__gauss_phi_divisor_sum_w1",
-      "status": "ok",
-      "family": "compose",
-      "template": null,
-      "mismatches": [],
-      "mutants_tested": 2,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T20:50:31Z",
-      "cycle_id": "20261017T205002Z_15e6c5",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_fermat_little__lucas_theorem_binomial_w1",
-      "status": "ok",
-      "family": "compose",
-      "template": null,
-      "mismatches": [],
-      "mutants_tested": 2,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-17T22:12:24Z",
-      "cycle_id": "20261017T221159Z_b7f950",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_mobius_divisor_sum__mobius_inversion_sigma_w1",
       "status": "ok",
@@ -729,8 +684,43 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_divides_x318ee14a_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-19T02:39:02Z",
+      "cycle_id": "20261019T023825Z_e9a4c1",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_hl_within_g4_2_6_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "hl_within",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-19T02:40:37Z",
+      "cycle_id": "20261019T023949Z_716af1",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_divides_xb94616a2_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-19T02:42:09Z",
+      "cycle_id": "20261019T024123Z_26dce3",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-19T02:35:14Z",
+  "updated_at": "2026-10-19T02:42:09Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

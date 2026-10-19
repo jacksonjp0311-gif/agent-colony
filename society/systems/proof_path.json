@@ -2,7 +2,7 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   35,
+   37,
    31
   ],
   "divides": [
@@ -18,15 +18,15 @@
    3
   ],
   "rec": [
-   86,
-   78
+   84,
+   76
   ]
  },
  "mode": "live",
- "n_authored": 18,
- "n_authored_proved": 12,
+ "n_authored": 20,
+ "n_authored_proved": 13,
  "n_claims": 150,
- "n_proved": 121,
+ "n_proved": 119,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -2115,175 +2115,6 @@
     "method": "closed form (sympy)"
    },
    "check": "authored_frontier_rec_xdecb3bdc_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (fib*lucas)(n) satisfies a(n+2) = -1*a(n+0) + 3*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(fib*lucas)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,0*lucas@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(fib*lucas)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,1*lucas@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(fib*lucas)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,2*lucas@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x4e8a4ca0_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -5996,174 +5827,6 @@
    "prior_certificate": true,
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (n-one)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(n-one)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "n@1,0": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       },
-       {
-        "e": "(n-one)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 1,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "n@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(n-one)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 2,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "n@1,0": 1
-         },
-         "c": 1,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "one(x) = 1"
-    ],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x73f4a104_w1",
-   "checks": 59988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
    "v": 3
   },
@@ -21776,7 +21439,7 @@
    "v": 3
   },
   "gcd(lpf,tau)(n) divides (pell*sqfree)(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": {
     "N0": 64,
     "Q": 2,
@@ -22162,6 +21825,30 @@
    "check": "authored_frontier_divides_x0b1db873_w1",
    "checks": 3988,
    "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
+  "gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1": {
+   "authored": true,
+   "certificate": null,
+   "check": "authored_frontier_cong_xb19ab27c_w1",
+   "checks": 988,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
+  "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x22ed9f43_w1",
+   "checks": 662,
+   "kind": "cong",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
@@ -23081,6 +22768,6 @@
    "v": 3
   }
  },
- "seconds": 0.03,
- "ts": "2026-10-19T02:35:50Z"
+ "seconds": 0.21,
+ "ts": "2026-10-19T02:42:49Z"
 }

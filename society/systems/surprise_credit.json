@@ -1,10 +1,10 @@
 {
- "ts": "2026-10-19T02:34:33Z",
+ "ts": "2026-10-19T02:41:31Z",
  "mode": "live",
- "n_keeps": 256,
- "n_frontier": 27,
- "n_hand_trivial": 14,
- "n_surprise": 13,
+ "n_keeps": 259,
+ "n_frontier": 29,
+ "n_hand_trivial": 15,
+ "n_surprise": 14,
  "max_trivial_credit": 0.0,
  "min_surprise_credit": 0.0544,
  "trivial_ranked_lowest": true,
@@ -15,7 +15,7 @@
   "min_still_surprise_credit": 0.0,
   "hand_settled_ranked_lowest": true
  },
- "sieve_mean_credit": 0.0051,
+ "sieve_mean_credit": 0.005,
  "rows": [
   {
    "name": "sum_first_n_cubes",
@@ -550,6 +550,18 @@
    "source": "registry"
   },
   {
+   "name": "authored_frontier_divides_x318ee14a_w1",
+   "kind": "frontier",
+   "statement": "lucas(n) divides dbl(stree_grid3)(n) for all n >= 1",
+   "hand_trivial": false,
+   "credit": 0.4015,
+   "unlikely": 0.8541,
+   "effort": 0.4701,
+   "family": 1.0,
+   "explained": "",
+   "source": "registry"
+  },
+  {
    "name": "authored_frontier_divides_xba575886_w1",
    "kind": "frontier",
    "statement": "stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1",
@@ -598,17 +610,7 @@
    "source": "registry"
   },
   {
-   "name": "authored_sieve_hl_within_g2_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g4_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -618,17 +620,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g6_2_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_4_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -638,22 +630,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g2_w2",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g2_4_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g2_6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g4_2_4_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -663,17 +640,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g4_6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g6_2_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_4_2_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -683,17 +650,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g6_6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g4_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -703,17 +660,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g4_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_2_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -723,17 +670,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g2_6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g4_2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g2_6_6_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -743,17 +680,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g6_2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g6_4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_2_6_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -768,17 +695,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g6_6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g2_4_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -788,17 +705,7 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g2_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
    "name": "authored_sieve_two_counter_g2_4_6_w1",
-   "kind": "sieve",
-   "credit": 0.0052
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_6_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
@@ -808,14 +715,14 @@
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_hl_within_g2_4_2_w1",
+   "name": "authored_sieve_two_counter_g4_6_6_w1",
    "kind": "sieve",
    "credit": 0.0052
   },
   {
-   "name": "authored_sieve_two_counter_g4_6_6_w1",
+   "name": "authored_sieve_hl_within_g2_w1",
    "kind": "sieve",
-   "credit": 0.0052
+   "credit": 0.0049
   },
   {
    "name": "authored_sieve_residue_bal_g2_w1",
@@ -828,7 +735,17 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_2_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -838,7 +755,22 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_w2",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_4_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -848,7 +780,17 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g4_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g4_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -858,12 +800,27 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g6_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g6_4_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g6_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g6_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -878,12 +835,32 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g2_4_2_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
    "name": "authored_sieve_residue_bal_g2_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -898,6 +875,16 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g6_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g6_6_2_w1",
    "kind": "sieve",
    "credit": 0.0049
@@ -908,7 +895,17 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g6_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g4_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_4_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -918,7 +915,17 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -928,7 +935,17 @@
    "credit": 0.0049
   },
   {
+   "name": "authored_sieve_hl_within_g2_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
    "name": "authored_sieve_residue_bal_g2_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0049
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_2_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -1503,6 +1520,18 @@
    "explained": "the current triviality filter explains it",
    "source": "registry",
    "hand_settled_in_calibration": false
+  },
+  {
+   "name": "authored_frontier_cong_x9eef1668_w1",
+   "kind": "frontier",
+   "statement": "cmax[rad](n) = 1 (mod 3) for all n = 1 (mod 2)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.6378,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "source": "registry"
   }
  ],
  "rule": {
