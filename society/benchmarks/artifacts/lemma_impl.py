@@ -2468,6 +2468,33 @@ def check_authored_frontier_divides_xc90ee275_w2() -> bool:
     return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'stree_grid3', 'params': {}, 'rhs': 'dbl(stree_grid3)'}, a, b)) is int and c > 0 for a, b in [(901, 934), (935, 968), (969, 1002)])
 
 
+def check_authored_frontier_divides_x318ee14a_w2() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    lucas(n) divides dbl(stree_grid3)(n) for all n >= 1
+    re-tested on windows [(901, 934), (935, 968), (969, 1002)]. conjecture surviving 988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'lucas', 'params': {}, 'rhs': 'dbl(stree_grid3)'}, a, b)) is int and c > 0 for a, b in [(901, 934), (935, 968), (969, 1002)])
+
+
+def check_authored_frontier_divides_xba575886_w2() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1
+    re-tested on windows [(901, 934), (935, 968), (969, 1002)]. conjecture surviving 988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'stree_ladder', 'params': {}, 'rhs': 'dbl(stree_ladder)'}, a, b)) is int and c > 0 for a, b in [(901, 934), (935, 968), (969, 1002)])
+
+
+def check_authored_frontier_cong_xfdcb3b60_w2() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    gcd(match_ladder,stree_ladder)(n) = 1 (mod 2) for all n >= 1
+    re-tested on windows [(901, 1066), (1067, 1232), (1233, 1398)]. conjecture surviving 1988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(match_ladder,stree_ladder)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(901, 1066), (1067, 1232), (1233, 1398)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2729,7 +2756,10 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_x7a9213ec_w2", check_authored_frontier_le_x7a9213ec_w2, True),
     ("authored_frontier_divides_x3562d07e_w2", check_authored_frontier_divides_x3562d07e_w2, True),
     ("authored_frontier_le_x7a9213ec_w3", check_authored_frontier_le_x7a9213ec_w3, True),
-    ("authored_frontier_divides_xc90ee275_w2", check_authored_frontier_divides_xc90ee275_w2, False),
+    ("authored_frontier_divides_xc90ee275_w2", check_authored_frontier_divides_xc90ee275_w2, True),
+    ("authored_frontier_divides_x318ee14a_w2", check_authored_frontier_divides_x318ee14a_w2, True),
+    ("authored_frontier_divides_xba575886_w2", check_authored_frontier_divides_xba575886_w2, True),
+    ("authored_frontier_cong_xfdcb3b60_w2", check_authored_frontier_cong_xfdcb3b60_w2, False),
 ]
 
 
