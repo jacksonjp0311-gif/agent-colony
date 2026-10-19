@@ -252,6 +252,18 @@ def value_lemma(name: str, r: int, d: int, big: bool) -> tuple[str, dict[str, An
                 break
     if name == "tau" and not _sqres(r, d):
         out.append(("tau(x) is odd iff x is a square", V(0, {}, 2)))
+    if name == "tau":   # multiplicativity: x = p^k m with p not dividing m gives tau(x) = (k+1) tau(m)
+        K_, why = 1, []
+        for p in _small_primes():
+            k = 0
+            while d % p ** (k + 1) == 0 and r % p ** (k + 1) == 0:
+                k += 1
+            if k and d % p ** (k + 1) == 0:   # the class fixes the exact power p^k || x
+                K_ *= k + 1
+                why.append(f"{p}^{k}")
+        if K_ > 1:
+            out.append((f"tau is multiplicative: exact powers {'*'.join(why)} divide x, so tau(x) = 0 (mod {K_})",
+                        V(0, {}, K_)))
     if name == "sigma":
         if not _sqres(r, d) and not any((2 * y * y - r) % d == 0 for y in range(d)):
             out.append(("sigma(x) is odd iff x is a square or twice a square", V(0, {}, 2)))

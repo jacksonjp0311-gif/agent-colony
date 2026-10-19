@@ -449,7 +449,7 @@ def run(T: Any = None, *, state_path: Path | None = None, write: bool = True,
     n_new = 0
     for s, c in sorted(claims.items(), key=lambda kv: (kv[1].get("kind") == "rec", kv[0])):
         old = prev.get(s)
-        if old and old.get("status") in ("proved", "not proved") and old.get("v") == 2:
+        if old and old.get("status") in ("proved", "not proved") and old.get("v") == 3:
             results[s] = dict(old, authored=bool(c.get("authored")), unknown=bool(c.get("unknown")))
             continue
         if time.time() - t0 > budget_s:
@@ -457,7 +457,7 @@ def run(T: Any = None, *, state_path: Path | None = None, write: bool = True,
             continue
         cert = prove(c, T)
         n_new += 1
-        results[s] = {"v": 2, "status": "proved" if cert else "not proved", "kind": c["kind"],
+        results[s] = {"v": 3, "status": "proved" if cert else "not proved", "kind": c["kind"],
                       "check": c.get("check"), "authored": bool(c.get("authored")),
                       "prior_certificate": bool(c.get("certificate")),
                       "unknown": bool(c.get("unknown")), "checks": c.get("checks"),

@@ -1,9 +1,9 @@
 {
- "attempted_now": 0,
+ "attempted_now": 150,
  "by_kind": {
   "cong": [
    33,
-   30
+   31
   ],
   "divides": [
    7,
@@ -24,11 +24,11 @@
  },
  "mode": "live",
  "n_authored": 14,
- "n_authored_proved": 10,
+ "n_authored_proved": 11,
  "n_claims": 150,
- "n_proved": 126,
- "n_proved_new": 7,
- "n_surprises_proved": 27,
+ "n_proved": 127,
+ "n_proved_new": 1,
+ "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
  "results": {
   "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)": {
@@ -41,7 +41,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1": {
    "authored": false,
@@ -53,7 +53,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "(gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -65,7 +65,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -77,7 +77,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "(gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -231,19 +231,19 @@
    "status": "proved",
    "summary": "basic-inequality derivation: n split mod 1, every class derived from 2 lemma(s): bigomega(2x) in terms of bigomega(x) (multiplicativity / binary digits); gpf(2x) in terms of gpf(x) (multiplicativity / binary digits); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)": {
    "authored": true,
    "certificate": null,
    "check": "authored_frontier_le_x7a9213ec_w1",
-   "checks": 19988,
+   "checks": 59988,
    "kind": "le",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "(omega-gpf)(n) <= dbl((omega-gpf))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -395,7 +395,7 @@
    "status": "proved",
    "summary": "basic-inequality derivation: n split mod 1, every class derived from 1 lemma(s): gpf(2x) in terms of gpf(x) (multiplicativity / binary digits); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2)": {
    "authored": true,
@@ -497,7 +497,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): digsum(x+1) = digsum(x) + 1 when x does not end in 9 (no carry; e.g. x even); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -599,7 +599,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 3 lemma(s): digsum(x+1) = digsum(x) + 1 when x does not end in 9 (no carry; e.g. x even); lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)": {
    "authored": false,
@@ -611,7 +611,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3)": {
    "authored": true,
@@ -744,11 +744,11 @@
    "check": "authored_frontier_cong_x2f9c7891_w1",
    "checks": 19996,
    "kind": "cong",
-   "prior_certificate": false,
+   "prior_certificate": true,
    "status": "proved",
    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): cheb4 changes only at primes; x is composite (a multiple of 3); phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -876,7 +876,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): p | x implies p | rad(x); rad(x) is odd for odd x; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)": {
    "authored": false,
@@ -1009,11 +1009,11 @@
    "check": "authored_frontier_cong_x83358e42_w1",
    "checks": 29994,
    "kind": "cong",
-   "prior_certificate": false,
+   "prior_certificate": true,
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): phi(x) is even for x >= 3; pi changes only at primes; x is composite (a multiple of 2); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -1084,7 +1084,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "D(pell)(n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
@@ -1200,7 +1200,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "S((lpf*phi))(n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
@@ -1289,7 +1289,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "S((part*phi))(n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
@@ -1378,7 +1378,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "S((phi*rad))(n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
@@ -1467,7 +1467,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -1479,7 +1479,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "S(gcd(digsum,phi))(n) = 1 (mod 2) for all n = 3 (mod 4)": {
    "authored": true,
@@ -1901,11 +1901,11 @@
    "check": "authored_frontier_cong_xa68963c2_w1",
    "checks": 14997,
    "kind": "cong",
-   "prior_certificate": false,
+   "prior_certificate": true,
    "status": "proved",
    "summary": "periodic residues: n split mod 4, every class derived from 2 lemma(s): digsum(x) = digsum(x-1) + 1 when x-1 does not end in 9 (no carry); phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib*fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+1) + 2*a(n+2)": {
    "authored": false,
@@ -2121,7 +2121,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib*lucas)(n) satisfies a(n+2) = -1*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -2290,7 +2290,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib*pow2)(n) satisfies a(n+2) = 4*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -2459,7 +2459,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib+fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -2628,7 +2628,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib+lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -2800,7 +2800,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib+one)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -3014,7 +3014,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -3234,7 +3234,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib-lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -3406,7 +3406,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib-one)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -3620,7 +3620,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (fib-pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -3840,7 +3840,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (lucas*pow2)(n) satisfies a(n+2) = 4*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -4009,7 +4009,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (lucas+lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -4178,7 +4178,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (lucas+one)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -4392,7 +4392,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (lucas+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -4612,7 +4612,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (lucas-fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -4784,7 +4784,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (lucas-one)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -4998,7 +4998,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (lucas-pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -5218,7 +5218,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (n*n)(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -5437,7 +5437,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (n*pow2)(n) satisfies a(n+2) = -4*a(n+0) + 4*a(n+1)": {
    "authored": false,
@@ -5608,7 +5608,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (n+n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -5777,7 +5777,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (n+pow2)(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -5997,7 +5997,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (n-one)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -6165,7 +6165,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (n-pow2)(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -6385,7 +6385,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (one+pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -6599,7 +6599,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (one+pow2)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -6767,7 +6767,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pell*pell)(n) satisfies a(n+3) = -1*a(n+0) + 5*a(n+1) + 5*a(n+2)": {
    "authored": false,
@@ -6983,7 +6983,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pell*pow2)(n) satisfies a(n+2) = 4*a(n+0) + 4*a(n+1)": {
    "authored": false,
@@ -7152,7 +7152,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pell+pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -7321,7 +7321,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pell+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -7541,7 +7541,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pell-one)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -7755,7 +7755,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pell-pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -7975,7 +7975,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pow2+pow2)(n) satisfies a(n+1) = 2*a(n+0)": {
    "authored": false,
@@ -8097,7 +8097,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pow2-fib)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -8317,7 +8317,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pow2-lucas)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -8537,7 +8537,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pow2-n)(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -8757,7 +8757,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pow2-one)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -8925,7 +8925,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = (pow2-pell)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -9145,7 +9145,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((fib*fib))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+1) + 2*a(n+2)": {
    "authored": false,
@@ -9749,7 +9749,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((fib+lucas))(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -10125,7 +10125,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((fib+pow2))(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -10617,7 +10617,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((lucas*pow2))(n) satisfies a(n+2) = 4*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -11077,7 +11077,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((n*pow2))(n) satisfies a(n+2) = -4*a(n+0) + 4*a(n+1)": {
    "authored": false,
@@ -11533,7 +11533,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((n-fib))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -12005,7 +12005,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((n-lucas))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -12477,7 +12477,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((pell*pow2))(n) satisfies a(n+2) = 4*a(n+0) + 4*a(n+1)": {
    "authored": false,
@@ -12937,7 +12937,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((pell+pow2))(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -13429,7 +13429,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D((pow2-pell))(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -13921,7 +13921,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D(fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -14093,7 +14093,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D(lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -14265,7 +14265,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D(pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -14437,7 +14437,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = D(pow2)(n) satisfies a(n+1) = 2*a(n+0)": {
    "authored": false,
@@ -14561,7 +14561,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S((lucas+lucas))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -14573,7 +14573,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S((lucas-fib))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -14585,7 +14585,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S((n+n))(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -14597,7 +14597,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S((pell*pell))(n) satisfies a(n+3) = -1*a(n+0) + 5*a(n+1) + 5*a(n+2)": {
    "authored": false,
@@ -14609,7 +14609,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S((pell+pell))(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -14621,7 +14621,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -14633,7 +14633,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S(lucas)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -14645,7 +14645,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S(n)(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -14657,7 +14657,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S(pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -14669,7 +14669,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = S(pow2)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -14681,7 +14681,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((fib+pow2))(n) satisfies a(n+3) = 4*a(n+0) + -13*a(n+1) + 7*a(n+2)": {
    "authored": false,
@@ -14973,7 +14973,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((lucas*lucas))(n) satisfies a(n+3) = 1*a(n+0) + -8*a(n+1) + 8*a(n+2)": {
    "authored": false,
@@ -15257,7 +15257,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((lucas*pow2))(n) satisfies a(n+2) = -16*a(n+0) + 12*a(n+1)": {
    "authored": false,
@@ -15477,7 +15477,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((n*pow2))(n) satisfies a(n+2) = -16*a(n+0) + 8*a(n+1)": {
    "authored": false,
@@ -15701,7 +15701,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((n+n))(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -15921,7 +15921,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((n+pow2))(n) satisfies a(n+3) = 4*a(n+0) + -9*a(n+1) + 6*a(n+2)": {
    "authored": false,
@@ -16213,7 +16213,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((one+pell))(n) satisfies a(n+3) = 1*a(n+0) + -7*a(n+1) + 7*a(n+2)": {
    "authored": false,
@@ -16495,7 +16495,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((one+pow2))(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)": {
    "authored": false,
@@ -16714,7 +16714,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((pell*pow2))(n) satisfies a(n+2) = -16*a(n+0) + 24*a(n+1)": {
    "authored": false,
@@ -16934,7 +16934,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((pell+pow2))(n) satisfies a(n+3) = 4*a(n+0) + -25*a(n+1) + 10*a(n+2)": {
    "authored": false,
@@ -17226,7 +17226,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((pow2-lpf))(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)": {
    "authored": true,
@@ -17445,7 +17445,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): lpf(x) = 2 when 2 | x and no smaller prime divides x; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((pow2-n))(n) satisfies a(n+3) = 4*a(n+0) + -9*a(n+1) + 6*a(n+2)": {
    "authored": false,
@@ -17737,7 +17737,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl((pow2-pell))(n) satisfies a(n+3) = 4*a(n+0) + -25*a(n+1) + 10*a(n+2)": {
    "authored": false,
@@ -18029,7 +18029,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl(fib)(n) satisfies a(n+2) = -1*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -18153,7 +18153,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl(lucas)(n) satisfies a(n+2) = -1*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -18277,7 +18277,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = dbl(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -18401,7 +18401,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = fib(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -18474,7 +18474,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = lucas(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -18547,7 +18547,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = pell(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -18620,7 +18620,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = pow2(n) satisfies a(n+1) = 2*a(n+0)": {
    "authored": false,
@@ -18678,7 +18678,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((fib*fib))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+1) + 2*a(n+2)": {
    "authored": false,
@@ -18962,7 +18962,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((fib+pow2))(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -19254,7 +19254,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((fib-one))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -19536,7 +19536,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((lucas+one))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -19818,7 +19818,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((lucas-pow2))(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -20110,7 +20110,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((n+pow2))(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -20402,7 +20402,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((n-pow2))(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -20694,7 +20694,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((pell*pow2))(n) satisfies a(n+2) = 4*a(n+0) + 4*a(n+1)": {
    "authored": false,
@@ -20914,7 +20914,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((pow2-n))(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -21206,7 +21206,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh((pow2-one))(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -21425,7 +21425,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh(fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
    "authored": false,
@@ -21549,7 +21549,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
    "authored": false,
@@ -21673,7 +21673,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "a(n) = sh(pow2)(n) satisfies a(n+1) = 2*a(n+0)": {
    "authored": false,
@@ -21765,7 +21765,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)": {
    "authored": false,
@@ -21824,7 +21824,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); digsum(x) = x (mod 9) (casting out nines); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "cmax[gpf](n) = 1 (mod 3) for all n = 1 (mod 2)": {
    "authored": false,
@@ -21883,7 +21883,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); gpf(x) is odd for odd x; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "cmax[lpf](n) = 1 (mod 3) for all n = 1 (mod 2)": {
    "authored": false,
@@ -21942,7 +21942,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); lpf(x) is odd for odd x; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "cmax[rad](n) = 1 (mod 3) for all n = 1 (mod 2)": {
    "authored": false,
@@ -22001,7 +22001,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); rad(x) is odd for odd x; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(fib)(n) = (fib*lucas)(n) for all n >= 1": {
    "authored": false,
@@ -22106,7 +22106,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "dbl(fib)(n) = 0 (mod 3) for all n = 0 (mod 2)": {
    "authored": false,
@@ -22194,7 +22194,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 4, every class derived from 1 lemma(s): fib is periodic mod 3 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "dbl(gcd(fib,pell))(n) = 0 (mod 3) for all n = 0 (mod 2)": {
    "authored": false,
@@ -22341,19 +22341,94 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 4, every class derived from 2 lemma(s): fib is periodic mod 3 (defining recurrence; state repeats); pell is periodic mod 24 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(gcd(fib,tau))(n) = 0 (mod 3) for all n = 2 (mod 4)": {
    "authored": true,
-   "certificate": null,
+   "certificate": {
+    "N0": 64,
+    "Q": 4,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {
+     "2": {
+      "lhs": {
+       "e": "dbl(gcd(fib,tau))",
+       "kids": [
+        {
+         "e": "gcd(fib,tau)",
+         "kids": [
+          {
+           "e": "fib",
+           "lemma": "fib is periodic mod 3 (defining recurrence; state repeats)",
+           "pt": [
+            2,
+            0
+           ],
+           "rule": "lemma",
+           "val": {
+            "a": {},
+            "c": 0,
+            "d": 3
+           }
+          },
+          {
+           "e": "tau",
+           "lemma": "tau is multiplicative: exact powers 2^2 divide x, so tau(x) = 0 (mod 3)",
+           "pt": [
+            2,
+            0
+           ],
+           "rule": "lemma",
+           "val": {
+            "a": {},
+            "c": 0,
+            "d": 3
+           }
+          }
+         ],
+         "pt": [
+          2,
+          0
+         ],
+         "rule": "gcd",
+         "val": {
+          "a": {},
+          "c": 0,
+          "d": 3
+         }
+        }
+       ],
+       "pt": [
+        1,
+        0
+       ],
+       "rule": "dbl",
+       "val": {
+        "a": {},
+        "c": 0,
+        "d": 3
+       }
+      }
+     }
+    },
+    "finite_check": [
+     1,
+     63
+    ],
+    "lemmas": [
+     "fib is periodic mod 3 (defining recurrence; state repeats)",
+     "tau is multiplicative: exact powers 2^2 divide x, so tau(x) = 0 (mod 3)"
+    ],
+    "method": "periodic residues"
+   },
    "check": "authored_frontier_cong_x396d7d8c_w1",
-   "checks": 497,
+   "checks": 997,
    "kind": "cong",
    "prior_certificate": false,
-   "status": "not proved",
-   "summary": null,
+   "status": "proved",
+   "summary": "periodic residues: n split mod 4, every class derived from 2 lemma(s): fib is periodic mod 3 (defining recurrence; state repeats); tau is multiplicative: exact powers 2^2 divide x, so tau(x) = 0 (mod 3); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(gcd(mu,n))(n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -22438,7 +22513,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): mu(x) = 0 when 4 | x; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(gcd(mu,rad))(n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -22525,7 +22600,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): mu(x) = 0 when 4 | x; p | x implies p | rad(x); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(gcd(n,pell))(n) = 0 (mod 2) for all n >= 1": {
    "authored": true,
@@ -22610,7 +22685,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(gcd(pell,sqfree))(n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -22697,7 +22772,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): pell is periodic mod 4 (defining recurrence; state repeats); sqfree(x) = 0 when 4 | x; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(gcd(rev,sigma))(n) = 0 (mod 3) for all n = 3 (mod 6)": {
    "authored": true,
@@ -22785,7 +22860,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 6, every class derived from 2 lemma(s): rev(x) = x (mod 9) (casting out nines); sigma(2x) for odd x (multiplicativity, gcd(2, x) = 1); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1": {
    "authored": false,
@@ -22797,7 +22872,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "dbl(n)(n) = (n+n)(n) for all n >= 1": {
    "authored": false,
@@ -22902,7 +22977,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "dbl(n)(n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
@@ -22956,7 +23031,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "dbl(pell)(n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
@@ -23013,7 +23088,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "dbl(pow2)(n) = (pow2*pow2)(n) for all n >= 1": {
    "authored": false,
@@ -23118,7 +23193,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "dbl(rad)(n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
@@ -23175,7 +23250,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): p | x implies p | rad(x); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "gcd(lpf,tau)(n) divides (mu*pell)(n) for all n >= 1": {
    "authored": false,
@@ -23504,11 +23579,11 @@
    "check": "authored_frontier_divides_x97939198_w1",
    "checks": 3988,
    "kind": "divides",
-   "prior_certificate": false,
+   "prior_certificate": true,
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 6 lemma(s): case sqfree(n) = 0: mu(n) = 0; case sqfree(n) = 1: mu(n) = +-1 is odd; case sqfree(n) = 1: tau(n) = 2^omega(n) is even (n >= 2); lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; pell is periodic mod 2 (defining; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "gcd(lpf,tau)(n) divides (pell*sqfree)(n) for all n >= 1": {
    "authored": false,
@@ -23837,11 +23912,11 @@
    "check": "authored_frontier_divides_xb94616a2_w1",
    "checks": 3988,
    "kind": "divides",
-   "prior_certificate": false,
+   "prior_certificate": true,
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 6 lemma(s): case sqfree(n) = 0: sqfree(n) = 0; case sqfree(n) = 1; case sqfree(n) = 1: tau(n) = 2^omega(n) is even (n >= 2); lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; pell is periodic mod 2 (defining recurrence; sta; n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -23853,7 +23928,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -23865,7 +23940,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "gcd(part,sqfree)(n) <= dbl(gcd(part,sqfree))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -23877,7 +23952,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1": {
    "authored": true,
@@ -23889,7 +23964,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "pi[prime](n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -23943,7 +24018,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "pi[prime](n) divides (rad*sqfree)(n) for all n >= 1": {
    "authored": false,
@@ -23955,7 +24030,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "pow2(n) = D(pow2)(n) for all n >= 1": {
    "authored": false,
@@ -24044,7 +24119,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "sh(n)(n) = (n+one)(n) for all n >= 1": {
    "authored": false,
@@ -24150,7 +24225,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "sh(n)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -24204,7 +24279,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "sh(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -24261,7 +24336,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "sh(pow2)(n) = (pow2+pow2)(n) for all n >= 1": {
    "authored": false,
@@ -24366,7 +24441,7 @@
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
-   "v": 2
+   "v": 3
   },
   "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)": {
    "authored": true,
@@ -24425,7 +24500,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): digsum(x) = x (mod 9) (casting out nines); sigma(x) = 0 (mod 3) when x = -1 (mod 3) (divisor pairs d, x/d with d^2 = 1 mod 3); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "sigma[rev](n) = 0 (mod 3) for all n = 2 (mod 3)": {
    "authored": true,
@@ -24484,7 +24559,7 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): rev(x) = x (mod 9) (casting out nines); sigma(x) = 0 (mod 3) when x = -1 (mod 3) (divisor pairs d, x/d with d^2 = 1 mod 3); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "sopfr[phi](n) <= (sopfr-omega)(n) for all n >= 1 (with equality at some n)": {
    "authored": true,
@@ -24578,11 +24653,11 @@
    "check": "authored_frontier_le_xc2340063_w1",
    "checks": 59988,
    "kind": "le",
-   "prior_certificate": false,
+   "prior_certificate": true,
    "status": "proved",
    "summary": "basic-inequality derivation: n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   },
   "tau[lpf](n) divides (lpf-pell)(n) for all n >= 1": {
    "authored": true,
@@ -24725,13 +24800,13 @@
    "check": "authored_frontier_divides_xdd6cdac8_w1",
    "checks": 3988,
    "kind": "divides",
-   "prior_certificate": false,
+   "prior_certificate": true,
    "status": "proved",
    "summary": "periodic residues: n split mod 2, every class derived from 4 lemma(s): lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; lpf(x) is prime (x >= 2); tau of a prime p is +2; pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
    "unknown": true,
-   "v": 2
+   "v": 3
   }
  },
- "seconds": 0.03,
- "ts": "2026-10-18T21:02:27Z"
+ "seconds": 1.42,
+ "ts": "2026-10-19T01:38:28Z"
 }

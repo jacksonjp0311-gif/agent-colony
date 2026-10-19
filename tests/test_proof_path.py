@@ -85,3 +85,19 @@ def test_step_and_branch_unit():
     assert K.compose_prime_lemma("tau", "lpf", False) is None and K.compose_prime_lemma("tau", "rad", True) is None
     assert K.branch_value("tau", (0, 1, 1), 1, 0)[1] == K.V(0, {}, 2)
     assert K.branch_value("tau", (0, 1, 1), 2, 0) is None and K.branch_value("tau", (0, 1), 1, 0) is None
+
+
+def test_tau_multiplicativity_x396(T):
+    """x396d7d8c: n = 2 (mod 4) gives 2n = 4m, m odd, so tau(2n) = 3 tau(m); 3 | fib(2n) as 4 | 2n."""
+    good = C("cong", "dbl(gcd(fib,tau))", m=3, r=0, q=4, s=2)
+    cert = PP.prove(good, T)
+    assert cert and K.check(cert, good, T)[0]
+    assert PP.prove(C("cong", "dbl(gcd(fib,tau))", m=3, r=0, q=4, s=1), T) is None   # false: n = 1 (mod 4)
+    assert not K.check(cert, C("cong", "dbl(gcd(fib,tau))", m=3, r=1, q=4, s=2), T)[0]
+    t = copy.deepcopy(cert)
+    node = next(iter(t["classes"].values()))["lhs"]
+    node["val"] = K.V(node["val"]["c"] + 1, node["val"]["a"], node["val"]["d"])
+    assert not K.check(t, good, T)[0]
+    assert K.value_lemma("tau", 4, 8, True)[1]["d"] % 3 == 0
+    assert all(K.value_lemma("tau", 4, 4, True) is None or K.value_lemma("tau", 4, 4, True)[1]["d"] % 3
+               for _ in [0])   # 4 | x alone does not fix the exact power of 2
