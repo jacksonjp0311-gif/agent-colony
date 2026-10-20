@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-20T17:29:15Z",
-  "cycle_id": "20261020T172900Z_1f9587",
+  "ts": "2026-10-20T21:53:04Z",
+  "cycle_id": "20261020T215243Z_6d6da4",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -97,8 +97,8 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8656,
-      "slope": 7e-05,
+      "last": 0.8638,
+      "slope": 0.000209,
       "min": 0.8462,
       "max": 0.8661
     },
@@ -110,15 +110,15 @@
     },
     "kill_rate": {
       "last": 0.2888,
-      "slope": -1.9e-05,
+      "slope": 0.0,
       "min": 0.2888,
-      "max": 0.2893
+      "max": 0.2888
     },
     "kill_rate_term": {
       "last": 0.8099,
-      "slope": -1.5e-05,
+      "slope": 0.0,
       "min": 0.8099,
-      "max": 0.8103
+      "max": 0.8099
     },
     "lesson_uptake": {
       "last": 0.96,
@@ -129,7 +129,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0199,
+    "aggregate_range": 0.0023,
     "novelty_max": 0.931,
     "window": 6,
     "reason": "moving"
@@ -305,34 +305,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.674,
+      "ratio": 1.312,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.691,
+      "ratio": 1.307,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.704,
+      "ratio": 1.216,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.788,
+      "ratio": 1.255,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.863,
+      "ratio": 1.245,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 183800003,
-      "collatz_descent": 198200000,
+      "goldbach_even": 187000003,
+      "collatz_descent": 201400000,
       "legendre_square_gap": 1052607,
       "lehmer_totient": 83800001,
-      "erdos_straus": 909567,
+      "erdos_straus": 914567,
       "twin_primes_hl": 250200000,
       "oeis_A104062_next": 518690000001
     },
@@ -383,31 +383,31 @@
     "last": [
       [
         null,
+        "2026-10-20T21:45:57Z"
+      ],
+      [
+        "success",
         "2026-10-20T17:24:10Z"
       ],
       [
         "success",
         "2026-10-20T12:42:05Z"
-      ],
-      [
-        "success",
-        "2026-10-20T11:54:37Z"
       ]
     ],
-    "fetched_at": "2026-10-20T17:24:49Z"
+    "fetched_at": "2026-10-20T21:46:39Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 123,
+      "arxiv": 127,
       "oeis": 5,
       "crossref": 94,
-      "wikipedia": 17,
+      "wikipedia": 18,
       "oeis_conj": 166
     },
     "by_kind": {
-      "paper": 217,
+      "paper": 221,
       "sequence": 5,
-      "summary": 17,
+      "summary": 18,
       "conj_sequence": 166
     },
     "last_run": {
@@ -415,7 +415,7 @@
         "arxiv": {
           "error": "",
           "fetched": 8,
-          "new": 2,
+          "new": 4,
           "ok": true
         },
         "ci_health": {
@@ -424,7 +424,7 @@
         },
         "crossref": {
           "error": "",
-          "fetched": 1,
+          "fetched": 3,
           "new": 0,
           "ok": true
         },
@@ -436,39 +436,39 @@
         },
         "oeis_conj": {
           "error": "",
-          "fetched": 7,
+          "fetched": 2,
           "new": 0,
           "ok": true
         },
         "wikipedia": {
           "error": "",
-          "fetched": 0,
-          "new": 0,
+          "fetched": 1,
+          "new": 1,
           "ok": true
         }
       },
-      "ts": "2026-10-20T17:24:41Z"
+      "ts": "2026-10-20T21:46:31Z"
     },
     "health": {
       "arxiv": {
         "fail": 7,
-        "ok": 43
+        "ok": 44
       },
       "crossref": {
         "fail": 0,
-        "ok": 45
+        "ok": 46
       },
       "oeis": {
         "fail": 0,
-        "ok": 45
+        "ok": 46
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 41
+        "ok": 42
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 45
+        "ok": 46
       }
     }
   },
