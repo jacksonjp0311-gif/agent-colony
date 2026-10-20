@@ -1,12 +1,12 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
    38,
    31
   ],
   "divides": [
-   12,
+   13,
    3
   ],
   "identity": [
@@ -18,15 +18,15 @@
    3
   ],
   "rec": [
-   83,
-   75
+   82,
+   74
   ]
  },
  "mode": "live",
  "n_authored": 21,
  "n_authored_proved": 13,
  "n_claims": 150,
- "n_proved": 118,
+ "n_proved": 117,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -37,6 +37,18 @@
    "check": "authored_frontier_le_xdbff107c_w1",
    "checks": 59988,
    "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
+  "(fib*lucas)(n) divides dbl(stree_grid3)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x9835949a_w1",
+   "checks": 988,
+   "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
@@ -14641,226 +14653,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = dbl((pell*pow2))(n) satisfies a(n+2) = -16*a(n+0) + 24*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "dbl((pell*pow2))",
-        "kids": [
-         {
-          "e": "(pell*pow2)",
-          "kids": [
-           {
-            "e": "pell",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pell@2,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@2,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           0
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "pell@2,0*pow2@2,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,0*pow2@2,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((pell*pow2))",
-        "kids": [
-         {
-          "e": "(pell*pow2)",
-          "kids": [
-           {
-            "e": "pell",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pell@2,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@2,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           2
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "pell@2,2*pow2@2,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,2*pow2@2,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((pell*pow2))",
-        "kids": [
-         {
-          "e": "(pell*pow2)",
-          "kids": [
-           {
-            "e": "pell",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pell@2,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@2,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           4
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "pell@2,4*pow2@2,4": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "pell@2,4*pow2@2,4": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x1c3f4e91_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = dbl((pell+pow2))(n) satisfies a(n+3) = 4*a(n+0) + -25*a(n+1) + 10*a(n+2)": {
    "authored": false,
    "certificate": {
@@ -22560,6 +22352,6 @@
    "v": 3
   }
  },
- "seconds": 0.04,
- "ts": "2026-10-20T12:04:40Z"
+ "seconds": 0.03,
+ "ts": "2026-10-20T17:30:17Z"
 }
