@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-19T22:38:32Z",
+  "ts": "2026-10-20T05:12:36Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.28145032330209,
+      "latest": -6.164180983986339,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-19T22:32:00Z",
-          "v": -8.410741509635454
+          "t": "2026-10-20T05:05:00Z",
+          "v": -7.831013056059967
         },
         {
-          "t": "2026-10-19T22:32:00Z",
-          "v": -6.273542908611174
+          "t": "2026-10-20T05:05:00Z",
+          "v": -6.122726799356347
         },
         {
-          "t": "2026-10-19T22:33:00Z",
-          "v": -8.280478834421631
+          "t": "2026-10-20T05:06:00Z",
+          "v": -7.872741821543349
         },
         {
-          "t": "2026-10-19T22:33:00Z",
-          "v": -6.263579508911822
+          "t": "2026-10-20T05:06:00Z",
+          "v": -6.1360961992447685
         },
         {
-          "t": "2026-10-19T22:34:00Z",
-          "v": -8.612342263812867
+          "t": "2026-10-20T05:07:00Z",
+          "v": -7.957697731624972
         },
         {
-          "t": "2026-10-19T22:34:00Z",
-          "v": -6.275340192609954
+          "t": "2026-10-20T05:07:00Z",
+          "v": -6.151821919062291
         },
         {
-          "t": "2026-10-19T22:35:00Z",
-          "v": -8.641806390670764
+          "t": "2026-10-20T05:08:00Z",
+          "v": -8.005774036382157
         },
         {
-          "t": "2026-10-19T22:35:00Z",
-          "v": -6.28145032330209
+          "t": "2026-10-20T05:08:00Z",
+          "v": -6.164180983986339
         }
       ],
       "live": true,
-      "ts": "2026-10-19T22:38:20Z"
+      "ts": "2026-10-20T05:12:24Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 13.1,
+      "latest": 14.9,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -61,52 +61,101 @@
       "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
       "items": [
         {
-          "t": "2026-10-18T00:00",
-          "v": 8.8
+          "t": "2026-10-19T00:00",
+          "v": 10.5
         },
         {
-          "t": "2026-10-18T01:00",
-          "v": 7.7
+          "t": "2026-10-19T01:00",
+          "v": 9.3
         },
         {
-          "t": "2026-10-18T02:00",
+          "t": "2026-10-19T02:00",
+          "v": 8.3
+        },
+        {
+          "t": "2026-10-19T03:00",
+          "v": 8.2
+        },
+        {
+          "t": "2026-10-19T04:00",
+          "v": 8.3
+        },
+        {
+          "t": "2026-10-19T05:00",
+          "v": 7.6
+        },
+        {
+          "t": "2026-10-19T06:00",
+          "v": 6.8
+        },
+        {
+          "t": "2026-10-19T07:00",
           "v": 6.6
-        },
-        {
-          "t": "2026-10-18T03:00",
-          "v": 5.9
-        },
-        {
-          "t": "2026-10-18T04:00",
-          "v": 5.0
-        },
-        {
-          "t": "2026-10-18T05:00",
-          "v": 4.5
-        },
-        {
-          "t": "2026-10-18T06:00",
-          "v": 4.7
-        },
-        {
-          "t": "2026-10-18T07:00",
-          "v": 4.1
         }
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-19T22:38:20Z"
+      "ts": "2026-10-20T05:12:24Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
-      "ok": false,
-      "note": "TimeoutError: The read operation timed out",
-      "count": 0,
-      "latest": null,
-      "items": [],
-      "live": false,
-      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-12&endtime=2026-10-19&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-19T22:38:32Z"
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 2.8,
+      "items": [
+        {
+          "mag": 2.8,
+          "place": "64 km N of Petersville, Alaska",
+          "time": 1792452158976,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.1,
+          "place": "43 km N of Petersville, Alaska",
+          "time": 1792450935383,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "52 km S of Kokopo, Papua New Guinea",
+          "time": 1792449767298,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.5,
+          "place": "Kuril Islands",
+          "time": 1792446216577,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.8,
+          "place": "39 km S of Tolsona, Alaska",
+          "time": 1792444298453,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.7,
+          "place": "13 km SW of Manley Hot Springs, Alaska",
+          "time": 1792443606271,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.6,
+          "place": "87 km SE of Unalaska, Alaska",
+          "time": 1792439688589,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.3,
+          "place": "248 km SW of Tambolaka, Indonesia",
+          "time": 1792437410241,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-13&endtime=2026-10-20&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-20T05:12:36Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -115,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.35888671875,
-          "disk_free_percent": 58.975931434671345,
-          "process_count": 150,
-          "uptime_hours": 0.12365555555555556,
+          "load1": 0.28857421875,
+          "disk_free_percent": 58.961678194954914,
+          "process_count": 151,
+          "uptime_hours": 0.15941111111111111,
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "node": "runnervm8k3b6",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.35888671875,
+      "latest_load1": 0.28857421875,
       "live": true,
-      "ts": "2026-10-19T22:38:32Z"
+      "ts": "2026-10-20T05:12:36Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 2.124358999992637,
-      "mean_ms": 2.4043709999972407,
+      "latest_ms": 18.274308000059136,
+      "mean_ms": 18.092377500039447,
       "items": [
         {
           "probe": 0,
-          "ms": 2.217005000034078
+          "ms": 18.129029000078845
         },
         {
           "probe": 1,
-          "ms": 2.5558739999951285
+          "ms": 18.152466000060485
         },
         {
           "probe": 2,
-          "ms": 2.720245999967119
+          "ms": 17.813706999959322
         },
         {
           "probe": 3,
-          "ms": 2.124358999992637
+          "ms": 18.274308000059136
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-19T22:38:32Z"
+      "ts": "2026-10-20T05:12:36Z"
     }
   },
   "feed_health": {
@@ -171,9 +220,9 @@
       "count": 48
     },
     "usgs_quakes": {
-      "ok": false,
-      "note": "TimeoutError: The read operation timed out",
-      "count": 0
+      "ok": true,
+      "note": "ok",
+      "count": 100
     },
     "system_stat": {
       "ok": true,
@@ -189,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.35888671875 tcp_probe mean_ms=2.4043709999972407 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.28857421875 tcp_probe mean_ms=18.092377500039447 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.35888671875,
-        "probe_ms": 2.4043709999972407,
+        "load1": 0.28857421875,
+        "probe_ms": 18.092377500039447,
         "probe_ok": true
       },
       "domains": [

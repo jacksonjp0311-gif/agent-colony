@@ -41,6 +41,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$l$-functions",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$s$-catalan",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "(-1)^k",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "(-1)^n",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-19T22:38:02Z",
-  "updated_cycle": "20261019T223643Z_0b72d5",
+  "updated_at": "2026-10-20T05:12:06Z",
+  "updated_cycle": "20261020T051048Z_6d7b51",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

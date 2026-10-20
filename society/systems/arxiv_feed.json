@@ -1,24 +1,24 @@
 {
-  "last_attempt_at": "2026-10-19T22:33:54Z",
+  "last_attempt_at": "2026-10-20T05:07:20Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-10-19T22:33:54Z",
+  "last_ok_at": "2026-10-20T05:07:20Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
-      "abstract_snippet": "Fine-tuning large language models (LLMs) can induce behaviors beyond those explicitly targeted. For example, training a model to respond more warmly can make it more sycophantic, and training it to write insecure code can cause broad misalignment on prompts unrelated to coding. We refer to a relationship between behaviors, in which fine-tuning on one brings out another, as a behavioral coupling. I",
-      "url": "https://arxiv.org/abs/2610.23847",
-      "arxiv_id": "2610.23847",
+      "title": "Text-to-Image Generative Modeling Without Language Pretraining",
+      "abstract_snippet": "Modern text-to-image (T2I) systems use internet-scale language pretraining for text-conditioned image generation. We ask whether language pretraining is necessary for strong T2I generation. We introduce Halcyon, a family of early-fusion multimodal autoregressive models pretrained entirely from scratch on GPIC, a dataset of 100M image-text pairs. Halcyon-0.52B outperforms LlamaGen-XL/8 (48.0 vs. 63",
+      "url": "https://arxiv.org/abs/2610.26863",
+      "arxiv_id": "2610.26863",
       "doi": "",
       "authors": [
-        "Dongyoon Hahm",
-        "Woogyeol Jin",
-        "Dennis Wei",
-        "Yi Zhou",
-        "Nathalie Baracaldo",
-        "Kimin Lee"
+        "Keshigeyan Chandrasegaran",
+        "Yue Zhao",
+        "Armin W. Thomas",
+        "Ehsan Adeli",
+        "Jiajun Wu",
+        "Juan Carlos Niebles"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +28,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-19T22:33:54Z"
+      "fetched_at": "2026-10-20T05:07:20Z"
     },
     {
       "source": "arxiv",
-      "title": "Task-aligned spectral inductive biases in parameterized quantum circuits",
-      "abstract_snippet": "Parameterized quantum circuits are widely investigated in quantum machine learning, yet how their architecture can provide task-aligned inductive biases remains poorly understood. We study data reuploading quantum circuits with two distinct inputs: a signal that varies between samples and a fixed, task-defined spectral query that specifies how the signal should be probed. We show that encoding the",
-      "url": "https://arxiv.org/abs/2610.23834",
-      "arxiv_id": "2610.23834",
+      "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
+      "abstract_snippet": "Multimodal large language models (MLLMs) have made rapid progress on visual reasoning, yet many tasks require evidence that is difficult to obtain through internal reasoning alone: our controlled study on 22 benchmarks shows that simply increasing the inference budget of the base model yields only modest gains. Such tasks demand grounded perception, external knowledge, and numerical measurements o",
+      "url": "https://arxiv.org/abs/2610.26860",
+      "arxiv_id": "2610.26860",
       "doi": "",
       "authors": [
-        "Felix Frohnert",
-        "Adrián Pérez-Salinas",
-        "Sebastian Lange",
-        "Marcus Schwaebisch",
-        "Evert van Nieuwenburg",
-        "Vedran Dunjko"
+        "Yu Zhou",
+        "Cheng-Fu Yang",
+        "Rui Sun",
+        "Di Wu",
+        "Sibo Peng",
+        "Mingyang Zhang"
       ],
       "year": 2026,
       "tags": [
@@ -53,22 +53,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-19T22:33:54Z"
+      "fetched_at": "2026-10-20T05:07:20Z"
     },
     {
       "source": "arxiv",
-      "title": "Beyond the Answer: Student-Conditioned Trace Construction for Reasoning Distillation",
-      "abstract_snippet": "A reasoning trace can accompany a correct answer without providing effective supervision for a particular student. We study how to construct traces that improve learning beyond answer-only supervision by considering both their intermediate content and their accessibility to the target learner. We introduce ReDiST, a student-conditioned trace-construction and distillation framework for evidence-ric",
-      "url": "https://arxiv.org/abs/2610.23831",
-      "arxiv_id": "2610.23831",
+      "title": "CoopUQ: Robust Multi-Robot Social Navigation via Uncertainty-Aware Cooperative Forecasting",
+      "abstract_snippet": "Reinforcement learning enables mobile robots to make fast and scalable navigation decisions in constrained human-shared environments. However, directly extending single-robot approaches to multi-robot settings often fails to ensure safety and efficiency, especially under occlusions and out-of-distribution (OOD) scenarios, where individual robots may overlook potential risks or make inaccurate pred",
+      "url": "https://arxiv.org/abs/2610.26852",
+      "arxiv_id": "2610.26852",
       "doi": "",
       "authors": [
-        "Shaoang Li",
-        "Yanhang Shi",
-        "Yufei Li",
-        "Mingfu Liang",
-        "Frank Shyu",
-        "Sandeep Pandey"
+        "Zehao Wang",
+        "Jianpeng Yao",
+        "Yuping Wang",
+        "Yiping Li",
+        "Jiaqi Li",
+        "Zhixu Li"
       ],
       "year": 2026,
       "tags": [
@@ -78,20 +78,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-19T22:33:54Z"
+      "fetched_at": "2026-10-20T05:07:20Z"
     },
     {
       "source": "arxiv",
-      "title": "Waiting Buys Exactly Two Moments: Endogenous Identification in Prediction-Driven Allocation",
-      "abstract_snippet": "A planner with a fixed budget of preventive help must decide whom to help and when. Waiting reveals risk but removes intervention opportunities as higher-risk individuals leave first. We characterize this tradeoff under repeated noisy signals and risk-dependent attrition: in the canonical model, a length-$τ$ observation prefix identifies exactly the latent risk moments $m_j=\\mathbb E[p^j]$ for $j=",
-      "url": "https://arxiv.org/abs/2610.23830",
-      "arxiv_id": "2610.23830",
+      "title": "WeAct: Dynamic Weight Switching as Agent Actions",
+      "abstract_snippet": "Long-horizon agents must learn heterogeneous capabilities from interleaved trajectories. Updating shared parameters to learn new capabilities can degrade previously acquired ones, resulting in catastrophic forgetting. As a trajectory unfolds, different stages may require different capabilities, yet conventional joint training and static adapter merging maintain a fixed parameter configuration thro",
+      "url": "https://arxiv.org/abs/2610.26847",
+      "arxiv_id": "2610.26847",
       "doi": "",
       "authors": [
-        "Rama AlHamidi",
-        "Rasul Khanbayov",
-        "Erchin Serpedin",
-        "Hasan Kurban"
+        "Rui Shi",
+        "Xunjian Yin",
+        "Jiacheng Sang",
+        "Zichuan Liu",
+        "Shuyan Zhou"
       ],
       "year": 2026,
       "tags": [
@@ -101,21 +102,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-19T22:33:54Z"
+      "fetched_at": "2026-10-20T05:07:20Z"
     },
     {
       "source": "arxiv",
-      "title": "Quality-of-Transmission Estimation in Quantum Networks: Compute, Simulate, or Learn?",
-      "abstract_snippet": "Future quantum networks will rely on control-plane decisions such as routing, scheduling, entanglement provisioning, purification, and memory allocation. Each decision depends on a timely and reliable estimate of the quality of the entanglement that a candidate path can deliver, with end-to-end fidelity as a central metric. Inspired by the optical-networking experience with quality-of-transmission",
-      "url": "https://arxiv.org/abs/2610.23827",
-      "arxiv_id": "2610.23827",
+      "title": "Isolated zeros of the Riemann zeta function and zeros of linear combinations of Dirichlet $L$-functions",
+      "abstract_snippet": "Let $0&lt;γ_1\\leq γ_2\\leq \\cdots$ be the ordinates of the non-trivial zeros of the Riemann zeta function in the upper half-plane, counted with multiplicity, and fix $c&gt;0$. We say that a non-trivial zero $ρ_n=β_n+iγ_n$ is $c$-isolated if $\\min(γ_{n+1}-γ_n, γ_n-γ_{n-1})&gt;2πc/\\log γ_n$. Note that any isolated zero is necessarily simple and on the critical line. We prove unconditionally that more",
+      "url": "https://arxiv.org/abs/2610.26841",
+      "arxiv_id": "2610.26841",
       "doi": "",
       "authors": [
-        "Anis Bekri",
-        "Amar Abane",
-        "Van Sy Mai",
-        "Abdella Battou",
-        "Saddek Bensalem"
+        "Youness Lamzouri"
       ],
       "year": 2026,
       "tags": [
@@ -125,7 +122,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-19T22:33:54Z"
+      "fetched_at": "2026-10-20T05:07:20Z"
     }
   ]
 }
