@@ -12,15 +12,15 @@ STANDING_TRUST_P_MIN_BEFORE: float = 0.75  # prior mile compare field
 
 def meets_standing_trust(confidence: float | None, *, machine_checked: bool = False) -> bool:
     """True iff confidence ≥ P_MIN and evidence is machine-checked. Selective gate."""
-    if not machine_checked:
+    if machine_checked is not True:
         return False
-    if confidence is None:
+    if confidence is None or isinstance(confidence, bool):
         return False
     try:
         p = float(confidence)
     except (TypeError, ValueError):
         return False
-    return p >= STANDING_TRUST_P_MIN
+    return math.isfinite(p) and STANDING_TRUST_P_MIN <= p <= 1.0
 
 
 def threshold_compare(confidence: float | None) -> dict:

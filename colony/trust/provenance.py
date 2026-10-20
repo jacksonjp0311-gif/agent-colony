@@ -14,15 +14,16 @@ def oracle_backed(mutation: str, cycle_id: str, *, log: Path | None = None) -> d
     path = log or ORACLE_LOG
     if not mutation or not cycle_id or not path.exists():
         return {"ok": False, "reason": "missing_mutation_cycle_or_log"}
-    for ln in path.read_text(encoding="utf-8").splitlines():
+    for ln in reversed(path.read_text(encoding="utf-8").splitlines()):
         if mutation not in ln or cycle_id not in ln:
             continue
         try:
             e = json.loads(ln)
         except json.JSONDecodeError:
             continue
-        if e.get("mutation") == mutation and e.get("cycle_id") == cycle_id and e.get("passed") and e.get("fitness_credit"):
-            return {"ok": True, "reason": "oracle_pass_row_found"}
+        if e.get("mutation") == mutation and e.get("cycle_id") == cycle_id:
+            ok = e.get("passed") is True and e.get("fitness_credit") is True
+            return {"ok": ok, "reason": "latest_oracle_pass" if ok else "latest_oracle_failed"}
     return {"ok": False, "reason": "no_matching_oracle_pass"}
 
 

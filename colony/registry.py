@@ -105,13 +105,12 @@ class AgentRegistry:
             ensure_agent_genome(agents[role], role, cycle_id=cycle_id)
             return agents[role]
         if role in agents and agents[role].get("status") == "retired":
-            agents[role]["status"] = "active"
-            agents[role]["entered_at"] = _utc_now()
-            agents[role]["left_at"] = None
-            agents[role]["reentry_reason"] = reason
-            if genome:
-                agents[role]["genome"] = genome
-            ensure_agent_genome(agents[role], role, cycle_id=cycle_id)
+            # Routine entry (sync, outcomes, spawn enactment) cannot revive a retiree.
+            return agents[role]
+        if (self.data.get("roles", {}).get(role) or {}).get("status") == "retired":
+            # A legacy role may have been retired before it gained a registry entry.
+            agents[role] = _blank_agent(role)
+            agents[role].update(status="retired", retired_cycle=int(self.data.get("cycle_count") or 0))
             return agents[role]
         agents[role] = _blank_agent(role)
         agents[role]["enter_reason"] = reason
@@ -139,15 +138,20 @@ class AgentRegistry:
         agents[role]["status"] = "retired"
         agents[role]["left_at"] = _utc_now()
         agents[role]["leave_reason"] = reason
+        agents[role]["retired_cycle"] = int(self.data.get("cycle_count") or 0)
         self.data.setdefault("history", []).append(
             {"ts": _utc_now(), "event": "agent_leave", "role": role, "reason": reason}
         )
         return agents[role]
 
     def sync_from_roles(self, *, cycle_id: str = "") -> list[str]:
-        """Ensure every society role has an active agent entry + genome."""
+        """Sync eligible roles without undoing retirement."""
         entered: list[str] = []
-        for role in self.data.get("roles", {}).keys():
+        for role, spec in self.data.get("roles", {}).items():
+            if spec.get("status", "active") not in ("active", "founding", "emergent"):
+                continue
+            if (self.agents().get(role) or {}).get("status") == "retired":
+                continue
             before = role in self.agents() and self.agents()[role].get("status") == "active"
             self.enter(role, reason="role_sync", cycle_id=cycle_id)
             if not before:
@@ -156,6 +160,43 @@ class AgentRegistry:
         for role, agent in self.active().items():
             ensure_agent_genome(agent, role, cycle_id=cycle_id)
         return entered
+
+    def revive(self, role: str, *, cycle_id: str, evidence: dict[str, Any]) -> bool:
+        """The only retired -> active transition: measured pressure after two full cycles."""
+        import math
+
+        agent = self.agents().get(role)
+        if not agent or agent.get("status") != "retired" or self.at_capacity():
+            return False
+        now = int(self.data.get("cycle_count") or 0)
+        retired = agent.setdefault("retired_cycle", now)  # legacy retirements start cooldown here
+        if now - int(retired) < 3:
+            return False
+        values = evidence.get("values")
+        threshold = evidence.get("threshold")
+        if not cycle_id or evidence.get("cycle_id") != cycle_id or not evidence.get("metric"):
+            return False
+        if not isinstance(values, list) or len(values) < 2:
+            return False
+        if any(type(v) not in (int, float) or not math.isfinite(v) for v in [threshold, *values]):
+            return False
+        if not 0 < threshold <= 1 or any(not 0 <= v <= 1 for v in values):
+            return False
+        if sum(v < threshold for v in values[-3:]) < 2:
+            return False
+        agent.update(status="active", entered_at=_utc_now(), left_at=None,
+                     reentry_reason="measured_pressure", revival_evidence=deepcopy(evidence))
+        agent.pop("hard_tier_kill_candidate", None)
+        agent.pop("oracle_no_lift_retire", None)
+        role_spec = self.data.get("roles", {}).get(role)
+        if role_spec is not None:
+            role_spec["status"] = "active"
+        ensure_agent_genome(agent, role, cycle_id=cycle_id)
+        self.data.setdefault("history", []).append({
+            "ts": _utc_now(), "event": "agent_revived", "role": role,
+            "cycle_id": cycle_id, "evidence": deepcopy(evidence),
+        })
+        return True
 
     def deliver(self, role: str, message: dict[str, Any]) -> None:
         agent = self.agents().get(role)

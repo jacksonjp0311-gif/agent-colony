@@ -12,7 +12,7 @@ from colony.ceiling import Ceiling
 from colony.charter import load_charter
 from colony.emergence.spark import Spark
 from colony.ledger import Ledger
-from colony.roles.tribute_keeper import TributeKeeper
+from colony.roles.tribute_keeper import TributeKeeper, TributePayment
 from colony.society_state import SocietyState
 from colony.witness import WitnessLog
 
@@ -56,6 +56,8 @@ class CycleResult:
     witness_path: Path | None = None
     report_path: Path | None = None
     active_ask: str = ""
+    stage_diagnostics: dict[str, dict[str, Any]] = field(default_factory=dict)
+    promotion_allowed: bool = False
 
 
 class Society:
@@ -110,6 +112,22 @@ class Society:
         else:
             self.state.save()
 
+    def _stage(self, result: CycleResult, name: str, action: Any, *, critical: bool = True) -> Any:
+        """Keep optional work fail-soft while making evidence failures visible."""
+        try:
+            value = action()
+            result.stage_diagnostics[name] = {"status": "ok", "blocks_promotion": False}
+            return value
+        except Exception as exc:  # noqa: BLE001
+            diagnostic = {"status": "failed" if critical else "degraded",
+                          "error_type": type(exc).__name__, "error": str(exc),
+                          "blocks_promotion": critical}
+            result.stage_diagnostics[name] = diagnostic
+            self.witness.record(cycle_id=result.cycle_id, kind="stage_failure", actor="spark",
+                                summary=f"{name}: {diagnostic['status']} ({type(exc).__name__})",
+                                detail={"stage": name, **diagnostic})
+            return None
+
     def run_cycle(self) -> CycleResult:
         cid = _cycle_id()
         ask = self.state.active_ask()
@@ -123,26 +141,35 @@ class Society:
             detail={"active_ask": ask},
         )
 
-        try:  # retire low-value authored checks (COLONY_RETIRE; shadow = report only)
+        # Set pending before running anything: interrupted cycles cannot be promoted.
+        diagnostics = self.state.data.setdefault("cycle_diagnostics", {})
+        diagnostics[cid] = {"promotion_allowed": False, "stages": result.stage_diagnostics}
+        self.state.save()
+
+        def retire_stage():
             from colony import retire as _retire
             if _retire.mode() != "off":
                 _retire.run_cycle(cid)
-            if _retire.mode() == "live":  # in-memory state is what this cycle saves: withdraw there too
+            if _retire.mode() == "live":
                 _retire.withdraw_all_retired(self.state.data)
-        except Exception:  # noqa: BLE001
-            pass
-        try:  # Stage 3 surprise credit: ranking report (COLONY_SURPRISE; selection layer only)
+
+        def surprise_stage():
             from colony import surprise_credit as _sc
             if _sc.mode() != "off":
                 _sc.ranking_check()
-        except Exception:  # noqa: BLE001
-            pass
 
-        payment = TributeKeeper(
-            self.ledger,
-            seed_path=self.root / "data" / "seed_corpus.json",
+        self._stage(result, "retire", retire_stage)
+        self._stage(result, "surprise_credit", surprise_stage)
+
+        payment = self._stage(result, "tribute", lambda: TributeKeeper(
+            self.ledger, seed_path=self.root / "data" / "seed_corpus.json",
             live_fetch=self.live_fetch,
-        ).pay(cycle_id=cid, active_ask=ask)
+        ).pay(cycle_id=cid, active_ask=ask), critical=False) or TributePayment()
+        if payment.live_fail:
+            result.stage_diagnostics["tribute"] = {
+                "status": "degraded", "blocks_promotion": False,
+                "live_fail": payment.live_fail, "live_ok": payment.live_ok,
+            }
         result.tribute_count = len(payment.findings)
         result.tribute_topics = list(payment.topics_touched)
         result.tribute_compliant = result.tribute_count > 0
@@ -192,13 +219,20 @@ class Society:
                     detail={"target_id": f.id},
                 )
 
-        emergence = Spark(self.ledger, self.state, self.witness).emerge(
-            cid,
-            tribute_topics=result.tribute_topics,
-            tribute_count=result.tribute_count,
-            live_ok=payment.live_ok,
-            live_fail=payment.live_fail,
-        )
+        from colony.emergence.spark import EmergenceResult
+        if any(stage.get("blocks_promotion") for stage in result.stage_diagnostics.values()):
+            # Retirement/selection failures invalidate dependent mutation and promotion work.
+            result.stage_diagnostics["emergence"] = {
+                "status": "blocked", "blocks_promotion": True,
+                "reason": "critical_prerequisite_failed",
+            }
+            emergence = EmergenceResult()
+        else:
+            emergence = self._stage(result, "emergence", lambda: Spark(
+                self.ledger, self.state, self.witness).emerge(
+                    cid, tribute_topics=result.tribute_topics, tribute_count=result.tribute_count,
+                    live_ok=payment.live_ok, live_fail=payment.live_fail,
+                )) or EmergenceResult()
         result.new_roles = list(emergence.new_roles)
         result.institutions = list(emergence.institutions)
         result.councils = list(emergence.councils)
@@ -215,12 +249,12 @@ class Society:
         result.retired_roles = list(emergence.retired_roles)
 
         cycle_findings = payment.findings + emergence.findings
-        Ceiling(self.ledger, self.witness).enforce(
+        self._stage(result, "ceiling", lambda: Ceiling(self.ledger, self.witness).enforce(
             cid,
             tribute_ok=result.tribute_compliant,
             cycle_findings=cycle_findings,
             principal=self.charter.human_principal,
-        )
+        ))
 
         result.status_counts = self.ledger.status_counts()
         self.state.bump_cycle(cid)
@@ -238,36 +272,42 @@ class Society:
                 f"improvements={result.improvements}."
             ),
         )
-        result.report_path = self._write_report(result)
-        try:  # frontier conjectures (COLONY_FRONTIER; report-only in shadow; never touches scores)
+        def frontier_stage():
             from colony import frontier_conjectures as _fc
             if _fc.mode() != "off":
                 _fc.run_cycle(cid)
-                try:  # new ingredients, report-only pass (COLONY_FRONTIER_INGREDIENTS=shadow)
+                def ingredients():
                     from colony import frontier_ingredients as _fi
                     if _fi.mode() == "shadow":
                         _fi.shadow_cycle(cid, T=_fc._TABLES)
-                except Exception:  # noqa: BLE001
-                    pass
-                try:  # Stage 4 proof path (COLONY_PROOF; shadow = report only)
+                self._stage(result, "frontier_ingredients", ingredients)
+                def proof():
                     from colony import proof_path as _pp
                     if _pp.mode() != "off":
                         _pp.run(T=_fc._TABLES)
-                except Exception:  # noqa: BLE001
-                    pass
-        except Exception:  # noqa: BLE001
-            pass
-        try:  # new data past the OEIS frontier (COLONY_NEWDATA; shadow = compute + ledger, nothing authored)
+                self._stage(result, "proof", proof)
+
+        self._stage(result, "frontier", frontier_stage)
+        def new_data_stage():
             from colony import new_data as _nd
             if _nd.mode() != "off":
                 _nd.run_cycle(cid)
-        except Exception:  # noqa: BLE001
-            pass
-        try:  # VIEW ONLY: ranked shortlist for James (overwritten each cycle; never authorizes)
-            from colony.shortlist import write as _write_shortlist
-            _write_shortlist(cid)
-        except Exception:  # noqa: BLE001
-            pass
+        self._stage(result, "new_data", new_data_stage)
+        def shortlist_stage():
+            from colony.shortlist import write
+            write(cid)
+        self._stage(result, "shortlist", shortlist_stage, critical=False)
+        result.promotion_allowed = not any(
+            stage.get("blocks_promotion") for stage in result.stage_diagnostics.values())
+        diagnostics[cid] = {"promotion_allowed": result.promotion_allowed,
+                            "stages": result.stage_diagnostics}
+        self.state.save()
+        self.witness.record(cycle_id=cid, kind="cycle_health", actor="spark",
+                            summary=f"Cycle promotion allowed: {result.promotion_allowed}",
+                            detail=diagnostics[cid])
+        result.witness_path = self.witness.render_md(ethos=self.charter.ethos,
+                                                     principal=self.charter.human_principal)
+        result.report_path = self._write_report(result)
         return result
 
     def evolve(self, cycles: int = 5) -> list[CycleResult]:
@@ -376,6 +416,11 @@ class Society:
             "",
             f"**Paid:** {result.tribute_compliant} — {result.tribute_count} findings "
             f"across topics: {', '.join(result.tribute_topics) or '(none)'}",
+            "",
+            "## Stage health",
+            "",
+            f"- Promotion allowed: {result.promotion_allowed}",
+            *[f"- {name}: {row}" for name, row in result.stage_diagnostics.items()],
             "",
             "## Growth Loop (this cycle)",
             "",

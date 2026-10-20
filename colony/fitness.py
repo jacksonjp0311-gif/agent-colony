@@ -604,16 +604,14 @@ class EvolutionEngine:
     def maybe_spawn(self, cycle_id: str, metrics: dict[str, float]) -> list[str]:
         """Spawn pressure roles when a metric stays weak. Hard-tier gaps also signal."""
         ht = self.hard_tier_emergence(cycle_id)
-        spawned: list[str] = list(ht.get("spawn_signals") or [])
+        spawned: list[str] = [r for r in ht.get("spawn_signals") or []
+                             if (self.registry.agents().get(r) or {}).get("status") != "retired"]
         if self.registry.at_capacity():
             return spawned
         history = self.data.get("fitness_history") or []
         for idea in self.SPAWN_MENU:
             role = idea["role"]
             if role in self.registry.agents() and self.registry.agents()[role].get("status") == "active":
-                continue
-            if role in (self.data.get("roles") or {}):
-                self.registry.enter(role, reason="respawn", cycle_id=cycle_id)
                 continue
             metric = idea["when_metric"]
             recent = [h.get(metric, 1.0) for h in history[-3:]]
@@ -623,7 +621,14 @@ class EvolutionEngine:
             if weak >= min(2, len(recent)) or (
                 len(recent) == 1 and float(recent[0]) < float(idea["below"]) * 0.8
             ):
-                spawned.append(role)
+                if (self.registry.agents().get(role) or {}).get("status") == "retired":
+                    if not self.registry.revive(role, cycle_id=cycle_id, evidence={
+                        "cycle_id": cycle_id, "metric": metric, "values": recent,
+                        "threshold": idea["below"],
+                    }):
+                        continue
+                if role not in spawned:
+                    spawned.append(role)
                 self.data.setdefault("evolution_log", []).append(
                     {
                         "ts": _utc_now(),

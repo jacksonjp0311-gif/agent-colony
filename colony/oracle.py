@@ -374,7 +374,7 @@ def sense_held_out(mutation: str, kind: str = "", *, after_snapshot: dict[str, A
             # Spark S1: a real held-out — re-run the entry on a disjoint shifted window.
             from colony.trust.shifted_holdout import shifted_window_check
             shift = shifted_window_check(ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py", name)
-            survives = bool(shift.get("ok"))
+            survives = shift.get("status") == "pass" and shift.get("applied") is True and shift.get("ok") is True
         return {
             "survives": survives,
             "ok_for_oracle": survives,

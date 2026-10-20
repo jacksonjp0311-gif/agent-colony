@@ -139,3 +139,21 @@ PYTHONPATH=. python3 -m colony.external_mind
 ## Claim boundary
 
 This is **not** autonomous AGI and **not** consciousness theater. Skills/fitness are real measurable state updates inside this repo; they are **not** open-ended ML training. Improvement proposals stay `candidate` until the human authorizes.
+
+## Reliability patch 0.2.1
+
+Retirement survives routine role synchronization and healthy-metric spawn checks.
+Revival requires recorded metric pressure, capacity, and two completed cooldown
+cycles. Manual machine selection fails closed on missing or invalid confidence,
+missing Oracle evidence, prior human decisions, and failed or unrecorded cycle
+health. Scheduled runs still cannot authorize; explicit human decisions remain a
+separate path.
+
+Shifted checks report `pass`, `fail`, or `not_tested`. Only executed shifted probes
+can support a finite-window pass; unsupported checks and timeouts do not count as
+survival. Cycle reports expose stage failures, and critical prerequisite failures
+block dependent growth and promotion while ingestion remains fail-soft.
+
+Read-only pull-request CI runs the existing suite plus isolated real-cycle
+regressions. These are reliability fixes, not evidence of capability gain. The
+historical evaluation results and limitations above remain unchanged.

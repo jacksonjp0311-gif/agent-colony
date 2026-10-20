@@ -187,6 +187,8 @@ jobs:
       - name: Selective authorize (standing trust P≥0.70 — never accept-all)
         # Standing trust is off by default: only a human workflow_dispatch with authorize=true runs it.
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.authorize == 'true' }}
+        env:
+          AUTHORIZE_REQUESTED: ${{ github.event.inputs.authorize }}
         run: |
           set -euo pipefail
           export PYTHONPATH=.
@@ -199,76 +201,18 @@ jobs:
           from colony.authorize import AuthorizeItem, Authorizer
           from colony.ledger import Ledger
           from colony.society_state import SocietyState
-          from colony.standing_trust import STANDING_TRUST_P_MIN, meets_standing_trust
-          from colony.hold_posture import scan_all_candidates
 
           root = Path(".")
           state = SocietyState.load(root / "data" / "society_state.json")
           ledger = Ledger(root / "data" / "ledger.jsonl", extra_roles=state.role_names())
-          items = []
+          from colony.selective_authorize import select_candidates
+          import os
+          selected = select_candidates(
+              ledger, state, event_name=os.environ.get("GITHUB_EVENT_NAME", ""),
+              requested=os.environ.get("AUTHORIZE_REQUESTED", ""),
+          )
+          items = [AuthorizeItem(e["finding_id"], "accepted", e["rationale"]) for e in selected]
           rejected = []
-          # Phase 3: P≥0.70 gate via scan_all_candidates (never accept-all)
-          try:
-              eligible = scan_all_candidates(ledger, state, lookback=200)
-              for e in eligible[:8]:
-                  fid = e.get("finding_id")
-                  if not fid or str(fid).startswith("imp_"):
-                      continue  # improvement proposals stay candidate until explicit human item
-                  P = e.get("P") if e.get("P") is not None else e.get("score")
-                  if not meets_standing_trust(P, machine_checked=True):
-                      continue
-                  items.append(AuthorizeItem(
-                      fid, "accepted",
-                      f"Standing trust P≥{STANDING_TRUST_P_MIN}: P={P} machine-checked selective. Not novel theorem."
-                  ))
-          except Exception as _scan_exc:
-              print(f"::warning::scan_all_candidates fallback: {_scan_exc}")
-          # Fingerprint guard: skip multi-hop process re-accept spam
-          seen_claims = set()
-          for f in ledger.all()[-120:]:
-              tags = set(f.tags or [])
-              meta = f.meta or {}
-              title = (f.title or "") + " " + (f.claim or "")
-              if f.status != "candidate":
-                  continue
-              # Block repeated Multi-hop debate patch authorizations
-              if "multihop" in tags and "Multi-hop" in (f.title or ""):
-                  fp = (f.title or "")[:80]
-                  if fp in seen_claims:
-                      rejected.append(AuthorizeItem(f.id, "rejected", "Standing trust: repeat multi-hop process receipt blocked (fingerprint)."))
-                      continue
-                  seen_claims.add(fp)
-              is_keep = ("keep" in tags and ("hard_enable" in tags or meta.get("mutation_kind") == "hard_enable"))
-              is_multihop = "multihop" in tags and "bus_driven" in tags
-              is_lemma_keep = meta.get("kind") == "lemma_mutation" and meta.get("decision") == "keep"
-              if is_lemma_keep:
-                  # Trust loop: a claimed keep must match a real Oracle PASS row (no fabricated metrics)
-                  from colony.trust.provenance import finding_oracle_backed
-                  if not finding_oracle_backed(f)["ok"]:
-                      print(f"::warning::provenance: {f.id} claims keep without a matching Oracle PASS row; left candidate")
-                      continue  # never authorize; stays candidate (UNKNOWN stays UNKNOWN)
-              if is_keep or is_multihop or is_lemma_keep:
-                  if "easy_pad" in tags or "not_discovery" not in tags and "easy_pad" in title:
-                      rejected.append(AuthorizeItem(f.id, "rejected", "Standing trust: easy_pad / non-machine path rejected. Selective."))
-                      continue
-                  # Prefer items already selected by P scan; avoid duplicate adds
-                  if any(i.finding_id == f.id for i in items):
-                      continue
-                  # Require meta confidence/P when present
-                  conf = meta.get("P") or meta.get("confidence")
-                  if conf is not None and not meets_standing_trust(conf, machine_checked=True):
-                      continue
-                  items.append(AuthorizeItem(
-                      f.id, "accepted",
-                      f"Standing trust P≥{STANDING_TRUST_P_MIN}: machine-checked hard-tier/Oracle/bus-driven candidate. Selective authorize."
-                  ))
-              elif "easy_pad" in tags or (meta.get("decision") == "revert"):
-                  rejected.append(AuthorizeItem(
-                      f.id, "rejected",
-                      "Standing trust: revert/easy_pad — reject durable accept. Selective."
-                  ))
-          # Cap accepts — never accept-all
-          items = items[:8]
           rejected = rejected[:12]
           batch = items + rejected
           if not batch:
@@ -287,7 +231,7 @@ jobs:
               result = Authorizer(root=root, ledger=ledger, state=state).apply(
                   batch,
                   authorizer="James Paul Jackson",
-                  delegated_via="GitHub Actions cron (standing trust P>=0.70 selective; never accept-all)",
+                  delegated_via="Explicit human workflow_dispatch (standing trust P>=0.70 selective; never accept-all)",
               )
               print(json.dumps({
                   "accepted": len(result.accepted),

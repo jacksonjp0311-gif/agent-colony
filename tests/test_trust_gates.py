@@ -34,8 +34,19 @@ def test_delta_cannot_override_stripped_when_already_enabled_before():
     assert r["sense_pass"] is False
 
 
-def test_delta_still_counts_as_usefulness_when_honest():
+def test_delta_still_counts_as_usefulness_when_honest(tmp_path, monkeypatch):
+    import colony.oracle as oracle
     from colony.oracle import sense
+    # A positive delta is useful only alongside an actual applicable held-out
+    # check. The old nonexistent entry passed merely because no shift ran.
+    artifact = tmp_path / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
+    artifact.parent.mkdir(parents=True)
+    artifact.write_text(
+        "def check_x():\n    return all(n + n == 2 * n for n in range(1, 5))\n"
+        "HARD_TIER_LEMMAS = [('pool_dummy_enable', check_x, True)]\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(oracle, "ROOT", tmp_path)
     before_src = 'HARD_TIER_LEMMAS = [\n    ("pool_dummy_enable", check_x, False),\n]\n'
     snap = {"ok": True, "n_hard_pass": 70, "n_hard": 70, "score": 0.9}
     r = sense(mutation="pool_dummy_enable", kind="hard_enable", after_snapshot=snap,
