@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-20T21:54:11Z",
+  "ts": "2026-10-21T05:11:31Z",
   "version": 2,
   "mile": "spark3-port",
   "feeds": {
@@ -10,14 +10,14 @@
       "count": 1,
       "items": [
         {
-          "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
-          "id": "http://arxiv.org/abs/2610.26860v1",
-          "published": "2026-10-19T17:59:58Z",
-          "summary": "Multimodal large language models (MLLMs) have made rapid progress on visual reasoning, yet many tasks require evidence that is difficult to obtain through internal reasoning alone: our controlled study on 22 benchmarks shows that simply increasing the inference budget of the base",
+          "title": "Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs",
+          "id": "http://arxiv.org/abs/2610.28632v1",
+          "published": "2026-10-20T17:59:56Z",
+          "summary": "Video generation models can now depict remarkably realistic motion. Yet it is unclear how to use this motion beyond pixels: to animate a specific 3D asset and replay the animation in its 3D scene. For instance, a video model can show a monkey jumping over a crossbar, but it canno",
           "source": "arxiv"
         }
       ],
-      "ts": "2026-10-20T21:53:54Z"
+      "ts": "2026-10-21T05:11:13Z"
     },
     "nasa_donki_solar": {
       "feed": "nasa_donki_solar",
@@ -25,7 +25,7 @@
       "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
       "count": 0,
       "items": [],
-      "ts": "2026-10-20T21:53:54Z"
+      "ts": "2026-10-21T05:11:14Z"
     },
     "noaa_space_weather": {
       "feed": "noaa_space_weather",
@@ -36,100 +36,100 @@
       "count": 0,
       "latest_kp": null,
       "items": [],
-      "ts": "2026-10-20T21:53:54Z"
+      "ts": "2026-10-21T05:11:14Z"
     },
     "global_weather": {
       "feed": "global_weather",
       "ok": true,
-      "note": "NYC:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; London:ok; Tokyo:ok; Sydney:ok",
+      "note": "NYC:ok; London:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; Tokyo:ok; Sydney:ok",
       "count": 3,
       "items": [
         {
-          "city": "London",
-          "lat": 51.51,
-          "lon": -0.13,
-          "temperature_2m": 11.0,
-          "wind_speed_10m": 11.2,
-          "weather_code": 3,
-          "time": "2026-10-20T21:45",
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 11.4,
+          "wind_speed_10m": 14.1,
+          "weather_code": 0,
+          "time": "2026-10-21T05:00",
           "source": "open_meteo"
         },
         {
           "city": "Tokyo",
           "lat": 35.68,
           "lon": 139.76,
-          "temperature_2m": 21.7,
-          "wind_speed_10m": 7.2,
-          "weather_code": 2,
-          "time": "2026-10-20T21:45",
+          "temperature_2m": 28.8,
+          "wind_speed_10m": 11.3,
+          "weather_code": 0,
+          "time": "2026-10-21T05:00",
           "source": "open_meteo"
         },
         {
           "city": "Sydney",
           "lat": -33.87,
           "lon": 151.21,
-          "temperature_2m": 18.9,
-          "wind_speed_10m": 5.4,
-          "weather_code": 1,
-          "time": "2026-10-20T21:45",
+          "temperature_2m": 20.7,
+          "wind_speed_10m": 18.5,
+          "weather_code": 53,
+          "time": "2026-10-21T05:00",
           "source": "open_meteo"
         }
       ],
       "live": true,
       "cached": false,
-      "ts": "2026-10-20T21:54:11Z"
+      "ts": "2026-10-21T05:11:30Z"
     },
     "pulsemesh_goes_xray": {
       "feed": "pulsemesh_goes_xray",
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.294182675617177,
+      "latest": -6.004263281876557,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-20T21:48:00Z",
-          "v": -9.000000012282687
+          "t": "2026-10-21T05:05:00Z",
+          "v": -7.494847285638119
         },
         {
-          "t": "2026-10-20T21:48:00Z",
-          "v": -6.288546334320197
+          "t": "2026-10-21T05:05:00Z",
+          "v": -6.0022902976014585
         },
         {
-          "t": "2026-10-20T21:49:00Z",
-          "v": -9.000000012282687
+          "t": "2026-10-21T05:06:00Z",
+          "v": -7.520968303164635
         },
         {
-          "t": "2026-10-20T21:49:00Z",
-          "v": -6.29222748214922
+          "t": "2026-10-21T05:06:00Z",
+          "v": -6.003019545899235
         },
         {
-          "t": "2026-10-20T21:50:00Z",
-          "v": -9.000000012282687
+          "t": "2026-10-21T05:07:00Z",
+          "v": -7.543841223122529
         },
         {
-          "t": "2026-10-20T21:50:00Z",
-          "v": -6.292721026247472
+          "t": "2026-10-21T05:07:00Z",
+          "v": -6.005085963243925
         },
         {
-          "t": "2026-10-20T21:51:00Z",
-          "v": -9.000000012282687
+          "t": "2026-10-21T05:08:00Z",
+          "v": -7.5895303308314475
         },
         {
-          "t": "2026-10-20T21:51:00Z",
-          "v": -6.294182675617177
+          "t": "2026-10-21T05:08:00Z",
+          "v": -6.004263281876557
         }
       ],
       "live": true,
-      "ts": "2026-10-20T21:54:11Z"
+      "ts": "2026-10-21T05:11:30Z"
     },
     "pulsemesh_openmeteo": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 15.3,
+      "latest": 13.6,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -137,101 +137,101 @@
       "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
       "items": [
         {
-          "t": "2026-10-19T00:00",
-          "v": 10.5
+          "t": "2026-10-20T00:00",
+          "v": 13.6
         },
         {
-          "t": "2026-10-19T01:00",
-          "v": 9.3
+          "t": "2026-10-20T01:00",
+          "v": 11.5
         },
         {
-          "t": "2026-10-19T02:00",
-          "v": 8.3
+          "t": "2026-10-20T02:00",
+          "v": 11.0
         },
         {
-          "t": "2026-10-19T03:00",
-          "v": 8.2
+          "t": "2026-10-20T03:00",
+          "v": 9.9
         },
         {
-          "t": "2026-10-19T04:00",
-          "v": 8.3
+          "t": "2026-10-20T04:00",
+          "v": 9.1
         },
         {
-          "t": "2026-10-19T05:00",
-          "v": 7.6
+          "t": "2026-10-20T05:00",
+          "v": 9.0
         },
         {
-          "t": "2026-10-19T06:00",
-          "v": 6.8
+          "t": "2026-10-20T06:00",
+          "v": 9.4
         },
         {
-          "t": "2026-10-19T07:00",
-          "v": 6.6
+          "t": "2026-10-20T07:00",
+          "v": 8.5
         }
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-20T21:54:11Z"
+      "ts": "2026-10-21T05:11:30Z"
     },
     "pulsemesh_usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
       "ok": true,
       "note": "ok",
       "count": 100,
-      "latest": 2.8,
+      "latest": 2.57,
       "items": [
         {
-          "mag": 2.8,
-          "place": "64 km N of Petersville, Alaska",
-          "time": 1792452158976,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.5,
-          "place": "19 km ESE of Pearsall, Texas",
-          "time": 1792452075225,
-          "source": "usgs"
-        },
-        {
-          "mag": 3.1,
-          "place": "43 km N of Petersville, Alaska",
-          "time": 1792450935383,
+          "mag": 2.57,
+          "place": "24 km SSE of Maria Antonia, Puerto Rico",
+          "time": 1792540480270,
           "source": "usgs"
         },
         {
           "mag": 4.9,
-          "place": "52 km S of Kokopo, Papua New Guinea",
-          "time": 1792449767298,
+          "place": "south of the Fiji Islands",
+          "time": 1792538667101,
           "source": "usgs"
         },
         {
-          "mag": 4.5,
-          "place": "Kuril Islands",
-          "time": 1792446216577,
+          "mag": 4.6,
+          "place": "115 km NNE of Barishal, Pakistan",
+          "time": 1792538203934,
           "source": "usgs"
         },
         {
-          "mag": 2.8,
-          "place": "39 km S of Tolsona, Alaska",
-          "time": 1792444298453,
+          "mag": 4.3,
+          "place": "6 km SE of Pitaloza Arriba, Panama",
+          "time": 1792536704847,
           "source": "usgs"
         },
         {
           "mag": 2.7,
-          "place": "13 km SW of Manley Hot Springs, Alaska",
-          "time": 1792443606271,
+          "place": "27 km W of Salamatof, Alaska",
+          "time": 1792536586159,
           "source": "usgs"
         },
         {
-          "mag": 3.6,
-          "place": "87 km SE of Unalaska, Alaska",
-          "time": 1792439688589,
+          "mag": 2.6,
+          "place": "11 km E of Pearsall, Texas",
+          "time": 1792529214391,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "187 km NW of Port-Olry, Vanuatu",
+          "time": 1792526606613,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.7,
+          "place": "Kuril Islands",
+          "time": 1792526039721,
           "source": "usgs"
         }
       ],
       "live": true,
-      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-13&endtime=2026-10-20&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-20T21:54:11Z"
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-14&endtime=2026-10-21&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-21T05:11:30Z"
     },
     "pulsemesh_system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -240,48 +240,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.6005859375,
-          "disk_free_percent": 58.95953888680452,
-          "process_count": 154,
-          "uptime_hours": 0.1439888888888889,
-          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
-          "node": "runnervm8k3b6",
+          "load1": 0.77880859375,
+          "disk_free_percent": 58.45042585718561,
+          "process_count": 152,
+          "uptime_hours": 0.109625,
+          "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+          "node": "runnervmxehtw",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.6005859375,
+      "latest_load1": 0.77880859375,
       "live": true,
-      "ts": "2026-10-20T21:54:11Z"
+      "ts": "2026-10-21T05:11:30Z"
     },
     "pulsemesh_tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 1.4634620000606446,
-      "mean_ms": 1.6973905000270406,
+      "latest_ms": 6.749973000012233,
+      "mean_ms": 8.7012734999945,
       "items": [
         {
           "probe": 0,
-          "ms": 1.6452229999686097
+          "ms": 6.4419189999966875
         },
         {
           "probe": 1,
-          "ms": 1.9727960000182065
+          "ms": 8.748471999979301
         },
         {
           "probe": 2,
-          "ms": 1.7080810000607016
+          "ms": 12.864729999989777
         },
         {
           "probe": 3,
-          "ms": 1.4634620000606446
+          "ms": 6.749973000012233
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-20T21:54:11Z"
+      "ts": "2026-10-21T05:11:30Z"
     }
   },
   "pulsemesh_health": {
@@ -314,20 +314,20 @@
   "cross_domain_patterns": [
     {
       "kind": "global_weather_spread",
-      "summary": "Open-Meteo snapshot across 3 cities: [('London', 11.0), ('Tokyo', 21.7), ('Sydney', 18.9)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "summary": "Open-Meteo snapshot across 3 cities: [('NYC', 11.4), ('Tokyo', 28.8), ('Sydney', 20.7)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
       "signals": {
         "cities": [
           [
-            "London",
-            11.0
+            "NYC",
+            11.4
           ],
           [
             "Tokyo",
-            21.7
+            28.8
           ],
           [
             "Sydney",
-            18.9
+            20.7
           ]
         ],
         "kp": null
@@ -342,9 +342,9 @@
     },
     {
       "kind": "pulsemesh_goes_live",
-      "summary": "PulseMesh GOES X-ray live latest=-6.294182675617177. Space-weather debate input — not novel physics.",
+      "summary": "PulseMesh GOES X-ray live latest=-6.004263281876557. Space-weather debate input — not novel physics.",
       "signals": {
-        "goes_latest": -6.294182675617177
+        "goes_latest": -6.004263281876557
       },
       "domains": [
         "cosmos",
@@ -355,10 +355,10 @@
     },
     {
       "kind": "pulsemesh_ops_health",
-      "summary": "PulseMesh system_stat/tcp_probe: load1=0.6005859375 probe_ms=1.6973905000270406. Ops health for actuation — not consciousness.",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.77880859375 probe_ms=8.7012734999945. Ops health for actuation — not consciousness.",
       "signals": {
-        "load1": 0.6005859375,
-        "probe_ms": 1.6973905000270406
+        "load1": 0.77880859375,
+        "probe_ms": 8.7012734999945
       },
       "domains": [
         "government",

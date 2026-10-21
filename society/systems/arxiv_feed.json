@@ -1,24 +1,24 @@
 {
-  "last_attempt_at": "2026-10-20T21:49:23Z",
+  "last_attempt_at": "2026-10-21T05:07:47Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-10-20T21:49:23Z",
+  "last_ok_at": "2026-10-21T05:07:47Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Text-to-Image Generative Modeling Without Language Pretraining",
-      "abstract_snippet": "Modern text-to-image (T2I) systems use internet-scale language pretraining for text-conditioned image generation. We ask whether language pretraining is necessary for strong T2I generation. We introduce Halcyon, a family of early-fusion multimodal autoregressive models pretrained entirely from scratch on GPIC, a dataset of 100M image-text pairs. Halcyon-0.52B outperforms LlamaGen-XL/8 (48.0 vs. 63",
-      "url": "https://arxiv.org/abs/2610.26863",
-      "arxiv_id": "2610.26863",
+      "title": "Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs",
+      "abstract_snippet": "Video generation models can now depict remarkably realistic motion. Yet it is unclear how to use this motion beyond pixels: to animate a specific 3D asset and replay the animation in its 3D scene. For instance, a video model can show a monkey jumping over a crossbar, but it cannot return that jump as replayable 3D motion placed in the 3D scene. Here we present a model that directly co-generates th",
+      "url": "https://arxiv.org/abs/2610.28632",
+      "arxiv_id": "2610.28632",
       "doi": "",
       "authors": [
-        "Keshigeyan Chandrasegaran",
-        "Yue Zhao",
-        "Armin W. Thomas",
-        "Ehsan Adeli",
-        "Jiajun Wu",
-        "Juan Carlos Niebles"
+        "Noam Rotstein",
+        "Yoad Tewel",
+        "Chen Tessler",
+        "Haggai Maron",
+        "Gal Chechik",
+        "Or Litany"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +28,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-20T21:49:24Z"
+      "fetched_at": "2026-10-21T05:07:48Z"
     },
     {
       "source": "arxiv",
-      "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
-      "abstract_snippet": "Multimodal large language models (MLLMs) have made rapid progress on visual reasoning, yet many tasks require evidence that is difficult to obtain through internal reasoning alone: our controlled study on 22 benchmarks shows that simply increasing the inference budget of the base model yields only modest gains. Such tasks demand grounded perception, external knowledge, and numerical measurements o",
-      "url": "https://arxiv.org/abs/2610.26860",
-      "arxiv_id": "2610.26860",
+      "title": "Learning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking",
+      "abstract_snippet": "Dexterous multi-finger hands hold promise to unlock diverse skills like functional grasps, in-hand reorientation, and dynamic handover that the human-designed world assumes, yet existing learning recipes force a trade-off. Goal-reaching reinforcement learning generalizes to arbitrary object poses but, lacking any human prior, converges to unnatural and unreliable finger strategies; motion tracking",
+      "url": "https://arxiv.org/abs/2610.28628",
+      "arxiv_id": "2610.28628",
       "doi": "",
       "authors": [
-        "Yu Zhou",
-        "Cheng-Fu Yang",
-        "Rui Sun",
-        "Di Wu",
-        "Sibo Peng",
-        "Mingyang Zhang"
+        "Yuxuan Kuang",
+        "Jiashun Wang",
+        "Yixuan Sun",
+        "Yufei Ye",
+        "Sungjae Park",
+        "Umar Iqbal"
       ],
       "year": 2026,
       "tags": [
@@ -53,22 +53,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-20T21:49:24Z"
+      "fetched_at": "2026-10-21T05:07:48Z"
     },
     {
       "source": "arxiv",
-      "title": "CoopUQ: Robust Multi-Robot Social Navigation via Uncertainty-Aware Cooperative Forecasting",
-      "abstract_snippet": "Reinforcement learning enables mobile robots to make fast and scalable navigation decisions in constrained human-shared environments. However, directly extending single-robot approaches to multi-robot settings often fails to ensure safety and efficiency, especially under occlusions and out-of-distribution (OOD) scenarios, where individual robots may overlook potential risks or make inaccurate pred",
-      "url": "https://arxiv.org/abs/2610.26852",
-      "arxiv_id": "2610.26852",
+      "title": "Planning under Noise with Neural Operators",
+      "abstract_snippet": "Planning under uncertain control execution noise requires reliable feedback policies across diverse environments. We introduce Planning Under Noise (PUN), a neural operator that learns noise-aware value fields for planning in unseen geometries. Building on an established screened-Poisson formulation of stochastic optimal control, we address two challenges: specifying boundary conditions that suppo",
+      "url": "https://arxiv.org/abs/2610.28623",
+      "arxiv_id": "2610.28623",
       "doi": "",
       "authors": [
-        "Zehao Wang",
-        "Jianpeng Yao",
-        "Yuping Wang",
-        "Yiping Li",
-        "Jiaqi Li",
-        "Zhixu Li"
+        "Michael Chen",
+        "Hong Chul Nam",
+        "Xi Deng",
+        "Anima Anandkumar"
       ],
       "year": 2026,
       "tags": [
@@ -78,21 +76,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-20T21:49:24Z"
+      "fetched_at": "2026-10-21T05:07:48Z"
     },
     {
       "source": "arxiv",
-      "title": "WeAct: Dynamic Weight Switching as Agent Actions",
-      "abstract_snippet": "Long-horizon agents must learn heterogeneous capabilities from interleaved trajectories. Updating shared parameters to learn new capabilities can degrade previously acquired ones, resulting in catastrophic forgetting. As a trajectory unfolds, different stages may require different capabilities, yet conventional joint training and static adapter merging maintain a fixed parameter configuration thro",
-      "url": "https://arxiv.org/abs/2610.26847",
-      "arxiv_id": "2610.26847",
+      "title": "Adaptive Multi-Token Prediction: How far should we go?",
+      "abstract_snippet": "Multi-token prediction (MTP) can accelerate language-model decoding by drafting several tokens and verifying them in a single target-model pass. However, the best speculation horizon changes with context: longer drafts offer greater amortization when reliable, but can waste compute on suffixes discarded after a rejection. Unlike autoregressive drafting, where a stopping rule can decide token by to",
+      "url": "https://arxiv.org/abs/2610.28619",
+      "arxiv_id": "2610.28619",
       "doi": "",
       "authors": [
-        "Rui Shi",
-        "Xunjian Yin",
-        "Jiacheng Sang",
-        "Zichuan Liu",
-        "Shuyan Zhou"
+        "Emile Anand",
+        "Mohammed Rehan Parwani",
+        "Xinyuan Cao"
       ],
       "year": 2026,
       "tags": [
@@ -102,17 +98,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-20T21:49:24Z"
+      "fetched_at": "2026-10-21T05:07:48Z"
     },
     {
       "source": "arxiv",
-      "title": "Isolated zeros of the Riemann zeta function and zeros of linear combinations of Dirichlet $L$-functions",
-      "abstract_snippet": "Let $0&lt;γ_1\\leq γ_2\\leq \\cdots$ be the ordinates of the non-trivial zeros of the Riemann zeta function in the upper half-plane, counted with multiplicity, and fix $c&gt;0$. We say that a non-trivial zero $ρ_n=β_n+iγ_n$ is $c$-isolated if $\\min(γ_{n+1}-γ_n, γ_n-γ_{n-1})&gt;2πc/\\log γ_n$. Note that any isolated zero is necessarily simple and on the critical line. We prove unconditionally that more",
-      "url": "https://arxiv.org/abs/2610.26841",
-      "arxiv_id": "2610.26841",
+      "title": "Efficient Edge-aware Attention Network for Graph Generation",
+      "abstract_snippet": "Graph generative models commonly use graph-specific Transformer architectures to jointly update node and edge features. However, these architectures do not directly benefit from recent hardware-aware attention implementations, limiting their scalability. The adaptation is, however, non-trivial: edge and graph-level features must be injected into pairwise attention scores, graph masks must be respe",
+      "url": "https://arxiv.org/abs/2610.28618",
+      "arxiv_id": "2610.28618",
       "doi": "",
       "authors": [
-        "Youness Lamzouri"
+        "Vincent Jung",
+        "Alba Carballo-Castro",
+        "Yiming Qin",
+        "Lonneke van der Plas",
+        "Pascal Frossard"
       ],
       "year": 2026,
       "tags": [
@@ -122,7 +122,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-20T21:49:24Z"
+      "fetched_at": "2026-10-21T05:07:48Z"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T21:54:16Z",
-  "updated_cycle": "20261020T215243Z_6d6da4",
+  "updated_at": "2026-10-21T05:11:34Z",
+  "updated_cycle": "20261021T051023Z_b72251",
   "signal": {
-    "ts": "2026-10-20T21:54:16Z",
+    "ts": "2026-10-21T05:11:34Z",
     "strength": 0.4,
     "accepted_math": 0,
     "accepted_compute": 123,

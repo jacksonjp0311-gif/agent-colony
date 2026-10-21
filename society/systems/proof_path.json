@@ -6,7 +6,7 @@
    31
   ],
   "divides": [
-   13,
+   14,
    3
   ],
   "identity": [
@@ -18,15 +18,15 @@
    3
   ],
   "rec": [
-   82,
-   74
+   81,
+   73
   ]
  },
  "mode": "live",
  "n_authored": 21,
  "n_authored_proved": 13,
  "n_claims": 150,
- "n_proved": 117,
+ "n_proved": 116,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -5458,175 +5458,6 @@
    },
    "check": "authored_frontier_rec_x37bee253_w1",
    "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (n+n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(n+n)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "n",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "n@1,0": 2
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(n+n)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 1,
-           "d": 0
-          }
-         },
-         {
-          "e": "n",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "n@1,0": 2
-         },
-         "c": 2,
-         "d": 0
-        }
-       },
-       {
-        "e": "(n+n)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 2,
-           "d": 0
-          }
-         },
-         {
-          "e": "n",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 1
-           },
-           "c": 2,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "n@1,0": 2
-         },
-         "c": 4,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x46867b6f_w1",
-   "checks": 59988,
    "kind": "rec",
    "prior_certificate": true,
    "status": "proved",
@@ -21630,6 +21461,18 @@
    "unknown": false,
    "v": 3
   },
+  "prr(n) divides D(gcd(prime,tr_petersen))(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x0f0ed051_w1",
+   "checks": 1988,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)": {
    "authored": false,
    "certificate": null,
@@ -22352,6 +22195,6 @@
    "v": 3
   }
  },
- "seconds": 0.04,
- "ts": "2026-10-20T21:54:22Z"
+ "seconds": 0.03,
+ "ts": "2026-10-21T05:11:39Z"
 }
