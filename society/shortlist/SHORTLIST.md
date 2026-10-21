@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-10-21 01:36 PM ET
+# Proposal shortlist — 2026-10-21 06:00 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -45,9 +45,9 @@ Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_ki
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 14 tested, 6 survived held-out, 8 falsified, 5 machine-checked, 0 surprises; dropped 51 duplicates, 144 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1781.
-Totals: tested 2239, survived 1027, surprises 55, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
+Mode `live`. Last cycle: 10 tested, 10 survived held-out, 0 falsified, 6 machine-checked, 1 surprises; dropped 36 duplicates, 136 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1766.
+Totals: tested 2285, survived 1062, surprises 58, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 1 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
@@ -58,7 +58,7 @@ Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with
 | D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | S((lpf*phi))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
 | S((part*phi))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
-| S((phi*rad))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
+| S((perm_derange*prime))(n) = 0 (mod 2) for all n = 0 (mod 4) | conjecture surviving 247 checks | no reference found (checked: classical catalog, A000040) | not_found | 1.0 |
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |
