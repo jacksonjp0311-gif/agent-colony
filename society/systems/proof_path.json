@@ -2,7 +2,7 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   38,
+   39,
    31
   ],
   "divides": [
@@ -10,8 +10,8 @@
    3
   ],
   "identity": [
-   6,
-   6
+   5,
+   5
   ],
   "le": [
    11,
@@ -26,7 +26,7 @@
  "n_authored": 21,
  "n_authored_proved": 13,
  "n_claims": 150,
- "n_proved": 116,
+ "n_proved": 115,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -20130,111 +20130,6 @@
    "unknown": true,
    "v": 3
   },
-  "dbl(n)(n) = (n+n)(n) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(n)",
-       "kids": [
-        {
-         "e": "n",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "n",
-         "val": {
-          "a": {
-           "n@1,0": 2
-          },
-          "c": 0,
-          "d": 0
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {
-         "n@1,0": 2
-        },
-        "c": 0,
-        "d": 0
-       }
-      },
-      "rhs": {
-       "e": "(n+n)",
-       "kids": [
-        {
-         "e": "n",
-         "pt": [
-          1,
-          0
-         ],
-         "rule": "n",
-         "val": {
-          "a": {
-           "n@1,0": 1
-          },
-          "c": 0,
-          "d": 0
-         }
-        },
-        {
-         "e": "n",
-         "pt": [
-          1,
-          0
-         ],
-         "rule": "n",
-         "val": {
-          "a": {
-           "n@1,0": 1
-          },
-          "c": 0,
-          "d": 0
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "arith",
-       "val": {
-        "a": {
-         "n@1,0": 2
-        },
-        "c": 0,
-        "d": 0
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_identity_x3bc0769f_w1",
-   "checks": 59988,
-   "kind": "identity",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "dbl(n)(n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
    "certificate": {
@@ -21282,6 +21177,18 @@
    "unknown": true,
    "v": 3
   },
+  "gpf[pnot3](n) = 1 (mod 2) for all n = 0 (mod 6)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x7064bba5_w1",
+   "checks": 6,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "gpf[pnot3](n) divides pnot3(n) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -22196,5 +22103,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-21T05:11:39Z"
+ "ts": "2026-10-21T12:16:34Z"
 }

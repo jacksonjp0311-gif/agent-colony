@@ -36,6 +36,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$k_k$-free",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$k_t$-minor-free",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "'multi-hop",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "(-1)^k",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-21T05:11:13Z",
-  "updated_cycle": "20261021T051023Z_b72251",
+  "updated_at": "2026-10-21T12:16:07Z",
+  "updated_cycle": "20261021T121452Z_f87489",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
