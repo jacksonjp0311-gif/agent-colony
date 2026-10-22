@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-22T05:16:00Z",
+  "ts": "2026-10-22T12:19:36Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.274465560613886,
+      "latest": -6.198722150991557,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-10-22T05:10:00Z",
-          "v": -8.552785488799787
+          "t": "2026-10-22T12:12:00Z",
+          "v": -8.711245837766995
         },
         {
-          "t": "2026-10-22T05:10:00Z",
-          "v": -6.271696449662955
+          "t": "2026-10-22T12:12:00Z",
+          "v": -6.178306193009697
         },
         {
-          "t": "2026-10-22T05:11:00Z",
-          "v": -8.239446177854607
+          "t": "2026-10-22T12:13:00Z",
+          "v": -9.000000012282687
         },
         {
-          "t": "2026-10-22T05:11:00Z",
-          "v": -6.276416172420387
+          "t": "2026-10-22T12:13:00Z",
+          "v": -6.187209332306347
         },
         {
-          "t": "2026-10-22T05:12:00Z",
-          "v": -8.374690940822148
+          "t": "2026-10-22T12:14:00Z",
+          "v": -9.000000012282687
         },
         {
-          "t": "2026-10-22T05:12:00Z",
-          "v": -6.276632976913158
+          "t": "2026-10-22T12:14:00Z",
+          "v": -6.1963627130355174
         },
         {
-          "t": "2026-10-22T05:13:00Z",
-          "v": -8.44659324762587
+          "t": "2026-10-22T12:15:00Z",
+          "v": -8.794865248897551
         },
         {
-          "t": "2026-10-22T05:13:00Z",
-          "v": -6.274465560613886
+          "t": "2026-10-22T12:15:00Z",
+          "v": -6.198722150991557
         }
       ],
       "live": true,
-      "ts": "2026-10-22T05:16:00Z"
+      "ts": "2026-10-22T12:19:36Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 13.2,
+      "latest": 12.8,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -95,7 +95,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-10-22T05:16:00Z"
+      "ts": "2026-10-22T12:19:36Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -114,6 +114,12 @@
           "mag": 5.3,
           "place": "Reykjanes Ridge",
           "time": 1792618735441,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.8,
+          "place": "17 km SW of Pozo Almonte, Chile",
+          "time": 1792617350450,
           "source": "usgs"
         },
         {
@@ -145,17 +151,11 @@
           "place": "16 km SSW of Jal, New Mexico",
           "time": 1792608797123,
           "source": "usgs"
-        },
-        {
-          "mag": 5.0,
-          "place": "198 km WNW of Port-Olry, Vanuatu",
-          "time": 1792608064974,
-          "source": "usgs"
         }
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-15&endtime=2026-10-22&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-10-22T05:16:00Z"
+      "ts": "2026-10-22T12:19:36Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.71044921875,
-          "disk_free_percent": 59.880565805957104,
-          "process_count": 162,
-          "uptime_hours": 0.15106944444444445,
+          "load1": 0.63427734375,
+          "disk_free_percent": 59.88082214674469,
+          "process_count": 155,
+          "uptime_hours": 0.13825277777777778,
           "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
           "node": "runnervmgb3l5",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.71044921875,
+      "latest_load1": 0.63427734375,
       "live": true,
-      "ts": "2026-10-22T05:16:00Z"
+      "ts": "2026-10-22T12:19:36Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 18.06028700002571,
-      "mean_ms": 17.96687225001392,
+      "latest_ms": 13.410304999979417,
+      "mean_ms": 11.09108674999959,
       "items": [
         {
           "probe": 0,
-          "ms": 17.9539590000104
+          "ms": 10.031445999970856
         },
         {
           "probe": 1,
-          "ms": 18.115426999997908
+          "ms": 8.92162900004223
         },
         {
           "probe": 2,
-          "ms": 17.737816000021667
+          "ms": 12.000967000005858
         },
         {
           "probe": 3,
-          "ms": 18.06028700002571
+          "ms": 13.410304999979417
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-10-22T05:16:00Z"
+      "ts": "2026-10-22T12:19:36Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.71044921875 tcp_probe mean_ms=17.96687225001392 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.63427734375 tcp_probe mean_ms=11.09108674999959 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.71044921875,
-        "probe_ms": 17.96687225001392,
+        "load1": 0.63427734375,
+        "probe_ms": 11.09108674999959,
         "probe_ok": true
       },
       "domains": [

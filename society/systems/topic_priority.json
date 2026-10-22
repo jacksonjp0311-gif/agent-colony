@@ -36,6 +36,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$k$-connected",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$k_k$-free",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "'3rd-order'",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "'multi-hop",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-22T05:15:42Z",
-  "updated_cycle": "20261022T051437Z_9335c3",
+  "updated_at": "2026-10-22T12:19:18Z",
+  "updated_cycle": "20261022T121823Z_495d50",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

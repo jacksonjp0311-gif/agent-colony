@@ -2,7 +2,7 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   40,
+   41,
    31
   ],
   "divides": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   78,
-   71
+   77,
+   70
   ]
  },
  "mode": "live",
  "n_authored": 21,
  "n_authored_proved": 13,
  "n_claims": 150,
- "n_proved": 113,
+ "n_proved": 112,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -17484,298 +17484,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = sh((n-pow2))(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "sh((n-pow2))",
-        "kids": [
-         {
-          "e": "(n-pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 1,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,1": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 1,
-            "pow2@1,1": -1
-           },
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "n@1,0": 1,
-          "pow2@1,1": -1
-         },
-         "c": 1,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((n-pow2))",
-        "kids": [
-         {
-          "e": "(n-pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 2,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 1,
-            "pow2@1,2": -1
-           },
-           "c": 2,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "n@1,0": 1,
-          "pow2@1,2": -1
-         },
-         "c": 2,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((n-pow2))",
-        "kids": [
-         {
-          "e": "(n-pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 3,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,3": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 1,
-            "pow2@1,3": -1
-           },
-           "c": 3,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "n@1,0": 1,
-          "pow2@1,3": -1
-         },
-         "c": 3,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh((n-pow2))",
-        "kids": [
-         {
-          "e": "(n-pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             4
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 4,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             1,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@1,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           4
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 1,
-            "pow2@1,4": -1
-           },
-           "c": 4,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "n@1,0": 1,
-          "pow2@1,4": -1
-         },
-         "c": 4,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x9de32d58_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = sh((pell*pow2))(n) satisfies a(n+2) = 4*a(n+0) + 4*a(n+1)": {
    "authored": false,
    "certificate": {
@@ -21228,6 +20936,18 @@
    "unknown": true,
    "v": 3
   },
+  "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x07de9965_w1",
+   "checks": 8,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)": {
    "authored": false,
    "certificate": null,
@@ -21950,6 +21670,6 @@
    "v": 3
   }
  },
- "seconds": 0.04,
- "ts": "2026-10-22T05:16:11Z"
+ "seconds": 0.03,
+ "ts": "2026-10-22T12:19:44Z"
 }
