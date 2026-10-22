@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T12:19:10Z",
+  "updated_at": "2026-10-22T17:33:39Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -15,7 +15,7 @@
     "collatz_descent": {
       "family": "collatz",
       "status": "open",
-      "verified_hi": 211000000,
+      "verified_hi": 214200000,
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "window": 3200000,
       "result": null
@@ -31,7 +31,7 @@
     "lehmer_totient": {
       "family": "lehmer_totient",
       "status": "open",
-      "verified_hi": 88600001,
+      "verified_hi": 90200001,
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "window": 1600000,
       "result": null
@@ -47,7 +47,7 @@
     "twin_primes_hl": {
       "family": "twin_hl",
       "status": "open",
-      "verified_hi": 262200000,
+      "verified_hi": 266200000,
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "window": 4000000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "legendre_square_gap",
-    "lo": 1100608,
-    "hi": 1116607,
+    "target": "collatz_descent",
+    "lo": 211000001,
+    "hi": 214200000,
     "outcome": "extended",
-    "verified_hi": 1116607,
-    "cycle_id": "20261022T121823Z_495d50"
+    "verified_hi": 214200000,
+    "cycle_id": "20261022T173243Z_aace85"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
