@@ -1,24 +1,20 @@
 {
-  "last_attempt_at": "2026-10-21T21:55:29Z",
+  "last_attempt_at": "2026-10-22T05:11:18Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-10-21T21:55:29Z",
+  "last_ok_at": "2026-10-22T05:11:18Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs",
-      "abstract_snippet": "Video generation models can now depict remarkably realistic motion. Yet it is unclear how to use this motion beyond pixels: to animate a specific 3D asset and replay the animation in its 3D scene. For instance, a video model can show a monkey jumping over a crossbar, but it cannot return that jump as replayable 3D motion placed in the 3D scene. Here we present a model that directly co-generates th",
-      "url": "https://arxiv.org/abs/2610.28632",
-      "arxiv_id": "2610.28632",
+      "title": "LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data",
+      "abstract_snippet": "Reinforcement learning (RL) is an effective way to strengthen the long-context reasoning of large language models (LLMs), but it needs training data that are long, diverse, challenging, and verifiable. Human annotation of such data is expensive, naturally occurring data are too scarce to sustain RL, and existing synthesis methods depend on external corpora or stronger teacher models, which become ",
+      "url": "https://arxiv.org/abs/2610.30132",
+      "arxiv_id": "2610.30132",
       "doi": "",
       "authors": [
-        "Noam Rotstein",
-        "Yoad Tewel",
-        "Chen Tessler",
-        "Haggai Maron",
-        "Gal Chechik",
-        "Or Litany"
+        "Zhennan Wan",
+        "Jianfei Chen"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +24,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-21T21:55:29Z"
+      "fetched_at": "2026-10-22T05:11:19Z"
     },
     {
       "source": "arxiv",
-      "title": "Learning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking",
-      "abstract_snippet": "Dexterous multi-finger hands hold promise to unlock diverse skills like functional grasps, in-hand reorientation, and dynamic handover that the human-designed world assumes, yet existing learning recipes force a trade-off. Goal-reaching reinforcement learning generalizes to arbitrary object poses but, lacking any human prior, converges to unnatural and unreliable finger strategies; motion tracking",
-      "url": "https://arxiv.org/abs/2610.28628",
-      "arxiv_id": "2610.28628",
+      "title": "Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation",
+      "abstract_snippet": "Existing sequential recommenders usually allocate a fixed computational budget to every item in a user's interaction history, regardless of the item's contribution to the final prediction. We challenge this de facto design with two diagnostic findings. (1) Non-uniform computational need: items within the same sequence vary drastically in how much computation they require. Most converge after shall",
+      "url": "https://arxiv.org/abs/2610.30128",
+      "arxiv_id": "2610.30128",
       "doi": "",
       "authors": [
-        "Yuxuan Kuang",
-        "Jiashun Wang",
-        "Yixuan Sun",
-        "Yufei Ye",
-        "Sungjae Park",
-        "Umar Iqbal"
+        "Zhanshuo Cao",
+        "Jiakai Tang",
+        "Yuqi Zhou",
+        "Sunhao Dai",
+        "Jun Xu"
       ],
       "year": 2026,
       "tags": [
@@ -53,20 +48,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-21T21:55:29Z"
+      "fetched_at": "2026-10-22T05:11:19Z"
     },
     {
       "source": "arxiv",
-      "title": "Planning under Noise with Neural Operators",
-      "abstract_snippet": "Planning under uncertain control execution noise requires reliable feedback policies across diverse environments. We introduce Planning Under Noise (PUN), a neural operator that learns noise-aware value fields for planning in unseen geometries. Building on an established screened-Poisson formulation of stochastic optimal control, we address two challenges: specifying boundary conditions that suppo",
-      "url": "https://arxiv.org/abs/2610.28623",
-      "arxiv_id": "2610.28623",
+      "title": "Temporal Exploration and Rendezvous via Weisfeiler-Leman Colorings",
+      "abstract_snippet": "Temporal graphs are graphs whose edge relation changes in discrete time steps. The Temporal Exploration Problem (TEXP) asks for a temporal walk that visits all vertices. We show that every connected temporal graph with $n$ vertices can be explored in $O(qn\\log^3(n))$ time steps, where $q$ is the number of vertex color classes induced by the 2-dimensional Weisfeiler-Leman (2-WL) coloring. For small",
+      "url": "https://arxiv.org/abs/2610.30123",
+      "arxiv_id": "2610.30123",
       "doi": "",
       "authors": [
-        "Michael Chen",
-        "Hong Chul Nam",
-        "Xi Deng",
-        "Anima Anandkumar"
+        "Frank Kammer",
+        "Sandra Kiefer",
+        "Johannes Meintrup"
       ],
       "year": 2026,
       "tags": [
@@ -76,19 +70,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-21T21:55:29Z"
+      "fetched_at": "2026-10-22T05:11:19Z"
     },
     {
       "source": "arxiv",
-      "title": "Adaptive Multi-Token Prediction: How far should we go?",
-      "abstract_snippet": "Multi-token prediction (MTP) can accelerate language-model decoding by drafting several tokens and verifying them in a single target-model pass. However, the best speculation horizon changes with context: longer drafts offer greater amortization when reliable, but can waste compute on suffixes discarded after a rejection. Unlike autoregressive drafting, where a stopping rule can decide token by to",
-      "url": "https://arxiv.org/abs/2610.28619",
-      "arxiv_id": "2610.28619",
+      "title": "A Quasipolynomial Algorithm for $\\ell_\\infty$ Contractions",
+      "abstract_snippet": "We give an algorithm for computing an $\\eps$-approximate fixed point of any $d$-dimensional nonexpansion with respect to the $\\ell_\\infty$ norm in time $\\log(1/\\eps)^{O(\\log^2 d)}$. At its core, our method uses a boosting argument to geometrically shrink a search region. Among other consequences, our algorithm implies that simple stochastic games can be solved in quasipolynomial time.",
+      "url": "https://arxiv.org/abs/2610.30122",
+      "arxiv_id": "2610.30122",
       "doi": "",
       "authors": [
-        "Emile Anand",
-        "Mohammed Rehan Parwani",
-        "Xinyuan Cao"
+        "Ashkan Soleymani",
+        "Gabriele Farina"
       ],
       "year": 2026,
       "tags": [
@@ -98,21 +91,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-21T21:55:29Z"
+      "fetched_at": "2026-10-22T05:11:19Z"
     },
     {
       "source": "arxiv",
-      "title": "Efficient Edge-aware Attention Network for Graph Generation",
-      "abstract_snippet": "Graph generative models commonly use graph-specific Transformer architectures to jointly update node and edge features. However, these architectures do not directly benefit from recent hardware-aware attention implementations, limiting their scalability. The adaptation is, however, non-trivial: edge and graph-level features must be injected into pairwise attention scores, graph masks must be respe",
-      "url": "https://arxiv.org/abs/2610.28618",
-      "arxiv_id": "2610.28618",
+      "title": "Self-normalized Bernstein Inequalities for Regenerative Processes and Applications to Learning Without Independence",
+      "abstract_snippet": "We prove a self-normalized Bernstein inequality for bounded functions of a regenerative process with independent, identically distributed marked cycles of finite mean length. The bound uses observed cycle lengths and retains explicit terms for truncation and the cycle ending after the observation horizon. Selecting a tuning parameter from a finite deterministic collection gives a version of Bernst",
+      "url": "https://arxiv.org/abs/2610.30119",
+      "arxiv_id": "2610.30119",
       "doi": "",
       "authors": [
-        "Vincent Jung",
-        "Alba Carballo-Castro",
-        "Yiming Qin",
-        "Lonneke van der Plas",
-        "Pascal Frossard"
+        "Imon Banerjee",
+        "Pierre Alquier"
       ],
       "year": 2026,
       "tags": [
@@ -122,7 +112,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-21T21:55:29Z"
+      "fetched_at": "2026-10-22T05:11:19Z"
     }
   ]
 }

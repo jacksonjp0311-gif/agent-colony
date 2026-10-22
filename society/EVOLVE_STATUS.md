@@ -4,7 +4,7 @@
 
 ![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
-- cycle_count: `657`
+- cycle_count: `660`
 - benches ok_all: `True` score `0.8656`
 - novelty hits/kills: `27` / `2`
 - debate action_changed: `True`

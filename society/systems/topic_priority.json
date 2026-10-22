@@ -81,7 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "co-generating",
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-21T22:00:00Z",
-  "updated_cycle": "20261021T215849Z_e0f794",
+  "updated_at": "2026-10-22T05:15:42Z",
+  "updated_cycle": "20261022T051437Z_9335c3",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

@@ -706,32 +706,35 @@
     "cycle_654_evolve_note",
     "cycle_655_evolve_note",
     "cycle_656_evolve_note",
-    "cycle_657_evolve_note"
+    "cycle_657_evolve_note",
+    "cycle_658_evolve_note",
+    "cycle_659_evolve_note",
+    "cycle_660_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 1921,
+      "uses": 1930,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 1893,
+      "uses": 1902,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 1283,
+      "uses": 1289,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 641,
+      "uses": 644,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 2521,
+      "uses": 2533,
       "path": "society/systems/topic_priority.json"
     },
     {
@@ -741,47 +744,47 @@
     },
     {
       "name": "common_knowledge",
-      "uses": 1888,
+      "uses": 1897,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 629,
+      "uses": 632,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 629,
+      "uses": 632,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 614,
+      "uses": 617,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 614,
+      "uses": 617,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 611,
+      "uses": 614,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 611,
+      "uses": 614,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 608,
+      "uses": 611,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 608,
+      "uses": 611,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -1056,8 +1059,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 2520,
-    "reused": 5665
+    "appended": 2532,
+    "reused": 5692
   },
   "commons_by_domain": {
     "science": 0,
@@ -1076,8 +1079,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-10-21T22:00:27Z",
-    "cycle_id": "20261021T215849Z_e0f794",
+    "ts": "2026-10-22T05:16:06Z",
+    "cycle_id": "20261022T051437Z_9335c3",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -1089,23 +1092,23 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-10-21T22:00:24Z",
-    "cycle_id": "20261021T215849Z_e0f794",
+    "ts": "2026-10-22T05:16:03Z",
+    "cycle_id": "20261022T051437Z_9335c3",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.912,
     "commons_signal": 1.0,
-    "math_prize": 0.8082,
-    "compute_usefulness": 0.9068,
+    "math_prize": 0.806,
+    "compute_usefulness": 0.9041,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8811,
+    "prize_boost": 0.8791,
     "kill_rate": 0.2888,
     "kill_rate_term": 0.8099,
     "novelty": 0.931,
-    "lesson_uptake": 0.81,
-    "aggregate": 0.8563,
+    "lesson_uptake": 0.36,
+    "aggregate": 0.8335,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -1113,30 +1116,30 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 35217,
-    "read": 168888,
-    "replied": 22182,
-    "actions_planned": 11442,
-    "actions_changed_from_message": 11442,
-    "reply_quality_sum": 20181.600000000744,
-    "reply_quality_n": 22130,
-    "peer_cite_opportunities": 22760,
-    "peer_cites": 22760
+    "posted": 35382,
+    "read": 169662,
+    "replied": 22287,
+    "actions_planned": 11496,
+    "actions_changed_from_message": 11496,
+    "reply_quality_sum": 20277.300000000847,
+    "reply_quality_n": 22235,
+    "peer_cite_opportunities": 22868,
+    "peer_cites": 22868
   },
   "bus_domains": {
-    "science": 1883,
-    "history": 1885,
-    "math": 5664,
-    "empire": 1259,
-    "bulletin": 4647,
-    "forum": 8207,
-    "software": 1885,
-    "nature": 1883,
-    "life": 1885,
-    "cosmos": 2762,
-    "rsi": 3149
+    "science": 1892,
+    "history": 1894,
+    "math": 5691,
+    "empire": 1265,
+    "bulletin": 4668,
+    "forum": 8243,
+    "software": 1894,
+    "nature": 1892,
+    "life": 1894,
+    "cosmos": 2777,
+    "rsi": 3164
   },
-  "communications_count": 35217,
+  "communications_count": 35382,
   "improvements": [
     "Chain `authored_sieve_residue_bal_g4_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain+seek `authored_sieve_hl_within_g2_4_w1` from invariant priors",
@@ -1189,16 +1192,16 @@
     "Chain+seek `authored_frontier_divides_xba575886_w2` from invariant priors",
     "Chain+seek `authored_frontier_cong_xfdcb3b60_w2` from invariant priors"
   ],
-  "cycle_count": 657,
-  "ledger_count": 37324,
+  "cycle_count": 660,
+  "ledger_count": 37497,
   "status_counts": {
-    "candidate": 36538,
+    "candidate": 36711,
     "accepted": 284,
     "rejected": 376,
     "unknown": 126
   },
-  "witness_events": 54343,
-  "tribute_cycles_compliant": 657,
+  "witness_events": 54595,
+  "tribute_cycles_compliant": 660,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
