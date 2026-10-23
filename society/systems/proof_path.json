@@ -14,7 +14,7 @@
    5
   ],
   "le": [
-   12,
+   13,
    3
   ],
   "modpat": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   76,
-   69
+   75,
+   68
   ]
  },
  "mode": "live",
- "n_authored": 21,
- "n_authored_proved": 13,
+ "n_authored": 20,
+ "n_authored_proved": 10,
  "n_claims": 150,
- "n_proved": 111,
+ "n_proved": 110,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -1936,7 +1936,7 @@
    "v": 3
   },
   "S(gcd(maxgap,perm_derange))(n) = 1 (mod 2) for all n = 0 (mod 4)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_cong_x44cc725e_w1",
    "checks": 247,
@@ -15461,130 +15461,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = dbl(lucas)(n) satisfies a(n+2) = -1*a(n+0) + 3*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "dbl(lucas)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           2,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@2,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "lucas@2,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl(lucas)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           2,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@2,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "lucas@2,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl(lucas)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           2,
-           4
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@2,4": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "lucas@2,4": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x44dbf1fb_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = dbl(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
    "authored": false,
    "certificate": {
@@ -18444,7 +18320,7 @@
    "v": 3
   },
   "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)": {
-   "authored": true,
+   "authored": false,
    "certificate": {
     "N0": 64,
     "Q": 3,
@@ -18503,7 +18379,7 @@
    "v": 3
   },
   "cmax[gpf](n) = 1 (mod 3) for all n = 1 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": {
     "N0": 64,
     "Q": 2,
@@ -19823,6 +19699,18 @@
    "unknown": false,
    "v": 3
   },
+  "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)": {
+   "authored": true,
+   "certificate": null,
+   "check": "authored_frontier_le_x10223e69_w1",
+   "checks": 19988,
+   "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "fib(n) divides dbl(stree_grid3)(n) for all n >= 1": {
    "authored": true,
    "certificate": null,
@@ -20169,7 +20057,7 @@
    "v": 3
   },
   "gcd(lpf,tau)(n) divides (pell*sqfree)(n) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": {
     "N0": 64,
     "Q": 2,
@@ -20586,7 +20474,7 @@
    "v": 3
   },
   "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x22ed9f43_w1",
    "checks": 662,
@@ -20598,7 +20486,7 @@
    "v": 3
   },
   "gpf[phi](n) divides dbl(phi)(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x0c5f5f5b_w1",
    "checks": 19988,
@@ -21559,5 +21447,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-22T21:55:58Z"
+ "ts": "2026-10-23T00:52:30Z"
 }

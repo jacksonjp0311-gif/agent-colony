@@ -1,0 +1,272 @@
+{
+ "anums": {
+  "baum": "A086747",
+  "cubic": "A002513",
+  "fibw": "A003849",
+  "overpart": "A015128",
+  "pdbl": "A096268",
+  "pfold": "A014577",
+  "podd": "A006950",
+  "pplane": "A000219",
+  "rs": "A020987",
+  "tm": "A010060"
+ },
+ "history": [
+  {
+   "cycle_id": "20261023T004649Z_dcbca8",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 104,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 4,
+     "produced": 109,
+     "surprise": 0,
+     "survived": 2,
+     "tested": 4
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 84,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 4,
+     "produced": 85,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 4
+    }
+   },
+   "mode": "shadow",
+   "survivors": [
+    {
+     "deep": null,
+     "statement": "cubic(n) = 0 (mod 3) for all n = 2 (mod 3)",
+     "unknown": false,
+     "why": null
+    },
+    {
+     "deep": null,
+     "statement": "sh(cubic)(n) = 0 (mod 3) for all n = 1 (mod 3)",
+     "unknown": false,
+     "why": null
+    }
+   ]
+  },
+  {
+   "cycle_id": "20261023T004852Z_84ad35",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 110,
+     "machine_checked": 0,
+     "no_reference_found": 1,
+     "passed_filter": 6,
+     "produced": 113,
+     "surprise": 1,
+     "survived": 2,
+     "tested": 6
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 115,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 2,
+     "produced": 117,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 2
+    }
+   },
+   "mode": "shadow",
+   "survivors": [
+    {
+     "deep": null,
+     "statement": "cubic(n) = 0 (mod 3) for all n = 2 (mod 3)",
+     "unknown": false,
+     "why": null
+    },
+    {
+     "deep": null,
+     "statement": "gcd(cubic,sigma)(n) = 0 (mod 3) for all n = 2 (mod 3)",
+     "unknown": true,
+     "why": null
+    }
+   ]
+  },
+  {
+   "cycle_id": "20261023T005047Z_ad6290",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 100,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 7,
+     "produced": 105,
+     "surprise": 0,
+     "survived": 2,
+     "tested": 7
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 87,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 5,
+     "produced": 89,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 5
+    }
+   },
+   "mode": "shadow",
+   "survivors": [
+    {
+     "deep": null,
+     "statement": "sh(cubic)(n) = 0 (mod 3) for all n = 1 (mod 3)",
+     "unknown": false,
+     "why": null
+    },
+    {
+     "deep": null,
+     "statement": "cubic(n) = 0 (mod 3) for all n = 2 (mod 3)",
+     "unknown": false,
+     "why": null
+    }
+   ]
+  }
+ ],
+ "mode": "shadow",
+ "note": "Per-primitive counts for the new domains (colony/frontier_domains.py). shadow = dry pass, nothing registered or authored; live = the real pass.",
+ "totals": {
+  "baum": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 43,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 4,
+   "produced": 44,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 4
+  },
+  "cubic": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 86,
+   "machine_checked": 0,
+   "no_reference_found": 1,
+   "passed_filter": 8,
+   "produced": 88,
+   "surprise": 1,
+   "survived": 6,
+   "tested": 8
+  },
+  "fibw": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 45,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 2,
+   "produced": 45,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 2
+  },
+  "overpart": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 76,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 2,
+   "produced": 78,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 2
+  },
+  "pdbl": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 62,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 1,
+   "produced": 64,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 1
+  },
+  "pfold": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 47,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 3,
+   "produced": 47,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 3
+  },
+  "podd": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 68,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 3,
+   "produced": 71,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 3
+  },
+  "pplane": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 84,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 4,
+   "produced": 90,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 4
+  },
+  "rs": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 38,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 0,
+   "produced": 40,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 0
+  },
+  "tm": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 51,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 1,
+   "produced": 51,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 1
+  }
+ }
+}

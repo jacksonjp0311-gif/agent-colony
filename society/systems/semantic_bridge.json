@@ -2,29 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 69,
-    "unbridged": 46
+    "unbridged": 48
   },
   "rows": [
-    {
-      "mutation": "authored_frontier_cong_x0058ae91_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-18T03:14:04Z",
-      "cycle_id": "20261018T031327Z_bd0fe1",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_frontier_divides_x575aa435_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-18T03:19:55Z",
-      "cycle_id": "20261018T031925Z_f2f5a4",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_frontier_cong_x23fb70a1_w1",
       "status": "unbridged",
@@ -704,8 +684,28 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_divides_x0c5f5f5b_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-23T00:49:50Z",
+      "cycle_id": "20261023T004852Z_84ad35",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_cong_x44cc725e_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-23T00:51:47Z",
+      "cycle_id": "20261023T005047Z_ad6290",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-19T22:34:22Z",
+  "updated_at": "2026-10-23T00:51:47Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

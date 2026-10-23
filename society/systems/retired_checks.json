@@ -1094,8 +1094,64 @@
    "proposals_withdrawn": [
     "imp_c6f092_50"
    ]
+  },
+  {
+   "name": "authored_frontier_cong_x3fa7829a_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T00:47:01Z",
+   "cycle_id": "20261023T004649Z_dcbca8",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x3fa7829a_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)\n    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'cmax[digsum]', 'params': {'m': 3, 'q': 3, 'r': 1, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])\n",
+   "entry": "    (\"authored_frontier_cong_x3fa7829a_w1\", check_authored_frontier_cong_x3fa7829a_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_11c1b3_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x9eef1668_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T00:47:01Z",
+   "cycle_id": "20261023T004649Z_dcbca8",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x9eef1668_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    cmax[gpf](n) = 1 (mod 3) for all n = 1 (mod 2)\n    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'cmax[gpf]', 'params': {'m': 3, 'q': 2, 'r': 1, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])\n",
+   "entry": "    (\"authored_frontier_cong_x9eef1668_w1\", check_authored_frontier_cong_x9eef1668_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_ee477a_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_divides_xb94616a2_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T00:47:01Z",
+   "cycle_id": "20261023T004649Z_dcbca8",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_divides_xb94616a2_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(lpf,tau)(n) divides (pell*sqfree)(n) for all n >= 1\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(lpf,tau)', 'params': {}, 'rhs': '(pell*sqfree)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_divides_xb94616a2_w1\", check_authored_frontier_divides_xb94616a2_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_26dce3_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x22ed9f43_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T00:47:01Z",
+   "cycle_id": "20261023T004649Z_dcbca8",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x22ed9f43_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 662 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(ple3,stree_ladder)', 'params': {'m': 2, 'q': 3, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_x22ed9f43_w1\", check_authored_frontier_cong_x22ed9f43_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_61639d_50"
+   ]
   }
  ],
- "n_retired": 70,
+ "n_retired": 74,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

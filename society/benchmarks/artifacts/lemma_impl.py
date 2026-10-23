@@ -2342,15 +2342,6 @@ def check_authored_frontier_le_x7a9213ec_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(lpf+mu)', 'params': {}, 'rhs': 'dbl(gpf)'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
-def check_authored_frontier_cong_x3fa7829a_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)
-    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. machine-proved (certificate). Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'cmax[digsum]', 'params': {'m': 3, 'q': 3, 'r': 1, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
-
-
 def check_authored_frontier_divides_x3562d07e_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     fib(n) divides dbl(stree_grid3)(n) for all n >= 1
@@ -2387,15 +2378,6 @@ def check_authored_frontier_cong_xfdcb3b60_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(match_ladder,stree_ladder)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
-def check_authored_frontier_cong_x9eef1668_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    cmax[gpf](n) = 1 (mod 3) for all n = 1 (mod 2)
-    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. machine-proved (certificate). Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'cmax[gpf]', 'params': {'m': 3, 'q': 2, 'r': 1, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
-
-
 def check_authored_frontier_divides_x318ee14a_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     lucas(n) divides dbl(stree_grid3)(n) for all n >= 1
@@ -2405,15 +2387,6 @@ def check_authored_frontier_divides_x318ee14a_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'lucas', 'params': {}, 'rhs': 'dbl(stree_grid3)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
-def check_authored_frontier_divides_xb94616a2_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    gcd(lpf,tau)(n) divides (pell*sqfree)(n) for all n >= 1
-    re-tested on windows [(41, 326), (327, 612), (613, 898)]. machine-proved (certificate). Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(lpf,tau)', 'params': {}, 'rhs': '(pell*sqfree)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
-
-
 def check_authored_frontier_cong_xb19ab27c_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1
@@ -2421,15 +2394,6 @@ def check_authored_frontier_cong_xb19ab27c_w1() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(perm_derange,stree_ladder)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
-
-
-def check_authored_frontier_cong_x22ed9f43_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)
-    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 662 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(ple3,stree_ladder)', 'params': {'m': 2, 'q': 3, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
 def check_authored_frontier_le_x7a9213ec_w2() -> bool:
@@ -2493,6 +2457,33 @@ def check_authored_frontier_cong_xfdcb3b60_w2() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(match_ladder,stree_ladder)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(901, 1066), (1067, 1232), (1233, 1398)])
+
+
+def check_authored_frontier_divides_x0c5f5f5b_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    gpf[phi](n) divides dbl(phi)(n) for all n >= 1
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gpf[phi]', 'params': {}, 'rhs': 'dbl(phi)'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
+def check_authored_frontier_cong_x44cc725e_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    S(gcd(maxgap,perm_derange))(n) = 1 (mod 2) for all n = 0 (mod 4)
+    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 247 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(gcd(maxgap,perm_derange))', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
+
+
+def check_authored_frontier_le_x10223e69_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 19988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum[rad]', 'params': {}, 'rhs': 'dbl(rad)'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2743,16 +2734,12 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x396d7d8c_w1", check_authored_frontier_cong_x396d7d8c_w1, True),
     ("authored_sieve_hl_within_g2_4_2_w1", check_authored_sieve_hl_within_g2_4_2_w1, True),
     ("authored_frontier_le_x7a9213ec_w1", check_authored_frontier_le_x7a9213ec_w1, True),
-    ("authored_frontier_cong_x3fa7829a_w1", check_authored_frontier_cong_x3fa7829a_w1, True),
     ("authored_frontier_divides_x3562d07e_w1", check_authored_frontier_divides_x3562d07e_w1, True),
     ("authored_frontier_divides_xba575886_w1", check_authored_frontier_divides_xba575886_w1, True),
     ("authored_frontier_divides_xc90ee275_w1", check_authored_frontier_divides_xc90ee275_w1, True),
     ("authored_frontier_cong_xfdcb3b60_w1", check_authored_frontier_cong_xfdcb3b60_w1, True),
-    ("authored_frontier_cong_x9eef1668_w1", check_authored_frontier_cong_x9eef1668_w1, True),
     ("authored_frontier_divides_x318ee14a_w1", check_authored_frontier_divides_x318ee14a_w1, True),
-    ("authored_frontier_divides_xb94616a2_w1", check_authored_frontier_divides_xb94616a2_w1, True),
     ("authored_frontier_cong_xb19ab27c_w1", check_authored_frontier_cong_xb19ab27c_w1, True),
-    ("authored_frontier_cong_x22ed9f43_w1", check_authored_frontier_cong_x22ed9f43_w1, True),
     ("authored_frontier_le_x7a9213ec_w2", check_authored_frontier_le_x7a9213ec_w2, True),
     ("authored_frontier_divides_x3562d07e_w2", check_authored_frontier_divides_x3562d07e_w2, True),
     ("authored_frontier_le_x7a9213ec_w3", check_authored_frontier_le_x7a9213ec_w3, True),
@@ -2760,6 +2747,9 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_divides_x318ee14a_w2", check_authored_frontier_divides_x318ee14a_w2, True),
     ("authored_frontier_divides_xba575886_w2", check_authored_frontier_divides_xba575886_w2, True),
     ("authored_frontier_cong_xfdcb3b60_w2", check_authored_frontier_cong_xfdcb3b60_w2, True),
+    ("authored_frontier_divides_x0c5f5f5b_w1", check_authored_frontier_divides_x0c5f5f5b_w1, False),
+    ("authored_frontier_cong_x44cc725e_w1", check_authored_frontier_cong_x44cc725e_w1, False),
+    ("authored_frontier_le_x10223e69_w1", check_authored_frontier_le_x10223e69_w1, False),
 ]
 
 

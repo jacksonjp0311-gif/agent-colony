@@ -1,0 +1,385 @@
+{
+  "ts": "2026-10-23T00:52:17Z",
+  "version": 2,
+  "mile": "spark3-port",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 2,
+      "items": [
+        {
+          "title": "Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation",
+          "id": "http://arxiv.org/abs/2610.30128v1",
+          "published": "2026-10-21T17:58:06Z",
+          "summary": "Existing sequential recommenders usually allocate a fixed computational budget to every item in a user's interaction history, regardless of the item's contribution to the final prediction. We challenge this de facto design with two diagnostic findings. (1) Non-uniform computation",
+          "source": "arxiv"
+        },
+        {
+          "title": "PhysiCalWorld: In-Context Physics Calibration for World Models",
+          "id": "http://arxiv.org/abs/2610.30125v1",
+          "published": "",
+          "summary": "",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-10-23T00:52:00Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": false,
+      "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "count": 0,
+      "items": [],
+      "ts": "2026-10-23T00:52:00Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "deprecated": true,
+      "quarantined": true,
+      "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-10-23T00:52:00Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": true,
+      "note": "NYC:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>; London:ok; Tokyo:ok; Sydney:ok",
+      "count": 3,
+      "items": [
+        {
+          "city": "London",
+          "lat": 51.51,
+          "lon": -0.13,
+          "temperature_2m": 12.9,
+          "wind_speed_10m": 22.3,
+          "weather_code": 63,
+          "time": "2026-10-23T00:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "temperature_2m": 16.0,
+          "wind_speed_10m": 4.5,
+          "weather_code": 1,
+          "time": "2026-10-23T00:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "temperature_2m": 21.3,
+          "wind_speed_10m": 18.8,
+          "weather_code": 51,
+          "time": "2026-10-23T00:45",
+          "source": "open_meteo"
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-23T00:52:17Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.225795639787296,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-10-23T00:46:00Z",
+          "v": -8.298512967055984
+        },
+        {
+          "t": "2026-10-23T00:46:00Z",
+          "v": -6.239547823231242
+        },
+        {
+          "t": "2026-10-23T00:47:00Z",
+          "v": -8.255107669889739
+        },
+        {
+          "t": "2026-10-23T00:47:00Z",
+          "v": -6.238616232207037
+        },
+        {
+          "t": "2026-10-23T00:48:00Z",
+          "v": -8.284365261173594
+        },
+        {
+          "t": "2026-10-23T00:48:00Z",
+          "v": -6.23592084488298
+        },
+        {
+          "t": "2026-10-23T00:49:00Z",
+          "v": -8.15909521602444
+        },
+        {
+          "t": "2026-10-23T00:49:00Z",
+          "v": -6.225795639787296
+        }
+      ],
+      "live": true,
+      "ts": "2026-10-23T00:52:17Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48,
+      "latest": 10.2,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-10-22T00:00",
+          "v": 13.5
+        },
+        {
+          "t": "2026-10-22T01:00",
+          "v": 12.3
+        },
+        {
+          "t": "2026-10-22T02:00",
+          "v": 11.4
+        },
+        {
+          "t": "2026-10-22T03:00",
+          "v": 10.7
+        },
+        {
+          "t": "2026-10-22T04:00",
+          "v": 10.0
+        },
+        {
+          "t": "2026-10-22T05:00",
+          "v": 9.3
+        },
+        {
+          "t": "2026-10-22T06:00",
+          "v": 9.3
+        },
+        {
+          "t": "2026-10-22T07:00",
+          "v": 8.7
+        }
+      ],
+      "live": false,
+      "cached": true,
+      "ts": "2026-10-23T00:52:17Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 3.03,
+      "items": [
+        {
+          "mag": 3.03,
+          "place": "15 km S of Tres Pinos, CA",
+          "time": 1792706324270,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.0,
+          "place": "169 km S of False Pass, Alaska",
+          "time": 1792705341148,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "49 km S of Ollagüe, Chile",
+          "time": 1792705076543,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.8,
+          "place": "269 km SSW of Severo-Kuril’sk, Russia",
+          "time": 1792703399090,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.0,
+          "place": "153 km S of Kokopo, Papua New Guinea",
+          "time": 1792699504207,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.7,
+          "place": "27 km E of Honaunau-Napoopoo, Hawaii",
+          "time": 1792697536210,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "104 km NNE of Hihifo, Tonga",
+          "time": 1792696016074,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.9,
+          "place": "203 km SSE of King Cove, Alaska",
+          "time": 1792694192291,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-16&endtime=2026-10-23&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-23T00:52:17Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.66943359375,
+          "disk_free_percent": 60.261419506402866,
+          "process_count": 152,
+          "uptime_hours": 0.1307111111111111,
+          "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+          "node": "runnervmdkmh8",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.66943359375,
+      "live": true,
+      "ts": "2026-10-23T00:52:17Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 9.940240999981143,
+      "mean_ms": 9.154899500003921,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 9.765906999973595
+        },
+        {
+          "probe": 1,
+          "ms": 9.51646100003245
+        },
+        {
+          "probe": 2,
+          "ms": 7.396989000028498
+        },
+        {
+          "probe": 3,
+          "ms": 9.940240999981143
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-10-23T00:52:17Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "global_weather_spread",
+      "summary": "Open-Meteo snapshot across 3 cities: [('London', 12.9), ('Tokyo', 16.0), ('Sydney', 21.3)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "signals": {
+        "cities": [
+          [
+            "London",
+            12.9
+          ],
+          [
+            "Tokyo",
+            16.0
+          ],
+          [
+            "Sydney",
+            21.3
+          ]
+        ],
+        "kp": null
+      },
+      "domains": [
+        "nature",
+        "commons",
+        "government"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-6.225795639787296. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -6.225795639787296
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.66943359375 probe_ms=9.154899500003921. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.66943359375,
+        "probe_ms": 9.154899500003921
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}
