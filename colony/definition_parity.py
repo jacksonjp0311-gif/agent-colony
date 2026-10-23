@@ -457,6 +457,7 @@ class _Ev:
                 self.facts.add(f"{w}(k) is odd only when k is a square{' or twice a square' if w == 'sigma' else ''}; "
                                f"no such k is = {c} (mod {cm})")
                 return frozenset((0,))
+            return ANY  # the class contains squares (tau, sigma odd) and non-squares
         th = _threshold(w)
         if th and k0 >= th[0]:
             self.facts.add(f"{w}(k) has parity {th[1]} for k >= {th[0]} (textbook rule)")
@@ -553,6 +554,15 @@ class _Ev:
     def par(self, e: tuple, t: int, Q: int) -> frozenset[int]:
         op = e[0]
         if op in ("+", "-", "*", "gcd"):
+            # absorbing values: an odd operand makes gcd odd, an even factor makes the product even
+            absorb = {"gcd": frozenset((1,)), "*": frozenset((0,))}.get(op)
+            for i, j in ((1, 2), (2, 1)):
+                if absorb is not None:
+                    try:
+                        if self.par(e[i], t, Q) == absorb:
+                            return absorb
+                    except _Unknown:
+                        pass
             A, B = self.par(e[1], t, Q), self.par(e[2], t, Q)
             if op in ("+", "-"):
                 return frozenset((x + y) % 2 for x in A for y in B)
@@ -564,6 +574,12 @@ class _Ev:
             return self.leaf(x[0], x[1], x[2], t, Q)
         if op == "o":
             return self.outer(e[1], e[2], t, Q)
+        if op == "D":  # D(x)(n) = x(n+1) - x(n)
+            from colony.frontier_conjectures import _push
+            try:
+                return self.par(_push(("-", ("sh", e[1]), e[1])), t, Q)
+            except _Unknown:
+                pass
         if op in ("S", "D", "sh", "dbl"):
             return self.node_automaton(e, t, Q)
         raise _Unknown(op)

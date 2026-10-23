@@ -40,6 +40,16 @@ def test_regression_known_in_principle(T, lhs, params):
     assert ex["facts"]
 
 
+def test_regression_51c52e42_modpat(T):
+    # gcd(gcd(n, d(n)), A083105) mod 2 by n mod 6: even iff n even, d(n) even and A083105(n) even
+    c = {"kind": "modpat", "params": {"P": 6, "m": 2, "pat": [1, 0, 1, 1, 1, 1]},
+         "_le": FC.parse("gcd(oxa009191,oxa083105)"), "_re": None}
+    ex = CP.explain(c, T)
+    assert ex and ex["label"] == "known_in_principle(definition_parity)"
+    bad = dict(c, params={"P": 6, "m": 2, "pat": [1, 1, 1, 1, 1, 0]})
+    assert DP.explain(bad, T) is None
+
+
 def test_convolution_definition_reduces_mod_2(T):
     aut = DP.conv_automaton(DP._entry("oxa177115")["name"])
     assert aut is not None
