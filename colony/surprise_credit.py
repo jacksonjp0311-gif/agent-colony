@@ -11,8 +11,11 @@ Credit of a kept frontier conjecture (registry entry r of colony.frontier_conjec
   effort   = falsification effort survived, log-scaled to [0, 1]:
              0.75 * log10(1 + held-out span) / log10(1 + SPAN_REF)
              + 0.25 * log2(1 + re-tests) / log2(1 + RETEST_REF)       (each part capped at 1)
-  explained = the triviality filter flags it NOW (frontier_checks.still_new is False), or it is a
+  explained = implied by component facts (colony.compositional, COLONY_COMPOSITIONAL=live), or
+             the triviality filter flags it NOW (frontier_checks.still_new is False), or it is a
              known result / loose / OEIS-known (unknown = False), or the reference check explains it.
+target weight: x OPEN_CREDIT (capped at 1) when the claim uses an open-target primitive
+             (colony/open_targets.py, COLONY_OPEN_TARGETS=live); 1 otherwise.
 Any other authored check (sieve sweep, new data, compose) keeps its existing hunt value K/(s+K)
 (a sweep of a family that already passed many times stays ~0).
 shadow (code default): credits are computed and reported (society/systems/surprise_credit.json,
@@ -119,6 +122,24 @@ def deep_gate(r: dict[str, Any]) -> str:
         return ""
 
 
+def compositional(r: dict[str, Any]) -> str:
+    """'known in principle: ...' when the claim is implied by component facts (colony.compositional;
+    COLONY_COMPOSITIONAL=live), else ''. Credit only for claims that survive the decomposition."""
+    try:
+        from colony import compositional as CP
+        if not CP.live() or r.get("kind") not in ("cong", "modpat"):
+            return ""
+        from colony import frontier_conjectures as FC
+        if FC._BRIDGE_T is None:
+            FC._BRIDGE_T = FC.Tables(lim=FC.BRIDGE_LIM, exp_n=FC.BRIDGE_EXP)
+        c = {"kind": r["kind"], "params": r.get("params") or {}, "_le": FC.parse(r["lhs"]),
+             "_re": FC.parse(r["rhs"]) if r.get("rhs") else None}
+        ex = CP.explain(c, FC._BRIDGE_T)
+        return "known in principle: implied by component facts (" + "; ".join(ex["facts"]) + ")" if ex else ""
+    except Exception:  # noqa: BLE001
+        return ""
+
+
 def explained(r: dict[str, Any], *, trivial: bool | None = None) -> str:
     """Why the claim earns zero ('' when it is not explained)."""
     if r.get("falsified_later"):
@@ -137,6 +158,9 @@ def explained(r: dict[str, Any], *, trivial: bool | None = None) -> str:
     dp = deep_gate(r)
     if dp:
         return dp[:120]
+    cp = compositional(r)
+    if cp:
+        return cp[:160]
     if trivial is None:
         trivial = trivial_any_seed(r)
     if trivial:
@@ -151,7 +175,19 @@ def credit(r: dict[str, Any], *, trivial: bool | None = None) -> dict[str, Any]:
     why = explained(r, trivial=trivial)
     unlikely, eff = round(1.0 - p, 4), effort(r)
     val = 0.0 if why else round(max(0.0, min(1.0, fam if fam > 0 else 1.0)) * unlikely * eff, 4)
-    return {"credit": val, "unlikely": unlikely, "effort": eff, "family": round(fam, 4), "explained": why}
+    tw = _target_weight(r)
+    if val and tw != 1.0:   # claims on open OEIS problems (colony/open_targets.py): incentive, capped at 1
+        val = round(min(1.0, val * tw), 4)
+    return {"credit": val, "unlikely": unlikely, "effort": eff, "family": round(fam, 4), "explained": why,
+            "target_weight": tw}
+
+
+def _target_weight(r: dict[str, Any]) -> float:
+    try:
+        from colony import open_targets
+        return open_targets.credit_weight(r)
+    except Exception:  # noqa: BLE001
+        return 1.0
 
 
 def _registry_by_name(state: dict[str, Any] | None = None) -> dict[str, dict[str, Any]]:

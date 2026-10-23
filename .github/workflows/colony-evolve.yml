@@ -160,6 +160,12 @@ jobs:
           COLONY_DEEP: live
           # new domains: automatic sequences (words) and partition q-series (colony/frontier_domains.py)
           COLONY_DOMAINS: live
+          # compositional triviality check: congruences implied by component residue facts are
+          # known in principle and earn no surprise credit (colony/compositional.py)
+          COLONY_COMPOSITIONAL: live
+          # open OEIS problems (unproved conjectures, no known formula) in the menu with a sampling
+          # bonus and a surprise-credit weight; needs COLONY_OBSCURE live (colony/open_targets.py)
+          COLONY_OPEN_TARGETS: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

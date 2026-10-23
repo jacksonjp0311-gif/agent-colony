@@ -60,7 +60,17 @@ def load() -> list[dict[str, Any]]:
         return []
 
 
-_ENTRIES = load()
+def _with_open_targets(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Open-target entries (colony/open_targets.py, COLONY_OPEN_TARGETS=live) join as ox primitives."""
+    try:
+        from colony import open_targets as _ot
+        have = {e["anum"] for e in entries}
+        return entries + [e for e in _ot.entries_for_menu() if e["anum"] not in have]
+    except Exception:  # noqa: BLE001
+        return entries
+
+
+_ENTRIES = _with_open_targets(load())
 PRIMS = tuple(prim_name(e["anum"]) for e in _ENTRIES)
 POSITIVE = tuple(prim_name(e["anum"]) for e in _ENTRIES if all(v >= 1 for v in e["terms"][1:]))
 ANUM = {prim_name(e["anum"]): e["anum"] for e in _ENTRIES}

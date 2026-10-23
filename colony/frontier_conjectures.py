@@ -84,6 +84,7 @@ ARITH = ARITH + _ING.CHEAP
 EXPO = EXPO + _ING.EXPO_NEW
 # less-studied OEIS entries (COLONY_OBSCURE; colony/obscure_pool.py), sampled only when active()
 from colony import obscure_pool as _OBS  # noqa: E402
+from colony import open_targets as _OT  # noqa: E402
 EXPO = EXPO + _OBS.PRIMS
 # new verifiable domains: automatic sequences and q-series products (COLONY_DOMAINS; colony/frontier_domains.py)
 from colony import frontier_domains as _DOM  # noqa: E402
@@ -421,7 +422,9 @@ def sample_expressions(rng: random.Random, n: int, state: dict[str, Any]) -> lis
     ARITH = tuple(k for k in globals()["ARITH"] if k in PRIMS)  # noqa: N806
     pw = ucb_weights(state.get("prim_stats") or {}, PRIMS)
     if _OBS.mode() == "live":   # incentive, not a target: less-studied entries get a sampling bonus
-        pw = {k: (v * _OBS.OBSCURE_BONUS if k in _OBS.PRIMS else v) for k, v in pw.items()}
+        pw = {k: (v * _OBS.OBSCURE_BONUS if k in _OBS.PRIMS and k not in _OT.PRIMS else v) for k, v in pw.items()}
+    if _OT.live():   # open problems (unproved OEIS conjectures, no known formula) get a larger bonus
+        pw = {k: (v * _OT.OPEN_BONUS if k in _OT.PRIMS else v) for k, v in pw.items()}
     ow = ucb_weights(state.get("op_stats") or {}, OPS)
     seen, out = set(), []
     tries = 0
@@ -1201,6 +1204,11 @@ def _outer_self(c: dict[str, Any]) -> bool:
     return (c["kind"] == "divides" and a[1] in OUTER_DIVIDES) or (c["kind"] == "le" and a[1] in OUTER_LE)
 
 
+def _compositional_live() -> bool:
+    from colony.compositional import live
+    return live()
+
+
 def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split: bool = True) -> str:
     """Why the claim is a rewrite rather than new, else ''.
 
@@ -1220,6 +1228,9 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
     basic_inequality  A <= B reduces (n >= 2) to known basic inequalities such as tau >= Omega + 1
     case_split     on every branch of its few-valued parts (mu, squarefree indicator, parity...)
                    the claim reduces to one of the above or to a constant comparison
+    known_in_principle(compositional)  (COLONY_COMPOSITIONAL=live) a congruence implied by
+                   residue facts of its components: automaton residue reachability for the
+                   automatic words + recurrence / period facts mod m for the rest (colony.compositional)
     """
     if _outer_self(c):
         return "outer_self"
@@ -1227,6 +1238,10 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
         return "implied_parts"
     if _divides_implied_by_parts(c, T, F):
         return "implied_parts"
+    if c["kind"] in ("cong", "modpat") and _compositional_live():
+        from colony.compositional import explain as _cp_explain
+        if _cp_explain(c, T):
+            return "known_in_principle(compositional)"
     if not known_result(c) and _known_cong_parts(c, T, rng):
         return "implied_parts"
     if _digit_rule(c):
