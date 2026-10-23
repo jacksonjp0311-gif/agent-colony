@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-23T06:11:19Z",
-  "cycle_id": "20261023T061050Z_5a1dca",
+  "ts": "2026-10-23T06:22:03Z",
+  "cycle_id": "20261023T062135Z_de61eb",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
@@ -104,27 +104,27 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8572,
-      "slope": 0.001006,
-      "min": 0.8351,
+      "last": 0.8573,
+      "slope": 0.000235,
+      "min": 0.8531,
       "max": 0.8576
     },
     "novelty": {
       "last": 0.8462,
-      "slope": 0.003518,
-      "min": 0.8,
+      "slope": 0.001208,
+      "min": 0.8148,
       "max": 0.8462
     },
     "kill_rate": {
       "last": 0.2975,
-      "slope": 0.000335,
-      "min": 0.2932,
+      "slope": 3.8e-05,
+      "min": 0.2965,
       "max": 0.2975
     },
     "kill_rate_term": {
       "last": 0.8178,
-      "slope": 0.000308,
-      "min": 0.8139,
+      "slope": 3.8e-05,
+      "min": 0.8168,
       "max": 0.8178
     },
     "lesson_uptake": {
@@ -136,7 +136,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0004,
+    "aggregate_range": 0.0005,
     "novelty_max": 0.8462,
     "window": 6,
     "reason": "moving"
@@ -302,7 +302,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 7
+    "exhausted_recent": 10
   },
   "guides": {
     "n_guides": 17,
@@ -316,34 +316,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.148,
+      "ratio": 1.118,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.148,
+      "ratio": 1.104,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.185,
+      "ratio": 1.135,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.173,
+      "ratio": 1.105,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.173,
+      "ratio": 1.007,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 212495043,
-      "collatz_descent": 227000000,
+      "goldbach_even": 214095043,
+      "collatz_descent": 230200000,
       "legendre_square_gap": 1196607,
       "lehmer_totient": 98200001,
-      "erdos_straus": 959127,
+      "erdos_straus": 964127,
       "twin_primes_hl": 286200000,
       "oeis_A104062_next": 518690000001
     },
@@ -394,18 +394,18 @@
     "last": [
       [
         null,
+        "2026-10-23T06:13:55Z"
+      ],
+      [
+        "success",
         "2026-10-23T06:03:20Z"
       ],
       [
         "success",
         "2026-10-23T05:48:15Z"
-      ],
-      [
-        "success",
-        "2026-10-23T05:33:36Z"
       ]
     ],
-    "fetched_at": "2026-10-23T06:03:52Z"
+    "fetched_at": "2026-10-23T06:14:33Z"
   },
   "feeds": {
     "by_source": {
@@ -453,7 +453,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-23T06:03:52Z"
+      "ts": "2026-10-23T06:14:33Z"
     },
     "health": {
       "arxiv": {

@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "capability-centric",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "compute-useful",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-23T06:12:12Z",
-  "updated_cycle": "20261023T061050Z_5a1dca",
+  "updated_at": "2026-10-23T06:23:02Z",
+  "updated_cycle": "20261023T062135Z_de61eb",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

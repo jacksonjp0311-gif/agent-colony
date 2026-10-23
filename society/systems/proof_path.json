@@ -1,8 +1,8 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
-   51,
+   53,
    37
   ],
   "divides": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   65,
-   59
+   63,
+   57
   ]
  },
  "mode": "live",
  "n_authored": 20,
  "n_authored_proved": 10,
  "n_claims": 150,
- "n_proved": 107,
+ "n_proved": 105,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -1309,6 +1309,18 @@
    "unknown": false,
    "v": 3
   },
+  "S((fib*oxa048760))(n) = 0 (mod 2) for all n = 0 (mod 3)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xa8371e31_w1",
+   "checks": 662,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "S((lpf*phi))(n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
    "certificate": {
@@ -1593,6 +1605,18 @@
    "certificate": null,
    "check": "authored_frontier_cong_x5cb35120_w1",
    "checks": 29994,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
+  "S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xedd0f0db_w1",
+   "checks": 497,
    "kind": "cong",
    "prior_certificate": false,
    "status": "not proved",
@@ -10202,478 +10226,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = D((n-lucas))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "D((n-lucas))",
-        "kids": [
-         {
-          "e": "D(n)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 1,
-             "d": 0
-            }
-           },
-           {
-            "e": "n",
-            "pt": [
-             1,
-             0
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         },
-         {
-          "e": "D(lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,1": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             0
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {
-            "lucas@1,0": -1,
-            "lucas@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "Dsum",
-        "val": {
-         "a": {
-          "lucas@1,0": 1,
-          "lucas@1,1": -1
-         },
-         "c": 1,
-         "d": 0
-        }
-       },
-       {
-        "e": "D((n-lucas))",
-        "kids": [
-         {
-          "e": "D(n)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 2,
-             "d": 0
-            }
-           },
-           {
-            "e": "n",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 1,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         },
-         {
-          "e": "D(lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             1
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,1": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {
-            "lucas@1,1": -1,
-            "lucas@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "Dsum",
-        "val": {
-         "a": {
-          "lucas@1,1": 1,
-          "lucas@1,2": -1
-         },
-         "c": 1,
-         "d": 0
-        }
-       },
-       {
-        "e": "D((n-lucas))",
-        "kids": [
-         {
-          "e": "D(n)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 3,
-             "d": 0
-            }
-           },
-           {
-            "e": "n",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 2,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         },
-         {
-          "e": "D(lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,3": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {
-            "lucas@1,2": -1,
-            "lucas@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "Dsum",
-        "val": {
-         "a": {
-          "lucas@1,2": 1,
-          "lucas@1,3": -1
-         },
-         "c": 1,
-         "d": 0
-        }
-       },
-       {
-        "e": "D((n-lucas))",
-        "kids": [
-         {
-          "e": "D(n)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             1,
-             4
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 4,
-             "d": 0
-            }
-           },
-           {
-            "e": "n",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 1
-             },
-             "c": 3,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         },
-         {
-          "e": "D(lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             1,
-             3
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@1,3": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "Ddiff",
-          "val": {
-           "a": {
-            "lucas@1,3": -1,
-            "lucas@1,4": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "Dsum",
-        "val": {
-         "a": {
-          "lucas@1,3": 1,
-          "lucas@1,4": -1
-         },
-         "c": 1,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x114f444b_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = D((pell+pow2))(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
    "authored": false,
    "certificate": {
@@ -14334,79 +13886,6 @@
     "method": "closed form (sympy)"
    },
    "check": "authored_frontier_rec_xf5a6fe48_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = pell(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "pell",
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "atom",
-        "val": {
-         "a": {
-          "pell@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "pell",
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "atom",
-        "val": {
-         "a": {
-          "pell@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "pell",
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "atom",
-        "val": {
-         "a": {
-          "pell@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x059c8ecd_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -19729,6 +19208,6 @@
    "v": 3
   }
  },
- "seconds": 0.03,
- "ts": "2026-10-23T06:12:41Z"
+ "seconds": 0.16,
+ "ts": "2026-10-23T06:23:34Z"
 }
