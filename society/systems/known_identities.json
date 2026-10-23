@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23T10:40:41Z",
-  "n": 405,
+  "updated_at": "2026-10-23T10:51:39Z",
+  "n": 409,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -79,6 +79,8 @@
     "authored_frontier_cong_x3fa7829a_w1",
     "authored_frontier_cong_x43c47bec_w1",
     "authored_frontier_cong_x44cc725e_w1",
+    "authored_frontier_cong_x47dd09c7_w1",
+    "authored_frontier_cong_x58a0cdf7_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
     "authored_frontier_cong_x94023555_w1",
@@ -199,9 +201,7 @@
     "authored_sieve_residue_bal_g4_6_2_w1",
     "authored_sieve_residue_bal_g4_6_6_w1",
     "authored_sieve_residue_bal_g4_6_w1",
-    "authored_sieve_residue_bal_g4_w1",
-    "authored_sieve_residue_bal_g6_2_4_w1",
-    "authored_sieve_residue_bal_g6_2_6_w1"
+    "authored_sieve_residue_bal_g4_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

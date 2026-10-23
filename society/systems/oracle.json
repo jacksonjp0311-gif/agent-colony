@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T10:40:40Z",
+  "updated_at": "2026-10-23T10:51:39Z",
   "passes": 458,
-  "kills": 202,
+  "kills": 205,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3061,
+  "kill_rate": 0.3092,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 41,
-    "kills": 19,
+    "passes": 38,
+    "kills": 22,
     "easy_pad_kills": 0,
-    "kill_rate": 0.3167
+    "kill_rate": 0.3667
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -40,13 +40,10 @@
     "authored_frontier_le_x7a9213ec_w2",
     "authored_frontier_le_x7a9213ec_w3",
     "authored_frontier_le_xc2340063_w1",
-    "authored_newdata_a002375_k20001_w1",
     "authored_newdata_a006577_k10001_w1",
     "authored_newdata_a006666_k10001_w1",
     "authored_newdata_a006667_k10001_w1",
     "authored_newdata_a025586_k10001_w1",
-    "authored_newdata_a035026_k10001_w1",
-    "authored_newdata_a047160_k10001_w1",
     "authored_sieve_hl_within_g2_4_2_w1",
     "authored_sieve_hl_within_g4_2_6_w1",
     "authored_sieve_hl_within_g6_6_w1",
@@ -54,13 +51,16 @@
     "authored_sieve_residue_bal_g6_2_w1",
     "authored_sieve_residue_bal_g6_4_w1",
     "authored_sieve_two_counter_g2_6_4_w1",
-    "authored_sieve_two_counter_g4_6_6_w1"
+    "authored_sieve_two_counter_g4_6_6_w1",
+    "authored_sieve_two_counter_g6_6_4_w1"
   ],
   "unique_mutations_kill": [
     "Chain `authored_sieve_residue_bal_g6_4_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain+seek `lemma_hard_combinatorics` from invariant priors",
     "authored_frontier_cong_x43c47bec_w1",
     "authored_frontier_cong_x44cc725e_w1",
+    "authored_frontier_cong_x47dd09c7_w1",
+    "authored_frontier_cong_x58a0cdf7_w1",
     "authored_frontier_cong_xcc4c83b3_w1",
     "authored_frontier_cong_xd9add9e9_w1",
     "authored_frontier_divides_x0c5f5f5b_w1",
@@ -69,6 +69,7 @@
     "authored_frontier_le_xafb0aef8_w1",
     "authored_frontier_modpat_x50c3856a_w1",
     "authored_sieve_hl_within_g4_6_2_w1",
+    "authored_sieve_hl_within_g6_4_6_w1",
     "authored_sieve_residue_bal_g4_2_4_w1",
     "authored_sieve_residue_bal_g6_2_6_w1"
   ],
@@ -102,7 +103,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-23T10:40:40Z",
+    "ts": "2026-10-23T10:51:39Z",
     "passed": false,
     "kills": [
       "held_out:held_out_shift_not_applicable(no_literal_range)",
@@ -115,8 +116,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_cong_xcc4c83b3_w1` kind=hard_enable. lemma mutation authored_frontier_cong_xcc4c83b3_w1 0.872->0.8723 (compared 0.857->0.857; speed_noise:+0.005) Not discov",
-      "attack": "WEIGH: `authored_frontier_cong_xcc4c83b3_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_cong_x58a0cdf7_w1` kind=hard_enable. lemma mutation authored_frontier_cong_x58a0cdf7_w1 0.8719->0.8719 (compared 0.857->0.857; speed_noise:+0.000) Not disco",
+      "attack": "WEIGH: `authored_frontier_cong_x58a0cdf7_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -124,7 +125,7 @@
         "in_catalog": true,
         "hard_pass": 151,
         "hard_n": 151,
-        "score": 0.8722,
+        "score": 0.872,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -138,7 +139,7 @@
         "hard_pass": 151,
         "hard_n": 151,
         "ok": true,
-        "score": 0.8723,
+        "score": 0.8719,
         "shifted_window": {
           "ok": false,
           "status": "not_tested",
@@ -222,15 +223,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_frontier_cong_xcc4c83b3_w1",
+      "mutation": "authored_frontier_cong_x58a0cdf7_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "authored_frontier_cong_xcc4c83b3_w1",
+    "mutation": "authored_frontier_cong_x58a0cdf7_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261023T103919Z_1664ef",
+    "cycle_id": "20261023T105023Z_966b2e",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out_shift_not_applicable(no_literal_range)', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

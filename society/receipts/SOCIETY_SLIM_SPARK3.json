@@ -1,29 +1,29 @@
 {
-  "when": "2026-10-23T10:42:01Z",
+  "when": "2026-10-23T10:52:51Z",
   "mile": "spark3-port",
-  "cycle_count": 711,
+  "cycle_count": 714,
   "fitness_latest": {
-    "ts": "2026-10-23T10:41:19Z",
-    "cycle_id": "20261023T103919Z_1664ef",
+    "ts": "2026-10-23T10:52:13Z",
+    "cycle_id": "20261023T105023Z_966b2e",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7692,
-    "reply_quality": 0.9119,
+    "reply_quality": 0.912,
     "commons_signal": 1.0,
     "math_prize": 0.8094,
     "compute_usefulness": 0.9081,
     "citation_reuse": 1.0,
     "prize_boost": 0.8821,
-    "kill_rate": 0.3061,
-    "kill_rate_term": 0.8255,
-    "novelty": 0.5385,
+    "kill_rate": 0.3092,
+    "kill_rate_term": 0.8283,
+    "novelty": 0.4231,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8391,
+    "aggregate": 0.8335,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
-    "post_challenger_oracle_kill_rate": 0.0847
+    "post_challenger_oracle_kill_rate": 0.099
   },
   "bus_metrics": {
     "reply_rate": 0.9189,
@@ -44,11 +44,11 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8645
+    "aggregate_score": 0.8663
   },
   "novelty_gate": {
-    "hits": 14,
-    "kills": 12
+    "hits": 11,
+    "kills": 15
   },
   "debate_multihop": {
     "action_changed": true,
@@ -57,21 +57,21 @@
       "reply_rate": 0.9643,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
-      "reply_quality": 0.9119
+      "reply_quality": 0.912
     }
   },
   "exploration_budget_fp": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261023T103919Z_1664ef"
+    "cycle_id": "20261023T105023Z_966b2e"
   },
   "oracle": {
     "passes": 458,
-    "kills": 202,
+    "kills": 205,
     "easy_pad_kills": 32,
-    "total": 660,
-    "kill_rate": 0.3061
+    "total": 663,
+    "kill_rate": 0.3092
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."

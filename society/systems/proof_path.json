@@ -27,8 +27,8 @@
   ]
  },
  "mode": "live",
- "n_authored": 24,
- "n_authored_proved": 10,
+ "n_authored": 26,
+ "n_authored_proved": 12,
  "n_claims": 150,
  "n_proved": 104,
  "n_proved_new": 7,
@@ -16495,7 +16495,7 @@
    "v": 4
   },
   "dbl(oxa072827)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
-   "authored": false,
+   "authored": true,
    "certificate": {
     "N0": 64,
     "Q": 1,
@@ -17497,7 +17497,7 @@
    "v": 4
   },
   "gcd(oxa033453,oxa072856)(n) = 0 (mod 2) for all n = 2 (mod 3)": {
-   "authored": false,
+   "authored": true,
    "certificate": {
     "N0": 64,
     "Q": 1,
@@ -18617,5 +18617,5 @@
   }
  },
  "seconds": 0.04,
- "ts": "2026-10-23T10:41:31Z"
+ "ts": "2026-10-23T10:52:24Z"
 }
