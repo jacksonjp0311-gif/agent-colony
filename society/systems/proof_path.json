@@ -27,7 +27,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 28,
+ "n_authored": 30,
  "n_authored_proved": 9,
  "n_claims": 150,
  "n_proved": 93,
@@ -36,7 +36,7 @@
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
  "results": {
   "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_le_xdbff107c_w1",
    "checks": 59988,
@@ -618,7 +618,7 @@
    "v": 3
   },
   "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_cong_x16b72492_w1",
    "checks": 29994,
@@ -15963,6 +15963,6 @@
    "v": 3
   }
  },
- "seconds": 0.03,
- "ts": "2026-10-23T15:52:19Z"
+ "seconds": 0.02,
+ "ts": "2026-10-23T16:19:26Z"
 }

@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T15:51:38Z",
-  "passes": 469,
+  "updated_at": "2026-10-23T16:18:43Z",
+  "passes": 472,
   "kills": 212,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3113,
+  "kill_rate": 0.3099,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -17,7 +17,6 @@
   "unique_mutations_pass": [
     "authored_frontier_cong_x0df35249_w1",
     "authored_frontier_cong_x22ed9f43_w1",
-    "authored_frontier_cong_x3fa7829a_w1",
     "authored_frontier_cong_x4bb20589_w1",
     "authored_frontier_cong_x85b99e19_w1",
     "authored_frontier_cong_x9eef1668_w1",
@@ -37,10 +36,11 @@
     "authored_frontier_divides_xba575886_w2",
     "authored_frontier_divides_xc90ee275_w1",
     "authored_frontier_divides_xc90ee275_w2",
-    "authored_frontier_le_x7a9213ec_w1",
+    "authored_frontier_le_x46c5cc8a_w2",
     "authored_frontier_le_x7a9213ec_w2",
     "authored_frontier_le_x7a9213ec_w3",
-    "authored_sieve_hl_within_g2_4_2_w1",
+    "authored_frontier_le_xdbff107c_w2",
+    "authored_sieve_hl_within_g2_6_w2",
     "authored_sieve_hl_within_g4_2_6_w1",
     "authored_sieve_hl_within_g6_2_4_w2",
     "authored_sieve_residue_bal_g2_6_6_w1",
@@ -104,7 +104,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-23T15:51:38Z",
+    "ts": "2026-10-23T16:18:43Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -114,16 +114,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_cong_x0df35249_w1` kind=hard_enable. lemma mutation authored_frontier_cong_x0df35249_w1 0.8766->0.8765 (compared 0.857->0.857; speed_noise:-0.002) Not disco",
-      "attack": "WEIGH: `authored_frontier_cong_x0df35249_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_le_xdbff107c_w2` kind=hard_enable. lemma mutation authored_frontier_le_xdbff107c_w2 0.8845->0.8859 (compared 0.857->0.857; speed_noise:+0.027) Not discovery",
+      "attack": "WEIGH: `authored_frontier_le_xdbff107c_w2` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 156,
-        "hard_n": 156,
-        "score": 0.8765,
+        "hard_pass": 157,
+        "hard_n": 157,
+        "score": 0.8858,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -134,10 +134,10 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 156,
-        "hard_n": 156,
+        "hard_pass": 157,
+        "hard_n": 157,
         "ok": true,
-        "score": 0.8765,
+        "score": 0.8859,
         "shifted_window": {
           "ok": true,
           "status": "pass",
@@ -150,36 +150,36 @@
             {
               "from": [
                 [
-                  41,
-                  277
+                  6001,
+                  12000
                 ],
                 [
-                  278,
-                  514
+                  12001,
+                  18000
                 ],
                 [
-                  515,
-                  751
+                  18001,
+                  24000
                 ]
               ],
               "to": [
                 [
-                  752,
-                  834
+                  24001,
+                  30000
                 ],
                 [
-                  835,
-                  917
+                  30001,
+                  36000
                 ],
                 [
-                  918,
-                  1002
+                  36001,
+                  42000
                 ]
               ]
             }
           ],
-          "seconds": 0.438,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(oxa009191)', 'params': {'m': 2, 'q': 6, 'r': 0, 's': 4}, 'rhs': ''}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(752, 834), (835, 917), (918, 1002)])))",
+          "seconds": 0.33,
+          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': '(bigomega*lpf)', 'params': {}, 'rhs': 'sopfr'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(24001, 30000), (30001, 36000), (36001, 42000)])))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -257,15 +257,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_frontier_cong_x0df35249_w1",
+      "mutation": "authored_frontier_le_xdbff107c_w2",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_frontier_cong_x0df35249_w1",
+    "mutation": "authored_frontier_le_xdbff107c_w2",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261023T155029Z_66e1a8",
+    "cycle_id": "20261023T161752Z_c8a584",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
