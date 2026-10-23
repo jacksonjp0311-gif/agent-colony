@@ -256,31 +256,124 @@
    },
    "mode": "shadow",
    "survivors": []
+  },
+  {
+   "cycle_id": "20261023T011656Z_45068d",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 21,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 21,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 30,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 30,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    }
+   },
+   "mode": "live",
+   "survivors": []
+  },
+  {
+   "cycle_id": "20261023T011907Z_d36f67",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 28,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 29,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 39,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 4,
+     "produced": 39,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 4
+    }
+   },
+   "mode": "live",
+   "survivors": []
+  },
+  {
+   "cycle_id": "20261023T012106Z_115ff5",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 20,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 20,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 31,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 5,
+     "produced": 32,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 5
+    }
+   },
+   "mode": "live",
+   "survivors": []
   }
  ],
- "mode": "shadow",
+ "mode": "live",
  "note": "Per-primitive counts for the new domains (colony/frontier_domains.py). shadow = dry pass, nothing registered or authored; live = the real pass.",
  "totals": {
   "baum": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 120,
+   "fresh": 136,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 5,
-   "produced": 122,
+   "passed_filter": 6,
+   "produced": 138,
    "surprise": 0,
    "survived": 0,
-   "tested": 5
+   "tested": 6
   },
   "cubic": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 165,
+   "fresh": 185,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 13,
-   "produced": 168,
+   "produced": 188,
    "surprise": 1,
    "survived": 8,
    "tested": 13
@@ -288,23 +381,23 @@
   "fibw": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 110,
+   "fresh": 127,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 4,
-   "produced": 110,
+   "passed_filter": 6,
+   "produced": 128,
    "surprise": 0,
    "survived": 0,
-   "tested": 4
+   "tested": 6
   },
   "overpart": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 166,
+   "fresh": 182,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 3,
-   "produced": 169,
+   "produced": 185,
    "surprise": 0,
    "survived": 0,
    "tested": 3
@@ -312,59 +405,59 @@
   "pdbl": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 121,
+   "fresh": 138,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 4,
-   "produced": 124,
+   "passed_filter": 8,
+   "produced": 141,
    "surprise": 0,
    "survived": 0,
-   "tested": 4
+   "tested": 8
   },
   "pfold": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 120,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 6,
+   "produced": 122,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 6
+  },
+  "podd": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 196,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 16,
+   "produced": 203,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 16
+  },
+  "pplane": {
+   "explained_by_known_check": 0,
+   "explained_by_reference": 0,
+   "fresh": 185,
+   "machine_checked": 0,
+   "no_reference_found": 0,
+   "passed_filter": 8,
+   "produced": 195,
+   "surprise": 0,
+   "survived": 0,
+   "tested": 8
+  },
+  "rs": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
    "fresh": 106,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 5,
-   "produced": 108,
-   "surprise": 0,
-   "survived": 0,
-   "tested": 5
-  },
-  "podd": {
-   "explained_by_known_check": 0,
-   "explained_by_reference": 0,
-   "fresh": 173,
-   "machine_checked": 0,
-   "no_reference_found": 0,
-   "passed_filter": 15,
-   "produced": 180,
-   "surprise": 0,
-   "survived": 0,
-   "tested": 15
-  },
-  "pplane": {
-   "explained_by_known_check": 0,
-   "explained_by_reference": 0,
-   "fresh": 175,
-   "machine_checked": 0,
-   "no_reference_found": 0,
-   "passed_filter": 7,
-   "produced": 184,
-   "surprise": 0,
-   "survived": 0,
-   "tested": 7
-  },
-  "rs": {
-   "explained_by_known_check": 0,
-   "explained_by_reference": 0,
-   "fresh": 90,
-   "machine_checked": 0,
-   "no_reference_found": 0,
    "passed_filter": 3,
-   "produced": 94,
+   "produced": 110,
    "surprise": 0,
    "survived": 0,
    "tested": 3
@@ -372,14 +465,14 @@
   "tm": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 115,
+   "fresh": 135,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 3,
-   "produced": 115,
+   "passed_filter": 5,
+   "produced": 135,
    "surprise": 0,
    "survived": 1,
-   "tested": 3
+   "tested": 5
   }
  }
 }
