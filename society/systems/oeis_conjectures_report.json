@@ -593,6 +593,303 @@
     }
    ],
    "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261023T180126Z_86b017",
+   "at": "2026-10-23T18:04:00Z",
+   "menu_size": 60,
+   "chosen": [
+    {
+     "id": "oc_A214945_0",
+     "anum": "A214945",
+     "text": "G.f.: 6*x^2*(7 + 67*x + 45*x^2 + x^3) / (1 - x)^7."
+    },
+    {
+     "id": "oc_A337484_0",
+     "anum": "A337484",
+     "text": "G.f.: x^3*(1 + 2*x + 2*x^2 - x^3) / ((1 - x)^3*(1 + x)*(1 + x + x^2))."
+    },
+    {
+     "id": "oc_A026927_0",
+     "anum": "A026927",
+     "text": "G.f.: x^4*(1 + x^2 - x^3 + x^4) / ((1 - x)^3*(1 + x)^2*(1 - x + x^2)*(1 + x^2)*(1 + x + x^2))."
+    },
+    {
+     "id": "oc_A325690_0",
+     "anum": "A325690",
+     "text": "G.f.: x^3*(1 + x^2 + x^3 + x^4) / ((1 - x)^3*(1 + x)^2*(1 + x^2)*(1 + x + x^2))."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A214945_0",
+     "anum": "A214945",
+     "tested": 210,
+     "range": [
+      1,
+      210
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 210,
+     "bfile_hi": 210,
+     "data_hi": 27,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A337484_0",
+     "anum": "A337484",
+     "tested": 57,
+     "range": [
+      0,
+      56
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 57,
+     "bfile_hi": 56,
+     "data_hi": 56,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A026927_0",
+     "anum": "A026927",
+     "tested": 52,
+     "range": [
+      1,
+      52
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 52,
+     "bfile_hi": 52,
+     "data_hi": 52,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A325690_0",
+     "anum": "A325690",
+     "tested": 1200,
+     "range": [
+      0,
+      1199
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 3000,
+     "bfile_hi": 2999,
+     "data_hi": 61,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261023T180421Z_66af24",
+   "at": "2026-10-23T18:06:19Z",
+   "menu_size": 60,
+   "chosen": [
+    {
+     "id": "oc_A100038_0",
+     "anum": "A100038",
+     "text": "a(n) = 2*n^2 + 3*n + 6 (conjectured). - _Ralf Stephan_, May 15 2007"
+    },
+    {
+     "id": "oc_A165066_0",
+     "anum": "A165066",
+     "text": "a(n) = - a(n-1) + a(n-3) + 2*a(n-4) + 2*a(n-5) + a(n-6) - a(n-7) - 2*a(n-8) - 2*a(n-9) - a(n-10) + a(n-12) + a(n-13) for n > 15."
+    },
+    {
+     "id": "oc_A295286_1",
+     "anum": "A295286",
+     "text": "a(n) = a(n-1) + 3*a(n-4) - 3*a(n-5) - 3*a(n-8) + 3*a(n-9) + a(n-12) - a(n-13) for n>13."
+    },
+    {
+     "id": "oc_A261955_0",
+     "anum": "A261955",
+     "text": "a(n) = a(n-2)+a(n-8)-a(n-10) for n>13."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A100038_0",
+     "anum": "A100038",
+     "tested": 47,
+     "range": [
+      1,
+      47
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 47,
+     "bfile_hi": 47,
+     "data_hi": 47,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165066_0",
+     "anum": "A165066",
+     "tested": 85,
+     "range": [
+      16,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 78,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A295286_1",
+     "anum": "A295286",
+     "tested": 2987,
+     "range": [
+      14,
+      3000
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 3000,
+     "bfile_hi": 3000,
+     "data_hi": 51,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A261955_0",
+     "anum": "A261955",
+     "tested": 37,
+     "range": [
+      14,
+      50
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 51,
+     "bfile_hi": 50,
+     "data_hi": 50,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261023T180640Z_f52735",
+   "at": "2026-10-23T18:08:46Z",
+   "menu_size": 60,
+   "chosen": [
+    {
+     "id": "oc_A023887_0",
+     "anum": "A023887",
+     "text": "Conjecture: 5 is the only prime in this sequence. - _Rayhan Ahmed_, Jun 19 2026"
+    },
+    {
+     "id": "oc_A165025_0",
+     "anum": "A165025",
+     "text": "G.f.: x*(1 - x^2 + x^3 - 2*x^6 + 3*x^8 - x^10) / ((1 - x)^3*(1 + x)^2*(1 + x + x^2))."
+    },
+    {
+     "id": "oc_A304333_0",
+     "anum": "A304333",
+     "text": "Conjecture: a(n) > 0 for all n > 1."
+    },
+    {
+     "id": "oc_A303762_0",
+     "anum": "A303762",
+     "text": "a(n) = A019565(A303769(n)). [Conjectured]"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A023887_0",
+     "anum": "A023887",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165025_0",
+     "anum": "A165025",
+     "tested": 200,
+     "range": [
+      1,
+      200
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 200,
+     "bfile_hi": 200,
+     "data_hi": 67,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A304333_0",
+     "anum": "A304333",
+     "tested": 2999,
+     "range": [
+      2,
+      3000
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 3000,
+     "bfile_hi": 3000,
+     "data_hi": 90,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A303762_0",
+     "anum": "A303762",
+     "tested": 1444,
+     "range": [
+      0,
+      1450
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 3000,
+     "bfile_hi": 2999,
+     "data_hi": 75,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "note": "selection-layer credit only; nothing authorized or posted"
   }
  ]
 }

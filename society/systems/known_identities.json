@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23T17:56:47Z",
-  "n": 445,
+  "updated_at": "2026-10-23T18:08:08Z",
+  "n": 448,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -105,6 +105,7 @@
     "authored_frontier_cong_xdbe366da_w1",
     "authored_frontier_cong_xe0f68915_w1",
     "authored_frontier_cong_xedd0f0db_w1",
+    "authored_frontier_cong_xedd0f0db_w2",
     "authored_frontier_cong_xfdcb3b60_w1",
     "authored_frontier_cong_xfdcb3b60_w2",
     "authored_frontier_divides_x0b1db873_w1",
@@ -143,6 +144,7 @@
     "authored_frontier_le_xfb3d07d9_w2",
     "authored_frontier_modpat_x50c3856a_w1",
     "authored_frontier_modpat_x51c52e42_w1",
+    "authored_frontier_modpat_x51c52e42_w2",
     "authored_frontier_rec_xa92258f8_w1",
     "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
     "authored_gcd_fibonacci__hermite_recurrence_w1",
@@ -188,6 +190,7 @@
     "authored_pythagorean_generation__narayana_sum_w1",
     "authored_quadratic_reciprocity__sigma_multiplicative_w1",
     "authored_sieve_hl_within_g2_4_2_w1",
+    "authored_sieve_hl_within_g2_4_2_w2",
     "authored_sieve_hl_within_g2_4_6_w1",
     "authored_sieve_hl_within_g2_4_w1",
     "authored_sieve_hl_within_g2_6_4_w1",
@@ -198,10 +201,7 @@
     "authored_sieve_hl_within_g2_w2",
     "authored_sieve_hl_within_g4_2_4_w1",
     "authored_sieve_hl_within_g4_2_6_w1",
-    "authored_sieve_hl_within_g4_2_w1",
-    "authored_sieve_hl_within_g4_6_2_w1",
-    "authored_sieve_hl_within_g4_6_6_w1",
-    "authored_sieve_hl_within_g4_6_w1"
+    "authored_sieve_hl_within_g4_2_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

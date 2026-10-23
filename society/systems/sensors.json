@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-23T17:56:08Z",
-  "cycle_id": "20261023T175557Z_25577f",
+  "ts": "2026-10-23T18:07:01Z",
+  "cycle_id": "20261023T180640Z_f52735",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
@@ -23,27 +23,6 @@
       "authored_frontier_cong_xcc4c83b3_w1": 1
     },
     "recent": {
-      "authored_frontier_modpat_x51c52e42_w1": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_frontier_le_xfb3d07d9_w2": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_two_counter_g4_6_w2": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_frontier_cong_x5cb35120_w2": {
         "last": "keep",
         "streak": 1,
@@ -106,34 +85,55 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_frontier_cong_xdbe366da_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_frontier_divides_x0f0ed051_w2": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_sieve_hl_within_g2_4_2_w2": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8611,
-      "slope": 0.001873,
-      "min": 0.8403,
-      "max": 0.8611
+      "last": 0.86,
+      "slope": 0.00165,
+      "min": 0.8453,
+      "max": 0.8627
     },
     "novelty": {
-      "last": 0.8667,
-      "slope": 0.033334,
-      "min": 0.5,
-      "max": 0.8667
+      "last": 0.9,
+      "slope": 0.030769,
+      "min": 0.6,
+      "max": 0.9333
     },
     "kill_rate": {
-      "last": 0.3037,
-      "slope": -0.000441,
-      "min": 0.3037,
-      "max": 0.3086
+      "last": 0.3024,
+      "slope": -0.000437,
+      "min": 0.3024,
+      "max": 0.3072
     },
     "kill_rate_term": {
-      "last": 0.8234,
-      "slope": -0.000396,
-      "min": 0.8234,
-      "max": 0.8277
+      "last": 0.8222,
+      "slope": -0.000389,
+      "min": 0.8222,
+      "max": 0.8265
     },
     "lesson_uptake": {
       "last": 0.96,
@@ -144,18 +144,18 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0109,
-    "novelty_max": 0.8667,
+    "aggregate_range": 0.0072,
+    "novelty_max": 0.9333,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 172,
+    "enabled": 174,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xa8371e31_w1",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_frontier_cong_xdbe366da_w1",
+      "authored_frontier_cong_xedd0f0db_w2",
       "authored_frontier_divides_x0c5f5f5b_w1",
       "authored_frontier_divides_x9835949a_w1",
       "authored_frontier_le_x10223e69_w1",
@@ -202,8 +202,10 @@
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_cong_xd9add9e9_w1",
       "authored_frontier_cong_xdbe366da_w1",
+      "authored_frontier_cong_xedd0f0db_w2",
       "authored_frontier_divides_x0b1db873_w2",
       "authored_frontier_divides_x0c5f5f5b_w1",
+      "authored_frontier_divides_x0f0ed051_w2",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
       "authored_frontier_divides_x3562d07e_w1",
@@ -256,6 +258,7 @@
       "authored_pell_companion__pythagorean_generation_w1",
       "authored_pythagorean_generation__narayana_sum_w1",
       "authored_sieve_hl_within_g2_4_2_w1",
+      "authored_sieve_hl_within_g2_4_2_w2",
       "authored_sieve_hl_within_g2_4_w1",
       "authored_sieve_hl_within_g2_w1",
       "authored_sieve_hl_within_g2_w2",
@@ -272,7 +275,6 @@
       "authored_sieve_residue_bal_g6_2_4_w1",
       "authored_sieve_residue_bal_g6_2_6_w1",
       "authored_sieve_residue_bal_g6_4_2_w1",
-      "authored_sieve_residue_bal_g6_4_w2",
       "authored_sieve_two_counter_g2_w1",
       "authored_sieve_two_counter_g6_2_6_w1",
       "authored_sieve_two_counter_g6_6_w2",
@@ -295,34 +297,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.563,
+      "ratio": 1.293,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.526,
+      "ratio": 1.215,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.582,
+      "ratio": 1.234,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.643,
+      "ratio": 1.341,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.613,
+      "ratio": 1.143,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 228434115,
-      "collatz_descent": 255800000,
+      "goldbach_even": 230034115,
+      "collatz_descent": 259000000,
       "legendre_square_gap": 1340607,
       "lehmer_totient": 112600001,
-      "erdos_straus": 1004127,
+      "erdos_straus": 1009127,
       "twin_primes_hl": 322200000,
       "oeis_A104062_next": 518690000001
     },
@@ -335,16 +337,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4768,
+        "challenged": 4765,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 232,
+        "challenged": 235,
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.1145,
-    "post_challenger_oracle_judged": 227,
+    "post_challenger_oracle_kill_rate": 0.113,
+    "post_challenger_oracle_judged": 230,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -373,18 +375,18 @@
     "last": [
       [
         null,
+        "2026-10-23T17:58:32Z"
+      ],
+      [
+        "success",
         "2026-10-23T17:50:19Z"
       ],
       [
         "success",
         "2026-10-23T17:39:33Z"
-      ],
-      [
-        "success",
-        "2026-10-23T17:39:24Z"
       ]
     ],
-    "fetched_at": "2026-10-23T17:50:45Z"
+    "fetched_at": "2026-10-23T17:59:04Z"
   },
   "feeds": {
     "by_source": {
@@ -432,7 +434,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-23T17:50:44Z"
+      "ts": "2026-10-23T17:59:03Z"
     },
     "health": {
       "arxiv": {

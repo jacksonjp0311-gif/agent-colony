@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T17:56:46Z",
-  "passes": 487,
-  "kills": 212,
+  "updated_at": "2026-10-23T18:08:07Z",
+  "passes": 490,
+  "kills": 213,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3033,
+  "kill_rate": 0.303,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 34,
-    "kills": 26,
+    "passes": 33,
+    "kills": 27,
     "easy_pad_kills": 0,
-    "kill_rate": 0.4333
+    "kill_rate": 0.45
   },
-  "bus_ok_rate": 0.0,
+  "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
     "authored_frontier_cong_x0df35249_w1",
     "authored_frontier_cong_x16b72492_w2",
@@ -25,20 +25,19 @@
     "authored_frontier_cong_xbae7672a_w1",
     "authored_frontier_cong_xdbe366da_w1",
     "authored_frontier_cong_xedd0f0db_w1",
+    "authored_frontier_cong_xedd0f0db_w2",
     "authored_frontier_cong_xfdcb3b60_w2",
     "authored_frontier_divides_x0b1db873_w2",
-    "authored_frontier_divides_x318ee14a_w2",
+    "authored_frontier_divides_x0f0ed051_w2",
     "authored_frontier_divides_x575aa435_w2",
     "authored_frontier_divides_x5979c9b9_w2",
     "authored_frontier_divides_x97939198_w1",
-    "authored_frontier_divides_xba575886_w2",
-    "authored_frontier_divides_xc90ee275_w2",
     "authored_frontier_le_x1c0eba57_w2",
     "authored_frontier_le_x46c5cc8a_w2",
-    "authored_frontier_le_x7a9213ec_w3",
     "authored_frontier_le_xdbff107c_w2",
     "authored_frontier_le_xfb3d07d9_w2",
     "authored_frontier_modpat_x51c52e42_w1",
+    "authored_sieve_hl_within_g2_4_2_w2",
     "authored_sieve_hl_within_g2_6_w2",
     "authored_sieve_hl_within_g6_2_4_w2",
     "authored_sieve_hl_within_g6_2_w2",
@@ -72,7 +71,8 @@
     "authored_sieve_hl_within_g6_6_2_w1",
     "authored_sieve_residue_bal_g4_2_4_w1",
     "authored_sieve_residue_bal_g6_2_6_w1",
-    "authored_sieve_residue_bal_g6_4_2_w1"
+    "authored_sieve_residue_bal_g6_4_2_w1",
+    "vandermonde"
   ],
   "domain_packs": {
     "packs": {
@@ -104,87 +104,45 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-23T17:56:46Z",
-    "passed": true,
-    "kills": [],
+    "ts": "2026-10-23T18:08:07Z",
+    "passed": false,
+    "kills": [
+      "held_out:held_out:already_saturated_no_harder_window",
+      "collective_kill"
+    ],
     "hear": {
       "heard": true,
-      "bus_ok": false,
+      "bus_ok": true,
       "is_easy_pad": false,
       "attack_weight": 0.35,
       "support_weight": 0.55,
-      "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_cong_xdbe366da_w1` kind=hard_enable. lemma mutation authored_frontier_cong_xdbe366da_w1 0.8814->0.8802 (compared 0.857->0.857; speed_noise:-0.023) Not disco",
-      "attack": "WEIGH: `authored_frontier_cong_xdbe366da_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "msg_ids": [
+        "msg_ba73e254f6",
+        "msg_fe4b430a96",
+        "msg_d2f4a03090"
+      ],
+      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
+      "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "already_enabled": true,
-        "in_catalog": true,
-        "hard_pass": 163,
-        "hard_n": 163,
-        "score": 0.8808,
         "stripped_fails_usefulness": true,
+        "reason": "claim_or_bench_path",
         "ok_for_oracle": true,
-        "reason": "pre_apply_disabled_and_delta=1",
-        "hard_pass_delta": 1,
-        "pre_apply_flag": false,
-        "basis": "before_src"
+        "kind_path": "claim_theme"
       },
       "held_out": {
-        "survives": true,
-        "ok_for_oracle": true,
-        "hard_pass": 163,
-        "hard_n": 163,
-        "ok": true,
-        "score": 0.8802,
-        "shifted_window": {
-          "ok": true,
-          "status": "pass",
-          "reason": "shift_window_pass",
-          "applied": true,
-          "ranges_shifted": 0,
-          "probes": 3,
-          "windows_shifted": 1,
-          "shifted": [
-            {
-              "from": [
-                [
-                  41,
-                  178
-                ],
-                [
-                  179,
-                  316
-                ],
-                [
-                  317,
-                  454
-                ]
-              ],
-              "to": [
-                [
-                  455,
-                  504
-                ],
-                [
-                  505,
-                  554
-                ],
-                [
-                  555,
-                  605
-                ]
-              ]
-            }
-          ],
-          "seconds": 0.322,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'cong', 'lhs': 'D(oxa177115)', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(455, 504), (505, 554), (555, 605)])))",
-          "scope": "finite_shifted_window_only_not_universal_proof"
-        },
-        "reason": "held_out_hard_green",
-        "hard_pass_delta": 1,
-        "delta_override": false
+        "survives": false,
+        "ok_for_oracle": false,
+        "reason": "held_out:already_saturated_no_harder_window",
+        "theme_window": "adversarial_vandermonde_asymmetric",
+        "in_catalog": true,
+        "enabled": false,
+        "mutation": "vandermonde",
+        "catalog_hint": {
+          "add_mutation": "vandermonde_asymmetric",
+          "kind": "hard_enable"
+        }
       },
       "cas": {
         "cas_ok": true,
@@ -205,68 +163,70 @@
             "ok": true
           },
           {
-            "label": "hard_enable_probes",
+            "label": "binom_symmetry_numeric",
             "ok": true
           }
         ]
       },
-      "kills": [],
-      "sense_pass": true
+      "kills": [
+        "held_out:held_out:already_saturated_no_harder_window"
+      ],
+      "sense_pass": false
     },
     "collective": {
-      "decision": "keep_candidate",
-      "sense_pass": true,
-      "keep_weight": 0.363,
-      "kill_weight": 0.2285,
+      "decision": "kill",
+      "sense_pass": false,
+      "keep_weight": 0.0,
+      "kill_weight": 1.0,
       "votes": {
         "geometer": {
           "weight": 0.28,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "improver": {
           "weight": 0.22,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "legislator": {
           "weight": 0.18,
           "vote": "kill",
-          "lean_keep": 0.375,
-          "lean_kill": 0.625
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "spark": {
           "weight": 0.16,
-          "vote": "keep_candidate",
-          "lean_keep": 0.55,
-          "lean_kill": 0.45
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "tribute_keeper": {
           "weight": 0.1,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         },
         "builder": {
           "weight": 0.06,
           "vote": "kill",
-          "lean_keep": 0.275,
-          "lean_kill": 0.725
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_frontier_cong_xdbe366da_w1",
-      "kind": "hard_enable",
+      "mutation": "vandermonde",
+      "kind": "claim_theme",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
-    "fitness_credit": true,
-    "mutation": "authored_frontier_cong_xdbe366da_w1",
-    "kind": "hard_enable",
-    "source": "conjecture_desk",
-    "cycle_id": "20261023T175557Z_25577f",
-    "note": "Oracle PASS \u2014 keep as candidate until authorize.",
+    "fitness_credit": false,
+    "mutation": "vandermonde",
+    "kind": "claim_theme",
+    "source": "claim_pipeline",
+    "cycle_id": "20261023T180640Z_f52735",
+    "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

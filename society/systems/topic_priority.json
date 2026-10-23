@@ -66,22 +66,22 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.1007/s00373-025-02996-5>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
+      "topic": "action-conditioned",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "bi-level",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "bounded-degree",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-23T17:56:57Z",
-  "updated_cycle": "20261023T175557Z_25577f",
+  "updated_at": "2026-10-23T18:08:15Z",
+  "updated_cycle": "20261023T180640Z_f52735",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
