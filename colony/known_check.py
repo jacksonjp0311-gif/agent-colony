@@ -264,6 +264,86 @@ def oeis_texts(c: dict[str, Any], T: Any, net: Any, lookup: Callable | None) -> 
     return None, checked
 
 
+_LINREC = re.compile(r"linear recurrences with constant coefficients[^\n]*?signature\s*\(([-\d,\s]+)\)", re.I)
+
+
+_STATED = re.compile(r"a\(n\)\s*=\s*((?:[-+]?\s*\d*\s*\*?\s*a\(n\s*-\s*\d+\)\s*)+)(?=[.,;]|\s+for|\s+with|$)")
+_TERM = re.compile(r"([-+]?)\s*(\d*)\s*\*?\s*a\(n\s*-\s*(\d+)\)")
+
+
+def _stated_rec(t: str) -> list[int] | None:
+    """Signature of a linear recurrence stated in the text as 'a(n) = 2*a(n-1) - a(n-3)'."""
+    m = _STATED.search(t)
+    if not m:
+        return None
+    sig: dict[int, int] = {}
+    for sg, k, j in _TERM.findall(m.group(1)):
+        sig[int(j)] = sig.get(int(j), 0) + (-1 if sg == "-" else 1) * (int(k) if k else 1)
+    if not sig or max(sig) > 12:
+        return None
+    return [sig.get(j, 0) for j in range(1, max(sig) + 1)]
+
+
+def _cf_order_with(e: tuple, extra: dict[str, int]) -> int | None:
+    from colony import frontier_conjectures as FC
+    op = e[0]
+    if op == "p":
+        return extra.get(e[1]) if e[1] in extra else FC.cf_order(e)
+    if op in ("o", "gcd"):
+        return None
+    if op == "S":
+        d = _cf_order_with(e[1], extra)
+        return None if d is None else d + 1
+    if op in ("D", "sh", "dbl"):
+        return _cf_order_with(e[1], extra)
+    a, b = _cf_order_with(e[1], extra), _cf_order_with(e[2], extra)
+    if a is None or b is None:
+        return None
+    return a + b if op in ("+", "-") else a * b
+
+
+def cfinite_entry(c: dict[str, Any], T: Any, net: Any, lookup: Callable | None) -> str | None:
+    """(e) a recurrence claim whose ingredients OEIS itself indexes as C-finite (linear-recurrence
+    signature link), with the stated signature re-checked on our table: shifts, sums, differences,
+    partial sums and bisections of C-finite sequences are C-finite, so such a recurrence is expected."""
+    from colony import frontier_conjectures as FC
+    if c["kind"] != "rec" or net is None:
+        return None
+    extra: dict[str, int] = {}
+    cited: list[str] = []
+    inv = anums(c, T, lookup)
+    for p in FC.prims_of(c["_le"]):
+        if FC.cf_order(("p", p)) is not None:
+            continue
+        a = inv.get(p)
+        rec = entry(a, net) if a else None
+        if not rec:
+            return None
+        m = None
+        for ln in rec.get("link") or []:
+            m = _LINREC.search(str(ln))
+            if m:
+                break
+        if m:
+            sig = [int(x) for x in m.group(1).replace(" ", "").split(",") if x]
+        else:
+            sig = next((g for _, t in _lines(rec) if (g := _stated_rec(t))), None)
+            if not sig:
+                return None
+        x = T.t.get(p) or []
+        d = len(sig)
+        v = x[1:]
+        if d == 0 or len(v) < 3 * d + 20 or any(v[i] != sum(sig[j] * v[i - 1 - j] for j in range(d))
+                                                for i in range(d + 5, len(v))):
+            return None   # stated signature must hold on our table (it may start late; skip a few terms)
+        extra[p] = d
+        cited.append(f"{a} signature ({','.join(map(str, sig))})")
+    if not cited or _cf_order_with(c["_le"], extra) is None:
+        return None
+    return ("known: its ingredients are C-finite per OEIS (" + "; ".join(cited)[:200] + ", re-checked on our "
+            "table); shifts, sums, differences and bisections of C-finite sequences are C-finite")
+
+
 class Net:
     """colony.new_data's polite cache (shared ~/.cache/colony/bfiles), own per-cycle budget."""
 
@@ -309,6 +389,12 @@ def check(c: dict[str, Any], T: Any, net: Any = None, lookup: Callable | None = 
             return {"explained": True, "label": lab, "step": name}
     checked: list[str] = []
     if net is not None:
+        try:
+            lab = cfinite_entry(c, T, net, lookup)
+        except Exception:  # noqa: BLE001
+            lab = None
+        if lab:
+            return {"explained": True, "label": lab, "step": "cfinite_entry"}
         try:
             lab, checked = oeis_texts(c, T, net, lookup)
         except Exception:  # noqa: BLE001
