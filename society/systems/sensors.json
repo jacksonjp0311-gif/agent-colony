@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-23T12:01:00Z",
-  "cycle_id": "20261023T120038Z_6a3581",
+  "ts": "2026-10-23T14:30:58Z",
+  "cycle_id": "20261023T143038Z_ff0c00",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
@@ -23,27 +23,6 @@
       "authored_frontier_cong_xcc4c83b3_w1": 1
     },
     "recent": {
-      "authored_frontier_cong_xd9add9e9_w1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
-      "authored_sieve_residue_bal_g6_2_6_w1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
-      "authored_frontier_cong_x43c47bec_w1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_frontier_cong_xcc4c83b3_w1": {
         "last": "revert",
         "streak": 1,
@@ -106,68 +85,82 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "authored_frontier_cong_xa8371e31_w1": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
+      },
+      "authored_frontier_cong_xe0f68915_w1": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
+      },
+      "authored_sieve_hl_within_g6_2_4_w2": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8243,
-      "slope": -0.001836,
-      "min": 0.8243,
-      "max": 0.8447
+      "last": 0.8235,
+      "slope": -0.001678,
+      "min": 0.8209,
+      "max": 0.8391
     },
     "novelty": {
-      "last": 0.2308,
-      "slope": -0.038459,
-      "min": 0.2308,
-      "max": 0.6538
+      "last": 0.1538,
+      "slope": -0.036986,
+      "min": 0.1538,
+      "max": 0.5385
     },
     "kill_rate": {
-      "last": 0.3144,
-      "slope": 0.001041,
-      "min": 0.3029,
-      "max": 0.3144
+      "last": 0.3159,
+      "slope": 0.000973,
+      "min": 0.3061,
+      "max": 0.3164
     },
     "kill_rate_term": {
-      "last": 0.8329,
-      "slope": 0.000937,
-      "min": 0.8226,
-      "max": 0.8329
+      "last": 0.8344,
+      "slope": 0.000881,
+      "min": 0.8255,
+      "max": 0.8348
     },
     "lesson_uptake": {
-      "last": 0.9,
-      "slope": 0.0,
+      "last": 0.96,
+      "slope": 0.002308,
       "min": 0.9,
-      "max": 0.9
+      "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0092,
-    "novelty_max": 0.4231,
+    "aggregate_range": 0.0074,
+    "novelty_max": 0.3077,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 160,
+    "enabled": 158,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
-      "authored_frontier_cong_x2ffdc067_w1",
-      "authored_frontier_cong_x43c47bec_w1",
-      "authored_frontier_cong_x44cc725e_w1",
-      "authored_frontier_cong_x47dd09c7_w1",
-      "authored_frontier_cong_x58a0cdf7_w1",
       "authored_frontier_cong_xa8371e31_w1",
-      "authored_frontier_cong_xcb3ef303_w1",
-      "authored_frontier_cong_xcc4c83b3_w1",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_frontier_cong_xda29c2e7_w1",
+      "authored_frontier_cong_xe0f68915_w1",
       "authored_frontier_divides_x0c5f5f5b_w1",
+      "authored_frontier_divides_x97939198_w1",
       "authored_frontier_divides_x9835949a_w1",
       "authored_frontier_le_x10223e69_w1",
       "authored_frontier_le_xafb0aef8_w1",
-      "authored_frontier_modpat_x50c3856a_w1",
       "authored_sieve_hl_within_g4_6_2_w1",
       "authored_sieve_hl_within_g6_4_6_w1",
       "authored_sieve_hl_within_g6_6_2_w1",
@@ -200,27 +193,18 @@
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
-      "authored_frontier_cong_x2ffdc067_w1",
       "authored_frontier_cong_x396d7d8c_w1",
-      "authored_frontier_cong_x43c47bec_w1",
-      "authored_frontier_cong_x44cc725e_w1",
-      "authored_frontier_cong_x47dd09c7_w1",
-      "authored_frontier_cong_x58a0cdf7_w1",
       "authored_frontier_cong_xa68963c2_w1",
       "authored_frontier_cong_xa8371e31_w1",
-      "authored_frontier_cong_xb19ab27c_w1",
       "authored_frontier_cong_xbb82919e_w1",
-      "authored_frontier_cong_xcb3ef303_w1",
-      "authored_frontier_cong_xcc4c83b3_w1",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_frontier_cong_xda29c2e7_w1",
-      "authored_frontier_cong_xfdcb3b60_w1",
-      "authored_frontier_cong_xfdcb3b60_w2",
+      "authored_frontier_cong_xe0f68915_w1",
       "authored_frontier_divides_x0c5f5f5b_w1",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
       "authored_frontier_divides_x3562d07e_w1",
       "authored_frontier_divides_x3562d07e_w2",
+      "authored_frontier_divides_x97939198_w1",
       "authored_frontier_divides_x9835949a_w1",
       "authored_frontier_divides_xba575886_w1",
       "authored_frontier_divides_xba575886_w2",
@@ -233,7 +217,6 @@
       "authored_frontier_le_x7a9213ec_w3",
       "authored_frontier_le_xafb0aef8_w1",
       "authored_frontier_le_xc2340063_w1",
-      "authored_frontier_modpat_x50c3856a_w1",
       "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
       "authored_gcd_fibonacci__motzkin_bounded_w1",
       "authored_geometric_sum__hermite_recurrence_w1",
@@ -268,6 +251,7 @@
       "authored_sieve_hl_within_g4_6_2_w1",
       "authored_sieve_hl_within_g4_6_w1",
       "authored_sieve_hl_within_g4_w1",
+      "authored_sieve_hl_within_g6_2_4_w2",
       "authored_sieve_hl_within_g6_4_2_w1",
       "authored_sieve_hl_within_g6_4_6_w1",
       "authored_sieve_hl_within_g6_6_2_w1",
@@ -299,34 +283,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.094,
+      "ratio": 1.089,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.083,
+      "ratio": 1.096,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.123,
+      "ratio": 1.056,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.088,
+      "ratio": 1.131,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.003,
+      "ratio": 1.094,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 218895043,
-      "collatz_descent": 239800000,
+      "goldbach_even": 220495043,
+      "collatz_descent": 243000000,
       "legendre_square_gap": 1260607,
       "lehmer_totient": 104600001,
-      "erdos_straus": 979127,
+      "erdos_straus": 984127,
       "twin_primes_hl": 302200000,
       "oeis_A104062_next": 518690000001
     },
@@ -339,16 +323,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4798,
+        "challenged": 4795,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 202,
+        "challenged": 205,
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.1218,
-    "post_challenger_oracle_judged": 197,
+    "post_challenger_oracle_kill_rate": 0.13,
+    "post_challenger_oracle_judged": 200,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -372,92 +356,97 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 1.0,
+    "success_rate": 0.9091,
     "completed": 11,
     "last": [
       [
         null,
-        "2026-10-23T11:53:11Z"
+        "2026-10-23T14:22:18Z"
+      ],
+      [
+        "failure",
+        "2026-10-23T14:12:09Z"
       ],
       [
         "success",
-        "2026-10-23T10:54:02Z"
-      ],
-      [
-        "success",
-        "2026-10-23T10:42:53Z"
+        "2026-10-23T14:11:53Z"
       ]
     ],
-    "fetched_at": "2026-10-23T11:53:41Z"
+    "fetched_at": "2026-10-23T14:22:57Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 169,
+      "arxiv": 171,
       "oeis": 5,
-      "crossref": 102,
+      "crossref": 107,
       "wikipedia": 18,
-      "oeis_conj": 198
+      "oeis_conj": 200
     },
     "by_kind": {
-      "paper": 271,
+      "paper": 278,
       "sequence": 5,
       "summary": 18,
-      "conj_sequence": 198
+      "conj_sequence": 200
     },
     "last_run": {
       "sources": {
         "arxiv": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 8,
+          "new": 2,
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 5,
+          "new": 5,
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 10,
+          "new": 2,
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-10-23T11:53:40Z"
+      "ts": "2026-10-23T14:22:49Z"
     },
     "health": {
       "arxiv": {
         "fail": 9,
-        "ok": 53
+        "ok": 54
       },
       "crossref": {
         "fail": 0,
-        "ok": 56
+        "ok": 57
       },
       "oeis": {
         "fail": 0,
-        "ok": 56
+        "ok": 57
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 52
+        "ok": 53
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 56
+        "ok": 57
       }
     }
   },

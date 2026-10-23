@@ -2164,8 +2164,177 @@
    "released_from": "CI-only (GitHub Actions cron) receipts",
    "approval": "James Jackson 2026-10-23 ~05:55 AM ET (via chat): 'Retire all 59, then run cycles.'",
    "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_frontier_cong_xfdcb3b60_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xfdcb3b60_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(match_ladder,stree_ladder)(n) = 1 (mod 2) for all n >= 1\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 1988 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(match_ladder,stree_ladder)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_xfdcb3b60_w1\", check_authored_frontier_cong_xfdcb3b60_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_ddc9ae_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_xb19ab27c_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xb19ab27c_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 988 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(perm_derange,stree_ladder)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_xb19ab27c_w1\", check_authored_frontier_cong_xb19ab27c_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_dfb01f_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_xfdcb3b60_w2",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xfdcb3b60_w2() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(match_ladder,stree_ladder)(n) = 1 (mod 2) for all n >= 1\n    re-tested on windows [(901, 1066), (1067, 1232), (1233, 1398)]. conjecture surviving 1988 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(match_ladder,stree_ladder)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(901, 1066), (1067, 1232), (1233, 1398)])\n",
+   "entry": "    (\"authored_frontier_cong_xfdcb3b60_w2\", check_authored_frontier_cong_xfdcb3b60_w2, True),\n",
+   "proposals_withdrawn": [
+    "imp_db469b_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x44cc725e_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_x44cc725e_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S(gcd(maxgap,perm_derange))(n) = 1 (mod 2) for all n = 0 (mod 4)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 247 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(gcd(maxgap,perm_derange))', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_x44cc725e_w1\", check_authored_frontier_cong_x44cc725e_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_ad6290_50",
+    "imp_2327ae_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_modpat_x50c3856a_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_modpat_x50c3856a_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(lucas,perm_derange)(n) mod 2 depends only on n mod 6 (residues [1, 1, 0, 1, 1, 1] for n = 1..6), all n >= 1\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 988 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'modpat', 'lhs': 'gcd(lucas,perm_derange)', 'params': {'P': 6, 'm': 2, 'pat': [1, 1, 0, 1, 1, 1]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_modpat_x50c3856a_w1\", check_authored_frontier_modpat_x50c3856a_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_bf6565_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x43c47bec_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_x43c47bec_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    D(oxa070778)(n) = 0 (mod 5) for all n = 3 (mod 6)\n    re-tested on windows [(41, 242), (243, 444), (445, 646)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(oxa070778)', 'params': {'m': 5, 'q': 6, 'r': 0, 's': 3}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 242), (243, 444), (445, 646)])\n",
+   "entry": "    (\"authored_frontier_cong_x43c47bec_w1\", check_authored_frontier_cong_x43c47bec_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_cd1037_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_xcc4c83b3_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_xcc4c83b3_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S(oxa047700)(n) = 1 (mod 2) for all n = 1 (mod 4)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(oxa047700)', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_xcc4c83b3_w1\", check_authored_frontier_cong_xcc4c83b3_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_1664ef_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x47dd09c7_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_x47dd09c7_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    dbl(oxa072827)(n) = 1 (mod 2) for all n = 0 (mod 3)\n    re-tested on windows [(41, 93), (94, 146), (147, 199)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(oxa072827)', 'params': {'m': 2, 'q': 3, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 93), (94, 146), (147, 199)])\n",
+   "entry": "    (\"authored_frontier_cong_x47dd09c7_w1\", check_authored_frontier_cong_x47dd09c7_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_ab5697_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x58a0cdf7_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_x58a0cdf7_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(oxa033453,oxa072856)(n) = 0 (mod 2) for all n = 2 (mod 3)\n    re-tested on windows [(41, 160), (161, 280), (281, 400)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(oxa033453,oxa072856)', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 2}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 160), (161, 280), (281, 400)])\n",
+   "entry": "    (\"authored_frontier_cong_x58a0cdf7_w1\", check_authored_frontier_cong_x58a0cdf7_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_966b2e_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x2ffdc067_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_x2ffdc067_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    D(oxa072850)(n) = 0 (mod 2) for all n = 0 (mod 7)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(oxa072850)', 'params': {'m': 2, 'q': 7, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_x2ffdc067_w1\", check_authored_frontier_cong_x2ffdc067_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_5c13f6_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_xda29c2e7_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_xda29c2e7_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    dbl(gcd(baum,oxa072856))(n) = 0 (mod 2) for all n = 1 (mod 3)\n    re-tested on windows [(41, 93), (94, 146), (147, 199)]. conjecture surviving 63 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(gcd(baum,oxa072856))', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 93), (94, 146), (147, 199)])\n",
+   "entry": "    (\"authored_frontier_cong_xda29c2e7_w1\", check_authored_frontier_cong_xda29c2e7_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_8f45cb_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_xcb3ef303_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T14:25:31Z",
+   "cycle_id": "20261023T142517Z_fca4b2",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_xcb3ef303_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S(oxa033453)(n) = 0 (mod 2) for all n = 0 (mod 3)\n    re-tested on windows [(41, 270), (271, 500), (501, 730)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(oxa033453)', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 270), (271, 500), (501, 730)])\n",
+   "entry": "    (\"authored_frontier_cong_xcb3ef303_w1\", check_authored_frontier_cong_xcb3ef303_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_01f2f5_50"
+   ]
   }
  ],
- "n_retired": 133,
+ "n_retired": 145,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

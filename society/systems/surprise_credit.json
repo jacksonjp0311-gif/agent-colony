@@ -1,10 +1,10 @@
 {
- "ts": "2026-10-23T12:00:58Z",
+ "ts": "2026-10-23T14:30:56Z",
  "mode": "live",
- "n_keeps": 270,
- "n_frontier": 39,
- "n_hand_trivial": 32,
- "n_surprise": 7,
+ "n_keeps": 271,
+ "n_frontier": 38,
+ "n_hand_trivial": 34,
+ "n_surprise": 4,
  "max_trivial_credit": 0.0,
  "min_surprise_credit": 0.0,
  "trivial_ranked_lowest": true,
@@ -15,7 +15,7 @@
   "min_still_surprise_credit": 0.0,
   "hand_settled_ranked_lowest": true
  },
- "sieve_mean_credit": 0.0049,
+ "sieve_mean_credit": 0.0048,
  "rows": [
   {
    "name": "sum_first_n_cubes",
@@ -438,11 +438,6 @@
    "credit": 0.5
   },
   {
-   "name": "authored_sieve_hl_within_g2_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_residue_bal_g2_w1",
    "kind": "sieve",
    "credit": 0.0049
@@ -458,22 +453,12 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g6_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_residue_bal_g2_4_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
    "name": "authored_sieve_two_counter_g2_6_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g4_2_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -488,27 +473,12 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_residue_bal_g6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
    "name": "authored_sieve_two_counter_g2_4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g2_w2",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g2_4_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -523,22 +493,12 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g4_2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_residue_bal_g4_2_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
    "name": "authored_sieve_two_counter_g4_6_2_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g4_6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -553,11 +513,6 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g6_4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_residue_bal_g6_4_6_w1",
    "kind": "sieve",
    "credit": 0.0049
@@ -568,22 +523,12 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g6_6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_residue_bal_g6_6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
    "name": "authored_sieve_two_counter_g6_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g4_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -603,17 +548,7 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g4_6_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_two_counter_g6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_2_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -633,17 +568,7 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g2_6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_two_counter_g4_2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g2_6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -663,17 +588,7 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g6_2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_two_counter_g6_4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_2_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -698,22 +613,12 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g6_6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_two_counter_g4_2_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
    "name": "authored_sieve_residue_bal_g4_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g2_4_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -728,22 +633,12 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g2_6_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_two_counter_g2_4_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
    "name": "authored_sieve_residue_bal_g6_2_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
-   "name": "authored_sieve_hl_within_g6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
@@ -758,11 +653,6 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g2_4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0049
-  },
-  {
    "name": "authored_sieve_two_counter_g4_6_6_w1",
    "kind": "sieve",
    "credit": 0.0049
@@ -773,14 +663,129 @@
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_hl_within_g4_2_6_w1",
+   "name": "authored_sieve_two_counter_g6_6_4_w1",
    "kind": "sieve",
    "credit": 0.0049
   },
   {
-   "name": "authored_sieve_two_counter_g6_6_4_w1",
+   "name": "authored_sieve_hl_within_g2_w1",
    "kind": "sieve",
-   "credit": 0.0049
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_w2",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_4_w2",
+   "kind": "sieve",
+   "credit": 0.0047
   },
   {
    "name": "handshaking_small",
@@ -1182,6 +1187,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 2000)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1195,6 +1201,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, basic-inequality derivation)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1208,6 +1215,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1221,6 +1229,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1234,6 +1243,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1247,6 +1257,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1260,6 +1271,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1273,6 +1285,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 20000)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1286,6 +1299,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1299,6 +1313,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, closed form (sympy))",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1312,6 +1327,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1325,6 +1341,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 2000)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": true
   },
@@ -1338,6 +1355,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": false
   },
@@ -1351,6 +1369,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": false
   },
@@ -1364,6 +1383,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": false
   },
@@ -1377,6 +1397,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": false
   },
@@ -1390,6 +1411,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": false
   },
@@ -1403,6 +1425,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, basic-inequality derivation)",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1415,6 +1438,7 @@
    "effort": 0.8289,
    "family": 0.0985,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1427,6 +1451,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1439,6 +1464,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1451,6 +1477,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1463,6 +1490,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry",
    "hand_settled_in_calibration": false
   },
@@ -1476,6 +1504,7 @@
    "effort": 0.4701,
    "family": 1.0,
    "explained": "derived (proof): dbl(stree_grid3) = fib * h(n) with h an integer linear recurrence of order 8 (c = [69, 3153, -36708, -2",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1488,6 +1517,7 @@
    "effort": 0.4701,
    "family": 1.0,
    "explained": "derived (proof): dbl(stree_ladder) = stree_ladder * h(n) with h an integer linear recurrence of order 2 (c = [4, -1]); b",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1500,6 +1530,7 @@
    "effort": 0.4701,
    "family": 1.0,
    "explained": "derived (proof): dbl(stree_grid3) = stree_grid3 * h(n) with h an integer linear recurrence of order 4 (c = [15, -32, 15,",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1512,6 +1543,7 @@
    "effort": 0.5177,
    "family": 1.0,
    "explained": "derived: follows from periodic residues of its parts (match_ladder is C-finite with an integer monic recurrence, so peri",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1524,6 +1556,7 @@
    "effort": 0.8289,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1536,6 +1569,7 @@
    "effort": 0.4701,
    "family": 1.0,
    "explained": "derived (proof): dbl(stree_grid3) = lucas * h(n) with h an integer linear recurrence of order 8 (c = [69, 3153, -36708, ",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1548,6 +1582,7 @@
    "effort": 0.6441,
    "family": 1.0,
    "explained": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1560,6 +1595,7 @@
    "effort": 0.4701,
    "family": 1.0,
    "explained": "derived: follows from periodic residues of its parts (D(n) = n D(n-1) + (-1)^n (P-recursive, unit leading coefficient): ",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
@@ -1572,18 +1608,20 @@
    "effort": 0.5177,
    "family": 1.0,
    "explained": "derived: follows from periodic residues of its parts (ple3 is C-finite with an integer monic recurrence, so periodic mod",
+   "target_weight": 1.0,
    "source": "registry"
   },
   {
    "name": "authored_frontier_le_x7a9213ec_w2",
    "kind": "frontier",
    "statement": "(lpf+mu)",
-   "hand_trivial": false,
+   "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6557,
+   "unlikely": 0.6576,
    "effort": 0.0,
    "family": 1.0,
-   "explained": "",
+   "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
    "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
   },
   {
@@ -1592,22 +1630,24 @@
    "statement": "fib",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8741,
+   "unlikely": 0.8747,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
+   "target_weight": 1.0,
    "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
   },
   {
    "name": "authored_frontier_le_x7a9213ec_w3",
    "kind": "frontier",
    "statement": "(lpf+mu)",
-   "hand_trivial": false,
+   "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6557,
+   "unlikely": 0.6576,
    "effort": 0.0,
    "family": 1.0,
-   "explained": "",
+   "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
    "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
   },
   {
@@ -1616,10 +1656,11 @@
    "statement": "stree_grid3",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8741,
+   "unlikely": 0.8747,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
+   "target_weight": 1.0,
    "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
   },
   {
@@ -1628,10 +1669,11 @@
    "statement": "lucas",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8741,
+   "unlikely": 0.8747,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
+   "target_weight": 1.0,
    "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
   },
   {
@@ -1640,23 +1682,18 @@
    "statement": "stree_ladder",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8741,
+   "unlikely": 0.8747,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
+   "target_weight": 1.0,
    "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
   },
   {
    "name": "authored_frontier_cong_xfdcb3b60_w2",
    "kind": "frontier",
-   "statement": "gcd(match_ladder,stree_ladder)",
-   "hand_trivial": false,
-   "credit": 0.0,
-   "unlikely": 0.5456,
-   "effort": 0.0,
-   "family": 1.0,
-   "explained": "",
-   "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
+   "credit": null,
+   "note": "claim not found"
   }
  ],
  "rule": {

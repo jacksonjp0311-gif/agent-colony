@@ -1,0 +1,56 @@
+{
+ "n": 5,
+ "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
+ "records": {
+  "07de99650444b31d:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x07de9965_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)"
+  },
+  "192eb85d74be50f2:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x192eb85d_w1",
+   "data_end": 56,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "rad[podd](n) = 0 (mod 2) for all n = 3 (mod 7)"
+  },
+  "5c4b76fad62db669:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x5c4b76fa_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "prime[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
+  "7064bba534b76c05:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x7064bba5_w1",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "gpf[pnot3](n) = 1 (mod 2) for all n = 0 (mod 6)"
+  },
+  "c49d8defd91b9639:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xc49d8def_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)"
+  }
+ }
+}
