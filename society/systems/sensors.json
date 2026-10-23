@@ -1,10 +1,9 @@
 {
-  "ts": "2026-10-23T01:21:30Z",
-  "cycle_id": "20261023T012106Z_115ff5",
+  "ts": "2026-10-23T01:35:48Z",
+  "cycle_id": "20261023T013521Z_226437",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_sieve_residue_bal_g6_4_w1": 1,
       "authored_frontier_divides_x0c5f5f5b_w1": 1,
       "authored_frontier_cong_x44cc725e_w1": 1,
       "authored_frontier_le_x10223e69_w1": 1,
@@ -100,26 +99,26 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8549,
-      "slope": -0.001031,
+      "last": 0.8546,
+      "slope": -0.000615,
       "min": 0.851,
-      "max": 0.8637
+      "max": 0.8634
     },
     "novelty": {
       "last": 0.8,
-      "slope": -0.015863,
+      "slope": -0.0129,
       "min": 0.8,
       "max": 0.931
     },
     "kill_rate": {
       "last": 0.2932,
-      "slope": 0.000531,
+      "slope": 0.000438,
       "min": 0.2888,
       "max": 0.2932
     },
     "kill_rate_term": {
       "last": 0.8139,
-      "slope": 0.000483,
+      "slope": 0.000399,
       "min": 0.8099,
       "max": 0.8139
     },
@@ -132,8 +131,8 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0053,
-    "novelty_max": 0.8621,
+    "aggregate_range": 0.0013,
+    "novelty_max": 0.8,
     "window": 6,
     "reason": "moving"
   },
@@ -312,34 +311,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.505,
-      "drift": true
+      "ratio": 1.268,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.479,
+      "ratio": 1.191,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.214,
+      "ratio": 1.324,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.182,
+      "ratio": 1.264,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.081,
+      "ratio": 1.223,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 203000003,
-      "collatz_descent": 217400000,
+      "goldbach_even": 206200003,
+      "collatz_descent": 220600000,
       "legendre_square_gap": 1148607,
       "lehmer_totient": 93400001,
-      "erdos_straus": 944127,
+      "erdos_straus": 949127,
       "twin_primes_hl": 274200000,
       "oeis_A104062_next": 518690000001
     },
@@ -386,22 +385,22 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 10,
+    "completed": 11,
     "last": [
       [
         null,
-        "2026-10-23T01:13:55Z"
-      ],
-      [
-        null,
-        "2026-10-23T01:13:49Z"
+        "2026-10-23T01:27:51Z"
       ],
       [
         "success",
-        "2026-10-23T00:58:02Z"
+        "2026-10-23T01:13:55Z"
+      ],
+      [
+        "success",
+        "2026-10-23T01:13:49Z"
       ]
     ],
-    "fetched_at": "2026-10-23T01:14:33Z"
+    "fetched_at": "2026-10-23T01:28:30Z"
   },
   "feeds": {
     "by_source": {
@@ -449,7 +448,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-23T01:14:32Z"
+      "ts": "2026-10-23T01:28:30Z"
     },
     "health": {
       "arxiv": {
@@ -476,7 +475,6 @@
   },
   "signals": [
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
