@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T18:08:09Z",
-  "updated_cycle": "20261023T180640Z_f52735",
+  "updated_at": "2026-10-23T21:43:40Z",
+  "updated_cycle": "20261023T214216Z_588b4d",
   "n_claims": 1,
   "n_proposed": 0,
   "recent_claims": [
@@ -57,27 +57,27 @@
               }
             }
           },
-          "challenger": "Challenger not broken: 11977 probes (boundary 1807, far 8510, sample 1660, edge 0; seed 248667929193485) in 1.08s [budget hit]",
+          "challenger": "Challenger not broken: 11306 probes (boundary 1807, far 8516, sample 983, edge 0; seed 9791155441479) in 1.08s [budget hit]",
           "challenger_blocked": false,
-          "seed": 248667929193485,
-          "text": "Believe `vandermonde`: components vandermonde_conv, vandermonde_asymmetric, authored_binomial_symmetry__vandermonde_conv_w1; ranges tested {\"authored_binomial_symmetry__vandermonde_conv_w1\": {\"g0\": {\"k\": \"dependent\", \"n\": [16, 23]}, \"g1\": {\"m\": [12, 17], \"n\": [12, 17], \"r\": \"dependent\"}}, \"vandermonde_asymmetric\": {}, \"vandermonde_conv\": {\"g0\": {\"m\": [0, 11], \"n\": [0, 11], \"r\"; Challenger not broken: 11977 probes (boundary 1807, far 8510, sample 1660, edge 0; seed 248667929193485) in 1.08s [budget hit].",
+          "seed": 9791155441479,
+          "text": "Believe `vandermonde`: components vandermonde_conv, vandermonde_asymmetric, authored_binomial_symmetry__vandermonde_conv_w1; ranges tested {\"authored_binomial_symmetry__vandermonde_conv_w1\": {\"g0\": {\"k\": \"dependent\", \"n\": [16, 23]}, \"g1\": {\"m\": [12, 17], \"n\": [12, 17], \"r\": \"dependent\"}}, \"vandermonde_asymmetric\": {}, \"vandermonde_conv\": {\"g0\": {\"m\": [0, 11], \"n\": [0, 11], \"r\"; Challenger not broken: 11306 probes (boundary 1807, far 8516, sample 983, edge 0; seed 9791155441479) in 1.08s [budget hit].",
           "generated_by": "colony.challenger",
           "free_text_from_feeds": false,
           "theme_id": "vandermonde",
           "bench_hint": "lemma_microbench hard:vandermonde*"
         },
         "bus_receipt": {
-          "msg_id": "msg_0dcb95360c",
+          "msg_id": "msg_69df1a5a85",
           "channel": "math",
-          "cycle_id": "20261023T180640Z_f52735",
+          "cycle_id": "20261023T214216Z_588b4d",
           "claim_id": "cl_vandermonde_170603762"
         }
       },
       "bench_hint": "lemma_microbench hard:vandermonde*",
       "status": "rejected_raw",
       "hard_ok": false,
-      "note": "lemma score=0.8707 hard_pass=165/165 \u2014 machine-checked harness only; not theorem discovery | bus_receipt=math:msg_0dcb95360c | oracle=KILL kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill'] bus_ok=True | novelty_gate novel=False | oracle_blocked_propose",
-      "ts": "2026-10-23T18:08:09Z",
+      "note": "lemma score=0.8727 hard_pass=153/153 \u2014 machine-checked harness only; not theorem discovery | bus_receipt=math:msg_69df1a5a85 | oracle=KILL kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill'] bus_ok=True | novelty_gate novel=False | oracle_blocked_propose",
+      "ts": "2026-10-23T21:43:40Z",
       "not_discovery": true
     }
   ],

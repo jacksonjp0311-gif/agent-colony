@@ -2,7 +2,7 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   67,
+   68,
    37
   ],
   "divides": [
@@ -22,12 +22,12 @@
    0
   ],
   "rec": [
-   49,
+   48,
    43
   ]
  },
  "mode": "live",
- "n_authored": 35,
+ "n_authored": 25,
  "n_authored_proved": 9,
  "n_claims": 150,
  "n_proved": 90,
@@ -60,7 +60,7 @@
    "v": 4
   },
   "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_divides_x5979c9b9_w1",
    "checks": 59988,
@@ -84,7 +84,7 @@
    "v": 4
   },
   "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_le_x1c0eba57_w1",
    "checks": 59988,
@@ -618,7 +618,7 @@
    "v": 3
   },
   "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x16b72492_w1",
    "checks": 29994,
@@ -893,6 +893,18 @@
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): p | x implies p | rad(x); rad(x) is odd for odd x; n < 64 checked directly",
    "unknown": false,
    "v": 3
+  },
+  "D(gcd(oxa177115,oxa177122))(n) = 0 (mod 2) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x3f36abbe_w1",
+   "checks": 188,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
   },
   "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)": {
    "authored": false,
@@ -1613,7 +1625,7 @@
    "v": 3
   },
   "S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x5cb35120_w1",
    "checks": 29994,
@@ -1625,7 +1637,7 @@
    "v": 4
   },
   "S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_xedd0f0db_w1",
    "checks": 497,
@@ -9854,18 +9866,6 @@
    "unknown": false,
    "v": 4
   },
-  "a(n) = S((n+n))(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)": {
-   "authored": false,
-   "certificate": null,
-   "check": "authored_frontier_rec_x0f63f11b_w1",
-   "checks": 59988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "not proved",
-   "summary": null,
-   "unknown": false,
-   "v": 4
-  },
   "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
    "certificate": null,
@@ -13101,7 +13101,7 @@
    "v": 3
   },
   "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_divides_x575aa435_w1",
    "checks": 59988,
@@ -14217,7 +14217,7 @@
    "v": 4
   },
   "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_le_xfb3d07d9_w1",
    "checks": 59988,
@@ -14364,7 +14364,7 @@
    "v": 4
   },
   "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_divides_x0b1db873_w1",
    "checks": 3988,
@@ -14388,7 +14388,7 @@
    "v": 4
   },
   "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x22ed9f43_w1",
    "checks": 662,
@@ -14687,7 +14687,7 @@
    "v": 4
   },
   "prr(n) divides D(gcd(prime,tr_petersen))(n) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_divides_x0f0ed051_w1",
    "checks": 1988,
@@ -15340,5 +15340,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-23T18:08:46Z"
+ "ts": "2026-10-23T21:44:17Z"
 }

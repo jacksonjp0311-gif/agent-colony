@@ -1,5 +1,5 @@
 {
- "n": 34,
+ "n": 39,
  "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
  "records": {
   "07de99650444b31d:w1": {
@@ -72,6 +72,26 @@
    "reason": "no_data_headroom",
    "statement": "rad[podd](n) = 0 (mod 2) for all n = 3 (mod 7)"
   },
+  "3562d07e522609fa:w3": {
+   "authored_hi": 752,
+   "check": "authored_frontier_divides_x3562d07e_w3",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "divides",
+   "lo": 1400,
+   "reason": "no_data_headroom",
+   "statement": "fib(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  "3f36abbec5118a4f:w2": {
+   "authored_hi": 355,
+   "check": "authored_frontier_cong_x3f36abbe_w2",
+   "data_end": 473,
+   "holdback": 118,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "D(gcd(oxa177115,oxa177122))(n) = 0 (mod 2) for all n >= 1"
+  },
   "4bb20589ac71b085:w2": {
    "authored_hi": 752,
    "check": "authored_frontier_cong_x4bb20589_w2",
@@ -81,6 +101,26 @@
    "lo": 900,
    "reason": "no_data_headroom",
    "statement": "dbl(oxa048767)(n) = 0 (mod 2) for all n = 1 (mod 2)"
+  },
+  "575aa4355dde7071:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_divides_x575aa435_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "divides",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1"
+  },
+  "5979c9b90cd08c65:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_divides_x5979c9b9_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "divides",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1"
   },
   "5c4b76fad62db669:w1": {
    "authored_hi": 0,
@@ -251,6 +291,16 @@
    "lo": 900,
    "reason": "no_data_headroom",
    "statement": "gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1"
+  },
+  "ba575886b2b40d0d:w3": {
+   "authored_hi": 752,
+   "check": "authored_frontier_divides_xba575886_w3",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "divides",
+   "lo": 1400,
+   "reason": "no_data_headroom",
+   "statement": "stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1"
   },
   "bae7672a97b68a33:w2": {
    "authored_hi": 533,
