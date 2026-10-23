@@ -13,7 +13,9 @@ Rules (first match wins):
                     implied by its two parts (the triviality filter's implied_parts idea).
   trivial_frontier  an authored frontier conjecture that the CURRENT triviality filter flags.
 
-Never retired (protected): anything on a receipt under society/receipts (authorized or decided);
+Never retired (protected): anything on a receipt under society/receipts (authorized or decided)
+made by or with James (a receipt delegated only via GitHub Actions cron does not protect; see
+receipt_provenance);
 the target or a building block of a proposal currently meeting the shortlist bar; anything named
 in a human_guide lesson; catalog / hard-bench lemmas (not authored_*); anything named in colony/ or
 tests/ code; anything another remaining check calls; anything the Oracle has not judged yet or
@@ -166,14 +168,41 @@ def sieve_sweep_blocked(name: str, oracle_rows: list[dict[str, Any]] | None = No
     return s >= KEEP_MIN and s / (s + k_prior) >= EXPECTED_MIN
 
 
-def receipt_names(root: Path = RECEIPTS) -> set[str]:
+# James 2026-10-23 1:17 AM ET: a receipt made without him (scheduled / CI standing-trust
+# auto-authorize, delegated via GitHub Actions cron) does not protect a check from retirement.
+# The receipt itself stays on record untouched; human and chat-delegated receipts still protect.
+_MACHINE = re.compile(r"github actions|\bcron\b|scheduled run", re.I)
+_VIA_MD = re.compile(r"\*\*Delegated via:\*\*\s*(.+)", re.I)
+_VIA_JSON = re.compile(r'"delegated_via"\s*:\s*"((?:[^"\\]|\\.)*)"', re.I)
+
+
+def machine_receipts_mode() -> str:
+    """COLONY_RETIRE_MACHINE_RECEIPTS: off (every receipt protects) | shadow (report what CI-only
+    receipts would free; default) | live (CI-only receipts stop protecting)."""
+    v = os.environ.get("COLONY_RETIRE_MACHINE_RECEIPTS", "shadow").strip().lower()
+    return v if v in ("off", "shadow", "live") else "shadow"
+
+
+def receipt_provenance(text: str) -> str:
+    """'machine' when every stated delegation of the receipt is a scheduled/CI trigger, else
+    'human' (also when no delegation is stated: fail closed, the receipt keeps protecting)."""
+    vias = [m.strip() for m in _VIA_MD.findall(text)] + _VIA_JSON.findall(text)
+    if vias and all(_MACHINE.search(v) for v in vias):
+        return "machine"
+    return "human"
+
+
+def receipt_names(root: Path = RECEIPTS, *, protective_only: bool = False) -> set[str]:
     out: set[str] = set()
     for p in root.rglob("*") if root.exists() else []:
         if p.is_file():
             try:
-                out |= set(_NAME.findall(p.read_text(encoding="utf-8", errors="ignore")))
+                t = p.read_text(encoding="utf-8", errors="ignore")
             except OSError:
-                pass
+                continue
+            if protective_only and receipt_provenance(t) == "machine":
+                continue
+            out |= set(_NAME.findall(t))
     return out
 
 
@@ -254,7 +283,9 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
             if r.get("passed") and m not in first_pass:
                 first_pass[m] = r["ts"]
     deps = bar_dependencies() if deps == "compute" else deps
-    receipts = receipt_names() if receipts is None else receipts
+    auto_receipts = receipts is None
+    if receipts is None:
+        receipts = receipt_names(protective_only=machine_receipts_mode() == "live")
     guides = guide_names() if guides is None else guides
     code = code_names() if code is None else code
     called: set[str] = set()
@@ -267,7 +298,7 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
     for n in authored:
         why = None
         if n in receipts:
-            why = "on a receipt (authorized / decided)"
+            why = "on a receipt made by or with James (authorized / decided)"
         elif deps is None:
             why = "shortlist bar unavailable (fail closed)"
         elif n in deps:
@@ -333,7 +364,22 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
     by_cat: dict[str, int] = {}
     for c in cands:
         by_cat[c["category"]] = by_cat.get(c["category"], 0) + 1
+    out_extra: dict[str, Any] = {}
+    if auto_receipts and machine_receipts_mode() == "shadow":
+        # report-only: what the rule would retire if CI-only receipts stopped protecting
+        sub = plan(src=src, oracle_rows=oracle_rows, protected_extra=protected_extra, deps=deps,
+                   receipts=receipt_names(protective_only=True), guides=guides, code=code,
+                   k_prior=k_prior, now=now, frontier_new=frontier_new)
+        extra = [c for c in sub["candidates"] if c["name"] not in {x["name"] for x in cands}]
+        cat: dict[str, int] = {}
+        for c in extra:
+            cat[c["category"]] = cat.get(c["category"], 0) + 1
+        out_extra["machine_receipts_shadow"] = {
+            "note": "report-only (COLONY_RETIRE_MACHINE_RECEIPTS=shadow): checks protected only by receipts "
+                    "delegated via GitHub Actions cron that the approved rule would retire; nothing retired",
+            "would_retire": len(extra), "by_category": cat, "names": [c["name"] for c in extra]}
     return {"ts": _utc(), "mode": mode(), "n_authored": len(authored), "n_candidates": len(cands),
+            "machine_receipts": machine_receipts_mode(), **out_extra,
             "by_category": by_cat, "candidates": cands,
             "protected": {k: v for k, v in sorted(protected.items())},
             "rule": {"expected_min": EXPECTED_MIN, "keep_min": KEEP_MIN, "K": k_prior, "grace_hours": GRACE_HOURS, "sieve_grace_hours": SIEVE_GRACE_HOURS,

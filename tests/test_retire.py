@@ -195,3 +195,43 @@ def test_unjudged_checks_are_never_retired():
     p = _plan(oracle_rows=rows)
     assert "authored_alpha__beta_w1" not in {c["name"] for c in p["candidates"]}
     assert p["protected"]["authored_alpha__beta_w1"] == "not judged by the Oracle yet"
+
+
+def test_receipt_provenance_machine_vs_human(tmp_path):
+    cron = ("# Authorize receipt\n\n**Authorizer:** James Paul Jackson  \n**Delegated via:** GitHub Actions cron "
+            "(standing trust P>=0.70 selective; never accept-all)  \n- `authored_alpha__beta_w2` accepted\n")
+    chat = ("# Authorize receipt\n\n**Authorizer:** James Jackson  \n**Delegated via:** Grok Bot (explicit human "
+            "authorize by James in chat 2026-10-17)  \n- `authored_linked` accepted\n")
+    bare = "- `authored_sieve_fam_g2_w1` decided\n"
+    js = json.dumps({"delegated_via": "GitHub Actions cron", "items": ["authored_sieve_fam_g4_w1"]})
+    assert R.receipt_provenance(cron) == "machine" and R.receipt_provenance(js) == "machine"
+    assert R.receipt_provenance(chat) == "human" and R.receipt_provenance(bare) == "human"   # fail closed
+    mixed = json.dumps([{"delegated_via": "GitHub Actions cron"}, {"delegated_via": "Grok Bot (James in chat)"}])
+    assert R.receipt_provenance(mixed) == "human"
+    for i, t in enumerate((cron, chat, bare)):
+        (tmp_path / f"r{i}.md").write_text(t)
+    (tmp_path / "r.json").write_text(js)
+    assert R.receipt_names(tmp_path) == {"authored_alpha__beta_w2", "authored_linked",
+                                         "authored_sieve_fam_g2_w1", "authored_sieve_fam_g4_w1"}
+    assert R.receipt_names(tmp_path, protective_only=True) == {"authored_linked", "authored_sieve_fam_g2_w1"}
+    assert (tmp_path / "r0.md").read_text() == cron     # receipts are read, never changed
+
+
+def test_machine_receipt_modes(monkeypatch, tmp_path):
+    (tmp_path / "r.md").write_text("**Delegated via:** GitHub Actions cron  \n`authored_alpha__beta_w2`\n")
+    monkeypatch.setattr(R, "RECEIPTS", tmp_path)
+    monkeypatch.setattr(R, "receipt_names", lambda root=tmp_path, protective_only=False:
+                        set() if protective_only else {"authored_alpha__beta_w2"})
+    judged = _oracle() + [{"mutation": "authored_alpha__beta_w2", "passed": True, "ts": "2026-10-17T05:00:00Z"}]
+    args = dict(src=SRC, oracle_rows=judged, deps=set(), guides=set(), code=set(), k_prior=0.10921,
+                now=NOW, frontier_new=lambda n: True)
+    monkeypatch.setenv("COLONY_RETIRE_MACHINE_RECEIPTS", "shadow")
+    sh = R.plan(**args)
+    assert "authored_alpha__beta_w2" in sh["protected"]
+    assert "authored_alpha__beta_w2" in sh["machine_receipts_shadow"]["names"]
+    monkeypatch.setenv("COLONY_RETIRE_MACHINE_RECEIPTS", "live")
+    lv = R.plan(**args)
+    assert "authored_alpha__beta_w2" not in lv["protected"]
+    assert "authored_alpha__beta_w2" in {c["name"] for c in lv["candidates"]}
+    monkeypatch.setenv("COLONY_RETIRE_MACHINE_RECEIPTS", "off")
+    assert "authored_alpha__beta_w2" in R.plan(**args)["protected"]
