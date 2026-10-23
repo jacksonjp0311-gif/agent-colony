@@ -27,8 +27,8 @@
   ]
  },
  "mode": "live",
- "n_authored": 22,
- "n_authored_proved": 8,
+ "n_authored": 24,
+ "n_authored_proved": 10,
  "n_claims": 150,
  "n_proved": 104,
  "n_proved_new": 7,
@@ -1032,7 +1032,7 @@
    "v": 3
   },
   "D(oxa070778)(n) = 0 (mod 5) for all n = 3 (mod 6)": {
-   "authored": false,
+   "authored": true,
    "certificate": {
     "N0": 64,
     "Q": 1,
@@ -2101,7 +2101,7 @@
    "v": 4
   },
   "S(oxa047700)(n) = 1 (mod 2) for all n = 1 (mod 4)": {
-   "authored": false,
+   "authored": true,
    "certificate": {
     "N0": 64,
     "Q": 1,
@@ -18616,6 +18616,6 @@
    "v": 3
   }
  },
- "seconds": 0.03,
- "ts": "2026-10-23T10:30:04Z"
+ "seconds": 0.04,
+ "ts": "2026-10-23T10:41:31Z"
 }

@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23T10:29:37Z",
-  "n": 402,
+  "updated_at": "2026-10-23T10:40:41Z",
+  "n": 405,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -77,6 +77,7 @@
     "authored_frontier_cong_x396d7d8c_w1",
     "authored_frontier_cong_x396d7d8c_w2",
     "authored_frontier_cong_x3fa7829a_w1",
+    "authored_frontier_cong_x43c47bec_w1",
     "authored_frontier_cong_x44cc725e_w1",
     "authored_frontier_cong_x5cb35120_w1",
     "authored_frontier_cong_x83358e42_w1",
@@ -85,6 +86,7 @@
     "authored_frontier_cong_xa68963c2_w1",
     "authored_frontier_cong_xb19ab27c_w1",
     "authored_frontier_cong_xbb82919e_w1",
+    "authored_frontier_cong_xcc4c83b3_w1",
     "authored_frontier_cong_xd9add9e9_w1",
     "authored_frontier_cong_xfdcb3b60_w1",
     "authored_frontier_cong_xfdcb3b60_w2",
@@ -177,6 +179,7 @@
     "authored_sieve_hl_within_g6_2_6_w1",
     "authored_sieve_hl_within_g6_2_w1",
     "authored_sieve_hl_within_g6_4_2_w1",
+    "authored_sieve_hl_within_g6_4_6_w1",
     "authored_sieve_hl_within_g6_4_w1",
     "authored_sieve_hl_within_g6_6_4_w1",
     "authored_sieve_hl_within_g6_6_6_w1",
@@ -198,10 +201,7 @@
     "authored_sieve_residue_bal_g4_6_w1",
     "authored_sieve_residue_bal_g4_w1",
     "authored_sieve_residue_bal_g6_2_4_w1",
-    "authored_sieve_residue_bal_g6_2_6_w1",
-    "authored_sieve_residue_bal_g6_2_w1",
-    "authored_sieve_residue_bal_g6_4_6_w1",
-    "authored_sieve_residue_bal_g6_4_w1"
+    "authored_sieve_residue_bal_g6_2_6_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
