@@ -1,22 +1,23 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T05:16:15Z",
+  "updated_at": "2026-10-23T05:37:49Z",
   "hits": 22,
-  "kills": 5,
+  "kills": 4,
   "rows": 30,
   "kill_rows": 8,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-23T05:16:15Z",
-    "cycle_id": "20261023T051517Z_fd9014",
-    "mutation": "authored_frontier_le_x10223e69_w1",
+    "ts": "2026-10-23T05:37:49Z",
+    "cycle_id": "20261023T053628Z_8d937e",
+    "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
     "kind": "hard_enable",
     "novel_to_commons": false,
     "kills": [
       "already_in_lesson_ledger_or_history",
+      "textbook_reuse=0.6667",
       "oracle_kill:['held_out:held_out_shift_not_applicable(no_literal_range)', 'collective_kill']"
     ],
-    "textbook_reuse": 0.3333,
+    "textbook_reuse": 0.6667,
     "in_ledger": true,
     "own_authoring_record_only": false,
     "oracle_used": "caller_verdict",
@@ -26,7 +27,7 @@
       "hard_pass": 209,
       "hard_n": 209,
       "stripped_fails_usefulness": true,
-      "score": 0.8665,
+      "score": 0.8651,
       "impl_id": "lemma_impl_v2_basic10_hard209"
     },
     "held_out": {

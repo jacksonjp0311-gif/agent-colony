@@ -1,10 +1,10 @@
 {
-  "ts": "2026-10-23T05:17:19Z",
+  "ts": "2026-10-23T05:42:48Z",
   "view_only": true,
   "n_considered": 58,
-  "n_meet_bar": 28,
-  "n_groups": 21,
-  "n_authored_groups": 21,
+  "n_meet_bar": 27,
+  "n_groups": 20,
+  "n_authored_groups": 20,
   "n_building_block_groups": 0,
   "top": [
     {
@@ -80,7 +80,7 @@
         "P_shadow": 0.6617,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4167,
-        "shadow_pos": 16
+        "shadow_pos": 15
       },
       "group_count": 2,
       "group_ids": [
@@ -204,7 +204,7 @@
         "P_shadow": 0.6515,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4106,
-        "shadow_pos": 17
+        "shadow_pos": 16
       },
       "group_count": 2,
       "group_ids": [
@@ -287,7 +287,7 @@
         "P_shadow": 0.6508,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4102,
-        "shadow_pos": 19
+        "shadow_pos": 18
       },
       "group_count": 2,
       "group_ids": [
@@ -329,7 +329,7 @@
         "P_shadow": 0.6502,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4098,
-        "shadow_pos": 21
+        "shadow_pos": 20
       },
       "group_count": 2,
       "group_ids": [
@@ -412,7 +412,7 @@
         "P_shadow": 0.6498,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4096,
-        "shadow_pos": 22
+        "shadow_pos": 21
       },
       "group_count": 2,
       "group_ids": [
@@ -425,17 +425,17 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-10-23T05:17:19Z",
-    "cycle_id": "20261023T051517Z_fd9014",
+    "ts": "2026-10-23T05:42:48Z",
+    "cycle_id": "20261023T054052Z_a8578a",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 28,
-    "n_meet_bar_shadow": 15,
-    "n_unknown_claims": 28,
+    "n_meet_bar_actual": 27,
+    "n_meet_bar_shadow": 14,
+    "n_unknown_claims": 27,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x29d14f44_w1",
@@ -547,24 +547,10 @@
         "expected": 0.0
       },
       {
-        "id": "imp_d077dc_50",
-        "target": "authored_newdata_a002375_k20001_w1",
-        "actual_pos": 12,
-        "shadow_pos": 6,
-        "meets_bar_shadow": true,
-        "rank": 0.7251,
-        "rank_shadow": 0.7251,
-        "P": 0.8751,
-        "P_shadow": 0.8751,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
         "id": "imp_dfb01f_50",
         "target": "authored_frontier_cong_xb19ab27c_w1",
-        "actual_pos": 14,
-        "shadow_pos": 7,
+        "actual_pos": 13,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -577,8 +563,8 @@
       {
         "id": "imp_e2631f_50",
         "target": "authored_frontier_cong_x396d7d8c_w1",
-        "actual_pos": 15,
-        "shadow_pos": 8,
+        "actual_pos": 14,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.7251,
         "rank_shadow": 0.7251,
@@ -591,8 +577,8 @@
       {
         "id": "imp_022700_50",
         "target": "authored_newdata_a006666_k10001_w1",
-        "actual_pos": 18,
-        "shadow_pos": 9,
+        "actual_pos": 17,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -605,7 +591,21 @@
       {
         "id": "imp_18d1e0_50",
         "target": "authored_frontier_cong_xbb82919e_w1",
-        "actual_pos": 20,
+        "actual_pos": 19,
+        "shadow_pos": 9,
+        "meets_bar_shadow": true,
+        "rank": 0.695,
+        "rank_shadow": 0.695,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_53f6c2_49",
+        "target": "authored_frontier_cong_x06b60875_w1",
+        "actual_pos": 21,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -618,16 +618,16 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
-    "status": 21,
+    "status": 20,
     "target_unresolved": 13,
-    "novelty_killed": 17,
-    "oracle_killed_in_own_cycle": 7,
+    "novelty_killed": 18,
+    "oracle_killed_in_own_cycle": 8,
     "no_oracle_pass_in_own_cycle": 9,
     "hearing": 2
   },
@@ -638,5 +638,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261023T051517Z_fd9014"
+  "cycle_id": "20261023T054052Z_a8578a"
 }

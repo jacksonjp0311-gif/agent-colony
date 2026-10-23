@@ -3,7 +3,7 @@
  "by_kind": {
   "cong": [
    48,
-   31
+   37
   ],
   "divides": [
    15,
@@ -30,9 +30,9 @@
  "n_authored": 20,
  "n_authored_proved": 10,
  "n_claims": 150,
- "n_proved": 103,
- "n_proved_new": 1,
- "n_surprises_proved": 28,
+ "n_proved": 109,
+ "n_proved_new": 7,
+ "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
  "results": {
   "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)": {
@@ -45,7 +45,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "(fib*lucas)(n) divides dbl(stree_grid3)(n) for all n >= 1": {
    "authored": false,
@@ -57,7 +57,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1": {
    "authored": false,
@@ -69,7 +69,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "(gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -81,7 +81,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -93,7 +93,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "(gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -252,14 +252,14 @@
   "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)": {
    "authored": true,
    "certificate": null,
-   "check": "authored_frontier_le_x7a9213ec_w1",
+   "check": "authored_frontier_le_x7a9213ec_w3",
    "checks": 59988,
    "kind": "le",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "(omega-gpf)(n) <= dbl((omega-gpf))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -627,7 +627,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3)": {
    "authored": true,
@@ -1033,27 +1033,94 @@
   },
   "D(oxa070778)(n) = 0 (mod 5) for all n = 3 (mod 6)": {
    "authored": false,
-   "certificate": null,
+   "certificate": {
+    "N0": 64,
+    "Q": 1,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {},
+    "finite_check": [
+     1,
+     25
+    ],
+    "lemmas": [
+     "a linear recurrence with integer coefficients is eventually periodic mod m (pigeonhole on the state)"
+    ],
+    "method": "recurrence residues",
+    "period": 24,
+    "preperiod_from": 1,
+    "recurrences": {
+     "oxa070778": {
+      "k0": 0,
+      "sig": [
+       3,
+       6,
+       -4,
+       -5,
+       1,
+       1
+      ],
+      "source": "oeis A070778 signature (3,6,-4,-5,1,1)"
+     }
+    }
+   },
    "check": "authored_frontier_cong_x43c47bec_w1",
    "checks": 81,
    "kind": "cong",
    "prior_certificate": false,
-   "status": "not proved",
-   "summary": null,
+   "status": "proved",
+   "summary": "recurrence residues: residues periodic with period 24 from n = 1 (oxa070778: oeis A070778 signature (3,6,-4,-5,1,1)); every n <= 25 checked",
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "D(oxa072850)(n) = 0 (mod 2) for all n = 0 (mod 7)": {
    "authored": false,
-   "certificate": null,
+   "certificate": {
+    "N0": 64,
+    "Q": 1,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {},
+    "finite_check": [
+     1,
+     8
+    ],
+    "lemmas": [
+     "a linear recurrence with integer coefficients is eventually periodic mod m (pigeonhole on the state)"
+    ],
+    "method": "recurrence residues",
+    "period": 7,
+    "preperiod_from": 1,
+    "recurrences": {
+     "oxa072850": {
+      "k0": 0,
+      "sig": [
+       1,
+       2,
+       4,
+       6,
+       10,
+       12,
+       -4,
+       -6,
+       -6,
+       0,
+       -2,
+       -2,
+       0,
+       1,
+       1
+      ],
+      "source": "oeis A072850 signature (1,2,4,6,10,12,-4,-6,-6,0,-2,-2,0,1,1)"
+     }
+    }
+   },
    "check": "authored_frontier_cong_x2ffdc067_w1",
    "checks": 70,
    "kind": "cong",
    "prior_certificate": false,
-   "status": "not proved",
-   "summary": null,
+   "status": "proved",
+   "summary": "recurrence residues: residues periodic with period 7 from n = 1 (oxa072850: oeis A072850 signature (1,2,4,6,10,12,-4,-6,-6,0,-2,-2,0,1,1)); every n <= 8 checked",
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -1430,7 +1497,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "S((phi*rad))(n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
@@ -1531,7 +1598,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "S(gcd(digsum,phi))(n) = 1 (mod 2) for all n = 3 (mod 4)": {
    "authored": true,
@@ -1969,31 +2036,82 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "S(oxa033453)(n) = 0 (mod 2) for all n = 0 (mod 3)": {
    "authored": false,
-   "certificate": null,
+   "certificate": {
+    "N0": 64,
+    "Q": 1,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {},
+    "finite_check": [
+     1,
+     7
+    ],
+    "lemmas": [
+     "a linear recurrence with integer coefficients is eventually periodic mod m (pigeonhole on the state)"
+    ],
+    "method": "recurrence residues",
+    "period": 6,
+    "preperiod_from": 1,
+    "recurrences": {
+     "oxa033453": {
+      "k0": 0,
+      "sig": [
+       4,
+       -2,
+       1
+      ],
+      "source": "oeis A033453 signature (4,-2,1)"
+     }
+    }
+   },
    "check": "authored_frontier_cong_xcb3ef303_w1",
    "checks": 162,
    "kind": "cong",
    "prior_certificate": false,
-   "status": "not proved",
-   "summary": null,
+   "status": "proved",
+   "summary": "recurrence residues: residues periodic with period 6 from n = 1 (oxa033453: oeis A033453 signature (4,-2,1)); every n <= 7 checked",
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "S(oxa047700)(n) = 1 (mod 2) for all n = 1 (mod 4)": {
    "authored": false,
-   "certificate": null,
+   "certificate": {
+    "N0": 64,
+    "Q": 1,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {},
+    "finite_check": [
+     1,
+     26
+    ],
+    "lemmas": [
+     "a linear recurrence with integer coefficients is eventually periodic mod m (pigeonhole on the state)"
+    ],
+    "method": "recurrence residues",
+    "period": 4,
+    "preperiod_from": 22,
+    "recurrences": {
+     "oxa047700": {
+      "k0": 21,
+      "sig": [
+       2,
+       -1
+      ],
+      "source": "oeis A047700 signature (2,-1)"
+     }
+    }
+   },
    "check": "authored_frontier_cong_xcc4c83b3_w1",
    "checks": 497,
    "kind": "cong",
    "prior_certificate": false,
-   "status": "not proved",
-   "summary": null,
+   "status": "proved",
+   "summary": "recurrence residues: residues periodic with period 4 from n = 22 (oxa047700: oeis A047700 signature (2,-1)); every n <= 26 checked",
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "a(n) = (fib*fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+1) + 2*a(n+2)": {
    "authored": false,
@@ -12280,7 +12398,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 3
+   "v": 4
   },
   "a(n) = S((n+n))(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -12292,7 +12410,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 3
+   "v": 4
   },
   "a(n) = S((pell*pell))(n) satisfies a(n+3) = -1*a(n+0) + 5*a(n+1) + 5*a(n+2)": {
    "authored": false,
@@ -12304,7 +12422,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 3
+   "v": 4
   },
   "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
@@ -12316,7 +12434,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 3
+   "v": 4
   },
   "a(n) = S(n)(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -12328,7 +12446,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 3
+   "v": 4
   },
   "a(n) = S(pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
@@ -12340,7 +12458,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 3
+   "v": 4
   },
   "a(n) = S(pow2)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)": {
    "authored": false,
@@ -12352,7 +12470,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": false,
-   "v": 3
+   "v": 4
   },
   "a(n) = dbl((fib+pow2))(n) satisfies a(n+3) = 4*a(n+0) + -13*a(n+1) + 7*a(n+2)": {
    "authored": false,
@@ -16820,7 +16938,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)": {
    "authored": false,
@@ -17927,7 +18045,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "dbl(n)(n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
@@ -17993,19 +18111,52 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "dbl(oxa072827)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
    "authored": false,
-   "certificate": null,
+   "certificate": {
+    "N0": 64,
+    "Q": 1,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {},
+    "finite_check": [
+     1,
+     7
+    ],
+    "lemmas": [
+     "a linear recurrence with integer coefficients is eventually periodic mod m (pigeonhole on the state)"
+    ],
+    "method": "recurrence residues",
+    "period": 6,
+    "preperiod_from": 1,
+    "recurrences": {
+     "oxa072827": {
+      "k0": 0,
+      "sig": [
+       1,
+       2,
+       3,
+       5,
+       6,
+       -1,
+       -1,
+       0,
+       -1,
+       -1
+      ],
+      "source": "oeis A072827 signature (1,2,3,5,6,-1,-1,0,-1,-1)"
+     }
+    }
+   },
    "check": "authored_frontier_cong_x47dd09c7_w1",
    "checks": 62,
    "kind": "cong",
    "prior_certificate": false,
-   "status": "not proved",
-   "summary": null,
+   "status": "proved",
+   "summary": "recurrence residues: residues periodic with period 6 from n = 1 (oxa072827: oeis A072827 signature (1,2,3,5,6,-1,-1,0,-1,-1)); every n <= 7 checked",
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "dbl(pell)(n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
@@ -18230,25 +18381,25 @@
    "authored": true,
    "certificate": null,
    "check": "authored_frontier_le_x10223e69_w1",
-   "checks": 19988,
+   "checks": 59988,
    "kind": "le",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "fib(n) divides dbl(stree_grid3)(n) for all n >= 1": {
    "authored": true,
    "certificate": null,
-   "check": "authored_frontier_divides_x3562d07e_w1",
+   "check": "authored_frontier_divides_x3562d07e_w2",
    "checks": 988,
    "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(lpf,tau)(n) divides (mu*pell)(n) for all n >= 1": {
    "authored": false,
@@ -18926,19 +19077,19 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(match_ladder,stree_ladder)(n) = 1 (mod 2) for all n >= 1": {
    "authored": true,
    "certificate": null,
-   "check": "authored_frontier_cong_xfdcb3b60_w1",
+   "check": "authored_frontier_cong_xfdcb3b60_w2",
    "checks": 1988,
    "kind": "cong",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -18950,7 +19101,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -18962,19 +19113,94 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(oxa033453,oxa072856)(n) = 0 (mod 2) for all n = 2 (mod 3)": {
    "authored": false,
-   "certificate": null,
+   "certificate": {
+    "N0": 64,
+    "Q": 1,
+    "checker": "colony.proof_check.check: ok",
+    "classes": {},
+    "finite_check": [
+     1,
+     10
+    ],
+    "lemmas": [
+     "a linear recurrence with integer coefficients is eventually periodic mod m (pigeonhole on the state)"
+    ],
+    "method": "recurrence residues",
+    "period": 9,
+    "preperiod_from": 1,
+    "recurrences": {
+     "oxa033453": {
+      "k0": 0,
+      "sig": [
+       4,
+       -2,
+       1
+      ],
+      "source": "oeis A033453 signature (4,-2,1)"
+     },
+     "oxa072856": {
+      "k0": 0,
+      "sig": [
+       3,
+       2,
+       -1,
+       -1,
+       70,
+       39,
+       -31,
+       -114,
+       -522,
+       -184,
+       34,
+       46,
+       1444,
+       202,
+       -606,
+       1204,
+       198,
+       -804,
+       542,
+       -26,
+       -2372,
+       -318,
+       1582,
+       -328,
+       -2018,
+       -222,
+       810,
+       184,
+       -706,
+       -14,
+       204,
+       70,
+       14,
+       28,
+       -22,
+       -11,
+       47,
+       -8,
+       -11,
+       -1,
+       -4,
+       1,
+       1
+      ],
+      "source": "oeis A072856 signature (3,2,-1,-1,70,39,-31,-114,-522,-184,34,46,1444,202,-606,1204,)"
+     }
+    }
+   },
    "check": "authored_frontier_cong_x58a0cdf7_w1",
-   "checks": 63,
+   "checks": 129,
    "kind": "cong",
    "prior_certificate": false,
-   "status": "not proved",
-   "summary": null,
+   "status": "proved",
+   "summary": "recurrence residues: residues periodic with period 9 from n = 1 (oxa033453: oeis A033453 signature (4,-2,1); oxa072856: oeis A072856 signature (3,2,-1,-1,70,39,-31,-114,-522,-184,34,46,1444,202,-606,1204,)); every n <= 10 checked",
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(part,sqfree)(n) <= dbl(gcd(part,sqfree))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -18986,7 +19212,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1": {
    "authored": false,
@@ -18998,7 +19224,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1": {
    "authored": true,
@@ -19010,7 +19236,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
    "authored": false,
@@ -19022,19 +19248,19 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gpf[phi](n) divides dbl(phi)(n) for all n >= 1": {
    "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x0c5f5f5b_w1",
-   "checks": 19988,
+   "checks": 59988,
    "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gpf[pnot3](n) <= pnot3(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
@@ -19046,7 +19272,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gpf[pnot3](n) = 1 (mod 2) for all n = 0 (mod 6)": {
    "authored": false,
@@ -19058,7 +19284,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "gpf[pnot3](n) divides pnot3(n) for all n >= 1": {
    "authored": false,
@@ -19070,19 +19296,19 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "lucas(n) divides dbl(stree_grid3)(n) for all n >= 1": {
    "authored": true,
    "certificate": null,
-   "check": "authored_frontier_divides_x318ee14a_w1",
+   "check": "authored_frontier_divides_x318ee14a_w2",
    "checks": 988,
    "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "pi[prime](n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
@@ -19148,7 +19374,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "pow2(n) = D(pow2)(n) for all n >= 1": {
    "authored": false,
@@ -19249,7 +19475,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)": {
    "authored": false,
@@ -19261,7 +19487,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)": {
    "authored": false,
@@ -19273,7 +19499,7 @@
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "sh(n)(n) = (n+one)(n) for all n >= 1": {
    "authored": false,
@@ -19816,26 +20042,26 @@
   "stree_grid3(n) divides dbl(stree_grid3)(n) for all n >= 1": {
    "authored": true,
    "certificate": null,
-   "check": "authored_frontier_divides_xc90ee275_w1",
+   "check": "authored_frontier_divides_xc90ee275_w2",
    "checks": 988,
    "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1": {
    "authored": true,
    "certificate": null,
-   "check": "authored_frontier_divides_xba575886_w1",
+   "check": "authored_frontier_divides_xba575886_w2",
    "checks": 988,
    "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
    "unknown": true,
-   "v": 3
+   "v": 4
   },
   "tau[lpf](n) divides (lpf-pell)(n) for all n >= 1": {
    "authored": true,
@@ -19986,5 +20212,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-23T05:17:07Z"
+ "ts": "2026-10-23T05:42:36Z"
 }

@@ -1,20 +1,23 @@
 {
-  "last_attempt_at": "2026-10-23T05:11:17Z",
-  "last_status": 0,
+  "last_attempt_at": "2026-10-23T05:37:02Z",
+  "last_status": 200,
   "retry_after_until": null,
-  "last_error": "ReadTimeout: The read operation timed out",
-  "last_ok_at": "2026-10-23T01:44:57Z",
+  "last_error": "",
+  "last_ok_at": "2026-10-23T05:37:02Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data",
-      "abstract_snippet": "Reinforcement learning (RL) is an effective way to strengthen the long-context reasoning of large language models (LLMs), but it needs training data that are long, diverse, challenging, and verifiable. Human annotation of such data is expensive, naturally occurring data are too scarce to sustain RL, and existing synthesis methods depend on external corpora or stronger teacher models, which become ",
-      "url": "https://arxiv.org/abs/2610.30132",
-      "arxiv_id": "2610.30132",
+      "title": "Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success",
+      "abstract_snippet": "Robotic foundation models are typically evaluated through costly closed-loop rollouts, which motivates cheap offline proxies for model capability. The Platonic Representation Hypothesis (PRH) suggests that as representations improve, different modalities such as vision and language converge toward a shared statistical model of reality. We ask whether motion trajectories form another such modality:",
+      "url": "https://arxiv.org/abs/2610.31670",
+      "arxiv_id": "2610.31670",
       "doi": "",
       "authors": [
-        "Zhennan Wan",
-        "Jianfei Chen"
+        "Yunfei Xie",
+        "Howard H. Qian",
+        "Shiyi Lan",
+        "Kaiyu Hang",
+        "Chen Wei"
       ],
       "year": 2026,
       "tags": [
@@ -24,21 +27,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T01:44:57Z"
+      "fetched_at": "2026-10-23T05:37:02Z"
     },
     {
       "source": "arxiv",
-      "title": "Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation",
-      "abstract_snippet": "Existing sequential recommenders usually allocate a fixed computational budget to every item in a user's interaction history, regardless of the item's contribution to the final prediction. We challenge this de facto design with two diagnostic findings. (1) Non-uniform computational need: items within the same sequence vary drastically in how much computation they require. Most converge after shall",
-      "url": "https://arxiv.org/abs/2610.30128",
-      "arxiv_id": "2610.30128",
+      "title": "Phase Transition from Random Features to Fully Trainable Networks",
+      "abstract_snippet": "Constructing accurate and computationally tractable approximation spaces is a fundamental task in scientific computing. Partially trainable neural networks bridge fixed random features and fully adaptive representations. This paper quantifies a phase transition pattern in approximation bounds and observes analogous behavior in training errors: a rapid but smooth initial improvement followed by dim",
+      "url": "https://arxiv.org/abs/2610.31663",
+      "arxiv_id": "2610.31663",
       "doi": "",
       "authors": [
-        "Zhanshuo Cao",
-        "Jiakai Tang",
-        "Yuqi Zhou",
-        "Sunhao Dai",
-        "Jun Xu"
+        "Xin He",
+        "Huan Lao",
+        "Xiliang Lu",
+        "Shijun Zhang"
       ],
       "year": 2026,
       "tags": [
@@ -48,19 +50,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T01:44:57Z"
+      "fetched_at": "2026-10-23T05:37:02Z"
     },
     {
       "source": "arxiv",
-      "title": "Temporal Exploration and Rendezvous via Weisfeiler-Leman Colorings",
-      "abstract_snippet": "Temporal graphs are graphs whose edge relation changes in discrete time steps. The Temporal Exploration Problem (TEXP) asks for a temporal walk that visits all vertices. We show that every connected temporal graph with $n$ vertices can be explored in $O(qn\\log^3(n))$ time steps, where $q$ is the number of vertex color classes induced by the 2-dimensional Weisfeiler-Leman (2-WL) coloring. For small",
-      "url": "https://arxiv.org/abs/2610.30123",
-      "arxiv_id": "2610.30123",
+      "title": "Reliable AI-Assisted Decisions via Selective Auditing",
+      "abstract_snippet": "We consider online monitoring of an AI system that produces a sequence of decisions. At each round, the system outputs a proposed decision together with a confidence score estimating the trustworthiness of the decision. The decision and confidence score need not be produced by the same model: for example, one agent may propose a decision, while a separate verifier agent evaluates it and outputs a ",
+      "url": "https://arxiv.org/abs/2610.31662",
+      "arxiv_id": "2610.31662",
       "doi": "",
       "authors": [
-        "Frank Kammer",
-        "Sandra Kiefer",
-        "Johannes Meintrup"
+        "Isaac Gibbs",
+        "Elise L. Han",
+        "Ryan J. Tibshirani",
+        "Tijana Zrnic"
       ],
       "year": 2026,
       "tags": [
@@ -70,18 +73,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T01:44:57Z"
+      "fetched_at": "2026-10-23T05:37:02Z"
     },
     {
       "source": "arxiv",
-      "title": "A Quasipolynomial Algorithm for $\\ell_\\infty$ Contractions",
-      "abstract_snippet": "We give an algorithm for computing an $\\eps$-approximate fixed point of any $d$-dimensional nonexpansion with respect to the $\\ell_\\infty$ norm in time $\\log(1/\\eps)^{O(\\log^2 d)}$. At its core, our method uses a boosting argument to geometrically shrink a search region. Among other consequences, our algorithm implies that simple stochastic games can be solved in quasipolynomial time.",
-      "url": "https://arxiv.org/abs/2610.30122",
-      "arxiv_id": "2610.30122",
+      "title": "SpectralCanary: Embarrassingly Simple Low-Frequency Traces for T2I Dataset-Use Auditing",
+      "abstract_snippet": "Auditing whether a text-to-image (T2I) model was fine-tuned on a particular image collection is difficult: a model can absorb collection-level visual characteristics without reproducing training images. Proactive dataset-use auditing plants a shared signal in a dataset before release, then later checks whether that signal appears in a suspect model's generated outputs. Existing approaches often tr",
+      "url": "https://arxiv.org/abs/2610.31659",
+      "arxiv_id": "2610.31659",
       "doi": "",
       "authors": [
-        "Ashkan Soleymani",
-        "Gabriele Farina"
+        "Sy-Tuyen Ho",
+        "Anirudh Satheesh",
+        "Soham Chawathe",
+        "Huy Nghiem",
+        "Yongkyun Lee",
+        "Andrew Adams Schoen"
       ],
       "year": 2026,
       "tags": [
@@ -91,18 +98,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T01:44:57Z"
+      "fetched_at": "2026-10-23T05:37:02Z"
     },
     {
       "source": "arxiv",
-      "title": "Self-normalized Bernstein Inequalities for Regenerative Processes and Applications to Learning Without Independence",
-      "abstract_snippet": "We prove a self-normalized Bernstein inequality for bounded functions of a regenerative process with independent, identically distributed marked cycles of finite mean length. The bound uses observed cycle lengths and retains explicit terms for truncation and the cycle ending after the observation horizon. Selecting a tuning parameter from a finite deterministic collection gives a version of Bernst",
-      "url": "https://arxiv.org/abs/2610.30119",
-      "arxiv_id": "2610.30119",
+      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
+      "abstract_snippet": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on calibration data under explicit costs, then evaluate that frozen policy once on held-out test data. On a public 47,837-ticket, eight-class corpus, we compare four trained non-LLM classifiers with four lar",
+      "url": "https://arxiv.org/abs/2610.31657",
+      "arxiv_id": "2610.31657",
       "doi": "",
       "authors": [
-        "Imon Banerjee",
-        "Pierre Alquier"
+        "Sachin Gupta"
       ],
       "year": 2026,
       "tags": [
@@ -112,7 +118,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T01:44:57Z"
+      "fetched_at": "2026-10-23T05:37:02Z"
     }
   ]
 }

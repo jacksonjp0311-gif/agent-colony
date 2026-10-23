@@ -1,25 +1,10 @@
 {
   "version": 1,
   "totals": {
-    "ok": 70,
+    "ok": 71,
     "unbridged": 52
   },
   "rows": [
-    {
-      "mutation": "authored_cycle_spanning_trees__lagrange_cyclic_orders_w1",
-      "status": "ok",
-      "family": "compose",
-      "template": null,
-      "mismatches": [],
-      "mutants_tested": 2,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-18T07:01:27Z",
-      "cycle_id": "20261018T070105Z_4c1ae3",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_euler_theorem__lucas_theorem_binomial_w1",
       "status": "ok",
@@ -694,8 +679,23 @@
       "kind": "hard_enable",
       "oracle_passed": false,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "residue_bal",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-23T05:37:47Z",
+      "cycle_id": "20261023T053628Z_8d937e",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-23T05:16:13Z",
+  "updated_at": "2026-10-23T05:37:47Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }
