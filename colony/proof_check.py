@@ -1089,3 +1089,200 @@ def _check_recres(cert: dict[str, Any], c: dict[str, Any], T: Any) -> tuple[bool
     if not got["holds"]:
         return False, f"fails at n = {got['first_fail']}"
     return True, "ok"
+
+
+# ----------------------------------------------------------------------------- OEIS conjectures (C-finite)
+# Separate checker for certificates from colony.oeis_conjectures.attempt_prove. It uses only the
+# independent evaluator colony.oeis_eval_b (path B), never the prover's path-A code:
+#   gf_identity       the definition's g.f. P/Q (rational g.f., or the g.f. of a constant-coefficient
+#                     linear recurrence with the b-file initial terms) and the conjectured g.f. P2/Q2
+#                     satisfy P*Q2 == P2*Q as polynomials;
+#   cfinite_identity  every side of the conjectured identity is built from a(c*n+j), fib/lucas(c*n+j),
+#                     n, constants, c^n with + - * (and / by constants); the difference is C-finite of
+#                     order <= D (sum / product order bounds) on n >= S, so D consecutive zeros from S
+#                     prove it for all n >= S; n0 <= n < S is checked term by term.
+# Both require that the quoted OEIS definition re-parses to the certificate's definition and that the
+# definition reproduces every b-file term handed in.
+
+
+def _oe_def_terms(d: dict[str, Any], off: int, terms: list[int], L: int):
+    from colony import oeis_eval_b as OB
+    from fractions import Fraction
+    if d["kind"] == "gf":
+        num, den = OB.rational(OB.compile_expr(d["expr"]))
+        if den[0] == 0:
+            return None
+        co = OB.series(num, den, off + L)
+        if any(c.denominator != 1 for c in co):
+            return None
+        dn = len(num) - 1
+        dd = len(den) - 1
+        m0 = max(dn + 1, dd)
+        return {"terms": [int(c) for c in co[off:]], "W": m0 - dd, "order": dd, "num": num, "den": den}
+    lin = {int(k): Fraction(v) for k, v in (d.get("linear") or {}).items()}
+    if not lin or d["kind"] != "rec":
+        return None
+    K = max(lin)
+    xs = list(terms[:K])
+    if len(xs) < K:
+        return None
+    while len(xs) < L:
+        v = sum(c * xs[len(xs) - i] for i, c in lin.items())
+        if v.denominator != 1:
+            return None
+        xs.append(int(v))
+    den = [Fraction(1)] + [-lin.get(i, Fraction(0)) for i in range(1, K + 1)]
+    A = [Fraction(0)] * off + [Fraction(v) for v in xs[:K + 1]]
+    num = OB.pmul(A, den)[:off + K]
+    return {"terms": xs, "W": off, "order": K, "num": num, "den": den}
+
+
+def _oe_order(code, a_order: int, a_W: int):
+    """(order bound D, start S) of an RPN expression, or None when outside the C-finite class."""
+    st: list[tuple] = []
+    for t in code:
+        if t[0] == "num":
+            st.append(("c", t[1]))
+        elif t[0] == "var":
+            if t[1] != "n":
+                return None
+            st.append(("i", (1, 0)))
+        elif t[0] == "op":
+            o = t[1]
+            if o == "neg":
+                k, v = st.pop()
+                st.append((k, (-v[0], -v[1])) if k == "i" else (k, -v) if k == "c" else (k, v))
+                continue
+            (k2, v2), (k1, v1) = st.pop(), st.pop()
+
+            def sq(k, v):
+                if k == "c":
+                    return (1, -10 ** 9)
+                if k == "i":
+                    return (2, -10 ** 9)
+                return v
+            if o in "+-":
+                if k1 in "ci" and k2 in "ci":
+                    i1 = v1 if k1 == "i" else (0, v1)
+                    i2 = v2 if k2 == "i" else (0, v2)
+                    s = 1 if o == "+" else -1
+                    r = (i1[0] + s * i2[0], i1[1] + s * i2[1])
+                    st.append(("c", r[1]) if r[0] == 0 else ("i", r))
+                else:
+                    (d1, s1), (d2, s2) = sq(k1, v1), sq(k2, v2)
+                    st.append(("s", (d1 + d2, max(s1, s2))))
+            elif o == "*":
+                if k1 == "c" and k2 == "c":
+                    st.append(("c", v1 * v2))
+                elif k1 == "c" or k2 == "c":
+                    c, (k, v) = (v1, (k2, v2)) if k1 == "c" else (v2, (k1, v1))
+                    st.append(("i", (c * v[0], c * v[1])) if k == "i" else (k, v) if k == "s" else ("c", 0))
+                else:
+                    (d1, s1), (d2, s2) = sq(k1, v1), sq(k2, v2)
+                    st.append(("s", (d1 * d2, max(s1, s2))))
+            elif o == "/":
+                if k2 != "c" or v2 == 0:
+                    return None
+                st.append(("s", sq(k1, v1)) if k1 != "c" else ("s", (1, -10 ** 9)))
+            else:  # ^
+                if k1 == "c" and k2 == "i" and v1 != 0 and v2[0] >= 0:
+                    st.append(("s", (1, -10 ** 9)))
+                elif k2 == "c" and 0 <= v2 <= 12:
+                    if k1 == "c":
+                        st.append(("c", v1 ** v2))
+                    else:
+                        d, s = sq(k1, v1)
+                        st.append(("s", (d ** v2 if v2 else 1, s)))
+                else:
+                    return None
+        else:
+            name = t[1]
+            if t[2] != 1:
+                return None
+            k, v = st.pop()
+            if k == "c":
+                v = (0, v)
+            elif k != "i":
+                return None
+            c, j = v
+            if c < 1:
+                return None
+            if name == "a":
+                st.append(("s", (a_order, -((j - a_W) // c))))
+            elif name in ("fib", "lucas"):
+                st.append(("s", (2, -(j // c))))
+            else:
+                return None
+    if len(st) != 1:
+        return None
+    k, v = st[0]
+    if k == "c":
+        return 1, -10 ** 9
+    if k == "i":
+        return 2, -10 ** 9
+    return v
+
+
+def check_oeis(cert: dict[str, Any], terms: list[int]) -> tuple[bool, str]:
+    from colony import oeis_eval_b as OB
+    from colony import oeis_conjectures as OC  # normaliser only (text -> canonical grammar)
+    try:
+        d = cert["definition"]
+        if OC.parse_definition(cert["def_text"]) != d:
+            return False, "definition does not re-parse from the quoted OEIS name"
+        off = int(cert["offset"])
+        claim = cert["claim"]
+        if cert["type"] == "gf_identity":
+            if claim.get("form") != "gf":
+                return False, "claim is not a g.f."
+            D = _oe_def_terms(d, off, terms, len(terms) + 8)
+            if D is None or D["terms"][:len(terms)] != list(terms):
+                return False, "definition does not reproduce the b-file"
+            p2, q2 = OB.rational(OB.compile_expr(claim["expr"]))
+            ok = OB.poly_eq(OB.pmul(D["num"], q2), OB.pmul(p2, D["den"]))
+            return (True, "polynomial identity P*Q2 == P2*Q") if ok else (False, "g.f.s differ")
+        if cert["type"] != "cfinite_identity":
+            return False, "unknown certificate type"
+        if claim.get("form") != "relation" or claim.get("mod") or any(r != "=" for r in claim["rels"]):
+            return False, "claim is not an identity"
+        D0 = _oe_def_terms(d, off, terms, len(terms) + 8)
+        if D0 is None or D0["terms"][:len(terms)] != list(terms):
+            return False, "definition does not reproduce the b-file"
+        n0 = claim.get("n0")
+        n0 = off if n0 is None else max(off, int(n0))
+        codes = [OB.compile_expr(p) for p in claim["parts"]]
+        bounds = [_oe_order(c, D0["order"], D0["W"] if d["kind"] == "gf" else off) for c in codes]
+        if any(b is None for b in bounds):
+            return False, "a side is outside the C-finite class"
+        need_hi = 0
+        plan = []
+        for i in range(len(codes) - 1):
+            Dd = bounds[i][0] + bounds[i + 1][0]
+            S = max(n0, bounds[i][1], bounds[i + 1][1])
+            plan.append((i, S, Dd))
+            need_hi = max(need_hi, S + Dd)
+        L = 4 * (need_hi + 8) + 64
+        if L > 200000:
+            return False, "order bound too large"
+        xs = _oe_def_terms(d, off, terms, L)["terms"]
+
+        def seq(nm, i):
+            if nm != "a" or i < off or i - off >= len(xs):
+                raise OB.Missing(nm)
+            return xs[i - off]
+        checked = 0
+        for i, S, Dd in plan:
+            for n in range(n0, S + Dd):
+                try:
+                    x = OB.evaluate(codes[i], {"n": n}, seq)
+                    y = OB.evaluate(codes[i + 1], {"n": n}, seq)
+                except OB.Missing:
+                    if n >= S:
+                        return False, "term needed for the finite check is missing"
+                    continue
+                if x != y:
+                    return False, f"identity fails at n = {n}"
+                checked += 1
+        return True, f"C-finite order bounds {[(S, Dd) for _, S, Dd in plan]}; {checked} points checked"
+    except (OB.Bad, KeyError, TypeError, ValueError, ZeroDivisionError) as ex:
+        return False, "checker error: " + str(ex)[:80]

@@ -296,6 +296,11 @@ class Society:
                     if _pp.mode() != "off":
                         _pp.run(T=_fc._TABLES)
                 self._stage(result, "proof", proof)
+                def oeis_conj():  # stated OEIS conjectures: attempt_disprove / attempt_prove (COLONY_OEIS_CONJ)
+                    from colony import oeis_conjectures as _oc
+                    if _oc.mode() != "off":
+                        _oc.run_cycle(cid)
+                self._stage(result, "oeis_conjectures", oeis_conj)
 
         self._stage(result, "frontier", frontier_stage)
         def new_data_stage():

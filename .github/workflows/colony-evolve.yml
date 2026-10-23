@@ -166,6 +166,9 @@ jobs:
           # open OEIS problems (unproved conjectures, no known formula) in the menu with a sampling
           # bonus and a surprise-credit weight; needs COLONY_OBSCURE live (colony/open_targets.py)
           COLONY_OPEN_TARGETS: live
+          # stated OEIS conjectures as targets: attempt_disprove (two independent code paths) and
+          # attempt_prove (proof_check.check_oeis); results flagged for review only (colony/oeis_conjectures.py)
+          COLONY_OEIS_CONJ: live
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |
