@@ -2,8 +2,8 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-23T17:30:09Z",
-    "cycle_id": "20261023T172751Z_b799a0",
+    "ts": "2026-10-23T17:48:47Z",
+    "cycle_id": "20261023T174642Z_4d3cd7",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -12,7 +12,7 @@
     },
     "n_meet_bar_actual": 25,
     "n_meet_bar_shadow": 13,
-    "n_unknown_claims": 36,
+    "n_unknown_claims": 37,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x0df35249_w1",
@@ -22,18 +22,18 @@
       "authored_frontier_cong_x4bb20589_w1",
       "authored_frontier_cong_x5cb35120_w2",
       "authored_frontier_cong_xa9e515ff_w1",
-      "authored_frontier_cong_xbae7672a_w1",
       "authored_frontier_cong_xbb82919e_w1",
+      "authored_frontier_divides_x0b1db873_w2",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
       "authored_frontier_divides_x3562d07e_w1",
       "authored_frontier_divides_x3562d07e_w2",
       "authored_frontier_divides_x575aa435_w2",
+      "authored_frontier_divides_x5979c9b9_w2",
       "authored_frontier_divides_x97939198_w1",
       "authored_frontier_divides_xba575886_w1",
       "authored_frontier_divides_xba575886_w2",
-      "authored_frontier_divides_xc90ee275_w1",
-      "authored_frontier_divides_xc90ee275_w2"
+      "authored_frontier_divides_xc90ee275_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -44,7 +44,7 @@
       "imp_15e790_50",
       "imp_df0e1a_50",
       "imp_9e87d3_50",
-      "imp_0c27a0_50",
+      "imp_b6534a_50",
       "imp_12c82c_50",
       "imp_49ebcf_50",
       "imp_8ee2e8_50",
@@ -200,51 +200,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-10-23T10:58:55Z",
-      "cycle_id": "20261023T105646Z_4a708f",
-      "n_meet_bar_actual": 17,
-      "n_meet_bar_shadow": 4,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T11:00:53Z",
-      "cycle_id": "20261023T105857Z_5c13f6",
-      "n_meet_bar_actual": 16,
-      "n_meet_bar_shadow": 3,
-      "n_unknown_claims": 16,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T11:02:51Z",
-      "cycle_id": "20261023T110056Z_8f45cb",
-      "n_meet_bar_actual": 16,
-      "n_meet_bar_shadow": 3,
-      "n_unknown_claims": 16,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-23T11:58:30Z",
       "cycle_id": "20261023T115553Z_0e6992",
@@ -641,6 +596,51 @@
       "n_meet_bar_actual": 25,
       "n_meet_bar_shadow": 13,
       "n_unknown_claims": 36,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T17:44:38Z",
+      "cycle_id": "20261023T174215Z_ce828d",
+      "n_meet_bar_actual": 24,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 35,
+      "drop_out_of_bar": 11,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T17:46:40Z",
+      "cycle_id": "20261023T174441Z_b6534a",
+      "n_meet_bar_actual": 24,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 36,
+      "drop_out_of_bar": 11,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T17:48:47Z",
+      "cycle_id": "20261023T174642Z_4d3cd7",
+      "n_meet_bar_actual": 25,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 37,
       "drop_out_of_bar": 12,
       "enter_bar": 0,
       "guidance_mode": "live",

@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-23T17:29:39Z",
+  "ts": "2026-10-23T17:48:19Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261023T172751Z_b799a0"
+    "cycle_id": "20261023T174642Z_4d3cd7"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 481,
+  "last_oracle_passes": 484,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-23T10:15:15Z",
-      "cycle_id": "20261023T101319Z_724b2e",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-23T10:25:53Z",
-      "cycle_id": "20261023T102401Z_4754d7",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-23T10:28:03Z",
-      "cycle_id": "20261023T102618Z_bf6565",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-10-23T10:29:58Z",
       "cycle_id": "20261023T102824Z_f800a6",
@@ -289,9 +268,30 @@
       "event": "credit",
       "delta_pass": 1.0,
       "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-23T17:44:18Z",
+      "cycle_id": "20261023T174215Z_ce828d",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-23T17:46:19Z",
+      "cycle_id": "20261023T174441Z_b6534a",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-23T17:48:25Z",
+      "cycle_id": "20261023T174642Z_4d3cd7",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
     }
   ],
-  "updated_at": "2026-10-23T17:29:46Z",
+  "updated_at": "2026-10-23T17:48:25Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.011209,
     "hockey_stick": 0.011209,
@@ -334,20 +334,20 @@
     "stirling_first_row_sum": 0.014822,
     "bell_stirling_sum": 0.014822,
     "alternating_binomial_row": 0.014822,
-    "multinomial_three": 0.014828,
+    "multinomial_three": 0.014827,
     "euler_pentagonal": 0.014822,
-    "odd_distinct_partitions": 0.014828,
-    "partition_conjugate_parts": 0.014828,
-    "cayley_tree_count": 0.014828,
-    "cycle_spanning_trees": 0.014839,
-    "complete_bipartite_trees": 0.014839,
-    "cayley_hamilton_2x2": 0.014828,
-    "cayley_hamilton_3x3": 0.014839,
-    "newton_identities": 0.014839,
-    "polynomial_remainder": 0.014839,
-    "telescoping_sum": 0.014839,
-    "abel_summation": 0.014839,
-    "faulhaber_power_sums": 0.014839,
+    "odd_distinct_partitions": 0.014827,
+    "partition_conjugate_parts": 0.014827,
+    "cayley_tree_count": 0.014827,
+    "cycle_spanning_trees": 0.01484,
+    "complete_bipartite_trees": 0.01484,
+    "cayley_hamilton_2x2": 0.014827,
+    "cayley_hamilton_3x3": 0.01484,
+    "newton_identities": 0.01484,
+    "polynomial_remainder": 0.01484,
+    "telescoping_sum": 0.01484,
+    "abel_summation": 0.01484,
+    "faulhaber_power_sums": 0.01484,
     "lagrange_cyclic_orders": 0.011861,
     "burnside_necklaces": 0.011861,
     "workload_derived_chain": 0.034013,
@@ -358,7 +358,7 @@
     "fibonacci_cassini_ext": 0.034013,
     "derived_chain_stress": 0.034013,
     "energy_work": 0.034013,
-    "authored_frontier_divides_x575aa435_w2": 0.047618
+    "authored_frontier_divides_x5979c9b9_w2": 0.047618
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -643,7 +643,10 @@
     "authored_frontier_cong_x5cb35120_w2": 1,
     "authored_frontier_le_x1c0eba57_w2": 1,
     "authored_sieve_hl_within_g6_2_w2": 1,
-    "authored_frontier_divides_x575aa435_w2": 1
+    "authored_frontier_divides_x575aa435_w2": 1,
+    "authored_frontier_divides_x0b1db873_w2": 1,
+    "authored_sieve_residue_bal_g6_4_w2": 1,
+    "authored_frontier_divides_x5979c9b9_w2": 1
   },
   "charter_inform": {
     "bias": {

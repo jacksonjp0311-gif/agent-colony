@@ -27,7 +27,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 33,
+ "n_authored": 34,
  "n_authored_proved": 9,
  "n_claims": 150,
  "n_proved": 92,
@@ -60,7 +60,7 @@
    "v": 4
   },
   "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x5979c9b9_w1",
    "checks": 59988,
@@ -2138,7 +2138,7 @@
    "v": 4
   },
   "S(oxa157100)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_xbae7672a_w1",
    "checks": 244,
@@ -14816,7 +14816,7 @@
    "v": 4
   },
   "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_cong_x22ed9f43_w1",
    "checks": 662,
@@ -15756,5 +15756,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-23T17:29:53Z"
+ "ts": "2026-10-23T17:48:32Z"
 }

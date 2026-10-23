@@ -2487,8 +2487,38 @@
    "proposals_withdrawn": [
     "imp_2e3985_50"
    ]
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_2_w2",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 7 other Oracle-passed members, expected = s/(s+K) = 0.985 >= 0.95 (K=0.10921); 7 members stay",
+   "ts": "2026-10-23T17:42:25Z",
+   "cycle_id": "20261023T174215Z_ce828d",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_hl_within_g6_2_w2() -> bool:\n    \"\"\"Authored instrument check (desk): count of consecutive pattern (6, 2) on each window is within 4.0*sqrt of the HL forecast.\n    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((6, 2), a, b)) is int and type(h := sieve_hl((6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])\n",
+   "entry": "    (\"authored_sieve_hl_within_g6_2_w2\", check_authored_sieve_hl_within_g6_2_w2, True),\n",
+   "family": "authored_sieve_hl_within",
+   "expected": 0.9846,
+   "proposals_withdrawn": [
+    "imp_0c27a0_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_xbae7672a_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T17:42:25Z",
+   "cycle_id": "20261023T174215Z_ce828d",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xbae7672a_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S(oxa157100)(n) = 1 (mod 2) for all n = 0 (mod 2)\n    re-tested on windows [(41, 204), (205, 368), (369, 532)]. conjecture surviving 244 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(oxa157100)', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 204), (205, 368), (369, 532)])\n",
+   "entry": "    (\"authored_frontier_cong_xbae7672a_w1\", check_authored_frontier_cong_xbae7672a_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_44161a_50"
+   ]
   }
  ],
- "n_retired": 155,
+ "n_retired": 157,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

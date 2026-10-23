@@ -1,7 +1,7 @@
 {
-  "ts": "2026-10-23T17:30:09Z",
+  "ts": "2026-10-23T17:48:47Z",
   "view_only": true,
-  "n_considered": 93,
+  "n_considered": 96,
   "n_meet_bar": 25,
   "n_groups": 19,
   "n_authored_groups": 19,
@@ -424,8 +424,8 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-10-23T17:30:09Z",
-    "cycle_id": "20261023T172751Z_b799a0",
+    "ts": "2026-10-23T17:48:47Z",
+    "cycle_id": "20261023T174642Z_4d3cd7",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -434,7 +434,7 @@
     },
     "n_meet_bar_actual": 25,
     "n_meet_bar_shadow": 13,
-    "n_unknown_claims": 36,
+    "n_unknown_claims": 37,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x0df35249_w1",
@@ -444,18 +444,18 @@
       "authored_frontier_cong_x4bb20589_w1",
       "authored_frontier_cong_x5cb35120_w2",
       "authored_frontier_cong_xa9e515ff_w1",
-      "authored_frontier_cong_xbae7672a_w1",
       "authored_frontier_cong_xbb82919e_w1",
+      "authored_frontier_divides_x0b1db873_w2",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
       "authored_frontier_divides_x3562d07e_w1",
       "authored_frontier_divides_x3562d07e_w2",
       "authored_frontier_divides_x575aa435_w2",
+      "authored_frontier_divides_x5979c9b9_w2",
       "authored_frontier_divides_x97939198_w1",
       "authored_frontier_divides_xba575886_w1",
       "authored_frontier_divides_xba575886_w2",
-      "authored_frontier_divides_xc90ee275_w1",
-      "authored_frontier_divides_xc90ee275_w2"
+      "authored_frontier_divides_xc90ee275_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -466,7 +466,7 @@
       "imp_15e790_50",
       "imp_df0e1a_50",
       "imp_9e87d3_50",
-      "imp_0c27a0_50",
+      "imp_b6534a_50",
       "imp_12c82c_50",
       "imp_49ebcf_50",
       "imp_8ee2e8_50",
@@ -622,12 +622,12 @@
     }
   },
   "excluded_reasons": {
-    "status": 40,
-    "target_unresolved": 32,
     "oracle_killed_in_own_cycle": 15,
     "novelty_killed": 25,
+    "status": 42,
+    "target_unresolved": 34,
     "no_oracle_pass_in_own_cycle": 9,
-    "trivial_by_filter": 11,
+    "trivial_by_filter": 12,
     "hearing": 2
   },
   "rule": {
@@ -637,5 +637,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261023T172751Z_b799a0"
+  "cycle_id": "20261023T174642Z_4d3cd7"
 }
