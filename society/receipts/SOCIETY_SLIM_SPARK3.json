@@ -1,25 +1,25 @@
 {
-  "when": "2026-10-23T05:43:03Z",
+  "when": "2026-10-23T05:58:18Z",
   "mile": "spark3-port",
-  "cycle_count": 690,
+  "cycle_count": 693,
   "fitness_latest": {
-    "ts": "2026-10-23T05:42:26Z",
-    "cycle_id": "20261023T054052Z_a8578a",
+    "ts": "2026-10-23T05:57:37Z",
+    "cycle_id": "20261023T055552Z_565649",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8109,
-    "compute_usefulness": 0.9099,
+    "math_prize": 0.8087,
+    "compute_usefulness": 0.9072,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8834,
+    "prize_boost": 0.8814,
     "kill_rate": 0.2975,
     "kill_rate_term": 0.8178,
     "novelty": 0.8462,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8575,
+    "aggregate": 0.8572,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
@@ -44,7 +44,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8685
+    "aggregate_score": 0.8653
   },
   "novelty_gate": {
     "hits": 22,
@@ -64,7 +64,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261023T054052Z_a8578a"
+    "cycle_id": "20261023T055552Z_565649"
   },
   "oracle": {
     "passes": 458,
