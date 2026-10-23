@@ -151,7 +151,11 @@ jobs:
           # new generator ingredients (graph invariants, restricted partitions, matrix sequences)
           COLONY_FRONTIER_INGREDIENTS: live
           # strong known-results check before surprise credit (colony/known_check.py)
-          COLONY_REFCHECK_STRONG: shadow
+          COLONY_REFCHECK_STRONG: live
+          # less-studied OEIS entries offered in the generator menu (colony/obscure_pool.py)
+          COLONY_OBSCURE: shadow
+          # arithmetic claims re-checked to n = 10^6 before surprise credit (colony/deep_range.py)
+          COLONY_DEEP: shadow
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

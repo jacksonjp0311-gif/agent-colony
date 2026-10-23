@@ -277,6 +277,11 @@ class LazyTable(dict):
         self._T = T
 
     def __missing__(self, key: str) -> list[int]:
+        from colony import obscure_pool as _op
+        if key in _op.PRIMS:
+            v = _op.table(key)
+            self[key] = v
+            return v
         if key not in NEW:
             raise KeyError(key)
         v = _builders(self._T)[key]()
@@ -284,7 +289,8 @@ class LazyTable(dict):
         return v
 
     def __contains__(self, key: object) -> bool:
-        return dict.__contains__(self, key) or key in NEW
+        from colony import obscure_pool as _op
+        return dict.__contains__(self, key) or key in NEW or key in _op.PRIMS
 
     def get(self, key: str, default: Any = None) -> Any:
         try:
@@ -316,7 +322,7 @@ def new_tally() -> dict[str, dict[str, int]]:
 def mark(tally: dict | None, prims: set[str], stage: str) -> None:
     if tally is None:
         return
-    for p in prims & set(NEW):
+    for p in prims & set(tally):
         tally[p][stage] = tally[p].get(stage, 0) + 1
 
 

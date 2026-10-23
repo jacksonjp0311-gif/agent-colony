@@ -95,6 +95,30 @@ def strong_known(r: dict[str, Any]) -> str:
         return ""
 
 
+_DEEP: dict[str, str] = {}
+
+
+def deep_gate(r: dict[str, Any]) -> str:
+    """COLONY_DEEP=live: credit only for claims that survived the deep range (computed for stored
+    claims, never written back). Returns the reason for zero credit, '' when it survived."""
+    try:
+        from colony import deep_range as DR
+        if DR.mode() != "live":
+            return ""
+        lab = str(r.get("deep") or "")
+        if not lab:
+            key = str(r.get("statement") or r.get("sig") or "")
+            if key not in _DEEP:
+                from colony import frontier_conjectures as FC
+                c = {"kind": r["kind"], "params": r.get("params") or {}, "range": r.get("range"),
+                     "_le": FC.parse(r["lhs"]), "_re": FC.parse(r["rhs"]) if r.get("rhs") else None}
+                _DEEP[key] = DR.test(c, FC.tables())["label"]
+            lab = _DEEP[key]
+        return "" if lab.startswith("survived") else f"no credit: {lab}"
+    except Exception:  # noqa: BLE001
+        return ""
+
+
 def explained(r: dict[str, Any], *, trivial: bool | None = None) -> str:
     """Why the claim earns zero ('' when it is not explained)."""
     if r.get("falsified_later"):
@@ -110,6 +134,9 @@ def explained(r: dict[str, Any], *, trivial: bool | None = None) -> str:
     kc = strong_known(r)
     if kc:
         return kc[:120]
+    dp = deep_gate(r)
+    if dp:
+        return dp[:120]
     if trivial is None:
         trivial = trivial_any_seed(r)
     if trivial:

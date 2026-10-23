@@ -38,6 +38,9 @@ ING_ANUM = {"stree_ladder": "A001353", "stree_grid3": "A006238", "match_ladder":
             "ple3": "A001399", "prr": "A003114", "pnot3": "A000726", "perm_derange": "A000166", "tr_tribo": "A001644"}
 NET_MAX = 12
 MAX_ORD = 16
+# parity facts of non-periodic sequences (classical; each is checked against the table in the tests)
+PARITY_FACTS = {"pdist": "Euler: q(n) is odd iff n is a generalized pentagonal number k(3k-1)/2 (pentagonal theorem mod 2)",
+}
 P_RECURSIVE_UNIT = {"perm_derange": "D(n) = n D(n-1) + (-1)^n (P-recursive, unit leading coefficient)"}
 _DIVSEQ = re.compile(r"divisibility sequence|a\(m\)\s*(?:divides|\|)\s*a\(n\)|a\(n\)\s*(?:divides|\|)\s*a\((?:k\s*\*?\s*)?[mk]\s*\*?\s*n\)"
                      r"|gcd\(\s*a\(m\)\s*,\s*a\(n\)\s*\)\s*=\s*a\(\s*gcd", re.I)
@@ -117,10 +120,17 @@ def periodic_facts(c: dict[str, Any], T: Any) -> dict[str, list[dict[str, Any]]]
         if p in FC.CF_ORDER and p not in ("n", "one"):
             fs.append({"kind": "residue_all", "dom": 1,
                        "ref": f"{p} is C-finite with an integer monic recurrence, so periodic mod m (classical)"})
+        if PARITY_FACTS.get(p):
+            fs.append({"kind": "residue", "m": 2, "dom": 1, "ref": PARITY_FACTS[p]})
         if p in P_RECURSIVE_UNIT:
             fs.append({"kind": "residue_all", "dom": 1, "ref": f"{P_RECURSIVE_UNIT[p]}: periodic mod m"})
         out[p] = fs
     return out
+
+
+def FC_canon(e: Any) -> str:
+    from colony import frontier_conjectures as FC
+    return FC.canon(e)
 
 
 def periodic_null(c: dict[str, Any], T: Any) -> str | None:
@@ -128,11 +138,22 @@ def periodic_null(c: dict[str, Any], T: Any) -> str | None:
     from colony import reference_check as RC
     if c["kind"] not in ("cong", "modpat"):
         return None
+    le = c["_le"]
+    if c["kind"] == "cong" and c.get("_re") is None and le[0] == "o":
+        # f[g] with "f(x) = 0 mod m iff x = 0 mod m" (definition of f): reduce to the same claim on g
+        m, r = int(c["params"].get("m", 0)), int(c["params"].get("r", -1))
+        if r == 0 and any(f["kind"] in ("residue", "divby") and f.get("m") == m and "iff" in f["ref"]
+                          for f in RC.CATALOG.get(le[1], [])):
+            inner = dict(c, _le=le[2], lhs=FC_canon(le[2]))
+            got = periodic_null(inner, T)
+            if got:
+                return got.replace("derived: ", f"derived: {le[1]}(x) = 0 mod {m} iff x = 0 mod {m}, and ", 1)
     facts = periodic_facts(c, T)
-    if not any(f["kind"] == "residue_all" for fs in facts.values() for f in fs):
+    new = [f for fs in facts.values() for f in fs if f["kind"] == "residue_all" or f["ref"] in PARITY_FACTS.values()]
+    if not new:
         return None
     if RC.explained_by(c, T, facts) and RC.explained_by(c, T, facts, seed=5):
-        refs = sorted({f["ref"] for fs in facts.values() for f in fs if f["kind"] == "residue_all"})
+        refs = sorted({f["ref"] for f in new})
         return "derived: follows from periodic residues of its parts (" + "; ".join(refs)[:220] + ")"
     return None
 
@@ -178,7 +199,7 @@ def anums(c: dict[str, Any], T: Any, lookup: Callable | None) -> dict[str, str]:
     from colony import reference_check as RC
     out = {}
     for p in FC.prims_of(c["_le"]) | (FC.prims_of(c["_re"]) if c.get("_re") is not None else set()):
-        a = RC.PRIM_ANUM.get(p) or ING_ANUM.get(p)
+        a = RC.PRIM_ANUM.get(p) or ING_ANUM.get(p) or _obs_anum(p)
         if a is None and lookup is not None and p in T.t and len(T.t[p]) > 31:
             r = lookup(T.t[p][1:31])
             a = (r.get("anums") or [None])[0] if r.get("status") == "found" else None
@@ -290,3 +311,11 @@ def check(c: dict[str, Any], T: Any, net: Any = None, lookup: Callable | None = 
     return {"explained": False, "step": "",
             "label": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, "
                      f"OEIS texts: {', '.join(checked) or 'none fetched'})"}
+
+
+def _obs_anum(p: str) -> str | None:
+    try:
+        from colony import obscure_pool as OP
+        return OP.ANUM.get(p)
+    except Exception:  # noqa: BLE001
+        return None

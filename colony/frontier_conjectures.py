@@ -82,6 +82,9 @@ EXPO = ("pow2", "fib", "lucas", "pell", "part")
 from colony import frontier_ingredients as _ING  # noqa: E402
 ARITH = ARITH + _ING.CHEAP
 EXPO = EXPO + _ING.EXPO_NEW
+# less-studied OEIS entries (COLONY_OBSCURE; colony/obscure_pool.py), sampled only when active()
+from colony import obscure_pool as _OBS  # noqa: E402
+EXPO = EXPO + _OBS.PRIMS
 PRIMS = ARITH + EXPO
 WIDE_QS = (5, 7, 11)     # residue classes for Ramanujan-type congruences
 WIDE_MODS = (11,)
@@ -91,7 +94,7 @@ MODPAT_MAX_P = 12
 CF_ORDER = {"n": 2, "one": 1, "pow2": 1, "fib": 2, "lucas": 2, "pell": 2} | _ING.CF_ORDER_NEW
 OPS = ("p", "S", "D", "sh", "dbl", "+", "-", "*", "gcd", "o")
 POSITIVE = {"n", "one", "phi", "sigma", "tau", "rad", "lpf", "gpf", "prime", "digsum", "popcount",
-            "cmax", "maxgap", "ds3", "rev"} | set(_ING.POSITIVE_NEW)
+            "cmax", "maxgap", "ds3", "rev"} | set(_ING.POSITIVE_NEW) | set(_OBS.POSITIVE)
 
 
 def menu() -> str:
@@ -103,7 +106,8 @@ def menu() -> str:
 
 def menu_prims() -> tuple[str, ...]:
     ps = PRIMS if menu() == "wide" else tuple(k for k in PRIMS if k not in WIDE)
-    return ps if _ING.active() else tuple(k for k in ps if k not in _ING.NEW)
+    ps = ps if _ING.active() else tuple(k for k in ps if k not in _ING.NEW)
+    return ps if _OBS.active() else tuple(k for k in ps if k not in _OBS.PRIMS)
 
 
 def mode() -> str:
@@ -412,6 +416,8 @@ def sample_expressions(rng: random.Random, n: int, state: dict[str, Any]) -> lis
     PRIMS = menu_prims()  # noqa: N806 (menu-limited ingredients)
     ARITH = tuple(k for k in globals()["ARITH"] if k in PRIMS)  # noqa: N806
     pw = ucb_weights(state.get("prim_stats") or {}, PRIMS)
+    if _OBS.mode() == "live":   # incentive, not a target: less-studied entries get a sampling bonus
+        pw = {k: (v * _OBS.OBSCURE_BONUS if k in _OBS.PRIMS else v) for k, v in pw.items()}
     ow = ucb_weights(state.get("op_stats") or {}, OPS)
     seen, out = set(), []
     tries = 0
@@ -1568,9 +1574,9 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
               k_prior: float | None = None, tally: dict | None = None) -> dict[str, Any]:
     if mode() == "off":
         return {"skipped": "COLONY_FRONTIER=off"}
-    live_tally = tally is None and _ING.mode() == "live" and write
+    live_tally = tally is None and write and (_ING.mode() == "live" or _OBS.mode() == "live")
     if live_tally:
-        tally = _ING.new_tally()
+        tally = (_ING.new_tally() if _ING.mode() == "live" else {}) | (_OBS.new_tally() if _OBS.mode() == "live" else {})
     _pr = lambda c: prims_of(c["_le"]) | (prims_of(c["_re"]) if c.get("_re") is not None else set())  # noqa: E731
     T = T or tables()
     F = F or fit_n()
@@ -1729,6 +1735,22 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
                             c["unknown_reason"] = kc["label"][:300]
             except Exception as exc:  # noqa: BLE001
                 c["known_check"] = f"known check failed: {str(exc)[:80]}"
+        if c["unknown"]:
+            # deep range (COLONY_DEEP): arithmetic claims re-checked to n = 10^6 before any credit
+            try:
+                from colony import deep_range as _dr
+                if _dr.mode() != "off":
+                    dr = _dr.test(c, T)
+                    c["deep"] = dr["label"]
+                    counts[f"deep_{dr['status'].replace('/', '')}"] = counts.get(f"deep_{dr['status'].replace('/', '')}", 0) + 1
+                    if dr["status"] == "falsified" and _dr.mode() == "live":
+                        c["unknown"] = False
+                        c["unknown_reason"] = dr["label"]
+                        c["survived"] = False
+                        counts["survived"] -= 1
+                        counts["falsified"] += 1
+            except Exception as exc:  # noqa: BLE001
+                c["deep"] = f"deep check failed: {str(exc)[:80]}"
         cert = prove(c, T)
         c["label"] = "machine-checked (certificate)" if cert else f"conjecture surviving {c['checks']} checks"
         c["certificate"] = cert
@@ -1785,7 +1807,7 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         if c.get("survived"):
             reg[c["id"]] = {k: c.get(k) for k in ("kind", "lhs", "rhs", "params", "label", "certificate", "checks", "loose",
                                                    "range", "oeis", "oeis_anums", "unknown", "unknown_reason",
-                                                   "family", "hunt_value", "prediction", "sig", "reference", "known_check")} | {
+                                                   "family", "hunt_value", "prediction", "sig", "reference", "known_check", "deep")} | {
                 "statement": statement(c), "found_cycle": cycle_id, "found_at": _utc()}
     if len(reg) > REGISTRY_CAP:  # keep surprises / certified first, then most recent
         keep = sorted(reg.items(), key=lambda kv: (not kv[1].get("unknown"), not kv[1].get("certificate"),
@@ -1816,7 +1838,10 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
         state_path.write_text(json.dumps(st, indent=1, sort_keys=True) + "\n", encoding="utf-8")
         if live_tally:
             try:
-                _ING.record(cycle_id, "live", tally, summary)
+                if _ING.mode() == "live":
+                    _ING.record(cycle_id, "live", {p: tally[p] for p in _ING.NEW}, summary)
+                if _OBS.mode() == "live" and _OBS.PRIMS:
+                    _OBS.record(cycle_id, "live", {p: tally[p] for p in _OBS.PRIMS}, summary)
             except Exception:  # noqa: BLE001
                 pass
     return summary

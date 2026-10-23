@@ -281,6 +281,11 @@ class Society:
                     if _fi.mode() == "shadow":
                         _fi.shadow_cycle(cid, T=_fc._TABLES)
                 self._stage(result, "frontier_ingredients", ingredients)
+                def obscure():  # obscure-OEIS pool, report-only pass (COLONY_OBSCURE=shadow)
+                    from colony import obscure_pool as _op
+                    if _op.mode() == "shadow":
+                        _op.shadow_cycle(cid, T=_fc._TABLES)
+                self._stage(result, "obscure_pool", obscure)
                 def proof():
                     from colony import proof_path as _pp
                     if _pp.mode() != "off":
