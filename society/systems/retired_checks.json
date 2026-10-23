@@ -2411,8 +2411,24 @@
    "proposals_withdrawn": [
     "imp_fca4b2_50"
    ]
+  },
+  {
+   "name": "authored_sieve_hl_within_g2_6_w2",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 7 other Oracle-passed members, expected = s/(s+K) = 0.985 >= 0.95 (K=0.10921); 7 members stay",
+   "ts": "2026-10-23T16:35:39Z",
+   "cycle_id": "20261023T163525Z_c93fec",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_hl_within_g2_6_w2() -> bool:\n    \"\"\"Authored instrument check (desk): count of consecutive pattern (2, 6) on each window is within 4.0*sqrt of the HL forecast.\n    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((2, 6), a, b)) is int and type(h := sieve_hl((2, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])\n",
+   "entry": "    (\"authored_sieve_hl_within_g2_6_w2\", check_authored_sieve_hl_within_g2_6_w2, True),\n",
+   "family": "authored_sieve_hl_within",
+   "expected": 0.9846,
+   "proposals_withdrawn": [
+    "imp_4e614e_50"
+   ]
   }
  ],
- "n_retired": 150,
+ "n_retired": 151,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

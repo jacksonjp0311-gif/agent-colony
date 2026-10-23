@@ -1,20 +1,12 @@
 {
- "ts": "2026-10-23T16:28:54Z",
+ "ts": "2026-10-23T16:40:57Z",
  "mode": "live",
- "n_authored": 110,
- "n_candidates": 1,
+ "n_authored": 111,
+ "n_candidates": 0,
  "machine_receipts": "live",
  "machine_release_limit": 40,
- "by_category": {
-  "trivial_frontier": 1
- },
- "candidates": [
-  {
-   "name": "authored_frontier_cong_xe0f68915_w1",
-   "category": "trivial_frontier",
-   "reason": "the current triviality filter flags this frontier claim as a rewrite"
-  }
- ],
+ "by_category": {},
+ "candidates": [],
  "rule": {
   "expected_min": 0.95,
   "keep_min": 3,
@@ -23,15 +15,9 @@
   "sieve_grace_hours": 0.25,
   "max_per_run": 60
  },
- "cycle_id": "20261023T162844Z_ff85eb",
+ "cycle_id": "20261023T164047Z_787f83",
  "applied": {
-  "applied": 1,
-  "names": [
-   "authored_frontier_cong_xe0f68915_w1"
-  ],
-  "withdrawn": [
-   "imp_fca4b2_50"
-  ]
+  "applied": 0
  },
- "n_protected": 72
+ "n_protected": 73
 }

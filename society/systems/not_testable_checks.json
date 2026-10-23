@@ -1,5 +1,5 @@
 {
- "n": 10,
+ "n": 14,
  "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
  "records": {
   "07de99650444b31d:w1": {
@@ -42,6 +42,16 @@
    "reason": "no_data_headroom",
    "statement": "prime[oxa080076](n) = 1 (mod 2) for all n >= 1"
   },
+  "5e2b9e4887d1bc31:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_le_x5e2b9e48_w2",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "le",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[pnot3](n) <= pnot3(n) for all n >= 1 (with equality at some n)"
+  },
   "69004ae3c80ff95a:w2": {
    "authored_hi": 3850,
    "check": "authored_frontier_divides_x69004ae3_w2",
@@ -72,6 +82,16 @@
    "reason": "no_data_headroom",
    "statement": "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1"
   },
+  "84926b76bac27ae7:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_divides_x84926b76_w2",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "divides",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[pnot3](n) divides pnot3(n) for all n >= 1"
+  },
   "b168eb68fc249021:w1": {
    "authored_hi": 0,
    "check": "authored_frontier_cong_xb168eb68_w1",
@@ -82,6 +102,16 @@
    "reason": "no_data_headroom",
    "statement": "ple3[oxa080076](n) = 1 (mod 2) for all n >= 1"
   },
+  "b19ab27cc0ed21b7:w2": {
+   "authored_hi": 900,
+   "check": "authored_frontier_cong_xb19ab27c_w2",
+   "data_end": 1200,
+   "holdback": 300,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1"
+  },
   "c49d8defd91b9639:w1": {
    "authored_hi": 0,
    "check": "authored_frontier_cong_xc49d8def_w1",
@@ -89,6 +119,16 @@
    "holdback": 90,
    "kind": "cong",
    "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)"
+  },
+  "c49d8defd91b9639:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xc49d8def_w2",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
    "reason": "no_data_headroom",
    "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)"
   },
