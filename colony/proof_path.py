@@ -321,6 +321,8 @@ def prove(claim: dict[str, Any], T: Any, budget_s: float = PER_CLAIM_S) -> dict[
     except Exception:  # noqa: BLE001
         return None
     p = claim.get("params") or {}
+    if kind == "modpat":
+        return _recurrence_cert(claim, le, re_, T)
     P = Prover(T, time.time() + budget_s)
     qs = _qs(p["q"]) if kind == "cong" else [1, 2, 4, 6, 12, 24, 36, 60]
     for Q in qs:
@@ -369,7 +371,23 @@ def prove(claim: dict[str, Any], T: Any, budget_s: float = PER_CLAIM_S) -> dict[
         if ok:
             cert["checker"] = "colony.proof_check.check: ok"
             return cert
-    return None
+    return _recurrence_cert(claim, le, re_, T) if kind == "cong" else None
+
+
+def _recurrence_cert(claim: dict[str, Any], le: tuple, re_: tuple | None, T: Any) -> dict[str, Any] | None:
+    """'recurrence residues': parts with a citable linear recurrence (OEIS-listed signature from the
+    local cache, or a defining recurrence), residue period computed and re-checked by the checker."""
+    try:
+        from colony import known_check as KC
+        c = {"kind": claim["kind"], "lhs": claim["lhs"], "rhs": claim.get("rhs") or "",
+             "params": claim.get("params") or {}, "_le": le, "_re": re_}
+        if re_ is not None:
+            return None
+        from colony import frontier_conjectures as FC
+        recs = KC.recurrence_recs(c, T, KC.Net(budget=0), FC.default_lookup())
+        return KC.recurrence_certificate(c, T, recs) if recs else None
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def _residue_class(P: "Prover", kind: str, le: tuple, re_: tuple | None, p: dict[str, Any], cls: tuple):
@@ -402,6 +420,10 @@ def _lemmas(x: Any) -> set[str]:
 
 def summary_of(cert: dict[str, Any]) -> str:
     ls = cert.get("lemmas") or []
+    if cert.get("method") == "recurrence residues":
+        src = "; ".join(f"{k}: {v['source']}" for k, v in sorted((cert.get("recurrences") or {}).items()))
+        return (f"recurrence residues: residues periodic with period {cert.get('period')} from n = "
+                f"{cert.get('preperiod_from')} ({src[:200]}); every n <= {cert['finite_check'][1]} checked")
     return (f"{cert['method']}: n split mod {cert['Q']}, every class derived from "
             f"{len(ls)} lemma(s){': ' + '; '.join(ls)[:240] if ls else ''}; n < {cert['N0']} checked directly")
 
@@ -449,7 +471,9 @@ def run(T: Any = None, *, state_path: Path | None = None, write: bool = True,
     n_new = 0
     for s, c in sorted(claims.items(), key=lambda kv: (kv[1].get("kind") == "rec", kv[0])):
         old = prev.get(s)
-        if old and old.get("status") in ("proved", "not proved") and old.get("v") == 3:
+        # v4 (2026-10-23) adds 'recurrence residues': earlier 'not proved' results are retried once
+        if old and ((old.get("status") == "proved" and old.get("v") in (3, 4)) or
+                    (old.get("status") == "not proved" and old.get("v") == 4)):
             results[s] = dict(old, authored=bool(c.get("authored")), unknown=bool(c.get("unknown")))
             continue
         if time.time() - t0 > budget_s:
@@ -457,7 +481,7 @@ def run(T: Any = None, *, state_path: Path | None = None, write: bool = True,
             continue
         cert = prove(c, T)
         n_new += 1
-        results[s] = {"v": 3, "status": "proved" if cert else "not proved", "kind": c["kind"],
+        results[s] = {"v": 4, "status": "proved" if cert else "not proved", "kind": c["kind"],
                       "check": c.get("check"), "authored": bool(c.get("authored")),
                       "prior_certificate": bool(c.get("certificate")),
                       "unknown": bool(c.get("unknown")), "checks": c.get("checks"),

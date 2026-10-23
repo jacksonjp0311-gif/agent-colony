@@ -103,3 +103,39 @@ def test_cfinite_entry_from_oeis_signature_or_stated_recurrence():
     assert K.cfinite_entry(c, T, wrong, None) is None          # stated signature must hold on our table
     g = FC.parse(f"gcd({p},{p})")
     assert K.cfinite_entry({"kind": "rec", "lhs": "", "params": {}, "_le": g, "_re": None}, T, net, None) is None
+
+
+def test_recurrence_residues_settle_congruences_finitely():
+    """Residues computed from a verified recurrence agree with the table, settle true claims, catch
+    false ones, and give a certificate the checker accepts only for citable recurrences."""
+    from colony import frontier_conjectures as FC
+    from colony import known_check as K
+    from colony import proof_check as PC
+    T = FC.Tables(lim=3000, exp_n=400)
+    x = [int(v) for v in T.t["fib"][1:]]
+    u, pre, P = PC.rec_residues(x, [1, 1], 0, 4)
+    assert P == 6 and all(u[i] == x[i] % 4 for i in range(len(u)))
+    C = lambda lhs, **p: {"kind": "cong", "lhs": lhs, "rhs": "", "params": p, "_le": FC.parse(lhs), "_re": None}  # noqa: E731
+    recs = {"fib": {"sig": [1, 1], "k0": 0, "source": "defining: fib"}}
+    true = C("dbl(fib)", m=2, r=0, q=3, s=0)            # F(6k) even
+    false = C("S(fib)", m=2, r=0, q=3, s=1)
+    assert PC.recurrence_residues(true, T, recs)["holds"]
+    got = PC.recurrence_residues(false, T, recs)
+    assert not got["holds"] and got["first_fail"] is not None
+    vals = FC.evaluate(false["_le"], 60, T)                 # first failure agrees with the real values
+    assert vals[got["first_fail"] - 1] % 2 != 0
+    assert K.recurrence_certificate(true, T, recs)["checker"].endswith("ok")
+    fitted = {"fib": {"sig": [1, 1], "k0": 0, "source": "table: fitted"}}
+    assert K.recurrence_certificate(true, T, fitted) is None
+    claim = {"kind": "cong", "lhs": "dbl(fib)", "rhs": "", "params": true["params"]}
+    bad = {"method": "recurrence residues", "Q": 1, "N0": PC.N0, "classes": {},
+           "recurrences": {"fib": {"sig": [2, 1], "k0": 0, "source": "oeis A000045"}}}
+    assert PC.check(bad, claim, T)[0] is False                # a wrong stated recurrence is rejected
+    assert PC.recurrence_residues(C("gcd(fib,lucas)", m=2, r=1, q=1, s=0), T,
+                                  dict(recs, lucas=recs["fib"])) is None   # gcd only for r = 0
+    # eventually linear (n + c after an irregular start) is found and re-checked on the table
+    if "oxa047700" in T.t:           # A047700: irregular start, then n + c
+        r = K.verified_recurrence("oxa047700", T)
+        assert r and r["sig"][:2] == [2, -1] and not any(r["sig"][2:]) and r["source"].startswith("table")
+        lab = K.recurrence_residue(C("S(oxa047700)", m=2, r=1, q=4, s=1), T, None, None)
+        assert lab and lab.startswith("known in principle") and "no certificate" in lab

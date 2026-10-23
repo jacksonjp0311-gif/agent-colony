@@ -15,6 +15,10 @@ credit. Any one of these explains it (label 'known/derived: ...'; live: not a su
     - periodic residues: every C-finite sequence with an integer monic recurrence, and every
       P-recursive one with unit leading coefficient (derangements), is periodic mod m; a
       congruence that holds under a null keeping exactly those residues follows from them.
+    - recurrence residues: a congruence / residue pattern on parts that each satisfy a verified
+      linear recurrence (OEIS-listed, defining, or fitted to and re-checked on our table) is settled
+      by computing the residue period (colony.proof_check.recurrence_residues); certificate when every
+      recurrence is citable.
     - (multiplicativity and the classical parity rules come in through the kernel and the
       Stage 2 catalog.)
 (d) the claim's derived sequence (the quotient f/g of a divisibility, the gap B - A of an
@@ -344,6 +348,110 @@ def cfinite_entry(c: dict[str, Any], T: Any, net: Any, lookup: Callable | None) 
             "table); shifts, sums, differences and bisections of C-finite sequences are C-finite")
 
 
+def _oeis_sig(rec: dict[str, Any]) -> list[int] | None:
+    for ln in rec.get("link") or []:
+        m = _LINREC.search(str(ln))
+        if m:
+            return [int(x) for x in m.group(1).replace(" ", "").split(",") if x]
+    return next((g for _, t in _lines(rec) if (g := _stated_rec(t))), None)
+
+
+def _start_of(x: list[int], sig: list[int], max_k0: int = 40) -> int | None:
+    """Smallest k0 <= max_k0 such that the recurrence holds on every table term from k0 + d on."""
+    from colony import proof_check as PC
+    d = len(sig)
+    if d == 0:
+        return None
+    bad = max((i for i in range(d, len(x)) if x[i] != sum(sig[j] * x[i - 1 - j] for j in range(d))), default=d - 1)
+    k0 = bad - d + 1
+    return k0 if k0 <= max_k0 and PC.rec_fits(x, sig, k0) else None
+
+
+def verified_recurrence(p: str, T: Any, net: Any = None, a: str | None = None) -> dict[str, Any] | None:
+    """A linear recurrence with integer coefficients for primitive p, re-checked on every table term
+    from its start: OEIS-listed (signature link or stated recurrence) when available, the defining
+    recurrence of a C-finite primitive, or one fitted to and re-checked on our table (>= 3d + 20 terms;
+    this includes eventually-polynomial sequences such as n + c after an irregular start)."""
+    from colony import frontier_conjectures as FC
+    x = [int(v) for v in (T.t.get(p) or [])[1:]]
+    if len(x) < 23:
+        return None
+    if net is not None and a:
+        rec = entry(a, net)
+        sig = _oeis_sig(rec) if rec else None
+        if sig and len(sig) <= 60:
+            k0 = _start_of(x, sig)
+            if k0 is not None:
+                return {"sig": sig, "k0": k0, "source": f"oeis {a} signature ({','.join(map(str, sig))[:60]})"}
+    for k0 in (0, 5, 10, 20, 40):
+        r = find_recurrence(x[k0:])
+        if r is not None and all(v.denominator == 1 for v in r):
+            sig = [int(v) for v in r]
+            k = _start_of(x, sig)
+            if k is None:
+                continue
+            src = "defining recurrence (C-finite primitive)" if FC.cf_order(("p", p)) is not None else \
+                "fitted to our table and re-checked on all terms"
+            return {"sig": sig, "k0": k, "source": ("defining" if src.startswith("defining") else "table") + ": " + src}
+    return None
+
+
+def recurrence_recs(c: dict[str, Any], T: Any, net: Any, lookup: Callable | None) -> dict[str, dict[str, Any]] | None:
+    from colony import frontier_conjectures as FC
+    inv = anums(c, T, lookup) if net is not None else {}
+    out = {}
+    for p in FC.prims_of(c["_le"]):
+        r = verified_recurrence(p, T, net, inv.get(p))
+        if r is None:
+            return None
+        out[p] = r
+    return out
+
+
+def recurrence_certificate(c: dict[str, Any], T: Any, recs: dict[str, dict[str, Any]]) -> dict[str, Any] | None:
+    """A 'recurrence residues' certificate, re-verified by colony.proof_check (citable sources only)."""
+    from colony import proof_check as PC
+    if any(not r["source"].startswith(PC.RR_CERT_SOURCES) for r in recs.values()):
+        return None
+    got = PC.recurrence_residues(c, T, recs)
+    if not got or not got["holds"]:
+        return None
+    cert = {"method": "recurrence residues", "Q": 1, "N0": PC.N0, "classes": {}, "recurrences": recs,
+            "period": got["period"], "preperiod_from": got["pre"], "finite_check": [1, got["checked_to"]],
+            "lemmas": ["a linear recurrence with integer coefficients is eventually periodic mod m (pigeonhole on the state)"]}
+    claim = {"kind": c["kind"], "lhs": c["lhs"], "rhs": c.get("rhs") or "", "params": c["params"]}
+    ok, _ = PC.check(cert, claim, T)
+    if ok:
+        cert["checker"] = "colony.proof_check.check: ok"
+        return cert
+    return None
+
+
+def recurrence_residue(c: dict[str, Any], T: Any, net: Any, lookup: Callable | None) -> str | None:
+    """(f) a congruence / parity / residue-pattern claim whose parts all satisfy a verified linear
+    recurrence: its residues are periodic, so it is settled by a finite computation (credit 0)."""
+    from colony import proof_check as PC
+    if c["kind"] not in ("cong", "modpat") or c.get("_re") is not None:
+        return None
+    recs = recurrence_recs(c, T, net, lookup)
+    if not recs:
+        return None
+    got = PC.recurrence_residues(c, T, recs)
+    if got is None:
+        return None
+    srcs = "; ".join(f"{p}: {r['source']}" for p, r in sorted(recs.items()))[:200]
+    if not got["holds"]:
+        return (f"known (settled finitely): false at n = {got['first_fail']}; its parts satisfy linear "
+                f"recurrences ({srcs}), so its residues mod {c['params']['m']} are periodic")
+    cert = recurrence_certificate(c, T, recs)
+    c["_rr_certificate"] = cert
+    tail = ("; proof-kernel certificate checked by colony.proof_check" if cert else
+            "; no certificate (a recurrence was fitted to our table, not cited)")
+    return (f"known in principle (elementary): its parts satisfy linear recurrences ({srcs}), so mod "
+            f"{c['params']['m']} it is periodic with period {got['period']} from n = {got['pre']}; every n up to "
+            f"{got['checked_to']} checked, which settles it for all n{tail}")
+
+
 class Net:
     """colony.new_data's polite cache (shared ~/.cache/colony/bfiles), own per-cycle budget."""
 
@@ -379,7 +487,8 @@ def check(c: dict[str, Any], T: Any, net: Any = None, lookup: Callable | None = 
                     "paperfolding, period-doubling, Baum-Sweet, Fibonacci word); decidable, e.g. with Walnut")
         return None
     steps = (("tautology", taut), ("automatic", auto), ("kernel", lambda: kernel(c, T)), ("cfinite", lambda: cfinite_identity(c, T)),
-             ("periodic", lambda: periodic_null(c, T)), ("oeis_derived", lambda: derived_in_oeis(c, T, lookup)))
+             ("periodic", lambda: periodic_null(c, T)), ("recurrence_residue", lambda: recurrence_residue(c, T, net, lookup)),
+             ("oeis_derived", lambda: derived_in_oeis(c, T, lookup)))
     for name, fn in steps:
         try:
             lab = fn()

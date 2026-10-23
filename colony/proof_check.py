@@ -814,6 +814,8 @@ def check(cert: dict[str, Any], claim: dict[str, Any], T: Any) -> tuple[bool, st
         c = {"kind": claim["kind"], "params": claim.get("params") or {}, "_le": FC.parse(claim["lhs"]),
              "_re": FC.parse(claim["rhs"]) if claim.get("rhs") else None}
         Q, method = int(cert["Q"]), cert["method"]
+        if method == "recurrence residues":
+            return _check_recres(cert, c, T)
         if cert.get("N0") != N0:
             return False, "N0 mismatch"
         p = c["params"]
@@ -940,3 +942,150 @@ def _check_closed(c: dict[str, Any], node: dict[str, Any], cls: tuple[int, int],
         res = cl[k] - sum(ci * cl[j] for j, ci in enumerate(co))
         return (True, "ok") if sym_zero(res) else (False, "recurrence residual is not 0")
     return False, "kind"
+
+
+# ----------------------------------------------------------------------------- recurrence residues
+# James 2026-10-23: a congruence / residue-pattern claim on sequences that satisfy a verified linear
+# recurrence with integer coefficients is elementary. Mod m the recurrence state takes at most m^d
+# values, so each part is eventually periodic (pigeonhole); + - * shifts, differences, a(2n) and
+# partial sums keep that, with a computable preperiod and period, so checking every n below
+# preperiod + lcm(period, q) settles the claim for all n. The checker recomputes everything from
+# the stated recurrences and the tables; the certificate is relative to those recurrences holding
+# for all n (each is an OEIS-listed signature or a defining recurrence, re-checked on the table).
+RR_CAP = 200_000
+RR_CERT_SOURCES = ("oeis", "defining")
+
+
+def _rr_ok_tree(e: tuple, root: bool, kind: str, params: dict[str, Any]) -> bool:
+    op = e[0]
+    if op == "p":
+        return True
+    if op in ("S", "D", "sh", "dbl"):
+        return _rr_ok_tree(e[1], False, kind, params)
+    if op in ("+", "-", "*"):
+        return _rr_ok_tree(e[1], False, kind, params) and _rr_ok_tree(e[2], False, kind, params)
+    if op == "gcd":
+        # m | gcd(a, b) iff m | a and m | b, so only "gcd(..) = 0 mod m" at the top is decided by residues
+        return (root and kind == "cong" and int(params.get("r", -1)) == 0
+                and _rr_ok_tree(e[1], False, kind, params) and _rr_ok_tree(e[2], False, kind, params))
+    return False
+
+
+def rec_fits(x: list[int], sig: list[int], k0: int) -> bool:
+    d = len(sig)
+    return (d > 0 and len(x) - k0 >= 3 * d + 20
+            and all(x[i] == sum(sig[j] * x[i - 1 - j] for j in range(d)) for i in range(k0 + d, len(x))))
+
+
+def rec_residues(x: list[int], sig: list[int], k0: int, m: int, cap: int = RR_CAP):
+    """(u, pre, P): u[i] = x[i] mod m (0-based), eventually periodic from index pre with period P."""
+    d = len(sig)
+    u = [v % m for v in x[:k0 + d]]
+    seen: dict[tuple, int] = {}
+    i = k0 + d
+    while i <= cap:
+        st = tuple(u[i - d:i])
+        if st in seen:
+            j = seen[st]
+            return u, j - d, i - j
+        seen[st] = i
+        u.append(sum(sig[t] * u[i - 1 - t] for t in range(d)) % m)
+        i += 1
+    return None
+
+
+def _rr_shape(e: tuple, per: dict[str, tuple[int, int]], m: int) -> tuple[int, int]:
+    """(first n from which e(n) mod m is periodic, period); n is 1-based."""
+    op = e[0]
+    if op == "p":
+        return per[e[1]]
+    if op in ("S", "D", "sh", "dbl"):
+        a, P = _rr_shape(e[1], per, m)
+        if op == "sh":
+            return max(1, a - 1), P
+        if op == "dbl":
+            return max(1, (a + 1) // 2), P
+        if op == "S":
+            return a, P * m
+        return a, P
+    (a, P), (b, R) = _rr_shape(e[1], per, m), _rr_shape(e[2], per, m)
+    return max(a, b), P * R // math.gcd(P, R)
+
+
+def _rr_need(e: tuple, N: int, out: dict[str, int]) -> None:
+    op = e[0]
+    if op == "p":
+        out[e[1]] = max(out.get(e[1], 0), N)
+    elif op in ("D", "sh"):
+        _rr_need(e[1], N + 1, out)
+    elif op == "dbl":
+        _rr_need(e[1], 2 * N, out)
+    elif op == "S":
+        _rr_need(e[1], N, out)
+    else:
+        _rr_need(e[1], N, out)
+        _rr_need(e[2], N, out)
+
+
+def recurrence_residues(c: dict[str, Any], T: Any, recs: dict[str, dict[str, Any]],
+                        cap: int = RR_CAP) -> dict[str, Any] | None:
+    """Settle a cong / modpat claim from its parts' linear recurrences: {'holds', 'first_fail',
+    'period', 'pre', 'checked_to'}; None when the method does not apply."""
+    from colony import frontier_conjectures as FC
+    kind, p = c["kind"], c.get("params") or {}
+    if kind not in ("cong", "modpat") or c.get("_re") is not None or not _rr_ok_tree(c["_le"], True, kind, p):
+        return None
+    m = int(p["m"])
+    if m < 2:
+        return None
+    per: dict[str, tuple[int, int]] = {}
+    res: dict[str, tuple[list[int], int, int]] = {}
+    for name in FC.prims_of(c["_le"]):
+        rc = recs.get(name)
+        if not rc:
+            return None
+        x = [int(v) for v in (T.t.get(name) or [])[1:]]
+        sig, k0 = [int(v) for v in rc["sig"]], int(rc["k0"])
+        if not rec_fits(x, sig, k0):
+            return None
+        got = rec_residues(x, sig, k0, m, cap)
+        if got is None:
+            return None
+        u, pre, P = got
+        res[name] = got
+        per[name] = (pre + 1, P)
+    a, P = _rr_shape(c["_le"], per, m)
+    q = int(p["q"]) if kind == "cong" else int(p["P"])
+    L = P * q // math.gcd(P, q)
+    N = a + L
+    if N > cap:
+        return None
+    need: dict[str, int] = {}
+    _rr_need(c["_le"], N, need)
+    tab: dict[str, list[int]] = {}
+    for name, L_n in need.items():
+        u, pre, Pp = res[name]
+        tab[name] = [0] + [u[i] if i < len(u) else u[pre + (i - pre) % Pp] for i in range(L_n + 1)]
+    vals = FC.evaluate(c["_le"], N, T, tab=tab)
+    if vals is None:
+        return None
+    ok, _ = FC.holds(kind, p, vals, None)
+    first = None
+    if not ok:
+        for n in range(1, N + 1):
+            if not FC.holds(kind, p, vals[n - 1:n], None, start=n)[0]:
+                first = n
+                break
+    return {"holds": ok, "first_fail": first, "period": L, "pre": a, "checked_to": N}
+
+
+def _check_recres(cert: dict[str, Any], c: dict[str, Any], T: Any) -> tuple[bool, str]:
+    recs = cert.get("recurrences") or {}
+    if not recs or any(not str(r.get("source", "")).startswith(RR_CERT_SOURCES) for r in recs.values()):
+        return False, "recurrence source not citable"
+    got = recurrence_residues(c, T, recs)
+    if got is None:
+        return False, "recurrence residues do not apply"
+    if not got["holds"]:
+        return False, f"fails at n = {got['first_fail']}"
+    return True, "ok"
