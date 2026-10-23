@@ -1,9 +1,9 @@
 {
- "ts": "2026-10-23T15:38:11Z",
+ "ts": "2026-10-23T15:50:46Z",
  "mode": "live",
- "n_keeps": 277,
- "n_frontier": 42,
- "n_hand_trivial": 38,
+ "n_keeps": 280,
+ "n_frontier": 44,
+ "n_hand_trivial": 40,
  "n_surprise": 4,
  "max_trivial_credit": 0.0,
  "min_surprise_credit": 0.0,
@@ -15,7 +15,7 @@
   "min_still_surprise_credit": 0.0,
   "hand_settled_ranked_lowest": true
  },
- "sieve_mean_credit": 0.0047,
+ "sieve_mean_credit": 0.0046,
  "rows": [
   {
    "name": "sum_first_n_cubes",
@@ -453,22 +453,12 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g4_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g6_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
   {
    "name": "authored_sieve_residue_bal_g2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g2_6_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -483,22 +473,12 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g6_2_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g6_4_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
   {
    "name": "authored_sieve_residue_bal_g6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g2_4_2_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -518,22 +498,12 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g2_6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g4_2_4_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
   {
    "name": "authored_sieve_residue_bal_g4_2_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g4_6_2_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -548,22 +518,12 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g6_2_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g6_4_2_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
   {
    "name": "authored_sieve_residue_bal_g6_4_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g6_6_2_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -578,17 +538,7 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g4_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g2_4_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -608,17 +558,7 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g6_2_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g6_6_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -638,17 +578,7 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g4_2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g2_6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g4_2_6_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -668,22 +598,7 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g6_4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g6_2_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g2_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g6_4_6_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -703,22 +618,12 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g4_2_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_residue_bal_g4_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
   {
    "name": "authored_sieve_hl_within_g2_4_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g4_6_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -733,22 +638,12 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g2_4_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_residue_bal_g6_2_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
   {
    "name": "authored_sieve_hl_within_g6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g2_6_4_w1",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -763,11 +658,6 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g4_6_6_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_residue_bal_g2_6_6_w1",
    "kind": "sieve",
    "credit": 0.0047
@@ -778,17 +668,7 @@
    "credit": 0.0047
   },
   {
-   "name": "authored_sieve_two_counter_g6_6_4_w1",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
    "name": "authored_sieve_hl_within_g6_2_4_w2",
-   "kind": "sieve",
-   "credit": 0.0047
-  },
-  {
-   "name": "authored_sieve_two_counter_g4_w2",
    "kind": "sieve",
    "credit": 0.0047
   },
@@ -796,6 +676,131 @@
    "name": "authored_sieve_residue_bal_g6_w2",
    "kind": "sieve",
    "credit": 0.0047
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_6_2_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_2_4_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_2_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_2_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_4_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_6_6_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g6_6_4_w1",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_w2",
+   "kind": "sieve",
+   "credit": 0.0045
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_4_w2",
+   "kind": "sieve",
+   "credit": 0.0045
   },
   {
    "name": "handshaking_small",
@@ -1627,7 +1632,7 @@
    "statement": "(lpf+mu)",
    "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6595,
+   "unlikely": 0.6631,
    "effort": 0.0,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
@@ -1640,7 +1645,7 @@
    "statement": "fib",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8767,
+   "unlikely": 0.877,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1653,7 +1658,7 @@
    "statement": "(lpf+mu)",
    "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6595,
+   "unlikely": 0.6631,
    "effort": 0.0,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
@@ -1666,7 +1671,7 @@
    "statement": "stree_grid3",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8767,
+   "unlikely": 0.877,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1679,7 +1684,7 @@
    "statement": "lucas",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8767,
+   "unlikely": 0.877,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1692,7 +1697,7 @@
    "statement": "stree_ladder",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8767,
+   "unlikely": 0.877,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1755,6 +1760,32 @@
    "effort": 0.422,
    "family": 1.0,
    "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 500)",
+   "target_weight": 2.0,
+   "source": "registry"
+  },
+  {
+   "name": "authored_frontier_cong_x4bb20589_w1",
+   "kind": "frontier",
+   "statement": "dbl(oxa048767)(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.5273,
+   "effort": 0.4701,
+   "family": 1.0,
+   "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 1000)",
+   "target_weight": 1.0,
+   "source": "registry"
+  },
+  {
+   "name": "authored_frontier_cong_xa9e515ff_w1",
+   "kind": "frontier",
+   "statement": "dbl(oxa177122)(n) = 1 (mod 2) for all n >= 1",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.5503,
+   "effort": 0.357,
+   "family": 1.0,
+   "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 200)",
    "target_weight": 2.0,
    "source": "registry"
   }

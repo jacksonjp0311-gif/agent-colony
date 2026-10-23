@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s00373-026-03019-7>",
+      "topic": "<https://doi.org/10.1007/s00373-025-02996-5>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "action-conditioned",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-23T15:39:16Z",
-  "updated_cycle": "20261023T153754Z_8e7529",
+  "updated_at": "2026-10-23T15:51:49Z",
+  "updated_cycle": "20261023T155029Z_66e1a8",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

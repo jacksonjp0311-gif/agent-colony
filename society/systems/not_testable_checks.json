@@ -1,5 +1,5 @@
 {
- "n": 6,
+ "n": 9,
  "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
  "records": {
   "07de99650444b31d:w1": {
@@ -11,6 +11,16 @@
    "lo": 40,
    "reason": "no_data_headroom",
    "statement": "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)"
+  },
+  "0dbd3162f119412e:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x0dbd3162_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "cmax[oxa080076](n) = 0 (mod 2) for all n >= 1"
   },
   "192eb85d74be50f2:w1": {
    "authored_hi": 0,
@@ -52,6 +62,16 @@
    "reason": "no_data_headroom",
    "statement": "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1"
   },
+  "b168eb68fc249021:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xb168eb68_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "ple3[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
   "c49d8defd91b9639:w1": {
    "authored_hi": 0,
    "check": "authored_frontier_cong_xc49d8def_w1",
@@ -61,6 +81,16 @@
    "lo": 40,
    "reason": "no_data_headroom",
    "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)"
+  },
+  "e8bb16925d335445:w2": {
+   "authored_hi": 752,
+   "check": "authored_frontier_le_xe8bb1692_w2",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "le",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gcd(part,sqfree)(n) <= dbl(gcd(part,sqfree))(n) for all n >= 1 (with equality at some n)"
   }
  }
 }

@@ -2349,8 +2349,24 @@
    "proposals_withdrawn": [
     "imp_969a57_50"
    ]
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_w2",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_two_counter`: 3 other Oracle-passed members, expected = s/(s+K) = 0.965 >= 0.95 (K=0.10921); 3 members stay",
+   "ts": "2026-10-23T15:46:04Z",
+   "cycle_id": "20261023T154552Z_772530",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_two_counter_g4_w2() -> bool:\n    \"\"\"Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (4,).\n    Windows [(20000000, 20050000), (20050000, 20100000), (20100000, 20150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((4,), a, b)) is int and c > 0 and c == sieve_count((4,), a, b, backend='python') for a, b in [(20000000, 20050000), (20050000, 20100000), (20100000, 20150000)])\n",
+   "entry": "    (\"authored_sieve_two_counter_g4_w2\", check_authored_sieve_two_counter_g4_w2, True),\n",
+   "family": "authored_sieve_two_counter",
+   "expected": 0.9649,
+   "proposals_withdrawn": [
+    "imp_8e5151_50"
+   ]
   }
  ],
- "n_retired": 146,
+ "n_retired": 147,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }
