@@ -71,7 +71,7 @@ def mode() -> str:
 ALIAS_SEQ = {"A000045": "fib", "A000032": "lucas", "A000203": "sigma", "A000005": "tau", "A000010": "phi",
              "A000040": "prime", "A000142": "fact"}
 ALLOWED_NAMES = {"n", "x", "a", "floor", "ilog2", "binomial", "fib", "lucas", "fact", "sigma", "tau", "phi", "prime"}
-FUNCS = {"a", "floor", "ilog2", "binomial", "fib", "lucas", "fact", "sigma", "tau", "phi", "prime"}
+FUNCS = {"a", "floor", "ilog2", "binomial", "fib", "lucas", "fact", "sigma", "tau", "phi", "prime", "sqrt"}
 PROPS = ("prime", "odd", "even", "squarefree", "nonzero", "positive", "composite")
 RESOLVED = re.compile(
     r"(conjectur\w*[^.]{0,120}\b(is|are|was|were)\s+(now\s+)?(true|correct|false|incorrect|wrong|proved|proven|confirmed|refuted|disproved))"
@@ -93,6 +93,7 @@ def _strip_attr(s: str) -> str:
     s = re.sub(r"\(\s*(conjecture[sd]?|conjectured[^)]*)\s*\)", "", s, flags=re.I)
     s = re.sub(r"^\s*(Conjectur\w*)(\s+\d+)?(\s*\([^)]*\))?(\s+from\s+_[^_]+_[^:]*)?\s*:?\s*", "", s)
     s = re.sub(r"^\s*(It is|We) conjecture[d]? that\s+", "", s, flags=re.I)
+    s = re.sub(r"^\s*(the sequence is\s+)?(D-finite|P-recursive|holonomic)\s+with\s+(the\s+)?recurrence\s*:?\s*", "", s, flags=re.I)
     s = re.sub(r"\s*\(End\)\s*$", "", s)
     return s.strip().rstrip(".;, ").strip()
 
@@ -479,6 +480,21 @@ class _Ser:
         return _Ser(r, self.L)
 
 
+    def sqrt(self):
+        """s with s*s = self, s(0) = 1 (squaring recurrence; path B uses the ODE recurrence)."""
+        if self.c[0] != 1:
+            raise B.Bad("sqrt needs constant term 1")
+        r = [Fraction(1)] + [Fraction(0)] * (self.L - 1)
+        for n in range(1, self.L):
+            t = self.c[n]
+            for k in range(1, (n + 1) // 2):
+                t -= 2 * r[k] * r[n - k]
+            if n % 2 == 0:
+                t -= r[n // 2] * r[n // 2]
+            r[n] = t / 2
+        return _Ser(r, self.L)
+
+
 def _ser(v, L):
     return v if isinstance(v, _Ser) else _Ser([Fraction(v)], L)
 
@@ -511,6 +527,13 @@ def _series_A(expr: str, L: int) -> list[Fraction]:
                 if any(a.c[:k]):
                     raise B.Bad("pole")
                 return _Ser(a.c[k:], a.L) * _Ser(b.c[k:], b.L).inv()
+            hx = _half_exp(nd.right) if isinstance(nd.op, ast.Pow) else None
+            if hx is not None:
+                r = _Ser([1], L + 40)
+                rt = a.sqrt()
+                for _ in range(abs(hx)):
+                    r = r * rt
+                return r if hx > 0 else _Ser([1], L + 40) * r.inv()
             if isinstance(nd.op, ast.Pow) and isinstance(nd.right, ast.Constant) and 0 <= nd.right.value <= 64:
                 r = _Ser([1], L + 40)
                 for _ in range(nd.right.value):
@@ -522,8 +545,23 @@ def _series_A(expr: str, L: int) -> list[Fraction]:
                 for _ in range(nd.right.operand.value):
                     r = r * a
                 return _Ser([1], L + 40) * r.inv()
+        if (isinstance(nd, ast.Call) and isinstance(nd.func, ast.Name) and nd.func.id == "sqrt"
+                and len(nd.args) == 1 and not nd.keywords):
+            return ev(nd.args[0]).sqrt()
         raise B.Bad("g.f. node")
     return ev(tree).c[:L]
+
+
+def _half_exp(nd) -> int | None:
+    """k for an exponent written k/2 (k odd, |k| <= 63), e.g. (1/2), (-1/2), (3/2)."""
+    sg = 1
+    if isinstance(nd, ast.UnaryOp) and isinstance(nd.op, ast.USub):
+        sg, nd = -1, nd.operand
+    if (isinstance(nd, ast.BinOp) and isinstance(nd.op, ast.Div) and isinstance(nd.left, ast.Constant)
+            and isinstance(nd.right, ast.Constant) and nd.right.value == 2 and isinstance(nd.left.value, int)
+            and nd.left.value % 2 == 1 and abs(nd.left.value) <= 63):
+        return sg * nd.left.value
+    return None
 
 
 # ----------------------------------------------------------------------------- definitions (computable / C-finite)
@@ -538,9 +576,19 @@ def parse_definition(name: str) -> dict[str, Any] | None:
     m = re.match(r"^(?:Expansion of\s+(?:g\.f\.\s*)?|G\.f\.:?\s*)(.*)$", s)
     try:
         if m:
-            body = _ins_mul(m.group(1).replace("\u2212", "-"))
-            if re.search(r"[A-Za-wyz_]", body):
+            body = _ins_mul(m.group(1).replace("\u2212", "-").replace("Sqrt[", "sqrt(").replace("]", ")"))
+            if re.search(r"[A-Za-wyz_]", body.replace("sqrt", "")):
                 return None
+            if "sqrt" in body or re.search(r"\^\(\s*-?\d+\s*/\s*2\s*\)", body):
+                # algebraic (one square root): both series paths must agree on a prefix
+                try:
+                    a = _series_A(body, 24)
+                    b = B.series_expr(B.compile_expr(body), 24)
+                    if a != b or any(not isinstance(c, Fraction) or c.denominator != 1 for c in a):
+                        return None
+                except (B.Bad, ZeroDivisionError, TypeError, AttributeError, ValueError, RecursionError):
+                    return None
+                return {"kind": "alg", "expr": body}
             num, den = B.rational(B.compile_expr(body))
             return {"kind": "gf", "expr": body}
         m = re.match(r"^a\(n\)\s*=\s*(.*)$", s)
@@ -556,7 +604,7 @@ def parse_definition(name: str) -> dict[str, Any] | None:
             if nm not in ALLOWED_NAMES - {"x"}:
                 return None
         B.compile_expr(body)
-        rec = "a(" in body
+        rec = bool(re.search(r"\ba\(", body))
         lin = None
         if rec:
             try:
@@ -576,6 +624,8 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
     that they reproduce EVERY b-file term, then continue to N terms (time/size capped)."""
     t0 = time.time()
     out: list[int] = []
+    if defn["kind"] == "alg":
+        return None  # computed through the certified recurrence (colony.oeis_deep.Holo)
     if defn["kind"] == "gf":
         L = min(N, GF_TERMS * 4) + off
         if path == "A":
@@ -667,12 +717,14 @@ def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool
     tA = test_claim(claim, _tables(e, deep or terms), "A")
     res: dict[str, Any] = {"action": "attempt_disprove", "id": e["id"], "anum": e["anum"], "tested": tA["tested"],
                            "range": [tA["lo"], tA["hi"]], "deep_terms": len(deep) if deep else 0,
-                           "bfile_terms": len(terms), "bfile_hi": off + len(terms) - 1, "data_hi": data_hi, "status": "holds_on_range"}
+                           "bfile_terms": len(terms), "bfile_hi": max(off + len(terms) - 1, e.get("published_hi") or 0), "data_hi": data_hi, "status": "holds_on_range"}
     if tA["tested"] < MIN_TESTED:
         res["status"] = "untestable_here"
         return res
     if tA["first_fail"] is None:
-        res["extended"] = max(0, (tA["hi"] or 0) - max(prior_hi or 0, data_hi, off + len(terms) - 1))
+        _deep(e, tA, res, deep)
+        top = max(tA["hi"] or 0, res.get("deep_hi") or 0)
+        res["extended"] = max(0, top - max(prior_hi or 0, data_hi, off + len(terms) - 1))
         return res
     res["fails_A"] = tA["fails"]
     res["holds_from"] = tA["holds_from"]
@@ -704,13 +756,78 @@ def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool
     return res
 
 
+_GEN_CACHE: dict[str, Any] = {}
+
+
+def _deep(e: dict[str, Any], tA: dict[str, Any], res: dict[str, Any], deep) -> None:
+    """Beyond-b-file search with the fast evaluators (colony.oeis_deep), after the definition has been
+    re-checked against the WHOLE b-file. Sets deep_* fields; a failure needs path B to agree."""
+    from colony import oeis_deep as D
+    from colony import oeis_guess as G
+    d = e.get("definition") or {}
+    claim = e["claim"]
+    if not d or claim["form"] == "gf":
+        return
+    off, terms = e["offset"], e["terms"]
+    key = e["id"]
+    if key not in _GEN_CACHE:
+        g = None
+        if d.get("kind") == "alg":
+            cr = G.certified_recurrence(d["expr"], off, terms)
+            if cr:
+                g = D.Holo(cr, off)
+                res["definition_recurrence"] = {"text": cr["text"], "certificate": cr["certificate"]}
+        else:
+            g = D.generator(e)
+        if g is not None and not D.matches_bfile(g, off, terms):
+            res["deep_note"] = "definition does not reproduce the b-file; no deep search"
+            g = None
+        _GEN_CACHE[key] = g
+    g = _GEN_CACHE[key]
+    if g is None:
+        return
+    bh = max(off + len(terms) - 1, e.get("published_hi") or 0)   # the published range, even if stored terms stop earlier
+    lo = max(tA["hi"] or 0, bh) + 1
+    parts = claim.get("parts") or []
+    evA = [_A(p) for p in parts]
+    evB = [B.compile_expr(p) for p in parts]
+    out = D.deep_search(g, claim, lo, DEEP_SECONDS,
+                        lambda k, n, sq: evA[k].ev(evA[k].tree, n, sq),
+                        lambda k, n, sq: B.evaluate(evB[k], {"n": n}, sq))
+    res["deep_mode"] = out.get("mode")
+    res["deep_hi"] = out.get("hi")
+    if out.get("fail_n") is not None:
+        if out.get("path_b"):
+            res["status"] = "counterexample_verified"
+            res["counterexample_n"] = out["fail_n"]
+            res["fails_A"] = [{"n": out["fail_n"], "modulus": out.get("modulus")}]
+            res["fails_B"] = [{"n": out["fail_n"], "path": "independent recomputation (Kitamasa / Fraction recurrence)"}]
+            res["b_source"] = "recomputed from the definition"
+        else:
+            res["status"] = "path_disagreement"
+        res["deep_fail_n"] = out["fail_n"]
+
+
 def attempt_prove(e: dict[str, Any]) -> dict[str, Any]:
     from colony import proof_check as PC
     res: dict[str, Any] = {"action": "attempt_prove", "id": e["id"], "anum": e["anum"], "status": "no_method"}
     d = e.get("definition")
     claim = e["claim"]
+    if d and d["kind"] in ("gf", "alg") and claim["form"] == "relation" and not claim.get("mod") \
+            and claim["rels"] == ["="] and len(claim["parts"]) == 2:
+        try:
+            PC.holonomic_form(claim["parts"], claim["rels"])
+            holo = d["kind"] == "alg" or "n" in re.sub(r"a\([^()]*\)", "", " ".join(claim["parts"]))
+        except (ValueError, TypeError, SyntaxError, Exception):  # noqa: BLE001
+            holo = False
+        if holo:
+            cert = {"type": "holonomic_identity", "definition": d, "offset": e["offset"], "claim": claim,
+                    "anum": e["anum"], "def_text": e["name"]}
+            ok, why = PC.check_oeis(cert, e["terms"])
+            res.update({"status": "proved_checked" if ok else "proof_rejected", "checker": why, "cert": cert})
+            return res
     if not d or not (d["kind"] == "gf" or (d["kind"] == "rec" and d.get("linear"))):
-        res["why"] = "definition is not C-finite in the grammar"
+        res["why"] = "definition is not C-finite or algebraic in the grammar"
         return res
     if claim["form"] == "gf":
         ctype = "gf_identity"
@@ -745,7 +862,7 @@ def _load(p: Path, default):
 
 def provable(e: dict[str, Any]) -> bool:
     d = e.get("definition") or {}
-    return bool(d) and (d.get("kind") == "gf" or bool(d.get("linear"))) and e["claim"]["form"] in ("gf", "relation")
+    return bool(d) and (d.get("kind") in ("gf", "alg") or bool(d.get("linear"))) and e["claim"]["form"] in ("gf", "relation")
 
 
 def choose(menu: list[dict[str, Any]], state: dict[str, Any], cycle_id: str, k: int = PICKS) -> list[dict[str, Any]]:
@@ -773,7 +890,7 @@ def credit_of(res: dict[str, Any], prior_hi: int | None) -> float:
     if res.get("status") in ("counterexample_verified", "proved_checked"):
         return CREDIT_RESOLVE
     if res.get("action") == "attempt_disprove" and res.get("status") == "holds_on_range":
-        hi = (res.get("range") or [0, 0])[1] or 0
+        hi = max((res.get("range") or [0, 0])[1] or 0, res.get("deep_hi") or 0)
         # only range beyond the OEIS b-file (already checked by OEIS contributors) counts as extension
         base = max(prior_hi or 0, res.get("data_hi") or 0, res.get("bfile_hi") or 0, 1)
         if hi > base:
@@ -796,6 +913,41 @@ def _flag(e: dict[str, Any], res: dict[str, Any], cid: str) -> None:
         lines.append(f"Checker: {res.get('checker')}\n")
     with REVIEW.open("a") as fh:
         fh.write("".join(lines))
+
+
+def _score(state: dict[str, Any], e: dict[str, Any], acts: list[dict[str, Any]]) -> None:
+    """Honest scoreboard: (a) counterexamples verified on two code paths, (b) proof_check-accepted proofs,
+    (c) entries whose computable definition was checked beyond the published (b-file) range."""
+    sb = state.setdefault("scoreboard", {"counterexamples": {}, "proofs": {}, "extensions": {}})
+    for r in acts:
+        if r["status"] == "counterexample_verified":
+            sb["counterexamples"][e["id"]] = {"anum": e["anum"], "n": r.get("counterexample_n")}
+        elif r["status"] == "proved_checked":
+            routine = (e.get("definition") or {}).get("kind") == "alg"
+            sb["proofs"][e["id"]] = {"anum": e["anum"], "checker": (r.get("checker") or "")[:120],
+                                     # an algebraic g.f. is D-finite by a classical theorem; proving the stated
+                                     # recurrence is a certificate, but the result is known in principle
+                                     "routine": routine}
+        elif r.get("action") == "attempt_disprove" and r["status"] == "holds_on_range":
+            bh = r.get("bfile_hi") or 0
+            top_exact = (r.get("range") or [0, 0])[1] or 0
+            top = max(top_exact, r.get("deep_hi") or 0)
+            if top > bh:
+                old = sb["extensions"].get(e["id"], {})
+                if top > old.get("to", 0):
+                    modular = bool(r.get("deep_hi") and r["deep_hi"] > top_exact and "prime" in (r.get("deep_mode") or ""))
+                    sb["extensions"][e["id"]] = {"anum": e["anum"], "bfile_hi": bh, "to": top,
+                                                 "check": "modular (two primes)" if modular else "exact"}
+
+
+def scoreboard(state: dict[str, Any]) -> dict[str, Any]:
+    sb = state.get("scoreboard") or {"counterexamples": {}, "proofs": {}, "extensions": {}}
+    a, b, c = len(sb["counterexamples"]), len(sb["proofs"]), len(sb["extensions"])
+    return {"score": a + b + c, "counterexamples_verified": a, "proofs_checked": b,
+            "proofs_routine_known_in_principle": sum(1 for v in sb["proofs"].values() if v.get("routine")),
+            "beyond_published_range": c,
+            "beyond_exact": sum(1 for v in sb["extensions"].values() if v.get("check") == "exact"),
+            "max_depth": max([v["to"] for v in sb["extensions"].values()] or [0])}
 
 
 def run_cycle(cycle_id: str, fetch: bool = True) -> dict[str, Any] | None:
@@ -823,7 +975,8 @@ def run_cycle(cycle_id: str, fetch: bool = True) -> dict[str, Any] | None:
             fin = next((r for r in acts if r["credit"] >= CREDIT_RESOLVE), acts[-1])
             st["attempts"] = st.get("attempts", 0) + 1
             st["status"] = fin["status"]
-            hi = max([(r.get("range") or [0, 0])[1] or 0 for r in acts] + [st.get("tested_hi") or 0])
+            hi = max([max((r.get("range") or [0, 0])[1] or 0, r.get("deep_hi") or 0) for r in acts]
+                     + [st.get("tested_hi") or 0])
             st["tested_hi"] = hi
             st["credit"] = round(st.get("credit", 0.0) + sum(r["credit"] for r in acts), 4)
             state["targets"][e["id"]] = st
@@ -834,9 +987,11 @@ def run_cycle(cycle_id: str, fetch: bool = True) -> dict[str, Any] | None:
             for r in acts:
                 if r["status"] in ("counterexample_verified", "proved_checked"):
                     _flag(e, r, cycle_id)
+            _score(state, e, acts)
     rep = {"mode": m, "cycle": cycle_id, "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
            "menu_size": len(menu), "chosen": [{"id": e["id"], "anum": e["anum"], "text": e["text"]} for e in picks],
-           "results": results, "note": "selection-layer credit only; nothing authorized or posted"}
+           "results": results, "scoreboard": scoreboard(state),
+           "note": "selection-layer credit only; nothing authorized or posted"}
     hist = _load(REPORT, {"runs": []}).get("runs", [])[-24:]
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps({"runs": hist + [rep]}, indent=1) + "\n")

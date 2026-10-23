@@ -15,7 +15,7 @@ import re
 from fractions import Fraction
 from typing import Any, Callable
 
-FUNCS1 = {"a", "floor", "ilog2", "fib", "lucas", "fact", "sigma", "tau", "phi", "prime"}
+FUNCS1 = {"a", "floor", "ilog2", "fib", "lucas", "fact", "sigma", "tau", "phi", "prime", "sqrt"}
 FUNCS2 = {"binomial"}
 _TOK = re.compile(r"\s*(?:(\d+)|(A\d{6})|([a-z][a-z0-9]*)|(<=|>=|!=|==|[-+*/^(),=<>]))")
 PREC = {"+": 1, "-": 1, "*": 2, "/": 2, "neg": 3, "^": 4}
@@ -310,6 +310,8 @@ def evaluate(code: list[tuple[str, Any]], env: dict[str, Any], seq: Callable[[st
                 st.append(Fraction(binomial(_int(args[0]), _int(args[1]))))
                 continue
             v = args[0]
+            if name == "sqrt":
+                raise Bad("sqrt outside a g.f.")
             if name == "floor":
                 st.append(Fraction(v.numerator // v.denominator))
             elif name == "ilog2":
@@ -420,6 +422,126 @@ def series(num: list[Fraction], den: list[Fraction], L: int) -> list[Fraction]:
             s -= den[j] * out[i - j]
         out.append(s / den[0])
     return out
+
+
+def _smul(a: list[Fraction], b: list[Fraction], L: int) -> list[Fraction]:
+    r = [Fraction(0)] * L
+    bz = [(j, y) for j, y in enumerate(b[:L]) if y]
+    for i, x in enumerate(a[:L]):
+        if x:
+            for j, y in bz:
+                if i + j >= L:
+                    break
+                r[i + j] += x * y
+    return r
+
+
+def _sdiv(a: list[Fraction], b: list[Fraction], L: int) -> list[Fraction]:
+    """a / b by long division of coefficients (b[0] != 0)."""
+    if b[0] == 0:
+        raise Bad("series division")
+    q: list[Fraction] = []
+    bz = [(j, y) for j, y in enumerate(b[:L]) if y and j]
+    for i in range(L):
+        s = a[i] if i < len(a) else Fraction(0)
+        for j, y in bz:
+            if j > i:
+                break
+            s -= y * q[i - j]
+        q.append(s / b[0])
+    return q
+
+
+def _ssqrt(c: list[Fraction], L: int) -> list[Fraction]:
+    """sqrt of a series with c[0] = 1, from the first-order ODE  C s' = (1/2) C' s  (s(0) = 1):
+    (n+1) s_{n+1} = (1/2) sum_k (k+1) c_{k+1} s_{n-k} - sum_{k>=1} c_k (n-k+1) s_{n-k+1}."""
+    if not c or c[0] != 1:
+        raise Bad("sqrt needs constant term 1")
+    c = (list(c) + [Fraction(0)] * (L + 1))[:L + 1]
+    cz = [(k, ck) for k, ck in enumerate(c) if ck and k]
+    s = [Fraction(1)]
+    for n in range(L - 1):
+        t = Fraction(0)
+        for k, ck in cz:
+            if k - 1 <= n:
+                t += Fraction(k, 2) * ck * s[n - k + 1]
+            if 1 <= k <= n:
+                t -= ck * (n - k + 1) * s[n - k + 1]
+        s.append(t / (n + 1))
+    return s[:L]
+
+
+def series_expr(code: list[tuple[str, Any]], L: int) -> list[Fraction]:
+    """First L coefficients of an algebraic g.f. in RPN: numbers, x, + - * /, integer powers,
+    p^(k/2) and sqrt(p) with p(0) = 1. Poles at 0 are not allowed (no x^-k shifts)."""
+    W = L + 8
+    st: list[Any] = []
+    for t in code:
+        if t[0] == "num":
+            st.append(("c", Fraction(t[1])))
+        elif t[0] == "var":
+            if t[1] != "x":
+                raise Bad("series: variable")
+            st.append(("s", [Fraction(0), Fraction(1)] + [Fraction(0)] * (W - 2)))
+        elif t[0] == "fn":
+            if t[1] != "sqrt":
+                raise Bad("series: function " + t[1])
+            st.append(("s", _ssqrt(_as(st.pop(), W), W)))
+        else:
+            o = t[1]
+            if o == "neg":
+                k, v = st.pop()
+                st.append((k, -v if k == "c" else [-z for z in v]))
+                continue
+            y, x = st.pop(), st.pop()
+            if x[0] == "c" and y[0] == "c":
+                if o == "^":
+                    if y[1].denominator != 1 or abs(y[1]) > 64:
+                        raise Bad("series: constant power")
+                    st.append(("c", x[1] ** int(y[1])))
+                else:
+                    st.append(("c", {"+": x[1] + y[1], "-": x[1] - y[1], "*": x[1] * y[1],
+                                     "/": x[1] / y[1] if y[1] else None}[o]))
+                    if st[-1][1] is None:
+                        raise Bad("division by zero")
+                continue
+            if o == "^":
+                if y[0] != "c" or y[1].denominator not in (1, 2) or abs(y[1]) > 64:
+                    raise Bad("series: exponent")
+                e = y[1]
+                base = _as(x, W)
+                if e.denominator == 2:
+                    base = _ssqrt(base, W)
+                    e = e * 2
+                k = int(abs(e))
+                r = [Fraction(1)] + [Fraction(0)] * (W - 1)
+                for _ in range(k):
+                    r = _smul(r, base, W)
+                if e < 0:
+                    r = _sdiv([Fraction(1)], r, W)
+                st.append(("s", r))
+                continue
+            a, b = _as(x, W), _as(y, W)
+            if o == "+":
+                st.append(("s", [u + v for u, v in zip(a, b)]))
+            elif o == "-":
+                st.append(("s", [u - v for u, v in zip(a, b)]))
+            elif o == "*":
+                st.append(("s", _smul(a, b, W)))
+            else:
+                k = 0
+                while k < W and b[k] == 0:
+                    k += 1
+                if k == W or any(a[:k]):
+                    raise Bad("series: pole")
+                st.append(("s", _sdiv(a[k:] + [Fraction(0)] * k, b[k:] + [Fraction(0)] * k, W)))
+    if len(st) != 1:
+        raise Bad("stack")
+    return _as(st[0], W)[:L]
+
+
+def _as(v, W):
+    return v[1] if v[0] == "s" else [v[1]] + [Fraction(0)] * (W - 1)
 
 
 def poly_eq(p: list[Fraction], q: list[Fraction]) -> bool:

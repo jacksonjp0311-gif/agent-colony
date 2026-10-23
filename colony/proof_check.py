@@ -1241,6 +1241,12 @@ def check_oeis(cert: dict[str, Any], terms: list[int]) -> tuple[bool, str]:
             p2, q2 = OB.rational(OB.compile_expr(claim["expr"]))
             ok = OB.poly_eq(OB.pmul(D["num"], q2), OB.pmul(p2, D["den"]))
             return (True, "polynomial identity P*Q2 == P2*Q") if ok else (False, "g.f.s differ")
+        if cert["type"] == "holonomic_identity":
+            if d["kind"] not in ("gf", "alg"):
+                return False, "holonomic certificate needs a g.f. definition"
+            if claim.get("form") != "relation" or claim.get("mod"):
+                return False, "claim is not an identity"
+            return check_holonomic(d["expr"], off, claim["parts"], claim["rels"], claim.get("n0"), terms)
         if cert["type"] != "cfinite_identity":
             return False, "unknown certificate type"
         if claim.get("form") != "relation" or claim.get("mod") or any(r != "=" for r in claim["rels"]):
@@ -1286,3 +1292,201 @@ def check_oeis(cert: dict[str, Any], terms: list[int]) -> tuple[bool, str]:
         return True, f"C-finite order bounds {[(S, Dd) for _, S, Dd in plan]}; {checked} points checked"
     except (OB.Bad, KeyError, TypeError, ValueError, ZeroDivisionError) as ex:
         return False, "checker error: " + str(ex)[:80]
+
+
+# ----------------------------------------------------------------------------- holonomic certificates
+# For a g.f. f = U + V*s with s^2 = C, C(0) = 1 (one square root; rational g.f.s are V = 0), work in the
+# ring Q(x)[s]/(s^2 - C) with derivation s' = C' s / (2C). A claimed recurrence
+#     sum_i p_i(n) a(n - i) = 0        (polynomial p_i)
+# has generating function R = sum_i p_i(theta)(x^i f), theta = x d/dx. If R reduces to u + v s with
+# v == 0 and u a polynomial, the coefficient of x^n vanishes for every n > deg u: the recurrence holds
+# there (sound: the map to power series, s -> the series sqrt(C) with constant 1, is a ring map that
+# commutes with d/dx). The remaining n are checked directly on exact terms of the definition.
+
+def _q2_parse(expr: str):
+    import ast as _ast
+    import sympy as sp
+    X = sp.Symbol("x")
+    Cbox: list[Any] = []
+
+    def mul(a, b):
+        C = Cbox[0] if Cbox else 0
+        return (sp.cancel(a[0] * b[0] + a[1] * b[1] * C), sp.cancel(a[0] * b[1] + a[1] * b[0]))
+
+    def inv(a):
+        C = Cbox[0] if Cbox else 0
+        nrm = sp.cancel(a[0] ** 2 - a[1] ** 2 * C)
+        if nrm == 0:
+            raise ValueError("zero divisor")
+        return (sp.cancel(a[0] / nrm), sp.cancel(-a[1] / nrm))
+
+    def root(a):
+        if a[1] != 0:
+            raise ValueError("nested radical")
+        c = sp.cancel(a[0])
+        if c.subs(X, 0) != 1:
+            raise ValueError("sqrt needs constant term 1")
+        if not Cbox:
+            Cbox.append(c)
+            return (sp.Integer(0), sp.Integer(1))
+        r = sp.cancel(c / Cbox[0])
+        if r == 1:
+            return (sp.Integer(0), sp.Integer(1))
+        raise ValueError("more than one radical")
+
+    def pw(a, k):
+        r = (sp.Integer(1), sp.Integer(0))
+        b = a if k >= 0 else inv(a)
+        for _ in range(abs(k)):
+            r = mul(r, b)
+        return r
+
+    def ev(nd):
+        if isinstance(nd, _ast.Constant) and isinstance(nd.value, int):
+            return (sp.Integer(nd.value), sp.Integer(0))
+        if isinstance(nd, _ast.Name) and nd.id == "x":
+            return (X, sp.Integer(0))
+        if isinstance(nd, _ast.UnaryOp):
+            v = ev(nd.operand)
+            return (-v[0], -v[1]) if isinstance(nd.op, _ast.USub) else v
+        if isinstance(nd, _ast.Call) and isinstance(nd.func, _ast.Name) and nd.func.id == "sqrt" and len(nd.args) == 1:
+            return root(ev(nd.args[0]))
+        if isinstance(nd, _ast.BinOp):
+            if isinstance(nd.op, _ast.Pow):
+                e = nd.right
+                sg = 1
+                if isinstance(e, _ast.UnaryOp) and isinstance(e.op, _ast.USub):
+                    sg, e = -1, e.operand
+                if isinstance(e, _ast.Constant) and isinstance(e.value, int) and e.value <= 64:
+                    return pw(ev(nd.left), sg * e.value)
+                if (isinstance(e, _ast.BinOp) and isinstance(e.op, _ast.Div) and isinstance(e.left, _ast.Constant)
+                        and isinstance(e.right, _ast.Constant) and e.right.value == 2 and isinstance(e.left.value, int)
+                        and abs(e.left.value) <= 63):
+                    return pw(root(ev(nd.left)), sg * e.left.value)
+                raise ValueError("exponent")
+            a, b = ev(nd.left), ev(nd.right)
+            if isinstance(nd.op, _ast.Add):
+                return (a[0] + b[0], a[1] + b[1])
+            if isinstance(nd.op, _ast.Sub):
+                return (a[0] - b[0], a[1] - b[1])
+            if isinstance(nd.op, _ast.Mult):
+                return mul(a, b)
+            if isinstance(nd.op, _ast.Div):
+                return mul(a, inv(b))
+        raise ValueError("node outside the grammar")
+    f = ev(_ast.parse(expr.replace("^", "**"), mode="eval").body)
+    return f, (Cbox[0] if Cbox else sp.Integer(0)), X
+
+
+def holonomic_form(parts: list[str], rels: list[str]):
+    """Claim text (two sides, '=') -> {i: polynomial p_i(n) (sympy)} with sum_i p_i(n) a(n-i) = 0, or raise."""
+    import re
+    import sympy as sp
+    if len(parts) != 2 or rels != ["="]:
+        raise ValueError("not a single identity")
+    nS = sp.Symbol("n")
+    syms: dict[int, Any] = {}
+
+    def conv(t: str):
+        def rep(m):
+            sgn, k = m.group(1), m.group(2)
+            i = int(k) * (-1 if sgn == "+" else 1) if k else 0
+            syms.setdefault(i, sp.Symbol("A_%d" % (i + 1000)))
+            return "A_%d" % (i + 1000)
+        t2 = re.sub(r"\ba\(\s*n\s*(?:([-+])\s*(\d+))?\s*\)", rep, t)
+        if re.search(r"\ba\(|A\d{6}|[a-mo-z]\(", t2.replace("A_", "")):
+            raise ValueError("term outside a(n-i)")
+        return sp.sympify(t2.replace("^", "**"), locals={"n": nS, **{str(v): v for v in syms.values()}})
+    E = sp.expand(sp.together(conv(parts[0]) - conv(parts[1])))
+    num, den = sp.fraction(sp.together(E))
+    num = sp.expand(num)
+    coeffs = {}
+    rest = num
+    for i, A in syms.items():
+        c = sp.expand(num).coeff(A, 1)
+        coeffs[i] = sp.expand(c)
+        rest = sp.expand(rest - c * A)
+    if rest != 0 or any(c.has(*syms.values()) for c in coeffs.values()):
+        raise ValueError("not linear homogeneous in a(n-i)")
+    if not all(c.is_polynomial(nS) for c in coeffs.values()) or not den.is_polynomial(nS):
+        raise ValueError("coefficients not polynomial")
+    if den.free_symbols - {nS}:
+        raise ValueError("denominator uses terms")
+    return {i: sp.Poly(c, nS) for i, c in coeffs.items() if c != 0}, sp.Poly(den, nS)
+
+
+def _q2_apply(ops, f, C, X):
+    """R = sum_i p_i(theta)(x^i f) in Q(x)[s]/(s^2 - C)."""
+    import sympy as sp
+    dC = sp.diff(C, X) if C != 0 else 0
+
+    def theta(g):
+        u, v = g
+        du = sp.diff(u, X)
+        dv = sp.diff(v, X) + (v * dC / (2 * C) if C != 0 and v != 0 else 0)
+        return (sp.cancel(X * du), sp.cancel(X * dv))
+    R = (sp.Integer(0), sp.Integer(0))
+    for i, p in ops.items():
+        g = (sp.cancel(X ** i * f[0]), sp.cancel(X ** i * f[1]))
+        acc = (sp.Integer(0), sp.Integer(0))
+        coeffs = p.all_coeffs()[::-1]  # c_0 + c_1 n + ...
+        cur = g
+        for k, ck in enumerate(coeffs):
+            if k:
+                cur = theta(cur)
+            if ck != 0:
+                acc = (acc[0] + ck * cur[0], acc[1] + ck * cur[1])
+        R = (R[0] + acc[0], R[1] + acc[1])
+    return sp.cancel(R[0]), sp.cancel(R[1])
+
+
+def check_holonomic(def_expr: str, off: int, parts: list[str], rels: list[str], n0: int | None,
+                    terms: list[int], verify_terms: int = 250) -> tuple[bool, str]:
+    """Sound check that the sequence a(n) = [x^n] def_expr (n >= off) satisfies the claimed
+    polynomial-coefficient recurrence for all n >= n0."""
+    import sympy as sp
+    from colony import oeis_eval_b as OB
+    try:
+        f, C, X = _q2_parse(def_expr)
+        ops, den = holonomic_form(parts, rels)
+    except (ValueError, TypeError, SyntaxError, sp.SympifyError) as ex:
+        return False, "outside the holonomic grammar: %s" % ex
+    if not ops:
+        return False, "empty recurrence"
+    nS = sp.Symbol("n")
+    K = max(ops)
+    if min(ops) < 0:
+        return False, "forward references"
+    u, v = _q2_apply(ops, f, C, X)
+    if v != 0:
+        return False, "operator does not annihilate the radical part"
+    if not sp.cancel(u).is_polynomial(X):
+        return False, "residual is not a polynomial"
+    degu = sp.degree(u, X) if u != 0 else -1
+    start = off if n0 is None else max(off, int(n0))
+    D = max(degu + 1, off + K, start)
+    roots = [r for r in sp.Poly(den, nS).real_roots() if r.is_integer and r >= start] if den.degree() > 0 else []
+    L = D + K + 4 - 0
+    ser = OB.series_expr(OB.compile_expr(def_expr), max(L, off + min(len(terms), verify_terms)) + 1)
+    if any(c.denominator != 1 for c in ser):
+        return False, "definition has non-integer coefficients"
+    a = [int(c) for c in ser]
+    m = min(len(terms), verify_terms)
+    if a[off:off + m] != list(terms[:m]):
+        return False, "definition does not reproduce the b-file"
+    for n in range(start, D):
+        if n in roots:
+            continue
+        s = 0
+        okn = True
+        for i, p in ops.items():
+            if n - i < off:
+                okn = False
+                break
+            s += int(p.eval(n)) * a[n - i]
+        if not okn:
+            continue  # the claim references a term below the offset: not part of the claim
+        if s != 0:
+            return False, "recurrence fails at n = %d" % n
+    return True, ("x-side residual is a polynomial of degree %d with zero radical part; recurrence holds for "
+                  "n >= %d by the operator identity and is checked directly on %d..%d" % (degu, D, start, D - 1))

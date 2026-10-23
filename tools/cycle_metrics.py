@@ -31,3 +31,16 @@ for r in fr:
     for k,v in r.items():
         if isinstance(v,int): agg[k]+=v
 print("frontier cycles", len(fr), {k:v for k,v in sorted(agg.items()) if v})
+# honest scoreboard (colony/oeis_conjectures.py): verified counterexamples + checked proofs + beyond-b-file checks
+try:
+    rep = json.loads((R/"society/systems/oeis_conjectures_report.json").read_text()).get("runs", [])
+    rw = [r for r in rep if any(a <= str(r.get("at","")) <= b for a, b in W)]
+    st = json.loads((R/"society/systems/oeis_conjecture_state.json").read_text())
+    sys.path.insert(0, str(R)); from colony import oeis_conjectures as _OC
+    sb = _OC.scoreboard(st)
+    stat = collections.Counter(x.get("status") for r in rw for x in r.get("results", []))
+    depth = [(x.get("anum"), x.get("bfile_hi"), x.get("deep_hi")) for r in rw for x in r.get("results", []) if x.get("deep_hi")]
+    print("scoreboard", sb, "| window oeis results", dict(stat))
+    print("beyond-b-file depths (anum, b-file end, reached)", depth)
+except Exception as ex:
+    print("scoreboard unavailable:", ex)

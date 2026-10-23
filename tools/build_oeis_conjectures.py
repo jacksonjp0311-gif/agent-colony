@@ -11,6 +11,11 @@ fixed OEIS JSON searches for 'Conjecture' in FORMULA / COMMENT lines, then for e
     DATA range (a parse sanity check: a failure on terms the author saw is a misparse);
   * a b-file that agrees with DATA (target and every referenced A-number);
 ranked fewest-studied first (#comment + #formula + 2 #reference), up to MAX_ENTRIES.
+Computable group (DEF_QUERIES, up to MAX_DEF_ENTRIES, listed first): entries whose NAME is an explicit
+definition (closed form, recurrence, rational or algebraic g.f.) parsed into a vetted evaluator
+(no fetched code is ever executed; FORMULA/PROGRAM lines are never used as the definition, since they
+can be the conjecture itself). The definition must reproduce the whole b-file or the entry is dropped.
+Stored terms are capped (DEF_DIGITS / MAX_DIGITS); 'published_hi' keeps the real published range.
 Usage: python tools/build_oeis_conjectures.py"""
 import json
 import re
@@ -27,12 +32,30 @@ TOPICS = ("recurrence", "primes", "divisors", "binary", "partitions", "sum", "di
           "positive", "squarefree", "odd")
 EXTRA = ('formula:Conjecture name:"Expansion of"', 'formula:Conjecture name:"a(n) ="',
          'comment:Conjecture name:"a(n) ="', 'formula:"(conjectured)"', 'formula:"(conjecture)"')
+# Sequences whose NAME is a computable definition (g.f. / closed form / recurrence) and that carry a
+# conjecture. Only the name is used as the definition: FORMULA and PROGRAM lines can be the conjecture
+# itself (a LinearRecurrence[] program typed from a conjectured recurrence would make the check circular).
+DEF_QUERIES = ('formula:"Conjecture: D-finite" name:"Expansion of"', 'formula:"Conjecture: D-finite" name:sqrt',
+               'formula:"Conjecture: D-finite" name:"a(n) ="', 'formula:Conjecture name:"a(n) ="',
+               'comment:Conjecture name:"a(n) ="', 'formula:Conjecture name:"Expansion of"',
+               'comment:Conjecture name:"Expansion of"', 'formula:Conjecture name:"G.f."',
+               'comment:Conjecture name:"G.f."', 'formula:"Conjecture: D-finite" name:"G.f."',
+               'comment:"Conjecture" name:"2^n"', 'comment:"Conjecture" name:"binomial"',
+               'comment:"conjecture" name:"prime" name:"a(n) ="',
+               'formula:"Conjecture D-finite" name:"Expansion of"', 'formula:"D-finite" formula:Conjecture name:"Expansion of"',
+               'formula:"D-finite" formula:Conjecture name:"G.f."', 'formula:Conjecture name:"Expansion of" name:sqrt',
+               'formula:"Conjecture: a(n) =" name:"Expansion of"', 'formula:"Conjecture D-finite" name:"G.f."')
+DEF_PAGES = 15
+MAX_DEF_ENTRIES = 60
 BAD_KW = {"tabl", "tabf", "cons", "frac", "fini", "full", "word", "dead", "dumb", "uned", "obsc"}
 PAGES = 3
-MAX_ENTRIES = 60
+MAX_ENTRIES = 40
 MAX_TERMS = 3000
-MAX_DIGITS = 300
+MAX_DIGITS = 150   # stored terms stop here; published_hi keeps the real published range
+DEF_DIGITS = 120   # stored terms of computable entries stop here; published_hi keeps the real published range
+REF_TERMS = 1100
 MIN_TERMS = 40
+MIN_DEF_TERMS = 15   # a computable definition supplies the terms beyond the published range
 
 
 def statements(e):
@@ -65,20 +88,38 @@ def resolved(e):
     return False
 
 
-def bfile(net, a, data=None):
+def bfile(net, a, data=None, digits=MAX_DIGITS):
     txt = net.get(f"https://oeis.org/{a}/b{a[1:]}.txt", f"b{a[1:]}.txt")
     pairs = N.parse_bfile(txt or "")
     if not pairs:
         return None
     o = pairs[0][0]
     xs = []
+    pub = pairs[-1][0]
     for i, (k, v) in enumerate(pairs):
-        if k != o + i or len(str(abs(v))) > MAX_DIGITS or len(xs) >= MAX_TERMS:
+        if k != o + i or len(str(abs(v))) > digits or len(xs) >= MAX_TERMS:
             break
         xs.append(v)
     if data and xs[:len(data)] != data[:len(xs)]:
         return None
-    return o, xs
+    return o, xs, pub
+
+
+def verified_definition(ent):
+    """The name's definition must reproduce the WHOLE b-file (fast generator or exact recomputation)."""
+    from colony import oeis_deep as D
+    from colony import oeis_guess as G
+    d, off, terms = ent["definition"], ent["offset"], ent["terms"]
+    try:
+        if d["kind"] == "alg":
+            cr = G.certified_recurrence(d["expr"], off, terms)
+            return bool(cr) and D.matches_bfile(D.Holo(cr, off), off, terms)
+        g = D.generator(ent)
+        if g is not None:
+            return D.matches_bfile(g, off, terms)
+        return OC.extend(d, off, terms, len(terms) + 1, "A", seconds=6) is not None
+    except Exception:  # noqa: BLE001
+        return False
 
 
 def main():
@@ -96,6 +137,21 @@ def main():
         for page in range(PAGES):
             url = "https://oeis.org/search?fmt=json&start=%d&q=%s" % (10 * page, q.replace(" ", "+").replace('"', "%22"))
             txt = net.get(url, fn % page)
+            try:
+                res = json.loads(txt or "null") or []
+            except ValueError:
+                res = []
+            if isinstance(res, dict):
+                res = res.get("results") or []
+            for e in res:
+                raw["A%06d" % e["number"]] = e
+            if len(res) < 10:
+                break
+    for qi, q in enumerate(DEF_QUERIES):
+        for page in range(DEF_PAGES):
+            qq = q + " -keyword:tabl -keyword:dead"
+            url = "https://oeis.org/search?fmt=json&start=%d&q=%s" % (10 * page, qq.replace(" ", "+").replace('"', "%22"))
+            txt = net.get(url, "cjd_%d_%d.json" % (qi, page))
             try:
                 res = json.loads(txt or "null") or []
             except ValueError:
@@ -128,47 +184,70 @@ def main():
                 continue
             stats["parsed"] += 1
             score = len(e.get("comment") or []) + len(e.get("formula") or []) + 2 * len(e.get("reference") or [])
-            cands.append((score, a, e, sec, ln, block, claim))
-    cands.sort(key=lambda c: (c[0], c[1]))
+            has_def = OC.parse_definition(str(e.get("name") or "")) is not None
+            stats["def_candidates"] = stats.get("def_candidates", 0) + int(has_def)
+            cands.append((0 if has_def else 1, score, a, e, sec, ln, block, claim))
+    cands.sort(key=lambda c: (c[0], c[1], c[2]))
     entries, per_anum = [], {}
-    for score, a, e, sec, ln, block, claim in cands:
-        if len(entries) >= MAX_ENTRIES:
+    n_def = n_plain = 0
+    for grp, score, a, e, sec, ln, block, claim in cands:
+        if n_def >= MAX_DEF_ENTRIES and n_plain >= MAX_ENTRIES:
             break
-        if per_anum.get(a, 0) >= 2:
+        if (grp == 0 and n_def >= MAX_DEF_ENTRIES) or (grp == 1 and n_plain >= MAX_ENTRIES):
+            continue
+        if per_anum.get(a, 0) >= 3:
             continue
         data = [int(x) for x in str(e.get("data") or "").split(",") if x.strip()]
         off = int(str(e.get("offset") or "0").split(",")[0])
-        b = bfile(net, a, data)
-        if not b or b[0] != off or len(b[1]) < max(MIN_TERMS, len(data)):
+        b = bfile(net, a, data, MAX_DIGITS if grp else DEF_DIGITS)
+        if not b or b[0] != off or len(b[1]) < max(MIN_TERMS if grp else MIN_DEF_TERMS, len(data)):
             stats["no_bfile"] += 1
+            if not grp:
+                stats["def_no_bfile"] = stats.get("def_no_bfile", 0) + 1
             print("  no b-file", a, b and (b[0], len(b[1])), off, len(data), flush=True)
             continue
         refs, ok = {}, True
         for r in OC.refs(claim):
-            rb = bfile(net, r)
+            rb = bfile(net, r, None, max(MAX_DIGITS if grp else DEF_DIGITS, max(len(str(abs(x))) for x in b[1]) + 5))
             if not rb:
                 ok = False
                 break
-            refs[r] = {"offset": rb[0], "terms": rb[1]}
+            refs[r] = {"offset": rb[0], "terms": rb[1][:min(REF_TERMS, off + len(b[1]) + 12 - rb[0])]}
         if not ok:
             stats["no_bfile"] += 1
             continue
         ent = {"id": "oc_%s_%d" % (a, per_anum.get(a, 0)), "anum": a, "name": str(e.get("name") or "")[:300],
                "offset": off, "keyword": e.get("keyword"), "section": sec, "text": ln,
                "block_header": block, "claim": claim, "obscurity": score, "data_n": len(data),
-               "definition": OC.parse_definition(str(e.get("name") or "")), "refs": refs, "terms": b[1]}
+               "definition": OC.parse_definition(str(e.get("name") or "")), "refs": refs, "terms": b[1],
+               "published_hi": b[2]}
         chk = OC.test_claim(claim, OC._tables(ent, b[1][:len(data)]) if claim["form"] != "gf" else
                             OC._tables(ent, b[1][:len(data)]), "A")
         if chk["tested"] < 3 or chk["first_fail"] is not None:
             stats["fails_on_data"] += 1
+            if not grp:
+                stats["def_fails_on_data"] = stats.get("def_fails_on_data", 0) + 1
             print("  data-check fail", a, chk["tested"], chk["first_fail"], ln[:70], flush=True)
             continue
-        if ent["definition"] and OC.extend(ent["definition"], off, b[1], len(b[1]) + 1, "A", seconds=3) is None:
+        if ent["definition"] and not verified_definition(ent):
             ent["definition"] = None   # does not reproduce the b-file: not trusted
+            stats["def_mismatch"] = stats.get("def_mismatch", 0) + 1
+        if grp == 0 and not ent["definition"]:
+            continue
+        if ent["definition"]:
+            n_def += 1
+        else:
+            n_plain += 1
         per_anum[a] = per_anum.get(a, 0) + 1
         entries.append(ent)
         print(a, claim["form"], len(b[1]), "def" if ent["definition"] else "-", "|", ln[:90], flush=True)
     stats["kept"] = len(entries)
+    stats["with_definition"] = n_def
+    stats["definition_kinds"] = {}
+    for x in entries:
+        if x["definition"]:
+            k = x["definition"]["kind"]
+            stats["definition_kinds"][k] = stats["definition_kinds"].get(k, 0) + 1
     out = {"note": "OEIS conjectures as colony targets; exact quoted text; built by tools/build_oeis_conjectures.py "
                    "(free OEIS, cached, <= 1 request / 2 s). Nothing here is authorized or posted.",
            "built": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "stats": stats, "entries": entries}

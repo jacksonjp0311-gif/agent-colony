@@ -58,7 +58,7 @@ def test_extension_credit_small():
     assert r["status"] == "holds_on_range" and r["deep_terms"] > len(e["terms"])
     c = OC.credit_of(r, None)
     assert 0 < c <= OC.CREDIT_EXTEND
-    assert OC.credit_of(r, r["range"][1]) == 0.0
+    assert OC.credit_of(r, max(r["range"][1], r.get("deep_hi") or 0)) == 0.0
 
 
 def test_checker_accepts_true_rejects_false():
