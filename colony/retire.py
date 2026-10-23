@@ -15,7 +15,8 @@ Rules (first match wins):
 
 Never retired (protected): anything on a receipt under society/receipts (authorized or decided)
 made by or with James (a receipt delegated only via GitHub Actions cron does not protect; see
-receipt_provenance);
+receipt_provenance; more than MACHINE_RELEASE_LIMIT such releases in one run are held
+unless COLONY_RETIRE_MACHINE_APPROVED records James's approval);
 the target or a building block of a proposal currently meeting the shortlist bar; anything named
 in a human_guide lesson; catalog / hard-bench lemmas (not authored_*); anything named in colony/ or
 tests/ code; anything another remaining check calls; anything the Oracle has not judged yet or
@@ -183,6 +184,19 @@ def machine_receipts_mode() -> str:
     return v if v in ("off", "shadow", "live") else "shadow"
 
 
+MACHINE_RELEASE_LIMIT = 40   # James 2026-10-23: more than this many CI-only-receipt releases in one run need his approval
+
+
+def machine_release_approval() -> tuple[int, str]:
+    """COLONY_RETIRE_MACHINE_APPROVED = "<max count>:<who/when/what was approved>" (e.g.
+    "59:James Jackson 2026-10-23 05:55 ET 'Retire all 59'"). Lets one run release more than
+    MACHINE_RELEASE_LIMIT checks held only by CI-only receipts, up to that count; the note is
+    written into each retirement record. Unset / malformed: (0, "") and the limit holds."""
+    raw = os.environ.get("COLONY_RETIRE_MACHINE_APPROVED", "").strip()
+    m = re.fullmatch(r"(\d+)\s*:\s*(\S.*)", raw, re.S)
+    return (int(m.group(1)), m.group(2).strip()) if m else (0, "")
+
+
 def receipt_provenance(text: str) -> str:
     """'machine' when every stated delegation of the receipt is a scheduled/CI trigger, else
     'human' (also when no delegation is stated: fail closed, the receipt keeps protecting)."""
@@ -284,8 +298,11 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
                 first_pass[m] = r["ts"]
     deps = bar_dependencies() if deps == "compute" else deps
     auto_receipts = receipts is None
+    machine_only: set[str] = set()
     if receipts is None:
         receipts = receipt_names(protective_only=machine_receipts_mode() == "live")
+        if machine_receipts_mode() == "live":
+            machine_only = receipt_names() - receipts
     guides = guide_names() if guides is None else guides
     code = code_names() if code is None else code
     called: set[str] = set()
@@ -360,11 +377,27 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
                               "reason": "the current triviality filter flags this frontier claim as a rewrite"})
     # extra sieve sweeps first (they crowded the keeps), then the rest in rule order
     cands.sort(key=lambda c: (not (c["category"] == "sweep" and c["name"].startswith(PREFIX + "sieve_")),))
+    out_extra: dict[str, Any] = {}
+    released = [c for c in cands if c["name"] in machine_only]
+    if released:
+        n_ok, note = machine_release_approval()
+        if len(released) > MACHINE_RELEASE_LIMIT and n_ok < len(released):
+            # safety limit: a big batch freed only by CI-only receipts waits for James
+            for c in released:
+                protected[c["name"]] = (f"held: {len(released)} CI-only-receipt releases > limit "
+                                        f"{MACHINE_RELEASE_LIMIT}; needs James's approval (COLONY_RETIRE_MACHINE_APPROVED)")
+            cands = [c for c in cands if c["name"] not in machine_only]
+            out_extra["machine_receipts_held"] = {"count": len(released), "limit": MACHINE_RELEASE_LIMIT,
+                                                  "names": [c["name"] for c in released]}
+        else:
+            for c in released:
+                c["released_from"] = "CI-only (GitHub Actions cron) receipts"
+                if note and len(released) > MACHINE_RELEASE_LIMIT:
+                    c["approval"] = note
     cands = cands[:MAX_PER_RUN]
     by_cat: dict[str, int] = {}
     for c in cands:
         by_cat[c["category"]] = by_cat.get(c["category"], 0) + 1
-    out_extra: dict[str, Any] = {}
     if auto_receipts and machine_receipts_mode() == "shadow":
         # report-only: what the rule would retire if CI-only receipts stopped protecting
         sub = plan(src=src, oracle_rows=oracle_rows, protected_extra=protected_extra, deps=deps,
@@ -379,7 +412,7 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
                     "delegated via GitHub Actions cron that the approved rule would retire; nothing retired",
             "would_retire": len(extra), "by_category": cat, "names": [c["name"] for c in extra]}
     return {"ts": _utc(), "mode": mode(), "n_authored": len(authored), "n_candidates": len(cands),
-            "machine_receipts": machine_receipts_mode(), **out_extra,
+            "machine_receipts": machine_receipts_mode(), "machine_release_limit": MACHINE_RELEASE_LIMIT, **out_extra,
             "by_category": by_cat, "candidates": cands,
             "protected": {k: v for k, v in sorted(protected.items())},
             "rule": {"expected_min": EXPECTED_MIN, "keep_min": KEEP_MIN, "K": k_prior, "grace_hours": GRACE_HOURS, "sieve_grace_hours": SIEVE_GRACE_HOURS,
@@ -478,7 +511,8 @@ def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, re
         rec.setdefault("records", []).append({
             "name": c["name"], "category": c["category"], "reason": c["reason"], "ts": ts, "cycle_id": cycle_id,
             "catalog": a.get("catalog"), "enabled": a.get("enabled"), "fn_src": a.get("fn_src"),
-            "entry": a.get("entry"), **{k: c[k] for k in ("family", "expected", "components") if k in c}})
+            "entry": a.get("entry"),
+            **{k: c[k] for k in ("family", "expected", "components", "released_from", "approval") if k in c}})
     rec["n_retired"] = len([r for r in rec["records"] if not r.get("restored_at")])
     rec["note"] = ("Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` "
                    "(comes back disabled; must pass the Oracle again). Logs and history untouched.")

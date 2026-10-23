@@ -235,3 +235,43 @@ def test_machine_receipt_modes(monkeypatch, tmp_path):
     assert "authored_alpha__beta_w2" in {c["name"] for c in lv["candidates"]}
     monkeypatch.setenv("COLONY_RETIRE_MACHINE_RECEIPTS", "off")
     assert "authored_alpha__beta_w2" in R.plan(**args)["protected"]
+
+
+def test_machine_release_limit_needs_recorded_approval(monkeypatch, tmp_path):
+    """Above MACHINE_RELEASE_LIMIT, checks freed only by CI-only receipts are held until an
+    approval (count + note) is given; the note lands in the retirement record."""
+    name = "authored_alpha__beta_w2"
+    monkeypatch.setattr(R, "receipt_names", lambda root=tmp_path, protective_only=False:
+                        set() if protective_only else {name})
+    judged = _oracle() + [{"mutation": name, "passed": True, "ts": "2026-10-17T05:00:00Z"}]
+    args = dict(src=SRC, oracle_rows=judged, deps=set(), guides=set(), code=set(), k_prior=0.10921,
+                now=NOW, frontier_new=lambda n: True)
+    monkeypatch.setenv("COLONY_RETIRE_MACHINE_RECEIPTS", "live")
+    monkeypatch.delenv("COLONY_RETIRE_MACHINE_APPROVED", raising=False)
+    monkeypatch.setattr(R, "MACHINE_RELEASE_LIMIT", 0)
+    held = R.plan(**args)
+    assert name not in {c["name"] for c in held["candidates"]}
+    assert held["protected"][name].startswith("held:")
+    assert held["machine_receipts_held"]["names"] == [name]
+    monkeypatch.setenv("COLONY_RETIRE_MACHINE_APPROVED", "garbage")   # malformed: still held
+    assert name in R.plan(**args)["protected"]
+    monkeypatch.setenv("COLONY_RETIRE_MACHINE_APPROVED", "0:too small")  # count below the batch
+    assert name in R.plan(**args)["protected"]
+    monkeypatch.setenv("COLONY_RETIRE_MACHINE_APPROVED", "1:James test approval")
+    ok = R.plan(**args)
+    c = next(c for c in ok["candidates"] if c["name"] == name)
+    assert c["approval"] == "James test approval" and "CI-only" in c["released_from"]
+    monkeypatch.setattr(R, "MACHINE_RELEASE_LIMIT", 40)   # under the limit: no approval needed
+    monkeypatch.delenv("COLONY_RETIRE_MACHINE_APPROVED")
+    c = next(c for c in R.plan(**args)["candidates"] if c["name"] == name)
+    assert "approval" not in c
+    # the approval note is kept in the record
+    lem = tmp_path / "lem.py"
+    lem.write_text(SRC)
+    rec = tmp_path / "rec.json"
+    out = R.apply({"candidates": [dict(c, approval="James test approval")]}, path=lem, record=rec,
+                  check_bench=False, state_path=None)
+    assert out["applied"] == 1
+    row = json.loads(rec.read_text())["records"][0]
+    assert row["approval"] == "James test approval" and row["fn_src"]
+    assert name in R.retired_names(rec)

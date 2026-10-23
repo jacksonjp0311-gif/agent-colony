@@ -135,7 +135,7 @@ jobs:
           # (society/systems/retire_report.json); live = also retire + archive; off = none
           COLONY_RETIRE: live
           # receipts delegated only via GitHub Actions cron stop protecting checks from retirement (report-only first)
-          COLONY_RETIRE_MACHINE_RECEIPTS: shadow
+          COLONY_RETIRE_MACHINE_RECEIPTS: live   # >40 per run held unless COLONY_RETIRE_MACHINE_APPROVED (James)
           COLONY_AUTHOR_PAIRS: "off"
           COLONY_FRONTIER_MENU: wide
           # new data past the OEIS frontier (colony/new_data.py): shadow = compute + ledger only;
