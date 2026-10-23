@@ -1,30 +1,10 @@
 {
   "version": 1,
   "totals": {
-    "ok": 69,
-    "unbridged": 48
+    "ok": 70,
+    "unbridged": 49
   },
   "rows": [
-    {
-      "mutation": "authored_frontier_cong_x23fb70a1_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-18T04:54:56Z",
-      "cycle_id": "20261018T045413Z_e4f31b",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_frontier_rec_xa92258f8_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-18T04:58:06Z",
-      "cycle_id": "20261018T045720Z_308fb9",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_bezout_identity__cayley_tree_count_w1",
       "status": "ok",
@@ -704,8 +684,33 @@
       "kind": "hard_enable",
       "oracle_passed": false,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_le_x10223e69_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-23T01:02:51Z",
+      "cycle_id": "20261023T010130Z_ebe239",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "residue_bal",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-23T01:05:12Z",
+      "cycle_id": "20261023T010402Z_10150f",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-23T00:51:47Z",
+  "updated_at": "2026-10-23T01:05:12Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

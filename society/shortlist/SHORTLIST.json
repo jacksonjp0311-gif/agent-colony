@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-23T00:52:41Z",
+  "ts": "2026-10-23T01:08:37Z",
   "view_only": true,
   "n_considered": 58,
   "n_meet_bar": 28,
@@ -425,12 +425,12 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-10-23T00:52:41Z",
-    "cycle_id": "20261023T005047Z_ad6290",
+    "ts": "2026-10-23T01:08:37Z",
+    "cycle_id": "20261023T010622Z_10a8f4",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.5,
+      "strength": 1.0,
       "K_PRIOR": 0.10921
     },
     "n_meet_bar_actual": 28,
@@ -618,17 +618,17 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 1,
+      "oracle_rows": 0,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
-    "status": 26,
-    "target_unresolved": 18,
-    "novelty_killed": 12,
+    "status": 23,
+    "target_unresolved": 16,
+    "novelty_killed": 14,
+    "oracle_killed_in_own_cycle": 4,
     "no_oracle_pass_in_own_cycle": 9,
-    "oracle_killed_in_own_cycle": 2,
     "hearing": 2
   },
   "rule": {
@@ -638,5 +638,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261023T005047Z_ad6290"
+  "cycle_id": "20261023T010622Z_10a8f4"
 }

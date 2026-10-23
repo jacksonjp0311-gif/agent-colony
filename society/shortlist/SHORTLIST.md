@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-10-22 08:52 PM ET
+# Proposal shortlist — 2026-10-22 09:08 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -40,13 +40,13 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 15 (actual 28). Unknown clai
 | 9 | imp_022700_50 | `authored_newdata_a006666_k10001_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 18 |
 | 10 | imp_18d1e0_50 | `authored_frontier_cong_xbb82919e_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 20 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_killed: 12, oracle_killed_in_own_cycle: 2, status: 26, target_unresolved: 18
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_killed: 14, oracle_killed_in_own_cycle: 4, status: 23, target_unresolved: 16
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 13 tested, 10 survived held-out, 3 falsified, 7 machine-checked, 0 surprises; dropped 49 duplicates, 105 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1725.
-Totals: tested 2544, survived 1244, surprises 61, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 15 tested, 12 survived held-out, 3 falsified, 7 machine-checked, 0 surprises; dropped 57 duplicates, 50 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.172.
+Totals: tested 2586, survived 1274, surprises 61, false surprises (failed later re-test) 0.
 Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |

@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23T00:51:48Z",
-  "n": 396,
+  "updated_at": "2026-10-23T01:05:12Z",
+  "n": 397,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -185,6 +185,7 @@
     "authored_sieve_residue_bal_g2_6_w1",
     "authored_sieve_residue_bal_g2_w1",
     "authored_sieve_residue_bal_g2_w2",
+    "authored_sieve_residue_bal_g4_2_4_w1",
     "authored_sieve_residue_bal_g4_2_6_w1",
     "authored_sieve_residue_bal_g4_2_w1",
     "authored_sieve_residue_bal_g4_6_2_w1",
@@ -200,8 +201,7 @@
     "authored_sieve_residue_bal_g6_6_6_w1",
     "authored_sieve_residue_bal_g6_6_w1",
     "authored_sieve_residue_bal_g6_w1",
-    "authored_sieve_two_counter_g2_4_2_w1",
-    "authored_sieve_two_counter_g2_4_6_w1"
+    "authored_sieve_two_counter_g2_4_2_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
