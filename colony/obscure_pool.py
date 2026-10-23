@@ -61,7 +61,7 @@ def load() -> list[dict[str, Any]]:
 
 
 def _with_open_targets(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Open-target entries (colony/open_targets.py, COLONY_OPEN_TARGETS=live) join as ox primitives."""
+    """Open-target entries (colony/open_targets.py) always resolve as ox primitives; sampled only when live."""
     try:
         from colony import open_targets as _ot
         have = {e["anum"] for e in entries}

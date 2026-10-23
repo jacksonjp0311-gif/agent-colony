@@ -51,8 +51,13 @@ def load() -> list[dict[str, Any]]:
 
 
 def entries_for_menu() -> list[dict[str, Any]]:
-    """Entries the obscure-pool loader should add as primitives (live only)."""
-    return load() if live() else []
+    """Entries the obscure-pool loader adds as primitives.
+
+    Always all of them, whatever the mode: an authored check that names an open-target primitive must
+    still evaluate in a process without COLONY_OPEN_TARGETS (the post-evolve trust gate runs benches
+    with no COLONY_* env; runs 39967609775, 39970713450, 39972077325 failed lemma_microbench on
+    ValueError: oxa177115). Only sampling (frontier_conjectures.menu_prims) and credit depend on live()."""
+    return load()
 
 
 _ALL = load()

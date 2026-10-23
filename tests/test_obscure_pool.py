@@ -22,6 +22,12 @@ def test_gating(monkeypatch):
     monkeypatch.setenv("COLONY_OBSCURE", "shadow")
     assert not set(FC.menu_prims()) & set(OP.PRIMS)
     monkeypatch.setenv("COLONY_OBSCURE", "live")
+    # open-target entries resolve as ox primitives but join the menu only with COLONY_OPEN_TARGETS=live
+    from colony import open_targets as OT
+    monkeypatch.delenv("COLONY_OPEN_TARGETS", raising=False)
+    assert set(OP.PRIMS) - set(OT.PRIMS) <= set(FC.menu_prims())
+    assert not set(OT.PRIMS) & set(FC.menu_prims())
+    monkeypatch.setenv("COLONY_OPEN_TARGETS", "live")
     assert set(OP.PRIMS) <= set(FC.menu_prims())
 
 

@@ -112,6 +112,7 @@ def menu_prims() -> tuple[str, ...]:
     ps = PRIMS if menu() == "wide" else tuple(k for k in PRIMS if k not in WIDE)
     ps = ps if _ING.active() else tuple(k for k in ps if k not in _ING.NEW)
     ps = ps if _OBS.active() else tuple(k for k in ps if k not in _OBS.PRIMS)
+    ps = ps if _OT.live() else tuple(k for k in ps if k not in _OT.PRIMS)   # tables resolve; menu only when live
     return ps if _DOM.active() else tuple(k for k in ps if k not in _DOM.PRIMS)
 
 

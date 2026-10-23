@@ -75,3 +75,25 @@ def test_open_target_weight(monkeypatch):
     monkeypatch.setenv("COLONY_OPEN_TARGETS", "live")
     assert OT.credit_weight(r) == OT.OPEN_CREDIT
     assert OT.credit_weight({"lhs": "D(oxa072856)"}) == 1.0
+
+
+def test_open_target_primitive_resolves_without_env():
+    """Authored checks naming an open-target primitive must evaluate in the env-less trust gate."""
+    import os
+    import subprocess
+    import sys
+    from colony import open_targets as OT
+    if not OT.PRIMS:
+        return
+    p = OT.PRIMS[0]
+    env = {k: v for k, v in os.environ.items() if not k.startswith("COLONY_")}
+    env["PYTHONPATH"] = "."
+    code = (
+        "from colony import frontier_conjectures as f, open_targets as OT\n"
+        f"c = f.holds_on({{'kind': 'cong', 'lhs': 'dbl({p})', 'params': {{'m': 1, 'q': 1, 'r': 0, 's': 0}}, 'rhs': ''}}, 1, 20)\n"
+        "assert isinstance(c, int), c\n"
+        "assert not set(OT.PRIMS) & set(f.menu_prims())\n"
+        "print('ok')\n"
+    )
+    out = subprocess.run([sys.executable, "-c", code], env=env, capture_output=True, text=True, timeout=120)
+    assert out.returncode == 0 and "ok" in out.stdout, out.stderr[-2000:]
