@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-23T10:50:47Z",
-  "cycle_id": "20261023T105023Z_966b2e",
+  "ts": "2026-10-23T11:01:14Z",
+  "cycle_id": "20261023T110056Z_8f45cb",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
@@ -23,27 +23,6 @@
       "authored_frontier_cong_xcc4c83b3_w1": 1
     },
     "recent": {
-      "authored_frontier_le_x10223e69_w1": {
-        "last": "revert",
-        "streak": 2,
-        "n": 2,
-        "keeps": 0,
-        "reverts": 2
-      },
-      "authored_sieve_residue_bal_g4_2_4_w1": {
-        "last": "revert",
-        "streak": 2,
-        "n": 2,
-        "keeps": 0,
-        "reverts": 2
-      },
-      "authored_frontier_le_xafb0aef8_w1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_frontier_divides_x9835949a_w1": {
         "last": "revert",
         "streak": 1,
@@ -106,34 +85,55 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "authored_frontier_cong_x58a0cdf7_w1": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
+      },
+      "authored_sieve_residue_bal_g6_4_2_w1": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
+      },
+      "authored_frontier_cong_x2ffdc067_w1": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8354,
-      "slope": -0.001998,
-      "min": 0.8354,
-      "max": 0.8577
+      "last": 0.8302,
+      "slope": -0.001837,
+      "min": 0.8302,
+      "max": 0.8503
     },
     "novelty": {
-      "last": 0.4615,
-      "slope": -0.036986,
-      "min": 0.4615,
-      "max": 0.8462
+      "last": 0.3462,
+      "slope": -0.038459,
+      "min": 0.3462,
+      "max": 0.7692
     },
     "kill_rate": {
-      "last": 0.3082,
-      "slope": 0.001027,
-      "min": 0.2975,
-      "max": 0.3082
+      "last": 0.3113,
+      "slope": 0.001052,
+      "min": 0.2997,
+      "max": 0.3113
     },
     "kill_rate_term": {
-      "last": 0.8273,
-      "slope": 0.000918,
-      "min": 0.8178,
-      "max": 0.8273
+      "last": 0.8302,
+      "slope": 0.00095,
+      "min": 0.8197,
+      "max": 0.8302
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -144,8 +144,8 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0093,
-    "novelty_max": 0.6538,
+    "aggregate_range": 0.0089,
+    "novelty_max": 0.5385,
     "window": 6,
     "reason": "moving"
   },
@@ -153,12 +153,14 @@
     "enabled": 160,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
+      "authored_frontier_cong_x2ffdc067_w1",
       "authored_frontier_cong_x43c47bec_w1",
       "authored_frontier_cong_x44cc725e_w1",
       "authored_frontier_cong_x47dd09c7_w1",
       "authored_frontier_cong_x58a0cdf7_w1",
       "authored_frontier_cong_xcc4c83b3_w1",
       "authored_frontier_cong_xd9add9e9_w1",
+      "authored_frontier_cong_xda29c2e7_w1",
       "authored_frontier_divides_x0c5f5f5b_w1",
       "authored_frontier_divides_x9835949a_w1",
       "authored_frontier_le_x10223e69_w1",
@@ -167,7 +169,8 @@
       "authored_sieve_hl_within_g4_6_2_w1",
       "authored_sieve_hl_within_g6_4_6_w1",
       "authored_sieve_residue_bal_g4_2_4_w1",
-      "authored_sieve_residue_bal_g6_2_6_w1"
+      "authored_sieve_residue_bal_g6_2_6_w1",
+      "authored_sieve_residue_bal_g6_4_2_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -194,6 +197,7 @@
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
+      "authored_frontier_cong_x2ffdc067_w1",
       "authored_frontier_cong_x396d7d8c_w1",
       "authored_frontier_cong_x43c47bec_w1",
       "authored_frontier_cong_x44cc725e_w1",
@@ -204,6 +208,7 @@
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_cong_xcc4c83b3_w1",
       "authored_frontier_cong_xd9add9e9_w1",
+      "authored_frontier_cong_xda29c2e7_w1",
       "authored_frontier_cong_xfdcb3b60_w1",
       "authored_frontier_cong_xfdcb3b60_w2",
       "authored_frontier_divides_x0c5f5f5b_w1",
@@ -266,6 +271,7 @@
       "authored_sieve_residue_bal_g4_2_6_w1",
       "authored_sieve_residue_bal_g6_2_4_w1",
       "authored_sieve_residue_bal_g6_2_6_w1",
+      "authored_sieve_residue_bal_g6_4_2_w1",
       "authored_sieve_two_counter_g2_w1",
       "authored_sieve_two_counter_g6_2_6_w1",
       "authored_sieve_two_counter_g6_w1",
@@ -287,34 +293,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.036,
+      "ratio": 0.816,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.036,
+      "ratio": 0.813,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.057,
+      "ratio": 0.818,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.936,
+      "ratio": 0.829,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.989,
+      "ratio": 0.808,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 217295043,
-      "collatz_descent": 236600000,
+      "goldbach_even": 218895043,
+      "collatz_descent": 239800000,
       "legendre_square_gap": 1244607,
       "lehmer_totient": 103000001,
-      "erdos_straus": 974127,
+      "erdos_straus": 979127,
       "twin_primes_hl": 298200000,
       "oeis_A104062_next": 518690000001
     },
@@ -327,16 +333,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4804,
+        "challenged": 4801,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 196,
+        "challenged": 199,
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.0942,
-    "post_challenger_oracle_judged": 191,
+    "post_challenger_oracle_kill_rate": 0.1082,
+    "post_challenger_oracle_judged": 194,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -365,18 +371,18 @@
     "last": [
       [
         null,
+        "2026-10-23T10:54:02Z"
+      ],
+      [
+        "success",
         "2026-10-23T10:42:53Z"
       ],
       [
         "success",
         "2026-10-23T10:31:19Z"
-      ],
-      [
-        "success",
-        "2026-10-23T10:21:25Z"
       ]
     ],
-    "fetched_at": "2026-10-23T10:43:26Z"
+    "fetched_at": "2026-10-23T10:54:50Z"
   },
   "feeds": {
     "by_source": {
@@ -424,7 +430,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-23T10:43:25Z"
+      "ts": "2026-10-23T10:54:49Z"
     },
     "health": {
       "arxiv": {
