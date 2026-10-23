@@ -2,16 +2,16 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-23T16:43:12Z",
-    "cycle_id": "20261023T164047Z_787f83",
+    "ts": "2026-10-23T17:30:09Z",
+    "cycle_id": "20261023T172751Z_b799a0",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 26,
-    "n_meet_bar_shadow": 14,
+    "n_meet_bar_actual": 25,
+    "n_meet_bar_shadow": 13,
     "n_unknown_claims": 36,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
@@ -21,23 +21,22 @@
       "authored_frontier_cong_x2f9c7891_w1",
       "authored_frontier_cong_x4bb20589_w1",
       "authored_frontier_cong_x5cb35120_w2",
-      "authored_frontier_cong_x85b99e19_w1",
       "authored_frontier_cong_xa9e515ff_w1",
       "authored_frontier_cong_xbae7672a_w1",
       "authored_frontier_cong_xbb82919e_w1",
-      "authored_frontier_cong_xedd0f0db_w1",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
       "authored_frontier_divides_x3562d07e_w1",
       "authored_frontier_divides_x3562d07e_w2",
+      "authored_frontier_divides_x575aa435_w2",
       "authored_frontier_divides_x97939198_w1",
       "authored_frontier_divides_xba575886_w1",
       "authored_frontier_divides_xba575886_w2",
-      "authored_frontier_divides_xc90ee275_w1"
+      "authored_frontier_divides_xc90ee275_w1",
+      "authored_frontier_divides_xc90ee275_w2"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
-      "imp_7a495d_50",
       "imp_a201b5_50",
       "imp_70e921_50",
       "imp_831fcd_50",
@@ -45,6 +44,7 @@
       "imp_15e790_50",
       "imp_df0e1a_50",
       "imp_9e87d3_50",
+      "imp_0c27a0_50",
       "imp_12c82c_50",
       "imp_49ebcf_50",
       "imp_8ee2e8_50",
@@ -55,7 +55,7 @@
       {
         "id": "imp_8790f7_50",
         "target": "authored_frontier_cong_x29d14f44_w1",
-        "actual_pos": 3,
+        "actual_pos": 2,
         "shadow_pos": 1,
         "meets_bar_shadow": true,
         "rank": 0.7264,
@@ -69,7 +69,7 @@
       {
         "id": "imp_dbe023_50",
         "target": "authored_frontier_cong_x2f9c7891_w1",
-        "actual_pos": 4,
+        "actual_pos": 3,
         "shadow_pos": 2,
         "meets_bar_shadow": true,
         "rank": 0.7264,
@@ -83,7 +83,7 @@
       {
         "id": "imp_8e7529_50",
         "target": "authored_frontier_cong_x4bb20589_w1",
-        "actual_pos": 5,
+        "actual_pos": 4,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
         "rank": 0.7263,
@@ -95,24 +95,10 @@
         "expected": 0.0
       },
       {
-        "id": "imp_ff85eb_50",
-        "target": "authored_frontier_modpat_x51c52e42_w1",
-        "actual_pos": 6,
-        "shadow_pos": 4,
-        "meets_bar_shadow": true,
-        "rank": 0.7263,
-        "rank_shadow": 0.7263,
-        "P": 0.8772,
-        "P_shadow": 0.8772,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
         "id": "imp_62a316_50",
         "target": "authored_newdata_a047160_k10001_w1",
-        "actual_pos": 8,
-        "shadow_pos": 5,
+        "actual_pos": 6,
+        "shadow_pos": 4,
         "meets_bar_shadow": true,
         "rank": 0.7258,
         "rank_shadow": 0.7258,
@@ -125,8 +111,8 @@
       {
         "id": "imp_ff0c00_50",
         "target": "authored_frontier_divides_x97939198_w1",
-        "actual_pos": 10,
-        "shadow_pos": 6,
+        "actual_pos": 8,
+        "shadow_pos": 5,
         "meets_bar_shadow": true,
         "rank": 0.7258,
         "rank_shadow": 0.7258,
@@ -139,8 +125,8 @@
       {
         "id": "imp_925ac5_50",
         "target": "authored_newdata_a006577_k10001_w1",
-        "actual_pos": 13,
-        "shadow_pos": 7,
+        "actual_pos": 11,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.7252,
         "rank_shadow": 0.7252,
@@ -153,8 +139,8 @@
       {
         "id": "imp_022700_50",
         "target": "authored_newdata_a006666_k10001_w1",
-        "actual_pos": 16,
-        "shadow_pos": 8,
+        "actual_pos": 15,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -167,8 +153,8 @@
       {
         "id": "imp_18d1e0_50",
         "target": "authored_frontier_cong_xbb82919e_w1",
-        "actual_pos": 18,
-        "shadow_pos": 9,
+        "actual_pos": 17,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -181,6 +167,20 @@
       {
         "id": "imp_53f6c2_49",
         "target": "authored_frontier_cong_x06b60875_w1",
+        "actual_pos": 19,
+        "shadow_pos": 9,
+        "meets_bar_shadow": true,
+        "rank": 0.695,
+        "rank_shadow": 0.695,
+        "P": 0.825,
+        "P_shadow": 0.825,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_8926cc_50",
+        "target": "authored_newdata_a006667_k10001_w1",
         "actual_pos": 20,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
@@ -200,51 +200,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-10-23T10:48:10Z",
-      "cycle_id": "20261023T104540Z_2574ec",
-      "n_meet_bar_actual": 18,
-      "n_meet_bar_shadow": 5,
-      "n_unknown_claims": 18,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T10:50:20Z",
-      "cycle_id": "20261023T104813Z_ab5697",
-      "n_meet_bar_actual": 17,
-      "n_meet_bar_shadow": 4,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T10:52:35Z",
-      "cycle_id": "20261023T105023Z_966b2e",
-      "n_meet_bar_actual": 17,
-      "n_meet_bar_shadow": 4,
-      "n_unknown_claims": 17,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-23T10:58:55Z",
       "cycle_id": "20261023T105646Z_4a708f",
@@ -640,6 +595,51 @@
       "cycle_id": "20261023T164047Z_787f83",
       "n_meet_bar_actual": 26,
       "n_meet_bar_shadow": 14,
+      "n_unknown_claims": 36,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T17:25:29Z",
+      "cycle_id": "20261023T172245Z_8c9e71",
+      "n_meet_bar_actual": 24,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 36,
+      "drop_out_of_bar": 11,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T17:27:48Z",
+      "cycle_id": "20261023T172533Z_0c27a0",
+      "n_meet_bar_actual": 24,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 36,
+      "drop_out_of_bar": 11,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T17:30:09Z",
+      "cycle_id": "20261023T172751Z_b799a0",
+      "n_meet_bar_actual": 25,
+      "n_meet_bar_shadow": 13,
       "n_unknown_claims": 36,
       "drop_out_of_bar": 12,
       "enter_bar": 0,

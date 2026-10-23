@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-23T16:42:38Z",
+  "ts": "2026-10-23T17:29:39Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261023T164047Z_787f83"
+    "cycle_id": "20261023T172751Z_b799a0"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 478,
+  "last_oracle_passes": 481,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-23T06:45:17Z",
-      "cycle_id": "20261023T064329Z_982ea2",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-23T10:10:41Z",
-      "cycle_id": "20261023T100836Z_11bc75",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-23T10:12:57Z",
-      "cycle_id": "20261023T101107Z_5396bf",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-10-23T10:15:15Z",
       "cycle_id": "20261023T101319Z_724b2e",
@@ -289,9 +268,30 @@
       "event": "credit",
       "delta_pass": 1.0,
       "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-23T17:25:04Z",
+      "cycle_id": "20261023T172245Z_8c9e71",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-23T17:27:25Z",
+      "cycle_id": "20261023T172533Z_0c27a0",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-10-23T17:29:46Z",
+      "cycle_id": "20261023T172751Z_b799a0",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
     }
   ],
-  "updated_at": "2026-10-23T16:42:46Z",
+  "updated_at": "2026-10-23T17:29:46Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.011209,
     "hockey_stick": 0.011209,
@@ -339,17 +339,17 @@
     "odd_distinct_partitions": 0.014828,
     "partition_conjugate_parts": 0.014828,
     "cayley_tree_count": 0.014828,
-    "cycle_spanning_trees": 0.014838,
-    "complete_bipartite_trees": 0.014838,
+    "cycle_spanning_trees": 0.014839,
+    "complete_bipartite_trees": 0.014839,
     "cayley_hamilton_2x2": 0.014828,
-    "cayley_hamilton_3x3": 0.014838,
-    "newton_identities": 0.014838,
-    "polynomial_remainder": 0.014838,
-    "telescoping_sum": 0.014838,
-    "abel_summation": 0.014838,
-    "faulhaber_power_sums": 0.014838,
-    "lagrange_cyclic_orders": 0.01186,
-    "burnside_necklaces": 0.01186,
+    "cayley_hamilton_3x3": 0.014839,
+    "newton_identities": 0.014839,
+    "polynomial_remainder": 0.014839,
+    "telescoping_sum": 0.014839,
+    "abel_summation": 0.014839,
+    "faulhaber_power_sums": 0.014839,
+    "lagrange_cyclic_orders": 0.011861,
+    "burnside_necklaces": 0.011861,
     "workload_derived_chain": 0.034013,
     "catalan_convolution": 0.034013,
     "lagrange_identity": 0.034013,
@@ -358,7 +358,7 @@
     "fibonacci_cassini_ext": 0.034013,
     "derived_chain_stress": 0.034013,
     "energy_work": 0.034013,
-    "authored_frontier_cong_x5cb35120_w2": 0.04762
+    "authored_frontier_divides_x575aa435_w2": 0.047618
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -640,7 +640,10 @@
     "authored_frontier_modpat_x51c52e42_w1": 1,
     "authored_frontier_le_xfb3d07d9_w2": 1,
     "authored_sieve_two_counter_g4_6_w2": 1,
-    "authored_frontier_cong_x5cb35120_w2": 1
+    "authored_frontier_cong_x5cb35120_w2": 1,
+    "authored_frontier_le_x1c0eba57_w2": 1,
+    "authored_sieve_hl_within_g6_2_w2": 1,
+    "authored_frontier_divides_x575aa435_w2": 1
   },
   "charter_inform": {
     "bias": {

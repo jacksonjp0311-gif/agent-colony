@@ -1613,7 +1613,7 @@
    "v": 4
   },
   "S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_xedd0f0db_w1",
    "checks": 497,
@@ -13529,7 +13529,7 @@
    "v": 3
   },
   "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x575aa435_w1",
    "checks": 59988,
@@ -13688,7 +13688,7 @@
    "v": 4
   },
   "dbl(oxa177115)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x85b99e19_w1",
    "checks": 188,
@@ -14792,7 +14792,7 @@
    "v": 4
   },
   "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x0b1db873_w1",
    "checks": 3988,
@@ -15756,5 +15756,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-23T16:42:53Z"
+ "ts": "2026-10-23T17:29:53Z"
 }

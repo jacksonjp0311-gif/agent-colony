@@ -1944,24 +1944,6 @@ def check_authored_frontier_divides_x97939198_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(lpf,tau)', 'params': {}, 'rhs': '(mu*pell)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
-def check_authored_frontier_cong_x85b99e19_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    dbl(oxa177115)(n) = 0 (mod 2) for all n >= 1
-    re-tested on windows [(41, 97), (98, 154), (155, 211)]. conjecture surviving 188 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(oxa177115)', 'params': {'m': 2, 'q': 1, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 97), (98, 154), (155, 211)])
-
-
-def check_authored_frontier_cong_xedd0f0db_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)
-    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 997 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((prime*tm))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
-
-
 def check_authored_frontier_cong_xbae7672a_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     S(oxa157100)(n) = 1 (mod 2) for all n = 0 (mod 2)
@@ -2025,15 +2007,6 @@ def check_authored_frontier_cong_x16b72492_w2() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D((sigma*sqfree))', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(6001, 12000), (12001, 18000), (18001, 24000)])
 
 
-def check_authored_sieve_residue_bal_g4_2_w2() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (4, 2) are balanced within 4.0*sqrt(total).
-    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((4, 2), a, b, 4, 1)) is int and type(y := sieve_count((4, 2), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])
-
-
 def check_authored_frontier_modpat_x51c52e42_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     gcd(oxa009191,oxa083105)(n) mod 2 depends only on n mod 6 (residues [1, 0, 1, 1, 1, 1] for n = 1..6), all n >= 1
@@ -2052,15 +2025,6 @@ def check_authored_frontier_le_xfb3d07d9_w2() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'gcd(mu,n)', 'params': {}, 'rhs': 'dbl(gcd(mu,n))'}, a, b)) is int and c > 0 for a, b in [(6001, 10250), (10251, 14500), (14501, 18750)])
 
 
-def check_authored_sieve_two_counter_g4_6_w2() -> bool:
-    """Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (4, 6).
-    Windows [(20000000, 20050000), (20050000, 20100000), (20100000, 20150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := sieve_count((4, 6), a, b)) is int and c > 0 and c == sieve_count((4, 6), a, b, backend='python') for a, b in [(20000000, 20050000), (20050000, 20100000), (20100000, 20150000)])
-
-
 def check_authored_frontier_cong_x5cb35120_w2() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)
@@ -2077,6 +2041,33 @@ def check_authored_frontier_le_x1c0eba57_w2() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf-sqfree)', 'params': {}, 'rhs': 'phi'}, a, b)) is int and c > 0 for a, b in [(6001, 12000), (12001, 18000), (18001, 24000)])
+
+
+def check_authored_sieve_hl_within_g6_2_w2() -> bool:
+    """Authored instrument check (desk): count of consecutive pattern (6, 2) on each window is within 4.0*sqrt of the HL forecast.
+    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((6, 2), a, b)) is int and type(h := sieve_hl((6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])
+
+
+def check_authored_frontier_divides_x575aa435_w2() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1
+    re-tested on windows [(6001, 10250), (10251, 14500), (14501, 18750)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'dbl(gpf)', 'params': {}, 'rhs': '(prime*rad)'}, a, b)) is int and c > 0 for a, b in [(6001, 10250), (10251, 14500), (14501, 18750)])
+
+
+def check_authored_frontier_divides_x0b1db873_w2() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1
+    re-tested on windows [(901, 1066), (1067, 1232), (1233, 1398)]. conjecture surviving 3988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(pell,tau)', 'params': {}, 'rhs': '(rad*sqfree)'}, a, b)) is int and c > 0 for a, b in [(901, 1066), (1067, 1232), (1233, 1398)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2291,8 +2282,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_sieve_hl_within_g6_6_2_w1", check_authored_sieve_hl_within_g6_6_2_w1, False),
     ("authored_frontier_cong_xa8371e31_w1", check_authored_frontier_cong_xa8371e31_w1, False),
     ("authored_frontier_divides_x97939198_w1", check_authored_frontier_divides_x97939198_w1, True),
-    ("authored_frontier_cong_x85b99e19_w1", check_authored_frontier_cong_x85b99e19_w1, True),
-    ("authored_frontier_cong_xedd0f0db_w1", check_authored_frontier_cong_xedd0f0db_w1, True),
     ("authored_frontier_cong_xbae7672a_w1", check_authored_frontier_cong_xbae7672a_w1, True),
     ("authored_frontier_cong_x4bb20589_w1", check_authored_frontier_cong_x4bb20589_w1, True),
     ("authored_frontier_cong_xa9e515ff_w1", check_authored_frontier_cong_xa9e515ff_w1, True),
@@ -2300,12 +2289,13 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_x46c5cc8a_w2", check_authored_frontier_le_x46c5cc8a_w2, True),
     ("authored_frontier_le_xdbff107c_w2", check_authored_frontier_le_xdbff107c_w2, True),
     ("authored_frontier_cong_x16b72492_w2", check_authored_frontier_cong_x16b72492_w2, True),
-    ("authored_sieve_residue_bal_g4_2_w2", check_authored_sieve_residue_bal_g4_2_w2, True),
     ("authored_frontier_modpat_x51c52e42_w1", check_authored_frontier_modpat_x51c52e42_w1, True),
     ("authored_frontier_le_xfb3d07d9_w2", check_authored_frontier_le_xfb3d07d9_w2, True),
-    ("authored_sieve_two_counter_g4_6_w2", check_authored_sieve_two_counter_g4_6_w2, True),
     ("authored_frontier_cong_x5cb35120_w2", check_authored_frontier_cong_x5cb35120_w2, True),
-    ("authored_frontier_le_x1c0eba57_w2", check_authored_frontier_le_x1c0eba57_w2, False),
+    ("authored_frontier_le_x1c0eba57_w2", check_authored_frontier_le_x1c0eba57_w2, True),
+    ("authored_sieve_hl_within_g6_2_w2", check_authored_sieve_hl_within_g6_2_w2, True),
+    ("authored_frontier_divides_x575aa435_w2", check_authored_frontier_divides_x575aa435_w2, True),
+    ("authored_frontier_divides_x0b1db873_w2", check_authored_frontier_divides_x0b1db873_w2, False),
 ]
 
 

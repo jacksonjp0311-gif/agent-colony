@@ -2427,8 +2427,68 @@
    "proposals_withdrawn": [
     "imp_4e614e_50"
    ]
+  },
+  {
+   "name": "authored_sieve_residue_bal_g4_2_w2",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 4 other Oracle-passed members, expected = s/(s+K) = 0.973 >= 0.95 (K=0.10921); 4 members stay",
+   "ts": "2026-10-23T17:22:57Z",
+   "cycle_id": "20261023T172245Z_8c9e71",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_residue_bal_g4_2_w2() -> bool:\n    \"\"\"Authored instrument check (desk): p mod 4 classes 1/3 of pattern (4, 2) are balanced within 4.0*sqrt(total).\n    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(x := sieve_count((4, 2), a, b, 4, 1)) is int and type(y := sieve_count((4, 2), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])\n",
+   "entry": "    (\"authored_sieve_residue_bal_g4_2_w2\", check_authored_sieve_residue_bal_g4_2_w2, True),\n",
+   "family": "authored_sieve_residue_bal",
+   "expected": 0.9734,
+   "proposals_withdrawn": [
+    "imp_7725ab_50"
+   ]
+  },
+  {
+   "name": "authored_sieve_two_counter_g4_6_w2",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_two_counter`: 3 other Oracle-passed members, expected = s/(s+K) = 0.965 >= 0.95 (K=0.10921); 3 members stay",
+   "ts": "2026-10-23T17:22:57Z",
+   "cycle_id": "20261023T172245Z_8c9e71",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_two_counter_g4_6_w2() -> bool:\n    \"\"\"Authored instrument check (desk): C/primesieve and pure-Python counters agree exactly on pattern (4, 6).\n    Windows [(20000000, 20050000), (20050000, 20100000), (20100000, 20150000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((4, 6), a, b)) is int and c > 0 and c == sieve_count((4, 6), a, b, backend='python') for a, b in [(20000000, 20050000), (20050000, 20100000), (20100000, 20150000)])\n",
+   "entry": "    (\"authored_sieve_two_counter_g4_6_w2\", check_authored_sieve_two_counter_g4_6_w2, True),\n",
+   "family": "authored_sieve_two_counter",
+   "expected": 0.9649,
+   "proposals_withdrawn": [
+    "imp_7a495d_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x85b99e19_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T17:25:42Z",
+   "cycle_id": "20261023T172533Z_0c27a0",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x85b99e19_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    dbl(oxa177115)(n) = 0 (mod 2) for all n >= 1\n    re-tested on windows [(41, 97), (98, 154), (155, 211)]. conjecture surviving 188 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(oxa177115)', 'params': {'m': 2, 'q': 1, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 97), (98, 154), (155, 211)])\n",
+   "entry": "    (\"authored_frontier_cong_x85b99e19_w1\", check_authored_frontier_cong_x85b99e19_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_106949_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_xedd0f0db_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T17:28:01Z",
+   "cycle_id": "20261023T172751Z_b799a0",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xedd0f0db_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 997 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((prime*tm))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_xedd0f0db_w1\", check_authored_frontier_cong_xedd0f0db_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_2e3985_50"
+   ]
   }
  ],
- "n_retired": 151,
+ "n_retired": 155,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }
