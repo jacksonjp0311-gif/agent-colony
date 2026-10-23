@@ -2397,8 +2397,22 @@
    "proposals_withdrawn": [
     "imp_43b25e_50"
    ]
+  },
+  {
+   "name": "authored_frontier_cong_xe0f68915_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T16:28:55Z",
+   "cycle_id": "20261023T162844Z_ff85eb",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_frontier_cong_xe0f68915_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(oxa033453,stree_grid3)(n) = 1 (mod 2) for all n >= 1\n    re-tested on windows [(41, 270), (271, 500), (501, 730)]. conjecture surviving 488 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(oxa033453,stree_grid3)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 270), (271, 500), (501, 730)])\n",
+   "entry": "    (\"authored_frontier_cong_xe0f68915_w1\", check_authored_frontier_cong_xe0f68915_w1, False),\n",
+   "proposals_withdrawn": [
+    "imp_fca4b2_50"
+   ]
   }
  ],
- "n_retired": 149,
+ "n_retired": 150,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

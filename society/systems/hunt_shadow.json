@@ -2,8 +2,8 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-23T16:19:38Z",
-    "cycle_id": "20261023T161752Z_c8a584",
+    "ts": "2026-10-23T16:31:03Z",
+    "cycle_id": "20261023T162844Z_ff85eb",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -12,10 +12,11 @@
     },
     "n_meet_bar_actual": 25,
     "n_meet_bar_shadow": 13,
-    "n_unknown_claims": 32,
+    "n_unknown_claims": 34,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x0df35249_w1",
+      "authored_frontier_cong_x16b72492_w2",
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
       "authored_frontier_cong_x4bb20589_w1",
@@ -32,8 +33,7 @@
       "authored_frontier_divides_xba575886_w1",
       "authored_frontier_divides_xba575886_w2",
       "authored_frontier_divides_xc90ee275_w1",
-      "authored_frontier_divides_xc90ee275_w2",
-      "authored_frontier_le_x46c5cc8a_w2"
+      "authored_frontier_divides_xc90ee275_w2"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -200,51 +200,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-10-23T10:26:15Z",
-      "cycle_id": "20261023T102401Z_4754d7",
-      "n_meet_bar_actual": 24,
-      "n_meet_bar_shadow": 11,
-      "n_unknown_claims": 24,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T10:28:21Z",
-      "cycle_id": "20261023T102618Z_bf6565",
-      "n_meet_bar_actual": 23,
-      "n_meet_bar_shadow": 10,
-      "n_unknown_claims": 23,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T10:30:16Z",
-      "cycle_id": "20261023T102824Z_f800a6",
-      "n_meet_bar_actual": 22,
-      "n_meet_bar_shadow": 9,
-      "n_unknown_claims": 22,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 1,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-23T10:36:55Z",
       "cycle_id": "20261023T103413Z_56b9a6",
@@ -641,6 +596,51 @@
       "n_meet_bar_actual": 25,
       "n_meet_bar_shadow": 13,
       "n_unknown_claims": 32,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T16:26:27Z",
+      "cycle_id": "20261023T162344Z_5c713a",
+      "n_meet_bar_actual": 25,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 33,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T16:28:41Z",
+      "cycle_id": "20261023T162630Z_7725ab",
+      "n_meet_bar_actual": 25,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 33,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T16:31:03Z",
+      "cycle_id": "20261023T162844Z_ff85eb",
+      "n_meet_bar_actual": 25,
+      "n_meet_bar_shadow": 13,
+      "n_unknown_claims": 34,
       "drop_out_of_bar": 12,
       "enter_bar": 0,
       "guidance_mode": "live",
