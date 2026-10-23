@@ -296,6 +296,303 @@
     }
    ],
    "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261023T175216Z_35de1f",
+   "at": "2026-10-23T17:54:03Z",
+   "menu_size": 60,
+   "chosen": [
+    {
+     "id": "oc_A215230_0",
+     "anum": "A215230",
+     "text": "G.f.: 840*x^3*(1 + 4*x + x^2) / (1 - x)^8."
+    },
+    {
+     "id": "oc_A026923_1",
+     "anum": "A026923",
+     "text": "a(n) = a(n-1) + a(n-4) - a(n-5) + a(n-6) - a(n-7) - a(n-10) + a(n-11) for n>11."
+    },
+    {
+     "id": "oc_A214944_0",
+     "anum": "A214944",
+     "text": "G.f.: 6*x^2*(5 + 14*x + x^2) / (1 - x)^6."
+    },
+    {
+     "id": "oc_A023887_0",
+     "anum": "A023887",
+     "text": "Conjecture: 5 is the only prime in this sequence. - _Rayhan Ahmed_, Jun 19 2026"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A215230_0",
+     "anum": "A215230",
+     "tested": 210,
+     "range": [
+      1,
+      210
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 210,
+     "bfile_hi": 210,
+     "data_hi": 24,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A026923_1",
+     "anum": "A026923",
+     "tested": 989,
+     "range": [
+      12,
+      1000
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 1000,
+     "bfile_hi": 1000,
+     "data_hi": 55,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A214944_0",
+     "anum": "A214944",
+     "tested": 210,
+     "range": [
+      1,
+      210
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 210,
+     "bfile_hi": 210,
+     "data_hi": 30,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A023887_0",
+     "anum": "A023887",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261023T175416Z_29b315",
+   "at": "2026-10-23T17:55:43Z",
+   "menu_size": 60,
+   "chosen": [
+    {
+     "id": "oc_A215230_1",
+     "anum": "A215230",
+     "text": "a(n) = 8*a(n-1) - 28*a(n-2) + 56*a(n-3) - 70*a(n-4) + 56*a(n-5) - 28*a(n-6) + 8*a(n-7) - a(n-8) for n>8."
+    },
+    {
+     "id": "oc_A110320_0",
+     "anum": "A110320",
+     "text": "Conjecture: a(n) = (A051292(n+2)-A051286(n+1))/2. - _Gerald McGarvey_, Jan 14 2007"
+    },
+    {
+     "id": "oc_A295741_1",
+     "anum": "A295741",
+     "text": "Conjecture: a(n) < prime(n) for n > 0. - _Alain Rocchelli_, Aug 31 2026"
+    },
+    {
+     "id": "oc_A214945_1",
+     "anum": "A214945",
+     "text": "a(n) = 7*a(n-1) - 21*a(n-2) + 35*a(n-3) - 35*a(n-4) + 21*a(n-5) - 7*a(n-6) + a(n-7) for n>7."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A215230_1",
+     "anum": "A215230",
+     "tested": 202,
+     "range": [
+      9,
+      210
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 210,
+     "bfile_hi": 210,
+     "data_hi": 24,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A110320_0",
+     "anum": "A110320",
+     "tested": 720,
+     "range": [
+      1,
+      720
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 721,
+     "bfile_hi": 721,
+     "data_hi": 29,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A295741_1",
+     "anum": "A295741",
+     "tested": 2000,
+     "range": [
+      1,
+      2000
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 2001,
+     "bfile_hi": 2000,
+     "data_hi": 90,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A214945_1",
+     "anum": "A214945",
+     "tested": 203,
+     "range": [
+      8,
+      210
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 210,
+     "bfile_hi": 210,
+     "data_hi": 27,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261023T175557Z_25577f",
+   "at": "2026-10-23T17:57:27Z",
+   "menu_size": 60,
+   "chosen": [
+    {
+     "id": "oc_A215229_0",
+     "anum": "A215229",
+     "text": "G.f.: 6*x^2*(3 + 47*x + 77*x^2 - 7*x^3) / (1 - x)^7."
+    },
+    {
+     "id": "oc_A023887_0",
+     "anum": "A023887",
+     "text": "Conjecture: 5 is the only prime in this sequence. - _Rayhan Ahmed_, Jun 19 2026"
+    },
+    {
+     "id": "oc_A295741_0",
+     "anum": "A295741",
+     "text": "Conjecture: a(n) < prime(n)^2 for n > 0."
+    },
+    {
+     "id": "oc_A165125_0",
+     "anum": "A165125",
+     "text": "a(n) = a(n-2) - a(n-3) + a(n-5) - a(n-6) + a(n-8) + a(n-15) - a(n-17) + a(n-18) - a(n-20) + a(n-21) - a(n-23) for n > 24."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A215229_0",
+     "anum": "A215229",
+     "tested": 210,
+     "range": [
+      1,
+      210
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 210,
+     "bfile_hi": 210,
+     "data_hi": 27,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A023887_0",
+     "anum": "A023887",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A295741_0",
+     "anum": "A295741",
+     "tested": 2000,
+     "range": [
+      1,
+      2000
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 2001,
+     "bfile_hi": 2000,
+     "data_hi": 90,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165125_0",
+     "anum": "A165125",
+     "tested": 46,
+     "range": [
+      25,
+      70
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 70,
+     "bfile_hi": 70,
+     "data_hi": 70,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "note": "selection-layer credit only; nothing authorized or posted"
   }
  ]
 }

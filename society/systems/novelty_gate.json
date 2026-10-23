@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T17:47:46Z",
-  "hits": 24,
-  "kills": 6,
+  "updated_at": "2026-10-23T17:56:47Z",
+  "hits": 27,
+  "kills": 3,
   "rows": 30,
-  "kill_rows": 6,
+  "kill_rows": 3,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-23T17:47:46Z",
-    "cycle_id": "20261023T174642Z_4d3cd7",
-    "mutation": "authored_frontier_divides_x5979c9b9_w2",
+    "ts": "2026-10-23T17:56:47Z",
+    "cycle_id": "20261023T175557Z_25577f",
+    "mutation": "authored_frontier_cong_xdbe366da_w1",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 162,
-      "hard_n": 162,
+      "hard_pass": 163,
+      "hard_n": 163,
       "stripped_fails_usefulness": true,
-      "score": 0.8753,
-      "impl_id": "lemma_impl_v2_basic10_hard160"
+      "score": 0.8812,
+      "impl_id": "lemma_impl_v2_basic10_hard161"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 162,
+      "hard_pass": 163,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

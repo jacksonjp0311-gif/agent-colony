@@ -2517,8 +2517,36 @@
    "proposals_withdrawn": [
     "imp_44161a_50"
    ]
+  },
+  {
+   "name": "authored_frontier_cong_xa9e515ff_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T17:52:23Z",
+   "cycle_id": "20261023T175216Z_35de1f",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xa9e515ff_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    dbl(oxa177122)(n) = 1 (mod 2) for all n >= 1\n    re-tested on windows [(41, 75), (76, 110), (111, 145)]. conjecture surviving 188 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(oxa177122)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 75), (76, 110), (111, 145)])\n",
+   "entry": "    (\"authored_frontier_cong_xa9e515ff_w1\", check_authored_frontier_cong_xa9e515ff_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_772530_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x0df35249_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-10-23T17:52:23Z",
+   "cycle_id": "20261023T175216Z_35de1f",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x0df35249_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    dbl(oxa009191)(n) = 0 (mod 2) for all n = 4 (mod 6)\n    re-tested on windows [(41, 277), (278, 514), (515, 751)]. conjecture surviving 165 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(oxa009191)', 'params': {'m': 2, 'q': 6, 'r': 0, 's': 4}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 277), (278, 514), (515, 751)])\n",
+   "entry": "    (\"authored_frontier_cong_x0df35249_w1\", check_authored_frontier_cong_x0df35249_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_66e1a8_50"
+   ]
   }
  ],
- "n_retired": 157,
+ "n_retired": 159,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

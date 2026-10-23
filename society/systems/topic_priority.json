@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ai-generated",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "bi-level",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "bounded-degree",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-23T17:48:01Z",
-  "updated_cycle": "20261023T174642Z_4d3cd7",
+  "updated_at": "2026-10-23T17:56:57Z",
+  "updated_cycle": "20261023T175557Z_25577f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
