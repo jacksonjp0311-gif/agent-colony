@@ -70,30 +70,91 @@ def evaluable_hi(r: dict[str, Any], hi: int) -> int:
     return lo_
 
 
-def windows(r: dict[str, Any], tier: int = 1) -> list[tuple[int, int]]:
+# Held-out holdback (James-approved 2026-10-23): authoring never uses the final slice of the data
+# the bridge can evaluate, so the Oracle's shifted held-out window always has unseen-by-the-check
+# points to run on. A claim with too little data left is recorded as not testable, not authored.
+HOLDBACK_FRAC = 0.25
+HOLDBACK_MIN = 90
+MIN_SPAN = 90
+NOT_TESTABLE_PATH = None  # set lazily to society/systems/not_testable_checks.json
+
+
+def data_end(r: dict[str, Any]) -> int:
+    """Last n the bridge tables can evaluate for both sides of claim ``r`` (0 if none)."""
+    from colony import frontier_conjectures as fc
+    return evaluable_hi(r, fc.BRIDGE_LIM)
+
+
+def holdback(end: int) -> int:
+    return max(HOLDBACK_MIN, int(end * HOLDBACK_FRAC))
+
+
+def window_plan(r: dict[str, Any], tier: int = 1) -> dict[str, Any]:
+    """{'windows': [...]} or {'windows': [], 'reason', 'data_end', 'authored_hi'} when not testable."""
     from colony.frontier_conjectures import EXPO, parse, prims_of
     ps = prims_of(parse(r["lhs"])) | (prims_of(parse(r["rhs"])) if r.get("rhs") else set())
     expo = bool(ps & set(EXPO))
     if tier == 1:
         lo, hi = 40, EXP_HI if expo else CHEAP_HI
-        hi = evaluable_hi(r, hi)   # short tables (new ingredients): never a window past the table
-        if hi - lo < 90:
-            return []
     else:
         lo, hi = TIER_RANGES[tier]["exp" if expo else "cheap"]
-        hi = evaluable_hi(r, hi)   # dbl/sh/composition can push points past the bridge tables
-        if hi - lo < 90:
-            return []
+    end = data_end(r)
+    hi = min(hi, end - holdback(end))   # never a window past the table, and keep a held-out slice
+    if hi - lo < MIN_SPAN:
+        return {"windows": [], "reason": "no_data_headroom", "data_end": end,
+                "authored_hi": max(hi, 0), "lo": lo, "holdback": holdback(end)}
     step = (hi - lo) // 3
-    return [(lo + i * step + 1, lo + (i + 1) * step) for i in range(3)]
+    return {"windows": [(lo + i * step + 1, lo + (i + 1) * step) for i in range(3)],
+            "data_end": end, "held_out": [hi + 1, end]}
+
+
+def windows(r: dict[str, Any], tier: int = 1) -> list[tuple[int, int]]:
+    return window_plan(r, tier)["windows"]
+
+
+def _not_testable_path():
+    from pathlib import Path
+    return NOT_TESTABLE_PATH or Path(__file__).resolve().parents[1] / "society" / "systems" / "not_testable_checks.json"
+
+
+def record_not_testable(r: dict[str, Any], tier: int, plan: dict[str, Any]) -> bool:
+    """Record a claim that cannot be authored with a held-out slice. Written only when it changes."""
+    import os
+    if NOT_TESTABLE_PATH is None and os.environ.get("PYTEST_CURRENT_TEST"):
+        return False  # tests must not write the repo's record (they set NOT_TESTABLE_PATH)
+    p = _not_testable_path()
+    try:
+        doc = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    except Exception:  # noqa: BLE001
+        return False
+    recs = doc.setdefault("records", {})
+    key = f"{r.get('sig') or '0' * 8}:w{tier}"
+    row = {"check": check_name(r, tier), "statement": r.get("statement"), "kind": r.get("kind"),
+           "reason": plan.get("reason"), "data_end": plan.get("data_end"), "lo": plan.get("lo"),
+           "authored_hi": plan.get("authored_hi"), "holdback": plan.get("holdback")}
+    if recs.get(key) == row:
+        return False
+    recs[key] = row
+    doc["note"] = ("Frontier claims the colony could not author as checks: after holding back the final "
+                   "slice of the bridge tables for the Oracle's shifted held-out window, fewer than "
+                   f"{MIN_SPAN} values of n were left. Not tested is not failed and not passed.")
+    doc["n"] = len(recs)
+    try:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(doc, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        return False
+    return True
 
 
 def build(r: dict[str, Any], tier: int = 1) -> dict[str, Any] | None:
     import ast
     name = check_name(r, tier)
     claim = {"kind": r["kind"], "lhs": r["lhs"], "rhs": r.get("rhs") or "", "params": r.get("params") or {}}
-    wins = windows(r, tier)
+    plan = window_plan(r, tier)
+    wins = plan["windows"]
     if not wins:
+        record_not_testable(r, tier, plan)
         return None
     lit = repr(dict(sorted(claim.items())))
     expr = f"all(type(c := frontier_holds({lit}, a, b)) is int and c > 0 for a, b in {wins!r})"

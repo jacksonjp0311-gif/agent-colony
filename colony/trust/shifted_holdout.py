@@ -8,6 +8,13 @@ Re-run supported entries on a disjoint shifted window, preserving literal range 
 with a process time budget. Unsupported or unexecuted checks and timeouts are not tested
 and cannot support survival. A pass is finite-window evidence, never universal proof.
 Separate from the Challenger's probes (it does not import colony.challenger).
+
+2026-10-23 (James-approved): authored checks iterate literal window tuples
+(``for a, b in [(41, 2026), ...]``) passed as bounds to a bridge call, not range().
+Those loops are now shifted onto the next disjoint stretch, capped at the data the
+bridge can evaluate (frontier tables). If there is no room, the check stays
+``not_tested`` (no_data_headroom) and cannot survive. A shifted frontier window
+that falls off the tables or checks nothing is ``not_tested``, never a pass.
 """
 from __future__ import annotations
 
@@ -20,6 +27,7 @@ from pathlib import Path
 from typing import Any
 
 BUDGET_S = 2.0
+MIN_WINDOW = 30  # narrowest shifted tuple window (3 windows -> 90, the authoring minimum)
 
 
 def _lit(node: ast.AST) -> tuple[int, int, int] | None:
@@ -62,6 +70,92 @@ class _Shift(ast.NodeTransformer):
         return node
 
 
+def _window_list(node: ast.AST) -> list[tuple[int, int]] | None:
+    """A literal, ascending, disjoint list of (lo, hi) int pairs, else None."""
+    if not isinstance(node, (ast.List, ast.Tuple)):
+        return None
+    try:
+        v = ast.literal_eval(node)
+    except (ValueError, TypeError, SyntaxError):
+        return None
+    if not v or not all(isinstance(w, tuple) and len(w) == 2 and all(type(x) is int for x in w)
+                        and w[0] <= w[1] for w in v):
+        return None
+    if any(v[i][1] > v[i + 1][0] for i in range(len(v) - 1)):
+        return None
+    return [tuple(w) for w in v]
+
+
+def _bound_calls(elt: ast.AST, a: str, b: str) -> list[ast.Call]:
+    """Calls that take the loop names a, b as consecutive positional arguments (window bounds)."""
+    out = []
+    for node in ast.walk(elt):
+        if isinstance(node, ast.Call):
+            args = node.args
+            if any(isinstance(x, ast.Name) and x.id == a and isinstance(y, ast.Name) and y.id == b
+                   for x, y in zip(args, args[1:])):
+                out.append(node)
+    return out
+
+
+def _data_limit(call: ast.Call, want: int) -> int | None:
+    """Largest bound the call's data source supports (<= want); None = computed on demand, no table."""
+    fn = call.func.id if isinstance(call.func, ast.Name) else None
+    if fn == "frontier_holds" and call.args:
+        try:
+            claim = ast.literal_eval(call.args[0])
+            from colony.frontier_checks import evaluable_hi
+            return int(evaluable_hi(claim, want))
+        except Exception:  # noqa: BLE001
+            return 0  # cannot tell what data exists: treat as none (fail closed to not_tested)
+    return None
+
+
+class _ShiftWindows(ast.NodeTransformer):
+    """Shift ``for a, b in [(lo, hi), ...]`` loops onto [hi+1, hi+span] within available data."""
+
+    def __init__(self) -> None:
+        self.n = 0
+        self.no_headroom: list[dict[str, Any]] = []
+        self.shifted: list[dict[str, Any]] = []
+
+    def _comp(self, node: ast.AST) -> ast.AST:
+        self.generic_visit(node)
+        if len(node.generators) != 1:
+            return node
+        gen = node.generators[0]
+        t = gen.target
+        if not (isinstance(t, ast.Tuple) and len(t.elts) == 2
+                and all(isinstance(e, ast.Name) for e in t.elts)):
+            return node
+        wins = _window_list(gen.iter)
+        if wins is None:
+            return node
+        a, b = t.elts[0].id, t.elts[1].id
+        calls = _bound_calls(node.elt, a, b)
+        if not calls:
+            return node  # tuples are (point, value) pairs or similar, not window bounds
+        lo, hi, k = wins[0][0], wins[-1][1], len(wins)
+        span = hi - lo + 1
+        end = hi + span
+        limits = [lim for lim in (_data_limit(c, end) for c in calls) if lim is not None]
+        if limits:
+            end = min([end] + limits)
+        room = end - hi
+        if room < k * MIN_WINDOW:
+            self.no_headroom.append({"windows": wins, "data_end": end, "headroom": max(0, room)})
+            return node
+        step = room // k
+        new = [(hi + 1 + i * step, hi + (i + 1) * step if i < k - 1 else end) for i in range(k)]
+        self.n += 1
+        self.shifted.append({"from": wins, "to": new})
+        gen.iter = ast.Call(func=ast.Name("_oracle_shifted_windows", ast.Load()),
+                            args=[ast.parse(repr(new), mode="eval").body], keywords=[])
+        return node
+
+    visit_GeneratorExp = visit_ListComp = visit_SetComp = _comp
+
+
 def _entry_expr(tree: ast.Module, name: str) -> ast.AST | None:
     fns = {n.name: n for n in tree.body if isinstance(n, ast.FunctionDef)}
     for node in ast.walk(tree):
@@ -98,7 +192,12 @@ def shifted_window_check(src_path: Path, name: str, *, budget_s: float = BUDGET_
                 "reason": "shift_not_applicable(filtered_comprehension)", "applied": False}
     sh = _Shift()
     new = sh.visit(ast.parse(ast.unparse(expr), mode="eval"))
-    if sh.n == 0:
+    sw = _ShiftWindows()
+    new = sw.visit(new)
+    if sw.no_headroom:
+        return {"ok": False, "status": "not_tested", "reason": "shift_not_applicable(no_data_headroom)",
+                "applied": False, "no_headroom": sw.no_headroom}
+    if sh.n == 0 and sw.n == 0:
         return {"ok": False, "status": "not_tested", "reason": "shift_not_applicable(no_literal_range)", "applied": False}
     ast.fix_missing_locations(new)
     t0 = time.monotonic()
@@ -114,9 +213,25 @@ def shifted_range(*args):
     for value in range(*args):
         probes += 1
         yield value
+def shifted_windows(ws):
+    global probes
+    for w in ws:
+        probes += 1
+        yield w
 ns['_oracle_shifted_range'] = shifted_range
+ns['_oracle_shifted_windows'] = shifted_windows
+zeros = []
+if callable(ns.get('frontier_holds')):
+    _fh = ns['frontier_holds']
+    def _frontier_holds(claim, a, b):
+        c = _fh(claim, a, b)
+        if not c:
+            from colony import frontier_conjectures as _f
+            zeros.append(_f.holds_on_detail(claim, int(a), int(b)))
+        return c
+    ns['frontier_holds'] = _frontier_holds
 ok = bool(eval(p['expr'], ns))
-print(json.dumps({'ok': ok, 'probes': probes}))
+print(json.dumps({'ok': ok, 'probes': probes, 'zeros': zeros}))
 """
     try:
         run = subprocess.run([sys.executable, "-c", worker], input=json.dumps({
@@ -130,6 +245,17 @@ print(json.dumps({'ok': ok, 'probes': probes}))
         res = {"ok": val, "status": "pass" if val else "fail",
                "reason": "shift_window_pass" if val else "shift_window_counterexample",
                "applied": probes > 0, "ranges_shifted": sh.n, "probes": probes}
+        if sw.n:
+            res.update(windows_shifted=sw.n, shifted=sw.shifted)
+        zeros = observed.get("zeros") or []
+        if not val and zeros:
+            # A frontier bridge returned 0: only a real counterexample is a failure.
+            bad = [z for z in zeros if z.get("reason") == "counterexample"]
+            if bad:
+                res.update(counterexample=bad[0])
+            else:
+                res.update(ok=False, status="not_tested", applied=False,
+                           reason=f"shift_window_untestable({zeros[0].get('reason')})", zeros=zeros[:3])
         if probes == 0:
             res.update(status="not_tested", reason="shift_not_executed")
     except subprocess.TimeoutExpired:

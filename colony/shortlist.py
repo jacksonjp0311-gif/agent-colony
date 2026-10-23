@@ -325,11 +325,32 @@ def to_markdown(sl: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def shard_proposals(path: Path | None = None) -> list[dict[str, Any]]:
+    """Proposals flushed out of the 50-entry inline window (colony.society_state._flush_shard).
+
+    2026-10-23 (James-approved): the shortlist read only the inline window, so measured,
+    accepted proposals vanished as newer ones pushed them out (27 -> 16 on Oct 22-23)."""
+    p = path or (STATE_PATH.parent / "society_shards" / "improvement_proposals.jsonl")
+    out: list[dict[str, Any]] = []
+    try:
+        for ln in p.read_text(encoding="utf-8").splitlines():
+            try:
+                e = json.loads(ln)
+            except json.JSONDecodeError:
+                continue
+            if isinstance(e, dict):
+                out.append(e)
+    except OSError:
+        return []
+    return out
+
+
 def write(cycle_id: str = "", **kw: Any) -> dict[str, Any] | None:
     """Rebuild and overwrite the shortlist from current state. Never raises."""
     try:
         st = json.loads(STATE_PATH.read_text(encoding="utf-8"))
         props = list(st.get("improvement_proposals") or []) + list(st.get("improvement_proposals_archived") or [])
+        props += shard_proposals()  # last: inline copies are newer and win build()'s first-seen dedupe
         try:
             ath = json.loads(ATHANOR_STATE.read_text(encoding="utf-8")).get("rows") or []
         except Exception:  # noqa: BLE001

@@ -335,6 +335,9 @@ jobs:
             society/genomes society/briefs society/shortlist docs .github || true
           # Include society_state only if changed size reasonable — always add but message notes slim
           git add data/society_state.json data/ledger.jsonl data/witness.jsonl society/WITNESS.md 2>/dev/null || true
+          # Shard archive of proposals/fitness rows flushed out of the 50-entry inline window: without it
+          # measured, accepted proposals vanished from the shortlist between runs (James 2026-10-23).
+          git add data/society_shards 2>/dev/null || true
           # Feed cache + fetch state (append-only, size-bounded) so dedupe/TTL persist across runs
           git add data/research_cache/feeds.jsonl data/research_cache/feeds_state.json 2>/dev/null || true
           if git diff --staged --quiet; then

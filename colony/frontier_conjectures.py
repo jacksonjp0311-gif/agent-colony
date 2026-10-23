@@ -1957,3 +1957,40 @@ def holds_on(claim: dict[str, Any], lo: int, hi: int) -> int:
     else:
         ok, n = holds(kind, params, a[lo - 1:], b[lo - 1:] if b is not None else None, start=lo)
     return n if ok and n > 0 else 0
+
+
+def holds_on_detail(claim: dict[str, Any], lo: int, hi: int) -> dict[str, Any]:
+    """Why ``holds_on`` returned what it did: holds / counterexample / no_data / vacuous / bad_window.
+
+    Same evaluation as ``holds_on`` (no new math); used by the held-out shifter so a
+    window past the end of the tables is reported as untested rather than as a failure.
+    """
+    global _BRIDGE_T
+    if _BRIDGE_T is None:
+        _BRIDGE_T = Tables(lim=BRIDGE_LIM, exp_n=BRIDGE_EXP)
+    lo, hi = int(lo), int(hi)
+    if lo < 1 or hi <= lo:
+        return {"reason": "bad_window", "checks": 0}
+    le = parse(claim["lhs"])
+    re_ = parse(claim["rhs"]) if claim.get("rhs") else None
+    a = evaluate(le, hi, _BRIDGE_T)
+    b = evaluate(re_, hi, _BRIDGE_T) if re_ is not None else None
+    if a is None or (re_ is not None and b is None):
+        return {"reason": "no_data", "checks": 0}
+    kind, params = claim["kind"], claim.get("params") or {}
+    if kind == "rec":
+        k = len(params["c"])
+        lo2 = max(1, lo - k)
+        ok, n = holds("rec", params, a[lo2 - 1:], None, start=lo2)
+        fail_n = lo2 + n - 1 + k
+    else:
+        ok, n = holds(kind, params, a[lo - 1:], b[lo - 1:] if b is not None else None, start=lo)
+        if kind == "cong":
+            q, s = params["q"], params["s"]
+            members = [m for m in range(lo, hi + 1) if m % q == s]
+            fail_n = members[n - 1] if 0 < n <= len(members) else None
+        else:
+            fail_n = lo + n - 1
+    if ok:
+        return {"reason": "holds" if n > 0 else "vacuous", "checks": n}
+    return {"reason": "counterexample", "checks": n, "n": fail_n}
