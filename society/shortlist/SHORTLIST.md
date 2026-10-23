@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-10-22 09:50 PM ET
+# Proposal shortlist — 2026-10-23 01:17 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -40,14 +40,14 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 15 (actual 28). Unknown clai
 | 9 | imp_022700_50 | `authored_newdata_a006666_k10001_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 18 |
 | 10 | imp_18d1e0_50 | `authored_frontier_cong_xbb82919e_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 20 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_killed: 14, oracle_killed_in_own_cycle: 4, status: 23, target_unresolved: 16
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 9, novelty_killed: 17, oracle_killed_in_own_cycle: 7, status: 21, target_unresolved: 13
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 18 tested, 5 survived held-out, 13 falsified, 0 machine-checked, 1 surprises; dropped 27 duplicates, 106 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1727.
-Totals: tested 2743, survived 1336, surprises 66, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 1 with no reference found.
+Mode `live`. Last cycle: 12 tested, 5 survived held-out, 7 falsified, 1 machine-checked, 0 surprises; dropped 22 duplicates, 49 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1727.
+Totals: tested 2785, survived 1350, surprises 68, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 1 explained by a reference, 1 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
@@ -57,8 +57,8 @@ Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 1 with
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(oxa070778)(n) = 0 (mod 5) for all n = 3 (mod 6) | conjecture surviving 81 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
+| D(oxa072850)(n) = 0 (mod 2) for all n = 0 (mod 7) | conjecture surviving 70 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
 | S((lpf*phi))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
-| S((part*phi))(n) = 1 (mod 2) for all n >= 1 | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |

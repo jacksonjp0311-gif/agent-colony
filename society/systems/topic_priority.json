@@ -66,17 +66,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.56031/2693-9908.1102>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "capability-centric",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-23T01:50:05Z",
-  "updated_cycle": "20261023T014847Z_71922b",
+  "updated_at": "2026-10-23T05:16:41Z",
+  "updated_cycle": "20261023T051517Z_fd9014",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

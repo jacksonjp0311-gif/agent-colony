@@ -1,8 +1,8 @@
 {
-  "last_attempt_at": "2026-10-23T01:44:57Z",
-  "last_status": 200,
+  "last_attempt_at": "2026-10-23T05:11:17Z",
+  "last_status": 0,
   "retry_after_until": null,
-  "last_error": "",
+  "last_error": "ReadTimeout: The read operation timed out",
   "last_ok_at": "2026-10-23T01:44:57Z",
   "hits": [
     {
