@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-23T01:35:48Z",
-  "cycle_id": "20261023T013521Z_226437",
+  "ts": "2026-10-23T01:49:13Z",
+  "cycle_id": "20261023T014847Z_71922b",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -100,26 +100,26 @@
     "n": 12,
     "aggregate": {
       "last": 0.8546,
-      "slope": -0.000615,
+      "slope": 9.2e-05,
       "min": 0.851,
-      "max": 0.8634
+      "max": 0.8563
     },
     "novelty": {
       "last": 0.8,
-      "slope": -0.0129,
+      "slope": -0.003257,
       "min": 0.8,
-      "max": 0.931
+      "max": 0.8621
     },
     "kill_rate": {
       "last": 0.2932,
-      "slope": 0.000438,
-      "min": 0.2888,
+      "slope": 0.000119,
+      "min": 0.291,
       "max": 0.2932
     },
     "kill_rate_term": {
       "last": 0.8139,
-      "slope": 0.000399,
-      "min": 0.8099,
+      "slope": 0.000108,
+      "min": 0.8119,
       "max": 0.8139
     },
     "lesson_uptake": {
@@ -131,7 +131,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0013,
+    "aggregate_range": 0.0005,
     "novelty_max": 0.8,
     "window": 6,
     "reason": "moving"
@@ -297,7 +297,7 @@
       "authored_sum_first_n_odds__vandermonde_conv_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 6
+    "exhausted_recent": 9
   },
   "guides": {
     "n_guides": 17,
@@ -311,23 +311,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.268,
+      "ratio": 1.03,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.191,
+      "ratio": 1.028,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.324,
+      "ratio": 1.122,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.264,
+      "ratio": 1.091,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.223,
+      "ratio": 1.088,
       "drift": false
     }
   },
@@ -336,10 +336,10 @@
     "verified": {
       "goldbach_even": 206200003,
       "collatz_descent": 220600000,
-      "legendre_square_gap": 1148607,
-      "lehmer_totient": 93400001,
+      "legendre_square_gap": 1164607,
+      "lehmer_totient": 95000001,
       "erdos_straus": 949127,
-      "twin_primes_hl": 274200000,
+      "twin_primes_hl": 278200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -389,18 +389,18 @@
     "last": [
       [
         null,
+        "2026-10-23T01:41:16Z"
+      ],
+      [
+        "success",
         "2026-10-23T01:27:51Z"
       ],
       [
         "success",
         "2026-10-23T01:13:55Z"
-      ],
-      [
-        "success",
-        "2026-10-23T01:13:49Z"
       ]
     ],
-    "fetched_at": "2026-10-23T01:28:30Z"
+    "fetched_at": "2026-10-23T01:41:54Z"
   },
   "feeds": {
     "by_source": {
@@ -448,7 +448,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-10-23T01:28:30Z"
+      "ts": "2026-10-23T01:41:53Z"
     },
     "health": {
       "arxiv": {

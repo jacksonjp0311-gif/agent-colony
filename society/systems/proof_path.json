@@ -2,7 +2,7 @@
  "attempted_now": 1,
  "by_kind": {
   "cong": [
-   43,
+   46,
    31
   ],
   "divides": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   73,
-   66
+   70,
+   63
   ]
  },
  "mode": "live",
  "n_authored": 20,
  "n_authored_proved": 10,
  "n_claims": 150,
- "n_proved": 108,
+ "n_proved": 105,
  "n_proved_new": 1,
  "n_surprises_proved": 28,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -1952,6 +1952,18 @@
    "certificate": null,
    "check": "authored_frontier_cong_x44cc725e_w1",
    "checks": 247,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
+  "S(oxa047700)(n) = 1 (mod 2) for all n = 1 (mod 4)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xcc4c83b3_w1",
+   "checks": 497,
    "kind": "cong",
    "prior_certificate": false,
    "status": "not proved",
@@ -13239,290 +13251,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = dbl((lucas*lucas))(n) satisfies a(n+3) = 1*a(n+0) + -8*a(n+1) + 8*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "dbl((lucas*lucas))",
-        "kids": [
-         {
-          "e": "(lucas*lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           0
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "lucas@2,0*lucas@2,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "lucas@2,0*lucas@2,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((lucas*lucas))",
-        "kids": [
-         {
-          "e": "(lucas*lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           2
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "lucas@2,2*lucas@2,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "lucas@2,2*lucas@2,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((lucas*lucas))",
-        "kids": [
-         {
-          "e": "(lucas*lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           4
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "lucas@2,4*lucas@2,4": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "lucas@2,4*lucas@2,4": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((lucas*lucas))",
-        "kids": [
-         {
-          "e": "(lucas*lucas)",
-          "kids": [
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             6
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,6": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "lucas",
-            "pt": [
-             2,
-             6
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "lucas@2,6": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           6
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "lucas@2,6*lucas@2,6": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "lucas@2,6*lucas@2,6": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x7b6a8d92_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = dbl((lucas*pow2))(n) satisfies a(n+2) = -16*a(n+0) + 12*a(n+1)": {
    "authored": false,
    "certificate": {
@@ -13735,298 +13463,6 @@
     "method": "closed form (sympy)"
    },
    "check": "authored_frontier_rec_xdf3b872c_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = dbl((n+pow2))(n) satisfies a(n+3) = 4*a(n+0) + -9*a(n+1) + 6*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "dbl((n+pow2))",
-        "kids": [
-         {
-          "e": "(n+pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 2
-             },
-             "c": 0,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             2,
-             0
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@2,0": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           0
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 2,
-            "pow2@2,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "n@1,0": 2,
-          "pow2@2,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((n+pow2))",
-        "kids": [
-         {
-          "e": "(n+pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 2
-             },
-             "c": 2,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             2,
-             2
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@2,2": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           2
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 2,
-            "pow2@2,2": 1
-           },
-           "c": 2,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "n@1,0": 2,
-          "pow2@2,2": 1
-         },
-         "c": 2,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((n+pow2))",
-        "kids": [
-         {
-          "e": "(n+pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 2
-             },
-             "c": 4,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             2,
-             4
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@2,4": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           4
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 2,
-            "pow2@2,4": 1
-           },
-           "c": 4,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "n@1,0": 2,
-          "pow2@2,4": 1
-         },
-         "c": 4,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl((n+pow2))",
-        "kids": [
-         {
-          "e": "(n+pow2)",
-          "kids": [
-           {
-            "e": "n",
-            "pt": [
-             2,
-             6
-            ],
-            "rule": "n",
-            "val": {
-             "a": {
-              "n@1,0": 2
-             },
-             "c": 6,
-             "d": 0
-            }
-           },
-           {
-            "e": "pow2",
-            "pt": [
-             2,
-             6
-            ],
-            "rule": "atom",
-            "val": {
-             "a": {
-              "pow2@2,6": 1
-             },
-             "c": 0,
-             "d": 0
-            }
-           }
-          ],
-          "pt": [
-           2,
-           6
-          ],
-          "rule": "arith",
-          "val": {
-           "a": {
-            "n@1,0": 2,
-            "pow2@2,6": 1
-           },
-           "c": 6,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "n@1,0": 2,
-          "pow2@2,6": 1
-         },
-         "c": 6,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_xa1e4c326_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -17979,98 +17415,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = sh(pow2)(n) satisfies a(n+1) = 2*a(n+0)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "sh(pow2)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "pow2@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "sh(pow2)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "sh",
-        "val": {
-         "a": {
-          "pow2@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x23c19813_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "bigomega[pnot3](n) <= dbl(digsum)(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
    "certificate": null,
@@ -19256,6 +18600,18 @@
    "unknown": true,
    "v": 3
   },
+  "dbl(oxa072827)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x47dd09c7_w1",
+   "checks": 62,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
   "dbl(pell)(n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
    "certificate": {
@@ -20207,6 +19563,18 @@
    "check": "authored_frontier_le_x46c5cc8a_w1",
    "checks": 3988,
    "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 3
+  },
+  "gcd(oxa033453,oxa072856)(n) = 0 (mod 2) for all n = 2 (mod 3)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x58a0cdf7_w1",
+   "checks": 63,
+   "kind": "cong",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
@@ -21223,5 +20591,5 @@
   }
  },
  "seconds": 0.04,
- "ts": "2026-10-23T01:37:14Z"
+ "ts": "2026-10-23T01:50:37Z"
 }
