@@ -1241,8 +1241,10 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
         return "implied_parts"
     if c["kind"] in ("cong", "modpat") and _compositional_live():
         from colony.compositional import explain as _cp_explain
-        if _cp_explain(c, T):
-            return "known_in_principle(compositional)"
+        _cpx = _cp_explain(c, T)
+        if _cpx:
+            return ("known_in_principle(definition_parity)" if "definition_parity" in str(_cpx.get("label"))
+                    else "known_in_principle(compositional)")
     if not known_result(c) and _known_cong_parts(c, T, rng):
         return "implied_parts"
     if _digit_rule(c):

@@ -398,8 +398,21 @@ def _abs_safe(e: tuple, m: int, T: Any) -> bool:
 
 
 def explain(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
-    """{'label': 'known_in_principle(component_facts)', 'facts': [...], ...} when the congruence /
-    residue pattern is implied by component facts, else None."""
+    """{'label': 'known_in_principle(...)', 'facts': [...], ...} when the congruence / residue pattern
+    is implied by component facts, or (mod 2) by the components' definitions reduced mod 2 and
+    elementary prime / divisor parity facts (colony.definition_parity), else None."""
+    ex = _explain_components(c, T)
+    if ex is None:
+        try:
+            from colony import definition_parity as _DPAR
+            ex = _DPAR.explain(c, T)
+        except Exception:  # noqa: BLE001
+            ex = None
+    return ex
+
+
+def _explain_components(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
+    """Automaton-word / residue-fact decomposition (the 2026-10-23 compositional check)."""
     from colony.frontier_conjectures import _push, canon
     kind = c.get("kind")
     if kind not in ("cong", "modpat") or c.get("_re") is not None:
