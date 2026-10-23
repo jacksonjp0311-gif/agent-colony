@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-23T14:30:58Z",
-  "cycle_id": "20261023T143038Z_ff0c00",
+  "ts": "2026-10-23T15:25:44Z",
+  "cycle_id": "20261023T152530Z_2e3985",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
@@ -23,27 +23,6 @@
       "authored_frontier_cong_xcc4c83b3_w1": 1
     },
     "recent": {
-      "authored_frontier_cong_xcc4c83b3_w1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
-      "authored_sieve_hl_within_g6_4_6_w1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
-      "authored_frontier_cong_x47dd09c7_w1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_frontier_cong_x58a0cdf7_w1": {
         "last": "revert",
         "streak": 1,
@@ -106,58 +85,79 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_frontier_divides_x97939198_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_frontier_cong_x85b99e19_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_sieve_two_counter_g4_w2": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8235,
-      "slope": -0.001678,
+      "last": 0.8252,
+      "slope": -0.00085,
       "min": 0.8209,
-      "max": 0.8391
+      "max": 0.8335
     },
     "novelty": {
       "last": 0.1538,
-      "slope": -0.036986,
+      "slope": -0.026365,
       "min": 0.1538,
-      "max": 0.5385
+      "max": 0.4231
     },
     "kill_rate": {
-      "last": 0.3159,
-      "slope": 0.000973,
-      "min": 0.3061,
+      "last": 0.3145,
+      "slope": 0.000557,
+      "min": 0.3092,
       "max": 0.3164
     },
     "kill_rate_term": {
-      "last": 0.8344,
-      "slope": 0.000881,
-      "min": 0.8255,
+      "last": 0.8331,
+      "slope": 0.000501,
+      "min": 0.8283,
       "max": 0.8348
     },
     "lesson_uptake": {
       "last": 0.96,
-      "slope": 0.002308,
+      "slope": 0.006713,
       "min": 0.9,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0074,
-    "novelty_max": 0.3077,
+    "aggregate_range": 0.0047,
+    "novelty_max": 0.1923,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 158,
+    "enabled": 160,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xa8371e31_w1",
       "authored_frontier_cong_xd9add9e9_w1",
       "authored_frontier_cong_xe0f68915_w1",
+      "authored_frontier_cong_xedd0f0db_w1",
       "authored_frontier_divides_x0c5f5f5b_w1",
-      "authored_frontier_divides_x97939198_w1",
       "authored_frontier_divides_x9835949a_w1",
       "authored_frontier_le_x10223e69_w1",
       "authored_frontier_le_xafb0aef8_w1",
@@ -194,11 +194,13 @@
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
       "authored_frontier_cong_x396d7d8c_w1",
+      "authored_frontier_cong_x85b99e19_w1",
       "authored_frontier_cong_xa68963c2_w1",
       "authored_frontier_cong_xa8371e31_w1",
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_cong_xd9add9e9_w1",
       "authored_frontier_cong_xe0f68915_w1",
+      "authored_frontier_cong_xedd0f0db_w1",
       "authored_frontier_divides_x0c5f5f5b_w1",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
@@ -251,7 +253,6 @@
       "authored_sieve_hl_within_g4_6_2_w1",
       "authored_sieve_hl_within_g4_6_w1",
       "authored_sieve_hl_within_g4_w1",
-      "authored_sieve_hl_within_g6_2_4_w2",
       "authored_sieve_hl_within_g6_4_2_w1",
       "authored_sieve_hl_within_g6_4_6_w1",
       "authored_sieve_hl_within_g6_6_2_w1",
@@ -263,6 +264,7 @@
       "authored_sieve_residue_bal_g6_2_6_w1",
       "authored_sieve_residue_bal_g6_4_2_w1",
       "authored_sieve_two_counter_g2_w1",
+      "authored_sieve_two_counter_g4_w2",
       "authored_sieve_two_counter_g6_2_6_w1",
       "authored_sieve_two_counter_g6_w1",
       "authored_sum_first_n_cubes__stirling_second_row_w1",
@@ -283,23 +285,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.089,
+      "ratio": 0.568,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.096,
+      "ratio": 0.554,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.056,
+      "ratio": 0.554,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.131,
+      "ratio": 0.657,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.094,
+      "ratio": 0.654,
       "drift": false
     }
   },
@@ -308,10 +310,10 @@
     "verified": {
       "goldbach_even": 220495043,
       "collatz_descent": 243000000,
-      "legendre_square_gap": 1260607,
-      "lehmer_totient": 104600001,
+      "legendre_square_gap": 1276607,
+      "lehmer_totient": 106200001,
       "erdos_straus": 984127,
-      "twin_primes_hl": 302200000,
+      "twin_primes_hl": 306200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -323,16 +325,16 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4795,
+        "challenged": 4792,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 205,
+        "challenged": 208,
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.13,
-    "post_challenger_oracle_judged": 200,
+    "post_challenger_oracle_kill_rate": 0.1281,
+    "post_challenger_oracle_judged": 203,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -356,23 +358,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.9091,
-    "completed": 11,
+    "success_rate": 0.6,
+    "completed": 10,
     "last": [
       [
         null,
-        "2026-10-23T14:22:18Z"
+        "2026-10-23T15:19:47Z"
       ],
       [
-        "failure",
-        "2026-10-23T14:12:09Z"
+        null,
+        "2026-10-23T15:19:38Z"
       ],
       [
-        "success",
-        "2026-10-23T14:11:53Z"
+        "cancelled",
+        "2026-10-23T14:54:09Z"
       ]
     ],
-    "fetched_at": "2026-10-23T14:22:57Z"
+    "fetched_at": "2026-10-23T15:20:14Z"
   },
   "feeds": {
     "by_source": {
@@ -391,41 +393,36 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
-          "new": 2,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 5,
-          "new": 5,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 10,
-          "new": 2,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-10-23T14:22:49Z"
+      "ts": "2026-10-23T15:20:13Z"
     },
     "health": {
       "arxiv": {
@@ -453,7 +450,8 @@
   "signals": [
     "revert_streaks: authored_frontier_cong_x44cc725e_w1, authored_frontier_divides_x0c5f5f5b_w1, authored_frontier_le_x10223e69_w1, authored_sieve_residue_bal_g4_2_4_w1 → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
+    "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge",
+    "ci_health: success_rate 0.6 → be conservative"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
 }
