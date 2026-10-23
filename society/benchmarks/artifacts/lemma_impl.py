@@ -1890,6 +1890,33 @@ def check_authored_sieve_residue_bal_g4_2_4_w1() -> bool:
     return all(type(x := sieve_count((4, 2, 4), a, b, 4, 1)) is int and type(y := sieve_count((4, 2, 4), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
+def check_authored_frontier_le_xafb0aef8_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    (gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)
+    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf+omega)', 'params': {}, 'rhs': 'sigma'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
+
+
+def check_authored_frontier_divides_x9835949a_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    (fib*lucas)(n) divides dbl(stree_grid3)(n) for all n >= 1
+    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 988 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': '(fib*lucas)', 'params': {}, 'rhs': 'dbl(stree_grid3)'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
+
+
+def check_authored_sieve_hl_within_g4_6_2_w1() -> bool:
+    """Authored instrument check (desk): count of consecutive pattern (4, 6, 2) on each window is within 4.0*sqrt of the HL forecast.
+    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((4, 6, 2), a, b)) is int and type(h := sieve_hl((4, 6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2096,6 +2123,9 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x44cc725e_w1", check_authored_frontier_cong_x44cc725e_w1, False),
     ("authored_frontier_le_x10223e69_w1", check_authored_frontier_le_x10223e69_w1, False),
     ("authored_sieve_residue_bal_g4_2_4_w1", check_authored_sieve_residue_bal_g4_2_4_w1, False),
+    ("authored_frontier_le_xafb0aef8_w1", check_authored_frontier_le_xafb0aef8_w1, False),
+    ("authored_frontier_divides_x9835949a_w1", check_authored_frontier_divides_x9835949a_w1, False),
+    ("authored_sieve_hl_within_g4_6_2_w1", check_authored_sieve_hl_within_g4_6_2_w1, False),
 ]
 
 

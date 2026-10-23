@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T05:37:47Z",
+  "updated_at": "2026-10-23T10:14:33Z",
   "passes": 458,
-  "kills": 194,
+  "kills": 196,
   "easy_pad_kills": 32,
-  "kill_rate": 0.2975,
+  "kill_rate": 0.2997,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 49,
-    "kills": 11,
+    "passes": 47,
+    "kills": 13,
     "easy_pad_kills": 0,
-    "kill_rate": 0.1833
+    "kill_rate": 0.2167
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
@@ -23,7 +23,6 @@
     "authored_frontier_cong_x3fa7829a_w1",
     "authored_frontier_cong_x94023555_w1",
     "authored_frontier_cong_x9eef1668_w1",
-    "authored_frontier_cong_xa68963c2_w1",
     "authored_frontier_cong_xb19ab27c_w1",
     "authored_frontier_cong_xbb82919e_w1",
     "authored_frontier_cong_xfdcb3b60_w1",
@@ -54,14 +53,17 @@
     "authored_sieve_hl_within_g2_6_w1",
     "authored_sieve_hl_within_g4_2_6_w1",
     "authored_sieve_hl_within_g6_6_w1",
-    "authored_sieve_residue_bal_g2_6_6_w1"
+    "authored_sieve_residue_bal_g2_6_6_w1",
+    "authored_sieve_residue_bal_g6_2_w1"
   ],
   "unique_mutations_kill": [
     "Chain `authored_sieve_residue_bal_g6_4_w1` citing Inverse binomial coefficients in Egorychev method",
     "Chain+seek `lemma_hard_combinatorics` from invariant priors",
     "authored_frontier_cong_x44cc725e_w1",
     "authored_frontier_divides_x0c5f5f5b_w1",
+    "authored_frontier_divides_x9835949a_w1",
     "authored_frontier_le_x10223e69_w1",
+    "authored_frontier_le_xafb0aef8_w1",
     "authored_sieve_residue_bal_g4_2_4_w1"
   ],
   "domain_packs": {
@@ -94,7 +96,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-10-23T05:37:47Z",
+    "ts": "2026-10-23T10:14:33Z",
     "passed": false,
     "kills": [
       "held_out:held_out_shift_not_applicable(no_literal_range)",
@@ -107,16 +109,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_sieve_residue_bal_g4_2_4_w1` kind=hard_enable. lemma mutation authored_sieve_residue_bal_g4_2_4_w1 0.8652->0.8651 (compared 0.857->0.857; instrument_budget:0.013s) N",
-      "attack": "WEIGH: `authored_sieve_residue_bal_g4_2_4_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_frontier_divides_x9835949a_w1` kind=hard_enable. lemma mutation authored_frontier_divides_x9835949a_w1 0.8722->0.8721 (compared 0.857->0.857; speed_noise:-0.002) Not",
+      "attack": "WEIGH: `authored_frontier_divides_x9835949a_w1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 210,
-        "hard_n": 210,
-        "score": 0.865,
+        "hard_pass": 151,
+        "hard_n": 151,
+        "score": 0.8722,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -127,10 +129,10 @@
       "held_out": {
         "survives": false,
         "ok_for_oracle": false,
-        "hard_pass": 210,
-        "hard_n": 210,
+        "hard_pass": 151,
+        "hard_n": 151,
         "ok": true,
-        "score": 0.8651,
+        "score": 0.8721,
         "shifted_window": {
           "ok": false,
           "status": "not_tested",
@@ -214,15 +216,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
+      "mutation": "authored_frontier_divides_x9835949a_w1",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
+    "mutation": "authored_frontier_divides_x9835949a_w1",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261023T053628Z_8d937e",
+    "cycle_id": "20261023T101319Z_724b2e",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out_shift_not_applicable(no_literal_range)', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

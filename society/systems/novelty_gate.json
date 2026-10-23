@@ -1,39 +1,38 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T05:37:49Z",
-  "hits": 22,
-  "kills": 4,
+  "updated_at": "2026-10-23T10:14:35Z",
+  "hits": 20,
+  "kills": 6,
   "rows": 30,
-  "kill_rows": 8,
+  "kill_rows": 10,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-10-23T05:37:49Z",
-    "cycle_id": "20261023T053628Z_8d937e",
-    "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
+    "ts": "2026-10-23T10:14:35Z",
+    "cycle_id": "20261023T101319Z_724b2e",
+    "mutation": "authored_frontier_divides_x9835949a_w1",
     "kind": "hard_enable",
     "novel_to_commons": false,
     "kills": [
       "already_in_lesson_ledger_or_history",
-      "textbook_reuse=0.6667",
       "oracle_kill:['held_out:held_out_shift_not_applicable(no_literal_range)', 'collective_kill']"
     ],
-    "textbook_reuse": 0.6667,
+    "textbook_reuse": 0.3333,
     "in_ledger": true,
     "own_authoring_record_only": false,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 209,
-      "hard_n": 209,
+      "hard_pass": 150,
+      "hard_n": 150,
       "stripped_fails_usefulness": true,
-      "score": 0.8651,
-      "impl_id": "lemma_impl_v2_basic10_hard209"
+      "score": 0.8722,
+      "impl_id": "lemma_impl_v2_basic10_hard150"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 209,
+      "hard_pass": 150,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

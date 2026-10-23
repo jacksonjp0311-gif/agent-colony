@@ -28,7 +28,7 @@
  },
  "mode": "live",
  "n_authored": 20,
- "n_authored_proved": 10,
+ "n_authored_proved": 8,
  "n_claims": 150,
  "n_proved": 104,
  "n_proved_new": 7,
@@ -48,7 +48,7 @@
    "v": 4
   },
   "(fib*lucas)(n) divides dbl(stree_grid3)(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x9835949a_w1",
    "checks": 988,
@@ -72,7 +72,7 @@
    "v": 4
   },
   "(gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_le_xafb0aef8_w1",
    "checks": 59988,
@@ -12218,7 +12218,7 @@
    "v": 3
   },
   "a(n) = dbl((pow2-lpf))(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)": {
-   "authored": true,
+   "authored": false,
    "certificate": {
     "N0": 64,
     "Q": 1,
@@ -16133,7 +16133,7 @@
    "v": 3
   },
   "dbl(gcd(n,pell))(n) = 0 (mod 2) for all n >= 1": {
-   "authored": true,
+   "authored": false,
    "certificate": {
     "N0": 64,
     "Q": 1,
@@ -18616,6 +18616,6 @@
    "v": 3
   }
  },
- "seconds": 0.04,
- "ts": "2026-10-23T06:45:24Z"
+ "seconds": 0.03,
+ "ts": "2026-10-23T10:15:20Z"
 }
