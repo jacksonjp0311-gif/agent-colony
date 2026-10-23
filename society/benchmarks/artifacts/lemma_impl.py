@@ -2025,6 +2025,33 @@ def check_authored_sieve_hl_within_g6_6_2_w1() -> bool:
     return all(type(c := sieve_count((6, 6, 2), a, b)) is int and type(h := sieve_hl((6, 6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
 
 
+def check_authored_frontier_cong_xcb3ef303_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    S(oxa033453)(n) = 0 (mod 2) for all n = 0 (mod 3)
+    re-tested on windows [(41, 270), (271, 500), (501, 730)]. machine-proved (certificate). Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(oxa033453)', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 270), (271, 500), (501, 730)])
+
+
+def check_authored_frontier_cong_xa8371e31_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    S((fib*oxa048760))(n) = 0 (mod 2) for all n = 0 (mod 3)
+    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 662 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((fib*oxa048760))', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
+
+
+def check_authored_frontier_cong_xe0f68915_w1() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    gcd(oxa033453,stree_grid3)(n) = 1 (mod 2) for all n >= 1
+    re-tested on windows [(41, 270), (271, 500), (501, 730)]. conjecture surviving 488 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(oxa033453,stree_grid3)', 'params': {'m': 2, 'q': 1, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 270), (271, 500), (501, 730)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2246,6 +2273,9 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x2ffdc067_w1", check_authored_frontier_cong_x2ffdc067_w1, False),
     ("authored_frontier_cong_xda29c2e7_w1", check_authored_frontier_cong_xda29c2e7_w1, False),
     ("authored_sieve_hl_within_g6_6_2_w1", check_authored_sieve_hl_within_g6_6_2_w1, False),
+    ("authored_frontier_cong_xcb3ef303_w1", check_authored_frontier_cong_xcb3ef303_w1, False),
+    ("authored_frontier_cong_xa8371e31_w1", check_authored_frontier_cong_xa8371e31_w1, False),
+    ("authored_frontier_cong_xe0f68915_w1", check_authored_frontier_cong_xe0f68915_w1, False),
 ]
 
 

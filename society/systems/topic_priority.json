@@ -66,12 +66,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "\\(q\\)-secant",
+      "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "`meta-learning`",
+      "topic": "ai-generated",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-23T11:02:12Z",
-  "updated_cycle": "20261023T110056Z_8f45cb",
+  "updated_at": "2026-10-23T12:02:04Z",
+  "updated_cycle": "20261023T120038Z_6a3581",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
