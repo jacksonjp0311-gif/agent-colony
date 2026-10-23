@@ -156,6 +156,8 @@ jobs:
           COLONY_OBSCURE: shadow
           # arithmetic claims re-checked to n = 10^6 before surprise credit (colony/deep_range.py)
           COLONY_DEEP: shadow
+          # new domains: automatic sequences (words) and partition q-series (colony/frontier_domains.py)
+          COLONY_DOMAINS: shadow
           CYCLES: ${{ github.event.inputs.cycles || '3' }}
           OFFLINE: ${{ github.event.inputs.offline || 'false' }}
         run: |

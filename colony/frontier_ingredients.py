@@ -282,6 +282,11 @@ class LazyTable(dict):
             v = _op.table(key)
             self[key] = v
             return v
+        from colony import frontier_domains as _dm
+        if key in _dm.PRIMS:
+            v = _dm.table(key, self._T)
+            self[key] = v
+            return v
         if key not in NEW:
             raise KeyError(key)
         v = _builders(self._T)[key]()
@@ -290,7 +295,8 @@ class LazyTable(dict):
 
     def __contains__(self, key: object) -> bool:
         from colony import obscure_pool as _op
-        return dict.__contains__(self, key) or key in NEW or key in _op.PRIMS
+        from colony import frontier_domains as _dm
+        return dict.__contains__(self, key) or key in NEW or key in _op.PRIMS or key in _dm.PRIMS
 
     def get(self, key: str, default: Any = None) -> Any:
         try:

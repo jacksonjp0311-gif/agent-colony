@@ -14,7 +14,7 @@ from typing import Any
 
 DEEP_N = 10 ** 6
 DEEP_PRIMS = ("n", "one", "phi", "sigma", "tau", "omega", "bigomega", "mu", "rad", "lpf", "gpf", "sopfr", "sqfree",
-              "digsum", "popcount", "pi")
+              "digsum", "popcount", "pi", "tm", "rs", "pfold", "pdbl", "baum", "fibw")
 _T: dict[str, list[int]] = {}
 
 
@@ -77,6 +77,9 @@ def tables(N: int = DEEP_N) -> dict[str, list[int]]:
         v = v.copy()
         v[0] = 0 if k not in ("one",) else 0
         _T[k] = v.tolist()
+    from colony import frontier_domains as DM
+    for w in DM.WORDS:
+        _T[w] = DM.word(w, N)
     _T["_N"] = [N]
     return _T
 

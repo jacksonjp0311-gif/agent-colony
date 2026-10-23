@@ -291,7 +291,14 @@ def check(c: dict[str, Any], T: Any, net: Any = None, lookup: Callable | None = 
     from colony import frontier_conjectures as FC
     taut = lambda: ("known: a property of the outer function alone (g(x) | x or g(x) <= x)"  # noqa: E731
                     if c.get("_re") is not None and FC._outer_self(c) else None)
-    steps = (("tautology", taut), ("kernel", lambda: kernel(c, T)), ("cfinite", lambda: cfinite_identity(c, T)),
+    def auto() -> str | None:
+        from colony import frontier_domains as DM
+        ps = FC.prims_of(c["_le"]) | (FC.prims_of(c["_re"]) if c.get("_re") is not None else set())
+        if DM.automatic_only(ps):
+            return ("known in principle: a statement about automatic sequences only (Thue-Morse, Rudin-Shapiro, "
+                    "paperfolding, period-doubling, Baum-Sweet, Fibonacci word); decidable, e.g. with Walnut")
+        return None
+    steps = (("tautology", taut), ("automatic", auto), ("kernel", lambda: kernel(c, T)), ("cfinite", lambda: cfinite_identity(c, T)),
              ("periodic", lambda: periodic_null(c, T)), ("oeis_derived", lambda: derived_in_oeis(c, T, lookup)))
     for name, fn in steps:
         try:
@@ -316,6 +323,7 @@ def check(c: dict[str, Any], T: Any, net: Any = None, lookup: Callable | None = 
 def _obs_anum(p: str) -> str | None:
     try:
         from colony import obscure_pool as OP
-        return OP.ANUM.get(p)
+        from colony import frontier_domains as DM
+        return OP.ANUM.get(p) or DM.ANUM.get(p)
     except Exception:  # noqa: BLE001
         return None

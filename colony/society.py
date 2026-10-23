@@ -286,6 +286,11 @@ class Society:
                     if _op.mode() == "shadow":
                         _op.shadow_cycle(cid, T=_fc._TABLES)
                 self._stage(result, "obscure_pool", obscure)
+                def domains():  # new domains (words, q-series), report-only pass (COLONY_DOMAINS=shadow)
+                    from colony import frontier_domains as _dm
+                    if _dm.mode() == "shadow":
+                        _dm.shadow_cycle(cid, T=_fc._TABLES)
+                self._stage(result, "frontier_domains", domains)
                 def proof():
                     from colony import proof_path as _pp
                     if _pp.mode() != "off":

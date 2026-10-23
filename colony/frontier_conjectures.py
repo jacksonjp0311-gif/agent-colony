@@ -85,6 +85,9 @@ EXPO = EXPO + _ING.EXPO_NEW
 # less-studied OEIS entries (COLONY_OBSCURE; colony/obscure_pool.py), sampled only when active()
 from colony import obscure_pool as _OBS  # noqa: E402
 EXPO = EXPO + _OBS.PRIMS
+# new verifiable domains: automatic sequences and q-series products (COLONY_DOMAINS; colony/frontier_domains.py)
+from colony import frontier_domains as _DOM  # noqa: E402
+EXPO = EXPO + _DOM.PRIMS
 PRIMS = ARITH + EXPO
 WIDE_QS = (5, 7, 11)     # residue classes for Ramanujan-type congruences
 WIDE_MODS = (11,)
@@ -94,7 +97,7 @@ MODPAT_MAX_P = 12
 CF_ORDER = {"n": 2, "one": 1, "pow2": 1, "fib": 2, "lucas": 2, "pell": 2} | _ING.CF_ORDER_NEW
 OPS = ("p", "S", "D", "sh", "dbl", "+", "-", "*", "gcd", "o")
 POSITIVE = {"n", "one", "phi", "sigma", "tau", "rad", "lpf", "gpf", "prime", "digsum", "popcount",
-            "cmax", "maxgap", "ds3", "rev"} | set(_ING.POSITIVE_NEW) | set(_OBS.POSITIVE)
+            "cmax", "maxgap", "ds3", "rev"} | set(_ING.POSITIVE_NEW) | set(_OBS.POSITIVE) | set(_DOM.POSITIVE)
 
 
 def menu() -> str:
@@ -107,7 +110,8 @@ def menu() -> str:
 def menu_prims() -> tuple[str, ...]:
     ps = PRIMS if menu() == "wide" else tuple(k for k in PRIMS if k not in WIDE)
     ps = ps if _ING.active() else tuple(k for k in ps if k not in _ING.NEW)
-    return ps if _OBS.active() else tuple(k for k in ps if k not in _OBS.PRIMS)
+    ps = ps if _OBS.active() else tuple(k for k in ps if k not in _OBS.PRIMS)
+    return ps if _DOM.active() else tuple(k for k in ps if k not in _DOM.PRIMS)
 
 
 def mode() -> str:
@@ -1574,9 +1578,10 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
               k_prior: float | None = None, tally: dict | None = None) -> dict[str, Any]:
     if mode() == "off":
         return {"skipped": "COLONY_FRONTIER=off"}
-    live_tally = tally is None and write and (_ING.mode() == "live" or _OBS.mode() == "live")
+    live_tally = tally is None and write and "live" in (_ING.mode(), _OBS.mode(), _DOM.mode())
     if live_tally:
-        tally = (_ING.new_tally() if _ING.mode() == "live" else {}) | (_OBS.new_tally() if _OBS.mode() == "live" else {})
+        tally = ((_ING.new_tally() if _ING.mode() == "live" else {}) | (_OBS.new_tally() if _OBS.mode() == "live" else {})
+                 | (_DOM.new_tally() if _DOM.mode() == "live" else {}))
     _pr = lambda c: prims_of(c["_le"]) | (prims_of(c["_re"]) if c.get("_re") is not None else set())  # noqa: E731
     T = T or tables()
     F = F or fit_n()
@@ -1842,6 +1847,8 @@ def run_cycle(cycle_id: str = "", *, state_path: Path = STATE, T: Any = None, lo
                     _ING.record(cycle_id, "live", {p: tally[p] for p in _ING.NEW}, summary)
                 if _OBS.mode() == "live" and _OBS.PRIMS:
                     _OBS.record(cycle_id, "live", {p: tally[p] for p in _OBS.PRIMS}, summary)
+                if _DOM.mode() == "live":
+                    _DOM.record(cycle_id, "live", {p: tally[p] for p in _DOM.PRIMS}, summary)
             except Exception:  # noqa: BLE001
                 pass
     return summary
