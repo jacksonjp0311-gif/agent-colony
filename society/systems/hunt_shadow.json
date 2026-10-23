@@ -2,22 +2,24 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-10-23T15:27:09Z",
-    "cycle_id": "20261023T152530Z_2e3985",
+    "ts": "2026-10-23T15:40:01Z",
+    "cycle_id": "20261023T153754Z_8e7529",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 25,
-    "n_meet_bar_shadow": 13,
-    "n_unknown_claims": 26,
+    "n_meet_bar_actual": 27,
+    "n_meet_bar_shadow": 15,
+    "n_unknown_claims": 28,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
+      "authored_frontier_cong_x4bb20589_w1",
       "authored_frontier_cong_x85b99e19_w1",
+      "authored_frontier_cong_xbae7672a_w1",
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_cong_xedd0f0db_w1",
       "authored_frontier_divides_x318ee14a_w1",
@@ -31,9 +33,7 @@
       "authored_frontier_divides_xc90ee275_w2",
       "authored_frontier_le_x7a9213ec_w1",
       "authored_frontier_le_x7a9213ec_w2",
-      "authored_frontier_le_x7a9213ec_w3",
-      "authored_frontier_le_xc2340063_w1",
-      "authored_newdata_a006577_k10001_w1"
+      "authored_frontier_le_x7a9213ec_w3"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -81,10 +81,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_62a316_50",
-        "target": "authored_newdata_a047160_k10001_w1",
+        "id": "imp_2e3985_50",
+        "target": "authored_frontier_cong_xedd0f0db_w1",
         "actual_pos": 5,
         "shadow_pos": 3,
+        "meets_bar_shadow": true,
+        "rank": 0.7258,
+        "rank_shadow": 0.7258,
+        "P": 0.8764,
+        "P_shadow": 0.8764,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_62a316_50",
+        "target": "authored_newdata_a047160_k10001_w1",
+        "actual_pos": 6,
+        "shadow_pos": 4,
         "meets_bar_shadow": true,
         "rank": 0.7258,
         "rank_shadow": 0.7258,
@@ -97,8 +111,8 @@
       {
         "id": "imp_ff0c00_50",
         "target": "authored_frontier_divides_x97939198_w1",
-        "actual_pos": 7,
-        "shadow_pos": 4,
+        "actual_pos": 8,
+        "shadow_pos": 5,
         "meets_bar_shadow": true,
         "rank": 0.7258,
         "rank_shadow": 0.7258,
@@ -111,8 +125,8 @@
       {
         "id": "imp_106949_50",
         "target": "authored_frontier_cong_x85b99e19_w1",
-        "actual_pos": 8,
-        "shadow_pos": 5,
+        "actual_pos": 9,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.7257,
         "rank_shadow": 0.7257,
@@ -125,8 +139,8 @@
       {
         "id": "imp_925ac5_50",
         "target": "authored_newdata_a006577_k10001_w1",
-        "actual_pos": 11,
-        "shadow_pos": 6,
+        "actual_pos": 12,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.7252,
         "rank_shadow": 0.7252,
@@ -139,8 +153,8 @@
       {
         "id": "imp_022700_50",
         "target": "authored_newdata_a006666_k10001_w1",
-        "actual_pos": 15,
-        "shadow_pos": 7,
+        "actual_pos": 16,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.695,
         "rank_shadow": 0.695,
@@ -153,21 +167,7 @@
       {
         "id": "imp_18d1e0_50",
         "target": "authored_frontier_cong_xbb82919e_w1",
-        "actual_pos": 17,
-        "shadow_pos": 8,
-        "meets_bar_shadow": true,
-        "rank": 0.695,
-        "rank_shadow": 0.695,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_53f6c2_49",
-        "target": "authored_frontier_cong_x06b60875_w1",
-        "actual_pos": 19,
+        "actual_pos": 18,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -179,9 +179,9 @@
         "expected": 0.0
       },
       {
-        "id": "imp_8926cc_50",
-        "target": "authored_newdata_a006667_k10001_w1",
-        "actual_pos": 20,
+        "id": "imp_44161a_50",
+        "target": "authored_frontier_cong_xbae7672a_w1",
+        "actual_pos": 19,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -200,51 +200,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-10-23T06:19:23Z",
-      "cycle_id": "20261023T061703Z_b74c4c",
-      "n_meet_bar_actual": 27,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 27,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T06:21:32Z",
-      "cycle_id": "20261023T061926Z_02b7dd",
-      "n_meet_bar_actual": 27,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 27,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-10-23T06:23:49Z",
-      "cycle_id": "20261023T062135Z_de61eb",
-      "n_meet_bar_actual": 27,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 27,
-      "drop_out_of_bar": 13,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-10-23T06:41:13Z",
       "cycle_id": "20261023T063849Z_fe13ed",
@@ -641,6 +596,51 @@
       "n_meet_bar_actual": 25,
       "n_meet_bar_shadow": 13,
       "n_unknown_claims": 26,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T15:35:46Z",
+      "cycle_id": "20261023T153320Z_44161a",
+      "n_meet_bar_actual": 26,
+      "n_meet_bar_shadow": 14,
+      "n_unknown_claims": 27,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T15:37:51Z",
+      "cycle_id": "20261023T153549Z_10533c",
+      "n_meet_bar_actual": 27,
+      "n_meet_bar_shadow": 15,
+      "n_unknown_claims": 27,
+      "drop_out_of_bar": 12,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-10-23T15:40:01Z",
+      "cycle_id": "20261023T153754Z_8e7529",
+      "n_meet_bar_actual": 27,
+      "n_meet_bar_shadow": 15,
+      "n_unknown_claims": 28,
       "drop_out_of_bar": 12,
       "enter_bar": 0,
       "guidance_mode": "live",
