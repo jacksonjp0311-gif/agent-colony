@@ -1,7 +1,7 @@
 {
- "ts": "2026-10-23T10:13:34Z",
+ "ts": "2026-10-23T10:28:39Z",
  "mode": "live",
- "n_authored": 93,
+ "n_authored": 96,
  "n_candidates": 0,
  "machine_receipts": "live",
  "machine_release_limit": 40,
@@ -15,9 +15,9 @@
   "sieve_grace_hours": 0.25,
   "max_per_run": 60
  },
- "cycle_id": "20261023T101319Z_724b2e",
+ "cycle_id": "20261023T102824Z_f800a6",
  "applied": {
   "applied": 0
  },
- "n_protected": 61
+ "n_protected": 64
 }

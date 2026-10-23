@@ -1,36 +1,15 @@
 {
-  "ts": "2026-10-23T10:15:07Z",
+  "ts": "2026-10-23T10:29:51Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261023T101319Z_724b2e"
+    "cycle_id": "20261023T102824Z_f800a6"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
   "last_oracle_passes": 458,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-22T17:34:09Z",
-      "cycle_id": "20261022T173243Z_aace85",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-22T21:52:49Z",
-      "cycle_id": "20261022T215140Z_e65cad",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-10-22T21:54:22Z",
-      "cycle_id": "20261022T215311Z_237936",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-10-22T21:55:54Z",
       "cycle_id": "20261022T215438Z_bc09c2",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-23T10:25:53Z",
+      "cycle_id": "20261023T102401Z_4754d7",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-23T10:28:03Z",
+      "cycle_id": "20261023T102618Z_bf6565",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-10-23T10:29:58Z",
+      "cycle_id": "20261023T102824Z_f800a6",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-10-23T10:15:15Z",
+  "updated_at": "2026-10-23T10:29:58Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.011595,
     "hockey_stick": 0.011595,
@@ -358,7 +358,7 @@
     "fibonacci_cassini_ext": 0.035178,
     "derived_chain_stress": 0.035178,
     "energy_work": 0.035178,
-    "authored_frontier_divides_x9835949a_w1": 0.014989
+    "authored_frontier_cong_xd9add9e9_w1": 0.014989
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -372,7 +372,10 @@
     "authored_frontier_le_x10223e69_w1": 2,
     "authored_sieve_residue_bal_g4_2_4_w1": 2,
     "authored_frontier_le_xafb0aef8_w1": 1,
-    "authored_frontier_divides_x9835949a_w1": 1
+    "authored_frontier_divides_x9835949a_w1": 1,
+    "authored_sieve_hl_within_g4_6_2_w1": 1,
+    "authored_frontier_modpat_x50c3856a_w1": 1,
+    "authored_frontier_cong_xd9add9e9_w1": 1
   },
   "keep_rewards": {
     "authored_bell_triangle_recurrence__hermite_recurrence_w1": 1,

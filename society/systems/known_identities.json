@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23T10:14:34Z",
-  "n": 399,
+  "updated_at": "2026-10-23T10:29:37Z",
+  "n": 402,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -85,6 +85,7 @@
     "authored_frontier_cong_xa68963c2_w1",
     "authored_frontier_cong_xb19ab27c_w1",
     "authored_frontier_cong_xbb82919e_w1",
+    "authored_frontier_cong_xd9add9e9_w1",
     "authored_frontier_cong_xfdcb3b60_w1",
     "authored_frontier_cong_xfdcb3b60_w2",
     "authored_frontier_divides_x0b1db873_w1",
@@ -112,6 +113,7 @@
     "authored_frontier_le_xafb0aef8_w1",
     "authored_frontier_le_xc2340063_w1",
     "authored_frontier_le_xdbff107c_w1",
+    "authored_frontier_modpat_x50c3856a_w1",
     "authored_frontier_rec_xa92258f8_w1",
     "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
     "authored_gcd_fibonacci__hermite_recurrence_w1",
@@ -196,12 +198,10 @@
     "authored_sieve_residue_bal_g4_6_w1",
     "authored_sieve_residue_bal_g4_w1",
     "authored_sieve_residue_bal_g6_2_4_w1",
+    "authored_sieve_residue_bal_g6_2_6_w1",
     "authored_sieve_residue_bal_g6_2_w1",
     "authored_sieve_residue_bal_g6_4_6_w1",
-    "authored_sieve_residue_bal_g6_4_w1",
-    "authored_sieve_residue_bal_g6_6_2_w1",
-    "authored_sieve_residue_bal_g6_6_4_w1",
-    "authored_sieve_residue_bal_g6_6_6_w1"
+    "authored_sieve_residue_bal_g6_4_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

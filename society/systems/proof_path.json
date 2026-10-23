@@ -27,7 +27,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 20,
+ "n_authored": 22,
  "n_authored_proved": 8,
  "n_claims": 150,
  "n_proved": 104,
@@ -16459,7 +16459,7 @@
    "v": 3
   },
   "dbl(oxa038041)(n) = 2 (mod 3) for all n = 2 (mod 3)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_cong_xd9add9e9_w1",
    "checks": 29,
@@ -17449,7 +17449,7 @@
    "v": 3
   },
   "gcd(lucas,perm_derange)(n) mod 2 depends only on n mod 6 (residues [1, 1, 0, 1, 1, 1] for n = 1..6), all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_modpat_x50c3856a_w1",
    "checks": 988,
@@ -18617,5 +18617,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-10-23T10:15:20Z"
+ "ts": "2026-10-23T10:30:04Z"
 }

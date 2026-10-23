@@ -1,45 +1,10 @@
 {
   "version": 1,
   "totals": {
-    "ok": 71,
-    "unbridged": 54
+    "ok": 72,
+    "unbridged": 56
   },
   "rows": [
-    {
-      "mutation": "authored_frontier_divides_x0b1db873_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-18T11:17:07Z",
-      "cycle_id": "20261018T111646Z_554165",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_frontier_cong_xa68963c2_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-18T11:19:09Z",
-      "cycle_id": "20261018T111843Z_6ff40f",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_sieve_residue_bal_g4_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "residue_bal",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-18T11:23:44Z",
-      "cycle_id": "20261018T112307Z_ad376a",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_sieve_hl_within_g2_4_w1",
       "status": "ok",
@@ -689,8 +654,43 @@
       "kind": "hard_enable",
       "oracle_passed": false,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_hl_within_g4_6_2_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "hl_within",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-10-23T10:25:32Z",
+      "cycle_id": "20261023T102401Z_4754d7",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_modpat_x50c3856a_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-23T10:27:32Z",
+      "cycle_id": "20261023T102618Z_bf6565",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_cong_xd9add9e9_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-10-23T10:29:37Z",
+      "cycle_id": "20261023T102824Z_f800a6",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-10-23T10:14:33Z",
+  "updated_at": "2026-10-23T10:29:37Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }
