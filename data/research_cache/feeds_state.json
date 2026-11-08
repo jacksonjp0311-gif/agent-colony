@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-08T11:10:08Z",
+    "fetched_at": "2026-11-08T13:39:52Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-08T13:39:20Z",
+        "id": 42485986567,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-08T13:39:23Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-08T11:09:30Z",
         "id": 42474494874,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-08T11:09:34Z"
+        "status": "completed",
+        "updated_at": "2026-11-08T11:20:44Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Read-only tests",
         "status": "completed",
         "updated_at": "2026-10-23T17:42:11Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-10-23T17:19:54Z",
-        "id": 39994170615,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-10-23T17:31:03Z"
       }
     ],
     "success_rate": 0.9091
@@ -138,41 +138,36 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "",
-        "fetched": 8,
-        "new": 2,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 2,
-        "new": 2,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-11-08T11:09:59Z"
+    "ts": "2026-11-08T13:39:51Z"
   },
-  "runs": 203
+  "runs": 204
 }

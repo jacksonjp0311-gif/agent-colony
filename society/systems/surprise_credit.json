@@ -1,9 +1,9 @@
 {
- "ts": "2026-11-08T11:17:48Z",
+ "ts": "2026-11-08T13:49:04Z",
  "mode": "live",
- "n_keeps": 315,
- "n_frontier": 51,
- "n_hand_trivial": 44,
+ "n_keeps": 318,
+ "n_frontier": 52,
+ "n_hand_trivial": 45,
  "n_surprise": 7,
  "max_trivial_credit": 0.0,
  "min_surprise_credit": 0.0,
@@ -479,137 +479,142 @@
   {
    "name": "authored_sieve_two_counter_g4_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_2_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_4_2_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_6_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_6_2_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_2_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_6_2_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_4_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_4_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_2_4_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_2_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_4_2_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_4_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_2_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_4_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_6_4_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_6_6_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_6_4_w1",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_w2",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g2_4_w2",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g4_6_w2",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_two_counter_g6_6_w2",
    "kind": "sieve",
-   "credit": 0.0042
+   "credit": 0.004
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_4_w2",
+   "kind": "sieve",
+   "credit": 0.004
   },
   {
    "name": "authored_sieve_hl_within_g2_w1",
@@ -1728,7 +1733,7 @@
    "statement": "(lpf+mu)",
    "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6814,
+   "unlikely": 0.6805,
    "effort": 0.0,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
@@ -1741,7 +1746,7 @@
    "statement": "fib",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.883,
+   "unlikely": 0.8831,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1754,7 +1759,7 @@
    "statement": "(lpf+mu)",
    "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6814,
+   "unlikely": 0.6805,
    "effort": 0.0,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
@@ -1767,7 +1772,7 @@
    "statement": "stree_grid3",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.883,
+   "unlikely": 0.8831,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1780,7 +1785,7 @@
    "statement": "lucas",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.883,
+   "unlikely": 0.8831,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1793,7 +1798,7 @@
    "statement": "stree_ladder",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.883,
+   "unlikely": 0.8831,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -2024,15 +2029,34 @@
   {
    "name": "authored_frontier_le_xdbff107c_w3",
    "kind": "frontier",
-   "statement": "(bigomega*lpf)",
+   "credit": null,
+   "note": "claim not found"
+  },
+  {
+   "name": "authored_frontier_cong_x3f36abbe_w1",
+   "kind": "frontier",
+   "statement": "D(gcd(oxa177115,oxa177122))(n) = 0 (mod 2) for all n >= 1",
    "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6814,
-   "effort": 0.0,
+   "unlikely": 0.5965,
+   "effort": 0.4852,
    "family": 1.0,
-   "explained": "the current triviality filter explains it",
+   "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 200)",
+   "target_weight": 2.0,
+   "source": "registry"
+  },
+  {
+   "name": "authored_frontier_cong_x41b05781_w1",
+   "kind": "frontier",
+   "statement": "S((oxa048760*pell))(n) = 0 (mod 2) for all n = 0 (mod 4)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.5977,
+   "effort": 0.5177,
+   "family": 1.0,
+   "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 2000)",
    "target_weight": 1.0,
-   "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
+   "source": "registry"
   }
  ],
  "rule": {

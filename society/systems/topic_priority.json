@@ -56,12 +56,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "$s$-catalan",
+      "topic": "$p$-parity",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "'3rd-order'",
+      "topic": "$s$-catalan",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-08T11:19:08Z",
-  "updated_cycle": "20261108T111737Z_1224b7",
+  "updated_at": "2026-11-08T13:50:39Z",
+  "updated_cycle": "20261108T134846Z_3a01d0",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
