@@ -1,7 +1,7 @@
 {
-  "ts": "2026-11-08T06:32:39Z",
+  "ts": "2026-11-08T11:19:55Z",
   "view_only": true,
-  "n_considered": 114,
+  "n_considered": 117,
   "n_meet_bar": 24,
   "n_groups": 18,
   "n_authored_groups": 18,
@@ -153,7 +153,7 @@
       "hunt": {
         "unknown": true,
         "in_oeis": false,
-        "oeis_reuse": 0.0833,
+        "oeis_reuse": 0.3333,
         "oeis_checked": true,
         "family": "authored_frontier_cong_x4bb20589",
         "siblings_passed": 0,
@@ -424,8 +424,8 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-11-08T06:32:39Z",
-    "cycle_id": "20261108T062934Z_3a3425",
+    "ts": "2026-11-08T11:19:55Z",
+    "cycle_id": "20261108T111737Z_1224b7",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -440,6 +440,7 @@
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
       "authored_frontier_cong_x4bb20589_w1",
+      "authored_frontier_cong_xa8371e31_w1",
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
@@ -454,8 +455,7 @@
       "authored_frontier_le_x7a9213ec_w2",
       "authored_frontier_le_x7a9213ec_w3",
       "authored_frontier_le_xc2340063_w1",
-      "authored_newdata_a006577_k10001_w1",
-      "authored_newdata_a006666_k10001_w1"
+      "authored_frontier_le_xdbff107c_w3"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -621,11 +621,12 @@
     }
   },
   "excluded_reasons": {
-    "status": 66,
-    "target_unresolved": 63,
-    "oracle_killed_in_own_cycle": 11,
-    "novelty_killed": 24,
+    "status": 70,
+    "target_unresolved": 69,
+    "oracle_killed_in_own_cycle": 8,
+    "novelty_killed": 19,
     "no_oracle_pass_in_own_cycle": 12,
+    "trivial_by_filter": 1,
     "hearing": 2
   },
   "rule": {
@@ -635,5 +636,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261108T062934Z_3a3425"
+  "cycle_id": "20261108T111737Z_1224b7"
 }

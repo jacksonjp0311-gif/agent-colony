@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-11-08 01:32 AM ET
+# Proposal shortlist — 2026-11-08 06:19 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-24 of 114 proposals meet the authorize bar (18 after grouping near-duplicates; 18 colony-authored, 0 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+24 of 117 proposals meet the authorize bar (18 after grouping near-duplicates; 18 colony-authored, 0 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -40,14 +40,14 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 13 (actual 24). Unknown clai
 | 9 | imp_53f6c2_49 | `authored_frontier_cong_x06b60875_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 18 |
 | 10 | imp_8926cc_50 | `authored_newdata_a006667_k10001_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 19 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 12, novelty_killed: 24, oracle_killed_in_own_cycle: 11, status: 66, target_unresolved: 63
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 12, novelty_killed: 19, oracle_killed_in_own_cycle: 8, status: 70, target_unresolved: 69, trivial_by_filter: 1
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 12 tested, 5 survived held-out, 7 falsified, 3 machine-checked, 0 surprises; dropped 50 duplicates, 145 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1685.
-Totals: tested 4011, survived 1878, surprises 91, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 1 explained by a reference, 0 with no reference found.
+Mode `live`. Last cycle: 21 tested, 9 survived held-out, 12 falsified, 2 machine-checked, 0 surprises; dropped 43 duplicates, 100 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1686.
+Totals: tested 4063, survived 1895, surprises 91, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 2 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
