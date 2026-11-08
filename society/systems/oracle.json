@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-08T00:03:26Z",
-  "passes": 496,
-  "kills": 223,
+  "updated_at": "2026-11-08T05:15:52Z",
+  "passes": 498,
+  "kills": 228,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3102,
+  "kill_rate": 0.314,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 38,
-    "kills": 22,
+    "passes": 40,
+    "kills": 20,
     "easy_pad_kills": 0,
-    "kill_rate": 0.3667
+    "kill_rate": 0.3333
   },
-  "bus_ok_rate": 0.1167,
+  "bus_ok_rate": 0.1667,
   "unique_mutations_pass": [
     "authored_frontier_cong_x0df35249_w1",
     "authored_frontier_cong_x16b72492_w2",
@@ -42,11 +42,13 @@
     "authored_frontier_modpat_x51c52e42_w2",
     "authored_sieve_hl_within_g2_4_2_w2",
     "authored_sieve_hl_within_g2_6_w2",
+    "authored_sieve_hl_within_g4_6_2_w1",
     "authored_sieve_hl_within_g6_2_4_w2",
     "authored_sieve_hl_within_g6_2_w2",
     "authored_sieve_residue_bal_g2_4_6_w2",
     "authored_sieve_residue_bal_g4_2_4_w1",
     "authored_sieve_residue_bal_g4_2_w2",
+    "authored_sieve_residue_bal_g6_2_6_w1",
     "authored_sieve_residue_bal_g6_4_w2",
     "authored_sieve_residue_bal_g6_w2",
     "authored_sieve_two_counter_g2_4_w2",
@@ -58,17 +60,11 @@
     "Chain+seek `authored_frontier_cong_xedd0f0db_w2` from invariant priors",
     "Chain+seek `authored_frontier_divides_x9835949a_w1` from invariant priors",
     "Chain+seek `authored_frontier_le_x46c5cc8a_w3` from invariant priors",
-    "authored_frontier_cong_x2ffdc067_w1",
-    "authored_frontier_cong_x47dd09c7_w1",
-    "authored_frontier_cong_x58a0cdf7_w1",
     "authored_frontier_cong_xa8371e31_w1",
     "authored_frontier_cong_xcb3ef303_w1",
-    "authored_frontier_cong_xcc4c83b3_w1",
-    "authored_frontier_cong_xda29c2e7_w1",
+    "authored_frontier_cong_xd9add9e9_w1",
     "authored_frontier_cong_xe0f68915_w1",
-    "authored_sieve_hl_within_g6_4_6_w1",
     "authored_sieve_hl_within_g6_6_2_w1",
-    "authored_sieve_residue_bal_g6_4_2_w1",
     "vandermonde"
   ],
   "domain_packs": {
@@ -101,43 +97,45 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-08T00:03:26Z",
+    "ts": "2026-11-08T05:15:52Z",
     "passed": false,
     "kills": [
-      "stripped:stripped_not_useful_fail",
-      "held_out:held_out_fail",
+      "held_out:held_out:already_saturated_no_harder_window",
       "collective_kill"
     ],
     "hear": {
       "heard": true,
-      "bus_ok": false,
+      "bus_ok": true,
       "is_easy_pad": false,
       "attack_weight": 0.35,
       "support_weight": 0.55,
-      "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `Chain+seek `authored_frontier_divides_x9835949a_w1` from invariant priors` kind=process. seek_enable:authored_frontier_divides_x9835949a_w1 Not discovery. cycle=.",
-      "attack": "WEIGH: `Chain+seek `authored_frontier_divides_x9835949a_w1` from invariant priors` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "msg_ids": [
+        "msg_6e074f826f",
+        "msg_9f1fe08987",
+        "msg_e5bb3c9e34"
+      ],
+      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
+      "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "already_enabled": false,
-        "in_catalog": false,
-        "hard_pass": 152,
-        "hard_n": 152,
-        "score": 0.8774,
-        "stripped_fails_usefulness": false,
-        "ok_for_oracle": false,
-        "reason": "stripped_not_useful_fail"
+        "stripped_fails_usefulness": true,
+        "reason": "claim_or_bench_path",
+        "ok_for_oracle": true,
+        "kind_path": "claim_theme"
       },
       "held_out": {
         "survives": false,
         "ok_for_oracle": false,
-        "hard_pass": 152,
-        "hard_n": 152,
-        "ok": true,
-        "score": 0.8775,
-        "shifted_window": null,
-        "reason": "held_out_fail"
+        "reason": "held_out:already_saturated_no_harder_window",
+        "theme_window": "adversarial_vandermonde_asymmetric",
+        "in_catalog": true,
+        "enabled": false,
+        "mutation": "vandermonde",
+        "catalog_hint": {
+          "add_mutation": "vandermonde_asymmetric",
+          "kind": "hard_enable"
+        }
       },
       "cas": {
         "cas_ok": true,
@@ -156,12 +154,15 @@
           {
             "label": "square_expand",
             "ok": true
+          },
+          {
+            "label": "binom_symmetry_numeric",
+            "ok": true
           }
         ]
       },
       "kills": [
-        "stripped:stripped_not_useful_fail",
-        "held_out:held_out_fail"
+        "held_out:held_out:already_saturated_no_harder_window"
       ],
       "sense_pass": false
     },
@@ -209,16 +210,16 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "Chain+seek `authored_frontier_divides_x9835949a_w1` from invariant priors",
-      "kind": "process",
+      "mutation": "vandermonde",
+      "kind": "claim_theme",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "Chain+seek `authored_frontier_divides_x9835949a_w1` from invariant priors",
-    "kind": "process",
-    "source": "novelty_gate_deferred_title",
-    "cycle_id": "",
-    "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+    "mutation": "vandermonde",
+    "kind": "claim_theme",
+    "source": "claim_pipeline",
+    "cycle_id": "20261108T051451Z_4cf845",
+    "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

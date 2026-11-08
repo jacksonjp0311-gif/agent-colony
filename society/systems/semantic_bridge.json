@@ -1,40 +1,10 @@
 {
   "version": 1,
   "totals": {
-    "ok": 89,
-    "unbridged": 90
+    "ok": 91,
+    "unbridged": 91
   },
   "rows": [
-    {
-      "mutation": "authored_frontier_divides_x0c5f5f5b_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-23T05:12:08Z",
-      "cycle_id": "20261023T051052Z_a94142",
-      "kind": "hard_enable",
-      "oracle_passed": false,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_frontier_cong_x44cc725e_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-23T05:14:15Z",
-      "cycle_id": "20261023T051318Z_2327ae",
-      "kind": "hard_enable",
-      "oracle_passed": false,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_frontier_le_x10223e69_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-23T05:16:13Z",
-      "cycle_id": "20261023T051517Z_fd9014",
-      "kind": "hard_enable",
-      "oracle_passed": false,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
       "status": "ok",
@@ -699,8 +669,48 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_hl_within_g4_6_2_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "hl_within",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-11-08T05:11:12Z",
+      "cycle_id": "20261108T050957Z_fbd393",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_frontier_cong_xd9add9e9_w1",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-08T05:13:33Z",
+      "cycle_id": "20261108T051234Z_bc2b54",
+      "kind": "hard_enable",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_sieve_residue_bal_g6_2_6_w1",
+      "status": "ok",
+      "family": "sieve",
+      "template": "residue_bal",
+      "mismatches": [],
+      "mutants_tested": 3,
+      "mutants_not_rejected": [],
+      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
+      "ts": "2026-11-08T05:15:48Z",
+      "cycle_id": "20261108T051451Z_4cf845",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-11-08T00:02:35Z",
+  "updated_at": "2026-11-08T05:15:48Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

@@ -317,12 +317,84 @@
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
+  },
+  "oc_A104625_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A108475_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 168,
+   "credit": 0.0
+  },
+  "oc_A025577_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A242781_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A103973_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A097332_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A234269_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A244886_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A128057_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A108476_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 30,
+   "credit": 0.0099
+  },
+  "oc_A097331_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A240688_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 38,
-   "credit": 10.0
+   "attempts": 50,
+   "credit": 20.0099
   },
   "gf": {
    "attempts": 15,
@@ -337,7 +409,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 10.0,
+ "credit_total": 20.0099,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -390,8 +462,65 @@
     "anum": "A174783",
     "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 4 by the operator identity",
     "routine": true
+   },
+   "oc_A104625_0": {
+    "anum": "A104625",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
+    "routine": true
+   },
+   "oc_A025577_0": {
+    "anum": "A025577",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 4 by the operator identit",
+    "routine": true
+   },
+   "oc_A242781_0": {
+    "anum": "A242781",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 5 by the operator identity",
+    "routine": true
+   },
+   "oc_A103973_0": {
+    "anum": "A103973",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A097332_0": {
+    "anum": "A097332",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A234269_0": {
+    "anum": "A234269",
+    "checker": "x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A244886_0": {
+    "anum": "A244886",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
+    "routine": true
+   },
+   "oc_A128057_0": {
+    "anum": "A128057",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 2 by the operator identit",
+    "routine": true
+   },
+   "oc_A097331_0": {
+    "anum": "A097331",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A240688_0": {
+    "anum": "A240688",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 3 by the operator identit",
+    "routine": true
    }
   },
-  "extensions": {}
+  "extensions": {
+   "oc_A108476_0": {
+    "anum": "A108476",
+    "bfile_hi": 19,
+    "to": 30,
+    "check": "exact"
+   }
+  }
  }
 }

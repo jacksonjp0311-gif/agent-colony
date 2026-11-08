@@ -1651,6 +1651,480 @@
     "max_depth": 0
    },
    "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261108T050957Z_fbd393",
+   "at": "2026-11-08T05:12:12Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A104625_0",
+     "anum": "A104625",
+     "text": "Conjecture: n*a(n) + (n-3)*a(n-1) + 2*(-28*n+51)*a(n-2) + 72*(2*n-5)*a(n-3) - n*a(n-4) + (-5*n+3)*a(n-5) + 18*(2*n-5)*a(n-6) = 0. - _R. J. Mathar_, Feb 20 2015"
+    },
+    {
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A025577_0",
+     "anum": "A025577",
+     "text": "Conjecture: (-n+1)*a(n) +3*(n-1)*a(n-1) +(n-7)*a(n-2) +3*(-n+3)*a(n-3)=0. - _R. J. Mathar_, Jul 02 2018"
+    },
+    {
+     "id": "oc_A242781_0",
+     "anum": "A242781",
+     "text": "Conjecture D-finite with recurrence: 3*(n+1)*a(n) -18*n*a(n-1) +2*(11*n-13)*a(n-2) +6*(n-7)*a(n-3) +(7*n-9)*a(n-4) +2*(2*n-7)*a(n-5)=0. - _R. J. Mathar_, Jan 25 2020"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A104625_0",
+     "anum": "A104625",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity and is checked directly on 0..5",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "1/(sqrt(1-4*x)-x^2)"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "n*a(n)+(n-3)*a(n-1)+2*(-28*n+51)*a(n-2)+72*(2*n-5)*a(n-3)-n*a(n-4)+(-5*n+3)*a(n-5)+18*(2*n-5)*a(n-6)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A104625",
+      "def_text": "Expansion of 1/(sqrt(1-4*x) - x^2)."
+     },
+     "credit": 1.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "tested": 169,
+     "range": [
+      0,
+      168
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 158,
+     "bfile_hi": 1000,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 11,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A025577_0",
+     "anum": "A025577",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 4 by the operator identity and is checked directly on 1..3",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "(x/(1-x))*sqrt((1+x)/(1-3*x))"
+      },
+      "offset": 1,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "(-n+1)*a(n)+3*(n-1)*a(n-1)+(n-7)*a(n-2)+3*(-n+3)*a(n-3)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A025577",
+      "def_text": "Expansion of (x/(1-x))*sqrt((1+x)/(1-3*x))."
+     },
+     "credit": 1.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A242781_0",
+     "anum": "A242781",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 5 by the operator identity and is checked directly on 0..4",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "(1-2*x-sqrt(1-4*x))/(4*x^2+sqrt(1-4*x)*(3*x+1)-5*x+1)"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "3*(n+1)*a(n)-18*n*a(n-1)+2*(11*n-13)*a(n-2)+6*(n-7)*a(n-3)+(7*n-9)*a(n-4)+2*(2*n-7)*a(n-5)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A242781",
+      "def_text": "Expansion of (1 - 2*x - sqrt(1-4*x))/(4*x^2 + sqrt(1-4*x)*(3*x+1) - 5*x + 1)."
+     },
+     "credit": 1.0
+    }
+   ],
+   "scoreboard": {
+    "score": 13,
+    "counterexamples_verified": 0,
+    "proofs_checked": 13,
+    "proofs_routine_known_in_principle": 13,
+    "beyond_published_range": 0,
+    "beyond_exact": 0,
+    "max_depth": 0
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261108T051234Z_bc2b54",
+   "at": "2026-11-08T05:14:29Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A103973_0",
+     "anum": "A103973",
+     "text": "Conjecture D-finite with recurrence: 11*n*(n+1)*a(n)+4*n*(4*n+1)*a(n-1) +8*(27-11*n^2)*a(n-2) -32*(4*n+9)*(n-3)*a(n-3)=0. - _R. J. Mathar_, Nov 09 2012"
+    },
+    {
+     "id": "oc_A097332_0",
+     "anum": "A097332",
+     "text": "Conjecture D-finite with recurrence: (n+1)*a(n) - 3*n*a(n-1) + (-n+5)*a(n-2) + 3*(n-2)*a(n-3) = 0. - _R. J. Mathar_, Nov 26 2012"
+    },
+    {
+     "id": "oc_A234269_0",
+     "anum": "A234269",
+     "text": "Conjecture D-finite with recurrence: -(n+1)*(2*n-5)*a(n) -2*n*(n-4)*a(n-1) +4*(n-1)*(2*n-3)*a(n-2) +2*(8*n^2-32*n+29)*a(n-3) +4*(n-2)*(2*n-7)*a(n-4)=0. - _R. J. Mathar_, Jan 24 2020"
+    },
+    {
+     "id": "oc_A244886_0",
+     "anum": "A244886",
+     "text": "Conjecture D-finite with recurrence: n*a(n) +(-5*n+3)*a(n-1) +2*(n)*a(n-2) +(13*n-30)*a(n-3) +3*(-1)*a(n-4) +(-8*n+21)*a(n-5) +3*(-n+3)*a(n-6)=0. - _R. J. Mathar_, Jan 24 2020"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A103973_0",
+     "anum": "A103973",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 3 by the operator identity and is checked directly on 0..2",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "(sqrt(1-8*x^2)+8*x^2+2*x-1)/(2*x*sqrt(1-8*x^2))"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "11*n*(n+1)*a(n)+4*n*(4*n+1)*a(n-1)+8*(27-11*n^2)*a(n-2)-32*(4*n+9)*(n-3)*a(n-3)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A103973",
+      "def_text": "Expansion of (sqrt(1-8*x^2)+8*x^2+2*x-1)/(2*x*sqrt(1-8*x^2))."
+     },
+     "credit": 1.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A097332_0",
+     "anum": "A097332",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 3 by the operator identity and is checked directly on 0..2",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "(1/(1-x))*(1+2*x/(1-x+sqrt(1-2*x-3*x^2)))"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "(n+1)*a(n)-3*n*a(n-1)+(-n+5)*a(n-2)+3*(n-2)*a(n-3)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A097332",
+      "def_text": "Expansion of (1/(1-x))(1+2x/(1-x+sqrt(1-2x-3x^2)))."
+     },
+     "credit": 1.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A234269_0",
+     "anum": "A234269",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 4 by the operator identity and is checked directly on 0..3",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "(1-2*x^2-sqrt(1-4*x^2-4*x^3))/(2*x*sqrt(1-4*x^2-4*x^3))"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "-(n+1)*(2*n-5)*a(n)-2*n*(n-4)*a(n-1)+4*(n-1)*(2*n-3)*a(n-2)+2*(8*n^2-32*n+29)*a(n-3)+4*(n-2)*(2*n-7)*a(n-4)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A234269",
+      "def_text": "Expansion of (1-2*x^2-sqrt(1-4*x^2-4*x^3))/(2*x*sqrt(1-4*x^2-4*x^3))."
+     },
+     "credit": 1.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A244886_0",
+     "anum": "A244886",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity and is checked directly on 0..5",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "(1-x+sqrt(1-2*x-3*x^2))/(1-3*x+x^2+x^3+(1-x^2)*sqrt(1-2*x-3*x^2))"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "n*a(n)+(-5*n+3)*a(n-1)+2*(n)*a(n-2)+(13*n-30)*a(n-3)+3*(-1)*a(n-4)+(-8*n+21)*a(n-5)+3*(-n+3)*a(n-6)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A244886",
+      "def_text": "G.f.: (1-x+sqrt(1-2*x-3*x^2))/(1-3*x+x^2+x^3+(1-x^2)*sqrt(1-2*x-3*x^2))."
+     },
+     "credit": 1.0
+    }
+   ],
+   "scoreboard": {
+    "score": 17,
+    "counterexamples_verified": 0,
+    "proofs_checked": 17,
+    "proofs_routine_known_in_principle": 17,
+    "beyond_published_range": 0,
+    "beyond_exact": 0,
+    "max_depth": 0
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261108T051451Z_4cf845",
+   "at": "2026-11-08T05:16:41Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A128057_0",
+     "anum": "A128057",
+     "text": "Conjecture: n*(5*n-9)*a(n) +4*a(n-1) +4*(5*n-4)*(n-2)*a(n-2)=0. - _R. J. Mathar_, Dec 02 2014"
+    },
+    {
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A097331_0",
+     "anum": "A097331",
+     "text": "Conjecture: (n+1)*a(n) + n*a(n-1) + 4*(-n+2)*a(n-2) + 4*(-n+3)*a(n-3)=0. - _R. J. Mathar_, Dec 02 2012"
+    },
+    {
+     "id": "oc_A240688_0",
+     "anum": "A240688",
+     "text": "Conjecture: n*(n-1)*a(n) -(3*n-2)*(n-1)*a(n-1) +2*(-4*n^2+7*n-1)*a(n-2) -4*n*(n-2)*a(n-3)=0. - _R. J. Mathar_, Jun 14 2016"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A128057_0",
+     "anum": "A128057",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 2 by the operator identity and is checked directly on 0..1",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "(1+x)/sqrt(1+4*x^2)"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "n*(5*n-9)*a(n)+4*a(n-1)+4*(5*n-4)*(n-2)*a(n-2)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A128057",
+      "def_text": "Expansion of (1+x)/sqrt(1+4x^2)."
+     },
+     "credit": 1.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "tested": 31,
+     "range": [
+      0,
+      30
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 20,
+     "bfile_hi": 19,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 11,
+     "credit": 0.0099
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A097331_0",
+     "anum": "A097331",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 3 by the operator identity and is checked directly on 0..2",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "1+2*x/(1+sqrt(1-4*x^2))"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "(n+1)*a(n)+n*a(n-1)+4*(-n+2)*a(n-2)+4*(-n+3)*a(n-3)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A097331",
+      "def_text": "Expansion of 1 + 2x/(1 + sqrt(1 - 4x^2))."
+     },
+     "credit": 1.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A240688_0",
+     "anum": "A240688",
+     "status": "proved_checked",
+     "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 3 by the operator identity and is checked directly on 0..2",
+     "cert": {
+      "type": "holonomic_identity",
+      "definition": {
+       "kind": "alg",
+       "expr": "-(x*sqrt(-4*x^2-4*x+1)-2*x^2-3*x)/((x+1)*sqrt(-4*x^2-4*x+1)+4*x^3+8*x^2+3*x-1)"
+      },
+      "offset": 0,
+      "claim": {
+       "form": "relation",
+       "parts": [
+        "n*(n-1)*a(n)-(3*n-2)*(n-1)*a(n-1)+2*(-4*n^2+7*n-1)*a(n-2)-4*n*(n-2)*a(n-3)",
+        "0"
+       ],
+       "rels": [
+        "="
+       ],
+       "mod": null,
+       "n0": null
+      },
+      "anum": "A240688",
+      "def_text": "Expansion of -(x*sqrt(-4*x^2-4*x+1)-2*x^2-3*x) / ((x+1)*sqrt(-4*x^2-4*x+1)+ 4*x^3+8*x^2+3*x-1)."
+     },
+     "credit": 1.0
+    }
+   ],
+   "scoreboard": {
+    "score": 21,
+    "counterexamples_verified": 0,
+    "proofs_checked": 20,
+    "proofs_routine_known_in_principle": 20,
+    "beyond_published_range": 1,
+    "beyond_exact": 1,
+    "max_depth": 30
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
   }
  ]
 }

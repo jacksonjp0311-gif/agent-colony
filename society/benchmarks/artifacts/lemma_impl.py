@@ -1845,15 +1845,6 @@ def check_authored_frontier_le_x10223e69_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum[rad]', 'params': {}, 'rhs': 'dbl(rad)'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
 
-def check_authored_sieve_residue_bal_g4_2_4_w1() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (4, 2, 4) are balanced within 4.0*sqrt(total).
-    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((4, 2, 4), a, b, 4, 1)) is int and type(y := sieve_count((4, 2, 4), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])
-
-
 def check_authored_frontier_divides_x9835949a_w1() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     (fib*lucas)(n) divides dbl(stree_grid3)(n) for all n >= 1
@@ -2181,11 +2172,10 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_divides_xba575886_w2", check_authored_frontier_divides_xba575886_w2, True),
     ("authored_frontier_divides_x0c5f5f5b_w1", check_authored_frontier_divides_x0c5f5f5b_w1, True),
     ("authored_frontier_le_x10223e69_w1", check_authored_frontier_le_x10223e69_w1, True),
-    ("authored_sieve_residue_bal_g4_2_4_w1", check_authored_sieve_residue_bal_g4_2_4_w1, True),
     ("authored_frontier_divides_x9835949a_w1", check_authored_frontier_divides_x9835949a_w1, False),
-    ("authored_sieve_hl_within_g4_6_2_w1", check_authored_sieve_hl_within_g4_6_2_w1, False),
+    ("authored_sieve_hl_within_g4_6_2_w1", check_authored_sieve_hl_within_g4_6_2_w1, True),
     ("authored_frontier_cong_xd9add9e9_w1", check_authored_frontier_cong_xd9add9e9_w1, False),
-    ("authored_sieve_residue_bal_g6_2_6_w1", check_authored_sieve_residue_bal_g6_2_6_w1, False),
+    ("authored_sieve_residue_bal_g6_2_6_w1", check_authored_sieve_residue_bal_g6_2_6_w1, True),
     ("authored_sieve_hl_within_g6_4_6_w1", check_authored_sieve_hl_within_g6_4_6_w1, False),
     ("authored_sieve_residue_bal_g6_4_2_w1", check_authored_sieve_residue_bal_g6_4_2_w1, False),
     ("authored_sieve_hl_within_g6_6_2_w1", check_authored_sieve_hl_within_g6_6_2_w1, False),

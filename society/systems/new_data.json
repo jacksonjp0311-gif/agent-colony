@@ -25,60 +25,6 @@
  "history": [
   {
    "cpu_s": 0.027,
-   "cycle_id": "20261023T115833Z_01f2f5",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 462,
-    "cpu_s": 0.027,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-10-23T12:00:25Z"
-  },
-  {
-   "cpu_s": 0.027,
-   "cycle_id": "20261023T120038Z_6a3581",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 462,
-    "cpu_s": 0.027,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-10-23T12:02:36Z"
-  },
-  {
-   "cpu_s": 0.028,
-   "cycle_id": "20261023T142517Z_fca4b2",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 462,
-    "cpu_s": 0.028,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-10-23T14:28:04Z"
-  },
-  {
-   "cpu_s": 0.027,
    "cycle_id": "20261023T142821Z_969a57",
    "discovered": [],
    "mode": "live",
@@ -772,33 +718,99 @@
     ]
    },
    "ts": "2026-11-08T00:04:04Z"
+  },
+  {
+   "cpu_s": 0.011,
+   "cycle_id": "20261108T050957Z_fbd393",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 463,
+    "cpu_s": 0.011,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more Goldbach @10",
+     "keyword:more Goldbach @20",
+     "keyword:more \"sum of two primes\" @0"
+    ]
+   },
+   "ts": "2026-11-08T05:12:16Z"
+  },
+  {
+   "cpu_s": 0.011,
+   "cycle_id": "20261108T051234Z_bc2b54",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 463,
+    "cpu_s": 0.011,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more Lemoine @0",
+     "keyword:more \"twin primes\" @0",
+     "keyword:more \"twin primes\" @10"
+    ]
+   },
+   "ts": "2026-11-08T05:14:33Z"
+  },
+  {
+   "cpu_s": 0.103,
+   "cycle_id": "20261108T051451Z_4cf845",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 464,
+    "cpu_s": 0.103,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"twin primes\" @20",
+     "keyword:more \"cousin primes\" @0",
+     "keyword:more \"sexy primes\" @0"
+    ]
+   },
+   "ts": "2026-11-08T05:16:45Z"
   }
  ],
  "last": {
-  "cpu_s": 0.013,
-  "cycle_id": "20261108T000129Z_678dd4",
+  "cpu_s": 0.103,
+  "cycle_id": "20261108T051451Z_4cf845",
   "discovered": [],
   "mode": "live",
   "net_requests": 3,
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 463,
-   "cpu_s": 0.012,
+   "candidates_seen": 464,
+   "cpu_s": 0.103,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": [
-    "keyword:more 3x+1 @20",
-    "keyword:hard Collatz @0",
-    "keyword:more Goldbach @0"
+    "keyword:more \"twin primes\" @20",
+    "keyword:more \"cousin primes\" @0",
+    "keyword:more \"sexy primes\" @0"
    ]
   },
-  "ts": "2026-11-08T00:04:04Z"
+  "ts": "2026-11-08T05:16:45Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 10,
+  "cursor": 25,
   "exhausted": [
    "keyword:hard Collatz",
    "keyword:hard Goldbach",
@@ -1307,6 +1319,12 @@
     "name": "a(n) = smallest non-palindromic k such that the base-2 Reverse and Add! trajectory of k is palindrom",
     "query": "keyword:more trajectory",
     "status": "no engine family for its definition"
+   },
+   "A093683": {
+    "n_pub": 13,
+    "name": "Number of pairs of twin primes <= 10^n-th prime.",
+    "query": "keyword:more \"twin primes\"",
+    "status": "beyond engine reach to verify"
    },
    "A093737": {
     "n_pub": 18,

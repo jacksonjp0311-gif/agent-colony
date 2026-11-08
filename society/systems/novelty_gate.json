@@ -1,40 +1,40 @@
 {
   "version": 1,
-  "updated_at": "2026-11-08T00:03:27Z",
-  "hits": 13,
-  "kills": 8,
+  "updated_at": "2026-11-08T05:15:53Z",
+  "hits": 6,
+  "kills": 11,
   "rows": 30,
-  "kill_rows": 15,
+  "kill_rows": 22,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-08T00:03:27Z",
-    "cycle_id": "",
-    "mutation": "Chain+seek `authored_frontier_divides_x9835949a_w1` from invariant priors",
-    "kind": "process",
+    "ts": "2026-11-08T05:15:53Z",
+    "cycle_id": "20261108T051451Z_4cf845",
+    "mutation": "vandermonde",
+    "kind": "claim_theme",
     "novel_to_commons": false,
     "kills": [
       "already_in_lesson_ledger_or_history",
       "stripped_baseline_does_not_fail_usefulness",
       "held_out:hard_tier_green_and_hard_enable",
-      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
+      "oracle_kill:['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']"
     ],
-    "textbook_reuse": 0.0,
+    "textbook_reuse": 0.3333,
     "in_ledger": true,
     "own_authoring_record_only": false,
-    "oracle_used": "own_run",
+    "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 152,
-      "hard_n": 152,
+      "hard_pass": 153,
+      "hard_n": 153,
       "stripped_fails_usefulness": false,
-      "score": 0.8775,
-      "impl_id": "lemma_impl_v2_basic10_hard150"
+      "score": 0.8835,
+      "impl_id": "lemma_impl_v2_basic10_hard152"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 152,
+      "hard_pass": 153,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
