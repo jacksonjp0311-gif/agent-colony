@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-08T13:50:20Z",
-  "n": 464,
+  "updated_at": "2026-11-08T17:16:32Z",
+  "n": 467,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -83,6 +83,7 @@
     "authored_frontier_cong_x3f36abbe_w1",
     "authored_frontier_cong_x3fa7829a_w1",
     "authored_frontier_cong_x41b05781_w1",
+    "authored_frontier_cong_x41b05781_w2",
     "authored_frontier_cong_x43c47bec_w1",
     "authored_frontier_cong_x44cc725e_w1",
     "authored_frontier_cong_x47dd09c7_w1",
@@ -99,6 +100,7 @@
     "authored_frontier_cong_xa8371e31_w2",
     "authored_frontier_cong_xa9e515ff_w1",
     "authored_frontier_cong_xb19ab27c_w1",
+    "authored_frontier_cong_xb999e9ad_w1",
     "authored_frontier_cong_xbae7672a_w1",
     "authored_frontier_cong_xbb82919e_w1",
     "authored_frontier_cong_xcb3ef303_w1",
@@ -199,9 +201,7 @@
     "authored_sieve_hl_within_g2_4_2_w1",
     "authored_sieve_hl_within_g2_4_2_w2",
     "authored_sieve_hl_within_g2_4_6_w1",
-    "authored_sieve_hl_within_g2_4_w1",
-    "authored_sieve_hl_within_g2_6_4_w1",
-    "authored_sieve_hl_within_g2_6_6_w1"
+    "authored_sieve_hl_within_g2_4_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

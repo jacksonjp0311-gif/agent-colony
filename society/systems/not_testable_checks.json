@@ -1,5 +1,5 @@
 {
- "n": 43,
+ "n": 48,
  "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
  "records": {
   "059a3953478af636:w1": {
@@ -42,6 +42,16 @@
    "reason": "no_data_headroom",
    "statement": "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)"
   },
+  "0c5f5f5b9cc13c37:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_divides_x0c5f5f5b_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "divides",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "gpf[phi](n) divides dbl(phi)(n) for all n >= 1"
+  },
   "0dbd3162f119412e:w1": {
    "authored_hi": 0,
    "check": "authored_frontier_cong_x0dbd3162_w1",
@@ -71,6 +81,16 @@
    "lo": 900,
    "reason": "no_data_headroom",
    "statement": "dbl(oxa009191)(n) = 0 (mod 2) for all n = 4 (mod 6)"
+  },
+  "10223e692bba434e:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_le_x10223e69_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "le",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)"
   },
   "192eb85d74be50f2:w1": {
    "authored_hi": 0,
@@ -262,6 +282,26 @@
    "reason": "no_data_headroom",
    "statement": "dbl(oxa177115)(n) = 0 (mod 2) for all n >= 1"
   },
+  "9acc763a760ad022:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x9acc763a_w1",
+   "data_end": 58,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "sopfr[oxa238873](n) = 1 (mod 2) for all n = 4 (mod 7)"
+  },
+  "9acc763a760ad022:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x9acc763a_w2",
+   "data_end": 58,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "sopfr[oxa238873](n) = 1 (mod 2) for all n = 4 (mod 7)"
+  },
   "9c520ec498c2200b:w2": {
    "authored_hi": 900,
    "check": "authored_frontier_cong_x9c520ec4_w2",
@@ -391,6 +431,16 @@
    "lo": 900,
    "reason": "no_data_headroom",
    "statement": "gpf[oxa088902](n) = 1 (mod 2) for all n = 1 (mod 2)"
+  },
+  "da9f682211002188:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xda9f6822_w2",
+   "data_end": 58,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[oxa238873](n) = 1 (mod 2) for all n = 0 (mod 2)"
   },
   "dbe366dabb22709b:w2": {
    "authored_hi": 454,

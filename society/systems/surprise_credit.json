@@ -1,10 +1,10 @@
 {
- "ts": "2026-11-08T13:49:04Z",
+ "ts": "2026-11-08T17:15:23Z",
  "mode": "live",
- "n_keeps": 318,
- "n_frontier": 52,
- "n_hand_trivial": 45,
- "n_surprise": 7,
+ "n_keeps": 321,
+ "n_frontier": 54,
+ "n_hand_trivial": 46,
+ "n_surprise": 8,
  "max_trivial_credit": 0.0,
  "min_surprise_credit": 0.0,
  "trivial_ranked_lowest": true,
@@ -15,7 +15,7 @@
   "min_still_surprise_credit": 0.0,
   "hand_settled_ranked_lowest": true
  },
- "sieve_mean_credit": 0.0039,
+ "sieve_mean_credit": 0.0038,
  "rows": [
   {
    "name": "sum_first_n_cubes",
@@ -384,19 +384,6 @@
    "source": "registry"
   },
   {
-   "name": "authored_frontier_le_x7a9213ec_w1",
-   "kind": "frontier",
-   "statement": "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)",
-   "hand_trivial": false,
-   "credit": 0.5113,
-   "unlikely": 0.6169,
-   "effort": 0.8289,
-   "family": 1.0,
-   "explained": "",
-   "target_weight": 1.0,
-   "source": "registry"
-  },
-  {
    "name": "fermat_little",
    "kind": "other",
    "credit": 0.5
@@ -479,142 +466,147 @@
   {
    "name": "authored_sieve_two_counter_g4_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_2_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_4_2_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_6_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_6_2_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_2_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_6_2_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_4_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_4_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_2_4_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_2_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_4_2_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_4_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_2_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_4_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_6_4_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_6_6_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_6_4_w1",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_w2",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_4_w2",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g4_6_w2",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g6_6_w2",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_two_counter_g2_6_4_w2",
    "kind": "sieve",
-   "credit": 0.004
+   "credit": 0.0039
+  },
+  {
+   "name": "authored_sieve_two_counter_g2_6_6_w2",
+   "kind": "sieve",
+   "credit": 0.0039
   },
   {
    "name": "authored_sieve_hl_within_g2_w1",
@@ -1597,6 +1589,19 @@
    "source": "registry"
   },
   {
+   "name": "authored_frontier_le_x7a9213ec_w1",
+   "kind": "frontier",
+   "statement": "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)",
+   "hand_trivial": true,
+   "credit": 0.0,
+   "unlikely": 0.6169,
+   "effort": 0.8289,
+   "family": 1.0,
+   "explained": "the current triviality filter explains it",
+   "target_weight": 1.0,
+   "source": "registry"
+  },
+  {
    "name": "authored_frontier_cong_x3fa7829a_w1",
    "kind": "frontier",
    "statement": "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)",
@@ -1733,7 +1738,7 @@
    "statement": "(lpf+mu)",
    "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6805,
+   "unlikely": 0.6813,
    "effort": 0.0,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
@@ -1746,7 +1751,7 @@
    "statement": "fib",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8831,
+   "unlikely": 0.8848,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1759,7 +1764,7 @@
    "statement": "(lpf+mu)",
    "hand_trivial": true,
    "credit": 0.0,
-   "unlikely": 0.6805,
+   "unlikely": 0.6813,
    "effort": 0.0,
    "family": 1.0,
    "explained": "the current triviality filter explains it",
@@ -1772,7 +1777,7 @@
    "statement": "stree_grid3",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8831,
+   "unlikely": 0.8848,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1785,7 +1790,7 @@
    "statement": "lucas",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8831,
+   "unlikely": 0.8848,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -1798,7 +1803,7 @@
    "statement": "stree_ladder",
    "hand_trivial": false,
    "credit": 0.0,
-   "unlikely": 0.8831,
+   "unlikely": 0.8848,
    "effort": 0.0,
    "family": 1.0,
    "explained": "",
@@ -2057,6 +2062,32 @@
    "explained": "no credit: deep range n/a (non-arithmetic parts; tested to 2000)",
    "target_weight": 1.0,
    "source": "registry"
+  },
+  {
+   "name": "authored_frontier_divides_x0c5f5f5b_w2",
+   "kind": "frontier",
+   "statement": "gpf[phi]",
+   "hand_trivial": false,
+   "credit": 0.0,
+   "unlikely": 0.8848,
+   "effort": 0.0,
+   "family": 1.0,
+   "explained": "",
+   "target_weight": 1.0,
+   "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
+  },
+  {
+   "name": "authored_frontier_le_x10223e69_w2",
+   "kind": "frontier",
+   "statement": "digsum[rad]",
+   "hand_trivial": false,
+   "credit": 0.0,
+   "unlikely": 0.6813,
+   "effort": 0.0,
+   "family": 1.0,
+   "explained": "",
+   "target_weight": 1.0,
+   "source": "lemma_impl literal (prediction re-derived: pre-registered value not kept)"
   }
  ],
  "rule": {
