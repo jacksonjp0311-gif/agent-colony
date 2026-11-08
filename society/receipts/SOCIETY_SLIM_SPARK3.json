@@ -1,29 +1,29 @@
 {
-  "when": "2026-11-08T17:18:10Z",
+  "when": "2026-11-08T22:30:52Z",
   "mile": "spark3-port",
-  "cycle_count": 774,
+  "cycle_count": 777,
   "fitness_latest": {
-    "ts": "2026-11-08T17:17:12Z",
-    "cycle_id": "20261108T171506Z_6fad91",
+    "ts": "2026-11-08T22:29:59Z",
+    "cycle_id": "20261108T222746Z_74947c",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.7857,
     "reply_quality": 0.9119,
     "commons_signal": 1.0,
-    "math_prize": 0.8101,
-    "compute_usefulness": 0.9089,
+    "math_prize": 0.8103,
+    "compute_usefulness": 0.909,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8827,
-    "kill_rate": 0.3227,
-    "kill_rate_term": 0.8404,
-    "novelty": 0.5,
-    "lesson_uptake": 0.84,
-    "aggregate": 0.8371,
+    "prize_boost": 0.8828,
+    "kill_rate": 0.3241,
+    "kill_rate_term": 0.8417,
+    "novelty": 0.6667,
+    "lesson_uptake": 0.96,
+    "aggregate": 0.8516,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
-    "post_challenger_oracle_kill_rate": 0.1788
+    "post_challenger_oracle_kill_rate": 0.1857
   },
   "bus_metrics": {
     "reply_rate": 0.9189,
@@ -44,11 +44,11 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8666
+    "aggregate_score": 0.8667
   },
   "novelty_gate": {
-    "hits": 7,
-    "kills": 7
+    "hits": 10,
+    "kills": 5
   },
   "debate_multihop": {
     "action_changed": true,
@@ -64,14 +64,14 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261108T171506Z_6fad91"
+    "cycle_id": "20261108T222746Z_74947c"
   },
   "oracle": {
-    "passes": 510,
-    "kills": 243,
+    "passes": 513,
+    "kills": 246,
     "easy_pad_kills": 32,
-    "total": 753,
-    "kill_rate": 0.3227
+    "total": 759,
+    "kill_rate": 0.3241
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."

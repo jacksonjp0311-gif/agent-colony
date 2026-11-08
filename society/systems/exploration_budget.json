@@ -1,36 +1,15 @@
 {
-  "ts": "2026-11-08T17:17:08Z",
+  "ts": "2026-11-08T22:29:55Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261108T171506Z_6fad91"
+    "cycle_id": "20261108T222746Z_74947c"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 510,
+  "last_oracle_passes": 513,
   "spawn_retire_log": [
-    {
-      "ts": "2026-10-23T16:19:21Z",
-      "cycle_id": "20261023T161752Z_c8a584",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-23T16:26:02Z",
-      "cycle_id": "20261023T162344Z_5c713a",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
-    {
-      "ts": "2026-10-23T16:28:19Z",
-      "cycle_id": "20261023T162630Z_7725ab",
-      "event": "credit",
-      "delta_pass": 1.0,
-      "oracle_pass_delta": 1
-    },
     {
       "ts": "2026-10-23T16:30:40Z",
       "cycle_id": "20261023T162844Z_ff85eb",
@@ -289,9 +268,30 @@
       "event": "credit",
       "delta_pass": 1.0,
       "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-11-08T22:23:41Z",
+      "cycle_id": "20261108T222034Z_dc390b",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-11-08T22:26:51Z",
+      "cycle_id": "20261108T222439Z_c3aeb0",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-11-08T22:30:03Z",
+      "cycle_id": "20261108T222746Z_74947c",
+      "event": "credit",
+      "delta_pass": 1.0,
+      "oracle_pass_delta": 1
     }
   ],
-  "updated_at": "2026-11-08T17:17:16Z",
+  "updated_at": "2026-11-08T22:30:03Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.011211,
     "hockey_stick": 0.011211,
@@ -320,45 +320,45 @@
     "easy_pad_diff_squares": 0.001,
     "easy_pad_commutativity": 0.001,
     "easy_pad_abs_identity": 0.001,
-    "fermat_little": 0.014821,
-    "euler_theorem": 0.014821,
-    "wilson_theorem": 0.014821,
-    "quadratic_reciprocity": 0.014821,
-    "mobius_divisor_sum": 0.014821,
-    "gauss_phi_divisor_sum": 0.014821,
-    "sigma_multiplicative": 0.014821,
-    "mobius_inversion_sigma": 0.014821,
-    "bezout_identity": 0.014821,
-    "crt_coprime_pair": 0.014821,
-    "lucas_theorem_binomial": 0.014821,
-    "stirling_first_row_sum": 0.014821,
-    "bell_stirling_sum": 0.014821,
-    "alternating_binomial_row": 0.014821,
+    "fermat_little": 0.01482,
+    "euler_theorem": 0.01482,
+    "wilson_theorem": 0.01482,
+    "quadratic_reciprocity": 0.01482,
+    "mobius_divisor_sum": 0.01482,
+    "gauss_phi_divisor_sum": 0.01482,
+    "sigma_multiplicative": 0.01482,
+    "mobius_inversion_sigma": 0.01482,
+    "bezout_identity": 0.01482,
+    "crt_coprime_pair": 0.01482,
+    "lucas_theorem_binomial": 0.01482,
+    "stirling_first_row_sum": 0.01482,
+    "bell_stirling_sum": 0.01482,
+    "alternating_binomial_row": 0.01482,
     "multinomial_three": 0.014825,
-    "euler_pentagonal": 0.014821,
+    "euler_pentagonal": 0.01482,
     "odd_distinct_partitions": 0.014825,
     "partition_conjugate_parts": 0.014825,
     "cayley_tree_count": 0.014825,
-    "cycle_spanning_trees": 0.014837,
-    "complete_bipartite_trees": 0.014837,
+    "cycle_spanning_trees": 0.014838,
+    "complete_bipartite_trees": 0.014838,
     "cayley_hamilton_2x2": 0.014825,
-    "cayley_hamilton_3x3": 0.014837,
-    "newton_identities": 0.014837,
-    "polynomial_remainder": 0.014837,
-    "telescoping_sum": 0.014837,
-    "abel_summation": 0.014837,
-    "faulhaber_power_sums": 0.014837,
-    "lagrange_cyclic_orders": 0.01186,
-    "burnside_necklaces": 0.01186,
-    "workload_derived_chain": 0.034014,
-    "catalan_convolution": 0.034014,
-    "lagrange_identity": 0.034014,
-    "vandermonde_asymmetric": 0.034014,
-    "binomial_hockey_deep": 0.034014,
-    "fibonacci_cassini_ext": 0.034014,
-    "derived_chain_stress": 0.034014,
-    "energy_work": 0.034014,
-    "authored_frontier_cong_xa8371e31_w2": 0.04762
+    "cayley_hamilton_3x3": 0.014838,
+    "newton_identities": 0.014838,
+    "polynomial_remainder": 0.014838,
+    "telescoping_sum": 0.014838,
+    "abel_summation": 0.014838,
+    "faulhaber_power_sums": 0.014838,
+    "lagrange_cyclic_orders": 0.011861,
+    "burnside_necklaces": 0.011861,
+    "workload_derived_chain": 0.034013,
+    "catalan_convolution": 0.034013,
+    "lagrange_identity": 0.034013,
+    "vandermonde_asymmetric": 0.034013,
+    "binomial_hockey_deep": 0.034013,
+    "fibonacci_cassini_ext": 0.034013,
+    "derived_chain_stress": 0.034013,
+    "energy_work": 0.034013,
+    "authored_frontier_cong_x41b05781_w2": 0.04762
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -672,7 +672,10 @@
     "authored_frontier_divides_x0c5f5f5b_w2": 1,
     "authored_sieve_two_counter_g2_6_6_w2": 1,
     "authored_frontier_le_x10223e69_w2": 1,
-    "authored_frontier_cong_xa8371e31_w2": 1
+    "authored_frontier_cong_xa8371e31_w2": 1,
+    "authored_frontier_cong_xb999e9ad_w1": 1,
+    "authored_sieve_hl_within_g4_2_4_w2": 1,
+    "authored_frontier_cong_x41b05781_w2": 1
   },
   "charter_inform": {
     "bias": {
