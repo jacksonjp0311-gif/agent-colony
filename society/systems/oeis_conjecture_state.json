@@ -313,7 +313,7 @@
    "credit": 1.0
   },
   "oc_A006501_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -325,7 +325,7 @@
    "credit": 1.0
   },
   "oc_A108475_0": {
-   "attempts": 1,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 168,
    "credit": 0.0
@@ -373,7 +373,7 @@
    "credit": 1.0
   },
   "oc_A108476_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 30,
    "credit": 0.0099
@@ -389,12 +389,60 @@
    "status": "proved_checked",
    "tested_hi": 0,
    "credit": 1.0
+  },
+  "oc_A116391_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A164733_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 70,
+   "credit": 0.0
+  },
+  "oc_A230219_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A258969_0": {
+   "attempts": 1,
+   "status": "untestable_here",
+   "tested_hi": 6,
+   "credit": 0.0
+  },
+  "oc_A164734_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 140,
+   "credit": 0.0
+  },
+  "oc_A027050_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 321,
+   "credit": 0.0
+  },
+  "oc_A224908_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1000,
+   "credit": 0.0
+  },
+  "oc_A027174_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 249,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 50,
-   "credit": 20.0099
+   "attempts": 62,
+   "credit": 21.0099
   },
   "gf": {
    "attempts": 15,
@@ -409,7 +457,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 20.0099,
+ "credit_total": 21.0099,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -511,6 +559,11 @@
    "oc_A240688_0": {
     "anum": "A240688",
     "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 3 by the operator identit",
+    "routine": true
+   },
+   "oc_A116391_0": {
+    "anum": "A116391",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 5 by the operator identity",
     "routine": true
    }
   },

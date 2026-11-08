@@ -101,3 +101,8 @@ Checker: x-side residual is a polynomial of degree 2 with zero radical part; rec
 OEIS text (formula): "Conjecture: n*(n-1)*a(n) -(3*n-2)*(n-1)*a(n-1) +2*(-4*n^2+7*n-1)*a(n-2) -4*n*(n-2)*a(n-3)=0. - _R. J. Mathar_, Jun 14 2016"
 Parsed claim: `{"form": "relation", "parts": ["n*(n-1)*a(n)-(3*n-2)*(n-1)*a(n-1)+2*(-4*n^2+7*n-1)*a(n-2)-4*n*(n-2)*a(n-3)", "0"], "rels": ["="], "mod": null, "n0": null}`
 Checker: x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 3 by the operator identity and is checked directly on 0..2
+
+## A116391 — proved_checked (cycle 20261108T062345Z_b8d152)
+OEIS text (formula): "Conjecture D-finite with recurrence: n*a(n) +(n)*a(n-1) +3*(-3*n+4)*a(n-2) +3*(-3*n+4)*a(n-3) +20*(n-3)*a(n-4) +20*(n-3)*a(n-5)=0. - _R. J. Mathar_, Jan 23 2020"
+Parsed claim: `{"form": "relation", "parts": ["n*a(n)+(n)*a(n-1)+3*(-3*n+4)*a(n-2)+3*(-3*n+4)*a(n-3)+20*(n-3)*a(n-4)+20*(n-3)*a(n-5)", "0"], "rels": ["="], "mod": null, "n0": null}`
+Checker: x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 5 by the operator identity and is checked directly on 0..4

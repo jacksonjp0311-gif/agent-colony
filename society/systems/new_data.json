@@ -24,60 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 0.027,
-   "cycle_id": "20261023T142821Z_969a57",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 462,
-    "cpu_s": 0.027,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-10-23T14:30:21Z"
-  },
-  {
-   "cpu_s": 0.027,
-   "cycle_id": "20261023T143038Z_ff0c00",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 462,
-    "cpu_s": 0.027,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-10-23T14:32:41Z"
-  },
-  {
-   "cpu_s": 0.016,
-   "cycle_id": "20261023T152151Z_106949",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 462,
-    "cpu_s": 0.016,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-10-23T15:23:38Z"
-  },
-  {
    "cpu_s": 0.018,
    "cycle_id": "20261023T152349Z_8e5151",
    "discovered": [],
@@ -784,33 +730,99 @@
     ]
    },
    "ts": "2026-11-08T05:16:45Z"
+  },
+  {
+   "cpu_s": 0.013,
+   "cycle_id": "20261108T062345Z_b8d152",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 464,
+    "cpu_s": 0.013,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"prime triples\" @0",
+     "keyword:more \"prime quadruplets\" @0",
+     "keyword:more \"(n+1)^2\" primes @0"
+    ]
+   },
+   "ts": "2026-11-08T06:26:39Z"
+  },
+  {
+   "cpu_s": 0.014,
+   "cycle_id": "20261108T062700Z_1d5228",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 465,
+    "cpu_s": 0.014,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"(n+1)^2\" primes @10",
+     "keyword:more \"(n+1)^2\" primes @20",
+     "keyword:more \"number of divisors\" @0"
+    ]
+   },
+   "ts": "2026-11-08T06:29:14Z"
+  },
+  {
+   "cpu_s": 0.015,
+   "cycle_id": "20261108T062934Z_3a3425",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 3,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 465,
+    "cpu_s": 0.014,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": [
+     "keyword:more \"number of divisors\" @10",
+     "keyword:more \"number of divisors\" @20",
+     "keyword:more \"number of divisors\" records @0"
+    ]
+   },
+   "ts": "2026-11-08T06:32:20Z"
   }
  ],
  "last": {
-  "cpu_s": 0.103,
-  "cycle_id": "20261108T051451Z_4cf845",
+  "cpu_s": 0.015,
+  "cycle_id": "20261108T062934Z_3a3425",
   "discovered": [],
   "mode": "live",
   "net_requests": 3,
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
-   "candidates_seen": 464,
-   "cpu_s": 0.103,
+   "candidates_seen": 465,
+   "cpu_s": 0.014,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": [
-    "keyword:more \"twin primes\" @20",
-    "keyword:more \"cousin primes\" @0",
-    "keyword:more \"sexy primes\" @0"
+    "keyword:more \"number of divisors\" @10",
+    "keyword:more \"number of divisors\" @20",
+    "keyword:more \"number of divisors\" records @0"
    ]
   },
-  "ts": "2026-11-08T05:16:45Z"
+  "ts": "2026-11-08T06:32:20Z"
  },
  "mode": "live",
  "sparse": {
-  "cursor": 25,
+  "cursor": 40,
   "exhausted": [
    "keyword:hard Collatz",
    "keyword:hard Goldbach",
@@ -963,6 +975,12 @@
    "A046808": {
     "n_pub": 23,
     "name": "a(n) is the least integer greater than a(n-1) such that a(n-1)*2^a(n) + 1 is prime, a(1) = 1.",
+    "query": "keyword:more \"(n+1)^2\" primes",
+    "status": "no engine family for its definition"
+   },
+   "A046809": {
+    "n_pub": 32,
+    "name": "a(n) is the least integer greater than a(n-1) such that a(n-1)*2^a(n) - 1 is prime, a(1) = 1.",
     "query": "keyword:more \"(n+1)^2\" primes",
     "status": "no engine family for its definition"
    },

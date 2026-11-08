@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-08T05:15:52Z",
-  "passes": 498,
-  "kills": 228,
+  "updated_at": "2026-11-08T06:30:59Z",
+  "passes": 501,
+  "kills": 232,
   "easy_pad_kills": 32,
-  "kill_rate": 0.314,
+  "kill_rate": 0.3165,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -13,14 +13,13 @@
     "easy_pad_kills": 0,
     "kill_rate": 0.3333
   },
-  "bus_ok_rate": 0.1667,
+  "bus_ok_rate": 0.2167,
   "unique_mutations_pass": [
     "authored_frontier_cong_x0df35249_w1",
     "authored_frontier_cong_x16b72492_w2",
     "authored_frontier_cong_x22ed9f43_w2",
     "authored_frontier_cong_x4bb20589_w1",
     "authored_frontier_cong_x5cb35120_w2",
-    "authored_frontier_cong_x85b99e19_w1",
     "authored_frontier_cong_xa9e515ff_w1",
     "authored_frontier_cong_xbae7672a_w1",
     "authored_frontier_cong_xdbe366da_w1",
@@ -31,7 +30,6 @@
     "authored_frontier_divides_x0f0ed051_w2",
     "authored_frontier_divides_x575aa435_w2",
     "authored_frontier_divides_x5979c9b9_w2",
-    "authored_frontier_divides_x97939198_w1",
     "authored_frontier_le_x10223e69_w1",
     "authored_frontier_le_x1c0eba57_w2",
     "authored_frontier_le_x46c5cc8a_w2",
@@ -43,12 +41,14 @@
     "authored_sieve_hl_within_g2_4_2_w2",
     "authored_sieve_hl_within_g2_6_w2",
     "authored_sieve_hl_within_g4_6_2_w1",
-    "authored_sieve_hl_within_g6_2_4_w2",
     "authored_sieve_hl_within_g6_2_w2",
+    "authored_sieve_hl_within_g6_4_6_w1",
+    "authored_sieve_hl_within_g6_6_2_w1",
     "authored_sieve_residue_bal_g2_4_6_w2",
     "authored_sieve_residue_bal_g4_2_4_w1",
     "authored_sieve_residue_bal_g4_2_w2",
     "authored_sieve_residue_bal_g6_2_6_w1",
+    "authored_sieve_residue_bal_g6_4_2_w1",
     "authored_sieve_residue_bal_g6_4_w2",
     "authored_sieve_residue_bal_g6_w2",
     "authored_sieve_two_counter_g2_4_w2",
@@ -60,11 +60,8 @@
     "Chain+seek `authored_frontier_cong_xedd0f0db_w2` from invariant priors",
     "Chain+seek `authored_frontier_divides_x9835949a_w1` from invariant priors",
     "Chain+seek `authored_frontier_le_x46c5cc8a_w3` from invariant priors",
-    "authored_frontier_cong_xa8371e31_w1",
-    "authored_frontier_cong_xcb3ef303_w1",
+    "Chain+seek `authored_sieve_residue_bal_g6_2_6_w1` from invariant priors",
     "authored_frontier_cong_xd9add9e9_w1",
-    "authored_frontier_cong_xe0f68915_w1",
-    "authored_sieve_hl_within_g6_6_2_w1",
     "vandermonde"
   ],
   "domain_packs": {
@@ -97,7 +94,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-08T05:15:52Z",
+    "ts": "2026-11-08T06:30:59Z",
     "passed": false,
     "kills": [
       "held_out:held_out:already_saturated_no_harder_window",
@@ -110,9 +107,9 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [
-        "msg_6e074f826f",
-        "msg_9f1fe08987",
-        "msg_e5bb3c9e34"
+        "msg_9a4d47805d",
+        "msg_8c6860b18e",
+        "msg_1b26ccdb49"
       ],
       "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
       "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
@@ -218,7 +215,7 @@
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "source": "claim_pipeline",
-    "cycle_id": "20261108T051451Z_4cf845",
+    "cycle_id": "20261108T062934Z_3a3425",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

@@ -2859,8 +2859,40 @@
    "family": "authored_sieve_residue_bal",
    "expected": 0.9734,
    "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_6_2_w1",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 7 other Oracle-passed members, expected = s/(s+K) = 0.985 >= 0.95 (K=0.10921); 7 members stay",
+   "ts": "2026-11-08T06:23:56Z",
+   "cycle_id": "20261108T062345Z_b8d152",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_hl_within_g4_6_2_w1() -> bool:\n    \"\"\"Authored instrument check (desk): count of consecutive pattern (4, 6, 2) on each window is within 4.0*sqrt of the HL forecast.\n    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((4, 6, 2), a, b)) is int and type(h := sieve_hl((4, 6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])\n",
+   "entry": "    (\"authored_sieve_hl_within_g4_6_2_w1\", check_authored_sieve_hl_within_g4_6_2_w1, True),\n",
+   "family": "authored_sieve_hl_within",
+   "expected": 0.9846,
+   "proposals_withdrawn": [
+    "imp_fbd393_50"
+   ]
+  },
+  {
+   "name": "authored_sieve_residue_bal_g6_2_6_w1",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_residue_bal`: 4 other Oracle-passed members, expected = s/(s+K) = 0.973 >= 0.95 (K=0.10921); 4 members stay",
+   "ts": "2026-11-08T06:23:56Z",
+   "cycle_id": "20261108T062345Z_b8d152",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_residue_bal_g6_2_6_w1() -> bool:\n    \"\"\"Authored instrument check (desk): p mod 4 classes 1/3 of pattern (6, 2, 6) are balanced within 4.0*sqrt(total).\n    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(x := sieve_count((6, 2, 6), a, b, 4, 1)) is int and type(y := sieve_count((6, 2, 6), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])\n",
+   "entry": "    (\"authored_sieve_residue_bal_g6_2_6_w1\", check_authored_sieve_residue_bal_g6_2_6_w1, True),\n",
+   "family": "authored_sieve_residue_bal",
+   "expected": 0.9734,
+   "proposals_withdrawn": [
+    "imp_4cf845_50"
+   ]
   }
  ],
- "n_retired": 181,
+ "n_retired": 183,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }
