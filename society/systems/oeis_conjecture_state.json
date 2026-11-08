@@ -245,12 +245,84 @@
    "status": "holds_on_range",
    "tested_hi": 210,
    "credit": 0.0
+  },
+  "oc_A229019_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 45,
+   "credit": 0.0
+  },
+  "oc_A212205_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A102882_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A166078_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A166076_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A115967_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A162479_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A247170_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A239201_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A116409_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A174783_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A006501_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1000,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 27,
-   "credit": 0.0
+   "attempts": 38,
+   "credit": 10.0
   },
   "gf": {
    "attempts": 15,
@@ -259,7 +331,67 @@
   "only_prime": {
    "attempts": 6,
    "credit": 0.0
+  },
+  "property": {
+   "attempts": 1,
+   "credit": 0.0
   }
  },
- "credit_total": 0.0
+ "credit_total": 10.0,
+ "scoreboard": {
+  "counterexamples": {},
+  "proofs": {
+   "oc_A212205_0": {
+    "anum": "A212205",
+    "checker": "x-side residual is a polynomial of degree 6 with zero radical part; recurrence holds for n >= 7 by the operator identity",
+    "routine": true
+   },
+   "oc_A102882_0": {
+    "anum": "A102882",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 4 by the operator identit",
+    "routine": true
+   },
+   "oc_A166078_0": {
+    "anum": "A166078",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A166076_0": {
+    "anum": "A166076",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A115967_0": {
+    "anum": "A115967",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A162479_0": {
+    "anum": "A162479",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 5 by the operator identit",
+    "routine": true
+   },
+   "oc_A247170_0": {
+    "anum": "A247170",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
+    "routine": true
+   },
+   "oc_A239201_0": {
+    "anum": "A239201",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A116409_0": {
+    "anum": "A116409",
+    "checker": "x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A174783_0": {
+    "anum": "A174783",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   }
+  },
+  "extensions": {}
+ }
 }

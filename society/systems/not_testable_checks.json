@@ -1,5 +1,5 @@
 {
- "n": 39,
+ "n": 41,
  "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
  "records": {
   "07de99650444b31d:w1": {
@@ -202,6 +202,16 @@
    "reason": "no_data_headroom",
    "statement": "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1"
   },
+  "755f41625fe2b0b9:w1": {
+   "authored_hi": 4,
+   "check": "authored_frontier_cong_x755f4162_w1",
+   "data_end": 94,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "gpf[prr](n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
   "755f41625fe2b0b9:w2": {
    "authored_hi": 4,
    "check": "authored_frontier_cong_x755f4162_w2",
@@ -251,6 +261,16 @@
    "lo": 900,
    "reason": "no_data_headroom",
    "statement": "dbl(oxa177122)(n) = 1 (mod 2) for all n >= 1"
+  },
+  "b0e08ab94515284c:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_le_xb0e08ab9_w1",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "le",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "bigomega[pnot3](n) <= dbl(digsum)(n) for all n >= 1 (with equality at some n)"
   },
   "b0e08ab94515284c:w2": {
    "authored_hi": 0,

@@ -1,23 +1,24 @@
 {
-  "last_attempt_at": "2026-10-23T21:37:24Z",
+  "last_attempt_at": "2026-11-07T23:56:37Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-10-23T21:37:24Z",
+  "last_ok_at": "2026-11-07T23:56:37Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success",
-      "abstract_snippet": "Robotic foundation models are typically evaluated through costly closed-loop rollouts, which motivates cheap offline proxies for model capability. The Platonic Representation Hypothesis (PRH) suggests that as representations improve, different modalities such as vision and language converge toward a shared statistical model of reality. We ask whether motion trajectories form another such modality:",
-      "url": "https://arxiv.org/abs/2610.31670",
-      "arxiv_id": "2610.31670",
+      "title": "User Embeddings are Superpositions of Interpretable Behavioral Modes",
+      "abstract_snippet": "User embeddings are central components of modern recommendation, personalization, and behavioral modeling systems. Though these embeddings can compactly encode rich behavioral information, they are inherently dense and opaque, limiting interpretability. To address this gap, we argue that user embeddings can be understood as sparse superpositions of interpretable behavioral modes. This structure is",
+      "url": "https://arxiv.org/abs/2611.08487",
+      "arxiv_id": "2611.08487",
       "doi": "",
       "authors": [
-        "Yunfei Xie",
-        "Howard H. Qian",
-        "Shiyi Lan",
-        "Kaiyu Hang",
-        "Chen Wei"
+        "Jonathan Kozaczuk",
+        "Zheng Dong",
+        "Noyan Evirgen",
+        "Keivan Majidi",
+        "Eddie K. H. Ng",
+        "Chris Porter"
       ],
       "year": 2026,
       "tags": [
@@ -27,20 +28,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T21:37:24Z"
+      "fetched_at": "2026-11-07T23:56:37Z"
     },
     {
       "source": "arxiv",
-      "title": "Phase Transition from Random Features to Fully Trainable Networks",
-      "abstract_snippet": "Constructing accurate and computationally tractable approximation spaces is a fundamental task in scientific computing. Partially trainable neural networks bridge fixed random features and fully adaptive representations. This paper quantifies a phase transition pattern in approximation bounds and observes analogous behavior in training errors: a rapid but smooth initial improvement followed by dim",
-      "url": "https://arxiv.org/abs/2610.31663",
-      "arxiv_id": "2610.31663",
+      "title": "Scientist World: Grow a Research World for AI-Scientists",
+      "abstract_snippet": "AI-Scientists arrived, but a world for them to grow in did not. Human scientists take theirs for granted $-$ centuries of open problems and shared ideas, waiting in the scientific literature. To AI-Scientists, that world is readable but not runnable, so we build Scientist World for them: every research paper becomes an executable environment. Our autonomous pipeline extracts each paper's open-ende",
+      "url": "https://arxiv.org/abs/2611.08478",
+      "arxiv_id": "2611.08478",
       "doi": "",
       "authors": [
-        "Xin He",
-        "Huan Lao",
-        "Xiliang Lu",
-        "Shijun Zhang"
+        "Taiming Lu",
+        "Sachin Konan",
+        "Zhuang Liu"
       ],
       "year": 2026,
       "tags": [
@@ -50,20 +50,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T21:37:24Z"
+      "fetched_at": "2026-11-07T23:56:37Z"
     },
     {
       "source": "arxiv",
-      "title": "Reliable AI-Assisted Decisions via Selective Auditing",
-      "abstract_snippet": "We consider online monitoring of an AI system that produces a sequence of decisions. At each round, the system outputs a proposed decision together with a confidence score estimating the trustworthiness of the decision. The decision and confidence score need not be produced by the same model: for example, one agent may propose a decision, while a separate verifier agent evaluates it and outputs a ",
-      "url": "https://arxiv.org/abs/2610.31662",
-      "arxiv_id": "2610.31662",
+      "title": "XStack: A Benchmark for ML Repo Migration",
+      "abstract_snippet": "ML code should run where researchers choose, not where it was first written. Today, machine learning code mainly lives in two ecosystems, PyTorch on NVIDIA GPUs and JAX on Google TPUs. Migrating repositories between them means building and testing across frameworks and hardware. This migration is (1) a practical need, since it unlocks different hardware for researchers, and (2) a natural benchmark",
+      "url": "https://arxiv.org/abs/2611.08472",
+      "arxiv_id": "2611.08472",
       "doi": "",
       "authors": [
-        "Isaac Gibbs",
-        "Elise L. Han",
-        "Ryan J. Tibshirani",
-        "Tijana Zrnic"
+        "Linrong Cai",
+        "Taiming Lu",
+        "Haozhe Chen",
+        "Zhuang Liu"
       ],
       "year": 2026,
       "tags": [
@@ -73,22 +73,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T21:37:24Z"
+      "fetched_at": "2026-11-07T23:56:37Z"
     },
     {
       "source": "arxiv",
-      "title": "SpectralCanary: Embarrassingly Simple Low-Frequency Traces for T2I Dataset-Use Auditing",
-      "abstract_snippet": "Auditing whether a text-to-image (T2I) model was fine-tuned on a particular image collection is difficult: a model can absorb collection-level visual characteristics without reproducing training images. Proactive dataset-use auditing plants a shared signal in a dataset before release, then later checks whether that signal appears in a suspect model's generated outputs. Existing approaches often tr",
-      "url": "https://arxiv.org/abs/2610.31659",
-      "arxiv_id": "2610.31659",
+      "title": "Same Behavior, Different Mechanism: What Finite Experiments Can Certify About Integrated Information",
+      "abstract_snippet": "Interpretability, AI auditing and assessments of machine consciousness increasingly rest on mechanism-level quantities: functionals of a system's causal transition law that describe how it computes, not what it outputs. Experiments see that law only through finite, partial and noisy interventions. We ask when such a quantity is identifiable from an experiment's access, continuous in the mechanism ",
+      "url": "https://arxiv.org/abs/2611.08469",
+      "arxiv_id": "2611.08469",
       "doi": "",
       "authors": [
-        "Sy-Tuyen Ho",
-        "Anirudh Satheesh",
-        "Soham Chawathe",
-        "Huy Nghiem",
-        "Yongkyun Lee",
-        "Andrew Adams Schoen"
+        "Linqian Wu",
+        "Diaoxuan He"
       ],
       "year": 2026,
       "tags": [
@@ -98,17 +94,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T21:37:24Z"
+      "fetched_at": "2026-11-07T23:56:37Z"
     },
     {
       "source": "arxiv",
-      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
-      "abstract_snippet": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on calibration data under explicit costs, then evaluate that frozen policy once on held-out test data. On a public 47,837-ticket, eight-class corpus, we compare four trained non-LLM classifiers with four lar",
-      "url": "https://arxiv.org/abs/2610.31657",
-      "arxiv_id": "2610.31657",
+      "title": "Canonical Cut Hierarchy in Almost-Linear Time via Reduction to Max-Flow",
+      "abstract_snippet": "The canonical cut hierarchy recursively partitions a graph along Tutte-Nash-Williams partitions, choosing the partition with the most number of parts at each step. We give a randomized almost linear-time algorithm for computing this hierarchy in undirected graphs with polynomially bounded capacities via reduction to max-flow. This yields randomized almost linear-time algorithms for computing parti",
+      "url": "https://arxiv.org/abs/2611.08466",
+      "arxiv_id": "2611.08466",
       "doi": "",
       "authors": [
-        "Sachin Gupta"
+        "Karthekeyan Chandrasekaran",
+        "Harshul Sagar"
       ],
       "year": 2026,
       "tags": [
@@ -118,7 +115,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-10-23T21:37:24Z"
+      "fetched_at": "2026-11-07T23:56:37Z"
     }
   ]
 }

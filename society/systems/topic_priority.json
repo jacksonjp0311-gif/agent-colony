@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "action-conditioned",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "ai-scientists",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "bi-level",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "bounded-degree",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-10-23T21:43:46Z",
-  "updated_cycle": "20261023T214216Z_588b4d",
+  "updated_at": "2026-11-08T00:03:04Z",
+  "updated_cycle": "20261108T000129Z_678dd4",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
