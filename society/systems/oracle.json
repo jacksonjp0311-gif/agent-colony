@@ -1,36 +1,34 @@
 {
   "version": 1,
-  "updated_at": "2026-11-08T22:29:17Z",
-  "passes": 513,
-  "kills": 246,
+  "updated_at": "2026-11-08T23:13:47Z",
+  "passes": 516,
+  "kills": 249,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3241,
+  "kill_rate": 0.3255,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 26,
-    "kills": 34,
+    "passes": 25,
+    "kills": 35,
     "easy_pad_kills": 0,
-    "kill_rate": 0.5667
+    "kill_rate": 0.5833
   },
-  "bus_ok_rate": 0.4167,
+  "bus_ok_rate": 0.4333,
   "unique_mutations_pass": [
+    "authored_frontier_cong_x16b72492_w3",
     "authored_frontier_cong_x3f36abbe_w1",
     "authored_frontier_cong_x41b05781_w1",
     "authored_frontier_cong_x41b05781_w2",
+    "authored_frontier_cong_x5cb35120_w3",
     "authored_frontier_cong_xa8371e31_w1",
     "authored_frontier_cong_xa8371e31_w2",
     "authored_frontier_cong_xb999e9ad_w1",
-    "authored_frontier_cong_xedd0f0db_w2",
     "authored_frontier_divides_x0c5f5f5b_w1",
     "authored_frontier_divides_x0c5f5f5b_w2",
-    "authored_frontier_divides_x0f0ed051_w2",
     "authored_frontier_le_x10223e69_w1",
     "authored_frontier_le_x10223e69_w2",
     "authored_frontier_le_x46c5cc8a_w3",
     "authored_frontier_le_xdbff107c_w3",
-    "authored_frontier_modpat_x51c52e42_w2",
-    "authored_sieve_hl_within_g2_4_2_w2",
     "authored_sieve_hl_within_g4_2_4_w2",
     "authored_sieve_hl_within_g4_6_2_w1",
     "authored_sieve_hl_within_g6_4_6_w1",
@@ -40,7 +38,8 @@
     "authored_sieve_residue_bal_g6_2_6_w1",
     "authored_sieve_residue_bal_g6_4_2_w1",
     "authored_sieve_two_counter_g2_6_4_w2",
-    "authored_sieve_two_counter_g2_6_6_w2"
+    "authored_sieve_two_counter_g2_6_6_w2",
+    "authored_sieve_two_counter_g4_2_6_w2"
   ],
   "unique_mutations_kill": [
     "Chain `authored_sieve_hl_within_g6_6_2_w1` citing Think Harder Where It Matters: Item-Level Adaptive",
@@ -82,7 +81,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-08T22:29:17Z",
+    "ts": "2026-11-08T23:13:47Z",
     "passed": false,
     "kills": [
       "held_out:held_out:already_saturated_no_harder_window",
@@ -95,9 +94,9 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [
-        "msg_0dcc402792",
-        "msg_bcdf7d48fa",
-        "msg_859d3a0fc3"
+        "msg_76f6fd6c69",
+        "msg_b7c5381ec1",
+        "msg_46f5b3506a"
       ],
       "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
       "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
@@ -203,7 +202,7 @@
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "source": "claim_pipeline",
-    "cycle_id": "20261108T222746Z_74947c",
+    "cycle_id": "20261108T231214Z_dc24f8",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s00373-025-02996-5>",
+      "topic": "4-ary",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -76,7 +76,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "action-conditioned",
+      "topic": "ai-scientists",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-08T22:29:37Z",
-  "updated_cycle": "20261108T222746Z_74947c",
+  "updated_at": "2026-11-08T23:14:08Z",
+  "updated_cycle": "20261108T231214Z_dc24f8",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

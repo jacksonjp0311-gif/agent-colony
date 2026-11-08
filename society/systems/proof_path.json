@@ -27,7 +27,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 24,
+ "n_authored": 27,
  "n_authored_proved": 9,
  "n_claims": 150,
  "n_proved": 84,
@@ -84,7 +84,7 @@
    "v": 4
   },
   "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_le_x1c0eba57_w1",
    "checks": 59988,
@@ -12627,7 +12627,7 @@
    "v": 4
   },
   "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x0b1db873_w1",
    "checks": 3988,
@@ -12651,7 +12651,7 @@
    "v": 4
   },
   "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_cong_x22ed9f43_w1",
    "checks": 662,
@@ -13639,5 +13639,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-08T22:30:12Z"
+ "ts": "2026-11-08T23:14:42Z"
 }

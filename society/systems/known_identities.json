@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-08T22:29:17Z",
-  "n": 470,
+  "updated_at": "2026-11-08T23:13:47Z",
+  "n": 474,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -75,6 +75,7 @@
     "authored_frontier_cong_x16b72492_w3",
     "authored_frontier_cong_x22ed9f43_w1",
     "authored_frontier_cong_x22ed9f43_w2",
+    "authored_frontier_cong_x22ed9f43_w3",
     "authored_frontier_cong_x23fb70a1_w1",
     "authored_frontier_cong_x29d14f44_w1",
     "authored_frontier_cong_x2f9c7891_w1",
@@ -115,8 +116,10 @@
     "authored_frontier_cong_xedd0f0db_w2",
     "authored_frontier_cong_xfdcb3b60_w1",
     "authored_frontier_cong_xfdcb3b60_w2",
+    "authored_frontier_cong_xfdcb3b60_w3",
     "authored_frontier_divides_x0b1db873_w1",
     "authored_frontier_divides_x0b1db873_w2",
+    "authored_frontier_divides_x0b1db873_w3",
     "authored_frontier_divides_x0c5f5f5b_w1",
     "authored_frontier_divides_x0c5f5f5b_w2",
     "authored_frontier_divides_x0f0ed051_w2",
@@ -140,6 +143,7 @@
     "authored_frontier_le_x10223e69_w2",
     "authored_frontier_le_x1c0eba57_w1",
     "authored_frontier_le_x1c0eba57_w2",
+    "authored_frontier_le_x1c0eba57_w3",
     "authored_frontier_le_x46c5cc8a_w1",
     "authored_frontier_le_x46c5cc8a_w2",
     "authored_frontier_le_x46c5cc8a_w3",
@@ -197,11 +201,7 @@
     "authored_pascal_identity__vandermonde_conv_w1",
     "authored_pell_companion__motzkin_bounded_w1",
     "authored_pell_companion__pythagorean_generation_w1",
-    "authored_polynomial_remainder__telescoping_sum_w1",
-    "authored_pythagorean_generation__narayana_sum_w1",
-    "authored_quadratic_reciprocity__sigma_multiplicative_w1",
-    "authored_sieve_hl_within_g2_4_2_w1",
-    "authored_sieve_hl_within_g2_4_2_w2"
+    "authored_polynomial_remainder__telescoping_sum_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
