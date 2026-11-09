@@ -1,25 +1,24 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T11:14:29Z",
-  "passes": 524,
-  "kills": 271,
+  "updated_at": "2026-11-09T17:12:21Z",
+  "passes": 525,
+  "kills": 279,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3409,
+  "kill_rate": 0.347,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 22,
-    "kills": 38,
+    "passes": 19,
+    "kills": 41,
     "easy_pad_kills": 0,
-    "kill_rate": 0.6333
+    "kill_rate": 0.6833
   },
-  "bus_ok_rate": 0.5333,
+  "bus_ok_rate": 0.5833,
   "unique_mutations_pass": [
     "authored_frontier_cong_x16b72492_w3",
     "authored_frontier_cong_x22ed9f43_w3",
-    "authored_frontier_cong_x3f36abbe_w1",
-    "authored_frontier_cong_x41b05781_w1",
     "authored_frontier_cong_x41b05781_w2",
+    "authored_frontier_cong_x41b05781_w3",
     "authored_frontier_cong_x5cb35120_w3",
     "authored_frontier_cong_xa8371e31_w2",
     "authored_frontier_cong_xa8371e31_w3",
@@ -30,20 +29,18 @@
     "authored_frontier_divides_x0f0ed051_w3",
     "authored_frontier_le_x10223e69_w2",
     "authored_frontier_le_x1c0eba57_w3",
-    "authored_frontier_le_xdbff107c_w3",
     "authored_sieve_hl_within_g4_2_4_w2",
     "authored_sieve_hl_within_g4_6_6_w2",
     "authored_sieve_residue_bal_g4_6_2_w2",
-    "authored_sieve_two_counter_g2_6_4_w2",
     "authored_sieve_two_counter_g2_6_6_w2",
     "authored_sieve_two_counter_g4_2_6_w2"
   ],
   "unique_mutations_kill": [
-    "Chain `authored_sieve_hl_within_g6_6_2_w1` citing Think Harder Where It Matters: Item-Level Adaptive",
-    "Chain `authored_sieve_two_counter_g2_6_4_w2` citing Fourth moments of prime exponential sums and excep",
+    "Chain `authored_sieve_hl_within_g4_6_6_w2` citing Think Harder Where It Matters: Item-Level Adaptive",
     "Chain `authored_sieve_two_counter_g4_2_6_w2` citing Fourth moments of prime exponential sums and excep",
     "Chain+seek `authored_frontier_divides_x0f0ed051_w3` from invariant priors",
     "Chain+seek `authored_frontier_le_x1c0eba57_w3` from invariant priors",
+    "Chain+seek `lemma_hard_combinatorics` from invariant priors",
     "authored_frontier_cong_xd9add9e9_w1",
     "vandermonde"
   ],
@@ -77,45 +74,43 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-09T11:14:29Z",
+    "ts": "2026-11-09T17:12:21Z",
     "passed": false,
     "kills": [
-      "held_out:held_out:already_saturated_no_harder_window",
+      "stripped:stripped_not_useful_fail",
+      "held_out:held_out_fail",
       "collective_kill"
     ],
     "hear": {
       "heard": true,
-      "bus_ok": true,
+      "bus_ok": false,
       "is_easy_pad": false,
       "attack_weight": 0.35,
       "support_weight": 0.55,
-      "msg_ids": [
-        "msg_6431ea4f72",
-        "msg_b0812b55c1",
-        "msg_d9100b6606"
-      ],
-      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Graded convolutional networks: scale invariance without the scale and",
-      "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "msg_ids": [],
+      "propose": "PROPOSE for Oracle HEAR: `Chain+seek `lemma_hard_combinatorics` from invariant priors` kind=process. seek_enable:lemma_hard_combinatorics Not discovery. cycle=.",
+      "attack": "WEIGH: `Chain+seek `lemma_hard_combinatorics` from invariant priors` (process) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "stripped_fails_usefulness": true,
-        "reason": "claim_or_bench_path",
-        "ok_for_oracle": true,
-        "kind_path": "claim_theme"
+        "already_enabled": false,
+        "in_catalog": false,
+        "hard_pass": 160,
+        "hard_n": 160,
+        "score": 0.8853,
+        "stripped_fails_usefulness": false,
+        "ok_for_oracle": false,
+        "reason": "stripped_not_useful_fail"
       },
       "held_out": {
         "survives": false,
         "ok_for_oracle": false,
-        "reason": "held_out:already_saturated_no_harder_window",
-        "theme_window": "adversarial_vandermonde_asymmetric",
-        "in_catalog": true,
-        "enabled": false,
-        "mutation": "vandermonde",
-        "catalog_hint": {
-          "add_mutation": "vandermonde_asymmetric",
-          "kind": "hard_enable"
-        }
+        "hard_pass": 160,
+        "hard_n": 160,
+        "ok": true,
+        "score": 0.8858,
+        "shifted_window": null,
+        "reason": "held_out_fail"
       },
       "cas": {
         "cas_ok": true,
@@ -134,15 +129,12 @@
           {
             "label": "square_expand",
             "ok": true
-          },
-          {
-            "label": "binom_symmetry_numeric",
-            "ok": true
           }
         ]
       },
       "kills": [
-        "held_out:held_out:already_saturated_no_harder_window"
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail"
       ],
       "sense_pass": false
     },
@@ -190,16 +182,16 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "vandermonde",
-      "kind": "claim_theme",
+      "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
+      "kind": "process",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "vandermonde",
-    "kind": "claim_theme",
-    "source": "claim_pipeline",
-    "cycle_id": "20261109T111304Z_fd3a37",
-    "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
+    "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
+    "kind": "process",
+    "source": "novelty_gate_deferred_title",
+    "cycle_id": "",
+    "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },

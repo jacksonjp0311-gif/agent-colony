@@ -1,13 +1,13 @@
 {
-  "ts": "2026-11-09T11:13:26Z",
-  "cycle_id": "20261109T111304Z_fd3a37",
+  "ts": "2026-11-09T17:10:55Z",
+  "cycle_id": "20261109T171039Z_593f72",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 44,
+      "vandermonde": 50,
       "authored_frontier_divides_x9835949a_w1": 4,
       "authored_frontier_cong_xd9add9e9_w1": 3,
       "authored_sieve_residue_bal_g6_2_6_w1": 2,
@@ -21,20 +21,6 @@
       "authored_frontier_cong_x47dd09c7_w1": 1
     },
     "recent": {
-      "authored_sieve_hl_within_g4_2_4_w2": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_frontier_cong_x41b05781_w2": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_frontier_cong_x16b72492_w3": {
         "last": "keep",
         "streak": 1,
@@ -104,34 +90,48 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_sieve_hl_within_g4_6_6_w2": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "authored_frontier_cong_x41b05781_w3": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8446,
-      "slope": -0.000852,
+      "last": 0.8521,
+      "slope": -0.000751,
       "min": 0.8359,
       "max": 0.8612
     },
     "novelty": {
-      "last": 0.5,
-      "slope": -0.015322,
+      "last": 0.6,
+      "slope": -0.021866,
       "min": 0.5,
       "max": 0.8125
     },
     "kill_rate": {
-      "last": 0.3396,
-      "slope": 0.001515,
-      "min": 0.3241,
-      "max": 0.3396
+      "last": 0.3446,
+      "slope": 0.001603,
+      "min": 0.3255,
+      "max": 0.3446
     },
     "kill_rate_term": {
-      "last": 0.8557,
-      "slope": 0.001367,
-      "min": 0.8417,
-      "max": 0.8557
+      "last": 0.8601,
+      "slope": 0.001444,
+      "min": 0.8429,
+      "max": 0.8601
     },
     "lesson_uptake": {
       "last": 0.96,
@@ -142,8 +142,8 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0195,
-    "novelty_max": 0.6923,
+    "aggregate_range": 0.01,
+    "novelty_max": 0.6667,
     "window": 6,
     "reason": "moving"
   },
@@ -151,10 +151,8 @@
     "enabled": 170,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
-      "authored_frontier_cong_x41b05781_w3",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_frontier_divides_x9835949a_w1",
-      "authored_sieve_hl_within_g4_6_6_w2"
+      "authored_frontier_divides_x9835949a_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -193,7 +191,6 @@
       "authored_frontier_cong_xb999e9ad_w1",
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_frontier_cong_xedd0f0db_w3",
       "authored_frontier_divides_x0c5f5f5b_w1",
       "authored_frontier_divides_x0c5f5f5b_w2",
       "authored_frontier_divides_x318ee14a_w1",
@@ -244,7 +241,6 @@
       "authored_sieve_hl_within_g2_4_w1",
       "authored_sieve_hl_within_g2_w1",
       "authored_sieve_hl_within_g2_w2",
-      "authored_sieve_hl_within_g4_6_6_w2",
       "authored_sieve_hl_within_g4_6_w1",
       "authored_sieve_hl_within_g4_w1",
       "authored_sieve_hl_within_g6_4_2_w1",
@@ -259,7 +255,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 0
+    "exhausted_recent": 1
   },
   "guides": {
     "n_guides": 17,
@@ -273,23 +269,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.966,
+      "ratio": 0.665,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.972,
+      "ratio": 0.684,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.9,
+      "ratio": 0.653,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.983,
+      "ratio": 0.726,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.898,
+      "ratio": 0.701,
       "drift": false
     }
   },
@@ -298,10 +294,10 @@
     "verified": {
       "goldbach_even": 241234115,
       "collatz_descent": 278200000,
-      "legendre_square_gap": 1436607,
-      "lehmer_totient": 122200001,
+      "legendre_square_gap": 1452607,
+      "lehmer_totient": 123800001,
       "erdos_straus": 1039127,
-      "twin_primes_hl": 346200000,
+      "twin_primes_hl": 350200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -313,20 +309,20 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4685,
+        "challenged": 4677,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 271,
+        "challenged": 273,
         "blocked": 0
       },
       "claim": {
-        "challenged": 44,
+        "challenged": 50,
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.2323,
-    "post_challenger_oracle_judged": 310,
+    "post_challenger_oracle_kill_rate": 0.2453,
+    "post_challenger_oracle_judged": 318,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -355,29 +351,29 @@
     "last": [
       [
         null,
+        "2026-11-09T17:02:54Z"
+      ],
+      [
+        "success",
         "2026-11-09T11:03:53Z"
       ],
       [
         "success",
         "2026-11-09T06:54:12Z"
-      ],
-      [
-        "success",
-        "2026-11-09T05:03:01Z"
       ]
     ],
-    "fetched_at": "2026-11-09T11:04:32Z"
+    "fetched_at": "2026-11-09T17:03:33Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 197,
+      "arxiv": 203,
       "oeis": 5,
-      "crossref": 108,
+      "crossref": 109,
       "wikipedia": 18,
       "oeis_conj": 213
     },
     "by_kind": {
-      "paper": 305,
+      "paper": 312,
       "sequence": 5,
       "summary": 18,
       "conj_sequence": 213
@@ -387,7 +383,7 @@
         "arxiv": {
           "error": "",
           "fetched": 8,
-          "new": 2,
+          "new": 6,
           "ok": true
         },
         "ci_health": {
@@ -396,7 +392,7 @@
         },
         "crossref": {
           "error": "",
-          "fetched": 5,
+          "fetched": 1,
           "new": 1,
           "ok": true
         },
@@ -408,39 +404,39 @@
         },
         "oeis_conj": {
           "error": "",
-          "fetched": 2,
+          "fetched": 9,
           "new": 0,
           "ok": true
         },
         "wikipedia": {
           "error": "",
-          "fetched": 0,
+          "fetched": 1,
           "new": 0,
           "ok": true
         }
       },
-      "ts": "2026-11-09T11:04:25Z"
+      "ts": "2026-11-09T17:03:25Z"
     },
     "health": {
       "arxiv": {
         "fail": 9,
-        "ok": 62
+        "ok": 63
       },
       "crossref": {
         "fail": 0,
-        "ok": 65
+        "ok": 66
       },
       "oeis": {
         "fail": 0,
-        "ok": 65
+        "ok": 66
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 61
+        "ok": 62
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 65
+        "ok": 66
       }
     }
   },

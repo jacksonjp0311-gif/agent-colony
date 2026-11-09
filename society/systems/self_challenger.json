@@ -4,25 +4,25 @@
   "self_reject_rate": 0.0,
   "by_kind": {
     "frontier": {
-      "challenged": 4682,
+      "challenged": 4675,
       "blocked": 0
     },
     "lemma_mutation": {
-      "challenged": 272,
+      "challenged": 273,
       "blocked": 0
     },
     "claim": {
-      "challenged": 46,
+      "challenged": 52,
       "blocked": 0
     }
   },
-  "post_challenger_oracle_judged": 313,
-  "post_challenger_oracle_kill_rate": 0.2364,
+  "post_challenger_oracle_judged": 320,
+  "post_challenger_oracle_kill_rate": 0.25,
   "pre_challenger_oracle_judged": 215,
   "pre_challenger_oracle_kill_rate": 0.1488,
   "post_challenger_frontier_recheck_fail_rate": 0.0,
   "challenger_catches": [],
   "can_approve": false,
   "note": "Observability only: the Challenger can block, never approve; not part of aggregate fitness.",
-  "updated_at": "2026-11-09T11:15:09Z"
+  "updated_at": "2026-11-09T17:12:20Z"
 }

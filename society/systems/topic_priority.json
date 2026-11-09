@@ -66,17 +66,17 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "4-ary",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "artifact-first",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "cassini-like",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-09T11:14:49Z",
-  "updated_cycle": "20261109T111304Z_fd3a37",
+  "updated_at": "2026-11-09T17:11:59Z",
+  "updated_cycle": "20261109T171039Z_593f72",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

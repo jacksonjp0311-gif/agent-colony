@@ -1,40 +1,40 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T11:14:30Z",
-  "hits": 6,
-  "kills": 5,
+  "updated_at": "2026-11-09T17:12:22Z",
+  "hits": 5,
+  "kills": 4,
   "rows": 30,
-  "kill_rows": 22,
+  "kill_rows": 23,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-09T11:14:30Z",
-    "cycle_id": "20261109T111304Z_fd3a37",
-    "mutation": "vandermonde",
-    "kind": "claim_theme",
+    "ts": "2026-11-09T17:12:22Z",
+    "cycle_id": "",
+    "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
+    "kind": "process",
     "novel_to_commons": false,
     "kills": [
       "already_in_lesson_ledger_or_history",
       "stripped_baseline_does_not_fail_usefulness",
       "held_out:hard_tier_green_and_hard_enable",
-      "oracle_kill:['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']"
+      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
     ],
-    "textbook_reuse": 0.3333,
+    "textbook_reuse": 0.0,
     "in_ledger": true,
     "own_authoring_record_only": false,
-    "oracle_used": "caller_verdict",
+    "oracle_used": "own_run",
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 161,
-      "hard_n": 161,
+      "hard_pass": 160,
+      "hard_n": 160,
       "stripped_fails_usefulness": false,
-      "score": 0.8745,
-      "impl_id": "lemma_impl_v2_basic10_hard159"
+      "score": 0.8859,
+      "impl_id": "lemma_impl_v2_basic10_hard160"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 161,
+      "hard_pass": 160,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
