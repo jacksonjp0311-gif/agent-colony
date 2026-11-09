@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T17:11:40Z",
-  "updated_cycle": "20261109T171039Z_593f72",
+  "updated_at": "2026-11-09T22:43:09Z",
+  "updated_cycle": "20261109T224137Z_14b714",
   "n_claims": 2,
   "n_proposed": 0,
   "recent_claims": [
@@ -57,27 +57,27 @@
               }
             }
           },
-          "challenger": "Challenger not broken: 15056 probes (boundary 1807, far 11984, sample 1265, edge 0; seed 53970532187969) in 1.04s [budget hit]",
+          "challenger": "Challenger not broken: 11760 probes (boundary 1807, far 8686, sample 1267, edge 0; seed 51733334099263) in 1.08s [budget hit]",
           "challenger_blocked": false,
-          "seed": 53970532187969,
-          "text": "Believe `vandermonde`: components vandermonde_conv, vandermonde_asymmetric, authored_binomial_symmetry__vandermonde_conv_w1; ranges tested {\"authored_binomial_symmetry__vandermonde_conv_w1\": {\"g0\": {\"k\": \"dependent\", \"n\": [16, 23]}, \"g1\": {\"m\": [12, 17], \"n\": [12, 17], \"r\": \"dependent\"}}, \"vandermonde_asymmetric\": {}, \"vandermonde_conv\": {\"g0\": {\"m\": [0, 11], \"n\": [0, 11], \"r\"; Challenger not broken: 15056 probes (boundary 1807, far 11984, sample 1265, edge 0; seed 53970532187969) in 1.04s [budget hit].",
+          "seed": 51733334099263,
+          "text": "Believe `vandermonde`: components vandermonde_conv, vandermonde_asymmetric, authored_binomial_symmetry__vandermonde_conv_w1; ranges tested {\"authored_binomial_symmetry__vandermonde_conv_w1\": {\"g0\": {\"k\": \"dependent\", \"n\": [16, 23]}, \"g1\": {\"m\": [12, 17], \"n\": [12, 17], \"r\": \"dependent\"}}, \"vandermonde_asymmetric\": {}, \"vandermonde_conv\": {\"g0\": {\"m\": [0, 11], \"n\": [0, 11], \"r\"; Challenger not broken: 11760 probes (boundary 1807, far 8686, sample 1267, edge 0; seed 51733334099263) in 1.08s [budget hit].",
           "generated_by": "colony.challenger",
           "free_text_from_feeds": false,
           "theme_id": "vandermonde",
           "bench_hint": "lemma_microbench hard:vandermonde*"
         },
         "bus_receipt": {
-          "msg_id": "msg_eb411544e9",
+          "msg_id": "msg_ea4f665738",
           "channel": "math",
-          "cycle_id": "20261109T171039Z_593f72",
+          "cycle_id": "20261109T224137Z_14b714",
           "claim_id": "cl_vandermonde_170603762"
         }
       },
       "bench_hint": "lemma_microbench hard:vandermonde*",
       "status": "rejected_raw",
       "hard_ok": false,
-      "note": "lemma score=0.8857 hard_pass=160/160 \u2014 machine-checked harness only; not theorem discovery | bus_receipt=math:msg_eb411544e9 | oracle=KILL kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill'] bus_ok=True | novelty_gate novel=False | oracle_blocked_propose",
-      "ts": "2026-11-09T17:11:40Z",
+      "note": "lemma score=0.8734 hard_pass=160/160 \u2014 machine-checked harness only; not theorem discovery | bus_receipt=math:msg_ea4f665738 | oracle=KILL kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill'] bus_ok=True | novelty_gate novel=False | oracle_blocked_propose",
+      "ts": "2026-11-09T22:43:09Z",
       "not_discovery": true
     },
     {
@@ -132,27 +132,27 @@
               }
             }
           },
-          "challenger": "Challenger not broken: 15056 probes (boundary 1807, far 11984, sample 1265, edge 0; seed 53970532187969) in 0.01s [budget hit]",
+          "challenger": "Challenger not broken: 11760 probes (boundary 1807, far 8686, sample 1267, edge 0; seed 51733334099263) in 0.02s [budget hit]",
           "challenger_blocked": false,
-          "seed": 53970532187969,
-          "text": "Believe `vandermonde`: components vandermonde_conv, vandermonde_asymmetric, authored_binomial_symmetry__vandermonde_conv_w1; ranges tested {\"authored_binomial_symmetry__vandermonde_conv_w1\": {\"g0\": {\"k\": \"dependent\", \"n\": [16, 23]}, \"g1\": {\"m\": [12, 17], \"n\": [12, 17], \"r\": \"dependent\"}}, \"vandermonde_asymmetric\": {}, \"vandermonde_conv\": {\"g0\": {\"m\": [0, 11], \"n\": [0, 11], \"r\"; Challenger not broken: 15056 probes (boundary 1807, far 11984, sample 1265, edge 0; seed 53970532187969) in 0.01s [budget hit].",
+          "seed": 51733334099263,
+          "text": "Believe `vandermonde`: components vandermonde_conv, vandermonde_asymmetric, authored_binomial_symmetry__vandermonde_conv_w1; ranges tested {\"authored_binomial_symmetry__vandermonde_conv_w1\": {\"g0\": {\"k\": \"dependent\", \"n\": [16, 23]}, \"g1\": {\"m\": [12, 17], \"n\": [12, 17], \"r\": \"dependent\"}}, \"vandermonde_asymmetric\": {}, \"vandermonde_conv\": {\"g0\": {\"m\": [0, 11], \"n\": [0, 11], \"r\"; Challenger not broken: 11760 probes (boundary 1807, far 8686, sample 1267, edge 0; seed 51733334099263) in 0.02s [budget hit].",
           "generated_by": "colony.challenger",
           "free_text_from_feeds": false,
           "theme_id": "vandermonde",
           "bench_hint": "lemma_microbench hard:vandermonde*"
         },
         "bus_receipt": {
-          "msg_id": "msg_8732f80ce4",
+          "msg_id": "msg_f454ce357a",
           "channel": "math",
-          "cycle_id": "20261109T171039Z_593f72",
+          "cycle_id": "20261109T224137Z_14b714",
           "claim_id": "cl_vandermonde_261109878"
         }
       },
       "bench_hint": "lemma_microbench hard:vandermonde*",
       "status": "rejected_raw",
       "hard_ok": false,
-      "note": "lemma score=0.8865 hard_pass=160/160 \u2014 machine-checked harness only; not theorem discovery | bus_receipt=math:msg_8732f80ce4 | oracle=KILL kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill'] bus_ok=True | novelty_gate novel=False | oracle_blocked_propose",
-      "ts": "2026-11-09T17:11:40Z",
+      "note": "lemma score=0.8733 hard_pass=160/160 \u2014 machine-checked harness only; not theorem discovery | bus_receipt=math:msg_f454ce357a | oracle=KILL kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill'] bus_ok=True | novelty_gate novel=False | oracle_blocked_propose",
+      "ts": "2026-11-09T22:43:09Z",
       "not_discovery": true
     }
   ],

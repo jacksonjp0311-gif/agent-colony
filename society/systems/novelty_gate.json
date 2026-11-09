@@ -1,34 +1,34 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T17:12:22Z",
-  "hits": 5,
+  "updated_at": "2026-11-09T22:43:09Z",
+  "hits": 3,
   "kills": 4,
   "rows": 30,
-  "kill_rows": 23,
+  "kill_rows": 25,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-09T17:12:22Z",
-    "cycle_id": "",
-    "mutation": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
-    "kind": "process",
+    "ts": "2026-11-09T22:43:09Z",
+    "cycle_id": "20261109T224137Z_14b714",
+    "mutation": "vandermonde",
+    "kind": "claim_theme",
     "novel_to_commons": false,
     "kills": [
       "already_in_lesson_ledger_or_history",
       "stripped_baseline_does_not_fail_usefulness",
       "held_out:hard_tier_green_and_hard_enable",
-      "oracle_kill:['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']"
+      "oracle_kill:['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']"
     ],
-    "textbook_reuse": 0.0,
+    "textbook_reuse": 0.3333,
     "in_ledger": true,
     "own_authoring_record_only": false,
-    "oracle_used": "own_run",
+    "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
       "hard_pass": 160,
       "hard_n": 160,
       "stripped_fails_usefulness": false,
-      "score": 0.8859,
+      "score": 0.8734,
       "impl_id": "lemma_impl_v2_basic10_hard160"
     },
     "held_out": {

@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "cassini-like",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-09T17:11:59Z",
-  "updated_cycle": "20261109T171039Z_593f72",
+  "updated_at": "2026-11-09T22:43:27Z",
+  "updated_cycle": "20261109T224137Z_14b714",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
