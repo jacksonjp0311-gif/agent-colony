@@ -247,7 +247,7 @@
    "credit": 0.0
   },
   "oc_A229019_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 45,
    "credit": 0.0
@@ -373,7 +373,7 @@
    "credit": 1.0
   },
   "oc_A108476_0": {
-   "attempts": 11,
+   "attempts": 13,
    "status": "holds_on_range",
    "tested_hi": 30,
    "credit": 0.0099
@@ -457,7 +457,7 @@
    "credit": 0.0
   },
   "oc_A126089_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 74,
    "credit": 0.0
@@ -469,7 +469,7 @@
    "credit": 0.0
   },
   "oc_A224748_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 3000,
    "credit": 0.0
@@ -481,13 +481,13 @@
    "credit": 0.0
   },
   "oc_A165027_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 200,
    "credit": 0.0
   },
   "oc_A027059_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 320,
    "credit": 0.0
@@ -511,7 +511,7 @@
    "credit": 0.0
   },
   "oc_A179210_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 69,
    "credit": 0.0
@@ -565,7 +565,7 @@
    "credit": 0.0
   },
   "oc_A116388_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 316,
    "credit": 0.0
@@ -583,13 +583,13 @@
    "credit": 0.0
   },
   "oc_A100037_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 48,
    "credit": 0.0
   },
   "oc_A071264_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 252,
    "credit": 0.0
@@ -601,7 +601,7 @@
    "credit": 0.0
   },
   "oc_A026587_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 371,
    "credit": 0.0
@@ -609,7 +609,7 @@
  },
  "families": {
   "relation": {
-   "attempts": 144,
+   "attempts": 155,
    "credit": 21.0099
   },
   "gf": {
@@ -621,7 +621,7 @@
    "credit": 0.0
   },
   "property": {
-   "attempts": 3,
+   "attempts": 4,
    "credit": 0.0
   }
  },

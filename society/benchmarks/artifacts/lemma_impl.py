@@ -1944,51 +1944,6 @@ def check_authored_frontier_cong_x41b05781_w2() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa048760*pell))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(901, 1066), (1067, 1232), (1233, 1398)])
 
 
-def check_authored_frontier_le_x1c0eba57_w3() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    (gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)
-    re-tested on windows [(24001, 28500), (28501, 33000), (33001, 37500)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf-sqfree)', 'params': {}, 'rhs': 'phi'}, a, b)) is int and c > 0 for a, b in [(24001, 28500), (28501, 33000), (33001, 37500)])
-
-
-def check_authored_frontier_divides_x0b1db873_w3() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1
-    re-tested on windows [(1401, 1434), (1435, 1468), (1469, 1502)]. conjecture surviving 3988 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(pell,tau)', 'params': {}, 'rhs': '(rad*sqfree)'}, a, b)) is int and c > 0 for a, b in [(1401, 1434), (1435, 1468), (1469, 1502)])
-
-
-def check_authored_frontier_cong_x22ed9f43_w3() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)
-    re-tested on windows [(1401, 1434), (1435, 1468), (1469, 1502)]. conjecture surviving 662 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gcd(ple3,stree_ladder)', 'params': {'m': 2, 'q': 3, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(1401, 1434), (1435, 1468), (1469, 1502)])
-
-
-def check_authored_sieve_residue_bal_g4_6_2_w2() -> bool:
-    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (4, 6, 2) are balanced within 4.0*sqrt(total).
-    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
-    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(x := sieve_count((4, 6, 2), a, b, 4, 1)) is int and type(y := sieve_count((4, 6, 2), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])
-
-
-def check_authored_frontier_divides_x0f0ed051_w3() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    prr(n) divides D(gcd(prime,tr_petersen))(n) for all n >= 1
-    re-tested on windows [(1401, 1434), (1435, 1468), (1469, 1502)]. conjecture surviving 1988 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'prr', 'params': {}, 'rhs': 'D(gcd(prime,tr_petersen))'}, a, b)) is int and c > 0 for a, b in [(1401, 1434), (1435, 1468), (1469, 1502)])
-
-
 def check_authored_frontier_cong_xa8371e31_w3() -> bool:
     """Authored frontier check (desk): the colony's own conjecture
     S((fib*oxa048760))(n) = 0 (mod 2) for all n = 0 (mod 3)
@@ -2014,6 +1969,15 @@ def check_authored_sieve_hl_within_g4_6_6_w2() -> bool:
     Disabled until the Oracle passes it.
     """
     return all(type(c := sieve_count((4, 6, 6), a, b)) is int and type(h := sieve_hl((4, 6, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])
+
+
+def check_authored_frontier_cong_x41b05781_w3() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    S((oxa048760*pell))(n) = 0 (mod 2) for all n = 0 (mod 4)
+    re-tested on windows [(1401, 1434), (1435, 1468), (1469, 1502)]. conjecture surviving 497 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa048760*pell))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(1401, 1434), (1435, 1468), (1469, 1502)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2228,14 +2192,10 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_xa8371e31_w2", check_authored_frontier_cong_xa8371e31_w2, True),
     ("authored_frontier_cong_xb999e9ad_w1", check_authored_frontier_cong_xb999e9ad_w1, True),
     ("authored_frontier_cong_x41b05781_w2", check_authored_frontier_cong_x41b05781_w2, True),
-    ("authored_frontier_le_x1c0eba57_w3", check_authored_frontier_le_x1c0eba57_w3, True),
-    ("authored_frontier_divides_x0b1db873_w3", check_authored_frontier_divides_x0b1db873_w3, True),
-    ("authored_frontier_cong_x22ed9f43_w3", check_authored_frontier_cong_x22ed9f43_w3, True),
-    ("authored_sieve_residue_bal_g4_6_2_w2", check_authored_sieve_residue_bal_g4_6_2_w2, True),
-    ("authored_frontier_divides_x0f0ed051_w3", check_authored_frontier_divides_x0f0ed051_w3, True),
-    ("authored_frontier_cong_xa8371e31_w3", check_authored_frontier_cong_xa8371e31_w3, False),
-    ("authored_frontier_cong_xedd0f0db_w3", check_authored_frontier_cong_xedd0f0db_w3, False),
-    ("authored_sieve_hl_within_g4_6_6_w2", check_authored_sieve_hl_within_g4_6_6_w2, False),
+    ("authored_frontier_cong_xa8371e31_w3", check_authored_frontier_cong_xa8371e31_w3, True),
+    ("authored_frontier_cong_xedd0f0db_w3", check_authored_frontier_cong_xedd0f0db_w3, True),
+    ("authored_sieve_hl_within_g4_6_6_w2", check_authored_sieve_hl_within_g4_6_6_w2, True),
+    ("authored_frontier_cong_x41b05781_w3", check_authored_frontier_cong_x41b05781_w3, False),
 ]
 
 
