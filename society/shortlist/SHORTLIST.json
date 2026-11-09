@@ -1,7 +1,7 @@
 {
-  "ts": "2026-11-09T22:44:23Z",
+  "ts": "2026-11-09T23:19:15Z",
   "view_only": true,
-  "n_considered": 143,
+  "n_considered": 144,
   "n_meet_bar": 32,
   "n_groups": 23,
   "n_authored_groups": 23,
@@ -112,7 +112,7 @@
       "hunt": {
         "unknown": true,
         "in_oeis": false,
-        "oeis_reuse": 0.0833,
+        "oeis_reuse": 0.3333,
         "oeis_checked": true,
         "family": "authored_frontier_cong_xa8371e31",
         "siblings_passed": 2,
@@ -195,7 +195,7 @@
       "hunt": {
         "unknown": true,
         "in_oeis": false,
-        "oeis_reuse": 0.0833,
+        "oeis_reuse": 0.3333,
         "oeis_checked": true,
         "family": "authored_frontier_cong_xb999e9ad",
         "siblings_passed": 0,
@@ -425,12 +425,12 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-11-09T22:44:23Z",
-    "cycle_id": "20261109T224137Z_14b714",
+    "ts": "2026-11-09T23:19:15Z",
+    "cycle_id": "20261109T231647Z_92a80e",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.5,
+      "strength": 0.25,
       "K_PRIOR": 0.10921
     },
     "n_meet_bar_actual": 32,
@@ -629,9 +629,9 @@
     }
   },
   "excluded_reasons": {
-    "status": 87,
+    "status": 88,
     "target_unresolved": 85,
-    "no_oracle_pass_in_own_cycle": 16,
+    "no_oracle_pass_in_own_cycle": 17,
     "oracle_killed_in_own_cycle": 8,
     "novelty_killed": 19,
     "hearing": 2
@@ -643,5 +643,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261109T224137Z_14b714"
+  "cycle_id": "20261109T231647Z_92a80e"
 }
