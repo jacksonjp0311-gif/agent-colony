@@ -27,7 +27,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 27,
+ "n_authored": 26,
  "n_authored_proved": 9,
  "n_claims": 150,
  "n_proved": 84,
@@ -618,7 +618,7 @@
    "v": 3
   },
   "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x16b72492_w1",
    "checks": 29994,
@@ -1637,7 +1637,7 @@
    "v": 3
   },
   "S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x5cb35120_w1",
    "checks": 29994,
@@ -12974,7 +12974,7 @@
    "v": 4
   },
   "prr(n) divides D(gcd(prime,tr_petersen))(n) for all n >= 1": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_divides_x0f0ed051_w1",
    "checks": 1988,
@@ -13638,6 +13638,6 @@
    "v": 3
   }
  },
- "seconds": 0.03,
- "ts": "2026-11-08T23:14:42Z"
+ "seconds": 0.02,
+ "ts": "2026-11-09T05:13:04Z"
 }

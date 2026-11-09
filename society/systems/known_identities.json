@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-08T23:13:47Z",
-  "n": 474,
+  "updated_at": "2026-11-09T05:12:15Z",
+  "n": 478,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -123,6 +123,7 @@
     "authored_frontier_divides_x0c5f5f5b_w1",
     "authored_frontier_divides_x0c5f5f5b_w2",
     "authored_frontier_divides_x0f0ed051_w2",
+    "authored_frontier_divides_x0f0ed051_w3",
     "authored_frontier_divides_x318ee14a_w1",
     "authored_frontier_divides_x318ee14a_w2",
     "authored_frontier_divides_x3562d07e_w1",
@@ -200,8 +201,7 @@
     "authored_pascal_identity__sum_first_n_cubes_w1",
     "authored_pascal_identity__vandermonde_conv_w1",
     "authored_pell_companion__motzkin_bounded_w1",
-    "authored_pell_companion__pythagorean_generation_w1",
-    "authored_polynomial_remainder__telescoping_sum_w1"
+    "authored_pell_companion__pythagorean_generation_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

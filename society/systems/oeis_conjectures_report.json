@@ -2,412 +2,6 @@
  "runs": [
   {
    "mode": "live",
-   "cycle": "20261023T214216Z_588b4d",
-   "at": "2026-10-23T21:44:17Z",
-   "menu_size": 60,
-   "chosen": [
-    {
-     "id": "oc_A023887_0",
-     "anum": "A023887",
-     "text": "Conjecture: 5 is the only prime in this sequence. - _Rayhan Ahmed_, Jun 19 2026"
-    },
-    {
-     "id": "oc_A164137_0",
-     "anum": "A164137",
-     "text": "Conjecture: a(n) = ((8*n-72)*a(n-10) + (20*n-160)*a(n-9) + (6*n-26)*a(n-8) + (46-5*n)*a(n-7) - 16*a(n-6) + (56-11*n)*a(n-5) + (12-n)*a(n-4) + (n-18)*a(n-3) + n*a(n-2) + 2*n*a(n-1))/n for n>=10."
-    },
-    {
-     "id": "oc_A023110_0",
-     "anum": "A023110",
-     "text": "G.f.: x^2*(1 + 4*x + 9*x^2 + 16*x^3 + 49*x^4 + 169*x^5 + 256*x^6 - 1082*x^7 - 4328*x^8 - 9738*x^9 - 4592*x^10 - 6698*x^11 - 6698*x^12 - 4592*x^13 + 361*x^14 + 1444*x^15 + 3249*x^16 + 256*x^17 + 169*x^18 + 49*x^19 + 16*x^20) / ((1 - x)*(1 + x + x^2 + x^3 + x^4 + x^5 + x^6)*(1 - 1442*x^7 + x^14))."
-    },
-    {
-     "id": "oc_A215229_1",
-     "anum": "A215229",
-     "text": "a(n) = 7*a(n-1) - 21*a(n-2) + 35*a(n-3) - 35*a(n-4) + 21*a(n-5) - 7*a(n-6) + a(n-7) for n>7."
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A023887_0",
-     "anum": "A023887",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 19,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A164137_0",
-     "anum": "A164137",
-     "tested": 491,
-     "range": [
-      10,
-      500
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 501,
-     "bfile_hi": 500,
-     "data_hi": 35,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A023110_0",
-     "anum": "A023110",
-     "tested": 70,
-     "range": [
-      1,
-      70
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 70,
-     "bfile_hi": 70,
-     "data_hi": 30,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A215229_1",
-     "anum": "A215229",
-     "tested": 203,
-     "range": [
-      8,
-      210
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 210,
-     "bfile_hi": 210,
-     "data_hi": 27,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261107T235553Z_34e22b",
-   "at": "2026-11-07T23:58:39Z",
-   "menu_size": 64,
-   "chosen": [
-    {
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "text": "Conjecture: all terms are positive."
-    },
-    {
-     "id": "oc_A212205_0",
-     "anum": "A212205",
-     "text": "Conjecture D-finite with recurrence: (n+1)*a(n) +2*(n-1)*a(n-1) +6*(-2*n+1)*a(n-2) +12*(-2*n+5)*a(n-3) +(37*n-77)*a(n-4) +2*(37*n-151)*a(n-5) +6*(-n+5)*a(n-6) +12*(-n+7)*a(n-7)=0. - _R. J. Mathar_, Aug 20 2018"
-    },
-    {
-     "id": "oc_A102882_0",
-     "anum": "A102882",
-     "text": "Conjecture: n*(n+1)*a(n) +2*(2*n+3)*(n-1)*a(n-1) +2*(n^2-7)*a(n-2) +6*(5+n-2*n^2)*a(n-3) -15*(n+2)*(n-3)*a(n-4)=0. - _R. J. Mathar_, Nov 09 2012"
-    },
-    {
-     "id": "oc_A166078_0",
-     "anum": "A166078",
-     "text": "Conjecture: n*a(n) + 2*(2*n-5)*a(n-1) + (34-19*n)*a(n-2) + 14*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 14 2011"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "tested": 44,
-     "range": [
-      2,
-      45
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 44,
-     "bfile_hi": 45,
-     "data_hi": 45,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A212205_0",
-     "anum": "A212205",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree 6 with zero radical part; recurrence holds for n >= 7 by the operator identity and is checked directly on 0..6",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "((1+2*x)*sqrt(1-6*x^2+x^4)-1+5*x^2-2*x^3)/(2*x*(1-6*x^2))"
-      },
-      "offset": 0,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "(n+1)*a(n)+2*(n-1)*a(n-1)+6*(-2*n+1)*a(n-2)+12*(-2*n+5)*a(n-3)+(37*n-77)*a(n-4)+2*(37*n-151)*a(n-5)+6*(-n+5)*a(n-6)+12*(-n+7)*a(n-7)",
-        "0"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A212205",
-      "def_text": "G.f.: ((1+2*x)*sqrt(1-6*x^2+x^4)-1+5*x^2-2*x^3)/(2*x*(1-6*x^2))."
-     },
-     "credit": 1.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A102882_0",
-     "anum": "A102882",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 4 by the operator identity and is checked directly on 0..3",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "(1+2*x)/sqrt((1-3*x^2)*(1+4*x+5*x^2))"
-      },
-      "offset": 0,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "n*(n+1)*a(n)+2*(2*n+3)*(n-1)*a(n-1)+2*(n^2-7)*a(n-2)+6*(5+n-2*n^2)*a(n-3)-15*(n+2)*(n-3)*a(n-4)",
-        "0"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A102882",
-      "def_text": "Expansion of (1+2x)/sqrt((1-3x^2)(1+4x+5x^2))."
-     },
-     "credit": 1.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A166078_0",
-     "anum": "A166078",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 3 by the operator identity and is checked directly on 0..2",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "(3*(1-x)-sqrt(1+6*x-7*x^2))/(2*(1-x)*(1-2*x))"
-      },
-      "offset": 0,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "n*a(n)+2*(2*n-5)*a(n-1)+(34-19*n)*a(n-2)+14*(n-2)*a(n-3)",
-        "0"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A166078",
-      "def_text": "Expansion of (3(1-x)-sqrt(1+6x-7x^2))/(2(1-x)(1-2x))."
-     },
-     "credit": 1.0
-    }
-   ],
-   "scoreboard": {
-    "score": 3,
-    "counterexamples_verified": 0,
-    "proofs_checked": 3,
-    "proofs_routine_known_in_principle": 3,
-    "beyond_published_range": 0,
-    "beyond_exact": 0,
-    "max_depth": 0
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261107T235901Z_5fdebf",
-   "at": "2026-11-08T00:01:06Z",
-   "menu_size": 64,
-   "chosen": [
-    {
-     "id": "oc_A166076_0",
-     "anum": "A166076",
-     "text": "Conjecture: 3*(n)*a(n) +5*(-5*n+9)*a(n-1) +69*(-n+2)*a(n-2) +5*(-11*n+27)*a(n-3) +14*(-n+3)*a(n-4)=0. - _R. J. Mathar_, Feb 10 2015"
-    },
-    {
-     "id": "oc_A115967_0",
-     "anum": "A115967",
-     "text": "Conjecture: 3*n*a(n) + (-14*n+9)*a(n-1) + (-5*n+3)*a(n-2) + 12*(4*n-9)* a(n-3) + 36*(n-3)*a(n-4) = 0. - _R. J. Mathar_, Nov 15 2012"
-    },
-    {
-     "id": "oc_A162479_0",
-     "anum": "A162479",
-     "text": "Conjecture D-finite with recurrence: n*a(n) +3*(2-3n)*a(n-1) +2*(7n-13)*a(n-2)+2*(12-5n)*a(n-3) +(5n-16)*a(n-4) +(4-n)*a(n-5)=0. - _R. J. Mathar_, Nov 17 2011"
-    },
-    {
-     "id": "oc_A247170_0",
-     "anum": "A247170",
-     "text": "Conjectured: +n*(2*n-7)*a(n) +(n-1)*(2*n-9)*a(n-1) +2*(-2*n^2+9*n-6)*a(n-2) +2*(-6*n^2+33*n-38)*a(n-3) +3*(-2*n^2+15*n-26)*a(n-4) +(2*n-5)*(n-5)*a(n-5) = 0."
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_prove",
-     "id": "oc_A166076_0",
-     "anum": "A166076",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity and is checked directly on 0..3",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "(7+5*x-sqrt(1-10*x-7*x^2))/(2*(3+5*x+2*x^2))"
-      },
-      "offset": 0,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "3*(n)*a(n)+5*(-5*n+9)*a(n-1)+69*(-n+2)*a(n-2)+5*(-11*n+27)*a(n-3)+14*(-n+3)*a(n-4)",
-        "0"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A166076",
-      "def_text": "Expansion of (7+5x-sqrt(1-10x-7x^2))/(2(3+5x+2x^2))."
-     },
-     "credit": 1.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A115967_0",
-     "anum": "A115967",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity and is checked directly on 0..3",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "1/(2*sqrt(1-2*x-3*x^2)-1)"
-      },
-      "offset": 0,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "3*n*a(n)+(-14*n+9)*a(n-1)+(-5*n+3)*a(n-2)+12*(4*n-9)*a(n-3)+36*(n-3)*a(n-4)",
-        "0"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A115967",
-      "def_text": "Expansion of 1/(2*sqrt(1-2*x-3*x^2) - 1)."
-     },
-     "credit": 1.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A162479_0",
-     "anum": "A162479",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 5 by the operator identity and is checked directly on 0..4",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "1/((1-x)*sqrt(1-4*x/(1-x)^4))"
-      },
-      "offset": 0,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "n*a(n)+3*(2-3*n)*a(n-1)+2*(7*n-13)*a(n-2)+2*(12-5*n)*a(n-3)+(5*n-16)*a(n-4)+(4-n)*a(n-5)",
-        "0"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A162479",
-      "def_text": "Expansion of 1/((1-x)*sqrt(1-4x/(1-x)^4))."
-     },
-     "credit": 1.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A247170_0",
-     "anum": "A247170",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity and is checked directly on 1..5",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "(-3/2+(x^3+3*x)/(sqrt(x^4-4*x^3-2*x^2+1)*2*x))"
-      },
-      "offset": 1,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "+n*(2*n-7)*a(n)+(n-1)*(2*n-9)*a(n-1)+2*(-2*n^2+9*n-6)*a(n-2)+2*(-6*n^2+33*n-38)*a(n-3)+3*(-2*n^2+15*n-26)*a(n-4)+(2*n-5)*(n-5)*a(n-5)",
-        "0"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A247170",
-      "def_text": "Expansion of (-3/2+(x^3+3*x)/(sqrt(x^4-4*x^3-2*x^2+1)*2*x))."
-     },
-     "credit": 1.0
-    }
-   ],
-   "scoreboard": {
-    "score": 7,
-    "counterexamples_verified": 0,
-    "proofs_checked": 7,
-    "proofs_routine_known_in_principle": 7,
-    "beyond_published_range": 0,
-    "beyond_exact": 0,
-    "max_depth": 0
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
    "cycle": "20261108T000129Z_678dd4",
    "at": "2026-11-08T00:04:00Z",
    "menu_size": 64,
@@ -3167,6 +2761,400 @@
      "bfile_terms": 105,
      "bfile_hi": 695,
      "data_hi": 15,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 22,
+    "counterexamples_verified": 0,
+    "proofs_checked": 21,
+    "proofs_routine_known_in_principle": 21,
+    "beyond_published_range": 1,
+    "beyond_exact": 1,
+    "max_depth": 30
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261109T050542Z_e9c698",
+   "at": "2026-11-09T05:08:24Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "text": "Conjecture: a(n) = A144677(n) + A144677(n-2). - _R. J. Mathar_, Mar 15 2011"
+    },
+    {
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A026743_0",
+     "anum": "A026743",
+     "text": "Conjecture D-finite with recurrence n*a(n) -2*a(n-1) +(-11*n+20)*a(n-2) +14*a(n-3) +(39*n-152)*a(n-4) -22*a(n-5) +(-41*n+268)*a(n-6) -6*a(n-7) +12*(-n+6)*a(n-8)=0. - _R. J. Mathar_, Jan 13 2023"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "tested": 999,
+     "range": [
+      2,
+      1000
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 1001,
+     "bfile_hi": 1000,
+     "data_hi": 49,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "tested": 169,
+     "range": [
+      0,
+      168
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 158,
+     "bfile_hi": 1000,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "tested": 31,
+     "range": [
+      0,
+      30
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 20,
+     "bfile_hi": 19,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A026743_0",
+     "anum": "A026743",
+     "tested": 471,
+     "range": [
+      8,
+      478
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 479,
+     "bfile_hi": 1000,
+     "data_hi": 30,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 22,
+    "counterexamples_verified": 0,
+    "proofs_checked": 21,
+    "proofs_routine_known_in_principle": 21,
+    "beyond_published_range": 1,
+    "beyond_exact": 1,
+    "max_depth": 30
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261109T050842Z_e62fbb",
+   "at": "2026-11-09T05:10:36Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A027174_0",
+     "anum": "A027174",
+     "text": "Conjecture: D-finite with recurrence -2*(n+3)*(139*n-175)*a(n) +(1279*n^2+1334*n-1089)*a(n-1) -2*(167*n+121)*(2*n-3)*a(n-2) +12*(111*n^2+456*n+229)=0. - _R. J. Mathar_, May 06 2026"
+    },
+    {
+     "id": "oc_A164734_0",
+     "anum": "A164734",
+     "text": "a(n) = a(n-7) + a(n-9) + a(n-14) - a(n-16) - a(n-21) - a(n-23) + a(n-30) for n > 41."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "tested": 169,
+     "range": [
+      0,
+      168
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 158,
+     "bfile_hi": 1000,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "tested": 31,
+     "range": [
+      0,
+      30
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 20,
+     "bfile_hi": 19,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A027174_0",
+     "anum": "A027174",
+     "tested": 246,
+     "range": [
+      4,
+      249
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 248,
+     "bfile_hi": 1600,
+     "data_hi": 26,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A164734_0",
+     "anum": "A164734",
+     "tested": 99,
+     "range": [
+      42,
+      140
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 140,
+     "bfile_hi": 140,
+     "data_hi": 105,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 22,
+    "counterexamples_verified": 0,
+    "proofs_checked": 21,
+    "proofs_routine_known_in_principle": 21,
+    "beyond_published_range": 1,
+    "beyond_exact": 1,
+    "max_depth": 30
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261109T051055Z_3922d8",
+   "at": "2026-11-09T05:13:28Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "text": "Conjecture: a(n) = A144677(n) + A144677(n-2). - _R. J. Mathar_, Mar 15 2011"
+    },
+    {
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A165125_0",
+     "anum": "A165125",
+     "text": "a(n) = a(n-2) - a(n-3) + a(n-5) - a(n-6) + a(n-8) + a(n-15) - a(n-17) + a(n-18) - a(n-20) + a(n-21) - a(n-23) for n > 24."
+    },
+    {
+     "id": "oc_A026772_0",
+     "anum": "A026772",
+     "text": "Conjecture D-finite with recurrence +n*(683440564498775*n-3571267774541221)*(n+3)*(n+2)*a(n) -(n+2)*(14680943042715007*n^3 -77306402200099276*n^2 -16510019027854595*n +32930242824559728)*a(n-1) +(115576812096278739*n^4 -727966310087371570*n^3 +337449371031094809*n^2 +647464064695228030*n -329302428245597280)*a(n-2) +(-346716352496404327*n^4 +3103154468191226534*n^3 -7064840562647596109*n^2 +5446737046090126798*n -1580651655578866944)*a(n-3) +(-254358906902769779*n^4 +5220327857917926494*n^3 -35539506928992363997*n^2 +87091315541398186522*n -59916163930294990824)*a(n-4) +(4096127756151299723*n^4 -75037442829872206910*n^3 +502301501960009575069*n^2 -1440579074098159574434*n +1469340925940446228608)*a(n-5) +(-9245640254696084879*n^4 +200559435809555913066*n^3 -1613433648622480143829*n^2 +5696178287053438445634*n -7425674215347839990712)*a(n-6) +(7520597900530912203*n^4 -191405326508832207718*n^3 +1814954924843492047041*n^2 -7605473927193409984358*n +11895887009351293007160)*a(n-7) +4*(-461380856200630754*n^4 +13108517874955450215*n^3 -137711835536290769230*n^2 +633868893726787892361*n -1077896915936680091760)*a(n-8) +4*(n-10)*(8653064513346403*n -44432714618958651)*(2*n-13)*(2*n-19)*a(n-9)=0. - _R. J. Mathar_, Jun 30 2026"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "tested": 999,
+     "range": [
+      2,
+      1000
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 1001,
+     "bfile_hi": 1000,
+     "data_hi": 49,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "tested": 169,
+     "range": [
+      0,
+      168
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 158,
+     "bfile_hi": 1000,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165125_0",
+     "anum": "A165125",
+     "tested": 46,
+     "range": [
+      25,
+      70
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 70,
+     "bfile_hi": 70,
+     "data_hi": 70,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A026772_0",
+     "anum": "A026772",
+     "tested": 189,
+     "range": [
+      11,
+      199
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 198,
+     "bfile_hi": 500,
+     "data_hi": 22,
      "status": "holds_on_range",
      "extended": 0,
      "credit": 0.0
