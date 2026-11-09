@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-09T05:12:15Z",
-  "n": 478,
+  "updated_at": "2026-11-09T07:05:15Z",
+  "n": 481,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -101,6 +101,7 @@
     "authored_frontier_cong_xa68963c2_w1",
     "authored_frontier_cong_xa8371e31_w1",
     "authored_frontier_cong_xa8371e31_w2",
+    "authored_frontier_cong_xa8371e31_w3",
     "authored_frontier_cong_xa9e515ff_w1",
     "authored_frontier_cong_xb19ab27c_w1",
     "authored_frontier_cong_xb999e9ad_w1",
@@ -114,6 +115,7 @@
     "authored_frontier_cong_xe0f68915_w1",
     "authored_frontier_cong_xedd0f0db_w1",
     "authored_frontier_cong_xedd0f0db_w2",
+    "authored_frontier_cong_xedd0f0db_w3",
     "authored_frontier_cong_xfdcb3b60_w1",
     "authored_frontier_cong_xfdcb3b60_w2",
     "authored_frontier_cong_xfdcb3b60_w3",
@@ -199,9 +201,7 @@
     "authored_pascal_identity__pythagorean_generation_w1",
     "authored_pascal_identity__stirling_second_row_w1",
     "authored_pascal_identity__sum_first_n_cubes_w1",
-    "authored_pascal_identity__vandermonde_conv_w1",
-    "authored_pell_companion__motzkin_bounded_w1",
-    "authored_pell_companion__pythagorean_generation_w1"
+    "authored_pascal_identity__vandermonde_conv_w1"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }

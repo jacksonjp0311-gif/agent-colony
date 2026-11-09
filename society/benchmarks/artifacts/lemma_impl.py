@@ -1989,6 +1989,33 @@ def check_authored_frontier_divides_x0f0ed051_w3() -> bool:
     return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'prr', 'params': {}, 'rhs': 'D(gcd(prime,tr_petersen))'}, a, b)) is int and c > 0 for a, b in [(1401, 1434), (1435, 1468), (1469, 1502)])
 
 
+def check_authored_frontier_cong_xa8371e31_w3() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    S((fib*oxa048760))(n) = 0 (mod 2) for all n = 0 (mod 3)
+    re-tested on windows [(1401, 1434), (1435, 1468), (1469, 1502)]. conjecture surviving 662 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((fib*oxa048760))', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(1401, 1434), (1435, 1468), (1469, 1502)])
+
+
+def check_authored_frontier_cong_xedd0f0db_w3() -> bool:
+    """Authored frontier check (desk): the colony's own conjecture
+    S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)
+    re-tested on windows [(1401, 1600), (1601, 1800), (1801, 2000)]. conjecture surviving 997 checks. Bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((prime*tm))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(1401, 1600), (1601, 1800), (1801, 2000)])
+
+
+def check_authored_sieve_hl_within_g4_6_6_w2() -> bool:
+    """Authored instrument check (desk): count of consecutive pattern (4, 6, 6) on each window is within 4.0*sqrt of the HL forecast.
+    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(c := sieve_count((4, 6, 6), a, b)) is int and type(h := sieve_hl((4, 6, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2203,9 +2230,12 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x41b05781_w2", check_authored_frontier_cong_x41b05781_w2, True),
     ("authored_frontier_le_x1c0eba57_w3", check_authored_frontier_le_x1c0eba57_w3, True),
     ("authored_frontier_divides_x0b1db873_w3", check_authored_frontier_divides_x0b1db873_w3, True),
-    ("authored_frontier_cong_x22ed9f43_w3", check_authored_frontier_cong_x22ed9f43_w3, False),
-    ("authored_sieve_residue_bal_g4_6_2_w2", check_authored_sieve_residue_bal_g4_6_2_w2, False),
-    ("authored_frontier_divides_x0f0ed051_w3", check_authored_frontier_divides_x0f0ed051_w3, False),
+    ("authored_frontier_cong_x22ed9f43_w3", check_authored_frontier_cong_x22ed9f43_w3, True),
+    ("authored_sieve_residue_bal_g4_6_2_w2", check_authored_sieve_residue_bal_g4_6_2_w2, True),
+    ("authored_frontier_divides_x0f0ed051_w3", check_authored_frontier_divides_x0f0ed051_w3, True),
+    ("authored_frontier_cong_xa8371e31_w3", check_authored_frontier_cong_xa8371e31_w3, False),
+    ("authored_frontier_cong_xedd0f0db_w3", check_authored_frontier_cong_xedd0f0db_w3, False),
+    ("authored_sieve_hl_within_g4_6_6_w2", check_authored_sieve_hl_within_g4_6_6_w2, False),
 ]
 
 

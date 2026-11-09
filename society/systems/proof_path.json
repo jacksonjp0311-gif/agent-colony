@@ -27,7 +27,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 26,
+ "n_authored": 27,
  "n_authored_proved": 9,
  "n_claims": 150,
  "n_proved": 84,
@@ -1649,7 +1649,7 @@
    "v": 4
   },
   "S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_cong_xedd0f0db_w1",
    "checks": 497,
@@ -13638,6 +13638,6 @@
    "v": 3
   }
  },
- "seconds": 0.02,
- "ts": "2026-11-09T05:13:04Z"
+ "seconds": 0.03,
+ "ts": "2026-11-09T07:06:08Z"
 }

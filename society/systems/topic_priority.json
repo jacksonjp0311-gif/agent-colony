@@ -66,6 +66,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "(non-)closedne`[candidate]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -77,11 +82,6 @@
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-09T05:12:35Z",
-  "updated_cycle": "20261109T051055Z_3922d8",
+  "updated_at": "2026-11-09T07:05:35Z",
+  "updated_cycle": "20261109T070349Z_35662a",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

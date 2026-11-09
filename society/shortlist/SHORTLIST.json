@@ -1,10 +1,10 @@
 {
-  "ts": "2026-11-09T05:13:47Z",
+  "ts": "2026-11-09T07:06:32Z",
   "view_only": true,
-  "n_considered": 132,
-  "n_meet_bar": 30,
-  "n_groups": 23,
-  "n_authored_groups": 23,
+  "n_considered": 135,
+  "n_meet_bar": 31,
+  "n_groups": 24,
+  "n_authored_groups": 24,
   "n_building_block_groups": 0,
   "top": [
     {
@@ -39,7 +39,7 @@
         "P_shadow": 0.6617,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4167,
-        "shadow_pos": 15
+        "shadow_pos": 16
       },
       "group_count": 2,
       "group_ids": [
@@ -81,7 +81,7 @@
         "P_shadow": 0.6583,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4147,
-        "shadow_pos": 16
+        "shadow_pos": 17
       },
       "group_count": 1,
       "group_ids": [
@@ -122,7 +122,7 @@
         "P_shadow": 0.6578,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4144,
-        "shadow_pos": 17
+        "shadow_pos": 18
       },
       "group_count": 1,
       "group_ids": [
@@ -163,7 +163,7 @@
         "P_shadow": 0.6575,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4142,
-        "shadow_pos": 18
+        "shadow_pos": 19
       },
       "group_count": 1,
       "group_ids": [
@@ -245,7 +245,7 @@
         "P_shadow": 0.6559,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4132,
-        "shadow_pos": 19
+        "shadow_pos": 20
       },
       "group_count": 2,
       "group_ids": [
@@ -410,7 +410,7 @@
         "P_shadow": 0.6515,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4106,
-        "shadow_pos": 21
+        "shadow_pos": 22
       },
       "group_count": 2,
       "group_ids": [
@@ -423,19 +423,20 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-11-09T05:13:47Z",
-    "cycle_id": "20261109T051055Z_3922d8",
+    "ts": "2026-11-09T07:06:32Z",
+    "cycle_id": "20261109T070349Z_35662a",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 1.0,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 30,
+    "n_meet_bar_actual": 31,
     "n_meet_bar_shadow": 14,
-    "n_unknown_claims": 33,
+    "n_unknown_claims": 36,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
+      "authored_frontier_cong_x22ed9f43_w3",
       "authored_frontier_cong_x29d14f44_w1",
       "authored_frontier_cong_x2f9c7891_w1",
       "authored_frontier_cong_x41b05781_w1",
@@ -447,14 +448,13 @@
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_divides_x0b1db873_w3",
       "authored_frontier_divides_x0c5f5f5b_w2",
+      "authored_frontier_divides_x0f0ed051_w3",
       "authored_frontier_divides_x318ee14a_w1",
       "authored_frontier_divides_x318ee14a_w2",
       "authored_frontier_divides_x3562d07e_w1",
       "authored_frontier_divides_x3562d07e_w2",
       "authored_frontier_divides_x97939198_w1",
-      "authored_frontier_divides_xba575886_w1",
-      "authored_frontier_divides_xba575886_w2",
-      "authored_frontier_divides_xc90ee275_w1"
+      "authored_frontier_divides_xba575886_w1"
     ],
     "n_unknown_oeis_unchecked": 0,
     "drop_out_of_bar": [
@@ -470,6 +470,7 @@
       "imp_15e790_50",
       "imp_df0e1a_50",
       "imp_9e87d3_50",
+      "imp_d6e83e_50",
       "imp_12c82c_50",
       "imp_49ebcf_50",
       "imp_8ee2e8_50",
@@ -578,7 +579,7 @@
       {
         "id": "imp_022700_50",
         "target": "authored_newdata_a006666_k10001_w1",
-        "actual_pos": 20,
+        "actual_pos": 21,
         "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -592,7 +593,7 @@
       {
         "id": "imp_18d1e0_50",
         "target": "authored_frontier_cong_xbb82919e_w1",
-        "actual_pos": 22,
+        "actual_pos": 23,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -606,7 +607,7 @@
       {
         "id": "imp_53f6c2_49",
         "target": "authored_frontier_cong_x06b60875_w1",
-        "actual_pos": 24,
+        "actual_pos": 25,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -630,7 +631,7 @@
     "no_oracle_pass_in_own_cycle": 13,
     "oracle_killed_in_own_cycle": 8,
     "novelty_killed": 19,
-    "trivial_by_filter": 3,
+    "trivial_by_filter": 5,
     "hearing": 2
   },
   "rule": {
@@ -640,5 +641,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261109T051055Z_3922d8"
+  "cycle_id": "20261109T070349Z_35662a"
 }
