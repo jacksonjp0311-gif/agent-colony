@@ -1,9 +1,9 @@
-# Conjecture desk witness — 2026-11-09T23:17:57Z
+# Conjecture desk witness — 2026-11-10T05:18:07Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.8781→0.8781 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'lemma_hard_combinatorics', 'stem_easy_pad_units'].
-  - themes: Grasp-TAGS: Task-Aware Grasp Selection via Critic Distillati, The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
+- `none` (-) → **skip** 0.8734→0.8734 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'lemma_hard_combinatorics', 'stem_easy_pad_units'].
+  - themes: MambaPD: Bidirectional Selective State Space Model for Parki, The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty
 

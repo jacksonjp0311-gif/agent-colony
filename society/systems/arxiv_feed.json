@@ -1,24 +1,19 @@
 {
-  "last_attempt_at": "2026-11-09T23:11:06Z",
+  "last_attempt_at": "2026-11-10T05:10:42Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-09T23:11:06Z",
+  "last_ok_at": "2026-11-10T05:10:42Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "On Agentic Manipulation Policies",
-      "abstract_snippet": "Recent work on robot manipulation has focused on specialist policies trained on demonstrations. We show that generalist AI models can control manipulators more reliably than specialist policies such as vision-language-action models (VLAs) and world-action models (WAMs). We systematically analyze agentic manipulation policies (AMPs), in which a generalist AI model commands the manipulator directly,",
-      "url": "https://arxiv.org/abs/2611.09892",
-      "arxiv_id": "2611.09892",
+      "title": "$\\mathrm{RO}(G)$-graded norms for de Rham-Witt forms",
+      "abstract_snippet": "We make two case studies of $\\mathrm{RO}(G)$-graded homotopy in connection with $p$-adic cohomology. First, we identify the $\\mathrm{RO}(\\mathbf T)$-graded $\\mathrm{TC}^-$ and $\\mathrm{TP}$ of quasiregular semiperfectoid rings as multi-Rees algebras for the Nygaard and $φ^\\bullet(I)$-adic filtrations. We additionally compute $E^{h\\mathbf T}_\\bigstar$ and $E^{t\\mathbf T}_\\bigstar$ when $E$ is a gen",
+      "url": "https://arxiv.org/abs/2611.12043",
+      "arxiv_id": "2611.12043",
       "doi": "",
       "authors": [
-        "Chen Chen",
-        "Omid Bagherieh",
-        "Naveen Nikamanth Appiah Balaji",
-        "Jesse T. Gonzalez",
-        "Negin Heravi",
-        "Fahad Islam"
+        "Yuri J. F. Sulyma"
       ],
       "year": 2026,
       "tags": [
@@ -28,18 +23,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-09T23:11:07Z"
+      "fetched_at": "2026-11-10T05:10:43Z"
     },
     {
       "source": "arxiv",
-      "title": "On the (non-)closedness of the set of ReLU networks",
-      "abstract_snippet": "We prove that the set $\\mathcal{N}_N$ of ReLU networks with one hidden layer and at most $N\\in\\mathbb N$ neurons is weakly closed in $W^{1,p}(Ω)$, for a bounded connected open set $Ω\\subset\\mathbb R^d$. Consequently, every coercive, weakly lower semicontinuous energy on this space attains its minimum over $\\mathcal{N}_N$. This covers the Deep Ritz method with convex integrands, Sobolev training an",
-      "url": "https://arxiv.org/abs/2611.09887",
-      "arxiv_id": "2611.09887",
+      "title": "The Power of Migration on Identical Machines is Two",
+      "abstract_snippet": "We study the power of migration in preemptive scheduling on identical parallel machines with time windows. If an instance admits a migratory schedule on $m$ machines, how many machines are needed to schedule it without migration? Kalyanasundaram and Pruhs (2001) showed that $6m-5$ machines suffice and gave a polynomial-time construction using $12m-5$ machines, whereas $2m-1$ machines may be necess",
+      "url": "https://arxiv.org/abs/2611.12034",
+      "arxiv_id": "2611.12034",
       "doi": "",
       "authors": [
-        "Eloi Martinet",
-        "Leon Bungert"
+        "Nicole Megow",
+        "Bart Zondervan"
       ],
       "year": 2026,
       "tags": [
@@ -49,19 +44,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-09T23:11:07Z"
+      "fetched_at": "2026-11-10T05:10:43Z"
     },
     {
       "source": "arxiv",
-      "title": "FlowMoP: Stochastic Multi-Person Motion Prediction",
-      "abstract_snippet": "Predicting the future motion of multiple people is inherently stochastic: the same observed history admits many plausible continuations depending on intent, coordination, and social context. Yet the dominant paradigm in multi-person 3D motion prediction remains deterministic, with existing methods producing a fixed number of outputs per agent. In contrast, we present a conditional flow matching fr",
-      "url": "https://arxiv.org/abs/2611.09882",
-      "arxiv_id": "2611.09882",
+      "title": "Scale-Invariant Empirical-Bayes Laplace Approximation for ReLU Networks",
+      "abstract_snippet": "ReLU networks are well-known to have continuous scale symmetries; infinitely many reparameterized weight vectors that represent the same function. Dinh et al. (2017) have shown that, by reparameterizing, the geometry of the loss landscape (e.g., curvature) of these networks can be changed arbitrarily without affecting the underlying function. Thus, any quantity that depends on the network's geomet",
+      "url": "https://arxiv.org/abs/2611.12031",
+      "arxiv_id": "2611.12031",
       "doi": "",
       "authors": [
-        "Aadya Agrawal",
-        "Ho Kei Cheng",
-        "Alexander Schwing"
+        "Shivam Pal",
+        "Piyush Rai"
       ],
       "year": 2026,
       "tags": [
@@ -71,17 +65,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-09T23:11:07Z"
+      "fetched_at": "2026-11-10T05:10:43Z"
     },
     {
       "source": "arxiv",
-      "title": "Graded convolutional networks: scale invariance without the scale and robustness to unknown blur",
-      "abstract_snippet": "The Gaussian jet of an image is a graded vector space: a dilation by $λ$ multiplies derivatives of order $k$ by $λ^{-k}$. Local graded convolutions are exactly homogeneous differential operators, and a local feature is dilation-invariant if and only if it factors through the scale-normalized jet or, without the scale, through the retraction onto the weighted sphere of the grading. Under unknown Ga",
-      "url": "https://arxiv.org/abs/2611.09878",
-      "arxiv_id": "2611.09878",
+      "title": "Spectral conditions for the existence of $\\{K_2,\\{C_k\\}\\}$-factor in $t$-tough graphs",
+      "abstract_snippet": "For $t&gt;0$, a graph $G$ is called $t$-tough if $|S|\\geq t\\,c(G-S)$ for every $S\\subseteq V(G)$ with $c(G-S)\\geq2$, where $c(G-S)$ denotes the number of components of $G-S$. Toughness is closely related to the existence of Hamiltonian cycles and factors in graphs. Chvátal [Discrete Math. 5 (1973) 215--228] conjectured that there exists a constant $t_0&gt;0$ such that every $t_0$-tough graph of or",
+      "url": "https://arxiv.org/abs/2611.12030",
+      "arxiv_id": "2611.12030",
       "doi": "",
       "authors": [
-        "Tanush Shaska"
+        "Zhenhao Zhang",
+        "Ligong Wang"
       ],
       "year": 2026,
       "tags": [
@@ -91,19 +86,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-09T23:11:07Z"
+      "fetched_at": "2026-11-10T05:10:43Z"
     },
     {
       "source": "arxiv",
-      "title": "Grasp-TAGS: Task-Aware Grasp Selection via Critic Distillation for Prehensile Loco-Manipulation",
-      "abstract_snippet": "Loco-manipulation, which requires mobile manipulators to coordinate locomotion and manipulation over long horizons, is a key capability for large-object rearrangement in applications such as service robotics and warehouse automation. Despite recent progress, reliably executing these tasks remains challenging because performance depends on complex robot-object and object-environment interaction dyn",
-      "url": "https://arxiv.org/abs/2611.09864",
-      "arxiv_id": "2611.09864",
+      "title": "MambaPD: Bidirectional Selective State Space Model for Parkinson's Disease Detection from Resting-State EEG",
+      "abstract_snippet": "Typical diagnosis of Parkinson's disease (PD) occurs only after significant dopaminergic loss, while resting-state EEG abnormalities like alpha slowing and reduced coherence occur earlier. While many published EEG-based PD detectors claim accuracy greater than 95%, many use epoch-level splits which leak subject identity. I introduce MambaPD, a bidirectional selective state space model for resting-",
+      "url": "https://arxiv.org/abs/2611.12026",
+      "arxiv_id": "2611.12026",
       "doi": "",
       "authors": [
-        "Xun Tu",
-        "Minghao Zou",
-        "Karthik Desingh"
+        "Ayesha Zulfiqar"
       ],
       "year": 2026,
       "tags": [
@@ -113,7 +106,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-09T23:11:07Z"
+      "fetched_at": "2026-11-10T05:10:43Z"
     }
   ]
 }

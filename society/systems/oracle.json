@@ -1,23 +1,21 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T23:18:03Z",
+  "updated_at": "2026-11-10T05:18:17Z",
   "passes": 525,
-  "kills": 292,
+  "kills": 295,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3574,
+  "kill_rate": 0.3598,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 13,
-    "kills": 47,
+    "passes": 11,
+    "kills": 49,
     "easy_pad_kills": 0,
-    "kill_rate": 0.7833
+    "kill_rate": 0.8167
   },
-  "bus_ok_rate": 0.6667,
+  "bus_ok_rate": 0.7,
   "unique_mutations_pass": [
-    "authored_frontier_cong_x16b72492_w3",
     "authored_frontier_cong_x22ed9f43_w3",
-    "authored_frontier_cong_x41b05781_w2",
     "authored_frontier_cong_x41b05781_w3",
     "authored_frontier_cong_x5cb35120_w3",
     "authored_frontier_cong_xa8371e31_w3",
@@ -68,7 +66,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-09T23:18:03Z",
+    "ts": "2026-11-10T05:18:17Z",
     "passed": false,
     "kills": [
       "held_out:held_out:already_saturated_no_harder_window",
@@ -81,11 +79,11 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [
-        "msg_ce0e8f0d1a",
-        "msg_e84910c871",
-        "msg_43e30965b7"
+        "msg_e4b06dac4d",
+        "msg_0a279f7bdb",
+        "msg_107ae4165a"
       ],
-      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Graded convolutional networks: scale invariance without the scale and",
+      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
       "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
@@ -189,7 +187,7 @@
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "source": "claim_pipeline",
-    "cycle_id": "20261109T231647Z_92a80e",
+    "cycle_id": "20261110T051648Z_eb8c2a",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
