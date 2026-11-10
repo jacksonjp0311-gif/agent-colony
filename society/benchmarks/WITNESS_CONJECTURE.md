@@ -1,8 +1,8 @@
-# Conjecture desk witness — 2026-11-10T07:41:08Z
+# Conjecture desk witness — 2026-11-10T11:13:50Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.876→0.876 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'lemma_hard_combinatorics', 'stem_easy_pad_units'].
+- `none` (-) → **skip** 0.878→0.878 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['easy_pad_abs_identity', 'easy_pad_assoc_add', 'easy_pad_commutativity', 'easy_pad_diff_squares', 'easy_pad_square_again', 'easy_pad_zero_identity', 'lemma_hard_combinatorics', 'stem_easy_pad_units'].
   - themes: Vendi Anomaly Scores for Efficient and Accurate Anomaly Dete, The Sociolinguistics of Machine Identity: LLM Personality an, Fast Solution Methods for the Classical 0–1 Knapsack Problem
 
 ## Honesty

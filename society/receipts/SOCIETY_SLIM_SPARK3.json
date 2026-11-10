@@ -1,29 +1,29 @@
 {
-  "when": "2026-11-10T07:43:01Z",
+  "when": "2026-11-10T11:15:47Z",
   "mile": "spark3-port",
-  "cycle_count": 804,
+  "cycle_count": 807,
   "fitness_latest": {
-    "ts": "2026-11-10T07:41:52Z",
-    "cycle_id": "20261110T073957Z_223170",
+    "ts": "2026-11-10T11:14:37Z",
+    "cycle_id": "20261110T111240Z_a06fb5",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8077,
     "reply_quality": 0.9116,
     "commons_signal": 1.0,
-    "math_prize": 0.8125,
-    "compute_usefulness": 0.9117,
+    "math_prize": 0.8129,
+    "compute_usefulness": 0.9122,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8847,
-    "kill_rate": 0.3621,
-    "kill_rate_term": 0.8759,
-    "novelty": 0.25,
-    "lesson_uptake": 0.78,
-    "aggregate": 0.8268,
+    "prize_boost": 0.8851,
+    "kill_rate": 0.3644,
+    "kill_rate_term": 0.878,
+    "novelty": 0.0,
+    "lesson_uptake": 0.6933,
+    "aggregate": 0.8102,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
-    "post_challenger_oracle_kill_rate": 0.2899
+    "post_challenger_oracle_kill_rate": 0.2962
   },
   "bus_metrics": {
     "reply_rate": 0.9189,
@@ -44,10 +44,10 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8696
+    "aggregate_score": 0.8732
   },
   "novelty_gate": {
-    "hits": 1,
+    "hits": 0,
     "kills": 3
   },
   "debate_multihop": {
@@ -57,21 +57,21 @@
       "reply_rate": 0.9615,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
-      "reply_quality": 0.9117
+      "reply_quality": 0.9116
     }
   },
   "exploration_budget_fp": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261110T073957Z_223170"
+    "cycle_id": "20261110T111240Z_a06fb5"
   },
   "oracle": {
     "passes": 525,
-    "kills": 298,
+    "kills": 301,
     "easy_pad_kills": 32,
-    "total": 823,
-    "kill_rate": 0.3621
+    "total": 826,
+    "kill_rate": 0.3644
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."
