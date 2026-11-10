@@ -2,370 +2,6 @@
  "runs": [
   {
    "mode": "live",
-   "cycle": "20261109T111304Z_fd3a37",
-   "at": "2026-11-09T11:15:20Z",
-   "menu_size": 64,
-   "chosen": [
-    {
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
-    },
-    {
-     "id": "oc_A116388_0",
-     "anum": "A116388",
-     "text": "Conjecture: n*a(n) + 7*(-n+1)*a(n-1) + 2*(4*n-9)*a(n-2) + (25*n-58)*a(n-3) + (-18*n+65)*a(n-4) + (-52*n+199)*a(n-5) + (-31*n+135)*a(n-6) + 6*(-n+5)*a(n-7) = 0. - _R. J. Mathar_, Jun 22 2016"
-    },
-    {
-     "id": "oc_A126089_0",
-     "anum": "A126089",
-     "text": "Conjecture D-finite with recurrence: (-n+4)*a(n) +2*(2*n-5)*(n-3)*a(n-1)=0. - _R. J. Mathar_, Jan 24 2020"
-    },
-    {
-     "id": "oc_A026587_0",
-     "anum": "A026587",
-     "text": "Conjecture: (n+2)*a(n) = (3*n+2)*a(n-1) +(3*n+2)*a(n-2) -(11*n-16)*a(n-3) -2*(n-3)*a(n-4) +4*(2*n-9)*a(n-5). - _R. J. Mathar_, Jun 23 2013"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_prove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "tested": 31,
-     "range": [
-      0,
-      30
-     ],
-     "deep_terms": 4800,
-     "bfile_terms": 20,
-     "bfile_hi": 19,
-     "data_hi": 19,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A116388_0",
-     "anum": "A116388",
-     "tested": 310,
-     "range": [
-      7,
-      316
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 317,
-     "bfile_hi": 500,
-     "data_hi": 29,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A126089_0",
-     "anum": "A126089",
-     "tested": 74,
-     "range": [
-      1,
-      74
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 75,
-     "bfile_hi": 200,
-     "data_hi": 18,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A026587_0",
-     "anum": "A026587",
-     "tested": 365,
-     "range": [
-      7,
-      371
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 370,
-     "bfile_hi": 1000,
-     "data_hi": 30,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 22,
-    "counterexamples_verified": 0,
-    "proofs_checked": 21,
-    "proofs_routine_known_in_principle": 21,
-    "beyond_published_range": 1,
-    "beyond_exact": 1,
-    "max_depth": 30
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261109T170524Z_899946",
-   "at": "2026-11-09T17:08:15Z",
-   "menu_size": 64,
-   "chosen": [
-    {
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "text": "Conjecture: a(n) = A144677(n) + A144677(n-2). - _R. J. Mathar_, Mar 15 2011"
-    },
-    {
-     "id": "oc_A285195_0",
-     "anum": "A285195",
-     "text": "Conjecture D-finite with recurrence: +126*n*(n-1)*(n+1)*a(n) -3*n*(n-1)*(691*n-1037)*a(n-1) +(n-1)*(12023*n^2-48049*n+47736)*a(n-2) +2*(-12889*n^3+93970*n^2-221427*n+169506)*a(n-3) +4*(-248*n^3+12718*n^2-88433*n+160113)*a(n-4) +16*(2918*n^3-41574*n^2+198532*n-317121)*a(n-5) +240*(4*n-19)*(2*n-9)*(4*n-21)*a(n-6)=0. - _R. J. Mathar_, Jan 25 2020"
-    },
-    {
-     "id": "oc_A224908_0",
-     "anum": "A224908",
-     "text": "Conjecture: a(n)>0 for all n>3. - _Dmitry Kamenetsky_, Feb 09 2017"
-    },
-    {
-     "id": "oc_A116388_0",
-     "anum": "A116388",
-     "text": "Conjecture: n*a(n) + 7*(-n+1)*a(n-1) + 2*(4*n-9)*a(n-2) + (25*n-58)*a(n-3) + (-18*n+65)*a(n-4) + (-52*n+199)*a(n-5) + (-31*n+135)*a(n-6) + 6*(-n+5)*a(n-7) = 0. - _R. J. Mathar_, Jun 22 2016"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_prove",
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "tested": 999,
-     "range": [
-      2,
-      1000
-     ],
-     "deep_terms": 4800,
-     "bfile_terms": 1001,
-     "bfile_hi": 1000,
-     "data_hi": 49,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A285195_0",
-     "anum": "A285195",
-     "tested": 207,
-     "range": [
-      6,
-      212
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 213,
-     "bfile_hi": 1000,
-     "data_hi": 26,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A224908_0",
-     "anum": "A224908",
-     "tested": 997,
-     "range": [
-      4,
-      1000
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 1000,
-     "bfile_hi": 1000,
-     "data_hi": 72,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A116388_0",
-     "anum": "A116388",
-     "tested": 310,
-     "range": [
-      7,
-      316
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 317,
-     "bfile_hi": 500,
-     "data_hi": 29,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 22,
-    "counterexamples_verified": 0,
-    "proofs_checked": 21,
-    "proofs_routine_known_in_principle": 21,
-    "beyond_published_range": 1,
-    "beyond_exact": 1,
-    "max_depth": 30
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261109T170835Z_658fcd",
-   "at": "2026-11-09T17:10:22Z",
-   "menu_size": 64,
-   "chosen": [
-    {
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
-    },
-    {
-     "id": "oc_A108475_0",
-     "anum": "A108475",
-     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
-    },
-    {
-     "id": "oc_A100038_0",
-     "anum": "A100038",
-     "text": "a(n) = 2*n^2 + 3*n + 6 (conjectured). - _Ralf Stephan_, May 15 2007"
-    },
-    {
-     "id": "oc_A164733_0",
-     "anum": "A164733",
-     "text": "a(n) = a(n-2) + a(n-6) - a(n-8) + a(n-9) - a(n-11) + a(n-14) - a(n-15) - a(n-16) + a(n-17) - a(n-20) + a(n-22) - a(n-23) + a(n-25) + a(n-29) - a(n-31) for n > 33."
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_prove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "tested": 31,
-     "range": [
-      0,
-      30
-     ],
-     "deep_terms": 4800,
-     "bfile_terms": 20,
-     "bfile_hi": 19,
-     "data_hi": 19,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A108475_0",
-     "anum": "A108475",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A108475_0",
-     "anum": "A108475",
-     "tested": 169,
-     "range": [
-      0,
-      168
-     ],
-     "deep_terms": 4800,
-     "bfile_terms": 158,
-     "bfile_hi": 1000,
-     "data_hi": 22,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A100038_0",
-     "anum": "A100038",
-     "tested": 47,
-     "range": [
-      1,
-      47
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 47,
-     "bfile_hi": 47,
-     "data_hi": 47,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A164733_0",
-     "anum": "A164733",
-     "tested": 37,
-     "range": [
-      34,
-      70
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 70,
-     "bfile_hi": 70,
-     "data_hi": 70,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 22,
-    "counterexamples_verified": 0,
-    "proofs_checked": 21,
-    "proofs_routine_known_in_principle": 21,
-    "beyond_published_range": 1,
-    "beyond_exact": 1,
-    "max_depth": 30
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
    "cycle": "20261109T171039Z_593f72",
    "at": "2026-11-09T17:12:52Z",
    "menu_size": 64,
@@ -3074,6 +2710,360 @@
      "bfile_terms": 198,
      "bfile_hi": 500,
      "data_hi": 22,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 22,
+    "counterexamples_verified": 0,
+    "proofs_checked": 21,
+    "proofs_routine_known_in_principle": 21,
+    "beyond_published_range": 1,
+    "beyond_exact": 1,
+    "max_depth": 30
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261110T231810Z_dbbc4c",
+   "at": "2026-11-10T23:21:09Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A165125_0",
+     "anum": "A165125",
+     "text": "a(n) = a(n-2) - a(n-3) + a(n-5) - a(n-6) + a(n-8) + a(n-15) - a(n-17) + a(n-18) - a(n-20) + a(n-21) - a(n-23) for n > 24."
+    },
+    {
+     "id": "oc_A026589_0",
+     "anum": "A026589",
+     "text": "Conjecture: -(n+4)*(65*n-269)*a(n) +(-65*n^2+140*n+1933)*a(n-1) +(809*n^2-2431*n-4514)*a(n-2) +(-123*n^2+2496*n-205)*a(n-3) +2*(-726*n^2+3737*n-4395)*a(n-4) +8*(56*n-215)*(2*n-9)*a(n-5) = 0. - _R. J. Mathar_, Jun 23 2013"
+    },
+    {
+     "id": "oc_A165027_0",
+     "anum": "A165027",
+     "text": "a(n) = 2*a(n-2) + a(n-3) - a(n-4) - 2*a(n-5) + a(n-7) for n > 8."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "tested": 169,
+     "range": [
+      0,
+      168
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 158,
+     "bfile_hi": 1000,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165125_0",
+     "anum": "A165125",
+     "tested": 46,
+     "range": [
+      25,
+      70
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 70,
+     "bfile_hi": 70,
+     "data_hi": 70,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A026589_0",
+     "anum": "A026589",
+     "tested": 363,
+     "range": [
+      9,
+      371
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 368,
+     "bfile_hi": 1000,
+     "data_hi": 30,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165027_0",
+     "anum": "A165027",
+     "tested": 192,
+     "range": [
+      9,
+      200
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 200,
+     "bfile_hi": 200,
+     "data_hi": 68,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 22,
+    "counterexamples_verified": 0,
+    "proofs_checked": 21,
+    "proofs_routine_known_in_principle": 21,
+    "beyond_published_range": 1,
+    "beyond_exact": 1,
+    "max_depth": 30
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261110T232135Z_0d7b94",
+   "at": "2026-11-10T23:23:41Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    },
+    {
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "text": "Conjecture: all terms are positive."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "tested": 169,
+     "range": [
+      0,
+      168
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 158,
+     "bfile_hi": 1000,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "tested": 31,
+     "range": [
+      0,
+      30
+     ],
+     "deep_terms": 4800,
+     "bfile_terms": 20,
+     "bfile_hi": 19,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "tested": 44,
+     "range": [
+      2,
+      45
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 44,
+     "bfile_hi": 45,
+     "data_hi": 45,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 22,
+    "counterexamples_verified": 0,
+    "proofs_checked": 21,
+    "proofs_routine_known_in_principle": 21,
+    "beyond_published_range": 1,
+    "beyond_exact": 1,
+    "max_depth": 30
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261110T232406Z_0a03a2",
+   "at": "2026-11-10T23:26:13Z",
+   "menu_size": 64,
+   "chosen": [
+    {
+     "id": "oc_A243816_0",
+     "anum": "A243816",
+     "text": "Conjecture D-finite with recurrence: 2*n*(n-1)*(2*n-3)*a(n) -(n-1)*(47*n^2-221*n+260)*a(n-1) +4*(38*n^3-300*n^2+777*n-660)*a(n-2) +4*(-94*n^3+1006*n^2-3617*n+4355)*a(n-3) +16*(n-5)*(64*n^2-510*n+1041)*a(n-4) -16*(n-5)*(n-6)*(47*n-221)*a(n-5) +1920*(n-5)*(n-6)*(n-7)*a(n-6)=0. - _R. J. Mathar_, Jan 25 2020"
+    },
+    {
+     "id": "oc_A234347_0",
+     "anum": "A234347",
+     "text": "Conjecture: a(n) > 0 for all n > 3."
+    },
+    {
+     "id": "oc_A106181_0",
+     "anum": "A106181",
+     "text": "Conjecture: (n+2)*a(n) + n*a(n-1) + 4*(n-1)*a(n-2) + 4*(n-3)*a(n-3) = 0. - _R. J. Mathar_, Nov 15 2011"
+    },
+    {
+     "id": "oc_A164734_0",
+     "anum": "A164734",
+     "text": "a(n) = a(n-7) + a(n-9) + a(n-14) - a(n-16) - a(n-21) - a(n-23) + a(n-30) for n > 41."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A243816_0",
+     "anum": "A243816",
+     "tested": 264,
+     "range": [
+      6,
+      269
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 270,
+     "bfile_hi": 1000,
+     "data_hi": 26,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A234347_0",
+     "anum": "A234347",
+     "tested": 2997,
+     "range": [
+      4,
+      3000
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 3000,
+     "bfile_hi": 3000,
+     "data_hi": 84,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A106181_0",
+     "anum": "A106181",
+     "tested": 37,
+     "range": [
+      3,
+      39
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 40,
+     "bfile_hi": 39,
+     "data_hi": 39,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A164734_0",
+     "anum": "A164734",
+     "tested": 99,
+     "range": [
+      42,
+      140
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 140,
+     "bfile_hi": 140,
+     "data_hi": 105,
      "status": "holds_on_range",
      "extended": 0,
      "credit": 0.0

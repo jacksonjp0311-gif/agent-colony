@@ -1,21 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-11-10T20:02:12Z",
+  "updated_at": "2026-11-10T23:25:24Z",
   "passes": 527,
-  "kills": 307,
+  "kills": 310,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3681,
+  "kill_rate": 0.3704,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 9,
-    "kills": 51,
+    "passes": 8,
+    "kills": 52,
     "easy_pad_kills": 0,
-    "kill_rate": 0.85
+    "kill_rate": 0.8667
   },
-  "bus_ok_rate": 0.7833,
+  "bus_ok_rate": 0.8,
   "unique_mutations_pass": [
-    "authored_frontier_cong_x22ed9f43_w3",
     "authored_frontier_cong_x41b05781_w3",
     "authored_frontier_cong_xa8371e31_w3",
     "authored_frontier_cong_xb5f19c6e_w1",
@@ -61,7 +60,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-10T20:02:12Z",
+    "ts": "2026-11-10T23:25:24Z",
     "passed": false,
     "kills": [
       "held_out:held_out:already_saturated_no_harder_window",
@@ -74,9 +73,9 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [
-        "msg_10a335dac7",
-        "msg_42e2e9bebd",
-        "msg_04a5dc5ea0"
+        "msg_9849290adf",
+        "msg_f8613d9ecd",
+        "msg_a3ccb0f350"
       ],
       "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
       "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
@@ -182,7 +181,7 @@
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "source": "claim_pipeline",
-    "cycle_id": "20261110T200054Z_504366",
+    "cycle_id": "20261110T232406Z_0a03a2",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

@@ -1,10 +1,10 @@
 {
-  "ts": "2026-11-10T20:03:46Z",
+  "ts": "2026-11-10T23:26:36Z",
   "view_only": true,
   "n_considered": 146,
-  "n_meet_bar": 34,
-  "n_groups": 25,
-  "n_authored_groups": 25,
+  "n_meet_bar": 33,
+  "n_groups": 24,
+  "n_authored_groups": 24,
   "n_building_block_groups": 0,
   "top": [
     {
@@ -80,7 +80,7 @@
         "P_shadow": 0.6617,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4167,
-        "shadow_pos": 17
+        "shadow_pos": 16
       },
       "group_count": 2,
       "group_ids": [
@@ -122,7 +122,7 @@
         "P_shadow": 0.6583,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4147,
-        "shadow_pos": 18
+        "shadow_pos": 17
       },
       "group_count": 1,
       "group_ids": [
@@ -163,7 +163,7 @@
         "P_shadow": 0.6461,
         "meets_bar_shadow": false,
         "rank_shadow": 0.398,
-        "shadow_pos": 26
+        "shadow_pos": 25
       },
       "group_count": 2,
       "group_ids": [
@@ -205,7 +205,7 @@
         "P_shadow": 0.6575,
         "meets_bar_shadow": false,
         "rank_shadow": 0.4142,
-        "shadow_pos": 19
+        "shadow_pos": 18
       },
       "group_count": 1,
       "group_ids": [
@@ -287,7 +287,7 @@
         "P_shadow": 0.6442,
         "meets_bar_shadow": false,
         "rank_shadow": 0.3969,
-        "shadow_pos": 27
+        "shadow_pos": 26
       },
       "group_count": 3,
       "group_ids": [
@@ -424,17 +424,17 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-11-10T20:03:46Z",
-    "cycle_id": "20261110T200054Z_504366",
+    "ts": "2026-11-10T23:26:36Z",
+    "cycle_id": "20261110T232406Z_0a03a2",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 0.5,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 34,
+    "n_meet_bar_actual": 33,
     "n_meet_bar_shadow": 15,
-    "n_unknown_claims": 35,
+    "n_unknown_claims": 34,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
       "authored_frontier_cong_x29d14f44_w1",
@@ -472,7 +472,6 @@
       "imp_15e790_50",
       "imp_df0e1a_50",
       "imp_9e87d3_50",
-      "imp_845dfc_50",
       "imp_12c82c_50",
       "imp_49ebcf_50",
       "imp_8ee2e8_50",
@@ -596,7 +595,7 @@
       {
         "id": "imp_022700_50",
         "target": "authored_newdata_a006666_k10001_w1",
-        "actual_pos": 23,
+        "actual_pos": 22,
         "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -610,7 +609,7 @@
       {
         "id": "imp_18d1e0_50",
         "target": "authored_frontier_cong_xbb82919e_w1",
-        "actual_pos": 25,
+        "actual_pos": 24,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -629,8 +628,8 @@
     }
   },
   "excluded_reasons": {
-    "status": 88,
-    "target_unresolved": 85,
+    "status": 89,
+    "target_unresolved": 86,
     "no_oracle_pass_in_own_cycle": 17,
     "oracle_killed_in_own_cycle": 8,
     "novelty_killed": 19,
@@ -643,5 +642,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261110T200054Z_504366"
+  "cycle_id": "20261110T232406Z_0a03a2"
 }

@@ -25,7 +25,7 @@
    "credit": 0.0
   },
   "oc_A165064_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 100,
    "credit": 0.0
@@ -127,7 +127,7 @@
    "credit": 0.0
   },
   "oc_A165125_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 70,
    "credit": 0.0
@@ -247,7 +247,7 @@
    "credit": 0.0
   },
   "oc_A229019_0": {
-   "attempts": 7,
+   "attempts": 8,
    "status": "holds_on_range",
    "tested_hi": 45,
    "credit": 0.0
@@ -325,7 +325,7 @@
    "credit": 1.0
   },
   "oc_A108475_0": {
-   "attempts": 23,
+   "attempts": 25,
    "status": "holds_on_range",
    "tested_hi": 168,
    "credit": 0.0
@@ -373,7 +373,7 @@
    "credit": 1.0
   },
   "oc_A108476_0": {
-   "attempts": 26,
+   "attempts": 27,
    "status": "holds_on_range",
    "tested_hi": 30,
    "credit": 0.0099
@@ -415,7 +415,7 @@
    "credit": 0.0
   },
   "oc_A164734_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 140,
    "credit": 0.0
@@ -481,7 +481,7 @@
    "credit": 0.0
   },
   "oc_A165027_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 200,
    "credit": 0.0
@@ -523,13 +523,13 @@
    "credit": 0.0
   },
   "oc_A234347_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 3000,
    "credit": 0.0
   },
   "oc_A243816_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 269,
    "credit": 0.0
@@ -541,7 +541,7 @@
    "credit": 0.0
   },
   "oc_A026589_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 371,
    "credit": 0.0
@@ -571,7 +571,7 @@
    "credit": 0.0
   },
   "oc_A106181_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 39,
    "credit": 0.0
@@ -609,11 +609,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 248,
+   "attempts": 258,
    "credit": 21.0099
   },
   "gf": {
-   "attempts": 15,
+   "attempts": 16,
    "credit": 0.0
   },
   "only_prime": {
@@ -621,7 +621,7 @@
    "credit": 0.0
   },
   "property": {
-   "attempts": 7,
+   "attempts": 8,
    "credit": 0.0
   }
  },
