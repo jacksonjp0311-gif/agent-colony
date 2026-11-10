@@ -1971,6 +1971,15 @@ def check_authored_frontier_cong_xb5f19c6e_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'rad[ple3]', 'params': {'m': 2, 'q': 6, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 219), (220, 398), (399, 577)])
 
 
+def check_authored_sieve_residue_bal_g6_6_6_w2() -> bool:
+    """Authored instrument check (desk): p mod 4 classes 1/3 of pattern (6, 6, 6) are balanced within 4.0*sqrt(total).
+    Windows [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges
+    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.
+    Disabled until the Oracle passes it.
+    """
+    return all(type(x := sieve_count((6, 6, 6), a, b, 4, 1)) is int and type(y := sieve_count((6, 6, 6), a, b, 4, 3)) is int and x + y > 0 and abs(x - y) <= 4.0 * (x + y) ** 0.5 for a, b in [(20000000, 22000000), (22000000, 24000000), (24000000, 26000000)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2185,7 +2194,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x41b05781_w2", check_authored_frontier_cong_x41b05781_w2, True),
     ("authored_frontier_cong_xa8371e31_w3", check_authored_frontier_cong_xa8371e31_w3, True),
     ("authored_frontier_cong_x41b05781_w3", check_authored_frontier_cong_x41b05781_w3, True),
-    ("authored_frontier_cong_xb5f19c6e_w1", check_authored_frontier_cong_xb5f19c6e_w1, False),
+    ("authored_frontier_cong_xb5f19c6e_w1", check_authored_frontier_cong_xb5f19c6e_w1, True),
+    ("authored_sieve_residue_bal_g6_6_6_w2", check_authored_sieve_residue_bal_g6_6_6_w2, True),
 ]
 
 
