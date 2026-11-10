@@ -1,19 +1,22 @@
 {
-  "last_attempt_at": "2026-11-10T05:10:42Z",
+  "last_attempt_at": "2026-11-10T07:34:42Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-10T05:10:42Z",
+  "last_ok_at": "2026-11-10T07:34:42Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "$\\mathrm{RO}(G)$-graded norms for de Rham-Witt forms",
-      "abstract_snippet": "We make two case studies of $\\mathrm{RO}(G)$-graded homotopy in connection with $p$-adic cohomology. First, we identify the $\\mathrm{RO}(\\mathbf T)$-graded $\\mathrm{TC}^-$ and $\\mathrm{TP}$ of quasiregular semiperfectoid rings as multi-Rees algebras for the Nygaard and $φ^\\bullet(I)$-adic filtrations. We additionally compute $E^{h\\mathbf T}_\\bigstar$ and $E^{t\\mathbf T}_\\bigstar$ when $E$ is a gen",
-      "url": "https://arxiv.org/abs/2611.12043",
-      "arxiv_id": "2611.12043",
+      "title": "Guiding Data Allocation for Robust Subpopulation Generalization",
+      "abstract_snippet": "Machine learning models often achieve high average accuracy in the training data while performing poorly on test data due to subpopulation shift. A common data-centric solution is to enforce balanced subgroup proportions, but full balance can be costly, infeasible, and not always necessary. In this work, we study whether balanced training data is the unique optimal configuration for robust subpopu",
+      "url": "https://arxiv.org/abs/2611.12884",
+      "arxiv_id": "2611.12884",
       "doi": "",
       "authors": [
-        "Yuri J. F. Sulyma"
+        "Zhaoying Pan",
+        "Yipei Wang",
+        "Shenyu Lu",
+        "Xiaoqian Wang"
       ],
       "year": 2026,
       "tags": [
@@ -23,18 +26,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T05:10:43Z"
+      "fetched_at": "2026-11-10T07:34:42Z"
     },
     {
       "source": "arxiv",
-      "title": "The Power of Migration on Identical Machines is Two",
-      "abstract_snippet": "We study the power of migration in preemptive scheduling on identical parallel machines with time windows. If an instance admits a migratory schedule on $m$ machines, how many machines are needed to schedule it without migration? Kalyanasundaram and Pruhs (2001) showed that $6m-5$ machines suffice and gave a polynomial-time construction using $12m-5$ machines, whereas $2m-1$ machines may be necess",
-      "url": "https://arxiv.org/abs/2611.12034",
-      "arxiv_id": "2611.12034",
+      "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
+      "abstract_snippet": "Stochastic differential equations (SDEs) describe stochastic processes across a wide range of scientific domains, including physics, biology, and finance. Although individual numerical integration steps are inexpensive, observing meaningful events or transitions can require millions of sequential steps, resulting in substantial wall-clock simulation time and poor hardware utilization. Deep learnin",
+      "url": "https://arxiv.org/abs/2611.12880",
+      "arxiv_id": "2611.12880",
       "doi": "",
       "authors": [
-        "Nicole Megow",
-        "Bart Zondervan"
+        "Majdi Hassan",
+        "Marta Skreta",
+        "Dominique Beaini",
+        "Kirill Neklyudov"
       ],
       "year": 2026,
       "tags": [
@@ -44,18 +49,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T05:10:43Z"
+      "fetched_at": "2026-11-10T07:34:42Z"
     },
     {
       "source": "arxiv",
-      "title": "Scale-Invariant Empirical-Bayes Laplace Approximation for ReLU Networks",
-      "abstract_snippet": "ReLU networks are well-known to have continuous scale symmetries; infinitely many reparameterized weight vectors that represent the same function. Dinh et al. (2017) have shown that, by reparameterizing, the geometry of the loss landscape (e.g., curvature) of these networks can be changed arbitrarily without affecting the underlying function. Thus, any quantity that depends on the network's geomet",
-      "url": "https://arxiv.org/abs/2611.12031",
-      "arxiv_id": "2611.12031",
+      "title": "Adaptive Quantization Preserves Fast Rates for TD Learning over Rate-Limited Channels",
+      "abstract_snippet": "Motivated by reinforcement learning subject to communication constraints, we study a policy evaluation problem with linear function approximation over a rate-limited channel. In our setup, an agent interacting with an unknown environment (modeled as a Markov Decision Process) transmits quantized estimates of a temporal-difference (TD) learning update direction to a server over a finite-capacity ch",
+      "url": "https://arxiv.org/abs/2611.12878",
+      "arxiv_id": "2611.12878",
       "doi": "",
       "authors": [
-        "Shivam Pal",
-        "Piyush Rai"
+        "Sreejeet Maity",
+        "Aritra Mitra"
       ],
       "year": 2026,
       "tags": [
@@ -65,18 +70,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T05:10:43Z"
+      "fetched_at": "2026-11-10T07:34:42Z"
     },
     {
       "source": "arxiv",
-      "title": "Spectral conditions for the existence of $\\{K_2,\\{C_k\\}\\}$-factor in $t$-tough graphs",
-      "abstract_snippet": "For $t&gt;0$, a graph $G$ is called $t$-tough if $|S|\\geq t\\,c(G-S)$ for every $S\\subseteq V(G)$ with $c(G-S)\\geq2$, where $c(G-S)$ denotes the number of components of $G-S$. Toughness is closely related to the existence of Hamiltonian cycles and factors in graphs. Chvátal [Discrete Math. 5 (1973) 215--228] conjectured that there exists a constant $t_0&gt;0$ such that every $t_0$-tough graph of or",
-      "url": "https://arxiv.org/abs/2611.12030",
-      "arxiv_id": "2611.12030",
+      "title": "HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents",
+      "abstract_snippet": "As multimodal agents accumulate increasingly long interaction histories, effectively retrieving and utilizing past information becomes critical for long-term interaction. Existing memory systems typically rely on semantic retrieval over compressed memories and expose predefined representations, which may miss relevant memories and overlook heterogeneous evidence needs across queries. We introduce ",
+      "url": "https://arxiv.org/abs/2611.12872",
+      "arxiv_id": "2611.12872",
       "doi": "",
       "authors": [
-        "Zhenhao Zhang",
-        "Ligong Wang"
+        "Haozhen Zhang",
+        "Bohan Liu",
+        "Jianzhu Bao",
+        "Qingyuan Liu",
+        "Haodong Yue",
+        "Xiao Li"
       ],
       "year": 2026,
       "tags": [
@@ -86,17 +95,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T05:10:43Z"
+      "fetched_at": "2026-11-10T07:34:42Z"
     },
     {
       "source": "arxiv",
-      "title": "MambaPD: Bidirectional Selective State Space Model for Parkinson's Disease Detection from Resting-State EEG",
-      "abstract_snippet": "Typical diagnosis of Parkinson's disease (PD) occurs only after significant dopaminergic loss, while resting-state EEG abnormalities like alpha slowing and reduced coherence occur earlier. While many published EEG-based PD detectors claim accuracy greater than 95%, many use epoch-level splits which leak subject identity. I introduce MambaPD, a bidirectional selective state space model for resting-",
-      "url": "https://arxiv.org/abs/2611.12026",
-      "arxiv_id": "2611.12026",
+      "title": "Vendi Anomaly Scores for Efficient and Accurate Anomaly Detection",
+      "abstract_snippet": "Anomaly detection (AD) is a critical for trustworthy machine learning and scientific discovery. Existing methods typically define anomalies through local density, isolation heuristics, or distance from a fitted distribution, making them sensitive to neighborhood scale, partitioning choices, or restrictive distributional assumptions. In this work, we introduce a new paradigm by formulating anomaly ",
+      "url": "https://arxiv.org/abs/2611.12871",
+      "arxiv_id": "2611.12871",
       "doi": "",
       "authors": [
-        "Ayesha Zulfiqar"
+        "Amey Pasarkar",
+        "Adji Bousso Dieng"
       ],
       "year": 2026,
       "tags": [
@@ -106,7 +116,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T05:10:43Z"
+      "fetched_at": "2026-11-10T07:34:42Z"
     }
   ]
 }

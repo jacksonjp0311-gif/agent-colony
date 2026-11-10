@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "branch-and-bound",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "compute-useful",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-10T05:18:36Z",
-  "updated_cycle": "20261110T051648Z_eb8c2a",
+  "updated_at": "2026-11-10T07:41:31Z",
+  "updated_cycle": "20261110T073957Z_223170",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
