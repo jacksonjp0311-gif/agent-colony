@@ -1,21 +1,20 @@
 {
   "version": 1,
-  "updated_at": "2026-11-11T19:55:24Z",
+  "updated_at": "2026-11-11T23:25:26Z",
   "passes": 528,
-  "kills": 325,
+  "kills": 328,
   "easy_pad_kills": 32,
-  "kill_rate": 0.381,
+  "kill_rate": 0.3832,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 4,
-    "kills": 56,
+    "passes": 3,
+    "kills": 57,
     "easy_pad_kills": 0,
-    "kill_rate": 0.9333
+    "kill_rate": 0.95
   },
-  "bus_ok_rate": 0.8833,
+  "bus_ok_rate": 0.9,
   "unique_mutations_pass": [
-    "authored_frontier_cong_x41b05781_w3",
     "authored_frontier_cong_xb5f19c6e_w1",
     "authored_frontier_le_x423b0686_w1",
     "authored_sieve_residue_bal_g6_6_6_w2"
@@ -55,7 +54,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-11T19:55:24Z",
+    "ts": "2026-11-11T23:25:26Z",
     "passed": false,
     "kills": [
       "held_out:held_out:already_saturated_no_harder_window",
@@ -68,9 +67,9 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [
-        "msg_a47869b3a7",
-        "msg_c61bd1be59",
-        "msg_af50edaffa"
+        "msg_1b9f4a8836",
+        "msg_494e7e5a91",
+        "msg_bf8f362293"
       ],
       "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
       "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
@@ -176,7 +175,7 @@
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "source": "claim_pipeline",
-    "cycle_id": "20261111T195352Z_78f326",
+    "cycle_id": "20261111T232401Z_5d5fac",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

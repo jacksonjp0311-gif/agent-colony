@@ -25,7 +25,7 @@
    "credit": 0.0
   },
   "oc_A165064_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 100,
    "credit": 0.0
@@ -247,7 +247,7 @@
    "credit": 0.0
   },
   "oc_A229019_0": {
-   "attempts": 8,
+   "attempts": 9,
    "status": "holds_on_range",
    "tested_hi": 45,
    "credit": 0.0
@@ -325,7 +325,7 @@
    "credit": 1.0
   },
   "oc_A108475_0": {
-   "attempts": 33,
+   "attempts": 36,
    "status": "holds_on_range",
    "tested_hi": 168,
    "credit": 0.0
@@ -373,7 +373,7 @@
    "credit": 1.0
   },
   "oc_A108476_0": {
-   "attempts": 35,
+   "attempts": 36,
    "status": "holds_on_range",
    "tested_hi": 30,
    "credit": 0.0099
@@ -415,13 +415,13 @@
    "credit": 0.0
   },
   "oc_A164734_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 140,
    "credit": 0.0
   },
   "oc_A027050_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 321,
    "credit": 0.0
@@ -499,7 +499,7 @@
    "credit": 0.0
   },
   "oc_A027175_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 250,
    "credit": 0.0
@@ -517,7 +517,7 @@
    "credit": 0.0
   },
   "oc_A303539_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 3000,
    "credit": 0.0
@@ -529,7 +529,7 @@
    "credit": 0.0
   },
   "oc_A243816_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 269,
    "credit": 0.0
@@ -577,7 +577,7 @@
    "credit": 0.0
   },
   "oc_A027051_0": {
-   "attempts": 5,
+   "attempts": 6,
    "status": "holds_on_range",
    "tested_hi": 320,
    "credit": 0.0
@@ -609,11 +609,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 318,
+   "attempts": 328,
    "credit": 21.0099
   },
   "gf": {
-   "attempts": 16,
+   "attempts": 17,
    "credit": 0.0
   },
   "only_prime": {
@@ -621,7 +621,7 @@
    "credit": 0.0
   },
   "property": {
-   "attempts": 8,
+   "attempts": 9,
    "credit": 0.0
   }
  },
