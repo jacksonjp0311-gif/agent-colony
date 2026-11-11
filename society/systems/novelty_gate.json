@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "updated_at": "2026-11-11T05:26:09Z",
+  "updated_at": "2026-11-11T06:57:15Z",
   "hits": 2,
   "kills": 1,
   "rows": 30,
   "kill_rows": 28,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-11T05:26:09Z",
-    "cycle_id": "20261111T052450Z_d4bbd2",
+    "ts": "2026-11-11T06:57:15Z",
+    "cycle_id": "20261111T065604Z_94f781",
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "novel_to_commons": false,
@@ -28,7 +28,7 @@
       "hard_pass": 161,
       "hard_n": 161,
       "stripped_fails_usefulness": false,
-      "score": 0.878,
+      "score": 0.8822,
       "impl_id": "lemma_impl_v2_basic10_hard161"
     },
     "held_out": {
