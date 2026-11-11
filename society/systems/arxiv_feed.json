@@ -1,22 +1,19 @@
 {
-  "last_attempt_at": "2026-11-10T23:18:52Z",
+  "last_attempt_at": "2026-11-11T05:19:37Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-10T23:18:52Z",
+  "last_ok_at": "2026-11-11T05:19:37Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Guiding Data Allocation for Robust Subpopulation Generalization",
-      "abstract_snippet": "Machine learning models often achieve high average accuracy in the training data while performing poorly on test data due to subpopulation shift. A common data-centric solution is to enforce balanced subgroup proportions, but full balance can be costly, infeasible, and not always necessary. In this work, we study whether balanced training data is the unique optimal configuration for robust subpopu",
-      "url": "https://arxiv.org/abs/2611.12884",
-      "arxiv_id": "2611.12884",
+      "title": "The closure of the nonreal roots of bounded-height polynomials is connected exactly at pronic heights",
+      "abstract_snippet": "Let C_h be the closure of the nonreal roots of integer polynomials with coefficients of modulus at most h. With the nonzero real roots included, the closure is connected at every height; without them, connectedness becomes arithmetic. We prove that C_h is connected exactly when h=q(q-1) is a pronic number 2, 6, 12, 20, ..., and has at least five components otherwise. At height two this confirms a ",
+      "url": "https://arxiv.org/abs/2611.14517",
+      "arxiv_id": "2611.14517",
       "doi": "",
       "authors": [
-        "Zhaoying Pan",
-        "Yipei Wang",
-        "Shenyu Lu",
-        "Xiaoqian Wang"
+        "Bernat Espigule"
       ],
       "year": 2026,
       "tags": [
@@ -26,20 +23,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T23:18:53Z"
+      "fetched_at": "2026-11-11T05:19:38Z"
     },
     {
       "source": "arxiv",
-      "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
-      "abstract_snippet": "Stochastic differential equations (SDEs) describe stochastic processes across a wide range of scientific domains, including physics, biology, and finance. Although individual numerical integration steps are inexpensive, observing meaningful events or transitions can require millions of sequential steps, resulting in substantial wall-clock simulation time and poor hardware utilization. Deep learnin",
-      "url": "https://arxiv.org/abs/2611.12880",
-      "arxiv_id": "2611.12880",
+      "title": "TorchCurves: Differentiable Parametric Curves",
+      "abstract_snippet": "We present TorchCurves, a PyTorch library that treats vector-valued parametric curves as learnable primitives. Its central operation maps batches of scalar inputs to points on curves represented in B-spline or Legendre polynomial bases, with differentiation through both inputs and coefficients. Curve coefficients can be optimized jointly with the surrounding model or produced by another network. T",
+      "url": "https://arxiv.org/abs/2611.14516",
+      "arxiv_id": "2611.14516",
       "doi": "",
       "authors": [
-        "Majdi Hassan",
-        "Marta Skreta",
-        "Dominique Beaini",
-        "Kirill Neklyudov"
+        "Alex Shtoff"
       ],
       "year": 2026,
       "tags": [
@@ -49,18 +43,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T23:18:53Z"
+      "fetched_at": "2026-11-11T05:19:38Z"
     },
     {
       "source": "arxiv",
-      "title": "Adaptive Quantization Preserves Fast Rates for TD Learning over Rate-Limited Channels",
-      "abstract_snippet": "Motivated by reinforcement learning subject to communication constraints, we study a policy evaluation problem with linear function approximation over a rate-limited channel. In our setup, an agent interacting with an unknown environment (modeled as a Markov Decision Process) transmits quantized estimates of a temporal-difference (TD) learning update direction to a server over a finite-capacity ch",
-      "url": "https://arxiv.org/abs/2611.12878",
-      "arxiv_id": "2611.12878",
+      "title": "AutoScaffold: AI-Guided Scaffolding for Reinforcement Learning of Language Models",
+      "abstract_snippet": "Reinforcement learning with verifiable rewards (RLVR) produces rich training experience, yet outcome rewards reduce each attempt to a single number and leave most of this information unused. Training-time scaffolds, such as strategies or hints added to the prompt during training, offer a natural way to turn this information into guidance, but their design and adaptation are largely left to humans ",
+      "url": "https://arxiv.org/abs/2611.14515",
+      "arxiv_id": "2611.14515",
       "doi": "",
       "authors": [
-        "Sreejeet Maity",
-        "Aritra Mitra"
+        "Zijian Zhang",
+        "Rizhen Hu",
+        "Jiangweizhi Peng",
+        "Shiyang Li",
+        "Sujay Bhatt",
+        "Sihan Zeng"
       ],
       "year": 2026,
       "tags": [
@@ -70,22 +68,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T23:18:53Z"
+      "fetched_at": "2026-11-11T05:19:38Z"
     },
     {
       "source": "arxiv",
-      "title": "HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents",
-      "abstract_snippet": "As multimodal agents accumulate increasingly long interaction histories, effectively retrieving and utilizing past information becomes critical for long-term interaction. Existing memory systems typically rely on semantic retrieval over compressed memories and expose predefined representations, which may miss relevant memories and overlook heterogeneous evidence needs across queries. We introduce ",
-      "url": "https://arxiv.org/abs/2611.12872",
-      "arxiv_id": "2611.12872",
+      "title": "Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations",
+      "abstract_snippet": "LLM agents are increasingly used for open-ended, data-driven scientific discovery, yet most of them evaluate hypotheses pointwise, testing an empirical claim $h$ only against its complement $\\neg h$. When evidence rejects $h$, the agent learns that one explanation is unlikely but not which alternative the evidence supports. To recover that alternative, we introduce Contrastive Discovery, which rep",
+      "url": "https://arxiv.org/abs/2611.14514",
+      "arxiv_id": "2611.14514",
       "doi": "",
       "authors": [
-        "Haozhen Zhang",
-        "Bohan Liu",
-        "Jianzhu Bao",
-        "Qingyuan Liu",
-        "Haodong Yue",
-        "Xiao Li"
+        "Ziang Liu",
+        "James J. Kim",
+        "Yijia Dai",
+        "Jennifer J. Sun"
       ],
       "year": 2026,
       "tags": [
@@ -95,18 +91,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T23:18:53Z"
+      "fetched_at": "2026-11-11T05:19:38Z"
     },
     {
       "source": "arxiv",
-      "title": "Vendi Anomaly Scores for Efficient and Accurate Anomaly Detection",
-      "abstract_snippet": "Anomaly detection (AD) is a critical for trustworthy machine learning and scientific discovery. Existing methods typically define anomalies through local density, isolation heuristics, or distance from a fitted distribution, making them sensitive to neighborhood scale, partitioning choices, or restrictive distributional assumptions. In this work, we introduce a new paradigm by formulating anomaly ",
-      "url": "https://arxiv.org/abs/2611.12871",
-      "arxiv_id": "2611.12871",
+      "title": "Online Graph Coloring: Competitive Ratios Separating Randomized and Deterministic Algorithms",
+      "abstract_snippet": "We study online coloring, focusing on the competitive ratio. The best previously known results were (1) a lower bound of $Ω(n / \\log^2 n)$ for both deterministic and randomized algorithms by Halldórsson and Szegedy (1994), (2) an upper bound of $O(n / \\log n)$ for randomized algorithms by Halldórsson (1997), and (3) an upper bound of $O(n / \\log \\log n)$ for deterministic algorithms by Kawarabayas",
+      "url": "https://arxiv.org/abs/2611.14513",
+      "arxiv_id": "2611.14513",
       "doi": "",
       "authors": [
-        "Amey Pasarkar",
-        "Adji Bousso Dieng"
+        "Ken-ichi Kawarabayashi",
+        "Hirotaka Yoneda",
+        "Masataka Yoneda"
       ],
       "year": 2026,
       "tags": [
@@ -116,7 +113,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-10T23:18:53Z"
+      "fetched_at": "2026-11-11T05:19:38Z"
     }
   ]
 }

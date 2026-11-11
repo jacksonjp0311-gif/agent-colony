@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-10T23:26:00Z",
+  "ts": "2026-11-11T05:26:48Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.154724118647154,
+      "latest": -6.070302642558254,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-11-10T23:20:00Z",
-          "v": -7.919391706838833
+          "t": "2026-11-11T05:20:00Z",
+          "v": -7.421199102868691
         },
         {
-          "t": "2026-11-10T23:20:00Z",
-          "v": -6.139424516427293
+          "t": "2026-11-11T05:20:00Z",
+          "v": -6.076967104827777
         },
         {
-          "t": "2026-11-10T23:21:00Z",
-          "v": -8.238122013266805
+          "t": "2026-11-11T05:21:00Z",
+          "v": -7.431221819393522
         },
         {
-          "t": "2026-11-10T23:21:00Z",
-          "v": -6.149718854536377
+          "t": "2026-11-11T05:21:00Z",
+          "v": -6.075348346455751
         },
         {
-          "t": "2026-11-10T23:22:00Z",
-          "v": -9.000000012282687
+          "t": "2026-11-11T05:22:00Z",
+          "v": -7.471169183015682
         },
         {
-          "t": "2026-11-10T23:22:00Z",
-          "v": -6.1558001904125845
+          "t": "2026-11-11T05:22:00Z",
+          "v": -6.068908477289503
         },
         {
-          "t": "2026-11-10T23:23:00Z",
-          "v": -8.567740513996089
+          "t": "2026-11-11T05:23:00Z",
+          "v": -7.456164875513245
         },
         {
-          "t": "2026-11-10T23:23:00Z",
-          "v": -6.154724118647154
+          "t": "2026-11-11T05:23:00Z",
+          "v": -6.070302642558254
         }
       ],
       "live": true,
-      "ts": "2026-11-10T23:26:00Z"
+      "ts": "2026-11-11T05:26:48Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 13.8,
+      "latest": 12.2,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -61,41 +61,41 @@
       "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
       "items": [
         {
-          "t": "2026-11-09T00:00",
-          "v": 12.9
+          "t": "2026-11-10T00:00",
+          "v": 12.0
         },
         {
-          "t": "2026-11-09T01:00",
-          "v": 12.4
-        },
-        {
-          "t": "2026-11-09T02:00",
-          "v": 12.9
-        },
-        {
-          "t": "2026-11-09T03:00",
-          "v": 12.1
-        },
-        {
-          "t": "2026-11-09T04:00",
-          "v": 12.2
-        },
-        {
-          "t": "2026-11-09T05:00",
+          "t": "2026-11-10T01:00",
           "v": 11.4
         },
         {
-          "t": "2026-11-09T06:00",
-          "v": 11.3
+          "t": "2026-11-10T02:00",
+          "v": 11.2
         },
         {
-          "t": "2026-11-09T07:00",
-          "v": 11.2
+          "t": "2026-11-10T03:00",
+          "v": 10.4
+        },
+        {
+          "t": "2026-11-10T04:00",
+          "v": 9.7
+        },
+        {
+          "t": "2026-11-10T05:00",
+          "v": 9.3
+        },
+        {
+          "t": "2026-11-10T06:00",
+          "v": 9.4
+        },
+        {
+          "t": "2026-11-10T07:00",
+          "v": 8.7
         }
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-11-10T23:26:00Z"
+      "ts": "2026-11-11T05:26:48Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -106,56 +106,56 @@
       "items": [
         {
           "mag": 4.9,
-          "place": "south of the Fiji Islands",
-          "time": 1794267926548,
+          "place": "207 km NW of Port-Olry, Vanuatu",
+          "time": 1794340458279,
           "source": "usgs"
         },
         {
-          "mag": 4.9,
-          "place": "South Sandwich Islands region",
-          "time": 1794267612931,
+          "mag": 2.9,
+          "place": "74 km WNW of Petersville, Alaska",
+          "time": 1794332547915,
           "source": "usgs"
         },
         {
-          "mag": 2.76,
-          "place": "21 km W of Preston, Nevada",
-          "time": 1794265018999,
+          "mag": 5.2,
+          "place": "21 km WNW of Popondetta, Papua New Guinea",
+          "time": 1794332209391,
           "source": "usgs"
         },
         {
-          "mag": 4.7,
-          "place": "103 km W of Attu Station, Alaska",
-          "time": 1794261787482,
+          "mag": 5.2,
+          "place": "Mid-Indian Ridge",
+          "time": 1794332188861,
           "source": "usgs"
         },
         {
-          "mag": 4.3,
-          "place": "78 km NW of Pante Makasar, Timor Leste",
-          "time": 1794258395674,
+          "mag": 2.7,
+          "place": "9 km WNW of Kalifornsky, Alaska",
+          "time": 1794328264149,
           "source": "usgs"
         },
         {
-          "mag": 3.3,
-          "place": "76 km WNW of Petersville, Alaska",
-          "time": 1794256578548,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.6,
-          "place": "11 km WNW of Hilltop, Texas",
-          "time": 1794255996527,
+          "mag": 2.74,
+          "place": "1 km N of Lake Davis, CA",
+          "time": 1794327380850,
           "source": "usgs"
         },
         {
           "mag": 4.8,
-          "place": "149 km NW of Port-Olry, Vanuatu",
-          "time": 1794252474236,
+          "place": "20 km SSW of Lata, Solomon Islands",
+          "time": 1794325975256,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.2,
+          "place": "140 km ESE of Labuha, Indonesia",
+          "time": 1794325895737,
           "source": "usgs"
         }
       ],
       "live": true,
-      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-03&endtime=2026-11-10&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-11-10T23:26:00Z"
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-04&endtime=2026-11-11&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-11-11T05:26:48Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.66552734375,
-          "disk_free_percent": 60.250280574241415,
+          "load1": 0.673828125,
+          "disk_free_percent": 60.24982074643689,
           "process_count": 160,
-          "uptime_hours": 0.21876666666666666,
+          "uptime_hours": 0.2067,
           "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
           "node": "runnervmwuk1x",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.66552734375,
+      "latest_load1": 0.673828125,
       "live": true,
-      "ts": "2026-11-10T23:26:00Z"
+      "ts": "2026-11-11T05:26:48Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 5.427754999914214,
-      "mean_ms": 6.304186499988873,
+      "latest_ms": 5.6781770000498,
+      "mean_ms": 5.366786500019316,
       "items": [
         {
           "probe": 0,
-          "ms": 7.963138000036452
+          "ms": 5.162541999993664
         },
         {
           "probe": 1,
-          "ms": 6.057163999912518
+          "ms": 4.9412690000281145
         },
         {
           "probe": 2,
-          "ms": 5.768689000092309
+          "ms": 5.685158000005686
         },
         {
           "probe": 3,
-          "ms": 5.427754999914214
+          "ms": 5.6781770000498
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-11-10T23:26:00Z"
+      "ts": "2026-11-11T05:26:48Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.66552734375 tcp_probe mean_ms=6.304186499988873 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.673828125 tcp_probe mean_ms=5.366786500019316 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.66552734375,
-        "probe_ms": 6.304186499988873,
+        "load1": 0.673828125,
+        "probe_ms": 5.366786500019316,
         "probe_ok": true
       },
       "domains": [
