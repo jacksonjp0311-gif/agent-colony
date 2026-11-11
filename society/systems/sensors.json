@@ -1,13 +1,13 @@
 {
-  "ts": "2026-11-11T11:26:56Z",
-  "cycle_id": "20261111T112630Z_36d506",
+  "ts": "2026-11-11T17:24:54Z",
+  "cycle_id": "20261111T172427Z_eab1c5",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 90,
+      "vandermonde": 93,
       "authored_frontier_divides_x9835949a_w1": 3,
       "authored_frontier_cong_xd9add9e9_w1": 2,
       "lemma_hard_combinatorics": 2,
@@ -21,13 +21,6 @@
       "authored_frontier_divides_x0f0ed051_w3": 1
     },
     "recent": {
-      "authored_sieve_two_counter_g4_2_6_w2": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_frontier_le_x1c0eba57_w3": {
         "last": "keep",
         "streak": 1,
@@ -104,56 +97,62 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "authored_frontier_le_x423b0686_w1": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8573,
-      "slope": 0.002863,
-      "min": 0.8293,
-      "max": 0.8602
+      "last": 0.8615,
+      "slope": 0.001193,
+      "min": 0.8424,
+      "max": 0.8628
     },
     "novelty": {
-      "last": 0.6667,
-      "slope": 0.015737,
-      "min": 0.5,
-      "max": 0.6667
+      "last": 0.75,
+      "slope": 0.007864,
+      "min": 0.6667,
+      "max": 0.75
     },
     "kill_rate": {
-      "last": 0.3763,
-      "slope": 0.000747,
-      "min": 0.3681,
-      "max": 0.3763
+      "last": 0.3781,
+      "slope": 0.0007,
+      "min": 0.3704,
+      "max": 0.3781
     },
     "kill_rate_term": {
-      "last": 0.8887,
-      "slope": 0.000671,
-      "min": 0.8813,
-      "max": 0.8887
+      "last": 0.8903,
+      "slope": 0.000632,
+      "min": 0.8833,
+      "max": 0.8903
     },
     "lesson_uptake": {
       "last": 0.96,
-      "slope": 0.04028,
-      "min": 0.56,
+      "slope": 0.017832,
+      "min": 0.66,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0029,
-    "novelty_max": 0.6667,
+    "aggregate_range": 0.0055,
+    "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 171,
+    "enabled": 172,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_frontier_divides_x9835949a_w1",
-      "authored_frontier_le_x423b0686_w1"
+      "authored_frontier_divides_x9835949a_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -258,7 +257,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 10
+    "exhausted_recent": 9
   },
   "guides": {
     "n_guides": 17,
@@ -272,23 +271,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.431,
+      "ratio": 1.311,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.419,
+      "ratio": 1.302,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.383,
+      "ratio": 1.294,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.409,
+      "ratio": 1.316,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.262,
+      "ratio": 1.221,
       "drift": false
     }
   },
@@ -297,10 +296,10 @@
     "verified": {
       "goldbach_even": 260434115,
       "collatz_descent": 297400000,
-      "legendre_square_gap": 1532607,
-      "lehmer_totient": 131800001,
+      "legendre_square_gap": 1548607,
+      "lehmer_totient": 133400001,
       "erdos_straus": 1069127,
-      "twin_primes_hl": 370200000,
+      "twin_primes_hl": 374200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -312,20 +311,20 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4635,
+        "challenged": 4631,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 275,
+        "challenged": 276,
         "blocked": 0
       },
       "claim": {
-        "challenged": 90,
+        "challenged": 93,
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.3278,
-    "post_challenger_oracle_judged": 360,
+    "post_challenger_oracle_kill_rate": 0.3324,
+    "post_challenger_oracle_judged": 364,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -354,29 +353,29 @@
     "last": [
       [
         null,
+        "2026-11-11T17:12:34Z"
+      ],
+      [
+        "success",
+        "2026-11-11T15:15:00Z"
+      ],
+      [
+        "success",
         "2026-11-11T11:16:14Z"
-      ],
-      [
-        "success",
-        "2026-11-11T06:47:52Z"
-      ],
-      [
-        "success",
-        "2026-11-11T05:15:40Z"
       ]
     ],
-    "fetched_at": "2026-11-11T11:17:11Z"
+    "fetched_at": "2026-11-11T17:14:40Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 231,
+      "arxiv": 237,
       "oeis": 5,
       "crossref": 109,
       "wikipedia": 18,
       "oeis_conj": 216
     },
     "by_kind": {
-      "paper": 340,
+      "paper": 346,
       "sequence": 5,
       "summary": 18,
       "conj_sequence": 216
@@ -386,7 +385,7 @@
         "arxiv": {
           "error": "",
           "fetched": 8,
-          "new": 2,
+          "new": 6,
           "ok": true
         },
         "ci_health": {
@@ -395,7 +394,7 @@
         },
         "crossref": {
           "error": "",
-          "fetched": 5,
+          "fetched": 1,
           "new": 0,
           "ok": true
         },
@@ -407,7 +406,7 @@
         },
         "oeis_conj": {
           "error": "",
-          "fetched": 0,
+          "fetched": 8,
           "new": 0,
           "ok": true
         },
@@ -418,28 +417,28 @@
           "ok": true
         }
       },
-      "ts": "2026-11-11T11:17:02Z"
+      "ts": "2026-11-11T17:14:32Z"
     },
     "health": {
       "arxiv": {
         "fail": 9,
-        "ok": 70
+        "ok": 71
       },
       "crossref": {
         "fail": 0,
-        "ok": 73
+        "ok": 74
       },
       "oeis": {
         "fail": 0,
-        "ok": 73
+        "ok": 74
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 69
+        "ok": 70
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 73
+        "ok": 74
       }
     }
   },

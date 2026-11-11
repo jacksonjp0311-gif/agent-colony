@@ -2,16 +2,16 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-11-11T11:29:45Z",
-    "cycle_id": "20261111T112630Z_36d506",
+    "ts": "2026-11-11T17:27:38Z",
+    "cycle_id": "20261111T172427Z_eab1c5",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
       "strength": 0.5,
       "K_PRIOR": 0.10921
     },
-    "n_meet_bar_actual": 33,
-    "n_meet_bar_shadow": 15,
+    "n_meet_bar_actual": 34,
+    "n_meet_bar_shadow": 16,
     "n_unknown_claims": 35,
     "unknown_targets": [
       "authored_frontier_cong_x06b60875_w1",
@@ -87,22 +87,22 @@
         "expected": 0.0
       },
       {
-        "id": "imp_8790f7_50",
-        "target": "authored_frontier_cong_x29d14f44_w1",
-        "actual_pos": 10,
+        "id": "imp_36d506_50",
+        "target": "authored_frontier_le_x423b0686_w1",
+        "actual_pos": 9,
         "shadow_pos": 3,
         "meets_bar_shadow": true,
-        "rank": 0.7264,
-        "rank_shadow": 0.7264,
-        "P": 0.8774,
-        "P_shadow": 0.8774,
+        "rank": 0.727,
+        "rank_shadow": 0.727,
+        "P": 0.8784,
+        "P_shadow": 0.8784,
         "unknown": true,
         "building_block": null,
         "expected": 0.0
       },
       {
-        "id": "imp_dbe023_50",
-        "target": "authored_frontier_cong_x2f9c7891_w1",
+        "id": "imp_8790f7_50",
+        "target": "authored_frontier_cong_x29d14f44_w1",
         "actual_pos": 11,
         "shadow_pos": 4,
         "meets_bar_shadow": true,
@@ -115,10 +115,24 @@
         "expected": 0.0
       },
       {
-        "id": "imp_8e7529_50",
-        "target": "authored_frontier_cong_x4bb20589_w1",
+        "id": "imp_dbe023_50",
+        "target": "authored_frontier_cong_x2f9c7891_w1",
         "actual_pos": 12,
         "shadow_pos": 5,
+        "meets_bar_shadow": true,
+        "rank": 0.7264,
+        "rank_shadow": 0.7264,
+        "P": 0.8774,
+        "P_shadow": 0.8774,
+        "unknown": true,
+        "building_block": null,
+        "expected": 0.0
+      },
+      {
+        "id": "imp_8e7529_50",
+        "target": "authored_frontier_cong_x4bb20589_w1",
+        "actual_pos": 13,
+        "shadow_pos": 6,
         "meets_bar_shadow": true,
         "rank": 0.7263,
         "rank_shadow": 0.7263,
@@ -131,8 +145,8 @@
       {
         "id": "imp_62a316_50",
         "target": "authored_newdata_a047160_k10001_w1",
-        "actual_pos": 14,
-        "shadow_pos": 6,
+        "actual_pos": 15,
+        "shadow_pos": 7,
         "meets_bar_shadow": true,
         "rank": 0.7258,
         "rank_shadow": 0.7258,
@@ -145,8 +159,8 @@
       {
         "id": "imp_ff0c00_50",
         "target": "authored_frontier_divides_x97939198_w1",
-        "actual_pos": 16,
-        "shadow_pos": 7,
+        "actual_pos": 17,
+        "shadow_pos": 8,
         "meets_bar_shadow": true,
         "rank": 0.7258,
         "rank_shadow": 0.7258,
@@ -159,8 +173,8 @@
       {
         "id": "imp_925ac5_50",
         "target": "authored_newdata_a006577_k10001_w1",
-        "actual_pos": 19,
-        "shadow_pos": 8,
+        "actual_pos": 20,
+        "shadow_pos": 9,
         "meets_bar_shadow": true,
         "rank": 0.7252,
         "rank_shadow": 0.7252,
@@ -173,21 +187,7 @@
       {
         "id": "imp_022700_50",
         "target": "authored_newdata_a006666_k10001_w1",
-        "actual_pos": 22,
-        "shadow_pos": 9,
-        "meets_bar_shadow": true,
-        "rank": 0.695,
-        "rank_shadow": 0.695,
-        "P": 0.825,
-        "P_shadow": 0.825,
-        "unknown": true,
-        "building_block": null,
-        "expected": 0.0
-      },
-      {
-        "id": "imp_18d1e0_50",
-        "target": "authored_frontier_cong_xbb82919e_w1",
-        "actual_pos": 24,
+        "actual_pos": 23,
         "shadow_pos": 10,
         "meets_bar_shadow": true,
         "rank": 0.695,
@@ -200,57 +200,12 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 2,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "history": [
-    {
-      "ts": "2026-11-09T23:13:50Z",
-      "cycle_id": "20261109T231031Z_866e3c",
-      "n_meet_bar_actual": 32,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 33,
-      "drop_out_of_bar": 18,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 2,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-11-09T23:16:44Z",
-      "cycle_id": "20261109T231353Z_638f0e",
-      "n_meet_bar_actual": 32,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 33,
-      "drop_out_of_bar": 18,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 2,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-11-09T23:19:15Z",
-      "cycle_id": "20261109T231647Z_92a80e",
-      "n_meet_bar_actual": 32,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 33,
-      "drop_out_of_bar": 18,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 2,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-11-10T05:13:37Z",
       "cycle_id": "20261110T051000Z_b78642",
@@ -652,6 +607,51 @@
       "guidance_mode": "live",
       "near_misses": {
         "oracle_rows": 2,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-11-11T17:21:10Z",
+      "cycle_id": "20261111T171723Z_c5b53d",
+      "n_meet_bar_actual": 34,
+      "n_meet_bar_shadow": 16,
+      "n_unknown_claims": 35,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-11-11T17:24:23Z",
+      "cycle_id": "20261111T172113Z_82a0a2",
+      "n_meet_bar_actual": 34,
+      "n_meet_bar_shadow": 16,
+      "n_unknown_claims": 35,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-11-11T17:27:38Z",
+      "cycle_id": "20261111T172427Z_eab1c5",
+      "n_meet_bar_actual": 34,
+      "n_meet_bar_shadow": 16,
+      "n_unknown_claims": 35,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 1,
         "shifted_window_failures": 0,
         "single_reason_kills": 0
       }

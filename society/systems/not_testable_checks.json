@@ -1,5 +1,5 @@
 {
- "n": 57,
+ "n": 58,
  "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
  "records": {
   "059a3953478af636:w1": {
@@ -141,6 +141,16 @@
    "lo": 900,
    "reason": "no_data_headroom",
    "statement": "D(gcd(oxa177115,oxa177122))(n) = 0 (mod 2) for all n >= 1"
+  },
+  "423b0686caaaa734:w2": {
+   "authored_hi": 954,
+   "check": "authored_frontier_le_x423b0686_w2",
+   "data_end": 1272,
+   "holdback": 318,
+   "kind": "le",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "D(oxa213536)(n) <= gpf[oxa213536](n) for all n >= 1 (with equality at some n)"
   },
   "4bb20589ac71b085:w2": {
    "authored_hi": 752,
