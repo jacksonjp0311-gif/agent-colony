@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "updated_at": "2026-11-11T06:57:15Z",
-  "hits": 2,
+  "updated_at": "2026-11-11T11:28:07Z",
+  "hits": 3,
   "kills": 1,
   "rows": 30,
-  "kill_rows": 28,
+  "kill_rows": 27,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-11T06:57:15Z",
-    "cycle_id": "20261111T065604Z_94f781",
+    "ts": "2026-11-11T11:28:07Z",
+    "cycle_id": "20261111T112630Z_36d506",
     "mutation": "vandermonde",
     "kind": "claim_theme",
     "novel_to_commons": false,
@@ -25,16 +25,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": false,
-      "hard_pass": 161,
-      "hard_n": 161,
+      "hard_pass": 162,
+      "hard_n": 162,
       "stripped_fails_usefulness": false,
-      "score": 0.8822,
+      "score": 0.8733,
       "impl_id": "lemma_impl_v2_basic10_hard161"
     },
     "held_out": {
       "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 161,
+      "hard_pass": 162,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."

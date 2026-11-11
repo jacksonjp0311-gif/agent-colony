@@ -14,7 +14,7 @@
    2
   ],
   "le": [
-   13,
+   14,
    3
   ],
   "modpat": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   41,
-   36
+   40,
+   35
   ]
  },
  "mode": "live",
- "n_authored": 23,
+ "n_authored": 24,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 81,
+ "n_proved": 80,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -1140,6 +1140,18 @@
    "check": "authored_frontier_cong_xdbe366da_w1",
    "checks": 122,
    "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
+  "D(oxa213536)(n) <= gpf[oxa213536](n) for all n >= 1 (with equality at some n)": {
+   "authored": true,
+   "certificate": null,
+   "check": "authored_frontier_le_x423b0686_w1",
+   "checks": 988,
+   "kind": "le",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
@@ -5595,175 +5607,6 @@
     "method": "closed form (sympy)"
    },
    "check": "authored_frontier_rec_xbf237d04_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (pell+pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(pell+pell)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,0": 2
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pell+pell)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,1": 2
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pell+pell)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,2": 2
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x58f68a83_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -12784,6 +12627,6 @@
    "v": 3
   }
  },
- "seconds": 0.02,
- "ts": "2026-11-11T06:58:04Z"
+ "seconds": 0.03,
+ "ts": "2026-11-11T11:28:56Z"
 }

@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-11-11 01:58 AM ET
+# Proposal shortlist — 2026-11-11 06:29 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-33 of 146 proposals meet the authorize bar (24 after grouping near-duplicates; 24 colony-authored, 0 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+33 of 147 proposals meet the authorize bar (24 after grouping near-duplicates; 24 colony-authored, 0 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -25,7 +25,7 @@ None this cycle.
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 15 (actual 33). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 34 (0 with OEIS unchecked). Would drop out of the bar: 18; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 15 (actual 33). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 35 (0 with OEIS unchecked). Would drop out of the bar: 18; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
@@ -40,14 +40,14 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 15 (actual 33). Unknown clai
 | 9 | imp_022700_50 | `authored_newdata_a006666_k10001_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 22 |
 | 10 | imp_18d1e0_50 | `authored_frontier_cong_xbb82919e_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 24 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 17, novelty_killed: 19, oracle_killed_in_own_cycle: 8, status: 89, target_unresolved: 86
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 17, novelty_killed: 19, oracle_killed_in_own_cycle: 8, status: 90, target_unresolved: 86
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 18 tested, 10 survived held-out, 8 falsified, 5 machine-checked, 0 surprises; dropped 38 duplicates, 88 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1614.
-Totals: tested 4871, survived 2194, surprises 98, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 3 with no reference found.
+Mode `live`. Last cycle: 15 tested, 6 survived held-out, 9 falsified, 2 machine-checked, 0 surprises; dropped 37 duplicates, 133 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.161.
+Totals: tested 4926, survived 2213, surprises 99, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
