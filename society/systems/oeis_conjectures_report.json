@@ -2,662 +2,6 @@
  "runs": [
   {
    "mode": "live",
-   "cycle": "20261112T051441Z_9b77c0",
-   "at": "2026-11-12T05:18:03Z",
-   "menu_size": 64,
-   "purpose": "",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    },
-    {
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "form": "property",
-     "text": "Conjecture: all terms are positive."
-    },
-    {
-     "id": "oc_A108629_0",
-     "anum": "A108629",
-     "form": "relation",
-     "text": "Conjecture D-finite with recurrence: n*a(n) = (n-3)*a(n-1) +4*(n-3)*a(n-2) +3*(3*n-10)*a(n-3) +(7*n-27)*a(n-4) +2*(2*n-9)*a(n-5). - _R. J. Mathar_, Jan 24 2020"
-    },
-    {
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "form": "relation",
-     "text": "Conjecture: a(n) = A144677(n) + A144677(n-2). - _R. J. Mathar_, Mar 15 2011"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "tested": 44,
-     "range": [
-      2,
-      45
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 44,
-     "bfile_hi": 45,
-     "data_hi": 45,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A108629_0",
-     "anum": "A108629",
-     "status": "proved_checked",
-     "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity and is checked directly on 1..5",
-     "cert": {
-      "type": "holonomic_identity",
-      "definition": {
-       "kind": "alg",
-       "expr": "(1+x-sqrt(1-2*x-3*x^2-4*x^3))/(2+2*x+2*x^2)"
-      },
-      "offset": 1,
-      "claim": {
-       "form": "relation",
-       "parts": [
-        "n*a(n)",
-        "(n-3)*a(n-1)+4*(n-3)*a(n-2)+3*(3*n-10)*a(n-3)+(7*n-27)*a(n-4)+2*(2*n-9)*a(n-5)"
-       ],
-       "rels": [
-        "="
-       ],
-       "mod": null,
-       "n0": null
-      },
-      "anum": "A108629",
-      "def_text": "Expansion of g.f.: (1+x - sqrt(1-2*x-3*x^2-4*x^3))/(2+2*x+2*x^2)."
-     },
-     "credit": 1.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "tested": 999,
-     "range": [
-      2,
-      1000
-     ],
-     "deep_terms": 1202,
-     "bfile_terms": 1001,
-     "bfile_hi": 1000,
-     "data_hi": 49,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T051828Z_199db7",
-   "at": "2026-11-12T05:19:35Z",
-   "menu_size": 64,
-   "purpose": "zero_credit_family",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T051828Z_199db7",
-   "at": "2026-11-12T05:20:09Z",
-   "menu_size": 64,
-   "purpose": "zero_credit_family",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T051828Z_199db7",
-   "at": "2026-11-12T05:21:13Z",
-   "menu_size": 64,
-   "purpose": "",
-   "chosen": [
-    {
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "form": "property",
-     "text": "Conjecture: all terms are positive."
-    },
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    },
-    {
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "form": "relation",
-     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
-    },
-    {
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "form": "relation",
-     "text": "Conjecture: a(n) = A144677(n) + A144677(n-2). - _R. J. Mathar_, Mar 15 2011"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "tested": 44,
-     "range": [
-      2,
-      45
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 44,
-     "bfile_hi": 45,
-     "data_hi": 45,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "tested": 31,
-     "range": [
-      0,
-      30
-     ],
-     "deep_terms": 1202,
-     "bfile_terms": 20,
-     "bfile_hi": 19,
-     "data_hi": 19,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A006501_0",
-     "anum": "A006501",
-     "tested": 999,
-     "range": [
-      2,
-      1000
-     ],
-     "deep_terms": 1202,
-     "bfile_terms": 1001,
-     "bfile_hi": 1000,
-     "data_hi": 49,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T052138Z_90c03b",
-   "at": "2026-11-12T05:22:47Z",
-   "menu_size": 64,
-   "purpose": "zero_credit_family",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T052138Z_90c03b",
-   "at": "2026-11-12T05:23:22Z",
-   "menu_size": 64,
-   "purpose": "zero_credit_family",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T052138Z_90c03b",
-   "at": "2026-11-12T05:24:04Z",
-   "menu_size": 64,
-   "purpose": "",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    },
-    {
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "form": "property",
-     "text": "Conjecture: all terms are positive."
-    },
-    {
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "form": "relation",
-     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
-    },
-    {
-     "id": "oc_A026772_0",
-     "anum": "A026772",
-     "form": "relation",
-     "text": "Conjecture D-finite with recurrence +n*(683440564498775*n-3571267774541221)*(n+3)*(n+2)*a(n) -(n+2)*(14680943042715007*n^3 -77306402200099276*n^2 -16510019027854595*n +32930242824559728)*a(n-1) +(115576812096278739*n^4 -727966310087371570*n^3 +337449371031094809*n^2 +647464064695228030*n -329302428245597280)*a(n-2) +(-346716352496404327*n^4 +3103154468191226534*n^3 -7064840562647596109*n^2 +5446737046090126798*n -1580651655578866944)*a(n-3) +(-254358906902769779*n^4 +5220327857917926494*n^3 -35539506928992363997*n^2 +87091315541398186522*n -59916163930294990824)*a(n-4) +(4096127756151299723*n^4 -75037442829872206910*n^3 +502301501960009575069*n^2 -1440579074098159574434*n +1469340925940446228608)*a(n-5) +(-9245640254696084879*n^4 +200559435809555913066*n^3 -1613433648622480143829*n^2 +5696178287053438445634*n -7425674215347839990712)*a(n-6) +(7520597900530912203*n^4 -191405326508832207718*n^3 +1814954924843492047041*n^2 -7605473927193409984358*n +11895887009351293007160)*a(n-7) +4*(-461380856200630754*n^4 +13108517874955450215*n^3 -137711835536290769230*n^2 +633868893726787892361*n -1077896915936680091760)*a(n-8) +4*(n-10)*(8653064513346403*n -44432714618958651)*(2*n-13)*(2*n-19)*a(n-9)=0. - _R. J. Mathar_, Jun 30 2026"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A229019_0",
-     "anum": "A229019",
-     "tested": 44,
-     "range": [
-      2,
-      45
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 44,
-     "bfile_hi": 45,
-     "data_hi": 45,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_prove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "status": "proof_rejected",
-     "checker": "a side is outside the C-finite class",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A108476_0",
-     "anum": "A108476",
-     "tested": 31,
-     "range": [
-      0,
-      30
-     ],
-     "deep_terms": 1202,
-     "bfile_terms": 20,
-     "bfile_hi": 19,
-     "data_hi": 19,
-     "status": "holds_on_range",
-     "deep_mode": "exact",
-     "deep_hi": null,
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A026772_0",
-     "anum": "A026772",
-     "tested": 189,
-     "range": [
-      11,
-      199
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 198,
-     "bfile_hi": 500,
-     "data_hi": 22,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T072932Z_7a006a",
-   "at": "2026-11-12T07:31:11Z",
-   "menu_size": 64,
-   "purpose": "zero_credit_family",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261112T072932Z_7a006a",
-   "at": "2026-11-12T07:31:34Z",
-   "menu_size": 64,
-   "purpose": "zero_credit_family",
-   "chosen": [
-    {
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165064_0",
-     "anum": "A165064",
-     "tested": 100,
-     "range": [
-      1,
-      100
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 100,
-     "bfile_hi": 100,
-     "data_hi": 64,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 25,
-    "counterexamples_verified": 0,
-    "proofs_checked": 23,
-    "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
    "cycle": "20261112T072932Z_7a006a",
    "at": "2026-11-12T07:32:13Z",
    "menu_size": 64,
@@ -1794,6 +1138,659 @@
      "bfile_terms": 100,
      "bfile_hi": 100,
      "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "tested": 31,
+     "range": [
+      0,
+      30
+     ],
+     "deep_terms": 1202,
+     "bfile_terms": 20,
+     "bfile_hi": 19,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "tested": 169,
+     "range": [
+      0,
+      168
+     ],
+     "deep_terms": 1202,
+     "bfile_terms": 158,
+     "bfile_hi": 1000,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T171808Z_8e4369",
+   "at": "2026-11-12T17:19:56Z",
+   "menu_size": 64,
+   "purpose": "zero_credit_family",
+   "chosen": [
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "form": "gf",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T171808Z_8e4369",
+   "at": "2026-11-12T17:20:19Z",
+   "menu_size": 64,
+   "purpose": "zero_credit_family",
+   "chosen": [
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "form": "gf",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T171808Z_8e4369",
+   "at": "2026-11-12T17:21:21Z",
+   "menu_size": 64,
+   "purpose": "",
+   "chosen": [
+    {
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "form": "property",
+     "text": "Conjecture: all terms are positive."
+    },
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "form": "gf",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    },
+    {
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "form": "relation",
+     "text": "Conjecture: a(n) = A144677(n) + A144677(n-2). - _R. J. Mathar_, Mar 15 2011"
+    },
+    {
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "form": "relation",
+     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "tested": 44,
+     "range": [
+      2,
+      45
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 44,
+     "bfile_hi": 45,
+     "data_hi": 45,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "tested": 999,
+     "range": [
+      2,
+      1000
+     ],
+     "deep_terms": 1202,
+     "bfile_terms": 1001,
+     "bfile_hi": 1000,
+     "data_hi": 49,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "tested": 31,
+     "range": [
+      0,
+      30
+     ],
+     "deep_terms": 1202,
+     "bfile_terms": 20,
+     "bfile_hi": 19,
+     "data_hi": 19,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T172155Z_ef110a",
+   "at": "2026-11-12T17:23:20Z",
+   "menu_size": 64,
+   "purpose": "zero_credit_family",
+   "chosen": [
+    {
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "form": "property",
+     "text": "Conjecture: all terms are positive."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "tested": 44,
+     "range": [
+      2,
+      45
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 44,
+     "bfile_hi": 45,
+     "data_hi": 45,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T172155Z_ef110a",
+   "at": "2026-11-12T17:23:44Z",
+   "menu_size": 64,
+   "purpose": "zero_credit_family",
+   "chosen": [
+    {
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "form": "property",
+     "text": "Conjecture: all terms are positive."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "tested": 44,
+     "range": [
+      2,
+      45
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 44,
+     "bfile_hi": 45,
+     "data_hi": 45,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T172155Z_ef110a",
+   "at": "2026-11-12T17:24:41Z",
+   "menu_size": 64,
+   "purpose": "",
+   "chosen": [
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "form": "gf",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    },
+    {
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "form": "property",
+     "text": "Conjecture: all terms are positive."
+    },
+    {
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "form": "relation",
+     "text": "Conjecture: a(n) = A144677(n) + A144677(n-2). - _R. J. Mathar_, Mar 15 2011"
+    },
+    {
+     "id": "oc_A027174_0",
+     "anum": "A027174",
+     "form": "relation",
+     "text": "Conjecture: D-finite with recurrence -2*(n+3)*(139*n-175)*a(n) +(1279*n^2+1334*n-1089)*a(n-1) -2*(167*n+121)*(2*n-3)*a(n-2) +12*(111*n^2+456*n+229)=0. - _R. J. Mathar_, May 06 2026"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "tested": 44,
+     "range": [
+      2,
+      45
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 44,
+     "bfile_hi": 45,
+     "data_hi": 45,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "status": "proof_rejected",
+     "checker": "a side is outside the C-finite class",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A006501_0",
+     "anum": "A006501",
+     "tested": 999,
+     "range": [
+      2,
+      1000
+     ],
+     "deep_terms": 1202,
+     "bfile_terms": 1001,
+     "bfile_hi": 1000,
+     "data_hi": 49,
+     "status": "holds_on_range",
+     "deep_mode": "exact",
+     "deep_hi": null,
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A027174_0",
+     "anum": "A027174",
+     "tested": 246,
+     "range": [
+      4,
+      249
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 248,
+     "bfile_hi": 1600,
+     "data_hi": 26,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T172513Z_6f0b18",
+   "at": "2026-11-12T17:26:39Z",
+   "menu_size": 64,
+   "purpose": "zero_credit_family",
+   "chosen": [
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "form": "gf",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T172513Z_6f0b18",
+   "at": "2026-11-12T17:27:08Z",
+   "menu_size": 64,
+   "purpose": "zero_credit_family",
+   "chosen": [
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "form": "gf",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 25,
+    "counterexamples_verified": 0,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261112T172513Z_6f0b18",
+   "at": "2026-11-12T17:27:43Z",
+   "menu_size": 64,
+   "purpose": "",
+   "chosen": [
+    {
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "form": "gf",
+     "text": "G.f.: x*(1 + x + 2*x^5 - 2*x^7 - 3*x^8 - 3*x^9 - x^10 + 2*x^11 + 4*x^12 + 4*x^13 + 4*x^14 + x^15 - 3*x^16 - 3*x^17 - 2*x^18 - x^19 + x^21 + x^22) / ((1 - x)^4*(1 + x)^3*(1 + x^2)*(1 + x + x^2)*(1 + x + x^2 + x^3 + x^4)) (conjectured). - _Colin Barker_, Jun 01 2017"
+    },
+    {
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "form": "property",
+     "text": "Conjecture: all terms are positive."
+    },
+    {
+     "id": "oc_A108476_0",
+     "anum": "A108476",
+     "form": "relation",
+     "text": "Conjecture: a(n) = A002605(n+1)*A026150(n). - _R. J. Mathar_, Jul 08 2009"
+    },
+    {
+     "id": "oc_A108475_0",
+     "anum": "A108475",
+     "form": "relation",
+     "text": "Conjecture: a(n) = A000129(n+1)*A001333(n). - _R. J. Mathar_, Jul 08 2009"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A165064_0",
+     "anum": "A165064",
+     "tested": 100,
+     "range": [
+      1,
+      100
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 100,
+     "bfile_hi": 100,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A229019_0",
+     "anum": "A229019",
+     "tested": 44,
+     "range": [
+      2,
+      45
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 44,
+     "bfile_hi": 45,
+     "data_hi": 45,
      "status": "holds_on_range",
      "extended": 0,
      "credit": 0.0
