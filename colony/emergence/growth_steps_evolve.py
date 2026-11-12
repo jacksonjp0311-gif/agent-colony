@@ -350,6 +350,18 @@ class GrowthSteps3:
                 cite_ev = []
         if not dedupe_specs_this_cycle(g, [{"title": title, "action": action}]):
             return  # same proposal (fingerprint) already made this cycle by _debate_then_propose
+        try:
+            from colony.stall import recovery_skips
+            _stall_skip = recovery_skips(action) or recovery_skips(title)
+        except Exception:
+            _stall_skip = False
+        if _stall_skip:
+            try:
+                from colony.oeis_conjectures import idle_turn
+                idle_turn(cycle_id or "recovery")
+            except Exception:
+                pass
+            return
         verdict, rationale = hearing_score_proposal(
             title=title,
             hypothesis=hypothesis,

@@ -156,6 +156,26 @@ def propose_pilot(
     body = dict(body or {})
     # Phase 4: refuse empty rsi_bias pilots
     if kind_s == "rsi_bias" and not any(body.get(k) for k in ("skill_bias", "mutation_bias", "routes_snapshot")):
+        in_recovery = False
+        try:
+            from colony.stall import assess_recovery, load_oracle_rows
+            in_recovery = bool(assess_recovery(load_oracle_rows()).get("on"))
+        except Exception:
+            in_recovery = False
+        if in_recovery:
+            # The empty pilot is skipped. Its turn goes to OEIS. No suppression lesson.
+            try:
+                from colony.oeis_conjectures import idle_turn
+                idle_turn(cycle_id or "recovery_pilot")
+            except Exception:
+                pass
+            return {
+                "id": None,
+                "status": "suppressed",
+                "reason": "empty_rsi_bias_recovery",
+                "kind": kind_s,
+                "note": "empty rsi_bias pilot skipped in recovery; turn given to OEIS",
+            }
         try:
             from colony.lessons import write_lesson
             write_lesson(

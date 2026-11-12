@@ -285,6 +285,7 @@ def propose_checked(
         saturated_themes = saturated_claim_theme_windows()
     except Exception:
         saturated_themes = {}
+    recovery_freed = False
     for c in claims:
         with CLAIMS_JSONL.open("a", encoding="utf-8") as f:
             f.write(json.dumps(c.to_dict(), ensure_ascii=False) + "\n")
@@ -314,6 +315,16 @@ def propose_checked(
                 c.status = "rejected_raw"
                 c.hard_ok = False
                 c.note = (c.note or "") + " | theme_probe_cooldown:saturated_no_harder_window"
+                continue
+        except Exception:
+            pass
+        try:
+            from colony.stall import recovery_skips
+            if recovery_skips(c.theme_id):
+                recovery_freed = True
+                c.status = "rejected_raw"
+                c.hard_ok = False
+                c.note = (c.note or "") + " | recovery_identical_kills"
                 continue
         except Exception:
             pass
@@ -471,6 +482,12 @@ def propose_checked(
             prop["finding_id"] = fnd.id
             c.status = "proposed"
         proposed.append(prop)
+    if recovery_freed:
+        try:
+            from colony.oeis_conjectures import idle_turn
+            idle_turn(cycle_id or "recovery_theme")
+        except Exception:
+            pass
     _persist_system(claims, proposed, cycle_id=cycle_id)
     return proposed
 

@@ -184,6 +184,12 @@ def pick_mutation(
     fresh_authored = fresh_authored or set()
     recent_reverts = recent_reverts or {}
     cooled: dict[str, str] = {}
+    try:
+        from colony.stall import assess_recovery, identical_kill_streak, load_oracle_rows
+        _stall_rows = load_oracle_rows()
+        _stall_on = bool(assess_recovery(_stall_rows).get("on"))
+    except Exception:
+        _stall_rows, _stall_on = [], False
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
             continue
@@ -192,6 +198,9 @@ def pick_mutation(
         why = cooldown.reason(name)
         if why:
             cooled[name] = why
+            continue
+        if _stall_on and identical_kill_streak(name, _stall_rows):
+            cooled[name] = "recovery_identical_kills"
             continue
         # Short-window retry limit (kept): easy_pad 3, hard 2 recent reverts
         limit = 3 if name.startswith("easy_pad") else 2
