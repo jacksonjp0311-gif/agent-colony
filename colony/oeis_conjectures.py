@@ -1055,10 +1055,12 @@ def _score(state: dict[str, Any], e: dict[str, Any], acts: list[dict[str, Any]])
         if r["status"] == "counterexample_verified":
             sb["counterexamples"][e["id"]] = {"anum": e["anum"], "n": r.get("counterexample_n")}
         elif r["status"] == "proved_checked":
-            routine = (e.get("definition") or {}).get("kind") == "alg"
-            sb["proofs"][e["id"]] = {"anum": e["anum"], "checker": (r.get("checker") or "")[:120],
-                                     # an algebraic g.f. is D-finite by a classical theorem; proving the stated
-                                     # recurrence is a certificate, but the result is known in principle
+            checker = r.get("checker") or ""
+            kind = (e.get("definition") or {}).get("kind")
+            # Algebraic g.f. certificates and C-finite order-bound closures are routine.
+            # Anything else proof_check accepted is counted with them, but not as routine.
+            routine = kind == "alg" or checker.startswith("routine")
+            sb["proofs"][e["id"]] = {"anum": e["anum"], "checker": checker[:120],
                                      "routine": routine}
         elif r.get("action") == "attempt_disprove" and r["status"] == "holds_on_range":
             bh = r.get("bfile_hi") or 0
@@ -1070,6 +1072,22 @@ def _score(state: dict[str, Any], e: dict[str, Any], acts: list[dict[str, Any]])
                     modular = bool(r.get("deep_hi") and r["deep_hi"] > top_exact and "prime" in (r.get("deep_mode") or ""))
                     sb["extensions"][e["id"]] = {"anum": e["anum"], "bfile_hi": bh, "to": top,
                                                  "check": "modular (two primes)" if modular else "exact"}
+
+
+def honest_scoreboard() -> dict[str, Any]:
+    """The selection-layer scoreboard. It is not fitness, not P, and not the Oracle."""
+    state = _load(STATE, {})
+    board = scoreboard(state)
+    board["note"] = "counterexamples, checked proofs, and range extensions only; not fitness"
+    return board
+
+
+def format_honest_scoreboard(board: dict[str, Any] | None = None) -> str:
+    b = board if board is not None else honest_scoreboard()
+    return (f"counterexamples {b.get('counterexamples_verified', 0)}; "
+            f"proofs {b.get('proofs_checked', 0)} "
+            f"({b.get('proofs_routine_known_in_principle', 0)} routine); "
+            f"past published range {b.get('beyond_published_range', 0)}")
 
 
 def scoreboard(state: dict[str, Any]) -> dict[str, Any]:

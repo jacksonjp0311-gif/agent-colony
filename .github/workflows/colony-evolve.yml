@@ -301,11 +301,20 @@ jobs:
               ora = oracle_counts()
           except Exception as e:
               ora = {"error": str(e)}
+          honest = {}
+          honest_line = "unavailable"
+          try:
+              from colony.oeis_conjectures import format_honest_scoreboard, honest_scoreboard
+              honest = honest_scoreboard()
+              honest_line = format_honest_scoreboard(honest)
+          except Exception as e:
+              honest = {"error": str(e)}
           receipt = {
               "when": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
               "mile": "spark3-port",
               "cycle_count": cycle_count,
               "fitness_latest": fit,
+              "honest_scoreboard": honest,
               "bus_metrics": bus,
               "benches": {"ok_all": latest.get("ok_all"), "aggregate_score": latest.get("aggregate_score")},
               "novelty_gate": {"hits": nov.get("hits"), "kills": nov.get("kills")},
@@ -324,6 +333,7 @@ jobs:
               f"- cycle_count: `{cycle_count}`\n"
               f"- benches ok_all: `{latest.get('ok_all')}` score `{latest.get('aggregate_score')}`\n"
               f"- novelty hits/kills: `{nov.get('hits')}` / `{nov.get('kills')}`\n"
+              f"- honest scoreboard: {honest_line}\n"
               f"- debate action_changed: `{deb.get('action_changed')}`\n"
               f"- oracle passes/kills/easy_kills: `{ora.get('passes')}` / `{ora.get('kills')}` / `{ora.get('easy_pad_kills')}`\n"
               "- CI: gather→claim→bench→evolve→lesson→selective authorize P≥0.70→slim push\n"

@@ -23,6 +23,16 @@ def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _honest_scoreboard() -> dict[str, Any]:
+    """Selection-layer counts only. Kept off fitness, P, and the Oracle."""
+    try:
+        from colony.oeis_conjectures import honest_scoreboard
+
+        return honest_scoreboard()
+    except Exception as exc:  # noqa: BLE001
+        return {"error": str(exc)}
+
+
 def _safe_oracle_counts() -> dict[str, Any]:
     try:
         from colony.oracle import counts as oracle_counts
@@ -174,6 +184,7 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
     auth = _authorize_rates()
     return {
         "fitness_latest": fit_latest,
+        "honest_scoreboard": _honest_scoreboard(),
         "fitness_aggregate": (fit_latest or {}).get("aggregate") if isinstance(fit_latest, dict) else None,
         "reply_rate": bus_metrics.get("reply_rate") or (fit_latest or {}).get("comm_reply_rate"),
         "bus_metrics": bus_metrics,

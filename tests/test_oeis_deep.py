@@ -1,5 +1,7 @@
 """Beyond-b-file search, fast evaluators, g.f. guess-and-verify and the honest scoreboard."""
+import json
 from fractions import Fraction
+from pathlib import Path
 
 from colony import oeis_conjectures as OC
 from colony import oeis_deep as D
@@ -123,6 +125,67 @@ def test_deep_counterexample_beyond_bfile_needs_two_paths():
     assert r["status"] == "counterexample_verified"
     assert r["counterexample_n"] == 50000 and r["deep_fail_n"] == 50000
     assert r["fails_B"]
+
+
+def test_honest_scoreboard_marks_routine_and_stays_off_fitness(tmp_path, monkeypatch):
+    st: dict = {}
+    alg = _ent("Conjecture: a(n) = a(n-1) + a(n-2) for n > 1.", eid="algproof")
+    alg["definition"] = {"kind": "alg", "expr": "1/(1-x-x^2)"}
+    OC._score(st, alg, [{"status": "proved_checked", "checker": "algebraic certificate"}])
+    closed = _ent("Conjecture: a(n) = a(n-1) + a(n-2) for n > 1.", eid="cfinite")
+    closed["definition"] = {"kind": "gf"}
+    OC._score(st, closed, [{"status": "proved_checked", "checker": "routine C-finite closure, order bounds"}])
+    other = _ent("Conjecture: a(n) = a(n-1) + a(n-2) for n > 1.", eid="openproof")
+    other["definition"] = {"kind": "rec"}
+    OC._score(st, other, [{"status": "proved_checked", "checker": "recurrence residues"}])
+    ext = _ent("Conjecture: a(n) = a(n-1) + a(n-2) for n > 1.", eid="rangeext")
+    OC._score(st, ext, [{"status": "holds_on_range", "action": "attempt_disprove",
+                         "bfile_hi": 10, "range": [0, 40]}])
+    bad = _ent("Conjecture: a(n) = a(n-1) + a(n-2) for n > 1.", eid="counter")
+    OC._score(st, bad, [{"status": "counterexample_verified", "counterexample_n": 9}])
+    board = OC.scoreboard(st)
+    assert board["counterexamples_verified"] == 1
+    assert board["proofs_checked"] == 3
+    assert board["proofs_routine_known_in_principle"] == 2
+    assert board["beyond_published_range"] == 1
+    assert st["scoreboard"]["proofs"]["openproof"]["routine"] is False
+    assert st["scoreboard"]["proofs"]["algproof"]["routine"] is True
+    line = OC.format_honest_scoreboard(board)
+    assert line == "counterexamples 1; proofs 3 (2 routine); past published range 1"
+    assert "fitness" not in line and "aggregate" not in board
+
+    from colony import dashboard, telemetry
+
+    data = tmp_path / "data"
+    data.mkdir()
+    (tmp_path / "society").mkdir()
+    (data / "society_state.json").write_text(json.dumps({
+        "cycle_count": 3,
+        "fitness_history": [{"cycle_id": "c1", "aggregate": 1.5, "tribute_quality": 1,
+                              "gather_coverage": 1, "build_reuse": 1, "comm_reply_rate": 0.5,
+                              "commons_signal": 0}],
+        "agents": {},
+        "roles": {},
+    }), encoding="utf-8")
+    monkeypatch.setattr(OC, "format_honest_scoreboard", lambda board=None: line)
+    monkeypatch.setattr(OC, "honest_scoreboard", lambda: dict(board, note="not fitness"))
+    dashboard.refresh_dashboard(tmp_path)
+    html = (tmp_path / "society" / "DASHBOARD.html").read_text(encoding="utf-8")
+    summary = (tmp_path / "society" / "WITNESS_SUMMARY.md").read_text(encoding="utf-8")
+    assert "Honest scoreboard" in html and line in html
+    assert "Fitness (latest)" in html and "1.5" in summary
+    assert f"**Honest scoreboard:** {line}" in summary
+    snap = telemetry.gather_internal({"fitness_history": [{"aggregate": 0.2, "cycle_id": "c"}], "agents": {}})
+    assert snap["fitness_aggregate"] == 0.2
+    assert snap["honest_scoreboard"]["counterexamples_verified"] == 1
+    assert snap["honest_scoreboard"]["note"] == "not fitness"
+    assert "counterexamples_verified" not in (snap["fitness_latest"] or {})
+
+    workflow = Path(__file__).resolve().parents[1] / ".github" / "workflows" / "colony-evolve.yml"
+    text = workflow.read_text(encoding="utf-8")
+    assert '"honest_scoreboard": honest' in text
+    assert "honest scoreboard: {honest_line}" in text
+    assert "format_honest_scoreboard" in text
 
 
 def test_deep_extension_true_claim_and_scoreboard():
