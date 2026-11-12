@@ -1,29 +1,39 @@
 {
-  "when": "2026-11-11T23:27:14Z",
+  "when": "2026-11-12T02:59:18Z",
   "mile": "spark3-port",
-  "cycle_count": 834,
+  "cycle_count": 837,
   "fitness_latest": {
-    "ts": "2026-11-11T23:26:19Z",
-    "cycle_id": "20261111T232401Z_5d5fac",
+    "ts": "2026-11-12T02:58:31Z",
+    "cycle_id": "20261112T025642Z_bce687",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8077,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9115,
     "commons_signal": 1.0,
-    "math_prize": 0.8125,
-    "compute_usefulness": 0.9118,
+    "math_prize": 0.8138,
+    "compute_usefulness": 0.9133,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8848,
+    "prize_boost": 0.8859,
     "kill_rate": 0.3832,
     "kill_rate_term": 0.8949,
     "novelty": 0.75,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8622,
+    "aggregate": 0.8615,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345
+  },
+  "honest_scoreboard": {
+    "score": 24,
+    "counterexamples_verified": 0,
+    "proofs_checked": 22,
+    "proofs_routine_known_in_principle": 22,
+    "beyond_published_range": 2,
+    "beyond_exact": 2,
+    "max_depth": 956,
+    "note": "counterexamples, checked proofs, and range extensions only; not fitness"
   },
   "bus_metrics": {
     "reply_rate": 0.9189,
@@ -44,7 +54,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8823
+    "aggregate_score": 0.873
   },
   "novelty_gate": {
     "hits": 3,
@@ -54,7 +64,7 @@
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.9615,
+      "reply_rate": 0.9286,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "reply_quality": 0.9115
@@ -64,7 +74,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261111T232401Z_5d5fac"
+    "cycle_id": "20261112T025642Z_bce687"
   },
   "oracle": {
     "passes": 528,

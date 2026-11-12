@@ -106,3 +106,8 @@ Checker: x-side residual is a polynomial of degree -1 with zero radical part; re
 OEIS text (formula): "Conjecture D-finite with recurrence: n*a(n) +(n)*a(n-1) +3*(-3*n+4)*a(n-2) +3*(-3*n+4)*a(n-3) +20*(n-3)*a(n-4) +20*(n-3)*a(n-5)=0. - _R. J. Mathar_, Jan 23 2020"
 Parsed claim: `{"form": "relation", "parts": ["n*a(n)+(n)*a(n-1)+3*(-3*n+4)*a(n-2)+3*(-3*n+4)*a(n-3)+20*(n-3)*a(n-4)+20*(n-3)*a(n-5)", "0"], "rels": ["="], "mod": null, "n0": null}`
 Checker: x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 5 by the operator identity and is checked directly on 0..4
+
+## A071264 — proved_checked (cycle 20261112T025138Z_1d9061)
+OEIS text (formula): "Conjecture: D-finite with recurrence (n+6) *(8587*n^2 +62958*n +61667) *a(n) +(8587*n^3 -377960*n^2 -2268967*n -1091596) *a(n-1) -2 *(2*n-1) *(42935*n^2 -14497*n -123334) *a(n-2)=0. - _R. J. Mathar_, Dec 10 2015"
+Parsed claim: `{"form": "relation", "parts": ["(n+6)*(8587*n^2+62958*n+61667)*a(n)+(8587*n^3-377960*n^2-2268967*n-1091596)*a(n-1)-2*(2*n-1)*(42935*n^2-14497*n-123334)*a(n-2)", "0"], "rels": ["="], "mod": null, "n0": null}`
+Checker: x-side residual is a polynomial of degree 0 with zero radical part; recurrence holds for n >= 2 by the operator identity and is checked directly on 0..1

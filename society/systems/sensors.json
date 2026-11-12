@@ -1,13 +1,13 @@
 {
-  "ts": "2026-11-11T23:24:27Z",
-  "cycle_id": "20261111T232401Z_5d5fac",
+  "ts": "2026-11-12T02:57:03Z",
+  "cycle_id": "20261112T025642Z_bce687",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 99,
+      "vandermonde": 100,
       "authored_frontier_divides_x9835949a_w1": 3,
       "authored_frontier_cong_xd9add9e9_w1": 2,
       "lemma_hard_combinatorics": 2,
@@ -110,28 +110,28 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8623,
-      "slope": 0.000436,
-      "min": 0.8573,
+      "last": 0.8616,
+      "slope": 0.000138,
+      "min": 0.8581,
       "max": 0.8628
     },
     "novelty": {
       "last": 0.75,
-      "slope": 0.007864,
-      "min": 0.6667,
+      "slope": 0.0,
+      "min": 0.75,
       "max": 0.75
     },
     "kill_rate": {
-      "last": 0.3825,
-      "slope": 0.00069,
-      "min": 0.3749,
-      "max": 0.3825
+      "last": 0.3832,
+      "slope": 0.00065,
+      "min": 0.3766,
+      "max": 0.3832
     },
     "kill_rate_term": {
-      "last": 0.8942,
-      "slope": 0.000621,
-      "min": 0.8874,
-      "max": 0.8942
+      "last": 0.8949,
+      "slope": 0.000587,
+      "min": 0.889,
+      "max": 0.8949
     },
     "lesson_uptake": {
       "last": 0.96,
@@ -142,7 +142,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0012,
+    "aggregate_range": 0.0011,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -151,8 +151,7 @@
     "enabled": 172,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
-      "authored_frontier_cong_xd9add9e9_w1",
-      "authored_frontier_divides_x9835949a_w1"
+      "authored_frontier_cong_xd9add9e9_w1"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -183,13 +182,11 @@
       "authored_frontier_cong_x41b05781_w1",
       "authored_frontier_cong_x41b05781_w2",
       "authored_frontier_cong_x41b05781_w3",
-      "authored_frontier_cong_x4bb20589_w1",
       "authored_frontier_cong_xa68963c2_w1",
       "authored_frontier_cong_xa8371e31_w1",
       "authored_frontier_cong_xa8371e31_w2",
       "authored_frontier_cong_xa8371e31_w3",
       "authored_frontier_cong_xb5f19c6e_w1",
-      "authored_frontier_cong_xb999e9ad_w1",
       "authored_frontier_cong_xbb82919e_w1",
       "authored_frontier_cong_xd9add9e9_w1",
       "authored_frontier_divides_x0c5f5f5b_w1",
@@ -211,6 +208,7 @@
       "authored_frontier_le_x7a9213ec_w1",
       "authored_frontier_le_x7a9213ec_w2",
       "authored_frontier_le_x7a9213ec_w3",
+      "authored_frontier_le_xafb0aef8_w1",
       "authored_frontier_le_xc2340063_w1",
       "authored_gcd_fibonacci__euler_totient_multiplicative_w1",
       "authored_gcd_fibonacci__motzkin_bounded_w1",
@@ -257,7 +255,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 10
   },
   "guides": {
     "n_guides": 17,
@@ -271,34 +269,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.869,
+      "ratio": 0.87,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.867,
+      "ratio": 0.885,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.891,
+      "ratio": 0.873,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.867,
+      "ratio": 0.983,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.908,
+      "ratio": 0.816,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 263634115,
-      "collatz_descent": 300600000,
+      "goldbach_even": 266834115,
+      "collatz_descent": 303800000,
       "legendre_square_gap": 1564607,
       "lehmer_totient": 135000001,
-      "erdos_straus": 1074127,
+      "erdos_straus": 1079127,
       "twin_primes_hl": 378200000,
       "oeis_A104062_next": 518690000001
     },
@@ -311,7 +309,7 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4625,
+        "challenged": 4624,
         "blocked": 0
       },
       "lemma_mutation": {
@@ -319,12 +317,12 @@
         "blocked": 0
       },
       "claim": {
-        "challenged": 99,
+        "challenged": 100,
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.3432,
-    "post_challenger_oracle_judged": 370,
+    "post_challenger_oracle_kill_rate": 0.345,
+    "post_challenger_oracle_judged": 371,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -349,22 +347,22 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 11,
+    "completed": 10,
     "last": [
       [
         null,
+        "2026-11-12T02:48:42Z"
+      ],
+      [
+        null,
+        "2026-11-12T02:48:34Z"
+      ],
+      [
+        "success",
         "2026-11-11T23:14:57Z"
-      ],
-      [
-        "success",
-        "2026-11-11T19:43:58Z"
-      ],
-      [
-        "success",
-        "2026-11-11T17:12:34Z"
       ]
     ],
-    "fetched_at": "2026-11-11T23:15:57Z"
+    "fetched_at": "2026-11-12T02:49:16Z"
   },
   "feeds": {
     "by_source": {
@@ -383,41 +381,36 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
-          "new": 2,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 4,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 9,
-          "new": 3,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-11T23:15:49Z"
+      "ts": "2026-11-12T02:49:15Z"
     },
     "health": {
       "arxiv": {

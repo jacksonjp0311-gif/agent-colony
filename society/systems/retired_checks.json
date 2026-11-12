@@ -3179,8 +3179,112 @@
    "proposals_withdrawn": [
     "imp_845dfc_50"
    ]
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_6_2_w1",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 9 other Oracle-passed members, expected = s/(s+K) = 0.988 >= 0.95 (K=0.10921); 9 members stay",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_hl_within_g6_6_2_w1() -> bool:\n    \"\"\"Authored instrument check (desk): count of consecutive pattern (6, 6, 2) on each window is within 4.0*sqrt of the HL forecast.\n    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((6, 6, 2), a, b)) is int and type(h := sieve_hl((6, 6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])\n",
+   "entry": "    (\"authored_sieve_hl_within_g6_6_2_w1\", check_authored_sieve_hl_within_g6_6_2_w1, True),\n",
+   "family": "authored_sieve_hl_within",
+   "expected": 0.988,
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_sieve_hl_within_g6_4_6_w1",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 8 other Oracle-passed members, expected = s/(s+K) = 0.987 >= 0.95 (K=0.10921); 8 members stay",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_hl_within_g6_4_6_w1() -> bool:\n    \"\"\"Authored instrument check (desk): count of consecutive pattern (6, 4, 6) on each window is within 4.0*sqrt of the HL forecast.\n    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((6, 4, 6), a, b)) is int and type(h := sieve_hl((6, 4, 6), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])\n",
+   "entry": "    (\"authored_sieve_hl_within_g6_4_6_w1\", check_authored_sieve_hl_within_g6_4_6_w1, True),\n",
+   "family": "authored_sieve_hl_within",
+   "expected": 0.9865,
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_sieve_hl_within_g4_6_2_w1",
+   "category": "sweep",
+   "reason": "near-duplicate parameter sweep of proven family `authored_sieve_hl_within`: 7 other Oracle-passed members, expected = s/(s+K) = 0.985 >= 0.95 (K=0.10921); 7 members stay",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_sieve_hl_within_g4_6_2_w1() -> bool:\n    \"\"\"Authored instrument check (desk): count of consecutive pattern (4, 6, 2) on each window is within 4.0*sqrt of the HL forecast.\n    Windows [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)] (disjoint, capped). Uses colony.instruments.sieve via the bridges\n    sieve_count / sieve_hl. HL is a conjectural heuristic; counts are bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := sieve_count((4, 6, 2), a, b)) is int and type(h := sieve_hl((4, 6, 2), a, b)) is float and h > 0 and abs(c - h) <= 4.0 * h ** 0.5 for a, b in [(10000000, 12000000), (12000000, 14000000), (14000000, 16000000)])\n",
+   "entry": "    (\"authored_sieve_hl_within_g4_6_2_w1\", check_authored_sieve_hl_within_g4_6_2_w1, True),\n",
+   "family": "authored_sieve_hl_within",
+   "expected": 0.9846,
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_frontier_cong_x4bb20589_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x4bb20589_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    dbl(oxa048767)(n) = 0 (mod 2) for all n = 1 (mod 2)\n    re-tested on windows [(41, 277), (278, 514), (515, 751)]. conjecture surviving 494 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(oxa048767)', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 277), (278, 514), (515, 751)])\n",
+   "entry": "    (\"authored_frontier_cong_x4bb20589_w1\", check_authored_frontier_cong_x4bb20589_w1, True),\n",
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_frontier_cong_xb999e9ad_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xb999e9ad_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    lpf[oxa213536](n) = 1 (mod 2) for all n = 0 (mod 2)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 494 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'lpf[oxa213536]', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_xb999e9ad_w1\", check_authored_frontier_cong_xb999e9ad_w1, True),\n",
+   "proposals_withdrawn": [
+    "imp_dc390b_50"
+   ]
+  },
+  {
+   "name": "authored_frontier_cong_x44cc725e_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_x44cc725e_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S(gcd(maxgap,perm_derange))(n) = 1 (mod 2) for all n = 0 (mod 4)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 247 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(gcd(maxgap,perm_derange))', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_x44cc725e_w1\", check_authored_frontier_cong_x44cc725e_w1, True),\n",
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_frontier_modpat_x50c3856a_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_modpat_x50c3856a_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    gcd(lucas,perm_derange)(n) mod 2 depends only on n mod 6 (residues [1, 1, 0, 1, 1, 1] for n = 1..6), all n >= 1\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. conjecture surviving 988 checks. Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'modpat', 'lhs': 'gcd(lucas,perm_derange)', 'params': {'P': 6, 'm': 2, 'pat': [1, 1, 0, 1, 1, 1]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_modpat_x50c3856a_w1\", check_authored_frontier_modpat_x50c3856a_w1, True),\n",
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_frontier_cong_xcc4c83b3_w1",
+   "category": "trivial_frontier",
+   "reason": "the current triviality filter flags this frontier claim as a rewrite",
+   "ts": "2026-11-12T02:51:50Z",
+   "cycle_id": "20261112T025138Z_1d9061",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": true,
+   "fn_src": "def check_authored_frontier_cong_xcc4c83b3_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S(oxa047700)(n) = 1 (mod 2) for all n = 1 (mod 4)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(oxa047700)', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
+   "entry": "    (\"authored_frontier_cong_xcc4c83b3_w1\", check_authored_frontier_cong_xcc4c83b3_w1, True),\n",
+   "proposals_withdrawn": []
   }
  ],
- "n_retired": 202,
+ "n_retired": 210,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

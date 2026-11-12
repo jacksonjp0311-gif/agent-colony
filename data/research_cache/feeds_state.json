@@ -1,15 +1,31 @@
 {
   "ci_health": {
-    "completed": 11,
-    "fetched_at": "2026-11-11T23:15:57Z",
+    "completed": 10,
+    "fetched_at": "2026-11-12T02:49:16Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-12T02:48:42Z",
+        "id": 43143946920,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-12T02:48:46Z"
+      },
+      {
+        "conclusion": null,
+        "created_at": "2026-11-12T02:48:34Z",
+        "id": 43143933354,
+        "name": "Read-only tests",
+        "status": "in_progress",
+        "updated_at": "2026-11-12T02:48:37Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-11T23:14:57Z",
         "id": 43118342147,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-11T23:15:01Z"
+        "status": "completed",
+        "updated_at": "2026-11-11T23:27:50Z"
       },
       {
         "conclusion": "success",
@@ -82,22 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-10T17:20:57Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-10T15:37:30Z",
-        "id": 42846291346,
-        "name": "Colony new-data deep",
-        "status": "completed",
-        "updated_at": "2026-11-10T15:38:03Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-10T11:03:27Z",
-        "id": 42804287452,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-10T11:16:25Z"
       }
     ],
     "success_rate": 1.0
@@ -138,41 +138,36 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "",
-        "fetched": 8,
-        "new": 2,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 4,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 9,
-        "new": 3,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-11-11T23:15:49Z"
+    "ts": "2026-11-12T02:49:15Z"
   },
-  "runs": 225
+  "runs": 226
 }

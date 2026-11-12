@@ -1,0 +1,399 @@
+{
+  "ts": "2026-11-12T02:58:28Z",
+  "version": 2,
+  "mile": "spark3-port",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 2,
+      "items": [
+        {
+          "title": "Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training",
+          "id": "http://arxiv.org/abs/2611.14519v1",
+          "published": "2026-11-10T18:59:54Z",
+          "summary": "Foundation models pretrained on large natural-image collections are increasingly adapted for medical image segmentation, in the expectation that they will replace models trained for each task. Most comparisons, however, use data from the training distribution and a single task-sp",
+          "source": "arxiv"
+        },
+        {
+          "title": "Toward Foundation Detection Models via Example-Based Grounding in EM-DETR",
+          "id": "http://arxiv.org/abs/2611.14518v1",
+          "published": "",
+          "summary": "",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-11-12T02:58:12Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": false,
+      "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "count": 0,
+      "items": [],
+      "ts": "2026-11-12T02:58:24Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "deprecated": true,
+      "quarantined": true,
+      "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-11-12T02:58:24Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": true,
+      "note": "NYC:ok; London:ok; Tokyo:ok; Sydney:ok",
+      "count": 4,
+      "items": [
+        {
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 11.5,
+          "wind_speed_10m": 8.0,
+          "weather_code": 3,
+          "time": "2026-11-12T02:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "London",
+          "lat": 51.51,
+          "lon": -0.13,
+          "temperature_2m": 6.9,
+          "wind_speed_10m": 12.6,
+          "weather_code": 0,
+          "time": "2026-11-12T02:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "temperature_2m": 15.8,
+          "wind_speed_10m": 2.1,
+          "weather_code": 0,
+          "time": "2026-11-12T02:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "temperature_2m": 22.6,
+          "wind_speed_10m": 15.2,
+          "weather_code": 0,
+          "time": "2026-11-12T02:45",
+          "source": "open_meteo"
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-11-12T02:58:28Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -5.875605356256671,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-11-12T02:53:00Z",
+          "v": -7.085763067446123
+        },
+        {
+          "t": "2026-11-12T02:53:00Z",
+          "v": -5.759238209632247
+        },
+        {
+          "t": "2026-11-12T02:54:00Z",
+          "v": -7.17371613398454
+        },
+        {
+          "t": "2026-11-12T02:54:00Z",
+          "v": -5.793842185499901
+        },
+        {
+          "t": "2026-11-12T02:55:00Z",
+          "v": -7.24271273581955
+        },
+        {
+          "t": "2026-11-12T02:55:00Z",
+          "v": -5.834924619387804
+        },
+        {
+          "t": "2026-11-12T02:56:00Z",
+          "v": -7.319099589431426
+        },
+        {
+          "t": "2026-11-12T02:56:00Z",
+          "v": -5.875605356256671
+        }
+      ],
+      "live": true,
+      "ts": "2026-11-12T02:58:28Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48,
+      "latest": 10.8,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-11-11T00:00",
+          "v": 14.3
+        },
+        {
+          "t": "2026-11-11T01:00",
+          "v": 14.0
+        },
+        {
+          "t": "2026-11-11T02:00",
+          "v": 13.8
+        },
+        {
+          "t": "2026-11-11T03:00",
+          "v": 13.1
+        },
+        {
+          "t": "2026-11-11T04:00",
+          "v": 12.9
+        },
+        {
+          "t": "2026-11-11T05:00",
+          "v": 12.5
+        },
+        {
+          "t": "2026-11-11T06:00",
+          "v": 12.0
+        },
+        {
+          "t": "2026-11-11T07:00",
+          "v": 11.4
+        }
+      ],
+      "live": false,
+      "cached": true,
+      "ts": "2026-11-12T02:58:28Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 3.9,
+      "items": [
+        {
+          "mag": 3.9,
+          "place": "95 km SE of Akutan, Alaska",
+          "time": 1794441580557,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.5,
+          "place": "23 km S of Westbrook, Texas",
+          "time": 1794438349392,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "73 km NNW of Gyalshing, India",
+          "time": 1794438022433,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.6,
+          "place": "112 km N of Yakutat, Alaska",
+          "time": 1794437058380,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "116 km E of Georgetown, Saint Helena",
+          "time": 1794434622425,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.93,
+          "place": "22 km SE of Emajagua, Puerto Rico",
+          "time": 1794432018460,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "112 km SW of Brisas Barra de Suchiate, Mexico",
+          "time": 1794431721821,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.5,
+          "place": "41 km SSE of Camiña, Chile",
+          "time": 1794429904390,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-05&endtime=2026-11-12&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-11-12T02:58:28Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.58154296875,
+          "disk_free_percent": 60.245322890555805,
+          "process_count": 162,
+          "uptime_hours": 0.16684444444444443,
+          "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
+          "node": "runnervmwuk1x",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.58154296875,
+      "live": true,
+      "ts": "2026-11-12T02:58:28Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 5.5205589999332005,
+      "mean_ms": 5.771847000005437,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 5.426840000041011
+        },
+        {
+          "probe": 1,
+          "ms": 5.608969000036268
+        },
+        {
+          "probe": 2,
+          "ms": 6.531020000011267
+        },
+        {
+          "probe": 3,
+          "ms": 5.5205589999332005
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-11-12T02:58:28Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "global_weather_spread",
+      "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 11.5), ('London', 6.9), ('Tokyo', 15.8), ('Sydney', 22.6)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "signals": {
+        "cities": [
+          [
+            "NYC",
+            11.5
+          ],
+          [
+            "London",
+            6.9
+          ],
+          [
+            "Tokyo",
+            15.8
+          ],
+          [
+            "Sydney",
+            22.6
+          ]
+        ],
+        "kp": null
+      },
+      "domains": [
+        "nature",
+        "commons",
+        "government"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-5.875605356256671. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -5.875605356256671
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.58154296875 probe_ms=5.771847000005437. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.58154296875,
+        "probe_ms": 5.771847000005437
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}

@@ -2,7 +2,7 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   75,
+   76,
    37
   ],
   "divides": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   40,
-   35
+   39,
+   34
   ]
  },
  "mode": "live",
- "n_authored": 24,
+ "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 80,
+ "n_proved": 79,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -72,7 +72,7 @@
    "v": 4
   },
   "(gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)": {
-   "authored": false,
+   "authored": true,
    "certificate": null,
    "check": "authored_frontier_le_xafb0aef8_w1",
    "checks": 59988,
@@ -5446,175 +5446,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = (pell*pow2)(n) satisfies a(n+2) = 4*a(n+0) + 4*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(pell*pow2)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,0*pow2@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pell*pow2)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,1*pow2@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pell*pow2)",
-        "kids": [
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,2*pow2@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_xbf237d04_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = (pell+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
    "authored": false,
    "certificate": {
@@ -10525,7 +10356,7 @@
    "v": 4
   },
   "dbl(oxa048767)(n) = 0 (mod 2) for all n = 1 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x4bb20589_w1",
    "checks": 494,
@@ -11830,7 +11661,7 @@
    "v": 4
   },
   "lpf[oxa213536](n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_xb999e9ad_w1",
    "checks": 494,
@@ -12037,6 +11868,18 @@
    "certificate": null,
    "check": "authored_frontier_cong_x5c4b76fa_w1",
    "checks": 88,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
+  "prime[oxa275972](n) = 1 (mod 2) for all n = 0 (mod 3)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xb90a3769_w1",
+   "checks": 29,
    "kind": "cong",
    "prior_certificate": false,
    "status": "not proved",
@@ -12627,6 +12470,6 @@
    "v": 3
   }
  },
- "seconds": 0.04,
- "ts": "2026-11-11T23:26:30Z"
+ "seconds": 0.03,
+ "ts": "2026-11-12T02:58:41Z"
 }

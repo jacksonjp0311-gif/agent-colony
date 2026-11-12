@@ -25,7 +25,7 @@
    "credit": 0.0
   },
   "oc_A165064_0": {
-   "attempts": 3,
+   "attempts": 8,
    "status": "holds_on_range",
    "tested_hi": 100,
    "credit": 0.0
@@ -247,7 +247,7 @@
    "credit": 0.0
   },
   "oc_A229019_0": {
-   "attempts": 9,
+   "attempts": 16,
    "status": "holds_on_range",
    "tested_hi": 45,
    "credit": 0.0
@@ -325,7 +325,7 @@
    "credit": 1.0
   },
   "oc_A108475_0": {
-   "attempts": 36,
+   "attempts": 37,
    "status": "holds_on_range",
    "tested_hi": 168,
    "credit": 0.0
@@ -373,7 +373,7 @@
    "credit": 1.0
   },
   "oc_A108476_0": {
-   "attempts": 36,
+   "attempts": 38,
    "status": "holds_on_range",
    "tested_hi": 30,
    "credit": 0.0099
@@ -457,10 +457,10 @@
    "credit": 0.0
   },
   "oc_A126089_0": {
-   "attempts": 5,
+   "attempts": 7,
    "status": "holds_on_range",
-   "tested_hi": 74,
-   "credit": 0.0
+   "tested_hi": 956,
+   "credit": 0.034
   },
   "oc_A027058_0": {
    "attempts": 5,
@@ -589,10 +589,10 @@
    "credit": 0.0
   },
   "oc_A071264_0": {
-   "attempts": 5,
-   "status": "holds_on_range",
+   "attempts": 6,
+   "status": "proved_checked",
    "tested_hi": 252,
-   "credit": 0.0
+   "credit": 1.0
   },
   "oc_A379464_0": {
    "attempts": 4,
@@ -609,11 +609,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 328,
-   "credit": 21.0099
+   "attempts": 334,
+   "credit": 22.0439
   },
   "gf": {
-   "attempts": 17,
+   "attempts": 22,
    "credit": 0.0
   },
   "only_prime": {
@@ -621,11 +621,11 @@
    "credit": 0.0
   },
   "property": {
-   "attempts": 9,
+   "attempts": 16,
    "credit": 0.0
   }
  },
- "credit_total": 21.0099,
+ "credit_total": 22.0439,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -733,6 +733,11 @@
     "anum": "A116391",
     "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 5 by the operator identity",
     "routine": true
+   },
+   "oc_A071264_0": {
+    "anum": "A071264",
+    "checker": "x-side residual is a polynomial of degree 0 with zero radical part; recurrence holds for n >= 2 by the operator identity",
+    "routine": true
    }
   },
   "extensions": {
@@ -740,6 +745,12 @@
     "anum": "A108476",
     "bfile_hi": 19,
     "to": 30,
+    "check": "exact"
+   },
+   "oc_A126089_0": {
+    "anum": "A126089",
+    "bfile_hi": 200,
+    "to": 956,
     "check": "exact"
    }
   }
