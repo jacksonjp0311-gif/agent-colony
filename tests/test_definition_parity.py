@@ -72,6 +72,29 @@ def test_false_or_unimplied_claims_not_labelled(T):
     assert DP.explain(_c("prime[oxa080076]", m=3, q=1, r=1), T) is None
 
 
+def test_small_prime_modulus_exact_or_confirmed_on_range():
+    proved = DP.explain({"kind": "cong", "params": {"m": 3, "q": 3, "r": 0, "s": 0},
+                         "_le": ("p", "n"), "_re": None}, None)
+    assert proved and proved["label"] == "known_in_principle(definition_parity)"
+    assert "mod 3" in proved["scope"]
+    assert DP.explain({"kind": "cong", "params": {"m": 3, "q": 3, "r": 1, "s": 0},
+                       "_le": ("p", "n"), "_re": None}, None) is None
+    assert DP.explain({"kind": "cong", "params": {"m": 5, "q": 5, "r": 0, "s": 0},
+                       "_le": ("p", "n"), "_re": None}, None)["label"].startswith("known_in_principle")
+    assert DP.explain({"kind": "cong", "params": {"m": 4, "q": 4, "r": 0, "s": 0},
+                       "_le": ("p", "n"), "_re": None}, None) is None
+
+    class Bag:
+        t = {"toy": [0] + [n % 3 for n in range(1, 900)]}
+
+    toy = {"kind": "cong", "params": {"m": 3, "q": 3, "r": 0, "s": 0}, "_le": ("p", "toy"), "_re": None}
+    got = DP.explain(toy, Bag)
+    assert got and got["label"] == "confirmed on range"
+    assert "not a proof" in got["scope"] and "3-kernel" in got["scope"]
+    bad = {"kind": "cong", "params": {"m": 3, "q": 3, "r": 1, "s": 0}, "_le": ("p", "toy"), "_re": None}
+    assert DP.explain(bad, Bag) is None
+
+
 def test_lpf_parity_reduces_and_gpf_does_not_copy_it(T, monkeypatch):
     """lpf(x) has the parity of x for x >= 1. gpf(x) is even only for powers of 2."""
     lpf_even = _c("lpf[n]", m=2, q=2, r=0, s=0)

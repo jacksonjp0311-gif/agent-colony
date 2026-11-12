@@ -46,6 +46,8 @@ from typing import Any
 KERNEL_MAX = 16
 KERNEL_MIN_TERMS = 400
 CMP_MIN = 8
+# Moduli past 2. A p-kernel fitted to a prefix is confirmed on that range, not a proof.
+SMALL_PRIMES = (3, 5, 7)
 REFINE = (1, 2, 4, 8, 3, 6, 12, 16, 24)
 MAX_Q = 192
 ANY = frozenset((0, 1))
@@ -219,6 +221,135 @@ def kernel_automaton(vals: list[int]) -> tuple | None:
             delta[s][b] = hit
     aut = (0, {s: tuple(v) for s, v in delta.items()}, dict(enumerate(outs)))
     return aut if _verify(aut, vals) else None
+
+
+def _run_p(aut: tuple, n: int, p: int) -> int:
+    s, d, out = aut
+    while n:
+        s = d[s][n % p]
+        n //= p
+    v = out[s]
+    if v is None:
+        raise _Unknown("automaton output undefined")
+    return int(v) % p
+
+
+def _verify_p(aut: tuple, vals: list[int], p: int) -> bool:
+    try:
+        return all(_run_p(aut, n, p) == vals[n] % p for n in range(1, len(vals)))
+    except _Unknown:
+        return False
+
+
+def prime_kernel(vals: list[int], p: int) -> tuple | None:
+    """LSB-first automaton for vals[n] mod p from its p-kernel, or None.
+
+    The same construction as the 2-kernel, with base-p digits. Agreement on a finite prefix
+    does not prove the sequence is p-automatic for every n."""
+    if p not in SMALL_PRIMES or len(vals) < KERNEL_MIN_TERMS:
+        return None
+    residues = [v % p for v in vals]
+
+    def elem(k: int, r: int) -> dict[int, int]:
+        step = p ** k
+        if step <= 0 or step >= len(vals):
+            return {}
+        out: dict[int, int] = {}
+        m = 0 if r else 1
+        while r + m * step < len(vals):
+            out[m] = residues[r + m * step]
+            m += 1
+            if m > len(vals):
+                break
+        return out
+
+    reps = [(0, 0)]
+    data = [elem(0, 0)]
+    outs: list[int | None] = [None]
+    delta: dict[int, list[int]] = {}
+    q = [0]
+    while q:
+        s = q.pop(0)
+        k, r = reps[s]
+        delta[s] = [0] * p
+        for b in range(p):
+            ck, cr = k + 1, r + b * (p ** k)
+            cd = elem(ck, cr)
+            hit = None
+            for t, td in enumerate(data):
+                common = [m_ for m_ in cd if m_ in td]
+                if 0 in cd and outs[t] is not None and outs[t] != cd[0]:
+                    continue
+                if len(common) >= CMP_MIN and all(cd[m_] == td[m_] for m_ in common):
+                    hit = t
+                    break
+            if hit is None:
+                if len(cd) < 2 * CMP_MIN or len(reps) >= KERNEL_MAX:
+                    return None
+                reps.append((ck, cr))
+                data.append(cd)
+                outs.append(cd.get(0))
+                hit = len(reps) - 1
+                q.append(hit)
+            elif outs[hit] is None and 0 in cd:
+                outs[hit] = cd[0]
+            delta[s][b] = hit
+    aut = (0, {s: tuple(v) for s, v in delta.items()}, dict(enumerate(outs)))
+    return aut if _verify_p(aut, vals, p) else None
+
+
+def _explain_small_prime(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
+    """Mod 3, 5 and 7. An affine function of n is exact. Anything proved only by a p-kernel
+    fitted to the table is confirmed on that range, not for all n."""
+    kind = c.get("kind")
+    prm = c.get("params") or {}
+    m = int(prm.get("m") or 0)
+    if kind not in ("cong", "modpat") or c.get("_re") is not None or m not in SMALL_PRIMES:
+        return None
+    e = c.get("_le")
+    if not isinstance(e, tuple):
+        return None
+    q, s = (int(prm["q"]), int(prm["s"]) % int(prm["q"])) if kind == "cong" else (1, 0)
+    Pm = int(prm["P"]) if kind == "modpat" else 1
+    aff = _affine(e)
+    if aff and aff[0] == "n":
+        _w, a, b = aff
+        base = q * Pm // math.gcd(q, Pm)
+        for f in REFINE:
+            Q = base * f
+            if Q > MAX_Q:
+                break
+            if (a * Q) % m != 0:
+                continue
+            ok = True
+            for t in range(Q):
+                if t % q != s:
+                    continue
+                got = (a * t + b) % m
+                want = int(prm["r"]) % m if kind == "cong" else int(prm["pat"][(t - 1) % Pm]) % m
+                if got != want:
+                    ok = False
+                    break
+            if ok:
+                return {"label": "known_in_principle(definition_parity)", "classes_mod": Q,
+                        "facts": [f"n mod {m} is fixed by the residue class"],
+                        "scope": f"implied for all n >= 1: the expression is an affine function of n, reduced mod {m}"}
+        return None
+    try:
+        from colony.frontier_conjectures import evaluate, holds, max_n
+        N = max_n(e, T, 4000)
+        vals = evaluate(e, N, T) if N else None
+    except Exception:  # noqa: BLE001
+        return None
+    if not vals or len(vals) < KERNEL_MIN_TERMS - 1:
+        return None
+    aut = prime_kernel([0] + vals, m)
+    if aut is None or not holds(kind, prm, vals, None)[0]:
+        return None
+    fact = (f"{m}-kernel with {len(aut[1])} states fitted to {len(vals)} terms; "
+            f"confirmed on that range, not a proof for all n")
+    return {"label": "confirmed on range", "classes_mod": q, "facts": [fact],
+            "scope": "confirmed on range: " + fact}
 
 
 def prim_automaton(w: str, T: Any) -> tuple[tuple, str] | None:
@@ -702,7 +833,7 @@ def explain(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
         return None
     prm = c.get("params") or {}
     if int(prm.get("m") or 0) != 2:
-        return None
+        return _explain_small_prime(c, T)
     q, s = (int(prm["q"]), int(prm["s"]) % int(prm["q"])) if kind == "cong" else (1, 0)
     Pm = int(prm["P"]) if kind == "modpat" else 1
     pre_facts: list[str] = []
