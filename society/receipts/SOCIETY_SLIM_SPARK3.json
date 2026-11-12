@@ -1,41 +1,41 @@
 {
-  "when": "2026-11-12T23:27:59Z",
+  "when": "2026-11-12T23:53:08Z",
   "mile": "spark3-port",
-  "cycle_count": 858,
+  "cycle_count": 861,
   "fitness_latest": {
-    "ts": "2026-11-12T23:27:21Z",
-    "cycle_id": "20261112T232548Z_58f73d",
+    "ts": "2026-11-12T23:52:30Z",
+    "cycle_id": "20261112T235052Z_b5a736",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
-    "comm_reply_rate": 0.8148,
+    "comm_reply_rate": 0.8,
     "reply_quality": 0.9114,
     "commons_signal": 1.0,
-    "math_prize": 0.8209,
-    "compute_usefulness": 0.9213,
+    "math_prize": 0.8286,
+    "compute_usefulness": 0.9307,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8919,
+    "prize_boost": 0.8986,
     "kill_rate": 0.3917,
     "kill_rate_term": 0.9025,
     "novelty": 0.75,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8616,
+    "aggregate": 0.861,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345,
-    "stall_cycles": 6,
-    "perturb_active": true,
-    "distinct_targets_tried_last_3_cycles": 5
+    "stall_cycles": 9,
+    "perturb_active": false,
+    "distinct_targets_tried_last_3_cycles": 0
   },
   "honest_scoreboard": {
-    "score": 25,
+    "score": 26,
     "counterexamples_verified": 0,
     "proofs_checked": 23,
     "proofs_routine_known_in_principle": 23,
-    "beyond_published_range": 2,
-    "beyond_exact": 2,
-    "max_depth": 956,
+    "beyond_published_range": 3,
+    "beyond_exact": 3,
+    "max_depth": 1199,
     "note": "counterexamples, checked proofs, and range extensions only; not fitness"
   },
   "bus_metrics": {
@@ -57,7 +57,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8872
+    "aggregate_score": 0.886
   },
   "novelty_gate": {
     "hits": 3,
@@ -67,17 +67,17 @@
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.96,
+      "reply_rate": 0.9286,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
-      "reply_quality": 0.9115
+      "reply_quality": 0.9114
     }
   },
   "exploration_budget_fp": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261112T232548Z_58f73d"
+    "cycle_id": "20261112T235052Z_b5a736"
   },
   "oracle": {
     "passes": 528,
