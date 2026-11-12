@@ -43,16 +43,19 @@ class SocietyState:
                 data.setdefault("_shards", {})[key] = str(shard.relative_to(ROOT))
         return cls(path=p, data=data)
 
-    def _flush_shard(self, key: str, *, max_inline: int = 50) -> None:
+    def _flush_shard(self, key: str, *, max_inline: int = 50, mirror_tail: bool = False) -> None:
         if not STATE_SHARDS:
             return
         arr = self.data.get(key)
-        if not isinstance(arr, list) or len(arr) <= max_inline:
+        if not isinstance(arr, list) or not arr:
+            return
+        if len(arr) <= max_inline and not mirror_tail:
             return
         SHARDS_DIR.mkdir(parents=True, exist_ok=True)
         shard_path = SHARDS_DIR / f"{key}.jsonl"
-        overflow = arr[:-max_inline]
-        # Append overflow once (track by id/ts to avoid dupes on re-save)
+        # Fitness keeps the cycles just recorded, not only the rows leaving the inline window.
+        pending = arr if mirror_tail else arr[:-max_inline]
+        # Append once (track by id/ts to avoid dupes on re-save)
         existing_ids: set[str] = set()
         if shard_path.exists():
             for ln in shard_path.read_text(encoding="utf-8").splitlines()[-5000:]:
@@ -62,21 +65,26 @@ class SocietyState:
                 except json.JSONDecodeError:
                     continue
         with shard_path.open("a", encoding="utf-8") as f:
-            for e in overflow:
+            for e in pending:
                 eid = str((e or {}).get("id") or (e or {}).get("ts") or "")
                 if eid and eid in existing_ids:
                     continue
                 f.write(json.dumps(e, ensure_ascii=False) + "\n")
                 if eid:
                     existing_ids.add(eid)
-        self.data[key] = arr[-max_inline:]
-        self.data.setdefault("_shards", {})[key] = str(shard_path.relative_to(ROOT))
+        if len(arr) > max_inline:
+            self.data[key] = arr[-max_inline:]
+        try:
+            rel = str(shard_path.relative_to(ROOT))
+        except ValueError:
+            rel = str(shard_path)
+        self.data.setdefault("_shards", {})[key] = rel
 
     def save(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         # Shard hot arrays to cut commit churn
         self._flush_shard("improvement_proposals", max_inline=50)
-        self._flush_shard("fitness_history", max_inline=30)
+        self._flush_shard("fitness_history", max_inline=30, mirror_tail=True)
         self._flush_shard("improvements", max_inline=50)
         blob = json.dumps(self.data, sort_keys=True, separators=(",", ":"))
         digest = hashlib.sha256(blob.encode()).hexdigest()
