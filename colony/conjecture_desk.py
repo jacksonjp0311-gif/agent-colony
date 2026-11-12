@@ -351,73 +351,51 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         except Exception:
             pass
     if not chosen:
-        # Phase 1/2: catalog exhausted → lesson + queue stub mutation from hints
+        # The lemma catalog has nothing left that is not cooled or blocked. This cycle's
+        # turn goes to one OEIS conjecture attempt (a zero-credit family, or a search
+        # past the published b-file). Cooled stub mutations are not queued.
+        oeis_rep = None
         try:
-            from colony.lessons import (
-                write_lesson,
-                catalog_hints_from_lessons,
-                theme_is_blocked,
-                next_unblocked_mutation,
-                guide_prefers_invariant_chains,
-                preferred_invariant_mutations,
-            )
-            hints = catalog_hints_from_lessons(lookback=20)
-            # Prefer invariant/chain mutations when guides teach compose-over-rename
-            default_mut = "derived_chain_stress" if guide_prefers_invariant_chains() else "binomial_hockey_deep"
-            hint = {"add_mutation": default_mut, "kind": "hard_enable"}
-            for h in hints:
-                mut = str((h or {}).get("add_mutation") or "")
-                if mut and cooldown.allows(mut):
-                    hint = h
-                    break
-            else:
-                # All hint mutations cooled — prefer invariant chains, then catalog
-                cands = [str((h or {}).get("add_mutation") or "") for h in hints]
-                if guide_prefers_invariant_chains():
-                    cands = list(preferred_invariant_mutations()) + cands
-                cands += ["derived_chain_stress", "binomial_hockey_deep", "fibonacci_cassini_ext", "energy_work"]
-                alt = next_unblocked_mutation(cands)
-                if alt:
-                    hint = {"add_mutation": alt, "kind": "hard_enable"}
+            from colony.oeis_conjectures import idle_turn
+            oeis_rep = idle_turn(cycle_id or "desk_idle")
+        except Exception:
+            oeis_rep = None
+        try:
+            from colony.lessons import write_lesson
+            chosen0 = ((oeis_rep or {}).get("chosen") or [{}])[0]
             write_lesson(
                 decision="skip",
                 check="conjecture",
-                what="catalog exhausted — queue next hard_enable stub from lessons/external mind",
+                what="catalog exhausted — OEIS idle turn (zero-credit family or beyond b-file)",
                 source="conjecture_desk",
                 cycle_id=cycle_id,
                 lesson_type="catalog_exhausted",
                 family="hard_tier",
-                catalog_hint=hint,
-                tags=["catalog_exhausted"],
+                catalog_hint={
+                    "oeis_idle": (oeis_rep or {}).get("purpose") or "unavailable",
+                    "target": str(chosen0.get("id") or ""),
+                },
+                tags=["catalog_exhausted", "oeis_idle"],
             )
-            try:
-                from colony.conjecture_mutations import register_mutation_candidate
-                if hint.get("add_mutation"):
-                    register_mutation_candidate(
-                        str(hint["add_mutation"]),
-                        str(hint.get("kind") or "hard_enable"),
-                        f"enable:{hint['add_mutation']}",
-                    )
-                # SEEK: if guides ask to extend catalog, also queue any still-False
-                # adversarial_* held-out windows as hard_check candidates.
-                import re as _re
-                _lsrc = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else ""
-                for _m in _re.finditer(r'\("([^"]*adversarial[^"]*)"[^)]*,\s*False\)', _lsrc):
-                    _nm = _m.group(1)
-                    # Respect cooled themes and human "drop" guides (e.g. vandermonde_asymmetric)
-                    if not cooldown.allows(_nm):
-                        continue
-                    register_mutation_candidate(_nm, "hard_check", f"enable:{_nm}")
-            except Exception:
-                pass
         except Exception:
             pass
+        if oeis_rep and oeis_rep.get("chosen"):
+            ch0 = oeis_rep["chosen"][0]
+            oeis_note = (
+                f" OEIS idle attempt: {ch0.get('anum') or ch0.get('id')}"
+                f" form={ch0.get('form')} purpose={oeis_rep.get('purpose')}."
+            )
+        elif oeis_rep is not None:
+            oeis_note = " OEIS idle attempt: no open target."
+        else:
+            oeis_note = " OEIS idle attempt unavailable."
         result = ConjectureResult(
             ts=_utc(), decision="skip", before_score=before_score, after_score=before_score,
             delta=0.0, themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals,
             note=("No pending hard-tier lemma mutations (catalog exhausted or empty)."
                   + (f" Cooled/blocked skipped: {sorted(cooled)[:8]}." if cooled else "")
-                  + (f" Authored new disabled checks: {sorted(fresh_authored)[:4]}." if fresh_authored else "")),
+                  + (f" Authored new disabled checks: {sorted(fresh_authored)[:4]}." if fresh_authored else "")
+                  + oeis_note),
             finding_ids=[p.get("finding_id") for p in proposals if p.get("finding_id")],
         )
         _append_history(result); _write_witness([result]); return result

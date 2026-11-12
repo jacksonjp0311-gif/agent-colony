@@ -125,6 +125,15 @@ def test_desk_falls_through_to_authoring_when_all_cooled(sandbox, monkeypatch):
     calls = []
     monkeypatch.setattr(A, "guide_authoring_active", lambda: True)
     monkeypatch.setattr(A, "author_checks", lambda **k: calls.append(k) or [{"name": "authored_new_w1", "accepted": True}])
+    import colony.oeis_conjectures as OC
+    idle_calls = []
+
+    def _idle(cycle_id):
+        idle_calls.append(cycle_id)
+        return {"purpose": "zero_credit_family", "chosen": [{"id": "gf_t", "anum": "A000000", "form": "gf"}],
+                "results": [{"action": "attempt_prove", "id": "gf_t", "status": "proved_checked"}]}
+
+    monkeypatch.setattr(OC, "idle_turn", _idle)
     # the variant must not be pickable either, so everything is cooled/done
     monkeypatch.setattr(D, "_already_has", lambda src, name: name == "unenabled_v")
 
@@ -132,11 +141,14 @@ def test_desk_falls_through_to_authoring_when_all_cooled(sandbox, monkeypatch):
     assert r.decision == "skip" and not r.mutation
     assert calls, "authoring should run when every candidate is cooled"
     assert "Cooled/blocked skipped" in r.note and "authored_new_w1" in r.note
+    assert "OEIS idle attempt: A000000" in r.note and "purpose=zero_credit_family" in r.note
+    assert idle_calls == ["cyc_all_cooled"]
     for name, _k, _s in PADS:
         assert name in r.note
     rows = [json.loads(l) for l in (sandbox / "lessons.jsonl").read_text().splitlines()]
     hint = [e for e in rows if e.get("type") == "catalog_exhausted"][-1]["catalog_hint"]
     assert "easy_pad" not in str(hint.get("add_mutation") or "")
+    assert hint.get("oeis_idle") == "zero_credit_family"
 
 
 def test_cooldown_unavailable_fails_closed(sandbox, monkeypatch):

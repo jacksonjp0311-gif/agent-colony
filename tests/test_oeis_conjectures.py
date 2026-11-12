@@ -87,6 +87,57 @@ def test_choose_deterministic_and_skips_resolved():
     assert a == [e["id"] for e in OC.choose(menu, s, "c1")] and "t0" not in a and len(a) == OC.PICKS
 
 
+def _isolate(tmp_path, monkeypatch):
+    monkeypatch.setattr(OC, "MENU", tmp_path / "m.json")
+    monkeypatch.setattr(OC, "STATE", tmp_path / "s.json")
+    monkeypatch.setattr(OC, "REPORT", tmp_path / "r.json")
+    monkeypatch.setattr(OC, "REVIEW", tmp_path / "rv.md")
+
+
+def test_idle_turn_attempts_zero_credit_family(tmp_path, monkeypatch):
+    rel = _ent("Conjecture: a(n) = a(n-1)+a(n-2) for n>3.", eid="rel")
+    gf = _ent("G.f.: (1-x^3)/(1-x-x^2) (conjecture).", eid="gff")
+    _isolate(tmp_path, monkeypatch)
+    OC.MENU.write_text(json.dumps({"entries": [rel, gf]}))
+    OC.STATE.write_text(json.dumps({
+        "targets": {},
+        "families": {
+            "relation": {"attempts": 20, "credit": 3.0},
+            "gf": {"attempts": 4, "credit": 0.0},
+        },
+        "credit_total": 3.0,
+    }))
+    before = OC.STATE.read_text()
+    monkeypatch.setenv("COLONY_OEIS_CONJ", "shadow")
+    rep = OC.idle_turn("idle_zero")
+    assert rep["purpose"] == "zero_credit_family"
+    assert [c["id"] for c in rep["chosen"]] == ["gff"]
+    assert rep["results"] and rep["results"][0]["id"] == "gff"
+    assert rep["results"][0]["action"] in ("attempt_prove", "attempt_disprove")
+    assert OC.STATE.read_text() == before
+
+
+def test_idle_turn_searches_past_bfile_when_every_family_has_credit(tmp_path, monkeypatch):
+    rel = _ent("Conjecture: a(n) = a(n-1)+a(n-2) for n>3.", eid="rel", n=40, data_n=20)
+    _isolate(tmp_path, monkeypatch)
+    OC.MENU.write_text(json.dumps({"entries": [rel]}))
+    OC.STATE.write_text(json.dumps({
+        "targets": {},
+        "families": {"relation": {"attempts": 8, "credit": 1.0}},
+        "credit_total": 1.0,
+    }))
+    monkeypatch.setenv("COLONY_OEIS_CONJ", "shadow")
+    monkeypatch.setattr(OC, "DEEP_N", 48)
+    monkeypatch.setattr(OC, "DEEP_SECONDS", 0.05)
+    rep = OC.idle_turn("idle_deep")
+    assert rep["purpose"] == "beyond_bfile"
+    assert rep["chosen"][0]["id"] == "rel" and rep["chosen"][0]["form"] == "relation"
+    assert rep["results"] and rep["results"][0]["action"] == "attempt_disprove"
+    assert rep["results"][0]["status"] in ("holds_on_range", "counterexample_verified", "path_disagreement")
+    top = max(rep["results"][0].get("deep_hi") or 0, (rep["results"][0].get("range") or [0, 0])[1])
+    assert top >= rel["offset"] + len(rel["terms"]) - 1
+
+
 def test_shadow_writes_no_state(tmp_path, monkeypatch):
     menu = {"entries": [_ent("Conjecture: a(n) = a(n-1)+a(n-2) for n>3.")]}
     monkeypatch.setattr(OC, "MENU", tmp_path / "m.json")

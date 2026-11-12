@@ -865,10 +865,22 @@ def provable(e: dict[str, Any]) -> bool:
     return bool(d) and (d.get("kind") in ("gf", "alg") or bool(d.get("linear"))) and e["claim"]["form"] in ("gf", "relation")
 
 
-def choose(menu: list[dict[str, Any]], state: dict[str, Any], cycle_id: str, k: int = PICKS) -> list[dict[str, Any]]:
+def choose(
+    menu: list[dict[str, Any]],
+    state: dict[str, Any],
+    cycle_id: str,
+    k: int = PICKS,
+    *,
+    forms: set[str] | None = None,
+    beyond_bfile: bool = False,
+) -> list[dict[str, Any]]:
     """The colony's own choice: open targets scored by tractability and its credit history per form
     (a bandit (credit+1)/(attempts+2)), with an exploration bonus for untried targets; sampled
-    without replacement with a cycle-seeded rng."""
+    without replacement with a cycle-seeded rng.
+
+    ``forms`` keeps only those claim forms. ``beyond_bfile`` keeps computable claims whose
+    search can run past the published terms (relation, property, only_prime).
+    """
     tg = state.get("targets", {})
     fam = state.get("families", {})
     rng = random.Random(int(hashlib.sha256(cycle_id.encode()).hexdigest()[:12], 16))
@@ -877,13 +889,37 @@ def choose(menu: list[dict[str, Any]], state: dict[str, Any], cycle_id: str, k: 
         st = tg.get(e["id"], {})
         if st.get("status") in ("counterexample_verified", "proved_checked", "fails_in_data", "untestable_here"):
             continue
-        f = fam.get(e["claim"]["form"], {})
+        form = (e.get("claim") or {}).get("form") or ""
+        if forms is not None and form not in forms:
+            continue
+        if beyond_bfile and (form not in ("relation", "property", "only_prime") or not e.get("definition")):
+            continue
+        f = fam.get(form, {})
         bandit = (f.get("credit", 0.0) + 1.0) / (f.get("attempts", 0) + 2.0)
         tract = 1.0 if provable(e) else (0.8 if e.get("definition") else 0.4)
         fresh = 1.0 / (1 + st.get("attempts", 0))
         scored.append((tract * bandit * (0.25 + fresh) * (0.5 + rng.random()), e))
     scored.sort(key=lambda t: -t[0])
     return [e for _, e in scored[:k]]
+
+
+def zero_credit_forms(state: dict[str, Any], menu: list[dict[str, Any]]) -> list[str]:
+    """Claim forms on the menu whose recorded family credit is still 0.
+
+    A form with no family row yet has earned nothing, so it is included. Forms
+    are not hardcoded: whatever the menu and the state say is what counts.
+    """
+    fam = (state or {}).get("families") or {}
+    out: list[str] = []
+    seen: set[str] = set()
+    for e in menu:
+        form = str((e.get("claim") or {}).get("form") or "")
+        if not form or form in seen:
+            continue
+        seen.add(form)
+        if float((fam.get(form) or {}).get("credit") or 0) == 0:
+            out.append(form)
+    return out
 
 
 def credit_of(res: dict[str, Any], prior_hi: int | None) -> float:
@@ -950,7 +986,16 @@ def scoreboard(state: dict[str, Any]) -> dict[str, Any]:
             "max_depth": max([v["to"] for v in sb["extensions"].values()] or [0])}
 
 
-def run_cycle(cycle_id: str, fetch: bool = True) -> dict[str, Any] | None:
+def run_cycle(
+    cycle_id: str,
+    fetch: bool = True,
+    *,
+    forms: set[str] | None = None,
+    k: int | None = None,
+    beyond_bfile: bool = False,
+    use_state_for_choice: bool = False,
+    purpose: str = "",
+) -> dict[str, Any] | None:
     m = mode()
     if m == "off":
         return None
@@ -958,15 +1003,24 @@ def run_cycle(cycle_id: str, fetch: bool = True) -> dict[str, Any] | None:
     if not menu:
         return None
     state = _load(STATE, {"targets": {}, "families": {}, "credit_total": 0.0})
-    picks = choose(menu, state if m == "live" else {"targets": {}, "families": {}}, cycle_id)
+    choice_state = state if (m == "live" or use_state_for_choice) else {"targets": {}, "families": {}}
+    picks = choose(
+        menu, choice_state, cycle_id, PICKS if k is None else k,
+        forms=forms, beyond_bfile=beyond_bfile,
+    )
     results = []
     for e in picks:
         st = state["targets"].get(e["id"], {})
         acts = []
-        if provable(e):
-            acts.append(attempt_prove(e))
-        if not acts or acts[-1]["status"] != "proved_checked":
+        if beyond_bfile:
+            # The idle fallback is a search past the published terms, not another proof of a
+            # holonomic relation the checker already handles.
             acts.append(attempt_disprove(e, st.get("tested_hi"), fetch=fetch))
+        else:
+            if provable(e):
+                acts.append(attempt_prove(e))
+            if not acts or acts[-1]["status"] != "proved_checked":
+                acts.append(attempt_disprove(e, st.get("tested_hi"), fetch=fetch))
         for r in acts:
             r["credit"] = credit_of(r, st.get("tested_hi"))
             r.pop("cert", None) if r["status"] != "proved_checked" else None
@@ -989,7 +1043,9 @@ def run_cycle(cycle_id: str, fetch: bool = True) -> dict[str, Any] | None:
                     _flag(e, r, cycle_id)
             _score(state, e, acts)
     rep = {"mode": m, "cycle": cycle_id, "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-           "menu_size": len(menu), "chosen": [{"id": e["id"], "anum": e["anum"], "text": e["text"]} for e in picks],
+           "menu_size": len(menu), "purpose": purpose,
+           "chosen": [{"id": e["id"], "anum": e["anum"], "form": (e.get("claim") or {}).get("form"),
+                       "text": e["text"]} for e in picks],
            "results": results, "scoreboard": scoreboard(state),
            "note": "selection-layer credit only; nothing authorized or posted"}
     hist = _load(REPORT, {"runs": []}).get("runs", [])[-24:]
@@ -998,3 +1054,28 @@ def run_cycle(cycle_id: str, fetch: bool = True) -> dict[str, Any] | None:
     if m == "live":
         STATE.write_text(json.dumps(state, indent=1) + "\n")
     return rep
+
+
+def idle_turn(cycle_id: str) -> dict[str, Any] | None:
+    """One OEIS attempt when the lemma catalog has nothing left to mutate.
+
+    A family with credit 0 is tried first (one open target). If every family on
+    the menu already has credit, one computable claim is searched past its
+    published b-file. Shadow still writes the report and does not update state.
+    """
+    if mode() == "off":
+        return None
+    menu = load_menu()
+    if not menu:
+        return None
+    state = _load(STATE, {"targets": {}, "families": {}, "credit_total": 0.0})
+    forms = zero_credit_forms(state, menu)
+    if forms:
+        return run_cycle(
+            cycle_id, fetch=False, forms=set(forms), k=1,
+            use_state_for_choice=True, purpose="zero_credit_family",
+        )
+    return run_cycle(
+        cycle_id, fetch=False, k=1, beyond_bfile=True,
+        use_state_for_choice=True, purpose="beyond_bfile",
+    )
