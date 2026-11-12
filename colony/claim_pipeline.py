@@ -280,11 +280,43 @@ def propose_checked(
     proposed: list[dict[str, Any]] = []
     _ch_cache: dict[str, Any] = {}  # one Challenger pass per catalog entry per cycle
     CLAIMS_JSONL.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        from colony.lessons import saturated_claim_theme_windows
+        saturated_themes = saturated_claim_theme_windows()
+    except Exception:
+        saturated_themes = {}
     for c in claims:
         with CLAIMS_JSONL.open("a", encoding="utf-8") as f:
             f.write(json.dumps(c.to_dict(), ensure_ascii=False) + "\n")
         if c.status != "hard_checked" or not c.hard_ok:
             continue
+        # Theme-level probe cooldown. A claim_theme killed for both
+        # already_saturated_no_harder_window and already_in_lesson_ledger_or_history
+        # is not proposed again until a harder unused window exists. This is not
+        # the title-kill cooldown, and the skip is not an Oracle kill.
+        try:
+            from colony.lessons import claim_theme_probe_cooled, write_lesson
+            if claim_theme_probe_cooled(c.theme_id, _saturated=saturated_themes):
+                try:
+                    write_lesson(
+                        decision="skip",
+                        check="theme_probe_cooldown",
+                        what=f"skip saturated claim_theme {c.theme_id}: no harder unused window",
+                        source="claim_pipeline",
+                        family="claim_theme",
+                        mutation=c.theme_id,
+                        cycle_id=cycle_id,
+                        lesson_type="skip",
+                        tags=["theme_probe_cooldown", "saturated_claim_theme"],
+                    )
+                except Exception:
+                    pass
+                c.status = "rejected_raw"
+                c.hard_ok = False
+                c.note = (c.note or "") + " | theme_probe_cooldown:saturated_no_harder_window"
+                continue
+        except Exception:
+            pass
         # Phase 0: same (theme_id, arxiv_id|claim_id) cannot Oracle-PASS more than once
         try:
             from colony.lessons import write_lesson

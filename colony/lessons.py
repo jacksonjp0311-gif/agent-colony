@@ -800,6 +800,154 @@ def next_unblocked_mutation(
     return ""
 
 
+# A claim_theme probe (bare theme, not a seek title) is used up when one kill carries both of
+# these. The title-kill cooldown never sees that probe: its mutation is the theme itself and its
+# family is claim_theme, not a process title.
+SATURATED_WINDOW_MARK = "already_saturated_no_harder_window"
+LEDGER_HISTORY_MARK = "already_in_lesson_ledger_or_history"
+
+
+def _kills_text(kills: Any) -> str:
+    if isinstance(kills, str):
+        return kills
+    try:
+        return json.dumps(kills, ensure_ascii=False)
+    except TypeError:
+        return str(kills)
+
+
+def kills_carry_saturated_ledger_pair(kills: Any) -> bool:
+    """True when one kill list names both the saturated-window reason and the ledger reason."""
+    text = _kills_text(kills)
+    return SATURATED_WINDOW_MARK in text and LEDGER_HISTORY_MARK in text
+
+
+def _tail_jsonl(path: Path | None, lookback: int) -> list[dict[str, Any]]:
+    if path is None or not path.exists():
+        return []
+    out: list[dict[str, Any]] = []
+    for ln in path.read_text(encoding="utf-8").splitlines()[-lookback:]:
+        if not ln.strip():
+            continue
+        try:
+            row = json.loads(ln)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(row, dict):
+            out.append(row)
+    return out
+
+
+def saturated_claim_theme_windows(*, lookback: int = 400) -> dict[str, str]:
+    """theme -> harder window already judged used up.
+
+    Latest ``claim_theme`` novelty-gate row whose kills carry both
+    :data:`SATURATED_WINDOW_MARK` and :data:`LEDGER_HISTORY_MARK`. The window name
+    is the Oracle row's ``theme_window`` for that cycle when the tail still has it.
+    """
+    from colony.novelty_gate import GATE_LOG
+    from colony.oracle import ORACLE_LOG
+
+    latest_cycle: dict[str, str] = {}
+    for row in _tail_jsonl(GATE_LOG, lookback):
+        if str(row.get("kind") or "") != "claim_theme":
+            continue
+        if not kills_carry_saturated_ledger_pair(row.get("kills")):
+            continue
+        theme = theme_key(str(row.get("mutation") or ""))
+        if theme:
+            latest_cycle[theme] = str(row.get("cycle_id") or "")
+    if not latest_cycle:
+        return {}
+    windows = {theme: "" for theme in latest_cycle}
+    wanted = {cycle for cycle in latest_cycle.values() if cycle}
+    if not wanted:
+        return windows
+    for row in _tail_jsonl(ORACLE_LOG, lookback):
+        if str(row.get("kind") or "") != "claim_theme":
+            continue
+        cycle = str(row.get("cycle_id") or "")
+        if cycle not in wanted:
+            continue
+        theme = theme_key(str(row.get("mutation") or ""))
+        if theme not in latest_cycle or latest_cycle[theme] != cycle:
+            continue
+        held = ((row.get("sense") or {}).get("held_out") or {})
+        window = str(held.get("theme_window") or "")
+        if window:
+            windows[theme] = window
+    return windows
+
+
+def held_out_window_state(theme: str) -> dict[str, Any]:
+    """Catalog state of a theme's harder window. Does not run the lemma bench.
+
+    Same saturation rule as the Oracle: a window that is absent or disabled is
+    not a usable harder check. An enabled window is usable.
+    """
+    from colony.oracle import _THEME_HELD_OUT, _entry_flag
+
+    name = (theme or "").strip()
+    window = _THEME_HELD_OUT.get(name)
+    if not window:
+        low = name.lower()
+        for key, mapped in _THEME_HELD_OUT.items():
+            if key in low or low in key:
+                window = mapped
+                break
+    if not window:
+        return {"window": "", "in_catalog": False, "enabled": False, "saturated": True}
+    src_path = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
+    src = src_path.read_text(encoding="utf-8") if src_path.exists() else ""
+    flag = _entry_flag(src, window)
+    return {
+        "window": window,
+        "in_catalog": flag is not None,
+        "enabled": flag is True,
+        "saturated": flag is not True,
+    }
+
+
+def harder_unused_window(theme: str, used_window: str = "") -> str:
+    """A harder window that is not the one the saturation kill already used up.
+
+    ``""`` while the theme's only harder window is missing, disabled, or still
+    the recorded window. A different catalog window that is not enabled counts
+    as unused. An enabled window is a usable harder check, so the cooldown lifts.
+    """
+    state = held_out_window_state(theme)
+    window = str(state.get("window") or "")
+    if not window:
+        return ""
+    if state.get("enabled"):
+        return window
+    used = (used_window or "").strip()
+    if state.get("in_catalog") and used and window != used:
+        return window
+    return ""
+
+
+def claim_theme_probe_cooled(
+    theme: str,
+    *,
+    lookback: int = 400,
+    _saturated: dict[str, str] | None = None,
+) -> bool:
+    """True when a claim_theme probe should not be sent to the Oracle.
+
+    Cooled after a kill that carried both saturation and ledger-history marks,
+    until :func:`harder_unused_window` finds one. Title-kill cooldown is separate
+    and is not consulted here.
+    """
+    key = theme_key(theme)
+    if not key:
+        return False
+    saturated = _saturated if _saturated is not None else saturated_claim_theme_windows(lookback=lookback)
+    if key not in saturated:
+        return False
+    return harder_unused_window(key, saturated.get(key) or "") == ""
+
+
 
 def guide_prefers_invariant_chains() -> bool:
     """True when an active human_guide prefers machine-checkable invariants / lemma chains."""
