@@ -404,10 +404,26 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 f" OEIS idle attempt: {ch0.get('anum') or ch0.get('id')}"
                 f" form={ch0.get('form')} purpose={oeis_rep.get('purpose')}."
             )
+            try:
+                from colony.stall import record_turn
+                record_turn(cycle_id or "desk_idle", "oeis_idle",
+                            str(ch0.get("id") or ch0.get("anum") or ""), "attempt")
+            except Exception:
+                pass
         elif oeis_rep is not None:
             oeis_note = " OEIS idle attempt: no open target."
+            try:
+                from colony.stall import record_turn
+                record_turn(cycle_id or "desk_idle", "oeis_idle", "", "skip")
+            except Exception:
+                pass
         else:
             oeis_note = " OEIS idle attempt unavailable."
+            try:
+                from colony.stall import record_turn
+                record_turn(cycle_id or "desk_idle", "desk", "catalog_exhausted", "skip")
+            except Exception:
+                pass
         result = ConjectureResult(
             ts=_utc(), decision="skip", before_score=before_score, after_score=before_score,
             delta=0.0, themes=[t.get("title", "")[:60] for t in themes[:4]], proposals=proposals,
