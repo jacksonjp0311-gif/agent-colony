@@ -957,6 +957,15 @@ def provable(e: dict[str, Any]) -> bool:
     return bool(d) and (d.get("kind") in ("gf", "alg") or bool(d.get("linear"))) and e["claim"]["form"] in ("gf", "relation")
 
 
+def routine_holonomic(e: dict[str, Any]) -> bool:
+    """A relation-form D-finite recurrence the holonomic checker already handles.
+
+    Named by the form and the definition, not by any one author or sequence.
+    """
+    form = ((e.get("claim") or {}).get("form") or "")
+    return bool(provable(e) and form == "relation")
+
+
 def choose(
     menu: list[dict[str, Any]],
     state: dict[str, Any],
@@ -988,15 +997,42 @@ def choose(
             continue
         f = fam.get(form, {})
         bandit = (f.get("credit", 0.0) + 1.0) / (f.get("attempts", 0) + 2.0)
-        tract = 1.0 if provable(e) else (0.8 if e.get("definition") else 0.4)
+        # Do not boost already-provable relation recurrences; they run after
+        # zero-credit families and other beyond-b-file targets.
+        routine = routine_holonomic(e)
+        tract = 0.5 if routine else (0.8 if e.get("definition") else 0.4)
         fresh = 1.0 / (1 + st.get("attempts", 0))
         score = tract * bandit * (0.25 + fresh) * (0.5 + rng.random())
-        # A family that has never earned credit is tried before one that has.
-        # The bandit still orders targets inside a family. No form is special-cased.
+        try:
+            from colony.stall import selection_bonus
+            score *= 1.0 + float(selection_bonus(e["id"]))
+        except Exception:
+            pass
+        # Band 0: zero-credit, not an already-handled holonomic relation.
+        # Band 1: everything else that is not that kind of relation.
+        # Band 2: routine holonomic relations — after the others, or a small share.
         credit = float(f.get("credit") or 0)
-        scored.append((0 if credit == 0 else 1, -score, e))
+        if credit == 0 and not routine:
+            band = 0
+        elif not routine:
+            band = 1
+        else:
+            band = 2
+        scored.append((band, -score, e))
     scored.sort(key=lambda t: (t[0], t[1]))
-    return [e for _pri, _neg, e in scored[:k]]
+    preferred = [e for band, _neg, e in scored if band < 2]
+    routine_tail = [e for band, _neg, e in scored if band >= 2]
+    picked = preferred[:k]
+    if len(picked) < k:
+        # Fill leftover slots from the routine tail. They run, but only after
+        # the others. When both groups are present and k is large, take only a
+        # small share of routine slots; when they are all that is left, take
+        # enough to fill k.
+        remaining = k - len(picked)
+        if preferred and k >= 5:
+            remaining = min(remaining, max(1, k // 5))
+        picked.extend(routine_tail[:remaining])
+    return picked[:k]
 
 
 def zero_credit_forms(state: dict[str, Any], menu: list[dict[str, Any]]) -> list[str]:
@@ -1185,10 +1221,12 @@ def idle_turn(cycle_id: str) -> dict[str, Any] | None:
     state = _load(STATE, {"targets": {}, "families": {}, "credit_total": 0.0})
     forms = zero_credit_forms(state, menu)
     if forms:
-        return run_cycle(
+        rep = run_cycle(
             cycle_id, fetch=False, forms=set(forms), k=1,
             use_state_for_choice=True, purpose="zero_credit_family",
         )
+        if rep and rep.get("chosen"):
+            return rep
     return run_cycle(
         cycle_id, fetch=False, k=1, beyond_bfile=True,
         use_state_for_choice=True, purpose="beyond_bfile",

@@ -158,8 +158,8 @@ def propose_pilot(
     if kind_s == "rsi_bias" and not any(body.get(k) for k in ("skill_bias", "mutation_bias", "routes_snapshot")):
         in_recovery = False
         try:
-            from colony.stall import assess_recovery, load_oracle_rows
-            in_recovery = bool(assess_recovery(load_oracle_rows()).get("on"))
+            from colony.stall import in_recovery_mode
+            in_recovery = bool(in_recovery_mode())
         except Exception:
             in_recovery = False
         if in_recovery:

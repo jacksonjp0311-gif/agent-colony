@@ -229,3 +229,49 @@ def test_shadow_writes_no_state(tmp_path, monkeypatch):
     OC.run_cycle("c2", fetch=False)
     st = json.loads(OC.STATE.read_text())
     assert st["targets"]["t"]["status"] == "proved_checked" and OC.REVIEW.exists()
+
+
+def test_choose_ranks_routine_holonomic_after_others():
+    """Zero-credit and other forms are picked before a relation the checker already handles."""
+    routine = _ent("Conjecture: a(n) = a(n-1)+a(n-2) for n>3.", eid="routine_rel")
+    gf = _ent("G.f.: (1-x^3)/(1-x-x^2) (conjecture).", eid="open_gf")
+    prop = _ent("Conjecture: a(n) is odd for n > 1.", eid="open_prop")
+    assert OC.routine_holonomic(routine) is True
+    assert OC.routine_holonomic(gf) is False
+    menu = [routine, gf, prop]
+    state = {"targets": {}, "families": {
+        "relation": {"attempts": 40, "credit": 21.0},
+        "gf": {"attempts": 15, "credit": 0.0},
+        "property": {"attempts": 1, "credit": 0.2},
+    }}
+    picked = OC.choose(menu, state, "rank_holonomic", k=3)
+    ids = [e["id"] for e in picked]
+    assert ids[0] == "open_gf"
+    assert "open_prop" in ids
+    assert ids[-1] == "routine_rel" or (len(ids) == 2 and "routine_rel" not in ids) or ids.index("routine_rel") > ids.index("open_gf")
+    # The routine one is never first.
+    assert ids[0] != "routine_rel"
+
+
+def test_idle_turn_falls_through_when_zero_credit_has_no_open_target(tmp_path, monkeypatch):
+    """If every zero-credit target is already resolved, search past a b-file instead."""
+    rel = _ent("Conjecture: a(n) = a(n-1)+a(n-2) for n>3.", eid="rel", n=40, data_n=20)
+    gf = _ent("G.f.: (1-x^3)/(1-x-x^2) (conjecture).", eid="gff")
+    _isolate(tmp_path, monkeypatch)
+    OC.MENU.write_text(json.dumps({"entries": [rel, gf]}))
+    OC.STATE.write_text(json.dumps({
+        "targets": {"gff": {"status": "untestable_here", "attempts": 1}},
+        "families": {
+            "relation": {"attempts": 20, "credit": 3.0},
+            "gf": {"attempts": 4, "credit": 0.0},
+        },
+        "credit_total": 3.0,
+    }))
+    monkeypatch.setenv("COLONY_OEIS_CONJ", "shadow")
+    monkeypatch.setattr(OC, "DEEP_N", 48)
+    monkeypatch.setattr(OC, "DEEP_SECONDS", 0.05)
+    rep = OC.idle_turn("idle_fallthrough")
+    assert rep is not None
+    assert rep["purpose"] == "beyond_bfile"
+    assert rep["chosen"] and rep["chosen"][0]["id"] == "rel"
+    assert rep["results"] and rep["results"][0]["action"] == "attempt_disprove"

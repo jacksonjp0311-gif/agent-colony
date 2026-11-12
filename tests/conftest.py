@@ -45,3 +45,11 @@ def _restore_live_colony_state():
         if not p.exists() or p.read_bytes() != b:
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_bytes(b)
+
+
+@pytest.fixture(autouse=True)
+def _isolate_stall_state(tmp_path, monkeypatch):
+    """Each test gets a fresh stall state file so parks and PERTURB cannot leak."""
+    import colony.stall as S
+    monkeypatch.setattr(S, "STATE_PATH", tmp_path / "stall_state.json")
+

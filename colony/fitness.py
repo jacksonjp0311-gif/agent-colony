@@ -455,6 +455,12 @@ class EvolutionEngine:
 
     def record_fitness(self, cycle_id: str, metrics: dict[str, float]) -> dict[str, Any]:
         row = {"ts": _utc_now(), "cycle_id": cycle_id, **metrics}
+        try:
+            from colony.stall import visibility
+            for key, value in visibility().items():
+                row.setdefault(key, value)
+        except Exception:
+            pass
         self.data.setdefault("fitness_history", []).append(row)
         if len(self.data["fitness_history"]) > 100:
             self.data["fitness_history"] = self.data["fitness_history"][-100:]
@@ -783,6 +789,34 @@ class EvolutionEngine:
         action: str,
     ) -> dict[str, Any]:
         fp = proposal_fingerprint(title, action)
+        # A fingerprint parked after two consecutive dedupe blocks does not
+        # take this turn. The caller routes the turn to a different source.
+        try:
+            from colony.stall import is_parked, record_turn
+            if is_parked(fp, cycle_id):
+                try:
+                    record_turn(cycle_id, "proposal", fp, "block")
+                except Exception:
+                    pass
+                try:
+                    _actor = self.registry.best_for("improve")
+                except Exception:
+                    _actor = "spark"
+                return {
+                    "id": f"imp_parked_{fp}",
+                    "ts": _utc_now(),
+                    "cycle_id": cycle_id,
+                    "title": title,
+                    "hypothesis": hypothesis,
+                    "action": action,
+                    "status": "parked_repeat",
+                    "fingerprint": fp,
+                    "P": 0.0,
+                    "attempted_by": _actor or "spark",
+                    "note": "proposal parked after consecutive dedupe blocks",
+                }
+        except Exception:
+            pass
         # Kill cooldown: drop repeatedly Oracle-killed themes (human_guide prior).
         try:
             from colony.lessons import (
@@ -861,6 +895,12 @@ class EvolutionEngine:
                     _actor = self.registry.best_for("improve")
                 except Exception:
                     _actor = "spark"
+                try:
+                    from colony.stall import note_dedupe_block, record_turn
+                    note_dedupe_block(fp, title, action, cycle_id)
+                    record_turn(cycle_id, "proposal", fp, "block")
+                except Exception:
+                    pass
                 return {
                     "id": f"imp_blocked_{fp}",
                     "ts": _utc_now(),

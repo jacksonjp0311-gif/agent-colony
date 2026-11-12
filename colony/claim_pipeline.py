@@ -315,6 +315,11 @@ def propose_checked(
                 c.status = "rejected_raw"
                 c.hard_ok = False
                 c.note = (c.note or "") + " | theme_probe_cooldown:saturated_no_harder_window"
+                try:
+                    from colony.stall import record_turn
+                    record_turn(cycle_id, "claim_theme", c.theme_id, "skip")
+                except Exception:
+                    pass
                 continue
         except Exception:
             pass

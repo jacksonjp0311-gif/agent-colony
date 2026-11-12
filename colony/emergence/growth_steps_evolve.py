@@ -49,6 +49,20 @@ def dedupe_specs_this_cycle(g: Any, specs: list[dict[str, Any]]) -> list[dict[st
     return out
 
 
+
+def _reroute_blocked_proposal(cycle_id: str, title: str, action: str, prop: dict) -> None:
+    """A blocked or parked repeat does not consume the turn. Another source gets it."""
+    try:
+        from colony.stall import note_dedupe_block, give_turn_elsewhere, record_turn
+        fp = str(prop.get("fingerprint") or "")
+        if prop.get("status") == "blocked_repeat":
+            note_dedupe_block(fp, title, action, cycle_id)
+        record_turn(cycle_id, "proposal", fp or title, "block")
+        give_turn_elsewhere(cycle_id, excluded=[fp] if fp else [])
+    except Exception:
+        pass
+
+
 def _chain_cite_ev(action: str) -> list[str]:
     """Bench artifact + proven lemma evidence for seek/chain actions (cite guide; fail-soft)."""
     if not str(action or "").startswith("seek_enable:"):
@@ -151,6 +165,13 @@ class GrowthSteps3:
                     detail={"caught": [{k: r.get(k) for k in ("target", "kind", "reason", "counterexample")}
                                        for r in caught[:5]]},
                 )
+        except Exception:
+            pass
+        try:
+            from colony.stall import on_cycle_end, visibility
+            on_cycle_end(cycle_id)
+            for key, value in visibility().items():
+                metrics.setdefault(key, value)
         except Exception:
             pass
         self.evo.record_fitness(cycle_id, metrics)
@@ -378,7 +399,9 @@ class GrowthSteps3:
             action=action,
         )
         # Fail-soft BEFORE hearing stamps status: blocked_repeat has no ledger work.
-        if prop.get("status") in ("blocked_repeat", "blocked_kill_cooldown"):
+        # The turn is given to a different proposal source (or OEIS / PERTURB).
+        if prop.get("status") in ("blocked_repeat", "blocked_kill_cooldown", "parked_repeat"):
+            _reroute_blocked_proposal(cycle_id, title, action, prop)
             return
         prop["hearing_verdict"] = verdict
         prop["hearing_rationale"] = rationale
@@ -686,11 +709,13 @@ class GrowthSteps3:
                 hypothesis=hypothesis,
                 action=action,
             )
-            # Phase 1/4: if propose_improvement blocked a repeat, skip ledger spam
-            if prop.get("status") in ("blocked_repeat", "blocked_kill_cooldown"):
+            # Phase 1/4: if propose_improvement blocked a repeat, skip ledger spam.
+            # The turn is given to a different source so the cycle is not Oracle-free.
+            if prop.get("status") in ("blocked_repeat", "blocked_kill_cooldown", "parked_repeat"):
                 g.hearing_verdicts.append(  # type: ignore[attr-defined]
                     {"title": title, "verdict": "block", "rationale": "repeat_proposal", "P": 0.0}
                 )
+                _reroute_blocked_proposal(cycle_id, title, action, prop)
                 continue
             # Map hearing verdict → proposal + ledger status
             if verdict == "reject":

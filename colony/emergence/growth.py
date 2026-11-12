@@ -62,6 +62,11 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
     ) -> GrowthResult:
         g = GrowthResult()
         cycle_n = int(self.state.data.get("cycle_count") or 0) + 1
+        try:
+            from colony.stall import on_cycle_start
+            on_cycle_start(cycle_id)
+        except Exception:
+            pass
 
         entered = self.registry.sync_from_roles(cycle_id=cycle_id)
         if entered:
@@ -270,6 +275,32 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                 summary=f"Claim pipeline skipped: {exc}",
                 detail={"error": str(exc)},
             )
+        # PERTURB: at least two distinct new targets, through the normal pipeline
+        # and Oracle (same gate, same bus). Selection only is perturbed.
+        try:
+            from colony.stall import perturb_active, run_perturb_turn
+            if perturb_active():
+                pre = run_perturb_turn(cycle_id, n=2, bus=self.bus)
+                g.improvements.append(
+                    f"perturb:n={pre.get('n')}:reached_oracle={pre.get('n_reached_oracle')}:seed={pre.get('seed')}"
+                )
+                self.witness.record(
+                    cycle_id=cycle_id,
+                    kind="stall_perturb",
+                    actor="spark",
+                    summary=(
+                        f"PERTURB turn: {pre.get('n')} targets, "
+                        f"{pre.get('n_reached_oracle')} reached the Oracle "
+                        f"(seed {pre.get('seed')})."
+                    ),
+                    detail={
+                        "seed": pre.get("seed"),
+                        "targets": [t.get("id") for t in (pre.get("targets") or [])],
+                        "n_reached_oracle": pre.get("n_reached_oracle"),
+                    },
+                )
+        except Exception:
+            pass
         # Lift 2: bias skills/genomes from lesson ledger (kept outcomes only)
         try:
             from colony.lessons import apply_lesson_bias_to_agents, apply_lesson_bias_to_genomes, digest

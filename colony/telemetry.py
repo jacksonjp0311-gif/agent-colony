@@ -182,9 +182,18 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
             }
     oracle = _safe_oracle_counts()
     auth = _authorize_rates()
+    stall_vis = {}
+    try:
+        from colony.stall import visibility
+        stall_vis = visibility()
+    except Exception:
+        stall_vis = {}
     return {
         "fitness_latest": fit_latest,
         "honest_scoreboard": _honest_scoreboard(),
+        "stall_cycles": stall_vis.get("stall_cycles", 0),
+        "perturb_active": stall_vis.get("perturb_active", False),
+        "distinct_targets_tried_last_3_cycles": stall_vis.get("distinct_targets_tried_last_3_cycles", 0),
         "fitness_aggregate": (fit_latest or {}).get("aggregate") if isinstance(fit_latest, dict) else None,
         "reply_rate": bus_metrics.get("reply_rate") or (fit_latest or {}).get("comm_reply_rate"),
         "bus_metrics": bus_metrics,
