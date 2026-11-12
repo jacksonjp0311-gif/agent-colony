@@ -138,4 +138,7 @@ def test_recurrence_residues_settle_congruences_finitely():
         r = K.verified_recurrence("oxa047700", T)
         assert r and r["sig"][:2] == [2, -1] and not any(r["sig"][2:]) and r["source"].startswith("table")
         lab = K.recurrence_residue(C("S(oxa047700)", m=2, r=1, q=4, s=1), T, None, None)
-        assert lab and lab.startswith("known in principle") and "no certificate" in lab
+        assert lab and lab.startswith("confirmed on range")
+        assert "known in principle" not in lab and "settles it for all" not in lab
+    lab_def = K.recurrence_residue(true, T, None, None)
+    assert lab_def and lab_def.startswith("known in principle") and "settles it for all n" in lab_def

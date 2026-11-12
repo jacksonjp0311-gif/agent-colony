@@ -135,7 +135,14 @@ def compositional(r: dict[str, Any]) -> str:
         c = {"kind": r["kind"], "params": r.get("params") or {}, "_le": FC.parse(r["lhs"]),
              "_re": FC.parse(r["rhs"]) if r.get("rhs") else None}
         ex = CP.explain(c, FC._BRIDGE_T)
-        return "known in principle: implied by component facts (" + "; ".join(ex["facts"]) + ")" if ex else ""
+        if not ex:
+            return ""
+        lab = str(ex.get("label") or "")
+        if lab.startswith("confirmed on range"):
+            return "confirmed on range: " + str(ex.get("scope") or "matches the tabulated terms; not a proof")
+        if not lab.startswith("known_in_principle"):
+            return ""
+        return "known in principle: implied by component facts (" + "; ".join(ex["facts"]) + ")"
     except Exception:  # noqa: BLE001
         return ""
 

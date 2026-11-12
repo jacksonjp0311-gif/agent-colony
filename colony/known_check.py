@@ -16,9 +16,9 @@ credit. Any one of these explains it (label 'known/derived: ...'; live: not a su
       P-recursive one with unit leading coefficient (derangements), is periodic mod m; a
       congruence that holds under a null keeping exactly those residues follows from them.
     - recurrence residues: a congruence / residue pattern on parts that each satisfy a verified
-      linear recurrence (OEIS-listed, defining, or fitted to and re-checked on our table) is settled
-      by computing the residue period (colony.proof_check.recurrence_residues); certificate when every
-      recurrence is citable.
+      linear recurrence. An OEIS-listed or defining recurrence settles the claim for all n
+      (colony.proof_check.recurrence_residues). A recurrence only fitted to our table is
+      labelled "confirmed on range", not a proof.
     - (multiplicativity and the classical parity rules come in through the kernel and the
       Stage 2 catalog.)
 (d) the claim's derived sequence (the quotient f/g of a divisibility, the gap B - A of an
@@ -440,16 +440,23 @@ def recurrence_residue(c: dict[str, Any], T: Any, net: Any, lookup: Callable | N
     if got is None:
         return None
     srcs = "; ".join(f"{p}: {r['source']}" for p, r in sorted(recs.items()))[:200]
-    if not got["holds"]:
-        return (f"known (settled finitely): false at n = {got['first_fail']}; its parts satisfy linear "
-                f"recurrences ({srcs}), so its residues mod {c['params']['m']} are periodic")
-    cert = recurrence_certificate(c, T, recs)
+    cited = all(str(r.get("source") or "").startswith(PC.RR_CERT_SOURCES) for r in recs.values())
+    cert = recurrence_certificate(c, T, recs) if cited else None
     c["_rr_certificate"] = cert
-    tail = ("; proof-kernel certificate checked by colony.proof_check" if cert else
-            "; no certificate (a recurrence was fitted to our table, not cited)")
-    return (f"known in principle (elementary): its parts satisfy linear recurrences ({srcs}), so mod "
-            f"{c['params']['m']} it is periodic with period {got['period']} from n = {got['pre']}; every n up to "
-            f"{got['checked_to']} checked, which settles it for all n{tail}")
+    m = c["params"]["m"]
+    if not got["holds"]:
+        if cited:
+            return (f"known (settled finitely): false at n = {got['first_fail']}; its parts satisfy linear "
+                    f"recurrences ({srcs}), so its residues mod {m} are periodic")
+        return (f"confirmed on range: a table-fitted recurrence disagrees with the claim at n = "
+                f"{got['first_fail']} ({srcs}); not a proof beyond the tabulated terms")
+    if cited and cert:
+        return (f"known in principle (elementary): its parts satisfy linear recurrences ({srcs}), so mod "
+                f"{m} it is periodic with period {got['period']} from n = {got['pre']}; every n up to "
+                f"{got['checked_to']} checked, which settles it for all n; proof-kernel certificate checked "
+                f"by colony.proof_check")
+    return (f"confirmed on range: residues mod {m} match the claim from n = {got['pre']} through "
+            f"n = {got['checked_to']} using recurrences fitted to the table ({srcs}); not a proof for all n")
 
 
 class Net:

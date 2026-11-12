@@ -1243,7 +1243,10 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
         from colony.compositional import explain as _cp_explain
         _cpx = _cp_explain(c, T)
         if _cpx:
-            return ("known_in_principle(definition_parity)" if "definition_parity" in str(_cpx.get("label"))
+            lab = str(_cpx.get("label") or "")
+            if lab.startswith("confirmed on range"):
+                return "confirmed on range"
+            return ("known_in_principle(definition_parity)" if "definition_parity" in lab
                     else "known_in_principle(compositional)")
     if not known_result(c) and _known_cong_parts(c, T, rng):
         return "implied_parts"

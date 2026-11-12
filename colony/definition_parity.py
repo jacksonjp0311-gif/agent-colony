@@ -636,8 +636,14 @@ def explain(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
         except Exception:  # noqa: BLE001
             return None
         if ok:
-            return {"label": "known_in_principle(definition_parity)", "classes_mod": Q,
-                    "facts": sorted(set(pre_facts) | ev.facts),
+            facts = sorted(set(pre_facts) | ev.facts)
+            # A 2-kernel fitted to a prefix is a check of those terms. A defining convolution
+            # is worded as a definition, not as "confirmed on" a kernel, and stays a proof.
+            if any("confirmed on" in f and "kernel" in f for f in facts):
+                return {"label": "confirmed on range", "classes_mod": Q, "facts": facts,
+                        "scope": "confirmed on range: a 2-kernel was fitted to the tabulated terms; "
+                                 "not a proof for all n"}
+            return {"label": "known_in_principle(definition_parity)", "classes_mod": Q, "facts": facts,
                     "scope": "implied for all n >= 1 by the components' definitions reduced mod 2 and elementary "
-                             "parity facts (automatic-kernel facts are data-confirmed)"}
+                             "parity facts"}
     return None

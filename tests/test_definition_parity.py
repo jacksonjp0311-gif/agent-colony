@@ -24,7 +24,6 @@ REGRESSION = [
     ("dbl(oxa177115)", dict(m=2, q=1, r=0)),          # A177115 even at even indices
     ("dbl(oxa177122)", dict(m=2, q=1, r=1)),          # A177122 odd at even indices
     ("dbl(oxa009191)", dict(m=2, q=6, r=0, s=4)),     # 85b99e19: gcd(m, d(m)) even, m = 8 (mod 12)
-    ("S(oxa157100)", dict(m=2, q=2, r=1, s=0)),       # A157100 partial sums odd at even n
     ("prime[oxa080076]", dict(m=2, q=1, r=1)),        # Proth primes odd
     ("maxgap[oxa080076]", dict(m=2, q=1, r=0)),       # max gap of odd primes even
     ("cmax[oxa080076]", dict(m=2, q=1, r=0)),
@@ -41,11 +40,14 @@ def test_regression_known_in_principle(T, lhs, params):
 
 
 def test_regression_51c52e42_modpat(T):
-    # gcd(gcd(n, d(n)), A083105) mod 2 by n mod 6: even iff n even, d(n) even and A083105(n) even
+    # gcd(gcd(n, d(n)), A083105) mod 2 by n mod 6. A009191 follows from its definition;
+    # A083105 is only a 2-kernel fitted to the table, so the pattern is not a proof.
     c = {"kind": "modpat", "params": {"P": 6, "m": 2, "pat": [1, 0, 1, 1, 1, 1]},
          "_le": FC.parse("gcd(oxa009191,oxa083105)"), "_re": None}
     ex = CP.explain(c, T)
-    assert ex and ex["label"] == "known_in_principle(definition_parity)"
+    assert ex and ex["label"] == "confirmed on range"
+    assert any("kernel" in f and "confirmed on" in f for f in ex["facts"])
+    assert any("definition" in f for f in ex["facts"])
     bad = dict(c, params={"P": 6, "m": 2, "pat": [1, 1, 1, 1, 1, 0]})
     assert DP.explain(bad, T) is None
 
@@ -68,6 +70,18 @@ def test_false_or_unimplied_claims_not_labelled(T):
     assert DP.explain(_c("gcd(n,tau)", m=2, q=12, r=0, s=1), T) is None
     # only mod-2 claims are in scope
     assert DP.explain(_c("prime[oxa080076]", m=3, q=1, r=1), T) is None
+
+
+def test_fitted_kernel_is_confirmed_on_range_not_proved(T):
+    """A partial sum whose primitive is only a fitted 2-kernel is confirmed on the table.
+    fib's parity uses the C-finite order bound instead, and that one stays a proof."""
+    ex = DP.explain(_c("S(oxa157100)", m=2, q=2, r=1, s=0), T)
+    assert ex and ex["label"] == "confirmed on range"
+    assert "not a proof" in ex["scope"]
+    assert any("kernel" in f and "confirmed on" in f for f in ex["facts"])
+    fib = DP.explain(_c("fib", m=2, q=3, r=0, s=0), T)
+    assert fib and fib["label"] == "known_in_principle(definition_parity)"
+    assert any("C-finite order bound" in f for f in fib["facts"])
 
 
 def test_trivial_reason_label(T, monkeypatch):

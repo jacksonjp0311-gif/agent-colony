@@ -16,9 +16,11 @@ and each component is tested against facts that hold for it on its own:
 
 On each refined residue class the words that are provably constant are replaced by that constant
 and the expression is simplified (gcd(0, y) = |y|, gcd(1, y) = 1, 0*y = 0, 1*y = y). If what is left
-is built only from components with residue facts, the claim's residues are periodic and the claim
-is decided by one period: when it holds there, the claim is IMPLIED BY COMPONENT FACTS
-(known in principle) and earns no surprise credit. Nothing here is the Oracle, P or the 0.70 bar.
+is built only from components with residue facts, the claim's residues are periodic and one period
+decides the claim on the data. That is "known in principle" only when every residue fact is an
+exact automaton, a defining rule, or a C-finite order-bound certificate. A period or recurrence
+fitted to the table is "confirmed on range", not a proof, and still earns no surprise credit.
+Nothing here is the Oracle, P or the 0.70 bar.
 
 Regression (VERDICT.md, 2026-10-23): dbl(gcd(baum, oxa072856)) = 0 (mod 2) for n = 1 (mod 3):
 2n = 2 (mod 3) so baum(2n) = 0 and gcd(0, y) = y = A072856(2n); A072856 mod 2 has period 9
@@ -138,12 +140,24 @@ def _isprime(m: int) -> bool:
 _FACTS: dict[tuple[str, int, int], dict[str, Any] | None] = {}
 
 
+def _cfinite_order(name: str) -> int | None:
+    """Order bound when the primitive is C-finite by construction, else None."""
+    try:
+        from colony.frontier_conjectures import cf_order
+    except Exception:  # noqa: BLE001
+        return None
+    if name.startswith("_c"):
+        return 1
+    return cf_order(("p", name))
+
+
 def residue_fact(name: str, m: int, T: Any) -> dict[str, Any] | None:
     """A fact giving name(n) mod m for every n >= 1, or None.
 
-    {'kind': 'period', 'pre': t0, 'P': P, 'vals': [...]}  residues periodic from n = t0
-    Built from a Berlekamp-Massey recurrence over GF(m) (m prime) or a pure period, confirmed on
-    the whole table with >= 3 repetitions."""
+    {'kind': 'period', 'pre': t0, 'P': P, 'vals': [...]}  residues periodic from n = t0.
+    certificate is true for an exact rule (n, a constant) or a Berlekamp-Massey recurrence whose
+    order is within the C-finite order bound. A period or recurrence only fitted to the table has
+    certificate false: confirmed on those terms, not a proof for all n."""
     tab = (getattr(T, "t", {}) or {}).get(name)
     if not tab:
         return None
@@ -152,15 +166,31 @@ def residue_fact(name: str, m: int, T: Any) -> dict[str, Any] | None:
         return _FACTS[key]
     res = None
     if name == "one" or name.startswith("_c"):
-        res = {"kind": "period", "pre": 1, "P": 1, "how": "constant", "vals": {1: tab[1] % m}}
+        res = {"kind": "period", "pre": 1, "P": 1, "how": "constant", "vals": {1: tab[1] % m},
+               "certificate": True, "source": "defining"}
     elif name == "n":
-        res = {"kind": "period", "pre": 1, "P": m, "how": "n mod m", "vals": {t: t % m for t in range(1, m + 1)}}
+        res = {"kind": "period", "pre": 1, "P": m, "how": "n mod m", "vals": {t: t % m for t in range(1, m + 1)},
+               "certificate": True, "source": "defining"}
     else:
         r = [x % m for x in tab[1:min(len(tab), 20001)]]   # r[i] = a(i+1) mod m
         N = len(r)
-        res = _period_of(r, m)
-        if res is None and _isprime(m) and N >= 60:
-            res = _bm_period(r, m)
+        order = _cfinite_order(name)
+        bm = _bm_period(r, m) if _isprime(m) and N >= 60 else None
+        if bm is not None and order is not None and bm["order"] <= order:
+            bm["certificate"] = True
+            bm["source"] = "cfinite-order-bound"
+            bm["how"] = (f"C-finite order bound: order-{bm['order']} recurrence over GF({m}) "
+                         f"(Berlekamp-Massey, order <= {order}), period {bm['P']}")
+            res = bm
+        if res is None:
+            res = _period_of(r, m)
+            if res is not None:
+                res["certificate"] = False
+                res["source"] = "table"
+        if res is None and bm is not None:
+            bm["certificate"] = False
+            bm["source"] = "table"
+            res = bm
     _FACTS[key] = res
     return res
 
@@ -206,7 +236,7 @@ def _bm_period(r: list[int], p: int) -> dict[str, Any] | None:
         if i > 200000:
             return None
     vals = {pre + 1 + j: seq[pre + j] for j in range(P)}
-    return {"kind": "period", "pre": pre + 1, "P": P, "vals": vals,
+    return {"kind": "period", "pre": pre + 1, "P": P, "order": L, "vals": vals,
             "how": f"C-finite mod {p}: order-{L} recurrence over GF({p}) (Berlekamp-Massey, confirmed on "
                    f"{len(r)} terms), period {P}"}
 
@@ -485,8 +515,15 @@ def _explain_components(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
                      f"(exact automaton residue reachability, mod {a * Q})")
     for p, f_ in sorted(ctx.facts.items()):
         facts.append(f"{p}: " + str(f_.get("how", "")))
-    return {"label": "known_in_principle(component_facts)", "facts": sorted(set(facts)),
+    data_derived = any(not f_.get("certificate") for f_ in ctx.facts.values())
+    if data_derived:
+        label = "confirmed on range"
+        scope = ("confirmed on range: a component residue pattern was fitted to the tabulated terms; "
+                 "not a proof for all n")
+    else:
+        label = "known_in_principle(component_facts)"
+        scope = ("implied for all n >= 1: every component fact is an exact automaton, a defining rule, "
+                 "or a C-finite order-bound certificate, and one full period was checked")
+    return {"label": label, "facts": sorted(set(facts)),
             "classes_mod": Q, "word_constants": {str(t): k for t, k in branches if k},
-            "checked_n": span,
-            "scope": "implied for all n >= 1: the claim's residues are periodic once every component's are, "
-                     "and one full period plus the pre-period was checked from the component facts and data"}
+            "checked_n": span, "scope": scope}

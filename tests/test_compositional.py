@@ -28,9 +28,21 @@ def test_baum_never_one_at_2_mod_3():
 
 def test_regression_da29c2e70c3c733b_is_known_in_principle(T):
     ex = CP.explain(_c("dbl(gcd(baum,oxa072856))", m=2, q=3, r=0, s=1), T)
-    assert ex and ex["label"] == "known_in_principle(component_facts)"
+    # A072856's period is fitted to the table. Baum-Sweet is an exact automaton.
+    # The pattern is confirmed on the range, not proved for all n.
+    assert ex and ex["label"] == "confirmed on range"
+    assert "not a proof" in ex["scope"]
     assert ex["word_constants"]["1"] == {"dbl(baum)": 0}
     assert any("period 9" in f for f in ex["facts"])
+
+
+def test_cfinite_residue_stays_a_certificate_and_table_fit_does_not(T):
+    fib = CP.residue_fact("fib", 2, T)
+    assert fib and fib.get("certificate") is True and fib.get("source") == "cfinite-order-bound"
+    fitted = CP.residue_fact("oxa072856", 2, T)
+    assert fitted and fitted.get("certificate") is False and fitted.get("source") == "table"
+    proved = CP.explain(_c("dbl(fib)", m=2, q=3, r=0, s=0), T)
+    assert proved and proved["label"] == "known_in_principle(component_facts)"
 
 
 def test_false_variant_not_explained(T):
@@ -52,7 +64,8 @@ def test_surprise_credit_zero_when_implied(monkeypatch):
          "unknown": True, "known_check": "no known result found", "reference": "no reference found",
          "prediction": 0.4, "range": [13, 200], "sig": "da29c2e70c3c733b"}
     monkeypatch.setenv("COLONY_COMPOSITIONAL", "live")
-    assert SC.compositional(r).startswith("known in principle")
+    assert SC.compositional(r).startswith("confirmed on range")
+    assert "known in principle" not in SC.compositional(r)
     assert SC.credit(r, trivial=False)["credit"] == 0.0
     monkeypatch.setenv("COLONY_COMPOSITIONAL", "off")
     assert SC.compositional(r) == ""
