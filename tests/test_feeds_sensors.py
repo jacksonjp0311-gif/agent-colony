@@ -217,6 +217,13 @@ def test_authoring_turns_oeis_feed_into_verified_disabled_check(feeds_tmp, tmp_p
     monkeypatch.setenv("COLONY_AUTHOR_PAIRS", "on")  # second half checks the compose fallback
     from tests.test_authoring import _guide, _repo
     import colony.authoring as A
+    import colony.novelty_gate as NG
+    import colony.conjecture_desk as CD
+    # The real known-identity snapshot already records this feed check. This test is about
+    # the authoring path, so it reads an empty snapshot and an empty desk history.
+    (tmp_path / "known.json").write_text('{"identities": []}', encoding="utf-8")
+    monkeypatch.setattr(NG, "KNOWN", tmp_path / "known.json")
+    monkeypatch.setattr(CD, "HISTORY", tmp_path / "history.jsonl")
     extra_fns = '''
 def fibonacci(n: int) -> int:
     a, b = 0, 1
