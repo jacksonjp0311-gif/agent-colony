@@ -72,6 +72,33 @@ def test_false_or_unimplied_claims_not_labelled(T):
     assert DP.explain(_c("prime[oxa080076]", m=3, q=1, r=1), T) is None
 
 
+def test_lpf_parity_reduces_and_gpf_does_not_copy_it(T, monkeypatch):
+    """lpf(x) has the parity of x for x >= 1. gpf(x) is even only for powers of 2."""
+    lpf_even = _c("lpf[n]", m=2, q=2, r=0, s=0)
+    ex = DP.explain(lpf_even, T)
+    assert ex and ex["label"] == "known_in_principle(definition_parity)"
+    assert any("lpf(x) is odd exactly when x is odd" in f for f in ex["facts"])
+    # gpf(n) even for even n is false (gpf(6) = 3). Do not rewrite it to "n is even".
+    assert DP.explain(_c("gpf[n]", m=2, q=2, r=0, s=0), T) is None
+    # Odd gpf follows from an odd argument, not from the argument's parity in both directions.
+    gpf_odd = DP.explain(_c("gpf[prime]", m=2, q=2, r=1, s=0), T)
+    assert gpf_odd and "power of 2" in " ".join(gpf_odd["facts"])
+    assert gpf_odd["label"] == "known_in_principle(definition_parity)"
+    monkeypatch.setenv("COLONY_COMPOSITIONAL", "live")
+    monkeypatch.setenv("COLONY_DEEP", "off")
+    monkeypatch.setenv("COLONY_REFCHECK_STRONG", "off")
+    from colony import surprise_credit as SC
+    claim = {"kind": "cong", "lhs": "lpf[fib]", "rhs": "", "params": {"m": 2, "q": 3, "r": 0, "s": 0},
+             "unknown": True, "known_check": "no known result found", "reference": "no reference found",
+             "prediction": 0.4, "range": [1, 40], "sig": "lpf-fib"}
+    why = SC.explained(claim, trivial=False)
+    assert why.startswith("known in principle")
+    assert SC.credit(claim, trivial=False)["credit"] == 0.0
+    # The same reduction does not zero a gpf claim that is not a consequence of parity.
+    other = dict(claim, lhs="gpf[n]", params={"m": 2, "q": 2, "r": 0, "s": 0}, sig="gpf-n")
+    assert DP.explain({"kind": "cong", "params": other["params"], "_le": FC.parse("gpf[n]"), "_re": None}, T) is None
+
+
 def test_fitted_kernel_is_confirmed_on_range_not_proved(T):
     """A partial sum whose primitive is only a fitted 2-kernel is confirmed on the table.
     fib's parity uses the C-finite order bound instead, and that one stays a proof."""

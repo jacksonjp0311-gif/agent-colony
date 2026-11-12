@@ -597,9 +597,105 @@ def _prims(e: tuple) -> set[str]:
     return out
 
 
+# Textbook sequences that are integers >= 1 for every n >= 1. Used only to justify
+# lpf(x) ≡ x (mod 2) and the one-way gpf fact. Not a list of claims.
+_GE1 = {"n", "one", "phi", "sigma", "tau", "rad", "lpf", "gpf", "prime", "pow2", "fib", "lucas", "pell"}
+
+
+def _gpf_target_odd(kind: str, prm: dict[str, Any]) -> bool:
+    """True when every residue the claim asks for is odd. gpf may then use the one-way fact."""
+    if kind == "cong":
+        return int(prm.get("r") or 0) % 2 == 1
+    pat = prm.get("pat") or []
+    return bool(pat) and all(int(x) % 2 == 1 for x in pat)
+
+
+def _ge1(e: tuple, T: Any) -> str | None:
+    """'proof' when every leaf is an integer >= 1 for all n >= 1, 'range' when that is only
+    true of the tabulated terms, None when a value below 1 is seen or the expression does not evaluate."""
+    leaves = _prims(e)
+    proofish = True
+    for w in leaves:
+        if w in _GE1 or w.startswith("_c"):
+            continue
+        if str(w).startswith("ox") and prime_valued(w, T):
+            continue
+        proofish = False
+    try:
+        from colony.frontier_conjectures import evaluate, max_n
+        N = max_n(e, T, 400)
+        vals = evaluate(e, N, T) if N else None
+    except Exception:  # noqa: BLE001
+        vals = None
+    if not vals or min(vals) < 1:
+        return None
+    return "proof" if proofish else "range"
+
+
+def peel_factor_parity(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
+    """Rewrite a mod-2 claim before the parity filters.
+
+    lpf(x) ≡ x (mod 2) for every integer x >= 1, so lpf[seq] is replaced by seq.
+    gpf(x) is even exactly when x is a power of 2. An odd integer x >= 1 does have odd gpf,
+    so a claim that gpf is odd may be reduced to "seq is odd". The converse is false:
+    gpf(6) = 3, so a claim that gpf is even is not the claim that seq is even.
+    """
+    kind = c.get("kind")
+    prm = c.get("params") or {}
+    if kind not in ("cong", "modpat") or int(prm.get("m") or 0) != 2 or c.get("_re") is not None:
+        return None
+    if c.get("_le") is None:
+        return None
+    gpf_odd = _gpf_target_odd(kind, prm)
+    facts: list[str] = []
+    strength = ["proof"]
+    changed = [False]
+
+    def walk(e: tuple) -> tuple:
+        if e[0] == "o" and e[1] == "lpf":
+            dom = _ge1(e[2], T)
+            if dom is None:
+                return ("o", "lpf", walk(e[2]))
+            if dom == "range":
+                strength[0] = "range"
+            facts.append("lpf(x) is odd exactly when x is odd, for every integer x >= 1")
+            changed[0] = True
+            return walk(e[2])
+        if e[0] == "o" and e[1] == "gpf" and gpf_odd:
+            dom = _ge1(e[2], T)
+            if dom is None:
+                return ("o", "gpf", walk(e[2]))
+            if dom == "range":
+                strength[0] = "range"
+            facts.append("an odd integer x >= 1 has odd gpf; gpf(x) is even exactly when x is a power of 2")
+            changed[0] = True
+            return walk(e[2])
+        if e[0] == "p":
+            return e
+        return (e[0],) + tuple(walk(x) if isinstance(x, tuple) else x for x in e[1:])
+
+    new_e = walk(c["_le"])
+    if not changed[0]:
+        return None
+    return {"e": new_e, "facts": sorted(set(facts)), "strength": strength[0]}
+
+
 def explain(c: dict[str, Any], T: Any) -> dict[str, Any] | None:
     """{'label': 'known_in_principle(definition_parity)', 'facts': [...]} when the mod-2 claim follows
     from definitions reduced mod 2 / elementary facts, else None."""
+    if not c.get("_factor_peeled"):
+        peeled = peel_factor_parity(c, T)
+        if peeled is not None and peeled["e"] != c.get("_le"):
+            ex = explain(dict(c, _le=peeled["e"], _factor_peeled=True), T)
+            if ex:
+                facts = sorted(set(ex.get("facts") or []) | set(peeled["facts"]))
+                ex = dict(ex, facts=facts)
+                if peeled["strength"] != "proof" or str(ex.get("label") or "").startswith("confirmed"):
+                    ex["label"] = "confirmed on range"
+                    ex["scope"] = "confirmed on range: " + peeled["facts"][0]
+                else:
+                    ex["scope"] = (str(ex.get("scope") or "") + " " + peeled["facts"][0]).strip()
+                return ex
     from colony.frontier_conjectures import _push
     kind = c.get("kind")
     if kind not in ("cong", "modpat") or c.get("_re") is not None:

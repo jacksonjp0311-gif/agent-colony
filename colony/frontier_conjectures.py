@@ -1233,6 +1233,18 @@ def trivial_reason(c: dict[str, Any], T: Any, rng: random.Random, F: int, split:
                    residue facts of its components: automaton residue reachability for the
                    automatic words + recurrence / period facts mod m for the rest (colony.compositional)
     """
+    if not c.get("_factor_peeled") and c.get("kind") in ("cong", "modpat"):
+        try:
+            from colony.definition_parity import peel_factor_parity
+            peeled = peel_factor_parity(c, T)
+        except Exception:  # noqa: BLE001
+            peeled = None
+        if peeled is not None and peeled["e"] != c.get("_le"):
+            reason = trivial_reason(dict(c, _le=peeled["e"], _factor_peeled=True), T, rng, F, split)
+            if reason:
+                if peeled["strength"] != "proof":
+                    return "confirmed on range"
+                return reason
     if _outer_self(c):
         return "outer_self"
     if _cong_implied_by_parts(c, T, F) or (c["kind"] in ("cong", "modpat") and _periodic_mod(c["_le"], c["params"]["m"], T)):
