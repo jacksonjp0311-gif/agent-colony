@@ -226,6 +226,11 @@ def test_shadow_writes_no_state(tmp_path, monkeypatch):
     OC.run_cycle("c1", fetch=False)
     assert OC.REPORT.exists() and not OC.STATE.exists() and not OC.REVIEW.exists()
     monkeypatch.setenv("COLONY_OEIS_CONJ", "live")
+    # The live run is about writing credit state, not about retrying a depth.
+    # Clear the selection-layer attempt log so the same entry can still
+    # produce a state file (item 24's skip is covered in test_stall_fixes).
+    if OC.ATTEMPT_LOG.exists():
+        OC.ATTEMPT_LOG.unlink()
     OC.run_cycle("c2", fetch=False)
     st = json.loads(OC.STATE.read_text())
     assert st["targets"]["t"]["status"] == "proved_checked" and OC.REVIEW.exists()
