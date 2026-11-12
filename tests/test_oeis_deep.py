@@ -43,6 +43,26 @@ def test_kitamasa_matches_iteration():
     assert D.iter_mod(cf, 300, D.P1)[300] == xs[300] % D.P1
 
 
+def test_companion_power_matches_kitamasa_and_jumps():
+    cf = D.cfinite(OC.parse_definition(FIB), 0, [int(c) for c in OC._series_A("1/(1-x-x^2)", 8)])
+    xs = D.iter_exact(cf, 80)
+    for n in (0, 1, 7, 40, 80):
+        assert D.companion_pow(cf, n) == xs[n]
+        assert D.CF(cf).b_value(n) == xs[n]
+        assert D.companion_pow(cf, n, D.P2) == xs[n] % D.P2
+    # A far index is one matrix power, and it agrees with the other log-time method.
+    n = 100_000
+    assert D.companion_pow(cf, n, D.P2) == D.kitamasa(cf, n, D.P2)
+
+
+def test_series_modp_matches_exact_reduction():
+    p = 1_000_003
+    exact = [int(c) % p for c in B.series_expr(B.compile_expr("1/(1-x-x^2)"), 40)]
+    assert B.series_div_modp([1], [1, -1, -1], 40, p) == exact
+    assert B.series_mul_modp(exact, [1, -1, -1], 40, p) == [1] + [0] * 39
+    assert B.series_pow_modp([1, 1], 5, 8, p)[:6] == [1, 5, 10, 10, 5, 1]
+
+
 def test_holonomic_certificate_accepts_true_rejects_false():
     cat = [int(c) for c in B.series_expr(B.compile_expr(CAT), 300)]
     ok, why = PC.check_holonomic(CAT, 0, ["(n+1)*a(n) - 2*(2*n-1)*a(n-1)", "0"], ["="], 1, cat)

@@ -128,6 +128,72 @@ def _polymulmod(p, q, chi_c, M):
     return [v % M for v in r] if M else r
 
 
+def _companion(c: list[Any], M: int | None) -> list[list[Any]]:
+    """Companion matrix of a(n) = c[0]*a(n-1) + ... + c[K-1]*a(n-K)."""
+    K = len(c)
+    row0 = [_modf(v, M) if M else v for v in c]
+    rows = [row0]
+    for i in range(1, K):
+        row = [0] * K
+        row[i - 1] = 1
+        rows.append(row)
+    return rows
+
+
+def _mat_mul(a: list[list[Any]], b: list[list[Any]], M: int | None) -> list[list[Any]]:
+    K = len(a)
+    out = [[0] * K for _ in range(K)]
+    for i in range(K):
+        for k in range(K):
+            aik = a[i][k]
+            if not aik:
+                continue
+            bk = b[k]
+            row = out[i]
+            for j in range(K):
+                row[j] += aik * bk[j]
+        if M:
+            for j in range(K):
+                out[i][j] %= M
+    return out
+
+
+def companion_pow(cf: dict[str, Any], n: int, M: int | None = None):
+    """a(n), mod M when M is set, by binary powering of the companion matrix.
+
+    A different algorithm from kitamasa. One term at a large index does not
+    walk the terms in between.
+    """
+    s0, seed, c = cf["s0"], cf["seed"], cf["c"]
+    K, L = len(c), len(seed)
+    if K == 0:
+        raise NotCFinite("order 0")
+    if n < s0:
+        raise B.Missing("a")
+    if n - s0 < L:
+        v = seed[n - s0]
+        return _modf(v, M) if M else v
+    if M:
+        state = [_modf(seed[L - 1 - j], M) for j in range(K)]
+    else:
+        state = [seed[L - 1 - j] for j in range(K)]
+    base = _companion(c, M)
+    acc = None
+    steps = n - (s0 + L - 1)
+    while steps:
+        if steps & 1:
+            acc = base if acc is None else _mat_mul(base, acc, M)
+        steps >>= 1
+        if steps:
+            base = _mat_mul(base, base, M)
+    row = acc[0]
+    v = sum(row[j] * state[j] for j in range(K))
+    if M:
+        return v % M
+    v = Fraction(v)
+    return int(v) if v.denominator == 1 else v
+
+
 def kitamasa(cf: dict[str, Any], n: int, M: int | None = None):
     """Path B: a(n) (mod M if given; exact otherwise) by x^m mod chi."""
     s0, seed, c = cf["s0"], cf["seed"], cf["c"]
@@ -263,7 +329,8 @@ class CF:
         return iter_mod(self.cf, hi, M, seconds)
 
     def b_value(self, n, M=None):
-        return kitamasa(self.cf, n, M)
+        # Matrix power: one far term, without walking every index up to n.
+        return companion_pow(self.cf, n, M)
 
 
 def generator(e: dict[str, Any]):

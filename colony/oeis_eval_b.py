@@ -436,6 +436,52 @@ def _smul(a: list[Fraction], b: list[Fraction], L: int) -> list[Fraction]:
     return r
 
 
+def series_mul_modp(a: list[int], b: list[int], L: int, p: int) -> list[int]:
+    """First L coefficients of a*b modulo p."""
+    r = [0] * L
+    for i, x in enumerate(a[:L]):
+        x %= p
+        if not x:
+            continue
+        for j, y in enumerate(b[:L - i]):
+            y %= p
+            if y:
+                r[i + j] = (r[i + j] + x * y) % p
+    return r
+
+
+def series_div_modp(a: list[int], b: list[int], L: int, p: int) -> list[int]:
+    """First L coefficients of a/b modulo p. b's constant term must be invertible."""
+    if not b or b[0] % p == 0:
+        raise Bad("series division")
+    inv = pow(b[0] % p, -1, p)
+    q: list[int] = []
+    for i in range(L):
+        s = (a[i] if i < len(a) else 0) % p
+        for j in range(1, min(i, len(b) - 1) + 1):
+            s = (s - (b[j] % p) * q[i - j]) % p
+        q.append(s * inv % p)
+    return q
+
+
+def series_pow_modp(a: list[int], k: int, L: int, p: int) -> list[int]:
+    """First L coefficients of a^k modulo p, k an integer. Negative k divides."""
+    if k < 0:
+        return series_div_modp([1], series_pow_modp(a, -k, L, p), L, p)
+    r = [1] + [0] * (L - 1)
+    base = [(x % p) for x in a[:L]]
+    if len(base) < L:
+        base.extend([0] * (L - len(base)))
+    e = k
+    while e:
+        if e & 1:
+            r = series_mul_modp(r, base, L, p)
+        e >>= 1
+        if e:
+            base = series_mul_modp(base, base, L, p)
+    return r
+
+
 def _sdiv(a: list[Fraction], b: list[Fraction], L: int) -> list[Fraction]:
     """a / b by long division of coefficients (b[0] != 0)."""
     if b[0] == 0:
