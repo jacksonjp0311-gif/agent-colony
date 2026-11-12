@@ -567,16 +567,55 @@ def _half_exp(nd) -> int | None:
 # ----------------------------------------------------------------------------- definitions (computable / C-finite)
 
 
+def _peel_where(s: str) -> tuple[str, dict[str, str]]:
+    """Pull `where X = <expr>` bindings out of a name. X is one letter.
+
+    The expression stops before words such as `is` / `the` (the prose after the
+    formula). Bindings are not a place to hide fetched code: they are text
+    from the same name, substituted as formulas.
+    """
+    bindings: dict[str, str] = {}
+    while True:
+        m = re.search(r",?\s+where\s+([A-Za-z])(?:\(x\))?\s*=\s*", s)
+        if not m:
+            return s.strip().rstrip(","), bindings
+        rest = s[m.end():]
+        cut = re.search(r"\s+(?:is|the|for|with)\s+", rest)
+        expr = (rest[:cut.start()] if cut else rest).strip().rstrip(".,")
+        if not expr or m.group(1) in bindings:
+            return s.strip().rstrip(","), bindings
+        bindings[m.group(1)] = expr
+        s = s[:m.start()]
+
+
+def _substitute_bindings(body: str, bindings: dict[str, str]) -> str:
+    for name, expr in bindings.items():
+        body = re.sub(rf"\b{name}\(x\)", f"({expr})", body)
+        body = re.sub(rf"\b{name}\b", f"({expr})", body)
+    return body
+
+
 def parse_definition(name: str) -> dict[str, Any] | None:
     """The entry's own definition, when it is a formula in the grammar:
-    'a(n) = <expr>' (possibly recursive in a(n - i)) or 'Expansion of <rational g.f. in x>'."""
+    'a(n) = <expr>' (possibly recursive in a(n - i)), 'Expansion of <g.f. in x>',
+    or the same with a one-letter `where X = <expr>` binding. An e.g.f. is the
+    exponential generating function: a(n) = n! [x^n]. No fetched program is read.
+    """
     s = re.split(r"[;]|\s+-\s+_", name)[0].strip().rstrip(".")
+    s, bindings = _peel_where(s)
     s = re.sub(r",?\s*with\s+a\(\d+\)\s*=\s*-?\d+((\s*(,|and)\s*)a\(\d+\)\s*=\s*-?\d+)*\s*$", "", s)
     s = re.sub(r",?\s*(for )?n\s*>=?\s*\d+\s*$", "", s)
-    m = re.match(r"^(?:Expansion of\s+(?:g\.f\.\s*)?|G\.f\.:?\s*)(.*)$", s)
+    egf = bool(re.match(r"^(?:Expansion of\s+)?e\.g\.f\b", s, re.I))
+    m = re.match(
+        r"^(?:Expansion of\s+)?(?:(?:e\.)?g\.f\.|ordinary generating function|exponential generating function)\s*:?\s*(.*)$",
+        s, re.I,
+    )
+    if not m:
+        m = re.match(r"^(?:Expansion of\s+)(.*)$", s)
     try:
         if m:
-            body = _ins_mul(m.group(1).replace("\u2212", "-").replace("Sqrt[", "sqrt(").replace("]", ")"))
+            body = _substitute_bindings(m.group(1), bindings)
+            body = _ins_mul(body.replace("\u2212", "-").replace("Sqrt[", "sqrt(").replace("]", ")"))
             if re.search(r"[A-Za-wyz_]", body.replace("sqrt", "")):
                 return None
             if "sqrt" in body or re.search(r"\^\(\s*-?\d+\s*/\s*2\s*\)", body):
@@ -588,7 +627,9 @@ def parse_definition(name: str) -> dict[str, Any] | None:
                         return None
                 except (B.Bad, ZeroDivisionError, TypeError, AttributeError, ValueError, RecursionError):
                     return None
-                return {"kind": "alg", "expr": body}
+                return {"kind": "egf" if egf else "alg", "expr": body}
+            if egf:
+                return {"kind": "egf", "expr": body}
             num, den = B.rational(B.compile_expr(body))
             return {"kind": "gf", "expr": body}
         m = re.match(r"^a\(n\)\s*=\s*(.*)$", s)
@@ -624,18 +665,32 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
     that they reproduce EVERY b-file term, then continue to N terms (time/size capped)."""
     t0 = time.time()
     out: list[int] = []
-    if defn["kind"] == "alg":
-        return None  # computed through the certified recurrence (colony.oeis_deep.Holo)
-    if defn["kind"] == "gf":
-        L = min(N, GF_TERMS * 4) + off
-        if path == "A":
-            co = _series_A(defn["expr"], L)
-        else:
+    if defn["kind"] in ("gf", "alg", "egf"):
+        L = min(N, GF_TERMS) + off + 2
+        if defn["kind"] == "gf" and path != "A":
             num, den = B.rational(B.compile_expr(defn["expr"]))
             co = B.series(num, den, L)
+        elif path == "A":
+            co = _series_A(defn["expr"], L)
+        else:
+            co = B.series_expr(B.compile_expr(defn["expr"]), L)
+        if defn["kind"] == "egf":
+            # a(n) = n! [x^n] of the exponential generating function.
+            fact = 1
+            scaled: list[Fraction] = []
+            for n, c in enumerate(co):
+                if n:
+                    fact *= n
+                v = c * fact
+                if v.denominator != 1:
+                    return None
+                if n > off + len(terms) and abs(int(v)).bit_length() > DEEP_DIGITS * 3.33:
+                    break
+                scaled.append(v)
+            co = scaled
         if any(c.denominator != 1 for c in co):
             return None
-        out = [int(c) for c in co[off:]]
+        out = [int(c) for c in co[off:off + N]]
     else:
         e = _A(defn["expr"]) if path == "A" else B.compile_expr(defn["expr"])
         K = 0
@@ -670,6 +725,41 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
     if len(out) < len(terms) or out[:len(terms)] != terms:
         return None
     return out[:N]
+
+
+def definition_reproduces(defn: dict[str, Any], off: int, terms: list[int], seconds: float = 6.0) -> bool:
+    """Both vetted evaluators reproduce every stored term. No fetched code is run."""
+    if not defn or not terms:
+        return False
+    got = extend(defn, off, list(terms), len(terms), "A", seconds=seconds)
+    if got is None or got[:len(terms)] != list(terms):
+        return False
+    other = extend(defn, off, list(terms), len(terms), "B", seconds=seconds)
+    return other is not None and other[:len(terms)] == list(terms)
+
+
+def attach_verified_definitions(entries: list[dict[str, Any]]) -> list[str]:
+    """Fill `definition` from the entry's own name when it reproduces the stored terms.
+
+    Entries that already have a definition are left alone. A name that does not
+    parse, or whose series disagrees with the stored terms, stays without one.
+    """
+    gained: list[str] = []
+    for e in entries:
+        if e.get("definition"):
+            continue
+        d = parse_definition(str(e.get("name") or ""))
+        if not d:
+            continue
+        try:
+            ok = definition_reproduces(d, int(e.get("offset") or 0), list(e.get("terms") or []))
+        except (B.Bad, ZeroDivisionError, TypeError, ValueError, RecursionError, KeyError):
+            ok = False
+        if not ok:
+            continue
+        e["definition"] = d
+        gained.append(str(e.get("id") or e.get("anum") or ""))
+    return gained
 
 
 # ----------------------------------------------------------------------------- the two actions
@@ -712,7 +802,9 @@ def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool
     off, terms = e["offset"], e["terms"]
     data_hi = off + int(e.get("data_n") or 0) - 1
     deep = None
-    if e.get("definition") and claim["form"] != "gf":
+    if e.get("definition"):
+        # Past the published terms, from the vetted definition. A g.f. claim is
+        # included: the longer table is what test_claim compares the claim to.
         deep = extend(e["definition"], off, terms, DEEP_N, "A")
     tA = test_claim(claim, _tables(e, deep or terms), "A")
     res: dict[str, Any] = {"action": "attempt_disprove", "id": e["id"], "anum": e["anum"], "tested": tA["tested"],

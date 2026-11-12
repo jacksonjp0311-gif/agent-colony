@@ -80,6 +80,61 @@ def test_checker_rejects_tampered_definition():
     assert PC.check_oeis(cert, bad)[0] is False
 
 
+def test_explicit_gf_and_where_binding_parse_and_match_terms():
+    """A g.f. prefix and a one-letter where-binding are definitions only if both evaluators match."""
+    plain = "Expansion of (1+x - sqrt(1-2*x-3*x^2-4*x^3))/(2+2*x+2*x^2)."
+    prefixed = "Expansion of g.f.: (1+x - sqrt(1-2*x-3*x^2-4*x^3))/(2+2*x+2*x^2)."
+    assert OC.parse_definition(prefixed) == OC.parse_definition(plain)
+    d = OC.parse_definition(prefixed)
+    assert d["kind"] == "alg"
+    terms = [int(c) for c in OC._series_A(d["expr"], 12)][1:9]
+    assert OC.definition_reproduces(d, 1, terms)
+    bound = ("Expansion of (1+x*C)*C, where C = (1-(1-4*x)^(1/2))/(2*x) "
+             "is g.f. for the Catalan numbers.")
+    cat = OC.parse_definition(bound)
+    assert cat and cat["kind"] == "alg" and "(1/2)" in cat["expr"]
+    # (1 + x C) C = 2C - 1, so the coefficients are 1, 2, 4, 10, 28, 84.
+    assert OC.definition_reproduces(cat, 0, [1, 2, 4, 10, 28, 84])
+    assert OC.definition_reproduces(cat, 0, [1, 2, 4, 10, 28, 83]) is False
+
+
+def test_egf_definition_uses_factorial_coefficients():
+    d = OC.parse_definition("Expansion of e.g.f.: (1-2*x)*sqrt(1-4*x).")
+    assert d and d["kind"] == "egf"
+    # (1-2x)*sqrt(1-4x) = 1 - 4x + 2x^2 + ..., and a(n) = n! [x^n].
+    assert OC.definition_reproduces(d, 0, [1, -4, 4])
+
+
+def test_attach_fills_only_a_definition_that_reproduces_the_bfile():
+    good_name = "Expansion of g.f.: 1/(1-x-x^2)."
+    good = OC.parse_definition(good_name)
+    terms = [int(c) for c in OC._series_A(good["expr"], 8)]
+    entries = [
+        {"id": "keep", "name": good_name, "offset": 0, "terms": terms, "definition": None},
+        {"id": "drop", "name": "Number of cycles under a map.", "offset": 0, "terms": terms, "definition": None},
+        {"id": "had", "name": good_name, "offset": 0, "terms": terms, "definition": {"kind": "gf", "expr": "1"}},
+    ]
+    gained = OC.attach_verified_definitions(entries)
+    assert gained == ["keep"]
+    assert entries[0]["definition"]["kind"] == "gf"
+    assert entries[1]["definition"] is None
+    assert entries[2]["definition"] == {"kind": "gf", "expr": "1"}
+
+
+def test_disprove_searches_past_the_bfile_from_the_definition(monkeypatch):
+    d = OC.parse_definition("Expansion of 1/(1-x-x^2).")
+    terms = [int(c) for c in OC._series_A(d["expr"], 8)]
+    e = {"id": "past", "anum": "A000000", "name": "Expansion of 1/(1-x-x^2).", "offset": 0,
+         "definition": d, "terms": terms, "data_n": len(terms), "published_hi": len(terms) - 1,
+         "claim": OC.normalize("G.f.: 1/(1-x-x^2) (conjecture)."), "refs": {}}
+    monkeypatch.setattr(OC, "DEEP_N", len(terms) + 5)
+    monkeypatch.setattr(OC, "DEEP_SECONDS", 0.5)
+    r = OC.attempt_disprove(e, fetch=False)
+    assert r["status"] == "holds_on_range"
+    assert r["deep_terms"] > len(terms)
+    assert r["range"][1] >= len(terms)
+
+
 def test_choose_deterministic_and_skips_resolved():
     menu = [_ent("Conjecture: a(n) = a(n-1)+a(n-2) for n>3.", eid=f"t{i}") for i in range(8)]
     s = {"targets": {"t0": {"status": "proved_checked"}}, "families": {}}

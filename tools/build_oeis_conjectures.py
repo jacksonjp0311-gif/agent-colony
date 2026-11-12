@@ -106,18 +106,9 @@ def bfile(net, a, data=None, digits=MAX_DIGITS):
 
 
 def verified_definition(ent):
-    """The name's definition must reproduce the WHOLE b-file (fast generator or exact recomputation)."""
-    from colony import oeis_deep as D
-    from colony import oeis_guess as G
-    d, off, terms = ent["definition"], ent["offset"], ent["terms"]
+    """The name's definition must reproduce the WHOLE b-file on both vetted evaluators."""
     try:
-        if d["kind"] == "alg":
-            cr = G.certified_recurrence(d["expr"], off, terms)
-            return bool(cr) and D.matches_bfile(D.Holo(cr, off), off, terms)
-        g = D.generator(ent)
-        if g is not None:
-            return D.matches_bfile(g, off, terms)
-        return OC.extend(d, off, terms, len(terms) + 1, "A", seconds=6) is not None
+        return OC.definition_reproduces(ent["definition"], ent["offset"], ent["terms"], seconds=6)
     except Exception:  # noqa: BLE001
         return False
 
