@@ -256,6 +256,79 @@ def test_total_cap_single_source(tmp_path, monkeypatch):
     assert A.author_checks(cycle_id="t", max_new=1) == []
 
 
+def test_skip_predicate_covers_ledger_and_enabled_windows():
+    """A recorded check blocks that name and a later window. A short family does not."""
+    recorded = {"authored_sieve_hash_w1", "hard_tier"}
+    enabled = {"authored_frontier_cong_hash_w1"}
+    assert A.authoring_should_skip("authored_sieve_hash_w1", recorded, enabled)
+    assert A.authoring_should_skip("authored_sieve_hash_w3", recorded, set())
+    assert A.authoring_should_skip("authored_frontier_cong_hash_w2", set(), enabled)
+    assert not A.authoring_should_skip("authored_other_target_w1", recorded, enabled)
+    assert not A.authoring_should_skip("authored_hard_tier_topic_w1", {"hard_tier"}, set())
+
+
+def test_author_skips_name_already_in_the_lesson_ledger(tmp_path, monkeypatch):
+    import colony.conjecture_desk as D
+    import colony.novelty_gate as NG
+
+    _repo(tmp_path, monkeypatch)
+    _guide()
+    monkeypatch.setattr(D, "HISTORY", tmp_path / "history.jsonl")
+    monkeypatch.setattr(NG, "KNOWN", tmp_path / "known.json")
+    recorded = "authored_a_lemma__b_lemma_w1"
+    write_lesson(
+        decision="revert", check="oracle", what="already in the ledger",
+        source="test", mutation=recorded, lesson_type="oracle_kill",
+        family="hard_tier", cycle_id="old",
+    )
+    rows = A.author_checks(cycle_id="t_ledger", max_new=3)
+    blocked = A.window_base(recorded)
+    assert blocked not in {A.window_base(r["name"]) for r in rows}
+
+
+def test_pick_skips_recorded_authored_window_but_keeps_own_birth(tmp_path, monkeypatch):
+    import colony.conjecture_desk as D
+    import colony.lessons as L
+    import colony.novelty_gate as NG
+    from colony.lessons import MutationCooldown
+
+    monkeypatch.setattr(L, "LESSONS_JSONL", tmp_path / "lessons.jsonl")
+    monkeypatch.setattr(L, "LEDGER_SYSTEM", tmp_path / "ledger.json")
+    monkeypatch.setattr(D, "HISTORY", tmp_path / "history.jsonl")
+    monkeypatch.setattr(NG, "KNOWN", tmp_path / "known.json")
+    write_lesson(
+        decision="skip", check="authoring", what="birth", source="test",
+        mutation="authored_fresh_w1", lesson_type="authored_check", family="hard_tier", cycle_id="b",
+    )
+    write_lesson(
+        decision="revert", check="oracle", what="killed", source="test",
+        mutation="authored_dead_w1", lesson_type="oracle_kill", family="hard_tier", cycle_id="k",
+    )
+    src = '''
+HARD = [
+    ("authored_fresh_w1", lambda: True, False),
+    ("authored_dead_w1", lambda: True, False),
+    ("authored_dead_w2", lambda: True, False),
+    ("authored_live_w2", lambda: True, False),
+    ("authored_live_w1", lambda: True, True),
+    ("plain_lemma", lambda: True, False),
+]
+'''
+    ordered = [
+        ("authored_dead_w1", "hard_enable", "enable:authored_dead_w1"),
+        ("authored_dead_w2", "hard_enable", "enable:authored_dead_w2"),
+        ("authored_live_w2", "hard_enable", "enable:authored_live_w2"),
+        ("authored_fresh_w1", "hard_enable", "enable:authored_fresh_w1"),
+        ("plain_lemma", "hard_enable", "enable:plain_lemma"),
+    ]
+    cd = MutationCooldown(blocked={}, avoided=set(), penalties={})
+    name, _kind, _snip, cooled = D.pick_mutation(ordered, cooldown=cd, lemma_src=src)
+    assert name == "authored_fresh_w1"
+    assert cooled["authored_dead_w1"] == "already_in_lesson_ledger_or_history"
+    assert cooled["authored_dead_w2"] == "already_in_lesson_ledger_or_history"
+    assert cooled["authored_live_w2"] == "already_in_lesson_ledger_or_history"
+
+
 def test_plain_pairings_off_by_default_but_feeding_compositions_allowed(monkeypatch):
     import ast as _ast
     from colony import authoring as A

@@ -81,6 +81,133 @@ def _catalog_lists(tree: ast.Module) -> dict[str, ast.List]:
     return out
 
 
+_WINDOW_SUFFIX = re.compile(r"_w\d+$")
+
+
+def window_base(name: str) -> str:
+    """Catalog name with a trailing `_w<digits>` window index removed."""
+    return _WINDOW_SUFFIX.sub("", (name or "").strip().lower())
+
+
+def _shares_window(name: str, others: set[str]) -> bool:
+    """True when another name is the same check on a different window.
+
+    `foo` and `foo_w2` share a base. Two names with no window suffix do not:
+    their bases are themselves, so equality would mean they are the same name.
+    """
+    base = window_base(name)
+    if not base:
+        return False
+    for other in others:
+        if other != name and window_base(other) == base:
+            return True
+    return False
+
+
+def ledger_view() -> dict[str, set[str]]:
+    """Names already recorded in the lesson ledger, recent history, or the known snapshot.
+
+    Read-only: this does not rewrite the known-identities snapshot. `births` are
+    mutations whose lesson type is the authoring birth record. `other` are
+    mutations with any different lesson, plus history rows. `keys` is the set
+    the novelty gate consults (mutations, families, history, snapshot).
+    """
+    keys: set[str] = set()
+    births: set[str] = set()
+    other: set[str] = set()
+    try:
+        from colony.lessons import load_lessons
+        for e in load_lessons(limit=100000, include_expired=True):
+            mut = str(e.get("mutation") or "").strip().lower()
+            fam = str(e.get("family") or "").strip().lower()
+            if mut:
+                keys.add(mut)
+                if e.get("type") == "authored_check":
+                    births.add(mut)
+                else:
+                    other.add(mut)
+            if fam:
+                keys.add(fam)
+    except Exception:
+        pass
+    try:
+        from colony.conjecture_desk import HISTORY
+        if HISTORY.exists():
+            for ln in HISTORY.read_text(encoding="utf-8").splitlines()[-80:]:
+                try:
+                    e = json.loads(ln)
+                except json.JSONDecodeError:
+                    continue
+                mut = str(e.get("mutation") or "").strip().lower()
+                if mut:
+                    keys.add(mut)
+                    other.add(mut)
+    except Exception:
+        pass
+    try:
+        from colony.novelty_gate import KNOWN
+        if KNOWN.exists():
+            data = json.loads(KNOWN.read_text(encoding="utf-8"))
+            for x in data.get("identities") or []:
+                keys.add(str(x).lower())
+    except Exception:
+        pass
+    return {"keys": keys, "births": births, "other": other}
+
+
+def enabled_names_in_src(src: str) -> set[str]:
+    """Lowercased catalog names whose enabled flag is True. Empty on a bad parse."""
+    if not src:
+        return set()
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:
+        return set()
+    return {n.lower() for n, _c, flag in _entries(tree) if flag}
+
+
+def authoring_should_skip(name: str, recorded: set[str], enabled: set[str]) -> bool:
+    """Skip a candidate the ledger or an enabled check already covers.
+
+    Covers the exact name and a later window of the same check (`foo_w2` when
+    `foo` or `foo_w1` is enabled or already recorded). No check prefix is special.
+    """
+    n = (name or "").strip().lower()
+    if not n:
+        return False
+    if n in enabled or _shares_window(n, enabled):
+        return True
+    if n in recorded or any(n in k for k in recorded):
+        return True
+    return _shares_window(n, recorded)
+
+
+def pick_skips_recorded(name: str, view: dict[str, set[str]], enabled: set[str]) -> bool:
+    """Whether the desk should not spend a turn enabling this name.
+
+    An authored check whose only ledger trace is its own birth record is still
+    pickable: that record is written before the desk can propose enabling it.
+    A later window of an enabled check, or of a check with any other ledger
+    trace, is not.
+    """
+    n = (name or "").strip().lower()
+    if not n:
+        return False
+    if n in enabled or _shares_window(n, enabled):
+        return True
+    if not n.startswith(AUTHORED_PREFIX):
+        return False
+    keys = view.get("keys") or set()
+    births = view.get("births") or set()
+    other = view.get("other") or set()
+    contained = any(n in k and k != n for k in keys)
+    only_birth = n in births and n not in other and not contained
+    in_ledger = n in keys or contained
+    if in_ledger and not only_birth:
+        return True
+    return _shares_window(n, other | births)
+
+
 def _entries(tree: ast.Module) -> list[tuple[str, ast.AST, bool | None]]:
     rows: list[tuple[str, ast.AST, bool | None]] = []
     for lst in _catalog_lists(tree).values():
@@ -444,6 +571,15 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
     except Exception:
         retired, retired_pairs = set(), set()
     rejected |= retired
+    enabled = {n.lower() for n, _c, flag in _entries(tree) if flag}
+    try:
+        recorded = ledger_view()
+    except Exception:
+        recorded = {"keys": set(), "births": set(), "other": set()}
+    # Builders only see exact names. The accept loop also drops a later window
+    # of a name already enabled or already in the ledger.
+    rejected |= recorded["keys"]
+    rejected |= enabled
     comps = eligible_components(src)
     bodies = _existing_bodies(tree)
     authored_names = [n for n in names | retired if n.startswith(AUTHORED_PREFIX)]
@@ -539,6 +675,8 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
             continue  # COLONY_AUTHOR_PAIRS=off: no plain textbook pairings
         if name in names or name in blocked or name in rejected or ast.dump(body) in bodies:
             continue  # duplicate / cooled
+        if authoring_should_skip(name, recorded["keys"], enabled):
+            continue  # enabled, or already in the lesson ledger, including another window
         new_src = insert_disabled(src, name, cand["fn_src"])
         if new_src is None:
             break

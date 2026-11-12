@@ -190,6 +190,13 @@ def pick_mutation(
         _stall_on = bool(assess_recovery(_stall_rows).get("on"))
     except Exception:
         _stall_rows, _stall_on = [], False
+    try:
+        from colony.authoring import enabled_names_in_src, ledger_view, pick_skips_recorded
+        _ledger_view = ledger_view()
+        _enabled_catalog = enabled_names_in_src(lemma_src)
+    except Exception:
+        _ledger_view, _enabled_catalog = None, set()
+        pick_skips_recorded = None  # type: ignore[assignment]
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
             continue
@@ -201,6 +208,9 @@ def pick_mutation(
             continue
         if _stall_on and identical_kill_streak(name, _stall_rows):
             cooled[name] = "recovery_identical_kills"
+            continue
+        if _ledger_view is not None and pick_skips_recorded(name, _ledger_view, _enabled_catalog):
+            cooled[name] = "already_in_lesson_ledger_or_history"
             continue
         # Short-window retry limit (kept): easy_pad 3, hard 2 recent reverts
         limit = 3 if name.startswith("easy_pad") else 2
