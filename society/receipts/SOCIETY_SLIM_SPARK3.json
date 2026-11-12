@@ -1,32 +1,32 @@
 {
-  "when": "2026-11-12T21:50:06Z",
+  "when": "2026-11-12T23:27:59Z",
   "mile": "spark3-port",
-  "cycle_count": 855,
+  "cycle_count": 858,
   "fitness_latest": {
-    "ts": "2026-11-12T21:49:26Z",
-    "cycle_id": "20261112T214746Z_f02949",
+    "ts": "2026-11-12T23:27:21Z",
+    "cycle_id": "20261112T232548Z_58f73d",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8148,
-    "reply_quality": 0.9115,
+    "reply_quality": 0.9114,
     "commons_signal": 1.0,
-    "math_prize": 0.8234,
-    "compute_usefulness": 0.9239,
+    "math_prize": 0.8209,
+    "compute_usefulness": 0.9213,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8939,
-    "kill_rate": 0.3875,
-    "kill_rate_term": 0.8987,
+    "prize_boost": 0.8919,
+    "kill_rate": 0.3917,
+    "kill_rate_term": 0.9025,
     "novelty": 0.75,
-    "lesson_uptake": 0.96,
-    "aggregate": 0.8647,
+    "lesson_uptake": 0.9,
+    "aggregate": 0.8616,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345,
-    "stall_cycles": 3,
+    "stall_cycles": 6,
     "perturb_active": true,
-    "distinct_targets_tried_last_3_cycles": 7
+    "distinct_targets_tried_last_3_cycles": 5
   },
   "honest_scoreboard": {
     "score": 25,
@@ -57,7 +57,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8892
+    "aggregate_score": 0.8872
   },
   "novelty_gate": {
     "hits": 3,
@@ -77,14 +77,14 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261112T214746Z_f02949"
+    "cycle_id": "20261112T232548Z_58f73d"
   },
   "oracle": {
     "passes": 528,
-    "kills": 334,
+    "kills": 340,
     "easy_pad_kills": 32,
-    "total": 862,
-    "kill_rate": 0.3875
+    "total": 868,
+    "kill_rate": 0.3917
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."

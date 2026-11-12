@@ -57,15 +57,16 @@
     "20261112T201328Z_9660c9",
     "20261112T201536Z_d832ed",
     "20261112T214541Z_7ab6ee",
-    "20261112T214746Z_f02949"
+    "20261112T214746Z_f02949",
+    "20261112T232127Z_241bc3",
+    "20261112T232341Z_3a266e",
+    "20261112T232548Z_58f73d"
   ],
   "proposal_parks": {
     "254f76bd3854": {
-      "title": "blocked repeat: Chain+seek `lemma_hard_combinatorics` from invariant priors",
+      "title": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
       "action": "seek_enable:lemma_hard_combinatorics",
       "blocks": [
-        "20261111T232401Z_5d5fac",
-        "20261112T025138Z_1d9061",
         "20261112T025421Z_ffd482",
         "20261112T025642Z_bce687",
         "20261112T051441Z_9b77c0",
@@ -83,13 +84,15 @@
         "20261112T201102Z_9cc1ee",
         "20261112T201328Z_9660c9",
         "20261112T201536Z_d832ed",
-        "20261112T214317Z_351b7f"
+        "20261112T214317Z_351b7f",
+        "20261112T232341Z_3a266e",
+        "20261112T232548Z_58f73d"
       ],
-      "consecutive": 1,
-      "parked_until": 58,
+      "consecutive": 2,
+      "parked_until": 66,
       "duration": 6,
-      "parked_from": 52,
-      "parked_at_cycle": "20261112T172513Z_6f0b18"
+      "parked_from": 60,
+      "parked_at_cycle": "20261112T232548Z_58f73d"
     }
   },
   "pass_history": [
@@ -103,6 +106,18 @@
     },
     {
       "cycle_id": "20261112T214746Z_f02949",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
       "pass_total": 528
     }
   ],
@@ -139,6 +154,51 @@
     },
     {
       "cycle_id": "20261112T214746Z_f02949",
+      "kills": [
+        [
+          "stripped:stripped_not_useful_fail",
+          "held_out:held_out_fail",
+          "collective_kill"
+        ],
+        [
+          "stripped:stripped_not_useful_fail",
+          "held_out:held_out_fail",
+          "collective_kill"
+        ]
+      ]
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "kills": [
+        [
+          "stripped:stripped_not_useful_fail",
+          "held_out:held_out_fail",
+          "collective_kill"
+        ],
+        [
+          "stripped:stripped_not_useful_fail",
+          "held_out:held_out_fail",
+          "collective_kill"
+        ]
+      ]
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "kills": [
+        [
+          "stripped:stripped_not_useful_fail",
+          "held_out:held_out_fail",
+          "collective_kill"
+        ],
+        [
+          "stripped:stripped_not_useful_fail",
+          "held_out:held_out_fail",
+          "collective_kill"
+        ]
+      ]
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
       "kills": [
         [
           "stripped:stripped_not_useful_fail",
@@ -243,6 +303,96 @@
       "kind": "claim_shape",
       "name": "shape:growth_bound",
       "outcome": "kill"
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "kind": "oeis_idle",
+      "name": "oc_A165064_0",
+      "outcome": "attempt"
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "kind": "oeis_conjecture",
+      "name": "oc_A165064_0",
+      "outcome": "kill"
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "kind": "oeis_conjecture",
+      "name": "oc_A229019_0",
+      "outcome": "kill"
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "kind": "oeis_idle",
+      "name": "oc_A229019_0",
+      "outcome": "attempt"
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "kind": "oeis_conjecture",
+      "name": "oc_A165064_0",
+      "outcome": "identical_kill"
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "kind": "oeis_conjecture",
+      "name": "oc_A026772_0",
+      "outcome": "kill"
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
+      "kind": "oeis_idle",
+      "name": "oc_A229019_0",
+      "outcome": "attempt"
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
+      "kind": "oeis_conjecture",
+      "name": "oc_A165064_0",
+      "outcome": "identical_kill"
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
+      "kind": "oeis_conjecture",
+      "name": "oc_A229019_0",
+      "outcome": "identical_kill"
     }
   ],
   "targets_tried": [
@@ -266,15 +416,36 @@
         "shape:gf_identity",
         "shape:growth_bound"
       ]
+    },
+    {
+      "cycle_id": "20261112T232127Z_241bc3",
+      "targets": [
+        "oc_A165064_0",
+        "oc_A229019_0"
+      ]
+    },
+    {
+      "cycle_id": "20261112T232341Z_3a266e",
+      "targets": [
+        "oc_A165064_0",
+        "oc_A026772_0"
+      ]
+    },
+    {
+      "cycle_id": "20261112T232548Z_58f73d",
+      "targets": [
+        "oc_A165064_0",
+        "oc_A229019_0"
+      ]
     }
   ],
   "last_new_pass_cycle": "20261112T214317Z_351b7f",
-  "stall_cycles": 3,
+  "stall_cycles": 6,
   "perturb": {
     "active": true,
     "entered_at": "20261112T214317Z_351b7f",
     "seed": 3818040075515144544,
-    "cycles_in_mode": 3,
+    "cycles_in_mode": 6,
     "park_multiplier": 1,
     "epsilon": 0.3,
     "exit_reason": "",
