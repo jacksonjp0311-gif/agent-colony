@@ -50,6 +50,8 @@ MENU = ROOT / "society" / "frontier" / "oeis_conjectures.json"
 STATE = ROOT / "society" / "systems" / "oeis_conjecture_state.json"
 REPORT = ROOT / "society" / "systems" / "oeis_conjectures_report.json"
 REVIEW = ROOT / "society" / "frontier" / "OEIS_CONJECTURE_REVIEW.md"
+# Selection bookkeeping, written in shadow and live. Not credit, not the Oracle.
+ATTEMPT_LOG = ROOT / "society" / "systems" / "oeis_attempt_log.json"
 MODES = ("off", "shadow", "live")
 PICKS = 4                 # targets per cycle
 CREDIT_RESOLVE = 1.0      # verified counterexample or checked proof
@@ -798,6 +800,14 @@ def _fetch_b(anum: str) -> tuple[int, list[int]] | None:
 
 
 def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool = True) -> dict[str, Any]:
+    if not e.get("definition"):
+        try:
+            defn = computable_definition(e)
+        except Exception:
+            defn = None
+        if defn:
+            e = dict(e)
+            e["definition"] = defn
     claim = e["claim"]
     off, terms = e["offset"], e["terms"]
     data_hi = off + int(e.get("data_n") or 0) - 1
@@ -966,6 +976,236 @@ def routine_holonomic(e: dict[str, Any]) -> bool:
     return bool(provable(e) and form == "relation")
 
 
+
+def _empty_attempt_log() -> dict[str, Any]:
+    return {"attempts": [], "by_cycle": {}, "last_forms": []}
+
+
+def load_attempt_log() -> dict[str, Any]:
+    raw = _load(ATTEMPT_LOG, _empty_attempt_log())
+    if not isinstance(raw, dict):
+        return _empty_attempt_log()
+    raw.setdefault("attempts", [])
+    raw.setdefault("by_cycle", {})
+    raw.setdefault("last_forms", [])
+    return raw
+
+
+def save_attempt_log(log: dict[str, Any]) -> None:
+    ATTEMPT_LOG.parent.mkdir(parents=True, exist_ok=True)
+    tmp = ATTEMPT_LOG.with_suffix(".tmp")
+    tmp.write_text(json.dumps(log, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.replace(ATTEMPT_LOG)
+
+
+def computable_definition(e: dict[str, Any]) -> dict[str, Any] | None:
+    """A vetted, already-verified definition that can be evaluated, or None.
+
+    Uses the entry's own ``definition`` when present. For a g.f. claim whose
+    definition was never attached, the claim's own expression is tried: both
+    evaluators must reproduce the stored b-file. No fetched code is run.
+    """
+    d = e.get("definition")
+    if isinstance(d, dict) and (d.get("kind") or d.get("expr")):
+        return d
+    claim = e.get("claim") or {}
+    expr = (claim.get("expr") or "").strip()
+    if claim.get("form") == "gf" and expr:
+        cand = {"kind": "gf", "expr": expr}
+        try:
+            if definition_reproduces(cand, int(e.get("offset") or 0), list(e.get("terms") or [])):
+                return cand
+        except (B.Bad, ZeroDivisionError, TypeError, ValueError, RecursionError, KeyError, OverflowError):
+            return None
+    return None
+
+
+def bfile_hi_of(e: dict[str, Any]) -> int:
+    off = int(e.get("offset") or 0)
+    n = len(e.get("terms") or [])
+    return max(off + n - 1 if n else 0, int(e.get("published_hi") or 0), off + int(e.get("data_n") or 0) - 1 if e.get("data_n") else 0)
+
+
+def can_search_past_bfile(e: dict[str, Any]) -> bool:
+    """True when a verified computable definition can be run past the published terms."""
+    if not computable_definition(e):
+        return False
+    form = str((e.get("claim") or {}).get("form") or "")
+    # g.f. identities are extended by series arithmetic; relations, properties
+    # and only_prime claims use the fast recurrence / deep search.
+    return form in ("gf", "relation", "property", "only_prime", "congruence", "inequality") or bool(form)
+
+
+def planned_depth(e: dict[str, Any], prior_hi: int | None = None) -> int:
+    """The depth the next attempt would reach.
+
+    With a computable definition this is past the b-file (capped by the
+    series/deep evaluators). Without one it is only the published range.
+    """
+    bh = bfile_hi_of(e)
+    prior = int(prior_hi or 0)
+    if can_search_past_bfile(e):
+        # GF series are capped at GF_TERMS; other forms at DEEP_N.
+        form = str((e.get("claim") or {}).get("form") or "")
+        cap = GF_TERMS if form == "gf" else DEEP_N
+        return max(bh, prior, cap, bh + 1)
+    return max(bh, prior)
+
+
+def already_attempted_pair(eid: str, depth: int, cycle_id: str = "", log: dict[str, Any] | None = None) -> bool:
+    """True when this (conjecture, depth) was already tried, or this id already this cycle."""
+    eid = str(eid or "")
+    if not eid:
+        return False
+    log = log if log is not None else load_attempt_log()
+    if cycle_id and eid in set(log.get("by_cycle", {}).get(cycle_id) or []):
+        return True
+    for row in log.get("attempts") or []:
+        if str(row.get("id") or "") == eid and int(row.get("depth") or 0) == int(depth):
+            return True
+    return False
+
+
+def held_on_published_only(eid: str, e: dict[str, Any] | None = None, log: dict[str, Any] | None = None) -> bool:
+    """True when a prior attempt already held on the published range and cannot go past it."""
+    log = log if log is not None else load_attempt_log()
+    bh = bfile_hi_of(e) if e is not None else None
+    past_possible = can_search_past_bfile(e) if e is not None else False
+    for row in reversed(log.get("attempts") or []):
+        if str(row.get("id") or "") != str(eid):
+            continue
+        if row.get("status") != "holds_on_range":
+            continue
+        if past_possible:
+            # A published-range hold is not a reason to skip if the next
+            # attempt would actually go past that range.
+            if int(row.get("depth") or 0) <= int(row.get("bfile_hi") or bh or 0) and planned_depth(e) > int(row.get("bfile_hi") or bh or 0):
+                return False
+            # Already searched past, at the planned depth: treat as done at that depth
+            # (already_attempted_pair handles the exact pair).
+            return False
+        return True
+    return False
+
+
+def remember_attempt(
+    e: dict[str, Any],
+    acts: list[dict[str, Any]],
+    cycle_id: str,
+    planned: int | None = None,
+) -> dict[str, Any]:
+    """Record (conjecture, depth) pairs actually attempted. Shadow and live."""
+    log = load_attempt_log()
+    eid = str(e.get("id") or "")
+    form = str((e.get("claim") or {}).get("form") or "")
+    bh = bfile_hi_of(e)
+    by = log.setdefault("by_cycle", {})
+    cycle_ids = list(by.get(cycle_id) or [])
+    if eid and eid not in cycle_ids:
+        cycle_ids.append(eid)
+        by[cycle_id] = cycle_ids[-40:]
+    # Keep a bounded map of recent cycles.
+    if len(by) > 80:
+        for old in list(by.keys())[:-80]:
+            by.pop(old, None)
+    for r in acts or [{}]:
+        depth = planned
+        if depth is None:
+            depth = max(
+                int((r.get("range") or [0, 0])[1] or 0),
+                int(r.get("deep_hi") or 0),
+                int(r.get("tested") or 0) and (int(e.get("offset") or 0) + int(r.get("tested") or 0) - 1),
+                bh,
+            )
+        beyond = int(depth or 0) > bh
+        log["attempts"].append({
+            "id": eid,
+            "anum": e.get("anum"),
+            "form": form,
+            "depth": int(depth or 0),
+            "bfile_hi": bh,
+            "beyond": beyond,
+            "status": str((r or {}).get("status") or ""),
+            "cycle_id": cycle_id,
+        })
+    log["attempts"] = log["attempts"][-400:]
+    if form:
+        last = list(log.get("last_forms") or [])
+        last.append(form)
+        log["last_forms"] = last[-20:]
+    save_attempt_log(log)
+    return log
+
+
+def choose_open(
+    cycle_id: str,
+    k: int = PICKS,
+    menu: list[dict[str, Any]] | None = None,
+    *,
+    forms: set[str] | None = None,
+    beyond_bfile: bool = False,
+    state: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    """Open menu entries, already filtered for repeat (id, depth) pairs."""
+    menu = list(menu) if menu is not None else load_menu()
+    state = state if state is not None else _load(STATE, {"targets": {}, "families": {}, "credit_total": 0.0})
+    return choose(menu, state, cycle_id, k, forms=forms, beyond_bfile=beyond_bfile)
+
+
+def desk_attempt(e: dict[str, Any], cycle_id: str, *, fetch: bool = False) -> list[dict[str, Any]]:
+    """One prove / past-b-file disprove attempt, with held-out tail when possible.
+
+    Records the (conjecture, depth) pair so a later call this cycle, or a
+    later cycle at the same depth, will skip it. Does not touch the Oracle.
+    """
+    entry = dict(e)
+    defn = computable_definition(entry)
+    if defn and not entry.get("definition"):
+        entry["definition"] = defn
+    depth = planned_depth(entry)
+    if already_attempted_pair(str(entry.get("id") or ""), depth, cycle_id):
+        return []
+    if held_on_published_only(str(entry.get("id") or ""), entry) and not can_search_past_bfile(entry):
+        return []
+    # Held-out tail: reserve the last slice of published terms and confirm
+    # the definition still reproduces them. The attempt itself may then
+    # search past the b-file. This is a check, not an Oracle verdict.
+    terms = list(entry.get("terms") or [])
+    if defn and len(terms) >= 16:
+        hold = max(8, len(terms) // 5)
+        tail = terms[-hold:]
+        head = terms[:-hold]
+        tail_off = int(entry.get("offset") or 0) + len(head)
+        try:
+            if not definition_reproduces(defn, tail_off, tail):
+                # Definition failed the held-out tail: still run the attempt
+                # (the two-path checker is the authority) but note it.
+                entry = dict(entry)
+                entry["held_out_tail_ok"] = False
+            else:
+                entry["held_out_tail_ok"] = True
+        except Exception:
+            pass
+    acts: list[dict[str, Any]] = []
+    # Prefer a search that can go past the b-file when a definition exists.
+    past = can_search_past_bfile(entry)
+    if (not past) and provable(entry) and (entry.get("claim") or {}).get("form") != "relation":
+        acts.append(attempt_prove(entry))
+    if past or not acts or acts[-1].get("status") != "proved_checked":
+        if past and provable(entry) and (entry.get("claim") or {}).get("form") != "relation":
+            # A g.f. identity can also be proved; try that first, then search past.
+            try:
+                acts.append(attempt_prove(entry))
+            except Exception:
+                pass
+            if acts and acts[-1].get("status") == "proved_checked":
+                remember_attempt(entry, acts, cycle_id, planned=depth)
+                return acts
+        acts.append(attempt_disprove(entry, entry.get("tested_hi") if False else None, fetch=fetch))
+    remember_attempt(entry, acts, cycle_id, planned=depth)
+    return acts
+
+
 def choose(
     menu: list[dict[str, Any]],
     state: dict[str, Any],
@@ -980,35 +1220,61 @@ def choose(
     without replacement with a cycle-seeded rng.
 
     ``forms`` keeps only those claim forms. ``beyond_bfile`` keeps computable claims whose
-    search can run past the published terms (relation, property, only_prime).
+    search can run past the published terms (g.f., relation, property, only_prime, and any
+    other form with a verified definition). A (conjecture, depth) pair already attempted is
+    skipped; a target that held only on its published range is not picked again unless the
+    new attempt would go past that range. At most one attempt per target per cycle. Forms
+    and targets rotate so the same zero-credit family is not retried first every call.
     """
     tg = state.get("targets", {})
     fam = state.get("families", {})
     rng = random.Random(int(hashlib.sha256(cycle_id.encode()).hexdigest()[:12], 16))
+    try:
+        log = load_attempt_log()
+    except Exception:
+        log = _empty_attempt_log()
+    recent_forms = list(log.get("last_forms") or [])
+    last_form = recent_forms[-1] if recent_forms else ""
     scored = []
     for e in menu:
-        st = tg.get(e["id"], {})
+        eid = e.get("id")
+        if not eid:
+            continue
+        st = tg.get(eid, {})
         if st.get("status") in ("counterexample_verified", "proved_checked", "fails_in_data", "untestable_here"):
             continue
         form = (e.get("claim") or {}).get("form") or ""
         if forms is not None and form not in forms:
             continue
-        if beyond_bfile and (form not in ("relation", "property", "only_prime") or not e.get("definition")):
+        past = can_search_past_bfile(e)
+        if beyond_bfile and not past:
+            continue
+        depth = planned_depth(e, st.get("tested_hi"))
+        if already_attempted_pair(eid, depth, cycle_id, log):
+            continue
+        # Held on the published range and the next attempt would not go past it.
+        if held_on_published_only(eid, e, log) and not (past and depth > bfile_hi_of(e)):
             continue
         f = fam.get(form, {})
         bandit = (f.get("credit", 0.0) + 1.0) / (f.get("attempts", 0) + 2.0)
         # Do not boost already-provable relation recurrences; they run after
         # zero-credit families and other beyond-b-file targets.
         routine = routine_holonomic(e)
-        tract = 0.5 if routine else (0.8 if e.get("definition") else 0.4)
+        defn = computable_definition(e)
+        tract = 0.5 if routine else (0.85 if (defn and past) else (0.8 if (defn or e.get("definition")) else 0.4))
         fresh = 1.0 / (1 + st.get("attempts", 0))
         score = tract * bandit * (0.25 + fresh) * (0.5 + rng.random())
         try:
             from colony.stall import selection_bonus
-            score *= 1.0 + float(selection_bonus(e["id"]))
+            score *= 1.0 + float(selection_bonus(eid))
         except Exception:
             pass
+        # Rotate off the form that was just attempted, when others are available.
+        if last_form and form == last_form:
+            score *= 0.85
         # Band 0: zero-credit, not an already-handled holonomic relation.
+        # Within band 0, a computable past-b-file target ranks ahead of a
+        # published-range-only one via the tract/score, not a hardcoded id.
         # Band 1: everything else that is not that kind of relation.
         # Band 2: routine holonomic relations — after the others, or a small share.
         credit = float(f.get("credit") or 0)
@@ -1018,20 +1284,36 @@ def choose(
             band = 1
         else:
             band = 2
-        scored.append((band, -score, e))
+        scored.append((band, -score, e, form))
     scored.sort(key=lambda t: (t[0], t[1]))
-    preferred = [e for band, _neg, e in scored if band < 2]
-    routine_tail = [e for band, _neg, e in scored if band >= 2]
-    picked = preferred[:k]
+    preferred = [(e, form) for band, _neg, e, form in scored if band < 2]
+    routine_tail = [(e, form) for band, _neg, e, form in scored if band >= 2]
+
+    def _take(candidates: list, need: int, rotate: bool) -> tuple[list, list]:
+        picked: list = []
+        used_forms: list[str] = []
+        deferred: list = []
+        for e, form in candidates:
+            if len(picked) >= need:
+                deferred.append((e, form))
+                continue
+            if rotate and form in used_forms and any(f2 not in used_forms for _e2, f2 in candidates if _e2 is not e):
+                deferred.append((e, form))
+                continue
+            picked.append((e, form))
+            used_forms.append(form)
+        return picked, deferred
+
+    taken, leftover = _take(preferred, k, rotate=True)
+    if len(taken) < k:
+        more, leftover = _take(leftover, k - len(taken), rotate=False)
+        taken.extend(more)
+    picked = [e for e, _f in taken]
     if len(picked) < k:
-        # Fill leftover slots from the routine tail. They run, but only after
-        # the others. When both groups are present and k is large, take only a
-        # small share of routine slots; when they are all that is left, take
-        # enough to fill k.
         remaining = k - len(picked)
         if preferred and k >= 5:
             remaining = min(remaining, max(1, k // 5))
-        picked.extend(routine_tail[:remaining])
+        picked.extend([e for e, _f in routine_tail[:remaining]])
     return picked[:k]
 
 
@@ -1161,16 +1443,25 @@ def run_cycle(
     results = []
     for e in picks:
         st = state["targets"].get(e["id"], {})
+        entry = dict(e)
+        defn = computable_definition(entry)
+        if defn and not entry.get("definition"):
+            entry["definition"] = defn
         acts = []
         if beyond_bfile:
             # The idle fallback is a search past the published terms, not another proof of a
-            # holonomic relation the checker already handles.
-            acts.append(attempt_disprove(e, st.get("tested_hi"), fetch=fetch))
+            # holonomic relation the checker already handles. g.f. claims with a verified
+            # definition are included (series arithmetic past the b-file).
+            acts.append(attempt_disprove(entry, st.get("tested_hi"), fetch=fetch))
         else:
-            if provable(e):
-                acts.append(attempt_prove(e))
+            if provable(entry):
+                acts.append(attempt_prove(entry))
             if not acts or acts[-1]["status"] != "proved_checked":
-                acts.append(attempt_disprove(e, st.get("tested_hi"), fetch=fetch))
+                acts.append(attempt_disprove(entry, st.get("tested_hi"), fetch=fetch))
+        try:
+            remember_attempt(entry, acts, cycle_id, planned=planned_depth(entry, st.get("tested_hi")))
+        except Exception:
+            pass
         for r in acts:
             r["credit"] = credit_of(r, st.get("tested_hi"))
             r.pop("cert", None) if r["status"] != "proved_checked" else None

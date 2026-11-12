@@ -51,18 +51,22 @@ def test_dead_end_turns_in_three_cycles_also_stall():
 def test_perturb_produces_two_new_targets_reaching_the_oracle():
     _flat_passes(6)
     S.enter_perturb("p0", reason="flat_passes", commit_sha="deadbeef")
+    # Concrete authored-check candidates (not shape labels, not raw OEIS ids).
     menu = [
-        {"id": f"t{i}", "source": "oeis", "kind": "oeis_conjecture", "form": "gf",
-         "text": f"conjecture {i}", "band": 0, "unseen": True, "unused": True}
+        {"id": f"authored_t{i}", "source": "authored_check", "kind": "authored_check",
+         "form": "gf", "text": f"authored claim {i} over a real sequence",
+         "band": 0, "unseen": True, "unused": True}
         for i in range(8)
     ]
     reached = []
 
     def submit(target):
+        assert not str(target.get("id") or "").startswith("shape:")
+        assert not str(target.get("text") or "").startswith("explore claim shape ")
         reached.append(target["id"])
         return {"passed": False, "kills": [f"new_reason_{target['id']}"]}
 
-    # Three PERTURB cycles, each must send at least two distinct new targets.
+    # Three PERTURB cycles, each must deliver at least two distinct new attempts.
     seen = []
     for i in range(3):
         cid = f"p_run{i}"
@@ -70,6 +74,7 @@ def test_perturb_produces_two_new_targets_reaching_the_oracle():
         ids = [t["id"] for t in out["targets"]]
         assert len(ids) >= 2
         assert len(set(ids)) >= 2
+        assert out["n_attempts"] >= 2
         assert out["n_reached_oracle"] >= 2
         seen.append(set(ids))
     assert len(reached) >= 6

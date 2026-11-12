@@ -52,4 +52,6 @@ def _isolate_stall_state(tmp_path, monkeypatch):
     """Each test gets a fresh stall state file so parks and PERTURB cannot leak."""
     import colony.stall as S
     monkeypatch.setattr(S, "STATE_PATH", tmp_path / "stall_state.json")
+    import colony.oeis_conjectures as OC
+    monkeypatch.setattr(OC, "ATTEMPT_LOG", tmp_path / "oeis_attempt_log.json")
 

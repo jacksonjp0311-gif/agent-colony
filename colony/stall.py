@@ -20,6 +20,7 @@ from __future__ import annotations
 import hashlib
 import json
 import random
+import re
 import subprocess
 from pathlib import Path
 from typing import Any, Callable, Iterable
@@ -39,6 +40,10 @@ PERTURB_MIN_TARGETS = 2
 UNUSED_MENU_CYCLES = 20
 CLAIM_SHAPES = ("congruence", "divisibility", "growth_bound", "gf_identity")
 MUTATION_INGREDIENTS = ("sequence", "modulus", "offset", "window")
+
+# Cycle ids from live runs look like 20261112T214317Z_351b7f; those sort by time.
+_CYCLE_TS = re.compile(r"^(\d{8}T\d{6}Z)")
+ORACLE_TURN_OUTCOMES = frozenset({"pass", "kill", "identical_kill"})
 
 # ---------------------------------------------------------------------------
 # Existing recovery (Oracle-log only). Callers and tests depend on these.
@@ -222,14 +227,100 @@ def save_state(state: dict[str, Any]) -> Path:
     return path
 
 
-def _cycle_index(state: dict[str, Any], cycle_id: str) -> int:
+def _cycle_timestamp(cid: str) -> str | None:
+    m = _CYCLE_TS.match(str(cid) or "")
+    return m.group(1) if m else None
+
+
+def _shift_park_indices(state: dict[str, Any], insert_at: int) -> None:
+    """Keep park windows attached to the same cycles after an insertion."""
+    if insert_at < 0:
+        return
+    for rec in (state.get("proposal_parks") or {}).values():
+        if not isinstance(rec, dict):
+            continue
+        for key in ("parked_from", "parked_until"):
+            v = rec.get(key)
+            if isinstance(v, int) and v >= insert_at:
+                rec[key] = v + 1
+
+
+def _ensure_cycle(state: dict[str, Any], cycle_id: str) -> int:
+    """Insert ``cycle_id`` so the list stays in time order. Return its index.
+
+    IDs with a leading YYYYMMDDTHHMMSSZ stamp are placed among other stamped
+    IDs by time. Unstamped IDs (the ones tests use) are appended, which keeps
+    insertion order. Park indices are shifted when a stamped ID is inserted
+    in the middle of the list, not when one is appended.
+    """
     cycles = state.setdefault("cycles", [])
     cid = str(cycle_id or "")
-    if cid and cid not in cycles:
-        cycles.append(cid)
-    if cid and cid in cycles:
+    if not cid:
+        return max(0, len(cycles) - 1)
+    if cid in cycles:
         return cycles.index(cid)
-    return max(0, len(cycles) - 1)
+    ts = _cycle_timestamp(cid)
+    insert_at = len(cycles)
+    if ts is not None:
+        for i, existing in enumerate(cycles):
+            ets = _cycle_timestamp(existing)
+            if ets is not None and ets > ts:
+                insert_at = i
+                break
+    if insert_at == len(cycles):
+        cycles.append(cid)
+    else:
+        cycles.insert(insert_at, cid)
+        _shift_park_indices(state, insert_at)
+    return insert_at
+
+
+def _normalize_cycle_order(state: dict[str, Any]) -> None:
+    """Stable-sort stamped cycle ids by time; leave unstamped ones in place."""
+    cycles = list(state.get("cycles") or [])
+    if len(cycles) < 2:
+        return
+    # Unique, first-seen order.
+    seen: list[str] = []
+    for c in cycles:
+        if c and c not in seen:
+            seen.append(c)
+    stamped = [(i, c) for i, c in enumerate(seen) if _cycle_timestamp(c)]
+    if not stamped:
+        state["cycles"] = seen
+        return
+    stamped_sorted = sorted(stamped, key=lambda ic: (_cycle_timestamp(ic[1]), ic[1]))
+    # Rebuild: unstamped keep their relative positions; stamped fill in time order.
+    stamped_iter = iter([c for _i, c in stamped_sorted])
+    new: list[str] = []
+    for c in seen:
+        if _cycle_timestamp(c):
+            new.append(next(stamped_iter))
+        else:
+            new.append(c)
+    if new != seen:
+        # Park indices are into the old list; remap by cycle identity after a reorder
+        # only if we can resolve each park's parked_at_cycle. If parks used pure
+        # indices, recompute from the recorded parked_at_cycle when present.
+        old_index = {c: i for i, c in enumerate(seen)}
+        new_index = {c: i for i, c in enumerate(new)}
+        for rec in (state.get("proposal_parks") or {}).values():
+            if not isinstance(rec, dict):
+                continue
+            at = rec.get("parked_at_cycle")
+            if at in new_index and at in old_index:
+                delta = new_index[at] - old_index[at]
+                if delta and isinstance(rec.get("parked_from"), int):
+                    rec["parked_from"] = rec["parked_from"] + delta
+                if delta and isinstance(rec.get("parked_until"), int):
+                    rec["parked_until"] = rec["parked_until"] + delta
+        state["cycles"] = new
+    else:
+        state["cycles"] = seen
+
+
+def _cycle_index(state: dict[str, Any], cycle_id: str) -> int:
+    return _ensure_cycle(state, cycle_id)
 
 
 def remember_cycle(cycle_id: str) -> int:
@@ -397,6 +488,16 @@ def ingest_dedupe_history(
         if cid not in lst:
             lst.append(cid)
         meta[fp] = {"title": str(ev.get("title") or ""), "action": str(ev.get("action") or "")}
+    # Put every historical cycle into the list, in time order, BEFORE any
+    # park window is computed and before a live cycle is appended.
+    state = load_state()
+    # Stamped ids first, in time order, then unstamped in first-seen order.
+    stamped = sorted((c for c in order if _cycle_timestamp(c)), key=lambda c: (_cycle_timestamp(c), c))
+    unstamped = [c for c in order if not _cycle_timestamp(c)]
+    for cid in stamped + unstamped:
+        _ensure_cycle(state, cid)
+    _normalize_cycle_order(state)
+    save_state(state)
     if len(order) < BLOCK_STREAK_TO_PARK:
         # Still record the blocks we saw, so a following cycle can complete the streak.
         for fp, cids in by_fp.items():
@@ -404,10 +505,26 @@ def ingest_dedupe_history(
                 note_dedupe_block(fp, meta[fp]["title"], meta[fp]["action"], cid)
         return load_state()
     last_two = set(order[-BLOCK_STREAK_TO_PARK:])
+    cycle_order = list(load_state().get("cycles") or [])
+    def _in_time(cids: list[str]) -> list[str]:
+        def key(c: str) -> tuple:
+            ts = _cycle_timestamp(c)
+            if ts:
+                return (0, ts, c)
+            if c in cycle_order:
+                return (1, cycle_order.index(c), c)
+            return (2, c)
+        # Unique, time-ordered.
+        seen: list[str] = []
+        for c in sorted(cids, key=key):
+            if c not in seen:
+                seen.append(c)
+        return seen
     for fp, cids in by_fp.items():
         present = [c for c in cids if c in last_two]
-        # Apply blocks in cycle order so consecutive detection works.
-        for cid in cids:
+        # Apply blocks in time order so consecutive detection matches the
+        # cycle list, even when the event list was not already sorted.
+        for cid in _in_time(cids):
             note_dedupe_block(fp, meta[fp]["title"], meta[fp]["action"], cid)
         if set(present) >= last_two:
             # note_dedupe_block already parks on the second consecutive; nothing more to do.
@@ -504,35 +621,77 @@ def record_pass_total(cycle_id: str, pass_total: int, kills: Iterable[Any] | Non
         kh = [h for h in kh if str(h.get("cycle_id")) != cycle_id]
         kh.append({"cycle_id": cycle_id, "kills": [list(s) for s in sigs]})
         state["kill_history"] = kh[-80:]
-    # stall_cycles: consecutive cycles at the end whose pass_total equals the latest.
-    stall = 0
-    if hist:
-        latest = hist[-1]["pass_total"]
-        for h in reversed(hist):
-            if h["pass_total"] == latest:
-                stall += 1
-            else:
-                break
-        # The first snapshot of a value is the cycle that produced that total
-        # (a new pass, or the start of history). It does not count as stalled.
-        if stall >= 1:
-            # cycles since the last *change*: stall-1, except we want "cycles
-            # since the last new Oracle pass", which is how many snapshots
-            # equal the current total, after the change. If the first of the
-            # equal run is the last change, stall_cycles = stall - 1 when we
-            # can see a prior different total, else stall (no prior pass).
-            saw_change = any(h["pass_total"] != latest for h in hist)
-            stall_cycles = stall - 1 if saw_change else stall
-        else:
-            stall_cycles = 0
-        if stall == 1 and (len(hist) == 1 or hist[-2]["pass_total"] != latest):
-            state["last_new_pass_cycle"] = cycle_id
-            stall_cycles = 0
-    else:
-        stall_cycles = 0
+    stall_cycles, last_new = _stall_cycles_from_hist(hist)
+    if last_new:
+        state["last_new_pass_cycle"] = last_new
     state["stall_cycles"] = stall_cycles
     save_state(state)
     return {"stall_cycles": stall_cycles, "pass_total": int(pass_total)}
+
+
+def _stall_cycles_from_hist(hist: list[dict[str, Any]]) -> tuple[int, str]:
+    """Return (stall_cycles, last_new_pass_cycle) from a pass_history list.
+
+    ``stall_cycles`` is the number of trailing snapshots at the current pass
+    total, not counting the snapshot that first reached that total when a
+    prior different total is visible. A history that starts already flat
+    (seeded from the Oracle log) counts every snapshot at that total, so a
+    new state file does not reset the count to 0.
+    """
+    if not hist:
+        return 0, ""
+    latest = int(hist[-1].get("pass_total") or 0)
+    stall = 0
+    for h in reversed(hist):
+        if int(h.get("pass_total") or 0) == latest:
+            stall += 1
+        else:
+            break
+    saw_change = any(int(h.get("pass_total") or 0) != latest for h in hist)
+    if stall == 1 and (len(hist) == 1 or int(hist[-2].get("pass_total") or 0) != latest):
+        return 0, str(hist[-1].get("cycle_id") or "")
+    stall_cycles = stall - 1 if saw_change else stall
+    last_new = ""
+    if saw_change and stall >= 1:
+        # The snapshot just before the trailing equal run is the last change.
+        last_new = str(hist[-stall].get("cycle_id") or "")
+    return stall_cycles, last_new
+
+
+def seed_pass_history(rows: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    """Fill an empty pass_history from the Oracle log (and fitness history).
+
+    Called on first load so ``stall_cycles`` is "cycles since the last real
+    pass change", not "snapshots in this process." Does not rewrite a history
+    that already has snapshots, and does not add cycle ids to ``cycles``
+    (those are reserved for park windows and the last-3 visibility window).
+    """
+    state = load_state()
+    if state.get("pass_history"):
+        return {"seeded": False, "n": len(state["pass_history"]),
+                "stall_cycles": int(state.get("stall_cycles") or 0)}
+    if state.get("pass_history_seeded"):
+        return {"seeded": False, "n": 0, "stall_cycles": int(state.get("stall_cycles") or 0)}
+    rows = load_oracle_rows() if rows is None else rows
+    series = cycle_series(rows)
+    # Fitness history can supply cycle order when the Oracle log is thin,
+    # but it does not itself carry a pass total. We only use it to confirm
+    # a cycle existed; pass totals always come from the Oracle log.
+    if not series:
+        state["pass_history_seeded"] = True
+        save_state(state)
+        return {"seeded": False, "n": 0, "stall_cycles": 0}
+    hist = [{"cycle_id": s["cycle_id"], "pass_total": int(s["pass_total"])} for s in series]
+    state["pass_history"] = hist[-80:]
+    kh = [{"cycle_id": s["cycle_id"], "kills": [list(k) for k in (s.get("kills") or [])]} for s in series]
+    state["kill_history"] = kh[-80:]
+    stall_cycles, last_new = _stall_cycles_from_hist(state["pass_history"])
+    state["stall_cycles"] = stall_cycles
+    if last_new:
+        state["last_new_pass_cycle"] = last_new
+    state["pass_history_seeded"] = True
+    save_state(state)
+    return {"seeded": True, "n": len(state["pass_history"]), "stall_cycles": stall_cycles}
 
 
 def current_pass_total(rows: list[dict[str, Any]] | None = None) -> int:
@@ -558,26 +717,21 @@ def assess_stall(state: dict[str, Any] | None = None) -> dict[str, Any]:
             on = True
             reason = "flat_passes"
     if not on:
-        # Dead-end turns: group by cycle, look at the last STALL_DEAD_END_CYCLES
-        # cycles that we have turns (or pass snapshots) for.
-        cycles = list(state.get("cycles") or [])
+        # Dead-end turns: only cycles with recorded turns count. A historical
+        # cycle id ingested from the lesson ledger, with no turns in this
+        # stall file, is missing data — not a dead end.
         turns = list(state.get("turns") or [])
-        if len(cycles) >= STALL_DEAD_END_CYCLES:
-            tail = cycles[-STALL_DEAD_END_CYCLES:]
+        cycles = list(state.get("cycles") or [])
+        observed = [cid for cid in cycles if any(t.get("cycle_id") == cid for t in turns)]
+        if len(observed) >= STALL_DEAD_END_CYCLES:
+            tail = observed[-STALL_DEAD_END_CYCLES:]
             all_dead = True
-            any_turn = False
             for cid in tail:
                 outcomes = [str(t.get("outcome") or "") for t in turns if t.get("cycle_id") == cid]
-                if not outcomes:
-                    # A cycle with no Oracle-bound or desk turn at all is a dead end:
-                    # nothing reached the Oracle.
-                    any_turn = True
-                    continue
-                any_turn = True
                 if any(o not in DEAD_END_OUTCOMES for o in outcomes):
                     all_dead = False
                     break
-            if all_dead and any_turn:
+            if all_dead:
                 on = True
                 reason = "dead_end_turns"
     return {
@@ -924,6 +1078,186 @@ def select_perturb_targets(
     return picked
 
 
+# Claim-shape labels are intents, not authored checks. Map each shape to
+# compatible OEIS claim forms so we can materialize a real sequence+claim.
+SHAPE_FORMS: dict[str, frozenset[str]] = {
+    "congruence": frozenset({"congruence", "property"}),
+    "divisibility": frozenset({"congruence", "property", "relation"}),
+    "growth_bound": frozenset({"inequality", "property"}),
+    "gf_identity": frozenset({"gf"}),
+}
+
+
+def _is_shape_label(target: dict[str, Any] | None) -> bool:
+    if not target:
+        return False
+    tid = str(target.get("id") or "")
+    text = str(target.get("text") or "")
+    return (
+        target.get("source") == "claim_shape"
+        or target.get("kind") == "claim_shape"
+        or tid.startswith("shape:")
+        or text.startswith("explore claim shape ")
+    )
+
+
+def _shape_name(target: dict[str, Any]) -> str:
+    tid = str(target.get("id") or "")
+    if tid.startswith("shape:"):
+        return tid.split(":", 1)[1]
+    return str(target.get("form") or tid)
+
+
+def materialize_claim_shape(
+    target: dict[str, Any],
+    cycle_id: str,
+    *,
+    author: Callable[..., dict[str, Any] | None] | None = None,
+    menu: list[dict[str, Any]] | None = None,
+    rng: random.Random | None = None,
+) -> dict[str, Any] | None:
+    """Turn a claim-shape intent into a concrete desk or authored-check target.
+
+    A shape name is not an authored check. This either:
+    - asks ``author`` (tests, or the authoring pipeline) for a real candidate
+      that went through held-out verification, or
+    - binds the shape to a real OEIS menu entry of a compatible form, preferring
+      a verified computable definition that can be searched past its b-file,
+    and returns that concrete target, or None to skip. The returned target
+    never uses a ``shape:`` id or an "explore claim shape" label.
+    """
+    shape = _shape_name(target)
+    if author is not None:
+        try:
+            got = author(shape, cycle_id)
+        except Exception:
+            got = None
+        if got and not _is_shape_label(got):
+            out = dict(got)
+            out.setdefault("source", "authored_check")
+            out.setdefault("kind", "authored_check")
+            out.setdefault("from_shape", shape)
+            out.setdefault("perturb_seed", target.get("perturb_seed"))
+            return out
+        return None
+    # Bind to a real sequence on the OEIS menu.
+    forms = SHAPE_FORMS.get(shape, frozenset({shape}))
+    pool: list[dict[str, Any]] = []
+    if menu is not None:
+        pool = list(menu)
+    else:
+        try:
+            from colony.oeis_conjectures import load_menu
+            pool = [{"id": e.get("id"), "source": "oeis", "kind": "oeis_conjecture",
+                     "form": (e.get("claim") or {}).get("form"), "entry": e,
+                     "anum": e.get("anum"), "text": e.get("text") or "",
+                     "unseen": True, "unused": True, "band": 0} for e in load_menu()]
+        except Exception:
+            pool = []
+    # Prefer entries with a computable definition, not already attempted at
+    # this depth, matching a compatible form.
+    try:
+        from colony.oeis_conjectures import (
+            computable_definition, can_search_past_bfile, already_attempted_pair,
+            planned_depth,
+        )
+    except Exception:
+        computable_definition = can_search_past_bfile = already_attempted_pair = planned_depth = None  # type: ignore
+    ranked: list[tuple[int, str, dict[str, Any]]] = []
+    for item in pool:
+        entry = item.get("entry") if isinstance(item.get("entry"), dict) else (
+            item if isinstance(item.get("claim"), dict) else None
+        )
+        form = str(item.get("form") or ((entry or {}).get("claim") or {}).get("form") or "")
+        if form not in forms:
+            # A menu item already shaped as an authored/oeis target of any form
+            # is not a match for this shape.
+            continue
+        eid = str((entry or {}).get("id") or item.get("id") or "")
+        if not eid or eid.startswith("shape:"):
+            continue
+        defn = None
+        past = False
+        if entry is not None and computable_definition is not None:
+            try:
+                defn = computable_definition(entry)
+                past = bool(can_search_past_bfile(entry)) if can_search_past_bfile else bool(defn)
+                if already_attempted_pair is not None and planned_depth is not None:
+                    depth = planned_depth(entry)
+                    if already_attempted_pair(eid, depth, cycle_id):
+                        continue
+            except Exception:
+                defn, past = None, False
+        # band 0: computable and searchable past the b-file; 1: matching form.
+        ranked.append((0 if past else 1, eid, item if entry is item.get("entry") or item.get("entry") else item))
+    ranked.sort(key=lambda r: (r[0], r[1]))
+    if not ranked:
+        return None
+    choice = ranked[0][2]
+    entry = choice.get("entry") if isinstance(choice.get("entry"), dict) else (
+        choice if isinstance(choice.get("claim"), dict) else None
+    )
+    eid = str((entry or {}).get("id") or choice.get("id") or "")
+    text = str((entry or {}).get("text") or choice.get("text") or "")
+    if not eid or eid.startswith("shape:") or text.startswith("explore claim shape "):
+        return None
+    out = dict(choice)
+    out["id"] = eid
+    out["source"] = "oeis"
+    out["kind"] = "oeis_conjecture"
+    out["from_shape"] = shape
+    out["text"] = text
+    if entry is not None:
+        out["entry"] = entry
+        out["anum"] = entry.get("anum") or out.get("anum")
+    out["perturb_seed"] = target.get("perturb_seed")
+    return out
+
+
+def _desk_attempt(entry: dict[str, Any], cycle_id: str) -> list[dict[str, Any]]:
+    """Run an OEIS desk attempt (prove / disprove past the b-file). Never the Oracle."""
+    try:
+        from colony.oeis_conjectures import desk_attempt
+        got = desk_attempt(entry, cycle_id)
+        return list(got or [])
+    except Exception:
+        # Fall back to the two actions directly, still not the Oracle.
+        try:
+            from colony.oeis_conjectures import (
+                attempt_disprove, attempt_prove, provable, computable_definition,
+                remember_attempt, planned_depth, already_attempted_pair,
+            )
+        except Exception:
+            return []
+        e = dict(entry)
+        try:
+            defn = computable_definition(e)
+            if defn and not e.get("definition"):
+                e["definition"] = defn
+        except Exception:
+            pass
+        eid = str(e.get("id") or "")
+        try:
+            depth = planned_depth(e)
+            if already_attempted_pair(eid, depth, cycle_id):
+                return []
+        except Exception:
+            depth = 0
+        acts: list[dict[str, Any]] = []
+        try:
+            if provable(e) and (e.get("claim") or {}).get("form") != "relation":
+                acts.append(attempt_prove(e))
+            if not acts or acts[-1].get("status") != "proved_checked":
+                acts.append(attempt_disprove(e, fetch=False))
+        except Exception:
+            return acts
+        try:
+            remember_attempt(e, acts, cycle_id, planned=depth)
+        except Exception:
+            pass
+        return acts
+
+
 def run_perturb_turn(
     cycle_id: str,
     n: int = PERTURB_MIN_TARGETS,
@@ -934,68 +1268,175 @@ def run_perturb_turn(
     menu: list[dict[str, Any]] | None = None,
     kept_seeds: list[dict[str, Any]] | None = None,
     alternatives: dict[str, list[Any]] | None = None,
+    author: Callable[..., dict[str, Any] | None] | None = None,
 ) -> dict[str, Any]:
-    """Pick at least ``n`` new targets and send them through the normal pipeline / Oracle.
+    """Pick at least ``n`` new desk or authored-check attempts.
 
-    ``oracle_submit``, when given (tests), is called with each target and its
-    return value is stored. In production, OEIS-shaped targets go through
-    ``run_cycle`` / ``attempt_disprove``; a provided bus is used to post and
-    ``gate_keep`` the same way the claim pipeline does. The Oracle's verdict
-    is not altered.
+    OEIS targets stay on the desk (``attempt_disprove`` past the b-file /
+    ``attempt_prove``). A claim-shape name is materialized into a concrete
+    authored claim or a real-sequence desk attempt, or skipped; shell labels
+    like ``shape:congruence`` or ``explore claim shape X`` are never sent to
+    the Oracle. ``oracle_submit`` (tests) and ``gate_keep`` (production bus)
+    are only called with a real authored-check candidate. The Oracle's
+    verdict is not altered.
     """
-    targets = select_perturb_targets(
-        cycle_id, n=n, commit_sha=commit_sha, menu=menu,
+    # Draw extra so skipped shapes and already-attempted desk targets
+    # do not leave us short of ``n`` attempts.
+    raw = select_perturb_targets(
+        cycle_id, n=max(n * 3, n + 4), commit_sha=commit_sha, menu=menu,
         kept_seeds=kept_seeds, alternatives=alternatives,
     )
     submissions: list[dict[str, Any]] = []
-    for t in targets:
-        submitted: dict[str, Any] = {"id": t.get("id"), "source": t.get("source"), "reached_oracle": False}
+    used: list[dict[str, Any]] = []
+    oracle_bound: list[str] = []
+    seen_ids: set[str] = set()
+
+    def _submit_authored(concrete: dict[str, Any], submitted: dict[str, Any]) -> None:
+        """Send a real authored-check candidate through the Oracle path."""
+        if _is_shape_label(concrete):
+            submitted["skipped"] = "empty_shape_label"
+            return
         if oracle_submit is not None:
             try:
-                submitted["oracle"] = oracle_submit(t)
+                submitted["oracle"] = oracle_submit(concrete)
                 submitted["reached_oracle"] = True
+                submitted["attempt"] = "authored_check"
             except Exception as exc:
                 submitted["error"] = str(exc)[:200]
+                return
+        elif bus is not None:
+            try:
+                from colony.oracle import gate_keep
+                dec, ov = gate_keep(
+                    tentative_decision="propose",
+                    mutation=str(concrete.get("id") or "perturb"),
+                    kind=str(concrete.get("kind") or "authored_check"),
+                    claim_text=str(concrete.get("text") or concrete.get("id") or ""),
+                    source="stall_perturb",
+                    cycle_id=cycle_id,
+                    bus=bus,
+                )
+                submitted["oracle_decision"] = dec
+                submitted["oracle_passed"] = bool(getattr(ov, "passed", False))
+                submitted["oracle_kills"] = list(getattr(ov, "kills", []) or [])
+                submitted["reached_oracle"] = True
+                submitted["attempt"] = "authored_check"
+            except Exception as exc:
+                submitted["oracle_error"] = str(exc)[:200]
+                return
         else:
-            if t.get("source") == "oeis" and t.get("entry") is not None:
-                try:
-                    from colony.oeis_conjectures import attempt_disprove, attempt_prove, provable
-                    e = t["entry"]
-                    acts = []
-                    if provable(e) and (e.get("claim") or {}).get("form") != "relation":
-                        acts.append(attempt_prove(e))
-                    if not acts or acts[-1].get("status") != "proved_checked":
-                        acts.append(attempt_disprove(e, fetch=False))
-                    submitted["oeis_results"] = acts
-                except Exception as exc:
-                    submitted["error"] = str(exc)[:200]
-            if bus is not None:
-                try:
-                    from colony.oracle import gate_keep
-                    dec, ov = gate_keep(
-                        tentative_decision="propose",
-                        mutation=str(t.get("id") or "perturb"),
-                        kind=str(t.get("kind") or "perturb_explore"),
-                        claim_text=str(t.get("text") or t.get("id") or ""),
-                        source="stall_perturb",
-                        cycle_id=cycle_id,
-                        bus=bus,
-                    )
-                    submitted["oracle_decision"] = dec
-                    submitted["oracle_passed"] = bool(getattr(ov, "passed", False))
-                    submitted["oracle_kills"] = list(getattr(ov, "kills", []) or [])
-                    submitted["reached_oracle"] = True
-                except Exception as exc:
-                    submitted["oracle_error"] = str(exc)[:200]
+            # No Oracle hook; still counts as an authored-check attempt ready
+            # to be judged, but it did not reach the Oracle this turn.
+            submitted["attempt"] = "authored_check"
+        if submitted.get("reached_oracle"):
+            oracle_bound.append(str(concrete.get("id") or ""))
+
+    def _run_desk(concrete: dict[str, Any], submitted: dict[str, Any]) -> None:
+        entry = concrete.get("entry")
+        if not isinstance(entry, dict):
+            submitted["skipped"] = "no_entry"
+            return
+        acts = _desk_attempt(entry, cycle_id)
+        submitted["oeis_results"] = acts
+        if acts:
+            submitted["attempt"] = "desk"
+            submitted["desk"] = True
+        else:
+            submitted["skipped"] = "desk_skipped"
+
+    for t in raw:
+        if sum(1 for s in submissions if s.get("attempt")) >= n:
+            break
+        submitted: dict[str, Any] = {
+            "id": t.get("id"), "source": t.get("source"), "reached_oracle": False,
+        }
+        concrete = t
+        if _is_shape_label(t):
+            concrete = materialize_claim_shape(
+                t, cycle_id, author=author, menu=menu,
+            )
+            if concrete is None:
+                submitted["skipped"] = "empty_shape_label"
+                submissions.append(submitted)
+                continue
+            submitted["id"] = concrete.get("id")
+            submitted["source"] = concrete.get("source")
+            submitted["from_shape"] = _shape_name(t)
+            submitted["materialized"] = True
+        tid = str(concrete.get("id") or "")
+        if not tid or tid in seen_ids or _is_shape_label(concrete):
+            submitted["skipped"] = submitted.get("skipped") or "empty_shape_label"
+            submissions.append(submitted)
+            continue
+        seen_ids.add(tid)
+        source = str(concrete.get("source") or "")
+        kind = str(concrete.get("kind") or "")
+        is_oeis = source == "oeis" or kind == "oeis_conjecture" or concrete.get("entry") is not None
+        is_authored = source in ("authored_check", "authored_claim", "mutated_seed") or kind in (
+            "authored_check", "authored_claim",
+        )
+        if is_oeis and not is_authored:
+            _run_desk(concrete, submitted)
+        elif is_authored:
+            _submit_authored(concrete, submitted)
+        elif concrete.get("entry") is not None:
+            _run_desk(concrete, submitted)
+        elif oracle_submit is not None and not _is_shape_label(concrete) and not is_oeis:
+            # Test hook for a concrete non-OEIS, non-shape candidate.
+            _submit_authored(concrete, submitted)
+        else:
+            submitted["skipped"] = "not_a_real_candidate"
+        if submitted.get("attempt"):
+            used.append(concrete)
         submissions.append(submitted)
-    record_targets_tried(cycle_id, [str(t.get("id")) for t in targets])
+
+    # If we are still short, try further OEIS desk targets directly.
+    if sum(1 for s in submissions if s.get("attempt")) < n:
+        try:
+            from colony.oeis_conjectures import load_menu, choose_open, already_attempted_pair, planned_depth
+            extras = choose_open(cycle_id, k=n * 2, menu=None if menu is None else [
+                (m.get("entry") or m) for m in menu if isinstance(m.get("entry") or m.get("claim"), dict)
+            ])
+        except Exception:
+            extras = []
+        for e in extras:
+            if sum(1 for s in submissions if s.get("attempt")) >= n:
+                break
+            eid = str(e.get("id") or "")
+            if not eid or eid in seen_ids:
+                continue
+            seen_ids.add(eid)
+            concrete = {
+                "id": eid, "source": "oeis", "kind": "oeis_conjecture",
+                "entry": e, "anum": e.get("anum"), "text": e.get("text") or "",
+                "form": (e.get("claim") or {}).get("form"),
+            }
+            submitted = {"id": eid, "source": "oeis", "reached_oracle": False}
+            _run_desk(concrete, submitted)
+            if submitted.get("attempt"):
+                used.append(concrete)
+            submissions.append(submitted)
+
+    record_targets_tried(cycle_id, [t for t in oracle_bound if t])
+    n_attempts = sum(1 for s in submissions if s.get("attempt"))
+    n_oracle = sum(1 for s in submissions if s.get("reached_oracle"))
+    seed = None
+    for t in used or raw:
+        if t.get("perturb_seed") is not None:
+            seed = t["perturb_seed"]
+            break
+    if seed is None:
+        seed = perturb_seed(cycle_id, commit_sha)
     return {
         "cycle_id": cycle_id,
-        "seed": (targets[0].get("perturb_seed") if targets else perturb_seed(cycle_id, commit_sha)),
-        "targets": targets,
+        "seed": seed,
+        "targets": used,
         "submissions": submissions,
-        "n": len(targets),
-        "n_reached_oracle": sum(1 for s in submissions if s.get("reached_oracle")),
+        "n": n_attempts,
+        "n_attempts": n_attempts,
+        "n_reached_oracle": n_oracle,
+        "n_desk": sum(1 for s in submissions if s.get("attempt") == "desk"),
+        "n_authored": sum(1 for s in submissions if s.get("attempt") == "authored_check"),
     }
 
 
@@ -1036,12 +1477,21 @@ def maybe_enter_or_exit(
 
 
 def on_cycle_start(cycle_id: str, *, commit_sha: str | None = None) -> dict[str, Any]:
-    """Remember the cycle, ingest historical dedupe blocks, and enter PERTURB if stalled."""
-    remember_cycle(cycle_id)
+    """Ingest historical parks, then append this cycle, and enter PERTURB if stalled.
+
+    Historical dedupe cycles must be in the list (in time order) before the live
+    cycle is appended, so ``is_parked`` sees an already-open park window on a
+    run's first cycle.
+    """
     try:
         ingest_dedupe_history()
     except Exception:
         pass
+    try:
+        seed_pass_history()
+    except Exception:
+        pass
+    remember_cycle(cycle_id)
     # Enter at the start so the rest of the cycle explores.
     # Exit is decided at the end, once this cycle's Oracle results are known.
     state = load_state()
@@ -1111,13 +1561,21 @@ def visibility() -> dict[str, Any]:
     cycles = list(state.get("cycles") or [])
     last3 = set(cycles[-3:])
     targets: set[str] = set()
+    # Only IDs that actually reached the Oracle (recorded as targets_tried,
+    # which run_perturb_turn now fills with Oracle-bound ids only, plus turns
+    # whose outcome is a real Oracle verdict). Parked fingerprints and skipped
+    # themes are not counted.
     for row in state.get("targets_tried") or []:
         if not last3 or row.get("cycle_id") in last3:
             for t in row.get("targets") or []:
-                targets.add(str(t))
-    # Also count turn names in the last 3 cycles as tried targets.
+                if t:
+                    targets.add(str(t))
     for t in state.get("turns") or []:
-        if t.get("cycle_id") in last3 and t.get("name"):
+        if (
+            t.get("cycle_id") in last3
+            and t.get("name")
+            and str(t.get("outcome") or "") in ORACLE_TURN_OUTCOMES
+        ):
             targets.add(str(t["name"]))
     return {
         "stall_cycles": int(state.get("stall_cycles") or 0),
