@@ -42,6 +42,9 @@ def test_authoring_uses_frontier_candidates_only_when_live(monkeypatch):
     monkeypatch.setattr(FK, "candidates", lambda names, **k: calls.append(1) or [])
     monkeypatch.setattr(FK, "pending", lambda src: [])
     monkeypatch.setattr(A, "MAX_AUTHORED_TOTAL", 10 ** 6)   # independent of how many checks main holds
+    # The coverage gate (hard score already pinned) returns before any builder. This test
+    # is about the frontier live switch, so the pin is held off here. The gate itself stays.
+    monkeypatch.setattr(A, "hard_pass_cannot_raise_score", lambda: False)
     monkeypatch.setenv("COLONY_FRONTIER", "shadow")
     A.author_checks(write=False, cycle_id="t")
     assert calls == []
@@ -55,6 +58,60 @@ def test_old_registry_rewrites_are_rescreened():
            "unknown": True, "sig": "33333333aa", "hunt_value": 1.0, "statement": "s", "label": "l", "found_at": "t"}
     assert not FK.still_new(old)
     assert FK.still_new(REG["a"])
+
+
+def test_label_bucket_keeps_range_checks_out_of_the_two_labels():
+    assert FK.label_bucket("known_in_principle(definition_parity)") == "known_in_principle"
+    assert FK.label_bucket("known_in_principle(compositional)") == "known_in_principle"
+    assert FK.label_bucket("implied_parts") == "trivial"
+    assert FK.label_bucket("loose") == "trivial"
+    assert FK.label_bucket("") is None
+    assert FK.label_bucket(None) is None
+    assert FK.label_bucket("confirmed on range") is None
+
+
+def test_dry_run_lists_labels_and_does_not_retire(tmp_path, monkeypatch):
+    reasons = {
+        "authored_frontier_cong_a_w1": "known_in_principle(definition_parity)",
+        "authored_frontier_cong_b_w1": "parity_rules",
+        "authored_frontier_cong_c_w1": "",
+        "authored_frontier_cong_d_w1": "confirmed on range",
+        "authored_frontier_cong_e_w1": None,
+    }
+    monkeypatch.setattr(FK, "reason_now", lambda name, **k: reasons[name])
+    rows = FK.dry_run_labels(list(reasons), lambda name: FK.reason_now(name))
+    assert [(r["name"], r["label"]) for r in rows] == [
+        ("authored_frontier_cong_a_w1", "known_in_principle"),
+        ("authored_frontier_cong_b_w1", "trivial"),
+    ]
+    assert rows[1]["reason"] == "parity_rules"
+    assert not (tmp_path / "retired_checks.json").exists()
+    src = (
+        "HARD_TIER_LEMMAS = [\n"
+        '    ("authored_frontier_cong_a_w1", check_authored_frontier_cong_a_w1, True),\n'
+        '    ("authored_sieve_x_w1", check_authored_sieve_x_w1, True),\n'
+        "]\n"
+    )
+    assert FK.frontier_names(src) == ["authored_frontier_cong_a_w1"]
+
+
+def test_reason_now_flags_a_rewrite_the_rescreen_rejects():
+    old = {"kind": "cong", "lhs": "D((digsum+lpf))", "rhs": "", "params": {"m": 2, "r": 0, "q": 2, "s": 0},
+           "unknown": True, "sig": "33333333aa", "hunt_value": 1.0, "statement": "s", "label": "l", "found_at": "t"}
+    reason = FK.reason_now(FK.check_name(old), registry={"k": old})
+    assert reason
+    assert FK.label_bucket(reason) == "trivial"
+    assert FK.still_new(old) is False
+
+
+def test_dry_run_skips_a_name_whose_reader_fails():
+    def boom(name):
+        if name == "bad":
+            raise RuntimeError("unreadable")
+        return "implied_parts" if name == "good" else ""
+
+    rows = FK.dry_run_labels(["bad", "good", "plain"], boom)
+    assert rows == [{"name": "good", "label": "trivial", "reason": "implied_parts"}]
 
 
 def test_frontier_links_proven_only_with_bridge_and_self_test():

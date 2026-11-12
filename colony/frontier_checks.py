@@ -215,6 +215,90 @@ def trivial_now(name: str, src: str | None = None) -> bool | None:
         return None
 
 
+def label_bucket(reason: str | None) -> str | None:
+    """``known_in_principle`` or ``trivial`` for a current filter reason.
+
+    An empty reason is not a label. ``confirmed on range`` is a range check, not a
+    known-in-principle proof and not a triviality label, so it is left out.
+    """
+    if not reason:
+        return None
+    if str(reason).startswith("known_in_principle"):
+        return "known_in_principle"
+    if reason == "confirmed on range":
+        return None
+    return "trivial"
+
+
+def _record_for(name: str, src: str | None = None, registry: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    """The stored claim behind an authored frontier check, or the dict literal in its source."""
+    import ast
+    reg = registry
+    if reg is None:
+        from colony.frontier_conjectures import load_state
+        reg = load_state().get("registry") or {}
+    for r in reg.values():
+        if r.get("sig") and any(check_name(r, tier) == name for tier in (1, 2, 3)):
+            return r
+    if src is None:
+        from colony.authoring import _lemma_impl
+        src = _lemma_impl().read_text(encoding="utf-8")
+    fn = next((n for n in ast.parse(src).body if isinstance(n, ast.FunctionDef) and n.name == f"check_{name}"), None)
+    lit = next((x for x in ast.walk(fn) if isinstance(x, ast.Dict)), None) if fn else None
+    return None if lit is None else ast.literal_eval(lit)
+
+
+def reason_now(name: str, src: str | None = None, registry: dict[str, Any] | None = None) -> str | None:
+    """Current filter reason for the claim behind ``name``.
+
+    ``''`` when the filter does not flag it. None when the claim cannot be read.
+    Does not retire the check and does not write a ledger.
+    """
+    import random
+    from colony import frontier_conjectures as FC
+    try:
+        r = _record_for(name, src, registry)
+        if not r or "kind" not in r or "lhs" not in r:
+            return None
+        if FC._BRIDGE_T is None:
+            FC._BRIDGE_T = FC.Tables(lim=FC.BRIDGE_LIM, exp_n=FC.BRIDGE_EXP)
+        c = {"kind": r["kind"], "params": r.get("params") or {}, "_le": FC.parse(r["lhs"]),
+             "_re": FC.parse(r["rhs"]) if r.get("rhs") else None}
+        if r.get("loose"):
+            return "loose"
+        if FC.known_result(c):
+            return "known_result"
+        return FC.trivial_reason(c, FC._BRIDGE_T, random.Random(str(r.get("sig") or name)), FC.fit_n())
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def frontier_names(src: str) -> list[str]:
+    """Authored frontier check names in a lemma catalog source, catalog order."""
+    import ast
+    from colony.authoring import _entries
+    return [n for n, _c, _f in _entries(ast.parse(src)) if n.startswith(PREFIX)]
+
+
+def dry_run_labels(names: list[str], reason_of) -> list[dict[str, str]]:
+    """Checks ``reason_of`` now labels known_in_principle or trivial.
+
+    Read-only: does not retire, does not write society files, does not call the Oracle.
+    ``reason_of(name)`` returns a filter reason, ``''`` when the claim is not flagged, or
+    None when it cannot be read. A failure to read one name skips that name.
+    """
+    out: list[dict[str, str]] = []
+    for name in names:
+        try:
+            reason = reason_of(name)
+        except Exception:  # noqa: BLE001
+            reason = None
+        bucket = label_bucket(reason if isinstance(reason, str) else None)
+        if bucket:
+            out.append({"name": name, "label": bucket, "reason": str(reason)})
+    return out
+
+
 def candidates(existing_names: set[str], limit: int = 6, state: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     """Surprises not yet authored, highest hunt value first (the colony's own ranking)."""
     from colony.frontier_conjectures import load_state
