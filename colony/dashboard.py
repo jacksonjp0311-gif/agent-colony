@@ -121,6 +121,11 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         honest_line = format_honest_scoreboard()
     except Exception:
         honest_line = "unavailable"
+    try:
+        from colony.stall import format_visibility
+        stall_line = format_visibility()
+    except Exception:
+        stall_line = "unavailable"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -177,6 +182,8 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
   </ul>
   <h2>Honest scoreboard</h2>
   <p>{escape(honest_line)}</p>
+  <h2>Stall</h2>
+  <p>{escape(stall_line)}</p>
   <h2>Population &amp; genomes</h2>
   <ul>
     <li>active / soft_cap: <code>{len(active_agents)}</code> / <code>{soft_cap}</code></li>
@@ -232,6 +239,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         f"**Systems:** {', '.join(s.get('name','') for s in systems) or '_none_'}",
         f"**Latest fitness:** `{json.dumps(fitness, ensure_ascii=False)}`" if fitness else "**Latest fitness:** _none_",
         f"**Honest scoreboard:** {honest_line}",
+        f"**Stall:** {stall_line}",
         f"**Bus reply rate:** {(fitness or {}).get('comm_reply_rate', '—')}",
         f"**Improvement proposals:** {len(proposals)} (all candidate until human authorize)",
         f"**Commons size:** {commons_size}",
