@@ -898,9 +898,13 @@ def choose(
         bandit = (f.get("credit", 0.0) + 1.0) / (f.get("attempts", 0) + 2.0)
         tract = 1.0 if provable(e) else (0.8 if e.get("definition") else 0.4)
         fresh = 1.0 / (1 + st.get("attempts", 0))
-        scored.append((tract * bandit * (0.25 + fresh) * (0.5 + rng.random()), e))
-    scored.sort(key=lambda t: -t[0])
-    return [e for _, e in scored[:k]]
+        score = tract * bandit * (0.25 + fresh) * (0.5 + rng.random())
+        # A family that has never earned credit is tried before one that has.
+        # The bandit still orders targets inside a family. No form is special-cased.
+        credit = float(f.get("credit") or 0)
+        scored.append((0 if credit == 0 else 1, -score, e))
+    scored.sort(key=lambda t: (t[0], t[1]))
+    return [e for _pri, _neg, e in scored[:k]]
 
 
 def zero_credit_forms(state: dict[str, Any], menu: list[dict[str, Any]]) -> list[str]:

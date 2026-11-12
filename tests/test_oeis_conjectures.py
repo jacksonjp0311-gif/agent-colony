@@ -87,6 +87,28 @@ def test_choose_deterministic_and_skips_resolved():
     assert a == [e["id"] for e in OC.choose(menu, s, "c1")] and "t0" not in a and len(a) == OC.PICKS
 
 
+def test_choose_ranks_zero_credit_families_first():
+    """A family with credit 0 is picked before a family that already has credit.
+
+    The credited family is the easy one the holonomic checker already handles.
+    Ranking is by family credit, not by a hardcoded form name.
+    """
+    credited = _ent("Conjecture: a(n) = a(n-1)+a(n-2) for n>3.", eid="credited")
+    gf = _ent("G.f.: (1-x^3)/(1-x-x^2) (conjecture).", eid="open_gf")
+    prop = _ent("Conjecture: a(n) is odd for n > 1.", eid="open_prop")
+    menu = [credited, gf, prop]
+    state = {"targets": {}, "families": {
+        credited["claim"]["form"]: {"attempts": 40, "credit": 21.0},
+        gf["claim"]["form"]: {"attempts": 15, "credit": 0.0},
+        prop["claim"]["form"]: {"attempts": 1, "credit": 0.0},
+    }}
+    picked = OC.choose(menu, state, "rank_zero", k=3)
+    forms = [e["claim"]["form"] for e in picked]
+    assert forms[0] != credited["claim"]["form"]
+    assert set(forms[:2]) == {gf["claim"]["form"], prop["claim"]["form"]}
+    assert forms[2] == credited["claim"]["form"]
+
+
 def _isolate(tmp_path, monkeypatch):
     monkeypatch.setattr(OC, "MENU", tmp_path / "m.json")
     monkeypatch.setattr(OC, "STATE", tmp_path / "s.json")
