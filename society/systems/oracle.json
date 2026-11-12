@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-11T23:25:26Z",
+  "updated_at": "2026-11-12T21:48:49Z",
   "passes": 528,
-  "kills": 328,
+  "kills": 334,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3832,
+  "kill_rate": 0.3875,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -13,15 +13,20 @@
     "easy_pad_kills": 0,
     "kill_rate": 0.95
   },
-  "bus_ok_rate": 0.9,
+  "bus_ok_rate": 0.9167,
   "unique_mutations_pass": [
     "authored_frontier_cong_xb5f19c6e_w1",
     "authored_frontier_le_x423b0686_w1",
     "authored_sieve_residue_bal_g6_6_6_w2"
   ],
   "unique_mutations_kill": [
-    "Chain `authored_sieve_hl_within_g4_6_6_w2` citing Think Harder Where It Matters: Item-Level Adaptive",
     "Chain+seek `lemma_hard_combinatorics` from invariant priors",
+    "oc_A165064_0",
+    "oc_A229019_0",
+    "shape:congruence",
+    "shape:divisibility",
+    "shape:gf_identity",
+    "shape:growth_bound",
     "vandermonde"
   ],
   "domain_packs": {
@@ -54,10 +59,11 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-11T23:25:26Z",
+    "ts": "2026-11-12T21:48:49Z",
     "passed": false,
     "kills": [
-      "held_out:held_out:already_saturated_no_harder_window",
+      "stripped:stripped_not_useful_fail",
+      "held_out:held_out_fail",
       "collective_kill"
     ],
     "hear": {
@@ -67,32 +73,33 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [
-        "msg_1b9f4a8836",
-        "msg_494e7e5a91",
-        "msg_bf8f362293"
+        "msg_221cdca8df",
+        "msg_256f939974",
+        "msg_e2129f6ba0"
       ],
-      "propose": "PROPOSE for Oracle HEAR: `vandermonde` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vander",
-      "attack": "WEIGH: `vandermonde` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `shape:growth_bound` kind=claim_shape. explore claim shape growth_bound Not discovery. cycle=20261112T214746Z_f02949.",
+      "attack": "WEIGH: `shape:growth_bound` (claim_shape) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "stripped_fails_usefulness": true,
-        "reason": "claim_or_bench_path",
-        "ok_for_oracle": true,
-        "kind_path": "claim_theme"
+        "already_enabled": false,
+        "in_catalog": false,
+        "hard_pass": 162,
+        "hard_n": 162,
+        "score": 0.883,
+        "stripped_fails_usefulness": false,
+        "ok_for_oracle": false,
+        "reason": "stripped_not_useful_fail"
       },
       "held_out": {
         "survives": false,
         "ok_for_oracle": false,
-        "reason": "held_out:already_saturated_no_harder_window",
-        "theme_window": "adversarial_vandermonde_asymmetric",
-        "in_catalog": true,
-        "enabled": false,
-        "mutation": "vandermonde",
-        "catalog_hint": {
-          "add_mutation": "vandermonde_asymmetric",
-          "kind": "hard_enable"
-        }
+        "hard_pass": 162,
+        "hard_n": 162,
+        "ok": true,
+        "score": 0.883,
+        "shifted_window": null,
+        "reason": "held_out_fail"
       },
       "cas": {
         "cas_ok": true,
@@ -111,15 +118,12 @@
           {
             "label": "square_expand",
             "ok": true
-          },
-          {
-            "label": "binom_symmetry_numeric",
-            "ok": true
           }
         ]
       },
       "kills": [
-        "held_out:held_out:already_saturated_no_harder_window"
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail"
       ],
       "sense_pass": false
     },
@@ -167,16 +171,16 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "vandermonde",
-      "kind": "claim_theme",
+      "mutation": "shape:growth_bound",
+      "kind": "claim_shape",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "vandermonde",
-    "kind": "claim_theme",
-    "source": "claim_pipeline",
-    "cycle_id": "20261111T232401Z_5d5fac",
-    "note": "Oracle FAIL kills keep. kills=['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']. No fitness credit.",
+    "mutation": "shape:growth_bound",
+    "kind": "claim_shape",
+    "source": "stall_perturb",
+    "cycle_id": "20261112T214746Z_f02949",
+    "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true
   },
