@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "bounded-height",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "compute-useful",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-12T05:23:21Z",
-  "updated_cycle": "20261112T052138Z_90c03b",
+  "updated_at": "2026-11-12T07:37:38Z",
+  "updated_cycle": "20261112T073552Z_77d72b",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

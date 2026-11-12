@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-12T05:22:03Z",
-  "cycle_id": "20261112T052138Z_90c03b",
+  "ts": "2026-11-12T07:36:19Z",
+  "cycle_id": "20261112T073552Z_77d72b",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_x44cc725e_w1",
@@ -110,8 +110,8 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8614,
-      "slope": -0.00058,
+      "last": 0.851,
+      "slope": -0.000983,
       "min": 0.8442,
       "max": 0.8627
     },
@@ -123,26 +123,26 @@
     },
     "kill_rate": {
       "last": 0.3832,
-      "slope": 0.00041,
-      "min": 0.3788,
+      "slope": 0.000149,
+      "min": 0.381,
       "max": 0.3832
     },
     "kill_rate_term": {
       "last": 0.8949,
-      "slope": 0.000372,
-      "min": 0.8909,
+      "slope": 0.000135,
+      "min": 0.8929,
       "max": 0.8949
     },
     "lesson_uptake": {
-      "last": 0.96,
-      "slope": 0.0,
-      "min": 0.96,
+      "last": 0.76,
+      "slope": -0.013986,
+      "min": 0.76,
       "max": 0.96
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.018,
+    "aggregate_range": 0.0173,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -269,34 +269,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.278,
+      "ratio": 1.131,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.313,
+      "ratio": 1.145,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.188,
+      "ratio": 1.153,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.044,
+      "ratio": 1.219,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.998,
+      "ratio": 1.119,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 266834115,
-      "collatz_descent": 303800000,
+      "goldbach_even": 270034115,
+      "collatz_descent": 307000000,
       "legendre_square_gap": 1580607,
       "lehmer_totient": 136600001,
-      "erdos_straus": 1079127,
+      "erdos_straus": 1084127,
       "twin_primes_hl": 382200000,
       "oeis_A104062_next": 518690000001
     },
@@ -351,18 +351,18 @@
     "last": [
       [
         null,
+        "2026-11-12T07:26:14Z"
+      ],
+      [
+        "success",
         "2026-11-12T05:11:02Z"
       ],
       [
         "success",
         "2026-11-12T02:48:42Z"
-      ],
-      [
-        "success",
-        "2026-11-12T02:48:34Z"
       ]
     ],
-    "fetched_at": "2026-11-12T05:12:08Z"
+    "fetched_at": "2026-11-12T07:26:48Z"
   },
   "feeds": {
     "by_source": {
@@ -381,41 +381,36 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "math.CO:TimeoutError: The read operation timed out",
-          "fetched": 4,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 2,
-          "new": 1,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 3,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-12T05:11:33Z"
+      "ts": "2026-11-12T07:26:47Z"
     },
     "health": {
       "arxiv": {
