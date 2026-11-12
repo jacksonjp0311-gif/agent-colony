@@ -245,6 +245,55 @@ def test_fresh_pass_on_authored_check_gets_P_credit(tmp_path, monkeypatch):
     assert t2["P_oracle"] == 0.0 and P2 < ST.STANDING_TRUST_P_MIN == 0.70
 
 
+def test_saturated_hard_pass_authors_nothing(tmp_path, monkeypatch):
+    """Once the hard component is pinned, a new check cannot raise the score, so it takes no slot."""
+    import colony.lessons as L
+
+    path = _repo(tmp_path, monkeypatch)
+    _guide()
+    latest = json.loads(L.BENCH_LATEST.read_text(encoding="utf-8"))
+    latest["benches"][0]["bench"] = "lemma_microbench"
+    latest["benches"][0]["n_hard_pass"] = 162
+    L.BENCH_LATEST.write_text(json.dumps(latest), encoding="utf-8")
+    assert A.hard_pass_cannot_raise_score()
+    assert A.author_checks(cycle_id="t_sat", max_new=1) == []
+    assert "authored_" not in path.read_text(encoding="utf-8")
+
+
+def test_coverage_keep_does_not_take_an_authored_slot(tmp_path):
+    """A coverage keep releases the authored function and the catalog tuple. The cap stays 150."""
+    assert A.MAX_AUTHORED_TOTAL == 150
+    assert A.coverage_keep_takes_no_slot("coverage", "authored_frontier_cong_x_w1")
+    assert not A.coverage_keep_takes_no_slot("internal_score", "authored_frontier_cong_x_w1")
+    assert not A.coverage_keep_takes_no_slot("coverage", "b_lemma")
+    src = '''
+def check_b(n: int) -> bool:
+    return n == n + 1 - 1
+
+
+def check_authored_demo_w1() -> bool:
+    """authored"""
+    return check_b(1)
+
+
+HARD_TIER_LEMMAS = [
+    ("b_lemma", check_b, True),
+    ("authored_demo_w1", check_authored_demo_w1, False),
+]
+'''
+    out = A.strip_authored_check(src, "authored_demo_w1")
+    assert out is not None
+    tree = ast.parse(out)
+    names = {n for n, _c, _f in A._entries(tree)}
+    assert "authored_demo_w1" not in names and "b_lemma" in names
+    assert "def check_authored_demo_w1" not in out and "def check_b" in out
+    assert A.strip_authored_check(src, "b_lemma") is None
+    path = tmp_path / "lemma_impl.py"
+    path.write_text(src, encoding="utf-8")
+    assert A.release_authored_slot(path, "authored_demo_w1")
+    assert "authored_demo_w1" not in path.read_text(encoding="utf-8")
+
+
 def test_total_cap_single_source(tmp_path, monkeypatch):
     """The overall cap is MAX_AUTHORED_TOTAL (150) and author_checks enforces exactly that constant."""
     assert A.MAX_AUTHORED_TOTAL == 150

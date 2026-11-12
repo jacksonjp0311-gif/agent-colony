@@ -577,6 +577,17 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
                 oracle_note += f" | athanor_gate=BLOCK ({_ath.get('verdict')}: {_ath.get('block_reason') or _ath.get('reason')})"
         except Exception:  # noqa: BLE001
             pass
+    release_name = ""
+    if rose and oracle_passed:
+        from colony.authoring import coverage_keep_takes_no_slot
+        if coverage_keep_takes_no_slot(str(promotion.get("category") or ""), chosen or ""):
+            # Coverage adds a machine check and leaves the lemma score flat.
+            # Do not spend an authored-check slot on it. The enable is reverted
+            # below, then the authored tuple is removed so the cap does not move.
+            rose = False
+            release_name = chosen or ""
+            oracle_note += (" | coverage_slot_refused: lemma score flat; "
+                            "authored slot released (not a capability gain)")
     if rose and oracle_passed:
         decision = "keep"
         oracle_note += f" | promotion={promotion['category']}: {promotion['explanation']}"
@@ -587,6 +598,27 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         decision = "revert"
         if kind != "stem_easy_pad":
             shutil.copy2(backup, target_impl); _invalidate_pyc(target_impl)
+        if release_name:
+            try:
+                from colony.authoring import release_authored_slot
+                if release_authored_slot(target_impl, release_name):
+                    oracle_note += " | slot_released"
+                else:
+                    oracle_note += " | slot_release_failed"
+            except Exception:
+                oracle_note += " | slot_release_failed"
+            try:
+                from colony.lessons import write_lesson
+                write_lesson(
+                    decision="revert", check="authoring",
+                    what=(f"coverage keep of `{release_name}` refused: lemma score flat, "
+                          "authored slot released"),
+                    source="conjecture_desk", cycle_id=cycle_id, mutation=release_name,
+                    lesson_type="authoring_reject", family="hard_tier",
+                    tags=["authoring", "authoring_reject", "coverage_slot"],
+                )
+            except Exception:
+                pass
         note = (f"Reverted `{chosen}` ({kind}): score {before_score}→{after_score} "
                 f"ok={after.get('ok')} hard_pass {n_hard_before}→{n_hard_after} "
                 f"— Oracle/hard-tier required for keep; easy pads die on Oracle."

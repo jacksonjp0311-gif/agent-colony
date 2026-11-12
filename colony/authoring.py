@@ -541,6 +541,86 @@ def verify_candidate(new_src: str, name: str, components: list[str]) -> dict[str
     return {**res, "accepted": True, "reason": "verified"}
 
 
+def hard_pass_cannot_raise_score() -> bool:
+    """True when another passing hard check cannot move the lemma score.
+
+    The bench pins hard_comp at 1 once n_hard_pass >= HARD_DENOM. A keep in
+    that state is coverage. A missing report is not treated as saturated.
+    """
+    try:
+        from colony.lessons import BENCH_LATEST
+        from society.benchmarks.lemma_microbench import HARD_DENOM
+        data = json.loads(BENCH_LATEST.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    for row in data.get("benches") or []:
+        if row.get("bench") != "lemma_microbench" or "n_hard_pass" not in row:
+            continue
+        try:
+            return int(row.get("n_hard_pass") or 0) >= HARD_DENOM
+        except (TypeError, ValueError):
+            return False
+    return False
+
+
+def coverage_keep_takes_no_slot(category: str, name: str) -> bool:
+    """Coverage of an authored check does not get a cap slot.
+
+    The lemma score did not rise. Non-authored checks stay on the ordinary path.
+    """
+    return category == "coverage" and str(name or "").startswith(AUTHORED_PREFIX)
+
+
+def strip_authored_check(src: str, name: str) -> str | None:
+    """Source with this authored function and its catalog tuple removed.
+
+    None when `name` is not an authored check, or when the edit would not parse.
+    Every other check is left as it was.
+    """
+    if not str(name or "").startswith(AUTHORED_PREFIX):
+        return None
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:
+        return None
+    drop: set[int] = set()
+    fn_name = f"check_{name}"
+    for node in tree.body:
+        if isinstance(node, ast.FunctionDef) and node.name == fn_name:
+            drop.update(range(node.lineno, (node.end_lineno or node.lineno) + 1))
+    for lst in _catalog_lists(tree).values():
+        for elt in lst.elts:
+            if (
+                isinstance(elt, ast.Tuple) and elt.elts
+                and isinstance(elt.elts[0], ast.Constant) and elt.elts[0].value == name
+            ):
+                drop.update(range(elt.lineno, (elt.end_lineno or elt.lineno) + 1))
+    if not drop:
+        return None
+    lines = src.splitlines(keepends=True)
+    kept = [ln for i, ln in enumerate(lines, start=1) if i not in drop]
+    out = "".join(kept)
+    try:
+        ast.parse(out)
+    except SyntaxError:
+        return None
+    return out
+
+
+def release_authored_slot(path: Path, name: str) -> bool:
+    """Remove one authored check from a catalog file. False when nothing changed."""
+    try:
+        src = path.read_text(encoding="utf-8")
+    except OSError:
+        return False
+    out = strip_authored_check(src, name)
+    if out is None or out == src:
+        return False
+    path.write_text(out, encoding="utf-8")
+    _invalidate(path)
+    return True
+
+
 def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", write: bool = True) -> list[dict[str, Any]]:
     """Compose up to ``max_new`` new disabled hard checks from proven lemmas. Returns rows."""
     path = _lemma_impl()
@@ -551,6 +631,10 @@ def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", 
     names = {n for n, _c, _f in _entries(tree)}
     n_authored = sum(1 for n in names if n.startswith(AUTHORED_PREFIX))
     if n_authored >= MAX_AUTHORED_TOTAL:
+        return []
+    if hard_pass_cannot_raise_score():
+        # The hard component is already pinned. A new check kept from here would
+        # be coverage: the lemma score cannot rise. It does not take a cap slot.
         return []
     try:
         from colony.lessons import blocked_themes

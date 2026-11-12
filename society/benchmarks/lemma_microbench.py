@@ -12,6 +12,10 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[0]
 
+# hard_comp = min(1, hard_pass / HARD_DENOM). Once hard_pass reaches this, another
+# passing hard check does not move the lemma score. Value unchanged.
+HARD_DENOM = 28.0
+
 
 def _bust_pyc(path: Path) -> None:
     cache = path.parent / "__pycache__"
@@ -59,7 +63,6 @@ def run() -> dict[str, Any]:
     # Score formula — leave headroom; textbook-only cannot hit ~0.95.
     # Headroom denominators > current catalog so mutations can still raise score.
     BASIC_DENOM = 14.0  # headroom past ~10 basic checks
-    HARD_DENOM = 28.0   # flourish mile headroom — new domain packs can raise score
     basic_comp = min(1.0, len(basic) / BASIC_DENOM) if basic else 0.0
     hard_comp = min(1.0, hard_pass / HARD_DENOM) if hard_n else 0.0
     speed = max(0.0, min(1.0, 0.15 / max(seconds, 1e-9)))
