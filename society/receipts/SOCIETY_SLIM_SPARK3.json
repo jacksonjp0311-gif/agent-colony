@@ -1,35 +1,35 @@
 {
-  "when": "2026-11-12T02:59:18Z",
+  "when": "2026-11-12T05:24:43Z",
   "mile": "spark3-port",
-  "cycle_count": 837,
+  "cycle_count": 840,
   "fitness_latest": {
-    "ts": "2026-11-12T02:58:31Z",
-    "cycle_id": "20261112T025642Z_bce687",
+    "ts": "2026-11-12T05:23:54Z",
+    "cycle_id": "20261112T052138Z_90c03b",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9115,
     "commons_signal": 1.0,
-    "math_prize": 0.8138,
-    "compute_usefulness": 0.9133,
+    "math_prize": 0.8132,
+    "compute_usefulness": 0.9125,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8859,
+    "prize_boost": 0.8853,
     "kill_rate": 0.3832,
     "kill_rate_term": 0.8949,
     "novelty": 0.75,
     "lesson_uptake": 0.96,
-    "aggregate": 0.8615,
+    "aggregate": 0.8614,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345
   },
   "honest_scoreboard": {
-    "score": 24,
+    "score": 25,
     "counterexamples_verified": 0,
-    "proofs_checked": 22,
-    "proofs_routine_known_in_principle": 22,
+    "proofs_checked": 23,
+    "proofs_routine_known_in_principle": 23,
     "beyond_published_range": 2,
     "beyond_exact": 2,
     "max_depth": 956,
@@ -54,7 +54,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.873
+    "aggregate_score": 0.8639
   },
   "novelty_gate": {
     "hits": 3,
@@ -74,7 +74,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261112T025642Z_bce687"
+    "cycle_id": "20261112T052138Z_90c03b"
   },
   "oracle": {
     "passes": 528,

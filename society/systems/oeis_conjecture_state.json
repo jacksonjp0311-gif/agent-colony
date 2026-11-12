@@ -25,7 +25,7 @@
    "credit": 0.0
   },
   "oc_A165064_0": {
-   "attempts": 8,
+   "attempts": 15,
    "status": "holds_on_range",
    "tested_hi": 100,
    "credit": 0.0
@@ -247,7 +247,7 @@
    "credit": 0.0
   },
   "oc_A229019_0": {
-   "attempts": 16,
+   "attempts": 21,
    "status": "holds_on_range",
    "tested_hi": 45,
    "credit": 0.0
@@ -313,7 +313,7 @@
    "credit": 1.0
   },
   "oc_A006501_0": {
-   "attempts": 35,
+   "attempts": 37,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -373,7 +373,7 @@
    "credit": 1.0
   },
   "oc_A108476_0": {
-   "attempts": 38,
+   "attempts": 40,
    "status": "holds_on_range",
    "tested_hi": 30,
    "credit": 0.0099
@@ -475,10 +475,10 @@
    "credit": 0.0
   },
   "oc_A108629_0": {
-   "attempts": 5,
-   "status": "holds_on_range",
+   "attempts": 6,
+   "status": "proved_checked",
    "tested_hi": 299,
-   "credit": 0.0
+   "credit": 1.0
   },
   "oc_A165027_0": {
    "attempts": 6,
@@ -493,7 +493,7 @@
    "credit": 0.0
   },
   "oc_A026772_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 199,
    "credit": 0.0
@@ -609,11 +609,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 334,
-   "credit": 22.0439
+   "attempts": 340,
+   "credit": 23.0439
   },
   "gf": {
-   "attempts": 22,
+   "attempts": 29,
    "credit": 0.0
   },
   "only_prime": {
@@ -621,11 +621,11 @@
    "credit": 0.0
   },
   "property": {
-   "attempts": 16,
+   "attempts": 21,
    "credit": 0.0
   }
  },
- "credit_total": 22.0439,
+ "credit_total": 23.0439,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -737,6 +737,11 @@
    "oc_A071264_0": {
     "anum": "A071264",
     "checker": "x-side residual is a polynomial of degree 0 with zero radical part; recurrence holds for n >= 2 by the operator identity",
+    "routine": true
+   },
+   "oc_A108629_0": {
+    "anum": "A108629",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
     "routine": true
    }
   },
