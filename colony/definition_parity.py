@@ -20,6 +20,12 @@ Component facts, each giving the set of parities a component takes on a residue 
         and partial sums, so S(x) etc. get their own kernel when every part has an automatic fact.
   definition substitution  an OEIS name 'a(n) = <expression>' in colony primitives (gcd, n,
         d(n) or tau(n), sigma(n), phi(n)), checked against the table, is substituted.
+  multiplicative definition  an OEIS name that defines a(n) from the prime factorization, in one of
+        three vetted shapes: "If n = Product (p_j^k_j) then a(n) = Product ( ... )",
+        "multiplicative with a(p^e) = ...", or "completely multiplicative with a(p) = ...".
+        The formula is parsed, never executed, and used only when it reproduces the table.
+        The keyword "mult" alone is not a definition. On a residue class whose argument is always
+        p^e times a coprime cofactor, an even a(p^e) makes every value even.
   prime-valued           the OEIS name says the terms are primes and every tabulated term is a prime
         >= 3: each value is odd, never a square nor twice a square, and its residue mod P is a unit
         or a prime dividing P. A form 'k*B^m + C ... k < B^m' in the name adds: every value larger
@@ -56,6 +62,9 @@ _AUT: dict[tuple, Any] = {}
 _REACH: dict[tuple, dict[int, frozenset[int]]] = {}
 _PRIMEV: dict[tuple, Any] = {}
 _DEF: dict[tuple, Any] = {}
+_MULT: dict[tuple, Any] = {}
+_SPF: list[int] = []
+_PRIMES: list[int] = []
 
 
 class _Unknown(Exception):
@@ -469,6 +478,352 @@ def definition_expr(w: str, T: Any) -> tuple[tuple, str] | None:
     return res
 
 
+# ----------------------------------------------------------------------------- multiplicative definitions
+# Vetted shapes only. The OEIS sentence is parsed into these operations; it is never executed.
+_MULT_FUN = {"prime", "pi"}
+
+
+def _balanced_inside(s: str, open_at: int) -> str | None:
+    """Text inside the parenthesis that starts at open_at, or None when the parens do not balance."""
+    if open_at >= len(s) or s[open_at] != "(":
+        return None
+    depth = 0
+    for j in range(open_at, len(s)):
+        if s[j] == "(":
+            depth += 1
+        elif s[j] == ")":
+            depth -= 1
+            if depth == 0:
+                return s[open_at + 1:j]
+    return None
+
+
+def _tokenize_formula(s: str) -> list[str] | None:
+    out: list[str] = []
+    i = 0
+    while i < len(s):
+        ch = s[i]
+        if ch.isspace():
+            i += 1
+            continue
+        if ch.isdigit():
+            j = i + 1
+            while j < len(s) and s[j].isdigit():
+                j += 1
+            out.append(s[i:j])
+            i = j
+            continue
+        if ch.isalpha() or ch == "_":
+            j = i + 1
+            while j < len(s) and (s[j].isalnum() or s[j] == "_"):
+                j += 1
+            out.append(s[i:j])
+            i = j
+            continue
+        if ch in "()+-*^":
+            out.append(ch)
+            i += 1
+            continue
+        return None
+    return out
+
+
+def _parse_formula(src: str, variables: set[str]) -> tuple | None:
+    """Arithmetic formula in the given variables, prime() and pi(). None if anything else appears."""
+    toks = _tokenize_formula(src)
+    if not toks:
+        return None
+    pos = [0]
+
+    def peek() -> str | None:
+        return toks[pos[0]] if pos[0] < len(toks) else None
+
+    def take(x: str | None = None) -> str:
+        t = peek()
+        if t is None or (x is not None and t != x):
+            raise ValueError(src)
+        pos[0] += 1
+        return t
+
+    def expr() -> tuple:
+        e = term()
+        while peek() in ("+", "-"):
+            op = take()
+            e = (op, e, term())
+        return e
+
+    def term() -> tuple:
+        e = power()
+        while peek() == "*":
+            take()
+            e = ("*", e, power())
+        return e
+
+    def power() -> tuple:
+        e = atom()
+        if peek() == "^":
+            take()
+            e = ("^", e, power())
+        return e
+
+    def atom() -> tuple:
+        t = take()
+        if t == "(":
+            e = expr()
+            take(")")
+            return e
+        if t.isdigit():
+            return ("num", int(t))
+        if t in _MULT_FUN and peek() == "(":
+            take("(")
+            arg = expr()
+            take(")")
+            return (t, arg)
+        if t in variables:
+            return ("var", t)
+        raise ValueError(src)
+
+    try:
+        e = expr()
+        return e if pos[0] == len(toks) else None
+    except (ValueError, IndexError):
+        return None
+
+
+def parse_multiplicative_name(name: str) -> dict[str, Any] | None:
+    """A vetted multiplicative formula from an OEIS name, or None.
+
+    Shapes: the Product (p_j^k_j) form, 'multiplicative with a(p^e) = ...', and
+    'completely multiplicative with a(p) = ...'. The keyword 'mult' is not a formula.
+    """
+    text = name or ""
+    prod = re.search(
+        r"if\s+n\s*=\s*product\s*\(\s*p_j\s*\^\s*k_j\s*\)\s*then\s*a\(n\)\s*=\s*product\s*\(",
+        text, re.I)
+    if prod:
+        inner = _balanced_inside(text, prod.end() - 1)
+        node = _parse_formula(inner or "", {"p_j", "k_j"})
+        if node is None:
+            return None
+        return {"kind": "product", "node": node, "expr": (inner or "").strip(),
+                "env": {"p_j": "p", "k_j": "e"}}
+    spec = re.search(
+        r"(completely\s+)?multiplicative\s+with\s+a\(\s*p\s*(?:\^\s*([A-Za-z]))?\s*\)\s*=\s*([^.;]+)",
+        text, re.I)
+    if not spec:
+        return None
+    completely = bool(spec.group(1))
+    exp_var = spec.group(2)
+    expr = spec.group(3).strip()
+    if completely and not exp_var:
+        node = _parse_formula(expr, {"p"})
+        if node is None:
+            return None
+        return {"kind": "completely", "node": node, "expr": expr, "env": {"p": "p"}}
+    if exp_var:
+        node = _parse_formula(expr, {"p", exp_var})
+        if node is None:
+            return None
+        return {"kind": "at_power", "node": node, "expr": expr,
+                "env": {"p": "p", exp_var: "e"}}
+    return None
+
+
+def _sieve(limit: int) -> None:
+    """Extend the shared smallest-prime-factor table and the prime list up to limit."""
+    global _SPF
+    if limit < 2:
+        return
+    if len(_SPF) > limit:
+        return
+    start = max(len(_SPF), 2)
+    spf = _SPF[:] if _SPF else [0, 1]
+    if len(spf) <= limit:
+        spf.extend(range(len(spf), limit + 1))
+    root = int(limit ** 0.5) + 1
+    for i in range(2, root):
+        if spf[i] == i:
+            for j in range(max(i * i, (start + i - 1) // i * i), limit + 1, i):
+                if spf[j] == j:
+                    spf[j] = i
+    _SPF = spf
+    if not _PRIMES or _PRIMES[-1] < limit:
+        _PRIMES.clear()
+        _PRIMES.extend(i for i in range(2, len(_SPF)) if _SPF[i] == i)
+
+
+def _nth_prime(k: int) -> int | None:
+    if k < 1 or k > 10000:
+        return None
+    bound = 32
+    while len(_PRIMES) < k:
+        bound *= 2
+        if bound > 200000:
+            return None
+        _sieve(bound)
+    return _PRIMES[k - 1] if len(_PRIMES) >= k else None
+
+
+def _prime_pi(n: int) -> int | None:
+    if n < 0 or n > 200000:
+        return None
+    if n < 2:
+        return 0
+    _sieve(n)
+    return sum(1 for p in _PRIMES if p <= n)
+
+
+def _eval_formula(node: tuple, env: dict[str, int]) -> int | None:
+    op = node[0]
+    if op == "num":
+        return int(node[1])
+    if op == "var":
+        return env.get(node[1])
+    if op == "prime":
+        k = _eval_formula(node[1], env)
+        return None if k is None else _nth_prime(k)
+    if op == "pi":
+        n = _eval_formula(node[1], env)
+        return None if n is None else _prime_pi(n)
+    if op in ("+", "-", "*", "^"):
+        a = _eval_formula(node[1], env)
+        b = _eval_formula(node[2], env)
+        if a is None or b is None:
+            return None
+        if op == "+":
+            return a + b
+        if op == "-":
+            return a - b
+        if op == "*":
+            return a * b
+        if b < 0 or b > 10000 or (abs(a) > 1 and b > 10000):
+            return None
+        return a ** b
+    return None
+
+
+def _apk_fn(parsed: dict[str, Any]):
+    """a(p^e) from a parsed formula. None when the formula does not give an integer."""
+    node, mapping, kind = parsed["node"], parsed["env"], parsed["kind"]
+
+    def apk(p: int, e: int) -> int | None:
+        if p < 2 or e < 1:
+            return None
+        base_env = {"p": p, "e": e}
+        env = {src: base_env[dst] for src, dst in mapping.items()}
+        if kind == "completely":
+            one = _eval_formula(node, env)
+            if one is None:
+                return None
+            return one ** e
+        return _eval_formula(node, env)
+
+    return apk
+
+
+def _factor_value(apk, n: int) -> int | None:
+    """a(n) for n >= 1 from a(p^e), using multiplicativity. a(1) is the empty product, 1."""
+    if n < 1:
+        return None
+    if n == 1:
+        return 1
+    if len(_SPF) <= n:
+        _sieve(n)
+    val = 1
+    while n > 1:
+        p = _SPF[n]
+        e = 0
+        while n % p == 0:
+            n //= p
+            e += 1
+        piece = apk(p, e)
+        if piece is None:
+            return None
+        val *= piece
+    return val
+
+
+def multiplicative_def(w: str, T: Any) -> dict[str, Any] | None:
+    """The sequence's multiplicative definition, once it reproduces the table. None otherwise.
+
+    A keyword of 'mult' with no parsed formula is refused. A formula that misses any tabulated
+    term is refused. Nothing here runs code taken from OEIS.
+    """
+    tab = _tab(w, T)
+    if not tab or len(tab) < 60:
+        return None
+    key = (w, len(tab))
+    if key in _MULT:
+        return _MULT[key]
+    res = None
+    entry = _entry(w)
+    parsed = parse_multiplicative_name((entry or {}).get("name", "")) if entry else None
+    if parsed is not None:
+        apk = _apk_fn(parsed)
+        N = min(len(tab) - 1, 2000)
+        ok = N >= 60
+        for n in range(1, N + 1):
+            got = _factor_value(apk, n)
+            if got is None or got != tab[n]:
+                ok = False
+                break
+        if ok:
+            anum = entry.get("anum") or w
+            res = {
+                "apk": apk,
+                "how": (f"multiplicative definition ({anum}): a(n) is the product of "
+                        f"a(p^e) = {parsed['expr']}; matches {N} tabulated terms"),
+            }
+    _MULT[key] = res
+    return res
+
+
+def _stable_powers(residue: int, modulus: int) -> list[tuple[int, int]]:
+    """Prime powers p^e that divide every integer in the progression, with the valuation fixed.
+
+    k ≡ residue (mod modulus) has v_p(k) = e for every k > 0 when v_p(residue) = e and
+    v_p(modulus) > e. Then k = p^e * u with gcd(u, p) = 1.
+    """
+    if residue <= 0 or modulus <= 0:
+        return []
+    out: list[tuple[int, int]] = []
+    n = residue
+
+    def take(p: int, e: int) -> None:
+        v = 0
+        y = modulus
+        while y % p == 0:
+            y //= p
+            v += 1
+        if v > e:
+            out.append((p, e))
+
+    p = 2
+    while p * p <= n:
+        if n % p == 0:
+            e = 0
+            while n % p == 0:
+                n //= p
+                e += 1
+            take(p, e)
+        p = 3 if p == 2 else p + 2
+    if n > 1:
+        take(n, 1)
+    return out
+
+
+def _mult_class_parity(md: dict[str, Any], residue: int, modulus: int) -> tuple[int, str] | None:
+    """(0, fact) when multiplicativity forces every value in the progression to be even."""
+    for p, e in _stable_powers(residue, modulus):
+        apk = md["apk"](p, e)
+        if apk is None or apk % 2 != 0:
+            continue
+        shown = str(apk) if abs(apk) <= 10 ** 6 else "an even integer"
+        return 0, (f"multiplicative: every such argument is {p}^{e} times a coprime cofactor, "
+                   f"and a({p}^{e}) = {shown} is even, so the value is even")
+    return None
+
+
 def _subst_defs(e: tuple, T: Any, facts: list[str]) -> tuple:
     if e[0] == "p":
         d = definition_expr(e[1], T) if e[1].startswith("ox") else None
@@ -596,6 +951,13 @@ class _Ev:
         if w in ("rad", "lpf") and k0 >= 2 and cm % 2 == 0:
             return frozenset((c % 2,))
         if w.startswith("ox"):
+            md = multiplicative_def(w, T) if k0 >= 1 else None
+            if md is not None:
+                bit = _mult_class_parity(md, c, cm)
+                if bit is not None:
+                    self.facts.add(md["how"])
+                    self.facts.add(bit[1])
+                    return frozenset((bit[0],))
             pv = prime_valued(w, T)
             if pv:
                 self.facts.add(pv["how"])

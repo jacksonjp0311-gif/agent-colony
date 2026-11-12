@@ -139,3 +139,95 @@ def test_trivial_reason_label(T, monkeypatch):
     import random
     assert FC.trivial_reason(_c("dbl(oxa177115)", m=2, q=1, r=0), T, random.Random(0), FC.fit_n()) == \
         "known_in_principle(definition_parity)"
+
+
+def _factor_table(apk, n_max: int) -> list[int]:
+    """a(0)=0, a(1)..a(n_max) from a multiplicative a(p^e)."""
+    out = [0, 1]
+    for n in range(2, n_max + 1):
+        v = DP._factor_value(apk, n)
+        assert v is not None
+        out.append(v)
+    return out
+
+
+def test_multiplicative_definition_explains_even_prime_power(T, monkeypatch):
+    """A factorization formula that matches the table explains a(p^e * odd) when a(p^e) is even.
+
+    The product-of-prime-powers shape is one vetted form. A second sequence uses a different
+    form, so the rule is not a special case of one OEIS entry. A keyword of 'mult' with no
+    formula, and a formula that misses the table, explain nothing.
+    """
+    import random
+    ex = DP.explain(_c("dbl(oxa048767)", m=2, q=2, r=0, s=1), T)
+    assert ex and ex["label"] == "known_in_principle(definition_parity)"
+    blob = " ".join(ex["facts"]).lower()
+    assert "multiplicative" in blob and "a(2^1)" in blob and "even" in blob
+    # a(4) = 3 is odd, so "even for every even argument" does not follow.
+    assert DP.explain(_c("oxa048767", m=2, q=2, r=0, s=0), T) is None
+    # The keyword alone is not a definition.
+    assert DP.parse_multiplicative_name("Number of widgets.") is None
+
+    # Completely multiplicative a(p) = p is the identity, not the sequence above.
+    # On odd n, dbl(a)(n) = a(2n) = 2 * (odd) and the power of 2 is exactly 2^1.
+    ident = DP.parse_multiplicative_name("Completely multiplicative with a(p) = p.")
+    assert ident and ident["kind"] == "completely"
+    terms = _factor_table(DP._apk_fn(ident), 400)
+
+    def _entry(w, _orig=DP._entry):
+        if w == "oxsynth":
+            return {"anum": "SYNTH", "name": "Completely multiplicative with a(p) = p.", "keyword": "mult"}
+        return _orig(w)
+
+    monkeypatch.setattr(DP, "_entry", _entry)
+
+    class Bag:
+        t = {"oxsynth": terms}
+
+    synth = {"kind": "cong", "params": {"m": 2, "q": 2, "r": 0, "s": 1},
+             "_le": ("dbl", ("p", "oxsynth")), "_re": None}
+    assert DP.multiplicative_def("oxsynth", Bag()) is not None
+    got = DP.explain(synth, Bag())
+    assert got and got["label"] == "known_in_principle(definition_parity)"
+    assert any("multiplicative definition (SYNTH)" in f for f in got["facts"])
+    # Same formula, table of ones: the definition does not reproduce the table.
+    DP._MULT.pop(("oxsynth", 401), None)
+
+    def _entry_bad(w, _orig=DP._entry):
+        if w == "oxbad":
+            return {"anum": "BAD", "name": "Completely multiplicative with a(p) = p.", "keyword": "mult"}
+        return _orig(w)
+
+    monkeypatch.setattr(DP, "_entry", _entry_bad)
+    assert DP.multiplicative_def("oxbad", type("B", (), {"t": {"oxbad": [0] + [1] * 400}})()) is None
+    # An odd a(p^e) does not force the product even. a(p^e) = 1 for every power.
+    ones = DP.parse_multiplicative_name("Multiplicative with a(p^e) = 1.")
+    assert ones and ones["kind"] == "at_power"
+    DP._MULT.pop(("oxone", len([0] + [1] * 400)), None)
+
+    def _entry_one(w, _orig=DP._entry):
+        if w == "oxone":
+            return {"anum": "ONE", "name": "Multiplicative with a(p^e) = 1.", "keyword": "easy,mult"}
+        return _orig(w)
+
+    monkeypatch.setattr(DP, "_entry", _entry_one)
+    one_tab = [0] + [1] * 400
+    one_claim = {"kind": "cong", "params": {"m": 2, "q": 2, "r": 0, "s": 1},
+                 "_le": ("dbl", ("p", "oxone")), "_re": None}
+    assert DP.explain(one_claim, type("B", (), {"t": {"oxone": one_tab}})()) is None
+
+    # The two claims already settled by the existing filter stay settled. They are not this gap.
+    monkeypatch.setenv("COLONY_COMPOSITIONAL", "live")
+    assert FC.trivial_reason(_c("D((sigma*sqfree))", m=2, q=2, r=0, s=1), T, random.Random(0), FC.fit_n())
+    assert FC.trivial_reason(_c("S((pi*pi))", m=2, q=2, r=1, s=0), T, random.Random(0), FC.fit_n())
+    monkeypatch.setenv("COLONY_DEEP", "off")
+    monkeypatch.setenv("COLONY_REFCHECK_STRONG", "off")
+    from colony import surprise_credit as SC
+    claim = {"kind": "cong", "lhs": "dbl(oxa048767)", "rhs": "",
+             "params": {"m": 2, "q": 2, "r": 0, "s": 1},
+             "unknown": True, "known_check": "no known result found",
+             "reference": "no reference found", "prediction": 0.4,
+             "range": [1, 40], "sig": "mult-factor"}
+    why = SC.explained(claim, trivial=False)
+    assert why.startswith("known in principle") and "multiplicative" in why.lower()
+    assert SC.credit(claim, trivial=False)["credit"] == 0.0
