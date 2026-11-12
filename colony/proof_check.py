@@ -1137,8 +1137,13 @@ def _oe_def_terms(d: dict[str, Any], off: int, terms: list[int], L: int):
     return {"terms": xs, "W": off, "order": K, "num": num, "den": den}
 
 
-def _oe_order(code, a_order: int, a_W: int):
-    """(order bound D, start S) of an RPN expression, or None when outside the C-finite class."""
+def _oe_order(code, a_order: int, a_W: int, cited: dict | None = None):
+    """(order bound D, start S) of an RPN expression, or None when outside the C-finite class.
+
+    ``cited`` maps a function name to {"order", "W"} for a sequence whose
+    constant-coefficient recurrence was verified separately. Sums add orders.
+    Products multiply them.
+    """
     st: list[tuple] = []
     for t in code:
         if t[0] == "num":
@@ -1211,6 +1216,9 @@ def _oe_order(code, a_order: int, a_W: int):
                 st.append(("s", (a_order, -((j - a_W) // c))))
             elif name in ("fib", "lucas"):
                 st.append(("s", (2, -(j // c))))
+            elif cited and name in cited:
+                info = cited[name]
+                st.append(("s", (int(info["order"]), -((j - int(info["W"])) // c))))
             else:
                 return None
     if len(st) != 1:
@@ -1254,10 +1262,23 @@ def check_oeis(cert: dict[str, Any], terms: list[int]) -> tuple[bool, str]:
         D0 = _oe_def_terms(d, off, terms, len(terms) + 8)
         if D0 is None or D0["terms"][:len(terms)] != list(terms):
             return False, "definition does not reproduce the b-file"
+        cited: dict[str, dict] = {}
+        cited_spec: dict[str, tuple] = {}
+        for name, spec in (cert.get("sequences") or {}).items():
+            sd = spec.get("definition") or {}
+            soff = int(spec.get("offset") or 0)
+            sterms = list(spec.get("terms") or [])
+            SD = _oe_def_terms(sd, soff, sterms, len(sterms) + 8)
+            if SD is None or SD["terms"][:len(sterms)] != sterms:
+                return False, "cited sequence does not reproduce its terms"
+            W = SD["W"] if sd.get("kind") == "gf" else soff
+            cited[str(name)] = {"order": SD["order"], "W": W}
+            cited_spec[str(name)] = (sd, soff, sterms)
         n0 = claim.get("n0")
         n0 = off if n0 is None else max(off, int(n0))
         codes = [OB.compile_expr(p) for p in claim["parts"]]
-        bounds = [_oe_order(c, D0["order"], D0["W"] if d["kind"] == "gf" else off) for c in codes]
+        a_W = D0["W"] if d["kind"] == "gf" else off
+        bounds = [_oe_order(c, D0["order"], a_W, cited) for c in codes]
         if any(b is None for b in bounds):
             return False, "a side is outside the C-finite class"
         need_hi = 0
@@ -1270,12 +1291,28 @@ def check_oeis(cert: dict[str, Any], terms: list[int]) -> tuple[bool, str]:
         L = 4 * (need_hi + 8) + 64
         if L > 200000:
             return False, "order bound too large"
-        xs = _oe_def_terms(d, off, terms, L)["terms"]
+        extended = _oe_def_terms(d, off, terms, L)
+        if extended is None:
+            return False, "definition does not extend"
+        xs = extended["terms"]
+        banks: dict[str, tuple[int, list]] = {}
+        for name, (sd, soff, sterms) in cited_spec.items():
+            full = _oe_def_terms(sd, soff, sterms, L)
+            if full is None:
+                return False, "cited sequence does not extend"
+            banks[name] = (soff, full["terms"])
 
         def seq(nm, i):
-            if nm != "a" or i < off or i - off >= len(xs):
-                raise OB.Missing(nm)
-            return xs[i - off]
+            if nm == "a":
+                if i < off or i - off >= len(xs):
+                    raise OB.Missing(nm)
+                return xs[i - off]
+            if nm in banks:
+                soff, xs2 = banks[nm]
+                if i < soff or i - soff >= len(xs2):
+                    raise OB.Missing(nm)
+                return xs2[i - soff]
+            raise OB.Missing(nm)
         checked = 0
         for i, S, Dd in plan:
             for n in range(n0, S + Dd):
@@ -1289,9 +1326,51 @@ def check_oeis(cert: dict[str, Any], terms: list[int]) -> tuple[bool, str]:
                 if x != y:
                     return False, f"identity fails at n = {n}"
                 checked += 1
-        return True, f"C-finite order bounds {[(S, Dd) for _, S, Dd in plan]}; {checked} points checked"
+        return True, (f"routine C-finite closure, order bounds {[(S, Dd) for _, S, Dd in plan]}; "
+                      f"{checked} points checked")
     except (OB.Bad, KeyError, TypeError, ValueError, ZeroDivisionError) as ex:
         return False, "checker error: " + str(ex)[:80]
+
+
+def recurrence_equivalent(lin_a: dict, lin_b: dict, terms: list[int], off: int = 0) -> tuple[bool, str]:
+    """Two constant-coefficient recurrences define the same sequence.
+
+    Each must reproduce the given terms. Their difference is C-finite of order
+    at most the sum of the orders, so agreement on that many further terms is
+    a proof. This is a checked routine certificate, not a guess.
+    """
+    def lin(raw: dict) -> dict:
+        return {"kind": "rec", "linear": {str(k): str(v) for k, v in raw.items()}}
+    A = _oe_def_terms(lin(lin_a), off, terms, len(terms) + 4)
+    B = _oe_def_terms(lin(lin_b), off, terms, len(terms) + 4)
+    if A is None or B is None or A["terms"][:len(terms)] != list(terms) or B["terms"][:len(terms)] != list(terms):
+        return False, "a recurrence does not reproduce the terms"
+    bound = int(A["order"]) + int(B["order"])
+    L = max(len(terms), bound + 2)
+    Ae = _oe_def_terms(lin(lin_a), off, terms, L)
+    Be = _oe_def_terms(lin(lin_b), off, terms, L)
+    if Ae is None or Be is None or Ae["terms"][:L] != Be["terms"][:L]:
+        return False, "the recurrences diverge inside the order bound"
+    return True, f"routine recurrence equivalence; order bound {bound}"
+
+
+def guess_and_verify(expr: str | None, terms: list[int], off: int = 0) -> dict[str, Any]:
+    """Algebraic or holonomic guess. Only a certified re-check is a proof.
+
+    A Berlekamp-Massey or holonomic fit that is not re-checked stays heuristic.
+    """
+    from colony import oeis_guess as G
+    if expr:
+        cr = G.certified_recurrence(expr, off, terms)
+        if cr:
+            return {"status": "proved_checked", "routine": True, "order": cr["order"],
+                    "certificate": cr["certificate"]}
+    fit = G.guess_cfinite(list(terms))
+    holo = G.guess_holonomic(list(terms), off)
+    return {"status": "heuristic",
+            "note": "fit to the given terms; not a certificate",
+            "cfinite_order": None if not fit else len(fit),
+            "holonomic_order": None if not holo else holo.get("order")}
 
 
 # ----------------------------------------------------------------------------- holonomic certificates

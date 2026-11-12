@@ -83,6 +83,40 @@ def test_guess_is_heuristic_until_certified():
     assert h.exact(400)[399] == h.b_value(399)
 
 
+def test_cfinite_closure_and_heuristic_guess():
+    """A product of two checked recurrences is a routine proof. A bare fit is not."""
+    fib = []
+    a, b = 1, 1
+    for _ in range(48):
+        fib.append(a)
+        a, b = b, a + b
+    squares = [v * v for v in fib]
+    fit = G.guess_cfinite(squares)
+    assert fit
+    text = "a(n) = " + "+".join(f"({int(c)})*a(n-{i + 1})" for i, c in enumerate(fit))
+    parsed = OC.parse_definition(text)
+    assert parsed and parsed["kind"] == "rec"
+    fib_def = OC.parse_definition(FIB)
+    cert = {"type": "cfinite_identity", "definition": parsed, "offset": 0, "def_text": text,
+            "claim": {"form": "relation", "parts": ["a(n)", "A000045(n)*A000045(n)"], "rels": ["="], "n0": 0},
+            "sequences": {"A000045": {"definition": fib_def, "offset": 0, "terms": fib[:36]}}}
+    ok, why = PC.check_oeis(cert, squares[:36])
+    assert ok, why
+    assert "routine" in why
+    cert["claim"] = {"form": "relation", "parts": ["a(n)", "A000045(n)*A000045(n)+1"], "rels": ["="], "n0": 0}
+    bad, _ = PC.check_oeis(cert, squares[:36])
+    assert bad is False
+    guess = PC.guess_and_verify(None, squares[:36], 0)
+    assert guess["status"] == "heuristic"
+    proved = PC.guess_and_verify("1/(1-x-x^2)", fib[:36], 0)
+    assert proved["status"] == "proved_checked" and proved["routine"] is True
+    same, why_eq = PC.recurrence_equivalent({1: 1, 2: 1}, {1: 1, 2: 1, 3: 0}, fib[:24], 0)
+    assert same, why_eq
+    assert "routine" in why_eq
+    differ, _ = PC.recurrence_equivalent({1: 1, 2: 1}, {1: 2}, fib[:24], 0)
+    assert differ is False
+
+
 def test_deep_counterexample_beyond_bfile_needs_two_paths():
     e = _ent("Conjecture: a(n) = a(n-1) + a(n-2) + floor(n/50000) for n > 1.", eid="deepfail")
     r = OC.attempt_disprove(e, None, fetch=False)
