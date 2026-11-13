@@ -1187,20 +1187,44 @@ def record_verified_depth_progress(
     return names
 
 
-def has_eligible_progress_target(state: dict[str, Any] | None = None) -> bool:
-    """True if at least one OEIS target can still be pushed to a new depth."""
+def oracle_reachable_alternatives(state: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+    """Real targets that can still reach a new Oracle or new-depth verdict.
+
+    Today this is the OEIS menu entries that ``can_progress_past`` (the
+    same pool PERTURB draws from). The hook exists so a future supply
+    path can add other *pickable* alternatives — only ones with a real
+    attempt path, never invented ids or intents that cannot run.
+    """
+    out: list[dict[str, Any]] = []
     try:
-        cand = _oeis_candidates(set(), set())
+        for c in _oeis_candidates(set(), set()):
+            if c.get("can_progress") and c.get("id"):
+                out.append(c)
     except Exception:
-        return False
+        pass
+    return out
+
+
+def has_eligible_progress_target(state: dict[str, Any] | None = None) -> bool:
+    """True if at least one real Oracle-reachable target can still progress.
+
+    Extends the original OEIS-only check through
+    ``oracle_reachable_alternatives``. Alternatives must be real and
+    pickable; this does not treat a blocked empty pool as eligible.
+    """
     excluded: set[str] = set()
     try:
         st = state if state is not None else load_state()
         excluded = {str(x) for x in ((st.get("perturb") or {}).get("exclude_targets") or []) if x}
     except Exception:
         excluded = set()
+    try:
+        cand = oracle_reachable_alternatives(state)
+    except Exception:
+        return False
     for c in cand:
-        if c.get("can_progress") and str(c.get("id") or "") not in excluded:
+        cid = str(c.get("id") or "")
+        if c.get("can_progress") and cid and cid not in excluded:
             return True
     return False
 

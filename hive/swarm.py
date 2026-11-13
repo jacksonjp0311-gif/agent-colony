@@ -67,14 +67,17 @@ _ROLE_FOCUS: dict[str, dict[str, Any]] = {
         "labels": (
             "repeated_targets", "no_progress_perturb", "immediate_reentry",
             "dead_end_streak", "flat_passes", "high_revert_rate",
+            "empty_perturb_pool",
         ),
-        "ops": ("set_knob",),
+        "ops": ("set_knob", "add_family_rotation"),
         "preferred_knobs": (
             "perturb_epsilon", "unused_menu_cycles", "perturb_cooldown_cycles",
             "step_size", "evaluation_window", "park_cycles",
         ),
     },
     "pathfinder": {
+        # Pathfinder yields on empty_perturb_pool: a skip of already-held
+        # ranges cannot fill an empty candidate pool.
         "labels": (
             "repeated_targets", "no_progress_perturb", "dead_end_streak",
             "empty_claim_label", "parked_proof_chain", "immediate_reentry",
@@ -88,7 +91,7 @@ _ROLE_FOCUS: dict[str, dict[str, Any]] = {
         "preferred_knobs": (),
     },
     "surveyor": {
-        "labels": ("depth_at_physical_cap",),
+        "labels": ("depth_at_physical_cap", "empty_perturb_pool"),
         "ops": ("set_knob", "mark_ceiling"),
         "preferred_knobs": (
             "fast_term_cap", "gf_term_cap", "deep_term_cap",
@@ -327,6 +330,41 @@ def _symptom_for(finding: Mapping[str, Any]) -> str:
     return FL.feature_text(rec)
 
 
+def _unused_family_for(evidence: Mapping[str, Any]) -> str | None:
+    """First unused closed-set family, from evidence or the host. Deterministic."""
+    listed = evidence.get("unused_families") if isinstance(evidence, Mapping) else None
+    if isinstance(listed, list):
+        for f in listed:
+            name = str(f or "").strip().lower()
+            if name and name in FA.KNOWN_FAMILIES:
+                return name
+    try:
+        from hive import host
+        getter = getattr(host, "unused_rotation_families", None)
+        families = list(getter() if getter else [])
+        for f in families:
+            name = str(f or "").strip().lower()
+            if name and name in FA.KNOWN_FAMILIES:
+                return name
+    except Exception:
+        pass
+    known = sorted(FA.KNOWN_FAMILIES)
+    return known[0] if known else None
+
+
+def _is_empty_pool_skip(finding: Mapping[str, Any], action: Mapping[str, Any] | None) -> bool:
+    """True when a retrieved skip would be applied to an empty pool."""
+    if not action:
+        return False
+    kind = str(finding.get("kind") or finding.get("label") or "")
+    if kind != "empty_perturb_pool":
+        return False
+    return (
+        str(action.get("op") or "") == "add_skip_rule"
+        and str(action.get("target_kind") or "") == "already_held_range"
+    )
+
+
 def _action_for_role(
     role: str,
     finding: Mapping[str, Any],
@@ -342,6 +380,23 @@ def _action_for_role(
         # from the prototype source. Fall through if we cannot parse it.
         return None  # filled by the caller with the library action
     ops = focus.get("ops") or ()
+    if kind == "empty_perturb_pool":
+        # Pathfinder yields. Improver rotates in an unused family.
+        # Surveyor proposes a cap raise only when holds sit at a cap.
+        if "add_family_rotation" in ops:
+            family = _unused_family_for(ev)
+            if family:
+                return {"op": "add_family_rotation", "family": family}
+        if "set_knob" in ops:
+            suggest = list(finding.get("suggest") or ev.get("suggest") or [])
+            knobs = list(focus.get("preferred_knobs") or [])
+            for knob, direction in suggest:
+                if knobs and knob not in knobs:
+                    continue
+                return {"op": "set_knob", "name": knob, "direction": direction}
+            if ev.get("cap_holds"):
+                return {"op": "set_knob", "name": "fast_term_cap", "direction": "up"}
+        return None
     if "set_knob" in ops:
         knobs = list(focus.get("preferred_knobs") or [])
         # Prefer a diagnosis suggestion from self-heal when the knob is
@@ -430,6 +485,8 @@ def propose_for_role(
     action = None
     if role == "archivist":
         action = _library_action(router, retrieved)
+        if _is_empty_pool_skip(chosen, action):
+            action = None
     if action is None:
         action = _action_for_role(role, chosen, retrieved)
     if action is None:
@@ -611,6 +668,37 @@ def vote(
 # Applying a winner through self-heal or an equivalent rule trial
 # ---------------------------------------------------------------------------
 
+def _baseline_is_confounded(
+    window_rows: list[dict[str, Any]],
+    *,
+    heal_state: dict[str, Any] | None,
+    host: Any,
+) -> bool:
+    """True when Hive must defer: real code/cap change, or no fingerprint.
+
+    An in-flight or just-closed self-heal trial knob is excluded on both
+    sides, matching ``trial_fingerprint_mismatch``. That is not a
+    confound. A code, tree, or other-knob change still is.
+    """
+    fn = getattr(host, "heal_baseline_environment_confounded", None)
+    if callable(fn):
+        try:
+            return bool(fn(window_rows, state=heal_state))
+        except Exception:
+            pass
+    # Fallback: full-digest compare (legacy, treats a trial knob as a confound).
+    try:
+        if heal_state is not None:
+            current_fp = str(host.heal_environment_fingerprint(state=heal_state).get("digest") or "")
+        else:
+            current_fp = str(host.heal_environment_fingerprint().get("digest") or "")
+    except Exception:
+        current_fp = ""
+    if not current_fp:
+        return True
+    return any(str(r.get("env_fingerprint") or "") != current_fp for r in window_rows)
+
+
 def _heal_busy() -> bool:
     try:
         from hive import host
@@ -682,11 +770,7 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     if not replay.get("accepted"):
         return {"ok": False, "reason": "self_heal_replay_rejected", "replay": replay}
     baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
-    try:
-        current_fp = host.heal_environment_fingerprint(state=st)["digest"]
-    except Exception:
-        current_fp = ""
-    if not current_fp or any(str(r.get("env_fingerprint") or "") != current_fp for r in baseline_rows):
+    if _baseline_is_confounded(baseline_rows, heal_state=st, host=host):
         return {"ok": False, "reason": "confounded_baseline"}
     trial = {
         "knob": name,
@@ -746,11 +830,13 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
         except Exception:
             env = {}
     try:
-        current_fp = str((env or {}).get("digest") or "")
-        if not current_fp or any(str(r.get("env_fingerprint") or "") != current_fp for r in rows):
+        from hive import host as _h
+        if _baseline_is_confounded(rows, heal_state=None, host=_h):
             return {"ok": False, "reason": "confounded_baseline"}
     except Exception:
         current_fp = str((env or {}).get("digest") or "")
+        if not current_fp or any(str(r.get("env_fingerprint") or "") != current_fp for r in rows):
+            return {"ok": False, "reason": "confounded_baseline"}
     trial = {
         "op": proposal.action.get("op"),
         "action": proposal.action,

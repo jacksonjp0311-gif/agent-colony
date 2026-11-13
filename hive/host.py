@@ -327,6 +327,82 @@ def heal_trial_fingerprint_mismatch(
     return old_fp != new_fp, old_fp, new_fp
 
 
+def heal_baseline_environment_confounded(
+    window_rows: Iterable[dict[str, Any]],
+    *,
+    state: dict[str, Any] | None = None,
+    exclude_knob: str | None = None,
+) -> bool:
+    """True when a Hive trial baseline is confounded.
+
+    Delegates to the host's helper so an in-flight or just-closed trial
+    knob is excluded, matching trial_fingerprint_mismatch. Standalone
+    Hive uses the same rule against the local fingerprint.
+    """
+    if _heal is not None:
+        return bool(_heal.baseline_environment_confounded(
+            window_rows, state=state, exclude_knob=exclude_knob,
+        ))
+    # Standalone: exclude the trial knob from both sides when we can.
+    skip = exclude_knob
+    if not skip and isinstance(state, dict):
+        trial = state.get("trial") or {}
+        if isinstance(trial, dict) and trial.get("knob"):
+            skip = str(trial["knob"])
+        else:
+            last = state.get("last_self_change") or {}
+            if isinstance(last, dict) and last.get("knob") and last.get("event") in (
+                "adopt", "revert", "trial_voided_confound",
+            ):
+                skip = str(last["knob"])
+    current = _standalone_fingerprint(exclude_knob=skip)
+    digest = str(current.get("digest") or "")
+    if not digest:
+        return True
+    knobs_now = dict(current.get("knobs") or {})
+    if skip:
+        knobs_now.pop(skip, None)
+    for row in window_rows or []:
+        row_fp = str((row or {}).get("env_fingerprint") or "")
+        if not row_fp:
+            return True
+        parts = (row or {}).get("environment") if isinstance((row or {}).get("environment"), dict) else None
+        if parts and (parts.get("code") or parts.get("knobs") is not None):
+            if parts.get("code") and parts.get("code") != current.get("code"):
+                return True
+            row_knobs = dict(parts.get("knobs") or {})
+            if skip:
+                row_knobs.pop(skip, None)
+            if row_knobs != knobs_now:
+                return True
+            continue
+        if row_fp != digest:
+            # Digest-only and we excluded a knob: the stored digest includes
+            # the knob, so inequality is expected. Reconstruct is not
+            # possible without colony; treat equal-after-exclude parts only.
+            # Without parts, a digest mismatch is a confound in standalone.
+            return True
+    return False
+
+
+def unused_rotation_families(evidence: dict[str, Any] | None = None) -> list[str]:
+    """Unused closed-set families for an empty-pool family-rotation proposal."""
+    ev = evidence or {}
+    listed = ev.get("unused_families")
+    if isinstance(listed, list) and listed:
+        return [str(f) for f in listed if f]
+    if _heal is not None:
+        try:
+            return list(_heal.unused_rotation_families())
+        except Exception:
+            pass
+    try:
+        from hive.ops import KNOWN_FAMILIES
+        return sorted(KNOWN_FAMILIES)
+    except Exception:
+        return []
+
+
 def diagnose(cycle_id: str = "") -> list[dict[str, Any]]:
     if _heal is not None:
         return list(_heal.diagnose(cycle_id) or [])
