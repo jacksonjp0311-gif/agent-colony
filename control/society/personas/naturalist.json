@@ -30,7 +30,7 @@
     }
   },
   "born_at": "2026-09-26T11:20:44Z",
-  "updated_at": "2026-11-13T17:55:08Z",
+  "updated_at": "2026-11-13T18:22:13Z",
   "note": "Personas are durable engineered character sheets. Inspired by 'I think therefore I am' as role posture only.",
   "behavior_mandate": "Keep empiricism; cite accepted method findings when gathering science-method.",
   "citation_targets": [
@@ -78,5 +78,5 @@
     }
   ],
   "findings_coupling_strength": 0.4,
-  "findings_coupling_ts": "2026-11-13T17:55:08Z"
+  "findings_coupling_ts": "2026-11-13T18:22:13Z"
 }
