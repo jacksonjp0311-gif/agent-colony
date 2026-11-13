@@ -21,6 +21,10 @@
     "deep_term_cap": {"default": 20000, "lo": 5000, "hi": 40000, "kind": "int", "group": "caps", "doc": "Term cap for non-C-finite deep search (relations, properties)."},
     "fast_term_cap": {"default": 8000, "lo": 2000, "hi": 20000, "kind": "int", "group": "caps", "doc": "Term cap used when a C-finite exact iterator applies."},
     "deep_digits": {"default": 5000, "lo": 3000, "hi": 12000, "kind": "int", "group": "caps", "doc": "Decimal-digit budget for exact integer terms."},
-    "deep_seconds": {"default": 8.0, "lo": 4.0, "hi": 16.0, "kind": "float", "group": "caps", "doc": "Time budget in seconds for one evaluator call. Kept inside CI limits."}
+    "deep_seconds": {"default": 8.0, "lo": 4.0, "hi": 16.0, "kind": "float", "group": "caps", "doc": "Time budget in seconds for one evaluator call. Kept inside CI limits."},
+    "desk_budget": {"default": 2, "lo": 1, "hi": 6, "kind": "int", "group": "policy", "doc": "Max method cards the research desk may author in one cycle."},
+    "curriculum_pace": {"default": 0.5, "lo": 0.1, "hi": 0.9, "kind": "float", "group": "policy", "doc": "Share of attention that prefers new work over review (curriculum)."},
+    "retry_policy_cycles": {"default": 3, "lo": 1, "hi": 12, "kind": "int", "group": "policy", "doc": "Retries of a failed attempt before it is parked."},
+    "routing_explore_weight": {"default": 0.3, "lo": 0.05, "hi": 0.8, "kind": "float", "group": "policy", "doc": "Bounded routing weight toward less-used desks."}
   }
 }

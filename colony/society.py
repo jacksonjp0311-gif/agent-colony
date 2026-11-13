@@ -312,6 +312,10 @@ class Society:
             from colony.shortlist import write
             write(cid)
         self._stage(result, "shortlist", shortlist_stage, critical=False)
+        def research_desk_stage():
+            from colony.research_desk import run_cycle as _rd
+            return _rd(cid)
+        self._stage(result, "research_desk", research_desk_stage, critical=False)
         result.promotion_allowed = not any(
             stage.get("blocks_promotion") for stage in result.stage_diagnostics.values())
         diagnostics[cid] = {"promotion_allowed": result.promotion_allowed,
