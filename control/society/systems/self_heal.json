@@ -144,6 +144,36 @@
       "score": 0.0,
       "ts": "2026-11-13T07:05:17Z",
       "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T111236Z_0272e3",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T11:15:05Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T111550Z_f129bf",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T11:17:52Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T111835Z_c763d0",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T11:20:39Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
     }
   ],
   "quarantine": {},
@@ -151,7 +181,7 @@
   "evidence": [],
   "adopted_count": 0,
   "reverted_count": 0,
-  "cycle_index": 11,
+  "cycle_index": 14,
   "cycles": [
     "20261113T033734Z_b59c7a",
     "20261113T034027Z_3761d7",
@@ -164,7 +194,10 @@
     "20261113T052240Z_ff1d45",
     "20261113T065818Z_a78e04",
     "20261113T070104Z_e99fde",
-    "20261113T070326Z_0fadd3"
+    "20261113T070326Z_0fadd3",
+    "20261113T111236Z_0272e3",
+    "20261113T111550Z_f129bf",
+    "20261113T111835Z_c763d0"
   ],
   "last_self_change": null,
   "knob_last_trial": {}
