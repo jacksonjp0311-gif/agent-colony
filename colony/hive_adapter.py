@@ -169,6 +169,7 @@ def on_cycle(cycle_id: str = "") -> dict[str, Any]:
             cycle_id,
             proposal=card,
             pending_apply=result.get("pending_apply"),
+            hive_links=result.get("pending_resolved"),
         )
     except Exception:
         pass

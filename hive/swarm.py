@@ -734,6 +734,23 @@ def _baseline_is_confounded(
     return any(str(r.get("env_fingerprint") or "") != current_fp for r in window_rows)
 
 
+_SIGNAL_FIELDS = ("score", "new_oracle_targets", "new_depth", "oracle_pass_delta")
+
+
+def _rows_have_signal(rows: Iterable[Mapping[str, Any]] | None) -> bool:
+    """False for an empty window or all-zero rows (item 58). Hive-local copy."""
+    for r in list(rows or []):
+        if not isinstance(r, Mapping):
+            continue
+        for key in _SIGNAL_FIELDS:
+            try:
+                if float(r.get(key) or 0) != 0.0:
+                    return True
+            except (TypeError, ValueError):
+                continue
+    return False
+
+
 def _heal_busy() -> bool:
     try:
         from hive import host
@@ -807,6 +824,8 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
     if _baseline_is_confounded(baseline_rows, heal_state=st, host=host):
         return {"ok": False, "reason": "confounded_baseline"}
+    if not _rows_have_signal(baseline_rows):
+        return {"ok": False, "reason": "no_signal_baseline"}
     trial = {
         "knob": name,
         "from": cur,
@@ -852,6 +871,8 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     rows = _heal_window_rows(window)
     if len(rows) < window:
         return {"ok": False, "reason": "not_enough_metrics"}
+    if not _rows_have_signal(rows):
+        return {"ok": False, "reason": "no_signal_baseline"}
     try:
         from hive import host
         baseline = float(host.heal_window_score(rows))
@@ -1715,6 +1736,7 @@ def _pending_summary(pending: Mapping[str, Any] | None) -> dict[str, Any] | None
         "last_deferred_cycle": pending.get("last_deferred_cycle") or "",
         "deferred_count": int(pending.get("deferred_count") or 0),
         "wilson_gate": int(pending.get("wilson_gate") or WILSON_ACCEPT_PERMILLE),
+        "linked_trial": dict(pending.get("linked_trial") or {}) or None,
     }
 
 
@@ -1807,6 +1829,9 @@ def _maybe_drop_pending_on_clean_recheck(
     pending = state.get("pending_apply") if isinstance(state.get("pending_apply"), dict) else None
     if not pending:
         return state
+    if pending.get("linked_trial"):
+        # A self-heal trial is already testing this exact change.
+        return state
     if _window_is_confounded():
         return state
     winner = None if vote_result is None else vote_result.winner
@@ -1822,6 +1847,162 @@ def _maybe_drop_pending_on_clean_recheck(
         vote_result is None or vote_result.abstained or winner is None
     ) else "vote_changed"
     return _drop_pending_apply(state, cycle_id, reason=reason, vote_result=vote_result)
+
+
+_TRIAL_CLOSE_EVENTS = ("adopt", "revert", "trial_inconclusive", "trial_voided_confound")
+
+
+def _num_equal(a: Any, b: Any) -> bool:
+    try:
+        return float(a) == float(b)
+    except (TypeError, ValueError):
+        return a == b
+
+
+def _trial_matches_pending(trial: Mapping[str, Any] | None, pending: Mapping[str, Any] | None) -> bool:
+    """Same knob and same target value (item 57)."""
+    if not isinstance(trial, Mapping) or not isinstance(pending, Mapping):
+        return False
+    action = pending.get("action") if isinstance(pending.get("action"), Mapping) else {}
+    if str(action.get("op") or "") != "set_knob":
+        return False
+    name = str(action.get("name") or "")
+    if not name or str(trial.get("knob") or "") != name:
+        return False
+    if "value" not in action:
+        return False
+    return _num_equal(trial.get("to"), action.get("value"))
+
+
+def _find_close_event(evidence: list[Any], link: Mapping[str, Any]) -> dict[str, Any] | None:
+    """The self-heal close event for the linked trial, if it has closed."""
+    tid = str(link.get("trial_evidence_id") or "")
+    knob = str(link.get("knob") or "")
+    started = str(link.get("started_cycle") or "")
+    for ev in reversed(list(evidence or [])):
+        if not isinstance(ev, Mapping):
+            continue
+        if str(ev.get("event") or "") not in _TRIAL_CLOSE_EVENTS:
+            continue
+        if tid and str(ev.get("trial_evidence_id") or "") == tid:
+            return dict(ev)
+        if (
+            knob and started
+            and str(ev.get("knob") or "") == knob
+            and str(ev.get("started_cycle") or "") == started
+        ):
+            return dict(ev)
+    return None
+
+
+def sync_pending_with_heal_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
+    """Link ``pending_apply`` to a matching self-heal trial; resolve on close.
+
+    * open trial with the same knob and value → attach it (one event)
+    * linked trial adopted or reverted → one outcome credits both: Hive
+      drops the pending apply and records whether its vote was right
+      (Bitwork itself already learns from that same heal event through
+      ``harvest_self_heal_outcomes``; nothing is taught twice)
+    * linked trial voided or inconclusive → unlink; the pending apply
+      goes back to waiting (item 56)
+
+    Does not apply anything and does not touch the Wilson gate.
+    """
+    out: dict[str, Any] = {"linked": None, "resolved": None}
+    pending = state.get("pending_apply") if isinstance(state.get("pending_apply"), dict) else None
+    if not pending:
+        return out
+    try:
+        from hive import host
+        heal = host.heal_load_state() or {}
+    except Exception:
+        heal = {}
+    trial = heal.get("trial") if isinstance(heal.get("trial"), Mapping) else None
+    link = pending.get("linked_trial") if isinstance(pending.get("linked_trial"), Mapping) else None
+
+    if link:
+        if trial and str(trial.get("evidence_id") or "") == str(link.get("trial_evidence_id") or ""):
+            out["linked"] = dict(link)
+            return out
+        close = _find_close_event(list(heal.get("evidence") or []), link)
+        if close is None:
+            # Trial vanished without a recognisable close: back to waiting.
+            pending.pop("linked_trial", None)
+            state["pending_apply"] = pending
+            append_evidence(state, {
+                "event": "pending_unlinked",
+                "cycle_id": cycle_id,
+                "reason": "trial_close_not_found",
+                "pending_fingerprint": pending.get("fingerprint"),
+                "trial_evidence_id": link.get("trial_evidence_id"),
+                "wilson_gate": WILSON_ACCEPT_PERMILLE,
+            })
+            return out
+        outcome = str(close.get("event") or "")
+        vote = pending.get("last_vote") or pending.get("vote") or {}
+        if outcome in ("adopt", "revert"):
+            resolved = {
+                "outcome": outcome,
+                "heal_event_id": close.get("id"),
+                "trial_evidence_id": link.get("trial_evidence_id"),
+                "knob": link.get("knob"),
+                "to": link.get("to"),
+                "fingerprint": pending.get("fingerprint"),
+                "label": pending.get("label"),
+                "card_id": pending.get("card_id") or "",
+                "deferred_count": int(pending.get("deferred_count") or 0),
+                "vote_lower_permille": (vote or {}).get("lower_permille"),
+                "vote_margin": (vote or {}).get("margin"),
+                "hive_vote_correct": outcome == "adopt",
+                "sources": ["self_heal", "hive_vote"],
+            }
+            append_evidence(state, {
+                "event": "pending_resolved_by_trial",
+                "cycle_id": cycle_id,
+                **resolved,
+                "wilson_gate": WILSON_ACCEPT_PERMILLE,
+            })
+            state["pending_apply"] = None
+            out["resolved"] = resolved
+            return out
+        pending.pop("linked_trial", None)
+        state["pending_apply"] = pending
+        append_evidence(state, {
+            "event": "pending_unlinked",
+            "cycle_id": cycle_id,
+            "reason": outcome or "closed",
+            "pending_fingerprint": pending.get("fingerprint"),
+            "heal_event_id": close.get("id"),
+            "trial_evidence_id": link.get("trial_evidence_id"),
+            "wilson_gate": WILSON_ACCEPT_PERMILLE,
+        })
+        return out
+
+    if trial and _trial_matches_pending(trial, pending):
+        new_link = {
+            "trial_evidence_id": trial.get("evidence_id"),
+            "knob": trial.get("knob"),
+            "from": trial.get("from"),
+            "to": trial.get("to"),
+            "started_cycle": trial.get("started_cycle"),
+            "linked_cycle": cycle_id,
+        }
+        pending["linked_trial"] = new_link
+        state["pending_apply"] = pending
+        append_evidence(state, {
+            "event": "pending_linked_to_trial",
+            "cycle_id": cycle_id,
+            "pending_fingerprint": pending.get("fingerprint"),
+            "deferred_count": int(pending.get("deferred_count") or 0),
+            "trial_evidence_id": new_link["trial_evidence_id"],
+            "knob": new_link["knob"],
+            "from": new_link["from"],
+            "to": new_link["to"],
+            "started_cycle": new_link["started_cycle"],
+            "wilson_gate": WILSON_ACCEPT_PERMILLE,
+        })
+        out["linked"] = dict(new_link)
+    return out
 
 
 def run_cycle(cycle_id: str = "") -> dict[str, Any]:
@@ -1843,6 +2024,9 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     apply_calibration_to_router(router, st)
     calibrate_from_replay(router, st)
     taught = harvest_self_heal_outcomes(router, st)
+    # Item 57: link Hive's pending apply to a matching self-heal trial,
+    # or resolve it from that trial's close.
+    link_info = sync_pending_with_heal_trial(st, cycle_id)
     # Human-merged (or other host-provided) positive library records
     # can also resolve a pending shadow of the same failure class.
     for rec in FL.load_records():
@@ -1878,7 +2062,16 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
             st = _maybe_drop_pending_on_clean_recheck(st, cycle_id, vote_result)
         else:
             winner = vote_result.winner
-            if winner.action.get("op") == "set_knob":
+            linked = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
+            if (
+                linked
+                and linked.get("linked_trial")
+                and str(linked.get("fingerprint") or "") == str(winner.fingerprint or "")
+            ):
+                # Item 57: the same change is already live in a self-heal
+                # trial. Do not apply it a second time.
+                started = {"ok": False, "reason": "linked_to_self_heal_trial"}
+            elif winner.action.get("op") == "set_knob":
                 started = start_knob_trial(winner, cycle_id=cycle_id, state=st)
             else:
                 started = start_rule_trial(winner, cycle_id=cycle_id, state=st)
@@ -1915,7 +2108,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
             else:
                 reason = str(started.get("reason") or "")
                 deferred_count = 0
-                if reason == "confounded_baseline":
+                if reason in ("confounded_baseline", "no_signal_baseline"):
                     st = _remember_pending_apply(st, winner, vote_result, cycle_id)
                     pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
                     deferred_count = int((pending or {}).get("deferred_count") or 0)
@@ -2001,6 +2194,8 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         "applied_to_live_oracle": False,
         "authorized": False,
         "pending_apply": _pending_summary(st.get("pending_apply")),
+        "pending_link": link_info.get("linked"),
+        "pending_resolved": link_info.get("resolved"),
     }
 
 
