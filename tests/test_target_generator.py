@@ -284,7 +284,12 @@ def test_has_eligible_false_without_real_generated_or_oeis(tmp_path, monkeypatch
 def test_select_perturb_includes_generated_targets(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
     monkeypatch.setattr(S, "_oeis_candidates", lambda *a, **k: [])
-    monkeypatch.setattr(S, "load_state", lambda: S._empty_state())
+    st = S._empty_state()
+    # Epsilon 0 so the greedy pick is deterministic (a default 0.3 was
+    # flaky against claim-shape fillers).
+    st.setdefault("perturb", {})
+    st["perturb"].update({"epsilon": 0.0, "active": True, "entered_at": "cycle_x", "seed": 1})
+    monkeypatch.setattr(S, "load_state", lambda: st)
     monkeypatch.setattr(TG, "perturb_candidates", lambda tried=None, ledger=None, src=None: [
         {"id": "authored_mut_demo_abcd", "source": "authored_check", "kind": "authored_check",
          "can_progress": True, "untried": True, "unseen": True, "unused": True, "band": 0, "mutated": True},
@@ -364,3 +369,126 @@ def test_live_registry_can_verify_one_mutation(tmp_path, monkeypatch):
     assert after == before, "must not write the production lemma"
     reached = TG.oracle_reachable_generated(src=lemma.read_text(encoding="utf-8"))
     assert any(t["id"] == rows[0]["name"] and t["can_progress"] for t in reached)
+
+
+def _oracle_snap(*, kills=None, passes=None, latest=None):
+    return {
+        "unique_mutations_kill": list(kills or []),
+        "unique_mutations_pass": list(passes or []),
+        "latest": latest or {},
+    }
+
+
+def test_oracle_unique_kill_excludes_disabled_generated_check(tmp_path, monkeypatch):
+    lemma, log = _isolate(tmp_path, monkeypatch)
+    oracle = tmp_path / "oracle.json"
+    name = "authored_mut_swap_related_sequence_58aacc9fceff"
+    src = (
+        f"def check_{name}() -> bool:\n    return True\n"
+        "# Adversarial aliases used by Oracle theme held-out windows\n"
+        "HARD_TIER_LEMMAS: list = [\n"
+        f'    ("{name}", check_{name}, False),\n'
+        "]\n"
+    )
+    lemma.write_text(src, encoding="utf-8")
+    # Authored in the log, no killed line yet — the previous bug.
+    log.write_text(json.dumps({"event": "authored", "name": name}) + "\n", encoding="utf-8")
+    oracle.write_text(json.dumps(_oracle_snap(kills=[name])), encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    got = TG.oracle_reachable_generated(src=src)
+    assert got == []
+    # Append-only killed line, original authored line kept.
+    events = [json.loads(l) for l in log.read_text(encoding="utf-8").splitlines() if l.strip()]
+    assert events[0]["event"] == "authored"
+    assert any(e["event"] == "killed" and e["name"] == name and e.get("source") == "oracle" for e in events)
+    # A second call does not duplicate the killed line.
+    TG.note_oracle_verdicts()
+    events2 = [json.loads(l) for l in log.read_text(encoding="utf-8").splitlines() if l.strip()]
+    assert sum(1 for e in events2 if e.get("event") == "killed" and e.get("name") == name) == 1
+
+
+def test_oracle_unique_pass_excludes_even_if_still_disabled(tmp_path, monkeypatch):
+    lemma, log = _isolate(tmp_path, monkeypatch)
+    oracle = tmp_path / "oracle.json"
+    name = "authored_mut_tighten_abcd"
+    src = (
+        f"def check_{name}() -> bool:\n    return True\n"
+        "# Adversarial aliases used by Oracle theme held-out windows\n"
+        "HARD_TIER_LEMMAS: list = [\n"
+        f'    ("{name}", check_{name}, False),\n'
+        "]\n"
+    )
+    lemma.write_text(src, encoding="utf-8")
+    oracle.write_text(json.dumps(_oracle_snap(passes=[name])), encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    assert TG.oracle_reachable_generated(src=src) == []
+    events = [json.loads(l) for l in log.read_text(encoding="utf-8").splitlines() if l.strip()]
+    assert any(e["event"] == "passed" and e["name"] == name for e in events)
+
+
+def test_latest_kill_counts_when_unique_lists_are_empty(tmp_path, monkeypatch):
+    lemma, log = _isolate(tmp_path, monkeypatch)
+    oracle = tmp_path / "oracle.json"
+    name = "authored_mut_flip_xyz"
+    src = (
+        f"def check_{name}() -> bool:\n    return True\n"
+        "# Adversarial aliases used by Oracle theme held-out windows\n"
+        "HARD_TIER_LEMMAS: list = [\n"
+        f'    ("{name}", check_{name}, False),\n'
+        "]\n"
+    )
+    lemma.write_text(src, encoding="utf-8")
+    oracle.write_text(json.dumps(_oracle_snap(
+        kills=[],
+        latest={"mutation": name, "passed": False, "kills": ["held_out:held_out_fail"]},
+    )), encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    assert TG.oracle_reachable_generated(src=src) == []
+
+
+def test_has_eligible_false_when_only_generated_target_was_killed(tmp_path, monkeypatch):
+    lemma, log = _isolate(tmp_path, monkeypatch)
+    oracle = tmp_path / "oracle.json"
+    name = "authored_mut_swap_dead"
+    src = (
+        f"def check_{name}() -> bool:\n    return True\n"
+        "HARD_TIER_LEMMAS: list = [\n"
+        f'    ("{name}", check_{name}, False),\n'
+        "]\n"
+    )
+    lemma.write_text(src, encoding="utf-8")
+    oracle.write_text(json.dumps(_oracle_snap(kills=[name])), encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    monkeypatch.setattr(S, "_oeis_candidates", lambda *a, **k: [])
+    # Use the real wiring (no mock of oracle_reachable_generated).
+    assert S.has_eligible_progress_target() is False
+    # A still-open generated check keeps it true.
+    open_name = "authored_mut_swap_open"
+    src2 = src.replace("HARD_TIER_LEMMAS: list = [",
+                       "HARD_TIER_LEMMAS: list = [\n"
+                       f'    ("{open_name}", check_{open_name}, False),')
+    src2 = f"def check_{open_name}() -> bool:\n    return True\n" + src2
+    lemma.write_text(src2, encoding="utf-8")
+    assert S.has_eligible_progress_target() is True
+
+
+def test_note_oracle_verdicts_skips_non_generated_and_control(tmp_path, monkeypatch):
+    lemma, log = _isolate(tmp_path, monkeypatch)
+    oracle = tmp_path / "oracle.json"
+    oracle.write_text(json.dumps(_oracle_snap(kills=["oc_A165064_0", "vandermonde"])), encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    written = TG.note_oracle_verdicts()
+    assert written == []
+    assert (not log.exists()) or log.read_text(encoding="utf-8").strip() == ""
+    monkeypatch.setattr(TG, "self_mod_ok", lambda: False)
+    oracle.write_text(json.dumps(_oracle_snap(kills=["authored_mut_x"])), encoding="utf-8")
+    assert TG.note_oracle_verdicts() == []
+
+
+def test_kill_wins_if_name_is_in_both_unique_lists(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    oracle = tmp_path / "oracle.json"
+    name = "authored_mut_conflict"
+    oracle.write_text(json.dumps(_oracle_snap(kills=[name], passes=[name])), encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    assert TG.oracle_final_verdicts()[name] == "killed"
