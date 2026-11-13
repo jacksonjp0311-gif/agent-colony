@@ -126,6 +126,11 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         stall_line = format_visibility()
     except Exception:
         stall_line = "unavailable"
+    try:
+        from colony.checker_lane import format_visibility as format_checker
+        checker_line = format_checker()
+    except Exception:
+        checker_line = "unavailable"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -184,6 +189,8 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
   <p>{escape(honest_line)}</p>
   <h2>Stall</h2>
   <p>{escape(stall_line)}</p>
+  <h2>Checker proposals awaiting human review</h2>
+  <p>{escape(checker_line)}</p>
   <h2>Population &amp; genomes</h2>
   <ul>
     <li>active / soft_cap: <code>{len(active_agents)}</code> / <code>{soft_cap}</code></li>
@@ -240,6 +247,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         f"**Latest fitness:** `{json.dumps(fitness, ensure_ascii=False)}`" if fitness else "**Latest fitness:** _none_",
         f"**Honest scoreboard:** {honest_line}",
         f"**Stall:** {stall_line}",
+        f"**Checker proposals awaiting human review:** {checker_line}",
         f"**Bus reply rate:** {(fitness or {}).get('comm_reply_rate', '—')}",
         f"**Improvement proposals:** {len(proposals)} (all candidate until human authorize)",
         f"**Commons size:** {commons_size}",
