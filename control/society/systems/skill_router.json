@@ -1,7 +1,7 @@
 {
   "routes": {
     "tribute": "tribute_keeper",
-    "build": "tribute_keeper",
+    "build": "spark",
     "communicate": "spark",
     "gather": "spark",
     "improve": "spark",
@@ -10,7 +10,7 @@
   "skills_snapshot": {
     "spark": {
       "tribute": 0.5,
-      "build": 0.9794,
+      "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
       "improve": 0.99,
@@ -18,7 +18,7 @@
     },
     "tribute_keeper": {
       "tribute": 0.99,
-      "build": 0.99,
+      "build": 0.9794,
       "communicate": 0.99,
       "gather": 0.99,
       "improve": 0.99,
@@ -27,7 +27,7 @@
     "memory_weaver": {
       "tribute": 0.5,
       "build": 0.99,
-      "communicate": 0.9841,
+      "communicate": 0.99,
       "gather": 0.9292,
       "improve": 0.99,
       "emergence": 0.99
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-11-13T16:27:49Z",
-  "updated_cycle": "20261113T162602Z_b4dbfe"
+  "updated_at": "2026-11-13T16:52:13Z",
+  "updated_cycle": "20261113T165013Z_3ba30c"
 }
