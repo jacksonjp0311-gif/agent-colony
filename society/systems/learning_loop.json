@@ -125,15 +125,56 @@
           "treatment": 9228.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 6
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 8.0,
+      "card_id": "",
+      "cycle_id": "20261113T191238Z_f24225",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "id": "9cfb864d15b745df",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "9cfb864d15b745df",
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-13T19:15:00Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8586
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 528.0
+        },
+        "reason": "tied_or_fitness_only",
+        "verified_depth_sum": {
+          "control": 9228.0,
+          "treatment": 9228.0
+        }
+      }
     }
   ],
   "families": {
     "set_knob:park_cycles": {
       "keep_rate_permille": 0,
       "kept": 0,
-      "n": 1,
+      "n": 2,
       "reverted": 0,
-      "voided": 1
+      "voided": 2
     },
     "set_knob:perturb_cooldown_cycles": {
       "keep_rate_permille": 0,
@@ -143,14 +184,30 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261113T190007Z_92bbed",
+  "last_cycle": "20261113T191834Z_07fa04",
   "n_kept": 0,
-  "n_proposed": 0,
+  "n_proposed": 1,
   "n_reverted": 1,
   "n_twin_held": 0,
-  "n_voided": 2,
+  "n_voided": 3,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
-  "pending": [],
+  "pending": [
+    {
+      "action": {
+        "direction": "up",
+        "name": "curriculum_pace",
+        "op": "set_knob",
+        "value": 0.62
+      },
+      "card_id": "mc_8efa602cd2c2",
+      "cycle_id": "20261113T191238Z_f24225",
+      "event": "proposed",
+      "fingerprint": "set_knob:direction=up:name=curriculum_pace:value=0.62",
+      "knob": "curriculum_pace",
+      "method": "Practice easier cases before harder ones (curriculum).",
+      "ts": "2026-11-13T19:15:03Z"
+    }
+  ],
   "shadow": {
     "accuracy_permille": null,
     "correct": 0,
@@ -158,7 +215,7 @@
     "pending": 9,
     "resolved": 0,
     "source": "hive_shadows",
-    "ts": "2026-11-13T19:02:51Z",
+    "ts": "2026-11-13T19:21:19Z",
     "unlabeled": 0
   },
   "twin_pending": [],
