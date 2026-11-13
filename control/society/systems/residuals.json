@@ -1,25 +1,25 @@
 {
-  "ts": "2026-11-13T02:58:40Z",
+  "ts": "2026-11-13T03:44:24Z",
   "version": 1,
   "agents": {
     "pathfinder": {
       "role": "pathfinder",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -27,20 +27,20 @@
       "role": "improver",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.10029999999999997,
+      "error_gradient": 0.1,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.4003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.4,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "cycle"
     },
@@ -48,20 +48,20 @@
       "role": "spark",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
       "attention_weight": 0.7,
       "arousal": 1.0,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "cycle"
     },
@@ -69,20 +69,20 @@
       "role": "tribute_keeper",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -90,20 +90,20 @@
       "role": "memory_weaver",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -111,20 +111,20 @@
       "role": "builder",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -132,20 +132,20 @@
       "role": "herald",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -153,20 +153,20 @@
       "role": "courier",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -174,20 +174,20 @@
       "role": "scribe",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -195,20 +195,20 @@
       "role": "surveyor",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -216,20 +216,20 @@
       "role": "oracle_scribe",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -237,20 +237,20 @@
       "role": "stem_checker",
       "activation": [
         0.66,
-        0.00029999999999996696,
-        0.8259400000000001,
-        0.43015000000000003
+        0.0,
+        0.8260000000000001,
+        0.43000000000000005
       ],
-      "error_gradient": 0.00029999999999996696,
+      "error_gradient": 0.0,
       "confidence_vector": [
-        0.8259400000000001,
-        0.9997,
+        0.8260000000000001,
+        1.0,
         0.92
       ],
-      "attention_weight": 0.5221199999999999,
-      "arousal": 0.43015000000000003,
-      "updated_at": "2026-11-13T02:58:40Z",
-      "cycle_id": "20261113T025651Z_8fbc4a",
+      "attention_weight": 0.522,
+      "arousal": 0.43000000000000005,
+      "updated_at": "2026-11-13T03:44:24Z",
+      "cycle_id": "20261113T034252Z_17899a",
       "not_consciousness": true,
       "last_source": "signal_derive"
     },
@@ -299,201 +299,201 @@
     {
       "a": "spark",
       "b": "legislator",
-      "confidence_gap": 0.3259,
+      "confidence_gap": 0.326,
       "arousal_gap": 0.7,
-      "score": 0.6759,
+      "score": 0.676,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "spark",
       "b": "geometer",
-      "confidence_gap": 0.3259,
+      "confidence_gap": 0.326,
       "arousal_gap": 0.7,
-      "score": 0.6759,
+      "score": 0.676,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "tribute_keeper",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "tribute_keeper",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "memory_weaver",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "memory_weaver",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "builder",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "builder",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "herald",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "herald",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "courier",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "courier",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "scribe",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "scribe",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "surveyor",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "surveyor",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "oracle_scribe",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "oracle_scribe",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "stem_checker",
       "b": "legislator",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     },
     {
       "a": "stem_checker",
       "b": "geometer",
-      "confidence_gap": 0.3259,
-      "arousal_gap": 0.1302,
+      "confidence_gap": 0.326,
+      "arousal_gap": 0.13,
       "score": 0.391,
       "trigger_redebate": true,
-      "ts": "2026-11-13T02:58:40Z"
+      "ts": "2026-11-13T03:44:24Z"
     }
   ],
   "stats": {
-    "updates": 11919,
-    "conflicts": 40504,
-    "redebatess": 1696
+    "updates": 11961,
+    "conflicts": 40648,
+    "redebatess": 1702
   },
   "high_residual": [
     [
       "spark",
-      0.5858945
+      0.5858
     ],
     [
       "improver",
-      0.36542349999999996
+      0.36519999999999997
     ],
     [
       "pathfinder",
-      0.350871
+      0.3507
     ]
   ],
   "note": "INTERNAL RESIDUALS snapshot. Coded channels — not consciousness.",

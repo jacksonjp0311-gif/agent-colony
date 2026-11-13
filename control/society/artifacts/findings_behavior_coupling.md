@@ -2,21 +2,26 @@
 
 > Accepted math/compute/RSI findings change gather/debate/build choices via skill_router, genomes, topic_priority, and persona mandates. **Not museum metrics. Not AGI.**
 
-**Updated:** 2026-09-27T12:22:51Z  
-**Cycle:** `20260927T122226Z_80c748`  
-**Strength:** 0.1  
-**Accepted math / compute / RSI:** 0 / 1 / 0  
+**Updated:** 2026-11-13T03:44:46Z  
+**Cycle:** `20261113T034252Z_17899a`  
+**Strength:** 0.4  
+**Accepted math / compute / RSI:** 0 / 123 / 0  
 
 ## Topic boosts (gather behavior)
 
-- `compute-useful-math` p=1.15 — accepted_compute_finding (fnd_d5a3825816f4)
+- `compute-useful-math` p=1.15 — accepted_compute_finding (fnd_20d46d1b739b)
 - `open-math-problems` p=1.05 — follow_on_from_compute (compute-useful-math)
 - `software-engineering` p=1.05 — follow_on_from_compute (compute-useful-math)
 - `emergent-technology` p=1.05 — follow_on_from_compute (compute-useful-math)
 
 ## Citation targets (math prize reuse)
 
-- `fnd_d5a3825816f4` **Authorize accepted: Hard-checked claim: vandermonde** [compute]
+- `fnd_99113c984a82` **Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g6_6_6_w1** [compute]
+- `fnd_df755e6fd8df` **Authorize accepted: Lemma mutation keep: quadratic_reciprocity** [compute]
+- `fnd_d86cd7bc1add` **Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_w1** [compute]
+- `fnd_86178da167c5` **Authorize accepted: Lemma mutation keep: authored_euler_theorem__gauss_phi_divis** [compute]
+- `fnd_85f57fc25960` **Authorize accepted: Lemma mutation keep: authored_frontier_cong_x23fb70a1_w1** [compute]
+- `fnd_3045bf8b8903` **Authorize accepted: Lemma mutation keep: authored_frontier_rec_xa92258f8_w1** [compute]
 
 ## Persona mandates
 
