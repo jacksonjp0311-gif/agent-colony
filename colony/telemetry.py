@@ -194,6 +194,12 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
         checker_vis = checker_visibility()
     except Exception:
         checker_vis = {}
+    heal_vis = {}
+    try:
+        from colony.self_heal import visibility as heal_visibility
+        heal_vis = heal_visibility()
+    except Exception:
+        heal_vis = {}
     return {
         "fitness_latest": fit_latest,
         "honest_scoreboard": _honest_scoreboard(),
@@ -202,6 +208,11 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
         "distinct_targets_tried_last_3_cycles": stall_vis.get("distinct_targets_tried_last_3_cycles", 0),
         "checker_proposals_awaiting_review": checker_vis.get("checker_proposals_awaiting_review", 0),
         "checker_proposals": checker_vis.get("checker_proposals") or [],
+        "self_changes_adopted": heal_vis.get("self_changes_adopted", 0),
+        "self_changes_reverted": heal_vis.get("self_changes_reverted", 0),
+        "last_self_change": heal_vis.get("last_self_change"),
+        "quarantined_steps": heal_vis.get("quarantined_steps") or [],
+        "self_heal_trial": heal_vis.get("self_heal_trial"),
         "fitness_aggregate": (fit_latest or {}).get("aggregate") if isinstance(fit_latest, dict) else None,
         "reply_rate": bus_metrics.get("reply_rate") or (fit_latest or {}).get("comm_reply_rate"),
         "bus_metrics": bus_metrics,

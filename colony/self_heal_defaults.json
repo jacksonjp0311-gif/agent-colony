@@ -1,0 +1,20 @@
+{
+  "comment": "Default policy and hard bounds for colony-owned search and healing knobs. Bounds in colony/self_heal.py are authoritative; this file cannot widen them, touch the Oracle, the P >= 0.70 gate, the 150 authored-check cap, Athanor math, human authorize, or the witness log. Runtime adopted values live in society/systems/self_heal.json and are not this file.",
+  "knobs": {
+    "park_cycles": {"default": 6, "lo": 3, "hi": 18, "kind": "int", "group": "search", "doc": "Cycles a repeated proposal stays parked."},
+    "block_streak_to_park": {"default": 2, "lo": 2, "hi": 5, "kind": "int", "group": "search", "doc": "Consecutive repeat-blocks before a proposal is parked."},
+    "stall_cycles": {"default": 6, "lo": 4, "hi": 12, "kind": "int", "group": "search", "doc": "Flat Oracle-pass cycles before STALL fires."},
+    "stall_dead_end_cycles": {"default": 3, "lo": 2, "hi": 6, "kind": "int", "group": "search", "doc": "All-dead-end cycles before STALL fires."},
+    "perturb_max_cycles": {"default": 9, "lo": 4, "hi": 15, "kind": "int", "group": "search", "doc": "PERTURB exits after this many cycles if nothing new is found."},
+    "perturb_epsilon": {"default": 0.3, "lo": 0.1, "hi": 0.7, "kind": "float", "group": "search", "doc": "Epsilon-greedy exploration rate in PERTURB."},
+    "perturb_wide_epsilon": {"default": 0.5, "lo": 0.2, "hi": 0.9, "kind": "float", "group": "search", "doc": "Wider exploration rate after a PERTURB timeout. Must be >= perturb_epsilon."},
+    "perturb_min_targets": {"default": 2, "lo": 1, "hi": 5, "kind": "int", "group": "search", "doc": "Minimum distinct targets a PERTURB turn should draw."},
+    "perturb_cooldown_cycles": {"default": 6, "lo": 3, "hi": 18, "kind": "int", "group": "search", "doc": "Cycles to wait after a no-progress PERTURB timeout before re-entry."},
+    "unused_menu_cycles": {"default": 20, "lo": 8, "hi": 40, "kind": "int", "group": "search", "doc": "How far back PERTURB looks to treat a target as already tried."},
+    "family_rotation_penalty": {"default": 0.85, "lo": 0.5, "hi": 0.95, "kind": "float", "group": "selection", "doc": "Score multiplier for the claim form just attempted (lower means stronger rotation)."},
+    "quarantine_cycles": {"default": 6, "lo": 2, "hi": 12, "kind": "int", "group": "healing", "doc": "Cycles a failing optional step stays quarantined."},
+    "quarantine_fail_threshold": {"default": 2, "lo": 1, "hi": 4, "kind": "int", "group": "healing", "doc": "Failures of one step before it is quarantined."},
+    "step_size": {"default": 0.15, "lo": 0.05, "hi": 0.4, "kind": "float", "group": "meta", "doc": "Fraction of a knob's range used as one adjustment step. Tunable by the same evidence rule."},
+    "evaluation_window": {"default": 6, "lo": 3, "hi": 12, "kind": "int", "group": "meta", "doc": "Cycles of trial vs baseline compared before adopt or revert. Tunable by the same evidence rule."}
+  }
+}

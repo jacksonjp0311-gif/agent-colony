@@ -45,6 +45,28 @@ UNUSED_MENU_CYCLES = 20
 CLAIM_SHAPES = ("congruence", "divisibility", "growth_bound", "gf_identity")
 MUTATION_INGREDIENTS = ("sequence", "modulus", "offset", "window")
 
+
+def _policy(name: str, fallback):
+    """Live self-heal override, or ``fallback`` (the module constant).
+
+    When no override is in effect this returns ``fallback`` unchanged, so
+    tests that monkeypatch the constants still work. Failures here must
+    never break stall logic.
+    """
+    try:
+        from colony.self_heal import active_knob
+        val = active_knob(name)
+        if val is None:
+            return fallback
+        if isinstance(fallback, int) and not isinstance(fallback, bool):
+            return int(val)
+        if isinstance(fallback, float):
+            return float(val)
+        return type(fallback)(val)
+    except Exception:
+        return fallback
+
+
 # Cycle ids from live runs look like 20261112T214317Z_351b7f; those sort by time.
 _CYCLE_TS = re.compile(r"^(\d{8}T\d{6}Z)")
 ORACLE_TURN_OUTCOMES = frozenset({"pass", "kill", "identical_kill"})
@@ -364,7 +386,7 @@ def note_dedupe_block(
         "blocks": [],
         "consecutive": 0,
         "parked_until": -1,
-        "duration": PARK_CYCLES * int(state.get("perturb", {}).get("park_multiplier") or 1),
+        "duration": _policy("park_cycles", PARK_CYCLES) * int(state.get("perturb", {}).get("park_multiplier") or 1),
     }
     if title:
         rec["title"] = title
@@ -389,11 +411,11 @@ def note_dedupe_block(
         blocks.append(cycle_id)
     rec["blocks"] = blocks[-20:]
     rec["consecutive"] = consecutive
-    duration = int(rec.get("duration") or PARK_CYCLES)
-    duration = max(duration, PARK_CYCLES * int(state.get("perturb", {}).get("park_multiplier") or 1))
+    duration = int(rec.get("duration") or _policy("park_cycles", PARK_CYCLES))
+    duration = max(duration, _policy("park_cycles", PARK_CYCLES) * int(state.get("perturb", {}).get("park_multiplier") or 1))
     rec["duration"] = duration
     already_parked = int(rec.get("parked_until") or -1) > idx
-    if consecutive >= BLOCK_STREAK_TO_PARK and not already_parked:
+    if consecutive >= _policy("block_streak_to_park", BLOCK_STREAK_TO_PARK) and not already_parked:
         # Park the next `duration` cycles (not counting this block cycle).
         rec["parked_until"] = idx + duration + 1
         rec["parked_from"] = idx + 1
@@ -509,13 +531,13 @@ def ingest_dedupe_history(
         _ensure_cycle(state, cid)
     _normalize_cycle_order(state)
     save_state(state)
-    if len(order) < BLOCK_STREAK_TO_PARK:
+    if len(order) < _policy("block_streak_to_park", BLOCK_STREAK_TO_PARK):
         # Still record the blocks we saw, so a following cycle can complete the streak.
         for fp, cids in by_fp.items():
             for cid in cids:
                 note_dedupe_block(fp, meta[fp]["title"], meta[fp]["action"], cid)
         return load_state()
-    last_two = set(order[-BLOCK_STREAK_TO_PARK:])
+    last_two = set(order[-_policy("block_streak_to_park", BLOCK_STREAK_TO_PARK):])
     cycle_order = list(load_state().get("cycles") or [])
     def _in_time(cids: list[str]) -> list[str]:
         def key(c: str) -> tuple:
@@ -582,7 +604,7 @@ def give_turn_elsewhere(
         result["oeis"] = None
     if perturb_active():
         try:
-            result["perturb"] = run_perturb_turn(cycle_id, n=PERTURB_MIN_TARGETS)
+            result["perturb"] = run_perturb_turn(cycle_id, n=_policy("perturb_min_targets", PERTURB_MIN_TARGETS))
             result["source"] = result["source"] or "perturb"
         except Exception:
             pass
@@ -721,8 +743,9 @@ def assess_stall(state: dict[str, Any] | None = None) -> dict[str, Any]:
     hist = list(state.get("pass_history") or [])
     reason = ""
     on = False
-    if len(hist) >= STALL_CYCLES:
-        window = hist[-STALL_CYCLES:]
+    stall_n = _policy("stall_cycles", STALL_CYCLES)
+    if len(hist) >= stall_n:
+        window = hist[-stall_n:]
         totals = [int(h.get("pass_total") or 0) for h in window]
         if len(set(totals)) == 1:
             on = True
@@ -734,8 +757,9 @@ def assess_stall(state: dict[str, Any] | None = None) -> dict[str, Any]:
         turns = list(state.get("turns") or [])
         cycles = list(state.get("cycles") or [])
         observed = [cid for cid in cycles if any(t.get("cycle_id") == cid for t in turns)]
-        if len(observed) >= STALL_DEAD_END_CYCLES:
-            tail = observed[-STALL_DEAD_END_CYCLES:]
+        dead_n = _policy("stall_dead_end_cycles", STALL_DEAD_END_CYCLES)
+        if len(observed) >= dead_n:
+            tail = observed[-dead_n:]
             all_dead = True
             for cid in tail:
                 outcomes = [str(t.get("outcome") or "") for t in turns if t.get("cycle_id") == cid]
@@ -816,7 +840,7 @@ def enter_perturb(cycle_id: str, reason: str = "flat_passes", commit_sha: str | 
         "commit_sha": sha,
         "reason": reason,
         "cycles_in_mode": 0,
-        "epsilon": PERTURB_EPSILON if int(pert.get("park_multiplier") or 1) <= 1 else PERTURB_WIDE_EPSILON,
+        "epsilon": (_policy("perturb_epsilon", PERTURB_EPSILON) if int(pert.get("park_multiplier") or 1) <= 1 else _policy("perturb_wide_epsilon", PERTURB_WIDE_EPSILON)),
         "exit_reason": "",
         "exit_cycle": "",
         "strategy": strategy,
@@ -905,17 +929,17 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
     progress = bool(pert.get("session_progress"))
     if timeout:
         pert["park_multiplier"] = int(pert.get("park_multiplier") or 1) * 2
-        pert["epsilon"] = PERTURB_WIDE_EPSILON
+        pert["epsilon"] = _policy("perturb_wide_epsilon", PERTURB_WIDE_EPSILON)
         for rec in (state.get("proposal_parks") or {}).values():
             until = int(rec.get("parked_until") or -1)
-            duration = int(rec.get("duration") or PARK_CYCLES)
+            duration = int(rec.get("duration") or _policy("park_cycles", PARK_CYCLES))
             if until >= 0:
                 rec["duration"] = duration * 2
                 rec["parked_until"] = until + duration  # extend remaining park by the old duration
         if not progress:
             idx = _cycle_idx(state, cycle_id)
             pert["timeout_count"] = int(pert.get("timeout_count") or 0) + 1
-            pert["cooldown_until"] = int(idx) + PERTURB_COOLDOWN_CYCLES
+            pert["cooldown_until"] = int(idx) + _policy("perturb_cooldown_cycles", PERTURB_COOLDOWN_CYCLES)
             pert["last_timeout_cycle"] = cycle_id
             pert["strategy"] = "mutate"
             # Next entry must not replay this session's already-held picks.
@@ -942,7 +966,7 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
     save_state(state)
     msg = f"Recovered at cycle {cycle_id} because {reason}"
     if timeout and not progress:
-        msg += f"; cooldown {PERTURB_COOLDOWN_CYCLES} cycles before re-entry"
+        msg += f"; cooldown {_policy('perturb_cooldown_cycles', PERTURB_COOLDOWN_CYCLES)} cycles before re-entry"
     _log_lesson(cycle_id, msg, tags=["stall_recovered", "perturb", reason])
     pert = dict(pert)
     pert["message"] = msg
@@ -1150,7 +1174,7 @@ def _shape_candidates(tried: set[str], rng: random.Random) -> list[dict[str, Any
 
 def select_perturb_targets(
     cycle_id: str,
-    n: int = PERTURB_MIN_TARGETS,
+    n: int | None = None,
     *,
     commit_sha: str | None = None,
     menu: list[dict[str, Any]] | None = None,
@@ -1158,14 +1182,16 @@ def select_perturb_targets(
     alternatives: dict[str, list[Any]] | None = None,
 ) -> list[dict[str, Any]]:
     """Epsilon-greedy draw of at least ``n`` distinct new targets. Seeded and logged."""
+    if n is None:
+        n = _policy("perturb_min_targets", PERTURB_MIN_TARGETS)
     state = load_state()
     pert = state.get("perturb") or {}
     seed = pert.get("seed") if pert.get("active") and pert.get("entered_at") else None
     if seed is None:
         seed = perturb_seed(cycle_id, commit_sha)
     rng = random.Random(int(seed) ^ int(hashlib.sha256(cycle_id.encode()).hexdigest()[:8], 16))
-    epsilon = float(pert.get("epsilon") or PERTURB_EPSILON)
-    tried = _tried_last_n(UNUSED_MENU_CYCLES)
+    epsilon = float(pert.get("epsilon") or _policy("perturb_epsilon", PERTURB_EPSILON))
+    tried = _tried_last_n(_policy("unused_menu_cycles", UNUSED_MENU_CYCLES))
     ledger = _ledger_seen_ids()
     pool = list(menu) if menu is not None else _oeis_candidates(tried, ledger)
     # When the caller supplies a raw menu, still drop OEIS entries that
@@ -1437,7 +1463,7 @@ def _desk_attempt(entry: dict[str, Any], cycle_id: str) -> list[dict[str, Any]]:
 
 def run_perturb_turn(
     cycle_id: str,
-    n: int = PERTURB_MIN_TARGETS,
+    n: int | None = None,
     *,
     oracle_submit: Callable[[dict[str, Any]], Any] | None = None,
     bus: Any = None,
@@ -1457,6 +1483,8 @@ def run_perturb_turn(
     are only called with a real authored-check candidate. The Oracle's
     verdict is not altered.
     """
+    if n is None:
+        n = _policy("perturb_min_targets", PERTURB_MIN_TARGETS)
     # Draw extra so skipped shapes and already-attempted desk targets
     # do not leave us short of ``n`` attempts.
     raw = select_perturb_targets(
@@ -1676,7 +1704,7 @@ def maybe_enter_or_exit(
             report["action"] = "exit"
             report["perturb"] = exit_perturb(cycle_id, "new_kill")
             return report
-        if cycles_in >= PERTURB_MAX_CYCLES:
+        if cycles_in >= _policy("perturb_max_cycles", PERTURB_MAX_CYCLES):
             report["action"] = "exit"
             report["perturb"] = exit_perturb(cycle_id, "timeout")
             return report

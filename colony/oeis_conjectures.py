@@ -1456,7 +1456,7 @@ def choose(
             pass
         # Rotate off the form that was just attempted, when others are available.
         if last_form and form == last_form:
-            score *= 0.85
+            score *= _rotation_penalty()
         # Band 0: zero-credit, not an already-handled holonomic relation.
         # Within band 0, a computable past-b-file target ranks ahead of a
         # published-range-only one via the tract/score, not a hardcoded id.
@@ -1500,6 +1500,18 @@ def choose(
             remaining = min(remaining, max(1, k // 5))
         picked.extend([e for e, _f in routine_tail[:remaining]])
     return picked[:k]
+
+
+def _rotation_penalty() -> float:
+    """Score multiplier for the form just attempted. Policy may override 0.85."""
+    try:
+        from colony.self_heal import active_knob
+        v = active_knob("family_rotation_penalty")
+        if v is not None:
+            return float(v)
+    except Exception:
+        pass
+    return 0.85
 
 
 def zero_credit_forms(state: dict[str, Any], menu: list[dict[str, Any]]) -> list[str]:
