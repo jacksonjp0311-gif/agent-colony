@@ -131,6 +131,11 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         checker_line = format_checker()
     except Exception:
         checker_line = "unavailable"
+    try:
+        from colony.self_heal import format_visibility as format_heal
+        heal_line = format_heal()
+    except Exception:
+        heal_line = "unavailable"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -191,6 +196,8 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
   <p>{escape(stall_line)}</p>
   <h2>Checker proposals awaiting human review</h2>
   <p>{escape(checker_line)}</p>
+  <h2>Self-heal</h2>
+  <p>{escape(heal_line)}</p>
   <h2>Population &amp; genomes</h2>
   <ul>
     <li>active / soft_cap: <code>{len(active_agents)}</code> / <code>{soft_cap}</code></li>
@@ -248,6 +255,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         f"**Honest scoreboard:** {honest_line}",
         f"**Stall:** {stall_line}",
         f"**Checker proposals awaiting human review:** {checker_line}",
+        f"**Self-heal:** {heal_line}",
         f"**Bus reply rate:** {(fitness or {}).get('comm_reply_rate', '—')}",
         f"**Improvement proposals:** {len(proposals)} (all candidate until human authorize)",
         f"**Commons size:** {commons_size}",

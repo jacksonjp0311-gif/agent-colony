@@ -19,3 +19,8 @@ society/benchmarks/.lemma_backups/
 society/systems/checker_lane.json
 data/commons/checker_lane.jsonl
 society/systems/checker_proposals/
+
+# self-heal lane: append-only detailed log (never commit). The snapshot
+# society/systems/self_heal.json is kept (like stall_state) so trials
+# persist across evolve runs. Evidence of adopt/revert lives there.
+data/commons/self_heal.jsonl

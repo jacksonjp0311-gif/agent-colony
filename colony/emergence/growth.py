@@ -63,8 +63,13 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         g = GrowthResult()
         cycle_n = int(self.state.data.get("cycle_count") or 0) + 1
         try:
-            from colony.stall import on_cycle_start
-            on_cycle_start(cycle_id)
+            from colony.self_heal import run_step
+
+            def _stall_start():
+                from colony.stall import on_cycle_start
+                on_cycle_start(cycle_id)
+
+            run_step("stall_on_cycle_start", _stall_start, cycle_id=cycle_id)
         except Exception:
             pass
 
@@ -278,29 +283,39 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
         # PERTURB: at least two distinct new targets, through the normal pipeline
         # and Oracle (same gate, same bus). Selection only is perturbed.
         try:
-            from colony.stall import perturb_active, run_perturb_turn
-            if perturb_active():
-                pre = run_perturb_turn(cycle_id, n=2, bus=self.bus)
-                g.improvements.append(
-                    f"perturb:n={pre.get('n')}:reached_oracle={pre.get('n_reached_oracle')}:seed={pre.get('seed')}"
-                )
-                self.witness.record(
-                    cycle_id=cycle_id,
-                    kind="stall_perturb",
-                    actor="spark",
-                    summary=(
-                        f"PERTURB turn: {pre.get('n')} targets, "
-                        f"{pre.get('n_reached_oracle')} reached the Oracle "
-                        f"(seed {pre.get('seed')})."
-                    ),
-                    detail={
-                        "seed": pre.get("seed"),
-                        "targets": [t.get("id") for t in (pre.get("targets") or [])],
-                        "n_reached_oracle": pre.get("n_reached_oracle"),
-                    },
-                )
+            from colony.self_heal import is_quarantined as _heal_quarantined
+            _perturb_ok = not _heal_quarantined("stall_perturb", cycle_id)
         except Exception:
-            pass
+            _perturb_ok = True
+        try:
+            if _perturb_ok:
+                from colony.stall import perturb_active, run_perturb_turn
+                if perturb_active():
+                    pre = run_perturb_turn(cycle_id, bus=self.bus)
+                    g.improvements.append(
+                        f"perturb:n={pre.get('n')}:reached_oracle={pre.get('n_reached_oracle')}:seed={pre.get('seed')}"
+                    )
+                    self.witness.record(
+                        cycle_id=cycle_id,
+                        kind="stall_perturb",
+                        actor="spark",
+                        summary=(
+                            f"PERTURB turn: {pre.get('n')} targets, "
+                            f"{pre.get('n_reached_oracle')} reached the Oracle "
+                            f"(seed {pre.get('seed')})."
+                        ),
+                        detail={
+                            "seed": pre.get("seed"),
+                            "targets": [t.get("id") for t in (pre.get("targets") or [])],
+                            "n_reached_oracle": pre.get("n_reached_oracle"),
+                        },
+                    )
+        except Exception as exc:
+            try:
+                from colony.self_heal import note_failure
+                note_failure("stall_perturb", exc, cycle_id)
+            except Exception:
+                pass
         # Lift 2: bias skills/genomes from lesson ledger (kept outcomes only)
         try:
             from colony.lessons import apply_lesson_bias_to_agents, apply_lesson_bias_to_genomes, digest

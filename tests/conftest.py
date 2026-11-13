@@ -63,3 +63,12 @@ def _isolate_checker_lane(tmp_path, monkeypatch):
     monkeypatch.setattr(CL, "STATE_PATH", tmp_path / "checker_lane.json")
     monkeypatch.setattr(CL, "LANE_LOG", tmp_path / "checker_lane.jsonl")
     monkeypatch.setattr(CL, "PROPOSAL_DIR", tmp_path / "checker_proposals")
+
+
+@pytest.fixture(autouse=True)
+def _isolate_self_heal(tmp_path, monkeypatch):
+    """Each test gets a fresh self-heal snapshot so trials cannot leak."""
+    import colony.self_heal as SH
+    monkeypatch.setattr(SH, "STATE_PATH", tmp_path / "self_heal.json")
+    monkeypatch.setattr(SH, "EVENT_LOG", tmp_path / "self_heal.jsonl")
+
