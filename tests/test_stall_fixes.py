@@ -461,10 +461,17 @@ def test_replay_cycles_853_to_855_parks_the_chain_and_sends_no_empty_shapes(
     for t in reached:
         assert not str(t.get("id") or "").startswith("shape:")
         assert "explore claim shape" not in str(t.get("text") or "")
-    # Visibility on the last three cycles counts only Oracle-bound ids.
+    # Visibility on the last three cycles counts Oracle-bound ids and
+    # any strict verified-depth extensions (item 33).
     vis = S.visibility()
-    # stall_cycles was seeded from a flat 528 history, not reset to 0.
-    assert vis["stall_cycles"] >= 8
+    st = S.load_state()
+    last_depth = st.get("last_depth_progress_cycle")
+    if last_depth in (C853, C854, C855):
+        # A desk depth win in this run resets the flat-pass streak.
+        assert vis["stall_cycles"] < 8
+    else:
+        # No depth advance: the seeded flat 528 history is not reset to 0.
+        assert vis["stall_cycles"] >= 8
     # Cycles are in time order: priors, then 853–855 at the end.
     cycles = S.load_state()["cycles"]
     assert cycles[-3:] == [C853, C854, C855] or (

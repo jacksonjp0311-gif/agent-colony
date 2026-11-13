@@ -293,6 +293,7 @@ def mine_self_heal(*, path: Path | None = None, cycle_id: str = "") -> list[dict
         if not isinstance(ev, Mapping):
             continue
         event = str(ev.get("event") or "")
+        # A voided trial is not a fair test: do not teach from it.
         if event not in ("adopt", "revert"):
             continue
         knob = str(ev.get("knob") or "")

@@ -212,6 +212,7 @@ def test_inflated_trial_baseline_is_recomputed(tmp_path, monkeypatch):
 
 
 def test_run_cycle_reconciles_before_judging(tmp_path, monkeypatch):
+    """Reconcile first (append-only), then void a trial with no fingerprint."""
     _isolate_heal(tmp_path, monkeypatch)
     _isolate_oeis(tmp_path, monkeypatch)
     _write_log([
@@ -243,9 +244,23 @@ def test_run_cycle_reconciles_before_judging(tmp_path, monkeypatch):
         "oracle_pass_delta": 0, "oracle_passes": 528, "score": 0.0,
     })
     assert out["ok"] is True
-    trial = SH.load_state()["trial"]
-    assert trial["baseline_score"] == 0.0
-    assert trial["baseline_corrected"] is True
+    st = SH.load_state()
+    # Baseline is still corrected append-only, then the unfingerprinted
+    # trial is voided (it has no recorded environment; a cap-raising merge
+    # mid-trial is a confound). Knob restored; not a revert-as-negative.
+    ev_corr = [e for e in st["evidence"] if e.get("event") == "trial_baseline_corrected"]
+    ev_void = [e for e in st["evidence"] if e.get("event") == "trial_voided_confound"]
+    assert ev_corr and ev_corr[0]["baseline_score"] == 0.0
+    assert ev_corr[0]["old_baseline_score"] == 2.0
+    assert ev_void
+    assert ev_void[0]["old_fingerprint"] == SH.UNRECORDED_FINGERPRINT
+    assert ev_void[0]["adopted"] is False
+    assert ev_void[0]["reverted"] is False
+    assert ev_void[0]["to"] == 6
+    assert st["trial"] is None
+    assert st["adopted_count"] == 0
+    assert st["reverted_count"] == 0
+    assert st["knobs"]["perturb_cooldown_cycles"] == 6
 
 
 # ---------------------------------------------------------------------------
@@ -455,12 +470,14 @@ def test_production_log_view_backfills_all_legacy_rows():
     for a in view["attempts"]:
         by.setdefault(a["id"], []).append(a)
     # Last derived (or last overall) for each:
-    a165 = [a for a in by["oc_A165064_0"] if a.get("verified_depth_derived")][-1]
-    a126 = [a for a in by["oc_A126089_0"] if a.get("verified_depth_derived")][-1]
+    a165s = [a for a in by["oc_A165064_0"] if a.get("verified_depth_derived")]
+    a126s = [a for a in by["oc_A126089_0"] if a.get("verified_depth_derived")]
     a108 = [a for a in by.get("oc_A108476_0", []) if a.get("verified_depth_derived")]
+    assert a165s and a126s
+    a165, a126 = a165s[-1], a126s[-1]
     # The live colony keeps appending real rows to this log, so check the
     # floors established before PR #7 rather than exact values that later
-    # verified rows can legitimately move.
+    # verified rows can legitimately move. (PR #8)
     assert 1199 <= a165["verified_depth"] <= int(a165.get("depth") or 0)
     assert 956 <= a126["verified_depth"] <= int(a126.get("depth") or 0)
     if a108:

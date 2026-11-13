@@ -236,6 +236,67 @@ def test_control_does_not_start_or_close_self_heal_trials(tmp_path, monkeypatch)
         assert last.get("event") != "adopt"
 
 
+def test_control_confound_guard_is_a_noop(tmp_path, monkeypatch):
+    """An unfingerprinted (or environment-mismatched) in-flight trial is
+    not voided on the control arm: knobs, evidence, and the trial itself
+    stay frozen. On treatment the same trial would void."""
+    monkeypatch.setenv("COLONY_ARM", "control")
+    monkeypatch.setattr(SH, "STATE_PATH", tmp_path / "self_heal.json")
+    monkeypatch.setattr(SH, "EVENT_LOG", tmp_path / "self_heal.jsonl")
+    st = SH.load_state()
+    st["knobs"]["perturb_cooldown_cycles"] = 8
+    trial = {
+        "knob": "perturb_cooldown_cycles",
+        "from": 6, "to": 8, "direction": "up",
+        "reason": "no_progress_perturb",
+        "window": 6,
+        "baseline_score": 0.0,
+        "baseline_metrics": [],
+        "trial_metrics": [
+            {"cycle_id": "c874", "new_oracle_targets": 0, "new_depth": 2,
+             "oracle_pass_delta": 0, "oracle_passes": 528, "score": 2.0},
+        ],
+        "started_cycle": "c873",
+        # No environment_fingerprint: treatment would void as unrecorded.
+    }
+    st["trial"] = trial
+    st["adopted_count"] = 0
+    st["reverted_count"] = 0
+    SH.save_state(st)
+    evidence_before = list(SH.load_state().get("evidence") or [])
+    out = SH.run_cycle("c875", metrics={
+        "cycle_id": "c875", "new_oracle_targets": 0, "new_depth": 0,
+        "oracle_pass_delta": 0, "oracle_passes": 528, "score": 0.0,
+    })
+    st2 = SH.load_state()
+    assert out["ok"] is True
+    assert out["trial_started"] is False
+    # Trial left in place; not voided, not adopted, not reverted.
+    assert st2["trial"] is not None
+    assert st2["trial"]["knob"] == "perturb_cooldown_cycles"
+    assert st2["trial"]["to"] == 8
+    assert st2["knobs"]["perturb_cooldown_cycles"] == 8
+    assert st2["adopted_count"] == 0
+    assert st2["reverted_count"] == 0
+    ev = [e for e in (st2.get("evidence") or []) if e.get("event") == "trial_voided_confound"]
+    assert ev == []
+    # Direct void is also a no-op.
+    st3 = SH.void_trial_for_confound(
+        st2, "c875",
+        old_fingerprint=SH.UNRECORDED_FINGERPRINT,
+        new_fingerprint="abcd",
+        reason="unrecorded_environment",
+    )
+    assert st3["trial"] is not None
+    assert st3["knobs"]["perturb_cooldown_cycles"] == 8
+    assert st3.get("last_self_change") is None or st3["last_self_change"].get("event") != "trial_voided_confound"
+    assert [e.get("id") for e in evidence_before] == [
+        e.get("id") for e in (st3.get("evidence") or []) if e.get("id") in {x.get("id") for x in evidence_before}
+    ]
+    voids = [e for e in (st3.get("evidence") or []) if e.get("event") == "trial_voided_confound"]
+    assert voids == []
+
+
 def test_control_quarantine_is_inert(tmp_path, monkeypatch):
     monkeypatch.setenv("COLONY_ARM", "control")
     monkeypatch.setattr(SH, "STATE_PATH", tmp_path / "self_heal.json")

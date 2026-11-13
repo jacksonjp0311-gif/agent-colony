@@ -20,6 +20,12 @@ Each evolve cycle this module:
   the baseline; otherwise it reverts. Every adopt and revert is
   appended to an evidence log with the numbers, so a later gain can be
   traced to a self-made change
+* records a fingerprint of the code and of every knob except the one
+  under trial. If that fingerprint changes during the baseline or the
+  trial window (a code merge, a raised evaluator cap, any other knob),
+  the trial is voided: an append-only ``trial_voided_confound`` event
+  is written, the knob is restored, there is no adopt and no
+  revert-as-negative, and a fresh same-fingerprint baseline starts
 * if an optional cycle step throws, records the error and quarantines
   that step for N cycles after a threshold of failures. Protected
   gates (trust gate, Oracle, authorize, Athanor, witness, the P gate)
@@ -33,6 +39,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 import uuid
 from contextlib import contextmanager
 from dataclasses import dataclass
@@ -196,6 +203,144 @@ def _utc() -> str:
 
 def _event_id() -> str:
     return uuid.uuid4().hex[:16]
+
+
+# Cached per-process: colony/ source does not change mid-run.
+_CODE_FINGERPRINT_CACHE: str | None = None
+
+# Marker for a trial that started before fingerprints were recorded.
+UNRECORDED_FINGERPRINT = "unrecorded"
+
+
+def _code_roots() -> list[tuple[str, Path]]:
+    """Source trees that belong in the environment fingerprint.
+
+    ``colony/`` is always included. ``hive/`` is included when present,
+    so a Hive code change mid-trial is a confound the same way a colony
+    change is. Library JSONL and other data files are not hashed.
+    """
+    roots: list[tuple[str, Path]] = [("colony", Path(__file__).resolve().parent)]
+    hive = ROOT / "hive"
+    if hive.is_dir():
+        roots.append(("hive", hive))
+    return roots
+
+
+def _colony_file_digest() -> str:
+    """SHA-256 of colony/ and hive/ Python and default JSON, in path order."""
+    global _CODE_FINGERPRINT_CACHE
+    if _CODE_FINGERPRINT_CACHE is not None:
+        return _CODE_FINGERPRINT_CACHE
+    parts: list[str] = []
+    for label, root in _code_roots():
+        for path in sorted(root.rglob("*")):
+            if not path.is_file():
+                continue
+            if "__pycache__" in path.parts or path.suffix == ".pyc":
+                continue
+            if path.suffix not in {".py", ".json"}:
+                continue
+            rel = path.relative_to(root).as_posix()
+            try:
+                data = path.read_bytes()
+            except OSError:
+                continue
+            parts.append(f"{label}/{rel}:{hashlib.sha256(data).hexdigest()}")
+    digest = hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
+    _CODE_FINGERPRINT_CACHE = digest
+    return digest
+
+
+def _git_tree_sha(subtree: str) -> str:
+    """Git tree SHA of one subtree. Empty if git is unavailable."""
+    try:
+        out = subprocess.check_output(
+            ["git", "rev-parse", f"HEAD:{subtree}"],
+            cwd=str(ROOT),
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+        return out or ""
+    except Exception:
+        return ""
+
+
+def _colony_tree_sha() -> str:
+    """Git tree SHA of colony/ (and hive/ when present).
+
+    Data-only commits that do not touch those trees leave this unchanged,
+    so a spark-loop data push does not void a trial.
+    """
+    parts = [f"colony:{_git_tree_sha('colony')}"]
+    if (ROOT / "hive").is_dir():
+        parts.append(f"hive:{_git_tree_sha('hive')}")
+    return ",".join(parts)
+
+
+def environment_fingerprint(
+    *,
+    exclude_knob: str | None = None,
+    state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Fingerprint of running code and of every knob except ``exclude_knob``.
+
+    The digest is what a trial stores and later compares. The parts are
+    kept so a void event can show what changed (code vs a cap or knob).
+    """
+    if state is not None and isinstance(state.get("knobs"), dict):
+        knobs_src = state["knobs"]
+    else:
+        try:
+            knobs_src = (load_state().get("knobs") or default_knobs())
+        except Exception:
+            knobs_src = default_knobs()
+    knobs: dict[str, int | float] = {}
+    skip = str(exclude_knob or "")
+    for name, spec in KNOB_SPECS.items():
+        if name == skip:
+            continue
+        raw = (knobs_src or {}).get(name, spec.default)
+        try:
+            knobs[name] = _cast(spec, raw)
+        except Exception:
+            knobs[name] = spec.default
+    parts = {
+        "code": _colony_file_digest(),
+        "tree": _colony_tree_sha(),
+        "knobs": knobs,
+    }
+    payload = json.dumps(parts, sort_keys=True, separators=(",", ":"), default=str)
+    digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+    return {
+        "digest": digest,
+        "code": parts["code"],
+        "tree": parts["tree"],
+        "knobs": knobs,
+    }
+
+
+def trial_fingerprint_mismatch(
+    trial: dict[str, Any] | None,
+    *,
+    state: dict[str, Any] | None = None,
+) -> tuple[bool, str, str]:
+    """True when the trial's recorded environment no longer matches.
+
+    A trial that started before fingerprints were recorded (``unrecorded``)
+    is a mismatch: we cannot prove the environment was stable, and the
+    in-flight perturb_cooldown trial straddles a cap-raising merge.
+    """
+    if not isinstance(trial, dict) or not trial:
+        return False, "", ""
+    current = environment_fingerprint(
+        exclude_knob=str(trial.get("knob") or "") or None,
+        state=state,
+    )
+    new_fp = str(current.get("digest") or "")
+    old_fp = str(trial.get("environment_fingerprint") or "")
+    if not old_fp:
+        return True, UNRECORDED_FINGERPRINT, new_fp
+    return old_fp != new_fp, old_fp, new_fp
 
 
 def is_invariant_name(name: str) -> bool:
@@ -398,7 +543,7 @@ def append_evidence(state: dict[str, Any], event: dict[str, Any]) -> dict[str, A
     evidence = list(state.get("evidence") or [])
     evidence.append(ev)
     state["evidence"] = evidence
-    if ev.get("event") in ("adopt", "revert"):
+    if ev.get("event") in ("adopt", "revert", "trial_voided_confound"):
         state["last_self_change"] = ev
     try:
         append_log(ev)
@@ -573,22 +718,22 @@ def _row_verified_for_metric(row: dict[str, Any], tested_hi: int = 0) -> int:
         return 0
 
 
-def count_new_depth(attempt_log: dict[str, Any] | None, cycle_id: str) -> int:
-    """Number of targets whose verified depth strictly increased this cycle.
+def targets_with_new_depth(attempt_log: dict[str, Any] | None, cycle_id: str) -> list[str]:
+    """Target ids whose verified depth strictly increased this cycle.
 
     A ``beyond=true`` same-depth hold (``extended`` 0, ``tested_hi`` unchanged)
-    scores 0. A first-time search past the published range, with no earlier
-    past-b-file hold, scores 1. ``extended > 0`` on a row is a direct signal.
+    is not included. A first-time search past the published range, with no
+    earlier past-b-file hold, is. ``extended > 0`` on a row is a direct
+    signal. Order is first-seen in the log.
     """
     cid = str(cycle_id or "")
     if not cid or not isinstance(attempt_log, dict):
-        return 0
+        return []
     attempts = list(attempt_log.get("attempts") or [])
     # Running explicit verified max, and whether a prior past-b-file hold exists.
     prior_v: dict[str, int] = {}
     prior_past: set[str] = set()
-    n = 0
-    counted: set[str] = set()
+    counted: dict[str, bool] = {}
     for a in attempts:
         if not isinstance(a, dict):
             continue
@@ -625,8 +770,7 @@ def count_new_depth(attempt_log: dict[str, Any] | None, cycle_id: str) -> int:
                     # extended > 0 (already handled) or v > prev (prev is 0,
                     # so only the "not in prior_past" branch counts).
             if advanced and eid not in counted:
-                n += 1
-                counted.add(eid)
+                counted[eid] = True
         if has_explicit and v > 0:
             prior_v[eid] = max(prior_v.get(eid, 0), v)
             if v > bfile:
@@ -635,7 +779,12 @@ def count_new_depth(attempt_log: dict[str, Any] | None, cycle_id: str) -> int:
             prior_past.add(eid)
         elif (not this_cycle) and a.get("beyond"):
             prior_past.add(eid)
-    return n
+    return list(counted)
+
+
+def count_new_depth(attempt_log: dict[str, Any] | None, cycle_id: str) -> int:
+    """Number of targets whose verified depth strictly increased this cycle."""
+    return len(targets_with_new_depth(attempt_log, cycle_id))
 
 
 def rescore_metric_row(
@@ -747,6 +896,9 @@ def collect_metrics(
             st = stall_state
             from colony.stall import ORACLE_TURN_OUTCOMES
         for row in st.get("targets_tried") or []:
+            # Depth-only extensions are counted by new_depth, not as Oracle targets.
+            if str(row.get("kind") or "oracle") != "oracle":
+                continue
             ids = [str(t) for t in (row.get("targets") or []) if t]
             if str(row.get("cycle_id") or "") == cid:
                 this_targets.update(ids)
@@ -1079,6 +1231,15 @@ def propose_trial(
     metrics = list(st.get("metrics") or [])
     if len(metrics) < window:
         return None
+    # A baseline that spans a code or cap change is not a fair comparison.
+    # Wait until ``window`` consecutive cycles share the current fingerprint.
+    try:
+        current_fp = environment_fingerprint(state=st)["digest"]
+    except Exception:
+        current_fp = ""
+    window_rows = metrics[-window:]
+    if not current_fp or any(str(r.get("env_fingerprint") or "") != current_fp for r in window_rows):
+        return None
     tried: set[tuple[str, str]] = set()
     for finding in findings:
         kind = str(finding.get("kind") or "")
@@ -1119,7 +1280,8 @@ def propose_trial(
                     {k: r.get(k) for k in (
                         "cycle_id", "new_oracle_targets", "new_depth",
                         "oracle_pass_delta", "oracle_passes", "score",
-                    )}
+                        "env_fingerprint",
+                    ) if k in r}
                     for r in baseline_rows
                 ],
                 "trial_metrics": [],
@@ -1156,6 +1318,9 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         "cycle_id": cycle_id,
     }
     st["knob_last_trial"] = last
+    fp = environment_fingerprint(exclude_knob=str(trial.get("knob") or "") or None, state=st)
+    trial["environment_fingerprint"] = fp["digest"]
+    trial["environment"] = {"code": fp["code"], "tree": fp["tree"], "knobs": fp["knobs"]}
     ev = append_evidence(st, {
         "event": "trial_start",
         "cycle_id": cycle_id,
@@ -1167,11 +1332,69 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         "baseline_score": trial.get("baseline_score"),
         "window": trial.get("window"),
         "replay": trial.get("replay"),
+        "environment_fingerprint": fp["digest"],
+        "environment": trial["environment"],
     })
     trial["evidence_id"] = ev["id"]
     st["trial"] = trial
     save_state(st)
     return st
+
+
+def void_trial_for_confound(
+    state: dict[str, Any],
+    cycle_id: str,
+    *,
+    old_fingerprint: str,
+    new_fingerprint: str,
+    reason: str = "environment_changed",
+) -> dict[str, Any]:
+    """Void an in-flight trial whose environment changed mid-window.
+
+    Restores the knob to its pre-trial value. Does not adopt, does not
+    increment ``reverted_count``, and does not write a ``revert`` event,
+    so a later clean trial of the same change is not treated as a repeat
+    failure. Evidence is append-only; trial and baseline rows are not
+    rewritten. A fresh baseline of same-fingerprint cycles must accumulate
+    before a new trial can start.
+
+    On the control arm (self-mod frozen) this is a no-op: the trial,
+    knobs, and evidence are left untouched.
+    """
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return state
+    except Exception:
+        pass
+    trial = dict(state.get("trial") or {})
+    if not trial:
+        return state
+    knob = str(trial.get("knob") or "")
+    if knob:
+        _apply_knob(state, knob, trial.get("from"))
+    ev = append_evidence(state, {
+        "event": "trial_voided_confound",
+        "cycle_id": cycle_id,
+        "knob": knob,
+        "from": trial.get("to"),
+        "to": trial.get("from"),
+        "direction": trial.get("direction"),
+        "reason": reason,
+        "old_fingerprint": old_fingerprint,
+        "new_fingerprint": new_fingerprint,
+        "environment": trial.get("environment"),
+        "baseline_score": trial.get("baseline_score"),
+        "trial_metrics": list(trial.get("trial_metrics") or []),
+        "window": trial.get("window"),
+        "started_cycle": trial.get("started_cycle"),
+        "helped": None,
+        "adopted": False,
+        "reverted": False,
+    })
+    state["last_self_change"] = ev
+    state["trial"] = None
+    return state
 
 
 def _close_trial(state: dict[str, Any], cycle_id: str, decision: str) -> dict[str, Any]:
@@ -1239,6 +1462,16 @@ def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
     trial = state.get("trial") or None
     if not trial:
         return state
+    changed, old_fp, new_fp = trial_fingerprint_mismatch(trial, state=state)
+    if changed:
+        reason = (
+            "unrecorded_environment" if old_fp == UNRECORDED_FINGERPRINT
+            else "environment_changed"
+        )
+        return void_trial_for_confound(
+            state, cycle_id,
+            old_fingerprint=old_fp, new_fingerprint=new_fp, reason=reason,
+        )
     window = int(trial.get("window") or current_knob("evaluation_window"))
     rows = list(trial.get("trial_metrics") or [])
     if len(rows) < window:
@@ -1498,6 +1731,12 @@ def run_cycle(
         pass
 
     row = metrics if metrics is not None else collect_metrics(cycle_id, stall_state=stall_state)
+    row = dict(row)
+    if not row.get("env_fingerprint"):
+        try:
+            row["env_fingerprint"] = environment_fingerprint(state=st)["digest"]
+        except Exception:
+            pass
     hist = list(st.get("metrics") or [])
     # Replace a row already recorded for this cycle; otherwise append.
     hist = [r for r in hist if str(r.get("cycle_id") or "") != str(cycle_id or "")]
@@ -1505,14 +1744,34 @@ def run_cycle(
     st["metrics"] = hist[-METRICS_KEEP:]
 
     trial = st.get("trial")
-    if trial:
-        tmetrics = list(trial.get("trial_metrics") or [])
-        tmetrics = [r for r in tmetrics if str(r.get("cycle_id") or "") != str(cycle_id or "")]
-        tmetrics.append(row)
-        trial = dict(trial)
-        trial["trial_metrics"] = tmetrics
-        st["trial"] = trial
-        st = maybe_close_trial(st, cycle_id)
+    self_mod = True
+    try:
+        from colony.arm import self_mod_enabled
+        self_mod = bool(self_mod_enabled())
+    except Exception:
+        self_mod = True
+    # Control arm: record metrics, but do not void, close, or start a trial.
+    if trial and self_mod:
+        changed, old_fp, new_fp = trial_fingerprint_mismatch(trial, state=st)
+        if changed:
+            # Do not add this cycle to the voided trial's metrics, and do
+            # not adopt. The row stays in the metrics history (fresh baseline).
+            reason = (
+                "unrecorded_environment" if old_fp == UNRECORDED_FINGERPRINT
+                else "environment_changed"
+            )
+            st = void_trial_for_confound(
+                st, cycle_id,
+                old_fingerprint=old_fp, new_fingerprint=new_fp, reason=reason,
+            )
+        else:
+            tmetrics = list(trial.get("trial_metrics") or [])
+            tmetrics = [r for r in tmetrics if str(r.get("cycle_id") or "") != str(cycle_id or "")]
+            tmetrics.append(row)
+            trial = dict(trial)
+            trial["trial_metrics"] = tmetrics
+            st["trial"] = trial
+            st = maybe_close_trial(st, cycle_id)
 
     started = False
     proposal = None
@@ -1571,6 +1830,10 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
                 "cycle_id": last.get("cycle_id"),
                 "helped": last.get("helped"),
                 "ts": last.get("ts"),
+                "old_fingerprint": last.get("old_fingerprint"),
+                "new_fingerprint": last.get("new_fingerprint"),
+                "adopted": last.get("adopted"),
+                "reverted": last.get("reverted"),
             }
         trial = st.get("trial")
         trial_out = None

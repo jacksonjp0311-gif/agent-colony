@@ -588,6 +588,12 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     if not replay.get("accepted"):
         return {"ok": False, "reason": "self_heal_replay_rejected", "replay": replay}
     baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
+    try:
+        current_fp = host.heal_environment_fingerprint(state=st)["digest"]
+    except Exception:
+        current_fp = ""
+    if not current_fp or any(str(r.get("env_fingerprint") or "") != current_fp for r in baseline_rows):
+        return {"ok": False, "reason": "confounded_baseline"}
     trial = {
         "knob": name,
         "from": cur,
@@ -602,7 +608,8 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
             {k: r.get(k) for k in (
                 "cycle_id", "new_oracle_targets", "new_depth",
                 "oracle_pass_delta", "oracle_passes", "score",
-            )}
+                "env_fingerprint",
+            ) if k in r}
             for r in baseline_rows
         ],
         "trial_metrics": [],
@@ -635,8 +642,21 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     try:
         from hive import host
         baseline = float(host.heal_window_score(rows))
+        env = host.heal_environment_fingerprint()
     except Exception:
         baseline = float(sum(float(r.get("score") or 0) for r in rows))
+        env = {}
+        try:
+            from hive import host as _host
+            env = _host.heal_environment_fingerprint()
+        except Exception:
+            env = {}
+    try:
+        current_fp = str((env or {}).get("digest") or "")
+        if not current_fp or any(str(r.get("env_fingerprint") or "") != current_fp for r in rows):
+            return {"ok": False, "reason": "confounded_baseline"}
+    except Exception:
+        current_fp = str((env or {}).get("digest") or "")
     trial = {
         "op": proposal.action.get("op"),
         "action": proposal.action,
@@ -650,7 +670,8 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
             {k: r.get(k) for k in (
                 "cycle_id", "new_oracle_targets", "new_depth",
                 "oracle_pass_delta", "oracle_passes", "score",
-            )}
+                "env_fingerprint",
+            ) if k in r}
             for r in rows
         ],
         "trial_metrics": [],
@@ -658,6 +679,12 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
         "applied_to_live_oracle": False,
         "authorized": False,
         "source": "swarm",
+        "environment_fingerprint": (env or {}).get("digest"),
+        "environment": {
+            "code": (env or {}).get("code"),
+            "tree": (env or {}).get("tree"),
+            "knobs": (env or {}).get("knobs"),
+        } if env else None,
     }
     # Activate the rule for the trial window (skip/park/ceiling/family/desk).
     rules = list(state.get("rules") or [])
@@ -674,11 +701,82 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     return {"ok": True, "reason": "trial_started", "trial": trial, "via": "swarm_rule"}
 
 
+def void_rule_trial_for_confound(
+    state: dict[str, Any],
+    cycle_id: str,
+    *,
+    old_fingerprint: str,
+    new_fingerprint: str,
+    reason: str = "environment_changed",
+) -> dict[str, Any]:
+    """Void a Hive rule trial whose environment changed mid-window.
+
+    Drops the in-trial rule (neither adopt nor keep). Does not increment
+    adopted_count or reverted_count, and writes ``trial_voided_confound``
+    rather than adopt/revert, so Bitwork is not taught a positive or
+    negative example from a confounded window.
+    """
+    trial = dict(state.get("trial") or {})
+    if not trial:
+        return state
+    fp = str(trial.get("fingerprint") or "")
+    rules = [
+        r for r in list(state.get("rules") or [])
+        if not (str(r.get("fingerprint") or "") == fp and r.get("trial"))
+    ]
+    state["rules"] = rules
+    ev = append_evidence(state, {
+        "event": "trial_voided_confound",
+        "cycle_id": cycle_id,
+        "fingerprint": fp,
+        "action": trial.get("action"),
+        "role": trial.get("role"),
+        "label": trial.get("label"),
+        "symptom": trial.get("symptom"),
+        "reason": reason,
+        "old_fingerprint": old_fingerprint,
+        "new_fingerprint": new_fingerprint,
+        "environment": trial.get("environment"),
+        "baseline_score": trial.get("baseline_score"),
+        "trial_metrics": list(trial.get("trial_metrics") or []),
+        "window": trial.get("window"),
+        "started_cycle": trial.get("started_cycle"),
+        "helped": None,
+        "adopted": False,
+        "reverted": False,
+        "via": "swarm_rule",
+    })
+    state["last_decision"] = ev
+    state["trial"] = None
+    return state
+
+
 def maybe_close_rule_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
     """Close a non-knob trial once the window is full, using the fixed metric."""
     trial = state.get("trial")
     if not isinstance(trial, dict):
         return state
+    try:
+        from hive import host
+        heal_state = None
+        try:
+            heal_state = host.heal_load_state()
+        except Exception:
+            heal_state = None
+        changed, old_fp, new_fp = host.heal_trial_fingerprint_mismatch(
+            trial, state=heal_state,
+        )
+        if changed:
+            reason = (
+                "unrecorded_environment" if old_fp == host.UNRECORDED_FINGERPRINT
+                else "environment_changed"
+            )
+            return void_rule_trial_for_confound(
+                state, cycle_id,
+                old_fingerprint=old_fp, new_fingerprint=new_fp, reason=reason,
+            )
+    except Exception:
+        pass
     try:
         from hive import host
         current_knob = host.heal_current_knob
@@ -759,7 +857,11 @@ def teach_from_event(
     *,
     path: Path | None = None,
 ) -> dict[str, Any] | None:
-    """Append an adopt / revert as a Bitwork teaching example."""
+    """Append an adopt / revert as a Bitwork teaching example.
+
+    A ``trial_voided_confound`` event is neither a positive nor a
+    negative example: the window was not a fair test of the action.
+    """
     event_name = str(event.get("event") or "")
     if event_name not in ("adopt", "revert"):
         return None
@@ -831,6 +933,7 @@ def harvest_self_heal_outcomes(
         eid = str(ev.get("id") or "")
         if not eid or eid in seen:
             continue
+        # Voided trials are not teaching examples (positive or negative).
         if ev.get("event") not in ("adopt", "revert"):
             continue
         written = teach_from_event(router, ev, path=path)
@@ -1007,11 +1110,17 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
 
     # If a rule trial just closed as adopt, record first-adopted.
     last = st.get("last_decision")
-    if isinstance(last, dict) and last.get("event") == "adopt" and last.get("cycle_id") == cycle_id:
-        _record_first_adopted(st, str(last.get("label") or ""), cycle_id, int(st.get("cycle_index") or 0))
+    # Only adopt / revert teach Bitwork. A void is neither.
+    if (
+        isinstance(last, dict)
+        and last.get("event") in ("adopt", "revert")
+        and last.get("cycle_id") == cycle_id
+    ):
+        if last.get("event") == "adopt":
+            _record_first_adopted(st, str(last.get("label") or ""), cycle_id, int(st.get("cycle_index") or 0))
         # Teach from our own adopt/revert (self-heal harvest covers heal events).
         teach_from_event(router, last)
-        if last.get("event") in ("adopt", "revert") and last.get("via") == "swarm_rule":
+        if last.get("via") == "swarm_rule":
             hit = router.score_action(str(last.get("symptom") or ""), str(last.get("fingerprint") or ""))
             if hit is not None:
                 router.record_outcome(hit.margin, last.get("event") == "adopt")

@@ -20,7 +20,11 @@ entry uses a different (mutation-first) strategy. A PERTURB cycle that
 finds no eligible picks first escalates to mutation-first and a broader
 candidate pool; if it is still empty, PERTURB exits to that same
 cooldown with a ``no_candidates`` lesson rather than burning the rest of
-the nine-cycle budget.
+the nine-cycle budget. After a ``no_candidates`` exit, PERTURB does not
+re-enter on the same Oracle pass total until a new-depth or new-check
+target is actually eligible. A strict verified-depth (``tested_hi`` or
+scoreboard extension) increase counts toward ``targets_tried`` and
+resets ``stall_cycles``, so depth progress postpones STALL.
 """
 from __future__ import annotations
 
@@ -211,6 +215,8 @@ def _empty_state() -> dict[str, Any]:
         "turns": [],
         "targets_tried": [],
         "last_new_pass_cycle": "",
+        "last_depth_progress_cycle": "",
+        "depth_progress_history": [],
         "stall_cycles": 0,
         "perturb": {
             "active": False,
@@ -252,6 +258,8 @@ def load_state() -> dict[str, Any]:
     state.setdefault("kill_history", [])
     state.setdefault("turns", [])
     state.setdefault("targets_tried", [])
+    state.setdefault("last_depth_progress_cycle", "")
+    state.setdefault("depth_progress_history", [])
     state.setdefault("perturb", _empty_state()["perturb"])
     for key, default in _empty_state()["perturb"].items():
         state["perturb"].setdefault(key, default)
@@ -662,6 +670,7 @@ def record_pass_total(cycle_id: str, pass_total: int, kills: Iterable[Any] | Non
         kh.append({"cycle_id": cycle_id, "kills": [list(s) for s in sigs]})
         state["kill_history"] = kh[-80:]
     stall_cycles, last_new = _stall_cycles_from_hist(hist)
+    stall_cycles = _stall_cycles_with_depth(state, stall_cycles)
     if last_new:
         state["last_new_pass_cycle"] = last_new
     state["stall_cycles"] = stall_cycles
@@ -698,6 +707,32 @@ def _stall_cycles_from_hist(hist: list[dict[str, Any]]) -> tuple[int, str]:
     return stall_cycles, last_new
 
 
+def _stall_cycles_with_depth(state: dict[str, Any], pass_stall: int) -> int:
+    """Stall count, postponed by the most recent verified-depth advance.
+
+    A strict ``tested_hi`` / scoreboard extension increase in cycle C
+    makes ``stall_cycles`` equal the number of snapshots after C (0 if
+    C is the latest), so a depth win resets the flat-pass streak.
+    """
+    last = str(state.get("last_depth_progress_cycle") or "")
+    if not last:
+        return int(pass_stall)
+    hist = list(state.get("pass_history") or [])
+    ids = [str(h.get("cycle_id") or "") for h in hist]
+    if last in ids:
+        # Last occurrence, if a cycle id were ever repeated.
+        idx = len(ids) - 1 - ids[::-1].index(last)
+        since = len(ids) - 1 - idx
+        return min(int(pass_stall), max(0, since))
+    cycles = [str(c) for c in (state.get("cycles") or [])]
+    if last in cycles:
+        idx = len(cycles) - 1 - cycles[::-1].index(last)
+        since = len(cycles) - 1 - idx
+        return min(int(pass_stall), max(0, since))
+    # Progress this cycle, not yet indexed: treat as a reset.
+    return 0
+
+
 def seed_pass_history(rows: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     """Fill an empty pass_history from the Oracle log (and fitness history).
 
@@ -726,6 +761,7 @@ def seed_pass_history(rows: list[dict[str, Any]] | None = None) -> dict[str, Any
     kh = [{"cycle_id": s["cycle_id"], "kills": [list(k) for k in (s.get("kills") or [])]} for s in series]
     state["kill_history"] = kh[-80:]
     stall_cycles, last_new = _stall_cycles_from_hist(state["pass_history"])
+    stall_cycles = _stall_cycles_with_depth(state, stall_cycles)
     state["stall_cycles"] = stall_cycles
     if last_new:
         state["last_new_pass_cycle"] = last_new
@@ -755,8 +791,15 @@ def assess_stall(state: dict[str, Any] | None = None) -> dict[str, Any]:
         window = hist[-stall_n:]
         totals = [int(h.get("pass_total") or 0) for h in window]
         if len(set(totals)) == 1:
-            on = True
-            reason = "flat_passes"
+            # A verified-depth advance in this window postpones STALL.
+            last_depth = str(state.get("last_depth_progress_cycle") or "")
+            window_ids = {str(h.get("cycle_id") or "") for h in window}
+            if last_depth and last_depth in window_ids:
+                on = False
+                reason = ""
+            else:
+                on = True
+                reason = "flat_passes"
     if not on:
         # Dead-end turns: only cycles with recorded turns count. A historical
         # cycle id ingested from the lesson ledger, with no turns in this
@@ -840,6 +883,7 @@ def enter_perturb(cycle_id: str, reason: str = "flat_passes", commit_sha: str | 
     sha = commit_sha if commit_sha is not None else _git_sha()
     seed = perturb_seed(cycle_id, sha)
     strategy = str(pert.get("strategy") or "explore")
+    pert.pop("no_candidates_pass_total", None)
     pert.update({
         "active": True,
         "entered_at": cycle_id,
@@ -973,6 +1017,14 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
         else:
             pert["cooldown_until"] = -1
             pert["strategy"] = "mutate"
+        try:
+            hist = list(state.get("pass_history") or [])
+            if hist:
+                pert["no_candidates_pass_total"] = int(hist[-1].get("pass_total") or 0)
+            else:
+                pert["no_candidates_pass_total"] = int(current_pass_total())
+        except Exception:
+            pert["no_candidates_pass_total"] = None
     else:
         # A real recovery: drop the cooldown and return to ordinary exploration.
         pert["cooldown_until"] = -1
@@ -981,6 +1033,7 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
         pert["session_targets"] = []
         pert["session_progress"] = False
         pert["zero_pick_streak"] = 0
+        pert["no_candidates_pass_total"] = None
     pert["active"] = False
     pert["exit_reason"] = reason
     pert["exit_cycle"] = cycle_id
@@ -1061,16 +1114,123 @@ def _tried_last_n(n: int = UNUSED_MENU_CYCLES) -> set[str]:
     return tried
 
 
-def record_targets_tried(cycle_id: str, targets: Iterable[str]) -> None:
+def record_targets_tried(cycle_id: str, targets: Iterable[str], *, kind: str = "oracle") -> None:
+    """Record targets tried this cycle. ``kind`` is ``oracle`` or ``depth``.
+
+    Rows of different kinds on the same cycle are kept separately and
+    merged on a second call of the same kind (union of ids). Visibility
+    counts both; the self-heal Oracle-targets metric counts only ``oracle``
+    (and legacy rows with no kind).
+    """
     names = [str(t) for t in targets if t]
     if not cycle_id or not names:
         return
     state = load_state()
     _cycle_index(state, cycle_id)
-    rows = [r for r in (state.get("targets_tried") or []) if r.get("cycle_id") != cycle_id]
-    rows.append({"cycle_id": cycle_id, "targets": names})
-    state["targets_tried"] = rows[-80:]
+    kind_key = str(kind or "oracle")
+    kept: list[dict[str, Any]] = []
+    existing: list[str] = []
+    for r in (state.get("targets_tried") or []):
+        if r.get("cycle_id") == cycle_id and str(r.get("kind") or "oracle") == kind_key:
+            for t in r.get("targets") or []:
+                if t and str(t) not in existing:
+                    existing.append(str(t))
+            continue
+        kept.append(r)
+    merged = list(existing)
+    for n in names:
+        if n not in merged:
+            merged.append(n)
+    kept.append({"cycle_id": cycle_id, "targets": merged, "kind": kind_key})
+    state["targets_tried"] = kept[-80:]
     save_state(state)
+
+
+def record_verified_depth_progress(
+    cycle_id: str,
+    targets: Iterable[str] | None = None,
+    *,
+    attempt_log: dict[str, Any] | None = None,
+) -> list[str]:
+    """Record targets whose verified depth strictly increased this cycle.
+
+    Those ids count toward ``targets_tried`` / ``distinct_targets_tried_last_3_cycles``
+    (kind=depth, not Oracle-bound). ``stall_cycles`` resets so a depth win
+    postpones STALL and PERTURB re-entry. Returns the ids recorded.
+    """
+    names: list[str]
+    if targets is not None:
+        names = [str(t) for t in targets if t]
+    else:
+        try:
+            from colony.self_heal import targets_with_new_depth
+            if attempt_log is None:
+                from colony.oeis_conjectures import load_attempt_log
+                attempt_log = load_attempt_log()
+            names = [str(t) for t in targets_with_new_depth(attempt_log, cycle_id) if t]
+        except Exception:
+            names = []
+    if not cycle_id or not names:
+        return []
+    record_targets_tried(cycle_id, names, kind="depth")
+    state = load_state()
+    state["last_depth_progress_cycle"] = cycle_id
+    hist = [h for h in (state.get("depth_progress_history") or [])
+            if str(h.get("cycle_id") or "") != cycle_id]
+    hist.append({"cycle_id": cycle_id, "targets": names})
+    state["depth_progress_history"] = hist[-80:]
+    stall, last_new = _stall_cycles_from_hist(state.get("pass_history") or [])
+    state["stall_cycles"] = _stall_cycles_with_depth(state, stall)
+    if last_new:
+        state["last_new_pass_cycle"] = last_new
+    save_state(state)
+    return names
+
+
+def has_eligible_progress_target(state: dict[str, Any] | None = None) -> bool:
+    """True if at least one OEIS target can still be pushed to a new depth."""
+    try:
+        cand = _oeis_candidates(set(), set())
+    except Exception:
+        return False
+    excluded: set[str] = set()
+    try:
+        st = state if state is not None else load_state()
+        excluded = {str(x) for x in ((st.get("perturb") or {}).get("exclude_targets") or []) if x}
+    except Exception:
+        excluded = set()
+    for c in cand:
+        if c.get("can_progress") and str(c.get("id") or "") not in excluded:
+            return True
+    return False
+
+
+def _block_reentry_after_no_candidates(state: dict[str, Any], cycle_id: str = "") -> bool:
+    """After a no_candidates exit, stay out until passes move or a target is eligible.
+
+    Item 33: do not re-enter on the same Oracle pass total until a
+    new-depth or new-check target is actually eligible.
+    """
+    pert = state.get("perturb") or {}
+    if pert.get("active"):
+        return False
+    reason = str(pert.get("exit_reason") or "")
+    if reason not in ("no_candidates", "no_eligible", "no_eligible_target", "no eligible target"):
+        return False
+    locked = pert.get("no_candidates_pass_total")
+    if locked is None:
+        return False
+    try:
+        locked_n = int(locked)
+    except (TypeError, ValueError):
+        return False
+    hist = list(state.get("pass_history") or [])
+    current = int((hist[-1] or {}).get("pass_total") or 0) if hist else 0
+    if current != locked_n:
+        return False
+    if has_eligible_progress_target(state):
+        return False
+    return True
 
 
 def selection_bonus(target_id: str, *, ledger_seen: set[str] | None = None,
@@ -2015,6 +2175,10 @@ def maybe_enter_or_exit(
             report["action"] = "cooldown"
             report["cooldown_remaining"] = perturb_cooldown_remaining(cycle_id, state)
             return report
+        if _block_reentry_after_no_candidates(state, cycle_id):
+            report["action"] = "blocked_no_candidates"
+            report["no_candidates_pass_total"] = (state.get("perturb") or {}).get("no_candidates_pass_total")
+            return report
         report["action"] = "enter"
         report["perturb"] = enter_perturb(cycle_id, reason=str(stall.get("reason") or "flat_passes"),
                                           commit_sha=commit_sha)
@@ -2044,7 +2208,11 @@ def on_cycle_start(cycle_id: str, *, commit_sha: str | None = None) -> dict[str,
     state = load_state()
     if not (state.get("perturb") or {}).get("active"):
         stall = assess_stall(state)
-        if stall.get("on") and not in_perturb_cooldown(cycle_id, state):
+        if (
+            stall.get("on")
+            and not in_perturb_cooldown(cycle_id, state)
+            and not _block_reentry_after_no_candidates(state, cycle_id)
+        ):
             enter_perturb(cycle_id, reason=str(stall.get("reason") or "flat_passes"), commit_sha=commit_sha)
     return {"perturb_active": perturb_active(), "stall": assess_stall(), "visibility": visibility()}
 
@@ -2064,6 +2232,12 @@ def on_cycle_end(
     kills = [_kill_sig(r) for r in this if r.get("passed") is False]
     passes_here = sum(1 for r in this if r.get("passed") is True)
     snap = record_pass_total(cycle_id, total, kills=kills)
+    try:
+        record_verified_depth_progress(cycle_id)
+        # Re-read stall_cycles after a possible depth reset.
+        snap["stall_cycles"] = int(load_state().get("stall_cycles") or 0)
+    except Exception:
+        pass
     # Record Oracle turns we can see.
     for r in this:
         outcome = "pass" if r.get("passed") is True else (
@@ -2108,9 +2282,9 @@ def visibility() -> dict[str, Any]:
     cycles = list(state.get("cycles") or [])
     last3 = set(cycles[-3:])
     targets: set[str] = set()
-    # Only IDs that actually reached the Oracle (recorded as targets_tried,
-    # which run_perturb_turn now fills with Oracle-bound ids only, plus turns
-    # whose outcome is a real Oracle verdict). Parked fingerprints and skipped
+    # IDs that reached the Oracle (targets_tried kind=oracle, plus turns
+    # with a real Oracle verdict) and IDs with a strict verified-depth
+    # extension this window (kind=depth). Parked fingerprints and skipped
     # themes are not counted.
     for row in state.get("targets_tried") or []:
         if not last3 or row.get("cycle_id") in last3:
