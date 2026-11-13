@@ -137,7 +137,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
     except Exception:
         heal_line = "unavailable"
     try:
-        from colony.swarm_learn import format_visibility as format_swarm
+        from colony.hive_adapter import format_visibility as format_swarm
         swarm_line = format_swarm()
     except Exception:
         swarm_line = "unavailable"
@@ -203,7 +203,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
   <p>{escape(checker_line)}</p>
   <h2>Self-heal</h2>
   <p>{escape(heal_line)}</p>
-  <h2>Bitwork swarm</h2>
+  <h2>Hive</h2>
   <p>{escape(swarm_line)}</p>
   <h2>Population &amp; genomes</h2>
   <ul>
@@ -263,7 +263,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         f"**Stall:** {stall_line}",
         f"**Checker proposals awaiting human review:** {checker_line}",
         f"**Self-heal:** {heal_line}",
-        f"**Bitwork swarm:** {swarm_line}",
+        f"**Hive:** {swarm_line}",
         f"**Bus reply rate:** {(fitness or {}).get('comm_reply_rate', '—')}",
         f"**Improvement proposals:** {len(proposals)} (all candidate until human authorize)",
         f"**Commons size:** {commons_size}",

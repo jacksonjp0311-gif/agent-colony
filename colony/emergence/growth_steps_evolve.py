@@ -189,7 +189,7 @@ class GrowthSteps3:
         except Exception:
             pass
         try:
-            from colony.swarm_learn import on_cycle, visibility as swarm_visibility
+            from colony.hive_adapter import on_cycle, visibility as swarm_visibility
             on_cycle(cycle_id)
             for key, value in swarm_visibility().items():
                 metrics.setdefault(key, value)

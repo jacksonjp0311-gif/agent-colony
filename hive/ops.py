@@ -1,4 +1,4 @@
-"""Bounded, safe patch operations the colony may apply to its own policy.
+"""Bounded, safe patch operations Hive may propose to a host such as the colony.
 
 Each operation has hard bounds and is validated before use. Nothing
 here can set or loosen Oracle thresholds, the P ≥ 0.70 gate, the 150
@@ -58,7 +58,7 @@ ID_LEN_HI = 80
 PATTERN_LEN_HI = 160
 
 # Names and fragments that can never appear as a knob or rule target.
-# Kept in sync with colony.self_heal._INVARIANT_FRAGMENTS in spirit;
+# Kept in sync with the host's frozen-rule fragments in spirit;
 # this module also rejects them on every other op.
 _INVARIANT_FRAGMENTS = (
     "p_min", "pmin", "standing_trust", "authorize_p",
@@ -81,8 +81,8 @@ def touches_invariant(name: str) -> bool:
     if not key:
         return False
     try:
-        from colony.self_heal import is_invariant_name
-        if is_invariant_name(name) or is_invariant_name(key):
+        from hive import host
+        if host.heal_is_invariant_name(name) or host.heal_is_invariant_name(key):
             return True
     except Exception:
         pass
@@ -106,7 +106,7 @@ class ValidatedAction:
 
 
 def _fp(op: str, payload: Mapping[str, Any]) -> str:
-    from colony.bitwork import action_fingerprint
+    from hive.bitwork import action_fingerprint
     return action_fingerprint({"op": op, **dict(payload)})
 
 
@@ -183,9 +183,12 @@ def _validate_set_knob(action: Mapping[str, Any]) -> ValidatedAction:
     if touches_invariant(name):
         return _reject("set_knob", dict(action), "invariant")
     try:
-        from colony.self_heal import (
-            KNOB_SPECS, in_bounds, is_invariant_name, stepped_value, current_knob,
-        )
+        from hive import host
+        KNOB_SPECS = host.KNOB_SPECS
+        in_bounds = host.heal_in_bounds
+        is_invariant_name = host.heal_is_invariant_name
+        stepped_value = host.heal_stepped_value
+        current_knob = host.heal_current_knob
     except Exception as exc:  # noqa: BLE001
         return _reject("set_knob", dict(action), f"self_heal_unavailable:{exc}")
     if is_invariant_name(name) or name not in KNOB_SPECS:
@@ -292,7 +295,9 @@ def _validate_triviality(action: Mapping[str, Any]) -> ValidatedAction:
         "direction": "tighten",
     }
     try:
-        from colony.checker_lane import tighten_only_guard, invariant_hits
+        from hive import host
+        tighten_only_guard = host.tighten_only_guard
+        invariant_hits = host.invariant_hits
         # History can be empty: the guard still rejects invariant hits
         # and loosening. Full replay happens in the checker lane itself.
         decision = tighten_only_guard(candidate, history=[])
@@ -319,8 +324,8 @@ def _validate_triviality(action: Mapping[str, Any]) -> ValidatedAction:
 
 def legal_knob_names() -> list[str]:
     try:
-        from colony.self_heal import KNOB_SPECS, is_invariant_name
-        return [n for n in KNOB_SPECS if not is_invariant_name(n)]
+        from hive import host
+        return [n for n in host.KNOB_SPECS if not host.heal_is_invariant_name(n)]
     except Exception:
         return []
 

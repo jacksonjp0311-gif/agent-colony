@@ -1,9 +1,9 @@
-"""Bitwork-taught swarm: agents label failures, retrieve fixes, and learn.
+"""Hive: agents label failures, retrieve fixes, and learn.
 
 Each evolve cycle:
 
 * every swarm role independently labels observed failures and proposes
-  a bounded fix action from the closed vocabulary in ``fix_actions``
+  a bounded fix action from the closed vocabulary in ``hive.ops``
 * proposals are scored by Bitwork retrieval against the shared,
   append-only fix library
 * disagreements are resolved by a vote plus Bitwork confidence; the
@@ -31,9 +31,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
-import colony.fix_actions as FA
-import colony.fix_library as FL
-from colony.bitwork import (
+import hive.ops as FA
+import hive.library as FL
+from hive.bitwork import (
     WILSON_ACCEPT_PERMILLE,
     Match,
     Router,
@@ -225,8 +225,8 @@ def observe(cycle_id: str = "") -> list[dict[str, Any]]:
     """Current-cycle findings, plus any raw failures just mined."""
     findings: list[dict[str, Any]] = []
     try:
-        from colony.self_heal import diagnose
-        findings.extend(diagnose(cycle_id) or [])
+        from hive import host
+        findings.extend(host.diagnose(cycle_id) or [])
     except Exception:
         pass
     return [f for f in findings if isinstance(f, dict) and f.get("kind")]
@@ -293,8 +293,8 @@ def _action_for_role(
         # Prefer a diagnosis suggestion from self-heal when the knob is
         # in this role's list.
         try:
-            from colony.self_heal import DIAGNOSIS_SUGGESTIONS
-            for knob, direction in DIAGNOSIS_SUGGESTIONS.get(kind, []):
+            from hive import host
+            for knob, direction in host.DIAGNOSIS_SUGGESTIONS.get(kind, []):
                 if knobs and knob not in knobs:
                     continue
                 return {"op": "set_knob", "name": knob, "direction": direction}
@@ -519,8 +519,8 @@ def vote(
 
 def _heal_busy() -> bool:
     try:
-        from colony.self_heal import load_state
-        return bool(load_state().get("trial"))
+        from hive import host
+        return bool(host.heal_load_state().get("trial"))
     except Exception:
         return False
 
@@ -528,9 +528,9 @@ def _heal_busy() -> bool:
 def _heal_window_rows(window: int) -> list[dict[str, Any]]:
     """Metric rows rescored with the corrected ``new_depth`` (PR #7)."""
     try:
-        from colony.self_heal import load_state, rescore_metric_row
-        st = load_state()
-        rows = [rescore_metric_row(r) for r in list(st.get("metrics") or [])[-int(window):]]
+        from hive import host
+        st = host.heal_load_state()
+        rows = [host.heal_rescore_metric_row(r) for r in list(st.get("metrics") or [])[-int(window):]]
         return rows
     except Exception:
         return []
@@ -538,12 +538,12 @@ def _heal_window_rows(window: int) -> list[dict[str, Any]]:
 
 def _heal_window_score(window: int) -> float | None:
     try:
-        from colony.self_heal import window_score, current_knob
-        w = int(window or current_knob("evaluation_window"))
+        from hive import host
+        w = int(window or host.heal_current_knob("evaluation_window"))
         rows = _heal_window_rows(w)
         if len(rows) < w:
             return None
-        return float(window_score(rows))
+        return float(host.heal_window_score(rows))
     except Exception:
         return None
 
@@ -556,11 +556,16 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     name = str(action.get("name") or "")
     direction = str(action.get("direction") or "up")
     try:
-        from colony.self_heal import (
-            current_knob, stepped_value, replay_proposal, load_state as load_heal,
-            start_trial, window_score, rescore_metric_row, KNOB_SPECS,
-            is_invariant_name,
-        )
+        from hive import host
+        current_knob = host.heal_current_knob
+        stepped_value = host.heal_stepped_value
+        replay_proposal = host.heal_replay_proposal
+        load_heal = host.heal_load_state
+        start_trial = host.heal_start_trial
+        window_score = host.heal_window_score
+        rescore_metric_row = host.heal_rescore_metric_row
+        KNOB_SPECS = host.KNOB_SPECS
+        is_invariant_name = host.heal_is_invariant_name
     except Exception as exc:  # noqa: BLE001
         return {"ok": False, "reason": f"self_heal_unavailable:{exc}"}
     if is_invariant_name(name) or name not in KNOB_SPECS:
@@ -617,7 +622,10 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     if state.get("trial"):
         return {"ok": False, "reason": "swarm_trial_running"}
     try:
-        from colony.self_heal import current_knob, window_score, rescore_metric_row
+        from hive import host
+        current_knob = host.heal_current_knob
+        window_score = host.heal_window_score
+        rescore_metric_row = host.heal_rescore_metric_row
         window = int(current_knob("evaluation_window"))
     except Exception:
         window = 6
@@ -625,8 +633,8 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     if len(rows) < window:
         return {"ok": False, "reason": "not_enough_metrics"}
     try:
-        from colony.self_heal import window_score
-        baseline = float(window_score(rows))
+        from hive import host
+        baseline = float(host.heal_window_score(rows))
     except Exception:
         baseline = float(sum(float(r.get("score") or 0) for r in rows))
     trial = {
@@ -672,9 +680,13 @@ def maybe_close_rule_trial(state: dict[str, Any], cycle_id: str) -> dict[str, An
     if not isinstance(trial, dict):
         return state
     try:
-        from colony.self_heal import current_knob, window_score, rescore_metric_row, collect_metrics
+        from hive import host
+        current_knob = host.heal_current_knob
+        window_score = host.heal_window_score
+        rescore_metric_row = host.heal_rescore_metric_row
+        collect_metrics = host.heal_collect_metrics
         window = int(trial.get("window") or current_knob("evaluation_window"))
-        # Pull the latest metric row (corrected new_depth) from self-heal.
+        # Pull the latest metric row (corrected new_depth) from the host.
         try:
             row = collect_metrics(cycle_id)
             row = rescore_metric_row(row)
@@ -807,8 +819,8 @@ def harvest_self_heal_outcomes(
 ) -> list[dict[str, Any]]:
     """Teach Bitwork from self-heal adopt / revert events not yet seen."""
     try:
-        from colony.self_heal import load_state
-        evidence = list(load_state().get("evidence") or [])
+        from hive import host
+        evidence = list(host.heal_load_state().get("evidence") or [])
     except Exception:
         evidence = []
     seen = set(state.get("seen_heal_ids") or [])

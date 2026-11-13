@@ -1,6 +1,6 @@
 """Swarm learning loop: bounds, invariants, vote, abstention, adopt/revert.
 
-The colony's agents label failures, Bitwork retrieves a fix from the
+Hive's agents label failures, Bitwork retrieves a fix from the
 shared library, a vote plus the Wilson gate decides whether to apply
 it, and adopt / revert outcomes are written back so the next cycle
 compounds. Frozen rules cannot be set.
@@ -11,13 +11,14 @@ import json
 from pathlib import Path
 
 import colony.dashboard as dashboard
-import colony.fix_actions as FA
-import colony.fix_library as FL
+import colony.hive_adapter  # binds Hive to live self-heal / checker-lane
 import colony.self_heal as SH
 import colony.stall as S
-import colony.swarm_learn as SL
 import colony.telemetry as telemetry
-from colony.bitwork import (
+import hive.library as FL
+import hive.ops as FA
+import hive.swarm as SL
+from hive.bitwork import (
     WILSON_ACCEPT_PERMILLE,
     Router,
     action_fingerprint,
@@ -597,9 +598,9 @@ def test_telemetry_and_dashboard_surface_swarm_fields(tmp_path, monkeypatch):
     dashboard.refresh_dashboard(tmp_path)
     html = (tmp_path / "society" / "DASHBOARD.html").read_text(encoding="utf-8")
     summary = (tmp_path / "society" / "WITNESS_SUMMARY.md").read_text(encoding="utf-8")
-    assert "Bitwork swarm" in html
+    assert "Hive" in html
     assert "library" in html
-    assert "Bitwork swarm" in summary
+    assert "Hive" in summary
     assert "replay accuracy" in line
     assert "library" in line
 
@@ -607,8 +608,8 @@ def test_telemetry_and_dashboard_surface_swarm_fields(tmp_path, monkeypatch):
 def test_evolve_hook_is_guarded():
     src = Path(__file__).resolve().parents[1] / "colony" / "emergence" / "growth_steps_evolve.py"
     text = src.read_text(encoding="utf-8")
-    assert "from colony.swarm_learn import on_cycle" in text
-    idx = text.index("from colony.swarm_learn import on_cycle")
+    assert "from colony.hive_adapter import on_cycle" in text
+    idx = text.index("from colony.hive_adapter import on_cycle")
     window = text[max(0, idx - 80): idx + 360]
     assert "try:" in window
     assert "except Exception:" in window

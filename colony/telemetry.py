@@ -202,7 +202,7 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
         heal_vis = {}
     swarm_vis = {}
     try:
-        from colony.swarm_learn import visibility as swarm_visibility
+        from colony.hive_adapter import visibility as swarm_visibility
         swarm_vis = swarm_visibility()
     except Exception:
         swarm_vis = {}

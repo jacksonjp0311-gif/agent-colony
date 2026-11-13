@@ -7,7 +7,7 @@ no external model.
 """
 from __future__ import annotations
 
-from colony.bitwork import (
+from hive.bitwork import (
     BITS,
     FNV_OFFSET,
     FNV_PRIME,

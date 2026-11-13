@@ -1,4 +1,4 @@
-"""Bitwork-style deterministic sparse binary router, in pure Python.
+"""Hive's Bitwork-style deterministic sparse binary router, in pure Python.
 
 Design source: Perci (github.com/jacksonjp0311-gif/Perci). The encoder
 and feature hash match ``src/cognitive.rs`` (``normalize``,

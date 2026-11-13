@@ -110,6 +110,26 @@ python3 -m colony authorize --decisions society/receipts/AUTHORIZE_DECISIONS.jso
 
 ---
 
+## Hive
+
+The colony's fix-choosing swarm is a standalone package, [Hive](hive/README.md).
+It is a deterministic retrieval-based chooser built on James's Bitwork router:
+it looks up past fixes and proposes one from a closed set of safe operations.
+It is not a neural network, does not call an outside model, and cannot write
+free-form code. The Oracle, the P ≥ 0.70 gate, the 150 authored-check cap,
+Athanor mathematics, the append-only witness, and human authorize are outside
+its reach. The colony talks to it only through `colony/hive_adapter.py`.
+
+```bash
+python3 -m hive                  # run Hive on its own (temp library, held-out replay)
+python3 -m pytest hive/tests -q  # Hive's tests, no colony required
+pip install ./hive               # pure stdlib, no extra dependencies
+```
+
+To take it out and examine it: `cp -a hive /some/path/hive`, then run the
+commands above with `PYTHONPATH` set to `/some/path`. See [hive/README.md](hive/README.md).
+
+---
 
 ## Novel-math pressure (honest)
 
