@@ -212,40 +212,50 @@ _CODE_FINGERPRINT_CACHE: str | None = None
 UNRECORDED_FINGERPRINT = "unrecorded"
 
 
+def _code_roots() -> list[tuple[str, Path]]:
+    """Source trees that belong in the environment fingerprint.
+
+    ``colony/`` is always included. ``hive/`` is included when present,
+    so a Hive code change mid-trial is a confound the same way a colony
+    change is. Library JSONL and other data files are not hashed.
+    """
+    roots: list[tuple[str, Path]] = [("colony", Path(__file__).resolve().parent)]
+    hive = ROOT / "hive"
+    if hive.is_dir():
+        roots.append(("hive", hive))
+    return roots
+
+
 def _colony_file_digest() -> str:
-    """SHA-256 of colony/ Python and default JSON, in path order."""
+    """SHA-256 of colony/ and hive/ Python and default JSON, in path order."""
     global _CODE_FINGERPRINT_CACHE
     if _CODE_FINGERPRINT_CACHE is not None:
         return _CODE_FINGERPRINT_CACHE
-    root = Path(__file__).resolve().parent
     parts: list[str] = []
-    for path in sorted(root.rglob("*")):
-        if not path.is_file():
-            continue
-        if "__pycache__" in path.parts or path.suffix == ".pyc":
-            continue
-        if path.suffix not in {".py", ".json"}:
-            continue
-        rel = path.relative_to(root).as_posix()
-        try:
-            data = path.read_bytes()
-        except OSError:
-            continue
-        parts.append(f"{rel}:{hashlib.sha256(data).hexdigest()}")
+    for label, root in _code_roots():
+        for path in sorted(root.rglob("*")):
+            if not path.is_file():
+                continue
+            if "__pycache__" in path.parts or path.suffix == ".pyc":
+                continue
+            if path.suffix not in {".py", ".json"}:
+                continue
+            rel = path.relative_to(root).as_posix()
+            try:
+                data = path.read_bytes()
+            except OSError:
+                continue
+            parts.append(f"{label}/{rel}:{hashlib.sha256(data).hexdigest()}")
     digest = hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
     _CODE_FINGERPRINT_CACHE = digest
     return digest
 
 
-def _colony_tree_sha() -> str:
-    """Git tree SHA of colony/. Empty if git is unavailable.
-
-    Data-only commits that do not touch colony/ leave this unchanged, so
-    a spark-loop data push does not void a trial.
-    """
+def _git_tree_sha(subtree: str) -> str:
+    """Git tree SHA of one subtree. Empty if git is unavailable."""
     try:
         out = subprocess.check_output(
-            ["git", "rev-parse", "HEAD:colony"],
+            ["git", "rev-parse", f"HEAD:{subtree}"],
             cwd=str(ROOT),
             text=True,
             stderr=subprocess.DEVNULL,
@@ -253,6 +263,18 @@ def _colony_tree_sha() -> str:
         return out or ""
     except Exception:
         return ""
+
+
+def _colony_tree_sha() -> str:
+    """Git tree SHA of colony/ (and hive/ when present).
+
+    Data-only commits that do not touch those trees leave this unchanged,
+    so a spark-loop data push does not void a trial.
+    """
+    parts = [f"colony:{_git_tree_sha('colony')}"]
+    if (ROOT / "hive").is_dir():
+        parts.append(f"hive:{_git_tree_sha('hive')}")
+    return ",".join(parts)
 
 
 def environment_fingerprint(
@@ -268,7 +290,10 @@ def environment_fingerprint(
     if state is not None and isinstance(state.get("knobs"), dict):
         knobs_src = state["knobs"]
     else:
-        knobs_src = default_knobs()
+        try:
+            knobs_src = (load_state().get("knobs") or default_knobs())
+        except Exception:
+            knobs_src = default_knobs()
     knobs: dict[str, int | float] = {}
     skip = str(exclude_knob or "")
     for name, spec in KNOB_SPECS.items():

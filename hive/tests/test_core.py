@@ -376,3 +376,27 @@ def test_format_visibility_plain_wording(tmp_path, monkeypatch):
     for banned in ("conscious", "consciousness", "breakthrough", "AGI", "sentient"):
         assert banned.lower() not in line.lower()
 
+
+def test_voided_trial_is_not_taught(tmp_path, monkeypatch):
+    """A trial_voided_confound event is neither a positive nor a negative example."""
+    from hive.bitwork import Router
+    import hive.library as FL
+    import hive.swarm as SL
+    monkeypatch.setattr(FL, "LIBRARY_LOG", tmp_path / "fix_library.jsonl")
+    router = Router()
+    ev = {
+        "event": "trial_voided_confound",
+        "id": "void1",
+        "cycle_id": "c1",
+        "knob": "perturb_cooldown_cycles",
+        "from": 8, "to": 6, "direction": "up",
+        "reason": "environment_changed",
+        "adopted": False, "reverted": False,
+        "baseline_score": 0.0, "trial_score": 2.0,
+    }
+    assert SL.teach_from_event(router, ev) is None
+    ev_rule = dict(ev, via="swarm_rule", action={"op": "add_park_rule", "target_kind": "dead_end", "cycles": 12}, knob=None)
+    assert SL.teach_from_event(router, ev_rule) is None
+    assert FL.load_records() == []
+    assert router.library_size() == 0
+

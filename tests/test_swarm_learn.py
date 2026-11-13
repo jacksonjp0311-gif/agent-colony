@@ -50,7 +50,10 @@ def _metric(cycle_id, targets=0, depth=0, delta=0, passes=528):
 
 def _prime_heal(n=6, score_targets=0):
     st = SH.load_state()
+    fp = SH.environment_fingerprint(state=st)["digest"]
     rows = [_metric(f"b{i}", targets=score_targets) for i in range(n)]
+    for r in rows:
+        r["env_fingerprint"] = fp
     st["metrics"] = rows
     st["cycle_index"] = n - 1
     st["cycles"] = [f"b{i}" for i in range(n)]
@@ -622,3 +625,134 @@ def test_format_visibility_plain_wording(tmp_path, monkeypatch):
     line = SL.format_visibility()
     for banned in ("conscious", "consciousness", "breakthrough", "AGI", "sentient"):
         assert banned.lower() not in line.lower()
+
+
+# ---------------------------------------------------------------------------
+# Item 32 (Hive) — confound void covers Hive-started trials; no teaching
+# ---------------------------------------------------------------------------
+
+def test_hive_knob_trial_records_fingerprint_and_voids_on_cap_change(tmp_path, monkeypatch):
+    """A Hive-started set_knob trial uses self-heal start_trial, so a
+    mid-trial cap change voids it. Harvest must not teach from the void."""
+    _isolate(tmp_path, monkeypatch)
+    _prime_heal(6)
+    proposal = SL.Proposal(
+        role="improver", label="no_progress_perturb",
+        action={"op": "set_knob", "name": "perturb_cooldown_cycles", "direction": "up"},
+        fingerprint=action_fingerprint(
+            {"op": "set_knob", "name": "perturb_cooldown_cycles", "direction": "up"}
+        ),
+        symptom="no progress perturb",
+    )
+    out = SL.start_knob_trial(proposal, cycle_id="t0", state=SL.load_state())
+    assert out["ok"] is True, out
+    live = SH.load_state()["trial"]
+    assert live["environment_fingerprint"]
+    assert live["source"] == "swarm"
+    assert SH.current_knob("perturb_cooldown_cycles") == 8
+    # Mid-trial confound: a different knob (evaluator cap) moves.
+    st = SH.load_state()
+    st["knobs"]["fast_term_cap"] = 16000
+    SH.save_state(st)
+    SH.run_cycle("t1", metrics=_metric("t1", depth=2))
+    st = SH.load_state()
+    assert st["trial"] is None
+    ev = [e for e in st["evidence"] if e.get("event") == "trial_voided_confound"]
+    assert ev
+    assert ev[0]["adopted"] is False
+    assert ev[0]["reverted"] is False
+    assert SH.current_knob("perturb_cooldown_cycles") == 6
+    assert st["adopted_count"] == 0
+    assert st["reverted_count"] == 0
+    # Hive must not treat the void as a teaching example.
+    router = Router()
+    swarm_st = SL.load_state()
+    taught = SL.harvest_self_heal_outcomes(router, swarm_st)
+    assert taught == []
+    assert SL.teach_from_event(router, ev[0]) is None
+    mined = FL.mine_self_heal()
+    assert all(r.get("evidence", {}).get("event") != "trial_voided_confound" for r in mined)
+    assert all(r.get("outcome") in ("positive", "negative", "unknown") and r.get("evidence", {}).get("event") != "trial_voided_confound" for r in mined)
+
+
+def test_hive_rule_trial_voids_on_fingerprint_change_without_teaching(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _prime_heal(6)
+    park = SL.Proposal(
+        role="pathfinder", label="dead_end_streak",
+        action={"op": "add_park_rule", "target_kind": "dead_end", "cycles": 12},
+        fingerprint="add_park_rule:cycles=12:target_kind=dead_end",
+        symptom="dead end streak",
+    )
+    st = SL.load_state()
+    started = SL.start_rule_trial(park, cycle_id="c0", state=st)
+    assert started["ok"] is True, started
+    trial = st["trial"]
+    assert trial["environment_fingerprint"]
+    # Mid-window: environment fingerprint no longer matches.
+    trial = dict(trial)
+    # Keep the recorded fingerprint, but make the live one differ by
+    # changing a host knob (fast_term_cap).
+    heal = SH.load_state()
+    heal["knobs"]["fast_term_cap"] = 16000
+    SH.save_state(heal)
+    # Six improving rows would have adopted if we did not void.
+    rows = [_metric(f"t{i}", targets=1) for i in range(6)]
+    idx = {"i": 0}
+
+    def _collect(cycle_id, stall_state=None):
+        r = rows[min(idx["i"], 5)]
+        idx["i"] += 1
+        return r
+
+    monkeypatch.setattr(SH, "collect_metrics", _collect)
+    n_library_before = len(FL.load_records() or [])
+    st = SL.maybe_close_rule_trial(st, "t0")
+    assert st["trial"] is None
+    assert st["adopted_count"] == 0
+    assert st["reverted_count"] == 0
+    assert st["last_decision"]["event"] == "trial_voided_confound"
+    assert st["last_decision"]["adopted"] is False
+    assert st["last_decision"]["reverted"] is False
+    assert st["last_decision"]["old_fingerprint"] != st["last_decision"]["new_fingerprint"]
+    # The in-trial rule was dropped, not adopted.
+    assert SL.active_rules(state=st) == []
+    router = Router()
+    assert SL.teach_from_event(router, st["last_decision"]) is None
+    assert len(FL.load_records() or []) == n_library_before
+
+
+def test_unrecorded_hive_rule_trial_voids(tmp_path, monkeypatch):
+    """A rule trial started under older code (no fingerprint) is voided."""
+    _isolate(tmp_path, monkeypatch)
+    _prime_heal(6)
+    st = SL.load_state()
+    st["trial"] = {
+        "op": "add_park_rule",
+        "action": {"op": "add_park_rule", "target_kind": "dead_end", "cycles": 12},
+        "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end",
+        "role": "pathfinder",
+        "label": "dead_end_streak",
+        "window": 6,
+        "baseline_score": 0.0,
+        "trial_metrics": [_metric(f"t{i}", targets=1) for i in range(6)],
+        "source": "swarm",
+    }
+    st["rules"] = [{
+        "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end",
+        "action": {"op": "add_park_rule", "target_kind": "dead_end", "cycles": 12},
+        "active": True, "trial": True,
+    }]
+    st["adopted_count"] = 0
+    st["reverted_count"] = 0
+    SL.save_state(st)
+    st = SL.maybe_close_rule_trial(st, "t5")
+    assert st["trial"] is None
+    assert st["adopted_count"] == 0
+    assert st["reverted_count"] == 0
+    assert st["last_decision"]["event"] == "trial_voided_confound"
+    assert st["last_decision"]["old_fingerprint"] == SH.UNRECORDED_FINGERPRINT
+    assert SL.active_rules(state=st) == []
+    router = Router()
+    assert SL.teach_from_event(router, st["last_decision"]) is None
+

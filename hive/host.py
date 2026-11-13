@@ -232,6 +232,69 @@ def heal_collect_metrics(cycle_id: str = "") -> dict[str, Any]:
             "oracle_pass_delta": 0, "oracle_passes": 0, "score": 0}
 
 
+UNRECORDED_FINGERPRINT = "unrecorded"
+
+
+def _standalone_fingerprint(*, exclude_knob: str | None = None) -> dict[str, Any]:
+    """Hive-only fingerprint used when no host self-heal is bound."""
+    import hashlib
+    root = Path(__file__).resolve().parent
+    parts: list[str] = []
+    for path in sorted(root.rglob("*")):
+        if not path.is_file():
+            continue
+        if "__pycache__" in path.parts or path.suffix == ".pyc":
+            continue
+        if path.suffix not in {".py", ".json"}:
+            continue
+        rel = path.relative_to(root).as_posix()
+        try:
+            data = path.read_bytes()
+        except OSError:
+            continue
+        parts.append(f"hive/{rel}:{hashlib.sha256(data).hexdigest()}")
+    knobs: dict[str, int | float] = {}
+    skip = str(exclude_knob or "")
+    for name, spec in knob_specs().items():
+        if name == skip:
+            continue
+        knobs[name] = getattr(spec, "default", 0)
+    code = hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
+    payload = json.dumps(
+        {"code": code, "knobs": knobs},
+        sort_keys=True, separators=(",", ":"), default=str,
+    )
+    digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+    return {"digest": digest, "code": code, "tree": "", "knobs": knobs}
+
+
+def heal_environment_fingerprint(
+    *,
+    exclude_knob: str | None = None,
+    state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    if _heal is not None:
+        return _heal.environment_fingerprint(exclude_knob=exclude_knob, state=state)
+    return _standalone_fingerprint(exclude_knob=exclude_knob)
+
+
+def heal_trial_fingerprint_mismatch(
+    trial: dict[str, Any] | None,
+    *,
+    state: dict[str, Any] | None = None,
+) -> tuple[bool, str, str]:
+    if _heal is not None:
+        return _heal.trial_fingerprint_mismatch(trial, state=state)
+    if not isinstance(trial, dict) or not trial:
+        return False, "", ""
+    current = _standalone_fingerprint(exclude_knob=str(trial.get("knob") or "") or None)
+    new_fp = str(current.get("digest") or "")
+    old_fp = str(trial.get("environment_fingerprint") or "")
+    if not old_fp:
+        return True, UNRECORDED_FINGERPRINT, new_fp
+    return old_fp != new_fp, old_fp, new_fp
+
+
 def diagnose(cycle_id: str = "") -> list[dict[str, Any]]:
     if _heal is not None:
         return list(_heal.diagnose(cycle_id) or [])
