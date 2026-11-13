@@ -11,10 +11,10 @@
     "note": "Fork point for the control arm. Control state is copied from treatment at the first control evolve, then frozen (self-heal knobs reset to defaults; the in-flight perturb_cooldown_cycles trial is not continued). After that, control evolves on its own tree. seeded_sha is filled at that first run.",
     "fork_note_hive": "Forked after Hive merged (PR #8). Control disables Hive learning through colony/hive_adapter.py."
   },
-  "updated_at": "2026-11-13T07:15:18Z",
-  "paired_runs": 4,
-  "treatment_cycles": 891,
-  "control_cycles": 891,
+  "updated_at": "2026-11-13T11:25:59Z",
+  "paired_runs": 5,
+  "treatment_cycles": 894,
+  "control_cycles": 894,
   "treatment": {
     "oracle_passes": 528,
     "oracle_kills": 340,
@@ -49,13 +49,13 @@
     "counterexamples": 0,
     "proofs": 23,
     "non_routine_proofs": 0,
-    "fitness": 0.8585,
+    "fitness": 0.8611,
     "novelty": 0.75,
     "adopts": 0,
-    "reverts": 0,
-    "cycle_count": 891,
+    "reverts": 1,
+    "cycle_count": 894,
     "self_heal_frozen": false,
-    "self_heal_trial": "perturb_cooldown_cycles"
+    "self_heal_trial": null
   },
   "control": {
     "oracle_passes": 528,
@@ -95,7 +95,7 @@
     "novelty": 0.75,
     "adopts": 0,
     "reverts": 0,
-    "cycle_count": 891,
+    "cycle_count": 894,
     "self_heal_frozen": true,
     "self_heal_trial": null
   },
@@ -107,10 +107,10 @@
     "counterexamples": 0,
     "proofs": 0,
     "non_routine_proofs": 0,
-    "fitness": 0.0011,
+    "fitness": 0.0037,
     "novelty": 0.0,
     "adopts": 0,
-    "reverts": 0,
+    "reverts": 1,
     "cycle_count": 0
   },
   "last_paired": true,
@@ -344,6 +344,63 @@
       },
       "treatment_cycles": 891,
       "control_cycles": 891
+    },
+    {
+      "ts": "2026-11-13T11:25:59Z",
+      "run_id": "43415099744",
+      "cycles_this_run": 3,
+      "paired": true,
+      "treatment_result": "success",
+      "control_result": "success",
+      "treatment": {
+        "oracle_passes": 528,
+        "oracle_kills": 340,
+        "verified_depth_sum": 9228,
+        "beyond_published_count": 3,
+        "counterexamples": 0,
+        "proofs": 23,
+        "non_routine_proofs": 0,
+        "fitness": 0.8611,
+        "novelty": 0.75,
+        "adopts": 0,
+        "reverts": 1,
+        "cycle_count": 894,
+        "self_heal_frozen": false,
+        "self_heal_trial": null
+      },
+      "control": {
+        "oracle_passes": 528,
+        "oracle_kills": 340,
+        "verified_depth_sum": 9228,
+        "beyond_published_count": 3,
+        "counterexamples": 0,
+        "proofs": 23,
+        "non_routine_proofs": 0,
+        "fitness": 0.8574,
+        "novelty": 0.75,
+        "adopts": 0,
+        "reverts": 0,
+        "cycle_count": 894,
+        "self_heal_frozen": true,
+        "self_heal_trial": null,
+        "missing": null
+      },
+      "delta": {
+        "oracle_passes": 0,
+        "oracle_kills": 0,
+        "verified_depth_sum": 0,
+        "beyond_published_count": 0,
+        "counterexamples": 0,
+        "proofs": 0,
+        "non_routine_proofs": 0,
+        "fitness": 0.0037,
+        "novelty": 0.0,
+        "adopts": 0,
+        "reverts": 1,
+        "cycle_count": 0
+      },
+      "treatment_cycles": 894,
+      "control_cycles": 894
     }
   ]
 }

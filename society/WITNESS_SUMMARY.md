@@ -14,7 +14,7 @@
 **Checker proposals awaiting human review:** checker proposals awaiting human review: 0; last cycle mined 1, accepted 0, rejected 1
 **Self-heal:** self_changes_adopted 0; self_changes_reverted 1; last_self_change revert perturb_cooldown_cycles 8→6 (baseline 0.0, trial 0.0, no_progress_perturb); quarantined steps: none
 **Hive:** library 38 records 50; replay accuracy 1000 permille, Wilson lower 898 permille; adopted 0; reverted 0; abstained 3; time-to-fix none yet
-**Treatment vs control:** paired_runs 4; Δpasses +0; Δdepth +0; Δadopts +0 (early differences are noise)
+**Treatment vs control:** paired_runs 5; Δpasses +0; Δdepth +0; Δadopts +0 (early differences are noise)
 **Bus reply rate:** 0.8
 **Improvement proposals:** 50 (all candidate until human authorize)
 **Commons size:** 200
