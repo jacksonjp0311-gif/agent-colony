@@ -1,0 +1,26 @@
+{
+  "kind": "witness",
+  "note": "Append-only segment list. Segment 1 is the original file, left untouched after rotation. New appends go to the active segment. Earlier bytes are never rewritten.",
+  "primary": "witness.jsonl",
+  "segments": [
+    {
+      "bytes": 55247359,
+      "id": 1,
+      "kind": "file",
+      "last_line_sha256": "22b9499422c1a3db2b126baca2408b82408de49a91e1b349cbd59e03aebbf1b7",
+      "path": "witness.jsonl",
+      "prev_sha256": "",
+      "status": "closed"
+    },
+    {
+      "bytes": 200996,
+      "id": 2,
+      "kind": "file",
+      "path": "witness/witness-0002.jsonl",
+      "prev_sha256": "22b9499422c1a3db2b126baca2408b82408de49a91e1b349cbd59e03aebbf1b7",
+      "status": "active"
+    }
+  ],
+  "threshold_bytes": 41943040,
+  "version": 1
+}

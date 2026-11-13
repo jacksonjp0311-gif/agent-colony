@@ -54,6 +54,36 @@
       "score": 0.0,
       "ts": "2026-11-13T03:44:44Z",
       "env_fingerprint": "7eced144f14a505269239f431639f7f0b08c747212eba5cf08f0c9a20be1af4f"
+    },
+    {
+      "cycle_id": "20261113T042121Z_d06de6",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T04:24:09Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T042455Z_2b827f",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T04:27:00Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T042742Z_f82e7f",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T04:29:47Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
     }
   ],
   "quarantine": {},
@@ -61,11 +91,14 @@
   "evidence": [],
   "adopted_count": 0,
   "reverted_count": 0,
-  "cycle_index": 2,
+  "cycle_index": 5,
   "cycles": [
     "20261113T033734Z_b59c7a",
     "20261113T034027Z_3761d7",
-    "20261113T034252Z_17899a"
+    "20261113T034252Z_17899a",
+    "20261113T042121Z_d06de6",
+    "20261113T042455Z_2b827f",
+    "20261113T042742Z_f82e7f"
   ],
   "last_self_change": null,
   "knob_last_trial": {}

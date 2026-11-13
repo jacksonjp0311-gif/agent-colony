@@ -1,0 +1,26 @@
+{
+  "kind": "ledger",
+  "note": "Append-only segment list. Segment 1 is the original file, left untouched after rotation. New appends go to the active segment. Earlier bytes are never rewritten.",
+  "primary": "ledger.jsonl",
+  "segments": [
+    {
+      "bytes": 58523489,
+      "id": 1,
+      "kind": "file",
+      "last_line_sha256": "dd055b9f20368693c85e7f3c39176b4ee2a5281a5a991f19cba1921151e430ce",
+      "path": "ledger.jsonl",
+      "prev_sha256": "",
+      "status": "closed"
+    },
+    {
+      "bytes": 193019,
+      "id": 2,
+      "kind": "file",
+      "path": "ledger/ledger-0002.jsonl",
+      "prev_sha256": "dd055b9f20368693c85e7f3c39176b4ee2a5281a5a991f19cba1921151e430ce",
+      "status": "active"
+    }
+  ],
+  "threshold_bytes": 41943040,
+  "version": 1
+}
