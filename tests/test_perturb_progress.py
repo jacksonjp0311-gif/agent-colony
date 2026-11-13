@@ -503,8 +503,9 @@ def test_replay_cycles_859_to_861_skips_held_and_cools_down(tmp_path, monkeypatc
 
 def test_replay_exhausted_menu_times_out_and_cools_down(tmp_path, monkeypatch):
     """When every menu entry is an already-held target that cannot move,
-    PERTURB does not spend its slots on them, times out, and a cooldown
-    stops the next cycle from re-entering the same loop."""
+    PERTURB does not spend its slots on them, exits on no_candidates
+    rather than burning the timeout, and a cooldown stops the next
+    cycle from re-entering the same loop."""
     _isolate(tmp_path, monkeypatch, oracle=_flat_oracle_and_passes())
     held = [_held_entry(*h) for h in HELD]
     OC.MENU.write_text(json.dumps({"entries": held}))
@@ -525,22 +526,24 @@ def test_replay_exhausted_menu_times_out_and_cools_down(tmp_path, monkeypatch):
         raise AssertionError(f"held id reached the Oracle: {target}")
 
     desk_ids = []
-    for cid in (C859, C860, C861):
-        S.on_cycle_start(cid, commit_sha="f83caede")
-        assert S.perturb_active() is True
-        out = S.run_perturb_turn(
-            cid, n=2, oracle_submit=submit, author=lambda shape, c: None,
-            commit_sha="f83caede",
-        )
-        for s in out["submissions"]:
-            if s.get("attempt"):
-                desk_ids.append(s.get("id"))
-                assert str(s.get("id") or "") not in HELD_IDS
-        S.on_cycle_end(cid, pass_total=528, rows=[])
+    # Item 27: a 0-eligible cycle exits immediately (no_candidates) rather
+    # than burning the remaining timeout budget. The first cycle is enough.
+    cid = C859
+    S.on_cycle_start(cid, commit_sha="f83caede")
+    assert S.perturb_active() is True
+    out = S.run_perturb_turn(
+        cid, n=2, oracle_submit=submit, author=lambda shape, c: None,
+        commit_sha="f83caede",
+    )
+    for s in out["submissions"]:
+        if s.get("attempt"):
+            desk_ids.append(s.get("id"))
+            assert str(s.get("id") or "") not in HELD_IDS
+    S.on_cycle_end(cid, pass_total=528, rows=[])
 
     st = S.load_state()
     assert st["perturb"]["active"] is False
-    assert st["perturb"]["exit_reason"] == "timeout"
+    assert st["perturb"]["exit_reason"] == "no_candidates"
     assert not st["perturb"].get("session_progress")
     assert st["perturb"]["cooldown_until"] >= 0
     assert st["perturb"]["strategy"] == "mutate"

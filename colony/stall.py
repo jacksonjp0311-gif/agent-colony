@@ -16,7 +16,11 @@ mode. It leaves on a new Oracle pass, a genuinely new kill reason, or after
 nine cycles. A timeout doubles parked durations and widens the draw.
 A timeout with no new depth and no new Oracle row starts a cooldown so
 the next run does not immediately re-enter the same loop; the next
-entry uses a different (mutation-first) strategy.
+entry uses a different (mutation-first) strategy. A PERTURB cycle that
+finds no eligible picks first escalates to mutation-first and a broader
+candidate pool; if it is still empty, PERTURB exits to that same
+cooldown with a ``no_candidates`` lesson rather than burning the rest of
+the nine-cycle budget.
 """
 from __future__ import annotations
 
@@ -41,6 +45,7 @@ PERTURB_EPSILON = 0.3
 PERTURB_WIDE_EPSILON = 0.5
 PERTURB_MIN_TARGETS = 2
 PERTURB_COOLDOWN_CYCLES = 6
+PERTURB_ZERO_PICK_CYCLES = 1
 UNUSED_MENU_CYCLES = 20
 CLAIM_SHAPES = ("congruence", "divisibility", "growth_bound", "gf_identity")
 MUTATION_INGREDIENTS = ("sequence", "modulus", "offset", "window")
@@ -223,6 +228,8 @@ def _empty_state() -> dict[str, Any]:
             "session_targets": [],
             "exclude_targets": [],
             "last_timeout_cycle": "",
+            "zero_pick_streak": 0,
+            "last_zero_pick_cycle": "",
         },
     }
 
@@ -914,18 +921,38 @@ def note_perturb_session(
         pass
 
 
+def _start_no_progress_cooldown(pert: dict[str, Any], state: dict[str, Any], cycle_id: str) -> None:
+    """Start the no-progress cooldown and escalate to mutation-first."""
+    idx = _cycle_idx(state, cycle_id)
+    pert["timeout_count"] = int(pert.get("timeout_count") or 0) + 1
+    pert["cooldown_until"] = int(idx) + _policy("perturb_cooldown_cycles", PERTURB_COOLDOWN_CYCLES)
+    pert["last_timeout_cycle"] = cycle_id
+    pert["strategy"] = "mutate"
+    pert["zero_pick_streak"] = 0
+    # Next entry must not replay this session's already-held picks.
+    seen: list[str] = []
+    for t in list(pert.get("exclude_targets") or []) + list(pert.get("session_targets") or []):
+        s = str(t or "")
+        if s and s not in seen:
+            seen.append(s)
+    pert["exclude_targets"] = seen[-80:]
+
+
 def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
     """Leave PERTURB. A timeout doubles parked durations and widens later draws.
 
     A timeout with no session progress (no new verified depth, no new Oracle
     row) starts a cooldown and escalates the next entry to a mutation-first
     strategy, so the following run does not immediately repeat the same loop.
+    A ``no_candidates`` exit (zero eligible picks after escalation) does the
+    same cooldown and strategy change, without doubling parked durations.
     """
     state = load_state()
     pert = state.setdefault("perturb", _empty_state()["perturb"])
     if not pert.get("active"):
         return pert
     timeout = reason in ("timeout", "timed_out", "max_cycles")
+    no_cand = reason in ("no_candidates", "no_eligible", "no_eligible_target", "no eligible target")
     progress = bool(pert.get("session_progress"))
     if timeout:
         pert["park_multiplier"] = int(pert.get("park_multiplier") or 1) * 2
@@ -937,20 +964,15 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
                 rec["duration"] = duration * 2
                 rec["parked_until"] = until + duration  # extend remaining park by the old duration
         if not progress:
-            idx = _cycle_idx(state, cycle_id)
-            pert["timeout_count"] = int(pert.get("timeout_count") or 0) + 1
-            pert["cooldown_until"] = int(idx) + _policy("perturb_cooldown_cycles", PERTURB_COOLDOWN_CYCLES)
-            pert["last_timeout_cycle"] = cycle_id
-            pert["strategy"] = "mutate"
-            # Next entry must not replay this session's already-held picks.
-            seen: list[str] = []
-            for t in list(pert.get("exclude_targets") or []) + list(pert.get("session_targets") or []):
-                s = str(t or "")
-                if s and s not in seen:
-                    seen.append(s)
-            pert["exclude_targets"] = seen[-80:]
+            _start_no_progress_cooldown(pert, state, cycle_id)
         else:
             pert["cooldown_until"] = -1
+    elif no_cand:
+        if not progress:
+            _start_no_progress_cooldown(pert, state, cycle_id)
+        else:
+            pert["cooldown_until"] = -1
+            pert["strategy"] = "mutate"
     else:
         # A real recovery: drop the cooldown and return to ordinary exploration.
         pert["cooldown_until"] = -1
@@ -958,6 +980,7 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
         pert["exclude_targets"] = []
         pert["session_targets"] = []
         pert["session_progress"] = False
+        pert["zero_pick_streak"] = 0
     pert["active"] = False
     pert["exit_reason"] = reason
     pert["exit_cycle"] = cycle_id
@@ -965,9 +988,12 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
     state["perturb"] = pert
     save_state(state)
     msg = f"Recovered at cycle {cycle_id} because {reason}"
-    if timeout and not progress:
+    if (timeout or no_cand) and not progress:
         msg += f"; cooldown {_policy('perturb_cooldown_cycles', PERTURB_COOLDOWN_CYCLES)} cycles before re-entry"
-    _log_lesson(cycle_id, msg, tags=["stall_recovered", "perturb", reason])
+    tags = ["stall_recovered", "perturb", reason]
+    if no_cand:
+        tags.append("no_candidates")
+    _log_lesson(cycle_id, msg, tags=tags)
     pert = dict(pert)
     pert["message"] = msg
     return pert
@@ -1091,6 +1117,206 @@ def mutate_ingredient(
     return new
 
 
+def _recent_result_seeds(limit: int = 8) -> list[dict[str, Any]]:
+    """Build mutation seeds from recent attempt results. Mechanism, not ids."""
+    seeds: list[dict[str, Any]] = []
+    try:
+        from colony.oeis_conjectures import load_attempt_log, load_menu
+        menu = {str(e.get("id") or ""): e for e in (load_menu() or [])}
+        by_anum = {str(e.get("anum") or ""): e for e in menu.values() if e.get("anum")}
+        log = load_attempt_log()
+        seen: set[str] = set()
+        for row in reversed(list(log.get("attempts") or [])):
+            if not isinstance(row, dict):
+                continue
+            eid = str(row.get("id") or "")
+            anum = str(row.get("anum") or "")
+            if (eid and eid in seen) or (not eid and not anum):
+                continue
+            if eid:
+                seen.add(eid)
+            entry = menu.get(eid) or by_anum.get(anum)
+            seed: dict[str, Any] = {
+                "id": eid or anum,
+                "sequence": anum or (entry or {}).get("anum"),
+                "anum": anum or (entry or {}).get("anum"),
+                "source": "oeis",
+                "kind": "oeis_conjecture",
+                "window": row.get("depth") or row.get("planned"),
+                "form": row.get("form") or ((entry or {}).get("claim") or {}).get("form"),
+            }
+            if entry is not None:
+                seed["entry"] = entry
+                seed["text"] = entry.get("text") or ""
+            seeds.append(seed)
+            if len(seeds) >= limit:
+                break
+    except Exception:
+        return seeds
+    return seeds
+
+
+def _default_alternatives(seeds: list[dict[str, Any]] | None = None) -> dict[str, list[Any]]:
+    """Ingredient options drawn from the live menu: other sequences, windows, moduli.
+
+    Prefers untried and progressable entries, and families not just used.
+    No hardcoded sequence ids.
+    """
+    sequences: list[Any] = []
+    forms_recent: set[str] = set()
+    try:
+        from colony.oeis_conjectures import (
+            load_menu, load_attempt_log, can_progress_past, _load, STATE,
+        )
+        menu = load_menu() or []
+        state = _load(STATE, {"targets": {}})
+        tg = state.get("targets") or {}
+        log = load_attempt_log()
+        forms_recent = set(log.get("last_forms") or [])
+        # Untried and new-family first, then other progressable entries.
+        ranked: list[tuple[int, str]] = []
+        for e in menu:
+            eid = str(e.get("id") or "")
+            anum = str(e.get("anum") or "")
+            if not anum:
+                continue
+            st = tg.get(eid) or {}
+            if st.get("status") in (
+                "counterexample_verified", "proved_checked", "fails_in_data", "untestable_here",
+            ):
+                continue
+            try:
+                if not can_progress_past(e, st.get("tested_hi"), require_past_published=True):
+                    continue
+            except Exception:
+                continue
+            form = str((e.get("claim") or {}).get("form") or "")
+            untried = int(st.get("attempts") or 0) == 0
+            new_fam = bool(form) and form not in forms_recent
+            band = 0 if untried else (1 if new_fam else 2)
+            ranked.append((band, anum))
+        ranked.sort()
+        seen: set[str] = set()
+        for _b, anum in ranked:
+            if anum not in seen:
+                seen.add(anum)
+                sequences.append(anum)
+    except Exception:
+        pass
+    # Always include sequences already on the seeds, so mutate_ingredient has a contrast.
+    for s in seeds or []:
+        anum = str(s.get("sequence") or s.get("anum") or "")
+        if anum and anum not in sequences:
+            sequences.append(anum)
+    windows: list[Any] = [100, 200, 1000, 1200, 10000, 20000]
+    for s in seeds or []:
+        w = s.get("window")
+        if w is not None and w not in windows:
+            try:
+                windows.append(int(w))
+            except (TypeError, ValueError):
+                pass
+    return {
+        "sequence": sequences,
+        "window": windows,
+        "modulus": [2, 3, 5, 7, 11],
+        "offset": [0, 1, 2, -1],
+    }
+
+
+def _bind_mutated_seed(mutated: dict[str, Any]) -> dict[str, Any]:
+    """If a mutation changed the sequence, attach a real menu entry so it can run."""
+    anum = str(mutated.get("sequence") or mutated.get("anum") or "")
+    if not anum:
+        return mutated
+    try:
+        from colony.oeis_conjectures import load_menu, can_progress_past, _load, STATE
+        menu = load_menu() or []
+        tg = (_load(STATE, {"targets": {}}).get("targets") or {})
+    except Exception:
+        return mutated
+    for e in menu:
+        if str(e.get("anum") or "") != anum:
+            continue
+        st = tg.get(str(e.get("id") or "")) or {}
+        if st.get("status") in (
+            "counterexample_verified", "proved_checked", "fails_in_data", "untestable_here",
+        ):
+            continue
+        try:
+            if not can_progress_past(e, st.get("tested_hi"), require_past_published=True):
+                continue
+        except Exception:
+            continue
+        out = dict(mutated)
+        out["entry"] = e
+        out["id"] = str(e.get("id") or out.get("id"))
+        out["anum"] = e.get("anum")
+        out["text"] = e.get("text") or out.get("text") or ""
+        out["source"] = "oeis"
+        out["kind"] = "oeis_conjecture"
+        out["form"] = (e.get("claim") or {}).get("form") or out.get("form")
+        out["mutated"] = True
+        out["untried"] = int(st.get("attempts") or 0) == 0
+        out["can_progress"] = True
+        return out
+    return mutated
+
+
+def _activate_mutate_strategy(cycle_id: str = "") -> dict[str, Any]:
+    """Persist mutation-first so the next draw (this cycle or the next) uses it."""
+    state = load_state()
+    pert = state.setdefault("perturb", _empty_state()["perturb"])
+    pert["strategy"] = "mutate"
+    state["perturb"] = pert
+    try:
+        save_state(state)
+    except Exception:
+        pass
+    return pert
+
+
+def note_zero_picks(cycle_id: str) -> dict[str, Any]:
+    """Record a 0-pick PERTURB cycle and maybe exit to the no-progress cooldown.
+
+    After ``perturb_zero_pick_cycles`` consecutive empty cycles (default 1,
+    i.e. immediately once escalation in this cycle has also failed), leave
+    PERTURB with reason ``no_candidates``, start the cooldown, and set
+    strategy to mutation-first for the next entry.
+    """
+    state = load_state()
+    pert = state.setdefault("perturb", _empty_state()["perturb"])
+    if not pert.get("active"):
+        return dict(pert)
+    streak = int(pert.get("zero_pick_streak") or 0) + 1
+    pert["zero_pick_streak"] = streak
+    pert["last_zero_pick_cycle"] = cycle_id
+    pert["strategy"] = "mutate"
+    state["perturb"] = pert
+    save_state(state)
+    k = _policy("perturb_zero_pick_cycles", PERTURB_ZERO_PICK_CYCLES)
+    try:
+        k = max(1, int(k))
+    except (TypeError, ValueError):
+        k = PERTURB_ZERO_PICK_CYCLES
+    if streak >= k:
+        return exit_perturb(cycle_id, "no_candidates")
+    return dict(pert)
+
+
+def _clear_zero_pick_streak() -> None:
+    try:
+        state = load_state()
+        pert = state.setdefault("perturb", _empty_state()["perturb"])
+        if int(pert.get("zero_pick_streak") or 0) == 0:
+            return
+        pert["zero_pick_streak"] = 0
+        state["perturb"] = pert
+        save_state(state)
+    except Exception:
+        pass
+
+
 def _oeis_candidates(tried: set[str], ledger: set[str]) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     try:
@@ -1180,8 +1406,17 @@ def select_perturb_targets(
     menu: list[dict[str, Any]] | None = None,
     kept_seeds: list[dict[str, Any]] | None = None,
     alternatives: dict[str, list[Any]] | None = None,
+    broaden: bool = False,
+    force_strategy: str | None = None,
 ) -> list[dict[str, Any]]:
-    """Epsilon-greedy draw of at least ``n`` distinct new targets. Seeded and logged."""
+    """Epsilon-greedy draw of at least ``n`` distinct new targets. Seeded and logged.
+
+    When the live strategy is ``mutate`` (or ``force_strategy`` says so) and
+    the caller did not pass seeds, recent results are loaded and one
+    ingredient of each is mutated so mutation-first actually has something
+    to prefer. ``broaden`` ranks untried targets and unused families first
+    and still only includes entries that can progress.
+    """
     if n is None:
         n = _policy("perturb_min_targets", PERTURB_MIN_TARGETS)
     state = load_state()
@@ -1193,7 +1428,21 @@ def select_perturb_targets(
     epsilon = float(pert.get("epsilon") or _policy("perturb_epsilon", PERTURB_EPSILON))
     tried = _tried_last_n(_policy("unused_menu_cycles", UNUSED_MENU_CYCLES))
     ledger = _ledger_seen_ids()
+    strategy = str(force_strategy or pert.get("strategy") or "explore")
     pool = list(menu) if menu is not None else _oeis_candidates(tried, ledger)
+    if broaden and menu is None:
+        # Second pass already used the full progressable menu; just mark
+        # untried and unused-family entries so the sort prefers them.
+        try:
+            from colony.oeis_conjectures import load_attempt_log
+            recent_forms = set((load_attempt_log().get("last_forms") or []))
+        except Exception:
+            recent_forms = set()
+        for t in pool:
+            form = str(t.get("form") or "")
+            if t.get("untried") or (form and form not in recent_forms):
+                t["band"] = 0
+                t["untried"] = t.get("untried") or (form and form not in recent_forms)
     # When the caller supplies a raw menu, still drop OEIS entries that
     # cannot make progress (already-held, no new depth possible).
     if menu is not None:
@@ -1219,18 +1468,27 @@ def select_perturb_targets(
             filtered.append(t)
         pool = filtered
     pool = pool + _shape_candidates(tried, rng)
-    # Mutate recently kept seeds: change one ingredient.
-    for spec in (kept_seeds or []):
-        mutated = mutate_ingredient(spec, rng, alternatives)
+    # Mutate recently kept seeds: change one ingredient. When the strategy
+    # is mutation-first and the caller passed no seeds (the live path),
+    # load recent results so the strategy actually has mutations to prefer.
+    seeds = list(kept_seeds) if kept_seeds is not None else (
+        _recent_result_seeds() if strategy == "mutate" or broaden else []
+    )
+    alts = alternatives if alternatives is not None else (
+        _default_alternatives(seeds) if seeds or strategy == "mutate" or broaden else None
+    )
+    for spec in seeds:
+        mutated = mutate_ingredient(spec, rng, alts)
         if mutated.get("mutated"):
-            mutated.setdefault("source", "mutated_seed")
-            mutated.setdefault("kind", "mutated_seed")
+            mutated = _bind_mutated_seed(mutated)
+            mutated.setdefault("source", mutated.get("source") or "mutated_seed")
+            mutated.setdefault("kind", mutated.get("kind") or "mutated_seed")
             mutated.setdefault("band", 0)
             mutated.setdefault("unseen", mutated["id"] not in ledger)
             mutated.setdefault("unused", True)
+            mutated["mutated"] = True
             pool.append(mutated)
     excluded = {str(x) for x in (pert.get("exclude_targets") or []) if x}
-    strategy = str(pert.get("strategy") or "explore")
     if excluded:
         pool = [t for t in pool if str(t.get("id") or "") not in excluded]
     if not pool:
@@ -1544,11 +1802,14 @@ def run_perturb_turn(
         except (TypeError, ValueError):
             prior = 0
         try:
-            from colony.oeis_conjectures import load_attempt_log
+            from colony.oeis_conjectures import (
+                load_attempt_log, attempt_row_verified_depth, _tested_hi_from_state,
+            )
             eid = str(entry.get("id") or "")
+            tested = _tested_hi_from_state(eid, entry, prior)
             for row in load_attempt_log().get("attempts") or []:
                 if str(row.get("id") or "") == eid and str(row.get("cycle_id") or "") != cycle_id:
-                    prior = max(prior, int(row.get("depth") or 0))
+                    prior = max(prior, attempt_row_verified_depth(row, tested))
         except Exception:
             pass
         return prior
@@ -1577,78 +1838,105 @@ def run_perturb_turn(
         else:
             submitted["skipped"] = "desk_skipped"
 
-    for t in raw:
-        if sum(1 for s in submissions if s.get("attempt")) >= n:
-            break
-        submitted: dict[str, Any] = {
-            "id": t.get("id"), "source": t.get("source"), "reached_oracle": False,
-        }
-        concrete = t
-        if _is_shape_label(t):
-            concrete = materialize_claim_shape(
-                t, cycle_id, author=author, menu=menu,
-            )
-            if concrete is None:
-                submitted["skipped"] = "empty_shape_label"
-                submissions.append(submitted)
-                continue
-            submitted["id"] = concrete.get("id")
-            submitted["source"] = concrete.get("source")
-            submitted["from_shape"] = _shape_name(t)
-            submitted["materialized"] = True
-        tid = str(concrete.get("id") or "")
-        if not tid or tid in seen_ids or _is_shape_label(concrete):
-            submitted["skipped"] = submitted.get("skipped") or "empty_shape_label"
-            submissions.append(submitted)
-            continue
-        seen_ids.add(tid)
-        source = str(concrete.get("source") or "")
-        kind = str(concrete.get("kind") or "")
-        is_oeis = source == "oeis" or kind == "oeis_conjecture" or concrete.get("entry") is not None
-        is_authored = source in ("authored_check", "authored_claim", "mutated_seed") or kind in (
-            "authored_check", "authored_claim",
-        )
-        if is_oeis and not is_authored:
-            _run_desk(concrete, submitted)
-        elif is_authored:
-            _submit_authored(concrete, submitted)
-        elif concrete.get("entry") is not None:
-            _run_desk(concrete, submitted)
-        elif oracle_submit is not None and not _is_shape_label(concrete) and not is_oeis:
-            # Test hook for a concrete non-OEIS, non-shape candidate.
-            _submit_authored(concrete, submitted)
-        else:
-            submitted["skipped"] = "not_a_real_candidate"
-        if submitted.get("attempt"):
-            used.append(concrete)
-        submissions.append(submitted)
-
-    # If we are still short, try further OEIS desk targets directly.
-    if sum(1 for s in submissions if s.get("attempt")) < n:
-        try:
-            from colony.oeis_conjectures import load_menu, choose_open, already_attempted_pair, planned_depth
-            extras = choose_open(cycle_id, k=n * 2, beyond_bfile=True, menu=None if menu is None else [
-                (m.get("entry") or m) for m in menu if isinstance(m.get("entry") or m.get("claim"), dict)
-            ])
-        except Exception:
-            extras = []
-        for e in extras:
+    def _consume(raw_targets: list[dict[str, Any]]) -> None:
+        for t in raw_targets:
             if sum(1 for s in submissions if s.get("attempt")) >= n:
                 break
-            eid = str(e.get("id") or "")
-            if not eid or eid in seen_ids:
-                continue
-            seen_ids.add(eid)
-            concrete = {
-                "id": eid, "source": "oeis", "kind": "oeis_conjecture",
-                "entry": e, "anum": e.get("anum"), "text": e.get("text") or "",
-                "form": (e.get("claim") or {}).get("form"),
+            submitted: dict[str, Any] = {
+                "id": t.get("id"), "source": t.get("source"), "reached_oracle": False,
             }
-            submitted = {"id": eid, "source": "oeis", "reached_oracle": False}
-            _run_desk(concrete, submitted)
+            concrete = t
+            if _is_shape_label(t):
+                concrete = materialize_claim_shape(
+                    t, cycle_id, author=author, menu=menu,
+                )
+                if concrete is None:
+                    submitted["skipped"] = "empty_shape_label"
+                    submissions.append(submitted)
+                    continue
+                submitted["id"] = concrete.get("id")
+                submitted["source"] = concrete.get("source")
+                submitted["from_shape"] = _shape_name(t)
+                submitted["materialized"] = True
+            tid = str(concrete.get("id") or "")
+            if not tid or tid in seen_ids or _is_shape_label(concrete):
+                submitted["skipped"] = submitted.get("skipped") or "empty_shape_label"
+                submissions.append(submitted)
+                continue
+            seen_ids.add(tid)
+            source = str(concrete.get("source") or "")
+            kind = str(concrete.get("kind") or "")
+            is_oeis = source == "oeis" or kind == "oeis_conjecture" or concrete.get("entry") is not None
+            is_authored = source in ("authored_check", "authored_claim", "mutated_seed") or kind in (
+                "authored_check", "authored_claim",
+            )
+            if is_oeis and not is_authored:
+                _run_desk(concrete, submitted)
+            elif is_authored:
+                _submit_authored(concrete, submitted)
+            elif concrete.get("entry") is not None:
+                _run_desk(concrete, submitted)
+            elif oracle_submit is not None and not _is_shape_label(concrete) and not is_oeis:
+                # Test hook for a concrete non-OEIS, non-shape candidate.
+                _submit_authored(concrete, submitted)
+            else:
+                submitted["skipped"] = "not_a_real_candidate"
             if submitted.get("attempt"):
                 used.append(concrete)
             submissions.append(submitted)
+
+        # If we are still short, try further OEIS desk targets directly.
+        if sum(1 for s in submissions if s.get("attempt")) < n:
+            try:
+                from colony.oeis_conjectures import load_menu, choose_open, already_attempted_pair, planned_depth
+                extras = choose_open(cycle_id, k=n * 2, beyond_bfile=True, menu=None if menu is None else [
+                    (m.get("entry") or m) for m in menu if isinstance(m.get("entry") or m.get("claim"), dict)
+                ])
+            except Exception:
+                extras = []
+            for e in extras:
+                if sum(1 for s in submissions if s.get("attempt")) >= n:
+                    break
+                eid = str(e.get("id") or "")
+                if not eid or eid in seen_ids:
+                    continue
+                seen_ids.add(eid)
+                concrete = {
+                    "id": eid, "source": "oeis", "kind": "oeis_conjecture",
+                    "entry": e, "anum": e.get("anum"), "text": e.get("text") or "",
+                    "form": (e.get("claim") or {}).get("form"),
+                }
+                submitted = {"id": eid, "source": "oeis", "reached_oracle": False}
+                _run_desk(concrete, submitted)
+                if submitted.get("attempt"):
+                    used.append(concrete)
+                submissions.append(submitted)
+
+    _consume(raw)
+
+    n_attempts = sum(1 for s in submissions if s.get("attempt"))
+    escalated = False
+    escaped = None
+    if n_attempts == 0 and perturb_active():
+        # Item 27: escalate to mutation-first and a broader pool, then
+        # exit rather than sit in PERTURB until the nine-cycle timeout.
+        escalated = True
+        _activate_mutate_strategy(cycle_id)
+        _log_lesson(
+            cycle_id,
+            f"PERTURB had 0 eligible picks at cycle {cycle_id}, escalating to mutation-first and a broader pool",
+            tags=["perturb", "escalate", "mutate", "zero_picks"],
+        )
+        seeds = list(kept_seeds) if kept_seeds is not None else _recent_result_seeds()
+        alts = alternatives if alternatives is not None else _default_alternatives(seeds)
+        raw2 = select_perturb_targets(
+            cycle_id, n=max(n * 3, n + 4), commit_sha=commit_sha, menu=menu,
+            kept_seeds=seeds, alternatives=alts,
+            broaden=True, force_strategy="mutate",
+        )
+        _consume(raw2)
+        raw = list(raw) + list(raw2)
+        n_attempts = sum(1 for s in submissions if s.get("attempt"))
 
     record_targets_tried(cycle_id, [t for t in oracle_bound if t])
     n_attempts = sum(1 for s in submissions if s.get("attempt"))
@@ -1659,6 +1947,13 @@ def run_perturb_turn(
         note_perturb_session(tried_ids, progress=progressed)
     except Exception:
         pass
+    if n_attempts == 0 and perturb_active():
+        try:
+            escaped = note_zero_picks(cycle_id)
+        except Exception:
+            escaped = None
+    elif n_attempts > 0:
+        _clear_zero_pick_streak()
     seed = None
     for t in used or raw:
         if t.get("perturb_seed") is not None:
@@ -1666,7 +1961,7 @@ def run_perturb_turn(
             break
     if seed is None:
         seed = perturb_seed(cycle_id, commit_sha)
-    return {
+    out = {
         "cycle_id": cycle_id,
         "seed": seed,
         "targets": used,
@@ -1677,7 +1972,13 @@ def run_perturb_turn(
         "progress": progressed,
         "n_desk": sum(1 for s in submissions if s.get("attempt") == "desk"),
         "n_authored": sum(1 for s in submissions if s.get("attempt") == "authored_check"),
+        "escalated": escalated,
     }
+    if escaped is not None:
+        out["escaped"] = True
+        out["exit_reason"] = str(escaped.get("exit_reason") or "")
+        out["perturb"] = escaped
+    return out
 
 
 def maybe_enter_or_exit(

@@ -10,6 +10,7 @@
     "perturb_wide_epsilon": {"default": 0.5, "lo": 0.2, "hi": 0.9, "kind": "float", "group": "search", "doc": "Wider exploration rate after a PERTURB timeout. Must be >= perturb_epsilon."},
     "perturb_min_targets": {"default": 2, "lo": 1, "hi": 5, "kind": "int", "group": "search", "doc": "Minimum distinct targets a PERTURB turn should draw."},
     "perturb_cooldown_cycles": {"default": 6, "lo": 3, "hi": 18, "kind": "int", "group": "search", "doc": "Cycles to wait after a no-progress PERTURB timeout before re-entry."},
+    "perturb_zero_pick_cycles": {"default": 1, "lo": 1, "hi": 3, "kind": "int", "group": "search", "doc": "Consecutive 0-pick PERTURB cycles (after mutation-first escalation) before exiting to the no-progress cooldown with a no_candidates lesson."},
     "unused_menu_cycles": {"default": 20, "lo": 8, "hi": 40, "kind": "int", "group": "search", "doc": "How far back PERTURB looks to treat a target as already tried."},
     "family_rotation_penalty": {"default": 0.85, "lo": 0.5, "hi": 0.95, "kind": "float", "group": "selection", "doc": "Score multiplier for the claim form just attempted (lower means stronger rotation)."},
     "quarantine_cycles": {"default": 6, "lo": 2, "hi": 12, "kind": "int", "group": "healing", "doc": "Cycles a failing optional step stays quarantined."},
