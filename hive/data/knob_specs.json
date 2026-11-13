@@ -187,5 +187,41 @@
     "kind": "float",
     "lo": 4.0,
     "name": "deep_seconds"
+  },
+  {
+    "name": "desk_budget",
+    "default": 2,
+    "lo": 1,
+    "hi": 6,
+    "kind": "int",
+    "group": "policy",
+    "doc": "Max method cards the research desk may author in one cycle."
+  },
+  {
+    "name": "curriculum_pace",
+    "default": 0.5,
+    "lo": 0.1,
+    "hi": 0.9,
+    "kind": "float",
+    "group": "policy",
+    "doc": "Share of attention that prefers new work over review (curriculum)."
+  },
+  {
+    "name": "retry_policy_cycles",
+    "default": 3,
+    "lo": 1,
+    "hi": 12,
+    "kind": "int",
+    "group": "policy",
+    "doc": "Retries of a failed attempt before it is parked."
+  },
+  {
+    "name": "routing_explore_weight",
+    "default": 0.3,
+    "lo": 0.05,
+    "hi": 0.8,
+    "kind": "float",
+    "group": "policy",
+    "doc": "Bounded routing weight toward less-used desks."
   }
 ]

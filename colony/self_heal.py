@@ -204,6 +204,16 @@ KNOB_SPECS: dict[str, KnobSpec] = {
                             "Decimal-digit budget for exact integer terms."),
     "deep_seconds": KnobSpec("deep_seconds", 8.0, 4.0, 16.0, "float", "caps",
                              "Time budget in seconds for one evaluator call. Kept inside CI limits."),
+    # Phase 2 policy knobs: desk budgets, curriculum, retry, routing.
+    # Bounded; cannot touch the Oracle, P-gate, 150 cap, or Athanor.
+    "desk_budget": KnobSpec("desk_budget", 2, 1, 6, "int", "policy",
+                            "Max method cards the research desk may author in one cycle."),
+    "curriculum_pace": KnobSpec("curriculum_pace", 0.5, 0.1, 0.9, "float", "policy",
+                                "Share of attention that prefers new work over review (curriculum)."),
+    "retry_policy_cycles": KnobSpec("retry_policy_cycles", 3, 1, 12, "int", "policy",
+                                    "Retries of a failed attempt before it is parked."),
+    "routing_explore_weight": KnobSpec("routing_explore_weight", 0.3, 0.05, 0.8, "float", "policy",
+                                       "Bounded routing weight toward less-used desks."),
 }
 
 

@@ -35,6 +35,7 @@ KNOWN_DESKS: tuple[str, ...] = (
     "improve",
     "oracle_scribe",
     "stem_checker",
+    "research",
 )
 
 # Families that may be added to rotation. Matches colony search families.
