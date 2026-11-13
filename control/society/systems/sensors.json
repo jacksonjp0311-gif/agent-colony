@@ -1,23 +1,23 @@
 {
-  "ts": "2026-11-13T11:19:02Z",
-  "cycle_id": "20261113T111835Z_c763d0",
+  "ts": "2026-11-13T14:28:18Z",
+  "cycle_id": "20261113T142752Z_21243c",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 73,
+      "vandermonde": 72,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "lemma_hard_combinatorics": 2,
-      "authored_frontier_cong_xd9add9e9_w1": 1,
       "authored_sieve_two_counter_g4_2_6_w2": 1,
       "authored_frontier_le_x1c0eba57_w3": 1,
       "authored_frontier_divides_x0f0ed051_w3": 1,
       "authored_sieve_hl_within_g4_6_6_w2": 1,
       "shape:congruence": 1,
       "shape:divisibility": 1,
-      "gf_identity": 1
+      "gf_identity": 1,
+      "growth_bound": 1
     },
     "recent": {
       "authored_frontier_le_x1c0eba57_w3": {
@@ -110,9 +110,9 @@
     "n": 12,
     "aggregate": {
       "last": 0.8574,
-      "slope": 0.000524,
+      "slope": -0.000566,
       "min": 0.8394,
-      "max": 0.8585
+      "max": 0.8574
     },
     "novelty": {
       "last": 0.75,
@@ -141,7 +141,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0,
+    "aggregate_range": 0.018,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -291,11 +291,11 @@
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 295634115,
-      "collatz_descent": 332600000,
+      "goldbach_even": 298834115,
+      "collatz_descent": 335800000,
       "legendre_square_gap": 1724607,
       "lehmer_totient": 151000001,
-      "erdos_straus": 1124127,
+      "erdos_straus": 1129127,
       "twin_primes_hl": 418200000,
       "oeis_A104062_next": 518690000001
     },

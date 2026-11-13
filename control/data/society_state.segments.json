@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "kind": "society_state",
+  "primary": "society_state.json",
+  "live": "society_state.live.json",
+  "threshold_bytes": 8388608,
+  "frozen": {
+    "id": 1,
+    "path": "society_state.json",
+    "kind": "frozen_snapshot",
+    "status": "closed",
+    "bytes": 46554922,
+    "sha256": "a5d914d63d765561668ba62f747cb3a03fbfc4fac8a7dd6f59fbad5560b4872b",
+    "counts": {
+      "communications": 48791,
+      "history": 2836,
+      "evolution_log": 876,
+      "artifacts": 894,
+      "cycle_diagnostics": 261
+    },
+    "keys": [
+      "communications",
+      "history",
+      "evolution_log",
+      "artifacts",
+      "cycle_diagnostics"
+    ]
+  },
+  "append_keys": {
+    "communications": {
+      "kind": "list",
+      "segments_primary": "society_state/communications.jsonl"
+    },
+    "history": {
+      "kind": "list",
+      "segments_primary": "society_state/history.jsonl"
+    },
+    "evolution_log": {
+      "kind": "list",
+      "segments_primary": "society_state/evolution_log.jsonl"
+    },
+    "artifacts": {
+      "kind": "list",
+      "segments_primary": "society_state/artifacts.jsonl"
+    },
+    "cycle_diagnostics": {
+      "kind": "dict",
+      "segments_primary": "society_state/cycle_diagnostics.jsonl"
+    }
+  },
+  "note": "Segment 1 is the original society_state.json, left untouched. New append-only items go to numbered JSONL segments under society_state/. Mutable keys live in society_state.live.json. Earlier bytes are never rewritten."
+}
