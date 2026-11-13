@@ -1,23 +1,23 @@
 {
-  "ts": "2026-11-13T16:53:36Z",
-  "cycle_id": "20261113T165317Z_0b7a16",
+  "ts": "2026-11-13T17:26:22Z",
+  "cycle_id": "20261113T172600Z_dbc6a0",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 66,
+      "vandermonde": 63,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "lemma_hard_combinatorics": 2,
+      "authored_mut_swap_related_sequence_58aacc9fceff": 2,
       "authored_frontier_divides_x0f0ed051_w3": 1,
       "authored_sieve_hl_within_g4_6_6_w2": 1,
       "shape:congruence": 1,
       "shape:divisibility": 1,
       "gf_identity": 1,
       "growth_bound": 1,
-      "oc_a026772_0": 1,
-      "authored_mut_swap_related_sequence_58aacc9fceff": 1
+      "oc_a026772_0": 1
     },
     "recent": {
       "authored_frontier_le_x1c0eba57_w3": {
@@ -109,10 +109,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8605,
-      "slope": 0.000164,
+      "last": 0.8596,
+      "slope": 0.00057,
       "min": 0.8414,
-      "max": 0.8615
+      "max": 0.8613
     },
     "novelty": {
       "last": 0.75,
@@ -121,16 +121,16 @@
       "max": 0.75
     },
     "kill_rate": {
-      "last": 0.3924,
-      "slope": 2.7e-05,
+      "last": 0.3931,
+      "slope": 0.000144,
       "min": 0.3917,
-      "max": 0.3924
+      "max": 0.3931
     },
     "kill_rate_term": {
-      "last": 0.9032,
-      "slope": 2.7e-05,
+      "last": 0.9038,
+      "slope": 0.000135,
       "min": 0.9025,
-      "max": 0.9032
+      "max": 0.9038
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -141,7 +141,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0022,
+    "aggregate_range": 0.0032,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -270,23 +270,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.802,
+      "ratio": 1.146,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.798,
+      "ratio": 1.258,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.83,
+      "ratio": 1.218,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.86,
+      "ratio": 1.142,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.805,
+      "ratio": 1.079,
       "drift": false
     }
   },
@@ -295,10 +295,10 @@
     "verified": {
       "goldbach_even": 302034115,
       "collatz_descent": 339000000,
-      "legendre_square_gap": 1740607,
-      "lehmer_totient": 152600001,
+      "legendre_square_gap": 1756607,
+      "lehmer_totient": 154200001,
       "erdos_straus": 1134127,
-      "twin_primes_hl": 422200000,
+      "twin_primes_hl": 426200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -352,18 +352,18 @@
     "last": [
       [
         null,
-        "2026-11-13T16:44:13Z"
+        "2026-11-13T17:15:54Z"
       ],
       [
         null,
-        "2026-11-13T16:44:09Z"
+        "2026-11-13T17:15:53Z"
       ],
       [
         "success",
-        "2026-11-13T16:38:38Z"
+        "2026-11-13T17:09:56Z"
       ]
     ],
-    "fetched_at": "2026-11-13T16:45:24Z"
+    "fetched_at": "2026-11-13T17:16:29Z"
   },
   "feeds": {
     "by_source": {
@@ -411,7 +411,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-13T16:45:23Z"
+      "ts": "2026-11-13T17:16:28Z"
     },
     "health": {
       "arxiv": {

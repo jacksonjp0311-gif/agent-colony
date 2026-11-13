@@ -105,7 +105,10 @@
     "20261113T163002Z_e27010",
     "20261113T164820Z_eef78f",
     "20261113T165054Z_51712d",
-    "20261113T165317Z_0b7a16"
+    "20261113T165317Z_0b7a16",
+    "20261113T171958Z_9681da",
+    "20261113T172312Z_d6e5fe",
+    "20261113T172600Z_dbc6a0"
   ],
   "proposal_parks": {
     "254f76bd3854": {
@@ -343,6 +346,18 @@
     },
     {
       "cycle_id": "20261113T165317Z_0b7a16",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261113T171958Z_9681da",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261113T172312Z_d6e5fe",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261113T172600Z_dbc6a0",
       "pass_total": 528
     }
   ],
@@ -626,6 +641,18 @@
           "collective_kill"
         ]
       ]
+    },
+    {
+      "cycle_id": "20261113T171958Z_9681da",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261113T172312Z_d6e5fe",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261113T172600Z_dbc6a0",
+      "kills": []
     }
   ],
   "turns": [
@@ -1630,6 +1657,60 @@
       "kind": "authored_check",
       "name": "authored_mut_swap_related_sequence_58aacc9fceff",
       "outcome": "kill"
+    },
+    {
+      "cycle_id": "20261113T171958Z_9681da",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261113T171958Z_9681da",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261113T171958Z_9681da",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261113T172312Z_d6e5fe",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261113T172312Z_d6e5fe",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261113T172312Z_d6e5fe",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261113T172600Z_dbc6a0",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261113T172600Z_dbc6a0",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261113T172600Z_dbc6a0",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
     }
   ],
   "targets_tried": [
@@ -1696,16 +1777,61 @@
         "oc_A071264_0"
       ],
       "kind": "depth"
+    },
+    {
+      "cycle_id": "20261113T171958Z_9681da",
+      "targets": [
+        "oc_A097332_0",
+        "oc_A102882_0"
+      ],
+      "kind": "depth"
+    },
+    {
+      "cycle_id": "20261113T172312Z_d6e5fe",
+      "targets": [
+        "oc_A103973_0",
+        "oc_A104625_0"
+      ],
+      "kind": "depth"
+    },
+    {
+      "cycle_id": "20261113T172600Z_dbc6a0",
+      "targets": [
+        "oc_A108629_0",
+        "oc_A115967_0"
+      ],
+      "kind": "depth"
     }
   ],
   "last_new_pass_cycle": "20261112T214317Z_351b7f",
-  "last_depth_progress_cycle": "20261113T165317Z_0b7a16",
+  "last_depth_progress_cycle": "20261113T172600Z_dbc6a0",
   "depth_progress_history": [
     {
       "cycle_id": "20261113T165317Z_0b7a16",
       "targets": [
         "oc_A025577_0",
         "oc_A071264_0"
+      ]
+    },
+    {
+      "cycle_id": "20261113T171958Z_9681da",
+      "targets": [
+        "oc_A097332_0",
+        "oc_A102882_0"
+      ]
+    },
+    {
+      "cycle_id": "20261113T172312Z_d6e5fe",
+      "targets": [
+        "oc_A103973_0",
+        "oc_A104625_0"
+      ]
+    },
+    {
+      "cycle_id": "20261113T172600Z_dbc6a0",
+      "targets": [
+        "oc_A108629_0",
+        "oc_A115967_0"
       ]
     }
   ],
@@ -1714,7 +1840,7 @@
     "active": true,
     "entered_at": "20261113T165317Z_0b7a16",
     "seed": 7215993351163005101,
-    "cycles_in_mode": 1,
+    "cycles_in_mode": 4,
     "park_multiplier": 4,
     "epsilon": 0.5,
     "exit_reason": "",
@@ -1728,7 +1854,13 @@
     "session_targets": [
       "authored_mut_swap_related_sequence_58aacc9fceff",
       "oc_A025577_0",
-      "oc_A071264_0"
+      "oc_A071264_0",
+      "oc_A097332_0",
+      "oc_A102882_0",
+      "oc_A103973_0",
+      "oc_A104625_0",
+      "oc_A108629_0",
+      "oc_A115967_0"
     ],
     "exclude_targets": [],
     "last_timeout_cycle": "20261113T042759Z_04d92a",
