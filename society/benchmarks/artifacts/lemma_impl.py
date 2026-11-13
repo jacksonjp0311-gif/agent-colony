@@ -1970,6 +1970,15 @@ def check_authored_frontier_le_xafb0aef8_w1() -> bool:
     """
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf+omega)', 'params': {}, 'rhs': 'sigma'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
 
+def check_authored_mut_swap_related_sequence_58aacc9fceff() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    gcd(pell,bigomega)(n) divides (rad*sqfree)(n) for all n >= 1
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(pell,bigomega)', 'params': {}, 'rhs': '(rad*sqfree)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2185,6 +2194,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_xb5f19c6e_w1", check_authored_frontier_cong_xb5f19c6e_w1, True),
     ("authored_frontier_le_x423b0686_w1", check_authored_frontier_le_x423b0686_w1, True),
     ("authored_frontier_le_xafb0aef8_w1", check_authored_frontier_le_xafb0aef8_w1, True),
+    ("authored_mut_swap_related_sequence_58aacc9fceff", check_authored_mut_swap_related_sequence_58aacc9fceff, False),
 ]
 
 
