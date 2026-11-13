@@ -14,6 +14,9 @@ Oracle-bound or desk turn in the last three cycles ended in a block, a skip,
 or the same kill. On STALL the colony enters PERTURB, a seeded exploration
 mode. It leaves on a new Oracle pass, a genuinely new kill reason, or after
 nine cycles. A timeout doubles parked durations and widens the draw.
+A timeout with no new depth and no new Oracle row starts a cooldown so
+the next run does not immediately re-enter the same loop; the next
+entry uses a different (mutation-first) strategy.
 """
 from __future__ import annotations
 
@@ -37,6 +40,7 @@ PERTURB_MAX_CYCLES = 9
 PERTURB_EPSILON = 0.3
 PERTURB_WIDE_EPSILON = 0.5
 PERTURB_MIN_TARGETS = 2
+PERTURB_COOLDOWN_CYCLES = 6
 UNUSED_MENU_CYCLES = 20
 CLAIM_SHAPES = ("congruence", "divisibility", "growth_bound", "gf_identity")
 MUTATION_INGREDIENTS = ("sequence", "modulus", "offset", "window")
@@ -190,6 +194,13 @@ def _empty_state() -> dict[str, Any]:
             "epsilon": PERTURB_EPSILON,
             "exit_reason": "",
             "exit_cycle": "",
+            "cooldown_until": -1,
+            "timeout_count": 0,
+            "strategy": "explore",
+            "session_progress": False,
+            "session_targets": [],
+            "exclude_targets": [],
+            "last_timeout_cycle": "",
         },
     }
 
@@ -797,6 +808,7 @@ def enter_perturb(cycle_id: str, reason: str = "flat_passes", commit_sha: str | 
         return pert
     sha = commit_sha if commit_sha is not None else _git_sha()
     seed = perturb_seed(cycle_id, sha)
+    strategy = str(pert.get("strategy") or "explore")
     pert.update({
         "active": True,
         "entered_at": cycle_id,
@@ -807,6 +819,9 @@ def enter_perturb(cycle_id: str, reason: str = "flat_passes", commit_sha: str | 
         "epsilon": PERTURB_EPSILON if int(pert.get("park_multiplier") or 1) <= 1 else PERTURB_WIDE_EPSILON,
         "exit_reason": "",
         "exit_cycle": "",
+        "strategy": strategy,
+        "session_progress": False,
+        "session_targets": [],
     })
     state["perturb"] = pert
     save_state(state)
@@ -817,13 +832,77 @@ def enter_perturb(cycle_id: str, reason: str = "flat_passes", commit_sha: str | 
     return pert
 
 
+def _cycle_idx(state: dict[str, Any], cycle_id: str) -> int:
+    """Index of ``cycle_id`` in the cycle list. Does not insert."""
+    cycles = list(state.get("cycles") or [])
+    cid = str(cycle_id or "")
+    if cid and cid in cycles:
+        return cycles.index(cid)
+    return len(cycles) - 1 if cycles else 0
+
+
+def perturb_cooldown_remaining(cycle_id: str = "", state: dict[str, Any] | None = None) -> int:
+    """Cycles left in a no-progress-timeout cooldown. 0 if none is active."""
+    state = state if state is not None else load_state()
+    pert = state.get("perturb") or {}
+    until = int(pert.get("cooldown_until") or -1)
+    if until < 0:
+        return 0
+    idx = _cycle_idx(state, cycle_id) if cycle_id else (len(state.get("cycles") or []) - 1)
+    if idx < 0:
+        idx = 0
+    return max(0, until - idx)
+
+
+def in_perturb_cooldown(cycle_id: str = "", state: dict[str, Any] | None = None) -> bool:
+    return perturb_cooldown_remaining(cycle_id, state) > 0
+
+
+def note_perturb_session(
+    targets: Iterable[str],
+    *,
+    progress: bool = False,
+) -> None:
+    """Record ids tried in this PERTURB session, and whether any made progress."""
+    try:
+        state = load_state()
+    except Exception:
+        return
+    pert = state.setdefault("perturb", _empty_state()["perturb"])
+    if not pert.get("active"):
+        if progress:
+            # Still record progress if we just exited in the same cycle.
+            pass
+        else:
+            return
+    ids = list(pert.get("session_targets") or [])
+    for t in targets or []:
+        tid = str(t or "")
+        if tid and tid not in ids:
+            ids.append(tid)
+    pert["session_targets"] = ids[-80:]
+    if progress:
+        pert["session_progress"] = True
+    state["perturb"] = pert
+    try:
+        save_state(state)
+    except Exception:
+        pass
+
+
 def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
-    """Leave PERTURB. A timeout doubles parked durations and widens later draws."""
+    """Leave PERTURB. A timeout doubles parked durations and widens later draws.
+
+    A timeout with no session progress (no new verified depth, no new Oracle
+    row) starts a cooldown and escalates the next entry to a mutation-first
+    strategy, so the following run does not immediately repeat the same loop.
+    """
     state = load_state()
     pert = state.setdefault("perturb", _empty_state()["perturb"])
     if not pert.get("active"):
         return pert
     timeout = reason in ("timeout", "timed_out", "max_cycles")
+    progress = bool(pert.get("session_progress"))
     if timeout:
         pert["park_multiplier"] = int(pert.get("park_multiplier") or 1) * 2
         pert["epsilon"] = PERTURB_WIDE_EPSILON
@@ -833,6 +912,28 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
             if until >= 0:
                 rec["duration"] = duration * 2
                 rec["parked_until"] = until + duration  # extend remaining park by the old duration
+        if not progress:
+            idx = _cycle_idx(state, cycle_id)
+            pert["timeout_count"] = int(pert.get("timeout_count") or 0) + 1
+            pert["cooldown_until"] = int(idx) + PERTURB_COOLDOWN_CYCLES
+            pert["last_timeout_cycle"] = cycle_id
+            pert["strategy"] = "mutate"
+            # Next entry must not replay this session's already-held picks.
+            seen: list[str] = []
+            for t in list(pert.get("exclude_targets") or []) + list(pert.get("session_targets") or []):
+                s = str(t or "")
+                if s and s not in seen:
+                    seen.append(s)
+            pert["exclude_targets"] = seen[-80:]
+        else:
+            pert["cooldown_until"] = -1
+    else:
+        # A real recovery: drop the cooldown and return to ordinary exploration.
+        pert["cooldown_until"] = -1
+        pert["strategy"] = "explore"
+        pert["exclude_targets"] = []
+        pert["session_targets"] = []
+        pert["session_progress"] = False
     pert["active"] = False
     pert["exit_reason"] = reason
     pert["exit_cycle"] = cycle_id
@@ -840,6 +941,8 @@ def exit_perturb(cycle_id: str, reason: str) -> dict[str, Any]:
     state["perturb"] = pert
     save_state(state)
     msg = f"Recovered at cycle {cycle_id} because {reason}"
+    if timeout and not progress:
+        msg += f"; cooldown {PERTURB_COOLDOWN_CYCLES} cycles before re-entry"
     _log_lesson(cycle_id, msg, tags=["stall_recovered", "perturb", reason])
     pert = dict(pert)
     pert["message"] = msg
@@ -967,7 +1070,9 @@ def mutate_ingredient(
 def _oeis_candidates(tried: set[str], ledger: set[str]) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     try:
-        from colony.oeis_conjectures import load_menu, zero_credit_forms, _load, STATE, provable
+        from colony.oeis_conjectures import (
+            load_menu, zero_credit_forms, _load, STATE, provable, can_progress_past,
+        )
         menu = load_menu()
         state = _load(STATE, {"targets": {}, "families": {}, "credit_total": 0.0})
         forms = set(zero_credit_forms(state, menu))
@@ -980,8 +1085,22 @@ def _oeis_candidates(tried: set[str], ledger: set[str]) -> list[dict[str, Any]]:
         st = tg.get(eid) or {}
         if st.get("status") in ("counterexample_verified", "proved_checked", "fails_in_data", "untestable_here"):
             continue
+        # Perturb slots are for new depth past max(bfile_hi, tested_hi),
+        # not for replaying a hold that cannot move.
+        try:
+            if not can_progress_past(
+                e, st.get("tested_hi"), require_past_published=True,
+            ):
+                continue
+        except Exception:
+            continue
         # Prefer zero-credit and non-routine; still include others as a tail.
+        # Untried targets (no prior attempts) rank ahead of already-held ones
+        # that still have headroom.
         band = 0 if form in forms else (2 if (form == "relation" and provable(e)) else 1)
+        untried = int(st.get("attempts") or 0) == 0
+        if not untried:
+            band = min(band + 1, 2)
         unseen = eid not in ledger
         unused = eid not in tried
         out.append({
@@ -994,9 +1113,17 @@ def _oeis_candidates(tried: set[str], ledger: set[str]) -> list[dict[str, Any]]:
             "band": band,
             "unseen": unseen,
             "unused": unused,
+            "untried": untried,
+            "can_progress": True,
             "entry": e,
         })
-    out.sort(key=lambda t: (t["band"], 0 if t["unseen"] else 1, 0 if t["unused"] else 1, t["id"]))
+    out.sort(key=lambda t: (
+        t["band"],
+        0 if t.get("untried") else 1,
+        0 if t["unseen"] else 1,
+        0 if t["unused"] else 1,
+        t["id"],
+    ))
     return out
 
 
@@ -1041,6 +1168,30 @@ def select_perturb_targets(
     tried = _tried_last_n(UNUSED_MENU_CYCLES)
     ledger = _ledger_seen_ids()
     pool = list(menu) if menu is not None else _oeis_candidates(tried, ledger)
+    # When the caller supplies a raw menu, still drop OEIS entries that
+    # cannot make progress (already-held, no new depth possible).
+    if menu is not None:
+        try:
+            from colony.oeis_conjectures import can_progress_past
+        except Exception:
+            can_progress_past = None  # type: ignore
+        filtered: list[dict[str, Any]] = []
+        for t in pool:
+            entry = t.get("entry") if isinstance(t.get("entry"), dict) else None
+            is_oeis = (
+                t.get("source") == "oeis" or t.get("kind") == "oeis_conjecture" or entry is not None
+            )
+            if is_oeis and can_progress_past is not None and entry is not None:
+                try:
+                    if not can_progress_past(
+                        entry, entry.get("tested_hi") or t.get("tested_hi"),
+                        require_past_published=True,
+                    ):
+                        continue
+                except Exception:
+                    continue
+            filtered.append(t)
+        pool = filtered
     pool = pool + _shape_candidates(tried, rng)
     # Mutate recently kept seeds: change one ingredient.
     for spec in (kept_seeds or []):
@@ -1052,6 +1203,10 @@ def select_perturb_targets(
             mutated.setdefault("unseen", mutated["id"] not in ledger)
             mutated.setdefault("unused", True)
             pool.append(mutated)
+    excluded = {str(x) for x in (pert.get("exclude_targets") or []) if x}
+    strategy = str(pert.get("strategy") or "explore")
+    if excluded:
+        pool = [t for t in pool if str(t.get("id") or "") not in excluded]
     if not pool:
         return []
     available = list(pool)
@@ -1059,11 +1214,22 @@ def select_perturb_targets(
     seen_ids: set[str] = set()
 
     def _key(t: dict[str, Any]) -> tuple:
-        return (int(t.get("band") or 0), 0 if t.get("unseen") else 1, 0 if t.get("unused") else 1, str(t.get("id") or ""))
+        mut = 0 if (t.get("mutated") or t.get("source") == "mutated_seed") else 1
+        untried = 0 if t.get("untried") or (t.get("unseen") and t.get("unused")) else 1
+        # Mutation-first strategy (after a no-progress timeout): prefer
+        # ingredient mutations and untried targets over anything already held.
+        if strategy == "mutate":
+            return (mut, untried, int(t.get("band") or 0), 0 if t.get("unseen") else 1,
+                    0 if t.get("unused") else 1, str(t.get("id") or ""))
+        return (int(t.get("band") or 0), untried, 0 if t.get("unseen") else 1,
+                0 if t.get("unused") else 1, str(t.get("id") or ""))
 
     while len(picked) < n and available:
         if rng.random() < epsilon:
-            preferred = [t for t in available if t.get("unseen") or t.get("unused")] or available
+            preferred = [t for t in available if t.get("unseen") or t.get("unused") or t.get("mutated") or t.get("untried")] or available
+            if strategy == "mutate":
+                mutated_only = [t for t in preferred if t.get("mutated") or t.get("source") == "mutated_seed"]
+                preferred = mutated_only or preferred
             choice = preferred[rng.randrange(len(preferred))]
         else:
             choice = sorted(available, key=_key)[0]
@@ -1159,10 +1325,10 @@ def materialize_claim_shape(
     try:
         from colony.oeis_conjectures import (
             computable_definition, can_search_past_bfile, already_attempted_pair,
-            planned_depth,
+            planned_depth, can_progress_past,
         )
     except Exception:
-        computable_definition = can_search_past_bfile = already_attempted_pair = planned_depth = None  # type: ignore
+        computable_definition = can_search_past_bfile = already_attempted_pair = planned_depth = can_progress_past = None  # type: ignore
     ranked: list[tuple[int, str, dict[str, Any]]] = []
     for item in pool:
         entry = item.get("entry") if isinstance(item.get("entry"), dict) else (
@@ -1186,9 +1352,20 @@ def materialize_claim_shape(
                     depth = planned_depth(entry)
                     if already_attempted_pair(eid, depth, cycle_id):
                         continue
+                if can_progress_past is not None and not can_progress_past(
+                    entry, require_past_published=True,
+                ):
+                    continue
             except Exception:
                 defn, past = None, False
+        elif entry is not None and can_progress_past is not None:
+            try:
+                if not can_progress_past(entry, require_past_published=True):
+                    continue
+            except Exception:
+                continue
         # band 0: computable and searchable past the b-file; 1: matching form.
+        # Skip entries that cannot actually be tested past their held range.
         ranked.append((0 if past else 1, eid, item if entry is item.get("entry") or item.get("entry") else item))
     ranked.sort(key=lambda r: (r[0], r[1]))
     if not ranked:
@@ -1331,16 +1508,44 @@ def run_perturb_turn(
         if submitted.get("reached_oracle"):
             oracle_bound.append(str(concrete.get("id") or ""))
 
+    def _prior_verified(entry: dict[str, Any]) -> int:
+        """Verified depth already held before this cycle's attempt."""
+        prior = 0
+        try:
+            prior = int(entry.get("tested_hi") or 0)
+        except (TypeError, ValueError):
+            prior = 0
+        try:
+            from colony.oeis_conjectures import load_attempt_log
+            eid = str(entry.get("id") or "")
+            for row in load_attempt_log().get("attempts") or []:
+                if str(row.get("id") or "") == eid and str(row.get("cycle_id") or "") != cycle_id:
+                    prior = max(prior, int(row.get("depth") or 0))
+        except Exception:
+            pass
+        return prior
+
     def _run_desk(concrete: dict[str, Any], submitted: dict[str, Any]) -> None:
         entry = concrete.get("entry")
         if not isinstance(entry, dict):
             submitted["skipped"] = "no_entry"
             return
+        prior = _prior_verified(entry)
         acts = _desk_attempt(entry, cycle_id)
         submitted["oeis_results"] = acts
         if acts:
             submitted["attempt"] = "desk"
             submitted["desk"] = True
+            try:
+                from colony.oeis_conjectures import verified_depth, bfile_hi_of
+                v = verified_depth(entry, acts)
+                submitted["verified_depth"] = v
+                submitted["prior_depth"] = prior
+                bar = max(bfile_hi_of(entry), prior)
+                if v > bar:
+                    submitted["progress"] = True
+            except Exception:
+                pass
         else:
             submitted["skipped"] = "desk_skipped"
 
@@ -1394,7 +1599,7 @@ def run_perturb_turn(
     if sum(1 for s in submissions if s.get("attempt")) < n:
         try:
             from colony.oeis_conjectures import load_menu, choose_open, already_attempted_pair, planned_depth
-            extras = choose_open(cycle_id, k=n * 2, menu=None if menu is None else [
+            extras = choose_open(cycle_id, k=n * 2, beyond_bfile=True, menu=None if menu is None else [
                 (m.get("entry") or m) for m in menu if isinstance(m.get("entry") or m.get("claim"), dict)
             ])
         except Exception:
@@ -1420,6 +1625,12 @@ def run_perturb_turn(
     record_targets_tried(cycle_id, [t for t in oracle_bound if t])
     n_attempts = sum(1 for s in submissions if s.get("attempt"))
     n_oracle = sum(1 for s in submissions if s.get("reached_oracle"))
+    progressed = any(s.get("progress") or s.get("reached_oracle") for s in submissions)
+    tried_ids = [str(s.get("id") or "") for s in submissions if s.get("attempt") and s.get("id")]
+    try:
+        note_perturb_session(tried_ids, progress=progressed)
+    except Exception:
+        pass
     seed = None
     for t in used or raw:
         if t.get("perturb_seed") is not None:
@@ -1435,6 +1646,7 @@ def run_perturb_turn(
         "n": n_attempts,
         "n_attempts": n_attempts,
         "n_reached_oracle": n_oracle,
+        "progress": progressed,
         "n_desk": sum(1 for s in submissions if s.get("attempt") == "desk"),
         "n_authored": sum(1 for s in submissions if s.get("attempt") == "authored_check"),
     }
@@ -1470,6 +1682,10 @@ def maybe_enter_or_exit(
             return report
         return report
     if stall.get("on"):
+        if in_perturb_cooldown(cycle_id, state):
+            report["action"] = "cooldown"
+            report["cooldown_remaining"] = perturb_cooldown_remaining(cycle_id, state)
+            return report
         report["action"] = "enter"
         report["perturb"] = enter_perturb(cycle_id, reason=str(stall.get("reason") or "flat_passes"),
                                           commit_sha=commit_sha)
@@ -1494,10 +1710,12 @@ def on_cycle_start(cycle_id: str, *, commit_sha: str | None = None) -> dict[str,
     remember_cycle(cycle_id)
     # Enter at the start so the rest of the cycle explores.
     # Exit is decided at the end, once this cycle's Oracle results are known.
+    # A no-progress timeout cooldown blocks re-entry so the next run does
+    # not immediately repeat the same PERTURB loop.
     state = load_state()
     if not (state.get("perturb") or {}).get("active"):
         stall = assess_stall(state)
-        if stall.get("on"):
+        if stall.get("on") and not in_perturb_cooldown(cycle_id, state):
             enter_perturb(cycle_id, reason=str(stall.get("reason") or "flat_passes"), commit_sha=commit_sha)
     return {"perturb_active": perturb_active(), "stall": assess_stall(), "visibility": visibility()}
 
@@ -1577,10 +1795,13 @@ def visibility() -> dict[str, Any]:
             and str(t.get("outcome") or "") in ORACLE_TURN_OUTCOMES
         ):
             targets.add(str(t["name"]))
+    pert = state.get("perturb") or {}
     return {
         "stall_cycles": int(state.get("stall_cycles") or 0),
-        "perturb_active": bool((state.get("perturb") or {}).get("active")),
+        "perturb_active": bool(pert.get("active")),
         "distinct_targets_tried_last_3_cycles": len(targets),
+        "perturb_cooldown_remaining": perturb_cooldown_remaining("", state),
+        "perturb_strategy": str(pert.get("strategy") or "explore"),
     }
 
 

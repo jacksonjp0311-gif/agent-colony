@@ -1052,16 +1052,183 @@ def planned_depth(e: dict[str, Any], prior_hi: int | None = None) -> int:
     return max(bh, prior)
 
 
+def verified_depth(e: dict[str, Any], acts: list[dict[str, Any]] | None = None) -> int:
+    """Highest n at which the claim was actually tested, from attempt results.
+
+    This is the verified range, not the depth the attempt was asked to reach.
+    Computed ``deep_terms`` that were not used in a claim test do not count.
+    """
+    off = int(e.get("offset") or 0)
+    top = 0
+    for r in acts or []:
+        if not isinstance(r, dict):
+            continue
+        rng = r.get("range") or [0, 0]
+        hi = 0
+        if isinstance(rng, (list, tuple)) and len(rng) > 1:
+            try:
+                hi = int(rng[1] or 0)
+            except (TypeError, ValueError):
+                hi = 0
+        try:
+            deep_hi = int(r.get("deep_hi") or 0)
+        except (TypeError, ValueError):
+            deep_hi = 0
+        try:
+            tested = int(r.get("tested") or 0)
+        except (TypeError, ValueError):
+            tested = 0
+        tested_n = (off + tested - 1) if tested else 0
+        top = max(top, hi, deep_hi, tested_n)
+    return int(top)
+
+
+_ANUM = re.compile(r"A\d{6,}")
+_ANUM_REF = re.compile(r"(A\d{6,})\(\s*n\s*([+-]\s*\d+)?\s*\)")
+
+
+def _ref_hi(e: dict[str, Any], anum: str) -> int | None:
+    refs = e.get("refs") or {}
+    info = refs.get(anum) or refs.get(anum.upper() if anum else "") or refs.get(anum.lower() if anum else "")
+    if not isinstance(info, dict):
+        return None
+    terms = info.get("terms") or []
+    if not terms:
+        return None
+    off = int(info.get("offset") or 0)
+    return off + len(terms) - 1
+
+
+def _parts_text(e: dict[str, Any]) -> str:
+    claim = e.get("claim") or {}
+    parts = claim.get("parts") or []
+    return " ".join(str(p) for p in parts) + " " + str(claim.get("expr") or "")
+
+
+def _ref_shift(parts_text: str, anum: str) -> int:
+    """Largest index offset the claim needs for ``anum``: A012345(n+1) is 1."""
+    shift = 0
+    for m in _ANUM_REF.finditer(parts_text or ""):
+        if m.group(1) == anum:
+            if m.group(2):
+                s = int(re.sub(r"\s+", "", m.group(2)))
+                if s > shift:
+                    shift = s
+    return shift
+
+
+def claim_testable_hi(e: dict[str, Any]) -> int:
+    """Highest n at which the claim can actually be evaluated with current data.
+
+    A computable definition extends a(n), but a relation that names other
+    A-numbers is limited by those referenced b-files (refs currently carry
+    terms only). This is a bound on what can be tested, not a promise that
+    the evaluator will reach it (time and digit caps may stop earlier).
+    """
+    off = int(e.get("offset") or 0)
+    terms = list(e.get("terms") or [])
+    a_hi = (off + len(terms) - 1) if terms else 0
+    try:
+        defn = computable_definition(e)
+    except Exception:
+        defn = None
+    claim = e.get("claim") or {}
+    form = str(claim.get("form") or "")
+    if defn:
+        kind = str(defn.get("kind") or "")
+        cap = GF_TERMS if (form == "gf" or kind in ("gf", "alg", "egf")) else DEEP_N
+        a_extend = max(a_hi, cap)
+    else:
+        a_extend = a_hi
+    text = _parts_text(e)
+    anums = set(_ANUM.findall(text))
+    anums.discard(str(e.get("anum") or ""))
+    limit = a_extend
+    for anum in anums:
+        rh = _ref_hi(e, anum)
+        if rh is None:
+            limit = min(limit, a_hi)
+            continue
+        shift = _ref_shift(text, anum)
+        limit = min(limit, rh - shift)
+    return int(max(limit, 0))
+
+
+def _last_attempt_row(eid: str, log: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    eid = str(eid or "")
+    if not eid:
+        return None
+    log = log if log is not None else load_attempt_log()
+    for row in reversed(log.get("attempts") or []):
+        if str(row.get("id") or "") == eid and isinstance(row, dict):
+            return row
+    return None
+
+
+def can_progress_past(
+    e: dict[str, Any],
+    prior_hi: int | None = None,
+    log: dict[str, Any] | None = None,
+    *,
+    require_past_published: bool = False,
+) -> bool:
+    """True if a new attempt could verify the claim past the range already held.
+
+    For a never-attempted entry this is True when there are terms to test,
+    or, with ``require_past_published``, when the claim can be tested past
+    the published b-file. After a hold it is True only if the claim is
+    actually evaluable past ``max(bfile_hi, tested_hi)`` and a prior attempt
+    has not already hit that ceiling with the same capability.
+    """
+    eid = str(e.get("id") or "")
+    try:
+        log = log if log is not None else load_attempt_log()
+    except Exception:
+        log = _empty_attempt_log()
+    bh = bfile_hi_of(e)
+    last = _last_attempt_row(eid, log) if eid else None
+    last_v = int((last or {}).get("depth") or 0)
+    last_planned = int((last or {}).get("planned") or 0)
+    current = max(int(prior_hi or 0), last_v)
+    reachable = claim_testable_hi(e)
+    never = last is None and int(prior_hi or 0) == 0
+    bar = max(bh, current)
+    if never:
+        if require_past_published:
+            return reachable > bh
+        return reachable > 0 or bool(e.get("terms"))
+    if reachable > bar:
+        if last is not None and last_v <= bar:
+            # A prior attempt already aimed at least as far as we would now.
+            cap_then = last_planned or last_v
+            if last_planned >= reachable or last_planned > bar or reachable <= cap_then:
+                return False
+        return True
+    return False
+
+
 def already_attempted_pair(eid: str, depth: int, cycle_id: str = "", log: dict[str, Any] | None = None) -> bool:
-    """True when this (conjecture, depth) was already tried, or this id already this cycle."""
+    """True when this (conjecture, depth) was already tried, or this id already this cycle.
+
+    ``depth`` is what the next attempt would aim at. A prior row matches if
+    its verified depth equals that, if it already reached at least that far,
+    or if it already aimed at least that far (the ``planned`` field).
+    """
     eid = str(eid or "")
     if not eid:
         return False
     log = log if log is not None else load_attempt_log()
     if cycle_id and eid in set(log.get("by_cycle", {}).get(cycle_id) or []):
         return True
+    want = int(depth or 0)
     for row in log.get("attempts") or []:
-        if str(row.get("id") or "") == eid and int(row.get("depth") or 0) == int(depth):
+        if str(row.get("id") or "") != eid:
+            continue
+        verified = int(row.get("depth") or 0)
+        planned = int(row.get("planned") or 0)
+        if verified == want:
+            return True
+        if want and (planned == want or verified >= want or planned >= want):
             return True
     return False
 
@@ -1094,7 +1261,12 @@ def remember_attempt(
     cycle_id: str,
     planned: int | None = None,
 ) -> dict[str, Any]:
-    """Record (conjecture, depth) pairs actually attempted. Shadow and live."""
+    """Record (conjecture, verified-depth) pairs actually attempted. Shadow and live.
+
+    ``depth`` and ``beyond`` reflect the range that was verified, not the
+    depth the attempt was asked to reach. The requested depth is stored
+    separately as ``planned`` when the caller provides it.
+    """
     log = load_attempt_log()
     eid = str(e.get("id") or "")
     form = str((e.get("claim") or {}).get("form") or "")
@@ -1109,25 +1281,24 @@ def remember_attempt(
         for old in list(by.keys())[:-80]:
             by.pop(old, None)
     for r in acts or [{}]:
-        depth = planned
-        if depth is None:
-            depth = max(
-                int((r.get("range") or [0, 0])[1] or 0),
-                int(r.get("deep_hi") or 0),
-                int(r.get("tested") or 0) and (int(e.get("offset") or 0) + int(r.get("tested") or 0) - 1),
-                bh,
-            )
-        beyond = int(depth or 0) > bh
-        log["attempts"].append({
+        # Always record the verified range, not the requested (planned) depth.
+        verified = verified_depth(e, [r] if isinstance(r, dict) else [])
+        if verified <= 0:
+            verified = bh
+        beyond = int(verified or 0) > bh
+        rec: dict[str, Any] = {
             "id": eid,
             "anum": e.get("anum"),
             "form": form,
-            "depth": int(depth or 0),
+            "depth": int(verified or 0),
             "bfile_hi": bh,
             "beyond": beyond,
             "status": str((r or {}).get("status") or ""),
             "cycle_id": cycle_id,
-        })
+        }
+        if planned is not None:
+            rec["planned"] = int(planned)
+        log["attempts"].append(rec)
     log["attempts"] = log["attempts"][-400:]
     if form:
         last = list(log.get("last_forms") or [])
@@ -1163,9 +1334,14 @@ def desk_attempt(e: dict[str, Any], cycle_id: str, *, fetch: bool = False) -> li
     if defn and not entry.get("definition"):
         entry["definition"] = defn
     depth = planned_depth(entry)
+    prior = entry.get("tested_hi")
     if already_attempted_pair(str(entry.get("id") or ""), depth, cycle_id):
         return []
     if held_on_published_only(str(entry.get("id") or ""), entry) and not can_search_past_bfile(entry):
+        return []
+    # A prior hold that cannot actually be tested past its verified range
+    # is not retried. First attempts (no log, no prior_hi) still run.
+    if not can_progress_past(entry, prior):
         return []
     # Held-out tail: reserve the last slice of published terms and confirm
     # the definition still reproduces them. The attempt itself may then
@@ -1201,7 +1377,7 @@ def desk_attempt(e: dict[str, Any], cycle_id: str, *, fetch: bool = False) -> li
             if acts and acts[-1].get("status") == "proved_checked":
                 remember_attempt(entry, acts, cycle_id, planned=depth)
                 return acts
-        acts.append(attempt_disprove(entry, entry.get("tested_hi") if False else None, fetch=fetch))
+        acts.append(attempt_disprove(entry, prior, fetch=fetch))
     remember_attempt(entry, acts, cycle_id, planned=depth)
     return acts
 
@@ -1223,7 +1399,8 @@ def choose(
     search can run past the published terms (g.f., relation, property, only_prime, and any
     other form with a verified definition). A (conjecture, depth) pair already attempted is
     skipped; a target that held only on its published range is not picked again unless the
-    new attempt would go past that range. At most one attempt per target per cycle. Forms
+    new attempt would actually test past that range (a definition of a(n) is not enough
+    if referenced sequences cannot be evaluated there). At most one attempt per target per cycle. Forms
     and targets rotate so the same zero-credit family is not retried first every call.
     """
     tg = state.get("targets", {})
@@ -1254,6 +1431,14 @@ def choose(
             continue
         # Held on the published range and the next attempt would not go past it.
         if held_on_published_only(eid, e, log) and not (past and depth > bfile_hi_of(e)):
+            continue
+        # Skip a target that already held and cannot be tested any further
+        # (refs exhausted, no definition, or a prior attempt already hit the
+        # evaluator ceiling). beyond_bfile requires a real search past the
+        # published range, not just a computable a(n) definition.
+        if not can_progress_past(
+            e, st.get("tested_hi"), log, require_past_published=beyond_bfile,
+        ):
             continue
         f = fam.get(form, {})
         bandit = (f.get("credit", 0.0) + 1.0) / (f.get("attempts", 0) + 2.0)
