@@ -235,19 +235,51 @@ def heal_collect_metrics(cycle_id: str = "") -> dict[str, Any]:
 UNRECORDED_FINGERPRINT = "unrecorded"
 
 
+def _standalone_include(rel: str) -> bool:
+    """Same exclusion rules as ``colony.self_heal.include_behavior_path``.
+
+    Kept inline so Hive does not import colony. Docs, tests,
+    dashboard, and rendering are omitted; knob/cap JSON is included.
+    """
+    rel = rel.replace('\\', "/").lstrip("./")
+    parts = [p for p in rel.split("/") if p]
+    if any(p in {"__pycache__", "tests", "docs", "assets"} for p in parts):
+        return False
+    name = parts[-1] if parts else ""
+    if name in {"dashboard.py", "conftest.py"}:
+        return False
+    if name.startswith("test_") and name.endswith(".py"):
+        return False
+    lower = name.lower()
+    if "dashboard" in lower:
+        return False
+    if "render" in lower and name.endswith((".py", ".html", ".svg")):
+        return False
+    suffix = Path(name).suffix
+    if suffix in {".md", ".html", ".htm", ".css", ".svg", ".txt", ".rst",
+                  ".pyc", ".pyo", ".png", ".jpg", ".jpeg", ".gif", ".webp"}:
+        return False
+    return suffix in {".py", ".json"}
+
+
 def _standalone_fingerprint(*, exclude_knob: str | None = None) -> dict[str, Any]:
-    """Hive-only fingerprint used when no host self-heal is bound."""
+    """Hive-only fingerprint used when no host self-heal is bound.
+
+    Hashes only behavior-affecting Hive files (Python and knob/cap
+    JSON), not tests, docs, or rendering. Matches the host
+    ``environment_fingerprint`` exclusion rules so a docs-only or
+    test-only change does not look like a confound when Hive runs
+    standalone.
+    """
     import hashlib
     root = Path(__file__).resolve().parent
     parts: list[str] = []
     for path in sorted(root.rglob("*")):
         if not path.is_file():
             continue
-        if "__pycache__" in path.parts or path.suffix == ".pyc":
-            continue
-        if path.suffix not in {".py", ".json"}:
-            continue
         rel = path.relative_to(root).as_posix()
+        if not _standalone_include(f"hive/{rel}"):
+            continue
         try:
             data = path.read_bytes()
         except OSError:

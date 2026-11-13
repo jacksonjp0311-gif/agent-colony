@@ -11,11 +11,26 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from colony import state_segments as SS
+
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_STATE = ROOT / "data" / "society_state.json"
 SHARDS_DIR = ROOT / "data" / "society_shards"
 # Feature flag: STATE_SHARDS=1 enables shard flush (default on for relight; fallback keeps full file)
 STATE_SHARDS = os.environ.get("STATE_SHARDS", "1") != "0"
+
+
+def _shards_dir_for(state_path: Path) -> Path:
+    """Shard directory next to this state file, unless tests overrode SHARDS_DIR."""
+    default = ROOT / "data" / "society_shards"
+    if SHARDS_DIR != default:
+        return SHARDS_DIR
+    return state_path.parent / "society_shards"
+
+
+def load_data(path: Path | None = None) -> dict[str, Any]:
+    """Logical society state. See ``colony.state_segments.load_data``."""
+    return SS.load_data(path or DEFAULT_STATE)
 
 
 def _utc_now() -> str:
@@ -27,21 +42,31 @@ class SocietyState:
     path: Path
     data: dict[str, Any]
     _last_hash: str | None = field(default=None, repr=False, compare=False)
+    _split: bool = field(default=False, repr=False, compare=False)
 
     @classmethod
     def load(cls, path: Path | None = None) -> SocietyState:
         p = path or DEFAULT_STATE
-        with p.open("r", encoding="utf-8") as f:
-            data = json.load(f)
+        if SS.is_split(p) or p.is_file():
+            data = SS.load_data(p)
+        else:
+            raise FileNotFoundError(p)
         # Merge shard tails if present (full-file remains source of truth for one mile)
-        if STATE_SHARDS and SHARDS_DIR.is_dir():
+        shards_dir = _shards_dir_for(p)
+        if STATE_SHARDS and shards_dir.is_dir():
             for key in ("improvement_proposals", "fitness_history", "improvements"):
-                shard = SHARDS_DIR / f"{key}.jsonl"
+                shard = shards_dir / f"{key}.jsonl"
                 if not shard.exists():
                     continue
                 # Inline state keeps tails; shards are append-only archive — do not re-inflate fully
-                data.setdefault("_shards", {})[key] = str(shard.relative_to(ROOT))
-        return cls(path=p, data=data)
+                try:
+                    rel = str(shard.relative_to(ROOT))
+                except ValueError:
+                    rel = str(shard)
+                data.setdefault("_shards", {})[key] = rel
+        inst = cls(path=p, data=data)
+        inst._split = SS.is_split(p)
+        return inst
 
     def _flush_shard(self, key: str, *, max_inline: int = 50, mirror_tail: bool = False) -> None:
         if not STATE_SHARDS:
@@ -51,8 +76,9 @@ class SocietyState:
             return
         if len(arr) <= max_inline and not mirror_tail:
             return
-        SHARDS_DIR.mkdir(parents=True, exist_ok=True)
-        shard_path = SHARDS_DIR / f"{key}.jsonl"
+        shards_dir = _shards_dir_for(self.path)
+        shards_dir.mkdir(parents=True, exist_ok=True)
+        shard_path = shards_dir / f"{key}.jsonl"
         # Fitness keeps the cycles just recorded, not only the rows leaving the inline window.
         pending = arr if mirror_tail else arr[:-max_inline]
         # Append once (track by id/ts to avoid dupes on re-save)
@@ -80,15 +106,27 @@ class SocietyState:
             rel = str(shard_path)
         self.data.setdefault("_shards", {})[key] = rel
 
-    def save(self) -> None:
+    def save(self, *, segment_threshold: int | None = None) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        # Shard hot arrays to cut commit churn
+        # Shard hot arrays to cut commit churn (sliding-window keys;
+        # the large append-only keys are handled by state_segments).
         self._flush_shard("improvement_proposals", max_inline=50)
         self._flush_shard("fitness_history", max_inline=30, mirror_tail=True)
         self._flush_shard("improvements", max_inline=50)
-        blob = json.dumps(self.data, sort_keys=True, separators=(",", ":"))
+        blob = json.dumps(self.data, sort_keys=True, separators=(",", ":"), default=str)
         digest = hashlib.sha256(blob.encode()).hexdigest()
-        if self._last_hash == digest:
+        # A first save after deploy still migrates even when the
+        # in-memory digest is about to be stored: _last_hash starts
+        # unset, so we fall through. After a split, a no-op skip is
+        # fine because the frozen file is already in place.
+        already_split = SS.is_split(self.path)
+        need_split = already_split or SS.should_split(self.path, threshold=segment_threshold)
+        if self._last_hash == digest and not (need_split and not already_split):
+            return
+        if need_split:
+            SS.save_split(self.path, self.data, threshold=segment_threshold)
+            self._split = True
+            self._last_hash = digest
             return
         with self.path.open("w", encoding="utf-8") as f:
             json.dump(self.data, f, indent=2, ensure_ascii=False)

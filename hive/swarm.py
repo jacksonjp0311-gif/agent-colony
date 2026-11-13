@@ -38,6 +38,7 @@ from hive.bitwork import (
     Match,
     Router,
     action_fingerprint,
+    margin_bucket,
     wilson_lower_permille,
 )
 
@@ -502,6 +503,9 @@ class VoteResult:
     margin: int
     n_votes: int
     n_vetoes: int
+    bucket: int = 0
+    bucket_n: int = 0
+    runner_up: Proposal | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -513,8 +517,36 @@ class VoteResult:
             "margin": self.margin,
             "n_votes": self.n_votes,
             "n_vetoes": self.n_vetoes,
+            "bucket": self.bucket,
+            "bucket_n": self.bucket_n,
+            "runner_up": None if self.runner_up is None else self.runner_up.as_dict(),
             "wilson_gate": WILSON_ACCEPT_PERMILLE,
         }
+
+
+def vote_audit_fields(result: VoteResult) -> dict[str, Any]:
+    """Vote numbers written on every gate decision, for later audit.
+
+    Used by ``abstain``, ``trial_start`` (apply), and ``apply_deferred``.
+    The Wilson 95% lower bound and the 700 permille accept threshold
+    are not changed here. ``reason`` is left to the caller so a
+    deferred record can keep its deferral reason.
+    """
+    bucket = int(result.bucket)
+    if not bucket and int(result.margin) > 0:
+        bucket = int(margin_bucket(int(result.margin)))
+    return {
+        "margin": int(result.margin),
+        "lower_permille": int(result.lower_permille),
+        "bucket": bucket,
+        "bucket_n": int(result.bucket_n),
+        "tallies": dict(result.tallies),
+        "n_votes": int(result.n_votes),
+        "n_vetoes": int(result.n_vetoes),
+        "winner": None if result.winner is None else result.winner.as_dict(),
+        "runner_up": None if result.runner_up is None else result.runner_up.as_dict(),
+        "wilson_gate": WILSON_ACCEPT_PERMILLE,
+    }
 
 
 def vote(
@@ -550,19 +582,28 @@ def vote(
     margin = 0
     if winner.match is not None:
         margin = int(winner.match.margin)
-    accepted, lower, _n = router.would_accept(margin)
+    accepted, lower, bucket_n = router.would_accept(margin)
     # If this exact action has a scored match, prefer that gate.
     if winner.match is not None:
         lower = int(winner.match.lower_permille)
         accepted = bool(winner.match.accepted)
+        bucket_n = int(winner.match.bucket_n)
+    bucket = int(margin_bucket(margin))
+    runner_up = None
+    if len(ranked) > 1:
+        rfp = ranked[1]
+        runner_up = sorted(
+            by_fp[rfp],
+            key=lambda p: (-(p.match.score if p.match is not None else -10**9), p.role),
+        )[0]
     if not accepted:
         return VoteResult(
             winner, True, "wilson_abstain", tallies, lower, margin,
-            len(legal), n_vetoes,
+            len(legal), n_vetoes, bucket, bucket_n, runner_up,
         )
     return VoteResult(
         winner, False, "accepted", tallies, lower, margin,
-        len(legal), n_vetoes,
+        len(legal), n_vetoes, bucket, bucket_n, runner_up,
     )
 
 
@@ -1541,14 +1582,10 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
             st["abstained_count"] = int(st.get("abstained_count") or 0) + 1
             shadow = record_shadow(st, vote_result, cycle_id=cycle_id)
             append_evidence(st, {
+                **vote_audit_fields(vote_result),
                 "event": "abstain",
                 "cycle_id": cycle_id,
                 "reason": vote_result.reason,
-                "lower_permille": vote_result.lower_permille,
-                "margin": vote_result.margin,
-                "tallies": vote_result.tallies,
-                "n_votes": vote_result.n_votes,
-                "winner": None if vote_result.winner is None else vote_result.winner.as_dict(),
                 "shadow_id": None if shadow is None else shadow.get("id"),
                 "source": "shadow" if shadow is not None else None,
             })
@@ -1562,6 +1599,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                 st["applied_count"] = int(st.get("applied_count") or 0) + 1
                 applied_this_cycle += 1
                 append_evidence(st, {
+                    **vote_audit_fields(vote_result),
                     "event": "trial_start",
                     "cycle_id": cycle_id,
                     "via": started.get("via"),
@@ -1570,14 +1608,14 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                     "role": winner.role,
                     "label": winner.label,
                     "symptom": winner.symptom,
-                    "lower_permille": vote_result.lower_permille,
-                    "margin": vote_result.margin,
                 })
             else:
                 append_evidence(st, {
+                    **vote_audit_fields(vote_result),
                     "event": "apply_deferred",
                     "cycle_id": cycle_id,
                     "reason": started.get("reason"),
+                    "vote_reason": vote_result.reason,
                     "fingerprint": winner.fingerprint,
                     "action": winner.action,
                 })

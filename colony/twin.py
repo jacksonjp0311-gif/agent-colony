@@ -211,7 +211,13 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
     proofs_n = len(proofs)
     non_routine = proofs_n - routine
 
-    state = _load(data_dir / "society_state.json") or {}
+    try:
+        from colony.society_state import load_data
+        from colony.state_segments import state_present
+        sp = data_dir / "society_state.json"
+        state = load_data(sp) if state_present(sp) else {}
+    except Exception:
+        state = _load(data_dir / "society_state.json") or {}
     try:
         cycle_count = int(state.get("cycle_count") or 0)
     except (TypeError, ValueError):
@@ -382,9 +388,8 @@ def update_scoreboard(
     t = treatment if treatment is not None else collect_arm_metrics(t_root)
 
     control_seeded = control_is_seeded(c_root)
-    control_tree = (c_root / "society").exists() or (
-        c_root / "data" / "society_state.json"
-    ).is_file()
+    from colony.state_segments import state_present as _state_present
+    control_tree = (c_root / "society").exists() or _state_present(c_root / "data" / "society_state.json")
     control_job_ok = _job_ok(control_result)
     treatment_job_ok = _job_ok(treatment_result)
 

@@ -348,7 +348,8 @@ def shard_proposals(path: Path | None = None) -> list[dict[str, Any]]:
 def write(cycle_id: str = "", **kw: Any) -> dict[str, Any] | None:
     """Rebuild and overwrite the shortlist from current state. Never raises."""
     try:
-        st = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+        from colony.society_state import load_data
+        st = load_data(STATE_PATH)
         props = list(st.get("improvement_proposals") or []) + list(st.get("improvement_proposals_archived") or [])
         props += shard_proposals()  # last: inline copies are newer and win build()'s first-seen dedupe
         try:
