@@ -55,3 +55,11 @@ def _isolate_stall_state(tmp_path, monkeypatch):
     import colony.oeis_conjectures as OC
     monkeypatch.setattr(OC, "ATTEMPT_LOG", tmp_path / "oeis_attempt_log.json")
 
+
+@pytest.fixture(autouse=True)
+def _isolate_checker_lane(tmp_path, monkeypatch):
+    """Each test gets a fresh checker-lane state so proposals cannot leak."""
+    import colony.checker_lane as CL
+    monkeypatch.setattr(CL, "STATE_PATH", tmp_path / "checker_lane.json")
+    monkeypatch.setattr(CL, "LANE_LOG", tmp_path / "checker_lane.jsonl")
+    monkeypatch.setattr(CL, "PROPOSAL_DIR", tmp_path / "checker_proposals")

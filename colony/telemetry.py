@@ -188,12 +188,20 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
         stall_vis = visibility()
     except Exception:
         stall_vis = {}
+    checker_vis = {}
+    try:
+        from colony.checker_lane import visibility as checker_visibility
+        checker_vis = checker_visibility()
+    except Exception:
+        checker_vis = {}
     return {
         "fitness_latest": fit_latest,
         "honest_scoreboard": _honest_scoreboard(),
         "stall_cycles": stall_vis.get("stall_cycles", 0),
         "perturb_active": stall_vis.get("perturb_active", False),
         "distinct_targets_tried_last_3_cycles": stall_vis.get("distinct_targets_tried_last_3_cycles", 0),
+        "checker_proposals_awaiting_review": checker_vis.get("checker_proposals_awaiting_review", 0),
+        "checker_proposals": checker_vis.get("checker_proposals") or [],
         "fitness_aggregate": (fit_latest or {}).get("aggregate") if isinstance(fit_latest, dict) else None,
         "reply_rate": bus_metrics.get("reply_rate") or (fit_latest or {}).get("comm_reply_rate"),
         "bus_metrics": bus_metrics,
