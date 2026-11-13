@@ -247,7 +247,8 @@ def bar_dependencies() -> set[str] | None:
     None when it cannot be computed (then nothing is retired)."""
     try:
         from colony import shortlist as SL
-        st = json.loads(SL.STATE_PATH.read_text(encoding="utf-8"))
+        from colony.society_state import load_data
+        st = load_data(SL.STATE_PATH)
         props = list(st.get("improvement_proposals") or []) + list(st.get("improvement_proposals_archived") or [])
         orc, nov = SL._jsonl(SL.ORACLE_LOG), SL._jsonl(SL.NOVELTY_LOG)
         out: set[str] = set()
@@ -535,11 +536,11 @@ def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, re
                     r["proposals_withdrawn"] = ids
         record.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
         try:  # earlier retirements too (idempotent)
-            raw = state_path.read_text(encoding="utf-8")
-            st = json.loads(raw)
+            from colony.society_state import SocietyState, load_data
+            st = load_data(state_path)
             more = withdraw_all_retired(st, record)
             if more:
-                state_path.write_text(_dump_like(st, raw), encoding="utf-8")
+                SocietyState(path=state_path, data=st).save()
                 withdrawn += more
         except Exception:  # noqa: BLE001
             pass
@@ -600,20 +601,20 @@ def withdraw_all_retired(data: dict[str, Any], record: Path = RECORD) -> list[st
 
 def withdraw_proposals(names: set[str], *, reason: str, state_path: Path = STATE) -> list[str]:
     try:
-        raw = state_path.read_text(encoding="utf-8")
-        st = json.loads(raw)
+        from colony.society_state import SocietyState, load_data
+        st = load_data(state_path)
     except Exception:  # noqa: BLE001
         return []
     out = withdraw_in(st, names, {n: reason for n in names})
     if out:
-        state_path.write_text(_dump_like(st, raw), encoding="utf-8")
+        SocietyState(path=state_path, data=st).save()
     return out
 
 
 def unwithdraw_proposals(name: str, *, state_path: Path = STATE) -> list[str]:
     try:
-        raw = state_path.read_text(encoding="utf-8")
-        st = json.loads(raw)
+        from colony.society_state import SocietyState, load_data
+        st = load_data(state_path)
     except Exception:  # noqa: BLE001
         return []
     out = []
@@ -625,7 +626,7 @@ def unwithdraw_proposals(name: str, *, state_path: Path = STATE) -> list[str]:
                 p["withdrawn"] = {**w, "restored_at": _utc()}
                 out.append(p.get("id"))
     if out:
-        state_path.write_text(_dump_like(st, raw), encoding="utf-8")
+        SocietyState(path=state_path, data=st).save()
     return out
 
 

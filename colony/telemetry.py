@@ -161,7 +161,12 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
     """Internal colony telemetry snapshot."""
     if state is None:
         sp = ROOT / "data" / "society_state.json"
-        state = json.loads(sp.read_text(encoding="utf-8")) if sp.exists() else {}
+        try:
+            from colony.society_state import load_data
+            from colony.state_segments import is_split, state_present
+            state = load_data(sp) if state_present(sp) else {}
+        except Exception:
+            state = json.loads(sp.read_text(encoding="utf-8")) if sp.exists() else {}
     fit_hist = state.get("fitness_history") or []
     fit_latest = fit_hist[-1] if fit_hist else None
     bus_metrics = {}

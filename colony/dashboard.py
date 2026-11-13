@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from colony.log_segments import count_lines, iter_lines
+from colony.society_state import load_data
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -19,7 +20,7 @@ def _utc_now() -> str:
 
 def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
     root = root or ROOT
-    state = json.loads((root / "data" / "society_state.json").read_text(encoding="utf-8"))
+    state = load_data(root / "data" / "society_state.json")
     ledger_path = root / "data" / "ledger.jsonl"
     witness_path = root / "data" / "witness.jsonl"
 

@@ -245,6 +245,14 @@ has a paraphrase so leave-one-out replay still has a sibling.
 The Wilson 95% lower-bound gate and the 700 permille accept
 threshold are unchanged.
 
+Every gate decision — a Wilson abstain, a passed vote that
+starts a trial, a passed vote that is then deferred, and an
+apply — records the same audit fields on the evidence event:
+`margin`, `lower_permille`, `bucket` (the `MARGIN_BUCKETS`
+lower edge), `bucket_n`, `tallies`, `n_votes`, `winner`, and
+`runner_up`. A later reader can check a live gate-pass or a
+margin regression from the committed snapshot alone.
+
 ## Persistence
 
 Hive's live state has to survive a fresh CI checkout in order to

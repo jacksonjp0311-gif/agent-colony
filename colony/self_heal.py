@@ -21,11 +21,17 @@ Each evolve cycle this module:
   appended to an evidence log with the numbers, so a later gain can be
   traced to a self-made change
 * records a fingerprint of the code and of every knob except the one
-  under trial. If that fingerprint changes during the baseline or the
-  trial window (a code merge, a raised evaluator cap, any other knob),
-  the trial is voided: an append-only ``trial_voided_confound`` event
-  is written, the knob is restored, there is no adopt and no
-  revert-as-negative, and a fresh same-fingerprint baseline starts
+  under trial. The code digest hashes only the files and config that
+  affect the colony's measured behavior: ``colony/`` and ``hive/``
+  Python and knob/cap JSON, minus docs, tests, dashboard, and
+  rendering. A docs-only, test-only, or dashboard-only merge does
+  not change the digest and does not void a trial. A change to
+  behavior code or to a knob/cap still does. If that fingerprint
+  changes during the baseline or the trial window (a behavior-code
+  merge, a raised evaluator cap, any other knob), the trial is
+  voided: an append-only ``trial_voided_confound`` event is written,
+  the knob is restored, there is no adopt and no revert-as-negative,
+  and a fresh same-fingerprint baseline starts
 * if an optional cycle step throws, records the error and quarantines
   that step for N cycles after a threshold of failures. Protected
   gates (trust gate, Oracle, authorize, Athanor, witness, the P gate)
@@ -212,47 +218,127 @@ _CODE_FINGERPRINT_CACHE: str | None = None
 UNRECORDED_FINGERPRINT = "unrecorded"
 
 
-def _code_roots() -> list[tuple[str, Path]]:
+def _code_roots(roots: list[tuple[str, Path]] | None = None) -> list[tuple[str, Path]]:
     """Source trees that belong in the environment fingerprint.
 
     ``colony/`` is always included. ``hive/`` is included when present,
-    so a Hive code change mid-trial is a confound the same way a colony
-    change is. Library JSONL and other data files are not hashed.
+    so a Hive behavior-code change mid-trial is a confound the same
+    way a colony change is. Library JSONL and other data files are
+    not hashed. Docs, tests, dashboard, and rendering are also not
+    hashed: they do not affect measured behavior, and a merge that
+    only touches them must not reset a 6-cycle baseline.
     """
-    roots: list[tuple[str, Path]] = [("colony", Path(__file__).resolve().parent)]
+    if roots is not None:
+        return list(roots)
+    found: list[tuple[str, Path]] = [("colony", Path(__file__).resolve().parent)]
     hive = ROOT / "hive"
     if hive.is_dir():
-        roots.append(("hive", hive))
-    return roots
+        found.append(("hive", hive))
+    return found
 
 
-def _colony_file_digest() -> str:
-    """SHA-256 of colony/ and hive/ Python and default JSON, in path order."""
-    global _CODE_FINGERPRINT_CACHE
-    if _CODE_FINGERPRINT_CACHE is not None:
-        return _CODE_FINGERPRINT_CACHE
-    parts: list[str] = []
-    for label, root in _code_roots():
+# Directory names that never affect measured colony behavior.
+_FINGERPRINT_EXCLUDE_DIRS = frozenset({
+    "__pycache__",
+    "tests",
+    "docs",
+    "assets",
+})
+# File names (any directory) that are display / rendering only.
+_FINGERPRINT_EXCLUDE_FILES = frozenset({
+    "dashboard.py",
+    "conftest.py",
+})
+_FINGERPRINT_EXCLUDE_SUFFIXES = frozenset({
+    ".md", ".html", ".htm", ".css", ".svg", ".txt", ".rst",
+    ".pyc", ".pyo", ".png", ".jpg", ".jpeg", ".gif", ".webp",
+})
+_FINGERPRINT_INCLUDE_SUFFIXES = frozenset({".py", ".json"})
+
+
+def include_behavior_path(rel: str) -> bool:
+    """True if this colony/ or hive/ relative path affects measured behavior.
+
+    Included: Python modules and knob/cap (and other) JSON that the
+    evolve loop actually runs, such as ``self_heal_defaults.json``
+    and ``hive/data/knob_specs.json``.
+
+    Excluded: docs (``*.md`` and ``docs/``), tests (``tests/``,
+    ``test_*.py``, ``conftest.py``), dashboard and rendering
+    (``dashboard.py``, ``*render*`` HTML/SVG), bytecode, and library
+    JSONL. A merge that only changes excluded files does not change
+    the fingerprint and does not void a trial.
+    """
+    rel = rel.replace("\\", "/").lstrip("./")
+    # Paths are stored as colony/foo.py or hive/foo.py, or as foo.py
+    # relative to one root. Both forms are accepted.
+    parts = [p for p in rel.split("/") if p]
+    if any(p in _FINGERPRINT_EXCLUDE_DIRS for p in parts):
+        return False
+    name = parts[-1] if parts else ""
+    if name in _FINGERPRINT_EXCLUDE_FILES:
+        return False
+    if name.startswith("test_") and name.endswith(".py"):
+        return False
+    lower = name.lower()
+    if "dashboard" in lower:
+        return False
+    if "render" in lower and (name.endswith(".py") or name.endswith(".html") or name.endswith(".svg")):
+        return False
+    suffix = Path(name).suffix
+    if suffix in _FINGERPRINT_EXCLUDE_SUFFIXES:
+        return False
+    return suffix in _FINGERPRINT_INCLUDE_SUFFIXES
+
+
+def behavior_source_files(
+    roots: list[tuple[str, Path]] | None = None,
+) -> list[tuple[str, Path, str]]:
+    """``(label, path, rel)`` for every file the fingerprint hashes."""
+    out: list[tuple[str, Path, str]] = []
+    for label, root in _code_roots(roots):
+        if not root.is_dir():
+            continue
         for path in sorted(root.rglob("*")):
             if not path.is_file():
                 continue
-            if "__pycache__" in path.parts or path.suffix == ".pyc":
-                continue
-            if path.suffix not in {".py", ".json"}:
-                continue
             rel = path.relative_to(root).as_posix()
-            try:
-                data = path.read_bytes()
-            except OSError:
+            # include_behavior_path sees label/rel so hive/tests/... is excluded
+            if not include_behavior_path(f"{label}/{rel}"):
                 continue
-            parts.append(f"{label}/{rel}:{hashlib.sha256(data).hexdigest()}")
-    digest = hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
+            out.append((label, path, rel))
+    return out
+
+
+def file_digest_for(roots: list[tuple[str, Path]] | None = None) -> str:
+    """SHA-256 of included behavior files, in path order. No process cache."""
+    parts: list[str] = []
+    for label, path, rel in behavior_source_files(roots):
+        try:
+            data = path.read_bytes()
+        except OSError:
+            continue
+        parts.append(f"{label}/{rel}:{hashlib.sha256(data).hexdigest()}")
+    return hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
+
+
+def _colony_file_digest() -> str:
+    """SHA-256 of behavior-affecting colony/ and hive/ files, in path order.
+
+    Docs, tests, dashboard, and rendering are omitted. Knob and cap
+    config is included. The result is cached per process because
+    source does not change mid-run.
+    """
+    global _CODE_FINGERPRINT_CACHE
+    if _CODE_FINGERPRINT_CACHE is not None:
+        return _CODE_FINGERPRINT_CACHE
+    digest = file_digest_for()
     _CODE_FINGERPRINT_CACHE = digest
     return digest
 
 
 def _git_tree_sha(subtree: str) -> str:
-    """Git tree SHA of one subtree. Empty if git is unavailable."""
+    """Git tree or blob SHA of one path. Empty if git is unavailable."""
     try:
         out = subprocess.check_output(
             ["git", "rev-parse", f"HEAD:{subtree}"],
@@ -266,15 +352,39 @@ def _git_tree_sha(subtree: str) -> str:
 
 
 def _colony_tree_sha() -> str:
-    """Git tree SHA of colony/ (and hive/ when present).
+    """Git digest of only the behavior-affecting files under colony/ and hive/.
 
-    Data-only commits that do not touch those trees leave this unchanged,
-    so a spark-loop data push does not void a trial.
+    A docs-only, test-only, or dashboard-only commit does not change
+    this value, so it does not void a trial. A commit that changes
+    behavior code or knob/cap config does. Data-only commits that
+    do not touch those files also leave this unchanged, so a
+    spark-loop data push does not void a trial.
+
+    Built from ``git ls-files -s`` blob SHAs of included paths,
+    not from the whole ``HEAD:colony`` tree SHA (which would still
+    move on a dashboard-only merge).
     """
-    parts = [f"colony:{_git_tree_sha('colony')}"]
-    if (ROOT / "hive").is_dir():
-        parts.append(f"hive:{_git_tree_sha('hive')}")
-    return ",".join(parts)
+    try:
+        out = subprocess.check_output(
+            ["git", "ls-files", "-s", "--", "colony", "hive"],
+            cwd=str(ROOT),
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+    except Exception:
+        return ""
+    parts: list[str] = []
+    for line in out.splitlines():
+        bits = line.split(None, 3)
+        if len(bits) < 4:
+            continue
+        _mode, sha, _stage, path = bits
+        if include_behavior_path(path):
+            parts.append(f"{path}:{sha}")
+    parts.sort()
+    if not parts:
+        return ""
+    return hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
 
 
 def environment_fingerprint(
@@ -282,10 +392,13 @@ def environment_fingerprint(
     exclude_knob: str | None = None,
     state: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Fingerprint of running code and of every knob except ``exclude_knob``.
+    """Fingerprint of running behavior-code and of every knob except ``exclude_knob``.
 
     The digest is what a trial stores and later compares. The parts are
     kept so a void event can show what changed (code vs a cap or knob).
+    ``code`` is the narrowed file digest (docs/tests/dashboard/
+    rendering omitted; knob and cap config included). ``tree`` is
+    the matching git digest of those same files only.
     """
     if state is not None and isinstance(state.get("knobs"), dict):
         knobs_src = state["knobs"]

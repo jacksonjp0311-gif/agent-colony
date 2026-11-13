@@ -55,7 +55,19 @@ into `control/` and commits it, which is a larger push than later runs.
 
 The seed reads treatment trees through paths that bypass the
 `COLONY_ARM` redirect hook, fails loud if the copy is empty or
-`control/data/society_state.json` is missing, and is idempotent.
+the control society state is missing, and is idempotent. A
+readable society state is either the legacy
+`control/data/society_state.json` or a split layout (manifest +
+live file). New seeds do not copy a large treatment
+`society_state.json`; they get a shared-snapshot pointer at the
+treatment frozen file (never rewritten, so the first N bytes at
+seed stay stable) and write new appends to control-owned
+segments. Existing committed control copies are left in place and
+migrate on their own first save, the same way treatment does.
+The large append-only keys (`communications`, `history`,
+`evolution_log`, `artifacts`, `cycle_diagnostics`) move into
+append-only JSONL segments; a slim live file holds the mutable
+keys. Readers reconstruct the identical logical state.
 The control job commits the seed (rebase before push) before it
 evolves. The scoreboard job runs with `if: always()`, refreshes
 treatment from live state even when control failed, and only

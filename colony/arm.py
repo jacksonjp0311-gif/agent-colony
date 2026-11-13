@@ -43,7 +43,9 @@ _HOOKS_INSTALLED = False
 _HIVE_FINDER_INSTALLED = False
 
 # Treatment files that must exist in the control tree after a seed.
-# Evolve crashes without society_state.json (run 43354564616).
+# Evolve crashes without society state (run 43354564616).
+# After the state split, a shared-snapshot seed may have a manifest
+# and a live file instead of a local copy of the large JSON.
 REQUIRED_SEED_FILES = ("data/society_state.json",)
 
 # Directories copied into the control tree at seed time. These are the
@@ -56,7 +58,7 @@ _SEED_TREES = ("data", "society")
 # own segments. Existing committed copies are left in place (we do
 # not rewrite history).
 _SEED_SKIP_LOGS = frozenset({"ledger.jsonl", "witness.jsonl"})
-_SEED_IGNORE = shutil.ignore_patterns(
+_SEED_IGNORE_BASE = shutil.ignore_patterns(
     "__pycache__",
     "*.pyc",
     ".desk_journal.json",
@@ -66,6 +68,35 @@ _SEED_IGNORE = shutil.ignore_patterns(
     "ledger.jsonl",
     "witness.jsonl",
 )
+
+
+def _should_skip_state_copy(path: Path) -> bool:
+    """True when the source society_state is large or already split.
+
+    New control seeds then get a shared-snapshot pointer instead of
+    a second 44 MiB copy. Small unmigrated fixtures are still copied,
+    so existing tests keep working.
+    """
+    try:
+        from colony import state_segments as SS
+        if SS.is_split(path):
+            return True
+        return path.is_file() and path.stat().st_size >= SS.threshold_bytes()
+    except Exception:
+        return path.is_file() and path.stat().st_size >= 8 * 1024 * 1024
+
+
+def _seed_ignore(directory, contents):
+    ignored = list(_SEED_IGNORE_BASE(directory, contents))
+    data_dir = Path(directory)
+    state = data_dir / "society_state.json"
+    skip_state = "society_state.json" in contents and _should_skip_state_copy(state)
+    if skip_state:
+        ignored.append("society_state.json")
+        for name in ("society_state.segments.json", "society_state.live.json", "society_state"):
+            if name in contents:
+                ignored.append(name)
+    return ignored
 
 
 class ControlSeedError(RuntimeError):
@@ -297,22 +328,33 @@ def git_sha(cwd: Path | None = None) -> str | None:
         return None
 
 
+def _society_state_present(root: Path) -> bool:
+    """True if control has a readable society state (legacy or split)."""
+    try:
+        from colony.state_segments import state_present
+        return state_present(raw_join(root, "data", "society_state.json"))
+    except Exception:
+        state = raw_join(root, "data", "society_state.json")
+        return state.is_file() and state.stat().st_size > 0
+
+
 def control_is_seeded(root: Path | None = None) -> bool:
     """True only when the control tree has the files evolve needs.
 
     Empty ``data/`` or ``society/`` directories (or a fork receipt
     with ``control_seeded: false``) do not count. The required
-    marker is ``data/society_state.json``.
+    marker is a readable society state: the legacy
+    ``data/society_state.json``, or a split layout (manifest + live
+    file, possibly pointing at a shared treatment snapshot).
     """
     cr = root if root is not None else control_root()
-    state = raw_join(cr, "data", "society_state.json")
-    if not state.is_file():
+    if not _society_state_present(cr):
         return False
     fork = _load_json(raw_join(cr, FORK_NAME)) or {}
     # An explicit false is only trusted if the required file is also
     # missing; a complete tree from a seed that died after the copy
     # but before the flag is still seeded.
-    if fork.get("control_seeded") is False and not state.is_file():
+    if fork.get("control_seeded") is False and not _society_state_present(cr):
         return False
     return True
 
@@ -481,12 +523,12 @@ def ensure_control_seed(
             # Partial tree from a crashed seed: fill missing files only.
             _copy_missing(from_dir, to_dir)
         else:
-            shutil.copytree(from_dir, to_dir, ignore=_SEED_IGNORE, symlinks=False)
+            shutil.copytree(from_dir, to_dir, ignore=_seed_ignore, symlinks=False)
         copied.append(tree)
 
     required_missing = [
         rel for rel in REQUIRED_SEED_FILES
-        if not raw_join(dest, *rel.split("/")).is_file()
+        if not _seed_file_present(dest, rel)
     ]
     if not copied or required_missing:
         record["copied"] = copied
@@ -508,11 +550,16 @@ def ensure_control_seed(
 
     freeze_report = freeze_control_self_mod(dest)
     log_pointers = _seed_log_pointers(src, dest)
+    state_pointer = _seed_society_state(src, dest)
+    if state_pointer:
+        log_pointers = dict(log_pointers or {})
+        log_pointers["society_state.json"] = state_pointer
     # Re-check required files after freeze (freeze only rewrites JSON
-    # under society/systems; society_state must still be there).
+    # under society/systems; society_state must still be there, or a
+    # split/shared-snapshot layout that readers accept).
     required_missing = [
         rel for rel in REQUIRED_SEED_FILES
-        if not raw_join(dest, *rel.split("/")).is_file()
+        if not _seed_file_present(dest, rel)
     ]
     if required_missing:
         raise ControlSeedError(
@@ -535,6 +582,51 @@ def ensure_control_seed(
     record["dest"] = str(dest)
     record["source"] = str(src)
     return record
+
+
+def _seed_file_present(dest: Path, rel: str) -> bool:
+    """True if a required seed file is in place, including a split state."""
+    if rel == "data/society_state.json":
+        return _society_state_present(dest)
+    return raw_join(dest, *rel.split("/")).is_file()
+
+
+def _seed_society_state(src: Path, dest: Path) -> dict[str, Any]:
+    """Share or copy treatment society state into the control tree.
+
+    Existing committed control copies are left in place (no rewrite).
+    A large or already-split source is not copied: control gets a
+    shared-snapshot pointer and a slim live file, and writes new
+    appends to control-owned segments. Small unmigrated files are
+    copied as before.
+    """
+    src_file = raw_join(src, "data", "society_state.json")
+    dest_file = raw_join(dest, "data", "society_state.json")
+    if dest_file.is_file() and dest_file.stat().st_size > 0:
+        return {
+            "skipped": "already_present",
+            "bytes": dest_file.stat().st_size,
+            "note": "Existing control copy left in place; it will migrate on its own first save.",
+        }
+    try:
+        from colony import state_segments as SS
+    except Exception as exc:
+        return {"error": str(exc)}
+    dest_file.parent.mkdir(parents=True, exist_ok=True)
+    if not _should_skip_state_copy(src_file) and src_file.is_file():
+        # Small unmigrated file: ordinary copy.
+        if not dest_file.exists():
+            shutil.copy2(src_file, dest_file)
+        return {"copied": True, "bytes": dest_file.stat().st_size}
+    man = SS.attach_shared_state(dest_file, src_file)
+    return {
+        "skipped": "shared_snapshot",
+        "frozen_path": (man.get("frozen") or {}).get("path"),
+        "frozen_bytes": (man.get("frozen") or {}).get("bytes"),
+        "frozen_sha256": (man.get("frozen") or {}).get("sha256"),
+        "manifest": str(SS.manifest_path(dest_file)),
+        "live": str(SS.live_path(dest_file, man)),
+    }
 
 
 def _seed_log_pointers(src: Path, dest: Path) -> dict[str, Any]:
@@ -587,6 +679,15 @@ def _copy_missing(src: Path, dest: Path) -> None:
             continue
         if item.name in _SEED_SKIP_LOGS:
             continue
+        if item.name == "society_state.json" and _should_skip_state_copy(item):
+            continue
+        if item.name in {"society_state.segments.json", "society_state.live.json", "society_state"}:
+            # Written by _seed_society_state when the large file is skipped.
+            parent_state = item.parent / "society_state.json"
+            if _should_skip_state_copy(parent_state) or (
+                not parent_state.is_file() and (item.parent / "society_state.segments.json").is_file()
+            ):
+                continue
         target = dest / item.name
         if item.is_dir():
             _copy_missing(item, target)
@@ -620,7 +721,8 @@ def prepare_arm(*, seed: bool | None = None) -> dict[str, Any]:
         info["seeded"] = control_is_seeded()
         if not info["seeded"]:
             raise ControlSeedError(
-                "seed ran but control/data/society_state.json is still missing"
+                "seed ran but control society state is still missing "
+                "(no society_state.json and no split manifest + live file)"
             )
         return info
     info["seeded"] = False
