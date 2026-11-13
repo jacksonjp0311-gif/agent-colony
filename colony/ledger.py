@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Iterator, Literal
 
 from colony.charter import assert_valid_finding_fields
+from colony.log_segments import append_line, iter_lines
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_LEDGER = ROOT / "data" / "ledger.jsonl"
@@ -93,8 +94,7 @@ class Ledger:
             extra_roles=self.extra_roles,
         )
         line = json.dumps(finding.to_dict(), ensure_ascii=False)
-        with self.path.open("a", encoding="utf-8") as f:
-            f.write(line + "\n")
+        append_line(self.path, line)
         return finding
 
     def create(
@@ -130,14 +130,11 @@ class Ledger:
         return self.append(finding)
 
     def iter_all(self) -> Iterator[Finding]:
-        if not self.path.is_file():
-            return
-        with self.path.open("r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                yield Finding.from_dict(json.loads(line))
+        for line in iter_lines(self.path):
+            line = line.strip()
+            if not line:
+                continue
+            yield Finding.from_dict(json.loads(line))
 
     def all(self) -> list[Finding]:
         return list(self.iter_all())

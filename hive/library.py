@@ -4,9 +4,8 @@ Every record is a structured example: symptom features, an optional
 fix action, and the evidence that verified (or rejected) it. The
 library is the teaching set for the Bitwork router. Records are only
 ever appended; existing lines are never rewritten. Seed patterns are
-derived in this file from merged PRs #1–#7 and from the diagnosis
-vocabulary the colony already uses — they are not a rewrite of any
-live log.
+derived from merged PRs #1–#11 and from real historical failures
+with known resolutions — they are not a rewrite of any live log.
 """
 from __future__ import annotations
 
@@ -33,7 +32,10 @@ MINE_LIMIT = 400
 # records are dropped from the snapshot (record contents are never
 # rewritten). The JSONL log stays append-only and is not committed.
 LIBRARY_KEEP = 2000
-SEED_SOURCE_TAGS = frozenset({"seed", "paraphrase", "pr1", "pr2", "pr3", "pr4", "pr5", "pr6", "pr7"})
+SEED_SOURCE_TAGS = frozenset({
+    "seed", "paraphrase", "historical",
+    "pr1", "pr2", "pr3", "pr4", "pr5", "pr6", "pr7", "pr8", "pr9", "pr10", "pr11",
+})
 
 
 def _utc() -> str:
@@ -76,7 +78,7 @@ def _read_jsonl(path: Path, *, limit: int | None = None) -> list[dict[str, Any]]
 
 
 # ---------------------------------------------------------------------------
-# Seed patterns (derived from PRs #1–#7). Immutable descriptions.
+# Seed patterns (derived from PRs #1–#11). Immutable descriptions.
 # Shipped as JSONL under hive/data/ so Hive can be copied out and examined
 # on its own. Same content, same ids, as the original in-code list.
 # ---------------------------------------------------------------------------
@@ -109,18 +111,138 @@ def seed_patterns() -> list[dict[str, Any]]:
     """
     global _SEED_CACHE
     if _SEED_CACHE is None:
-        _SEED_CACHE = _load_jsonl("seeds.jsonl") + _load_jsonl("paraphrases.jsonl")
+        _SEED_CACHE = (
+            _load_jsonl("seeds.jsonl")
+            + _load_jsonl("paraphrases.jsonl")
+            + _load_jsonl("historical.jsonl")
+        )
     return [dict(p) for p in _SEED_CACHE]
 
 
-def feature_text(record: Mapping[str, Any]) -> str:
-    """Canonical symptom string used as the Bitwork query / example."""
-    symptom = str(record.get("symptom") or record.get("features") or "").strip()
-    if symptom:
-        return symptom
-    label = str(record.get("label") or "").replace("_", " ")
+# Structured feature keys shared by seed examples and live findings.
+# Live symptoms that dump unique cycle ids and raw evidence lists do
+# not overlap this vocabulary, which is why live margins were 0.
+STRUCTURED_KEYS: tuple[str, ...] = (
+    "failure_class",
+    "exit_reason",
+    "stall_reason",
+    "desk",
+    "cap_reason",
+    "cap_name",
+    "target_kind",
+)
+
+# Values that are run-specific noise, not a stable feature class.
+_CYCLE_ID_MARKERS = ("T", "Z_")
+_SKIP_VALUE_TOKENS = frozenset({"", "none", "null", "[]", "{}", "0"})
+
+
+def _norm_token(value: Any) -> str:
+    text = str(value or "").strip().lower().replace(" ", "_")
+    return "".join(ch if ch.isalnum() or ch == "_" else "_" for ch in text).strip("_")
+
+
+def _is_stable_value(value: Any) -> bool:
+    """Reject unique run identifiers, empty containers, and raw dumps."""
+    if value is None or isinstance(value, (list, dict, tuple)):
+        return False
+    text = str(value).strip()
+    if not text or text in _SKIP_VALUE_TOKENS:
+        return False
+    # Cycle ids look like 20261113T015301Z_759b6f.
+    if len(text) >= 16 and "T" in text and ("Z_" in text or text.endswith("Z")):
+        if text[:8].isdigit():
+            return False
+    return True
+
+
+def _collect_structured_values(record: Mapping[str, Any]) -> dict[str, list[str]]:
+    """Gather stable structured values from a record and its evidence."""
+    ev = record.get("evidence") if isinstance(record.get("evidence"), Mapping) else {}
+    feats = record.get("features") if isinstance(record.get("features"), Mapping) else {}
+    bags: dict[str, list[str]] = {k: [] for k in STRUCTURED_KEYS}
+
+    def add(key: str, raw: Any) -> None:
+        if key not in bags:
+            return
+        if isinstance(raw, (list, tuple)):
+            for item in raw:
+                if isinstance(item, Mapping):
+                    if key == "cap_reason" and item.get("cap_reason"):
+                        add("cap_reason", item.get("cap_reason"))
+                elif _is_stable_value(item):
+                    tok = _norm_token(item)
+                    if tok and tok not in bags[key]:
+                        bags[key].append(tok)
+            return
+        if not _is_stable_value(raw):
+            return
+        tok = _norm_token(raw)
+        if tok and tok not in bags[key]:
+            bags[key].append(tok)
+
+    # failure_class: label, or kind when kind is a diagnosis (not "fix"/"failure").
     kind = str(record.get("kind") or "")
-    return f"{kind} {label}".strip()
+    label = str(record.get("label") or "")
+    failure = (
+        record.get("failure_class")
+        or feats.get("failure_class")
+        or ev.get("failure_class")
+        or (label if label and label not in {"unlabelled", "unknown"} else "")
+        or (kind if kind not in {"fix", "failure", ""} else "")
+    )
+    add("failure_class", failure)
+
+    for src in (record, feats, ev):
+        if not isinstance(src, Mapping):
+            continue
+        for key in STRUCTURED_KEYS:
+            if key == "failure_class":
+                continue
+            if key in src:
+                add(key, src.get(key))
+        # Nested recent cap rows from live depth_at_physical_cap findings.
+        recent = src.get("recent")
+        if isinstance(recent, list):
+            for row in recent:
+                if isinstance(row, Mapping) and row.get("cap_reason"):
+                    add("cap_reason", row.get("cap_reason"))
+
+    return bags
+
+
+def structured_tokens(record: Mapping[str, Any]) -> list[str]:
+    """Stable ``key:value`` tokens shared by seeds and live findings."""
+    bags = _collect_structured_values(record)
+    tokens: list[str] = []
+    for key in STRUCTURED_KEYS:
+        for tok in bags[key]:
+            tokens.append(f"{key}:{tok}")
+    return tokens
+
+
+def feature_text(record: Mapping[str, Any]) -> str:
+    """Canonical symptom string used as the Bitwork query / example.
+
+    Structured tokens (failure class, exit_reason, cap_reason, desk,
+    stall_reason, target_kind) are prepended so a live finding and a
+    seed for the same class share vocabulary. Unique cycle ids and
+    raw evidence dumps are not included. The Wilson gate is unchanged.
+    """
+    tokens = structured_tokens(record)
+    raw_sym = record.get("symptom")
+    if isinstance(raw_sym, Mapping):
+        symptom = ""
+    else:
+        symptom = str(raw_sym or "").strip()
+    if not symptom:
+        label = str(record.get("label") or record.get("failure_class") or record.get("kind") or "")
+        symptom = label.replace("_", " ").strip()
+        kind = str(record.get("kind") or "")
+        if kind and kind not in {"fix", "failure"} and kind.replace("_", " ") not in symptom:
+            symptom = f"{kind.replace('_', ' ')} {symptom}".strip()
+    parts = tokens + ([symptom] if symptom else [])
+    return " ".join(parts).strip()
 
 
 def action_key_of(record: Mapping[str, Any]) -> str:
@@ -162,6 +284,12 @@ def canonicalize(record: Mapping[str, Any], *, assign_id: bool = True) -> dict[s
         "applied_to_live_oracle": False,
         "authorized": False,
     }
+    for key in STRUCTURED_KEYS:
+        if record.get(key):
+            out[key] = record.get(key)
+        elif isinstance(record.get("evidence"), Mapping) and record["evidence"].get(key):
+            if key not in ("", None):
+                out[key] = record["evidence"].get(key)
     if validated is not None:
         out["action_ok"] = validated.ok
         out["action_reason"] = validated.reason

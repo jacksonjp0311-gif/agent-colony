@@ -50,6 +50,12 @@ REQUIRED_SEED_FILES = ("data/society_state.json",)
 # colony's writable state. Code under colony/, tests/, and .github stays
 # shared, so both arms run the same program.
 _SEED_TREES = ("data", "society")
+# Huge append-only logs are not copied into the control tree. They
+# already sit near GitHub's 50 MB warning (and would be duplicated).
+# Control gets a frozen-prefix pointer and writes new events to its
+# own segments. Existing committed copies are left in place (we do
+# not rewrite history).
+_SEED_SKIP_LOGS = frozenset({"ledger.jsonl", "witness.jsonl"})
 _SEED_IGNORE = shutil.ignore_patterns(
     "__pycache__",
     "*.pyc",
@@ -57,6 +63,8 @@ _SEED_IGNORE = shutil.ignore_patterns(
     ".desk_journal.tmp",
     ".lemma_backups",
     "*.gz.b64",
+    "ledger.jsonl",
+    "witness.jsonl",
 )
 
 
@@ -499,6 +507,7 @@ def ensure_control_seed(
         raise ControlSeedError("; ".join(reasons))
 
     freeze_report = freeze_control_self_mod(dest)
+    log_pointers = _seed_log_pointers(src, dest)
     # Re-check required files after freeze (freeze only rewrites JSON
     # under society/systems; society_state must still be there).
     required_missing = [
@@ -518,6 +527,8 @@ def ensure_control_seed(
         "self_heal_trial_cleared": (freeze_report.get("self_heal") or {}).get("trial_cleared"),
         "checker_adoption_cleared": bool(freeze_report.get("checker_lane")),
     }
+    if log_pointers:
+        record["log_pointers"] = log_pointers
     if fork_sha and not record.get("fork_sha"):
         record["fork_sha"] = fork_sha
     _dump_json(fork_file, record)
@@ -526,10 +537,55 @@ def ensure_control_seed(
     return record
 
 
+def _seed_log_pointers(src: Path, dest: Path) -> dict[str, Any]:
+    """Point control logs at a frozen prefix of the treatment logs.
+
+    Does not copy ``ledger.jsonl`` or ``witness.jsonl``. Safe because
+    those files are append-only: the first N bytes at seed time never
+    change. New control events go to control-owned segments.
+    """
+    try:
+        from colony.log_segments import attach_shared_prefix
+    except Exception:
+        return {}
+    pointers: dict[str, Any] = {}
+    for name in ("ledger.jsonl", "witness.jsonl"):
+        source = raw_join(src, "data", name)
+        dest_file = raw_join(dest, "data", name)
+        if not source.is_file():
+            continue
+        # If a previous seed (before this change) already copied the
+        # file, leave it in place as segment 1. Do not delete it and
+        # do not rewrite history.
+        if dest_file.is_file() and dest_file.stat().st_size > 0:
+            pointers[name] = {
+                "skipped": "already_present",
+                "bytes": dest_file.stat().st_size,
+                "note": "Existing control copy left in place; new appends rotate into local segments.",
+            }
+            continue
+        dest_file.parent.mkdir(parents=True, exist_ok=True)
+        man = attach_shared_prefix(
+            dest_file,
+            source,
+            limit_bytes=source.stat().st_size,
+            source_label="treatment",
+            extra={"seeded_from": str(source)},
+        )
+        pointers[name] = {
+            "skipped": "shared_prefix",
+            "limit_bytes": (man.get("shared_prefix") or {}).get("limit_bytes"),
+            "manifest": str(dest_file.parent / f"{dest_file.stem}.segments.json"),
+        }
+    return pointers
+
+
 def _copy_missing(src: Path, dest: Path) -> None:
     dest.mkdir(parents=True, exist_ok=True)
     for item in src.iterdir():
         if item.name in {"__pycache__"} or item.suffix == ".pyc":
+            continue
+        if item.name in _SEED_SKIP_LOGS:
             continue
         target = dest / item.name
         if item.is_dir():

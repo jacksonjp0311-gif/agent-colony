@@ -95,6 +95,78 @@ def _jsonl_last(path: Path) -> dict[str, Any] | None:
     return last
 
 
+def _row_sort_key(row: dict[str, Any] | None) -> tuple:
+    """Order fitness rows by timestamp, then cycle_id. Missing sorts last."""
+    if not isinstance(row, dict) or not row:
+        return ("", "")
+    return (str(row.get("ts") or ""), str(row.get("cycle_id") or ""))
+
+
+def _latest_fitness_row(
+    systems: Path,
+    data_dir: Path,
+    state: dict[str, Any],
+) -> dict[str, Any]:
+    """Newest fitness row, with fallbacks when the systems ledger is stale.
+
+    Item 38: the control arm wrote new rows to
+    ``data/society_shards/fitness_history.jsonl`` but not to
+    ``society/systems/fitness_history.jsonl``, so the scoreboard
+    reported the seeded treatment value. Prefer the newest of the
+    systems ledger, the shard, the inline state tail, and
+    ``telemetry.json``.
+    """
+    candidates: list[dict[str, Any]] = []
+    for path in (
+        systems / "fitness_history.jsonl",
+        data_dir / "society_shards" / "fitness_history.jsonl",
+    ):
+        row = _jsonl_last(path)
+        if isinstance(row, dict) and row:
+            candidates.append(row)
+    hist = state.get("fitness_history") or []
+    if hist and isinstance(hist[-1], dict) and hist[-1]:
+        candidates.append(hist[-1])
+    tel = _load(systems / "telemetry.json") or {}
+    internal = tel.get("internal") if isinstance(tel.get("internal"), dict) else {}
+    for obj in (tel, internal, internal.get("fitness") if isinstance(internal.get("fitness"), dict) else {}):
+        if not isinstance(obj, dict):
+            continue
+        # A telemetry snapshot may store the latest fitness row or
+        # just an aggregate number.
+        for key in ("fitness_latest", "fitness_row", "latest_fitness"):
+            row = obj.get(key)
+            if isinstance(row, dict) and row:
+                candidates.append(row)
+        agg = obj.get("aggregate") or obj.get("fitness")
+        if isinstance(agg, (int, float)) and not any(
+            isinstance(c.get("aggregate"), (int, float)) and float(c.get("aggregate")) == float(agg)
+            for c in candidates
+        ):
+            # Only use a bare aggregate if we have nothing better.
+            if not candidates:
+                candidates.append({"aggregate": float(agg), "ts": str(tel.get("ts") or "")})
+    if not candidates:
+        return {}
+    return max(candidates, key=_row_sort_key)
+
+
+def _self_heal_frozen(state_root: Path, heal: dict[str, Any]) -> bool:
+    """Control's freeze flag lives on ``control/.fork.json``, not self_heal.json.
+
+    Item 39: ``collect_arm_metrics`` used to read ``self_heal.json["frozen"]``,
+    which the control snapshot does not have, so the public board
+    labeled a frozen arm as not frozen.
+    """
+    fork = _load(Path(state_root) / ".fork.json") or {}
+    if fork:
+        if fork.get("frozen") is not None:
+            return bool(fork.get("frozen"))
+        if fork.get("control_seeded"):
+            return True
+    return bool(heal.get("frozen"))
+
+
 def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
     """Read one arm's metrics from its state root. Missing files become 0 / empty."""
     systems = Path(state_root) / "society" / "systems"
@@ -139,20 +211,12 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
     proofs_n = len(proofs)
     non_routine = proofs_n - routine
 
-    fit_row = _jsonl_last(systems / "fitness_history.jsonl")
-    if fit_row is None:
-        # Fallback: society_state is large; only open if needed.
-        state = _load(data_dir / "society_state.json") or {}
-        hist = state.get("fitness_history") or []
-        fit_row = hist[-1] if hist and isinstance(hist[-1], dict) else {}
+    state = _load(data_dir / "society_state.json") or {}
+    try:
         cycle_count = int(state.get("cycle_count") or 0)
-    else:
+    except (TypeError, ValueError):
         cycle_count = 0
-        state = _load(data_dir / "society_state.json") or {}
-        try:
-            cycle_count = int(state.get("cycle_count") or 0)
-        except (TypeError, ValueError):
-            cycle_count = 0
+    fit_row = _latest_fitness_row(systems, data_dir, state)
 
     fitness = fit_row.get("aggregate") if isinstance(fit_row, dict) else None
     novelty = fit_row.get("novelty") if isinstance(fit_row, dict) else None
@@ -167,7 +231,7 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
 
     adopts = int(heal.get("adopted_count") or 0)
     reverts = int(heal.get("reverted_count") or 0)
-    frozen = bool(heal.get("frozen"))
+    frozen = _self_heal_frozen(Path(state_root), heal)
 
     return {
         "oracle_passes": int(oracle.get("passes") or 0),

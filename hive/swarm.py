@@ -148,6 +148,7 @@ def _empty_state() -> dict[str, Any]:
         "applied_count": 0,
         "proposals_count": 0,
         "library_size": 0,
+        "library_records": 0,
         "last_replay": None,
         "last_decision": None,
         "first_seen": {},
@@ -182,6 +183,7 @@ def load_state() -> dict[str, Any]:
     st["applied_count"] = int(st.get("applied_count") or 0)
     st["proposals_count"] = int(st.get("proposals_count") or 0)
     st["library_size"] = int(st.get("library_size") or 0)
+    st["library_records"] = int(st.get("library_records") or 0)
     st["cycle_index"] = int(st.get("cycle_index") or 0)
     st["seen_heal_ids"] = list(st.get("seen_heal_ids") or [])[-400:]
     st["cycles"] = list(st.get("cycles") or [])[-200:]
@@ -195,6 +197,29 @@ def load_state() -> dict[str, Any]:
     return st
 
 
+def save_rules(rules: list[Any] | None = None) -> None:
+    """Write the committed rules snapshot, even when the list is empty.
+
+    Item 40: ``swarm_rules.json`` was listed as a committed snapshot
+    but was never written, so a later non-empty rules list would not
+    persist across CI runs.
+    """
+    rows = [r for r in list(rules or []) if isinstance(r, dict)]
+    payload = {
+        "version": 1,
+        "rules": rows,
+        "n": len(rows),
+        "updated_at": _utc(),
+        "applied_to_live_oracle": False,
+        "authorized": False,
+        "note": (
+            "Active non-knob Hive rules. An empty list is a valid "
+            "snapshot and must be written so the file persists."
+        ),
+    }
+    _atomic_write(RULES_PATH, json.dumps(payload, indent=2, sort_keys=True, default=str))
+
+
 def save_state(state: dict[str, Any]) -> None:
     cleaned = dict(state)
     cleaned["evidence"] = list(cleaned.get("evidence") or [])[-EVIDENCE_KEEP:]
@@ -202,6 +227,11 @@ def save_state(state: dict[str, Any]) -> None:
     cleaned["applied_to_live_oracle"] = False
     cleaned["authorized"] = False
     _atomic_write(STATE_PATH, json.dumps(cleaned, indent=2, sort_keys=True, default=str))
+    # Always write the rules snapshot next to the other Hive snapshots.
+    try:
+        save_rules(cleaned.get("rules") or [])
+    except Exception:
+        pass
 
 
 def append_log(record: Mapping[str, Any]) -> None:
@@ -274,12 +304,26 @@ class Proposal:
 
 
 def _symptom_for(finding: Mapping[str, Any]) -> str:
-    ev = finding.get("evidence") if isinstance(finding.get("evidence"), Mapping) else {}
-    kind = str(finding.get("kind") or "").replace("_", " ")
-    parts = [kind]
-    for k, v in list(ev.items())[:6]:
-        parts.append(f"{k} {v}")
-    return " ".join(str(p) for p in parts)
+    """Build the Bitwork query from a live finding.
+
+    Uses the same structured tokens as seed ``feature_text`` (failure
+    class, exit_reason, cap_reason, desk, stall_reason, target_kind).
+    Unique cycle ids and raw evidence dumps are omitted so a live
+    finding can actually match the seed it is supposed to retrieve.
+    """
+    kind = str(finding.get("kind") or finding.get("label") or "")
+    rec = dict(finding)
+    rec.setdefault("failure_class", kind)
+    rec.setdefault("label", kind)
+    ev = rec.get("evidence") if isinstance(rec.get("evidence"), Mapping) else {}
+    # Lift structured fields from evidence so feature_text sees them
+    # at the top level, without dumping the rest of the evidence.
+    for key in FL.STRUCTURED_KEYS:
+        if not rec.get(key) and ev.get(key):
+            rec[key] = ev[key]
+    if not rec.get("symptom"):
+        rec["symptom"] = kind.replace("_", " ")
+    return FL.feature_text(rec)
 
 
 def _action_for_role(
@@ -1579,8 +1623,14 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     except Exception:
         pass
     try:
-        FL.persist_library()
+        snap_rows = FL.persist_library()
         st["library_persisted"] = True
+        # Honest accounting: library_size is the trained prototype
+        # count (fixes Bitwork routes on). library_records is the
+        # committed snapshot, which also holds mined failures that
+        # have no action yet (those are not prototypes).
+        st["library_records"] = len(snap_rows)
+        st["library_size"] = int(router.library_size())
         save_state(st)
     except Exception:
         pass
@@ -1659,6 +1709,7 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
         shadows = [s for s in list(st.get("shadows") or []) if isinstance(s, dict)]
         return {
             "swarm_library_size": int(st.get("library_size") or 0),
+            "swarm_library_records": int(st.get("library_records") or 0),
             "swarm_calibration": cal or None,
             "swarm_shadows_open": sum(1 for s in shadows if not s.get("resolved")),
             "swarm_shadows_resolved": sum(1 for s in shadows if s.get("resolved")),
@@ -1683,6 +1734,7 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
     except Exception:
         return {
             "swarm_library_size": 0,
+            "swarm_library_records": 0,
             "swarm_calibration": None,
             "swarm_shadows_open": 0,
             "swarm_shadows_resolved": 0,
@@ -1716,7 +1768,14 @@ def format_visibility(vis: dict[str, Any] | None = None) -> str:
     ttf_s = "none yet" if not ttf.get("n") else f"mean {ttf.get('mean')} cycles over {ttf.get('n')} kinds"
     trial = v.get("swarm_trial")
     parts = [
-        f"library {v.get('swarm_library_size') or 0}",
+        (
+            f"library {v.get('swarm_library_size') or 0}"
+            + (
+                f" records {v.get('swarm_library_records')}"
+                if v.get("swarm_library_records")
+                else ""
+            )
+        ),
         f"replay accuracy {acc_s}{lower_s}",
         f"adopted {v.get('swarm_adopted') or 0}",
         f"reverted {v.get('swarm_reverted') or 0}",

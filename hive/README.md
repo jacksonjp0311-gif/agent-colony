@@ -218,12 +218,32 @@ hive/
   data/
     seeds.jsonl        seed examples (PRs #1–#7)
     paraphrases.jsonl  held-out wording of the same actions
+    historical.jsonl   real logged failures with known PR resolutions (#4, #6, #7)
     knob_specs.json    default knob bounds for standalone use
     diagnosis_suggestions.json
   tests/               self-contained tests (no colony imports)
   pyproject.toml
   README.md
 ```
+
+## Structured features
+
+Live findings and seed examples share a canonical feature string,
+built by `hive.library.feature_text`. Structured tokens such as
+`failure_class:no_progress_perturb`, `exit_reason:no_candidates`,
+`cap_reason:term_cap`, `stall_reason`, `desk`, and `target_kind`
+are prepended to a short prose symptom. Unique cycle ids and raw
+evidence dumps are omitted. That is what lets a live failure
+retrieve the seed it is supposed to, with a real (nonzero) margin.
+
+`historical.jsonl` holds labeled seeds derived from the real
+failures logged in `society/systems/swarm_learn.json` (12 stall
+examples and 3 shadow picks of `add_skip_rule` /
+`already_held_range` / `no_progress_perturb`) with the resolutions
+from PRs #4, #6, and #7. Each is tagged with its source PR and
+has a paraphrase so leave-one-out replay still has a sibling.
+The Wilson 95% lower-bound gate and the 700 permille accept
+threshold are unchanged.
 
 ## Persistence
 

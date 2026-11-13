@@ -9,6 +9,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from colony.log_segments import append_line, iter_lines
+
 ROOT = Path(__file__).resolve().parent.parent
 WITNESS_JSONL = ROOT / "data" / "witness.jsonl"
 WITNESS_MD = ROOT / "society" / "WITNESS.md"
@@ -62,21 +64,17 @@ class WitnessLog:
             summary=summary,
             detail=dict(detail or {}),
         )
-        with self.path.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(ev.to_dict(), ensure_ascii=False) + "\n")
+        append_line(self.path, json.dumps(ev.to_dict(), ensure_ascii=False))
         return ev
 
     def all(self) -> list[WitnessEvent]:
         out: list[WitnessEvent] = []
-        if not self.path.is_file():
-            return out
-        with self.path.open("r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                d = json.loads(line)
-                out.append(WitnessEvent(**d))
+        for line in iter_lines(self.path):
+            line = line.strip()
+            if not line:
+                continue
+            d = json.loads(line)
+            out.append(WitnessEvent(**d))
         return out
 
     def render_md(self, *, ethos: str, principal: str, extra_preamble: str = "") -> Path:

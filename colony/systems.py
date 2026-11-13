@@ -141,6 +141,21 @@ class SystemWorkshop:
     def path_for(self, filename: str) -> Path:
         return self.dir / filename
 
+    def _resolve_system_path(self, stored: str) -> Path:
+        """Resolve a stored system path onto this workshop's tree.
+
+        Stored paths are repo-relative (``society/systems/foo.jsonl``).
+        Joining the whole relative path in one step bypasses the
+        ``COLONY_ARM`` ``Path.__truediv__`` hook, which only wraps the
+        first component ``society`` or ``data``. Control-arm writes
+        then landed on the treatment tree and were never committed
+        (item 38: control fitness rows stayed at the seed). Always
+        join through ``self.dir`` (already arm-aware) using the
+        filename only.
+        """
+        name = Path(str(stored)).name
+        return self.dir / name
+
     def ensure(self, name: str, *, built_by: str, cycle_id: str) -> dict[str, Any] | None:
         """Build a catalog system if missing. Returns system record."""
         known = self.known()
@@ -210,7 +225,7 @@ class SystemWorkshop:
         if name not in known:
             return None
         rec = known[name]
-        path = self.root / rec["path"]
+        path = self._resolve_system_path(rec["path"])
         content: Any = None
         if rec["kind"] == "ledger" or path.suffix == ".jsonl":
             content = {"path": str(path), "lines": sum(1 for _ in path.open()) if path.exists() else 0}
@@ -227,7 +242,7 @@ class SystemWorkshop:
         known = self.known()
         if name not in known:
             return None
-        path = self.root / known[name]["path"]
+        path = self._resolve_system_path(known[name]["path"])
         content = dict(content)
         content["updated_at"] = _utc_now()
         content["updated_cycle"] = cycle_id
@@ -238,7 +253,8 @@ class SystemWorkshop:
         known = self.known()
         if "fitness_ledger" not in known:
             return
-        path = self.root / known["fitness_ledger"]["path"]
+        path = self._resolve_system_path(known["fitness_ledger"]["path"])
+        path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
         known["fitness_ledger"]["use_count"] = int(known["fitness_ledger"].get("use_count") or 0) + 1
