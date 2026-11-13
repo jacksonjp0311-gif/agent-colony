@@ -1,20 +1,20 @@
 {
-  "when": "2026-11-13T01:12:06Z",
+  "when": "2026-11-13T01:56:12Z",
   "mile": "spark3-port",
-  "cycle_count": 873,
+  "cycle_count": 876,
   "fitness_latest": {
-    "ts": "2026-11-13T01:11:10Z",
-    "cycle_id": "20261113T010908Z_57af80",
+    "ts": "2026-11-13T01:55:11Z",
+    "cycle_id": "20261113T015301Z_759b6f",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9114,
     "commons_signal": 1.0,
-    "math_prize": 0.81,
-    "compute_usefulness": 0.9087,
+    "math_prize": 0.8101,
+    "compute_usefulness": 0.9086,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8825,
+    "prize_boost": 0.8826,
     "kill_rate": 0.3917,
     "kill_rate_term": 0.9025,
     "novelty": 0.75,
@@ -24,13 +24,30 @@
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345,
-    "stall_cycles": 21,
+    "stall_cycles": 24,
     "perturb_active": false,
     "distinct_targets_tried_last_3_cycles": 0,
-    "perturb_cooldown_remaining": 3,
+    "perturb_cooldown_remaining": 8,
     "perturb_strategy": "mutate",
     "checker_proposals_awaiting_review": 0,
     "checker_proposals": [],
+    "checker_lane_ok": true,
+    "checker_lane_error": null,
+    "checker_candidates_mined": 1,
+    "checker_new_accepted": 0,
+    "checker_new_rejected": 1,
+    "checker_reject_reasons": [
+      {
+        "fingerprint": "0c904dfae6fab86d",
+        "kind": "triviality_pattern",
+        "status": "rejected",
+        "reasons": [
+          "no_known_bad_caught"
+        ],
+        "id": "chk_0c904dfae6fab86d"
+      }
+    ],
+    "checker_lane_cycle_id": "20261113T015301Z_759b6f",
     "self_changes_adopted": 0,
     "self_changes_reverted": 0,
     "last_self_change": null,
@@ -41,8 +58,8 @@
       "to": 8,
       "reason": "no_progress_perturb",
       "window": 6,
-      "n_trial_metrics": 0,
-      "baseline_score": 2.0
+      "n_trial_metrics": 3,
+      "baseline_score": 0.0
     }
   },
   "honest_scoreboard": {
@@ -52,7 +69,7 @@
     "proofs_routine_known_in_principle": 23,
     "beyond_published_range": 3,
     "beyond_exact": 3,
-    "max_depth": 1199,
+    "max_depth": 7999,
     "note": "counterexamples, checked proofs, and range extensions only; not fitness"
   },
   "bus_metrics": {
@@ -74,7 +91,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8667
+    "aggregate_score": 0.8666
   },
   "novelty_gate": {
     "hits": 3,
@@ -94,7 +111,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261113T010908Z_57af80"
+    "cycle_id": "20261113T015301Z_759b6f"
   },
   "oracle": {
     "passes": 528,

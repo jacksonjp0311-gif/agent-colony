@@ -1,12 +1,12 @@
 {
-  "ts": "2026-11-13T01:09:34Z",
-  "cycle_id": "20261113T010908Z_57af80",
+  "ts": "2026-11-13T01:53:29Z",
+  "cycle_id": "20261113T015301Z_759b6f",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 85,
+      "vandermonde": 84,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "lemma_hard_combinatorics": 2,
@@ -109,10 +109,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8585,
-      "slope": -7e-05,
-      "min": 0.8581,
-      "max": 0.861
+      "last": 0.8584,
+      "slope": -1e-06,
+      "min": 0.8582,
+      "max": 0.859
     },
     "novelty": {
       "last": 0.75,
@@ -141,7 +141,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0004,
+    "aggregate_range": 0.0005,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -268,23 +268,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.095,
+      "ratio": 1.03,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.097,
+      "ratio": 1.033,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.094,
+      "ratio": 1.113,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.102,
+      "ratio": 1.095,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.022,
+      "ratio": 1.061,
       "drift": false
     }
   },
@@ -293,10 +293,10 @@
     "verified": {
       "goldbach_even": 286034115,
       "collatz_descent": 323000000,
-      "legendre_square_gap": 1660607,
-      "lehmer_totient": 144600001,
+      "legendre_square_gap": 1676607,
+      "lehmer_totient": 146200001,
       "erdos_straus": 1109127,
-      "twin_primes_hl": 402200000,
+      "twin_primes_hl": 406200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -350,29 +350,29 @@
     "last": [
       [
         null,
-        "2026-11-13T00:59:40Z"
+        "2026-11-13T01:43:02Z"
       ],
       [
         null,
-        "2026-11-13T00:59:40Z"
+        "2026-11-13T01:43:02Z"
       ],
       [
         null,
-        "2026-11-13T00:58:56Z"
+        "2026-11-13T01:42:41Z"
       ]
     ],
-    "fetched_at": "2026-11-13T01:00:21Z"
+    "fetched_at": "2026-11-13T01:43:46Z"
   },
   "feeds": {
     "by_source": {
       "arxiv": 239,
       "oeis": 5,
-      "crossref": 111,
+      "crossref": 114,
       "wikipedia": 18,
       "oeis_conj": 222
     },
     "by_kind": {
-      "paper": 350,
+      "paper": 353,
       "sequence": 5,
       "summary": 18,
       "conj_sequence": 222
@@ -380,57 +380,62 @@
     "last_run": {
       "sources": {
         "arxiv": {
+          "error": "",
+          "fetched": 8,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 3,
+          "new": 3,
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
+          "error": "",
+          "fetched": 3,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-13T01:00:21Z"
+      "ts": "2026-11-13T01:43:38Z"
     },
     "health": {
       "arxiv": {
         "fail": 9,
-        "ok": 76
+        "ok": 77
       },
       "crossref": {
         "fail": 0,
-        "ok": 79
+        "ok": 80
       },
       "oeis": {
         "fail": 0,
-        "ok": 79
+        "ok": 80
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 75
+        "ok": 76
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 79
+        "ok": 80
       }
     }
   },

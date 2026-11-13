@@ -16,7 +16,12 @@
     "quarantine_cycles": 6,
     "quarantine_fail_threshold": 2,
     "step_size": 0.15,
-    "evaluation_window": 6
+    "evaluation_window": 6,
+    "gf_term_cap": 1200,
+    "deep_term_cap": 20000,
+    "fast_term_cap": 8000,
+    "deep_digits": 5000,
+    "deep_seconds": 8.0
   },
   "trial": {
     "knob": "perturb_cooldown_cycles",
@@ -40,7 +45,7 @@
       "note": "online trial will decide"
     },
     "window": 6,
-    "baseline_score": 2.0,
+    "baseline_score": 0.0,
     "baseline_metrics": [
       {
         "cycle_id": "20261113T004347Z_413c5e",
@@ -69,10 +74,10 @@
       {
         "cycle_id": "20261113T010318Z_e7b0b9",
         "new_oracle_targets": 0,
-        "new_depth": 2,
+        "new_depth": 0,
         "oracle_pass_delta": 0,
         "oracle_passes": 528,
-        "score": 2.0
+        "score": 0.0
       },
       {
         "cycle_id": "20261113T010627Z_8a2d18",
@@ -91,12 +96,44 @@
         "score": 0.0
       }
     ],
-    "trial_metrics": [],
+    "trial_metrics": [
+      {
+        "cycle_id": "20261113T014648Z_b2870e",
+        "new_oracle_targets": 0,
+        "new_depth": 2,
+        "oracle_passes": 528,
+        "oracle_pass_delta": 0,
+        "score": 2.0,
+        "ts": "2026-11-13T01:49:24Z"
+      },
+      {
+        "cycle_id": "20261113T015010Z_6a67d4",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_passes": 528,
+        "oracle_pass_delta": 0,
+        "score": 0.0,
+        "ts": "2026-11-13T01:52:16Z"
+      },
+      {
+        "cycle_id": "20261113T015301Z_759b6f",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_passes": 528,
+        "oracle_pass_delta": 0,
+        "score": 0.0,
+        "ts": "2026-11-13T01:55:11Z"
+      }
+    ],
     "started_cycle": "20261113T010908Z_57af80",
     "started_index": 5,
     "applied_to_live_oracle": false,
     "authorized": false,
-    "evidence_id": "54159f56e67c4aaf"
+    "evidence_id": "54159f56e67c4aaf",
+    "baseline_score_original": 2.0,
+    "baseline_corrected": true,
+    "baseline_correction_reason": "new_depth counted same-depth beyond=true holds; recomputed from tested_hi advances",
+    "baseline_correction_evidence_id": "7d9c06f419bb4e5c"
   },
   "metrics": [
     {
@@ -152,6 +189,33 @@
       "oracle_pass_delta": 0,
       "score": 0.0,
       "ts": "2026-11-13T01:11:10Z"
+    },
+    {
+      "cycle_id": "20261113T014648Z_b2870e",
+      "new_oracle_targets": 0,
+      "new_depth": 2,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 2.0,
+      "ts": "2026-11-13T01:49:24Z"
+    },
+    {
+      "cycle_id": "20261113T015010Z_6a67d4",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T01:52:16Z"
+    },
+    {
+      "cycle_id": "20261113T015301Z_759b6f",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T01:55:11Z"
     }
   ],
   "quarantine": {},
@@ -177,18 +241,53 @@
       "ts": "2026-11-13T01:11:10Z",
       "applied_to_live_oracle": false,
       "authorized": false
+    },
+    {
+      "event": "trial_baseline_corrected",
+      "cycle_id": "20261113T014648Z_b2870e",
+      "knob": "perturb_cooldown_cycles",
+      "from": 6,
+      "to": 8,
+      "reason": "new_depth counted same-depth beyond=true holds; recomputed from tested_hi advances",
+      "old_baseline_score": 2.0,
+      "baseline_score": 0.0,
+      "old_new_depth": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "new_depth": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "window": 6,
+      "started_cycle": "20261113T010908Z_57af80",
+      "id": "7d9c06f419bb4e5c",
+      "ts": "2026-11-13T01:49:24Z",
+      "applied_to_live_oracle": false,
+      "authorized": false
     }
   ],
   "adopted_count": 0,
   "reverted_count": 0,
-  "cycle_index": 5,
+  "cycle_index": 8,
   "cycles": [
     "20261113T004347Z_413c5e",
     "20261113T004700Z_794b8d",
     "20261113T004949Z_cb62ba",
     "20261113T010318Z_e7b0b9",
     "20261113T010627Z_8a2d18",
-    "20261113T010908Z_57af80"
+    "20261113T010908Z_57af80",
+    "20261113T014648Z_b2870e",
+    "20261113T015010Z_6a67d4",
+    "20261113T015301Z_759b6f"
   ],
   "last_self_change": null,
   "knob_last_trial": {
