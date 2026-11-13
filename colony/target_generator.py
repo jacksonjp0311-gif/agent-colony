@@ -56,6 +56,12 @@ def log_path() -> Path:
     ))
 
 
+def oracle_system_path() -> Path:
+    return Path(os.environ.get("COLONY_TG_ORACLE") or (
+        _repo() / "society" / "systems" / "oracle.json"
+    ))
+
+
 def _lemma_path() -> Path:
     override = os.environ.get("COLONY_TG_LEMMA")
     if override:
@@ -636,6 +642,82 @@ def _enabled_flags(src: str | None = None) -> dict[str, bool]:
     return flags
 
 
+def oracle_final_verdicts() -> dict[str, str]:
+    """Map mutation name → ``killed`` or ``passed`` from the Oracle snapshot.
+
+    ``unique_mutations_kill`` and ``unique_mutations_pass`` are final
+    verdicts. A name in both is treated as killed (FAIL kills keep).
+    ``latest`` is consulted when it names a generated check. This never
+    invents ids and never executes fetched code.
+    """
+    out: dict[str, str] = {}
+    path = oracle_system_path()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return out
+    if not isinstance(data, dict):
+        return out
+    for n in data.get("unique_mutations_pass") or []:
+        name = str(n or "")
+        if name:
+            out[name] = "passed"
+    for n in data.get("unique_mutations_kill") or []:
+        name = str(n or "")
+        if name:
+            out[name] = "killed"  # kill wins over a stale pass if both appear
+    latest = data.get("latest") if isinstance(data.get("latest"), dict) else {}
+    mut = str(latest.get("mutation") or "")
+    if mut:
+        if latest.get("passed") is True:
+            out.setdefault(mut, "passed")
+        elif latest.get("passed") is False or latest.get("kills"):
+            out.setdefault(mut, "killed")
+    return out
+
+
+def note_oracle_verdicts() -> list[dict[str, Any]]:
+    """Append-only: record Oracle killed/passed lines not yet in the generator log.
+
+    Disabled on the control arm and during unisolated pytest. Does not
+    rewrite earlier log lines. Only generated (``authored_mut_``) names
+    are written; other Oracle mutations are left to the Oracle snapshot.
+    """
+    if not self_mod_ok():
+        return []
+    verdicts = {
+        n: ev for n, ev in oracle_final_verdicts().items()
+        if n.startswith(PREFIX) and ev in ("killed", "passed")
+    }
+    if not verdicts:
+        return []
+    already: set[str] = set()
+    path = log_path()
+    try:
+        if path.exists():
+            for line in path.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                row = json.loads(line)
+                if row.get("event") in ("killed", "passed") and row.get("name"):
+                    already.add(str(row["name"]))
+    except Exception:
+        pass
+    written: list[dict[str, Any]] = []
+    for name, event in sorted(verdicts.items()):
+        if name in already:
+            continue
+        row = {
+            "event": event,
+            "name": name,
+            "source": "oracle",
+        }
+        _append_log(row)
+        written.append(row)
+    return written
+
+
 def oracle_reachable_generated(
     state: dict[str, Any] | None = None,
     *,
@@ -644,13 +726,21 @@ def oracle_reachable_generated(
     """Authored mutated checks that can still receive a new Oracle verdict.
 
     A target is reachable only when it exists as a real ``authored_mut_``
-    check, is still disabled (no Oracle pass yet), has not been retired or
-    logged as rejected, and has a non-empty id. Already-passed (enabled)
-    or killed checks are not eligible. This never invents ids.
+    check, is still disabled, has not been retired or logged as rejected,
+    has a non-empty id, and does not already have a final Oracle verdict
+    (``unique_mutations_kill`` or ``unique_mutations_pass``, plus
+    ``latest``). Already-passed (enabled or unique-pass) or killed checks
+    are not eligible. Noticing a new verdict appends a ``killed`` or
+    ``passed`` line to the generator log (append-only). This never
+    invents ids.
     """
+    try:
+        note_oracle_verdicts()
+    except Exception:
+        pass
     flags = _enabled_flags(src)
     _keys, logged = _seen_keys_and_names(src=src)
-    # Names logged as reject are not reachable.
+    # Names logged as reject / killed / passed are not reachable.
     rejected: set[str] = set()
     path = log_path()
     try:
@@ -660,7 +750,7 @@ def oracle_reachable_generated(
                 if not line:
                     continue
                 row = json.loads(line)
-                if row.get("event") in ("reject", "killed", "retired") and row.get("name"):
+                if row.get("event") in ("reject", "killed", "passed", "retired") and row.get("name"):
                     rejected.add(str(row["name"]))
     except Exception:
         pass
@@ -669,6 +759,9 @@ def oracle_reachable_generated(
         rejected |= set(retired_names())
     except Exception:
         pass
+    for name, ev in oracle_final_verdicts().items():
+        if ev in ("killed", "passed") and name:
+            rejected.add(name)
     out: list[dict[str, Any]] = []
     for name, enabled in sorted(flags.items()):
         if enabled:
