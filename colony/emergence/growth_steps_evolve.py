@@ -188,6 +188,13 @@ class GrowthSteps3:
                 metrics.setdefault(key, value)
         except Exception:
             pass
+        try:
+            from colony.swarm_learn import on_cycle, visibility as swarm_visibility
+            on_cycle(cycle_id)
+            for key, value in swarm_visibility().items():
+                metrics.setdefault(key, value)
+        except Exception:
+            pass
         self.evo.record_fitness(cycle_id, metrics)
         # Close prior proposals with after_metrics
         closed = self.evo.close_open_proposals(cycle_id, metrics)

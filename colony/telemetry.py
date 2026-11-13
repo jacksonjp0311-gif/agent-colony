@@ -200,6 +200,12 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
         heal_vis = heal_visibility()
     except Exception:
         heal_vis = {}
+    swarm_vis = {}
+    try:
+        from colony.swarm_learn import visibility as swarm_visibility
+        swarm_vis = swarm_visibility()
+    except Exception:
+        swarm_vis = {}
     return {
         "fitness_latest": fit_latest,
         "honest_scoreboard": _honest_scoreboard(),
@@ -218,6 +224,21 @@ def gather_internal(state: dict[str, Any] | None = None, bus: Any | None = None)
         "last_self_change": heal_vis.get("last_self_change"),
         "quarantined_steps": heal_vis.get("quarantined_steps") or [],
         "self_heal_trial": heal_vis.get("self_heal_trial"),
+        "swarm_library_size": swarm_vis.get("swarm_library_size", 0),
+        "swarm_replay_accuracy_permille": swarm_vis.get("swarm_replay_accuracy_permille"),
+        "swarm_replay_lower_permille": swarm_vis.get("swarm_replay_lower_permille"),
+        "swarm_replay_n": swarm_vis.get("swarm_replay_n"),
+        "swarm_replay": swarm_vis.get("swarm_replay"),
+        "swarm_adopted": swarm_vis.get("swarm_adopted", 0),
+        "swarm_reverted": swarm_vis.get("swarm_reverted", 0),
+        "swarm_adopt_rate_permille": swarm_vis.get("swarm_adopt_rate_permille", 0),
+        "swarm_abstained": swarm_vis.get("swarm_abstained", 0),
+        "swarm_applied": swarm_vis.get("swarm_applied", 0),
+        "swarm_proposals": swarm_vis.get("swarm_proposals", 0),
+        "swarm_trial": swarm_vis.get("swarm_trial"),
+        "swarm_last_decision": swarm_vis.get("swarm_last_decision"),
+        "swarm_active_rules": swarm_vis.get("swarm_active_rules", 0),
+        "swarm_time_to_fix": swarm_vis.get("swarm_time_to_fix") or {"n": 0, "mean": None, "by_kind": {}},
         "fitness_aggregate": (fit_latest or {}).get("aggregate") if isinstance(fit_latest, dict) else None,
         "reply_rate": bus_metrics.get("reply_rate") or (fit_latest or {}).get("comm_reply_rate"),
         "bus_metrics": bus_metrics,

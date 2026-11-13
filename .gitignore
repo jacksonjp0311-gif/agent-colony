@@ -24,3 +24,11 @@ society/systems/checker_proposals/
 # society/systems/self_heal.json is kept (like stall_state) so trials
 # persist across evolve runs. Evidence of adopt/revert lives there.
 data/commons/self_heal.jsonl
+
+# bitwork swarm: append-only library and evidence logs (never commit).
+# Snapshots persist across evolve runs like self_heal.json; they are
+# created at runtime and are not seeded in git.
+data/commons/fix_library.jsonl
+data/commons/swarm_learn.jsonl
+society/systems/swarm_learn.json
+society/systems/swarm_rules.json
