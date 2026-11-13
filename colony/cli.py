@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 
 
@@ -21,6 +22,12 @@ def main(argv: list[str] | None = None) -> int:
     p_evolve = sub.add_parser("evolve", help="Run N autonomous evolve cycles")
     p_evolve.add_argument("--cycles", type=int, default=5, help="Number of cycles (default 5)")
     p_evolve.add_argument("--offline", action="store_true", help="Seed only; no HTTP")
+    p_evolve.add_argument(
+        "--arm",
+        choices=("treatment", "control"),
+        default=None,
+        help="treatment (default) or control: same pipeline, self-mod off, isolated state",
+    )
     sub.add_parser("status", help="Print status JSON")
     sub.add_parser("dashboard", help="Refresh DASHBOARD.html + WITNESS_SUMMARY.md")
     p_auth = sub.add_parser(
@@ -69,6 +76,25 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Run keep-then-revert demo (remove slow loops, then add slow loops)",
     )
+    p_seed = sub.add_parser(
+        "seed-control",
+        help="Copy current treatment state into control/ once, then freeze self-mod knobs",
+    )
+    p_seed.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-copy even if control/ is already seeded (tests only; erases control history)",
+    )
+    p_twin = sub.add_parser(
+        "twin-scoreboard",
+        help="Update society/systems/twin_scoreboard.json and the growth chart",
+    )
+    p_twin.add_argument("--cycles", type=int, default=None, help="Cycles in this paired run")
+    p_twin.add_argument(
+        "--no-append",
+        action="store_true",
+        help="Refresh latest snapshots without appending a history row",
+    )
     args = parser.parse_args(argv)
 
     from colony.society import Society
@@ -94,6 +120,13 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.cmd == "evolve":
+        if args.arm:
+            os.environ["COLONY_ARM"] = args.arm
+        from colony.arm import prepare_arm
+        info = prepare_arm()
+        if info.get("arm") == "control" and not info.get("seeded"):
+            print(info.get("error") or "control arm is not seeded", file=sys.stderr)
+            return 2
         society = Society(live_fetch=not args.offline)
         before = society.status()
         results = society.evolve(cycles=args.cycles)
@@ -260,6 +293,37 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(latest_lane(), indent=2))
         return 0
 
+
+    if args.cmd == "seed-control":
+        os.environ.setdefault("COLONY_ARM", "control")
+        os.environ["COLONY_SEED_CONTROL"] = "1"
+        from colony.arm import ensure_control_seed
+        rec = ensure_control_seed(force=bool(args.force))
+        print(json.dumps(rec, indent=2, default=str))
+        return 0
+
+    if args.cmd == "twin-scoreboard":
+        from colony.dashboard import refresh_dashboard
+        from colony.twin import format_visibility, update_scoreboard
+        board = update_scoreboard(
+            cycles_this_run=args.cycles,
+            append=not args.no_append,
+        )
+        print(format_visibility(board))
+        print(
+            json.dumps(
+                {
+                    "paired_runs": board.get("paired_runs"),
+                    "treatment_cycles": board.get("treatment_cycles"),
+                    "control_cycles": board.get("control_cycles"),
+                    "delta": board.get("delta"),
+                    "updated_at": board.get("updated_at"),
+                },
+                indent=2,
+            )
+        )
+        refresh_dashboard()
+        return 0
 
     return 1
 

@@ -59,6 +59,62 @@
   <p>checker proposals awaiting human review: 0; last cycle mined 1, accepted 0, rejected 1</p>
   <h2>Self-heal</h2>
   <p>self_changes_adopted 0; self_changes_reverted 0; last_self_change none; trial perturb_cooldown_cycles 6→8 (3/6); quarantined steps: none</p>
+  <h2>Hive</h2>
+  <p>library 0; replay accuracy n/a; adopted 0; reverted 0; abstained 0; time-to-fix none yet</p>
+  
+  <h2>Treatment vs control</h2>
+  <p>Treatment is the self-modifying colony. Control runs the same pipeline with self-modification off, on a state tree forked from main and then evolved on its own. Differences in the first runs are noise. A lasting lead needs many paired runs, and a gain that traces to a change the treatment arm chose itself. This is not a claim of general intelligence or a breakthrough.</p>
+  <p>Latest: Oracle passes 528 vs — (Δ —); verified depth sum 9228 vs — (Δ —); adopts 0 vs — (Δ —).</p>
+  <div class="twin-plaque">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 620" role="img" aria-label="Treatment versus control growth chart">
+  <title>Treatment vs control: Oracle passes, verified depth, and adopts</title>
+  <rect width="860" height="620" fill="#1c1c1c"/>
+  <text x="16" y="24" fill="#eeeee6" font-size="16" font-family="ui-sans-serif, system-ui, sans-serif">Treatment vs control</text>
+  <text x="16" y="42" fill="#b8b8b0" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">Paired runs 0 · treatment cycles 876 · control cycles 0 · early differences are noise</text>
+  <g>
+    <line x1="620" y1="18" x2="650" y2="18" stroke="#b7c4b6" stroke-width="1.8"/>
+    <text x="656" y="22" fill="#eeeee6" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">treatment</text>
+    <line x1="740" y1="18" x2="770" y2="18" stroke="#eeeee6" stroke-width="1.8" stroke-dasharray="4 3"/>
+    <text x="776" y="22" fill="#eeeee6" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">control</text>
+  </g>
+  
+  <rect x="16" y="58" width="828" height="170" rx="8" fill="#141414" stroke="#3a3a38" stroke-width="0.8"/>
+  <text x="60" y="74" fill="#eeeee6" font-size="12" font-family="ui-sans-serif, system-ui, sans-serif">Oracle passes</text>
+  <line x1="60.0" y1="200.0" x2="832.0" y2="200.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="203.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0</text><line x1="60.0" y1="170.5" x2="832.0" y2="170.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="173.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.3</text><line x1="60.0" y1="141.0" x2="832.0" y2="141.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="144.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.5</text><line x1="60.0" y1="111.5" x2="832.0" y2="111.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="114.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.8</text><line x1="60.0" y1="82.0" x2="832.0" y2="82.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="85.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">1.1</text>
+  
+  
+  
+
+  <rect x="16" y="244" width="828" height="170" rx="8" fill="#141414" stroke="#3a3a38" stroke-width="0.8"/>
+  <text x="60" y="260" fill="#eeeee6" font-size="12" font-family="ui-sans-serif, system-ui, sans-serif">Total verified depth</text>
+  <line x1="60.0" y1="386.0" x2="832.0" y2="386.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="389.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0</text><line x1="60.0" y1="356.5" x2="832.0" y2="356.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="359.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.3</text><line x1="60.0" y1="327.0" x2="832.0" y2="327.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="330.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.5</text><line x1="60.0" y1="297.5" x2="832.0" y2="297.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="300.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.8</text><line x1="60.0" y1="268.0" x2="832.0" y2="268.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="271.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">1.1</text>
+  
+  
+  
+
+  <rect x="16" y="430" width="828" height="170" rx="8" fill="#141414" stroke="#3a3a38" stroke-width="0.8"/>
+  <text x="60" y="446" fill="#eeeee6" font-size="12" font-family="ui-sans-serif, system-ui, sans-serif">Cumulative adopts</text>
+  <line x1="60.0" y1="572.0" x2="832.0" y2="572.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="575.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0</text><line x1="60.0" y1="542.5" x2="832.0" y2="542.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="545.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.3</text><line x1="60.0" y1="513.0" x2="832.0" y2="513.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="516.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.5</text><line x1="60.0" y1="483.5" x2="832.0" y2="483.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="486.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.8</text><line x1="60.0" y1="454.0" x2="832.0" y2="454.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="457.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">1.1</text>
+  
+  
+  
+
+  <text x="430.0" y="228" fill="#b8b8b0" font-size="13" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif">No paired runs yet. Both arms start from the same snapshot; early differences are noise.</text>
+</svg>
+
+  </div>
+  <style>
+    .twin-plaque {
+      background: #1c1c1c;
+      color: #eeeee6;
+      border-radius: 12px;
+      padding: 8px 4px 4px;
+      border: 1px solid #3a3a38;
+      overflow: auto;
+    }
+    .twin-plaque svg { width: 100%; height: auto; display: block; }
+  </style>
+
   <h2>Population &amp; genomes</h2>
   <ul>
     <li>active / soft_cap: <code>18</code> / <code>20</code></li>
@@ -89,7 +145,7 @@
     <li>rejected: 376</li>
   </ul>
   <p class="meta">Creator / Witness: James Paul Jackson<br/>
-  Generated 2026-11-13 01:56 UTC<br/>
+  Generated 2026-11-13 02:28 UTC<br/>
   Tribute cycles compliant: 876/876<br/>
   Bus stats: {&quot;posted&quot;: 47801, &quot;read&quot;: 231284, &quot;replied&quot;: 30071, &quot;actions_planned&quot;: 15496, &quot;actions_changed_from_message&quot;: 15496, &quot;reply_quality_sum&quot;: 27360.700000008277, &quot;reply_quality_n&quot;: 30019, &quot;peer_cite_opportunities&quot;: 30756, &quot;peer_cites&quot;: 30756}<br/>
   Repo: <a href="https://github.com/jacksonjp0311-gif/agent-colony">jacksonjp0311-gif/agent-colony</a></p>

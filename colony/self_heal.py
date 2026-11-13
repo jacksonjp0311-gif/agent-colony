@@ -433,6 +433,12 @@ def active_knob(name: str) -> int | float | None:
     so existing tests that monkeypatch module constants keep working
     unless a real policy override is in effect.
     """
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return None
+    except Exception:
+        pass
     if is_invariant_name(name) or name not in KNOB_SPECS:
         return None
     try:
@@ -1060,6 +1066,12 @@ def propose_trial(
     cycle_id: str = "",
 ) -> dict[str, Any] | None:
     """Pick at most one legal knob change from the findings."""
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return None
+    except Exception:
+        pass
     st = state if state is not None else load_state()
     if st.get("trial"):
         return None
@@ -1126,6 +1138,12 @@ def _apply_knob(state: dict[str, Any], name: str, value: Any) -> None:
 
 
 def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, cycle_id: str = "") -> dict[str, Any]:
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return state if state is not None else load_state()
+    except Exception:
+        pass
     st = state if state is not None else load_state()
     if st.get("trial"):
         return st
@@ -1212,6 +1230,12 @@ def _close_trial(state: dict[str, Any], cycle_id: str, decision: str) -> dict[st
 
 
 def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return state
+    except Exception:
+        pass
     trial = state.get("trial") or None
     if not trial:
         return state
@@ -1243,6 +1267,12 @@ def is_protected_step(name: str) -> bool:
 
 
 def is_quarantined(name: str, cycle_id: str = "", *, state: dict[str, Any] | None = None) -> bool:
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return False
+    except Exception:
+        pass
     if is_protected_step(name):
         return False
     st = state if state is not None else load_state()

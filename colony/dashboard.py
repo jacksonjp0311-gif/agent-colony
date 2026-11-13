@@ -141,6 +141,13 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         swarm_line = format_swarm()
     except Exception:
         swarm_line = "unavailable"
+    try:
+        from colony.twin import dashboard_section, format_visibility as format_twin
+        twin_html = dashboard_section()
+        twin_line = format_twin()
+    except Exception:
+        twin_html = ""
+        twin_line = "unavailable"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -205,6 +212,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
   <p>{escape(heal_line)}</p>
   <h2>Hive</h2>
   <p>{escape(swarm_line)}</p>
+  {twin_html}
   <h2>Population &amp; genomes</h2>
   <ul>
     <li>active / soft_cap: <code>{len(active_agents)}</code> / <code>{soft_cap}</code></li>
@@ -264,6 +272,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         f"**Checker proposals awaiting human review:** {checker_line}",
         f"**Self-heal:** {heal_line}",
         f"**Hive:** {swarm_line}",
+        f"**Treatment vs control:** {twin_line}",
         f"**Bus reply rate:** {(fitness or {}).get('comm_reply_rate', '—')}",
         f"**Improvement proposals:** {len(proposals)} (all candidate until human authorize)",
         f"**Commons size:** {commons_size}",
