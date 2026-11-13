@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "arm": "control",
+  "fork_sha": "793a7ee15d682f7d5abac186774ade4bae2beeb2",
+  "fork_ts": "2026-11-13T02:23:53Z",
+  "fork_source": "origin/main",
+  "seeded_sha": null,
+  "seeded_ts": null,
+  "frozen": true,
+  "note": "Control is a snapshot of treatment state taken once, at first seed. After that it evolves on its own tree. Self-heal knobs are reset to colony/self_heal_defaults.json; in-flight trials are not continued. Early treatment-minus-control differences are noise. The Oracle, the P \u2265 0.70 gate, the 150 cap, and Athanor math are the same in both arms.",
+  "control_seeded": false,
+  "fork_note_hive": "Forked after Hive merged (PR #8). Control disables Hive learning through colony/hive_adapter.py."
+}

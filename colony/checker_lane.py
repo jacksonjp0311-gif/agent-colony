@@ -966,6 +966,22 @@ def run_lane(
     mine_fn: Callable[[list[dict[str, Any]]], list[dict[str, Any]]] | None = None,
 ) -> dict[str, Any]:
     """Mine, guard, and replay. Never applies a candidate. Safe to call often."""
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return {
+                "ok": True,
+                "skipped": "control_arm",
+                "awaiting_review": 0,
+                "candidates_mined": 0,
+                "new_accepted": 0,
+                "new_rejected": 0,
+                "applied_to_live_oracle": False,
+                "cycle_id": cycle_id,
+                "adoption": "off",
+            }
+    except Exception:
+        pass
     hist = history if history is not None else build_history()
     miner = mine_fn or mine
     try:
