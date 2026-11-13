@@ -2,7 +2,7 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   76,
+   77,
    37
   ],
   "divides": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   35,
-   30
+   34,
+   29
   ]
  },
  "mode": "live",
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 74,
+ "n_proved": 73,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -2429,175 +2429,6 @@
     "method": "closed form (sympy)"
    },
    "check": "authored_frontier_rec_xdecb3bdc_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (fib*pow2)(n) satisfies a(n+2) = 4*a(n+0) + 2*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(fib*pow2)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,0*pow2@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(fib*pow2)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,1*pow2@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(fib*pow2)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,2*pow2@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_xb686d709_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -10849,6 +10680,18 @@
    "unknown": true,
    "v": 4
   },
+  "rad[oxa213536](n) = 1 (mod 2) for all n = 0 (mod 2)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xafdd559f_w1",
+   "checks": 494,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)": {
    "authored": false,
    "certificate": null,
@@ -11409,5 +11252,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-13T04:29:58Z"
+ "ts": "2026-11-13T05:25:17Z"
 }
