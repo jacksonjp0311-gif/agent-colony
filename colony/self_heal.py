@@ -1367,9 +1367,11 @@ def maybe_supply_oracle_targets(
     """When the PERTURB pool is empty, invite one new Oracle-reaching check.
 
     Stays inside ``MAX_AUTHORED_TOTAL`` (150) and ``MAX_AUTHORED_PER_CYCLE``.
-    Does not author when the finding is absent or the cap is full. The
-    authoring pipeline itself decides what to write; this does not name
-    sequences.
+    Does not author when the finding is absent or the cap is full. Prefers
+    ``target_generator.author_targets`` (mutated held claims, still
+    Oracle-reaching even when the lemma score is saturated) and falls
+    back to ``author_checks``. Neither path names sequences by hand.
+    Disabled on the control arm through the generator and authoring hooks.
     """
     found = list(findings or [])
     if not any(str(f.get("kind") or "") == "empty_perturb_pool" for f in found):
@@ -1382,14 +1384,38 @@ def maybe_supply_oracle_targets(
     cap = int(MAX_AUTHORED_TOTAL)
     if n >= cap:
         return {"invited": False, "authored": [], "reason": "at_authored_cap", "n": n, "cap": cap}
+    # Phase 1 generator first: new Oracle-reaching mutations, independent
+    # of lemma-score saturation (author_checks returns [] when the hard
+    # component is already pinned). The 150 cap still binds.
+    try:
+        from colony.target_generator import author_targets
+        generated = author_targets(
+            max_new=min(1, int(MAX_AUTHORED_PER_CYCLE)),
+            cycle_id=cycle_id,
+            write=True,
+        )
+    except Exception as exc:  # noqa: BLE001
+        generated = []
+        gen_reason = f"generate_error:{type(exc).__name__}"
+    else:
+        gen_reason = ""
+    if generated:
+        return {
+            "invited": True,
+            "authored": list(generated),
+            "reason": "generated",
+            "n": n,
+            "cap": cap,
+        }
     try:
         rows = author_checks(max_new=min(1, int(MAX_AUTHORED_PER_CYCLE)), cycle_id=cycle_id, write=True)
     except Exception as exc:  # noqa: BLE001
-        return {"invited": True, "authored": [], "reason": f"author_error:{type(exc).__name__}", "n": n, "cap": cap}
+        return {"invited": True, "authored": [], "reason": f"author_error:{type(exc).__name__}", "n": n, "cap": cap,
+                "generate_reason": gen_reason}
     return {
         "invited": True,
         "authored": list(rows or []),
-        "reason": "authored" if rows else "no_candidate",
+        "reason": "authored" if rows else (gen_reason or "no_candidate"),
         "n": n,
         "cap": cap,
     }

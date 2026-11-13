@@ -1190,12 +1190,20 @@ def record_verified_depth_progress(
 def oracle_reachable_alternatives(state: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     """Real targets that can still reach a new Oracle or new-depth verdict.
 
-    Today this is the OEIS menu entries that ``can_progress_past`` (the
-    same pool PERTURB draws from). The hook exists so a future supply
-    path can add other *pickable* alternatives — only ones with a real
-    attempt path, never invented ids or intents that cannot run.
+    Includes authored mutated checks from ``colony.target_generator``
+    that can still receive a new Oracle verdict, then the OEIS menu
+    entries that ``can_progress_past`` (the same pools PERTURB draws
+    from). Only *pickable* alternatives with a real attempt path —
+    never invented ids or intents that cannot run.
     """
     out: list[dict[str, Any]] = []
+    try:
+        from colony.target_generator import oracle_reachable_generated
+        for c in oracle_reachable_generated(state):
+            if c.get("can_progress") and c.get("id"):
+                out.append(c)
+    except Exception:
+        pass
     try:
         for c in _oeis_candidates(set(), set()):
             if c.get("can_progress") and c.get("id"):
@@ -1614,6 +1622,12 @@ def select_perturb_targets(
     ledger = _ledger_seen_ids()
     strategy = str(force_strategy or pert.get("strategy") or "explore")
     pool = list(menu) if menu is not None else _oeis_candidates(tried, ledger)
+    if menu is None:
+        try:
+            from colony.target_generator import perturb_candidates
+            pool = list(perturb_candidates(tried, ledger)) + list(pool)
+        except Exception:
+            pass
     if broaden and menu is None:
         # Second pass already used the full progressable menu; just mark
         # untried and unused-family entries so the sort prefers them.
