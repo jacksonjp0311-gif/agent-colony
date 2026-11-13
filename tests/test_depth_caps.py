@@ -458,12 +458,16 @@ def test_production_log_view_backfills_all_legacy_rows():
     a165 = [a for a in by["oc_A165064_0"] if a.get("verified_depth_derived")][-1]
     a126 = [a for a in by["oc_A126089_0"] if a.get("verified_depth_derived")][-1]
     a108 = [a for a in by.get("oc_A108476_0", []) if a.get("verified_depth_derived")]
-    assert a165["verified_depth"] == 1199
-    assert a126["verified_depth"] == 956
+    # The live colony keeps appending real rows to this log, so check the
+    # floors established before PR #7 rather than exact values that later
+    # verified rows can legitimately move.
+    assert 1199 <= a165["verified_depth"] <= int(a165.get("depth") or 0)
+    assert 956 <= a126["verified_depth"] <= int(a126.get("depth") or 0)
     if a108:
-        assert a108[-1]["verified_depth"] == 30
-    # Raw file still has exactly two rows with verified_depth (the post-PR #6 ones).
-    assert sum(1 for a in raw["attempts"] if "verified_depth" in a) == 2
+        assert a108[-1]["verified_depth"] >= 30
+    # Raw file holds at least the two post-PR #6 rows with verified_depth;
+    # later cycles append more, never rewrite legacy rows.
+    assert sum(1 for a in raw["attempts"] if "verified_depth" in a) >= 2
 
 
 # ---------------------------------------------------------------------------

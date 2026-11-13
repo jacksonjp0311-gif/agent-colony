@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hive"
+version = "0.1.0"
+description = "Deterministic retrieval-based fix chooser built on Bitwork. Pure Python, no third-party dependencies."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "James Jackson", email = "jacksonjp0311@gmail.com" },
+]
+keywords = ["bitwork", "retrieval", "deterministic"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+# Pure stdlib. No runtime dependencies.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/jacksonjp0311-gif/agent-colony"
+Documentation = "https://github.com/jacksonjp0311-gif/agent-colony/blob/main/hive/README.md"
+
+[project.scripts]
+hive = "hive.__main__:main"
+
+[tool.setuptools]
+packages = ["hive"]
+package-dir = { "hive" = "." }
+
+[tool.setuptools.exclude-package-data]
+hive = ["tests*", "pyproject.toml", "README.md"]
+
+[tool.setuptools.package-data]
+hive = ["data/*", "py.typed"]
