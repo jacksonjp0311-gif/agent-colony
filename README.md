@@ -138,6 +138,28 @@ pip install ./hive               # pure stdlib, no extra dependencies
 To take it out and examine it: `cp -a hive /some/path/hive`, then run the
 commands above with `PYTHONPATH` set to `/some/path`. See [hive/README.md](hive/README.md).
 
+## Colony-wide learning loop
+
+The colony can propose a trial from a **method card** (plain-English method
+plus a legal Hive op, written by the research desk from public abstracts)
+or from a failure it already diagnosed. Hive's deterministic retrieval and
+vote still choose; the Wilson 95% / 700‰ gate is unchanged. A trial is
+**kept** only when both of these are strictly true:
+
+- the self-heal trial window scores higher than its baseline (same metric
+  as before: new Oracle targets + new verified depth + pass delta);
+- the twin control does not lead on Oracle passes, and if passes are tied,
+  treatment's verified depth is strictly ahead. Fitness alone never
+  decides a keep. A missing control fails closed.
+
+Adopt, revert, and void are append-only labeled examples. Per-method-card
+and per-op-family keep rates are derived from those records. Hive shadow
+picks are scored each cycle. The live plain-English page — method cards
+tried, kept, and reverted — is [`society/LEARNING.md`](society/LEARNING.md),
+also summarized on the dashboard. Control is frozen (no cards, no trials,
+no writes). Nothing fetched is executed. This is not AGI and not a
+discovery claim. Durable accepts still need human authorize.
+
 ---
 
 ## Novel-math pressure (honest)

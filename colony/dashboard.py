@@ -148,6 +148,16 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
     except Exception:
         twin_html = ""
         twin_line = "unavailable"
+    try:
+        from colony.learning_loop import dashboard_section as learning_html
+        from colony.learning_loop import format_visibility as format_learning
+        from colony.learning_loop import write_markdown as write_learning
+        learn_html = learning_html()
+        learn_line = format_learning()
+        write_learning()
+    except Exception:
+        learn_html = ""
+        learn_line = "unavailable"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -213,6 +223,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
   <h2>Hive</h2>
   <p>{escape(swarm_line)}</p>
   {twin_html}
+  {learn_html}
   <h2>Population &amp; genomes</h2>
   <ul>
     <li>active / soft_cap: <code>{len(active_agents)}</code> / <code>{soft_cap}</code></li>
@@ -273,6 +284,7 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
         f"**Self-heal:** {heal_line}",
         f"**Hive:** {swarm_line}",
         f"**Treatment vs control:** {twin_line}",
+        f"**Method cards tried, kept, reverted:** {learn_line}",
         f"**Bus reply rate:** {(fitness or {}).get('comm_reply_rate', '—')}",
         f"**Improvement proposals:** {len(proposals)} (all candidate until human authorize)",
         f"**Commons size:** {commons_size}",

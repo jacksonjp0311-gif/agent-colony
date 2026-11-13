@@ -461,6 +461,20 @@ def update_scoreboard(
     }
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(board, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    # Close any method-card adopts that were waiting on this snapshot.
+    # Fail-soft: a learning-loop error must not drop the scoreboard.
+    try:
+        from colony.learning_loop import judge_twin_pending
+        judged = judge_twin_pending(treatment=t, control=c)
+        if judged:
+            board = dict(board)
+            board["learning_loop_twin"] = [
+                {"outcome": r.get("outcome"), "card_id": r.get("card_id"),
+                 "reason": (r.get("twin") or {}).get("reason")}
+                for r in judged
+            ]
+    except Exception:
+        pass
     return board
 
 
