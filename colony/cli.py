@@ -95,6 +95,16 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Refresh latest snapshots without appending a history row",
     )
+    p_twin.add_argument(
+        "--treatment-result",
+        default=None,
+        help="GitHub Actions job result for the treatment arm (success/failure/skipped)",
+    )
+    p_twin.add_argument(
+        "--control-result",
+        default=None,
+        help="GitHub Actions job result for the control arm (success/failure/skipped)",
+    )
     args = parser.parse_args(argv)
 
     from colony.society import Society
@@ -297,10 +307,18 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "seed-control":
         os.environ.setdefault("COLONY_ARM", "control")
         os.environ["COLONY_SEED_CONTROL"] = "1"
-        from colony.arm import ensure_control_seed
-        rec = ensure_control_seed(force=bool(args.force))
+        from colony.arm import ControlSeedError, ensure_control_seed
+        try:
+            rec = ensure_control_seed(force=bool(args.force))
+        except ControlSeedError as exc:
+            print(json.dumps({"ok": False, "error": str(exc)}, indent=2, default=str), file=sys.stderr)
+            print(json.dumps({"ok": False, "error": str(exc)}, indent=2, default=str))
+            return 1
         print(json.dumps(rec, indent=2, default=str))
-        return 0
+        if rec.get("already_seeded") or rec.get("control_seeded"):
+            return 0
+        print(json.dumps({"ok": False, "error": "seed did not set control_seeded"}, indent=2), file=sys.stderr)
+        return 1
 
     if args.cmd == "twin-scoreboard":
         from colony.dashboard import refresh_dashboard
@@ -308,6 +326,8 @@ def main(argv: list[str] | None = None) -> int:
         board = update_scoreboard(
             cycles_this_run=args.cycles,
             append=not args.no_append,
+            treatment_result=args.treatment_result,
+            control_result=args.control_result,
         )
         print(format_visibility(board))
         print(
@@ -317,6 +337,8 @@ def main(argv: list[str] | None = None) -> int:
                     "treatment_cycles": board.get("treatment_cycles"),
                     "control_cycles": board.get("control_cycles"),
                     "delta": board.get("delta"),
+                    "control_missing": (board.get("control") or {}).get("missing"),
+                    "paired": board.get("last_paired"),
                     "updated_at": board.get("updated_at"),
                 },
                 indent=2,

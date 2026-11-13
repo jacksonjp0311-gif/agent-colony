@@ -21,9 +21,19 @@ from hive.ops import validate
 
 ROOT = Path(__file__).resolve().parent.parent
 LIBRARY_LOG = ROOT / "data" / "commons" / "fix_library.jsonl"
+# Committed snapshot: enough to restore the library when the JSONL log
+# is gitignored. Bounded; see compact_records and hive/README.md.
+LIBRARY_SNAPSHOT = ROOT / "society" / "systems" / "swarm_library.json"
 
 # How many recent log rows to scan when mining. Bounded so CI stays short.
 MINE_LIMIT = 400
+
+# Compaction cap for the committed library snapshot. Seed records are
+# always kept. When the live log grows past this, the oldest non-seed
+# records are dropped from the snapshot (record contents are never
+# rewritten). The JSONL log stays append-only and is not committed.
+LIBRARY_KEEP = 2000
+SEED_SOURCE_TAGS = frozenset({"seed", "paraphrase", "pr1", "pr2", "pr3", "pr4", "pr5", "pr6", "pr7"})
 
 
 def _utc() -> str:
@@ -163,8 +173,135 @@ def canonicalize(record: Mapping[str, Any], *, assign_id: bool = True) -> dict[s
 # Append-only I/O and router training
 # ---------------------------------------------------------------------------
 
+
 def load_records(*, path: Path | None = None, limit: int | None = None) -> list[dict[str, Any]]:
-    return _read_jsonl(path or LIBRARY_LOG, limit=limit)
+    """Load library records.
+
+    Prefers the append-only JSONL log. If that file is missing or empty
+    (a fresh CI checkout, where the log is gitignored), restore from
+    the committed snapshot and, when writing to the default log path,
+    materialize the JSONL so later appends have a base.
+    """
+    dest = path or LIBRARY_LOG
+    rows = _read_jsonl(dest, limit=limit)
+    if rows:
+        return rows
+    snap = load_snapshot()
+    if not snap:
+        return []
+    if path is None and not dest.exists():
+        _write_jsonl(dest, snap)
+    if limit is not None and limit > 0:
+        return snap[-limit:]
+    return snap
+
+
+def load_snapshot(path: Path | None = None) -> list[dict[str, Any]]:
+    dest = path or LIBRARY_SNAPSHOT
+    if not dest.exists():
+        return []
+    try:
+        raw = json.loads(dest.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    if isinstance(raw, dict):
+        rows = raw.get("records")
+    else:
+        rows = raw
+    if not isinstance(rows, list):
+        return []
+    return [r for r in rows if isinstance(r, dict)]
+
+
+def _is_seed_record(row: Mapping[str, Any]) -> bool:
+    rid = str(row.get("id") or "")
+    source = str(row.get("source") or "")
+    if source in SEED_SOURCE_TAGS or source.startswith("seed"):
+        return True
+    if rid.startswith("seed:") or rid.startswith("para:"):
+        return True
+    return False
+
+
+def compact_records(records: Iterable[Mapping[str, Any]], *, keep: int = LIBRARY_KEEP) -> list[dict[str, Any]]:
+    """Bounded view of the library for the committed snapshot.
+
+    Seed records are always retained. Other records are kept newest
+    first until ``keep`` is reached. Record bodies are copied, never
+    rewritten. This is a size bound, not a change of meaning.
+    """
+    rows = [dict(r) for r in records if isinstance(r, Mapping)]
+    cap = max(int(keep), 1)
+    seeds = [r for r in rows if _is_seed_record(r)]
+    rest = [r for r in rows if not _is_seed_record(r)]
+    budget = max(cap - len(seeds), 0)
+    if budget == 0:
+        kept_rest: list[dict[str, Any]] = []
+    elif budget < len(rest):
+        kept_rest = rest[-budget:]
+    else:
+        kept_rest = rest
+    return seeds + kept_rest
+
+
+def _write_jsonl(path: Path, records: Iterable[Mapping[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    lines = [
+        json.dumps(dict(r), sort_keys=True, default=str, ensure_ascii=False)
+        for r in records
+    ]
+    body = "\n".join(lines)
+    if lines:
+        body = body + "\n"
+    tmp.write_text(body, encoding="utf-8")
+    tmp.replace(path)
+
+
+def _atomic_write_json(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(
+        json.dumps(data, indent=2, sort_keys=True, default=str, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    tmp.replace(path)
+
+
+def persist_library(
+    *,
+    path: Path | None = None,
+    snapshot: Path | None = None,
+    records: Iterable[Mapping[str, Any]] | None = None,
+    keep: int = LIBRARY_KEEP,
+) -> list[dict[str, Any]]:
+    """Write the committed snapshot from the current library.
+
+    The JSONL log is not rewritten (it stays append-only). Only the
+    snapshot is compacted. Returns the records stored in the snapshot.
+    """
+    src = path or LIBRARY_LOG
+    rows = list(records) if records is not None else _read_jsonl(src)
+    if not rows:
+        rows = load_snapshot(snapshot)
+    compacted = compact_records(rows, keep=keep)
+    payload = {
+        "version": 1,
+        "n": len(compacted),
+        "keep": int(keep),
+        "compacted": len(rows) - len(compacted),
+        "note": (
+            "Committed Hive library snapshot. The append-only JSONL log "
+            "is gitignored; this file is enough to restore the library "
+            "across CI runs. Seed records are always kept. Non-seed "
+            "records are capped so the total stays at the keep bound "
+            "(seeds inclusive). Record contents are never rewritten."
+        ),
+        "records": compacted,
+    }
+    _atomic_write_json(snapshot or LIBRARY_SNAPSHOT, payload)
+    return compacted
+
 
 
 def known_ids(records: Iterable[Mapping[str, Any]] | None = None, *, path: Path | None = None) -> set[str]:
@@ -407,5 +544,19 @@ def mine_all(*, cycle_id: str = "", path: Path | None = None) -> list[dict[str, 
 
 
 def ensure_seeded(*, path: Path | None = None) -> list[dict[str, Any]]:
-    """Idempotent: write seeds once, return whatever this call added."""
-    return seed_into(path=path)
+    """Idempotent: write seeds once, return whatever this call added.
+
+    After seeding (or a no-op on an already-seeded log), refresh the
+    committed snapshot so a fresh checkout can restore the library.
+    """
+    # If the JSONL is empty, restore from the snapshot first so we
+    # do not re-append seeds that are already in the snapshot and
+    # then lose later taught records.
+    if path is None:
+        load_records()
+    written = seed_into(path=path)
+    try:
+        persist_library(path=path)
+    except Exception:
+        pass
+    return written

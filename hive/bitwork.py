@@ -543,6 +543,66 @@ class Router:
             "lower_permille": wilson_lower_permille(correct, n),
         }
 
+    def leave_one_out_outcomes(
+        self,
+        cases: Sequence[tuple[str, str]],
+    ) -> list[dict[str, object]]:
+        """Labeled leave-one-out results, for honest calibration.
+
+        For each ``(text, expected_action_key)`` a temporary router is
+        trained on every other case and asked for its top pick. The
+        outcome is the pick's margin and whether it matched the label.
+        Cases with no retrieval are omitted: that is not a labeled
+        correct or incorrect, and we do not fabricate one.
+
+        This method does not mutate this router's calibration buckets.
+        """
+        out: list[dict[str, object]] = []
+        for i, (text, expected) in enumerate(cases):
+            tmp = Router()
+            for j, (t, a) in enumerate(cases):
+                if j == i:
+                    continue
+                tmp.learn(
+                    t, category=str(a), action_key=str(a),
+                    source_id=f"loo-{j}", proto_key=f"loo-{j}",
+                )
+            hit = tmp.classify(text)
+            if hit is None:
+                continue
+            out.append({
+                "source": "replay",
+                "index": i,
+                "text": text,
+                "expected": expected,
+                "predicted": hit.action_key,
+                "margin": int(hit.margin),
+                "correct": hit.action_key == expected,
+                "score": int(hit.score),
+            })
+        return out
+
+    def load_buckets(self, buckets: Iterable[Mapping[str, object]]) -> None:
+        """Restore calibration counters from a snapshot. Does not drop edges."""
+        for raw in buckets:
+            try:
+                edge = int(raw.get("min_margin"))  # type: ignore[arg-type]
+            except (TypeError, ValueError, AttributeError):
+                continue
+            if edge not in self.buckets:
+                continue
+            try:
+                n = int(raw.get("n") or 0)
+                correct = int(raw.get("correct") or 0)
+            except (TypeError, ValueError):
+                continue
+            if n < 0 or correct < 0:
+                continue
+            if correct > n:
+                correct = n
+            self.buckets[edge].n = n
+            self.buckets[edge].correct = correct
+
 
 def action_fingerprint(action: Mapping[str, object]) -> str:
     """Stable, readable key for an action dict. Sorted, compact."""

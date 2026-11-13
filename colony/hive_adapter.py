@@ -33,6 +33,7 @@ def bind() -> None:
     """Attach colony helpers and paths to Hive. Safe to call more than once."""
     host.bind(heal=_heal, checker=_checker)
     library.LIBRARY_LOG = data_dir() / "commons" / "fix_library.jsonl"
+    library.LIBRARY_SNAPSHOT = society_dir() / "systems" / "swarm_library.json"
     library.ROOT = REPO_ROOT
     swarm.ROOT = REPO_ROOT
     swarm.STATE_PATH = society_dir() / "systems" / "swarm_learn.json"

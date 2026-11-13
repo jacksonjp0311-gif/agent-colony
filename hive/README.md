@@ -225,6 +225,66 @@ hive/
   README.md
 ```
 
+## Persistence
+
+Hive's live state has to survive a fresh CI checkout in order to
+compound. The append-only JSONL logs (`data/commons/fix_library.jsonl`,
+`data/commons/swarm_learn.jsonl`) are gitignored so they cannot bloat
+the repository. Three committed snapshots are enough to restore
+everything the next run needs:
+
+- `society/systems/swarm_learn.json` — cycle counters, open trial,
+  evidence (last 200), learning curve (last 200), calibration
+  buckets with per-source counts, recent calibration outcomes
+  (last 1,000), and pending or recently resolved shadow picks
+  (at most 200).
+- `society/systems/swarm_rules.json` — active non-knob rules.
+- `society/systems/swarm_library.json` — the bounded library
+  snapshot. Seed records are always kept. Other records are kept
+  newest-first until the total reaches `LIBRARY_KEEP` (2,000).
+  Record contents are never rewritten; compaction is only a size
+  bound.
+
+On a fresh checkout the JSONL log is missing, so `load_records`
+restores the library from the snapshot and materializes a JSONL
+file for in-run appends. The host's treatment job commits the
+three snapshots after each evolve. The Wilson gate, the Oracle,
+and authorize are not in this path.
+
+## Calibration and the live gate
+
+The Wilson 95% lower bound and the 700 permille accept threshold
+are unchanged. What changed is *how the buckets get their counts*.
+
+Calibration buckets used to start empty and only grow when a live
+decision was applied. The gate abstains on an empty bucket, so
+nothing was ever applied, and the buckets stayed empty.
+
+Hive now fills buckets from labeled evidence only, never from
+fabricated outcomes:
+
+1. **Replay (`source=replay`).** After the library is seeded,
+   each held-out leave-one-out case is routed on a temporary
+   router trained on every other case. The top pick's margin and
+   whether it matched the labeled action are counted in that
+   margin's bucket, tagged `source=replay`. This slice is a
+   deterministic function of the current library and is replaced
+   (not double-counted) on every cycle.
+2. **Shadow (`source=shadow`).** When the gate abstains, Hive
+   records its top pick (failure class, action, margin) and does
+   not apply it. When a later self-heal adopt or revert, or a
+   human-merged positive fix, resolves the same failure class,
+   the shadow is scored: an adopt or human-merged fix is correct
+   iff the fingerprints match; a revert of the same action is
+   incorrect; a revert of a different action leaves the shadow
+   unresolved (there is no label for that pick).
+3. **Apply (`source=apply`).** A live trial that is adopted or
+   reverted still updates the bucket, as before, tagged
+   `source=apply`. Append-only.
+
+The Wilson lower bound for a bucket uses the sum of those
+sources. An uncalibrated (empty) bucket still abstains.
+
 ## License
 
 MIT, the same license as Agent Colony. See the repository's

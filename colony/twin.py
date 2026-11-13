@@ -250,6 +250,33 @@ def _fork_info() -> dict[str, Any]:
     }
 
 
+def _job_ok(result: str | None) -> bool:
+    """A GitHub Actions job result of success (or an unset local result)."""
+    if result is None or result == "":
+        return True
+    return str(result).strip().lower() == "success"
+
+
+def _is_paired_row(row: Any) -> bool:
+    """True for a history row that records a successful paired run.
+
+    Legacy rows (no ``paired`` flag) count as paired unless they
+    already marked the control as missing.
+    """
+    if not isinstance(row, dict):
+        return False
+    if row.get("paired") is False:
+        return False
+    if (row.get("control") or {}).get("missing"):
+        return False
+    return True
+
+
+def paired_history(history: list[dict[str, Any]] | None) -> list[dict[str, Any]]:
+    """History rows that may contribute to a paired delta or chart series."""
+    return [row for row in (history or []) if _is_paired_row(row)]
+
+
 def update_scoreboard(
     *,
     treatment_root: Path | None = None,
@@ -260,28 +287,70 @@ def update_scoreboard(
     append: bool = True,
     treatment: dict[str, Any] | None = None,
     control: dict[str, Any] | None = None,
+    treatment_result: str | None = None,
+    control_result: str | None = None,
 ) -> dict[str, Any]:
-    """Refresh latest snapshots and optionally append one history row.
+    """Refresh latest snapshots from live state; optionally append history.
 
-    Existing history rows are copied through unchanged (append-only).
+    Treatment metrics, cycle counts, and the current self-heal trial
+    are always reread from disk, even when the control arm failed or
+    is missing. A paired history row (and a treatment-minus-control
+    delta) is recorded only when both arms succeeded and control is
+    seeded. Existing history rows are copied through unchanged.
     """
     dest = path or SCOREBOARD_PATH
     board = load_scoreboard(dest)
-    # Preserve any already-recorded fork metadata; fill gaps from disk.
+    # Preserve recorded fork metadata; always refresh live fields so
+    # a later seed or a voided trial is not stuck at the first write.
     fork = dict(board.get("fork") or {})
-    for k, v in _fork_info().items():
-        if v and not fork.get(k):
+    live_fork = _fork_info()
+    for k, v in live_fork.items():
+        if k in {"control_seeded", "seeded_sha", "seeded_ts"}:
+            fork[k] = v
+        elif v and not fork.get(k):
             fork[k] = v
     if not fork:
-        fork = _fork_info()
+        fork = live_fork
 
     t_root = Path(treatment_root) if treatment_root is not None else REPO_ROOT
     c_root = Path(control_root_path) if control_root_path is not None else control_root()
+
     t = treatment if treatment is not None else collect_arm_metrics(t_root)
-    c = control if control is not None else (
-        collect_arm_metrics(c_root) if (c_root / "society").exists() else _empty_metrics()
+
+    control_seeded = control_is_seeded(c_root)
+    control_tree = (c_root / "society").exists() or (
+        c_root / "data" / "society_state.json"
+    ).is_file()
+    control_job_ok = _job_ok(control_result)
+    treatment_job_ok = _job_ok(treatment_result)
+
+    if control is not None:
+        c = dict(control)
+    elif control_seeded or control_tree:
+        c = collect_arm_metrics(c_root)
+    else:
+        c = _empty_metrics()
+
+    control_missing = bool(c.get("missing")) or (not control_seeded and not control_tree)
+    if not control_job_ok:
+        control_missing = True
+    if control_missing:
+        c = dict(c)
+        c["missing"] = True
+        if not control_job_ok:
+            c["result"] = str(control_result)
+        if not control_seeded:
+            c["seed_failed"] = not control_tree
+            c.setdefault("result", c.get("result") or "unseeded")
+
+    paired = bool(
+        treatment_job_ok
+        and control_job_ok
+        and not control_missing
+        and control_seeded
     )
-    delta = _delta(t, c)
+    # Paired deltas only count runs where both arms succeeded.
+    delta = _delta(t, c) if paired else {}
 
     # History is a new list; old rows are not mutated.
     history = [dict(row) for row in (board.get("history") or [])]
@@ -290,27 +359,35 @@ def update_scoreboard(
             "ts": _utc(),
             "run_id": run_id or os.environ.get("GITHUB_RUN_ID") or "",
             "cycles_this_run": cycles_this_run,
+            "paired": paired,
+            "treatment_result": treatment_result,
+            "control_result": control_result,
             "treatment": {k: t.get(k) for k in (*NUMERIC_FIELDS, "self_heal_frozen", "self_heal_trial")},
-            "control": {k: c.get(k) for k in (*NUMERIC_FIELDS, "self_heal_frozen", "self_heal_trial")},
-            "delta": delta,
+            "control": {k: c.get(k) for k in (*NUMERIC_FIELDS, "self_heal_frozen", "self_heal_trial", "missing")},
+            "delta": delta if paired else {},
             "treatment_cycles": t.get("cycle_count"),
-            "control_cycles": c.get("cycle_count"),
+            "control_cycles": 0 if control_missing else c.get("cycle_count"),
         }
-        # Also keep depth lists on the latest row only would bloat history;
-        # they live on the current snapshots.
         history.append(row)
 
+    paired_runs = sum(1 for row in history if _is_paired_row(row))
+
+    # Top-level delta is only for a paired run. A failed or missing
+    # control does not invent a treatment-minus-control lead.
     board = {
         "version": 1,
         "note": NOISE_NOTE,
         "fork": fork,
         "updated_at": _utc(),
-        "paired_runs": len(history),
+        "paired_runs": paired_runs,
         "treatment_cycles": t.get("cycle_count") or 0,
-        "control_cycles": c.get("cycle_count") or 0,
+        "control_cycles": (c.get("cycle_count") or 0) if (control_seeded and not control_missing) else 0,
         "treatment": t,
         "control": c,
-        "delta": delta,
+        "delta": delta if paired else {},
+        "last_paired": paired,
+        "treatment_result": treatment_result,
+        "control_result": control_result,
         "history": history,
     }
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -455,7 +532,8 @@ def _fmt_tick(v: float, field: str) -> str:
 def growth_chart_svg(board: dict[str, Any] | None = None) -> str:
     """Static plaque-style SVG: treatment (sage, solid) vs control (bone, dashed)."""
     b = board if board is not None else load_scoreboard()
-    history = list(b.get("history") or [])
+    # Only paired runs belong on the comparison chart.
+    history = paired_history(list(b.get("history") or []))
     width, height = 860, 620
     panel_h = 170
     gap = 16

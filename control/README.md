@@ -38,7 +38,11 @@ python3 -m colony evolve --arm control --cycles 1 --offline
 
 The fork record is `.fork.json`: it has the treatment SHA and the time
 the snapshot was taken. After seed, control evolves on its own and is
-not recopied from treatment.
+not recopied from treatment. The seed reads treatment `data/` and
+`society/` through paths that bypass the `COLONY_ARM=control` redirect
+hook, fails with a nonzero exit if the copy is empty or
+`control/data/society_state.json` is missing, and is idempotent
+(already-seeded trees are left alone).
 
 ## How the two arms are compared
 

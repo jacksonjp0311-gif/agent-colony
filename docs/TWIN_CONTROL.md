@@ -51,3 +51,12 @@ three cycles, in parallel with treatment. Wall-clock for a workflow
 run therefore grows little; the added Actions minutes are one extra
 job of that length. The first control run also copies treatment state
 into `control/` and commits it, which is a larger push than later runs.
+
+
+The seed reads treatment trees through paths that bypass the
+`COLONY_ARM` redirect hook, fails loud if the copy is empty or
+`control/data/society_state.json` is missing, and is idempotent.
+The control job commits the seed (rebase before push) before it
+evolves. The scoreboard job runs with `if: always()`, refreshes
+treatment from live state even when control failed, and only
+counts a paired delta when both arms succeeded.

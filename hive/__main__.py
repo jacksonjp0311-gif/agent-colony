@@ -32,11 +32,22 @@ def main() -> int:
         cases = library.held_out_cases(library.load_records(path=path))
         report = router.replay_accuracy(cases, hold_out=True)
         print(
-            "held-out replay: "
+            "held-out replay (uncalibrated gate): "
             f"n={report['n']} correct={report['correct']} "
             f"abstained={report['abstained']} "
             f"accuracy={report['accuracy_permille']} permille "
             f"Wilson lower={report['lower_permille']} permille"
+        )
+        # Honest calibration from those labeled leave-one-out results.
+        import hive.swarm as swarm
+        st = swarm._empty_state()
+        calib = swarm.calibrate_from_replay(router, st, cases=cases)
+        after = router.replay_accuracy(cases, hold_out=True)
+        print(
+            "replay-seeded calibration: "
+            f"n={calib['n']} correct={calib['correct']} source=replay; "
+            f"after, abstained={after['abstained']} "
+            f"(Wilson gate unchanged at {WILSON_ACCEPT_PERMILLE} permille)"
         )
         # A second, empty router demonstrates abstention before calibration.
         fresh = Router()
