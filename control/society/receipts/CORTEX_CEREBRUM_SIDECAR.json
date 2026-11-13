@@ -1,0 +1,53 @@
+{
+  "title": "CORTEX_CEREBRUM_SIDECAR",
+  "when": "2026-09-27T12:12:59Z",
+  "when_et": "2026-09-27 08:12 AM ET",
+  "mile": "cortex-cerebrum-sidecar",
+  "modules": [
+    "colony/cerebrum_boundary.py",
+    "colony/cortex_sidecar.py"
+  ],
+  "systems_entry": "society/systems/cortex_cerebrum.json",
+  "tests": "tests/test_cortex_cerebrum.py",
+  "wired_into": [
+    "colony/systems.py",
+    "colony/emergence/growth.py",
+    "colony/actuation.py"
+  ],
+  "behavior": {
+    "inform_only": true,
+    "feeds": [
+      "Oracle/actuation mix advice"
+    ],
+    "ledger_authority": false,
+    "durable_accept": false,
+    "double_gate": false,
+    "silent_accept": false,
+    "same_pattern_as": [
+      "athanor_coherence",
+      "pulsemesh_feeds"
+    ]
+  },
+  "latest_signal": {
+    "drift": 0.077116,
+    "memory_reuse": 0.75,
+    "stability_hint": 0.922884,
+    "inform_only": true,
+    "durable_accept": false,
+    "can_accept_ledger": false
+  },
+  "verification": {
+    "unit_tests": "tests/test_cortex_cerebrum.py \u2014 produces inform signals; cannot accept ledger; ceiling holds",
+    "live_evolve": "6 cycles used cortex_cerebrum + hold_posture systems"
+  },
+  "ceiling": "P>=0.70 human authorize selective; Cerebrum refuses ledger accept",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "inform_only"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "reversible": true,
+  "scope": "tight memory/drift sidecar behind Cerebrum boundary"
+}

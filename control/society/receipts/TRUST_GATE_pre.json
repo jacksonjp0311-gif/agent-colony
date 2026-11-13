@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "when": "2026-11-13T02:50:44+0000",
+  "checks": [
+    {
+      "check": "ablation_switches_off",
+      "ok": true,
+      "active": []
+    },
+    {
+      "check": "pytest_full_suite",
+      "ok": true,
+      "returncode": 0,
+      "summary": "892 passed, 1 skipped in 165.82s (0:02:45)",
+      "seconds": 167.49,
+      "failures": []
+    },
+    {
+      "check": "tests_left_live_state_unchanged",
+      "ok": true
+    },
+    {
+      "check": "hard_benches_ok_all",
+      "ok": true,
+      "returncode": 0,
+      "aggregate_score": 0.8668,
+      "failing": []
+    },
+    {
+      "check": "no_pending_interrupted_mutation",
+      "ok": true,
+      "hint": "run `python -m colony.trust recover` to roll back the unjudged mutation"
+    },
+    {
+      "check": "holdout_manifest_intact",
+      "ok": true,
+      "files": 10,
+      "mismatch": []
+    }
+  ],
+  "failed": []
+}

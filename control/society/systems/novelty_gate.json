@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-11T23:25:28Z",
+  "hits": 3,
+  "kills": 1,
+  "rows": 30,
+  "kill_rows": 27,
+  "counting": "per_target_latest",
+  "latest": {
+    "ts": "2026-11-11T23:25:28Z",
+    "cycle_id": "20261111T232401Z_5d5fac",
+    "mutation": "vandermonde",
+    "kind": "claim_theme",
+    "novel_to_commons": false,
+    "kills": [
+      "already_in_lesson_ledger_or_history",
+      "stripped_baseline_does_not_fail_usefulness",
+      "held_out:hard_tier_green_and_hard_enable",
+      "oracle_kill:['held_out:held_out:already_saturated_no_harder_window', 'collective_kill']"
+    ],
+    "textbook_reuse": 0.3333,
+    "in_ledger": true,
+    "own_authoring_record_only": false,
+    "oracle_used": "caller_verdict",
+    "stripped": {
+      "already_enabled": false,
+      "in_catalog": false,
+      "hard_pass": 162,
+      "hard_n": 162,
+      "stripped_fails_usefulness": false,
+      "score": 0.8763,
+      "impl_id": "lemma_impl_v2_basic10_hard162"
+    },
+    "held_out": {
+      "survives": false,
+      "reason": "hard_tier_green_and_hard_enable",
+      "hard_pass": 162,
+      "ok": true
+    },
+    "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
+  },
+  "note": "New-to-commons novelty gate. Textbook reuse\u22480. Not novel theorems."
+}

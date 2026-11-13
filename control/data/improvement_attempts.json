@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Bulletin-first communication",
+    "description": "Route inter-role signals through Society Bulletin each cycle so communications are witnessable and not lost in siloed state."
+  },
+  {
+    "title": "Artifact footprint rule",
+    "description": "Require at least one concrete artifact file under society/artifacts per growth cycle so 'build' leaves a durable footprint."
+  },
+  {
+    "title": "Gather synthesis pass",
+    "description": "After tribute, memory_weaver/pathfinder synthesize topic coverage gaps into a candidate gather note — still not accepted."
+  },
+  {
+    "title": "Improvement candidacy discipline",
+    "description": "Tag all self-improvement attempts as candidate process changes; refuse any path that would promote without human authorize."
+  },
+  {
+    "title": "Forum of Exchange cadence",
+    "description": "Have Forum members exchange one build / one gather / one improve signal per cycle via herald messages."
+  }
+]

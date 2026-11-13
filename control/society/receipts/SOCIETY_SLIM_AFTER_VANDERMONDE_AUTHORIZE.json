@@ -1,0 +1,89 @@
+{
+  "when": "2026-09-27T11:20:40Z",
+  "when_et": "2026-09-27 07:20 AM ET",
+  "mile": "spark3-port",
+  "note": "Post-authorize plateau watch + light evolve. Selective vandermonde accept unlocked citation_reuse. Slim push only \u2014 no society/data bulk.",
+  "tip_before_push": "5a420a3",
+  "cycle_count": 91,
+  "witness_events": 5305,
+  "light_evolve_cycles": 5,
+  "authorize": {
+    "receipt": "society/receipts/AUTHORIZE_authorize_20260927T012137Z.md",
+    "parent_id": "fnd_7256325fcfb6",
+    "correction_id": "fnd_c6d829125990",
+    "theme": "vandermonde",
+    "score": 0.8771,
+    "hard_pass": "25/25",
+    "oracle": "PASS",
+    "selective": true,
+    "accept_all": false,
+    "delegated_via": "Grok Bot (explicit trust grant 2026-09-27)"
+  },
+  "fitness_latest": {
+    "ts": "2026-09-27T11:18:54Z",
+    "cycle_id": "20260927T111835Z_455706",
+    "aggregate": 0.83,
+    "citation_reuse": 1.0,
+    "math_prize": 0.821,
+    "compute_usefulness": 0.9218,
+    "comm_reply_rate": 0.8077,
+    "prize_boost": 0.8921,
+    "peer_cite_rate": 1.0,
+    "tribute_quality": 0.9,
+    "gather_coverage": 0.6522,
+    "build_reuse": 0.7818,
+    "reply_quality": 0.9121,
+    "commons_signal": 1.0
+  },
+  "athanor": {
+    "verdict": "REFINE",
+    "h7": 0.5384615384615384,
+    "h7_weighted": 0.8462653987392251,
+    "distribution": {
+      "APPROVE": 2,
+      "REFINE": 56,
+      "REJECT": 0
+    },
+    "inform_only": true,
+    "durable_accept": false,
+    "double_gate": false
+  },
+  "pulsemesh": {
+    "goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "live": true
+    },
+    "openmeteo_series": {
+      "ok": true,
+      "note": "mem_ttl:cached_last_good_after:HTTPError: HTTP Error 429: Too Many Requests",
+      "live": false
+    },
+    "usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "live": true
+    },
+    "system_stat": {
+      "ok": true,
+      "note": "ok",
+      "live": true
+    },
+    "tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "live": true
+    }
+  },
+  "ceiling": [
+    "creator_tribute",
+    "human_authorize_P>=0.70_selective",
+    "append_only_witness"
+  ],
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems"
+  ]
+}

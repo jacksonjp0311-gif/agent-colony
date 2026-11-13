@@ -1,0 +1,150 @@
+{
+  "title": "H7_RESIDUAL_DIAGNOSIS",
+  "when": "2026-09-27T12:09:58Z",
+  "when_et": "2026-09-27 08:09 AM ET",
+  "mile": "h7-diagnosis",
+  "scope": "diagnostics_report_only",
+  "behavior_scripting": false,
+  "durable_accept_double_gate": false,
+  "inform_only_athanor_unchanged": true,
+  "latest": {
+    "verdict": "REFINE",
+    "h7": 0.5384615384615384,
+    "h7_weighted": 0.8462469543977093,
+    "h7_cusp": 0.7777777777777778,
+    "kappa_bound": 0.606478884669746,
+    "C_mean": 0.7787675421264975,
+    "C_std": 0.2292395603699158,
+    "dphi_mean": 0.419959453029457,
+    "dphi_std": 0.46667371617120834,
+    "threshold": 0.7,
+    "refine_floor": 0.5,
+    "reason": "H7 in refine band",
+    "n_agents": 14
+  },
+  "distribution": {
+    "APPROVE": 3,
+    "REFINE": 23,
+    "REJECT": 0
+  },
+  "distribution_log": {
+    "APPROVE": 3,
+    "REFINE": 23,
+    "REJECT": 0
+  },
+  "refine_share": 0.8846,
+  "h7_history": {
+    "n": 26,
+    "mean": 0.5917159763313609,
+    "std": 0.1474548614719185,
+    "min": 0.5384615384615384,
+    "max": 1.0,
+    "last5": [
+      0.5384615384615384,
+      0.5384615384615384,
+      0.5384615384615384,
+      0.5384615384615384,
+      0.5384615384615384
+    ]
+  },
+  "agent_residual_stats": {
+    "n_agents": 14,
+    "roles": [
+      "builder",
+      "courier",
+      "geometer",
+      "herald",
+      "improver",
+      "legislator",
+      "memory_weaver",
+      "oracle_scribe",
+      "pathfinder",
+      "scribe",
+      "spark",
+      "stem_checker",
+      "surveyor",
+      "tribute_keeper"
+    ],
+    "error_gradient": {
+      "mean": 0.00825714285714283,
+      "std": 0.02580940344375377,
+      "min": 0.0,
+      "max": 0.10129999999999997
+    },
+    "arousal": {
+      "mean": 0.4934142857142857,
+      "std": 0.15584074108407164,
+      "min": 0.3,
+      "max": 1.0
+    },
+    "attention": {
+      "mean": 0.5508371428571428,
+      "std": 0.04441959275374058
+    },
+    "confidence0": {
+      "mean": 0.7774057142857143,
+      "std": 0.1132504086220497
+    },
+    "activation_mean": {
+      "mean": 0.43687642857142855,
+      "std": 0.13752922606185738
+    },
+    "pairwise_l2": {
+      "mean": 0.36598354755316964,
+      "std": 0.4628987447697475,
+      "min": 0.0,
+      "max": 1.2768871335008432,
+      "n_pairs": 91
+    }
+  },
+  "cusp_vs_weighted": {
+    "h7_horizon": 0.5384615384615384,
+    "h7_weighted": 0.8462469543977093,
+    "h7_cusp": 0.7777777777777778,
+    "gap_weighted_minus_horizon": 0.307785,
+    "gap_cusp_minus_horizon": 0.239316,
+    "reading": "Weighted mean looks healthy while horizon fraction stays REFINE — APPROVE needs more steps with C≥0.70, not just a higher average C."
+  },
+  "kappa": {
+    "bound": 0.606478884669746,
+    "formula": "kappa = C_mean^2 (omega Lipschitz)",
+    "C_mean": 0.7787675421264975,
+    "below_approve_threshold": true
+  },
+  "factors": [
+    {
+      "id": "refine_band",
+      "detail": "H7=0.5385 sits in REFINE band [0.5, 0.7). Fraction of C_i ≥ 0.70 is only ~half the trajectory steps."
+    },
+    {
+      "id": "weighted_vs_horizon_gap",
+      "detail": "Weighted coherence mean (0.8462) >> horizon H7 (0.5385). Many steps are moderately coherent, but not enough clear the 0.70 threshold for the horizon fraction — weighted metric masks the cusp shortfall."
+    },
+    {
+      "id": "cusp_survival_lift",
+      "detail": "Cusp-limited H7 (0.7778) > raw H7 (0.5385) after dropping C<0.50. Low-coherence outlier steps dilute the horizon; surviving mass is healthier."
+    },
+    {
+      "id": "agent_residual_variance",
+      "detail": "Agent residual pairwise L2 mean=0.36598354755316964 std=0.4628987447697475. Heterogeneous activation/arousal/error across roles → larger ΔΦ → lower C on more trajectory edges → H7 stuck below APPROVE threshold."
+    },
+    {
+      "id": "kappa_bound_below_threshold",
+      "detail": "κ=ω Lipschitz bound (C_mean²)=0.6065 < H7 threshold 0.7. Mean coherence squared cannot underwrite APPROVE-level horizon stability."
+    },
+    {
+      "id": "dphi_dispersion",
+      "detail": "ΔΦ std=0.4667 (mean=0.4200) — drift is bursty across the peer residual field, so C oscillates and H7 fraction stays mid-band."
+    }
+  ],
+  "residuals_log_n": 33,
+  "athanor_log_n": 26,
+  "recommendation_for_city": "Report only. City may later reduce residual heterogeneity (attention/arousal spread) or tolerate REFINE as honest plateau signal. Do NOT double-gate durable accept. Do NOT script behavior from this report. Human authorize ceiling untouched.",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "diagnostics_only"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city."
+}

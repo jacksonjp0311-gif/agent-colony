@@ -1,0 +1,1656 @@
+{
+ "note": "Accepted by the CI standing-trust step, not by James by hand. Not revoked; for James to review.",
+ "n": 275,
+ "items": [
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T053058Z.md",
+   "ts": "2026-09-27T05:30:58Z",
+   "finding": "fnd_b3438dddcfe7",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T053058Z.md",
+   "ts": "2026-09-27T05:30:58Z",
+   "finding": "fnd_056487906aa8",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T121729Z.md",
+   "ts": "2026-09-27T12:17:29Z",
+   "finding": "fnd_b57d033d2aa0",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T121729Z.md",
+   "ts": "2026-09-27T12:17:29Z",
+   "finding": "fnd_87ab9fcb20e7",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T170848Z.md",
+   "ts": "2026-09-27T17:08:48Z",
+   "finding": "fnd_d398704372de",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T170848Z.md",
+   "ts": "2026-09-27T17:08:48Z",
+   "finding": "fnd_3e3b15bbcba6",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T213145Z.md",
+   "ts": "2026-09-27T21:31:45Z",
+   "finding": "fnd_4b2028b336ef",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260927T213145Z.md",
+   "ts": "2026-09-27T21:31:45Z",
+   "finding": "fnd_fd9a5f040e4b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260928T054121Z.md",
+   "ts": "2026-09-28T05:41:21Z",
+   "finding": "fnd_17f3a7b8ba91",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260928T054121Z.md",
+   "ts": "2026-09-28T05:41:21Z",
+   "finding": "fnd_9e713e8ab5da",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260928T141809Z.md",
+   "ts": "2026-09-28T14:18:10Z",
+   "finding": "fnd_d271698f6836",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260928T141809Z.md",
+   "ts": "2026-09-28T14:18:10Z",
+   "finding": "fnd_665fa1624e1b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260928T232635Z.md",
+   "ts": "2026-09-28T23:26:35Z",
+   "finding": "fnd_57851f7fbf66",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260928T232635Z.md",
+   "ts": "2026-09-28T23:26:35Z",
+   "finding": "fnd_88c469855184",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260929T055832Z.md",
+   "ts": "2026-09-29T05:58:32Z",
+   "finding": "fnd_14fb12f2836d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260929T055832Z.md",
+   "ts": "2026-09-29T05:58:32Z",
+   "finding": "fnd_f113b0050171",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260929T131325Z.md",
+   "ts": "2026-09-29T13:13:25Z",
+   "finding": "fnd_6fdaf974f23b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260929T131325Z.md",
+   "ts": "2026-09-29T13:13:25Z",
+   "finding": "fnd_d3c7ebae6e13",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260929T222946Z.md",
+   "ts": "2026-09-29T22:29:46Z",
+   "finding": "fnd_b0cb816d28d1",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260929T222946Z.md",
+   "ts": "2026-09-29T22:29:46Z",
+   "finding": "fnd_66f85d3623ce",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260930T054843Z.md",
+   "ts": "2026-09-30T05:48:43Z",
+   "finding": "fnd_071b99535b3b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260930T054843Z.md",
+   "ts": "2026-09-30T05:48:43Z",
+   "finding": "fnd_0b883c05b176",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260930T125320Z.md",
+   "ts": "2026-09-30T12:53:20Z",
+   "finding": "fnd_4fc66436ce7f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260930T125320Z.md",
+   "ts": "2026-09-30T12:53:20Z",
+   "finding": "fnd_81c619625362",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260930T222837Z.md",
+   "ts": "2026-09-30T22:28:37Z",
+   "finding": "fnd_ebe79a0b39ed",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20260930T222837Z.md",
+   "ts": "2026-09-30T22:28:37Z",
+   "finding": "fnd_31285af5ac39",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261001T061722Z.md",
+   "ts": "2026-10-01T06:17:22Z",
+   "finding": "fnd_e3ec988d7171",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261001T061722Z.md",
+   "ts": "2026-10-01T06:17:22Z",
+   "finding": "fnd_724708ba8a6d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261001T134004Z.md",
+   "ts": "2026-10-01T13:40:04Z",
+   "finding": "fnd_87b38466aa8b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261001T134004Z.md",
+   "ts": "2026-10-01T13:40:04Z",
+   "finding": "fnd_a1c9e670a181",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261001T225035Z.md",
+   "ts": "2026-10-01T22:50:35Z",
+   "finding": "fnd_dd88a4652a9d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261001T225035Z.md",
+   "ts": "2026-10-01T22:50:35Z",
+   "finding": "fnd_168ecb4aeb48",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261002T055826Z.md",
+   "ts": "2026-10-02T05:58:26Z",
+   "finding": "fnd_f4e5fc891898",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261002T055826Z.md",
+   "ts": "2026-10-02T05:58:26Z",
+   "finding": "fnd_f27c07698b6e",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261002T125845Z.md",
+   "ts": "2026-10-02T12:58:46Z",
+   "finding": "fnd_f1c3baf12e5b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261002T125845Z.md",
+   "ts": "2026-10-02T12:58:46Z",
+   "finding": "fnd_09551734c0b0",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261002T222625Z.md",
+   "ts": "2026-10-02T22:26:25Z",
+   "finding": "fnd_2c36332fea2f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261002T222625Z.md",
+   "ts": "2026-10-02T22:26:25Z",
+   "finding": "fnd_ef701c6218c8",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T053402Z.md",
+   "ts": "2026-10-03T05:34:02Z",
+   "finding": "fnd_aca6a697cf82",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T053402Z.md",
+   "ts": "2026-10-03T05:34:02Z",
+   "finding": "fnd_391457639b36",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T115346Z.md",
+   "ts": "2026-10-03T11:53:46Z",
+   "finding": "fnd_55b1035ba096",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T115346Z.md",
+   "ts": "2026-10-03T11:53:46Z",
+   "finding": "fnd_dc6fec55030b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T163512Z.md",
+   "ts": "2026-10-03T16:35:12Z",
+   "finding": "fnd_c66f18b0d64d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T163512Z.md",
+   "ts": "2026-10-03T16:35:12Z",
+   "finding": "fnd_a272ae8e0927",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T213745Z.md",
+   "ts": "2026-10-03T21:37:45Z",
+   "finding": "fnd_38e06e241f2a",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261003T213745Z.md",
+   "ts": "2026-10-03T21:37:45Z",
+   "finding": "fnd_c2c07285fc55",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261004T060903Z.md",
+   "ts": "2026-10-04T06:09:03Z",
+   "finding": "fnd_97d7018d1775",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261004T060903Z.md",
+   "ts": "2026-10-04T06:09:03Z",
+   "finding": "fnd_96bcea5d3138",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261004T124148Z.md",
+   "ts": "2026-10-04T12:41:48Z",
+   "finding": "fnd_afb524365ceb",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261004T124148Z.md",
+   "ts": "2026-10-04T12:41:48Z",
+   "finding": "fnd_8115ceb66d6d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261004T214510Z.md",
+   "ts": "2026-10-04T21:45:10Z",
+   "finding": "fnd_9a492f0e6166",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261004T214510Z.md",
+   "ts": "2026-10-04T21:45:10Z",
+   "finding": "fnd_3454b5bf47e1",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261005T060108Z.md",
+   "ts": "2026-10-05T06:01:08Z",
+   "finding": "fnd_fb203b62d364",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261005T060108Z.md",
+   "ts": "2026-10-05T06:01:08Z",
+   "finding": "fnd_a71ad213387f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261005T150650Z.md",
+   "ts": "2026-10-05T15:06:50Z",
+   "finding": "fnd_bc8972445cd5",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261005T150650Z.md",
+   "ts": "2026-10-05T15:06:50Z",
+   "finding": "fnd_46fad0c73857",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T001440Z.md",
+   "ts": "2026-10-06T00:14:40Z",
+   "finding": "fnd_40ad216dfc59",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T001440Z.md",
+   "ts": "2026-10-06T00:14:40Z",
+   "finding": "fnd_112cb4e7b5ba",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T064022Z.md",
+   "ts": "2026-10-06T06:40:22Z",
+   "finding": "fnd_75aadf7c0b60",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T064022Z.md",
+   "ts": "2026-10-06T06:40:22Z",
+   "finding": "fnd_7c0c9c1814d0",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T143347Z.md",
+   "ts": "2026-10-06T14:33:47Z",
+   "finding": "fnd_bca357f54109",
+   "title": "Hard-checked claim: autodiff"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T143347Z.md",
+   "ts": "2026-10-06T14:33:47Z",
+   "finding": "fnd_2376b7d2e602",
+   "title": "Hard-checked claim: vandermonde"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T143347Z.md",
+   "ts": "2026-10-06T14:33:47Z",
+   "finding": "fnd_7c0c9c1814d0",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T143347Z.md",
+   "ts": "2026-10-06T14:33:47Z",
+   "finding": "fnd_6d1c7a8ce9e6",
+   "title": "Lemma mutation keep: vandermonde_asymmetric"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T183328Z.md",
+   "ts": "2026-10-06T18:33:28Z",
+   "finding": "fnd_5699bdb0c96b",
+   "title": "Lemma mutation keep: binomial_hockey_deep"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T183328Z.md",
+   "ts": "2026-10-06T18:33:28Z",
+   "finding": "fnd_fe71295b788b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T183328Z.md",
+   "ts": "2026-10-06T18:33:28Z",
+   "finding": "fnd_8e5ee8ae2802",
+   "title": "Lemma mutation keep: fibonacci_cassini_ext"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261006T183328Z.md",
+   "ts": "2026-10-06T18:33:28Z",
+   "finding": "fnd_732ef5fa22ad",
+   "title": "Lemma mutation keep: derived_chain_stress"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T090521Z.md",
+   "ts": "2026-10-07T09:05:21Z",
+   "finding": "fnd_dd494061b7ee",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T112634Z.md",
+   "ts": "2026-10-07T11:26:34Z",
+   "finding": "fnd_494d573ab825",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T112927Z.md",
+   "ts": "2026-10-07T11:29:27Z",
+   "finding": "fnd_82eeb56babf6",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T113224Z.md",
+   "ts": "2026-10-07T11:32:24Z",
+   "finding": "fnd_450c21f9f432",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T113628Z.md",
+   "ts": "2026-10-07T11:36:28Z",
+   "finding": "fnd_d96567b6abb5",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T134210Z.md",
+   "ts": "2026-10-07T13:42:10Z",
+   "finding": "fnd_1c0d1381b235",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T140140Z.md",
+   "ts": "2026-10-07T14:01:41Z",
+   "finding": "fnd_822261084afe",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T180356Z.md",
+   "ts": "2026-10-07T18:03:56Z",
+   "finding": "fnd_b9179b869581",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T195417Z.md",
+   "ts": "2026-10-07T19:54:17Z",
+   "finding": "fnd_1e03ef7a3a01",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T200953Z.md",
+   "ts": "2026-10-07T20:09:53Z",
+   "finding": "fnd_fefb505df8d2",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T200953Z.md",
+   "ts": "2026-10-07T20:09:53Z",
+   "finding": "fnd_7bc762ad2978",
+   "title": "Lemma mutation keep: adversarial_cassini_ext"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T200953Z.md",
+   "ts": "2026-10-07T20:09:53Z",
+   "finding": "fnd_d836fcbf3ea9",
+   "title": "Lemma mutation keep: adversarial_catalan_convolution_stress"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T202154Z.md",
+   "ts": "2026-10-07T20:21:54Z",
+   "finding": "fnd_4c58e40ba953",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T202512Z.md",
+   "ts": "2026-10-07T20:25:12Z",
+   "finding": "fnd_750be05ac52a",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T203501Z.md",
+   "ts": "2026-10-07T20:35:01Z",
+   "finding": "fnd_c8139594646f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T203501Z.md",
+   "ts": "2026-10-07T20:35:01Z",
+   "finding": "fnd_9e3f7f67f577",
+   "title": "Lemma mutation keep: authored_bell_triangle_recurrence__binomial_inversion_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T214943Z.md",
+   "ts": "2026-10-07T21:49:43Z",
+   "finding": "fnd_fd8c7f2500ef",
+   "title": "Lemma mutation keep: authored_binomial_sum_row__catalan_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T214943Z.md",
+   "ts": "2026-10-07T21:49:43Z",
+   "finding": "fnd_1ce06086f698",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T214943Z.md",
+   "ts": "2026-10-07T21:49:43Z",
+   "finding": "fnd_1f34953d80de",
+   "title": "Lemma mutation keep: authored_oeis_a000108__catalan_bounded"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T215324Z.md",
+   "ts": "2026-10-07T21:53:25Z",
+   "finding": "fnd_e21057ae1cb8",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T215324Z.md",
+   "ts": "2026-10-07T21:53:25Z",
+   "finding": "fnd_5b6d73ae1a17",
+   "title": "Lemma mutation keep: authored_oeis_a000045__cassini"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T230629Z.md",
+   "ts": "2026-10-07T23:06:29Z",
+   "finding": "fnd_8759af985fc8",
+   "title": "Lemma mutation keep: authored_binomial_symmetry__catalan_convolution_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T230629Z.md",
+   "ts": "2026-10-07T23:06:29Z",
+   "finding": "fnd_103c39ff0119",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T230629Z.md",
+   "ts": "2026-10-07T23:06:29Z",
+   "finding": "fnd_a7c88fecf826",
+   "title": "Lemma mutation keep: authored_central_binom_bound__derangement_subfactorial_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T231446Z.md",
+   "ts": "2026-10-07T23:14:46Z",
+   "finding": "fnd_e61cb94dcfe7",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261007T231446Z.md",
+   "ts": "2026-10-07T23:14:46Z",
+   "finding": "fnd_fd7a6884cb61",
+   "title": "Lemma mutation keep: authored_euler_totient_multiplicative__hermite_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T011426Z.md",
+   "ts": "2026-10-08T01:14:26Z",
+   "finding": "fnd_27a73eb8aa17",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T011426Z.md",
+   "ts": "2026-10-08T01:14:26Z",
+   "finding": "fnd_f03f510d31b0",
+   "title": "Lemma mutation keep: authored_geometric_sum__hockey_stick_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T011809Z.md",
+   "ts": "2026-10-08T01:18:09Z",
+   "finding": "fnd_cbcda0a25684",
+   "title": "Hard-checked claim: binomial_identities"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T011809Z.md",
+   "ts": "2026-10-08T01:18:09Z",
+   "finding": "fnd_7cf54bc6d0dd",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T011809Z.md",
+   "ts": "2026-10-08T01:18:09Z",
+   "finding": "fnd_1efb97fcee73",
+   "title": "Lemma mutation keep: authored_motzkin_bounded__legendre_duplication_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T062633Z.md",
+   "ts": "2026-10-08T06:26:33Z",
+   "finding": "fnd_a0b908e79c68",
+   "title": "Lemma mutation keep: authored_pascal_identity__narayana_sum_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T062633Z.md",
+   "ts": "2026-10-08T06:26:33Z",
+   "finding": "fnd_759d4162c267",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T062633Z.md",
+   "ts": "2026-10-08T06:26:33Z",
+   "finding": "fnd_d277a35154ce",
+   "title": "Lemma mutation keep: authored_oeis_a000984__central_binom_bound"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T072813Z.md",
+   "ts": "2026-10-08T07:28:13Z",
+   "finding": "fnd_04bb1765e17b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T072813Z.md",
+   "ts": "2026-10-08T07:28:13Z",
+   "finding": "fnd_f0c22908dbbb",
+   "title": "Lemma mutation keep: authored_pell_companion__pythagorean_generation_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T074444Z.md",
+   "ts": "2026-10-08T07:44:44Z",
+   "finding": "fnd_2c0d2f9eb59f",
+   "title": "Lemma mutation keep: authored_sum_first_n_cubes__stirling_second_row_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T074444Z.md",
+   "ts": "2026-10-08T07:44:44Z",
+   "finding": "fnd_3a6664fe81df",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T074444Z.md",
+   "ts": "2026-10-08T07:44:44Z",
+   "finding": "fnd_30914b7962e5",
+   "title": "Lemma mutation keep: authored_sum_first_n_odds__vandermonde_conv_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T074829Z.md",
+   "ts": "2026-10-08T07:48:29Z",
+   "finding": "fnd_927974eb5207",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T074829Z.md",
+   "ts": "2026-10-08T07:48:29Z",
+   "finding": "fnd_27b2d5ddbfbb",
+   "title": "Lemma mutation keep: authored_bell_triangle_recurrence__hermite_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T135509Z.md",
+   "ts": "2026-10-08T13:55:09Z",
+   "finding": "fnd_97014b6fa221",
+   "title": "Lemma mutation keep: authored_binomial_inversion_small__legendre_duplication_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T135509Z.md",
+   "ts": "2026-10-08T13:55:09Z",
+   "finding": "fnd_e653ce44358c",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T135509Z.md",
+   "ts": "2026-10-08T13:55:09Z",
+   "finding": "fnd_04caaa28778d",
+   "title": "Lemma mutation keep: authored_oeis_a000079__binomial_sum_row"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T233113Z.md",
+   "ts": "2026-10-08T23:31:14Z",
+   "finding": "fnd_bb00183cc2e9",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261008T233113Z.md",
+   "ts": "2026-10-08T23:31:14Z",
+   "finding": "fnd_dd77adb78d78",
+   "title": "Lemma mutation keep: authored_binomial_symmetry__cassini_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T061716Z.md",
+   "ts": "2026-10-09T06:17:16Z",
+   "finding": "fnd_abb2294d87df",
+   "title": "Lemma mutation keep: authored_catalan_convolution__derangement_subfactorial_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T061716Z.md",
+   "ts": "2026-10-09T06:17:16Z",
+   "finding": "fnd_c700e4a2870f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T061716Z.md",
+   "ts": "2026-10-09T06:17:16Z",
+   "finding": "fnd_1b30dafed75f",
+   "title": "Lemma mutation keep: authored_fibonacci_addition__euler_totient_multiplicative_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T062708Z.md",
+   "ts": "2026-10-09T06:27:08Z",
+   "finding": "fnd_0b4fd708c717",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T062708Z.md",
+   "ts": "2026-10-09T06:27:08Z",
+   "finding": "fnd_e7f71b3be922",
+   "title": "Lemma mutation keep: authored_gcd_fibonacci__motzkin_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T063045Z.md",
+   "ts": "2026-10-09T06:30:45Z",
+   "finding": "fnd_ae103df47d75",
+   "title": "Lemma mutation keep: authored_geometric_sum__narayana_sum_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T063045Z.md",
+   "ts": "2026-10-09T06:30:45Z",
+   "finding": "fnd_f200aa8812f1",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T063045Z.md",
+   "ts": "2026-10-09T06:30:45Z",
+   "finding": "fnd_e8369d9ece81",
+   "title": "Lemma mutation keep: authored_hockey_stick__pell_companion_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T063358Z.md",
+   "ts": "2026-10-09T06:33:58Z",
+   "finding": "fnd_b6462f90a4a2",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T065719Z.md",
+   "ts": "2026-10-09T06:57:20Z",
+   "finding": "fnd_47d56cf6b97f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T075524Z.md",
+   "ts": "2026-10-09T07:55:24Z",
+   "finding": "fnd_7f7acfea9669",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T075524Z.md",
+   "ts": "2026-10-09T07:55:24Z",
+   "finding": "fnd_fe377ea33e01",
+   "title": "Lemma mutation keep: authored_pascal_identity__pythagorean_generation_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T075810Z.md",
+   "ts": "2026-10-09T07:58:10Z",
+   "finding": "fnd_8b27eb0bfbff",
+   "title": "Lemma mutation keep: authored_sum_first_n_cubes__vandermonde_conv_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T075810Z.md",
+   "ts": "2026-10-09T07:58:10Z",
+   "finding": "fnd_82111aa22026",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T075810Z.md",
+   "ts": "2026-10-09T07:58:10Z",
+   "finding": "fnd_25b12f8525b7",
+   "title": "Lemma mutation keep: authored_sum_first_n_odds__stirling_second_row_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T134043Z.md",
+   "ts": "2026-10-09T13:40:43Z",
+   "finding": "fnd_74683026f73e",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T134043Z.md",
+   "ts": "2026-10-09T13:40:43Z",
+   "finding": "fnd_69c380d26e3f",
+   "title": "Lemma mutation keep: authored_bell_triangle_recurrence__legendre_duplication_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T224830Z.md",
+   "ts": "2026-10-09T22:48:30Z",
+   "finding": "fnd_afd378c7ced1",
+   "title": "Lemma mutation keep: authored_binomial_sum_row__binomial_inversion_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T224830Z.md",
+   "ts": "2026-10-09T22:48:30Z",
+   "finding": "fnd_8a65cda0b2d9",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261009T224830Z.md",
+   "ts": "2026-10-09T22:48:30Z",
+   "finding": "fnd_1874c24d4425",
+   "title": "Lemma mutation keep: authored_binomial_symmetry__catalan_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261010T061046Z.md",
+   "ts": "2026-10-10T06:10:46Z",
+   "finding": "fnd_70d6aecb1414",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261010T061046Z.md",
+   "ts": "2026-10-10T06:10:46Z",
+   "finding": "fnd_1c03839f3d93",
+   "title": "Lemma mutation keep: authored_cassini__catalan_convolution_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261010T125109Z.md",
+   "ts": "2026-10-10T12:51:09Z",
+   "finding": "fnd_6081e7465d6f",
+   "title": "Lemma mutation keep: authored_central_binom_bound__euler_totient_multiplicative_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261010T125109Z.md",
+   "ts": "2026-10-10T12:51:09Z",
+   "finding": "fnd_2096ebafb46d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261010T125109Z.md",
+   "ts": "2026-10-10T12:51:09Z",
+   "finding": "fnd_9c9823fd88e4",
+   "title": "Lemma mutation keep: authored_derangement_subfactorial__hermite_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261010T215622Z.md",
+   "ts": "2026-10-10T21:56:22Z",
+   "finding": "fnd_952f60d85596",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261010T215622Z.md",
+   "ts": "2026-10-10T21:56:22Z",
+   "finding": "fnd_33e04aae02d2",
+   "title": "Lemma mutation keep: authored_fibonacci_addition__motzkin_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T060752Z.md",
+   "ts": "2026-10-11T06:07:52Z",
+   "finding": "fnd_aa6894d23079",
+   "title": "Lemma mutation keep: authored_gcd_fibonacci__narayana_sum_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T060752Z.md",
+   "ts": "2026-10-11T06:07:52Z",
+   "finding": "fnd_6ff64c40c9af",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T060752Z.md",
+   "ts": "2026-10-11T06:07:52Z",
+   "finding": "fnd_638ad9c5bc58",
+   "title": "Lemma mutation keep: authored_geometric_sum__pell_companion_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T131401Z.md",
+   "ts": "2026-10-11T13:14:02Z",
+   "finding": "fnd_9c364e031652",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T131401Z.md",
+   "ts": "2026-10-11T13:14:02Z",
+   "finding": "fnd_fd656f009e3c",
+   "title": "Lemma mutation keep: authored_hockey_stick__pythagorean_generation_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T143521Z.md",
+   "ts": "2026-10-11T14:35:21Z",
+   "finding": "fnd_5940f6902119",
+   "title": "Lemma mutation keep: authored_pascal_identity__stirling_second_row_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T143521Z.md",
+   "ts": "2026-10-11T14:35:21Z",
+   "finding": "fnd_db3e037db3bf",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T143521Z.md",
+   "ts": "2026-10-11T14:35:21Z",
+   "finding": "fnd_b4eb47a51474",
+   "title": "Lemma mutation keep: authored_sum_first_n_odds__sum_first_n_cubes_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T221507Z.md",
+   "ts": "2026-10-11T22:15:07Z",
+   "finding": "fnd_1458333f5f8d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261011T221507Z.md",
+   "ts": "2026-10-11T22:15:07Z",
+   "finding": "fnd_fad9523bb755",
+   "title": "Lemma mutation keep: authored_binomial_symmetry__vandermonde_conv_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261012T061759Z.md",
+   "ts": "2026-10-12T06:17:59Z",
+   "finding": "fnd_ce19bd5ffe5e",
+   "title": "Lemma mutation keep: authored_binomial_sum_row__bell_triangle_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261012T061759Z.md",
+   "ts": "2026-10-12T06:17:59Z",
+   "finding": "fnd_7aec0ddcb2c3",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261012T061759Z.md",
+   "ts": "2026-10-12T06:17:59Z",
+   "finding": "fnd_6ee2bda91081",
+   "title": "Lemma mutation keep: authored_cassini__binomial_inversion_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261012T155254Z.md",
+   "ts": "2026-10-12T15:52:55Z",
+   "finding": "fnd_baece8733db6",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261012T155254Z.md",
+   "ts": "2026-10-12T15:52:55Z",
+   "finding": "fnd_b56c5dd5388d",
+   "title": "Lemma mutation keep: authored_catalan_bounded__catalan_convolution_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T005523Z.md",
+   "ts": "2026-10-13T00:55:23Z",
+   "finding": "fnd_615cc1377aa9",
+   "title": "Lemma mutation keep: authored_central_binom_bound__gcd_fibonacci_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T005523Z.md",
+   "ts": "2026-10-13T00:55:23Z",
+   "finding": "fnd_b21be8e2a704",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T005523Z.md",
+   "ts": "2026-10-13T00:55:23Z",
+   "finding": "fnd_83b3d246ec2e",
+   "title": "Lemma mutation keep: authored_derangement_subfactorial__euler_totient_multiplicative_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T142941Z.md",
+   "ts": "2026-10-13T14:29:41Z",
+   "finding": "fnd_f1ba8dcc257e",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T142941Z.md",
+   "ts": "2026-10-13T14:29:41Z",
+   "finding": "fnd_64874c49ac52",
+   "title": "Lemma mutation keep: authored_fibonacci_addition__hermite_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T230059Z.md",
+   "ts": "2026-10-13T23:00:59Z",
+   "finding": "fnd_8e4391fc5cfc",
+   "title": "Lemma mutation keep: authored_geometric_sum__legendre_duplication_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T230059Z.md",
+   "ts": "2026-10-13T23:00:59Z",
+   "finding": "fnd_4d0117196207",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261013T230059Z.md",
+   "ts": "2026-10-13T23:00:59Z",
+   "finding": "fnd_d7903c9770b5",
+   "title": "Lemma mutation keep: authored_hockey_stick__motzkin_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T051136Z.md",
+   "ts": "2026-10-14T05:11:36Z",
+   "finding": "fnd_8187ef99f4ed",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T051136Z.md",
+   "ts": "2026-10-14T05:11:36Z",
+   "finding": "fnd_31363e49a9da",
+   "title": "Lemma mutation keep: authored_pascal_identity__pell_companion_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T121454Z.md",
+   "ts": "2026-10-14T12:14:54Z",
+   "finding": "fnd_0b778d8c94d8",
+   "title": "Lemma mutation keep: authored_pythagorean_generation__narayana_sum_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T121454Z.md",
+   "ts": "2026-10-14T12:14:54Z",
+   "finding": "fnd_7cab79568ed1",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T121454Z.md",
+   "ts": "2026-10-14T12:14:54Z",
+   "finding": "fnd_ff016bde5bc2",
+   "title": "Lemma mutation keep: authored_vandermonde_conv__stirling_second_row_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T172845Z.md",
+   "ts": "2026-10-14T17:28:45Z",
+   "finding": "fnd_1f55714d0ec4",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T172845Z.md",
+   "ts": "2026-10-14T17:28:45Z",
+   "finding": "fnd_177936713bce",
+   "title": "Lemma mutation keep: authored_binomial_symmetry__sum_first_n_cubes_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T215349Z.md",
+   "ts": "2026-10-14T21:53:50Z",
+   "finding": "fnd_952bd991cbd4",
+   "title": "Lemma mutation keep: authored_sum_first_n_odds__bell_triangle_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T215349Z.md",
+   "ts": "2026-10-14T21:53:50Z",
+   "finding": "fnd_8985a4c486a9",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261014T215349Z.md",
+   "ts": "2026-10-14T21:53:50Z",
+   "finding": "fnd_848c1a40efb9",
+   "title": "Lemma mutation keep: authored_binomial_sum_row__catalan_convolution_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T045940Z.md",
+   "ts": "2026-10-15T04:59:40Z",
+   "finding": "fnd_279e406c230a",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T045940Z.md",
+   "ts": "2026-10-15T04:59:40Z",
+   "finding": "fnd_39111187a958",
+   "title": "Lemma mutation keep: authored_cassini__catalan_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T115249Z.md",
+   "ts": "2026-10-15T11:52:50Z",
+   "finding": "fnd_cf1c218f9ff5",
+   "title": "Lemma mutation keep: authored_central_binom_bound__binomial_inversion_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T115249Z.md",
+   "ts": "2026-10-15T11:52:50Z",
+   "finding": "fnd_386280d2c02c",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T115249Z.md",
+   "ts": "2026-10-15T11:52:50Z",
+   "finding": "fnd_dfd53c4f9561",
+   "title": "Lemma mutation keep: authored_derangement_subfactorial__legendre_duplication_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T171613Z.md",
+   "ts": "2026-10-15T17:16:13Z",
+   "finding": "fnd_c5e8f238deba",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T171613Z.md",
+   "ts": "2026-10-15T17:16:13Z",
+   "finding": "fnd_ac7dd2e960ca",
+   "title": "Lemma mutation keep: authored_fibonacci_addition__narayana_sum_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T213714Z.md",
+   "ts": "2026-10-15T21:37:15Z",
+   "finding": "fnd_bcb302ad835b",
+   "title": "Lemma mutation keep: authored_gcd_fibonacci__euler_totient_multiplicative_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T213714Z.md",
+   "ts": "2026-10-15T21:37:15Z",
+   "finding": "fnd_ee18df581e09",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261015T213714Z.md",
+   "ts": "2026-10-15T21:37:15Z",
+   "finding": "fnd_217b951e7ba6",
+   "title": "Lemma mutation keep: authored_geometric_sum__hermite_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T044938Z.md",
+   "ts": "2026-10-16T04:49:39Z",
+   "finding": "fnd_c1e0d23bd50e",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T044938Z.md",
+   "ts": "2026-10-16T04:49:39Z",
+   "finding": "fnd_c19afba07640",
+   "title": "Lemma mutation keep: authored_hockey_stick__stirling_second_row_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T114511Z.md",
+   "ts": "2026-10-16T11:45:12Z",
+   "finding": "fnd_87032e6e45cb",
+   "title": "Lemma mutation keep: authored_pascal_identity__motzkin_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T114511Z.md",
+   "ts": "2026-10-16T11:45:12Z",
+   "finding": "fnd_beb689d89aa9",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T114511Z.md",
+   "ts": "2026-10-16T11:45:12Z",
+   "finding": "fnd_4a0fce9f5986",
+   "title": "Lemma mutation keep: authored_sum_first_n_cubes__pell_companion_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T161914Z.md",
+   "ts": "2026-10-16T16:19:14Z",
+   "finding": "fnd_e707028000fe",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T161914Z.md",
+   "ts": "2026-10-16T16:19:14Z",
+   "finding": "fnd_ddd4f086b1d5",
+   "title": "Lemma mutation keep: authored_sum_first_n_odds__pythagorean_generation_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T163439Z.md",
+   "ts": "2026-10-16T16:34:39Z",
+   "finding": "fnd_c2edc8b6b58d",
+   "title": "Lemma mutation keep: authored_geometric_sum__vandermonde_conv_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T163439Z.md",
+   "ts": "2026-10-16T16:34:39Z",
+   "finding": "fnd_3fa0854ce5df",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T163439Z.md",
+   "ts": "2026-10-16T16:34:39Z",
+   "finding": "fnd_648085ab8f6f",
+   "title": "Lemma mutation keep: authored_binomial_sum_row__central_binom_bound_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T163853Z.md",
+   "ts": "2026-10-16T16:38:53Z",
+   "finding": "fnd_e1d414eace64",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T163853Z.md",
+   "ts": "2026-10-16T16:38:53Z",
+   "finding": "fnd_05d3b78e3860",
+   "title": "Lemma mutation keep: authored_binomial_symmetry__bell_triangle_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T164414Z.md",
+   "ts": "2026-10-16T16:44:14Z",
+   "finding": "fnd_8f7b324900cc",
+   "title": "Lemma mutation keep: authored_cassini__derangement_subfactorial_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T164414Z.md",
+   "ts": "2026-10-16T16:44:14Z",
+   "finding": "fnd_7f4bc1a34571",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T164414Z.md",
+   "ts": "2026-10-16T16:44:14Z",
+   "finding": "fnd_9684478fa633",
+   "title": "Lemma mutation keep: authored_catalan_bounded__binomial_inversion_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T172219Z.md",
+   "ts": "2026-10-16T17:22:20Z",
+   "finding": "fnd_985691ac2c7f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T172219Z.md",
+   "ts": "2026-10-16T17:22:20Z",
+   "finding": "fnd_1cb83a88c1d6",
+   "title": "Lemma mutation keep: authored_catalan_convolution__euler_totient_multiplicative_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T180237Z.md",
+   "ts": "2026-10-16T18:02:37Z",
+   "finding": "fnd_c8e7b7fcc674",
+   "title": "Lemma mutation keep: authored_fibonacci_addition__legendre_duplication_small_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T180237Z.md",
+   "ts": "2026-10-16T18:02:37Z",
+   "finding": "fnd_3c94e511908d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T180237Z.md",
+   "ts": "2026-10-16T18:02:37Z",
+   "finding": "fnd_e5bbe3f6634b",
+   "title": "Lemma mutation keep: authored_gcd_fibonacci__hermite_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T203611Z.md",
+   "ts": "2026-10-16T20:36:11Z",
+   "finding": "fnd_9b8cfb3b5ca2",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T203611Z.md",
+   "ts": "2026-10-16T20:36:11Z",
+   "finding": "fnd_7bb9f516c062",
+   "title": "Lemma mutation keep: authored_hockey_stick__narayana_sum_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T213242Z.md",
+   "ts": "2026-10-16T21:32:42Z",
+   "finding": "fnd_c16701796425",
+   "title": "Lemma mutation keep: authored_pascal_identity__sum_first_n_cubes_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T213242Z.md",
+   "ts": "2026-10-16T21:32:42Z",
+   "finding": "fnd_82ce188ef9e5",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T213242Z.md",
+   "ts": "2026-10-16T21:32:42Z",
+   "finding": "fnd_fac7938acfe3",
+   "title": "Lemma mutation keep: authored_pell_companion__motzkin_bounded_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T215919Z.md",
+   "ts": "2026-10-16T21:59:19Z",
+   "finding": "fnd_02b4ea7f5907",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261016T215919Z.md",
+   "ts": "2026-10-16T21:59:19Z",
+   "finding": "fnd_15fe3307bd4b",
+   "title": "Lemma mutation keep: authored_stirling_second_row__pythagorean_generation_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T012016Z.md",
+   "ts": "2026-10-17T01:20:17Z",
+   "finding": "fnd_878f2cd28d1b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T014320Z.md",
+   "ts": "2026-10-17T01:43:20Z",
+   "finding": "fnd_94f3ad032e29",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T014320Z.md",
+   "ts": "2026-10-17T01:43:20Z",
+   "finding": "fnd_006f94a10d84",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g2_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T020200Z.md",
+   "ts": "2026-10-17T02:02:01Z",
+   "finding": "fnd_422bce810f73",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T023819Z.md",
+   "ts": "2026-10-17T02:38:19Z",
+   "finding": "fnd_36f9672fb59a",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g2_w2"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T023819Z.md",
+   "ts": "2026-10-17T02:38:19Z",
+   "finding": "fnd_af0ed25a1434",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T023819Z.md",
+   "ts": "2026-10-17T02:38:19Z",
+   "finding": "fnd_a7e105b548cf",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g4_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T024403Z.md",
+   "ts": "2026-10-17T02:44:04Z",
+   "finding": "fnd_163e1ce32760",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T024403Z.md",
+   "ts": "2026-10-17T02:44:04Z",
+   "finding": "fnd_65254955c8c2",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T024807Z.md",
+   "ts": "2026-10-17T02:48:07Z",
+   "finding": "fnd_4dd97f01e3dd",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g2_4_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T024807Z.md",
+   "ts": "2026-10-17T02:48:07Z",
+   "finding": "fnd_c783a0c4696f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T024807Z.md",
+   "ts": "2026-10-17T02:48:07Z",
+   "finding": "fnd_36a452e3b503",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g2_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T030004Z.md",
+   "ts": "2026-10-17T03:00:04Z",
+   "finding": "fnd_4a0e98ad37e8",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T030004Z.md",
+   "ts": "2026-10-17T03:00:04Z",
+   "finding": "fnd_badc99090bce",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g4_2_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T031417Z.md",
+   "ts": "2026-10-17T03:14:17Z",
+   "finding": "fnd_3f767a1c4fbe",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g4_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T031417Z.md",
+   "ts": "2026-10-17T03:14:17Z",
+   "finding": "fnd_d7d7cb277725",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T031417Z.md",
+   "ts": "2026-10-17T03:14:17Z",
+   "finding": "fnd_39b67b3b9ace",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g6_2_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T034221Z.md",
+   "ts": "2026-10-17T03:42:21Z",
+   "finding": "fnd_db88dd429fae",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T034221Z.md",
+   "ts": "2026-10-17T03:42:21Z",
+   "finding": "fnd_46b92d481e91",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g6_4_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T035831Z.md",
+   "ts": "2026-10-17T03:58:31Z",
+   "finding": "fnd_008cd3d58a22",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g6_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T035831Z.md",
+   "ts": "2026-10-17T03:58:31Z",
+   "finding": "fnd_b6a90bcfebe0",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T035831Z.md",
+   "ts": "2026-10-17T03:58:31Z",
+   "finding": "fnd_6056ae13d5a0",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g2_4_2_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T040241Z.md",
+   "ts": "2026-10-17T04:02:41Z",
+   "finding": "fnd_a4d016351857",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T040241Z.md",
+   "ts": "2026-10-17T04:02:41Z",
+   "finding": "fnd_910155b70e8b",
+   "title": "Lemma mutation keep: authored_binomial_sum_row__derangement_subfactorial_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T044924Z.md",
+   "ts": "2026-10-17T04:49:24Z",
+   "finding": "fnd_79ddf2a4c441",
+   "title": "Lemma mutation keep: authored_binomial_symmetry__central_binom_bound_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T044924Z.md",
+   "ts": "2026-10-17T04:49:24Z",
+   "finding": "fnd_188ccf2b1a6b",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T044924Z.md",
+   "ts": "2026-10-17T04:49:24Z",
+   "finding": "fnd_4be8c89811c2",
+   "title": "Lemma mutation keep: authored_cassini__bell_triangle_recurrence_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T085728Z.md",
+   "ts": "2026-10-17T08:57:29Z",
+   "finding": "fnd_899e9433c281",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T085728Z.md",
+   "ts": "2026-10-17T08:57:29Z",
+   "finding": "fnd_53ce4f875412",
+   "title": "Lemma mutation keep: authored_catalan_bounded__euler_totient_multiplicative_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T085728Z.md",
+   "ts": "2026-10-17T08:57:29Z",
+   "finding": "fnd_2164a309218f",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g2_w2"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T090809Z.md",
+   "ts": "2026-10-17T09:08:09Z",
+   "finding": "fnd_ab4e22d39330",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T090809Z.md",
+   "ts": "2026-10-17T09:08:09Z",
+   "finding": "fnd_a6f27dc41006",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g2_4_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T091752Z.md",
+   "ts": "2026-10-17T09:17:52Z",
+   "finding": "fnd_234015b570da",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g2_6_4_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T091752Z.md",
+   "ts": "2026-10-17T09:17:52Z",
+   "finding": "fnd_41792d3d198f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T091752Z.md",
+   "ts": "2026-10-17T09:17:52Z",
+   "finding": "fnd_442a6ad39cdf",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g2_6_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T092826Z.md",
+   "ts": "2026-10-17T09:28:27Z",
+   "finding": "fnd_1a34bcc99e4d",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T092826Z.md",
+   "ts": "2026-10-17T09:28:27Z",
+   "finding": "fnd_dd8543b128d3",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g4_2_4_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T094832Z.md",
+   "ts": "2026-10-17T09:48:32Z",
+   "finding": "fnd_b26955256d24",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g4_2_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T094832Z.md",
+   "ts": "2026-10-17T09:48:32Z",
+   "finding": "fnd_a4df5dec663f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T094832Z.md",
+   "ts": "2026-10-17T09:48:32Z",
+   "finding": "fnd_61ae403af7b9",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g4_6_2_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T095931Z.md",
+   "ts": "2026-10-17T09:59:31Z",
+   "finding": "fnd_a11e105f6b3f",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T095931Z.md",
+   "ts": "2026-10-17T09:59:31Z",
+   "finding": "fnd_0b2fbe395d2a",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g4_6_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T101538Z.md",
+   "ts": "2026-10-17T10:15:39Z",
+   "finding": "fnd_cb91f8ebfbbc",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g6_2_4_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T101538Z.md",
+   "ts": "2026-10-17T10:15:39Z",
+   "finding": "fnd_1fc16f20cbf4",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T101538Z.md",
+   "ts": "2026-10-17T10:15:39Z",
+   "finding": "fnd_6a73ce660f4a",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g6_2_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T102543Z.md",
+   "ts": "2026-10-17T10:25:44Z",
+   "finding": "fnd_913249f7aab3",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T102543Z.md",
+   "ts": "2026-10-17T10:25:44Z",
+   "finding": "fnd_6d6b99b14c6e",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g6_4_2_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T104555Z.md",
+   "ts": "2026-10-17T10:45:55Z",
+   "finding": "fnd_7a51b3bdbc23",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g6_4_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T104555Z.md",
+   "ts": "2026-10-17T10:45:55Z",
+   "finding": "fnd_51dd2ebeeda5",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T104555Z.md",
+   "ts": "2026-10-17T10:45:55Z",
+   "finding": "fnd_66b626fcbbd4",
+   "title": "Lemma mutation keep: fermat_little"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T104555Z.md",
+   "ts": "2026-10-17T10:45:55Z",
+   "finding": "fnd_0b836f983f7a",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g6_6_2_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T110540Z.md",
+   "ts": "2026-10-17T11:05:41Z",
+   "finding": "fnd_36cb550ef20b",
+   "title": "Lemma mutation keep: euler_theorem"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T110540Z.md",
+   "ts": "2026-10-17T11:05:41Z",
+   "finding": "fnd_a25917af3cb4",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T110540Z.md",
+   "ts": "2026-10-17T11:05:41Z",
+   "finding": "fnd_45fac1ae9800",
+   "title": "Lemma mutation keep: authored_sieve_hl_within_g6_6_4_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T110540Z.md",
+   "ts": "2026-10-17T11:05:41Z",
+   "finding": "fnd_7b2c4e591dd1",
+   "title": "Lemma mutation keep: wilson_theorem"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T111623Z.md",
+   "ts": "2026-10-17T11:16:23Z",
+   "finding": "fnd_747f5314fcc3",
+   "title": "Lemma mutation keep: authored_sieve_residue_bal_g6_6_6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T111623Z.md",
+   "ts": "2026-10-17T11:16:23Z",
+   "finding": "fnd_f1ec8b652e29",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T111623Z.md",
+   "ts": "2026-10-17T11:16:23Z",
+   "finding": "fnd_b898ca3ce0d1",
+   "title": "Lemma mutation keep: quadratic_reciprocity"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T111623Z.md",
+   "ts": "2026-10-17T11:16:23Z",
+   "finding": "fnd_36d4f44470c1",
+   "title": "Lemma mutation keep: authored_sieve_two_counter_g6_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T205235Z.md",
+   "ts": "2026-10-17T20:52:36Z",
+   "finding": "fnd_4c1c1f8376eb",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261017T205235Z.md",
+   "ts": "2026-10-17T20:52:36Z",
+   "finding": "fnd_254d626a164a",
+   "title": "Lemma mutation keep: authored_euler_theorem__gauss_phi_divisor_sum_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261018T045908Z.md",
+   "ts": "2026-10-18T04:59:09Z",
+   "finding": "fnd_8301ac29d2c2",
+   "title": "Lemma mutation keep: authored_frontier_cong_x23fb70a1_w1"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261018T045908Z.md",
+   "ts": "2026-10-18T04:59:09Z",
+   "finding": "fnd_1e18d44b8a48",
+   "title": "Multi-hop debate patch (bus-driven action change)"
+  },
+  {
+   "receipt": "AUTHORIZE_authorize_20261018T045908Z.md",
+   "ts": "2026-10-18T04:59:09Z",
+   "finding": "fnd_a85210d4d889",
+   "title": "Lemma mutation keep: authored_frontier_rec_xa92258f8_w1"
+  }
+ ]
+}

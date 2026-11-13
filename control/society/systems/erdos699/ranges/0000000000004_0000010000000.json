@@ -1,0 +1,64 @@
+{
+ "target": "erdos_699",
+ "lo": 4,
+ "hi": 10000000,
+ "complete": true,
+ "requested_hi": 10000000,
+ "cpu_seconds": 237.7,
+ "wall_seconds": 69.3,
+ "jobs": 4,
+ "main_counterexamples": [],
+ "strict_exceptions": [
+  [
+   10,
+   3,
+   5
+  ],
+  [
+   16,
+   2,
+   6
+  ],
+  [
+   28,
+   3,
+   14
+  ],
+  [
+   28,
+   5,
+   14
+  ],
+  [
+   244,
+   3,
+   122
+  ],
+  [
+   512,
+   2,
+   147
+  ],
+  [
+   2048,
+   2,
+   713
+  ],
+  [
+   2188,
+   3,
+   1094
+  ],
+  [
+   1594324,
+   3,
+   797162
+  ]
+ ],
+ "reviews": 0,
+ "checker": "fast699.c",
+ "label": "bounded evidence, not proof",
+ "proof": false,
+ "ts": "2026-10-16T18:18:06Z",
+ "tag": "run38946059972"
+}

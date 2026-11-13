@@ -1,0 +1,263 @@
+{
+  "ts": "2026-09-29T22:29:45Z",
+  "version": 1,
+  "mile": "spark3-port",
+  "feeds": {
+    "goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.5090925952459475,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-09-29T22:22:00Z",
+          "v": -7.741631585452493
+        },
+        {
+          "t": "2026-09-29T22:22:00Z",
+          "v": -6.496173359939221
+        },
+        {
+          "t": "2026-09-29T22:23:00Z",
+          "v": -7.734477747356118
+        },
+        {
+          "t": "2026-09-29T22:23:00Z",
+          "v": -6.502947243491595
+        },
+        {
+          "t": "2026-09-29T22:24:00Z",
+          "v": -7.671878424288644
+        },
+        {
+          "t": "2026-09-29T22:24:00Z",
+          "v": -6.505130674780984
+        },
+        {
+          "t": "2026-09-29T22:25:00Z",
+          "v": -7.705945078764597
+        },
+        {
+          "t": "2026-09-29T22:25:00Z",
+          "v": -6.5090925952459475
+        }
+      ],
+      "live": true,
+      "ts": "2026-09-29T22:29:45Z"
+    },
+    "openmeteo_series": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "mem_ttl:cached_last_good_after:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "count": 48,
+      "latest": 18.3,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-09-28T00:00",
+          "v": 16.1
+        },
+        {
+          "t": "2026-09-28T01:00",
+          "v": 15.6
+        },
+        {
+          "t": "2026-09-28T02:00",
+          "v": 15.7
+        },
+        {
+          "t": "2026-09-28T03:00",
+          "v": 15.7
+        },
+        {
+          "t": "2026-09-28T04:00",
+          "v": 15.2
+        },
+        {
+          "t": "2026-09-28T05:00",
+          "v": 15.3
+        },
+        {
+          "t": "2026-09-28T06:00",
+          "v": 15.0
+        },
+        {
+          "t": "2026-09-28T07:00",
+          "v": 15.3
+        }
+      ],
+      "live": false,
+      "cached": true,
+      "ts": "2026-09-29T22:29:45Z"
+    },
+    "usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 3.0,
+      "items": [
+        {
+          "mag": 3.0,
+          "place": "2 km SSW of Bogue, Kansas",
+          "time": 1790636085216,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.5,
+          "place": "9 km S of Bogue, Kansas",
+          "time": 1790635825589,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "south of the Fiji Islands",
+          "time": 1790634349241,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.7,
+          "place": "23 km SSW of Susitna, Alaska",
+          "time": 1790630557246,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.9,
+          "place": "2 km SW of Sakai, Japan",
+          "time": 1790624707515,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.91,
+          "place": "45 km N of Charlotte Amalie, U.S. Virgin Islands",
+          "time": 1790623194480,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "36 km SE of Hualien City, Taiwan",
+          "time": 1790619644330,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.6,
+          "place": "13 km NNW of Ninilchik, Alaska",
+          "time": 1790618153431,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-09-22&endtime=2026-09-29&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-09-29T22:29:45Z"
+    },
+    "system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.142578125,
+          "disk_free_percent": 59.57684431897597,
+          "process_count": 162,
+          "uptime_hours": 0.05421388888888889,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "node": "runnervm8df0l",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.142578125,
+      "live": true,
+      "ts": "2026-09-29T22:29:45Z"
+    },
+    "tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 5.546106999986478,
+      "mean_ms": 5.572381249997704,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 5.58349700000349
+        },
+        {
+          "probe": 1,
+          "ms": 5.6740160000003925
+        },
+        {
+          "probe": 2,
+          "ms": 5.485905000000457
+        },
+        {
+          "probe": 3,
+          "ms": 5.546106999986478
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-09-29T22:29:45Z"
+    }
+  },
+  "feed_health": {
+    "goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "openmeteo_series": {
+      "ok": true,
+      "note": "mem_ttl:cached_last_good_after:URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+      "count": 48
+    },
+    "usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "pulsemesh_local_ops_health",
+      "summary": "Local system_stat load1=0.142578125 tcp_probe mean_ms=5.572381249997704 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "signals": {
+        "load1": 0.142578125,
+        "probe_ms": 5.572381249997704,
+        "probe_ok": true
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "PulseMesh collectors in EXTERNAL ARRAY. Agent-queryable. Correlations are debate input — not discovery claims.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium",
+    "debate_input_only"
+  ]
+}

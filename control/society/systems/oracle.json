@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-12T23:26:43Z",
+  "passes": 528,
+  "kills": 340,
+  "easy_pad_kills": 32,
+  "kill_rate": 0.3917,
+  "kill_rate_scope": "full_log",
+  "recent_window": {
+    "rows": 60,
+    "passes": 3,
+    "kills": 57,
+    "easy_pad_kills": 0,
+    "kill_rate": 0.95
+  },
+  "bus_ok_rate": 0.95,
+  "unique_mutations_pass": [
+    "authored_frontier_cong_xb5f19c6e_w1",
+    "authored_frontier_le_x423b0686_w1",
+    "authored_sieve_residue_bal_g6_6_6_w2"
+  ],
+  "unique_mutations_kill": [
+    "oc_A026772_0",
+    "oc_A165064_0",
+    "oc_A229019_0",
+    "shape:congruence",
+    "shape:divisibility",
+    "shape:gf_identity",
+    "shape:growth_bound",
+    "vandermonde"
+  ],
+  "domain_packs": {
+    "packs": {
+      "math_lemmas": {
+        "label": "Math lemmas (beyond current catalog)",
+        "bench": "lemma_microbench",
+        "kinds": [
+          "hard_enable",
+          "easy_pad",
+          "hard_check"
+        ],
+        "note": "Classical coded identities. Not theorem discovery."
+      },
+      "stem_kinematics": {
+        "label": "STEM kinematics (non-math physics microbench)",
+        "bench": "kinematics_microbench",
+        "kinds": [
+          "stem_enable",
+          "stem_easy_pad",
+          "stem_check"
+        ],
+        "note": "Classical 1D/2D motion. Not novel physics."
+      }
+    },
+    "stem_mutations": [
+      "energy_work",
+      "stem_easy_pad_units"
+    ],
+    "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
+  },
+  "latest": {
+    "ts": "2026-11-12T23:26:43Z",
+    "passed": false,
+    "kills": [
+      "stripped:stripped_not_useful_fail",
+      "held_out:held_out_fail",
+      "collective_kill"
+    ],
+    "hear": {
+      "heard": true,
+      "bus_ok": true,
+      "is_easy_pad": false,
+      "attack_weight": 0.35,
+      "support_weight": 0.55,
+      "msg_ids": [
+        "msg_fdafb500ea",
+        "msg_34f997a6f4",
+        "msg_64ef3b8786"
+      ],
+      "propose": "PROPOSE for Oracle HEAR: `oc_A229019_0` kind=oeis_conjecture. Conjecture: all terms are positive. Not discovery. cycle=20261112T232548Z_58f73d.",
+      "attack": "WEIGH: `oc_A229019_0` (oeis_conjecture) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+    },
+    "sense": {
+      "stripped": {
+        "already_enabled": false,
+        "in_catalog": false,
+        "hard_pass": 162,
+        "hard_n": 162,
+        "score": 0.8817,
+        "stripped_fails_usefulness": false,
+        "ok_for_oracle": false,
+        "reason": "stripped_not_useful_fail"
+      },
+      "held_out": {
+        "survives": false,
+        "ok_for_oracle": false,
+        "hard_pass": 162,
+        "hard_n": 162,
+        "ok": true,
+        "score": 0.882,
+        "shifted_window": null,
+        "reason": "held_out_fail"
+      },
+      "cas": {
+        "cas_ok": true,
+        "ok_for_oracle": true,
+        "engine": "sympy",
+        "reason": "cas_pass",
+        "checks": [
+          {
+            "label": "binomial_symmetry",
+            "ok": true
+          },
+          {
+            "label": "pascal",
+            "ok": true
+          },
+          {
+            "label": "square_expand",
+            "ok": true
+          }
+        ]
+      },
+      "kills": [
+        "stripped:stripped_not_useful_fail",
+        "held_out:held_out_fail"
+      ],
+      "sense_pass": false
+    },
+    "collective": {
+      "decision": "kill",
+      "sense_pass": false,
+      "keep_weight": 0.0,
+      "kill_weight": 1.0,
+      "votes": {
+        "geometer": {
+          "weight": 0.28,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "improver": {
+          "weight": 0.22,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "legislator": {
+          "weight": 0.18,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "spark": {
+          "weight": 0.16,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "tribute_keeper": {
+          "weight": 0.1,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        },
+        "builder": {
+          "weight": 0.06,
+          "vote": "kill",
+          "lean_keep": 0.0,
+          "lean_kill": 1.0
+        }
+      },
+      "still_candidate_until_authorize": true,
+      "mutation": "oc_A229019_0",
+      "kind": "oeis_conjecture",
+      "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
+    },
+    "fitness_credit": false,
+    "mutation": "oc_A229019_0",
+    "kind": "oeis_conjecture",
+    "source": "stall_perturb",
+    "cycle_id": "20261112T232548Z_58f73d",
+    "note": "Oracle FAIL kills keep. kills=['stripped:stripped_not_useful_fail', 'held_out:held_out_fail', 'collective_kill']. No fitness credit.",
+    "not_agi": true,
+    "not_discovery": true
+  },
+  "note": "Oracle HEAR/SENSE/collective. FAIL kills keep. No pass \u2192 no fitness credit. Not AGI. Not novel theorems."
+}

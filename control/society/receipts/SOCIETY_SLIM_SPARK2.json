@@ -1,0 +1,400 @@
+{
+  "mile": "spark2",
+  "when": "2026-09-26T22:18:27Z",
+  "cycle_count": 35,
+  "evolve_cycles_this_mile": 8,
+  "cycles_before_after": {
+    "before": 27,
+    "after": 35
+  },
+  "fitness_before_mile": 0.8688,
+  "fitness_aggregate": 0.7838,
+  "fitness_latest": {
+    "ts": "2026-09-26T22:17:23Z",
+    "cycle_id": "20260926T221715Z_05fedf",
+    "tribute_quality": 0.9,
+    "gather_coverage": 0.6522,
+    "build_reuse": 0.7333,
+    "comm_reply_rate": 0.8333,
+    "reply_quality": 0.9028,
+    "commons_signal": 1.0,
+    "math_prize": 0.8334,
+    "compute_usefulness": 0.9254,
+    "citation_reuse": 0.0,
+    "prize_boost": 0.6989,
+    "aggregate": 0.7838,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0
+  },
+  "bus_metrics": {
+    "reply_rate": 0.8333,
+    "reply_quality": 0.9028,
+    "peer_cite_rate": 1.0,
+    "action_changed_from_message": 1.0
+  },
+  "oracle": {
+    "passes": 93,
+    "kills": 49,
+    "easy_pad_kills": 33,
+    "total": 142
+  },
+  "easy_pad_dies": true,
+  "easy_pad_trend_vs_spark": {
+    "prior": 33,
+    "now": 33,
+    "trend": "flat"
+  },
+  "authorize": {
+    "accepted": 3,
+    "rejected": 0,
+    "skipped": 0,
+    "receipt": "/workspace/agent-colony/society/receipts/AUTHORIZE_authorize_20260926T221738Z.md",
+    "P_min": 0.7,
+    "P_min_before": 0.75,
+    "never_accept_all": true
+  },
+  "external_array": {
+    "feed_ok": {
+      "arxiv": true,
+      "nasa_donki_solar": true,
+      "noaa_space_weather": false,
+      "global_weather": false
+    },
+    "patterns": [
+      {
+        "kind": "publications_x_space",
+        "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co']. Multi-hop: math/STEM kinematics \u2194 space data \u2194 hearing evidence standard. Not novel physics.",
+        "domains": [
+          "math",
+          "cosmos",
+          "hearing",
+          "oracle"
+        ],
+        "signals": {
+          "arxiv_n": 2,
+          "kp": null,
+          "titles": [
+            "LLM Agents Can Easily Tamper With Their Own Traces",
+            "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Co"
+          ]
+        }
+      }
+    ]
+  },
+  "residuals": {
+    "high_residual": [
+      [
+        "spark",
+        0.46249149999999994
+      ],
+      [
+        "improver",
+        0.36205850000000006
+      ],
+      [
+        "pathfinder",
+        0.302601
+      ],
+      [
+        "tribute_keeper",
+        0.302601
+      ],
+      [
+        "memory_weaver",
+        0.302601
+      ]
+    ],
+    "n_conflicts": 4,
+    "traces": [
+      {
+        "role": "spark",
+        "magnitude": 0.4625,
+        "activation": [
+          0.65835,
+          0.016900000000000026,
+          0.82163,
+          0.31845
+        ],
+        "error_gradient": 0.016900000000000026,
+        "confidence_vector": [
+          0.82163,
+          0.9831,
+          0.9167
+        ],
+        "attention_weight": 0.7,
+        "arousal": 0.65,
+        "cycle_id": "20260926T221715Z_05fedf"
+      },
+      {
+        "role": "improver",
+        "magnitude": 0.3621,
+        "activation": [
+          0.65835,
+          0.016900000000000026,
+          0.82163,
+          0.31845
+        ],
+        "error_gradient": 0.11690000000000003,
+        "confidence_vector": [
+          0.82163,
+          0.9831,
+          0.9167
+        ],
+        "attention_weight": 0.48076,
+        "arousal": 0.41690000000000005,
+        "cycle_id": "20260926T221715Z_05fedf"
+      },
+      {
+        "role": "pathfinder",
+        "magnitude": 0.3026,
+        "activation": [
+          0.65835,
+          0.016900000000000026,
+          0.82163,
+          0.31845
+        ],
+        "error_gradient": 0.016900000000000026,
+        "confidence_vector": [
+          0.82163,
+          0.9831,
+          0.9167
+        ],
+        "attention_weight": 0.48076,
+        "arousal": 0.31845,
+        "cycle_id": "20260926T221715Z_05fedf"
+      },
+      {
+        "role": "tribute_keeper",
+        "magnitude": 0.3026,
+        "activation": [
+          0.65835,
+          0.016900000000000026,
+          0.82163,
+          0.31845
+        ],
+        "error_gradient": 0.016900000000000026,
+        "confidence_vector": [
+          0.82163,
+          0.9831,
+          0.9167
+        ],
+        "attention_weight": 0.48076,
+        "arousal": 0.31845,
+        "cycle_id": "20260926T221715Z_05fedf"
+      },
+      {
+        "role": "memory_weaver",
+        "magnitude": 0.3026,
+        "activation": [
+          0.65835,
+          0.016900000000000026,
+          0.82163,
+          0.31845
+        ],
+        "error_gradient": 0.016900000000000026,
+        "confidence_vector": [
+          0.82163,
+          0.9831,
+          0.9167
+        ],
+        "attention_weight": 0.48076,
+        "arousal": 0.31845,
+        "cycle_id": "20260926T221715Z_05fedf"
+      }
+    ],
+    "stats": {
+      "updates": 103,
+      "conflicts": 12,
+      "redebatess": 8
+    }
+  },
+  "time_revision": {
+    "total_revisions": 3,
+    "latest_revision_count": 0,
+    "examples": [
+      {
+        "topic": "arxiv_relevance",
+        "from_confidence": 0.5,
+        "to_confidence": 0.72,
+        "from_claim": "Fresh STEM preprints are low-priority vs hard-tier lemmas.",
+        "to_claim": "Fresh arXiv STEM + space signals cross-correlate \u2014 raise multi-hop priority for hearing/Oracle evidence.",
+        "why": "New publications\u00d7space pattern revised low-priority preprint stance.",
+        "cause": {
+          "signal": "external_array",
+          "kind": "publications_x_space"
+        },
+        "prior_id": "pos_f25a8e4c5ef0",
+        "new_id": "pos_f04f62a25dae"
+      },
+      {
+        "topic": "oracle_easy_pad",
+        "from_confidence": 0.45,
+        "to_confidence": 0.8,
+        "from_claim": "easy_pad pressure is stable; no further Oracle vigilance.",
+        "to_claim": "Oracle easy_pad_kills=33 \u2014 maintain kill path; no fitness credit on FAIL.",
+        "why": "Oracle metrics revised complacent easy_pad stance.",
+        "cause": {
+          "signal": "oracle",
+          "easy_pad_kills": 33,
+          "kills": 49
+        },
+        "prior_id": "pos_6360b1f907ec",
+        "new_id": "pos_799d36584bad"
+      },
+      {
+        "topic": "residual_harmony",
+        "from_confidence": 0.55,
+        "to_confidence": 0.3,
+        "from_claim": "Peer residuals are aligned; re-debate unnecessary.",
+        "to_claim": "Peer residual conflict spark\u2194legislator score=0.4336 \u2014 re-debate required.",
+        "why": "INTERNAL RESIDUALS conflict revised prior harmony belief; trigger re-debate.",
+        "cause": {
+          "signal": "residuals",
+          "conflict": {
+            "a": "spark",
+            "b": "legislator",
+            "confidence_gap": 0.2586,
+            "arousal_gap": 0.35,
+            "score": 0.4336,
+            "trigger_redebate": true,
+            "ts": "2026-09-26T22:16:56Z"
+          }
+        },
+        "prior_id": "pos_b7b8bd6d304a",
+        "new_id": "pos_ce35f8b9d093"
+      }
+    ]
+  },
+  "actuation": {
+    "total_actions": 32,
+    "successes": 32,
+    "failures": 0,
+    "queued": 0,
+    "throttled": 0,
+    "success_rate": 1.0,
+    "by_side": {
+      "internal": 16,
+      "external": 16
+    },
+    "by_kind": {
+      "external_api_probe": 8,
+      "spawn_subdebate": 8,
+      "controlled_experiment": 8,
+      "adjust_telemetry_weights": 8
+    },
+    "balance": {
+      "internal_share_cap": 0.5,
+      "external_share_cap": 0.5,
+      "observed_split": {
+        "internal": 16,
+        "external": 16
+      }
+    },
+    "throttle_events": [],
+    "example_traces": [
+      {
+        "kind": "external_api_probe",
+        "hypothesis": "Refreshing EXTERNAL ARRAY will yield \u22651 cross-domain pattern usable as debate input.",
+        "motivating_signal": {
+          "kind": "publications_x_space",
+          "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['LLM Agents Can Easily Tamper With Their Own Traces', 'AD-WM: Action-Discriminative Wo"
+        },
+        "success": true,
+        "result": {
+          "feed_ok": {
+            "arxiv": true,
+            "nasa_donki_solar": true,
+            "noaa_space_weather": false,
+            "global_weather": false
+          },
+          "patterns": [
+            "publications_x_space"
+          ],
+          "latency_ms": 3541.6,
+          "snap_ts": "2026-09-26T22:16:28Z"
+        },
+        "cycle_id": "20260926T221620Z_4c30d0"
+      },
+      {
+        "kind": "adjust_telemetry_weights",
+        "hypothesis": "Telemetry weights updated from Oracle/external/revision outcomes improve next-cycle query salience.",
+        "motivating_signal": {
+          "kind": "observed_outcomes",
+          "fitness_delta": 0.0
+        },
+        "success": true,
+        "result": {
+          "before": {
+            "fitness": 1.0,
+            "reply_rate": 1.0,
+            "oracle_kill": 1.0,
+            "external_array": 1.0,
+            "residuals": 1.0,
+            "time_revision": 1.0
+          },
+          "after": {
+            "fitness": 1.05,
+            "reply_rate": 1.05,
+            "oracle_kill": 1.1,
+            "external_array": 1.08,
+            "residuals": 1.0,
+            "time_revision": 1.08
+          },
+          "observed": {
+            "easy_pad_kills": 33,
+            "pattern_count": 1,
+            "revision_count": 2,
+            "fitness_delta": 0.0,
+            "reply_rate": 0.9444
+          }
+        },
+        "cycle_id": "20260926T221620Z_4c30d0"
+      }
+    ]
+  },
+  "telemetry_agent_sample": {
+    "ts": "2026-09-26T22:18:27Z",
+    "fitness": 0.7838,
+    "reply_rate": 0.8333,
+    "oracle": {
+      "passes": 93,
+      "kills": 49,
+      "easy_pad_kills": 33,
+      "total": 142
+    },
+    "authorize_rates": {
+      "accepted": 3,
+      "rejected": 10,
+      "skipped": 0,
+      "accept_rate": 0.2308,
+      "reject_rate": 0.7692,
+      "P_min": 0.7,
+      "never_accept_all": true
+    },
+    "patterns": [
+      "publications_x_space"
+    ],
+    "actuation_success_rate": 1.0
+  },
+  "alignment": {
+    "CREATOR_WILL_ASK": "SPARK2",
+    "authorize_P_MIN": 0.7,
+    "cron": "mile=spark2",
+    "layers": [
+      "telemetry",
+      "external_array",
+      "residuals",
+      "time_revision",
+      "actuation_balanced"
+    ]
+  },
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "spark_witness_assets_touched": false
+}

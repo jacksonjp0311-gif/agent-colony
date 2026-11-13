@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-13T02:58:23Z",
+  "updated_cycle": "20261113T025651Z_8fbc4a",
+  "n_claims": 1,
+  "n_proposed": 0,
+  "recent_claims": [
+    {
+      "claim_id": "cl_vandermonde_170603762",
+      "theme_id": "vandermonde",
+      "text": "CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vandermonde*. Raw scrape \u2260 discovery. Needs hard check + authorize.",
+      "provenance": {
+        "title": "Attention Is All You Need",
+        "arxiv_id": "1706.03762",
+        "doi": "10.48550/arXiv.1706.03762",
+        "url": "https://arxiv.org/abs/1706.03762",
+        "source": "offline_seed"
+      },
+      "bench_hint": "lemma_microbench hard:vandermonde*",
+      "status": "rejected_raw",
+      "hard_ok": false,
+      "note": "lemma score=0.8725 hard_pass=162/162 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
+      "ts": "2026-11-13T02:58:23Z",
+      "not_discovery": true
+    }
+  ],
+  "note": "Scrape\u2192analyze\u2192claim. Durable accept needs authorize. Not AGI."
+}

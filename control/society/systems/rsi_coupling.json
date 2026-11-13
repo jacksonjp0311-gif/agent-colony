@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-13T02:59:03Z",
+  "updated_cycle": "20261113T025651Z_8fbc4a",
+  "signal": {
+    "ts": "2026-11-13T02:59:03Z",
+    "accepted_count": 6,
+    "strong_candidate_count": 55,
+    "unknown_caution_count": 127,
+    "strength": 0.85,
+    "mutation_bias": {
+      "explore": 0.125,
+      "govern": 0.088,
+      "build": 0.071,
+      "gather": 0.044,
+      "reply": 0.0355
+    },
+    "skill_bias": {
+      "improver.improve": 0.89,
+      "spark.emergence": 0.7975,
+      "pathfinder.gather": 0.6625
+    },
+    "accepted_ids": [
+      "fnd_4e13618dda89",
+      "fnd_996b756037a2",
+      "fnd_c4032bdb2b03",
+      "fnd_0bcaa683b3f1",
+      "fnd_5c5fe31c159d",
+      "fnd_17a72920e804"
+    ],
+    "strong_ids": [
+      "fnd_6ee2bda91081",
+      "fnd_7c5826de8e04",
+      "fnd_cf1c218f9ff5",
+      "fnd_385d7811b9a7",
+      "fnd_9684478fa633",
+      "fnd_31f1e5f8251e",
+      "fnd_f07e372eec8d",
+      "fnd_bba039b1f1fa",
+      "fnd_629d0aa8f0bb",
+      "fnd_b176ea307c4e",
+      "fnd_a235088a6ffc",
+      "fnd_acfd92c1f65e"
+    ],
+    "lessons": [
+      {
+        "id": "fnd_996b756037a2",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_inversion_small__legendre_duplication_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
+      },
+      {
+        "id": "fnd_c4032bdb2b03",
+        "title": "Authorize accepted: Lemma mutation keep: authored_binomial_sum_row__binomial_inversion_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
+      },
+      {
+        "id": "fnd_0bcaa683b3f1",
+        "title": "Authorize accepted: Lemma mutation keep: authored_cassini__binomial_inversion_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
+      },
+      {
+        "id": "fnd_5c5fe31c159d",
+        "title": "Authorize accepted: Lemma mutation keep: authored_central_binom_bound__binomial_inversion_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
+      },
+      {
+        "id": "fnd_17a72920e804",
+        "title": "Authorize accepted: Lemma mutation keep: authored_catalan_bounded__binomial_inversion_small_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted RSI finding → bias measured improve/explore loops (candidate until authorize)."
+      }
+    ],
+    "note": "Coupling is measured state update inside this repo — not open-ended ML, not AGI, not consciousness. Improvement proposals stay candidate until human authorize."
+  },
+  "doc": "society/artifacts/rsi_agent_coupling.md"
+}

@@ -1,0 +1,11 @@
+{
+  "cycle_id": "authorize_20261007T225935Z",
+  "P_min_before": 0.75,
+  "P_min_after": 0.7,
+  "accepted": 0,
+  "rejected": 0,
+  "skipped": 0,
+  "never_accept_all": true,
+  "compare": [],
+  "note": "SPARK2 authorize threshold compare 0.75\u21920.70. Selective."
+}

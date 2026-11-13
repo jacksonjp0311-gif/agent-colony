@@ -1,0 +1,38 @@
+{
+  "mile": "align",
+  "when": "2026-09-26T16:04:25Z",
+  "cycle_count": 153,
+  "fitness_aggregate": 0.8341,
+  "lemma_score": 0.8771,
+  "hard_pass": null,
+  "stem_score": 0.825,
+  "stem_pass": 4,
+  "oracle": {
+    "passes": 61,
+    "kills": 46,
+    "easy_pad_kills": 31,
+    "total": 107
+  },
+  "easy_pad_dies": true,
+  "alignment": {
+    "CREATOR_WILL_ASK": "ALIGN MILE",
+    "oracle": "colony/oracle.py",
+    "fitness": "spawn/retire on Oracle-pass lift",
+    "genomes": "oracle_scribe+stem_checker ROLE_TRAIT_BIAS",
+    "lessons": "bias genomes/skills",
+    "debate": "A→B→C→D Oracle gate",
+    "cron": "colony-evolve.yml mile=align + P≥0.75",
+    "authorize_P_MIN": 0.75
+  },
+  "authorize": {
+    "accepted": 4,
+    "rejected": 6,
+    "skipped": 0,
+    "never_accept_all": true,
+    "P_min": 0.75
+  },
+  "evolve_cycles_this_mile": 8,
+  "non_claims": ["not_AGI","not_consciousness","not_Millennium","not_novel_theorems","not_novel_physics"],
+  "ethos": "We light the spark and witness. We do not micromanage the city.",
+  "spark_witness_assets_touched": false
+}

@@ -1,0 +1,115 @@
+{
+  "last_attempt_at": "2026-11-13T02:51:39Z",
+  "last_status": 200,
+  "retry_after_until": null,
+  "last_error": "",
+  "last_ok_at": "2026-11-13T02:51:39Z",
+  "hits": [
+    {
+      "source": "arxiv",
+      "title": "Estimating Image Creativity",
+      "abstract_snippet": "What makes an image creative? Although this may seem like a highly subjective decision, research in psychology suggests that creativity may be based on a set of fundamental creativity dimensions such as novelty, surprise, and arousal. A deeper understanding of image creativity can benefit both research and practical applications. Exploring how human viewers use creativity dimensions to evaluate im",
+      "url": "https://arxiv.org/abs/2611.15044",
+      "arxiv_id": "2611.15044",
+      "doi": "",
+      "authors": [
+        "Nisan Chhetri",
+        "Christopher G. Healey",
+        "Sina Baghbanijam"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-11-13T02:51:39Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "Positivity in symplectic groups and electrical networks",
+      "abstract_snippet": "We study the relation between electrical positivity introduced by Lam and Pylyavskyy $[9]$ and total positivity of symplectic matrices arising from circular planar electrical networks. A particularly convenient framework for our purpose is provided by a construction of an embedding of electrical network into the positive Lagrangian Grassmannian, see Section $1.1$. Employing this technique, we demo",
+      "url": "https://arxiv.org/abs/2611.15043",
+      "arxiv_id": "2611.15043",
+      "doi": "",
+      "authors": [
+        "V. Gorbounov",
+        "A. Kazakov"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-11-13T02:51:39Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "AROMA: Adaptive Representation-Oriented Multimodal Actuation for Vision-Language Model Control",
+      "abstract_snippet": "Mechanistic localization does not by itself yield usable control: causal sensitivity may occupy little activation energy, an accurate local direction may fail at finite scale, and a reachable numeral target may be wrong. We introduce AROMA (Adaptive Representation-Oriented Multimodal Actuation), a frozen-VLM control framework separating where to intervene, which geometry and gain to use, how to re",
+      "url": "https://arxiv.org/abs/2611.15041",
+      "arxiv_id": "2611.15041",
+      "doi": "",
+      "authors": [
+        "Zhaoning Zhang"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-11-13T02:51:39Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "A symmetry on Young tableaux with walls and holes",
+      "abstract_snippet": "The Pons--Batle conjecture on tree-child networks was regarded as a specific and challenging problem in the phylogenetics community. We found an unexpected weighted symmetry for a class of three-row Young tableaux with walls and holes. This weighted symmetry implies the Fuchs--Yu identity, which together with the bijection of Chang, Fuchs, Liu, Wallner, and Yu leads to a simple proof of the Pons--",
+      "url": "https://arxiv.org/abs/2611.15038",
+      "arxiv_id": "2611.15038",
+      "doi": "",
+      "authors": [
+        "Zhicong Lin",
+        "Feihu Liu",
+        "Jing Liu"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-11-13T02:51:39Z"
+    },
+    {
+      "source": "arxiv",
+      "title": "Mask-Pattern Position Augmentation: Training-Free Long-Context Extrapolation for Diffusion LLMs",
+      "abstract_snippet": "Diffusion large language models (dLLMs) generate by iteratively unmasking tokens with bidirectional attention, but rotary position embeddings (RoPE) still confine them to a fixed pretraining window. Existing training-free extrapolation, notably LongLLaDA, copies NTK-based RoPE scaling from autoregressive (AR) models and applies one static, length-only transform at every position and denoising step",
+      "url": "https://arxiv.org/abs/2611.15029",
+      "arxiv_id": "2611.15029",
+      "doi": "",
+      "authors": [
+        "Gaurav Sarkar",
+        "Syed Affan Daimi"
+      ],
+      "year": 2026,
+      "tags": [
+        "compute-useful-math",
+        "open-math",
+        "arxiv",
+        "research_gather"
+      ],
+      "topic_id": "compute-useful-math",
+      "fetched_at": "2026-11-13T02:51:39Z"
+    }
+  ]
+}

@@ -1,0 +1,1434 @@
+{
+ "entries": {
+  "A002375": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A002375",
+   "checked": "2026-10-18T12:22:31Z",
+   "cost": {
+    "N": 21000,
+    "cpu_s": 0.018117893999999524
+   },
+   "done_for_sha": "e917a47a97e47f19",
+   "item": "gb_u_odd:terms",
+   "last": {
+    "cpu_s": 0.642,
+    "ns": [
+     20001,
+     21000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:22:31Z",
+    "why": null
+   },
+   "n_pub_terms": 20000,
+   "name": "From Goldbach conjecture: number of decompositions of 2n into an unordered sum of two odd primes.",
+   "probe_cpu_s": 0.0002,
+   "pub_k_max": 20000,
+   "pub_k_min": 1,
+   "pub_last": 389,
+   "sha256": "e917a47a97e47f19",
+   "source": "https://oeis.org/A002375/b002375.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.642,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:22:21Z",
+   "what": "unordered Goldbach partitions of 2n into odd primes"
+  },
+  "A006577": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A006577",
+   "checked": "2026-10-18T12:57:24Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.027605307000001744
+   },
+   "done_for_sha": "45d02dc2e7bbc236",
+   "item": "col_steps:terms",
+   "last": {
+    "cpu_s": 0.039,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:57:24Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of halving and tripling steps to reach 1 in '3x+1' problem, or -1 if 1 is never reached.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 29,
+   "sha256": "45d02dc2e7bbc236",
+   "source": "https://oeis.org/A006577/b006577.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.039,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:57:14Z",
+   "what": "Collatz 3x+1 steps to reach 1"
+  },
+  "A006666": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A006666",
+   "checked": "2026-10-18T13:02:20Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.013842075999999537
+   },
+   "done_for_sha": "b4541b86d1985fa2",
+   "item": "col_even:terms",
+   "last": {
+    "cpu_s": 0.02,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T13:02:20Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of halving steps to reach 1 in '3x+1' problem, or -1 if this never happens.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 23,
+   "sha256": "b4541b86d1985fa2",
+   "source": "https://oeis.org/A006666/b006666.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.02,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:02:18Z",
+   "what": "Collatz halving steps"
+  },
+  "A006667": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A006667",
+   "checked": "2026-10-18T12:58:56Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.027497806999974728
+   },
+   "done_for_sha": "23235908a8daf58b",
+   "item": "col_odd:terms",
+   "last": {
+    "cpu_s": 0.039,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 6,
+   "sha256": "23235908a8daf58b",
+   "source": "https://oeis.org/A006667/b006667.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.039,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:58:46Z",
+   "what": "Collatz tripling steps"
+  },
+  "A006877": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 38
+   },
+   "anum": "A006877",
+   "checked": "2026-10-18T12:57:24Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 1.4295285714367656e-05,
+    "cpu_s": 0.03442739399999084
+   },
+   "intractable": "published records reach n ~ 14727207461063895712; beyond the CPU budget",
+   "item": "col_steps:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:57:24Z",
+    "why": "published records reach n ~ 14727207461063895712; beyond the CPU budget"
+   },
+   "n_pub_terms": 148,
+   "name": "In the '3x+1' problem, these values for the starting value set new records for number of steps to reach 1.",
+   "probe_cpu_s": 0.3547,
+   "pub_k_max": 148,
+   "pub_k_min": 1,
+   "pub_last": 14727207461063895711,
+   "sha256": "4bdd9c264ffb33f6",
+   "source": "https://oeis.org/A006877/b006877.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:57:16Z",
+   "what": "Collatz 3x+1 steps to reach 1 (recpos)"
+  },
+  "A006878": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 38
+   },
+   "anum": "A006878",
+   "checked": "2026-10-18T12:57:24Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.387079724000003
+   },
+   "done_for_sha": "1aebb537ac7cbb02",
+   "item": "col_steps:recval",
+   "last": {
+    "cpu_s": 0.387,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T12:57:24Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 148,
+   "name": "Record number of steps to reach 1 in '3x+1' problem, corresponding to starting values in A006877.",
+   "probe_cpu_s": 0.3539,
+   "pub_k_max": 148,
+   "pub_k_min": 1,
+   "pub_last": 2442,
+   "sha256": "1aebb537ac7cbb02",
+   "source": "https://oeis.org/A006878/b006878.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.387,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:57:20Z",
+   "what": "Collatz 3x+1 steps to reach 1 (recval)"
+  },
+  "A006884": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 22
+   },
+   "anum": "A006884",
+   "checked": "2026-10-18T13:03:33Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 7.140619047840162e-06,
+    "cpu_s": 0.016787438999998017
+   },
+   "intractable": "published records reach n ~ 2358909599867980429760; beyond the CPU budget",
+   "item": "col_max:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T13:03:33Z",
+    "why": "published records reach n ~ 2358909599867980429760; beyond the CPU budget"
+   },
+   "n_pub_terms": 98,
+   "name": "In the '3x+1' problem, these values for the starting value set new records for highest point of trajectory before reaching 1.",
+   "probe_cpu_s": 0.1721,
+   "pub_k_max": 98,
+   "pub_k_min": 1,
+   "pub_last": 2358909599867980429759,
+   "sha256": "657ec2fbc0ade279",
+   "source": "https://oeis.org/A006884/b006884.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:03:25Z",
+   "what": "Collatz maximum excursion (recpos)"
+  },
+  "A006885": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 22
+   },
+   "anum": "A006885",
+   "checked": "2026-10-18T13:03:33Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.18717607100001032
+   },
+   "done_for_sha": "7007b273e50fc2d5",
+   "item": "col_max:recval",
+   "last": {
+    "cpu_s": 0.187,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T13:03:33Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 97,
+   "name": "Record highest point of trajectory before reaching 1 in '3x+1' problem, corresponding to starting values in A006884.",
+   "probe_cpu_s": 0.1728,
+   "pub_k_max": 97,
+   "pub_k_min": 1,
+   "pub_last": 788340337342148717335104033908060039028328,
+   "sha256": "7007b273e50fc2d5",
+   "source": "https://oeis.org/A006885/b006885.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.187,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:03:29Z",
+   "what": "Collatz maximum excursion (recval)"
+  },
+  "A025586": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A025586",
+   "checked": "2026-10-18T13:03:33Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.013803527999996845
+   },
+   "done_for_sha": "9778c2d36745e53e",
+   "item": "col_max:terms",
+   "last": {
+    "cpu_s": 0.02,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T13:03:33Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Largest value in '3x+1' trajectory of n.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 10000,
+   "sha256": "9778c2d36745e53e",
+   "source": "https://oeis.org/A025586/b025586.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.02,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:03:23Z",
+   "what": "Collatz maximum excursion"
+  },
+  "A033958": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 32
+   },
+   "anum": "A033958",
+   "checked": "2026-10-18T12:58:56Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 1.4549095238537899e-05,
+    "cpu_s": 0.033973937000013166
+   },
+   "intractable": "published records reach n ~ 166763117680; beyond the CPU budget",
+   "item": "col_odd:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": "published records reach n ~ 166763117680; beyond the CPU budget"
+   },
+   "n_pub_terms": 71,
+   "name": "In the '3x+1' problem, these values for the starting value set new records for number of steps to reach 1.",
+   "probe_cpu_s": 0.3464,
+   "pub_k_max": 71,
+   "pub_k_min": 1,
+   "pub_last": 166763117679,
+   "sha256": "4e1cf45af4e431de",
+   "source": "https://oeis.org/A033958/b033958.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:58:48Z",
+   "what": "Collatz tripling steps (recpos)"
+  },
+  "A033959": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 32
+   },
+   "anum": "A033959",
+   "checked": "2026-10-18T12:58:56Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.3845498809999981
+   },
+   "done_for_sha": "131a4c0d0740e5db",
+   "item": "col_odd:recval",
+   "last": {
+    "cpu_s": 0.385,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T12:58:56Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 57,
+   "name": "Record number of steps to reach 1 in '3x+1' problem, corresponding to starting values in A033958.",
+   "probe_cpu_s": 0.3632,
+   "pub_k_max": 57,
+   "pub_k_min": 1,
+   "pub_last": 370,
+   "sha256": "131a4c0d0740e5db",
+   "source": "https://oeis.org/A033959/b033959.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.385,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:58:52Z",
+   "what": "Collatz tripling steps (recval)"
+  },
+  "A035026": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A035026",
+   "checked": "2026-10-18T12:50:00Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.009062708000001862
+   },
+   "done_for_sha": "7587365638dd226b",
+   "item": "gb_o_all:terms",
+   "last": {
+    "cpu_s": 0.376,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:50:00Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "Number of times that i and 2n-i are both prime, for i = 1, ..., 2n-1.",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 462,
+   "sha256": "7587365638dd226b",
+   "source": "https://oeis.org/A035026/b035026.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.376,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:49:50Z",
+   "what": "ordered Goldbach partitions of 2n"
+  },
+  "A047160": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 59
+   },
+   "anum": "A047160",
+   "checked": "2026-10-18T12:55:48Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.025994928999999445
+   },
+   "done_for_sha": "72ce0134afaabba4",
+   "item": "gb_close:terms",
+   "last": {
+    "cpu_s": 0.091,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T12:55:48Z",
+    "why": null
+   },
+   "n_pub_terms": 9999,
+   "name": "For n >= 2, a(n) = smallest number m >= 0 such that n-m and n+m are both primes, or -1 if no such m exists.",
+   "probe_cpu_s": 0.0,
+   "pub_k_max": 10000,
+   "pub_k_min": 2,
+   "pub_last": 69,
+   "sha256": "72ce0134afaabba4",
+   "source": "https://oeis.org/A047160/b047160.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.091,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:55:38Z",
+   "what": "distance from n to the closest Goldbach pair n -/+ k"
+  },
+  "A053033": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A053033",
+   "checked": "2026-10-18T12:48:22Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 0.0007549032380954454,
+    "cpu_s": 0.015433313999999143
+   },
+   "intractable": "published records reach n ~ 9699691; beyond the CPU budget",
+   "item": "gb_u_all:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:48:22Z",
+    "why": "published records reach n ~ 9699691; beyond the CPU budget"
+   },
+   "n_pub_terms": 266,
+   "name": "Numbers which are the average of two primes in more ways than any smaller number.",
+   "probe_cpu_s": 0.0161,
+   "pub_k_max": 266,
+   "pub_k_min": 1,
+   "pub_last": 9699690,
+   "sha256": "1d44bac0854427bb",
+   "source": "https://oeis.org/A053033/b053033.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:48:12Z",
+   "what": "unordered Goldbach partitions of 2n (2 allowed) (recpos)"
+  },
+  "A102419": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": 0,
+    "overlap": 60
+   },
+   "anum": "A102419",
+   "checked": "2026-10-18T13:04:41Z",
+   "cost": {
+    "N": 11000,
+    "cpu_s": 0.013756157999992524
+   },
+   "done_for_sha": "2e4226aa560903dd",
+   "item": "col_stop:terms",
+   "last": {
+    "cpu_s": 0.02,
+    "ns": [
+     10001,
+     11000
+    ],
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-10-18T13:04:41Z",
+    "why": null
+   },
+   "n_pub_terms": 10000,
+   "name": "\"Dropping time\" in 3x+1 problem starting at n (number of steps to reach a lower number than starting value); a(1) = 0 by convention. Also called glide(n).",
+   "probe_cpu_s": 0.0001,
+   "pub_k_max": 10000,
+   "pub_k_min": 1,
+   "pub_last": 1,
+   "sha256": "2e4226aa560903dd",
+   "source": "https://oeis.org/A102419/b102419.txt",
+   "stats": {
+    "beyond": 1000,
+    "cpu_s": 0.02,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T13:04:39Z",
+   "what": "Collatz stopping time (first iterate below n)"
+  },
+  "A155764": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": -1,
+    "overlap": 28
+   },
+   "anum": "A155764",
+   "checked": "2026-10-18T12:55:48Z",
+   "cost": {
+    "N": 200000,
+    "cpu_s": 0.6108249210000025
+   },
+   "done_for_sha": "64b088f1a0d94825",
+   "item": "gb_close:recval",
+   "last": {
+    "cpu_s": 0.611,
+    "ns": null,
+    "status": "matches published",
+    "ts": "2026-10-18T12:55:48Z",
+    "why": "no record beyond the published ones up to n = 200000"
+   },
+   "n_pub_terms": 64,
+   "name": "Records in A047160.",
+   "probe_cpu_s": 0.0379,
+   "pub_k_max": 64,
+   "pub_k_min": 1,
+   "pub_last": 8370,
+   "sha256": "64b088f1a0d94825",
+   "source": "https://oeis.org/A155764/b155764.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.611,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:55:44Z",
+   "what": "distance from n to the closest Goldbach pair n -/+ k (recval)"
+  },
+  "A155765": {
+   "align": {
+    "alpha": 1,
+    "beta": 0,
+    "d": -1,
+    "overlap": 28
+   },
+   "anum": "A155765",
+   "checked": "2026-10-18T12:55:48Z",
+   "cost": {
+    "N": 20000,
+    "b_per_term_s": 5.884938095218353e-05,
+    "cpu_s": 0.038476723999998796
+   },
+   "intractable": "published records reach n ~ 2117398595; beyond the CPU budget",
+   "item": "gb_close:recpos",
+   "last": {
+    "cpu_s": null,
+    "ns": null,
+    "status": "intractable",
+    "ts": "2026-10-18T12:55:48Z",
+    "why": "published records reach n ~ 2117398595; beyond the CPU budget"
+   },
+   "n_pub_terms": 61,
+   "name": "Where records occur in A047160.",
+   "probe_cpu_s": 0.0387,
+   "pub_k_max": 61,
+   "pub_k_min": 1,
+   "pub_last": 2117398594,
+   "sha256": "c5b0f61a3b74716d",
+   "source": "https://oeis.org/A155765/b155765.txt",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 0.0,
+    "tries": 1
+   },
+   "status": "matched",
+   "ts": "2026-10-18T12:55:40Z",
+   "what": "distance from n to the closest Goldbach pair n -/+ k (recpos)"
+  }
+ },
+ "note": "Published frontier per OEIS entry (b-file), as learned by colony.new_data.",
+ "sparse": {
+  "A091592": {
+   "a_per_k_s": 0.00013171977346666667,
+   "anum": "A091592",
+   "checked": "2026-10-18T14:26:32Z",
+   "comment_hint": [
+    "The first 7 terms of this sequence were given by Ernst Jung in a discussion in the Newsgroup de.sci.mathematik entitled \"Primzahlen zwischen (2x-1)^2 und (2x+1)"
+   ],
+   "hits": [
+    {
+     "N": 123,
+     "d": 0,
+     "item": "pat_twin_sq_all",
+     "op": "zeros"
+    }
+   ],
+   "intractable": "engine cap k = 5000 reached (cycle budget)",
+   "intractable_deep": "engine cap k = 15000 reached (deep budget)",
+   "keywords": [
+    "hard",
+    "more",
+    "nonn"
+   ],
+   "last": {
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-19T14:39:27Z",
+    "why": "engine cap k = 15000 reached (deep budget)"
+   },
+   "n_pub": 12,
+   "name": "Numbers n such that there are no twin primes between n^2 and (n+1)^2.",
+   "offset": 1,
+   "rows": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     19
+    ],
+    [
+     4,
+     26
+    ],
+    [
+     5,
+     27
+    ],
+    [
+     6,
+     30
+    ],
+    [
+     7,
+     34
+    ],
+    [
+     8,
+     39
+    ],
+    [
+     9,
+     49
+    ],
+    [
+     10,
+     53
+    ],
+    [
+     11,
+     77
+    ],
+    [
+     12,
+     122
+    ]
+   ],
+   "searched_to": 15000,
+   "source": "https://oeis.org/A091592 (data section, 12 terms)",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 2.182,
+    "tries": 5
+   },
+   "status": "matched"
+  },
+  "A228014": {
+   "a_per_k_s": 1.6819750326e-06,
+   "anum": "A228014",
+   "checked": "2026-10-18T13:58:43Z",
+   "comment_hint": [],
+   "hits": [
+    {
+     "N": 111,
+     "d": 0,
+     "item": "col_steps",
+     "op": "fgtk"
+    }
+   ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
+   "intractable_deep": "engine cap k = 20000000 reached (deep budget)",
+   "keywords": [
+    "more",
+    "nonn"
+   ],
+   "last": {
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-19T14:40:35Z",
+    "why": "engine cap k = 20000000 reached (deep budget)"
+   },
+   "n_pub": 28,
+   "name": "Numbers k whose Collatz sequence length is greater than k+1 (counting both the x/2 and the 3x+1 steps).",
+   "offset": 1,
+   "rows": [
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     6,
+     14
+    ],
+    [
+     7,
+     15
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     9,
+     19
+    ],
+    [
+     10,
+     27
+    ],
+    [
+     11,
+     31
+    ],
+    [
+     12,
+     41
+    ],
+    [
+     13,
+     47
+    ],
+    [
+     14,
+     54
+    ],
+    [
+     15,
+     55
+    ],
+    [
+     16,
+     62
+    ],
+    [
+     17,
+     63
+    ],
+    [
+     18,
+     71
+    ],
+    [
+     19,
+     73
+    ],
+    [
+     20,
+     82
+    ],
+    [
+     21,
+     83
+    ],
+    [
+     22,
+     91
+    ],
+    [
+     23,
+     94
+    ],
+    [
+     24,
+     95
+    ],
+    [
+     25,
+     97
+    ],
+    [
+     26,
+     108
+    ],
+    [
+     27,
+     109
+    ],
+    [
+     28,
+     110
+    ]
+   ],
+   "searched_to": 20000000,
+   "source": "https://oeis.org/A228014 (data section, 28 terms)",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 68.46,
+    "tries": 10
+   },
+   "status": "matched"
+  },
+  "A352229": {
+   "a_per_k_s": 2.3093427462500005e-07,
+   "anum": "A352229",
+   "checked": "2026-10-18T14:24:27Z",
+   "comment_hint": [],
+   "hits": [
+    {
+     "N": 399,
+     "d": 0,
+     "item": "gb_prime_m",
+     "op": "eq7"
+    },
+    {
+     "N": 399,
+     "d": 0,
+     "item": "gb_odd_m",
+     "op": "eq7"
+    }
+   ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
+   "intractable_deep": "engine cap k = 8000000 reached (deep budget)",
+   "keywords": [
+    "more",
+    "nonn"
+   ],
+   "last": {
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-19T14:40:01Z",
+    "why": "engine cap k = 8000000 reached (deep budget)"
+   },
+   "n_pub": 18,
+   "name": "Numbers that can be expressed as the sum of two primes in exactly 7 ways.",
+   "offset": 1,
+   "rows": [
+    [
+     1,
+     78
+    ],
+    [
+     2,
+     96
+    ],
+    [
+     3,
+     112
+    ],
+    [
+     4,
+     130
+    ],
+    [
+     5,
+     140
+    ],
+    [
+     6,
+     176
+    ],
+    [
+     7,
+     178
+    ],
+    [
+     8,
+     194
+    ],
+    [
+     9,
+     206
+    ],
+    [
+     10,
+     208
+    ],
+    [
+     11,
+     218
+    ],
+    [
+     12,
+     224
+    ],
+    [
+     13,
+     226
+    ],
+    [
+     14,
+     232
+    ],
+    [
+     15,
+     272
+    ],
+    [
+     16,
+     278
+    ],
+    [
+     17,
+     326
+    ],
+    [
+     18,
+     398
+    ]
+   ],
+   "searched_to": 8000000,
+   "source": "https://oeis.org/A352229 (data section, 18 terms)",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 2.943,
+    "tries": 9
+   },
+   "status": "matched"
+  },
+  "A352230": {
+   "a_per_k_s": 2.3559547937500015e-07,
+   "anum": "A352230",
+   "checked": "2026-10-18T14:24:29Z",
+   "comment_hint": [],
+   "hits": [
+    {
+     "N": 369,
+     "d": 0,
+     "item": "gb_prime_m",
+     "op": "eq8"
+    },
+    {
+     "N": 369,
+     "d": 0,
+     "item": "gb_odd_m",
+     "op": "eq8"
+    }
+   ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
+   "intractable_deep": "engine cap k = 8000000 reached (deep budget)",
+   "keywords": [
+    "more",
+    "nonn"
+   ],
+   "last": {
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-19T14:40:01Z",
+    "why": "engine cap k = 8000000 reached (deep budget)"
+   },
+   "n_pub": 20,
+   "name": "Numbers that can be expressed as the sum of two primes in exactly 8 ways.",
+   "offset": 1,
+   "rows": [
+    [
+     1,
+     84
+    ],
+    [
+     2,
+     102
+    ],
+    [
+     3,
+     108
+    ],
+    [
+     4,
+     138
+    ],
+    [
+     5,
+     142
+    ],
+    [
+     6,
+     154
+    ],
+    [
+     7,
+     160
+    ],
+    [
+     8,
+     184
+    ],
+    [
+     9,
+     190
+    ],
+    [
+     10,
+     200
+    ],
+    [
+     11,
+     214
+    ],
+    [
+     12,
+     242
+    ],
+    [
+     13,
+     256
+    ],
+    [
+     14,
+     266
+    ],
+    [
+     15,
+     284
+    ],
+    [
+     16,
+     292
+    ],
+    [
+     17,
+     296
+    ],
+    [
+     18,
+     308
+    ],
+    [
+     19,
+     362
+    ],
+    [
+     20,
+     368
+    ]
+   ],
+   "searched_to": 8000000,
+   "source": "https://oeis.org/A352230 (data section, 20 terms)",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 2.968,
+    "tries": 9
+   },
+   "status": "matched"
+  },
+  "A352231": {
+   "a_per_k_s": 2.3421758537499971e-07,
+   "anum": "A352231",
+   "checked": "2026-10-18T14:24:33Z",
+   "comment_hint": [],
+   "hits": [
+    {
+     "N": 489,
+     "d": 0,
+     "item": "gb_prime_m",
+     "op": "eq9"
+    },
+    {
+     "N": 489,
+     "d": 0,
+     "item": "gb_odd_m",
+     "op": "eq9"
+    }
+   ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
+   "intractable_deep": "engine cap k = 8000000 reached (deep budget)",
+   "keywords": [
+    "more",
+    "nonn"
+   ],
+   "last": {
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-19T14:40:01Z",
+    "why": "engine cap k = 8000000 reached (deep budget)"
+   },
+   "n_pub": 23,
+   "name": "Numbers that can be expressed as the sum of two primes in exactly 9 ways.",
+   "offset": 1,
+   "rows": [
+    [
+     1,
+     90
+    ],
+    [
+     2,
+     132
+    ],
+    [
+     3,
+     170
+    ],
+    [
+     4,
+     196
+    ],
+    [
+     5,
+     202
+    ],
+    [
+     6,
+     220
+    ],
+    [
+     7,
+     230
+    ],
+    [
+     8,
+     236
+    ],
+    [
+     9,
+     238
+    ],
+    [
+     10,
+     244
+    ],
+    [
+     11,
+     250
+    ],
+    [
+     12,
+     254
+    ],
+    [
+     13,
+     262
+    ],
+    [
+     14,
+     268
+    ],
+    [
+     15,
+     302
+    ],
+    [
+     16,
+     314
+    ],
+    [
+     17,
+     338
+    ],
+    [
+     18,
+     346
+    ],
+    [
+     19,
+     356
+    ],
+    [
+     20,
+     388
+    ],
+    [
+     21,
+     428
+    ],
+    [
+     22,
+     458
+    ],
+    [
+     23,
+     488
+    ]
+   ],
+   "searched_to": 8000000,
+   "source": "https://oeis.org/A352231 (data section, 23 terms)",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 2.963,
+    "tries": 9
+   },
+   "status": "matched"
+  },
+  "A352233": {
+   "a_per_k_s": 2.322572045e-07,
+   "anum": "A352233",
+   "checked": "2026-10-18T14:24:23Z",
+   "comment_hint": [],
+   "hits": [
+    {
+     "N": 633,
+     "d": 0,
+     "item": "gb_prime_m",
+     "op": "eq10"
+    },
+    {
+     "N": 633,
+     "d": 0,
+     "item": "gb_odd_m",
+     "op": "eq10"
+    }
+   ],
+   "intractable": "engine cap k = 1000000 reached (cycle budget)",
+   "intractable_deep": "engine cap k = 8000000 reached (deep budget)",
+   "keywords": [
+    "more",
+    "nonn"
+   ],
+   "last": {
+    "cpu_s": 0.0,
+    "searched_to": null,
+    "status": "intractable",
+    "ts": "2026-10-19T14:40:01Z",
+    "why": "engine cap k = 8000000 reached (deep budget)"
+   },
+   "n_pub": 16,
+   "name": "Numbers that can be expressed as the sum of two primes in exactly 10 ways.",
+   "offset": 1,
+   "rows": [
+    [
+     1,
+     114
+    ],
+    [
+     2,
+     126
+    ],
+    [
+     3,
+     162
+    ],
+    [
+     4,
+     260
+    ],
+    [
+     5,
+     290
+    ],
+    [
+     6,
+     304
+    ],
+    [
+     7,
+     316
+    ],
+    [
+     8,
+     328
+    ],
+    [
+     9,
+     344
+    ],
+    [
+     10,
+     352
+    ],
+    [
+     11,
+     358
+    ],
+    [
+     12,
+     374
+    ],
+    [
+     13,
+     382
+    ],
+    [
+     14,
+     416
+    ],
+    [
+     15,
+     542
+    ],
+    [
+     16,
+     632
+    ]
+   ],
+   "searched_to": 8000000,
+   "source": "https://oeis.org/A352233 (data section, 16 terms)",
+   "stats": {
+    "beyond": 0,
+    "cpu_s": 2.989,
+    "tries": 9
+   },
+   "status": "matched"
+  }
+ }
+}

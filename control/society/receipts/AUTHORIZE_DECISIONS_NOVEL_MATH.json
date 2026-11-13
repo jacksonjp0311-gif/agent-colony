@@ -1,0 +1,183 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (James standing trust: authorize high-P P>=0.75 forever for agent-colony; selective)",
+  "policy": "accept infrastructure + sourced paper gathers P>=0.75; reject fake discovery claims and dupes",
+  "items": [
+    {
+      "finding_id": "fnd_47bc5ef2d561",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.92. Research gather infra live: arXiv fetch + offline seeds; metadata/abstract pointers only; not discovery."
+    },
+    {
+      "finding_id": "fnd_f5068db1e08e",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.94. Lemma microbench measured on-box; score>0 only when checks pass; wired into run_benchmarks; educational not novel-theorem."
+    },
+    {
+      "finding_id": "fnd_f91c796bd73c",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. Conjecture desk keep-if-score-rises proven (geometric_sum +0.0292, handshaking +0.0292); machine-check gate; not AGI."
+    },
+    {
+      "finding_id": "fnd_9894373ec3b3",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.84. Sourced paper pointer (arXiv/offline seed metadata+abstract); primary=paper ids; not a discovery claim; standing trust P>=0.75."
+    },
+    {
+      "finding_id": "fnd_8d8d811d0b12",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.84. Sourced paper pointer (arXiv/offline seed metadata+abstract); primary=paper ids; not a discovery claim; standing trust P>=0.75."
+    },
+    {
+      "finding_id": "fnd_f888df861c3c",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.84. Sourced paper pointer (arXiv/offline seed metadata+abstract); primary=paper ids; not a discovery claim; standing trust P>=0.75."
+    },
+    {
+      "finding_id": "fnd_9d3ccacaf44e",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.84. Sourced paper pointer (arXiv/offline seed metadata+abstract); primary=paper ids; not a discovery claim; standing trust P>=0.75."
+    },
+    {
+      "finding_id": "fnd_6e2bc8ae51ed",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.84. Sourced paper pointer (arXiv/offline seed metadata+abstract); primary=paper ids; not a discovery claim; standing trust P>=0.75."
+    },
+    {
+      "finding_id": "fnd_4f9dfa80042b",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.84. Sourced paper pointer (arXiv/offline seed metadata+abstract); primary=paper ids; not a discovery claim; standing trust P>=0.75."
+    },
+    {
+      "finding_id": "fnd_c901f8a716dc",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.88. Lemma mutation machine-checked via lemma_microbench; score rose; still not a novel theorem discovery — harness-gated education."
+    },
+    {
+      "finding_id": "fnd_cb5ddb7e7d2f",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.05. Bare 'we discovered' Millennium/RH claim with no bench path / proof artifact — AGI theater. Hard ceiling novel-math honesty."
+    },
+    {
+      "finding_id": "fnd_9b1616463c54",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_6ac106bc9222",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_07ad0445bffc",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_8e858220016f",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_b362f9d31851",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_d0dd9ddd15c6",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_080fd1d545b5",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_dfb919f6a630",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_d93ae8a92a67",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_eaf7dfa701e1",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_4b6dbcb8f5e2",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_2e9844b3b91c",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_64cd65503663",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_5d573dee9750",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_45e05ee3a54f",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_d3833efaf48a",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_8483199abc7a",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_205b8b0a0aa3",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_9f0041ad6e51",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_c82aff0811f0",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_41986786b70a",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_c09a64514bd7",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_72b4b29ba449",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    },
+    {
+      "finding_id": "fnd_60e50a2ad91e",
+      "decision": "rejected",
+      "rationale": "REJECT P=0.20. Duplicate research_gather paper pointer already covered by accepted unique title; selective authorize."
+    }
+  ],
+  "proposals": []
+}

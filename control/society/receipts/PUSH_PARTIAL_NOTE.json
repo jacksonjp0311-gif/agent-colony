@@ -1,0 +1,8 @@
+{
+  "pushed": ["colony/genomes.py", "colony/commons.py", "colony/government.py", "CHARTER.md", "data/topics.json", "AUTHORIZE receipts", "sample genomes JSON"],
+  "on_box_pending": ["colony/society.py", "colony/fitness.py", "colony/registry.py", "colony/bus.py", "colony/emergence/*", "data/seed_corpus.json", "data/*.gz.b64 cycle40", "society/DASHBOARD.html", "society/systems/*"],
+  "restore": "bash scripts/restore_colony_mirrors.sh after syncing gz.b64 mirrors from box",
+  "authorize_cycle": "authorize_20260926T111104Z",
+  "accepted": 6,
+  "rejected": 6
+}

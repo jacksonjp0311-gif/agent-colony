@@ -1,0 +1,514 @@
+{
+ "note": "Strong known-results check (colony/known_check.py) on the surprise backlog; old = Stage 2 reference check alone, new = Stage 2 OR the strong check. Report only.",
+ "hand_settled": {
+  "n": 24,
+  "old": 11,
+  "new": 16
+ },
+ "calibration_all": {
+  "n": 31,
+  "old": 11,
+  "new": 23
+ },
+ "registry_surprises": {
+  "n": 20,
+  "old": 0,
+  "new": 17
+ },
+ "by_step": {
+  "tautology": 2,
+  "kernel": 28,
+  "cfinite": 4,
+  "periodic": 3,
+  "oeis_derived": 0,
+  "oeis_text": 0
+ },
+ "rows": [
+  {
+   "statement": "D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "source": "calibration",
+   "hand": false,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A000203, A008966)",
+   "step": ""
+  },
+  {
+   "statement": "D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3)",
+   "source": "calibration",
+   "hand": false,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "S((lpf*phi))(n) = 1 (mod 2) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "S((part*phi))(n) = 1 (mod 2) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "S((phi*rad))(n) = 1 (mod 2) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A000720)",
+   "step": ""
+  },
+  {
+   "statement": "S(gcd(digsum,phi))(n) = 1 (mod 2) for all n = 3 (mod 4)",
+   "source": "calibration",
+   "hand": false,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)",
+   "source": "calibration",
+   "hand": false,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "dbl(gcd(fib,pell))(n) = 0 (mod 3) for all n = 0 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "dbl(gcd(mu,n))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "dbl(gcd(mu,rad))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "dbl(gcd(n,pell))(n) = 0 (mod 2) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "dbl(gcd(pell,sqfree))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "source": "calibration",
+   "hand": false,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "sigma[rev](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "source": "calibration",
+   "hand": false,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A006530, A000010, A007947)",
+   "step": ""
+  },
+  {
+   "statement": "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A006530, A000040, A007947)",
+   "step": ""
+  },
+  {
+   "statement": "gcd(lpf,tau)(n) divides (mu*pell)(n) for all n >= 1",
+   "source": "calibration",
+   "hand": false,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A000129, A007947, A008966, A000005)",
+   "step": ""
+  },
+  {
+   "statement": "pi[prime](n) divides (rad*sqfree)(n) for all n >= 1",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A000720, A000040, A007947, A008966)",
+   "step": ""
+  },
+  {
+   "statement": "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A001222, A020639, A001414)",
+   "step": ""
+  },
+  {
+   "statement": "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A006530, A000010, A008966)",
+   "step": ""
+  },
+  {
+   "statement": "(gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, basic-inequality derivation)",
+   "step": "kernel"
+  },
+  {
+   "statement": "(omega-gpf)(n) <= dbl((omega-gpf))(n) for all n >= 1 (with equality at some n)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, basic-inequality derivation)",
+   "step": "kernel"
+  },
+  {
+   "statement": "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A008683, A000027)",
+   "step": ""
+  },
+  {
+   "statement": "gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": true,
+   "new_explained": true,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A000032, A008683, A000027, A008966)",
+   "step": ""
+  },
+  {
+   "statement": "gcd(part,sqfree)(n) <= dbl(gcd(part,sqfree))(n) for all n >= 1 (with equality at some n)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A000041, A008966)",
+   "step": ""
+  },
+  {
+   "statement": "a(n) = dbl((pow2-lpf))(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)",
+   "source": "calibration",
+   "hand": true,
+   "old_explained": false,
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, closed form (sympy))",
+   "step": "kernel"
+  },
+  {
+   "statement": "cmax[gpf](n) = 1 (mod 3) for all n = 1 (mod 2)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "cmax[lpf](n) = 1 (mod 3) for all n = 1 (mod 2)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "cmax[rad](n) = 1 (mod 3) for all n = 1 (mod 2)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "dbl(gcd(fib,tau))(n) = 0 (mod 3) for all n = 2 (mod 4)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "dbl(gcd(rev,sigma))(n) = 0 (mod 3) for all n = 3 (mod 6)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "gcd(match_ladder,stree_ladder)(n) = 1 (mod 2) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived: follows from periodic residues of its parts (match_ladder is C-finite with an integer monic recurrence, so periodic mod m (classical); stree_ladder is C-finite with an integer monic recurrence, so periodic mod m (classical))",
+   "step": "periodic"
+  },
+  {
+   "statement": "gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived: follows from periodic residues of its parts (D(n) = n D(n-1) + (-1)^n (P-recursive, unit leading coefficient): periodic mod m; stree_ladder is C-finite with an integer monic recurrence, so periodic mod m (classical))",
+   "step": "periodic"
+  },
+  {
+   "statement": "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived: follows from periodic residues of its parts (ple3 is C-finite with an integer monic recurrence, so periodic mod m (classical); stree_ladder is C-finite with an integer monic recurrence, so periodic mod m (classical))",
+   "step": "periodic"
+  },
+  {
+   "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A000009, A004086)",
+   "step": ""
+  },
+  {
+   "statement": "fib(n) divides dbl(stree_grid3)(n) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived (proof): dbl(stree_grid3) = fib * h(n) with h an integer linear recurrence of order 8 (c = [69, 3153, -36708, -273020, 36708, 3153, -69, -1]); both sides C-finite, so agreement on 400 >= 20 terms proves the identity (C-finite closure; strong divisibility / product formula)",
+   "step": "cfinite"
+  },
+  {
+   "statement": "gcd(lpf,tau)(n) divides (pell*sqfree)(n) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "gpf[pnot3](n) divides pnot3(n) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "known: a property of the outer function alone (g(x) | x or g(x) <= x)",
+   "step": "tautology"
+  },
+  {
+   "statement": "lucas(n) divides dbl(stree_grid3)(n) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived (proof): dbl(stree_grid3) = lucas * h(n) with h an integer linear recurrence of order 8 (c = [69, 3153, -36708, -273020, 36708, 3153, -69, -1]); both sides C-finite, so agreement on 400 >= 20 terms proves the identity (C-finite closure; strong divisibility / product formula)",
+   "step": "cfinite"
+  },
+  {
+   "statement": "stree_grid3(n) divides dbl(stree_grid3)(n) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived (proof): dbl(stree_grid3) = stree_grid3 * h(n) with h an integer linear recurrence of order 4 (c = [15, -32, 15, -1]); both sides C-finite, so agreement on 400 >= 20 terms proves the identity (C-finite closure; strong divisibility / product formula)",
+   "step": "cfinite"
+  },
+  {
+   "statement": "stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived (proof): dbl(stree_ladder) = stree_ladder * h(n) with h an integer linear recurrence of order 2 (c = [4, -1]); both sides C-finite, so agreement on 400 >= 6 terms proves the identity (C-finite closure; strong divisibility / product formula)",
+   "step": "cfinite"
+  },
+  {
+   "statement": "tau[lpf](n) divides (lpf-pell)(n) for all n >= 1",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, periodic residues)",
+   "step": "kernel"
+  },
+  {
+   "statement": "(gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A006530, A001221, A000203)",
+   "step": ""
+  },
+  {
+   "statement": "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [
+    "A006530",
+    "A051664",
+    "A088387",
+    "A090662"
+   ],
+   "new_explained": false,
+   "known_check": "no known result found (kernel, C-finite identity, periodic residues, OEIS derived sequence, OEIS texts: A006530, A020639, A008683, A006530, A051664, A088387, A090662)",
+   "step": ""
+  },
+  {
+   "statement": "gpf[pnot3](n) <= pnot3(n) for all n >= 1 (with equality at some n)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [],
+   "new_explained": true,
+   "known_check": "known: a property of the outer function alone (g(x) | x or g(x) <= x)",
+   "step": "tautology"
+  },
+  {
+   "statement": "sopfr[phi](n) <= (sopfr-omega)(n) for all n >= 1 (with equality at some n)",
+   "source": "registry",
+   "hand": false,
+   "old_explained": false,
+   "oeis_anums": [
+    "A380827"
+   ],
+   "new_explained": true,
+   "known_check": "derived from classical lemmas (proof-kernel certificate, basic-inequality derivation)",
+   "step": "kernel"
+  }
+ ]
+}

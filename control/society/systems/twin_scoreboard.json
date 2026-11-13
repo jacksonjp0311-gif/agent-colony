@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "note": "Treatment is the self-modifying colony. Control runs the same pipeline with self-modification off, on a state tree forked from main and then evolved on its own. Differences in the first runs are noise. A lasting lead needs many paired runs, and a gain that traces to a change the treatment arm chose itself. This is not a claim of general intelligence or a breakthrough.",
+  "fork": {
+    "fork_sha": "793a7ee15d682f7d5abac186774ade4bae2beeb2",
+    "fork_ts": "2026-11-13T02:23:53Z",
+    "fork_source": "origin/main",
+    "seeded_sha": null,
+    "seeded_ts": null,
+    "control_seeded": false,
+    "note": "Fork point for the control arm. Control state is copied from treatment at the first control evolve, then frozen (self-heal knobs reset to defaults; the in-flight perturb_cooldown_cycles trial is not continued). After that, control evolves on its own tree. seeded_sha is filled at that first run.",
+    "fork_note_hive": "Forked after Hive merged (PR #8). Control disables Hive learning through colony/hive_adapter.py."
+  },
+  "updated_at": "2026-11-13T02:23:53Z",
+  "paired_runs": 0,
+  "treatment_cycles": 876,
+  "control_cycles": 0,
+  "treatment": {
+    "oracle_passes": 528,
+    "oracle_kills": 340,
+    "verified_depth_sum": 9228,
+    "beyond_published_count": 3,
+    "depths": [
+      {
+        "id": "oc_A165064_0",
+        "anum": "A165064",
+        "verified_depth": 7999,
+        "published_hi": 100,
+        "beyond_published": true,
+        "check": "exact"
+      },
+      {
+        "id": "oc_A126089_0",
+        "anum": "A126089",
+        "verified_depth": 1199,
+        "published_hi": 200,
+        "beyond_published": true,
+        "check": "exact"
+      },
+      {
+        "id": "oc_A108476_0",
+        "anum": "A108476",
+        "verified_depth": 30,
+        "published_hi": 19,
+        "beyond_published": true,
+        "check": "exact"
+      }
+    ],
+    "counterexamples": 0,
+    "proofs": 23,
+    "non_routine_proofs": 0,
+    "fitness": 0.8585,
+    "novelty": 0.75,
+    "adopts": 0,
+    "reverts": 0,
+    "cycle_count": 876,
+    "self_heal_frozen": false,
+    "self_heal_trial": "perturb_cooldown_cycles"
+  },
+  "control": {
+    "note": "Not seeded yet. The first control evolve takes the snapshot.",
+    "missing": true
+  },
+  "delta": {},
+  "history": []
+}

@@ -1,0 +1,115 @@
+[
+  {
+    "source": "offline_seed",
+    "arxiv_id": "1706.03762",
+    "doi": "10.48550/arXiv.1706.03762",
+    "title": "Attention Is All You Need",
+    "authors": [
+      "Vaswani et al."
+    ],
+    "year": 2017,
+    "abstract_snippet": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "tags": [
+      "compute-useful-math",
+      "open-math",
+      "emergent-technology",
+      "attention"
+    ],
+    "topic_id": "compute-useful-math"
+  },
+  {
+    "source": "offline_seed",
+    "arxiv_id": "cs/0309048",
+    "doi": "",
+    "title": "Gödel Machines: Fully Self-Referential Optimal Universal Self-Improvers",
+    "authors": [
+      "Schmidhuber"
+    ],
+    "year": 2003,
+    "abstract_snippet": "We present the first class of mathematically rigorous, general, fully self-referential, self-improving, optimally efficient problem solvers.",
+    "url": "https://arxiv.org/abs/cs/0309048",
+    "tags": [
+      "open-math",
+      "recursive-self-improvement",
+      "proof-based"
+    ],
+    "topic_id": "godel-machines"
+  },
+  {
+    "source": "offline_seed",
+    "arxiv_id": "2303.11366",
+    "doi": "10.48550/arXiv.2303.11366",
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [
+      "Shinn et al."
+    ],
+    "year": 2023,
+    "abstract_snippet": "We propose Reflexion, an approach that endows agents with dynamic memory and self-reflection capabilities to improve reasoning and decision-making.",
+    "url": "https://arxiv.org/abs/2303.11366",
+    "tags": [
+      "compute-useful-math",
+      "reflexion",
+      "open-math"
+    ],
+    "topic_id": "reflexion"
+  },
+  {
+    "source": "offline_seed",
+    "arxiv_id": "2505.22964",
+    "doi": "10.48550/arXiv.2505.22964",
+    "title": "Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents",
+    "authors": [
+      "Zhang et al.",
+      "Sakana"
+    ],
+    "year": 2025,
+    "abstract_snippet": "We present the Darwin Gödel Machine, an open-ended self-improving agent that rewrites its own code guided by empirical evaluation.",
+    "url": "https://arxiv.org/abs/2505.22964",
+    "tags": [
+      "open-math",
+      "darwin-godel-machine",
+      "self-improving-agents"
+    ],
+    "topic_id": "darwin-godel-machine"
+  },
+  {
+    "source": "offline_seed",
+    "arxiv_id": "1412.6980",
+    "doi": "10.48550/arXiv.1412.6980",
+    "title": "Adam: A Method for Stochastic Optimization",
+    "authors": [
+      "Kingma",
+      "Ba"
+    ],
+    "year": 2014,
+    "abstract_snippet": "We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments.",
+    "url": "https://arxiv.org/abs/1412.6980",
+    "tags": [
+      "compute-useful-math",
+      "open-math",
+      "optimization"
+    ],
+    "topic_id": "compute-useful-math"
+  },
+  {
+    "source": "offline_seed",
+    "arxiv_id": "1805.00899",
+    "doi": "10.48550/arXiv.1805.00899",
+    "title": "AI Safety via Debate",
+    "authors": [
+      "Irving",
+      "Christiano",
+      "Amodei"
+    ],
+    "year": 2018,
+    "abstract_snippet": "To increase the robustness of AI systems, we propose training agents via self-play on a zero-sum debate game with a human judge.",
+    "url": "https://arxiv.org/abs/1805.00899",
+    "tags": [
+      "open-math",
+      "debate",
+      "alignment"
+    ],
+    "topic_id": "debate"
+  }
+]

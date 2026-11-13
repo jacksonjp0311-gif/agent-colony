@@ -1,0 +1,284 @@
+{
+ "n": 31,
+ "settled_by_hand": 24,
+ "explained_by_reference": 11,
+ "agreement_on_hand_settled": "11/24",
+ "rows": [
+  {
+   "statement": "D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "found_at": "2026-10-18T12:48:12Z",
+   "hand_rule_now": "(none: still a surprise under the hand rules)",
+   "reference_label": "no reference found (checked: classical catalog, A007953)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "found_at": "2026-10-17T22:14:12Z",
+   "hand_rule_now": "implied_parts",
+   "reference_label": "no reference found (checked: classical catalog, A007953, A020639)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "found_at": "2026-10-17T22:47:53Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "explained by A000203 (comment): ...2^k * d, where d is odd. Then a(n) is odd if and only if d is a square....; squarefree indicator (definition) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "A000203 (comment): ...2^k * d, where d is odd. Then a(n) is odd if and only if d is a square....",
+    "squarefree indicator (definition)"
+   ]
+  },
+  {
+   "statement": "D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3)",
+   "found_at": "2026-10-18T13:16:48Z",
+   "hand_rule_now": "(none: still a surprise under the hand rules)",
+   "reference_label": "no reference found (checked: classical catalog, A000010)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)",
+   "found_at": "2026-10-17T22:56:02Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "no reference found (checked: classical catalog, A000010, A000720)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "S((lpf*phi))(n) = 1 (mod 2) for all n >= 1",
+   "found_at": "2026-10-18T04:58:46Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "explained by A000010 (comment): ...a(p) = p - 1 for prime p. a(n) is even for n > 2. For n > 2, a(n)/2 = A023022(... (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "A000010 (comment): ...a(p) = p - 1 for prime p. a(n) is even for n > 2. For n > 2, a(n)/2 = A023022(..."
+   ]
+  },
+  {
+   "statement": "S((part*phi))(n) = 1 (mod 2) for all n >= 1",
+   "found_at": "2026-10-18T02:50:53Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "explained by A000010 (comment): ...a(p) = p - 1 for prime p. a(n) is even for n > 2. For n > 2, a(n)/2 = A023022(... (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "A000010 (comment): ...a(p) = p - 1 for prime p. a(n) is even for n > 2. For n > 2, a(n)/2 = A023022(..."
+   ]
+  },
+  {
+   "statement": "S((phi*rad))(n) = 1 (mod 2) for all n >= 1",
+   "found_at": "2026-10-18T04:55:35Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "explained by A000010 (comment): ...a(p) = p - 1 for prime p. a(n) is even for n > 2. For n > 2, a(n)/2 = A023022(... (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "A000010 (comment): ...a(p) = p - 1 for prime p. a(n) is even for n > 2. For n > 2, a(n)/2 = A023022(..."
+   ]
+  },
+  {
+   "statement": "S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)",
+   "found_at": "2026-10-17T22:48:48Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "no reference found (checked: classical catalog, A000720)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "S(gcd(digsum,phi))(n) = 1 (mod 2) for all n = 3 (mod 4)",
+   "found_at": "2026-10-18T11:14:47Z",
+   "hand_rule_now": "(none: still a surprise under the hand rules)",
+   "reference_label": "no reference found (checked: classical catalog, A007953, A000010)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)",
+   "found_at": "2026-10-18T11:24:19Z",
+   "hand_rule_now": "(none: still a surprise under the hand rules)",
+   "reference_label": "no reference found (checked: classical catalog, A025586, A007953)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "dbl(gcd(fib,pell))(n) = 0 (mod 3) for all n = 0 (mod 2)",
+   "found_at": "2026-10-18T04:57:08Z",
+   "hand_rule_now": "implied_parts",
+   "reference_label": "explained by Pell numbers mod m are periodic (classical); Pisano periodicity: Fibonacci numbers mod m are periodic (classical) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "Pell numbers mod m are periodic (classical)",
+    "Pisano periodicity: Fibonacci numbers mod m are periodic (classical)"
+   ]
+  },
+  {
+   "statement": "dbl(gcd(mu,n))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "found_at": "2026-10-17T22:47:53Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "explained by mu(n) = 0 iff n is not squarefree (definition) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "mu(n) = 0 iff n is not squarefree (definition)"
+   ]
+  },
+  {
+   "statement": "dbl(gcd(mu,rad))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "found_at": "2026-10-17T22:54:50Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "explained by mu(n) = 0 iff n is not squarefree (definition); rad(n) is even iff n is even (definition) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "mu(n) = 0 iff n is not squarefree (definition)",
+    "rad(n) is even iff n is even (definition)"
+   ]
+  },
+  {
+   "statement": "dbl(gcd(n,pell))(n) = 0 (mod 2) for all n >= 1",
+   "found_at": "2026-10-18T03:13:18Z",
+   "hand_rule_now": "implied_parts",
+   "reference_label": "explained by Pell numbers mod m are periodic (classical) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "Pell numbers mod m are periodic (classical)"
+   ]
+  },
+  {
+   "statement": "dbl(gcd(pell,sqfree))(n) = 0 (mod 2) for all n = 0 (mod 2)",
+   "found_at": "2026-10-17T22:47:53Z",
+   "hand_rule_now": "parity_rules",
+   "reference_label": "explained by Pell numbers mod m are periodic (classical); squarefree indicator (definition) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "Pell numbers mod m are periodic (classical)",
+    "squarefree indicator (definition)"
+   ]
+  },
+  {
+   "statement": "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "found_at": "2026-10-18T11:25:32Z",
+   "hand_rule_now": "(none: still a surprise under the hand rules)",
+   "reference_label": "no reference found (checked: classical catalog, A007953, A000203)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "sigma[rev](n) = 0 (mod 3) for all n = 2 (mod 3)",
+   "found_at": "2026-10-18T13:04:39Z",
+   "hand_rule_now": "(none: still a surprise under the hand rules)",
+   "reference_label": "no reference found (checked: classical catalog, A004086, A000203)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1",
+   "found_at": "2026-10-18T03:14:42Z",
+   "hand_rule_now": "implied_parts",
+   "reference_label": "no reference found (checked: classical catalog, A006530, A000010, A007947, A009262, A127699, A174824)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1",
+   "found_at": "2026-10-18T02:55:55Z",
+   "hand_rule_now": "implied_parts",
+   "reference_label": "no reference found (checked: classical catalog, A006530, A000040, A007947, A006530, A051664, A088387, A090662)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "gcd(lpf,tau)(n) divides (mu*pell)(n) for all n >= 1",
+   "found_at": "2026-10-18T02:49:00Z",
+   "hand_rule_now": "(none: still a surprise under the hand rules)",
+   "reference_label": "no reference found (checked: classical catalog, A020639, A008683, A000129, A000005)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1",
+   "found_at": "2026-10-18T03:13:18Z",
+   "hand_rule_now": "idle_part",
+   "reference_label": "no reference found (checked: classical catalog, A000129, A007947, A001511, A244569, A265331, A317954, A008966, A000005)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "pi[prime](n) divides (rad*sqfree)(n) for all n >= 1",
+   "found_at": "2026-10-18T02:55:55Z",
+   "hand_rule_now": "case_split",
+   "reference_label": "no reference found (checked: classical catalog, A000720, A000040, A007947, A000027, A000401, A000926, A001477, A008966)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)",
+   "found_at": "2026-10-17T22:27:50Z",
+   "hand_rule_now": "idle_part",
+   "reference_label": "no reference found (checked: classical catalog, A001222, A020639, A001414)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)",
+   "found_at": "2026-10-18T02:47:14Z",
+   "hand_rule_now": "idle_part",
+   "reference_label": "no reference found (checked: classical catalog, A006530, A000010, A008966)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "(gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n)",
+   "found_at": "2026-10-17T22:34:37Z",
+   "hand_rule_now": "basic_inequality",
+   "reference_label": "no reference found (checked: classical catalog, A001222, A006530, A000005)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "(omega-gpf)(n) <= dbl((omega-gpf))(n) for all n >= 1 (with equality at some n)",
+   "found_at": "2026-10-18T03:21:37Z",
+   "hand_rule_now": "basic_inequality",
+   "reference_label": "no reference found (checked: classical catalog, A006530, A001221)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)",
+   "found_at": "2026-10-17T22:47:53Z",
+   "hand_rule_now": "case_split",
+   "reference_label": "explained by mu(n) = 0 iff n is not squarefree (definition); mu(n) in {-1, 0, 1} (definition) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "mu(n) = 0 iff n is not squarefree (definition)",
+    "mu(n) in {-1, 0, 1} (definition)"
+   ]
+  },
+  {
+   "statement": "gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)",
+   "found_at": "2026-10-17T22:26:22Z",
+   "hand_rule_now": "idle_part",
+   "reference_label": "explained by mu(n) in {-1, 0, 1} (definition) (+ direct check n <= 6)",
+   "explained": true,
+   "refs": [
+    "mu(n) in {-1, 0, 1} (definition)"
+   ]
+  },
+  {
+   "statement": "gcd(part,sqfree)(n) <= dbl(gcd(part,sqfree))(n) for all n >= 1 (with equality at some n)",
+   "found_at": "2026-10-17T22:47:53Z",
+   "hand_rule_now": "case_split",
+   "reference_label": "no reference found (checked: classical catalog, A000041, A008966)",
+   "explained": false,
+   "refs": []
+  },
+  {
+   "statement": "a(n) = dbl((pow2-lpf))(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)",
+   "found_at": "2026-10-18T03:13:18Z",
+   "hand_rule_now": "rewrite_closure",
+   "reference_label": "no reference found (checked: classical catalog, A020639, A000079)",
+   "explained": false,
+   "refs": []
+  }
+ ],
+ "note": "Stage 2 calibration (colony.reference_check), run 2026-10-18 on the 31 distinct past surprises in the git history of society/systems/frontier_conjectures.json. hand_rule_now = the hand-written prefilter rule that catches the claim today (rules added after these claims were proved by hand); reference_label = the reference check alone (OEIS formula/comment fields + classical catalog, fact-constrained null)."
+}

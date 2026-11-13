@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "description": "Curated seed corpus of classic papers/concepts. Used when network is limited. Provenance: seed.",
+  "entries": [
+    {
+      "topic_id": "godel-machines",
+      "title": "Gödel Machines: Fully Self-Referential Optimal Universal Self-Improvers",
+      "authors": "Jürgen Schmidhuber",
+      "year": 2006,
+      "claim": "A Gödel machine is a self-referential universal problem solver that can rewrite its own code when it finds a proof that the rewrite is useful.",
+      "urls": [
+        "https://arxiv.org/abs/cs/0309048",
+        "https://people.idsia.ch/~juergen/godelmachine.html"
+      ],
+      "tags": ["godel-machine", "self-improvement", "proof-based"]
+    },
+    {
+      "topic_id": "darwin-godel-machine",
+      "title": "Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents",
+      "authors": "Zhang et al. (Sakana AI)",
+      "year": 2025,
+      "claim": "The Darwin Gödel Machine (DGM) empirically evolves coding agents by modifying their own code and evaluating improvements on coding benchmarks, without requiring formal proofs.",
+      "urls": [
+        "https://arxiv.org/abs/2505.22964",
+        "https://sakana.ai/dgm/"
+      ],
+      "tags": ["darwin-godel-machine", "self-improvement", "open-ended", "sakana"]
+    },
+    {
+      "topic_id": "constitutional-ai",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "authors": "Bai et al. (Anthropic)",
+      "year": 2022,
+      "claim": "Constitutional AI trains models to be harmless using a list of principles (a constitution) and AI feedback, reducing reliance on human labels for harmlessness.",
+      "urls": [
+        "https://arxiv.org/abs/2212.08073",
+        "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback"
+      ],
+      "tags": ["constitutional-ai", "alignment", "RLAIF"]
+    },
+    {
+      "topic_id": "reflexion",
+      "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "authors": "Shinn et al.",
+      "year": 2023,
+      "claim": "Reflexion agents improve via linguistic self-reflection stored in episodic memory, without weight updates.",
+      "urls": [
+        "https://arxiv.org/abs/2303.11366",
+        "https://github.com/noahshinn/reflexion"
+      ],
+      "tags": ["reflexion", "verbal-rl", "memory"]
+    },
+    {
+      "topic_id": "voyager",
+      "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "authors": "Wang et al.",
+      "year": 2023,
+      "claim": "Voyager uses an LLM-driven automatic curriculum, a skill library, and iterative prompting to explore Minecraft open-endedly.",
+      "urls": [
+        "https://arxiv.org/abs/2305.16291",
+        "https://voyager.minedojo.org/"
+      ],
+      "tags": ["voyager", "embodied", "skill-library"]
+    },
+    {
+      "topic_id": "self-refine",
+      "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+      "authors": "Madaan et al.",
+      "year": 2023,
+      "claim": "Self-Refine improves LLM outputs by generating feedback on its own outputs and refining iteratively, without additional training.",
+      "urls": [
+        "https://arxiv.org/abs/2303.17651",
+        "https://selfrefine.info/"
+      ],
+      "tags": ["self-refine", "iterative", "self-feedback"]
+    },
+    {
+      "topic_id": "meta-learning",
+      "title": "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks (MAML)",
+      "authors": "Finn, Abbeel, Levine",
+      "year": 2017,
+      "claim": "MAML learns an initialization that can be quickly adapted to new tasks with few gradient steps.",
+      "urls": [
+        "https://arxiv.org/abs/1703.03400"
+      ],
+      "tags": ["meta-learning", "MAML", "few-shot"]
+    },
+    {
+      "topic_id": "autogpt-loops",
+      "title": "Auto-GPT: An Autonomous GPT-4 Experiment",
+      "authors": "Significant Gravitas et al.",
+      "year": 2023,
+      "claim": "Auto-GPT popularized autonomous LLM agent loops that decompose goals into tasks, use tools, and iterate without continuous human prompting.",
+      "urls": [
+        "https://github.com/Significant-Gravitas/AutoGPT",
+        "https://arxiv.org/abs/2308.10792"
+      ],
+      "tags": ["autogpt", "agent-loop", "tool-use"]
+    },
+    {
+      "topic_id": "opendevin",
+      "title": "OpenDevin: An Open Platform for AI Software Developers as Generalist Agents",
+      "authors": "Wang et al. (OpenHands / OpenDevin)",
+      "year": 2024,
+      "claim": "OpenDevin (now OpenHands) is an open platform for software engineering agents that interact with code, terminals, and browsers.",
+      "urls": [
+        "https://arxiv.org/abs/2407.16741",
+        "https://github.com/All-Hands-AI/OpenHands"
+      ],
+      "tags": ["opendevin", "openhands", "swe-agent"]
+    },
+    {
+      "topic_id": "debate",
+      "title": "AI Safety via Debate",
+      "authors": "Irving, Christiano, Amodei",
+      "year": 2018,
+      "claim": "Debate proposes training agents to debate topics so that a human (or weaker judge) can identify truth more reliably than unaided evaluation.",
+      "urls": [
+        "https://arxiv.org/abs/1805.00899"
+      ],
+      "tags": ["debate", "scalable-oversight", "alignment"]
+    },
+    {
+      "topic_id": "agent-societies",
+      "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "authors": "Park et al.",
+      "year": 2023,
+      "claim": "Generative agents simulate believable human behavior in an interactive sandbox using memory, reflection, and planning.",
+      "urls": [
+        "https://arxiv.org/abs/2304.03442"
+      ],
+      "tags": ["generative-agents", "multi-agent", "simulation"]
+    },
+    {
+      "topic_id": "recursive-self-improvement",
+      "title": "Intelligence Explosion Microeconomics / Seed AI (conceptual lineage)",
+      "authors": "Yudkowsky / Chalmers / historical AGI literature",
+      "year": 2013,
+      "claim": "Recursive self-improvement refers to systems that improve their own intelligence and thereby accelerate further improvement; largely theoretical with limited empirical instances in narrow domains.",
+      "urls": [
+        "https://intelligence.org/files/IEM.pdf",
+        "https://consc.net/papers/singularity.pdf"
+      ],
+      "tags": ["rsi", "seed-ai", "theoretical"]
+    }
+  ]
+}

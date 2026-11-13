@@ -1,0 +1,18 @@
+{
+  "when": "2026-10-08T01:09:00Z",
+  "authorizer": "James Jackson",
+  "delegated_via": "Grok Bot (explicit human authorize by James in chat 2026-10-07 9:09 PM ET; one named item; selective not accept-all)",
+  "policy": "selective — not accept-all; one proposal only; preserve ceiling/tribute/witness; threshold P≥0.70 unchanged",
+  "items": [],
+  "proposals": [
+    {
+      "proposal_id": "imp_ef1eec_50",
+      "decision": "accepted",
+      "P": 0.7106,
+      "P_terms": {"P_oracle": 1.0, "P_novelty": 0.3333, "P_bench": 0.5092, "P_lesson": 1.0},
+      "target": "authored_binomial_symmetry__catalan_convolution_w1",
+      "rationale": "Explicit human authorize (James Jackson, chat 2026-10-07 9:09 PM ET). seek_enable for the authored stress check authored_binomial_symmetry__catalan_convolution_w1 (proven binomial_symmetry n=16..23 and catalan_convolution n=12..17, windows disjoint from their base windows); Oracle PASS with fitness credit, kept; P=0.7106 (P_oracle=1.0, P_novelty=0.3333, P_bench=0.5092, P_lesson=1.0), Hearing accept_candidate. Machine check — not a novel theorem. Duplicate imp_ef1eec_51 not authorized."
+    }
+  ],
+  "accept_all": false
+}

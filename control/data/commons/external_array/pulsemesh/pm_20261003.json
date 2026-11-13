@@ -1,0 +1,263 @@
+{
+  "ts": "2026-10-03T21:37:44Z",
+  "version": 1,
+  "mile": "spark3-port",
+  "feeds": {
+    "goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.662309903694064,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-10-03T21:30:00Z",
+          "v": -8.59182178037192
+        },
+        {
+          "t": "2026-10-03T21:30:00Z",
+          "v": -6.663105293791523
+        },
+        {
+          "t": "2026-10-03T21:31:00Z",
+          "v": -8.696453579743906
+        },
+        {
+          "t": "2026-10-03T21:31:00Z",
+          "v": -6.66336983811355
+        },
+        {
+          "t": "2026-10-03T21:32:00Z",
+          "v": -8.85039559914487
+        },
+        {
+          "t": "2026-10-03T21:32:00Z",
+          "v": -6.664413413989649
+        },
+        {
+          "t": "2026-10-03T21:33:00Z",
+          "v": -9.000000012282687
+        },
+        {
+          "t": "2026-10-03T21:33:00Z",
+          "v": -6.662309903694064
+        }
+      ],
+      "live": true,
+      "ts": "2026-10-03T21:37:44Z"
+    },
+    "openmeteo_series": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48,
+      "latest": 18.8,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-10-02T00:00",
+          "v": 22.3
+        },
+        {
+          "t": "2026-10-02T01:00",
+          "v": 21.9
+        },
+        {
+          "t": "2026-10-02T02:00",
+          "v": 21.4
+        },
+        {
+          "t": "2026-10-02T03:00",
+          "v": 21.4
+        },
+        {
+          "t": "2026-10-02T04:00",
+          "v": 21.0
+        },
+        {
+          "t": "2026-10-02T05:00",
+          "v": 20.8
+        },
+        {
+          "t": "2026-10-02T06:00",
+          "v": 20.5
+        },
+        {
+          "t": "2026-10-02T07:00",
+          "v": 20.4
+        }
+      ],
+      "live": false,
+      "cached": true,
+      "ts": "2026-10-03T21:37:44Z"
+    },
+    "usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 4.6,
+      "items": [
+        {
+          "mag": 4.6,
+          "place": "174 km SSE of Vilyuchinsk, Russia",
+          "time": 1790985566824,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.7,
+          "place": "153 km SSE of Vilyuchinsk, Russia",
+          "time": 1790985253503,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "52 km WSW of Paratunka, Russia",
+          "time": 1790975106532,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.0,
+          "place": "171 km SE of Vilyuchinsk, Russia",
+          "time": 1790974455391,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.7,
+          "place": "52 km SSW of Vilyuchinsk, Russia",
+          "time": 1790973501109,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "46 km SSW of Paratunka, Russia",
+          "time": 1790973468318,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.5,
+          "place": "86 km E of Noda, Japan",
+          "time": 1790973296862,
+          "source": "usgs"
+        },
+        {
+          "mag": 5.1,
+          "place": "199 km SSE of Vilyuchinsk, Russia",
+          "time": 1790972847120,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-09-26&endtime=2026-10-03&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-03T21:37:44Z"
+    },
+    "system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.083984375,
+          "disk_free_percent": 59.56940301720194,
+          "process_count": 144,
+          "uptime_hours": 0.19216388888888888,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "node": "runnervm8df0l",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.083984375,
+      "live": true,
+      "ts": "2026-10-03T21:37:44Z"
+    },
+    "tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 7.129707999979473,
+      "mean_ms": 13.016550000003235,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 11.946823000016593
+        },
+        {
+          "probe": 1,
+          "ms": 21.649188000083086
+        },
+        {
+          "probe": 2,
+          "ms": 11.340480999933789
+        },
+        {
+          "probe": 3,
+          "ms": 7.129707999979473
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-10-03T21:37:44Z"
+    }
+  },
+  "feed_health": {
+    "goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "openmeteo_series": {
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48
+    },
+    "usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "pulsemesh_local_ops_health",
+      "summary": "Local system_stat load1=0.083984375 tcp_probe mean_ms=13.016550000003235 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "signals": {
+        "load1": 0.083984375,
+        "probe_ms": 13.016550000003235,
+        "probe_ok": true
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "PulseMesh collectors in EXTERNAL ARRAY. Agent-queryable. Correlations are debate input — not discovery claims.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium",
+    "debate_input_only"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "ts": "2026-09-27T12:20:32Z",
+  "when_et": "2026-09-27 08:20 AM ET",
+  "version": 1,
+  "mile": "spark3-hold",
+  "posture": "HOLD",
+  "default_posture": "HOLD",
+  "policy": {
+    "light_evolve_watch": true,
+    "authorize_only_new_hard_oracle_pass": true,
+    "score_floor": 0.7,
+    "P_min": 0.7,
+    "never_accept_all": true,
+    "unknown_stays_unknown": true,
+    "athanor_inform_only": true,
+    "pulsemesh_inform_only": true,
+    "no_double_gate": true,
+    "no_silent_durable_accept": true
+  },
+  "cycle_id": "test_hold",
+  "scan_eligible": [
+    {
+      "finding_id": "fnd_a",
+      "theme": "fibonacci_identities",
+      "score": 0.81
+    },
+    {
+      "finding_id": "fnd_b",
+      "theme": "catalan",
+      "score": 0.82
+    },
+    {
+      "finding_id": "fnd_c",
+      "theme": "binomial_identities",
+      "score": 0.83
+    },
+    {
+      "finding_id": "fnd_d",
+      "theme": "extra",
+      "score": 0.84
+    },
+    {
+      "finding_id": "fnd_e",
+      "theme": "extra2",
+      "score": 0.85
+    }
+  ],
+  "authorize_action": {
+    "did_authorize": false,
+    "reason": "unit_test"
+  },
+  "evolve": {},
+  "ceiling": "P>=0.70 human authorize selective; tribute; append-only witness; Athanor/PulseMesh inform-only",
+  "non_claims": [
+    "not_AGI",
+    "not_consciousness",
+    "not_Millennium",
+    "not_novel_theorems",
+    "not_novel_physics"
+  ],
+  "ethos": "We light the spark and witness. We do not micromanage the city."
+}

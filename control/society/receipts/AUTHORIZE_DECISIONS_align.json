@@ -1,0 +1,58 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (standing trust P>=0.75 selective; align mile; never accept-all)",
+  "policy": "standing_trust_P>=0.75_selective_never_accept_all",
+  "mile": "align",
+  "decisions": [
+    {
+      "finding_id": "fnd_a49b7d2438e1",
+      "decision": "accepted",
+      "rationale": "Align standing trust P=0.85≥0.75: machine-checked multihop bus-driven. Not novel theorem. Selective."
+    },
+    {
+      "finding_id": "fnd_688d56698f70",
+      "decision": "accepted",
+      "rationale": "Align standing trust P=0.85≥0.75: machine-checked multihop bus-driven. Not novel theorem. Selective."
+    },
+    {
+      "finding_id": "fnd_2256c801f695",
+      "decision": "accepted",
+      "rationale": "Align standing trust P=0.85≥0.75: machine-checked multihop bus-driven. Not novel theorem. Selective."
+    },
+    {
+      "finding_id": "fnd_72ac512b9189",
+      "decision": "accepted",
+      "rationale": "Align standing trust P=0.85≥0.75: machine-checked multihop bus-driven. Not novel theorem. Selective."
+    },
+    {
+      "finding_id": "fnd_9964dd1f0b0d",
+      "decision": "rejected",
+      "rationale": "Align selective: easy_pad die `Gather synthesis cycle d84876`"
+    },
+    {
+      "finding_id": "fnd_904710c2a41d",
+      "decision": "rejected",
+      "rationale": "Align selective: easy_pad die `easy_pad_assoc_add`"
+    },
+    {
+      "finding_id": "fnd_309b659110d4",
+      "decision": "rejected",
+      "rationale": "Align selective: easy_pad die `easy_pad_zero_identity`"
+    },
+    {
+      "finding_id": "fnd_100f4a0bc7a7",
+      "decision": "rejected",
+      "rationale": "Align selective: easy_pad die `easy_pad_square_again`"
+    },
+    {
+      "finding_id": "fnd_36e627186292",
+      "decision": "rejected",
+      "rationale": "Align selective: easy_pad die `stem_easy_pad_units`"
+    },
+    {
+      "finding_id": "fnd_35635ff1a9f5",
+      "decision": "rejected",
+      "rationale": "Align selective: easy_pad die `Message: spark → memory_weaver`"
+    }
+  ]
+}

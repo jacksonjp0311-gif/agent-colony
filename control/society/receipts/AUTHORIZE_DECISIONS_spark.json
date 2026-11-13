@@ -1,0 +1,73 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (standing trust P>=0.75 selective; spark mile; never accept-all)",
+  "policy": "standing_trust_P>=0.75_selective_never_accept_all",
+  "mile": "spark",
+  "decisions": [
+    {
+      "finding_id": "fnd_17b70b866bea",
+      "decision": "accepted",
+      "rationale": "Spark standing trust P=0.85\u22650.75: machine-checked multihop/hard keep. Not novel theorem. Selective."
+    },
+    {
+      "finding_id": "fnd_479df4fd2275",
+      "decision": "accepted",
+      "rationale": "Spark standing trust P=0.85\u22650.75: machine-checked multihop/hard keep. Not novel theorem. Selective."
+    },
+    {
+      "finding_id": "fnd_9e41bf8a192e",
+      "decision": "accepted",
+      "rationale": "Spark standing trust P=0.85\u22650.75: machine-checked multihop/hard keep. Not novel theorem. Selective."
+    },
+    {
+      "finding_id": "fnd_2bcdbcfe5df4",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Tribute affirmation`"
+    },
+    {
+      "finding_id": "fnd_94fd062542ba",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: spark \u2192 archivist`"
+    },
+    {
+      "finding_id": "fnd_4ab7f734c5a3",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: chronicler \u2192 messenger`"
+    },
+    {
+      "finding_id": "fnd_9d4af33fe0da",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: spark \u2192 improver`"
+    },
+    {
+      "finding_id": "fnd_29e56c2e48a3",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: naturalist \u2192 geometer`"
+    },
+    {
+      "finding_id": "fnd_aaee9e029d48",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: geometer \u2192 legislator`"
+    },
+    {
+      "finding_id": "fnd_21c064434ae9",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: builder \u2192 legislator`"
+    },
+    {
+      "finding_id": "fnd_771bfc8aeb78",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: oracle_scribe \u2192 archivist`"
+    },
+    {
+      "finding_id": "fnd_76551f440311",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: tribute_keeper \u2192 spark`"
+    },
+    {
+      "finding_id": "fnd_125919fae664",
+      "decision": "rejected",
+      "rationale": "Spark selective: weak/non-machine `Message: memory_weaver \u2192 scribe`"
+    }
+  ]
+}

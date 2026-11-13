@@ -1,0 +1,18 @@
+{
+ "target": "erdos_699",
+ "lo": 330000001,
+ "hi": 376000000,
+ "complete": true,
+ "requested_hi": 376000000,
+ "cpu_seconds": 2436.6,
+ "wall_seconds": 626.1,
+ "jobs": 4,
+ "main_counterexamples": [],
+ "strict_exceptions": [],
+ "reviews": 0,
+ "checker": "fast699.c",
+ "label": "bounded evidence, not proof",
+ "proof": false,
+ "ts": "2026-10-16T18:27:28Z",
+ "tag": "run38946059972"
+}

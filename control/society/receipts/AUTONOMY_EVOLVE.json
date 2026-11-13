@@ -1,0 +1,31 @@
+{
+  "title": "AUTONOMY_EVOLVE",
+  "when": "2026-09-27T12:23:08Z",
+  "when_et": "2026-09-27 08:23 AM ET",
+  "mile": "autonomy-evolve-charters-pilot",
+  "posture": "HOLD",
+  "evolve_cycles": 6,
+  "systems_used_includes": [
+    "institution_charters",
+    "pilot_lane",
+    "hold_posture",
+    "cortex_cerebrum",
+    "athanor_coherence",
+    "pulsemesh_feeds"
+  ],
+  "fitness_aggregate": 0.8404,
+  "citation_reuse": 1.0,
+  "oracle": {
+    "passes": 55,
+    "kills": 0,
+    "easy_pad_kills": 0,
+    "total": 55
+  },
+  "authorize_eligible_new_themes": [],
+  "authorize_decision": "none \u2014 no new hard+Oracle-PASS theme \u22650.70 authorized this mile; left as-is; never accept-all",
+  "ceiling_held": true,
+  "oracle_on": true,
+  "ALIGN_not_reverted": true,
+  "spark_witness_untouched": true,
+  "ethos": "We light the spark and witness. We do not micromanage the city."
+}

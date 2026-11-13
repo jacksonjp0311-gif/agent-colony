@@ -1,0 +1,769 @@
+{
+ "targets": {
+  "oc_A026927_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 52,
+   "credit": 0.0
+  },
+  "oc_A188516_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A214946_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A214944_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A165064_0": {
+   "attempts": 48,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0912
+  },
+  "oc_A023110_0": {
+   "attempts": 2,
+   "status": "holds_on_range",
+   "tested_hi": 70,
+   "credit": 0.0
+  },
+  "oc_A295286_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1199,
+   "credit": 0.0
+  },
+  "oc_A214946_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A023887_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 100,
+   "credit": 0.0
+  },
+  "oc_A067076_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1000,
+   "credit": 0.0
+  },
+  "oc_A026923_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1000,
+   "credit": 0.0
+  },
+  "oc_A163029_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 100,
+   "credit": 0.0
+  },
+  "oc_A215230_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A026923_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1000,
+   "credit": 0.0
+  },
+  "oc_A214944_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A215230_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A110320_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 720,
+   "credit": 0.0
+  },
+  "oc_A295741_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 2000,
+   "credit": 0.0
+  },
+  "oc_A214945_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A215229_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A295741_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 2000,
+   "credit": 0.0
+  },
+  "oc_A165125_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 70,
+   "credit": 0.0
+  },
+  "oc_A214945_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A337484_0": {
+   "attempts": 2,
+   "status": "holds_on_range",
+   "tested_hi": 56,
+   "credit": 0.0
+  },
+  "oc_A026927_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 52,
+   "credit": 0.0
+  },
+  "oc_A325690_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1199,
+   "credit": 0.0
+  },
+  "oc_A100038_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 47,
+   "credit": 0.0
+  },
+  "oc_A165066_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 100,
+   "credit": 0.0
+  },
+  "oc_A295286_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A261955_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 50,
+   "credit": 0.0
+  },
+  "oc_A165025_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A304333_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A303762_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 1450,
+   "credit": 0.0
+  },
+  "oc_A325690_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 2999,
+   "credit": 0.0
+  },
+  "oc_A081798_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 205,
+   "credit": 0.0
+  },
+  "oc_A059894_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 2047,
+   "credit": 0.0
+  },
+  "oc_A303934_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A157100_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 534,
+   "credit": 0.0
+  },
+  "oc_A159772_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A164137_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A215229_1": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 210,
+   "credit": 0.0
+  },
+  "oc_A229019_0": {
+   "attempts": 69,
+   "status": "holds_on_range",
+   "tested_hi": 45,
+   "credit": 0.0
+  },
+  "oc_A212205_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A102882_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A166078_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A166076_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A115967_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A162479_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A247170_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A239201_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A116409_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A174783_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A006501_0": {
+   "attempts": 43,
+   "status": "holds_on_range",
+   "tested_hi": 1000,
+   "credit": 0.0
+  },
+  "oc_A104625_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A108475_0": {
+   "attempts": 43,
+   "status": "holds_on_range",
+   "tested_hi": 168,
+   "credit": 0.0
+  },
+  "oc_A025577_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A242781_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A103973_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A097332_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A234269_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A244886_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A128057_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A108476_0": {
+   "attempts": 49,
+   "status": "holds_on_range",
+   "tested_hi": 30,
+   "credit": 0.0099
+  },
+  "oc_A097331_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A240688_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A116391_0": {
+   "attempts": 1,
+   "status": "proved_checked",
+   "tested_hi": 0,
+   "credit": 1.0
+  },
+  "oc_A164733_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 70,
+   "credit": 0.0
+  },
+  "oc_A230219_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A258969_0": {
+   "attempts": 1,
+   "status": "untestable_here",
+   "tested_hi": 6,
+   "credit": 0.0
+  },
+  "oc_A164734_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 140,
+   "credit": 0.0
+  },
+  "oc_A027050_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 321,
+   "credit": 0.0
+  },
+  "oc_A224908_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 1000,
+   "credit": 0.0
+  },
+  "oc_A027174_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 249,
+   "credit": 0.0
+  },
+  "oc_A027027_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 320,
+   "credit": 0.0
+  },
+  "oc_A234344_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A285195_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 212,
+   "credit": 0.0
+  },
+  "oc_A126089_0": {
+   "attempts": 17,
+   "status": "holds_on_range",
+   "tested_hi": 1199,
+   "credit": 0.0389
+  },
+  "oc_A027058_0": {
+   "attempts": 7,
+   "status": "holds_on_range",
+   "tested_hi": 321,
+   "credit": 0.0
+  },
+  "oc_A224748_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A108629_0": {
+   "attempts": 6,
+   "status": "proved_checked",
+   "tested_hi": 299,
+   "credit": 1.0
+  },
+  "oc_A165027_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A027059_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 320,
+   "credit": 0.0
+  },
+  "oc_A026772_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 199,
+   "credit": 0.0
+  },
+  "oc_A027175_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 250,
+   "credit": 0.0
+  },
+  "oc_A026743_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 478,
+   "credit": 0.0
+  },
+  "oc_A179210_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 69,
+   "credit": 0.0
+  },
+  "oc_A303539_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A234347_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 3000,
+   "credit": 0.0
+  },
+  "oc_A243816_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 269,
+   "credit": 0.0
+  },
+  "oc_A026598_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 367,
+   "credit": 0.0
+  },
+  "oc_A026589_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 371,
+   "credit": 0.0
+  },
+  "oc_A027028_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 320,
+   "credit": 0.0
+  },
+  "oc_A097192_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 104,
+   "credit": 0.0
+  },
+  "oc_A090079_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 1099,
+   "credit": 0.0
+  },
+  "oc_A116388_0": {
+   "attempts": 6,
+   "status": "holds_on_range",
+   "tested_hi": 316,
+   "credit": 0.0
+  },
+  "oc_A106181_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 39,
+   "credit": 0.0
+  },
+  "oc_A027051_0": {
+   "attempts": 7,
+   "status": "holds_on_range",
+   "tested_hi": 320,
+   "credit": 0.0
+  },
+  "oc_A100037_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 48,
+   "credit": 0.0
+  },
+  "oc_A071264_0": {
+   "attempts": 6,
+   "status": "proved_checked",
+   "tested_hi": 252,
+   "credit": 1.0
+  },
+  "oc_A379464_0": {
+   "attempts": 4,
+   "status": "holds_on_range",
+   "tested_hi": 348,
+   "credit": 0.0
+  },
+  "oc_A026587_0": {
+   "attempts": 5,
+   "status": "holds_on_range",
+   "tested_hi": 371,
+   "credit": 0.0
+  }
+ },
+ "families": {
+  "relation": {
+   "attempts": 398,
+   "credit": 23.0488
+  },
+  "gf": {
+   "attempts": 62,
+   "credit": 0.0912
+  },
+  "only_prime": {
+   "attempts": 6,
+   "credit": 0.0
+  },
+  "property": {
+   "attempts": 69,
+   "credit": 0.0
+  }
+ },
+ "credit_total": 23.14,
+ "scoreboard": {
+  "counterexamples": {},
+  "proofs": {
+   "oc_A212205_0": {
+    "anum": "A212205",
+    "checker": "x-side residual is a polynomial of degree 6 with zero radical part; recurrence holds for n >= 7 by the operator identity",
+    "routine": true
+   },
+   "oc_A102882_0": {
+    "anum": "A102882",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 4 by the operator identit",
+    "routine": true
+   },
+   "oc_A166078_0": {
+    "anum": "A166078",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A166076_0": {
+    "anum": "A166076",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A115967_0": {
+    "anum": "A115967",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A162479_0": {
+    "anum": "A162479",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 5 by the operator identit",
+    "routine": true
+   },
+   "oc_A247170_0": {
+    "anum": "A247170",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
+    "routine": true
+   },
+   "oc_A239201_0": {
+    "anum": "A239201",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A116409_0": {
+    "anum": "A116409",
+    "checker": "x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A174783_0": {
+    "anum": "A174783",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A104625_0": {
+    "anum": "A104625",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
+    "routine": true
+   },
+   "oc_A025577_0": {
+    "anum": "A025577",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 4 by the operator identit",
+    "routine": true
+   },
+   "oc_A242781_0": {
+    "anum": "A242781",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 5 by the operator identity",
+    "routine": true
+   },
+   "oc_A103973_0": {
+    "anum": "A103973",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A097332_0": {
+    "anum": "A097332",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A234269_0": {
+    "anum": "A234269",
+    "checker": "x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 4 by the operator identity",
+    "routine": true
+   },
+   "oc_A244886_0": {
+    "anum": "A244886",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
+    "routine": true
+   },
+   "oc_A128057_0": {
+    "anum": "A128057",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 2 by the operator identit",
+    "routine": true
+   },
+   "oc_A097331_0": {
+    "anum": "A097331",
+    "checker": "x-side residual is a polynomial of degree 2 with zero radical part; recurrence holds for n >= 3 by the operator identity",
+    "routine": true
+   },
+   "oc_A240688_0": {
+    "anum": "A240688",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 3 by the operator identit",
+    "routine": true
+   },
+   "oc_A116391_0": {
+    "anum": "A116391",
+    "checker": "x-side residual is a polynomial of degree 1 with zero radical part; recurrence holds for n >= 5 by the operator identity",
+    "routine": true
+   },
+   "oc_A071264_0": {
+    "anum": "A071264",
+    "checker": "x-side residual is a polynomial of degree 0 with zero radical part; recurrence holds for n >= 2 by the operator identity",
+    "routine": true
+   },
+   "oc_A108629_0": {
+    "anum": "A108629",
+    "checker": "x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity",
+    "routine": true
+   }
+  },
+  "extensions": {
+   "oc_A108476_0": {
+    "anum": "A108476",
+    "bfile_hi": 19,
+    "to": 30,
+    "check": "exact"
+   },
+   "oc_A126089_0": {
+    "anum": "A126089",
+    "bfile_hi": 200,
+    "to": 1199,
+    "check": "exact"
+   },
+   "oc_A165064_0": {
+    "anum": "A165064",
+    "bfile_hi": 100,
+    "to": 7999,
+    "check": "exact"
+   }
+  }
+ }
+}

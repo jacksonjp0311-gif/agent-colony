@@ -1,0 +1,16 @@
+{
+  "when": "2026-09-27T01:21:37Z",
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (explicit trust grant 2026-09-27: keep evolving + authority for next evolutionary decisions; selective not accept-all)",
+  "decisions": [
+    {
+      "finding_id": "fnd_7256325fcfb6",
+      "correction_id": "fnd_c6d829125990",
+      "decision": "accepted",
+      "theme": "vandermonde",
+      "score": 0.8771,
+      "rationale": "Selective single-theme; machine-checked; unlocks citation_reuse"
+    }
+  ],
+  "accept_all": false
+}

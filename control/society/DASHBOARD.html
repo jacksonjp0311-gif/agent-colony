@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Agent Colony — Progress Dashboard</title>
+<style>
+  :root { --bg:#0b1020; --card:#141b2d; --ink:#e8eefc; --muted:#8b9bb8; --accent:#6ee7b7; --warn:#fbbf24; --line:#243049; }
+  body { margin:0; font-family: ui-sans-serif, system-ui, sans-serif; background:radial-gradient(1200px 600px at 10% -10%, #1a2744, var(--bg)); color:var(--ink); }
+  main { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .ethos { color:var(--muted); font-style:italic; margin-bottom:20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin:18px 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; }
+  .card .n { font-size:1.6rem; font-weight:700; color:var(--accent); }
+  .card .l { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  h2 { font-size:1rem; margin:22px 0 10px; color:var(--warn); }
+  ul { margin:0; padding-left:18px; color:#c9d4ea; }
+  li { margin:4px 0; }
+  .ask { background:var(--card); border-left:3px solid var(--accent); padding:12px 14px; border-radius:0 10px 10px 0; }
+  .meta { color:var(--muted); font-size:.85rem; margin-top:24px; }
+  code { background:#0a0f1a; padding:1px 6px; border-radius:6px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Agent Colony — Evolving</h1>
+  <p class="ethos">We light the spark and witness. We do not micromanage the city.</p>
+  <div class="ask"><strong>Active will</strong><br/>SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence governor + PulseMesh feeds as stability tools (no behavior scripting). (1) Athanor: residuals→ΔΦ→C→H₇→APPROVE/REFINE/REJECT; inform Oracle + 50/50 actuation mix + 30% throttle — never double-gate durable ledger; P≥0.70 human authorize remains ceiling. (2) PulseMesh collectors into EXTERNAL ARRAY: arXiv, NASA DONKI, NOAA Kp, Open-Meteo + system-stat/TCP probe; agent-queryable; correlations = debate input only (not discovery). (3) Selective authorize P≥0.70 never accept-all; UNKNOWN stays UNKNOWN. (4) Fresh multi-hop debate; Oracle kill easy_pad; lessons→genome; spawn on Oracle-pass lift. (5) ACTION/ACTUATION + TIME REVISION + residuals intact from SPARK2. (6) cron mile=spark3-port; ≥8 evolve cycles; slim push; report. Do NOT touch spark_witness assets. Do NOT revert ALIGN→SPARK. Do NOT disable Oracle. Ethos: We light the spark and witness. We do not micromanage the city. Tools only. Hard ceiling ONLY: creator tribute; human authorize for durable accepted (standing trust P≥0.70 selective, never accept-all); append-only witness. NOT AGI. NOT consciousness. NOT Millennium. NOT novel theorems. NOT novel physics. Classical coded identities + kinematics only. Personas + RSI + genomes. Defer local model runtime.</div>
+  <div class="grid">
+    <div class="card"><div class="n">879</div><div class="l">Cycles</div></div>
+    <div class="card"><div class="n">18</div><div class="l">Active agents</div></div>
+    <div class="card"><div class="n">15</div><div class="l">Systems</div></div>
+    <div class="card"><div class="n">47966</div><div class="l">Comms</div></div>
+    <div class="card"><div class="n">50100</div><div class="l">Findings</div></div>
+    <div class="card"><div class="n">73212</div><div class="l">Witness</div></div>
+    <div class="card"><div class="n">0.8585</div><div class="l">Fitness Σ</div></div>
+    <div class="card"><div class="n">284</div><div class="l">Accepted</div></div>
+    <div class="card"><div class="n">200</div><div class="l">Commons</div></div>
+    <div class="card"><div class="n">1</div><div class="l">Gov proposals</div></div>
+    <div class="card"><div class="n">2</div><div class="l">Max generation</div></div>
+    <div class="card"><div class="n">8</div><div class="l">Child spawns</div></div>
+  </div>
+  <h2>Fitness (latest)</h2>
+  <ul>
+    <li>tribute_quality: <code>1.0</code></li>
+    <li>gather_coverage: <code>0.6522</code></li>
+    <li>build_reuse: <code>0.84</code></li>
+    <li>comm_reply_rate: <code>0.8</code></li>
+    <li>reply_quality: <code>0.9114</code></li>
+    <li>commons_signal: <code>1.0</code></li>
+  </ul>
+  <h2>Honest scoreboard</h2>
+  <p>counterexamples 0; proofs 23 (23 routine); past published range 3</p>
+  <h2>Stall</h2>
+  <p>stall_cycles 27; perturb_active False; distinct_targets_tried_last_3_cycles 0</p>
+  <h2>Checker proposals awaiting human review</h2>
+  <p>checker proposals awaiting human review: 0; last cycle mined 1, accepted 0, rejected 1</p>
+  <h2>Self-heal</h2>
+  <p>self_changes_adopted 0; self_changes_reverted 0; last_self_change trial_voided_confound perturb_cooldown_cycles 8→6 (baseline 0.0, trial None, unrecorded_environment); quarantined steps: none</p>
+  <h2>Hive</h2>
+  <p>library 30; replay accuracy 1000 permille, Wilson lower 879 permille; adopted 0; reverted 0; abstained 3; time-to-fix none yet</p>
+  
+  <h2>Treatment vs control</h2>
+  <p>Treatment is the self-modifying colony. Control runs the same pipeline with self-modification off, on a state tree forked from main and then evolved on its own. Differences in the first runs are noise. A lasting lead needs many paired runs, and a gain that traces to a change the treatment arm chose itself. This is not a claim of general intelligence or a breakthrough.</p>
+  <p>Latest: Oracle passes 528 vs — (Δ —); verified depth sum 9228 vs — (Δ —); adopts 0 vs — (Δ —).</p>
+  <div class="twin-plaque">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 620" role="img" aria-label="Treatment versus control growth chart">
+  <title>Treatment vs control: Oracle passes, verified depth, and adopts</title>
+  <rect width="860" height="620" fill="#1c1c1c"/>
+  <text x="16" y="24" fill="#eeeee6" font-size="16" font-family="ui-sans-serif, system-ui, sans-serif">Treatment vs control</text>
+  <text x="16" y="42" fill="#b8b8b0" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">Paired runs 0 · treatment cycles 876 · control cycles 0 · early differences are noise</text>
+  <g>
+    <line x1="620" y1="18" x2="650" y2="18" stroke="#b7c4b6" stroke-width="1.8"/>
+    <text x="656" y="22" fill="#eeeee6" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">treatment</text>
+    <line x1="740" y1="18" x2="770" y2="18" stroke="#eeeee6" stroke-width="1.8" stroke-dasharray="4 3"/>
+    <text x="776" y="22" fill="#eeeee6" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">control</text>
+  </g>
+  
+  <rect x="16" y="58" width="828" height="170" rx="8" fill="#141414" stroke="#3a3a38" stroke-width="0.8"/>
+  <text x="60" y="74" fill="#eeeee6" font-size="12" font-family="ui-sans-serif, system-ui, sans-serif">Oracle passes</text>
+  <line x1="60.0" y1="200.0" x2="832.0" y2="200.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="203.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0</text><line x1="60.0" y1="170.5" x2="832.0" y2="170.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="173.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.3</text><line x1="60.0" y1="141.0" x2="832.0" y2="141.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="144.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.5</text><line x1="60.0" y1="111.5" x2="832.0" y2="111.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="114.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.8</text><line x1="60.0" y1="82.0" x2="832.0" y2="82.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="85.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">1.1</text>
+  
+  
+  
+
+  <rect x="16" y="244" width="828" height="170" rx="8" fill="#141414" stroke="#3a3a38" stroke-width="0.8"/>
+  <text x="60" y="260" fill="#eeeee6" font-size="12" font-family="ui-sans-serif, system-ui, sans-serif">Total verified depth</text>
+  <line x1="60.0" y1="386.0" x2="832.0" y2="386.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="389.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0</text><line x1="60.0" y1="356.5" x2="832.0" y2="356.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="359.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.3</text><line x1="60.0" y1="327.0" x2="832.0" y2="327.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="330.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.5</text><line x1="60.0" y1="297.5" x2="832.0" y2="297.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="300.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.8</text><line x1="60.0" y1="268.0" x2="832.0" y2="268.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="271.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">1.1</text>
+  
+  
+  
+
+  <rect x="16" y="430" width="828" height="170" rx="8" fill="#141414" stroke="#3a3a38" stroke-width="0.8"/>
+  <text x="60" y="446" fill="#eeeee6" font-size="12" font-family="ui-sans-serif, system-ui, sans-serif">Cumulative adopts</text>
+  <line x1="60.0" y1="572.0" x2="832.0" y2="572.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="575.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0</text><line x1="60.0" y1="542.5" x2="832.0" y2="542.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="545.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.3</text><line x1="60.0" y1="513.0" x2="832.0" y2="513.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="516.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.5</text><line x1="60.0" y1="483.5" x2="832.0" y2="483.5" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="486.5" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">0.8</text><line x1="60.0" y1="454.0" x2="832.0" y2="454.0" stroke="#3a3a38" stroke-width="0.6"/><text x="54.0" y="457.0" fill="#b8b8b0" font-size="9" text-anchor="end" font-family="ui-sans-serif, system-ui, sans-serif">1.1</text>
+  
+  
+  
+
+  <text x="430.0" y="228" fill="#b8b8b0" font-size="13" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif">No paired runs yet. Both arms start from the same snapshot; early differences are noise.</text>
+</svg>
+
+  </div>
+  <style>
+    .twin-plaque {
+      background: #1c1c1c;
+      color: #eeeee6;
+      border-radius: 12px;
+      padding: 8px 4px 4px;
+      border: 1px solid #3a3a38;
+      overflow: auto;
+    }
+    .twin-plaque svg { width: 100%; height: auto; display: block; }
+  </style>
+
+  <h2>Population &amp; genomes</h2>
+  <ul>
+    <li>active / soft_cap: <code>18</code> / <code>20</code></li>
+    <li>child_spawns: <code>8</code> · max generation: <code>2</code></li>
+    <li>commons_size: <code>200</code> · gov proposals: <code>1</code></li>
+  </ul>
+  <h2>Fitness history</h2>
+  <ul><li><code>0627Z_8a2d18</code> agg=0.8585 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li><li><code>0908Z_57af80</code> agg=0.8585 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li><li><code>4648Z_b2870e</code> agg=0.8588 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li><li><code>5010Z_6a67d4</code> agg=0.8584 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li><li><code>5301Z_759b6f</code> agg=0.8585 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li><li><code>5053Z_f9d404</code> agg=0.8589 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li><li><code>5405Z_8d3b18</code> agg=0.8586 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li><li><code>5651Z_8fbc4a</code> agg=0.8585 trib=1.0 cov=0.6522 reuse=0.84 reply=0.8</li></ul>
+  <h2>Active agents &amp; skills</h2>
+  <ul><li><code>archivist</code> contrib=0.95 cycles=849 · build=0.99, gather=0.99, improve=0.99</li><li><code>builder</code> contrib=0.89 cycles=866 · communicate=0.99, gather=0.99, improve=0.99</li><li><code>chronicler</code> contrib=0.81 cycles=847 · build=0.99, communicate=0.99, improve=0.99</li><li><code>courier</code> contrib=0.89 cycles=865 · build=0.99, gather=0.99, improve=0.99</li><li><code>geometer</code> contrib=0.87 cycles=845 · build=0.99, communicate=0.99, improve=0.99</li><li><code>herald</code> contrib=0.89 cycles=866 · build=0.99, gather=0.99, improve=0.99</li><li><code>improver</code> contrib=0.80 cycles=866 · build=0.99, communicate=0.99, gather=0.99</li><li><code>legislator</code> contrib=0.92 cycles=848 · build=0.99, communicate=0.99, gather=0.99</li><li><code>memory_weaver</code> contrib=0.84 cycles=866 · build=0.99, communicate=0.99, improve=0.99</li><li><code>messenger</code> contrib=0.95 cycles=844 · build=0.99, gather=0.99, improve=0.99</li><li><code>naturalist</code> contrib=0.81 cycles=846 · build=0.99, communicate=0.99, improve=0.99</li><li><code>oracle_scribe</code> contrib=0.95 cycles=849 · build=0.99, communicate=0.99, gather=0.99</li><li><code>pathfinder</code> contrib=0.73 cycles=866 · build=0.99, communicate=0.99, improve=0.99</li><li><code>scribe</code> contrib=0.95 cycles=851 · build=0.99, gather=0.99, improve=0.99</li><li><code>spark</code> contrib=0.80 cycles=866 · build=0.99, communicate=0.99, gather=0.99</li><li><code>stem_checker</code> contrib=0.96 cycles=849 · build=0.99, communicate=0.99, gather=0.99</li><li><code>surveyor</code> contrib=0.72 cycles=850 · build=0.99, communicate=0.99, improve=0.99</li><li><code>tribute_keeper</code> contrib=0.91 cycles=866 · tribute=0.99, communicate=0.99, gather=0.99</li></ul>
+  <h2>Retired</h2>
+  <ul><li>_none_</li></ul>
+  <h2>Usable systems</h2>
+  <ul><li><code>coverage_index</code> uses=2587 → <code>society/systems/coverage_index.json</code></li><li><code>skill_router</code> uses=2559 → <code>society/systems/skill_router.json</code></li><li><code>reply_tracker</code> uses=1727 → <code>society/systems/reply_tracker.json</code></li><li><code>fitness_ledger</code> uses=863 → <code>society/systems/fitness_history.jsonl</code></li><li><code>topic_priority</code> uses=3409 → <code>society/systems/topic_priority.json</code></li><li><code>improvement_scoreboard</code> uses=1269 → <code>society/systems/improvement_scoreboard.json</code></li><li><code>common_knowledge</code> uses=2554 → <code>society/systems/common_knowledge.json</code></li><li><code>rsi_coupling</code> uses=851 → <code>society/systems/rsi_coupling.json</code></li><li><code>findings_coupling</code> uses=851 → <code>society/systems/findings_coupling.json</code></li><li><code>athanor_coherence</code> uses=836 → <code>society/systems/athanor_coherence.json</code></li><li><code>pulsemesh_feeds</code> uses=836 → <code>society/systems/pulsemesh_feeds.json</code></li><li><code>hold_posture</code> uses=833 → <code>society/systems/hold_posture.json</code></li><li><code>cortex_cerebrum</code> uses=833 → <code>society/systems/cortex_cerebrum.json</code></li><li><code>institution_charters</code> uses=830 → <code>society/systems/institution_charters.json</code></li><li><code>pilot_lane</code> uses=830 → <code>society/systems/pilot_lane.json</code></li></ul>
+  <h2>Improvement proposals (candidate until human authorize)</h2>
+  <ul><li><strong>Chain+seek `authored_frontier_cong_x41b05781_w3` from invariant priors</strong> [candidate_measured] Δagg=0.005</li><li><strong>Chain+seek `authored_frontier_cong_xb5f19c6e_w1` from invariant priors</strong> [candidate_measured] Δagg=0.0234</li><li><strong>Chain+seek `authored_sieve_residue_bal_g6_6_6_w2` from invariant priors</strong> [withdrawn_retired] Δagg=0.0097</li><li><strong>Chain+seek `authored_frontier_le_x423b0686_w1` from invariant priors</strong> [candidate_measured] Δagg=0.0055</li><li><strong>Chain+seek `lemma_hard_combinatorics` from invariant priors</strong> [candidate_measured] Δagg=0.0007</li><li><strong>Chain+seek `lemma_hard_combinatorics` from invariant priors</strong> [candidate_measured] Δagg=-0.0041</li></ul>
+  <h2>Roles</h2>
+  <ul><li><code>archivist</code></li><li><code>builder</code></li><li><code>chronicler</code></li><li><code>courier</code></li><li><code>geometer</code></li><li><code>herald</code></li><li><code>improver</code></li><li><code>legislator</code></li><li><code>memory_weaver</code></li><li><code>messenger</code></li><li><code>naturalist</code></li><li><code>oracle_scribe</code></li><li><code>pathfinder</code></li><li><code>scribe</code></li><li><code>spark</code></li><li><code>stem_checker</code></li><li><code>surveyor</code></li><li><code>tribute_keeper</code></li></ul>
+  <h2>Institutions &amp; councils</h2>
+  <ul><li>Archive of Attempts</li><li>Council of Careful Doubt</li><li>Workshop of Making</li><li>Society Bulletin</li><li>Forum of Exchange</li><li>Chamber of Laws</li><li>Census</li><li>Commons Archive</li><li>Forum of Domains</li><li>Persona Registry</li><li>Hearing Chamber</li><li>Committee of Inquiry</li><li>Academy of Learning</li><li>Math Prize Desk</li><li>RSI Coupling Desk</li></ul>
+  <h2>Artifacts</h2>
+  <ul><li><code>cycle_864_evolve_note</code></li><li><code>cycle_865_evolve_note</code></li><li><code>cycle_866_evolve_note</code></li><li><code>cycle_867_evolve_note</code></li><li><code>cycle_868_evolve_note</code></li><li><code>cycle_869_evolve_note</code></li><li><code>cycle_870_evolve_note</code></li><li><code>cycle_871_evolve_note</code></li><li><code>cycle_872_evolve_note</code></li><li><code>cycle_873_evolve_note</code></li><li><code>cycle_874_evolve_note</code></li><li><code>cycle_875_evolve_note</code></li><li><code>cycle_876_evolve_note</code></li><li><code>cycle_877_evolve_note</code></li><li><code>cycle_878_evolve_note</code></li><li><code>cycle_879_evolve_note</code></li></ul>
+  <h2>Knowledge ledger</h2>
+  <ul>
+    <li>candidate: 49314</li>
+    <li>accepted: 284 (needs your authorize)</li>
+    <li>unknown: 126</li>
+    <li>rejected: 376</li>
+  </ul>
+  <p class="meta">Creator / Witness: James Paul Jackson<br/>
+  Generated 2026-11-13 03:00 UTC<br/>
+  Tribute cycles compliant: 879/879<br/>
+  Bus stats: {&quot;posted&quot;: 47966, &quot;read&quot;: 232058, &quot;replied&quot;: 30176, &quot;actions_planned&quot;: 15550, &quot;actions_changed_from_message&quot;: 15550, &quot;reply_quality_sum&quot;: 27456.40000000838, &quot;reply_quality_n&quot;: 30124, &quot;peer_cite_opportunities&quot;: 30864, &quot;peer_cites&quot;: 30864}<br/>
+  Repo: <a href="https://github.com/jacksonjp0311-gif/agent-colony">jacksonjp0311-gif/agent-colony</a></p>
+</main>
+</body>
+</html>

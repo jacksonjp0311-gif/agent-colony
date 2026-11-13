@@ -1,0 +1,141 @@
+{
+  "items": [
+    {
+      "finding_id": "fnd_0157d8a78e99",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked hard-tier keep `binomial_sum_row`. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_28d3bccf7c97",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked hard-tier keep `fibonacci_addition`. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_ab64af7552f2",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked hard-tier keep `catalan_bounded`. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_e3797a32207a",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.80: hard-checked claim pipeline (vandermonde theme). Pointer+harness only. Not discovery."
+    },
+    {
+      "finding_id": "fnd_e14788e6eb8e",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked hard-tier keep `lucas_addition`. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_fadf17eefbb3",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked hard-tier keep `central_binom_bound`. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_f392d2cdc451",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.92: machine-checked hard-tier keep `pell_companion`. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_461707420a14",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_f4c115e230b2",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_9b700b22d248",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_29da63a13f55",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_12981fa05f04",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_a23ae0276eb5",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_c951e86b6197",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_ed7545cd1897",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_1921dba73355",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_b725df0b9d31",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_c1ac82bc75d4",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_c5b41e625cf1",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_0458165f2aa1",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_44c5c4a10694",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_fe3428dc8c3b",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_2349de33d9cc",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_7d10773f197c",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_bb8daa9464fc",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_9773e8a47135",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    },
+    {
+      "finding_id": "fnd_a79bc5545962",
+      "decision": "rejected",
+      "rationale": "Selective reject: revert/easy_pad/unmeasured external-mind proposal. Ceiling held."
+    }
+  ],
+  "policy": "standing_trust_P>=0.75_selective_never_accept_all",
+  "mile": "five_lifts"
+}

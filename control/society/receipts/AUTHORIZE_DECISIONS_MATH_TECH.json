@@ -1,0 +1,75 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (explicit trust grant; selective P>=0.75)",
+  "policy": "accept only P>=0.75 with sourced live evidence; reject junk/dupes; leave uncertain",
+  "items": [
+    {
+      "finding_id": "fnd_f210093ad5cb",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. Millennium Prize Problems — live-fetched Clay Math Institute + Wikipedia; durable open-math prize framing for research-lab civilization."
+    },
+    {
+      "finding_id": "fnd_b3b0564bd3f8",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.92. FFT / Cooley–Tukey lineage live-fetched; canonical compute-useful mathematical advance with clear algorithmic impact."
+    },
+    {
+      "finding_id": "fnd_3b3e5a61922f",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.88. Automatic differentiation / backprop lineage live-fetched; math enabling useful gradient-based computation (not AGI claim)."
+    },
+    {
+      "finding_id": "fnd_fe0c6eb713f3",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. Transformer (Attention Is All You Need) arXiv+Wikipedia live-fetched; emergent-tech scout landmark for sequence models."
+    },
+    {
+      "finding_id": "fnd_533552a31c99",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.85. Lean proof assistant live-fetched; formal-math tooling scaffold for careful research-lab practice."
+    },
+    {
+      "finding_id": "fnd_94875967a092",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. P vs NP open-problem lineage live-fetched (Wikipedia + Clay); high-stakes compute-useful mathematics, remains carefully open."
+    }
+  ],
+  "p_estimates": [
+    {
+      "finding_id": "fnd_f210093ad5cb",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. Millennium Prize Problems — live-fetched Clay Math Institute + Wikipedia; durable open-math prize framing for research-lab civilization.",
+      "p": 0.9
+    },
+    {
+      "finding_id": "fnd_b3b0564bd3f8",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.92. FFT / Cooley–Tukey lineage live-fetched; canonical compute-useful mathematical advance with clear algorithmic impact.",
+      "p": 0.92
+    },
+    {
+      "finding_id": "fnd_3b3e5a61922f",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.88. Automatic differentiation / backprop lineage live-fetched; math enabling useful gradient-based computation (not AGI claim).",
+      "p": 0.88
+    },
+    {
+      "finding_id": "fnd_fe0c6eb713f3",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. Transformer (Attention Is All You Need) arXiv+Wikipedia live-fetched; emergent-tech scout landmark for sequence models.",
+      "p": 0.9
+    },
+    {
+      "finding_id": "fnd_533552a31c99",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.85. Lean proof assistant live-fetched; formal-math tooling scaffold for careful research-lab practice.",
+      "p": 0.85
+    },
+    {
+      "finding_id": "fnd_94875967a092",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. P vs NP open-problem lineage live-fetched (Wikipedia + Clay); high-stakes compute-useful mathematics, remains carefully open.",
+      "p": 0.9
+    }
+  ]
+}

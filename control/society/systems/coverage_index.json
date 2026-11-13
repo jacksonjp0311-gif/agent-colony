@@ -1,0 +1,22 @@
+{
+  "topics": {
+    "godel-machines": 2,
+    "darwin-godel-machine": 2,
+    "constitutional-ai": 1,
+    "reflexion": 2,
+    "voyager": 1,
+    "self-refine": 1,
+    "meta-learning": 1,
+    "autogpt-loops": 1,
+    "opendevin": 1,
+    "debate": 1106,
+    "agent-societies": 41739,
+    "recursive-self-improvement": 2,
+    "compute-useful-math": 2048,
+    "mathematics-foundations": 1,
+    "open-math-problems": 4327
+  },
+  "source": "gather_pass",
+  "updated_at": "2026-11-13T02:57:53Z",
+  "updated_cycle": "20261113T025651Z_8fbc4a"
+}

@@ -1,0 +1,586 @@
+{
+ "n": 58,
+ "note": "Frontier claims the colony could not author as checks: after holding back the final slice of the bridge tables for the Oracle's shifted held-out window, fewer than 90 values of n were left. Not tested is not failed and not passed.",
+ "records": {
+  "059a3953478af636:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x059a3953_w1",
+   "data_end": 56,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "cmax[podd](n) = 1 (mod 3) for all n = 0 (mod 2)"
+  },
+  "059a3953478af636:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x059a3953_w2",
+   "data_end": 56,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "cmax[podd](n) = 1 (mod 3) for all n = 0 (mod 2)"
+  },
+  "07de99650444b31d:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x07de9965_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)"
+  },
+  "07de99650444b31d:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x07de9965_w2",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)"
+  },
+  "0c5f5f5b9cc13c37:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_divides_x0c5f5f5b_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "divides",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "gpf[phi](n) divides dbl(phi)(n) for all n >= 1"
+  },
+  "0dbd3162f119412e:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x0dbd3162_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "cmax[oxa080076](n) = 0 (mod 2) for all n >= 1"
+  },
+  "0dbd3162f119412e:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x0dbd3162_w2",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "cmax[oxa080076](n) = 0 (mod 2) for all n >= 1"
+  },
+  "0df35249e0bb67e2:w2": {
+   "authored_hi": 752,
+   "check": "authored_frontier_cong_x0df35249_w2",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "dbl(oxa009191)(n) = 0 (mod 2) for all n = 4 (mod 6)"
+  },
+  "10223e692bba434e:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_le_x10223e69_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "le",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)"
+  },
+  "192eb85d74be50f2:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x192eb85d_w1",
+   "data_end": 56,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "rad[podd](n) = 0 (mod 2) for all n = 3 (mod 7)"
+  },
+  "192eb85d74be50f2:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x192eb85d_w2",
+   "data_end": 56,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "rad[podd](n) = 0 (mod 2) for all n = 3 (mod 7)"
+  },
+  "318ee14a29690473:w3": {
+   "authored_hi": 752,
+   "check": "authored_frontier_divides_x318ee14a_w3",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "divides",
+   "lo": 1400,
+   "reason": "no_data_headroom",
+   "statement": "lucas(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  "3562d07e522609fa:w3": {
+   "authored_hi": 752,
+   "check": "authored_frontier_divides_x3562d07e_w3",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "divides",
+   "lo": 1400,
+   "reason": "no_data_headroom",
+   "statement": "fib(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  "3f36abbec5118a4f:w2": {
+   "authored_hi": 355,
+   "check": "authored_frontier_cong_x3f36abbe_w2",
+   "data_end": 473,
+   "holdback": 118,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "D(gcd(oxa177115,oxa177122))(n) = 0 (mod 2) for all n >= 1"
+  },
+  "423b0686caaaa734:w2": {
+   "authored_hi": 954,
+   "check": "authored_frontier_le_x423b0686_w2",
+   "data_end": 1272,
+   "holdback": 318,
+   "kind": "le",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "D(oxa213536)(n) <= gpf[oxa213536](n) for all n >= 1 (with equality at some n)"
+  },
+  "4bb20589ac71b085:w2": {
+   "authored_hi": 752,
+   "check": "authored_frontier_cong_x4bb20589_w2",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "dbl(oxa048767)(n) = 0 (mod 2) for all n = 1 (mod 2)"
+  },
+  "51c52e4293994e3a:w3": {
+   "authored_hi": 1376,
+   "check": "authored_frontier_modpat_x51c52e42_w3",
+   "data_end": 1834,
+   "holdback": 458,
+   "kind": "modpat",
+   "lo": 1400,
+   "reason": "no_data_headroom",
+   "statement": "gcd(oxa009191,oxa083105)(n) mod 2 depends only on n mod 6 (residues [1, 0, 1, 1, 1, 1] for n = 1..6), all n >= 1"
+  },
+  "575aa4355dde7071:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_divides_x575aa435_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "divides",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1"
+  },
+  "5979c9b90cd08c65:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_divides_x5979c9b9_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "divides",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1"
+  },
+  "5c4b76fad62db669:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x5c4b76fa_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "prime[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
+  "5c4b76fad62db669:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x5c4b76fa_w2",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "prime[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
+  "5caeb8858bfc5122:w2": {
+   "authored_hi": 579,
+   "check": "authored_frontier_cong_x5caeb885_w2",
+   "data_end": 771,
+   "holdback": 192,
+   "kind": "cong",
+   "lo": 6000,
+   "reason": "no_data_headroom",
+   "statement": "gpf[ple3](n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  "5e2b9e4887d1bc31:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_le_x5e2b9e48_w2",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "le",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[pnot3](n) <= pnot3(n) for all n >= 1 (with equality at some n)"
+  },
+  "5f61e6bb1b744db4:w2": {
+   "authored_hi": 163,
+   "check": "authored_frontier_divides_x5f61e6bb_w2",
+   "data_end": 253,
+   "holdback": 90,
+   "kind": "divides",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "bigomega[oxa213536](n) divides (oxa056971*oxa107293)(n) for all n >= 1"
+  },
+  "69004ae3c80ff95a:w2": {
+   "authored_hi": 3850,
+   "check": "authored_frontier_divides_x69004ae3_w2",
+   "data_end": 5133,
+   "holdback": 1283,
+   "kind": "divides",
+   "lo": 6000,
+   "reason": "no_data_headroom",
+   "statement": "pi[prime](n) divides (rad*sqfree)(n) for all n >= 1"
+  },
+  "7064bba534b76c05:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x7064bba5_w1",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "gpf[pnot3](n) = 1 (mod 2) for all n = 0 (mod 6)"
+  },
+  "7064bba534b76c05:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x7064bba5_w2",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[pnot3](n) = 1 (mod 2) for all n = 0 (mod 6)"
+  },
+  "7148ebbcbb597e2b:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x7148ebbc_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1"
+  },
+  "7148ebbcbb597e2b:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x7148ebbc_w2",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1"
+  },
+  "755f41625fe2b0b9:w1": {
+   "authored_hi": 4,
+   "check": "authored_frontier_cong_x755f4162_w1",
+   "data_end": 94,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "gpf[prr](n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  "755f41625fe2b0b9:w2": {
+   "authored_hi": 4,
+   "check": "authored_frontier_cong_x755f4162_w2",
+   "data_end": 94,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[prr](n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  "84926b76bac27ae7:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_divides_x84926b76_w2",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "divides",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[pnot3](n) divides pnot3(n) for all n >= 1"
+  },
+  "85b99e19ea952239:w2": {
+   "authored_hi": 213,
+   "check": "authored_frontier_cong_x85b99e19_w2",
+   "data_end": 303,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "dbl(oxa177115)(n) = 0 (mod 2) for all n >= 1"
+  },
+  "9acc763a760ad022:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x9acc763a_w1",
+   "data_end": 58,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "sopfr[oxa238873](n) = 1 (mod 2) for all n = 4 (mod 7)"
+  },
+  "9acc763a760ad022:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_x9acc763a_w2",
+   "data_end": 58,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "sopfr[oxa238873](n) = 1 (mod 2) for all n = 4 (mod 7)"
+  },
+  "9c520ec498c2200b:w2": {
+   "authored_hi": 900,
+   "check": "authored_frontier_cong_x9c520ec4_w2",
+   "data_end": 1200,
+   "holdback": 300,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "S((perm_derange*prime))(n) = 0 (mod 2) for all n = 0 (mod 4)"
+  },
+  "a9e515ffbe0783ef:w2": {
+   "authored_hi": 147,
+   "check": "authored_frontier_cong_xa9e515ff_w2",
+   "data_end": 237,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "dbl(oxa177122)(n) = 1 (mod 2) for all n >= 1"
+  },
+  "b0e08ab94515284c:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_le_xb0e08ab9_w1",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "le",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "bigomega[pnot3](n) <= dbl(digsum)(n) for all n >= 1 (with equality at some n)"
+  },
+  "b0e08ab94515284c:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_le_xb0e08ab9_w2",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "le",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "bigomega[pnot3](n) <= dbl(digsum)(n) for all n >= 1 (with equality at some n)"
+  },
+  "b168eb68fc249021:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xb168eb68_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "ple3[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
+  "b168eb68fc249021:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xb168eb68_w2",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "ple3[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
+  "b19ab27cc0ed21b7:w2": {
+   "authored_hi": 900,
+   "check": "authored_frontier_cong_xb19ab27c_w2",
+   "data_end": 1200,
+   "holdback": 300,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1"
+  },
+  "b5f19c6e19038951:w2": {
+   "authored_hi": 579,
+   "check": "authored_frontier_cong_xb5f19c6e_w2",
+   "data_end": 771,
+   "holdback": 192,
+   "kind": "cong",
+   "lo": 6000,
+   "reason": "no_data_headroom",
+   "statement": "rad[ple3](n) = 1 (mod 2) for all n = 0 (mod 6)"
+  },
+  "b999e9ad1e53adc7:w2": {
+   "authored_hi": 955,
+   "check": "authored_frontier_cong_xb999e9ad_w2",
+   "data_end": 1273,
+   "holdback": 318,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "lpf[oxa213536](n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  "ba575886b2b40d0d:w3": {
+   "authored_hi": 752,
+   "check": "authored_frontier_divides_xba575886_w3",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "divides",
+   "lo": 1400,
+   "reason": "no_data_headroom",
+   "statement": "stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1"
+  },
+  "bae7672a97b68a33:w2": {
+   "authored_hi": 533,
+   "check": "authored_frontier_cong_xbae7672a_w2",
+   "data_end": 710,
+   "holdback": 177,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "S(oxa157100)(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  "c49d8defd91b9639:w1": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xc49d8def_w1",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)"
+  },
+  "c49d8defd91b9639:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xc49d8def_w2",
+   "data_end": 75,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)"
+  },
+  "c90ee275beefe491:w3": {
+   "authored_hi": 752,
+   "check": "authored_frontier_divides_xc90ee275_w3",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "divides",
+   "lo": 1400,
+   "reason": "no_data_headroom",
+   "statement": "stree_grid3(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  "ce2039b7b055c8c4:w2": {
+   "authored_hi": 36,
+   "check": "authored_frontier_cong_xce2039b7_w2",
+   "data_end": 126,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "dbl(oxa056971)(n) = 0 (mod 3) for all n = 0 (mod 2)"
+  },
+  "d050b6c40f0b8d39:w1": {
+   "authored_hi": 36,
+   "check": "authored_frontier_divides_xd050b6c4_w1",
+   "data_end": 126,
+   "holdback": 90,
+   "kind": "divides",
+   "lo": 40,
+   "reason": "no_data_headroom",
+   "statement": "S(fibw)(n) divides dbl(oxa056971)(n) for all n >= 1"
+  },
+  "d050b6c40f0b8d39:w2": {
+   "authored_hi": 36,
+   "check": "authored_frontier_divides_xd050b6c4_w2",
+   "data_end": 126,
+   "holdback": 90,
+   "kind": "divides",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "S(fibw)(n) divides dbl(oxa056971)(n) for all n >= 1"
+  },
+  "d63f4625e70478dd:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xd63f4625_w2",
+   "data_end": 71,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[oxa088902](n) = 1 (mod 2) for all n = 1 (mod 2)"
+  },
+  "da9f682211002188:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xda9f6822_w2",
+   "data_end": 58,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gpf[oxa238873](n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  "dbe366dabb22709b:w2": {
+   "authored_hi": 454,
+   "check": "authored_frontier_cong_xdbe366da_w2",
+   "data_end": 605,
+   "holdback": 151,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "D(oxa177115)(n) = 0 (mod 2) for all n = 0 (mod 4)"
+  },
+  "e362e67f098ed0ab:w2": {
+   "authored_hi": 0,
+   "check": "authored_frontier_cong_xe362e67f_w2",
+   "data_end": 55,
+   "holdback": 90,
+   "kind": "cong",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "prime[pnot3](n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  "e8bb16925d335445:w2": {
+   "authored_hi": 752,
+   "check": "authored_frontier_le_xe8bb1692_w2",
+   "data_end": 1002,
+   "holdback": 250,
+   "kind": "le",
+   "lo": 900,
+   "reason": "no_data_headroom",
+   "statement": "gcd(part,sqfree)(n) <= dbl(gcd(part,sqfree))(n) for all n >= 1 (with equality at some n)"
+  },
+  "fb3d07d92c0b11c0:w3": {
+   "authored_hi": 18750,
+   "check": "authored_frontier_le_xfb3d07d9_w3",
+   "data_end": 25000,
+   "holdback": 6250,
+   "kind": "le",
+   "lo": 24000,
+   "reason": "no_data_headroom",
+   "statement": "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)"
+  }
+ }
+}

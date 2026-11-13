@@ -1,0 +1,61 @@
+{
+  "authorizer": "James Paul Jackson",
+  "delegated_via": "Grok Bot (James standing trust: authorize high-P P>=0.75 forever for agent-colony; selective)",
+  "policy": "accept only P>=0.75 with sourced evidence OR metrics-proven; reject junk/dupes; leave uncertain",
+  "standing_trust": "high-P (P>=0.75) forever for agent-colony",
+  "accepted": [
+    {
+      "finding_id": "fnd_e1d23b995bb5",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.88. Math Prize Desk — live institution; fitness math_prize=1.0 compute_usefulness=1.0 prize_boost=1.0; durable research-lab scaffolding (not AGI)."
+    },
+    {
+      "finding_id": "fnd_7d85ea93cfe3",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.86. Hearing Chamber — live each cycle with accept_candidate/reject/defer verdicts; citation_reuse=1.0; measured process (not AGI)."
+    },
+    {
+      "finding_id": "fnd_a44a3a1683d1",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.84. Research Lab Colloquium — standing council for math/tech debate; couples to hearings and prize track."
+    },
+    {
+      "finding_id": "fnd_b10f4fe2aa43",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.82. Academy of Learning — education institution in active ask; supports careful research-lab practice."
+    },
+    {
+      "finding_id": "fnd_be3edc343495",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.90. NORM: Debate in committee/hearing before proposing; math/compute prize_boost still candidate until human authorize; no AGI claims. Matches standing will + ceiling."
+    }
+  ],
+  "rejected_count": 16,
+  "rejected_ids": [
+    "fnd_d4f8afb66b61",
+    "fnd_6eef77c9a15f",
+    "fnd_c3383da3d66f",
+    "fnd_e3c89383da73",
+    "fnd_983aae57dcff",
+    "fnd_88f1c8884d5d",
+    "fnd_2451622a7480",
+    "fnd_d1d2c9b9d217",
+    "fnd_a887c26f829d",
+    "fnd_3eb0720b01c5",
+    "fnd_1f5e6ba41839",
+    "fnd_590d7bf93e13",
+    "fnd_5ae9646ff019",
+    "fnd_fb335135b31c",
+    "fnd_777eb9aaef56",
+    "fnd_a5c184d2b9c4"
+  ],
+  "rejected_rationale_common": "REJECT P=0.40 (junk/dupe): Hearing accept_candidate Deepen compute-useful math already authorized (fnd_309462c974cf P=0.86); cycle variants are process noise without new evidence.",
+  "proposals_count": 44,
+  "proposals_accepted": [
+    {
+      "proposal_id": "imp_622d45_40",
+      "decision": "accepted",
+      "rationale": "ACCEPT P=0.86. Aligns with authorized Hearing accept_candidate deepen-compute; citation_reuse proven."
+    }
+  ]
+}

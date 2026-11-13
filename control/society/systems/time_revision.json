@@ -1,0 +1,92 @@
+{
+  "ts": "2026-11-13T02:58:40Z",
+  "version": 1,
+  "latest_cycle_id": "20261113T025651Z_8fbc4a",
+  "latest_revision_count": 0,
+  "total_revisions": 4,
+  "latest_revisions": [],
+  "latest_inputs": {
+    "pattern_kinds": [
+      "pulsemesh_ops_health",
+      "global_weather_spread",
+      "pulsemesh_goes_live"
+    ],
+    "n_residual_conflicts": 24,
+    "oracle_easy_pad_kills": 32,
+    "fitness_delta": -0.00029999999999996696,
+    "kp": null
+  },
+  "examples": [
+    {
+      "topic": "arxiv_relevance",
+      "from_confidence": 0.5,
+      "to_confidence": 0.72,
+      "from_claim": "Fresh STEM preprints are low-priority vs hard-tier lemmas.",
+      "to_claim": "Fresh arXiv STEM + space signals cross-correlate — raise multi-hop priority for hearing/Oracle evidence.",
+      "why": "New publications×space pattern revised low-priority preprint stance.",
+      "cause": {
+        "signal": "external_array",
+        "kind": "publications_x_space"
+      },
+      "prior_id": "pos_f25a8e4c5ef0",
+      "new_id": "pos_f04f62a25dae"
+    },
+    {
+      "topic": "oracle_easy_pad",
+      "from_confidence": 0.45,
+      "to_confidence": 0.8,
+      "from_claim": "easy_pad pressure is stable; no further Oracle vigilance.",
+      "to_claim": "Oracle easy_pad_kills=33 — maintain kill path; no fitness credit on FAIL.",
+      "why": "Oracle metrics revised complacent easy_pad stance.",
+      "cause": {
+        "signal": "oracle",
+        "easy_pad_kills": 33,
+        "kills": 49
+      },
+      "prior_id": "pos_6360b1f907ec",
+      "new_id": "pos_799d36584bad"
+    },
+    {
+      "topic": "residual_harmony",
+      "from_confidence": 0.55,
+      "to_confidence": 0.3,
+      "from_claim": "Peer residuals are aligned; re-debate unnecessary.",
+      "to_claim": "Peer residual conflict spark↔legislator score=0.4336 — re-debate required.",
+      "why": "INTERNAL RESIDUALS conflict revised prior harmony belief; trigger re-debate.",
+      "cause": {
+        "signal": "residuals",
+        "conflict": {
+          "a": "spark",
+          "b": "legislator",
+          "confidence_gap": 0.2586,
+          "arousal_gap": 0.35,
+          "score": 0.4336,
+          "trigger_redebate": true,
+          "ts": "2026-09-26T22:16:56Z"
+        }
+      },
+      "prior_id": "pos_b7b8bd6d304a",
+      "new_id": "pos_ce35f8b9d093"
+    },
+    {
+      "topic": "weather_commons",
+      "from_confidence": 0.6,
+      "to_confidence": 0.68,
+      "from_claim": "Global weather snapshots do not affect colony gather→claim.",
+      "to_claim": "Global weather snapshot is observable colony environment signal — include in gather→claim debate.",
+      "why": "Weather feed update revised 'no effect' commons belief.",
+      "cause": {
+        "signal": "external_array",
+        "kind": "global_weather_spread"
+      },
+      "prior_id": "pos_5ec4508c8f49",
+      "new_id": "pos_2007e4ee9eb0"
+    }
+  ],
+  "note": "TIME REVISION: prior conclusions revised from new data — not append-only opinions.",
+  "non_claims": [
+    "not_AGI",
+    "not_discovery",
+    "UNKNOWN_stays_UNKNOWN"
+  ]
+}

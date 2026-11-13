@@ -1,0 +1,257 @@
+{
+  "ranked": [
+    {
+      "topic": "compute-useful-math",
+      "priority": 1.15,
+      "reason": "accepted_compute_finding",
+      "finding_id": "fnd_20d46d1b739b",
+      "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g6_6_4_w1"
+    },
+    {
+      "topic": "open-math-problems",
+      "priority": 1.05,
+      "reason": "follow_on_from_compute",
+      "from_topic": "compute-useful-math"
+    },
+    {
+      "topic": "software-engineering",
+      "priority": 1.05,
+      "reason": "follow_on_from_compute",
+      "from_topic": "compute-useful-math"
+    },
+    {
+      "topic": "emergent-technology",
+      "priority": 1.05,
+      "reason": "follow_on_from_compute",
+      "from_topic": "compute-useful-math"
+    },
+    {
+      "topic": "$2$-factor",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$3$-distance",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$\\ell_2$-norm",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$k$-connected",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$k_k$-free",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$k_t$-minor-free",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$l$-functions",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$p$-parity",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "`meta-learning`",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "artifact-first",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "mathematics-foundations",
+      "priority": 0.55,
+      "reason": "charter:Math Prize Desk",
+      "institution": "Math Prize Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "rsi-research",
+      "priority": 0.55,
+      "reason": "charter:RSI Coupling Desk",
+      "institution": "RSI Coupling Desk",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "epistemic-caution",
+      "priority": 0.55,
+      "reason": "charter:Council of Careful Doubt",
+      "institution": "Council of Careful Doubt",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "oracle-review",
+      "priority": 0.55,
+      "reason": "charter:Council of Careful Doubt",
+      "institution": "Council of Careful Doubt",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "tool-building",
+      "priority": 0.55,
+      "reason": "charter:Workshop of Making",
+      "institution": "Workshop of Making",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "archive-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Archive of Attempts",
+      "institution": "Archive of Attempts",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "attempt-index",
+      "priority": 0.55,
+      "reason": "charter:Archive of Attempts",
+      "institution": "Archive of Attempts",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "bulletin-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Society Bulletin",
+      "institution": "Society Bulletin",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "forum-exchange",
+      "priority": 0.55,
+      "reason": "charter:Forum of Exchange",
+      "institution": "Forum of Exchange",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "norm-drafting",
+      "priority": 0.55,
+      "reason": "charter:Chamber of Laws",
+      "institution": "Chamber of Laws",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "census-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Census",
+      "institution": "Census",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "commons-digest",
+      "priority": 0.55,
+      "reason": "charter:Commons Archive",
+      "institution": "Commons Archive",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "science-history",
+      "priority": 0.55,
+      "reason": "charter:Commons Archive",
+      "institution": "Commons Archive",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "science-foundations",
+      "priority": 0.55,
+      "reason": "charter:Forum of Domains",
+      "institution": "Forum of Domains",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "history-of-ideas",
+      "priority": 0.55,
+      "reason": "charter:Forum of Domains",
+      "institution": "Forum of Domains",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "persona-hygiene",
+      "priority": 0.55,
+      "reason": "charter:Persona Registry",
+      "institution": "Persona Registry",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "hearing-schedule",
+      "priority": 0.55,
+      "reason": "charter:Hearing Chamber",
+      "institution": "Hearing Chamber",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "cross-examination",
+      "priority": 0.55,
+      "reason": "charter:Hearing Chamber",
+      "institution": "Hearing Chamber",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "thin-topics",
+      "priority": 0.55,
+      "reason": "charter:Committee of Inquiry",
+      "institution": "Committee of Inquiry",
+      "inform_only": true,
+      "durable_accept": false
+    },
+    {
+      "topic": "research-priority",
+      "priority": 0.55,
+      "reason": "charter:Committee of Inquiry",
+      "institution": "Committee of Inquiry",
+      "inform_only": true,
+      "durable_accept": false
+    }
+  ],
+  "source": "growth_refresh+findings_coupling",
+  "updated_at": "2026-11-13T02:58:40Z",
+  "updated_cycle": "20261113T025651Z_8fbc4a",
+  "charter_inform": {
+    "hints": 29,
+    "inform_only": true,
+    "durable_accept": false
+  }
+}

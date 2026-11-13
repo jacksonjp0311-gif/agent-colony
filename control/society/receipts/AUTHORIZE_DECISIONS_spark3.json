@@ -1,0 +1,223 @@
+{
+  "items": [
+    {
+      "finding_id": "fnd_3af78d8be79b",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. SPARK3-port selective. Not novel theorem."
+    },
+    {
+      "finding_id": "fnd_e363fc42ecea",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. SPARK3-port selective. Not novel theorem."
+    },
+    {
+      "finding_id": "fnd_7c3a4039bd5e",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. SPARK3-port selective. Not novel theorem."
+    },
+    {
+      "finding_id": "fnd_c8563f5a39d6",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. SPARK3-port selective. Not novel theorem."
+    },
+    {
+      "finding_id": "fnd_78af6b8d619c",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. SPARK3-port selective. Not novel theorem."
+    },
+    {
+      "finding_id": "fnd_5648e771ecdc",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7: machine-checked hard-tier/Oracle/bus-driven candidate. SPARK3-port selective. Not novel theorem."
+    },
+    {
+      "finding_id": "fnd_b5bc83f44860",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    },
+    {
+      "finding_id": "fnd_ab3b8afbf509",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    },
+    {
+      "finding_id": "fnd_9dea78bcf764",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    },
+    {
+      "finding_id": "fnd_7d9d6c33de08",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    },
+    {
+      "finding_id": "fnd_e21fc616bdf2",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    },
+    {
+      "finding_id": "fnd_c34430d0f768",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    },
+    {
+      "finding_id": "fnd_16410804172a",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    },
+    {
+      "finding_id": "fnd_966815504246",
+      "decision": "rejected",
+      "rationale": "Standing trust selective reject: conjecture/external_mind remains non-durable without machine-check keep. UNKNOWN stays UNKNOWN. SPARK3-port."
+    }
+  ],
+  "policy": "standing_trust_P>=0.70_selective_never_accept_all",
+  "mile": "spark3-port",
+  "P_min_before": 0.75,
+  "P_min_after": 0.7,
+  "threshold_compare": [
+    {
+      "confidence": 0.72,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "finding_id": "fnd_3af78d8be79b",
+      "decision": "accepted"
+    },
+    {
+      "confidence": 0.72,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "finding_id": "fnd_e363fc42ecea",
+      "decision": "accepted"
+    },
+    {
+      "confidence": 0.72,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "finding_id": "fnd_7c3a4039bd5e",
+      "decision": "accepted"
+    },
+    {
+      "confidence": 0.72,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "finding_id": "fnd_c8563f5a39d6",
+      "decision": "accepted"
+    },
+    {
+      "confidence": 0.72,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "finding_id": "fnd_78af6b8d619c",
+      "decision": "accepted"
+    },
+    {
+      "confidence": 0.72,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "finding_id": "fnd_5648e771ecdc",
+      "decision": "accepted"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_b5bc83f44860",
+      "decision": "rejected"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_ab3b8afbf509",
+      "decision": "rejected"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_9dea78bcf764",
+      "decision": "rejected"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_7d9d6c33de08",
+      "decision": "rejected"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_e21fc616bdf2",
+      "decision": "rejected"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_c34430d0f768",
+      "decision": "rejected"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_16410804172a",
+      "decision": "rejected"
+    },
+    {
+      "confidence": 0.4,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": false,
+      "newly_eligible_at_0_70": false,
+      "finding_id": "fnd_966815504246",
+      "decision": "rejected"
+    }
+  ],
+  "never_accept_all": true,
+  "candidates_total": 1010,
+  "selected": 14
+}

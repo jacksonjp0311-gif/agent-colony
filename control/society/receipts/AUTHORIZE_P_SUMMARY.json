@@ -1,0 +1,16 @@
+{
+  "when": "2026-09-26T15:08:44Z",
+  "standing_trust": "James: authorize high-P (P>=0.75) forever for agent-colony; selective; not accept-all",
+  "authorize_cycle": "authorize_20260926T150844Z",
+  "accepted": 4,
+  "rejected_findings": 5,
+  "p_policy": "accept only P>=0.75 with measured/sourced evidence; reject easy_pad/reverts; leave uncertain",
+  "mile": "autonomy",
+  "cycle_count": 129,
+  "status_counts": {
+    "candidate": 4083,
+    "unknown": 79,
+    "accepted": 76,
+    "rejected": 261
+  }
+}

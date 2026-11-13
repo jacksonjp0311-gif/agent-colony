@@ -1,0 +1,55 @@
+{
+  "items": [
+    {
+      "finding_id": "fnd_5648e771ecdc",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7 (was 0.75): machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_97112127d35e",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7 (was 0.75): machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
+    },
+    {
+      "finding_id": "fnd_d35d1a2c8f6b",
+      "decision": "accepted",
+      "rationale": "Standing trust P\u22650.7 (was 0.75): machine-checked hard-tier/Oracle/bus-driven candidate. Not novel theorem. Selective authorize."
+    }
+  ],
+  "policy": "standing_trust_P>=0.7_selective_never_accept_all",
+  "mile": "spark2",
+  "P_min_before": 0.75,
+  "P_min_after": 0.7,
+  "threshold_compare": [
+    {
+      "finding_id": "fnd_5648e771ecdc",
+      "confidence": 0.7,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "decision": "accepted"
+    },
+    {
+      "finding_id": "fnd_97112127d35e",
+      "confidence": 0.7,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "decision": "accepted"
+    },
+    {
+      "finding_id": "fnd_d35d1a2c8f6b",
+      "confidence": 0.7,
+      "P_min_before": 0.75,
+      "P_min_after": 0.7,
+      "would_pass_before": false,
+      "would_pass_after": true,
+      "newly_eligible_at_0_70": true,
+      "decision": "accepted"
+    }
+  ]
+}

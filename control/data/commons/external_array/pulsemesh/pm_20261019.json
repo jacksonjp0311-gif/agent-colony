@@ -1,0 +1,214 @@
+{
+  "ts": "2026-10-19T22:38:32Z",
+  "version": 1,
+  "mile": "spark3-port",
+  "feeds": {
+    "goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.28145032330209,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-10-19T22:32:00Z",
+          "v": -8.410741509635454
+        },
+        {
+          "t": "2026-10-19T22:32:00Z",
+          "v": -6.273542908611174
+        },
+        {
+          "t": "2026-10-19T22:33:00Z",
+          "v": -8.280478834421631
+        },
+        {
+          "t": "2026-10-19T22:33:00Z",
+          "v": -6.263579508911822
+        },
+        {
+          "t": "2026-10-19T22:34:00Z",
+          "v": -8.612342263812867
+        },
+        {
+          "t": "2026-10-19T22:34:00Z",
+          "v": -6.275340192609954
+        },
+        {
+          "t": "2026-10-19T22:35:00Z",
+          "v": -8.641806390670764
+        },
+        {
+          "t": "2026-10-19T22:35:00Z",
+          "v": -6.28145032330209
+        }
+      ],
+      "live": true,
+      "ts": "2026-10-19T22:38:20Z"
+    },
+    "openmeteo_series": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48,
+      "latest": 13.1,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-10-18T00:00",
+          "v": 8.8
+        },
+        {
+          "t": "2026-10-18T01:00",
+          "v": 7.7
+        },
+        {
+          "t": "2026-10-18T02:00",
+          "v": 6.6
+        },
+        {
+          "t": "2026-10-18T03:00",
+          "v": 5.9
+        },
+        {
+          "t": "2026-10-18T04:00",
+          "v": 5.0
+        },
+        {
+          "t": "2026-10-18T05:00",
+          "v": 4.5
+        },
+        {
+          "t": "2026-10-18T06:00",
+          "v": 4.7
+        },
+        {
+          "t": "2026-10-18T07:00",
+          "v": 4.1
+        }
+      ],
+      "live": false,
+      "cached": true,
+      "ts": "2026-10-19T22:38:20Z"
+    },
+    "usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": false,
+      "note": "TimeoutError: The read operation timed out",
+      "count": 0,
+      "latest": null,
+      "items": [],
+      "live": false,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-12&endtime=2026-10-19&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-19T22:38:32Z"
+    },
+    "system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.35888671875,
+          "disk_free_percent": 58.975931434671345,
+          "process_count": 150,
+          "uptime_hours": 0.12365555555555556,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "node": "runnervm8k3b6",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.35888671875,
+      "live": true,
+      "ts": "2026-10-19T22:38:32Z"
+    },
+    "tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 2.124358999992637,
+      "mean_ms": 2.4043709999972407,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 2.217005000034078
+        },
+        {
+          "probe": 1,
+          "ms": 2.5558739999951285
+        },
+        {
+          "probe": 2,
+          "ms": 2.720245999967119
+        },
+        {
+          "probe": 3,
+          "ms": 2.124358999992637
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-10-19T22:38:32Z"
+    }
+  },
+  "feed_health": {
+    "goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "openmeteo_series": {
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48
+    },
+    "usgs_quakes": {
+      "ok": false,
+      "note": "TimeoutError: The read operation timed out",
+      "count": 0
+    },
+    "system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "pulsemesh_local_ops_health",
+      "summary": "Local system_stat load1=0.35888671875 tcp_probe mean_ms=2.4043709999972407 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "signals": {
+        "load1": 0.35888671875,
+        "probe_ms": 2.4043709999972407,
+        "probe_ok": true
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "PulseMesh collectors in EXTERNAL ARRAY. Agent-queryable. Correlations are debate input — not discovery claims.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium",
+    "debate_input_only"
+  ]
+}

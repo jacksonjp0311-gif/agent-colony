@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-13T02:58:22Z",
+  "label": "bounded evidence, not proof",
+  "proof": false,
+  "targets": {
+    "goldbach_even": {
+      "family": "goldbach",
+      "status": "open",
+      "verified_hi": 289234115,
+      "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
+      "window": 3200000,
+      "result": null
+    },
+    "collatz_descent": {
+      "family": "collatz",
+      "status": "open",
+      "verified_hi": 326200000,
+      "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
+      "window": 3200000,
+      "result": null
+    },
+    "legendre_square_gap": {
+      "family": "legendre",
+      "status": "open",
+      "verified_hi": 1692607,
+      "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
+      "window": 16000,
+      "result": null
+    },
+    "lehmer_totient": {
+      "family": "lehmer_totient",
+      "status": "open",
+      "verified_hi": 146200001,
+      "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
+      "window": 1600000,
+      "result": null
+    },
+    "erdos_straus": {
+      "family": "erdos_straus",
+      "status": "open",
+      "verified_hi": 1114127,
+      "literature": "Published computer searches reach far beyond this range; open in general.",
+      "window": 5000,
+      "result": null
+    },
+    "twin_primes_hl": {
+      "family": "twin_hl",
+      "status": "open",
+      "verified_hi": 406200000,
+      "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
+      "window": 4000000,
+      "result": null
+    },
+    "oeis_A297870": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A304004": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A033305": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A179571": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A179580": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A202882": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A027833": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A048881": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A051064": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A262813": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A182172": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A034387": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A299275": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A022493": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A265035": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A108954": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A053871": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A049020": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A240513": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A189145": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A209721": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A209722": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A209723": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "recurrence_verified_on_unused_terms"
+    },
+    "oeis_A057468": {
+      "family": "oeis_recurrence",
+      "status": "open",
+      "verified_hi": null,
+      "literature": null,
+      "window": null,
+      "result": "no_low_order_recurrence"
+    },
+    "oeis_A104062_next": {
+      "family": "prime_run_count",
+      "status": "done",
+      "verified_hi": 518690000001,
+      "literature": "Published: a(1..6) on OEIS A104062 (to the 2*10^7-th prime). Colony computed a(7) = 138994 on 2026-10-16 (cross-checked with primesieve 12.7 + C counter and a pure-Python recount; evidence/2026-10-16-a104062-a7/). Computed value, not a proof; pending OEIS review.",
+      "window": 100000000,
+      "result": null,
+      "colony_terms": {
+        "200": 1,
+        "2000": 12,
+        "20000": 64,
+        "200000": 416,
+        "2000000": 2748,
+        "20000000": 19348,
+        "200000000": 138994,
+        "2000000000": 1031312,
+        "20000000000": 7863231
+      },
+      "new_term_candidates": {
+        "200000000": 138994,
+        "2000000000": 1031312,
+        "20000000000": 7863231
+      },
+      "published_record": "a(1)..a(6), i.e. the first 2*10^7 primes (p(2*10^7) = 373587883)"
+    }
+  },
+  "reviews": [],
+  "last": {
+    "target": "legendre_square_gap",
+    "lo": 1676608,
+    "hi": 1692607,
+    "outcome": "extended",
+    "verified_hi": 1692607,
+    "cycle_id": "20261113T025651Z_8fbc4a"
+  },
+  "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
+}

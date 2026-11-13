@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-13T02:59:05Z",
+  "updated_cycle": "20261113T025651Z_8fbc4a",
+  "signal": {
+    "ts": "2026-11-13T02:59:05Z",
+    "strength": 0.4,
+    "accepted_math": 0,
+    "accepted_compute": 123,
+    "accepted_rsi": 0,
+    "topic_boosts": [
+      {
+        "topic": "compute-useful-math",
+        "priority": 1.15,
+        "reason": "accepted_compute_finding",
+        "finding_id": "fnd_20d46d1b739b",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_hl_within_g6_6_4_w1"
+      },
+      {
+        "topic": "open-math-problems",
+        "priority": 1.05,
+        "reason": "follow_on_from_compute",
+        "from_topic": "compute-useful-math"
+      },
+      {
+        "topic": "software-engineering",
+        "priority": 1.05,
+        "reason": "follow_on_from_compute",
+        "from_topic": "compute-useful-math"
+      },
+      {
+        "topic": "emergent-technology",
+        "priority": 1.05,
+        "reason": "follow_on_from_compute",
+        "from_topic": "compute-useful-math"
+      }
+    ],
+    "skill_bias": {
+      "geometer.gather": 0.95,
+      "pathfinder.gather": 0.62,
+      "surveyor.gather": 0.5,
+      "builder.build": 0.85,
+      "improver.improve": 0.55,
+      "spark.emergence": 0.6
+    },
+    "mutation_bias": {
+      "gather": 0.15,
+      "explore": 0.07,
+      "build": 0.12,
+      "govern": 0.01,
+      "reply": 0.022
+    },
+    "citation_targets": [
+      {
+        "id": "fnd_99113c984a82",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g6_6_6_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_df755e6fd8df",
+        "title": "Authorize accepted: Lemma mutation keep: quadratic_reciprocity",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_d86cd7bc1add",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_86178da167c5",
+        "title": "Authorize accepted: Lemma mutation keep: authored_euler_theorem__gauss_phi_divis",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_85f57fc25960",
+        "title": "Authorize accepted: Lemma mutation keep: authored_frontier_cong_x23fb70a1_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      },
+      {
+        "id": "fnd_3045bf8b8903",
+        "title": "Authorize accepted: Lemma mutation keep: authored_frontier_rec_xa92258f8_w1",
+        "topic_id": "compute-useful-math",
+        "family": "compute",
+        "useful_for": "compute"
+      }
+    ],
+    "persona_mandates": {
+      "geometer": "Cite accepted math/compute findings (FFT, autodiff, open problems) when gathering; prefer compute-useful-math and open-math-problems.",
+      "pathfinder": "Rank gather targets from accepted findings first; trail toward follow-on STEM topics.",
+      "surveyor": "Scout follow-ons from accepted math/tech findings; feed topic_priority.",
+      "builder": "When building, reuse accepted compute-useful lessons (FFT/transformers/Lean) as design hints.",
+      "improver": "Propose only after hearing; cite accepted RSI/math findings; weak proposals get rejected.",
+      "legislator": "Hearing Chamber: verdict accept_candidate | reject | defer; only strong survive.",
+      "archivist": "Commons digests must cite accepted finding ids when reusing math/compute lessons.",
+      "messenger": "Broadcast citation targets on math/rsi channels so agents can reuse them.",
+      "spark": "Spawn privilege favors agents that cite accepted compute-useful findings.",
+      "naturalist": "Keep empiricism; cite accepted method findings when gathering science-method.",
+      "chronicler": "Link history-of-ideas gathers to accepted compute/math lineages when relevant."
+    },
+    "lessons": [
+      {
+        "id": "fnd_99113c984a82",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_residue_bal_g6_6_6_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_df755e6fd8df",
+        "title": "Authorize accepted: Lemma mutation keep: quadratic_reciprocity",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_d86cd7bc1add",
+        "title": "Authorize accepted: Lemma mutation keep: authored_sieve_two_counter_g6_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_86178da167c5",
+        "title": "Authorize accepted: Lemma mutation keep: authored_euler_theorem__gauss_phi_divisor_sum_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_85f57fc25960",
+        "title": "Authorize accepted: Lemma mutation keep: authored_frontier_cong_x23fb70a1_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      },
+      {
+        "id": "fnd_3045bf8b8903",
+        "title": "Authorize accepted: Lemma mutation keep: authored_frontier_rec_xa92258f8_w1",
+        "topic_id": "compute-useful-math",
+        "lesson": "Accepted → boost topic_priority + skill_router + persona mandate (behavior)."
+      }
+    ],
+    "accepted_ids": {
+      "math": [],
+      "compute": [
+        "fnd_20d46d1b739b",
+        "fnd_d27e76ba9391",
+        "fnd_99113c984a82",
+        "fnd_df755e6fd8df",
+        "fnd_d86cd7bc1add",
+        "fnd_86178da167c5",
+        "fnd_85f57fc25960",
+        "fnd_3045bf8b8903"
+      ],
+      "rsi": []
+    },
+    "note": "Behavior coupling: accepted findings change gather/debate/build choices. Not museum metrics. Not AGI. Ceiling: tribute · authorize · witness."
+  },
+  "doc": "society/artifacts/findings_behavior_coupling.md"
+}

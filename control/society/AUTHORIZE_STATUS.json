@@ -1,0 +1,9 @@
+{
+  "accepted": 3,
+  "rejected": 0,
+  "skipped": 0,
+  "receipt": "/workspace/agent-colony/society/receipts/AUTHORIZE_authorize_20260926T221738Z.md",
+  "P_min": 0.7,
+  "P_min_before": 0.75,
+  "never_accept_all": true
+}

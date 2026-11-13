@@ -1,0 +1,424 @@
+{
+  "ts": "2026-10-09T22:48:25Z",
+  "version": 2,
+  "mile": "spark3-port",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 2,
+      "items": [
+        {
+          "title": "On the estimation and validity of AI time horizons---a statistical look at the METR plot",
+          "id": "http://arxiv.org/abs/2610.12466v1",
+          "published": "2026-10-08T17:59:50Z",
+          "summary": "METR's 50\\% time horizon measures the human completion time of software tasks that an AI solves with 50\\% probability, allowing AI capabilities to be expressed in interpretable units. On 228 tasks and 26 AIs, we recompute the time horizons using splines and item-response theory t",
+          "source": "arxiv"
+        },
+        {
+          "title": "From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic, and Google Agent Security Incidents",
+          "id": "http://arxiv.org/abs/2610.12463v1",
+          "published": "",
+          "summary": "",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-10-09T22:48:21Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": true,
+      "note": "ok_text",
+      "count": 1,
+      "items": [
+        {
+          "raw_snip": "<!DOCTYPE html><html><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width\"/><title>CCMC Announcements | NASA CCMC</title><meta name=\"description\" content=\"NASA&#x27;s Community Coordinated Modeling Center (CCMC) provides free access to space weather models, simulation runs-on-request, real-time space weather predictions, visualization tools, and model validation for the r",
+          "source": "nasa_donki"
+        }
+      ],
+      "ts": "2026-10-09T22:48:21Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "deprecated": true,
+      "quarantined": true,
+      "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-10-09T22:48:21Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": true,
+      "note": "NYC:ok; London:ok; Tokyo:ok; Sydney:ok",
+      "count": 4,
+      "items": [
+        {
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 18.4,
+          "wind_speed_10m": 7.9,
+          "weather_code": 3,
+          "time": "2026-10-09T22:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "London",
+          "lat": 51.51,
+          "lon": -0.13,
+          "temperature_2m": 13.4,
+          "wind_speed_10m": 14.0,
+          "weather_code": 1,
+          "time": "2026-10-09T22:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "temperature_2m": 17.4,
+          "wind_speed_10m": 5.2,
+          "weather_code": 0,
+          "time": "2026-10-09T22:45",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "temperature_2m": 19.1,
+          "wind_speed_10m": 16.9,
+          "weather_code": 3,
+          "time": "2026-10-09T22:45",
+          "source": "open_meteo"
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-10-09T22:48:24Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.0341494044115525,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-10-09T22:41:00Z",
+          "v": -7.919347687759199
+        },
+        {
+          "t": "2026-10-09T22:41:00Z",
+          "v": -6.051884717805873
+        },
+        {
+          "t": "2026-10-09T22:42:00Z",
+          "v": -7.880133665579179
+        },
+        {
+          "t": "2026-10-09T22:42:00Z",
+          "v": -6.04505756575775
+        },
+        {
+          "t": "2026-10-09T22:43:00Z",
+          "v": -7.876844821152585
+        },
+        {
+          "t": "2026-10-09T22:43:00Z",
+          "v": -6.038399207972825
+        },
+        {
+          "t": "2026-10-09T22:44:00Z",
+          "v": -7.822544898165663
+        },
+        {
+          "t": "2026-10-09T22:44:00Z",
+          "v": -6.0341494044115525
+        }
+      ],
+      "live": true,
+      "ts": "2026-10-09T22:48:24Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48,
+      "latest": 18.0,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-10-08T00:00",
+          "v": 15.7
+        },
+        {
+          "t": "2026-10-08T01:00",
+          "v": 14.9
+        },
+        {
+          "t": "2026-10-08T02:00",
+          "v": 14.8
+        },
+        {
+          "t": "2026-10-08T03:00",
+          "v": 14.5
+        },
+        {
+          "t": "2026-10-08T04:00",
+          "v": 14.0
+        },
+        {
+          "t": "2026-10-08T05:00",
+          "v": 13.9
+        },
+        {
+          "t": "2026-10-08T06:00",
+          "v": 13.7
+        },
+        {
+          "t": "2026-10-08T07:00",
+          "v": 13.2
+        }
+      ],
+      "live": false,
+      "cached": true,
+      "ts": "2026-10-09T22:48:24Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 4.9,
+      "items": [
+        {
+          "mag": 4.9,
+          "place": "northern Mid-Atlantic Ridge",
+          "time": 1791495263503,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.1,
+          "place": "225 km ESE of Chiniak, Alaska",
+          "time": 1791494659759,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.2,
+          "place": "103 km ENE of Noda, Japan",
+          "time": 1791487381983,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "Izu Islands, Japan region",
+          "time": 1791484323544,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.2,
+          "place": "72 km SE of Chignik, Alaska",
+          "time": 1791482823770,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.8,
+          "place": "46 km N of Waingapu, Indonesia",
+          "time": 1791482760577,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.7,
+          "place": "115 km SW of Adak, Alaska",
+          "time": 1791480118498,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.7,
+          "place": "84 km WNW of Bengkulu, Indonesia",
+          "time": 1791473027618,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-10-02&endtime=2026-10-09&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-10-09T22:48:24Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.54638671875,
+          "disk_free_percent": 59.49156816417532,
+          "process_count": 164,
+          "uptime_hours": 0.033522222222222224,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "node": "runnervmmprz5",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.54638671875,
+      "live": true,
+      "ts": "2026-10-09T22:48:24Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 1.9264729999974861,
+      "mean_ms": 2.411101749999034,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 2.086951999999087
+        },
+        {
+          "probe": 1,
+          "ms": 2.8800810000007004
+        },
+        {
+          "probe": 2,
+          "ms": 2.750900999998862
+        },
+        {
+          "probe": 3,
+          "ms": 1.9264729999974861
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-10-09T22:48:24Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "publications_x_space",
+      "summary": "2 fresh arXiv STEM items alongside space-weather signals. Sample titles: ['On the estimation and validity of AI time horizons---a statistical look at the M', 'From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic']. Multi-hop: math/STEM kinematics ↔ space data ↔ hearing evidence standard. Not novel physics.",
+      "signals": {
+        "arxiv_n": 2,
+        "kp": null,
+        "titles": [
+          "On the estimation and validity of AI time horizons---a statistical look at the M",
+          "From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic"
+        ]
+      },
+      "domains": [
+        "math",
+        "cosmos",
+        "hearing",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "global_weather_spread",
+      "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 18.4), ('London', 13.4), ('Tokyo', 17.4), ('Sydney', 19.1)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "signals": {
+        "cities": [
+          [
+            "NYC",
+            18.4
+          ],
+          [
+            "London",
+            13.4
+          ],
+          [
+            "Tokyo",
+            17.4
+          ],
+          [
+            "Sydney",
+            19.1
+          ]
+        ],
+        "kp": null
+      },
+      "domains": [
+        "nature",
+        "commons",
+        "government"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-6.0341494044115525. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -6.0341494044115525
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.54638671875 probe_ms=2.411101749999034. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.54638671875,
+        "probe_ms": 2.411101749999034
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}

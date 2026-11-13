@@ -1,0 +1,190 @@
+{
+  "routes": {
+    "tribute": "tribute_keeper",
+    "build": "spark",
+    "communicate": "spark",
+    "gather": "spark",
+    "improve": "spark",
+    "emergence": "tribute_keeper"
+  },
+  "skills_snapshot": {
+    "spark": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.7993
+    },
+    "tribute_keeper": {
+      "tribute": 0.99,
+      "build": 0.9794,
+      "communicate": 0.99,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "memory_weaver": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.9292,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "builder": {
+      "tribute": 0.5,
+      "build": 0.9427,
+      "communicate": 0.99,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "herald": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.9558,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "pathfinder": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.7437,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "improver": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.99,
+      "improve": 0.8801,
+      "emergence": 0.99
+    },
+    "courier": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.9558,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "scribe": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.9759,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "surveyor": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.7371,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "oracle_scribe": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "stem_checker": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "archivist": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.9697,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "legislator": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.99,
+      "improve": 0.9663,
+      "emergence": 0.99
+    },
+    "chronicler": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.9292,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "naturalist": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.9292,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "geometer": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.99,
+      "gather": 0.9329,
+      "improve": 0.99,
+      "emergence": 0.99
+    },
+    "messenger": {
+      "tribute": 0.5,
+      "build": 0.99,
+      "communicate": 0.9759,
+      "gather": 0.99,
+      "improve": 0.99,
+      "emergence": 0.99
+    }
+  },
+  "findings_bias": {
+    "geometer.gather": 0.95,
+    "pathfinder.gather": 0.62,
+    "surveyor.gather": 0.5,
+    "builder.build": 0.85,
+    "improver.improve": 0.55,
+    "spark.emergence": 0.6
+  },
+  "behavior_strength": 0.4,
+  "pilot_lane_inform": {
+    "pilots": [
+      {
+        "id": "pilot_test_gather_filter_5c80956e",
+        "kind": "gather_filter",
+        "status": "sandboxed"
+      },
+      {
+        "id": "pilot_promo_gate_pilot_3aa04833",
+        "kind": "skill",
+        "status": "promoted_sandbox_standing"
+      },
+      {
+        "id": "pilot_autonomy_demo_078ddff6",
+        "kind": "gather_filter",
+        "status": "sandboxed"
+      }
+    ],
+    "inform_only": true,
+    "durable_accept": false,
+    "promotion_requires_authorize": true,
+    "P_min": 0.7
+  },
+  "updated_at": "2026-11-13T02:59:05Z",
+  "updated_cycle": "20261113T025651Z_8fbc4a"
+}

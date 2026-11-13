@@ -1,0 +1,27 @@
+{
+  "when": "2026-09-27T11:20:40Z",
+  "when_et": "2026-09-27 07:20 AM ET",
+  "mile": "spark3-port",
+  "kind": "slim_receipt_push",
+  "message": "chore(spark3): slim receipts after vandermonde authorize + plateau watch",
+  "files": [
+    "society/receipts/AUTHORIZE_authorize_20260927T012137Z.md",
+    "society/receipts/AUTHORIZE_authorize_20260927T012137Z_compare.json",
+    "society/receipts/AUTHORIZE_DECISIONS_vandermonde.json",
+    "society/receipts/SOCIETY_SLIM_AFTER_VANDERMONDE_AUTHORIZE.json",
+    "society/receipts/NEXT_MILE_SKETCH.json",
+    "society/receipts/PUSH_SPARK3_PLATEAU.json"
+  ],
+  "excluded": [
+    "data/**",
+    "society/systems/**",
+    "society/DASHBOARD.html",
+    "society/WITNESS.md",
+    "ledger/witness bulk"
+  ],
+  "parent_tip": "5a420a3",
+  "cycle_count": 91,
+  "witness_events": 5305,
+  "fitness_aggregate": 0.83,
+  "citation_reuse": 1.0
+}
