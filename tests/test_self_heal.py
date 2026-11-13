@@ -36,7 +36,10 @@ def _metric(cycle_id, targets=0, depth=0, delta=0, passes=528):
 def _prime_baseline(n=6, score_targets=0):
     """Write n flat baseline metric rows and return the state."""
     st = SH.load_state()
+    fp = SH.environment_fingerprint(state=st)["digest"]
     rows = [_metric(f"b{i}", targets=score_targets) for i in range(n)]
+    for r in rows:
+        r["env_fingerprint"] = fp
     st["metrics"] = rows
     st["cycle_index"] = n - 1
     st["cycles"] = [f"b{i}" for i in range(n)]
@@ -696,3 +699,264 @@ def test_collect_metrics_from_stall_and_attempts(tmp_path, monkeypatch):
     assert m["oracle_passes"] == 529
     assert m["oracle_pass_delta"] == 1
     assert m["score"] == SH.score_metrics(2, 1, 1)
+
+# ---------------------------------------------------------------------------
+# Item 32 — environment fingerprint and confound void
+# ---------------------------------------------------------------------------
+
+def test_fingerprint_stable_and_ignores_trialled_knob(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    st = SH.load_state()
+    a = SH.environment_fingerprint(state=st)
+    b = SH.environment_fingerprint(state=st)
+    assert a["digest"] == b["digest"]
+    assert a["code"]
+    assert a["knobs"]
+    # Changing only the trialled knob does not change the trial fingerprint.
+    st["knobs"]["perturb_cooldown_cycles"] = 8
+    c = SH.environment_fingerprint(exclude_knob="perturb_cooldown_cycles", state=st)
+    d = SH.environment_fingerprint(exclude_knob="perturb_cooldown_cycles", state=SH.load_state())
+    assert c["digest"] == d["digest"]
+    assert "perturb_cooldown_cycles" not in c["knobs"]
+
+
+def test_fingerprint_changes_when_a_cap_knob_moves(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    st = SH.load_state()
+    before = SH.environment_fingerprint(exclude_knob="perturb_cooldown_cycles", state=st)
+    st["knobs"]["fast_term_cap"] = 16000
+    after = SH.environment_fingerprint(exclude_knob="perturb_cooldown_cycles", state=st)
+    assert before["digest"] != after["digest"]
+    assert before["knobs"]["fast_term_cap"] != after["knobs"]["fast_term_cap"]
+    # Code digest is unchanged; only the cap moved.
+    assert before["code"] == after["code"]
+
+
+def test_start_trial_records_fingerprint(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _prime_baseline(6)
+    st = SH.load_state()
+    trial = {
+        "knob": "perturb_cooldown_cycles", "from": 6, "to": 8,
+        "direction": "up", "reason": "no_progress_perturb",
+        "window": 6, "baseline_score": 0.0,
+        "baseline_metrics": st["metrics"], "trial_metrics": [],
+    }
+    SH.start_trial(trial, state=st, cycle_id="t0")
+    live = SH.load_state()["trial"]
+    assert live["environment_fingerprint"]
+    ev = [e for e in SH.load_state()["evidence"] if e["event"] == "trial_start"]
+    assert ev[0]["environment_fingerprint"] == live["environment_fingerprint"]
+    # The recorded digest matches the live environment excluding the trialled knob.
+    fp = SH.environment_fingerprint(exclude_knob="perturb_cooldown_cycles", state=SH.load_state())
+    assert live["environment_fingerprint"] == fp["digest"]
+
+
+def test_cap_change_mid_trial_voids_no_adopt_no_revert(tmp_path, monkeypatch):
+    """A raised evaluator cap mid-trial is a confound: void, restore knob,
+    do not adopt, do not count a revert-as-negative."""
+    _isolate(tmp_path, monkeypatch)
+    _prime_baseline(6)
+    st = SH.load_state()
+    trial = {
+        "knob": "perturb_cooldown_cycles", "from": 6, "to": 8,
+        "direction": "up", "reason": "no_progress_perturb",
+        "window": 6, "baseline_score": 0.0,
+        "baseline_metrics": st["metrics"], "trial_metrics": [],
+        "started_cycle": "b5",
+    }
+    SH.start_trial(trial, state=st, cycle_id="t0")
+    assert SH.current_knob("perturb_cooldown_cycles") == 8
+    # Three scoring cycles that would, if they finished the window, adopt.
+    for i in range(3):
+        out = SH.run_cycle(f"t{i+1}", metrics=_metric(f"t{i+1}", depth=2))
+        assert out["trial"] is not None
+    # Mid-trial: a different knob (the evaluator cap) moves, as PR #7 did.
+    st = SH.load_state()
+    st["knobs"]["fast_term_cap"] = 16000
+    SH.save_state(st)
+    evidence_before = list(SH.load_state()["evidence"])
+    ids_before = [e["id"] for e in evidence_before]
+    out = SH.run_cycle("t4", metrics=_metric("t4", depth=2))
+    st = SH.load_state()
+    assert out["trial"] is None
+    assert st["trial"] is None
+    ev = [e for e in st["evidence"] if e["event"] == "trial_voided_confound"]
+    assert len(ev) == 1
+    assert ev[0]["knob"] == "perturb_cooldown_cycles"
+    assert ev[0]["old_fingerprint"]
+    assert ev[0]["new_fingerprint"]
+    assert ev[0]["old_fingerprint"] != ev[0]["new_fingerprint"]
+    assert ev[0]["old_fingerprint"] != SH.UNRECORDED_FINGERPRINT
+    assert ev[0]["reason"] == "environment_changed"
+    assert ev[0]["adopted"] is False
+    assert ev[0]["reverted"] is False
+    assert ev[0]["to"] == 6
+    assert ev[0]["from"] == 8
+    # Knob restored; not counted as a failed trial.
+    assert SH.current_knob("perturb_cooldown_cycles") == 6
+    assert st["adopted_count"] == 0
+    assert st["reverted_count"] == 0
+    assert vis_event_is_void()
+    # Append-only: earlier events are untouched.
+    by_id = {e["id"]: e for e in st["evidence"]}
+    for eid in ids_before:
+        assert by_id[eid]["event"] == next(e["event"] for e in evidence_before if e["id"] == eid)
+    # A void is not a revert: the same change may be retried after a clean baseline.
+    replay = SH.replay_proposal("perturb_cooldown_cycles", 6, 8, direction="up",
+                                evidence=list(st["evidence"]))
+    assert replay["accepted"] is True
+
+
+def vis_event_is_void():
+    vis = SH.visibility()
+    assert vis["last_self_change"]["event"] == "trial_voided_confound"
+    assert vis["self_changes_adopted"] == 0
+    assert vis["self_changes_reverted"] == 0
+    return True
+
+
+def test_inflight_pr7_trial_voids_instead_of_adopting(tmp_path, monkeypatch):
+    """Replica of the live perturb_cooldown 6→8 trial after PR #7.
+
+    Baseline was corrected to 0.0; cycle 874 scored real new_depth=2 from
+    raised caps, not from the cooldown knob. 3 of 6 trial metrics already
+    total 2.0, so the next run would adopt. The trial has no fingerprint
+    (it started under older code) and must void.
+    """
+    _isolate(tmp_path, monkeypatch)
+    st = SH.load_state()
+    baseline = [_metric(f"b{i}") for i in range(6)]
+    for r in baseline:
+        r["new_depth"] = 0
+        r["score"] = 0.0
+    trial_rows = [
+        _metric("20261113T014648Z_b2870e", depth=2),
+        _metric("20261113T015010Z_6a67d4"),
+        _metric("20261113T015301Z_759b6f"),
+    ]
+    st["metrics"] = baseline + trial_rows
+    st["knobs"]["perturb_cooldown_cycles"] = 8
+    st["trial"] = {
+        "knob": "perturb_cooldown_cycles",
+        "from": 6, "to": 8, "direction": "up",
+        "reason": "no_progress_perturb",
+        "window": 6,
+        "baseline_score": 0.0,
+        "baseline_score_original": 2.0,
+        "baseline_corrected": True,
+        "baseline_metrics": [dict(r) for r in baseline],
+        "trial_metrics": [dict(r) for r in trial_rows],
+        "started_cycle": "20261113T010908Z_57af80",
+        "started_index": 5,
+        "applied_to_live_oracle": False,
+        "authorized": False,
+        # No environment_fingerprint: started before this mechanism existed.
+    }
+    st["adopted_count"] = 0
+    st["reverted_count"] = 0
+    SH.save_state(st)
+    # Three more zero-score cycles would complete the window at trial_score=2.0
+    # vs baseline 0.0 and adopt, if we did not void.
+    out = SH.run_cycle("20261113T020000Z_next", metrics=_metric("20261113T020000Z_next"))
+    st = SH.load_state()
+    assert out["ok"] is True
+    assert st["trial"] is None
+    ev = [e for e in st["evidence"] if e.get("event") == "trial_voided_confound"]
+    assert ev
+    assert ev[0]["old_fingerprint"] == SH.UNRECORDED_FINGERPRINT
+    assert ev[0]["new_fingerprint"]
+    assert ev[0]["reason"] == "unrecorded_environment"
+    assert ev[0]["adopted"] is False
+    assert ev[0]["reverted"] is False
+    assert ev[0]["knob"] == "perturb_cooldown_cycles"
+    assert ev[0]["to"] == 6
+    assert SH.current_knob("perturb_cooldown_cycles") == 6
+    assert st["adopted_count"] == 0
+    assert st["reverted_count"] == 0
+    # History of the trial is preserved on the event, not rewritten away.
+    assert len(ev[0]["trial_metrics"]) == 3
+    assert ev[0]["trial_metrics"][0]["new_depth"] == 2
+    assert ev[0]["baseline_score"] == 0.0
+
+
+def test_voided_trial_does_not_adopt_even_if_window_is_full(tmp_path, monkeypatch):
+    """maybe_close_trial must void, not adopt, a confounded complete window."""
+    _isolate(tmp_path, monkeypatch)
+    st = SH.load_state()
+    rows = [_metric(f"t{i}", depth=1) for i in range(6)]
+    st["knobs"]["perturb_cooldown_cycles"] = 8
+    st["trial"] = {
+        "knob": "perturb_cooldown_cycles", "from": 6, "to": 8,
+        "direction": "up", "reason": "no_progress_perturb",
+        "window": 6, "baseline_score": 0.0,
+        "baseline_metrics": [_metric(f"b{i}") for i in range(6)],
+        "trial_metrics": rows,
+    }
+    # No fingerprint, and a full window that beats baseline.
+    SH.save_state(st)
+    st = SH.maybe_close_trial(SH.load_state(), "t5")
+    assert st["trial"] is None
+    assert st["adopted_count"] == 0
+    assert st["reverted_count"] == 0
+    assert st["knobs"]["perturb_cooldown_cycles"] == 6
+    ev = [e for e in st["evidence"] if e["event"] == "trial_voided_confound"]
+    assert ev
+    assert ev[0]["adopted"] is False
+
+
+def test_fresh_baseline_required_after_void(tmp_path, monkeypatch):
+    """After a void, a new trial waits for a full same-fingerprint window.
+
+    Confounded metrics (the cap-driven new_depth=2 row, or unfingerprinted
+    history) must not become the next baseline.
+    """
+    _isolate(tmp_path, monkeypatch)
+    findings = [{"kind": "no_progress_perturb", "evidence": {"timeout_count": 1}}]
+    # Six unfingerprinted (legacy) metrics — not a clean baseline.
+    st = SH.load_state()
+    st["metrics"] = [_metric(f"old{i}", depth=2 if i == 0 else 0) for i in range(6)]
+    # First is the confounded cap-driven gain.
+    SH.save_state(st)
+    out = SH.run_cycle("n1", metrics=_metric("n1"), findings=findings)
+    assert out["trial_started"] is False
+    assert out["trial"] is None
+    # n2–n5: last-6 window still contains at least one unfingerprinted row.
+    for i in range(2, 6):
+        out = SH.run_cycle(f"n{i}", metrics=_metric(f"n{i}"), findings=findings)
+        assert out["trial_started"] is False, i
+    # n6: last 6 are all new, same-fingerprint cycles.
+    out = SH.run_cycle("n6", metrics=_metric("n6"), findings=findings)
+    started = out["trial_started"]
+    assert started is True
+    # The new baseline does not include the confounded new_depth=2.
+    trial = out["trial"]
+    assert trial["baseline_score"] == 0.0
+    assert all(int(r.get("new_depth") or 0) == 0 for r in trial["baseline_metrics"])
+    assert all(r.get("env_fingerprint") for r in trial["baseline_metrics"])
+    assert trial["environment_fingerprint"]
+
+
+def test_code_fingerprint_change_voids_trial(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _prime_baseline(6)
+    st = SH.load_state()
+    trial = {
+        "knob": "park_cycles", "from": 6, "to": 8,
+        "direction": "up", "reason": "dead_end_streak",
+        "window": 6, "baseline_score": 0.0,
+        "baseline_metrics": st["metrics"], "trial_metrics": [],
+    }
+    SH.start_trial(trial, state=st, cycle_id="t0")
+    monkeypatch.setattr(SH, "_colony_file_digest", lambda: "deadbeef" * 8)
+    # Clear any module cache confusion: the function is patched.
+    out = SH.run_cycle("t1", metrics=_metric("t1", targets=1))
+    st = SH.load_state()
+    assert st["trial"] is None
+    ev = [e for e in st["evidence"] if e["event"] == "trial_voided_confound"]
+    assert ev
+    assert ev[0]["reason"] == "environment_changed"
+    assert ev[0]["old_fingerprint"] != ev[0]["new_fingerprint"]
+    assert SH.current_knob("park_cycles") == 6
+    assert st["reverted_count"] == 0
+    assert st["adopted_count"] == 0
