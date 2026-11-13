@@ -288,6 +288,8 @@ class Proposal:
     ok: bool = True
     reason: str = "ok"
     veto: bool = False
+    card_id: str = ""
+    method: str = ""
 
     def as_dict(self) -> dict[str, Any]:
         m = self.match
@@ -300,6 +302,8 @@ class Proposal:
             "ok": self.ok,
             "reason": self.reason,
             "veto": self.veto,
+            "card_id": self.card_id,
+            "method": self.method,
             "score": None if m is None else m.score,
             "margin": None if m is None else m.margin,
             "lower_permille": None if m is None else m.lower_permille,
@@ -479,12 +483,24 @@ def propose_for_role(
     if role == "legislator":
         return None
     # Prefer a finding this role cares about; archivist takes the first.
+    # Improver: a legal method-card finding is this role's proposal so
+    # the card reaches the vote and competes with other roles' failure
+    # actions. The vote (and the Wilson gate) still decide the winner;
+    # this does not auto-apply the card.
     chosen: dict[str, Any] | None = None
-    for f in findings:
-        kind = str(f.get("kind") or "")
-        if not wanted or kind in wanted:
-            chosen = f
-            break
+    if role == "improver":
+        for f in findings:
+            if str(f.get("kind") or "") != "method_card":
+                continue
+            if isinstance(f.get("card_action"), Mapping) or f.get("suggest"):
+                chosen = f
+                break
+    if chosen is None:
+        for f in findings:
+            kind = str(f.get("kind") or "")
+            if not wanted or kind in wanted:
+                chosen = f
+                break
     if chosen is None and role == "archivist" and findings:
         chosen = findings[0]
     if chosen is None:
@@ -501,6 +517,9 @@ def propose_for_role(
     if action is None:
         return None
     validated = FA.validate(action)
+    ev = chosen.get("evidence") if isinstance(chosen.get("evidence"), Mapping) else {}
+    card_id = str(chosen.get("card_id") or ev.get("card_id") or "")
+    method = str(chosen.get("method") or ev.get("method") or "")
     if not validated.ok:
         return Proposal(
             role=role,
@@ -511,6 +530,8 @@ def propose_for_role(
             match=retrieved,
             ok=False,
             reason=validated.reason,
+            card_id=card_id,
+            method=method,
         )
     # Score the accepted action against the library.
     scored = router.score_action(symptom, validated.fingerprint)
@@ -523,6 +544,8 @@ def propose_for_role(
         match=scored or retrieved,
         ok=True,
         reason="ok",
+        card_id=card_id,
+        method=method,
     )
 
 

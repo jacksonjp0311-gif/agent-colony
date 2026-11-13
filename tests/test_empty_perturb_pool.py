@@ -177,3 +177,97 @@ def test_diagnose_suggestions_for_empty_pool_are_not_a_cooldown():
     # After the 6→8 cooldown revert, this finding must not default to
     # another cooldown trial.
     assert SH.DIAGNOSIS_SUGGESTIONS.get("empty_perturb_pool") == []
+
+
+def _timeout_exit(cycle_id="exitT", pass_total=528, entered="enter0", progress=True, active=False):
+    st = S._empty_state()
+    st["cycles"] = [entered, "c1", cycle_id]
+    st["pass_history"] = [
+        {"cycle_id": entered, "pass_total": pass_total},
+        {"cycle_id": "c1", "pass_total": pass_total},
+        {"cycle_id": cycle_id, "pass_total": pass_total},
+    ]
+    st["stall_cycles"] = 10
+    st["perturb"] = {
+        "active": active,
+        "exit_reason": "timeout",
+        "exit_cycle": cycle_id,
+        "entered_at": entered,
+        "session_progress": progress,
+        "session_targets": ["oc_A174783_0", "oc_A212205_0"],
+        "timeout_count": 4,
+        "cycles_in_mode": 9,
+        "cooldown_until": -1,
+        "strategy": "explore",
+    }
+    return st
+
+
+def test_diagnose_timeout_flat_passes_invites_supply_even_with_depth(tmp_path, monkeypatch):
+    """Timeout/dead-end with depth progress but flat Oracle passes is a supply cue."""
+    _isolate(tmp_path, monkeypatch)
+    stall = _timeout_exit("cT", progress=True)
+    findings = SH.diagnose("cT", stall_state=stall, heal_state=SH.load_state())
+    kinds = [f["kind"] for f in findings]
+    assert "perturb_ended_no_oracle" in kinds
+    ev = next(f["evidence"] for f in findings if f["kind"] == "perturb_ended_no_oracle")
+    assert ev["exit_reason"] == "timeout"
+    assert ev["oracle_pass_delta"] == 0
+    # Not sticky: later cycles do not re-emit.
+    later = SH.diagnose("cLater", stall_state=stall, heal_state=SH.load_state())
+    assert "perturb_ended_no_oracle" not in [f["kind"] for f in later]
+
+
+def test_diagnose_timeout_with_new_passes_does_not_invite(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    stall = _timeout_exit("cT", pass_total=528, progress=True)
+    stall["pass_history"][-1]["pass_total"] = 529
+    findings = SH.diagnose("cT", stall_state=stall, heal_state=SH.load_state())
+    assert "perturb_ended_no_oracle" not in [f["kind"] for f in findings]
+
+
+def test_diagnose_dead_end_exit_flat_passes_invites(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    stall = _timeout_exit("cD", progress=True)
+    stall["perturb"]["exit_reason"] = "dead_end_turns"
+    findings = SH.diagnose("cD", stall_state=stall, heal_state=SH.load_state())
+    assert "perturb_ended_no_oracle" in [f["kind"] for f in findings]
+
+
+def test_maybe_supply_authors_on_timeout_finding(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    called = {}
+
+    def _gen(**kwargs):
+        called["max_new"] = kwargs.get("max_new")
+        called["write"] = kwargs.get("write")
+        return [{"name": "authored_mut_demo", "accepted": True}]
+
+    import colony.target_generator as TG
+    monkeypatch.setattr(TG, "author_targets", _gen)
+    monkeypatch.setattr(AU, "authored_count", lambda: 101)
+    findings = [{"kind": "perturb_ended_no_oracle", "evidence": {"exit_reason": "timeout"}}]
+    out = SH.maybe_supply_oracle_targets("cT", findings=findings)
+    assert out["invited"] is True
+    assert out["reason"] == "generated"
+    assert out["authored"][0]["name"] == "authored_mut_demo"
+    assert called["max_new"] == 1
+    assert called["write"] is True
+    assert out["cap"] == 150
+
+
+def test_maybe_supply_timeout_still_respects_150_cap(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+
+    def _boom(**kwargs):
+        raise AssertionError("must not author at the cap")
+
+    import colony.target_generator as TG
+    monkeypatch.setattr(TG, "author_targets", _boom)
+    monkeypatch.setattr(AU, "author_checks", _boom)
+    monkeypatch.setattr(AU, "authored_count", lambda: 150)
+    out = SH.maybe_supply_oracle_targets("cT", findings=[{"kind": "perturb_ended_no_oracle"}])
+    assert out["invited"] is False
+    assert out["reason"] == "at_authored_cap"
+    assert out["cap"] == 150
+    assert out["authored"] == []

@@ -1257,6 +1257,67 @@ def _is_empty_perturb_pool(
         return False
 
 
+
+# PERTURB exits that should invite a new mutation when Oracle passes
+# did not rise in the session. no_candidates already has empty_perturb_pool.
+ENDED_NO_ORACLE_EXITS = (
+    "timeout", "timed_out", "max_cycles",
+    "dead_end", "dead_end_turns", "dead_end_streak",
+)
+
+# Findings that invite maybe_supply (still 1/cycle, still inside 150).
+SUPPLY_FINDINGS = ("empty_perturb_pool", "perturb_ended_no_oracle")
+
+
+def _session_pass_delta(stall_state: Mapping[str, Any], pert: Mapping[str, Any]) -> int:
+    """Oracle pass-total change from session entry to the latest recorded row."""
+    hist = list(stall_state.get("pass_history") or [])
+    totals: list[tuple[str, int]] = []
+    for row in hist:
+        if not isinstance(row, Mapping):
+            continue
+        cid = str(row.get("cycle_id") or "")
+        try:
+            totals.append((cid, int(row.get("pass_total") or 0)))
+        except (TypeError, ValueError):
+            continue
+    if not totals:
+        return 0
+    entered = str(pert.get("entered_at") or "")
+    start = totals[0][1]
+    for cid, total in totals:
+        if cid == entered:
+            start = total
+            break
+        # Rows before entry still update the baseline so a late
+        # entered_at that we cannot match uses the last pre-entry total.
+        start = total
+    end = totals[-1][1]
+    return int(end) - int(start)
+
+
+def _session_ended_without_oracle_progress(
+    stall_state: Mapping[str, Any],
+    cycle_id: str = "",
+    pert: Mapping[str, Any] | None = None,
+) -> bool:
+    """True on the exit cycle of a timeout/dead-end with flat Oracle passes.
+
+    Non-sticky: only the exit cycle itself. A session that already
+    raised the pass total is not a supply cue. Depth-only progress
+    does not count as Oracle-target progress.
+    """
+    pert = pert if pert is not None else (stall_state.get("perturb") or {})
+    if pert.get("active"):
+        return False
+    exit_reason = str(pert.get("exit_reason") or "")
+    if exit_reason not in ENDED_NO_ORACLE_EXITS:
+        return False
+    if str(pert.get("exit_cycle") or "") != str(cycle_id or ""):
+        return False
+    return _session_pass_delta(stall_state, pert) <= 0
+
+
 def _empty_pool_cap_suggestions() -> tuple[list[dict[str, Any]], list[tuple[str, str]]]:
     """Holds sitting at a physical cap, and the knob raises that would free them.
 
@@ -1374,17 +1435,20 @@ def maybe_supply_oracle_targets(
     *,
     findings: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """When the PERTURB pool is empty, invite one new Oracle-reaching check.
+    """Invite one new Oracle-reaching check when supply is needed.
 
-    Stays inside ``MAX_AUTHORED_TOTAL`` (150) and ``MAX_AUTHORED_PER_CYCLE``.
-    Does not author when the finding is absent or the cap is full. Prefers
-    ``target_generator.author_targets`` (mutated held claims, still
-    Oracle-reaching even when the lemma score is saturated) and falls
-    back to ``author_checks``. Neither path names sequences by hand.
-    Disabled on the control arm through the generator and authoring hooks.
+    Fires on ``empty_perturb_pool`` and on a timeout/dead-end PERTURB
+    exit whose session did not raise Oracle passes (depth-only
+    progress is not enough). Stays inside ``MAX_AUTHORED_TOTAL`` (150)
+    and ``MAX_AUTHORED_PER_CYCLE``. Does not author when the finding
+    is absent or the cap is full. Prefers ``target_generator.author_targets``
+    (mutated held claims, still Oracle-reaching even when the lemma
+    score is saturated) and falls back to ``author_checks``. Neither
+    path names sequences by hand. Disabled on the control arm through
+    the generator and authoring hooks.
     """
     found = list(findings or [])
-    if not any(str(f.get("kind") or "") == "empty_perturb_pool" for f in found):
+    if not any(str(f.get("kind") or "") in SUPPLY_FINDINGS for f in found):
         return {"invited": False, "authored": [], "reason": "no_finding"}
     try:
         from colony.authoring import author_checks, authored_count, MAX_AUTHORED_TOTAL, MAX_AUTHORED_PER_CYCLE
@@ -1502,6 +1566,23 @@ def diagnose(
                 "exit_cycle": pert.get("exit_cycle"),
                 "session_targets": session_targets[:8],
                 "timeout_count": pert.get("timeout_count"),
+            },
+        })
+    if _session_ended_without_oracle_progress(st, cycle_id, pert):
+        room = authored_check_counts()
+        findings.append({
+            "kind": "perturb_ended_no_oracle",
+            "evidence": {
+                "exit_reason": exit_reason,
+                "exit_cycle": pert.get("exit_cycle"),
+                "entered_at": pert.get("entered_at"),
+                "session_targets": session_targets[:8],
+                "session_progress": pert.get("session_progress"),
+                "oracle_pass_delta": _session_pass_delta(st, pert),
+                "timeout_count": pert.get("timeout_count"),
+                "authoring_room": room.get("room"),
+                "authored_count": room.get("n"),
+                "authored_cap": room.get("cap"),
             },
         })
 

@@ -134,6 +134,28 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     return swarm.run_cycle(cycle_id)
 
 
+def card_proposal_from_result(result: Mapping[str, Any] | None) -> dict[str, Any] | None:
+    """Pick the method-card proposal from a Hive cycle result, if any."""
+    if not isinstance(result, Mapping):
+        return None
+    for raw in list(result.get("proposals") or []):
+        if not isinstance(raw, Mapping):
+            continue
+        action = raw.get("action") if isinstance(raw.get("action"), Mapping) else {}
+        card_id = str(raw.get("card_id") or "")
+        if raw.get("label") == "method_card" or card_id:
+            return {
+                "card_id": card_id,
+                "method": str(raw.get("method") or ""),
+                "action": dict(action),
+                "fingerprint": str(raw.get("fingerprint") or ""),
+                "role": raw.get("role") or "improver",
+                "label": raw.get("label") or "method_card",
+                "knob": action.get("name"),
+            }
+    return None
+
+
 def on_cycle(cycle_id: str = "") -> dict[str, Any]:
     """Evolve-cycle entry. Control returns without calling Hive."""
     if not hive_learning_enabled():
@@ -142,7 +164,8 @@ def on_cycle(cycle_id: str = "") -> dict[str, Any]:
     try:
         from colony.learning_loop import on_cycle as _ll
         result = dict(result or {})
-        result["learning_loop"] = _ll(cycle_id)
+        card = card_proposal_from_result(result)
+        result["learning_loop"] = _ll(cycle_id, proposal=card)
     except Exception:
         pass
     return result
@@ -183,6 +206,7 @@ __all__ = (
     "SWARM_ROLES",
     "active_rules",
     "bind",
+    "card_proposal_from_result",
     "format_visibility",
     "library",
     "load_state",
