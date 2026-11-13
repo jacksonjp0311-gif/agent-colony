@@ -733,6 +733,7 @@ def judge_twin_pending(
         for row in written:
             _append(log_path(), row)
         save_state(st)
+        write_markdown(st)
     return written
 
 

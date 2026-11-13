@@ -172,3 +172,56 @@ def test_improver_rejects_card_action_outside_role_ops():
     # the usual fallback (preferred knob) may still fire.
     if action is not None:
         assert action.get("op") != "exec"
+
+
+def _card_finding():
+    return {
+        "kind": "method_card",
+        "card_id": "mc_testcard12",
+        "method": "Practice easier cases first.",
+        "card_action": {"op": "set_knob", "name": "curriculum_pace", "direction": "up"},
+        "suggest": [("curriculum_pace", "up")],
+        "evidence": {"card_id": "mc_testcard12", "method": "Practice easier cases first."},
+    }
+
+
+def _dead_end_finding():
+    return {
+        "kind": "dead_end_streak",
+        "evidence": {"streak": 4},
+    }
+
+
+def test_improver_proposes_method_card_ahead_of_earlier_failure(tmp_path, monkeypatch):
+    """A method_card finding reaches the vote even if a failure is listed first."""
+    _isolate(tmp_path, monkeypatch)
+    FL.ensure_seeded()
+    router = FL.train_router()
+    findings = [_dead_end_finding(), _finding(), _card_finding()]
+    p = SL.propose_for_role("improver", findings, router)
+    assert p is not None
+    assert p.ok
+    assert p.label == "method_card"
+    assert p.action["op"] == "set_knob"
+    assert p.action["name"] == "curriculum_pace"
+    assert p.card_id == "mc_testcard12"
+    assert p.method == "Practice easier cases first."
+    d = p.as_dict()
+    assert d["card_id"] == "mc_testcard12"
+    # Other roles still propose from their own findings — the card
+    # competes in the vote; it does not silence them.
+    surveyor = SL.propose_for_role("surveyor", [_finding(caps=True), _card_finding()], router)
+    assert surveyor is not None
+    assert surveyor.label == "empty_perturb_pool"
+    assert surveyor.action["name"] == "fast_term_cap"
+
+
+def test_improver_falls_back_when_no_method_card(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    FL.ensure_seeded()
+    router = FL.train_router()
+    p = SL.propose_for_role("improver", [_finding()], router)
+    assert p is not None
+    assert p.label == "empty_perturb_pool"
+    assert p.action["op"] == "add_family_rotation"
+    assert p.card_id == ""

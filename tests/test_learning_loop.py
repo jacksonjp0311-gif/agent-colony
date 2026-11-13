@@ -357,3 +357,69 @@ def test_render_markdown_and_dashboard_are_plain_english(isolated):
     LL.write_markdown(st)
     assert isolated["md"].exists()
     assert "curriculum pacing" in isolated["md"].read_text()
+
+
+def test_card_proposal_from_hive_result(isolated):
+    from colony.hive_adapter import card_proposal_from_result
+    result = {
+        "proposals": [
+            {"role": "surveyor", "label": "depth_at_physical_cap",
+             "action": {"op": "set_knob", "name": "fast_term_cap", "direction": "up"},
+             "card_id": ""},
+            {"role": "improver", "label": "method_card",
+             "action": {"op": "set_knob", "name": "curriculum_pace", "direction": "up"},
+             "card_id": "mc_8efa602cd2c2", "method": "curriculum",
+             "fingerprint": "fp1"},
+        ]
+    }
+    card = card_proposal_from_result(result)
+    assert card is not None
+    assert card["card_id"] == "mc_8efa602cd2c2"
+    assert card["action"]["name"] == "curriculum_pace"
+    assert card_proposal_from_result({"proposals": []}) is None
+    assert card_proposal_from_result(None) is None
+
+
+def test_adapter_on_cycle_passes_proposal(isolated, monkeypatch):
+    """hive_adapter.on_cycle forwards the card proposal to learning_loop."""
+    import colony.hive_adapter as HA
+    seen = {}
+
+    def _swarm(cycle_id=""):
+        return {
+            "ok": True,
+            "proposals": [{
+                "role": "improver", "label": "method_card",
+                "action": {"op": "set_knob", "name": "curriculum_pace", "direction": "up"},
+                "card_id": "mc_abc", "method": "curriculum",
+                "fingerprint": "fp",
+            }],
+        }
+
+    def _ll(cycle_id="", proposal=None, **k):
+        seen["cycle_id"] = cycle_id
+        seen["proposal"] = proposal
+        return {"ran": True, "got": proposal}
+
+    monkeypatch.setattr(HA, "hive_learning_enabled", lambda: True)
+    monkeypatch.setattr(HA.swarm, "on_cycle", _swarm)
+    import colony.learning_loop as LLmod
+    monkeypatch.setattr(LLmod, "on_cycle", _ll)
+    # hive_adapter imports _ll inside the function; patch the module it imports
+    import sys
+    monkeypatch.setitem(sys.modules, "colony.learning_loop", LLmod)
+    out = HA.on_cycle("c1")
+    assert seen["cycle_id"] == "c1"
+    assert seen["proposal"] is not None
+    assert seen["proposal"]["card_id"] == "mc_abc"
+    assert out["learning_loop"]["got"]["card_id"] == "mc_abc"
+
+
+def test_evolve_workflow_adds_learning_md_and_live_state():
+    from pathlib import Path
+    text = Path(".github/workflows/colony-evolve.yml").read_text(encoding="utf-8")
+    assert "society/LEARNING.md" in text
+    assert "data/society_state.live.json" in text
+    assert "data/society_state.segments.json" in text
+    # Frozen snapshot is still added, never rewritten by this change.
+    assert "git add data/society_state.json" in text

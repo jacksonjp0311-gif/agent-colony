@@ -355,9 +355,15 @@ jobs:
           git add -A data/commons society/systems society/benchmarks society/receipts society/frontier \
             society/EVOLVE_STATUS.md society/DASHBOARD.html society/WITNESS_SUMMARY.md \
             society/BULLETIN.md society/report.md society/CI_STATUS.json \
+            society/LEARNING.md \
             society/genomes society/briefs society/shortlist docs .github || true
           # Include society_state only if changed size reasonable — always add but message notes slim
           git add data/society_state.json data/ledger.jsonl data/witness.jsonl society/WITNESS.md 2>/dev/null || true
+          # Treatment live society-state and its segment manifest / JSONL
+          # (item 52). Control already commits these under control/ via
+          # `git add control/`. Do not rewrite the frozen 44 MiB snapshot.
+          git add data/society_state.live.json data/society_state.segments.json 2>/dev/null || true
+          git add data/society_state/ 2>/dev/null || true
           # Rotated append-only segments and their manifests (item 42).
           git add data/witness data/ledger data/witness.segments.json data/ledger.segments.json 2>/dev/null || true
           # Shard archive of proposals/fitness rows flushed out of the 50-entry inline window: without it
@@ -559,7 +565,8 @@ jobs:
           set -euo pipefail
           git config user.name "agent-colony-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add society/systems/twin_scoreboard.json society/DASHBOARD.html society/WITNESS_SUMMARY.md || true
+          git add society/systems/twin_scoreboard.json society/DASHBOARD.html society/WITNESS_SUMMARY.md \
+            society/LEARNING.md society/systems/learning_loop.json data/commons/learning_loop.jsonl || true
           if git diff --staged --quiet; then
             echo "No scoreboard changes to commit (quiet success)"
           else
