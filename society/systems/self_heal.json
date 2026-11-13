@@ -165,6 +165,36 @@
       "score": 0.0,
       "ts": "2026-11-13T03:45:00Z",
       "env_fingerprint": "7eced144f14a505269239f431639f7f0b08c747212eba5cf08f0c9a20be1af4f"
+    },
+    {
+      "cycle_id": "20261113T042339Z_03713a",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T04:27:19Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T042759Z_04d92a",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T04:29:43Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T043016Z_8f5e45",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T04:31:56Z",
+      "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
     }
   ],
   "quarantine": {},
@@ -277,7 +307,7 @@
   ],
   "adopted_count": 0,
   "reverted_count": 0,
-  "cycle_index": 14,
+  "cycle_index": 17,
   "cycles": [
     "20261113T004347Z_413c5e",
     "20261113T004700Z_794b8d",
@@ -293,7 +323,10 @@
     "20261113T025651Z_8fbc4a",
     "20261113T033803Z_3a7999",
     "20261113T034047Z_cdd725",
-    "20261113T034312Z_c42659"
+    "20261113T034312Z_c42659",
+    "20261113T042339Z_03713a",
+    "20261113T042759Z_04d92a",
+    "20261113T043016Z_8f5e45"
   ],
   "last_self_change": {
     "event": "trial_voided_confound",
