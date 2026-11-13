@@ -1,32 +1,34 @@
 {
-  "when": "2026-11-13T00:17:01Z",
+  "when": "2026-11-13T00:35:58Z",
   "mile": "spark3-port",
-  "cycle_count": 864,
+  "cycle_count": 867,
   "fitness_latest": {
-    "ts": "2026-11-13T00:16:01Z",
-    "cycle_id": "20261113T001355Z_5cf2e9",
+    "ts": "2026-11-13T00:35:02Z",
+    "cycle_id": "20261113T003258Z_094ebd",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9114,
     "commons_signal": 1.0,
-    "math_prize": 0.8081,
-    "compute_usefulness": 0.9063,
+    "math_prize": 0.8101,
+    "compute_usefulness": 0.909,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8808,
+    "prize_boost": 0.8827,
     "kill_rate": 0.3917,
     "kill_rate_term": 0.9025,
     "novelty": 0.75,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8582,
+    "aggregate": 0.8585,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345,
-    "stall_cycles": 12,
+    "stall_cycles": 15,
     "perturb_active": true,
     "distinct_targets_tried_last_3_cycles": 0,
+    "perturb_cooldown_remaining": 0,
+    "perturb_strategy": "explore",
     "checker_proposals_awaiting_review": 0,
     "checker_proposals": []
   },
@@ -59,7 +61,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8671
+    "aggregate_score": 0.8668
   },
   "novelty_gate": {
     "hits": 3,
@@ -79,7 +81,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261113T001355Z_5cf2e9"
+    "cycle_id": "20261113T003258Z_094ebd"
   },
   "oracle": {
     "passes": 528,
