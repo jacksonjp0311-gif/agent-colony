@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "knobs": {
+    "park_cycles": 6,
+    "block_streak_to_park": 2,
+    "stall_cycles": 6,
+    "stall_dead_end_cycles": 3,
+    "perturb_max_cycles": 9,
+    "perturb_epsilon": 0.3,
+    "perturb_wide_epsilon": 0.5,
+    "perturb_min_targets": 2,
+    "perturb_cooldown_cycles": 6,
+    "unused_menu_cycles": 20,
+    "family_rotation_penalty": 0.85,
+    "quarantine_cycles": 6,
+    "quarantine_fail_threshold": 2,
+    "step_size": 0.15,
+    "evaluation_window": 6
+  },
+  "trial": null,
+  "metrics": [
+    {
+      "cycle_id": "20261113T004347Z_413c5e",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T00:46:13Z"
+    },
+    {
+      "cycle_id": "20261113T004700Z_794b8d",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T00:49:04Z"
+    },
+    {
+      "cycle_id": "20261113T004949Z_cb62ba",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T00:51:52Z"
+    }
+  ],
+  "quarantine": {},
+  "failures": [],
+  "evidence": [],
+  "adopted_count": 0,
+  "reverted_count": 0,
+  "cycle_index": 2,
+  "cycles": [
+    "20261113T004347Z_413c5e",
+    "20261113T004700Z_794b8d",
+    "20261113T004949Z_cb62ba"
+  ],
+  "last_self_change": null,
+  "knob_last_trial": {}
+}

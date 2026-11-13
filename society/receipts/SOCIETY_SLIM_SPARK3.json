@@ -1,20 +1,20 @@
 {
-  "when": "2026-11-13T00:35:58Z",
+  "when": "2026-11-13T00:52:52Z",
   "mile": "spark3-port",
-  "cycle_count": 867,
+  "cycle_count": 870,
   "fitness_latest": {
-    "ts": "2026-11-13T00:35:02Z",
-    "cycle_id": "20261113T003258Z_094ebd",
+    "ts": "2026-11-13T00:51:52Z",
+    "cycle_id": "20261113T004949Z_cb62ba",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9114,
     "commons_signal": 1.0,
-    "math_prize": 0.8101,
-    "compute_usefulness": 0.909,
+    "math_prize": 0.81,
+    "compute_usefulness": 0.9087,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8827,
+    "prize_boost": 0.8825,
     "kill_rate": 0.3917,
     "kill_rate_term": 0.9025,
     "novelty": 0.75,
@@ -24,13 +24,18 @@
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345,
-    "stall_cycles": 15,
-    "perturb_active": true,
+    "stall_cycles": 18,
+    "perturb_active": false,
     "distinct_targets_tried_last_3_cycles": 0,
-    "perturb_cooldown_remaining": 0,
-    "perturb_strategy": "explore",
+    "perturb_cooldown_remaining": 6,
+    "perturb_strategy": "mutate",
     "checker_proposals_awaiting_review": 0,
-    "checker_proposals": []
+    "checker_proposals": [],
+    "self_changes_adopted": 0,
+    "self_changes_reverted": 0,
+    "last_self_change": null,
+    "quarantined_steps": [],
+    "self_heal_trial": null
   },
   "honest_scoreboard": {
     "score": 26,
@@ -61,7 +66,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8668
+    "aggregate_score": 0.8673
   },
   "novelty_gate": {
     "hits": 3,
@@ -81,7 +86,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261113T003258Z_094ebd"
+    "cycle_id": "20261113T004949Z_cb62ba"
   },
   "oracle": {
     "passes": 528,
