@@ -9,7 +9,8 @@
     "perturb_epsilon": 0.3,
     "perturb_wide_epsilon": 0.5,
     "perturb_min_targets": 2,
-    "perturb_cooldown_cycles": 6,
+    "perturb_cooldown_cycles": 8,
+    "perturb_zero_pick_cycles": 1,
     "unused_menu_cycles": 20,
     "family_rotation_penalty": 0.85,
     "quarantine_cycles": 6,
@@ -17,7 +18,86 @@
     "step_size": 0.15,
     "evaluation_window": 6
   },
-  "trial": null,
+  "trial": {
+    "knob": "perturb_cooldown_cycles",
+    "from": 6,
+    "to": 8,
+    "direction": "up",
+    "reason": "no_progress_perturb",
+    "finding": {
+      "kind": "no_progress_perturb",
+      "evidence": {
+        "exit_reason": "timeout",
+        "exit_cycle": "20261113T004949Z_cb62ba",
+        "session_targets": [],
+        "timeout_count": 1
+      }
+    },
+    "replay": {
+      "accepted": true,
+      "reasons": [],
+      "simulated": false,
+      "note": "online trial will decide"
+    },
+    "window": 6,
+    "baseline_score": 2.0,
+    "baseline_metrics": [
+      {
+        "cycle_id": "20261113T004347Z_413c5e",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_pass_delta": 0,
+        "oracle_passes": 528,
+        "score": 0.0
+      },
+      {
+        "cycle_id": "20261113T004700Z_794b8d",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_pass_delta": 0,
+        "oracle_passes": 528,
+        "score": 0.0
+      },
+      {
+        "cycle_id": "20261113T004949Z_cb62ba",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_pass_delta": 0,
+        "oracle_passes": 528,
+        "score": 0.0
+      },
+      {
+        "cycle_id": "20261113T010318Z_e7b0b9",
+        "new_oracle_targets": 0,
+        "new_depth": 2,
+        "oracle_pass_delta": 0,
+        "oracle_passes": 528,
+        "score": 2.0
+      },
+      {
+        "cycle_id": "20261113T010627Z_8a2d18",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_pass_delta": 0,
+        "oracle_passes": 528,
+        "score": 0.0
+      },
+      {
+        "cycle_id": "20261113T010908Z_57af80",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_pass_delta": 0,
+        "oracle_passes": 528,
+        "score": 0.0
+      }
+    ],
+    "trial_metrics": [],
+    "started_cycle": "20261113T010908Z_57af80",
+    "started_index": 5,
+    "applied_to_live_oracle": false,
+    "authorized": false,
+    "evidence_id": "54159f56e67c4aaf"
+  },
   "metrics": [
     {
       "cycle_id": "20261113T004347Z_413c5e",
@@ -45,19 +125,77 @@
       "oracle_pass_delta": 0,
       "score": 0.0,
       "ts": "2026-11-13T00:51:52Z"
+    },
+    {
+      "cycle_id": "20261113T010318Z_e7b0b9",
+      "new_oracle_targets": 0,
+      "new_depth": 2,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 2.0,
+      "ts": "2026-11-13T01:05:42Z"
+    },
+    {
+      "cycle_id": "20261113T010627Z_8a2d18",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T01:08:26Z"
+    },
+    {
+      "cycle_id": "20261113T010908Z_57af80",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T01:11:10Z"
     }
   ],
   "quarantine": {},
   "failures": [],
-  "evidence": [],
+  "evidence": [
+    {
+      "event": "trial_start",
+      "cycle_id": "20261113T010908Z_57af80",
+      "knob": "perturb_cooldown_cycles",
+      "from": 6,
+      "to": 8,
+      "direction": "up",
+      "reason": "no_progress_perturb",
+      "baseline_score": 2.0,
+      "window": 6,
+      "replay": {
+        "accepted": true,
+        "reasons": [],
+        "simulated": false,
+        "note": "online trial will decide"
+      },
+      "id": "54159f56e67c4aaf",
+      "ts": "2026-11-13T01:11:10Z",
+      "applied_to_live_oracle": false,
+      "authorized": false
+    }
+  ],
   "adopted_count": 0,
   "reverted_count": 0,
-  "cycle_index": 2,
+  "cycle_index": 5,
   "cycles": [
     "20261113T004347Z_413c5e",
     "20261113T004700Z_794b8d",
-    "20261113T004949Z_cb62ba"
+    "20261113T004949Z_cb62ba",
+    "20261113T010318Z_e7b0b9",
+    "20261113T010627Z_8a2d18",
+    "20261113T010908Z_57af80"
   ],
   "last_self_change": null,
-  "knob_last_trial": {}
+  "knob_last_trial": {
+    "perturb_cooldown_cycles": {
+      "direction": "up",
+      "cycle_index": 5,
+      "cycle_id": "20261113T010908Z_57af80"
+    }
+  }
 }
