@@ -51,7 +51,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, Iterable, Iterator
+from typing import Any, Callable, Iterable, Iterator, Mapping
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULTS_PATH = Path(__file__).resolve().parent / "self_heal_defaults.json"
@@ -115,6 +115,10 @@ DIAGNOSIS_SUGGESTIONS: dict[str, list[tuple[str, str]]] = {
         ("perturb_epsilon", "up"),
         ("unused_menu_cycles", "up"),
     ],
+    # Cap raises are attached to the finding when holds sit at a
+    # physical cap (see diagnose). An empty list here means "do not
+    # trial a cap just because the pool is empty."
+    "empty_perturb_pool": [],
     "immediate_reentry": [
         ("perturb_cooldown_cycles", "up"),
     ],
@@ -454,6 +458,134 @@ def trial_fingerprint_mismatch(
     if not old_fp:
         return True, UNRECORDED_FINGERPRINT, new_fp
     return old_fp != new_fp, old_fp, new_fp
+
+
+def _baseline_exclude_knob(state: dict[str, Any] | None) -> str | None:
+    """Knob of an in-flight or just-closed self-heal trial, if any.
+
+    Matches the spirit of ``trial_fingerprint_mismatch``: the trial
+    knob itself is not an external confound.
+    """
+    st = state or {}
+    trial = st.get("trial")
+    if isinstance(trial, dict) and trial.get("knob"):
+        return str(trial["knob"])
+    last = st.get("last_self_change") or {}
+    if (
+        isinstance(last, dict)
+        and last.get("event") in ("adopt", "revert", "trial_voided_confound")
+        and last.get("knob")
+    ):
+        return str(last["knob"])
+    return None
+
+
+def _known_trial_knob_values(state: dict[str, Any] | None, knob: str) -> list[Any]:
+    """Current, from, and to values of ``knob`` seen on an in-flight or just-closed trial."""
+    st = state or {}
+    out: list[Any] = []
+    knobs = st.get("knobs") or {}
+    if knob in knobs:
+        out.append(knobs[knob])
+    for src in (st.get("trial"), st.get("last_self_change")):
+        if not isinstance(src, dict):
+            continue
+        if str(src.get("knob") or "") != knob:
+            continue
+        for key in ("from", "to"):
+            if src.get(key) is not None:
+                out.append(src[key])
+    unique: list[Any] = []
+    for v in out:
+        if v not in unique:
+            unique.append(v)
+    return unique
+
+
+def _row_matches_baseline(
+    row: Mapping[str, Any],
+    *,
+    state: dict[str, Any],
+    exclude_knob: str | None,
+    current_full: Mapping[str, Any],
+    current_excluded: Mapping[str, Any],
+) -> bool:
+    """True if this metric row is in the same environment, ignoring ``exclude_knob``."""
+    row_fp = str(row.get("env_fingerprint") or "")
+    if not row_fp:
+        return False
+    if row_fp == str(current_full.get("digest") or ""):
+        return True
+    parts = row.get("environment") if isinstance(row.get("environment"), Mapping) else None
+    if parts and (parts.get("code") or parts.get("knobs") is not None):
+        if parts.get("code") and parts.get("code") != current_excluded.get("code"):
+            return False
+        if parts.get("tree") and parts.get("tree") != current_excluded.get("tree"):
+            return False
+        row_knobs = dict(parts.get("knobs") or {})
+        cur_knobs = dict(current_excluded.get("knobs") or {})
+        if exclude_knob:
+            row_knobs.pop(exclude_knob, None)
+            cur_knobs.pop(exclude_knob, None)
+        return row_knobs == cur_knobs
+    if not exclude_knob:
+        return False
+    # Legacy digest-only rows: reconstruct the full digest with only
+    # the excluded knob set to each known trial value. Live code and
+    # every other knob are used, so a real code or cap change will
+    # not match the stored digest.
+    knobs_base = dict(state.get("knobs") or default_knobs())
+    for val in _known_trial_knob_values(state, exclude_knob):
+        trial_knobs = dict(knobs_base)
+        try:
+            trial_knobs[exclude_knob] = clamp(exclude_knob, val)
+        except Exception:
+            trial_knobs[exclude_knob] = val
+        probe = dict(state)
+        probe["knobs"] = trial_knobs
+        try:
+            fp = environment_fingerprint(state=probe)
+        except Exception:
+            continue
+        if str(fp.get("digest") or "") == row_fp:
+            return True
+    return False
+
+
+def baseline_environment_confounded(
+    window_rows: Iterable[dict[str, Any]],
+    *,
+    state: dict[str, Any] | None = None,
+    exclude_knob: str | None = None,
+) -> bool:
+    """True when the baseline window is not a fair comparison.
+
+    An in-flight or just-closed trial knob is excluded on both sides,
+    matching ``trial_fingerprint_mismatch``. A change to code, the git
+    tree, or any *other* knob or cap is still a confound. A missing
+    current digest or a row with no fingerprint is a confound.
+    """
+    st = state if state is not None else load_state()
+    skip = exclude_knob if exclude_knob is not None else _baseline_exclude_knob(st)
+    try:
+        current_full = environment_fingerprint(state=st)
+        current_excluded = (
+            environment_fingerprint(exclude_knob=skip, state=st) if skip else current_full
+        )
+    except Exception:
+        return True
+    if not current_full.get("digest"):
+        return True
+    rows = list(window_rows or [])
+    if not rows:
+        return True
+    for row in rows:
+        if not _row_matches_baseline(
+            row, state=st, exclude_knob=skip,
+            current_full=current_full, current_excluded=current_excluded,
+        ):
+            return True
+    return False
 
 
 def is_invariant_name(name: str) -> bool:
@@ -1085,6 +1217,184 @@ def _distinct_recent_targets(stall_state: dict[str, Any], n_cycles: int = 3) -> 
     return targets, cycle_ids
 
 
+def _is_empty_perturb_pool(
+    stall_state: Mapping[str, Any],
+    cycle_id: str = "",
+    pert: Mapping[str, Any] | None = None,
+) -> bool:
+    """True while an empty-pool no_candidates condition is live.
+
+    Non-sticky: fires on the exit cycle itself, and afterwards only
+    while item 33 still blocks re-entry (same pass total, no eligible
+    target). Once a target becomes eligible or passes move, this is
+    false even if the last exit_reason is still on disk.
+    """
+    pert = pert if pert is not None else (stall_state.get("perturb") or {})
+    if pert.get("active"):
+        return False
+    exit_reason = str(pert.get("exit_reason") or "")
+    empty_exits = ("no_candidates", "no_eligible", "no_eligible_target", "no eligible target")
+    if exit_reason not in empty_exits:
+        return False
+    if list(pert.get("session_targets") or []):
+        return False
+    if not pert.get("session_progress") and str(pert.get("exit_cycle") or "") == str(cycle_id or ""):
+        return True
+    try:
+        from colony.stall import _block_reentry_after_no_candidates
+        return bool(_block_reentry_after_no_candidates(dict(stall_state), cycle_id))
+    except Exception:
+        return False
+
+
+def _empty_pool_cap_suggestions() -> tuple[list[dict[str, Any]], list[tuple[str, str]]]:
+    """Holds sitting at a physical cap, and the knob raises that would free them.
+
+    No sequence ids are hardcoded: the attempt log is the source. A hold
+    whose recorded cap has already been raised is omitted (it should
+    already be eligible via can_progress_past).
+    """
+    cap_holds: list[dict[str, Any]] = []
+    suggest: list[tuple[str, str]] = []
+    try:
+        from colony.oeis_conjectures import (
+            load_attempt_log, cap_of_row, cap_has_been_raised,
+            CAP_TERM, CAP_DIGIT, CAP_TIME, CAP_REF,
+        )
+        log = load_attempt_log()
+        seen_ids: set[str] = set()
+        reasons: list[str] = []
+        for a in reversed(log.get("attempts") or []):
+            if not isinstance(a, dict):
+                continue
+            if a.get("status") != "holds_on_range":
+                continue
+            eid = str(a.get("id") or "")
+            if eid and eid in seen_ids:
+                continue
+            reason, val = cap_of_row(a, None)
+            if not reason:
+                continue
+            try:
+                if cap_has_been_raised(a, None):
+                    continue
+            except Exception:
+                pass
+            if eid:
+                seen_ids.add(eid)
+            cap_holds.append({
+                "id": a.get("id"),
+                "anum": a.get("anum"),
+                "cap_reason": reason,
+                "cap_value": val,
+                "verified_depth": a.get("verified_depth") or a.get("depth"),
+                "cycle_id": a.get("cycle_id"),
+            })
+            reasons.append(reason)
+            if len(cap_holds) >= 8:
+                break
+        if CAP_TERM in reasons:
+            suggest.extend([("fast_term_cap", "up"), ("gf_term_cap", "up"), ("deep_term_cap", "up")])
+        if CAP_DIGIT in reasons or "digit_or_time_cap" in reasons:
+            suggest.append(("deep_digits", "up"))
+        if CAP_TIME in reasons or "digit_or_time_cap" in reasons:
+            suggest.append(("deep_seconds", "up"))
+        if CAP_REF in reasons and not suggest:
+            suggest.extend([("fast_term_cap", "up"), ("deep_term_cap", "up")])
+    except Exception:
+        return [], []
+    # Dedup suggest, keep order.
+    seen_s: set[tuple[str, str]] = set()
+    out_s: list[tuple[str, str]] = []
+    for p in suggest:
+        if p not in seen_s:
+            seen_s.add(p)
+            out_s.append(p)
+    return cap_holds, out_s
+
+
+def unused_rotation_families() -> list[str]:
+    """Closed-set families not recently used, in a stable order.
+
+    The set is hive.ops.KNOWN_FAMILIES. Recently used names come from
+    the attempt log and frontier reports when those are available. No
+    sequence ids are hardcoded; if every family has been used, the
+    full sorted set is returned so a proposer still has a legal pick.
+    """
+    try:
+        from hive.ops import KNOWN_FAMILIES
+        known = set(KNOWN_FAMILIES)
+    except Exception:
+        known = {"collatz", "divisor", "goldbach", "pattern", "subset",
+                 "oeis", "erdos", "legendre", "algebraic"}
+    used: set[str] = set()
+    try:
+        from colony.oeis_conjectures import load_attempt_log
+        log = load_attempt_log()
+        for form in log.get("last_forms") or []:
+            f = str(form or "").strip().lower()
+            if f in known:
+                used.add(f)
+        for a in log.get("attempts") or []:
+            if not isinstance(a, dict):
+                continue
+            for key in ("family", "form", "kind"):
+                f = str(a.get(key) or "").strip().lower()
+                if f in known:
+                    used.add(f)
+    except Exception:
+        pass
+    unused = sorted(known - used)
+    return unused if unused else sorted(known)
+
+
+def authored_check_counts() -> dict[str, Any]:
+    """How many authored checks exist, against the frozen 150 cap."""
+    try:
+        from colony.authoring import authored_count, MAX_AUTHORED_TOTAL
+        n = int(authored_count())
+        cap = int(MAX_AUTHORED_TOTAL)
+        return {"n": n, "cap": cap, "room": n < cap}
+    except Exception:
+        return {"n": 0, "cap": 150, "room": True}
+
+
+def maybe_supply_oracle_targets(
+    cycle_id: str = "",
+    *,
+    findings: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """When the PERTURB pool is empty, invite one new Oracle-reaching check.
+
+    Stays inside ``MAX_AUTHORED_TOTAL`` (150) and ``MAX_AUTHORED_PER_CYCLE``.
+    Does not author when the finding is absent or the cap is full. The
+    authoring pipeline itself decides what to write; this does not name
+    sequences.
+    """
+    found = list(findings or [])
+    if not any(str(f.get("kind") or "") == "empty_perturb_pool" for f in found):
+        return {"invited": False, "authored": [], "reason": "no_finding"}
+    try:
+        from colony.authoring import author_checks, authored_count, MAX_AUTHORED_TOTAL, MAX_AUTHORED_PER_CYCLE
+    except Exception as exc:  # noqa: BLE001
+        return {"invited": False, "authored": [], "reason": f"authoring_unavailable:{type(exc).__name__}"}
+    n = int(authored_count())
+    cap = int(MAX_AUTHORED_TOTAL)
+    if n >= cap:
+        return {"invited": False, "authored": [], "reason": "at_authored_cap", "n": n, "cap": cap}
+    try:
+        rows = author_checks(max_new=min(1, int(MAX_AUTHORED_PER_CYCLE)), cycle_id=cycle_id, write=True)
+    except Exception as exc:  # noqa: BLE001
+        return {"invited": True, "authored": [], "reason": f"author_error:{type(exc).__name__}", "n": n, "cap": cap}
+    return {
+        "invited": True,
+        "authored": list(rows or []),
+        "reason": "authored" if rows else "no_candidate",
+        "n": n,
+        "cap": cap,
+    }
+
+
 def diagnose(
     cycle_id: str = "",
     *,
@@ -1116,13 +1426,45 @@ def diagnose(
     pert = st.get("perturb") or {}
     exit_reason = str(pert.get("exit_reason") or "")
     no_progress_exits = ("timeout", "timed_out", "max_cycles", "no_candidates", "no_eligible", "no_eligible_target")
-    if (not pert.get("active")) and exit_reason in no_progress_exits and not pert.get("session_progress"):
+    empty_exits = ("no_candidates", "no_eligible", "no_eligible_target", "no eligible target")
+    session_targets = list(pert.get("session_targets") or [])
+    if (not pert.get("active")) and _is_empty_perturb_pool(st, cycle_id, pert):
+        cap_holds, cap_suggest = _empty_pool_cap_suggestions()
+        unused = unused_rotation_families()
+        room = authored_check_counts()
+        findings.append({
+            "kind": "empty_perturb_pool",
+            "evidence": {
+                "exit_reason": exit_reason,
+                "exit_cycle": pert.get("exit_cycle"),
+                "session_targets": session_targets[:8],
+                "timeout_count": pert.get("timeout_count"),
+                "no_candidates_pass_total": pert.get("no_candidates_pass_total"),
+                "cap_holds": cap_holds,
+                "suggest": cap_suggest,
+                "unused_families": unused,
+                "authoring_room": room.get("room"),
+                "authored_count": room.get("n"),
+                "authored_cap": room.get("cap"),
+            },
+            "suggest": cap_suggest,
+        })
+    elif (
+        (not pert.get("active"))
+        and exit_reason in no_progress_exits
+        and not pert.get("session_progress")
+        and not (exit_reason in empty_exits and not session_targets)
+    ):
+        # Spent-picks or timeout sessions: not an empty pool.
+        # Empty no_candidates sessions that are no longer blocking are
+        # not restated as no_progress_perturb (that finding is what
+        # used to keep proposing the already-held skip).
         findings.append({
             "kind": "no_progress_perturb",
             "evidence": {
                 "exit_reason": exit_reason,
                 "exit_cycle": pert.get("exit_cycle"),
-                "session_targets": list(pert.get("session_targets") or [])[:8],
+                "session_targets": session_targets[:8],
                 "timeout_count": pert.get("timeout_count"),
             },
         })
@@ -1344,14 +1686,12 @@ def propose_trial(
     metrics = list(st.get("metrics") or [])
     if len(metrics) < window:
         return None
-    # A baseline that spans a code or cap change is not a fair comparison.
-    # Wait until ``window`` consecutive cycles share the current fingerprint.
-    try:
-        current_fp = environment_fingerprint(state=st)["digest"]
-    except Exception:
-        current_fp = ""
+    # A baseline that spans a code or non-trial cap change is not a fair
+    # comparison. An in-flight or just-closed trial knob is excluded,
+    # matching trial_fingerprint_mismatch, so a self-heal trial does not
+    # starve the next one of a baseline.
     window_rows = metrics[-window:]
-    if not current_fp or any(str(r.get("env_fingerprint") or "") != current_fp for r in window_rows):
+    if baseline_environment_confounded(window_rows, state=st):
         return None
     tried: set[tuple[str, str]] = set()
     for finding in findings:
@@ -1845,9 +2185,13 @@ def run_cycle(
 
     row = metrics if metrics is not None else collect_metrics(cycle_id, stall_state=stall_state)
     row = dict(row)
-    if not row.get("env_fingerprint"):
+    if not row.get("env_fingerprint") or not row.get("environment"):
         try:
-            row["env_fingerprint"] = environment_fingerprint(state=st)["digest"]
+            env = environment_fingerprint(state=st)
+            row.setdefault("env_fingerprint", env["digest"])
+            row.setdefault("environment", {
+                "code": env["code"], "tree": env["tree"], "knobs": env["knobs"],
+            })
         except Exception:
             pass
     hist = list(st.get("metrics") or [])
@@ -1889,9 +2233,14 @@ def run_cycle(
     started = False
     proposal = None
     found = findings
+    supply: dict[str, Any] = {}
     if not st.get("trial"):
         if found is None:
             found = diagnose(cycle_id, stall_state=stall_state, heal_state=st)
+        try:
+            supply = maybe_supply_oracle_targets(cycle_id, findings=found)
+        except Exception as exc:  # noqa: BLE001
+            supply = {"invited": False, "authored": [], "reason": f"error:{type(exc).__name__}"}
         proposal = propose_trial(found, state=st, cycle_id=cycle_id)
         if proposal is not None:
             st = start_trial(proposal, state=st, cycle_id=cycle_id)
@@ -1916,6 +2265,7 @@ def run_cycle(
         "trial_started": started,
         "trial": st.get("trial"),
         "proposal": proposal,
+        "supply": supply,
         "self_changes_adopted": vis["self_changes_adopted"],
         "self_changes_reverted": vis["self_changes_reverted"],
         "last_self_change": vis["last_self_change"],

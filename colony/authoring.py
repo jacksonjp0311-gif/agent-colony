@@ -621,6 +621,19 @@ def release_authored_slot(path: Path, name: str) -> bool:
     return True
 
 
+def authored_count() -> int:
+    """Number of authored_ checks currently in the lemma file. Does not change the 150 cap."""
+    path = _lemma_impl()
+    if not path.exists():
+        return 0
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+    except Exception:
+        return 0
+    names = {n for n, _c, _f in _entries(tree)}
+    return sum(1 for n in names if n.startswith(AUTHORED_PREFIX))
+
+
 def author_checks(*, max_new: int = MAX_AUTHORED_PER_CYCLE, cycle_id: str = "", write: bool = True) -> list[dict[str, Any]]:
     """Compose up to ``max_new`` new disabled hard checks from proven lemmas. Returns rows."""
     path = _lemma_impl()

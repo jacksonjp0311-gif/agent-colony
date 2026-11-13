@@ -122,11 +122,20 @@ def test_live_dead_end_and_term_cap_also_get_nonzero_margins(tmp_path, monkeypat
 
 def test_historical_seeds_are_tagged_with_source_prs():
     rows = [r for r in FL.seed_patterns() if str(r.get("id") or "").startswith("seed:pr") and "hist-" in str(r.get("id") or "")]
-    assert len(rows) == 6
-    sources = {r["source"] for r in rows}
+    originals = [r for r in rows if r.get("outcome") == "positive" and ":corrective" not in str(r.get("id") or "")]
+    assert len(originals) == 6
+    sources = {r["source"] for r in originals}
     assert sources <= {"pr4", "pr6", "pr7"}
-    for r in rows:
+    for r in originals:
         ev = r.get("evidence") or {}
         assert ev.get("pr") in {4, 6, 7}
         assert ev.get("derived_from") == "society/systems/swarm_learn.json"
         assert r["outcome"] == "positive"
+    # Append-only correctives for the empty-pool hist seeds: original
+    # lines are left in place, a negative label is added after them.
+    correctives = [r for r in rows if str(r.get("id") or "").endswith(":corrective") or ":corrective" in str(r.get("id") or "")]
+    assert correctives
+    for r in correctives:
+        assert r["outcome"] == "negative"
+        assert r["label"] == "empty_perturb_pool"
+        assert (r.get("evidence") or {}).get("corrects")
