@@ -423,3 +423,97 @@ def test_evolve_workflow_adds_learning_md_and_live_state():
     assert "data/society_state.segments.json" in text
     # Frozen snapshot is still added, never rewritten by this change.
     assert "git add data/society_state.json" in text
+
+
+def test_note_hive_deferral_and_visibility(isolated):
+    import colony.learning_loop as LL
+    from hive.bitwork import WILSON_ACCEPT_PERMILLE
+    pending = {
+        "fingerprint": "set_knob:direction=up:name=park_cycles",
+        "label": "dead_end_streak",
+        "action": {"op": "set_knob", "name": "park_cycles", "direction": "up"},
+        "deferred_count": 4,
+        "deferred_under": "abc123",
+        "wilson_gate": WILSON_ACCEPT_PERMILLE,
+    }
+    row = LL.note_hive_deferral(pending, cycle_id="c4")
+    assert row is not None
+    assert row["event"] == "hive_deferred"
+    assert row["deferred_count"] == 4
+    # Same count is not logged twice.
+    assert LL.note_hive_deferral(pending, cycle_id="c5") is None
+    st = LL.load_state()
+    assert st["last_hive_deferral"]["deferred_count"] == 4
+    vis = LL.format_visibility(st)
+    assert "deferred 4 times" in vis
+    md = LL.render_markdown(st)
+    assert "deferred **4** times" in md
+    assert "Wilson 700" in md
+    assert WILSON_ACCEPT_PERMILLE == 700
+
+
+def test_run_cycle_records_pending_apply(isolated, monkeypatch):
+    import colony.learning_loop as LL
+    monkeypatch.setattr(LL, "harvest_outcomes", lambda *a, **k: [])
+    monkeypatch.setattr(LL, "judge_twin_pending", lambda *a, **k: [])
+    monkeypatch.setattr(LL, "score_shadows", lambda *a, **k: {"pending": 0, "resolved": 0})
+    out = LL.run_cycle(
+        "c1",
+        proposal={"card_id": "mc_8efa602cd2c2", "method": "curriculum",
+                  "action": {"op": "set_knob", "name": "curriculum_pace", "direction": "up"},
+                  "fingerprint": "set_knob:direction=up:name=curriculum_pace"},
+        pending_apply={
+            "fingerprint": "set_knob:direction=up:name=curriculum_pace",
+            "label": "method_card",
+            "card_id": "mc_8efa602cd2c2",
+            "deferred_count": 2,
+            "deferred_under": "fpX",
+        },
+    )
+    assert out["ran"] is True
+    assert out["deferred"]["deferred_count"] == 2
+    st = LL.load_state()
+    proposed = st["pending"][-1]
+    assert proposed["card_id"] == "mc_8efa602cd2c2"
+    assert proposed["deferred_count"] == 2
+    log = LL.load_log()
+    ev = [r for r in log if r.get("event") == "hive_deferred"]
+    assert ev and ev[-1]["deferred_count"] == 2
+
+
+def test_adapter_forwards_pending_apply(isolated, monkeypatch):
+    import colony.hive_adapter as HA
+    import colony.learning_loop as LLmod
+    seen = {}
+
+    def _swarm(cycle_id=""):
+        return {
+            "ok": True,
+            "proposals": [{
+                "role": "improver", "label": "method_card",
+                "action": {"op": "set_knob", "name": "curriculum_pace", "direction": "up"},
+                "card_id": "mc_abc", "method": "curriculum",
+                "fingerprint": "fp",
+            }],
+            "pending_apply": {
+                "fingerprint": "fp",
+                "deferred_count": 3,
+                "card_id": "mc_abc",
+                "label": "method_card",
+            },
+        }
+
+    def _ll(cycle_id="", proposal=None, pending_apply=None, **k):
+        seen["proposal"] = proposal
+        seen["pending_apply"] = pending_apply
+        return {"ran": True, "deferred": pending_apply}
+
+    monkeypatch.setattr(HA, "hive_learning_enabled", lambda: True)
+    monkeypatch.setattr(HA.swarm, "on_cycle", _swarm)
+    monkeypatch.setattr(LLmod, "on_cycle", _ll)
+    import sys
+    monkeypatch.setitem(sys.modules, "colony.learning_loop", LLmod)
+    out = HA.on_cycle("c1")
+    assert seen["pending_apply"]["deferred_count"] == 3
+    assert seen["proposal"]["card_id"] == "mc_abc"
+    assert out["learning_loop"]["deferred"]["deferred_count"] == 3

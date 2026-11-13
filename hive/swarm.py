@@ -167,6 +167,7 @@ def _empty_state() -> dict[str, Any]:
         "replay_calibrated": None,
         "shadows": [],
         "library_persisted": False,
+        "pending_apply": None,
     }
 
 
@@ -200,6 +201,8 @@ def load_state() -> dict[str, Any]:
     st["seen_shadow_ids"] = list(st.get("seen_shadow_ids") or [])[-400:]
     if not isinstance(st.get("calibration"), dict):
         st["calibration"] = None
+    if not isinstance(st.get("pending_apply"), dict):
+        st["pending_apply"] = None
     return st
 
 
@@ -1659,6 +1662,168 @@ def _build_router() -> Router:
     return FL.train_router()
 
 
+def _current_env_digest() -> str:
+    """Current code/tree environment digest, or empty if unavailable."""
+    try:
+        from hive import host
+        env = host.heal_environment_fingerprint()
+        return str((env or {}).get("digest") or "")
+    except Exception:
+        return ""
+
+
+def _window_is_confounded() -> bool:
+    """True unless a full baseline window sits on the current code/tree.
+
+    A short window (fewer rows than evaluation_window, default 6) is
+    not a clean window. Fail closed on host errors so a pending apply
+    is never resolved without a proven clean baseline.
+    """
+    try:
+        from hive import host
+        window = int(host.heal_current_knob("evaluation_window") or 6)
+    except Exception:
+        window = 6
+    window = max(int(window or 6), 1)
+    rows = _heal_window_rows(window)
+    if len(rows) < window:
+        return True
+    try:
+        from hive import host
+        try:
+            heal_state = host.heal_load_state()
+        except Exception:
+            heal_state = None
+        return _baseline_is_confounded(rows, heal_state=heal_state, host=host)
+    except Exception:
+        return True
+
+
+def _pending_summary(pending: Mapping[str, Any] | None) -> dict[str, Any] | None:
+    if not isinstance(pending, Mapping):
+        return None
+    return {
+        "fingerprint": pending.get("fingerprint") or "",
+        "action": dict(pending.get("action") or {}) if isinstance(pending.get("action"), Mapping) else pending.get("action"),
+        "role": pending.get("role") or "",
+        "label": pending.get("label") or "",
+        "symptom": pending.get("symptom") or "",
+        "card_id": pending.get("card_id") or "",
+        "method": pending.get("method") or "",
+        "deferred_under": pending.get("deferred_under") or "",
+        "first_deferred_cycle": pending.get("first_deferred_cycle") or "",
+        "last_deferred_cycle": pending.get("last_deferred_cycle") or "",
+        "deferred_count": int(pending.get("deferred_count") or 0),
+        "wilson_gate": int(pending.get("wilson_gate") or WILSON_ACCEPT_PERMILLE),
+    }
+
+
+def _remember_pending_apply(
+    state: dict[str, Any],
+    winner: "Proposal",
+    vote_result: "VoteResult",
+    cycle_id: str,
+) -> dict[str, Any]:
+    """Keep a gate-passing decision that could not apply because of a confound.
+
+    The first such decision is the one that stays pending. Later
+    confounded cycles increment deferred_count; a different winner
+    during the wait does not replace it. The Wilson gate is recorded,
+    never changed.
+    """
+    prev = state.get("pending_apply") if isinstance(state.get("pending_apply"), dict) else None
+    env_fp = _current_env_digest()
+    audit = vote_audit_fields(vote_result)
+    if prev and str(prev.get("fingerprint") or "") == str(winner.fingerprint or ""):
+        prev["deferred_count"] = int(prev.get("deferred_count") or 0) + 1
+        prev["last_deferred_cycle"] = cycle_id
+        prev["last_vote"] = audit
+        state["pending_apply"] = prev
+        return state
+    if prev:
+        # Still waiting on a clean window: keep the original decision.
+        prev["deferred_count"] = int(prev.get("deferred_count") or 0) + 1
+        prev["last_deferred_cycle"] = cycle_id
+        state["pending_apply"] = prev
+        return state
+    state["pending_apply"] = {
+        "fingerprint": winner.fingerprint,
+        "action": dict(winner.action or {}),
+        "role": winner.role,
+        "label": winner.label,
+        "symptom": winner.symptom,
+        "card_id": getattr(winner, "card_id", "") or "",
+        "method": getattr(winner, "method", "") or "",
+        "deferred_under": env_fp,
+        "first_deferred_cycle": cycle_id,
+        "last_deferred_cycle": cycle_id,
+        "deferred_count": 1,
+        "vote": audit,
+        "wilson_gate": WILSON_ACCEPT_PERMILLE,
+    }
+    return state
+
+
+def _drop_pending_apply(
+    state: dict[str, Any],
+    cycle_id: str,
+    *,
+    reason: str,
+    vote_result: "VoteResult | None" = None,
+) -> dict[str, Any]:
+    pending = state.get("pending_apply") if isinstance(state.get("pending_apply"), dict) else None
+    if not pending:
+        return state
+    ev: dict[str, Any] = {
+        "event": "pending_apply_dropped",
+        "cycle_id": cycle_id,
+        "reason": reason,
+        "pending_fingerprint": pending.get("fingerprint"),
+        "pending_action": pending.get("action"),
+        "pending_label": pending.get("label"),
+        "pending_deferred_count": int(pending.get("deferred_count") or 0),
+        "pending_deferred_under": pending.get("deferred_under") or "",
+        "pending_first_deferred_cycle": pending.get("first_deferred_cycle") or "",
+        "wilson_gate": WILSON_ACCEPT_PERMILLE,
+    }
+    if vote_result is not None:
+        ev.update(vote_audit_fields(vote_result))
+    append_evidence(state, ev)
+    state["pending_apply"] = None
+    return state
+
+
+def _maybe_drop_pending_on_clean_recheck(
+    state: dict[str, Any],
+    cycle_id: str,
+    vote_result: "VoteResult | None",
+) -> dict[str, Any]:
+    """On a clean 6-cycle window, drop a pending apply the fresh vote does not still pass.
+
+    If the window is still confounded, the original decision stays
+    pending. The Wilson 700‰ gate is whatever ``vote()`` already
+    applied; this does not re-score or lower it.
+    """
+    pending = state.get("pending_apply") if isinstance(state.get("pending_apply"), dict) else None
+    if not pending:
+        return state
+    if _window_is_confounded():
+        return state
+    winner = None if vote_result is None else vote_result.winner
+    same = (
+        vote_result is not None
+        and not vote_result.abstained
+        and winner is not None
+        and str(winner.fingerprint or "") == str(pending.get("fingerprint") or "")
+    )
+    if same:
+        return state
+    reason = "vote_failed_gate" if (
+        vote_result is None or vote_result.abstained or winner is None
+    ) else "vote_changed"
+    return _drop_pending_apply(state, cycle_id, reason=reason, vote_result=vote_result)
+
+
 def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     """One swarm cycle: mine, propose, vote, maybe start or close a trial."""
     st = load_state()
@@ -1707,6 +1872,10 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                 "shadow_id": None if shadow is None else shadow.get("id"),
                 "source": "shadow" if shadow is not None else None,
             })
+            # Item 56: on a clean window, a fresh vote that fails the
+            # (unchanged) Wilson gate drops the pending decision. A
+            # still-confounded window keeps it.
+            st = _maybe_drop_pending_on_clean_recheck(st, cycle_id, vote_result)
         else:
             winner = vote_result.winner
             if winner.action.get("op") == "set_knob":
@@ -1714,6 +1883,20 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
             else:
                 started = start_rule_trial(winner, cycle_id=cycle_id, state=st)
             if started.get("ok"):
+                pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
+                same = (
+                    pending is not None
+                    and str(pending.get("fingerprint") or "") == str(winner.fingerprint or "")
+                )
+                deferred_count = int((pending or {}).get("deferred_count") or 0) if same else 0
+                if pending and not same:
+                    st = _drop_pending_apply(
+                        st, cycle_id, reason="vote_changed", vote_result=vote_result,
+                    )
+                else:
+                    st["pending_apply"] = None
+                started = dict(started)
+                started["deferred_count"] = deferred_count
                 st["applied_count"] = int(st.get("applied_count") or 0) + 1
                 applied_this_cycle += 1
                 append_evidence(st, {
@@ -1726,16 +1909,27 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                     "role": winner.role,
                     "label": winner.label,
                     "symptom": winner.symptom,
+                    "deferred_count": deferred_count,
+                    "pending_resolved": bool(deferred_count),
                 })
             else:
+                reason = str(started.get("reason") or "")
+                deferred_count = 0
+                if reason == "confounded_baseline":
+                    st = _remember_pending_apply(st, winner, vote_result, cycle_id)
+                    pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
+                    deferred_count = int((pending or {}).get("deferred_count") or 0)
                 append_evidence(st, {
                     **vote_audit_fields(vote_result),
                     "event": "apply_deferred",
                     "cycle_id": cycle_id,
-                    "reason": started.get("reason"),
+                    "reason": reason,
                     "vote_reason": vote_result.reason,
                     "fingerprint": winner.fingerprint,
                     "action": winner.action,
+                    "deferred_count": deferred_count,
+                    "pending_fingerprint": (st.get("pending_apply") or {}).get("fingerprint")
+                    if isinstance(st.get("pending_apply"), dict) else None,
                 })
 
     # If a rule trial just closed as adopt, record first-adopted.
@@ -1806,6 +2000,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         "replay": vis["swarm_replay"],
         "applied_to_live_oracle": False,
         "authorized": False,
+        "pending_apply": _pending_summary(st.get("pending_apply")),
     }
 
 
@@ -1886,6 +2081,7 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
             "swarm_time_to_fix": ttf,
             "swarm_roles": list(SWARM_ROLES),
             "swarm_max_actions_per_cycle": MAX_ACTIONS_PER_CYCLE,
+            "swarm_pending_apply": _pending_summary(st.get("pending_apply")),
         }
     except Exception:
         return {
@@ -1911,6 +2107,7 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
             "swarm_time_to_fix": {"n": 0, "mean": None, "by_kind": {}},
             "swarm_roles": list(SWARM_ROLES),
             "swarm_max_actions_per_cycle": MAX_ACTIONS_PER_CYCLE,
+            "swarm_pending_apply": None,
         }
 
 
@@ -1948,5 +2145,11 @@ def format_visibility(vis: dict[str, Any] | None = None) -> str:
         parts.append(
             f"last {last.get('event')} {last.get('label')} "
             f"(baseline {last.get('baseline_score')}, trial {last.get('trial_score')})"
+        )
+    pending = v.get("swarm_pending_apply")
+    if pending:
+        parts.append(
+            f"pending {pending.get('fingerprint')} "
+            f"(deferred {pending.get('deferred_count') or 0})"
         )
     return "; ".join(parts)

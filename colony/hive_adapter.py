@@ -165,7 +165,11 @@ def on_cycle(cycle_id: str = "") -> dict[str, Any]:
         from colony.learning_loop import on_cycle as _ll
         result = dict(result or {})
         card = card_proposal_from_result(result)
-        result["learning_loop"] = _ll(cycle_id, proposal=card)
+        result["learning_loop"] = _ll(
+            cycle_id,
+            proposal=card,
+            pending_apply=result.get("pending_apply"),
+        )
     except Exception:
         pass
     return result

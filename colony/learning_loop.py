@@ -143,6 +143,7 @@ def _empty_state() -> dict[str, Any]:
         "n_reverted": 0,
         "n_voided": 0,
         "n_twin_held": 0,
+        "last_hive_deferral": None,
         "applied_to_live_oracle": False,
         "authorized": False,
         "note": (
@@ -756,6 +757,7 @@ def note_proposal(
                 else proposal.get("knob"),
         "fingerprint": proposal.get("fingerprint") or "",
         "cycle_id": cycle_id or proposal.get("cycle_id") or "",
+        "deferred_count": int(proposal.get("deferred_count") or 0),
         "ts": _utc(),
     }
     pending = list(st.get("pending") or [])
@@ -767,6 +769,52 @@ def note_proposal(
     st["last_cycle"] = cycle_id or st.get("last_cycle") or ""
     if write and self_mod_ok():
         _append(log_path(), {**row, "applied_to_live_oracle": False, "authorized": False})
+        save_state(st)
+    return row
+
+
+def note_hive_deferral(
+    pending: Mapping[str, Any],
+    *,
+    cycle_id: str = "",
+    state: dict[str, Any] | None = None,
+    write: bool = True,
+) -> dict[str, Any] | None:
+    """Label a gate-passing Hive decision that is waiting on a clean window.
+
+    One log row per increment of deferred_count. Does not apply the
+    action and does not change the Wilson gate.
+    """
+    if not isinstance(pending, Mapping):
+        return None
+    count = int(pending.get("deferred_count") or 0)
+    if count <= 0:
+        return None
+    st = state if state is not None else load_state()
+    row = {
+        "event": "hive_deferred",
+        "cycle_id": cycle_id or "",
+        "fingerprint": pending.get("fingerprint") or "",
+        "label": pending.get("label") or "",
+        "action": dict(pending.get("action") or {}) if isinstance(pending.get("action"), Mapping) else {},
+        "deferred_count": count,
+        "deferred_under": pending.get("deferred_under") or "",
+        "card_id": pending.get("card_id") or "",
+        "method": pending.get("method") or "",
+        "ts": _utc(),
+        "applied_to_live_oracle": False,
+        "authorized": False,
+    }
+    last = st.get("last_hive_deferral") if isinstance(st.get("last_hive_deferral"), Mapping) else None
+    if (
+        last
+        and last.get("fingerprint") == row["fingerprint"]
+        and int(last.get("deferred_count") or 0) == count
+    ):
+        return None
+    st["last_hive_deferral"] = row
+    if write and self_mod_ok():
+        _append(log_path(), row)
         save_state(st)
     return row
 
@@ -816,7 +864,14 @@ def format_visibility(state: dict[str, Any] | None = None) -> str:
         f"reverted {st.get('n_reverted') or 0}, voided {st.get('n_voided') or 0}; "
         f"proposed {st.get('n_proposed') or 0}; "
         f"twin-held {len(st.get('twin_pending') or [])}; "
-        f"Hive shadows resolved {shadow.get('resolved') or 0} "
+        + (
+            "Hive decision deferred "
+            f"{int((st.get('last_hive_deferral') or {}).get('deferred_count') or 0)} times; "
+            if isinstance(st.get("last_hive_deferral"), dict)
+            and int((st.get("last_hive_deferral") or {}).get("deferred_count") or 0) > 0
+            else ""
+        )
+        + f"Hive shadows resolved {shadow.get('resolved') or 0} "
         f"(correct {shadow.get('correct') or 0}, accuracy {acc_s}). "
         "Kept only if strictly better than the self-heal baseline and the twin. "
         "Not AGI."
@@ -847,6 +902,15 @@ def render_markdown(state: dict[str, Any] | None = None) -> str:
         f"- Voided (environment changed mid-trial): **{st.get('n_voided') or 0}**",
         f"- Proposed this snapshot: **{st.get('n_proposed') or 0}**",
         f"- Waiting on a twin judgment: **{len(st.get('twin_pending') or [])}**",
+        (
+            "- Hive decision deferred "
+            f"**{int((st.get('last_hive_deferral') or {}).get('deferred_count') or 0)}** times "
+            f"(`{(st.get('last_hive_deferral') or {}).get('fingerprint') or ''}`), "
+            "waiting on a clean 6-cycle window (same Wilson 700‰ gate)."
+            if isinstance(st.get("last_hive_deferral"), dict)
+            and int((st.get("last_hive_deferral") or {}).get("deferred_count") or 0) > 0
+            else None
+        ),
         (
             f"- Hive shadow picks: resolved {shadow.get('resolved') or 0}, "
             f"correct {shadow.get('correct') or 0}, "
@@ -898,7 +962,7 @@ def render_markdown(state: dict[str, Any] | None = None) -> str:
                 f"(baseline {ex.get('baseline_score')}, trial {ex.get('trial_score')})"
             )
     lines.extend(["", "Not AGI. Not discovery. Human authorize still required for durable accepts.", ""])
-    return "\n".join(lines) + "\n"
+    return "\n".join(ln for ln in lines if ln is not None) + "\n"
 
 
 def write_markdown(state: dict[str, Any] | None = None) -> Path:
@@ -939,15 +1003,25 @@ def run_cycle(cycle_id: str = "", **kwargs: Any) -> dict[str, Any]:
         st = load_state()
         # Remember a fresh method-card finding if the caller passed one.
         proposal = kwargs.get("proposal")
+        pending_apply = kwargs.get("pending_apply")
+        if isinstance(proposal, Mapping) and isinstance(pending_apply, Mapping):
+            proposal = dict(proposal)
+            proposal["deferred_count"] = int(pending_apply.get("deferred_count") or 0)
         if isinstance(proposal, Mapping) and proposal.get("card_id"):
             note_proposal(proposal, cycle_id=cycle_id, state=st, write=False)
+        deferred_row = None
+        if isinstance(pending_apply, Mapping):
+            deferred_row = note_hive_deferral(
+                pending_apply, cycle_id=cycle_id, state=st, write=False,
+            )
         harvested = harvest_outcomes(cycle_id, state=st, write=False)
         judged = judge_twin_pending(state=st, write=False)
         shadow = score_shadows(kwargs.get("hive_state"))
         st["shadow"] = shadow
         st["last_cycle"] = cycle_id or st.get("last_cycle") or ""
+        extra = [deferred_row] if deferred_row else []
         if self_mod_ok():
-            for row in harvested + judged:
+            for row in harvested + judged + extra:
                 _append(log_path(), row)
             save_state(st)
             write_markdown(st)
@@ -957,6 +1031,7 @@ def run_cycle(cycle_id: str = "", **kwargs: Any) -> dict[str, Any]:
             "examples": harvested,
             "twin_judged": judged,
             "shadow": shadow,
+            "deferred": deferred_row,
             "visibility": format_visibility(st),
             "n_kept": st.get("n_kept") or 0,
             "n_reverted": st.get("n_reverted") or 0,
