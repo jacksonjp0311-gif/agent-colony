@@ -58,9 +58,247 @@ CREDIT_RESOLVE = 1.0      # verified counterexample or checked proof
 CREDIT_EXTEND = 0.05      # max for extending the tested range (log-scaled)
 DEEP_N = 20000            # extension cap (terms) when the definition is computable
 DEEP_SECONDS = 8.0
-DEEP_DIGITS = 3000
-GF_TERMS = 1200
+DEEP_DIGITS = 5000        # decimal digits; EGF holds near the series cap can move past ~957
+GF_TERMS = 1200           # slow series-arithmetic cap (algebraic / egf / fallback g.f.)
+FAST_TERM_CAP = 8000      # when a C-finite exact iterator applies, terms are cheap
 MIN_TESTED = 8
+
+# Physical-cap labels recorded on attempt results and log rows.
+CAP_TERM = "term_cap"
+CAP_DIGIT = "digit_cap"
+CAP_TIME = "time_cap"
+CAP_REF = "ref_limited"
+CAP_DIGIT_OR_TIME = "digit_or_time_cap"  # inferred only, when the binding cap is unclear
+
+# PR #6 shipped these defaults; used to tell whether a cap has been raised
+# relative to an attempt that predates cap_reason recording.
+_PR6_GF_TERMS = 1200
+_PR6_DEEP_N = 20000
+_PR6_DEEP_DIGITS = 3000
+_PR6_DEEP_SECONDS = 8.0
+_BITS_PER_DIGIT = 3.33
+
+# Maps a self-heal knob name to the evaluator_caps() key.
+_CAP_KNOB_KEYS = {
+    "gf_term_cap": ("gf_terms", int),
+    "deep_term_cap": ("deep_n", int),
+    "fast_term_cap": ("fast_term_cap", int),
+    "deep_digits": ("deep_digits", int),
+    "deep_seconds": ("deep_seconds", float),
+}
+
+
+def evaluator_caps() -> dict[str, int | float]:
+    """Live term / digit / time caps. Module constants, unless a self-heal knob is in force.
+
+    A knob is applied only when its live value differs from its default, or
+    when an in-flight trial is on that knob. Tests that monkeypatch the
+    module constants therefore still work when no trial is running.
+    """
+    caps: dict[str, int | float] = {
+        "gf_terms": int(GF_TERMS),
+        "deep_n": int(DEEP_N),
+        "fast_term_cap": int(FAST_TERM_CAP),
+        "deep_digits": int(DEEP_DIGITS),
+        "deep_seconds": float(DEEP_SECONDS),
+    }
+    try:
+        from colony import self_heal as SH
+        st = SH.load_state()
+        knobs = st.get("knobs") or {}
+        trial = st.get("trial") or {}
+        trial_knob = trial.get("knob") if isinstance(trial, dict) else None
+        for knob, (key, caster) in _CAP_KNOB_KEYS.items():
+            if knob not in SH.KNOB_SPECS or knob not in knobs:
+                continue
+            val = knobs[knob]
+            default = SH.KNOB_SPECS[knob].default
+            if val != default or trial_knob == knob:
+                caps[key] = caster(val)
+    except Exception:
+        pass
+    return caps
+
+
+def digit_bit_budget(digits: int | float | None = None) -> int:
+    """Bit-length budget corresponding to a decimal-digit cap."""
+    d = evaluator_caps()["deep_digits"] if digits is None else digits
+    return max(1, int(float(d) * _BITS_PER_DIGIT))
+
+
+def _defn_of(e: dict[str, Any] | None, defn: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    if defn:
+        return defn
+    if not e:
+        return None
+    d = e.get("definition")
+    if d:
+        return d
+    try:
+        return computable_definition(e)
+    except Exception:
+        return None
+
+
+def fast_cfinite_available(e: dict[str, Any] | None = None, defn: dict[str, Any] | None = None) -> bool:
+    """True when a rational g.f. or constant-coeff recurrence can be iterated exactly."""
+    d = _defn_of(e, defn)
+    if not d or d.get("kind") not in ("gf", "rec"):
+        return False
+    try:
+        from colony import oeis_deep as D
+        off = int((e or {}).get("offset") or 0)
+        terms = list((e or {}).get("terms") or [])
+        D.cfinite(d, off, terms)
+        return True
+    except Exception:
+        return False
+
+
+def term_cap_for(e: dict[str, Any] | None = None, defn: dict[str, Any] | None = None) -> int:
+    """Term cap that actually applies to this entry under current caps."""
+    caps = evaluator_caps()
+    d = _defn_of(e, defn)
+    form = str(((e or {}).get("claim") or {}).get("form") or "")
+    kind = str((d or {}).get("kind") or "")
+    if fast_cfinite_available(e, d):
+        return int(caps["fast_term_cap"])
+    if form == "gf" or kind in ("gf", "alg", "egf"):
+        return int(caps["gf_terms"])
+    return int(caps["deep_n"])
+
+
+def current_cap_value(reason: str, e: dict[str, Any] | None = None) -> int | float | None:
+    """The live value of the cap named by ``reason``."""
+    caps = evaluator_caps()
+    if reason == CAP_TERM:
+        return term_cap_for(e)
+    if reason == CAP_DIGIT:
+        return caps["deep_digits"]
+    if reason == CAP_TIME:
+        return caps["deep_seconds"]
+    if reason == CAP_REF:
+        return claim_testable_hi(e) if e is not None else None
+    if reason == CAP_DIGIT_OR_TIME:
+        return None
+    return None
+
+
+def cap_has_been_raised(row: dict[str, Any] | None, e: dict[str, Any] | None = None) -> bool:
+    """True when a live cap is strictly higher than the one that bounded this attempt."""
+    if not isinstance(row, dict):
+        return False
+    reason, old = cap_of_row(row, e)
+    if not reason:
+        return False
+    if reason == CAP_DIGIT_OR_TIME:
+        caps = evaluator_caps()
+        return (
+            float(caps["deep_digits"]) > _PR6_DEEP_DIGITS
+            or float(caps["deep_seconds"]) > _PR6_DEEP_SECONDS
+        )
+    if old is None:
+        return False
+    now = current_cap_value(reason, e)
+    if now is None:
+        return False
+    try:
+        return float(now) > float(old)
+    except (TypeError, ValueError):
+        return False
+
+
+def cap_of_row(row: dict[str, Any] | None, e: dict[str, Any] | None = None) -> tuple[str | None, int | float | None]:
+    """(reason, value) recorded on a row, or inferred for a pre-cap_reason row."""
+    if not isinstance(row, dict):
+        return None, None
+    reason = row.get("cap_reason")
+    if reason:
+        val = row.get("cap_value")
+        try:
+            if val is not None and reason != CAP_TIME:
+                val = int(val)
+            elif val is not None:
+                val = float(val)
+        except (TypeError, ValueError):
+            val = None
+        return str(reason), val
+    return infer_cap_reason(row, e)
+
+
+def infer_cap_reason(row: dict[str, Any] | None, e: dict[str, Any] | None = None) -> tuple[str | None, int | float | None]:
+    """Best-effort (reason, value) for a row written before cap_reason existed.
+
+    Used so already-committed same-depth holds (A165064 at the 1200-term
+    cap, A126089 at a digit/time ceiling) are treated honestly, without
+    rewriting the log.
+    """
+    if not isinstance(row, dict):
+        return None, None
+    try:
+        planned = attempt_row_planned_depth(row)
+    except Exception:
+        planned = 0
+        if "planned" in row:
+            try:
+                planned = int(row.get("planned") or 0)
+            except (TypeError, ValueError):
+                planned = 0
+    try:
+        verified = attempt_row_verified_depth(row, 0)
+    except Exception:
+        try:
+            verified = int(row.get("verified_depth") or row.get("depth") or 0)
+        except (TypeError, ValueError):
+            verified = 0
+    if planned <= 0 or verified <= 0 or verified >= planned:
+        return None, None
+    # Near a known term cap (verified is typically cap-1 because n runs
+    # from offset to L-1).
+    term_candidates = [_PR6_GF_TERMS, GF_TERMS, _PR6_DEEP_N, DEEP_N]
+    try:
+        term_candidates.append(int(FAST_TERM_CAP))
+    except Exception:
+        pass
+    term_candidates.append(planned)
+    for tc in term_candidates:
+        try:
+            tc_i = int(tc)
+        except (TypeError, ValueError):
+            continue
+        if tc_i <= 0:
+            continue
+        if abs(verified - tc_i) <= 2 or abs(verified + 1 - tc_i) <= 1:
+            return CAP_TERM, tc_i
+    if e is not None:
+        try:
+            refs_hi = _ref_limited_hi(e)
+        except Exception:
+            refs_hi = None
+        if refs_hi is not None and verified >= refs_hi:
+            return CAP_REF, refs_hi
+    return CAP_DIGIT_OR_TIME, verified
+
+
+def _ref_limited_hi(e: dict[str, Any]) -> int | None:
+    """Highest n the referenced b-files support, or None if refs do not bind."""
+    text = _parts_text(e)
+    anums = set(_ANUM.findall(text))
+    anums.discard(str(e.get("anum") or ""))
+    if not anums:
+        return None
+    limit = None
+    off = int(e.get("offset") or 0)
+    terms = list(e.get("terms") or [])
+    a_hi = (off + len(terms) - 1) if terms else 0
+    for anum in anums:
+        rh = _ref_hi(e, anum)
+        if rh is None:
+            return a_hi
+        shift = _ref_shift(text, anum)
+        cand = rh - shift
+        limit = cand if limit is None else min(limit, cand)
+    return int(limit) if limit is not None else None
 
 
 def mode() -> str:
@@ -366,7 +604,14 @@ def test_claim(claim: dict[str, Any], T: Tables, path: str = "A", n_max: int | N
     last_fail = None
     form = claim["form"]
     if form == "gf":
-        L = min(len(xs) + off, GF_TERMS)
+        # Same term cap the evaluator would use (fast cap when C-finite).
+        cap_entry = {
+            "claim": claim,
+            "definition": {"kind": "gf", "expr": claim.get("expr")},
+            "offset": off,
+            "terms": list(xs),
+        }
+        L = min(len(xs) + off, term_cap_for(cap_entry))
         if path == "A":
             co = _series_A(claim["expr"], L)
         else:
@@ -661,14 +906,102 @@ def parse_definition(name: str) -> dict[str, Any] | None:
         return None
 
 
+def _extend_cfinite(
+    defn: dict[str, Any],
+    off: int,
+    terms: list[int],
+    N: int,
+    seconds: float,
+    bits: int,
+) -> tuple[list[int] | None, str | None, int | float | None]:
+    """Exact C-finite iteration. Returns (terms, cap_reason, cap_value).
+
+    ``None`` for the terms means this method does not apply (caller falls back).
+    """
+    try:
+        from colony import oeis_deep as D
+        cf = D.cfinite(defn, off, terms)
+    except Exception:
+        return None, None, None
+    hi = off + max(int(N), len(terms)) - 1
+    t0 = time.time()
+    try:
+        xs = D.iter_exact(cf, hi, seconds=seconds, bits=bits)
+    except Exception:
+        return None, None, None
+    s0 = int(cf.get("s0") or 0)
+    out: list[int] = []
+    for j in range(int(N)):
+        n = off + j
+        idx = n - s0
+        if idx < 0 or idx >= len(xs):
+            break
+        try:
+            out.append(int(xs[idx]))
+        except (TypeError, ValueError):
+            return None, None, None
+    if len(out) < len(terms) or out[:len(terms)] != list(terms):
+        return None, None, None
+    reason: str | None = None
+    value: int | float | None = None
+    last_bits = abs(out[-1]).bit_length() if out else 0
+    elapsed = time.time() - t0
+    if len(out) < int(N):
+        if last_bits > bits:
+            reason, value = CAP_DIGIT, evaluator_caps()["deep_digits"]
+        elif elapsed >= seconds:
+            reason, value = CAP_TIME, seconds
+        else:
+            # iter_exact stops every 256 terms; treat a short stop at the
+            # bit or time budget as those caps, otherwise as a term cap.
+            if last_bits >= bits * 0.95:
+                reason, value = CAP_DIGIT, evaluator_caps()["deep_digits"]
+            elif elapsed >= seconds * 0.8:
+                reason, value = CAP_TIME, seconds
+            else:
+                reason, value = CAP_TERM, int(N)
+    return out, reason, value
+
+
 def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str = "A",
-           seconds: float = DEEP_SECONDS) -> list[int] | None:
+           seconds: float | None = None, info: dict[str, Any] | None = None,
+           entry: dict[str, Any] | None = None) -> list[int] | None:
     """Compute terms from the definition (initial values from the b-file for a recursion), require
-    that they reproduce EVERY b-file term, then continue to N terms (time/size capped)."""
+    that they reproduce EVERY b-file term, then continue to N terms (time/size capped).
+
+    When a C-finite exact iterator applies, the (higher) ``fast_term_cap`` is
+    used: rational g.f. and constant-coefficient recurrences are cheap and
+    integer-exact. Algebraic / EGF series stay on the slower path and the
+    stricter ``gf_terms`` / digit / time caps.
+
+    If ``info`` is provided it is filled with ``cap_reason``, ``cap_value``,
+    ``computed_hi`` and the live caps. The return value is still the term
+    list (or None), so existing callers are unchanged.
+    """
+    caps = evaluator_caps()
+    if seconds is None:
+        seconds = float(caps["deep_seconds"])
+    bits = digit_bit_budget(caps["deep_digits"])
+    term_cap = term_cap_for(entry, defn)
+    want = min(max(int(N), len(terms)), int(term_cap))
     t0 = time.time()
     out: list[int] = []
-    if defn["kind"] in ("gf", "alg", "egf"):
-        L = min(N, GF_TERMS) + off + 2
+    cap_reason: str | None = None
+    cap_value: int | float | None = None
+
+    used_fast = False
+    if defn.get("kind") in ("gf", "rec"):
+        got, cap_reason, cap_value = _extend_cfinite(defn, off, terms, want, seconds, bits)
+        if got is not None:
+            out = got
+            used_fast = True
+
+    if not used_fast and defn["kind"] in ("gf", "alg", "egf"):
+        # Series path. Use the live (possibly lower) series cap so we do not
+        # pre-expand thousands of EGF terms we will never scale past the
+        # digit budget.
+        series_cap = int(caps["fast_term_cap"] if defn["kind"] == "gf" else caps["gf_terms"])
+        L = min(want, series_cap) + off + 2
         if defn["kind"] == "gf" and path != "A":
             num, den = B.rational(B.compile_expr(defn["expr"]))
             co = B.series(num, den, L)
@@ -686,21 +1019,28 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
                 v = c * fact
                 if v.denominator != 1:
                     return None
-                if n > off + len(terms) and abs(int(v)).bit_length() > DEEP_DIGITS * 3.33:
+                if n > off + len(terms) and abs(int(v)).bit_length() > bits:
+                    cap_reason, cap_value = CAP_DIGIT, caps["deep_digits"]
+                    break
+                if n > off + len(terms) and time.time() - t0 > seconds:
+                    cap_reason, cap_value = CAP_TIME, seconds
                     break
                 scaled.append(v)
             co = scaled
         if any(c.denominator != 1 for c in co):
             return None
-        out = [int(c) for c in co[off:off + N]]
-    else:
+        out = [int(c) for c in co[off:off + want]]
+        if cap_reason is None and len(out) < want:
+            if time.time() - t0 > seconds:
+                cap_reason, cap_value = CAP_TIME, seconds
+    elif not used_fast:
         e = _A(defn["expr"]) if path == "A" else B.compile_expr(defn["expr"])
         K = 0
         if defn["kind"] == "rec":
             K = max([int(k) for k in (defn.get("linear") or {})] + [0]) or 0
             if not defn.get("linear"):
                 K = 8
-        for j in range(N):
+        for j in range(want):
             n = off + j
             if j < K and j < len(terms):
                 out.append(terms[j])
@@ -722,11 +1062,30 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
             if v.denominator != 1:
                 return None
             out.append(int(v))
-            if j >= len(terms) and (time.time() - t0 > seconds or abs(out[-1]).bit_length() > DEEP_DIGITS * 3.33):
+            if j >= len(terms) and abs(out[-1]).bit_length() > bits:
+                cap_reason, cap_value = CAP_DIGIT, caps["deep_digits"]
+                break
+            if j >= len(terms) and time.time() - t0 > seconds:
+                cap_reason, cap_value = CAP_TIME, seconds
                 break
     if len(out) < len(terms) or out[:len(terms)] != terms:
+        if info is not None:
+            info["cap_reason"] = cap_reason
+            info["cap_value"] = cap_value
         return None
-    return out[:N]
+    out = out[:want]
+    if cap_reason is None and (len(out) >= int(term_cap) or (want >= int(term_cap) and len(out) >= want)):
+        cap_reason, cap_value = CAP_TERM, int(term_cap)
+    if info is not None:
+        info["cap_reason"] = cap_reason
+        info["cap_value"] = cap_value
+        info["computed_hi"] = (off + len(out) - 1) if out else 0
+        info["n_terms"] = len(out)
+        info["term_cap"] = int(term_cap)
+        info["digit_cap"] = caps["deep_digits"]
+        info["time_cap"] = seconds
+        info["fast_cfinite"] = used_fast
+    return out
 
 
 def definition_reproduces(defn: dict[str, Any], off: int, terms: list[int], seconds: float = 6.0) -> bool:
@@ -799,6 +1158,49 @@ def _fetch_b(anum: str) -> tuple[int, list[int]] | None:
     return o, xs
 
 
+def _annotate_attempt_cap(
+    e: dict[str, Any],
+    res: dict[str, Any],
+    deep: list[int] | None,
+    cap_info: dict[str, Any] | None,
+) -> None:
+    """Record the physical cap that stopped this attempt, if any.
+
+    A referenced-b-file ceiling binds first: we may have computed many a(n)
+    terms, but the claim itself could only be tested up to the refs. Otherwise
+    take the cap reported by ``extend``. Does not overwrite an already-set
+    reason (e.g. from ``_deep``).
+    """
+    if res.get("cap_reason"):
+        return
+    verified = 0
+    rng = res.get("range") or [0, 0]
+    if isinstance(rng, (list, tuple)) and len(rng) > 1:
+        try:
+            verified = int(rng[1] or 0)
+        except (TypeError, ValueError):
+            verified = 0
+    try:
+        verified = max(verified, int(res.get("deep_hi") or 0))
+    except (TypeError, ValueError):
+        pass
+    refs_hi = _ref_limited_hi(e)
+    if refs_hi is not None and verified >= refs_hi:
+        res["cap_reason"] = CAP_REF
+        res["cap_value"] = int(refs_hi)
+        return
+    if cap_info and cap_info.get("cap_reason"):
+        res["cap_reason"] = cap_info["cap_reason"]
+        res["cap_value"] = cap_info.get("cap_value")
+        if cap_info.get("fast_cfinite") is not None:
+            res["fast_cfinite"] = cap_info["fast_cfinite"]
+        return
+    # Evaluator produced no more than the last verified n, and we planned
+    # further: treat as a physical cap of unknown kind only when a planned
+    # depth is on the result (filled later by remember_attempt).
+    return
+
+
 def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool = True) -> dict[str, Any]:
     if not e.get("definition"):
         try:
@@ -812,21 +1214,25 @@ def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool
     off, terms = e["offset"], e["terms"]
     data_hi = off + int(e.get("data_n") or 0) - 1
     deep = None
+    cap_info: dict[str, Any] = {}
     if e.get("definition"):
         # Past the published terms, from the vetted definition. A g.f. claim is
         # included: the longer table is what test_claim compares the claim to.
-        deep = extend(e["definition"], off, terms, DEEP_N, "A")
+        want = term_cap_for(e)
+        deep = extend(e["definition"], off, terms, want, "A", info=cap_info, entry=e)
     tA = test_claim(claim, _tables(e, deep or terms), "A")
     res: dict[str, Any] = {"action": "attempt_disprove", "id": e["id"], "anum": e["anum"], "tested": tA["tested"],
                            "range": [tA["lo"], tA["hi"]], "deep_terms": len(deep) if deep else 0,
                            "bfile_terms": len(terms), "bfile_hi": max(off + len(terms) - 1, e.get("published_hi") or 0), "data_hi": data_hi, "status": "holds_on_range"}
     if tA["tested"] < MIN_TESTED:
         res["status"] = "untestable_here"
+        _annotate_attempt_cap(e, res, deep, cap_info)
         return res
     if tA["first_fail"] is None:
         _deep(e, tA, res, deep)
         top = max(tA["hi"] or 0, res.get("deep_hi") or 0)
         res["extended"] = max(0, top - max(prior_hi or 0, data_hi, off + len(terms) - 1))
+        _annotate_attempt_cap(e, res, deep, cap_info)
         return res
     res["fails_A"] = tA["fails"]
     res["holds_from"] = tA["holds_from"]
@@ -839,7 +1245,8 @@ def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool
     o, xs = fb if fb else (off, terms)
     res["b_source"] = "fresh b-file" if fb else "menu terms (fresh fetch unavailable)"
     if deep and len(deep) > len(xs):
-        dB = extend(e["definition"], o, xs, len(deep), "B", seconds=DEEP_SECONDS * 3)
+        dB = extend(e["definition"], o, xs, len(deep), "B",
+                    seconds=float(evaluator_caps()["deep_seconds"]) * 3, entry=e)
         if dB is None or dB[:len(deep)] != deep[:len(dB)]:
             res["status"] = "path_disagreement"
             return res
@@ -893,7 +1300,7 @@ def _deep(e: dict[str, Any], tA: dict[str, Any], res: dict[str, Any], deep) -> N
     parts = claim.get("parts") or []
     evA = [_A(p) for p in parts]
     evB = [B.compile_expr(p) for p in parts]
-    out = D.deep_search(g, claim, lo, DEEP_SECONDS,
+    out = D.deep_search(g, claim, lo, float(evaluator_caps()["deep_seconds"]),
                         lambda k, n, sq: evA[k].ev(evA[k].tree, n, sq),
                         lambda k, n, sq: B.evaluate(evB[k], {"n": n}, sq))
     res["deep_mode"] = out.get("mode")
@@ -981,7 +1388,7 @@ def _empty_attempt_log() -> dict[str, Any]:
     return {"attempts": [], "by_cycle": {}, "last_forms": []}
 
 
-def load_attempt_log() -> dict[str, Any]:
+def _load_raw_attempt_log() -> dict[str, Any]:
     raw = _load(ATTEMPT_LOG, _empty_attempt_log())
     if not isinstance(raw, dict):
         return _empty_attempt_log()
@@ -991,10 +1398,101 @@ def load_attempt_log() -> dict[str, Any]:
     return raw
 
 
+def _tested_and_scoreboard() -> tuple[dict[str, int], dict[str, int]]:
+    """Current tested_hi and scoreboard extension ``to``, keyed by target id.
+
+    Used only to derive a verified_depth view of legacy rows. Never written
+    back into the committed log.
+    """
+    tested: dict[str, int] = {}
+    score: dict[str, int] = {}
+    try:
+        st = _load(STATE, {})
+        for eid, rec in (st.get("targets") or {}).items():
+            if not isinstance(rec, dict):
+                continue
+            try:
+                tested[str(eid)] = int(rec.get("tested_hi") or 0)
+            except (TypeError, ValueError):
+                pass
+        for eid, rec in ((st.get("scoreboard") or {}).get("extensions") or {}).items():
+            if not isinstance(rec, dict):
+                continue
+            try:
+                score[str(eid)] = int(rec.get("to") or 0)
+            except (TypeError, ValueError):
+                pass
+    except Exception:
+        pass
+    return tested, score
+
+
+def attempt_log_view(log: dict[str, Any] | None) -> dict[str, Any]:
+    """Derived view: legacy rows gain ``verified_depth`` (and an inferred cap
+    when one can be read off the row). The committed file is not written.
+    """
+    src = log if isinstance(log, dict) else _empty_attempt_log()
+    tested, score = _tested_and_scoreboard()
+    out = dict(src)
+    attempts: list[dict[str, Any]] = []
+    for row in src.get("attempts") or []:
+        if not isinstance(row, dict):
+            attempts.append(row)  # type: ignore[arg-type]
+            continue
+        r = dict(row)
+        if "verified_depth" not in r:
+            eid = str(r.get("id") or "")
+            th = max(tested.get(eid, 0), score.get(eid, 0))
+            r["verified_depth"] = attempt_row_verified_depth(r, th)
+            r["verified_depth_derived"] = True
+        if not r.get("cap_reason"):
+            reason, val = infer_cap_reason(r, None)
+            if reason:
+                r["cap_reason"] = reason
+                r["cap_value"] = val
+                r["cap_reason_derived"] = True
+        attempts.append(r)
+    out["attempts"] = attempts
+    return out
+
+
+def _strip_derived_attempt_log(log: dict[str, Any]) -> dict[str, Any]:
+    """Drop derived-only fields so a save cannot rewrite legacy rows."""
+    out = dict(log)
+    attempts = []
+    for row in log.get("attempts") or []:
+        if not isinstance(row, dict):
+            attempts.append(row)
+            continue
+        r = dict(row)
+        if r.pop("verified_depth_derived", None):
+            r.pop("verified_depth", None)
+        if r.pop("cap_reason_derived", None):
+            r.pop("cap_reason", None)
+            r.pop("cap_value", None)
+        attempts.append(r)
+    out["attempts"] = attempts
+    return out
+
+
+def load_attempt_log(*, derived: bool = True) -> dict[str, Any]:
+    """Load the attempt log. By default return a derived view that fills
+    ``verified_depth`` on legacy rows from recorded holds / the scoreboard.
+
+    Writers must pass ``derived=False`` (or rely on ``save_attempt_log``
+    stripping derived fields) so the committed file is never rewritten.
+    """
+    raw = _load_raw_attempt_log()
+    if derived:
+        return attempt_log_view(raw)
+    return raw
+
+
 def save_attempt_log(log: dict[str, Any]) -> None:
+    cleaned = _strip_derived_attempt_log(log)
     ATTEMPT_LOG.parent.mkdir(parents=True, exist_ok=True)
     tmp = ATTEMPT_LOG.with_suffix(".tmp")
-    tmp.write_text(json.dumps(log, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.write_text(json.dumps(cleaned, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     tmp.replace(ATTEMPT_LOG)
 
 
@@ -1045,10 +1543,13 @@ def planned_depth(e: dict[str, Any], prior_hi: int | None = None) -> int:
     bh = bfile_hi_of(e)
     prior = int(prior_hi or 0)
     if can_search_past_bfile(e):
-        # GF series are capped at GF_TERMS; other forms at DEEP_N.
-        form = str((e.get("claim") or {}).get("form") or "")
-        cap = GF_TERMS if form == "gf" else DEEP_N
-        return max(bh, prior, cap, bh + 1)
+        # Live term cap: fast C-finite cap when available, otherwise the
+        # series / deep caps. planned_depth is what we will ask for, not a
+        # promise the evaluator will reach it (digit/time may stop earlier).
+        cap = term_cap_for(e)
+        advertised = claim_testable_hi(e)
+        target = min(cap, advertised) if advertised else cap
+        return max(bh, prior, target, bh + 1)
     return max(bh, prior)
 
 
@@ -1135,8 +1636,7 @@ def claim_testable_hi(e: dict[str, Any]) -> int:
     claim = e.get("claim") or {}
     form = str(claim.get("form") or "")
     if defn:
-        kind = str(defn.get("kind") or "")
-        cap = GF_TERMS if (form == "gf" or kind in ("gf", "alg", "egf")) else DEEP_N
+        cap = term_cap_for(e, defn)
         a_extend = max(a_hi, cap)
     else:
         a_extend = a_hi
@@ -1265,9 +1765,12 @@ def can_progress_past(
     or, with ``require_past_published``, when the claim can be tested past
     the published b-file. After a hold it is True only if the claim is
     actually evaluable past ``max(bfile_hi, tested_hi)`` and a prior attempt
-    has not already hit that ceiling with the same capability. Legacy
-    attempt-log rows (no ``planned`` / ``verified_depth``) do not treat
-    their requested ``depth`` as already verified.
+    has not already hit a physical evaluator cap (term, digit, time, or
+    ref-limited) with the same caps. A planned depth that was never
+    reached does not close the target. When a recorded cap is later
+    raised, the target is eligible again. Legacy attempt-log rows (no
+    ``planned`` / ``verified_depth``) do not treat their requested
+    ``depth`` as already verified.
     """
     eid = str(e.get("id") or "")
     try:
@@ -1292,21 +1795,26 @@ def can_progress_past(
     last_v = attempt_row_verified_depth(last, tested)
     last_planned = attempt_row_planned_depth(last)
     current = max(tested, last_v)
-    reachable = claim_testable_hi(e)
+    advertised = claim_testable_hi(e)
+    # What this cycle can actually compute. A prior physical cap at the
+    # same (or tighter) caps is a real ceiling: do not advertise the
+    # planned DEEP_N / GF_TERMS headroom the evaluator does not have.
+    # When that cap is raised, the target becomes eligible again.
+    reachable = advertised
+    if last is not None and last_v > 0:
+        reason, _cap_val = cap_of_row(last, e)
+        if reason and not cap_has_been_raised(last, e):
+            # Same physical ceiling as last time: we will re-hold at last_v.
+            reachable = min(reachable, last_v)
     never = last is None and tested == 0
     bar = max(bh, current)
     if never:
         if require_past_published:
-            return reachable > bh
-        return reachable > 0 or bool(e.get("terms"))
-    if reachable > bar:
-        if last is not None and last_v <= bar:
-            # A prior attempt already aimed at least as far as we would now.
-            cap_then = last_planned or last_v
-            if last_planned >= reachable or last_planned > bar or reachable <= cap_then:
-                return False
-        return True
-    return False
+            return advertised > bh
+        return advertised > 0 or bool(e.get("terms"))
+    # A same-depth hold is not progress, and a planned depth that was
+    # never actually reached is not a reason to mark the target done.
+    return reachable > bar
 
 
 def already_attempted_pair(eid: str, depth: int, cycle_id: str = "", log: dict[str, Any] | None = None) -> bool:
@@ -1335,9 +1843,17 @@ def already_attempted_pair(eid: str, depth: int, cycle_id: str = "", log: dict[s
         else:
             verified = attempt_row_verified_depth(row, 0)
         planned = attempt_row_planned_depth(row)
+        if want and verified >= want:
+            return True
         if verified == want:
             return True
-        if want and (planned == want or verified >= want or planned >= want):
+        if want and (planned == want or planned >= want):
+            # A planned depth that was not actually reached because a
+            # physical cap was hit must not block a later retry, especially
+            # once that cap has been raised.
+            reason, _ = cap_of_row(row, None)
+            if reason and verified < planned:
+                continue
             return True
     return False
 
@@ -1376,10 +1892,11 @@ def remember_attempt(
     depth the attempt was asked to reach. The requested depth is stored
     separately as ``planned`` when the caller provides it.
     """
-    log = load_attempt_log()
+    log = load_attempt_log(derived=False)
     eid = str(e.get("id") or "")
     form = str((e.get("claim") or {}).get("form") or "")
     bh = bfile_hi_of(e)
+    prior_th = _tested_hi_from_state(eid, e, None)
     by = log.setdefault("by_cycle", {})
     cycle_ids = list(by.get(cycle_id) or [])
     if eid and eid not in cycle_ids:
@@ -1411,6 +1928,23 @@ def remember_attempt(
         # even when the caller omitted ``planned``. Existing rows are
         # never rewritten (no data churn).
         rec["verified_depth"] = int(verified or 0)
+        rec["prior_tested_hi"] = int(prior_th or 0)
+        if isinstance(r, dict):
+            ext = r.get("extended")
+            if ext is not None:
+                try:
+                    rec["extended"] = max(0, int(ext))
+                except (TypeError, ValueError):
+                    rec["extended"] = max(0, int(verified or 0) - int(prior_th or 0))
+            else:
+                rec["extended"] = max(0, int(verified or 0) - int(prior_th or 0))
+            if r.get("cap_reason"):
+                rec["cap_reason"] = r["cap_reason"]
+                rec["cap_value"] = r.get("cap_value")
+            if r.get("fast_cfinite") is not None:
+                rec["fast_cfinite"] = r["fast_cfinite"]
+            if r.get("deep_terms") is not None:
+                rec["deep_terms"] = r.get("deep_terms")
         log["attempts"].append(rec)
     log["attempts"] = log["attempts"][-400:]
     if form:

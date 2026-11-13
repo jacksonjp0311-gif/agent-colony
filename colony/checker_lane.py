@@ -37,6 +37,10 @@ ROOT = Path(__file__).resolve().parent.parent
 LANE_LOG = ROOT / "data" / "commons" / "checker_lane.jsonl"
 STATE_PATH = ROOT / "society" / "systems" / "checker_lane.json"
 PROPOSAL_DIR = ROOT / "society" / "systems" / "checker_proposals"
+# Committed, auditable receipt. The snapshot, jsonl, and proposal files
+# above are gitignored and do not survive a fresh CI checkout.
+RECEIPT_PATH = ROOT / "society" / "systems" / "checker_lane_receipt.json"
+RECEIPT_KEEP = 80
 
 # Live values, compared against only. This module never writes them.
 LIVE_P_MIN = 0.70
@@ -721,23 +725,133 @@ def mine(history: list[dict[str, Any]]) -> list[dict[str, Any]]:
 # Persistence (append-only log + runtime snapshot)
 # ---------------------------------------------------------------------------
 
-def load_state() -> dict[str, Any]:
-    if not STATE_PATH.exists():
-        return {
-            "version": 1,
-            "awaiting_review": [],
-            "rejected": [],
-            "runs": 0,
-        }
+def _empty_state() -> dict[str, Any]:
+    return {
+        "version": 1,
+        "awaiting_review": [],
+        "rejected": [],
+        "runs": 0,
+    }
+
+
+def load_receipt() -> dict[str, Any]:
+    """Committed cycle receipts and rejected-fingerprint memory."""
+    if not RECEIPT_PATH.exists():
+        return {"version": 1, "cycles": [], "rejected": []}
     try:
-        data = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+        data = json.loads(RECEIPT_PATH.read_text(encoding="utf-8"))
         if isinstance(data, dict):
-            data.setdefault("awaiting_review", [])
+            data.setdefault("cycles", [])
             data.setdefault("rejected", [])
             return data
     except (json.JSONDecodeError, OSError):
         pass
-    return {"version": 1, "awaiting_review": [], "rejected": [], "runs": 0}
+    return {"version": 1, "cycles": [], "rejected": []}
+
+
+def save_receipt(receipt: dict[str, Any]) -> None:
+    RECEIPT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = dict(receipt)
+    payload["version"] = 1
+    payload["updated_at"] = _utc()
+    cycles = list(payload.get("cycles") or [])
+    payload["cycles"] = cycles[-RECEIPT_KEEP:]
+    rejected = list(payload.get("rejected") or [])
+    payload["rejected"] = rejected[-80:]
+    tmp = RECEIPT_PATH.with_suffix(".tmp")
+    tmp.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.replace(RECEIPT_PATH)
+
+
+def _receipt_item(item: dict[str, Any]) -> dict[str, Any]:
+    """Slim, commitable summary of one accept/reject."""
+    replay = item.get("replay") or {}
+    return {
+        "fingerprint": item.get("fingerprint"),
+        "kind": item.get("kind") or (item.get("candidate") or {}).get("kind"),
+        "status": item.get("status"),
+        "reasons": list(replay.get("reasons") or item.get("reasons") or []),
+        "id": item.get("id"),
+    }
+
+
+def record_cycle_receipt(result: dict[str, Any], *, state: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Append this cycle's mine/accept/reject counts to the committed receipt.
+
+    Also keeps a bounded rejected-fingerprint list so the next CI run does
+    not rediscover the same reject on its first cycle.
+    """
+    receipt = load_receipt()
+    reasons = []
+    st = state or {}
+    for item in (result.get("receipt_items") or []):
+        reasons.append(_receipt_item(item))
+    # Fall back to state rejected / accepted if the result did not carry items.
+    if not reasons:
+        for item in list(st.get("rejected") or [])[-12:]:
+            if str(item.get("cycle_id") or "") == str(result.get("cycle_id") or "") or not item.get("cycle_id"):
+                reasons.append(_receipt_item(item))
+        for item in list(st.get("awaiting_review") or [])[-12:]:
+            reasons.append(_receipt_item(item))
+    row = {
+        "cycle_id": result.get("cycle_id"),
+        "ok": bool(result.get("ok")),
+        "error": result.get("error"),
+        "candidates_mined": int(result.get("candidates_mined") or 0),
+        "new_accepted": int(result.get("new_accepted") or 0),
+        "new_rejected": int(result.get("new_rejected") or 0),
+        "reasons": reasons,
+        "awaiting_review": int(result.get("awaiting_review") or 0),
+        "applied_to_live_oracle": False,
+        "ts": _utc(),
+    }
+    cycles = list(receipt.get("cycles") or [])
+    cycles.append(row)
+    receipt["cycles"] = cycles[-RECEIPT_KEEP:]
+    # Merge rejected fingerprints (durable memory).
+    by_fp = {str(r.get("fingerprint")): r for r in (receipt.get("rejected") or []) if r.get("fingerprint")}
+    for item in (st.get("rejected") or []):
+        fp = item.get("fingerprint")
+        if fp:
+            by_fp[str(fp)] = _receipt_item(item)
+    for item in reasons:
+        fp = item.get("fingerprint")
+        if fp and item.get("status") in ("rejected", "withdrawn"):
+            by_fp[str(fp)] = item
+    receipt["rejected"] = list(by_fp.values())[-80:]
+    receipt["last"] = row
+    try:
+        save_receipt(receipt)
+    except Exception:
+        pass
+    return row
+
+
+def load_state() -> dict[str, Any]:
+    data: dict[str, Any] | None = None
+    if STATE_PATH.exists():
+        try:
+            loaded = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                loaded.setdefault("awaiting_review", [])
+                loaded.setdefault("rejected", [])
+                data = loaded
+        except (json.JSONDecodeError, OSError):
+            data = None
+    if data is None:
+        data = _empty_state()
+    # Seed rejected-fingerprint memory from the committed receipt when
+    # this is a fresh checkout (gitignore hides the runtime snapshot).
+    if not data.get("rejected"):
+        try:
+            receipt = load_receipt()
+            seeded = [r for r in (receipt.get("rejected") or []) if r.get("fingerprint")]
+            if seeded:
+                data["rejected"] = seeded[-80:]
+                data["rejected_seeded_from_receipt"] = True
+        except Exception:
+            pass
+    return data
 
 
 def save_state(state: dict[str, Any]) -> None:
@@ -857,12 +971,22 @@ def run_lane(
     try:
         candidates = miner(hist)
     except Exception as exc:  # noqa: BLE001
-        return {
+        fail = {
             "ok": False,
             "error": f"mine:{type(exc).__name__}:{exc}",
             "awaiting_review": 0,
+            "candidates_mined": 0,
+            "new_accepted": 0,
+            "new_rejected": 0,
             "applied_to_live_oracle": False,
+            "cycle_id": cycle_id,
+            "receipt_items": [],
         }
+        try:
+            record_cycle_receipt(fail, state=load_state())
+        except Exception:
+            pass
+        return fail
 
     state = load_state()
     pending = {str(p.get("fingerprint")): p for p in (state.get("awaiting_review") or [])}
@@ -985,7 +1109,7 @@ def run_lane(
     except Exception:
         pass
 
-    return {
+    result = {
         "ok": True,
         "cycle_id": cycle_id,
         "history_rows": len(hist),
@@ -993,6 +1117,10 @@ def run_lane(
         "new_accepted": len(new_accepted),
         "new_rejected": len(new_rejected),
         "awaiting_review": len(state["awaiting_review"]),
+        "receipt_items": [
+            {**_receipt_item(x), "cycle_id": cycle_id}
+            for x in list(new_accepted) + list(new_rejected)
+        ],
         "proposals": [
             {
                 "id": p.get("id"),
@@ -1009,6 +1137,18 @@ def run_lane(
         "applied_to_live_oracle": False,
         "records": records,
     }
+    try:
+        receipt_row = record_cycle_receipt(result, state=state)
+        result["receipt"] = {
+            k: receipt_row.get(k)
+            for k in (
+                "ok", "error", "candidates_mined", "new_accepted", "new_rejected",
+                "reasons", "cycle_id", "ts",
+            )
+        }
+    except Exception:
+        result["receipt"] = None
+    return result
 
 
 def on_cycle(cycle_id: str = "", *, history: list[dict[str, Any]] | None = None) -> dict[str, Any]:
@@ -1043,14 +1183,35 @@ def visibility() -> dict[str, Any]:
                 "proposal_file": p.get("proposal_file"),
                 "applied_to_live_oracle": False,
             })
+        last = {}
+        try:
+            receipt = load_receipt()
+            last = receipt.get("last") or (receipt.get("cycles") or [None])[-1] or {}
+        except Exception:
+            last = {}
+        reasons = list((last or {}).get("reasons") or [])
         return {
             "checker_proposals_awaiting_review": len(proposals),
             "checker_proposals": proposals,
+            "checker_lane_ok": last.get("ok") if last else None,
+            "checker_lane_error": last.get("error"),
+            "checker_candidates_mined": last.get("candidates_mined"),
+            "checker_new_accepted": last.get("new_accepted"),
+            "checker_new_rejected": last.get("new_rejected"),
+            "checker_reject_reasons": reasons,
+            "checker_lane_cycle_id": last.get("cycle_id"),
         }
     except Exception:
         return {
             "checker_proposals_awaiting_review": 0,
             "checker_proposals": [],
+            "checker_lane_ok": None,
+            "checker_lane_error": None,
+            "checker_candidates_mined": None,
+            "checker_new_accepted": None,
+            "checker_new_rejected": None,
+            "checker_reject_reasons": [],
+            "checker_lane_cycle_id": None,
         }
 
 
@@ -1058,8 +1219,18 @@ def format_visibility(vis: dict[str, Any] | None = None) -> str:
     v = vis if vis is not None else visibility()
     n = int(v.get("checker_proposals_awaiting_review") or 0)
     proposals = v.get("checker_proposals") or []
+    mined = v.get("checker_candidates_mined")
+    cycle_bit = ""
+    if mined is not None:
+        cycle_bit = (
+            f" last cycle mined {mined}, "
+            f"accepted {v.get('checker_new_accepted')}, "
+            f"rejected {v.get('checker_new_rejected')}"
+            + (f", error {v.get('checker_lane_error')}" if v.get("checker_lane_error") else "")
+            + ("" if v.get("checker_lane_ok") is not False else ", ok=false")
+        )
     if not n:
-        return "checker proposals awaiting human review: 0"
+        return "checker proposals awaiting human review: 0" + (";" + cycle_bit if cycle_bit else "")
     parts = []
     for p in proposals[:6]:
         caught = p.get("known_bad_caught") or []
@@ -1069,4 +1240,5 @@ def format_visibility(vis: dict[str, Any] | None = None) -> str:
     return (
         f"checker proposals awaiting human review: {n} "
         f"({'; '.join(parts)}{more}). Not applied to the live Oracle."
+        + (";" + cycle_bit if cycle_bit else "")
     )

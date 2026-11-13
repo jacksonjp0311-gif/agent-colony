@@ -118,6 +118,12 @@ DIAGNOSIS_SUGGESTIONS: dict[str, list[tuple[str, str]]] = {
         ("step_size", "down"),
         ("evaluation_window", "up"),
     ],
+    "depth_at_physical_cap": [
+        ("fast_term_cap", "up"),
+        ("gf_term_cap", "up"),
+        ("deep_digits", "up"),
+        ("deep_seconds", "up"),
+    ],
 }
 
 
@@ -169,6 +175,18 @@ KNOB_SPECS: dict[str, KnobSpec] = {
                           "Fraction of a knob's range used as one adjustment step."),
     "evaluation_window": KnobSpec("evaluation_window", 6, 3, 12, "int", "meta",
                                   "Cycles of trial vs baseline compared before adopt or revert."),
+    # Evaluator caps. Raisable only where computation stays cheap and exact.
+    # The Oracle, P-gate, 150 cap, and Athanor are not knobs.
+    "gf_term_cap": KnobSpec("gf_term_cap", 1200, 600, 8000, "int", "caps",
+                            "Slow series-arithmetic term cap (algebraic / EGF / fallback g.f.)."),
+    "deep_term_cap": KnobSpec("deep_term_cap", 20000, 5000, 40000, "int", "caps",
+                              "Term cap for non-C-finite deep search (relations, properties)."),
+    "fast_term_cap": KnobSpec("fast_term_cap", 8000, 2000, 20000, "int", "caps",
+                              "Term cap used when a C-finite exact iterator applies."),
+    "deep_digits": KnobSpec("deep_digits", 5000, 3000, 12000, "int", "caps",
+                            "Decimal-digit budget for exact integer terms."),
+    "deep_seconds": KnobSpec("deep_seconds", 8.0, 4.0, 16.0, "float", "caps",
+                             "Time budget in seconds for one evaluator call. Kept inside CI limits."),
 }
 
 
@@ -533,6 +551,176 @@ def _pass_total_for(hist: list[dict[str, Any]], cycle_id: str) -> tuple[int | No
     return this, prev
 
 
+def _row_verified_for_metric(row: dict[str, Any], tested_hi: int = 0) -> int:
+    """Verified depth of one attempt-log row, for the new_depth metric."""
+    try:
+        from colony.oeis_conjectures import attempt_row_verified_depth
+        return int(attempt_row_verified_depth(row, tested_hi) or 0)
+    except Exception:
+        if not isinstance(row, dict):
+            return 0
+        try:
+            if "verified_depth" in row:
+                return int(row.get("verified_depth") or 0)
+        except (TypeError, ValueError):
+            return 0
+        return 0
+
+
+def count_new_depth(attempt_log: dict[str, Any] | None, cycle_id: str) -> int:
+    """Number of targets whose verified depth strictly increased this cycle.
+
+    A ``beyond=true`` same-depth hold (``extended`` 0, ``tested_hi`` unchanged)
+    scores 0. A first-time search past the published range, with no earlier
+    past-b-file hold, scores 1. ``extended > 0`` on a row is a direct signal.
+    """
+    cid = str(cycle_id or "")
+    if not cid or not isinstance(attempt_log, dict):
+        return 0
+    attempts = list(attempt_log.get("attempts") or [])
+    # Running explicit verified max, and whether a prior past-b-file hold exists.
+    prior_v: dict[str, int] = {}
+    prior_past: set[str] = set()
+    n = 0
+    counted: set[str] = set()
+    for a in attempts:
+        if not isinstance(a, dict):
+            continue
+        eid = str(a.get("id") or "")
+        if not eid:
+            continue
+        this_cycle = str(a.get("cycle_id") or "") == cid
+        try:
+            bfile = int(a.get("bfile_hi") or 0)
+        except (TypeError, ValueError):
+            bfile = 0
+        try:
+            extended = int(a.get("extended") or 0)
+        except (TypeError, ValueError):
+            extended = 0
+        v = _row_verified_for_metric(a, 0)
+        # Post-PR #4 rows have verified_depth or planned; use that v.
+        # Legacy rows: do not trust requested depth as verified.
+        has_explicit = ("verified_depth" in a) or ("planned" in a)
+        if this_cycle:
+            advanced = False
+            if extended > 0:
+                advanced = True
+            elif has_explicit:
+                prev = prior_v.get(eid, 0)
+                if v > prev and v > bfile:
+                    if prev > 0:
+                        advanced = True
+                    elif eid not in prior_past:
+                        # First recorded past-b-file hold, no earlier beyond hold.
+                        advanced = True
+                    # else: a prior beyond-b-file hold exists and this explicit
+                    # verified is the first one we see — conservative 0 unless
+                    # extended > 0 (already handled) or v > prev (prev is 0,
+                    # so only the "not in prior_past" branch counts).
+            if advanced and eid not in counted:
+                n += 1
+                counted.add(eid)
+        if has_explicit and v > 0:
+            prior_v[eid] = max(prior_v.get(eid, 0), v)
+            if v > bfile:
+                prior_past.add(eid)
+        elif a.get("beyond") and a.get("status") in ("holds_on_range", "holds"):
+            prior_past.add(eid)
+        elif (not this_cycle) and a.get("beyond"):
+            prior_past.add(eid)
+    return n
+
+
+def rescore_metric_row(
+    row: dict[str, Any],
+    *,
+    attempt_log: dict[str, Any] | None = None,
+    stall_state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Recompute ``new_depth`` and ``score`` from the attempt log. Other
+    fields stay as recorded. Does not rewrite the metrics history.
+    """
+    out = dict(row)
+    cid = str(row.get("cycle_id") or "")
+    try:
+        if attempt_log is None:
+            from colony.oeis_conjectures import load_attempt_log
+            log = load_attempt_log()
+        else:
+            log = attempt_log
+        new_depth = count_new_depth(log, cid)
+    except Exception:
+        new_depth = int(row.get("new_depth") or 0)
+    out["new_depth"] = int(new_depth)
+    out["score"] = score_metrics(
+        int(out.get("new_oracle_targets") or 0),
+        int(out["new_depth"]),
+        int(out.get("oracle_pass_delta") or 0),
+    )
+    return out
+
+
+def reconcile_inflated_trial(
+    state: dict[str, Any],
+    *,
+    attempt_log: dict[str, Any] | None = None,
+    cycle_id: str = "",
+) -> dict[str, Any]:
+    """Honestly correct an in-flight trial whose baseline used the old
+    ``beyond=true`` count. Append-only: evidence is appended, metric
+    history is not rewritten. The live trial's baseline_score is updated.
+    """
+    trial = state.get("trial")
+    if not isinstance(trial, dict) or trial.get("baseline_corrected"):
+        return state
+    baseline_rows = list(trial.get("baseline_metrics") or [])
+    if not baseline_rows:
+        return state
+    try:
+        if attempt_log is None:
+            from colony.oeis_conjectures import load_attempt_log
+            log = load_attempt_log()
+        else:
+            log = attempt_log
+    except Exception:
+        log = attempt_log or {"attempts": []}
+    corrected = [rescore_metric_row(r, attempt_log=log) for r in baseline_rows]
+    old_score = float(trial.get("baseline_score") or 0)
+    new_score = window_score(corrected)
+    old_depths = [int(r.get("new_depth") or 0) for r in baseline_rows]
+    new_depths = [int(r.get("new_depth") or 0) for r in corrected]
+    if old_score == new_score and old_depths == new_depths:
+        return state
+    trial = dict(trial)
+    trial["baseline_score_original"] = old_score
+    trial["baseline_score"] = new_score
+    trial["baseline_metrics"] = corrected
+    trial["baseline_corrected"] = True
+    trial["baseline_correction_reason"] = (
+        "new_depth counted same-depth beyond=true holds; "
+        "recomputed from tested_hi advances"
+    )
+    state["trial"] = trial
+    ev = append_evidence(state, {
+        "event": "trial_baseline_corrected",
+        "cycle_id": cycle_id or trial.get("started_cycle"),
+        "knob": trial.get("knob"),
+        "from": trial.get("from"),
+        "to": trial.get("to"),
+        "reason": trial.get("baseline_correction_reason"),
+        "old_baseline_score": old_score,
+        "baseline_score": new_score,
+        "old_new_depth": old_depths,
+        "new_depth": new_depths,
+        "window": trial.get("window"),
+        "started_cycle": trial.get("started_cycle"),
+    })
+    trial["baseline_correction_evidence_id"] = ev.get("id")
+    state["trial"] = trial
+    return state
+
+
 def collect_metrics(
     cycle_id: str,
     *,
@@ -583,9 +771,7 @@ def collect_metrics(
             log = load_attempt_log()
         else:
             log = attempt_log
-        for a in log.get("attempts") or []:
-            if str(a.get("cycle_id") or "") == cid and a.get("beyond"):
-                new_depth += 1
+        new_depth = count_new_depth(log, cid)
     except Exception:
         pass
 
@@ -747,6 +933,56 @@ def diagnose(
             },
         })
 
+    # Physical evaluator cap: a recent same-depth hold at a term/digit/time
+    # /ref ceiling. Suggest raising the binding cap (self-heal knobs).
+    try:
+        from colony.oeis_conjectures import load_attempt_log, cap_of_row, CAP_TERM, CAP_DIGIT, CAP_TIME, CAP_REF
+        log = load_attempt_log()
+        cap_rows = []
+        for a in reversed(log.get("attempts") or []):
+            if not isinstance(a, dict):
+                continue
+            if a.get("status") != "holds_on_range":
+                continue
+            reason, val = cap_of_row(a, None)
+            if not reason:
+                continue
+            try:
+                ext = int(a.get("extended") or 0)
+            except (TypeError, ValueError):
+                ext = 0
+            if ext > 0:
+                continue
+            cap_rows.append({
+                "id": a.get("id"),
+                "anum": a.get("anum"),
+                "cap_reason": reason,
+                "cap_value": val,
+                "verified_depth": a.get("verified_depth") or a.get("depth"),
+                "cycle_id": a.get("cycle_id"),
+            })
+            if len(cap_rows) >= 3:
+                break
+        if cap_rows:
+            reasons = [r["cap_reason"] for r in cap_rows]
+            suggest: list[tuple[str, str]] = []
+            if CAP_TERM in reasons:
+                suggest.extend([("fast_term_cap", "up"), ("gf_term_cap", "up")])
+            if CAP_DIGIT in reasons or "digit_or_time_cap" in reasons:
+                suggest.append(("deep_digits", "up"))
+            if CAP_TIME in reasons or "digit_or_time_cap" in reasons:
+                suggest.append(("deep_seconds", "up"))
+            findings.append({
+                "kind": "depth_at_physical_cap",
+                "evidence": {
+                    "recent": cap_rows[:3],
+                    "suggest": suggest,
+                },
+                "suggest": suggest,
+            })
+    except Exception:
+        pass
+
     return findings
 
 
@@ -834,7 +1070,9 @@ def propose_trial(
     tried: set[tuple[str, str]] = set()
     for finding in findings:
         kind = str(finding.get("kind") or "")
-        for knob, direction in DIAGNOSIS_SUGGESTIONS.get(kind, []):
+        suggested = list(finding.get("suggest") or [])
+        pairs = suggested + [p for p in DIAGNOSIS_SUGGESTIONS.get(kind, []) if p not in suggested]
+        for knob, direction in pairs:
             if (knob, direction) in tried:
                 continue
             tried.add((knob, direction))
@@ -854,7 +1092,7 @@ def propose_trial(
             replay = replay_proposal(knob, cur, nxt, direction=direction, evidence=list(st.get("evidence") or []))
             if not replay.get("accepted"):
                 continue
-            baseline_rows = metrics[-window:]
+            baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
             return {
                 "knob": knob,
                 "from": cur,
@@ -1224,6 +1462,10 @@ def run_cycle(
     st = load_state()
     st = _remember_cycle(st, cycle_id)
     st = expire_quarantines(st)
+    try:
+        st = reconcile_inflated_trial(st, cycle_id=cycle_id)
+    except Exception:
+        pass
 
     row = metrics if metrics is not None else collect_metrics(cycle_id, stall_state=stall_state)
     hist = list(st.get("metrics") or [])

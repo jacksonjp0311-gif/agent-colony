@@ -676,9 +676,18 @@ def test_collect_metrics_from_stall_and_attempts(tmp_path, monkeypatch):
         ],
     }
     log = {"attempts": [
-        {"cycle_id": "c1", "beyond": True, "id": "oc_A1"},
-        {"cycle_id": "c1", "beyond": False, "id": "oc_A2"},
-        {"cycle_id": "c0", "beyond": True, "id": "oc_A3"},
+        # Real depth advance this cycle: first past-b-file hold, no prior.
+        {"cycle_id": "c1", "beyond": True, "id": "oc_A1",
+         "planned": 8000, "verified_depth": 2000, "depth": 2000,
+         "bfile_hi": 100, "extended": 1900, "status": "holds_on_range"},
+        # Published-range hold: not new depth.
+        {"cycle_id": "c1", "beyond": False, "id": "oc_A2",
+         "planned": 45, "verified_depth": 45, "depth": 45,
+         "bfile_hi": 45, "extended": 0, "status": "holds_on_range"},
+        # Earlier cycle, ignored.
+        {"cycle_id": "c0", "beyond": True, "id": "oc_A3",
+         "planned": 500, "verified_depth": 500, "depth": 500,
+         "bfile_hi": 100, "extended": 400, "status": "holds_on_range"},
     ]}
     m = SH.collect_metrics("c1", stall_state=stall, attempt_log=log)
     # new_a (tried + oracle) and new_b (oracle only) are new; old is not; skip is not.

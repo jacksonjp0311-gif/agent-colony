@@ -195,22 +195,31 @@ def test_legacy_row_does_not_inflate_verified_depth(tmp_path, monkeypatch):
     # The next planned depth is not "already attempted" just because a
     # legacy row asked for 20_000.
     assert OC.already_attempted_pair(e["id"], OC.planned_depth(e, 956)) is False
-    # The log itself is untouched (no data churn).
-    row = OC.load_attempt_log()["attempts"][-1]
-    assert "planned" not in row
-    assert "verified_depth" not in row
-    assert row["depth"] == 20000
+    # The committed log itself is untouched (no data churn). The derived
+    # view fills verified_depth at read time (item 29).
+    raw = OC.load_attempt_log(derived=False)["attempts"][-1]
+    assert "planned" not in raw
+    assert "verified_depth" not in raw
+    assert raw["depth"] == 20000
+    view = OC.load_attempt_log()["attempts"][-1]
+    assert view["verified_depth"] == 956
+    assert view.get("verified_depth_derived") is True
+    assert view["depth"] == 20000
 
 
 def test_legacy_gf_one_term_below_cap_is_open(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
     e = _gf_entry()
-    # Live A165064: depth 1200, tested_hi 1199, GF_TERMS = 1200.
+    # Live A165064 was held at 1199 against a 1200-term series cap. A
+    # C-finite exact iterator now uses the higher fast_term_cap, so the
+    # target stays open (and a same-depth hold at 1200 would also reopen
+    # once that cap is raised — see test_depth_caps).
     _write_legacy_log([_legacy_row(e["id"], e["anum"], "gf", 1200, 100)])
     OC.STATE.write_text(json.dumps(_state({
         e["id"]: {"attempts": 46, "status": "holds_on_range", "tested_hi": 1199, "credit": 0.05},
     })))
-    assert OC.claim_testable_hi(e) == OC.GF_TERMS == 1200
+    assert OC.claim_testable_hi(e) == OC.term_cap_for(e) == OC.FAST_TERM_CAP
+    assert OC.claim_testable_hi(e) > 1199
     assert OC.can_progress_past(e, 1199, require_past_published=True) is True
     assert OC.already_attempted_pair(e["id"], OC.planned_depth(e, 1199)) is False
 
@@ -245,8 +254,13 @@ def test_post_pr4_row_still_uses_planned_as_aimed_ceiling(tmp_path, monkeypatch)
         "prior", planned=20000,
     )
     assert "planned" in OC.load_attempt_log()["attempts"][-1]
+    # The real ceiling is the ref-limited 30, so the desk stays closed.
     assert OC.can_progress_past(e, 30, require_past_published=True) is False
-    assert OC.already_attempted_pair(e["id"], 20000) is True
+    # Item 30: a planned depth that was never reached is not itself a
+    # "already attempted" pair (it must not close the target as if 20_000
+    # had been computed). The verified depth is.
+    assert OC.already_attempted_pair(e["id"], 30) is True
+    assert OC.already_attempted_pair(e["id"], 20000) is False
 
 
 def test_choose_opens_legacy_headroom_not_ceilings(tmp_path, monkeypatch):

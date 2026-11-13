@@ -461,6 +461,12 @@ class EvolutionEngine:
                 row.setdefault(key, value)
         except Exception:
             pass
+        try:
+            from colony.checker_lane import visibility as checker_visibility
+            for key, value in checker_visibility().items():
+                row.setdefault(key, value)
+        except Exception:
+            pass
         self.data.setdefault("fitness_history", []).append(row)
         if len(self.data["fitness_history"]) > 100:
             self.data["fitness_history"] = self.data["fitness_history"][-100:]

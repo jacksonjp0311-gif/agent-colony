@@ -16,6 +16,11 @@
     "quarantine_cycles": {"default": 6, "lo": 2, "hi": 12, "kind": "int", "group": "healing", "doc": "Cycles a failing optional step stays quarantined."},
     "quarantine_fail_threshold": {"default": 2, "lo": 1, "hi": 4, "kind": "int", "group": "healing", "doc": "Failures of one step before it is quarantined."},
     "step_size": {"default": 0.15, "lo": 0.05, "hi": 0.4, "kind": "float", "group": "meta", "doc": "Fraction of a knob's range used as one adjustment step. Tunable by the same evidence rule."},
-    "evaluation_window": {"default": 6, "lo": 3, "hi": 12, "kind": "int", "group": "meta", "doc": "Cycles of trial vs baseline compared before adopt or revert. Tunable by the same evidence rule."}
+    "evaluation_window": {"default": 6, "lo": 3, "hi": 12, "kind": "int", "group": "meta", "doc": "Cycles of trial vs baseline compared before adopt or revert. Tunable by the same evidence rule."},
+    "gf_term_cap": {"default": 1200, "lo": 600, "hi": 8000, "kind": "int", "group": "caps", "doc": "Slow series-arithmetic term cap (algebraic / EGF / fallback g.f.)."},
+    "deep_term_cap": {"default": 20000, "lo": 5000, "hi": 40000, "kind": "int", "group": "caps", "doc": "Term cap for non-C-finite deep search (relations, properties)."},
+    "fast_term_cap": {"default": 8000, "lo": 2000, "hi": 20000, "kind": "int", "group": "caps", "doc": "Term cap used when a C-finite exact iterator applies."},
+    "deep_digits": {"default": 5000, "lo": 3000, "hi": 12000, "kind": "int", "group": "caps", "doc": "Decimal-digit budget for exact integer terms."},
+    "deep_seconds": {"default": 8.0, "lo": 4.0, "hi": 16.0, "kind": "float", "group": "caps", "doc": "Time budget in seconds for one evaluator call. Kept inside CI limits."}
   }
 }
