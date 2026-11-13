@@ -102,11 +102,11 @@ def test_seed_patterns_are_deterministic_and_validate(tmp_path, monkeypatch):
     a = FL.seed_patterns()
     b = FL.seed_patterns()
     assert [p["id"] for p in a] == [p["id"] for p in b]
-    # 14 positive + 14 paraphrases + 2 negative invariant examples.
-    assert len(a) == 30
+    # 17 positive + 17 paraphrases + 2 negative invariant examples.
+    assert len(a) == 36
     positives = [p for p in a if p["outcome"] == "positive"]
     negatives = [p for p in a if p["outcome"] == "negative"]
-    assert len(positives) == 28
+    assert len(positives) == 34
     assert len(negatives) == 2
     for p in positives:
         v = FA.validate(p["action"])
@@ -120,12 +120,12 @@ def test_seed_patterns_are_deterministic_and_validate(tmp_path, monkeypatch):
 def test_library_is_append_only(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
     written = FL.ensure_seeded()
-    assert len(written) == 30
+    assert len(written) == 36
     # A second seed write adds nothing (same ids).
     again = FL.ensure_seeded()
     assert again == []
     rows = FL.load_records()
-    assert len(rows) == 30
+    assert len(rows) == 36
     # Appending a new record grows the log; existing ids are refused.
     extra = FL.append_record({
         "id": "live:example:1",
@@ -139,7 +139,7 @@ def test_library_is_append_only(tmp_path, monkeypatch):
     assert extra is not None
     assert FL.append_record({"id": "live:example:1", "symptom": "changed"}) is None
     rows = FL.load_records()
-    assert len(rows) == 31
+    assert len(rows) == 37
     # The original first line is unchanged (append-only, no rewrite).
     first = FL.load_records()[0]
     assert first["id"] == written[0]["id"]
@@ -151,16 +151,16 @@ def test_held_out_replay_accuracy_on_seeds(tmp_path, monkeypatch):
     FL.ensure_seeded()
     router = FL.train_router()
     cases = FL.held_out_cases()
-    assert len(cases) == 28
+    assert len(cases) == 34
     result = router.replay_accuracy(cases, hold_out=True)
     # Raw top-1: every paraphrase retrieves its sibling's action.
-    assert result["n"] == 28
-    assert result["correct"] == 28
+    assert result["n"] == 34
+    assert result["correct"] == 34
     assert result["accuracy_permille"] == 1000
-    assert result["lower_permille"] == wilson_lower_permille(28, 28)
+    assert result["lower_permille"] == wilson_lower_permille(34, 34)
     assert result["lower_permille"] >= WILSON_ACCEPT_PERMILLE
     # The live Wilson *gate* still abstains: calibration buckets are empty.
-    assert result["abstained"] == 28
+    assert result["abstained"] == 34
     hit = router.classify(cases[0][0])
     assert hit is not None
     assert hit.abstained is True
@@ -328,10 +328,16 @@ def test_run_cycle_seeds_library_and_calibrates(tmp_path, monkeypatch):
     st = SL.load_state()
     cal = st.get("calibration") or {}
     b64 = next(b for b in cal["buckets"] if b["min_margin"] == 64)
-    assert b64["by_source"]["replay"]["n"] == 28
-    assert b64["by_source"]["replay"]["correct"] == 28
-    assert b64["n"] == 28
-    assert b64["correct"] == 28
+    # Most leave-one-out cases land in the 64 bucket (a few may sit
+    # just under, in 32). The 64 bucket stays above 700. Every
+    # labeled case is counted exactly once across buckets.
+    replay_n = sum(b["by_source"]["replay"]["n"] for b in cal["buckets"])
+    replay_c = sum(b["by_source"]["replay"]["correct"] for b in cal["buckets"])
+    assert replay_n == 34
+    assert replay_c == 34
+    assert b64["by_source"]["replay"]["n"] == b64["by_source"]["replay"]["correct"]
+    assert b64["n"] == b64["correct"]
+    assert b64["n"] >= 28
     assert b64["lower_permille"] >= 700
     assert FL.LIBRARY_SNAPSHOT.exists()
     # With findings, the gate may now accept for a high-margin pick
@@ -419,37 +425,39 @@ def test_calibrate_from_replay_is_honest_and_idempotent(tmp_path, monkeypatch):
     FL.ensure_seeded()
     router = FL.train_router()
     cases = FL.held_out_cases()
-    assert len(cases) == 28
+    assert len(cases) == 34
     # Before calibration the live gate abstains (empty buckets).
     report = router.replay_accuracy(cases, hold_out=True)
-    assert report["correct"] == 28
-    assert report["abstained"] == 28
+    assert report["correct"] == 34
+    assert report["abstained"] == 34
     st = SL.load_state()
     first = SL.calibrate_from_replay(router, st, cases=cases)
     assert first["source"] == "replay"
-    assert first["n"] == 28
-    assert first["correct"] == 28
+    assert first["n"] == 34
+    assert first["correct"] == 34
     # Every outcome is tagged and is a real labeled result.
     for o in first["outcomes"]:
         assert o["source"] == "replay"
         assert o["correct"] is True
         assert "margin" in o
     b64 = next(b for b in st["calibration"]["buckets"] if b["min_margin"] == 64)
-    assert b64["by_source"]["replay"] == {"n": 28, "correct": 28}
+    assert b64["by_source"]["replay"] == {"n": 32, "correct": 32}
     from hive.bitwork import WILSON_ACCEPT_PERMILLE, wilson_lower_permille
-    assert b64["lower_permille"] == wilson_lower_permille(28, 28)
+    assert b64["lower_permille"] == wilson_lower_permille(32, 32)
     assert b64["lower_permille"] >= WILSON_ACCEPT_PERMILLE
     # A second call replaces the replay slice; it does not double-count.
     second = SL.calibrate_from_replay(router, st, cases=cases)
-    assert second["n"] == 28
+    assert second["n"] == 34
     b64 = next(b for b in st["calibration"]["buckets"] if b["min_margin"] == 64)
-    assert b64["by_source"]["replay"] == {"n": 28, "correct": 28}
-    assert b64["n"] == 28
+    assert b64["by_source"]["replay"] == {"n": 32, "correct": 32}
+    assert b64["n"] == 32
     # The gate itself is unchanged: accept iff Wilson lower >= 700.
     accepted, lower, n = router.would_accept(64)
     assert accepted is True
     assert lower >= WILSON_ACCEPT_PERMILLE
-    assert n == 28
+    assert n == 32
+    # All 34 labeled outcomes are accounted for across buckets.
+    assert sum(b["by_source"]["replay"]["n"] for b in st["calibration"]["buckets"]) == 34
     # Empty buckets still abstain (other margins).
     accepted0, lower0, n0 = router.would_accept(0)
     assert accepted0 is False

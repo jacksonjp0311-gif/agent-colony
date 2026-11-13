@@ -8,6 +8,8 @@ from html import escape
 from pathlib import Path
 from typing import Any
 
+from colony.log_segments import count_lines, iter_lines
+
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -22,22 +24,19 @@ def refresh_dashboard(root: Path | None = None) -> dict[str, Path]:
     witness_path = root / "data" / "witness.jsonl"
 
     def count_jsonl(p: Path) -> int:
-        if not p.exists():
-            return 0
-        return sum(1 for line in p.open() if line.strip())
+        return count_lines(p)
 
     status_counts = {"candidate": 0, "accepted": 0, "rejected": 0, "unknown": 0}
-    if ledger_path.exists():
-        for line in ledger_path.open():
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                d = json.loads(line)
-                s = d.get("status") or "candidate"
-                status_counts[s] = status_counts.get(s, 0) + 1
-            except json.JSONDecodeError:
-                continue
+    for line in iter_lines(ledger_path):
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            d = json.loads(line)
+            s = d.get("status") or "candidate"
+            status_counts[s] = status_counts.get(s, 0) + 1
+        except json.JSONDecodeError:
+            continue
 
     roles = sorted((state.get("roles") or {}).keys())
     active_agents = [

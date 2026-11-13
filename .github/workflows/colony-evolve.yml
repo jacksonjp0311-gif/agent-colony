@@ -358,6 +358,8 @@ jobs:
             society/genomes society/briefs society/shortlist docs .github || true
           # Include society_state only if changed size reasonable — always add but message notes slim
           git add data/society_state.json data/ledger.jsonl data/witness.jsonl society/WITNESS.md 2>/dev/null || true
+          # Rotated append-only segments and their manifests (item 42).
+          git add data/witness data/ledger data/witness.segments.json data/ledger.segments.json 2>/dev/null || true
           # Shard archive of proposals/fitness rows flushed out of the 50-entry inline window: without it
           # measured, accepted proposals vanished from the shortlist between runs (James 2026-10-23).
           git add data/society_shards 2>/dev/null || true

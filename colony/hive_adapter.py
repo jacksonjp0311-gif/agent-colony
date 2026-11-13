@@ -22,6 +22,8 @@ import colony.self_heal as _heal
 import hive.library as library
 import hive.ops as ops
 import hive.swarm as swarm
+from collections.abc import Mapping
+
 from colony.arm import REPO_ROOT, data_dir, hive_learning_enabled, is_control, society_dir
 from hive import host
 
@@ -29,9 +31,74 @@ from hive import host
 ROOT = REPO_ROOT
 
 
+class _HealView:
+    """Proxy around colony.self_heal that enriches diagnose findings.
+
+    Hive never imports colony. Structured feature tokens (failure
+    class, exit_reason, cap_reason, desk, stall_reason) are attached
+    here so live queries share the seed vocabulary. Lookups are at
+    call time so test monkeypatches on the real module still apply.
+    """
+
+    def __init__(self, real: Any) -> None:
+        object.__setattr__(self, "_real", real)
+
+    def __getattr__(self, name: str) -> Any:
+        return getattr(self._real, name)
+
+    def diagnose(self, cycle_id: str = "", **kwargs: Any) -> list[dict[str, Any]]:
+        raw = self._real.diagnose(cycle_id, **kwargs) or []
+        return enrich_findings(list(raw))
+
+
+def enrich_finding(finding: Mapping[str, Any]) -> dict[str, Any]:
+    """Attach the structured feature fields Hive's seeds use."""
+    out = dict(finding)
+    ev = out.get("evidence") if isinstance(out.get("evidence"), Mapping) else {}
+    kind = str(out.get("kind") or out.get("label") or "")
+    if kind:
+        out.setdefault("failure_class", kind)
+        out.setdefault("label", kind)
+    for key in (
+        "exit_reason", "stall_reason", "desk", "cap_reason",
+        "cap_name", "target_kind", "failure_class",
+    ):
+        if out.get(key):
+            continue
+        if ev.get(key):
+            out[key] = ev[key]
+    if not out.get("cap_reason"):
+        recent = ev.get("recent") if isinstance(ev.get("recent"), list) else []
+        for row in recent:
+            if isinstance(row, Mapping) and row.get("cap_reason"):
+                out["cap_reason"] = row["cap_reason"]
+                break
+    if not out.get("desk"):
+        desk = _desk_hint(ev)
+        if desk:
+            out["desk"] = desk
+    return out
+
+
+def enrich_findings(findings: list[Any]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for f in findings:
+        if isinstance(f, Mapping):
+            out.append(enrich_finding(f))
+    return out
+
+
+def _desk_hint(evidence: Mapping[str, Any]) -> str:
+    for key in ("desk", "idle_desk", "handoff"):
+        val = evidence.get(key)
+        if val:
+            return str(val)
+    return ""
+
+
 def bind() -> None:
     """Attach colony helpers and paths to Hive. Safe to call more than once."""
-    host.bind(heal=_heal, checker=_checker)
+    host.bind(heal=_HealView(_heal) if _heal is not None else None, checker=_checker)
     library.LIBRARY_LOG = data_dir() / "commons" / "fix_library.jsonl"
     library.LIBRARY_SNAPSHOT = society_dir() / "systems" / "swarm_library.json"
     library.ROOT = REPO_ROOT

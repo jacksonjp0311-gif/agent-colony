@@ -425,26 +425,38 @@ class Router:
         return hits[0] if hits else None
 
     def score_action(self, text: str, action_key: str) -> Match | None:
-        """Best prototype for a proposed action, regardless of rank overall."""
+        """Best prototype for a proposed action, regardless of rank overall.
+
+        Margin is this action's best score minus the best score of any
+        *other* action. That is the same notion of margin that replay
+        and ``classify`` use (top vs a real runner-up), not the gap
+        between two examples of the same action, and not a default
+        runner-up of 0 that clamps a negative score to margin 0.
+        The Wilson 95% gate and the 700 permille threshold are
+        unchanged.
+        """
         query = encode(text)
         qn = popcount(query)
         best: tuple[int, int, int, Prototype] | None = None
-        second = 0
+        best_other: int | None = None
         for proto in self.prototypes:
-            if proto.action_key != action_key or proto.polarity != "positive":
+            if proto.polarity != "positive":
                 continue
             s = prototype_score(query, proto.bits)
             overlap = intersection_count(query, proto.bits)
-            if best is None or s > best[0] or (s == best[0] and proto.key < best[3].key):
-                if best is not None:
-                    second = max(second, best[0])
-                best = (s, overlap, qn, proto)
+            if proto.action_key == action_key:
+                if best is None or s > best[0] or (s == best[0] and proto.key < best[3].key):
+                    best = (s, overlap, qn, proto)
             else:
-                second = max(second, s)
+                if best_other is None or s > best_other:
+                    best_other = s
         if best is None:
             return None
         s, overlap, qn, proto = best
-        margin = max(0, s - second)
+        if best_other is None:
+            margin = max(0, s)
+        else:
+            margin = max(0, s - best_other)
         ham = qn + popcount(proto.bits) - 2 * overlap
         bucket = self.buckets[margin_bucket(margin)]
         lower = bucket.lower_permille()
