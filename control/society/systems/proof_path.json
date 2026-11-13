@@ -1,8 +1,8 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
-   80,
+   81,
    37
   ],
   "divides": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   29,
-   24
+   28,
+   23
   ]
  },
  "mode": "live",
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 68,
+ "n_proved": 67,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -1469,6 +1469,18 @@
    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
    "v": 3
+  },
+  "S((oxa038041*oxa047700))(n) = 0 (mod 2) for all n = 4 (mod 5)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xe8ae0fd2_w1",
+   "checks": 38,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
   },
   "S((oxa048760*pell))(n) = 0 (mod 2) for all n = 0 (mod 4)": {
    "authored": true,
@@ -3656,220 +3668,6 @@
    "prior_certificate": true,
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (lucas-one)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(lucas-one)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,0": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       },
-       {
-        "e": "(lucas-one)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,1": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       },
-       {
-        "e": "(lucas-one)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,2": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       },
-       {
-        "e": "(lucas-one)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,3": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "one(x) = 1"
-    ],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x4beae986_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
    "v": 3
   },
@@ -10155,6 +9953,6 @@
    "v": 3
   }
  },
- "seconds": 0.03,
- "ts": "2026-11-13T18:57:44Z"
+ "seconds": 0.6,
+ "ts": "2026-11-13T19:17:29Z"
 }
