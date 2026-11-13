@@ -20,6 +20,10 @@ on:
         description: "Run selective standing-trust authorize (true/false). Off unless a human dispatches with true; scheduled runs never authorize."
         required: false
         default: "false"
+      run_control:
+        description: "Also run the control arm for the same number of cycles (true/false). Scheduled runs always do."
+        required: false
+        default: "true"
 
 permissions:
   contents: write
@@ -370,4 +374,169 @@ jobs:
               sleep 5
             done
             [ "$ok" = 1 ] || { echo "::error::push failed after 3 rebase attempts"; exit 1; }
+          fi
+
+
+  # Control arm: identical evolve pipeline, self-modification frozen at
+  # defaults, all state under control/. Never authorizes. Skips the trust
+  # gate and benches (those are about the shared code, already run on
+  # the treatment job). Same cycle count, same schedule, same Oracle.
+  evolve-control:
+    if: ${{ github.event_name == 'schedule' || github.event.inputs.run_control != 'false' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          sudo apt-get install -y -qq libprimesieve-dev primesieve || echo "::warning::primesieve not installed; sieve instrument uses Python fallback"
+
+      - name: Novelty shadow corpus key (OEIS names, monthly)
+        id: oeiskey
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      - name: Novelty shadow corpus cache
+        id: oeiscache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/colony/oeis
+          key: oeis-names-terms-v2-${{ steps.oeiskey.outputs.month }}
+
+      - name: OEIS b-file cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/colony/bfiles
+          key: oeis-bfiles-v1-${{ steps.oeiskey.outputs.month }}-${{ github.run_id }}
+          restore-keys: |
+            oeis-bfiles-v1-${{ steps.oeiskey.outputs.month }}-
+
+      - name: Seed control tree (first run only; later runs keep their own history)
+        env:
+          COLONY_ARM: control
+          COLONY_SEED_CONTROL: "1"
+        run: |
+          set -euo pipefail
+          export PYTHONPATH=.
+          python -m colony seed-control
+
+      - name: Evolve (control arm — self-mod off)
+        env:
+          COLONY_ARM: control
+          COLONY_ATHANOR_GATE: live
+          COLONY_ATHANOR_PROBE: state
+          COLONY_ATHANOR_VETO: live
+          COLONY_HUNT: live
+          COLONY_FRONTIER: live
+          COLONY_RETIRE: live
+          COLONY_RETIRE_MACHINE_RECEIPTS: live
+          COLONY_AUTHOR_PAIRS: "off"
+          COLONY_FRONTIER_MENU: wide
+          COLONY_NEWDATA: live
+          COLONY_NEWDATA_SPARSE: live
+          COLONY_REFCHECK: live
+          COLONY_SURPRISE: live
+          COLONY_PROOF: live
+          COLONY_FRONTIER_INFLIGHT: "3"
+          COLONY_RETEST_FALLBACK: "live"
+          COLONY_FRONTIER_INGREDIENTS: live
+          COLONY_REFCHECK_STRONG: live
+          COLONY_OBSCURE: live
+          COLONY_DEEP: live
+          COLONY_DOMAINS: live
+          COLONY_COMPOSITIONAL: live
+          COLONY_OPEN_TARGETS: live
+          COLONY_OEIS_CONJ: live
+          CYCLES: ${{ github.event.inputs.cycles || '3' }}
+          OFFLINE: ${{ github.event.inputs.offline || 'false' }}
+        run: |
+          set -euo pipefail
+          export PYTHONPATH=.
+          ARGS=(evolve --arm control --cycles "$CYCLES")
+          if [ "$OFFLINE" = "true" ]; then ARGS+=(--offline); fi
+          python -m colony "${ARGS[@]}"
+          python -m colony dashboard || true
+
+      - name: Commit control state only (never treatment data/ or society/)
+        run: |
+          set -euo pipefail
+          git config user.name "agent-colony-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Only the isolated control tree. The twin scoreboard is written
+          # by the scoreboard job after both arms finish.
+          git add control/ || true
+          if git diff --staged --quiet; then
+            echo "No control-arm changes to commit (quiet success)"
+          else
+            git commit -m "ci(colony): control arm evolve $(date -u +%Y-%m-%dT%H%MZ)"
+            ok=0
+            for i in 1 2 3; do
+              if git pull --rebase --autostash && git push; then ok=1; break; fi
+              sleep 5
+            done
+            [ "$ok" = 1 ] || { echo "::error::control push failed after 3 rebase attempts"; exit 1; }
+          fi
+
+  # After both arms have pushed, record treatment-minus-control and
+  # refresh the growth chart. Does not authorize. Does not evolve.
+  twin-scoreboard:
+    needs: [evolve, evolve-control]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 20
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Pull both arms' latest commits
+        run: git pull --rebase --autostash || git pull --ff-only
+
+      - name: Update twin scoreboard and growth chart
+        env:
+          COLONY_ARM: treatment
+          CYCLES: ${{ github.event.inputs.cycles || '3' }}
+        run: |
+          set -euo pipefail
+          export PYTHONPATH=.
+          python -m colony twin-scoreboard --cycles "$CYCLES"
+          python -m colony dashboard || true
+
+      - name: Commit scoreboard and dashboard
+        run: |
+          set -euo pipefail
+          git config user.name "agent-colony-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add society/systems/twin_scoreboard.json society/DASHBOARD.html society/WITNESS_SUMMARY.md || true
+          if git diff --staged --quiet; then
+            echo "No scoreboard changes to commit (quiet success)"
+          else
+            git commit -m "ci(colony): twin scoreboard $(date -u +%Y-%m-%dT%H%MZ)"
+            ok=0
+            for i in 1 2 3; do
+              if git pull --rebase --autostash && git push; then ok=1; break; fi
+              sleep 5
+            done
+            [ "$ok" = 1 ] || { echo "::error::scoreboard push failed after 3 rebase attempts"; exit 1; }
           fi

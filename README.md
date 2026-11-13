@@ -71,6 +71,15 @@ Founding cast remains minimal: **Spark** + **Tribute Keeper**. Emergent roles ap
 
 See [CHARTER.md](./CHARTER.md).
 
+## Twin control
+
+The scheduled evolve also runs a **control arm**: the same pipeline, the
+same Oracle and gates, with self-heal, checker-lane adoption, and Hive
+learning frozen, writing only under [`control/`](./control/). A plaque-style
+growth chart on the dashboard compares Oracle passes, verified depth, and
+adopts. Early differences are noise. Design: [`docs/TWIN_CONTROL.md`](./docs/TWIN_CONTROL.md).
+
+
 ---
 
 ## Run

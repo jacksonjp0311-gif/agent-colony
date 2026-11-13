@@ -13,6 +13,8 @@
 **Stall:** stall_cycles 24; perturb_active False; distinct_targets_tried_last_3_cycles 0
 **Checker proposals awaiting human review:** checker proposals awaiting human review: 0; last cycle mined 1, accepted 0, rejected 1
 **Self-heal:** self_changes_adopted 0; self_changes_reverted 0; last_self_change none; trial perturb_cooldown_cycles 6→8 (3/6); quarantined steps: none
+**Hive:** library 0; replay accuracy n/a; adopted 0; reverted 0; abstained 0; time-to-fix none yet
+**Treatment vs control:** paired_runs 0; Δpasses —; Δdepth —; Δadopts — (early differences are noise)
 **Bus reply rate:** 0.8
 **Improvement proposals:** 50 (all candidate until human authorize)
 **Commons size:** 200
