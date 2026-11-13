@@ -1,12 +1,12 @@
 {
-  "ts": "2026-11-13T05:26:21Z",
-  "cycle_id": "20261113T052559Z_fff49a",
+  "ts": "2026-11-13T07:08:10Z",
+  "cycle_id": "20261113T070742Z_e213dd",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 76,
+      "vandermonde": 74,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "lemma_hard_combinatorics": 2,
@@ -109,8 +109,8 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8591,
-      "slope": -0.000407,
+      "last": 0.8585,
+      "slope": -0.000227,
       "min": 0.8415,
       "max": 0.8611
     },
@@ -141,7 +141,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0196,
+    "aggregate_range": 0.0195,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -268,34 +268,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.997,
+      "ratio": 1.406,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.015,
+      "ratio": 1.379,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.966,
+      "ratio": 1.326,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.996,
+      "ratio": 1.377,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.942,
+      "ratio": 1.285,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 292434115,
-      "collatz_descent": 329400000,
+      "goldbach_even": 295634115,
+      "collatz_descent": 332600000,
       "legendre_square_gap": 1708607,
       "lehmer_totient": 149400001,
-      "erdos_straus": 1119127,
+      "erdos_straus": 1124127,
       "twin_primes_hl": 414200000,
       "oeis_A104062_next": 518690000001
     },
@@ -350,29 +350,29 @@
     "last": [
       [
         null,
+        "2026-11-13T06:57:33Z"
+      ],
+      [
+        "success",
         "2026-11-13T05:16:06Z"
       ],
       [
         "success",
         "2026-11-13T05:01:44Z"
-      ],
-      [
-        "success",
-        "2026-11-13T04:20:32Z"
       ]
     ],
-    "fetched_at": "2026-11-13T05:16:59Z"
+    "fetched_at": "2026-11-13T06:58:22Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 239,
+      "arxiv": 245,
       "oeis": 5,
-      "crossref": 114,
+      "crossref": 117,
       "wikipedia": 18,
       "oeis_conj": 222
     },
     "by_kind": {
-      "paper": 353,
+      "paper": 362,
       "sequence": 5,
       "summary": 18,
       "conj_sequence": 222
@@ -380,57 +380,62 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 8,
+          "new": 6,
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 3,
+          "new": 3,
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
+          "error": "",
+          "fetched": 5,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 1,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-13T05:16:59Z"
+      "ts": "2026-11-13T06:58:13Z"
     },
     "health": {
       "arxiv": {
         "fail": 9,
-        "ok": 77
+        "ok": 78
       },
       "crossref": {
         "fail": 0,
-        "ok": 80
+        "ok": 81
       },
       "oeis": {
         "fail": 0,
-        "ok": 80
+        "ok": 81
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 76
+        "ok": 77
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 80
+        "ok": 81
       }
     }
   },

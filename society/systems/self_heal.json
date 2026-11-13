@@ -102,7 +102,38 @@
         "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
       }
     ],
-    "trial_metrics": [],
+    "trial_metrics": [
+      {
+        "cycle_id": "20261113T070138Z_53ad3d",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_passes": 528,
+        "oracle_pass_delta": 0,
+        "score": 0.0,
+        "ts": "2026-11-13T07:04:05Z",
+        "env_fingerprint": "a58d5e4786f37dfe8601932268a4c39248c47d896d4f7601c1f1b0dd09762ecf"
+      },
+      {
+        "cycle_id": "20261113T070453Z_4b1324",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_passes": 528,
+        "oracle_pass_delta": 0,
+        "score": 0.0,
+        "ts": "2026-11-13T07:06:57Z",
+        "env_fingerprint": "a58d5e4786f37dfe8601932268a4c39248c47d896d4f7601c1f1b0dd09762ecf"
+      },
+      {
+        "cycle_id": "20261113T070742Z_e213dd",
+        "new_oracle_targets": 0,
+        "new_depth": 0,
+        "oracle_passes": 528,
+        "oracle_pass_delta": 0,
+        "score": 0.0,
+        "ts": "2026-11-13T07:09:55Z",
+        "env_fingerprint": "a58d5e4786f37dfe8601932268a4c39248c47d896d4f7601c1f1b0dd09762ecf"
+      }
+    ],
     "started_cycle": "20261113T052559Z_fff49a",
     "started_index": 20,
     "applied_to_live_oracle": false,
@@ -337,6 +368,36 @@
       "score": 0.0,
       "ts": "2026-11-13T05:27:51Z",
       "env_fingerprint": "d05d3224cc5e0ee248ce88ba5859e47599a73eefae5667a2ca871071a52f348d"
+    },
+    {
+      "cycle_id": "20261113T070138Z_53ad3d",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T07:04:05Z",
+      "env_fingerprint": "a58d5e4786f37dfe8601932268a4c39248c47d896d4f7601c1f1b0dd09762ecf"
+    },
+    {
+      "cycle_id": "20261113T070453Z_4b1324",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T07:06:57Z",
+      "env_fingerprint": "a58d5e4786f37dfe8601932268a4c39248c47d896d4f7601c1f1b0dd09762ecf"
+    },
+    {
+      "cycle_id": "20261113T070742Z_e213dd",
+      "new_oracle_targets": 0,
+      "new_depth": 0,
+      "oracle_passes": 528,
+      "oracle_pass_delta": 0,
+      "score": 0.0,
+      "ts": "2026-11-13T07:09:55Z",
+      "env_fingerprint": "a58d5e4786f37dfe8601932268a4c39248c47d896d4f7601c1f1b0dd09762ecf"
     }
   ],
   "quarantine": {},
@@ -497,7 +558,7 @@
   ],
   "adopted_count": 0,
   "reverted_count": 0,
-  "cycle_index": 20,
+  "cycle_index": 23,
   "cycles": [
     "20261113T004347Z_413c5e",
     "20261113T004700Z_794b8d",
@@ -519,7 +580,10 @@
     "20261113T043016Z_8f5e45",
     "20261113T051948Z_1aebd0",
     "20261113T052307Z_2fdf67",
-    "20261113T052559Z_fff49a"
+    "20261113T052559Z_fff49a",
+    "20261113T070138Z_53ad3d",
+    "20261113T070453Z_4b1324",
+    "20261113T070742Z_e213dd"
   ],
   "last_self_change": {
     "event": "trial_voided_confound",

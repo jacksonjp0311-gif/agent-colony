@@ -937,32 +937,35 @@
     "cycle_885_evolve_note",
     "cycle_886_evolve_note",
     "cycle_887_evolve_note",
-    "cycle_888_evolve_note"
+    "cycle_888_evolve_note",
+    "cycle_889_evolve_note",
+    "cycle_890_evolve_note",
+    "cycle_891_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 2614,
+      "uses": 2623,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 2586,
+      "uses": 2595,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 1745,
+      "uses": 1751,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 872,
+      "uses": 875,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 3445,
+      "uses": 3457,
       "path": "society/systems/topic_priority.json"
     },
     {
@@ -972,47 +975,47 @@
     },
     {
       "name": "common_knowledge",
-      "uses": 2581,
+      "uses": 2590,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 860,
+      "uses": 863,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 860,
+      "uses": 863,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 845,
+      "uses": 848,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 845,
+      "uses": 848,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 842,
+      "uses": 845,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 842,
+      "uses": 845,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 839,
+      "uses": 842,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 839,
+      "uses": 842,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -1287,8 +1290,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 3444,
-    "reused": 7744
+    "appended": 3456,
+    "reused": 7771
   },
   "commons_by_domain": {
     "science": 0,
@@ -1307,8 +1310,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-11-13T05:27:56Z",
-    "cycle_id": "20261113T052559Z_fff49a",
+    "ts": "2026-11-13T07:10:01Z",
+    "cycle_id": "20261113T070742Z_e213dd",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -1320,31 +1323,31 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-11-13T05:27:52Z",
-    "cycle_id": "20261113T052559Z_fff49a",
+    "ts": "2026-11-13T07:09:57Z",
+    "cycle_id": "20261113T070742Z_e213dd",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9114,
     "commons_signal": 1.0,
-    "math_prize": 0.8133,
-    "compute_usefulness": 0.9127,
+    "math_prize": 0.81,
+    "compute_usefulness": 0.9089,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8854,
+    "prize_boost": 0.8826,
     "kill_rate": 0.3917,
     "kill_rate_term": 0.9025,
     "novelty": 0.75,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8589,
+    "aggregate": 0.8585,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.345,
-    "stall_cycles": 36,
+    "stall_cycles": 39,
     "perturb_active": false,
     "distinct_targets_tried_last_3_cycles": 0,
-    "perturb_cooldown_remaining": 2,
+    "perturb_cooldown_remaining": 0,
     "perturb_strategy": "mutate",
     "checker_proposals_awaiting_review": 0,
     "checker_proposals": [],
@@ -1364,7 +1367,7 @@
         "id": "chk_0c904dfae6fab86d"
       }
     ],
-    "checker_lane_cycle_id": "20261113T052559Z_fff49a",
+    "checker_lane_cycle_id": "20261113T070742Z_e213dd",
     "self_changes_adopted": 0,
     "self_changes_reverted": 0,
     "last_self_change": {
@@ -1390,7 +1393,7 @@
       "to": 8,
       "reason": "no_progress_perturb",
       "window": 6,
-      "n_trial_metrics": 0,
+      "n_trial_metrics": 3,
       "baseline_score": 0.0
     },
     "swarm_library_size": 36,
@@ -1575,7 +1578,7 @@
           "margin": 69,
           "predicted": "set_knob:direction=up:name=park_cycles:value=8",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1585,7 +1588,7 @@
           "margin": 62,
           "predicted": "set_knob:direction=up:name=unused_menu_cycles:value=25",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1595,7 +1598,7 @@
           "margin": 173,
           "predicted": "add_skip_rule:cycles=12:target_kind=empty_label",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1605,7 +1608,7 @@
           "margin": 245,
           "predicted": "add_park_rule:cycles=12:target_kind=proof_chain_parked",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1615,7 +1618,7 @@
           "margin": 260,
           "predicted": "add_triviality_candidate:applied_to_live_oracle=False:direction=tighten:kind=triviality_pattern:pattern=textbook identity restated:pattern_type=literal:routed_to=checker_lane",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1625,17 +1628,17 @@
           "margin": 155,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
-          "expected": "set_knob:direction=up:name=perturb_cooldown_cycles:value=8",
-          "id": "replay:6:38d8282b88108771",
+          "expected": "set_knob:direction=up:name=perturb_cooldown_cycles:value=10",
+          "id": "replay:6:bd159bdc7f672c7a",
           "index": 6,
           "margin": 246,
-          "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=8",
+          "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=10",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1645,7 +1648,7 @@
           "margin": 178,
           "predicted": "set_knob:direction=down:name=step_size:value=0.0975",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1655,7 +1658,7 @@
           "margin": 267,
           "predicted": "set_knob:direction=up:name=evaluation_window:value=7",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1665,7 +1668,7 @@
           "margin": 374,
           "predicted": "set_knob:direction=up:name=perturb_zero_pick_cycles:value=2",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1675,7 +1678,7 @@
           "margin": 197,
           "predicted": "set_knob:direction=up:name=park_cycles:value=8",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1685,7 +1688,7 @@
           "margin": 237,
           "predicted": "set_knob:direction=up:name=fast_term_cap:value=10700",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1695,7 +1698,7 @@
           "margin": 320,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=2310",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1705,7 +1708,7 @@
           "margin": 358,
           "predicted": "mark_ceiling:depth=1200:reason=evaluator_cap:target=held-at-cap",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1715,7 +1718,7 @@
           "margin": 190,
           "predicted": "set_knob:direction=up:name=park_cycles:value=8",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1725,7 +1728,7 @@
           "margin": 212,
           "predicted": "set_knob:direction=up:name=unused_menu_cycles:value=25",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1735,7 +1738,7 @@
           "margin": 317,
           "predicted": "add_skip_rule:cycles=12:target_kind=empty_label",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1745,7 +1748,7 @@
           "margin": 272,
           "predicted": "add_park_rule:cycles=12:target_kind=proof_chain_parked",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1755,7 +1758,7 @@
           "margin": 335,
           "predicted": "add_triviality_candidate:applied_to_live_oracle=False:direction=tighten:kind=triviality_pattern:pattern=textbook identity restated:pattern_type=literal:routed_to=checker_lane",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1765,17 +1768,17 @@
           "margin": 219,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
-          "expected": "set_knob:direction=up:name=perturb_cooldown_cycles:value=8",
-          "id": "replay:20:c8cb9f2ddb1cbf87",
+          "expected": "set_knob:direction=up:name=perturb_cooldown_cycles:value=10",
+          "id": "replay:20:6d09a334cf84ecd1",
           "index": 20,
           "margin": 241,
-          "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=8",
+          "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=10",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1785,7 +1788,7 @@
           "margin": 179,
           "predicted": "set_knob:direction=down:name=step_size:value=0.0975",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1795,7 +1798,7 @@
           "margin": 308,
           "predicted": "set_knob:direction=up:name=evaluation_window:value=7",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1805,7 +1808,7 @@
           "margin": 409,
           "predicted": "set_knob:direction=up:name=perturb_zero_pick_cycles:value=2",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1815,7 +1818,7 @@
           "margin": 206,
           "predicted": "set_knob:direction=up:name=park_cycles:value=8",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1825,7 +1828,7 @@
           "margin": 263,
           "predicted": "set_knob:direction=up:name=fast_term_cap:value=10700",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1835,7 +1838,7 @@
           "margin": 354,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=2310",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1845,7 +1848,7 @@
           "margin": 372,
           "predicted": "mark_ceiling:depth=1200:reason=evaluator_cap:target=held-at-cap",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1855,7 +1858,7 @@
           "margin": 257,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1865,7 +1868,7 @@
           "margin": 278,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1875,7 +1878,7 @@
           "margin": 173,
           "predicted": "set_knob:direction=up:name=park_cycles:value=8",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1885,7 +1888,7 @@
           "margin": 187,
           "predicted": "set_knob:direction=up:name=park_cycles:value=8",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1895,7 +1898,7 @@
           "margin": 228,
           "predicted": "set_knob:direction=up:name=fast_term_cap:value=10700",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         },
         {
           "correct": true,
@@ -1905,7 +1908,7 @@
           "margin": 267,
           "predicted": "set_knob:direction=up:name=fast_term_cap:value=10700",
           "source": "replay",
-          "ts": "2026-11-13T05:27:52Z"
+          "ts": "2026-11-13T07:09:56Z"
         }
       ]
     },
@@ -1915,7 +1918,7 @@
       "correct": 34,
       "n": 34,
       "source": "replay",
-      "updated_at": "2026-11-13T05:27:52Z"
+      "updated_at": "2026-11-13T07:09:56Z"
     },
     "swarm_replay_accuracy_permille": 1000,
     "swarm_replay_lower_permille": 898,
@@ -1932,7 +1935,7 @@
     "swarm_adopt_rate_permille": 0,
     "swarm_abstained": 3,
     "swarm_applied": 0,
-    "swarm_proposals": 36,
+    "swarm_proposals": 48,
     "swarm_trial": null,
     "swarm_last_decision": null,
     "swarm_active_rules": 0,
@@ -1953,30 +1956,30 @@
   },
   "improvement_proposals": 50,
   "bus_stats": {
-    "posted": 48461,
-    "read": 234380,
-    "replied": 30491,
-    "actions_planned": 15712,
-    "actions_changed_from_message": 15712,
-    "reply_quality_sum": 27743.500000008687,
-    "reply_quality_n": 30439,
-    "peer_cite_opportunities": 31188,
-    "peer_cites": 31188
+    "posted": 48626,
+    "read": 235154,
+    "replied": 30596,
+    "actions_planned": 15766,
+    "actions_changed_from_message": 15766,
+    "reply_quality_sum": 27839.20000000879,
+    "reply_quality_n": 30544,
+    "peer_cite_opportunities": 31296,
+    "peer_cites": 31296
   },
   "bus_domains": {
-    "science": 2576,
-    "history": 2578,
-    "math": 8055,
-    "empire": 1721,
-    "bulletin": 6264,
-    "forum": 11297,
-    "software": 2563,
-    "nature": 2527,
-    "life": 2578,
-    "cosmos": 3778,
-    "rsi": 4416
+    "science": 2585,
+    "history": 2587,
+    "math": 8082,
+    "empire": 1727,
+    "bulletin": 6285,
+    "forum": 11333,
+    "software": 2572,
+    "nature": 2536,
+    "life": 2587,
+    "cosmos": 3793,
+    "rsi": 4431
   },
-  "communications_count": 48461,
+  "communications_count": 48626,
   "improvements": [
     "Chain `authored_sieve_two_counter_g6_6_w2` citing Fourth moments of prime exponential sums and excep",
     "Chain+seek `authored_frontier_cong_xdbe366da_w1` from invariant priors",
@@ -2029,16 +2032,16 @@
     "Chain+seek `authored_sieve_residue_bal_g6_6_6_w2` from invariant priors",
     "Chain+seek `authored_frontier_le_x423b0686_w1` from invariant priors"
   ],
-  "cycle_count": 888,
-  "ledger_count": 50604,
+  "cycle_count": 891,
+  "ledger_count": 50777,
   "status_counts": {
-    "candidate": 49818,
+    "candidate": 49991,
     "accepted": 284,
     "rejected": 376,
     "unknown": 126
   },
-  "witness_events": 73968,
-  "tribute_cycles_compliant": 888,
+  "witness_events": 74220,
+  "tribute_cycles_compliant": 891,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
