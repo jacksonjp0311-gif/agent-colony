@@ -146,6 +146,7 @@ def test_defaults_match_stall_constants():
     assert SH.KNOB_SPECS["perturb_wide_epsilon"].default == S.PERTURB_WIDE_EPSILON
     assert SH.KNOB_SPECS["perturb_min_targets"].default == S.PERTURB_MIN_TARGETS
     assert SH.KNOB_SPECS["perturb_cooldown_cycles"].default == S.PERTURB_COOLDOWN_CYCLES
+    assert SH.KNOB_SPECS["perturb_zero_pick_cycles"].default == S.PERTURB_ZERO_PICK_CYCLES
     assert SH.KNOB_SPECS["unused_menu_cycles"].default == S.UNUSED_MENU_CYCLES
 
 

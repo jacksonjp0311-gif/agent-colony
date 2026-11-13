@@ -1165,6 +1165,93 @@ def _last_attempt_row(eid: str, log: dict[str, Any] | None = None) -> dict[str, 
     return None
 
 
+def _is_legacy_attempt_row(row: dict[str, Any] | None) -> bool:
+    """True when a row predates the planned/verified split (PR #4).
+
+    Those rows stored the *requested* depth in ``depth`` and have no
+    ``planned`` or ``verified_depth`` marker. Treating that ``depth`` as
+    already verified is what emptied the eligible pool (item 28).
+    """
+    if not isinstance(row, dict):
+        return False
+    return "planned" not in row and "verified_depth" not in row
+
+
+def _tested_hi_from_state(
+    eid: str,
+    e: dict[str, Any] | None = None,
+    prior_hi: int | None = None,
+) -> int:
+    """Verified high-water mark from a caller, the entry, or conjecture state."""
+    if prior_hi is not None:
+        try:
+            return int(prior_hi or 0)
+        except (TypeError, ValueError):
+            return 0
+    if isinstance(e, dict) and e.get("tested_hi") is not None:
+        try:
+            return int(e.get("tested_hi") or 0)
+        except (TypeError, ValueError):
+            pass
+    eid = str(eid or "")
+    if not eid:
+        return 0
+    try:
+        st = (_load(STATE, {}).get("targets") or {}).get(eid) or {}
+        return int(st.get("tested_hi") or 0)
+    except Exception:
+        return 0
+
+
+def attempt_row_verified_depth(row: dict[str, Any] | None, tested_hi: int | None = 0) -> int:
+    """Verified depth of an attempt-log row, without rewriting the log.
+
+    Post-PR #4 rows have a ``planned`` field (``depth`` is the verified
+    range) or an explicit ``verified_depth``. Legacy rows stored the
+    requested window in ``depth``; for those, verified depth is
+    ``min(depth, tested_hi)`` when ``tested_hi`` is known, and the
+    requested depth is ignored otherwise.
+    """
+    try:
+        th = int(tested_hi or 0)
+    except (TypeError, ValueError):
+        th = 0
+    if not isinstance(row, dict):
+        return th
+    if "verified_depth" in row:
+        try:
+            return int(row.get("verified_depth") or 0)
+        except (TypeError, ValueError):
+            return th
+    if "planned" in row:
+        try:
+            return int(row.get("depth") or 0)
+        except (TypeError, ValueError):
+            return 0
+    try:
+        requested = int(row.get("depth") or 0)
+    except (TypeError, ValueError):
+        requested = 0
+    if th > 0:
+        return min(requested, th) if requested else th
+    return 0
+
+
+def attempt_row_planned_depth(row: dict[str, Any] | None) -> int:
+    """Requested depth on a post-PR #4 row. 0 for a legacy row.
+
+    A legacy ``depth`` is the request, but it must not be used as an
+    "already aimed this far" ceiling: the attempt may never have reached
+    it, and a retry past ``tested_hi`` is exactly what item 28 asks for.
+    """
+    if not isinstance(row, dict) or "planned" not in row:
+        return 0
+    try:
+        return int(row.get("planned") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
 def can_progress_past(
     e: dict[str, Any],
     prior_hi: int | None = None,
@@ -1178,7 +1265,9 @@ def can_progress_past(
     or, with ``require_past_published``, when the claim can be tested past
     the published b-file. After a hold it is True only if the claim is
     actually evaluable past ``max(bfile_hi, tested_hi)`` and a prior attempt
-    has not already hit that ceiling with the same capability.
+    has not already hit that ceiling with the same capability. Legacy
+    attempt-log rows (no ``planned`` / ``verified_depth``) do not treat
+    their requested ``depth`` as already verified.
     """
     eid = str(e.get("id") or "")
     try:
@@ -1187,11 +1276,24 @@ def can_progress_past(
         log = _empty_attempt_log()
     bh = bfile_hi_of(e)
     last = _last_attempt_row(eid, log) if eid else None
-    last_v = int((last or {}).get("depth") or 0)
-    last_planned = int((last or {}).get("planned") or 0)
-    current = max(int(prior_hi or 0), last_v)
+    # A missing prior_hi means "not supplied", except when a legacy row
+    # needs conjecture-state tested_hi to interpret its requested depth.
+    entry_hi = None
+    if isinstance(e, dict) and e.get("tested_hi") is not None:
+        entry_hi = e.get("tested_hi")
+    if prior_hi is not None:
+        tested = _tested_hi_from_state(eid, e, prior_hi)
+    elif entry_hi is not None:
+        tested = _tested_hi_from_state(eid, e, entry_hi)
+    elif _is_legacy_attempt_row(last):
+        tested = _tested_hi_from_state(eid, e, None)
+    else:
+        tested = 0
+    last_v = attempt_row_verified_depth(last, tested)
+    last_planned = attempt_row_planned_depth(last)
+    current = max(tested, last_v)
     reachable = claim_testable_hi(e)
-    never = last is None and int(prior_hi or 0) == 0
+    never = last is None and tested == 0
     bar = max(bh, current)
     if never:
         if require_past_published:
@@ -1212,7 +1314,8 @@ def already_attempted_pair(eid: str, depth: int, cycle_id: str = "", log: dict[s
 
     ``depth`` is what the next attempt would aim at. A prior row matches if
     its verified depth equals that, if it already reached at least that far,
-    or if it already aimed at least that far (the ``planned`` field).
+    or if it already aimed at least that far (the ``planned`` field). Legacy
+    rows without ``planned`` do not treat requested ``depth`` as either.
     """
     eid = str(eid or "")
     if not eid:
@@ -1221,11 +1324,17 @@ def already_attempted_pair(eid: str, depth: int, cycle_id: str = "", log: dict[s
     if cycle_id and eid in set(log.get("by_cycle", {}).get(cycle_id) or []):
         return True
     want = int(depth or 0)
+    tested_cache: int | None = None
     for row in log.get("attempts") or []:
         if str(row.get("id") or "") != eid:
             continue
-        verified = int(row.get("depth") or 0)
-        planned = int(row.get("planned") or 0)
+        if _is_legacy_attempt_row(row):
+            if tested_cache is None:
+                tested_cache = _tested_hi_from_state(eid)
+            verified = attempt_row_verified_depth(row, tested_cache)
+        else:
+            verified = attempt_row_verified_depth(row, 0)
+        planned = attempt_row_planned_depth(row)
         if verified == want:
             return True
         if want and (planned == want or verified >= want or planned >= want):
@@ -1298,6 +1407,10 @@ def remember_attempt(
         }
         if planned is not None:
             rec["planned"] = int(planned)
+        # Marker so a future reader can tell this ``depth`` is verified,
+        # even when the caller omitted ``planned``. Existing rows are
+        # never rewritten (no data churn).
+        rec["verified_depth"] = int(verified or 0)
         log["attempts"].append(rec)
     log["attempts"] = log["attempts"][-400:]
     if form:

@@ -154,6 +154,8 @@ KNOB_SPECS: dict[str, KnobSpec] = {
                                     "Minimum distinct targets a PERTURB turn should draw."),
     "perturb_cooldown_cycles": KnobSpec("perturb_cooldown_cycles", 6, 3, 18, "int", "search",
                                         "Cycles to wait after a no-progress timeout."),
+    "perturb_zero_pick_cycles": KnobSpec("perturb_zero_pick_cycles", 1, 1, 3, "int", "search",
+                                         "Consecutive 0-pick PERTURB cycles before a no_candidates exit."),
     "unused_menu_cycles": KnobSpec("unused_menu_cycles", 20, 8, 40, "int", "search",
                                    "How far back PERTURB looks to treat a target as already tried."),
     "family_rotation_penalty": KnobSpec("family_rotation_penalty", 0.85, 0.5, 0.95, "float",
@@ -656,7 +658,8 @@ def diagnose(
 
     pert = st.get("perturb") or {}
     exit_reason = str(pert.get("exit_reason") or "")
-    if (not pert.get("active")) and exit_reason in ("timeout", "timed_out", "max_cycles") and not pert.get("session_progress"):
+    no_progress_exits = ("timeout", "timed_out", "max_cycles", "no_candidates", "no_eligible", "no_eligible_target")
+    if (not pert.get("active")) and exit_reason in no_progress_exits and not pert.get("session_progress"):
         findings.append({
             "kind": "no_progress_perturb",
             "evidence": {
@@ -686,7 +689,7 @@ def diagnose(
         # Only flag when the last exit was a no-progress timeout and we
         # entered again quickly. If a cooldown is running, this is fine.
         last_exit = str(pert.get("exit_reason") or "")
-        if last_exit in ("timeout", "timed_out", "max_cycles", "") and cooldown == 0:
+        if last_exit in ("timeout", "timed_out", "max_cycles", "no_candidates", "no_eligible", "no_eligible_target", "") and cooldown == 0:
             # Entered this cycle or last, after a timeout. Look at cycles.
             cycles = list(st.get("cycles") or [])
             entered = str(pert.get("entered_at") or "")
