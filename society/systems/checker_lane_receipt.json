@@ -1056,6 +1056,72 @@
       "awaiting_review": 0,
       "applied_to_live_oracle": false,
       "ts": "2026-11-13T19:53:41Z"
+    },
+    {
+      "cycle_id": "20261113T200335Z_68eedf",
+      "ok": true,
+      "error": null,
+      "candidates_mined": 1,
+      "new_accepted": 0,
+      "new_rejected": 1,
+      "reasons": [
+        {
+          "fingerprint": "0c904dfae6fab86d",
+          "kind": "triviality_pattern",
+          "status": "rejected",
+          "reasons": [
+            "no_known_bad_caught"
+          ],
+          "id": "chk_0c904dfae6fab86d"
+        }
+      ],
+      "awaiting_review": 0,
+      "applied_to_live_oracle": false,
+      "ts": "2026-11-13T20:07:23Z"
+    },
+    {
+      "cycle_id": "20261113T200758Z_5a781e",
+      "ok": true,
+      "error": null,
+      "candidates_mined": 1,
+      "new_accepted": 0,
+      "new_rejected": 1,
+      "reasons": [
+        {
+          "fingerprint": "0c904dfae6fab86d",
+          "kind": "triviality_pattern",
+          "status": "rejected",
+          "reasons": [
+            "no_known_bad_caught"
+          ],
+          "id": "chk_0c904dfae6fab86d"
+        }
+      ],
+      "awaiting_review": 0,
+      "applied_to_live_oracle": false,
+      "ts": "2026-11-13T20:09:43Z"
+    },
+    {
+      "cycle_id": "20261113T201021Z_de28be",
+      "ok": true,
+      "error": null,
+      "candidates_mined": 1,
+      "new_accepted": 0,
+      "new_rejected": 1,
+      "reasons": [
+        {
+          "fingerprint": "0c904dfae6fab86d",
+          "kind": "triviality_pattern",
+          "status": "rejected",
+          "reasons": [
+            "no_known_bad_caught"
+          ],
+          "id": "chk_0c904dfae6fab86d"
+        }
+      ],
+      "awaiting_review": 0,
+      "applied_to_live_oracle": false,
+      "ts": "2026-11-13T20:12:10Z"
     }
   ],
   "rejected": [
@@ -1070,7 +1136,7 @@
     }
   ],
   "last": {
-    "cycle_id": "20261113T195145Z_1f1a7b",
+    "cycle_id": "20261113T201021Z_de28be",
     "ok": true,
     "error": null,
     "candidates_mined": 1,
@@ -1089,7 +1155,7 @@
     ],
     "awaiting_review": 0,
     "applied_to_live_oracle": false,
-    "ts": "2026-11-13T19:53:41Z"
+    "ts": "2026-11-13T20:12:10Z"
   },
-  "updated_at": "2026-11-13T19:53:41Z"
+  "updated_at": "2026-11-13T20:12:10Z"
 }

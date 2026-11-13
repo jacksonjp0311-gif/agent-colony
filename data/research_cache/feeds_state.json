@@ -1,23 +1,31 @@
 {
   "ci_health": {
-    "completed": 10,
-    "fetched_at": "2026-11-13T19:42:03Z",
+    "completed": 11,
+    "fetched_at": "2026-11-13T20:00:11Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-13T19:53:15Z",
+        "id": 43496384292,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-13T19:59:36Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-13T19:41:25Z",
         "id": 43494559849,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-13T19:41:29Z"
+        "status": "completed",
+        "updated_at": "2026-11-13T19:59:34Z"
       },
       {
-        "conclusion": null,
+        "conclusion": "success",
         "created_at": "2026-11-13T19:41:22Z",
         "id": 43494552515,
         "name": "Read-only tests",
-        "status": "in_progress",
-        "updated_at": "2026-11-13T19:41:25Z"
+        "status": "completed",
+        "updated_at": "2026-11-13T19:46:44Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-13T18:06:09Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-13T17:46:04Z",
-        "id": 43476038837,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-13T17:50:21Z"
       }
     ],
     "success_rate": 1.0
@@ -167,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-13T19:42:02Z"
+    "ts": "2026-11-13T20:00:11Z"
   },
-  "runs": 254
+  "runs": 255
 }
