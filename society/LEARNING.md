@@ -10,7 +10,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
 - Kept: **0**
-- Reverted (including twin-not-better): **1**
+- Reverted (including twin-not-better): **2**
 - Voided (environment changed mid-trial): **3**
 - Proposed this snapshot: **1**
 - Waiting on a twin judgment: **0**
@@ -25,7 +25,7 @@ _None yet._
 
 | Family | Tried | Kept | Reverted | Keep rate |
 | --- | ---: | ---: | ---: | ---: |
-| `set_knob:park_cycles` | 2 | 0 | 0 | 0‰ |
+| `set_knob:park_cycles` | 3 | 0 | 1 | 0‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 
 ## Recent outcomes
@@ -34,6 +34,7 @@ _None yet._
 - `reverted` · card `—` · family `set_knob:perturb_cooldown_cycles` · cycle `20261113T111928Z_824713` (baseline 0.0, trial 0.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261113T164820Z_eef78f` (baseline 0.0, trial None)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261113T191238Z_f24225` (baseline 8.0, trial None)
+- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261113T230546Z_93eaed` (baseline 0.0, trial 0.0)
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 

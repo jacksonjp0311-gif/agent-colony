@@ -166,14 +166,55 @@
           "treatment": 9228.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 6
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 0.0,
+      "card_id": "",
+      "cycle_id": "20261113T230546Z_93eaed",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "id": "728f3a6e34b44ffd",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "728f3a6e34b44ffd",
+      "strictly_better": false,
+      "trial_score": 0.0,
+      "ts": "2026-11-13T23:07:38Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8586
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 528.0
+        },
+        "reason": "tied_or_fitness_only",
+        "verified_depth_sum": {
+          "control": 9228.0,
+          "treatment": 9228.0
+        }
+      }
     }
   ],
   "families": {
     "set_knob:park_cycles": {
       "keep_rate_permille": 0,
       "kept": 0,
-      "n": 2,
-      "reverted": 0,
+      "n": 3,
+      "reverted": 1,
       "voided": 2
     },
     "set_knob:perturb_cooldown_cycles": {
@@ -184,7 +225,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261113T210129Z_3c1c2b",
+  "last_cycle": "20261113T230546Z_93eaed",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -206,7 +247,7 @@
   },
   "n_kept": 0,
   "n_proposed": 1,
-  "n_reverted": 1,
+  "n_reverted": 2,
   "n_twin_held": 0,
   "n_voided": 3,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
@@ -234,7 +275,7 @@
     "pending": 9,
     "resolved": 0,
     "source": "hive_shadows",
-    "ts": "2026-11-13T21:04:22Z",
+    "ts": "2026-11-13T23:08:09Z",
     "unlabeled": 0
   },
   "twin_pending": [],
