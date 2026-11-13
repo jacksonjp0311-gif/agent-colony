@@ -1,0 +1,191 @@
+[
+  {
+    "default": 6,
+    "doc": "Cycles a repeated proposal stays parked.",
+    "group": "search",
+    "hi": 18,
+    "kind": "int",
+    "lo": 3,
+    "name": "park_cycles"
+  },
+  {
+    "default": 2,
+    "doc": "Consecutive repeat-blocks before a proposal is parked.",
+    "group": "search",
+    "hi": 5,
+    "kind": "int",
+    "lo": 2,
+    "name": "block_streak_to_park"
+  },
+  {
+    "default": 6,
+    "doc": "Flat Oracle-pass cycles before STALL fires.",
+    "group": "search",
+    "hi": 12,
+    "kind": "int",
+    "lo": 4,
+    "name": "stall_cycles"
+  },
+  {
+    "default": 3,
+    "doc": "All-dead-end cycles before STALL fires.",
+    "group": "search",
+    "hi": 6,
+    "kind": "int",
+    "lo": 2,
+    "name": "stall_dead_end_cycles"
+  },
+  {
+    "default": 9,
+    "doc": "PERTURB exits after this many cycles if nothing new is found.",
+    "group": "search",
+    "hi": 15,
+    "kind": "int",
+    "lo": 4,
+    "name": "perturb_max_cycles"
+  },
+  {
+    "default": 0.3,
+    "doc": "Epsilon-greedy exploration rate in PERTURB.",
+    "group": "search",
+    "hi": 0.7,
+    "kind": "float",
+    "lo": 0.1,
+    "name": "perturb_epsilon"
+  },
+  {
+    "default": 0.5,
+    "doc": "Wider exploration rate after a PERTURB timeout.",
+    "group": "search",
+    "hi": 0.9,
+    "kind": "float",
+    "lo": 0.2,
+    "name": "perturb_wide_epsilon"
+  },
+  {
+    "default": 2,
+    "doc": "Minimum distinct targets a PERTURB turn should draw.",
+    "group": "search",
+    "hi": 5,
+    "kind": "int",
+    "lo": 1,
+    "name": "perturb_min_targets"
+  },
+  {
+    "default": 6,
+    "doc": "Cycles to wait after a no-progress timeout.",
+    "group": "search",
+    "hi": 18,
+    "kind": "int",
+    "lo": 3,
+    "name": "perturb_cooldown_cycles"
+  },
+  {
+    "default": 1,
+    "doc": "Consecutive 0-pick PERTURB cycles before a no_candidates exit.",
+    "group": "search",
+    "hi": 3,
+    "kind": "int",
+    "lo": 1,
+    "name": "perturb_zero_pick_cycles"
+  },
+  {
+    "default": 20,
+    "doc": "How far back PERTURB looks to treat a target as already tried.",
+    "group": "search",
+    "hi": 40,
+    "kind": "int",
+    "lo": 8,
+    "name": "unused_menu_cycles"
+  },
+  {
+    "default": 0.85,
+    "doc": "Score multiplier for the claim form just attempted.",
+    "group": "selection",
+    "hi": 0.95,
+    "kind": "float",
+    "lo": 0.5,
+    "name": "family_rotation_penalty"
+  },
+  {
+    "default": 6,
+    "doc": "Cycles a failing optional step stays quarantined.",
+    "group": "healing",
+    "hi": 12,
+    "kind": "int",
+    "lo": 2,
+    "name": "quarantine_cycles"
+  },
+  {
+    "default": 2,
+    "doc": "Failures of one step before it is quarantined.",
+    "group": "healing",
+    "hi": 4,
+    "kind": "int",
+    "lo": 1,
+    "name": "quarantine_fail_threshold"
+  },
+  {
+    "default": 0.15,
+    "doc": "Fraction of a knob's range used as one adjustment step.",
+    "group": "meta",
+    "hi": 0.4,
+    "kind": "float",
+    "lo": 0.05,
+    "name": "step_size"
+  },
+  {
+    "default": 6,
+    "doc": "Cycles of trial vs baseline compared before adopt or revert.",
+    "group": "meta",
+    "hi": 12,
+    "kind": "int",
+    "lo": 3,
+    "name": "evaluation_window"
+  },
+  {
+    "default": 1200,
+    "doc": "Slow series-arithmetic term cap (algebraic / EGF / fallback g.f.).",
+    "group": "caps",
+    "hi": 8000,
+    "kind": "int",
+    "lo": 600,
+    "name": "gf_term_cap"
+  },
+  {
+    "default": 20000,
+    "doc": "Term cap for non-C-finite deep search (relations, properties).",
+    "group": "caps",
+    "hi": 40000,
+    "kind": "int",
+    "lo": 5000,
+    "name": "deep_term_cap"
+  },
+  {
+    "default": 8000,
+    "doc": "Term cap used when a C-finite exact iterator applies.",
+    "group": "caps",
+    "hi": 20000,
+    "kind": "int",
+    "lo": 2000,
+    "name": "fast_term_cap"
+  },
+  {
+    "default": 5000,
+    "doc": "Decimal-digit budget for exact integer terms.",
+    "group": "caps",
+    "hi": 12000,
+    "kind": "int",
+    "lo": 3000,
+    "name": "deep_digits"
+  },
+  {
+    "default": 8.0,
+    "doc": "Time budget in seconds for one evaluator call. Kept inside CI limits.",
+    "group": "caps",
+    "hi": 16.0,
+    "kind": "float",
+    "lo": 4.0,
+    "name": "deep_seconds"
+  }
+]

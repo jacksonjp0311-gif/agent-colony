@@ -1,0 +1,88 @@
+{
+  "dead_end_streak": [
+    [
+      "park_cycles",
+      "up"
+    ],
+    [
+      "block_streak_to_park",
+      "down"
+    ]
+  ],
+  "depth_at_physical_cap": [
+    [
+      "fast_term_cap",
+      "up"
+    ],
+    [
+      "gf_term_cap",
+      "up"
+    ],
+    [
+      "deep_digits",
+      "up"
+    ],
+    [
+      "deep_seconds",
+      "up"
+    ]
+  ],
+  "flat_passes": [
+    [
+      "perturb_epsilon",
+      "up"
+    ],
+    [
+      "unused_menu_cycles",
+      "up"
+    ],
+    [
+      "perturb_max_cycles",
+      "up"
+    ]
+  ],
+  "high_revert_rate": [
+    [
+      "step_size",
+      "down"
+    ],
+    [
+      "evaluation_window",
+      "up"
+    ]
+  ],
+  "immediate_reentry": [
+    [
+      "perturb_cooldown_cycles",
+      "up"
+    ]
+  ],
+  "no_progress_perturb": [
+    [
+      "perturb_cooldown_cycles",
+      "up"
+    ],
+    [
+      "perturb_epsilon",
+      "up"
+    ],
+    [
+      "unused_menu_cycles",
+      "up"
+    ]
+  ],
+  "repeated_targets": [
+    [
+      "unused_menu_cycles",
+      "up"
+    ],
+    [
+      "perturb_epsilon",
+      "up"
+    ],
+    [
+      "perturb_cooldown_cycles",
+      "up"
+    ]
+  ]
+}

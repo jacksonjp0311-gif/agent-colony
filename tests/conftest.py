@@ -72,3 +72,16 @@ def _isolate_self_heal(tmp_path, monkeypatch):
     monkeypatch.setattr(SH, "STATE_PATH", tmp_path / "self_heal.json")
     monkeypatch.setattr(SH, "EVENT_LOG", tmp_path / "self_heal.jsonl")
 
+
+
+@pytest.fixture(autouse=True)
+def _bind_and_isolate_hive(tmp_path, monkeypatch):
+    """Bind Hive to the colony and give each test a fresh library / state."""
+    import colony.hive_adapter as adapter
+    adapter.bind()
+    import hive.library as FL
+    import hive.swarm as SL
+    monkeypatch.setattr(FL, "LIBRARY_LOG", tmp_path / "fix_library.jsonl")
+    monkeypatch.setattr(SL, "STATE_PATH", tmp_path / "swarm_learn.json")
+    monkeypatch.setattr(SL, "EVENT_LOG", tmp_path / "swarm_learn.jsonl")
+    monkeypatch.setattr(SL, "RULES_PATH", tmp_path / "swarm_rules.json")

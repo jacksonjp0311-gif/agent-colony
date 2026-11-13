@@ -25,4 +25,10 @@ jobs:
           # checks are prohibitively slow with the pure-Python fallback.
           sudo apt-get install -y -qq libprimesieve-dev primesieve
       - name: Full suite including isolated real-cycle regressions
-        run: python -m pytest tests -q
+        run: python -m pytest tests hive/tests -q
+      - name: Hive standalone (copied out, no colony present)
+        run: |
+          tmp=$(mktemp -d)
+          cp -a hive "$tmp/hive"
+          test ! -e "$tmp/colony"
+          PYTHONPATH="$tmp" python -m pytest "$tmp/hive/tests" -q
