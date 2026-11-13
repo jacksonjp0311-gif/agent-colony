@@ -20,6 +20,7 @@ def _isolate(tmp_path, monkeypatch):
     monkeypatch.setattr(CL, "STATE_PATH", tmp_path / "checker_lane.json")
     monkeypatch.setattr(CL, "LANE_LOG", tmp_path / "checker_lane.jsonl")
     monkeypatch.setattr(CL, "PROPOSAL_DIR", tmp_path / "checker_proposals")
+    monkeypatch.setattr(CL, "RECEIPT_PATH", tmp_path / "checker_lane_receipt.json")
     # Keep the lane off the live Oracle log.
     monkeypatch.setattr(O, "ORACLE_LOG", tmp_path / "oracle.jsonl")
     (tmp_path / "oracle.jsonl").write_text("", encoding="utf-8")

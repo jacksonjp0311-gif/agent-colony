@@ -247,10 +247,12 @@ def test_already_attempted_pair_uses_verified_and_planned(tmp_path, monkeypatch)
         e, [{"status": "holds_on_range", "range": [0, 956], "tested": 957}],
         "c1", planned=20000,
     )
-    # Aimed at 20_000, verified 956: both depths are "already attempted".
-    assert OC.already_attempted_pair(e["id"], 20000, "c2") is True
+    # Verified 956 is already attempted. A planned 20_000 that was not
+    # actually reached (item 30) does not block a later retry; eligibility
+    # is decided by can_progress_past (same caps stay closed, a raised
+    # cap reopens).
     assert OC.already_attempted_pair(e["id"], 956, "c2") is True
-    # A later higher cap (evaluator improved) is a new pair.
+    assert OC.already_attempted_pair(e["id"], 20000, "c2") is False
     assert OC.already_attempted_pair(e["id"], 50000, "c2") is False
 
 
