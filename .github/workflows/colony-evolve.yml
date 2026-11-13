@@ -363,6 +363,10 @@ jobs:
           git add data/society_shards 2>/dev/null || true
           # Feed cache + fetch state (append-only, size-bounded) so dedupe/TTL persist across runs
           git add data/research_cache/feeds.jsonl data/research_cache/feeds_state.json 2>/dev/null || true
+          # Hive snapshots (library, calibration, rules, learning state). Force-add
+          # in case a stale ignore still lists them. JSONL logs stay gitignored.
+          git add -f society/systems/swarm_learn.json society/systems/swarm_rules.json \
+            society/systems/swarm_library.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No society changes to commit (quiet success)"
           else
@@ -428,7 +432,29 @@ jobs:
         run: |
           set -euo pipefail
           export PYTHONPATH=.
+          # Seed must fail loud (nonzero) if nothing was copied or
+          # required files are missing. Source paths bypass the
+          # COLONY_ARM Path hook so this copies treatment data/, not
+          # the empty control dest. Idempotent when already seeded.
           python -m colony seed-control
+
+      - name: Commit seeded control tree
+        run: |
+          set -euo pipefail
+          git config user.name "agent-colony-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add control/ || true
+          if git diff --staged --quiet; then
+            echo "Control already seeded (no seed commit)"
+          else
+            git commit -m "ci(colony): seed control arm $(date -u +%Y-%m-%dT%H%MZ)"
+            ok=0
+            for i in 1 2 3; do
+              if git pull --rebase --autostash && git push; then ok=1; break; fi
+              sleep 5
+            done
+            [ "$ok" = 1 ] || { echo "::error::control seed push failed after 3 rebase attempts"; exit 1; }
+          fi
 
       - name: Evolve (control arm — self-mod off)
         env:
@@ -491,6 +517,7 @@ jobs:
   # refresh the growth chart. Does not authorize. Does not evolve.
   twin-scoreboard:
     needs: [evolve, evolve-control]
+    if: ${{ always() && !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -520,7 +547,9 @@ jobs:
         run: |
           set -euo pipefail
           export PYTHONPATH=.
-          python -m colony twin-scoreboard --cycles "$CYCLES"
+          python -m colony twin-scoreboard --cycles "$CYCLES" \
+            --treatment-result "${{ needs.evolve.result }}" \
+            --control-result "${{ needs.evolve-control.result }}"
           python -m colony dashboard || true
 
       - name: Commit scoreboard and dashboard

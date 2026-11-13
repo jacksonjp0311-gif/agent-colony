@@ -153,8 +153,13 @@ def _empty_state() -> dict[str, Any]:
         "first_seen": {},
         "first_adopted": {},
         "seen_heal_ids": [],
+        "seen_shadow_ids": [],
         "cycle_index": 0,
         "cycles": [],
+        "calibration": None,
+        "replay_calibrated": None,
+        "shadows": [],
+        "library_persisted": False,
     }
 
 
@@ -183,6 +188,10 @@ def load_state() -> dict[str, Any]:
     st["evidence"] = list(st.get("evidence") or [])[-EVIDENCE_KEEP:]
     st["curve"] = list(st.get("curve") or [])[-CURVE_KEEP:]
     st["rules"] = [r for r in list(st.get("rules") or []) if isinstance(r, dict)]
+    st["shadows"] = [s for s in list(st.get("shadows") or []) if isinstance(s, dict)]
+    st["seen_shadow_ids"] = list(st.get("seen_shadow_ids") or [])[-400:]
+    if not isinstance(st.get("calibration"), dict):
+        st["calibration"] = None
     return st
 
 
@@ -941,13 +950,22 @@ def harvest_self_heal_outcomes(
         if written is not None:
             taught.append(written)
             # Calibration: the trial's score margin is not a Bitwork
-            # margin. Record outcome against the retrieval margin of 0
+            # margin. Record outcome against the retrieval margin
             # only when we can re-score the symptom; otherwise skip.
+            # Tagged source=apply (a live trial, not a shadow).
             symptom = written.get("symptom") or ""
             if symptom:
                 hit = router.score_action(symptom, written.get("action_key") or "")
                 if hit is not None:
-                    router.record_outcome(hit.margin, ev.get("event") == "adopt")
+                    record_apply_outcome(
+                        router, state,
+                        margin=hit.margin,
+                        correct=ev.get("event") == "adopt",
+                        case_id=f"apply:{eid}",
+                        extra={"event": ev.get("event"), "label": ev.get("label") or ev.get("reason")},
+                    )
+        # A later self-heal resolution can score a pending shadow pick.
+        resolve_shadows(router, state, ev)
     state["seen_heal_ids"] = list(seen)[-400:]
     return taught
 
@@ -1024,6 +1042,406 @@ def learning_curve_point(
 # Cycle entry, visibility
 # ---------------------------------------------------------------------------
 
+
+CALIBRATION_OUTCOMES_KEEP = 1000
+SHADOW_KEEP = 200
+REPLAY_ID_KEEP = 4000
+
+HUMAN_FIX_SOURCES = frozenset({
+    "human", "human_guide", "human_merged", "merged", "pr",
+})
+
+
+def _empty_calibration() -> dict[str, Any]:
+    from hive.bitwork import MARGIN_BUCKETS
+    return {
+        "buckets": [
+            {
+                "min_margin": b,
+                "n": 0,
+                "correct": 0,
+                "lower_permille": 0,
+                "accuracy_permille": 0,
+                "by_source": {
+                    "replay": {"n": 0, "correct": 0},
+                    "shadow": {"n": 0, "correct": 0},
+                    "apply": {"n": 0, "correct": 0},
+                },
+            }
+            for b in MARGIN_BUCKETS
+        ],
+        "outcomes": [],
+    }
+
+
+def _ensure_calibration(state: dict[str, Any]) -> dict[str, Any]:
+    cal = state.get("calibration")
+    if not isinstance(cal, dict) or not isinstance(cal.get("buckets"), list):
+        cal = _empty_calibration()
+        state["calibration"] = cal
+    cal.setdefault("outcomes", [])
+    cal.setdefault("buckets", _empty_calibration()["buckets"])
+    from hive.bitwork import MARGIN_BUCKETS
+    have = {int(b.get("min_margin")): b for b in cal["buckets"] if isinstance(b, dict) and "min_margin" in b}
+    buckets = []
+    for edge in MARGIN_BUCKETS:
+        raw = have.get(edge) or {
+            "min_margin": edge, "n": 0, "correct": 0,
+            "by_source": {
+                "replay": {"n": 0, "correct": 0},
+                "shadow": {"n": 0, "correct": 0},
+                "apply": {"n": 0, "correct": 0},
+            },
+        }
+        raw.setdefault("by_source", {})
+        for src in ("replay", "shadow", "apply"):
+            raw["by_source"].setdefault(src, {"n": 0, "correct": 0})
+        buckets.append(raw)
+    cal["buckets"] = buckets
+    return cal
+
+
+def _recompute_bucket_totals(cal: dict[str, Any]) -> None:
+    from hive.bitwork import wilson_lower_permille
+    for bucket in cal.get("buckets") or []:
+        n = 0
+        correct = 0
+        for src, v in (bucket.get("by_source") or {}).items():
+            if not isinstance(v, dict):
+                continue
+            n += int(v.get("n") or 0)
+            correct += int(v.get("correct") or 0)
+        bucket["n"] = n
+        bucket["correct"] = correct
+        bucket["lower_permille"] = wilson_lower_permille(correct, n)
+        bucket["accuracy_permille"] = int((correct * 1000) // n) if n else 0
+
+
+def _bucket_for(cal: dict[str, Any], margin: int) -> dict[str, Any] | None:
+    from hive.bitwork import margin_bucket
+    edge = margin_bucket(int(margin))
+    for bucket in cal.get("buckets") or []:
+        if int(bucket.get("min_margin") or 0) == edge:
+            return bucket
+    return None
+
+
+def _add_source_count(cal: dict[str, Any], *, source: str, margin: int, correct: bool, n: int = 1, correct_n: int | None = None) -> None:
+    bucket = _bucket_for(cal, margin)
+    if bucket is None:
+        return
+    src = bucket.setdefault("by_source", {}).setdefault(source, {"n": 0, "correct": 0})
+    add_n = int(n)
+    add_c = int(correct_n) if correct_n is not None else (add_n if correct else 0)
+    src["n"] = int(src.get("n") or 0) + add_n
+    src["correct"] = int(src.get("correct") or 0) + add_c
+    _recompute_bucket_totals(cal)
+
+
+def _append_outcome(state: dict[str, Any], outcome: Mapping[str, Any]) -> None:
+    cal = _ensure_calibration(state)
+    rows = list(cal.get("outcomes") or [])
+    rows.append(dict(outcome))
+    cal["outcomes"] = rows[-CALIBRATION_OUTCOMES_KEEP:]
+
+
+def apply_calibration_to_router(router: Router, state: dict[str, Any]) -> None:
+    """Copy persisted bucket totals onto a freshly trained router."""
+    cal = _ensure_calibration(state)
+    router.load_buckets(cal.get("buckets") or [])
+
+
+def calibration_snapshot(router: Router, state: dict[str, Any]) -> dict[str, Any]:
+    """Keep provenance in state; totals match the live router."""
+    cal = _ensure_calibration(state)
+    by_edge = {int(b.get("min_margin")): b for b in cal["buckets"]}
+    from hive.bitwork import MARGIN_BUCKETS
+    for edge in MARGIN_BUCKETS:
+        live = router.buckets[edge]
+        raw = by_edge.get(edge)
+        if raw is None:
+            continue
+        # Do not let a stale router shrink append-only shadow/apply
+        # counts. Totals are the sum of by_source, which is authoritative.
+        _recompute_bucket_totals(cal)
+    return cal
+
+
+def _stable_case_id(text: str, expected: str, index: int) -> str:
+    import hashlib
+    h = hashlib.sha256(f"{text}\0{expected}".encode("utf-8")).hexdigest()[:16]
+    return f"replay:{index}:{h}"
+
+
+def calibrate_from_replay(
+    router: Router,
+    state: dict[str, Any],
+    cases: Iterable[tuple[str, str]] | None = None,
+) -> dict[str, Any]:
+    """Seed (or refresh) the replay slice of each calibration bucket.
+
+    The counts are a deterministic function of the current labeled
+    library: leave-one-out top picks, scored correct or incorrect
+    against the known action, tagged ``source=replay``. The replay
+    slice is replaced each call so it is never double-counted.
+    Shadow and apply slices are left alone. The Wilson 95% lower
+    bound and the 700 permille accept threshold are not changed.
+    Outcomes are not fabricated: a case with no retrieval is skipped.
+    """
+    cal = _ensure_calibration(state)
+    if cases is None:
+        records = FL.load_records() or FL.seed_patterns()
+        case_list = FL.held_out_cases(records)
+    else:
+        case_list = list(cases)
+    raw = router.leave_one_out_outcomes(case_list)
+    # Reset the replay slice only.
+    for bucket in cal["buckets"]:
+        bucket.setdefault("by_source", {})["replay"] = {"n": 0, "correct": 0}
+    cal["outcomes"] = [o for o in (cal.get("outcomes") or []) if o.get("source") != "replay"]
+    outcomes: list[dict[str, Any]] = []
+    for item in raw:
+        margin = int(item["margin"])
+        correct = bool(item["correct"])
+        case_id = _stable_case_id(str(item.get("text") or ""), str(item.get("expected") or ""), int(item.get("index") or 0))
+        _add_source_count(cal, source="replay", margin=margin, correct=correct)
+        row = {
+            "source": "replay",
+            "id": case_id,
+            "ts": _utc(),
+            "margin": margin,
+            "correct": correct,
+            "expected": item.get("expected"),
+            "predicted": item.get("predicted"),
+            "index": item.get("index"),
+        }
+        outcomes.append(row)
+        _append_outcome(state, row)
+    apply_calibration_to_router(router, state)
+    state["calibration"] = cal
+    state["replay_calibrated"] = {
+        "n": len(outcomes),
+        "correct": sum(1 for o in outcomes if o["correct"]),
+        "source": "replay",
+        "updated_at": _utc(),
+    }
+    return {"n": len(outcomes), "correct": state["replay_calibrated"]["correct"], "outcomes": outcomes, "source": "replay"}
+
+
+def record_apply_outcome(
+    router: Router,
+    state: dict[str, Any],
+    *,
+    margin: int,
+    correct: bool,
+    case_id: str,
+    extra: Mapping[str, Any] | None = None,
+) -> None:
+    """Append-only live (apply) calibration from an adopted or reverted trial."""
+    cal = _ensure_calibration(state)
+    router.record_outcome(margin, correct)
+    _add_source_count(cal, source="apply", margin=int(margin), correct=bool(correct))
+    row = {
+        "source": "apply",
+        "id": case_id,
+        "ts": _utc(),
+        "margin": int(margin),
+        "correct": bool(correct),
+    }
+    if extra:
+        row.update(dict(extra))
+    _append_outcome(state, row)
+    # Router was incremented; keep by_source totals in sync (already
+    # done) and do not reload from state (that would double-count).
+    state["calibration"] = cal
+
+
+def record_shadow(
+    state: dict[str, Any],
+    vote_result: "VoteResult",
+    *,
+    cycle_id: str,
+) -> dict[str, Any] | None:
+    """When the Wilson gate abstains, remember the top pick for later scoring."""
+    winner = vote_result.winner
+    if winner is None:
+        return None
+    shadow = {
+        "id": _event_id(),
+        "ts": _utc(),
+        "cycle_id": cycle_id,
+        "label": winner.label,
+        "symptom": winner.symptom,
+        "action": winner.action,
+        "fingerprint": winner.fingerprint,
+        "margin": int(vote_result.margin),
+        "source": "shadow",
+        "resolved": False,
+        "matched": None,
+        "correct": None,
+        "resolved_by": None,
+        "resolved_source": None,
+    }
+    shadows = list(state.get("shadows") or [])
+    shadows.append(shadow)
+    state["shadows"] = _compact_shadows(shadows)
+    return shadow
+
+
+def _compact_shadows(shadows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    open_rows = [s for s in shadows if not s.get("resolved")]
+    closed = [s for s in shadows if s.get("resolved")][-100:]
+    kept = open_rows + closed
+    if len(kept) > SHADOW_KEEP:
+        # Prefer keeping unresolved, then the newest resolved.
+        kept = open_rows[:SHADOW_KEEP] + closed[-(max(SHADOW_KEEP - len(open_rows), 0)):]
+    return kept[-SHADOW_KEEP:]
+
+
+def _norm_label(value: Any) -> str:
+    return " ".join(str(value or "").replace("-", "_").replace("_", " ").split()).strip().lower()
+
+
+def _family_fingerprint(action: Mapping[str, Any] | None, fingerprint: str | None = None) -> str:
+    """Compare actions by closed-op family, ignoring a stepped ``value``.
+
+    ``set_knob park_cycles up`` is the same decision whether the
+    concrete stepped value was 8 or 10; that number depends on the
+    current knob at the moment of validation, not on the intent.
+    """
+    if isinstance(action, Mapping) and action:
+        op = str(action.get("op") or "")
+        if op == "set_knob":
+            parts = [op]
+            name = action.get("name")
+            direction = action.get("direction")
+            if name:
+                parts.append(f"name={name}")
+            if direction:
+                parts.append(f"direction={direction}")
+            return ":".join(parts)
+        return action_fingerprint(action)
+    if fingerprint:
+        parts = [p for p in str(fingerprint).split(":") if not p.startswith("value=")]
+        return ":".join(parts)
+    return ""
+
+
+def _event_action_fingerprint(event: Mapping[str, Any]) -> str | None:
+    action = event.get("action")
+    if isinstance(action, Mapping) and action:
+        return action_fingerprint(action)
+    knob = event.get("knob") or (action or {}).get("name") if isinstance(action, Mapping) else event.get("knob")
+    if knob:
+        direction = event.get("direction") or ""
+        built: dict[str, Any] = {"op": "set_knob", "name": knob}
+        if direction:
+            built["direction"] = direction
+        return action_fingerprint(built)
+    fp = event.get("fingerprint") or event.get("swarm_fingerprint")
+    return str(fp) if fp else None
+
+
+def _event_failure_class(event: Mapping[str, Any]) -> str:
+    for key in ("label", "reason", "kind", "finding_kind"):
+        v = event.get(key)
+        if v:
+            return _norm_label(v)
+        if key == "finding" and isinstance(event.get("finding"), Mapping):
+            k = event["finding"].get("kind")
+            if k:
+                return _norm_label(k)
+    return ""
+
+
+def resolve_shadows(
+    router: Router,
+    state: dict[str, Any],
+    event: Mapping[str, Any],
+) -> list[dict[str, Any]]:
+    """Score pending shadow picks against a later labeled resolution.
+
+    A self-heal adopt, a self-heal revert, or a human-merged positive
+    fix can resolve shadows of the same failure class:
+
+    * adopt / human-merged positive: the resolving action is the
+      labeled correct fix; the shadow is correct iff its fingerprint
+      matches.
+    * revert: the resolving action is labeled incorrect; if the
+      shadow picked that same action, it is scored incorrect. If it
+      picked something else, we have no label for the shadow and
+      leave it unresolved.
+
+    Outcomes are tagged ``source=shadow``. Nothing is fabricated.
+    """
+    event_name = str(event.get("event") or event.get("outcome") or "")
+    source = str(event.get("source") or "")
+    is_adopt = event_name in ("adopt", "positive") or (
+        event.get("outcome") == "positive" and source in HUMAN_FIX_SOURCES
+    )
+    is_revert = event_name in ("revert", "negative")
+    is_human = source in HUMAN_FIX_SOURCES and event.get("outcome") == "positive"
+    if not (is_adopt or is_revert or is_human):
+        return []
+    failure = _event_failure_class(event)
+    if not failure:
+        return []
+    action_fp = _family_fingerprint(event.get("action") if isinstance(event.get("action"), Mapping) else None,
+                                    _event_action_fingerprint(event))
+    if not action_fp:
+        return []
+    resolved: list[dict[str, Any]] = []
+    seen_ids = set(state.get("seen_shadow_ids") or [])
+    for shadow in list(state.get("shadows") or []):
+        if shadow.get("resolved"):
+            continue
+        if _norm_label(shadow.get("label")) != failure:
+            continue
+        sid = str(shadow.get("id") or "")
+        if sid and sid in seen_ids:
+            continue
+        shadow_fp = _family_fingerprint(
+            shadow.get("action") if isinstance(shadow.get("action"), Mapping) else None,
+            str(shadow.get("fingerprint") or "") or None,
+        )
+        matched = bool(shadow_fp) and shadow_fp == action_fp
+        if is_revert and not is_adopt:
+            if not matched:
+                # No label for a different pick.
+                continue
+            correct = False
+        else:
+            correct = matched
+        margin = int(shadow.get("margin") or 0)
+        router.record_outcome(margin, correct)
+        cal = _ensure_calibration(state)
+        _add_source_count(cal, source="shadow", margin=margin, correct=correct)
+        shadow["resolved"] = True
+        shadow["matched"] = matched
+        shadow["correct"] = correct
+        shadow["resolved_by"] = event.get("id") or event.get("cycle_id")
+        shadow["resolved_source"] = "human" if is_human else ("self_heal" if not event.get("via") else str(event.get("via")))
+        shadow["resolved_at"] = _utc()
+        _append_outcome(state, {
+            "source": "shadow",
+            "id": sid or _event_id(),
+            "ts": _utc(),
+            "margin": margin,
+            "correct": correct,
+            "matched": matched,
+            "shadow_fingerprint": shadow.get("fingerprint"),
+            "resolved_fingerprint": action_fp,
+            "label": shadow.get("label"),
+            "cycle_id": shadow.get("cycle_id"),
+        })
+        if sid:
+            seen_ids.add(sid)
+        resolved.append(shadow)
+    state["seen_shadow_ids"] = list(seen_ids)[-REPLAY_ID_KEEP:]
+    state["shadows"] = _compact_shadows(list(state.get("shadows") or []))
+    return resolved
+
+
 def _remember_cycle(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
     cycles = list(state.get("cycles") or [])
     if cycle_id and cycle_id not in cycles:
@@ -1052,7 +1470,16 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
 
     mined = FL.mine_all(cycle_id=cycle_id)
     router = _build_router()
+    # Restore persisted shadow/apply counts, then refresh the replay
+    # slice from current labeled leave-one-out results (idempotent).
+    apply_calibration_to_router(router, st)
+    calibrate_from_replay(router, st)
     taught = harvest_self_heal_outcomes(router, st)
+    # Human-merged (or other host-provided) positive library records
+    # can also resolve a pending shadow of the same failure class.
+    for rec in FL.load_records():
+        if str(rec.get("source") or "") in HUMAN_FIX_SOURCES and rec.get("outcome") == "positive":
+            resolve_shadows(router, st, rec)
 
     findings = observe(cycle_id)
     _record_first_seen(st, findings, cycle_id, int(st.get("cycle_index") or 0))
@@ -1068,6 +1495,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         vote_result = vote(proposals, router)
         if vote_result.abstained or vote_result.winner is None:
             st["abstained_count"] = int(st.get("abstained_count") or 0) + 1
+            shadow = record_shadow(st, vote_result, cycle_id=cycle_id)
             append_evidence(st, {
                 "event": "abstain",
                 "cycle_id": cycle_id,
@@ -1077,6 +1505,8 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                 "tallies": vote_result.tallies,
                 "n_votes": vote_result.n_votes,
                 "winner": None if vote_result.winner is None else vote_result.winner.as_dict(),
+                "shadow_id": None if shadow is None else shadow.get("id"),
+                "source": "shadow" if shadow is not None else None,
             })
         else:
             winner = vote_result.winner
@@ -1123,7 +1553,14 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         if last.get("via") == "swarm_rule":
             hit = router.score_action(str(last.get("symptom") or ""), str(last.get("fingerprint") or ""))
             if hit is not None:
-                router.record_outcome(hit.margin, last.get("event") == "adopt")
+                record_apply_outcome(
+                    router, st,
+                    margin=hit.margin,
+                    correct=last.get("event") == "adopt",
+                    case_id=f"apply:swarm:{last.get('id') or last.get('cycle_id')}",
+                    extra={"event": last.get("event"), "via": "swarm_rule"},
+                )
+        resolve_shadows(router, st, last)
 
     point = learning_curve_point(router, st, cycle_id=cycle_id)
     curve = list(st.get("curve") or [])
@@ -1138,6 +1575,12 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         "abstained": point["replay_abstained"],
     }
     try:
+        save_state(st)
+    except Exception:
+        pass
+    try:
+        FL.persist_library()
+        st["library_persisted"] = True
         save_state(st)
     except Exception:
         pass
@@ -1212,8 +1655,14 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
         reverted = int(st.get("reverted_count") or 0)
         decided = adopted + reverted
         ttf = time_to_fix(st)
+        cal = st.get("calibration") if isinstance(st.get("calibration"), dict) else {}
+        shadows = [s for s in list(st.get("shadows") or []) if isinstance(s, dict)]
         return {
             "swarm_library_size": int(st.get("library_size") or 0),
+            "swarm_calibration": cal or None,
+            "swarm_shadows_open": sum(1 for s in shadows if not s.get("resolved")),
+            "swarm_shadows_resolved": sum(1 for s in shadows if s.get("resolved")),
+            "swarm_replay_calibrated": st.get("replay_calibrated"),
             "swarm_replay_accuracy_permille": replay.get("accuracy_permille"),
             "swarm_replay_lower_permille": replay.get("lower_permille"),
             "swarm_replay_n": replay.get("n"),
@@ -1234,6 +1683,10 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
     except Exception:
         return {
             "swarm_library_size": 0,
+            "swarm_calibration": None,
+            "swarm_shadows_open": 0,
+            "swarm_shadows_resolved": 0,
+            "swarm_replay_calibrated": None,
             "swarm_replay_accuracy_permille": None,
             "swarm_replay_lower_permille": None,
             "swarm_replay_n": None,

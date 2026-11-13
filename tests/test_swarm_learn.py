@@ -31,6 +31,7 @@ def _isolate(tmp_path, monkeypatch):
     monkeypatch.setattr(SH, "EVENT_LOG", tmp_path / "self_heal.jsonl")
     monkeypatch.setattr(S, "STATE_PATH", tmp_path / "stall_state.json")
     monkeypatch.setattr(FL, "LIBRARY_LOG", tmp_path / "fix_library.jsonl")
+    monkeypatch.setattr(FL, "LIBRARY_SNAPSHOT", tmp_path / "swarm_library.json")
     monkeypatch.setattr(SL, "STATE_PATH", tmp_path / "swarm_learn.json")
     monkeypatch.setattr(SL, "EVENT_LOG", tmp_path / "swarm_learn.jsonl")
     monkeypatch.setattr(SL, "RULES_PATH", tmp_path / "swarm_rules.json")
@@ -506,9 +507,10 @@ def test_rule_trial_adopts_only_on_strict_improvement(tmp_path, monkeypatch):
     assert SL.active_rules(state=st)[0]["trial"] is False
 
 
-def test_run_cycle_seeds_library_and_abstains_early(tmp_path, monkeypatch):
+def test_run_cycle_seeds_library_and_calibrates(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
-    # No findings: still seeds the library and reports a learning-curve point.
+    # No findings: still seeds the library, reports a learning-curve point,
+    # and honestly calibrates from held-out leave-one-out results.
     out = SL.run_cycle("c0")
     assert out["ok"] is True
     assert out["applied_to_live_oracle"] is False
@@ -520,19 +522,29 @@ def test_run_cycle_seeds_library_and_abstains_early(tmp_path, monkeypatch):
     assert vis["swarm_replay_accuracy_permille"] == 1000
     assert vis["swarm_max_actions_per_cycle"] == 1
     assert vis["swarm_roles"] == list(SL.SWARM_ROLES)
-    # With findings but an uncalibrated gate, the cycle abstains.
+    st = SL.load_state()
+    cal = st.get("calibration") or {}
+    b64 = next(b for b in cal["buckets"] if b["min_margin"] == 64)
+    assert b64["by_source"]["replay"]["n"] == 28
+    assert b64["by_source"]["replay"]["correct"] == 28
+    assert b64["n"] == 28
+    assert b64["correct"] == 28
+    assert b64["lower_permille"] >= 700
+    assert FL.LIBRARY_SNAPSHOT.exists()
+    # With findings, the gate may now accept for a high-margin pick
+    # (the replay-seeded bucket is above 700). If it still abstains,
+    # a shadow pick is recorded. Standalone hosts often defer apply
+    # (no trial window), so applied_count may stay 0 either way.
     finding = {"kind": "repeated_targets", "evidence": {"targets": ["A1"], "cycles_with_tries": ["c0"]}}
     monkeypatch.setattr(SL, "observe", lambda cycle_id="": [finding])
     out2 = SL.run_cycle("c1")
     assert out2["ok"] is True
+    assert out2["applied_to_live_oracle"] is False
+    assert out2["authorized"] is False
     vote = out2.get("vote")
-    # May be None if observe was used after trial state; otherwise abstain.
-    if vote is not None:
-        assert vote["abstained"] is True
-    st = SL.load_state()
-    assert st["abstained_count"] >= 1
-    assert st["applied_count"] == 0
-
+    st2 = SL.load_state()
+    if vote is not None and vote.get("abstained"):
+        assert any(not s.get("resolved") for s in (st2.get("shadows") or []))
 
 def test_on_cycle_swallows_exceptions(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)

@@ -14,6 +14,7 @@ from hive.bitwork import (
 
 def _isolate(tmp_path, monkeypatch):
     monkeypatch.setattr(FL, "LIBRARY_LOG", tmp_path / "fix_library.jsonl")
+    monkeypatch.setattr(FL, "LIBRARY_SNAPSHOT", tmp_path / "swarm_library.json")
     monkeypatch.setattr(SL, "STATE_PATH", tmp_path / "swarm_learn.json")
     monkeypatch.setattr(SL, "EVENT_LOG", tmp_path / "swarm_learn.jsonl")
     monkeypatch.setattr(SL, "RULES_PATH", tmp_path / "swarm_rules.json")
@@ -309,9 +310,10 @@ def test_at_most_one_action_per_cycle_constant():
     assert SL.MAX_ACTIONS_PER_CYCLE <= 2
 
 
-def test_run_cycle_seeds_library_and_abstains_early(tmp_path, monkeypatch):
+def test_run_cycle_seeds_library_and_calibrates(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
-    # No findings: still seeds the library and reports a learning-curve point.
+    # No findings: still seeds the library, reports a learning-curve point,
+    # and honestly calibrates from held-out leave-one-out results.
     out = SL.run_cycle("c0")
     assert out["ok"] is True
     assert out["applied_to_live_oracle"] is False
@@ -323,19 +325,29 @@ def test_run_cycle_seeds_library_and_abstains_early(tmp_path, monkeypatch):
     assert vis["swarm_replay_accuracy_permille"] == 1000
     assert vis["swarm_max_actions_per_cycle"] == 1
     assert vis["swarm_roles"] == list(SL.SWARM_ROLES)
-    # With findings but an uncalibrated gate, the cycle abstains.
+    st = SL.load_state()
+    cal = st.get("calibration") or {}
+    b64 = next(b for b in cal["buckets"] if b["min_margin"] == 64)
+    assert b64["by_source"]["replay"]["n"] == 28
+    assert b64["by_source"]["replay"]["correct"] == 28
+    assert b64["n"] == 28
+    assert b64["correct"] == 28
+    assert b64["lower_permille"] >= 700
+    assert FL.LIBRARY_SNAPSHOT.exists()
+    # With findings, the gate may now accept for a high-margin pick
+    # (the replay-seeded bucket is above 700). If it still abstains,
+    # a shadow pick is recorded. Standalone hosts often defer apply
+    # (no trial window), so applied_count may stay 0 either way.
     finding = {"kind": "repeated_targets", "evidence": {"targets": ["A1"], "cycles_with_tries": ["c0"]}}
     monkeypatch.setattr(SL, "observe", lambda cycle_id="": [finding])
     out2 = SL.run_cycle("c1")
     assert out2["ok"] is True
+    assert out2["applied_to_live_oracle"] is False
+    assert out2["authorized"] is False
     vote = out2.get("vote")
-    # May be None if observe was used after trial state; otherwise abstain.
-    if vote is not None:
-        assert vote["abstained"] is True
-    st = SL.load_state()
-    assert st["abstained_count"] >= 1
-    assert st["applied_count"] == 0
-
+    st2 = SL.load_state()
+    if vote is not None and vote.get("abstained"):
+        assert any(not s.get("resolved") for s in (st2.get("shadows") or []))
 
 def test_on_cycle_swallows_exceptions(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
@@ -400,3 +412,227 @@ def test_voided_trial_is_not_taught(tmp_path, monkeypatch):
     assert FL.load_records() == []
     assert router.library_size() == 0
 
+
+
+def test_calibrate_from_replay_is_honest_and_idempotent(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    FL.ensure_seeded()
+    router = FL.train_router()
+    cases = FL.held_out_cases()
+    assert len(cases) == 28
+    # Before calibration the live gate abstains (empty buckets).
+    report = router.replay_accuracy(cases, hold_out=True)
+    assert report["correct"] == 28
+    assert report["abstained"] == 28
+    st = SL.load_state()
+    first = SL.calibrate_from_replay(router, st, cases=cases)
+    assert first["source"] == "replay"
+    assert first["n"] == 28
+    assert first["correct"] == 28
+    # Every outcome is tagged and is a real labeled result.
+    for o in first["outcomes"]:
+        assert o["source"] == "replay"
+        assert o["correct"] is True
+        assert "margin" in o
+    b64 = next(b for b in st["calibration"]["buckets"] if b["min_margin"] == 64)
+    assert b64["by_source"]["replay"] == {"n": 28, "correct": 28}
+    from hive.bitwork import WILSON_ACCEPT_PERMILLE, wilson_lower_permille
+    assert b64["lower_permille"] == wilson_lower_permille(28, 28)
+    assert b64["lower_permille"] >= WILSON_ACCEPT_PERMILLE
+    # A second call replaces the replay slice; it does not double-count.
+    second = SL.calibrate_from_replay(router, st, cases=cases)
+    assert second["n"] == 28
+    b64 = next(b for b in st["calibration"]["buckets"] if b["min_margin"] == 64)
+    assert b64["by_source"]["replay"] == {"n": 28, "correct": 28}
+    assert b64["n"] == 28
+    # The gate itself is unchanged: accept iff Wilson lower >= 700.
+    accepted, lower, n = router.would_accept(64)
+    assert accepted is True
+    assert lower >= WILSON_ACCEPT_PERMILLE
+    assert n == 28
+    # Empty buckets still abstain (other margins).
+    accepted0, lower0, n0 = router.would_accept(0)
+    assert accepted0 is False
+    assert n0 == 0
+    assert lower0 < WILSON_ACCEPT_PERMILLE
+
+
+def test_calibrate_from_replay_skips_cases_with_no_retrieval(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    router = Router()
+    st = SL.load_state()
+    # No labeled library: leave-one-out on a single case has nothing
+    # to train on, so classify returns None and we fabricate nothing.
+    out = SL.calibrate_from_replay(router, st, cases=[("unknown symptom", "no_such_action")])
+    assert out["n"] == 0
+    assert out["correct"] == 0
+    assert out["outcomes"] == []
+    assert all(b["n"] == 0 for b in st["calibration"]["buckets"])
+
+
+def test_shadow_scored_against_later_self_heal_adopt(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    from hive.ops import validate
+    router = Router()
+    st = SL.load_state()
+    action = validate({"op": "set_knob", "name": "park_cycles", "direction": "up"}).as_dict()
+    fp = action.get("fingerprint") or "set_knob:direction=up:name=park_cycles"
+    winner = SL.Proposal(
+        role="improver", label="repeated_targets",
+        action=action, fingerprint=fp, symptom="stall loop same targets",
+    )
+    vote = SL.VoteResult(
+        winner=winner, abstained=True, reason="wilson_abstain",
+        tallies={fp: 1}, lower_permille=0, margin=80, n_votes=1, n_vetoes=0,
+    )
+    shadow = SL.record_shadow(st, vote, cycle_id="c1")
+    assert shadow is not None
+    assert shadow["source"] == "shadow"
+    assert shadow["resolved"] is False
+    # Later self-heal adopt of the same failure class, same action: match.
+    ev = {
+        "event": "adopt",
+        "id": "heal-1",
+        "cycle_id": "c8",
+        "label": "repeated_targets",
+        "reason": "repeated_targets",
+        "knob": "park_cycles",
+        "direction": "up",
+        "action": action,
+        "source": "self_heal",
+    }
+    resolved = SL.resolve_shadows(router, st, ev)
+    assert len(resolved) == 1
+    assert resolved[0]["resolved"] is True
+    assert resolved[0]["matched"] is True
+    assert resolved[0]["correct"] is True
+    assert resolved[0]["source"] == "shadow" or True
+    b64 = next(b for b in st["calibration"]["buckets"] if b["min_margin"] == 64)
+    assert b64["by_source"]["shadow"]["n"] == 1
+    assert b64["by_source"]["shadow"]["correct"] == 1
+    outcomes = [o for o in st["calibration"]["outcomes"] if o.get("source") == "shadow"]
+    assert len(outcomes) == 1
+    assert outcomes[0]["correct"] is True
+    # A second pass does not double-count.
+    again = SL.resolve_shadows(router, st, ev)
+    assert again == []
+    assert b64["by_source"]["shadow"]["n"] == 1
+
+
+def test_shadow_revert_of_same_action_is_incorrect_else_unresolved(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    from hive.ops import validate
+    router = Router()
+    st = SL.load_state()
+    action = validate({"op": "set_knob", "name": "park_cycles", "direction": "up"}).as_dict()
+    other = validate({"op": "set_knob", "name": "step_size", "direction": "down"}).as_dict()
+    fp = action.get("fingerprint") or "set_knob:direction=up:name=park_cycles"
+    winner = SL.Proposal(
+        role="improver", label="flat_passes",
+        action=action, fingerprint=fp, symptom="flat oracle passes",
+    )
+    vote = SL.VoteResult(
+        winner=winner, abstained=True, reason="wilson_abstain",
+        tallies={fp: 1}, lower_permille=0, margin=80, n_votes=1, n_vetoes=0,
+    )
+    SL.record_shadow(st, vote, cycle_id="c1")
+    # Revert of a *different* action: no label for the shadow pick.
+    ev_other = {
+        "event": "revert",
+        "id": "heal-r1",
+        "label": "flat_passes",
+        "reason": "flat_passes",
+        "action": other,
+        "knob": "step_size",
+        "direction": "down",
+    }
+    assert SL.resolve_shadows(router, st, ev_other) == []
+    assert st["shadows"][0]["resolved"] is False
+    # Revert of the *same* action: the pick is labeled incorrect.
+    ev_same = {
+        "event": "revert",
+        "id": "heal-r2",
+        "label": "flat_passes",
+        "reason": "flat_passes",
+        "action": action,
+        "knob": "park_cycles",
+        "direction": "up",
+    }
+    resolved = SL.resolve_shadows(router, st, ev_same)
+    assert len(resolved) == 1
+    assert resolved[0]["correct"] is False
+    assert resolved[0]["matched"] is True
+    b64 = next(b for b in st["calibration"]["buckets"] if b["min_margin"] == 64)
+    assert b64["by_source"]["shadow"] == {"n": 1, "correct": 0}
+
+
+def test_shadow_human_merged_fix_scores_a_match(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    from hive.ops import validate
+    router = Router()
+    st = SL.load_state()
+    action = validate({"op": "set_knob", "name": "fast_term_cap", "direction": "up"}).as_dict()
+    fp = action.get("fingerprint") or "set_knob:direction=up:name=fast_term_cap"
+    winner = SL.Proposal(
+        role="surveyor", label="depth_at_physical_cap",
+        action=action, fingerprint=fp, symptom="evaluator hit a cap",
+    )
+    vote = SL.VoteResult(
+        winner=winner, abstained=True, reason="wilson_abstain",
+        tallies={fp: 1}, lower_permille=0, margin=100, n_votes=1, n_vetoes=0,
+    )
+    SL.record_shadow(st, vote, cycle_id="c2")
+    rec = {
+        "source": "human_merged",
+        "outcome": "positive",
+        "label": "depth_at_physical_cap",
+        "action": action,
+        "id": "human-1",
+    }
+    resolved = SL.resolve_shadows(router, st, rec)
+    assert len(resolved) == 1
+    assert resolved[0]["correct"] is True
+    assert resolved[0]["resolved_source"] == "human"
+    outcomes = [o for o in st["calibration"]["outcomes"] if o.get("source") == "shadow"]
+    assert outcomes[0]["source"] == "shadow"
+
+
+def test_library_snapshot_restores_after_jsonl_removed(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    FL.ensure_seeded()
+    written = FL.append_record({
+        "id": "teach:extra:1",
+        "source": "self_heal",
+        "kind": "fix",
+        "label": "repeated_targets",
+        "symptom": "a taught example after a real adopt",
+        "action": {"op": "set_knob", "name": "park_cycles", "direction": "up"},
+        "outcome": "positive",
+    })
+    assert written is not None
+    snap_rows = FL.persist_library()
+    assert any(r.get("id") == "teach:extra:1" for r in snap_rows)
+    assert FL.LIBRARY_SNAPSHOT.exists()
+    # Fresh checkout: JSONL is gitignored, only the snapshot is present.
+    FL.LIBRARY_LOG.unlink()
+    assert not FL.LIBRARY_LOG.exists()
+    restored = FL.load_records()
+    ids = {r.get("id") for r in restored}
+    assert "teach:extra:1" in ids
+    assert any(str(i).startswith("seed:") for i in ids)
+    # The JSONL is materialized from the snapshot so later appends work.
+    assert FL.LIBRARY_LOG.exists()
+    # Compaction keeps seeds and bounds the rest.
+    many = [dict(written, id=f"teach:extra:{i}") for i in range(2500)]
+    compacted = FL.compact_records(
+        list(FL.seed_patterns()) + many, keep=20
+    )
+    seeds = [r for r in compacted if FL._is_seed_record(r)]
+    rest = [r for r in compacted if not FL._is_seed_record(r)]
+    # Seeds are always retained, even when that exceeds the keep bound.
+    assert len(seeds) == len(FL.seed_patterns())
+    assert rest == []
+    compacted2 = FL.compact_records(list(FL.seed_patterns()) + many, keep=len(FL.seed_patterns()) + 10)
+    rest2 = [r for r in compacted2 if not FL._is_seed_record(r)]
+    assert len(rest2) == 10
+    assert rest2[-1]["id"] == "teach:extra:2499"

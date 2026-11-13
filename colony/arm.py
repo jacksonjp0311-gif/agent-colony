@@ -42,6 +42,10 @@ _HIVE_FUNCS = ("on_cycle", "run_cycle", "learn", "maybe_learn", "bind")
 _HOOKS_INSTALLED = False
 _HIVE_FINDER_INSTALLED = False
 
+# Treatment files that must exist in the control tree after a seed.
+# Evolve crashes without society_state.json (run 43354564616).
+REQUIRED_SEED_FILES = ("data/society_state.json",)
+
 # Directories copied into the control tree at seed time. These are the
 # colony's writable state. Code under colony/, tests/, and .github stays
 # shared, so both arms run the same program.
@@ -54,6 +58,27 @@ _SEED_IGNORE = shutil.ignore_patterns(
     ".lemma_backups",
     "*.gz.b64",
 )
+
+
+class ControlSeedError(RuntimeError):
+    """Control seed copied nothing, or a required file is missing.
+
+    Raised so the CLI and the CI seed step exit nonzero. A quiet
+    ``copied: []`` exit (run 43354564616) left the control arm
+    unseeded and the evolve job crashed.
+    """
+
+
+def raw_join(base: Path | str, *parts: str | Path) -> Path:
+    """Join path parts without the ``COLONY_ARM`` ``Path.__truediv__`` hook.
+
+    The hook wraps the ``/`` operator so that ``REPO_ROOT / "data"``
+    becomes ``control/data`` when ``COLONY_ARM=control``. ``Path(base,
+    part)`` and ``os.path.join`` both bypass that wrap. Use this
+    whenever treatment ``data/`` or ``society/`` must be *read* as
+    the seed source while the hook is installed.
+    """
+    return Path(os.path.join(os.fspath(base), *(os.fspath(p) for p in parts)))
 
 
 def _utc() -> str:
@@ -265,12 +290,23 @@ def git_sha(cwd: Path | None = None) -> str | None:
 
 
 def control_is_seeded(root: Path | None = None) -> bool:
+    """True only when the control tree has the files evolve needs.
+
+    Empty ``data/`` or ``society/`` directories (or a fork receipt
+    with ``control_seeded: false``) do not count. The required
+    marker is ``data/society_state.json``.
+    """
     cr = root if root is not None else control_root()
-    fork = cr / FORK_NAME
-    if not fork.exists():
+    state = raw_join(cr, "data", "society_state.json")
+    if not state.is_file():
         return False
-    # A committed fork record without a state tree is not yet seeded.
-    return (cr / "society").is_dir() or (cr / "data").is_dir()
+    fork = _load_json(raw_join(cr, FORK_NAME)) or {}
+    # An explicit false is only trusted if the required file is also
+    # missing; a complete tree from a seed that died after the copy
+    # but before the flag is still seeded.
+    if fork.get("control_seeded") is False and not state.is_file():
+        return False
+    return True
 
 
 def _load_json(path: Path) -> dict[str, Any] | None:
@@ -395,38 +431,41 @@ def ensure_control_seed(
     After the copy, self-mod state in the *control* copy is frozen at
     defaults. Treatment files are never written.
     """
-    src = (source_root or REPO_ROOT).resolve()
-    dest = (dest_root or control_root()).resolve()
-    if dest == src or dest == REPO_ROOT:
+    src = Path(os.path.abspath(os.fspath(source_root or REPO_ROOT)))
+    dest = Path(os.path.abspath(os.fspath(dest_root or control_root())))
+    if dest == src or dest == Path(os.path.abspath(os.fspath(REPO_ROOT))):
         raise ValueError("control dest must not be the treatment repo root")
     # Refuse to copy a control tree into a path that *is* treatment data/.
-    try:
-        dest.relative_to(src / "data")
-        raise ValueError("control dest must not sit inside treatment data/")
-    except ValueError as exc:
-        if "must not" in str(exc):
-            raise
-    try:
-        dest.relative_to(src / "society")
-        raise ValueError("control dest must not sit inside treatment society/")
-    except ValueError as exc:
-        if "must not" in str(exc):
-            raise
+    # Use raw_join so a live COLONY_ARM=control hook cannot point these
+    # at control/data and skip the check.
+    for tree in _SEED_TREES:
+        tree_path = raw_join(src, tree)
+        try:
+            dest.relative_to(tree_path)
+            raise ValueError(f"control dest must not sit inside treatment {tree}/")
+        except ValueError as exc:
+            if "must not" in str(exc):
+                raise
 
     already = (not force) and control_is_seeded(dest)
-    fork_file = dest / FORK_NAME
+    fork_file = raw_join(dest, FORK_NAME)
     record = _load_json(fork_file) or empty_fork_record(fork_sha=fork_sha or git_sha(src))
     if already:
         record["already_seeded"] = True
+        record["control_seeded"] = True
         record["dest"] = str(dest)
+        record["source"] = str(src)
         return record
 
     dest.mkdir(parents=True, exist_ok=True)
     copied: list[str] = []
+    missing_sources: list[str] = []
     for tree in _SEED_TREES:
-        from_dir = src / tree
-        to_dir = dest / tree
+        # raw_join: treatment source, never the redirected control dest.
+        from_dir = raw_join(src, tree)
+        to_dir = raw_join(dest, tree)
         if not from_dir.exists():
+            missing_sources.append(str(from_dir))
             continue
         if to_dir.exists() and force:
             shutil.rmtree(to_dir)
@@ -437,10 +476,44 @@ def ensure_control_seed(
             shutil.copytree(from_dir, to_dir, ignore=_SEED_IGNORE, symlinks=False)
         copied.append(tree)
 
+    required_missing = [
+        rel for rel in REQUIRED_SEED_FILES
+        if not raw_join(dest, *rel.split("/")).is_file()
+    ]
+    if not copied or required_missing:
+        record["copied"] = copied
+        record["control_seeded"] = False
+        record["seeded_sha"] = None
+        record["dest"] = str(dest)
+        record["source"] = str(src)
+        # Do not write control_seeded true. Leave any receipt off the
+        # success path so a retry is not treated as already seeded.
+        reasons = []
+        if not copied:
+            reasons.append(
+                "copied nothing "
+                f"(treatment sources missing or unreadable: {missing_sources or list(_SEED_TREES)})"
+            )
+        if required_missing:
+            reasons.append("required files missing after copy: " + ", ".join(required_missing))
+        raise ControlSeedError("; ".join(reasons))
+
     freeze_report = freeze_control_self_mod(dest)
+    # Re-check required files after freeze (freeze only rewrites JSON
+    # under society/systems; society_state must still be there).
+    required_missing = [
+        rel for rel in REQUIRED_SEED_FILES
+        if not raw_join(dest, *rel.split("/")).is_file()
+    ]
+    if required_missing:
+        raise ControlSeedError(
+            "required files missing after freeze: " + ", ".join(required_missing)
+        )
+
     record["seeded_sha"] = git_sha(src)
     record["seeded_ts"] = _utc()
     record["copied"] = copied
+    record["control_seeded"] = True
     record["freeze"] = {
         "self_heal_trial_cleared": (freeze_report.get("self_heal") or {}).get("trial_cleared"),
         "checker_adoption_cleared": bool(freeze_report.get("checker_lane")),
@@ -488,7 +561,11 @@ def prepare_arm(*, seed: bool | None = None) -> dict[str, Any]:
         return info
     if want_seed:
         info["seed"] = ensure_control_seed()
-        info["seeded"] = True
+        info["seeded"] = control_is_seeded()
+        if not info["seeded"]:
+            raise ControlSeedError(
+                "seed ran but control/data/society_state.json is still missing"
+            )
         return info
     info["seeded"] = False
     info["error"] = (
