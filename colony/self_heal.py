@@ -1357,7 +1357,16 @@ def void_trial_for_confound(
     failure. Evidence is append-only; trial and baseline rows are not
     rewritten. A fresh baseline of same-fingerprint cycles must accumulate
     before a new trial can start.
+
+    On the control arm (self-mod frozen) this is a no-op: the trial,
+    knobs, and evidence are left untouched.
     """
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return state
+    except Exception:
+        pass
     trial = dict(state.get("trial") or {})
     if not trial:
         return state
@@ -1735,7 +1744,14 @@ def run_cycle(
     st["metrics"] = hist[-METRICS_KEEP:]
 
     trial = st.get("trial")
-    if trial:
+    self_mod = True
+    try:
+        from colony.arm import self_mod_enabled
+        self_mod = bool(self_mod_enabled())
+    except Exception:
+        self_mod = True
+    # Control arm: record metrics, but do not void, close, or start a trial.
+    if trial and self_mod:
         changed, old_fp, new_fp = trial_fingerprint_mismatch(trial, state=st)
         if changed:
             # Do not add this cycle to the voided trial's metrics, and do
