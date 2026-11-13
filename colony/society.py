@@ -316,6 +316,10 @@ class Society:
             from colony.research_desk import run_cycle as _rd
             return _rd(cid)
         self._stage(result, "research_desk", research_desk_stage, critical=False)
+        def learning_loop_stage():
+            from colony.learning_loop import run_cycle as _ll
+            return _ll(cid)
+        self._stage(result, "learning_loop", learning_loop_stage, critical=False)
         result.promotion_allowed = not any(
             stage.get("blocks_promotion") for stage in result.stage_diagnostics.values())
         diagnostics[cid] = {"promotion_allowed": result.promotion_allowed,

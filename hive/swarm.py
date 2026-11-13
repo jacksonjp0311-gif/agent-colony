@@ -67,12 +67,14 @@ _ROLE_FOCUS: dict[str, dict[str, Any]] = {
         "labels": (
             "repeated_targets", "no_progress_perturb", "immediate_reentry",
             "dead_end_streak", "flat_passes", "high_revert_rate",
-            "empty_perturb_pool",
+            "empty_perturb_pool", "method_card",
         ),
-        "ops": ("set_knob", "add_family_rotation"),
+        "ops": ("set_knob", "add_family_rotation", "reorder_desk"),
         "preferred_knobs": (
             "perturb_epsilon", "unused_menu_cycles", "perturb_cooldown_cycles",
             "step_size", "evaluation_window", "park_cycles",
+            "desk_budget", "curriculum_pace", "retry_policy_cycles",
+            "routing_explore_weight",
         ),
     },
     "pathfinder": {
@@ -374,6 +376,13 @@ def _action_for_role(
     focus = _ROLE_FOCUS[role]
     kind = str(finding.get("kind") or "")
     ev = finding.get("evidence") if isinstance(finding.get("evidence"), Mapping) else {}
+    # A method-card or colony-improver suggestion, if the op is in this
+    # role's closed set. Hive still validates and votes; this only picks
+    # the candidate. The Wilson 700‰ gate is unchanged.
+    focus_ops = focus.get("ops") or ()
+    card_action = finding.get("card_action") or ev.get("card_action")
+    if isinstance(card_action, Mapping) and str(card_action.get("op") or "") in focus_ops:
+        return dict(card_action)
     # Archivist: whatever Bitwork retrieved, if the op is legal.
     if role == "archivist" and retrieved is not None:
         # retrieved.action_key is a fingerprint; we need the action dict

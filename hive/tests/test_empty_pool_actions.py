@@ -140,3 +140,35 @@ def test_corrective_hist_seed_is_negative_and_original_is_untouched(tmp_path, mo
 def test_wilson_gate_unchanged():
     assert WILSON_ACCEPT_PERMILLE == 700
     assert SL.WILSON_ACCEPT_PERMILLE == 700
+
+
+def test_improver_prefers_legal_method_card_action():
+    """A method-card action in the closed set is what improver proposes."""
+    from hive import swarm
+    from hive import ops as HO
+    finding = {
+        "kind": "method_card",
+        "card_action": {"op": "set_knob", "name": "desk_budget", "direction": "up"},
+        "suggest": [("desk_budget", "up")],
+        "evidence": {"card_id": "card_test"},
+    }
+    action = swarm._action_for_role("improver", finding, None)
+    assert action is not None
+    assert action["op"] == "set_knob"
+    assert action["name"] == "desk_budget"
+    v = HO.validate(action)
+    assert v.ok, getattr(v, "reason", "")
+
+
+def test_improver_rejects_card_action_outside_role_ops():
+    from hive import swarm
+    finding = {
+        "kind": "method_card",
+        "card_action": {"op": "exec", "code": "print(1)"},
+        "evidence": {},
+    }
+    action = swarm._action_for_role("improver", finding, None)
+    # exec is not in the improver op set, so the card is ignored and
+    # the usual fallback (preferred knob) may still fire.
+    if action is not None:
+        assert action.get("op") != "exec"

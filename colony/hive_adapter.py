@@ -85,6 +85,11 @@ def enrich_findings(findings: list[Any]) -> list[dict[str, Any]]:
     for f in findings:
         if isinstance(f, Mapping):
             out.append(enrich_finding(f))
+    try:
+        from colony.learning_loop import attach_card_findings
+        out = attach_card_findings(out)
+    except Exception:
+        pass
     return out
 
 
@@ -133,7 +138,14 @@ def on_cycle(cycle_id: str = "") -> dict[str, Any]:
     """Evolve-cycle entry. Control returns without calling Hive."""
     if not hive_learning_enabled():
         return _disabled(cycle_id)
-    return swarm.on_cycle(cycle_id)
+    result = swarm.on_cycle(cycle_id)
+    try:
+        from colony.learning_loop import on_cycle as _ll
+        result = dict(result or {})
+        result["learning_loop"] = _ll(cycle_id)
+    except Exception:
+        pass
+    return result
 
 
 def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
