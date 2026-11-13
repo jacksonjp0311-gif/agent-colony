@@ -1,12 +1,12 @@
 {
-  "ts": "2026-11-13T04:30:33Z",
-  "cycle_id": "20261113T043016Z_8f5e45",
+  "ts": "2026-11-13T05:26:21Z",
+  "cycle_id": "20261113T052559Z_fff49a",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 77,
+      "vandermonde": 76,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "lemma_hard_combinatorics": 2,
@@ -109,9 +109,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8611,
-      "slope": 0.000197,
-      "min": 0.8584,
+      "last": 0.8591,
+      "slope": -0.000407,
+      "min": 0.8415,
       "max": 0.8611
     },
     "novelty": {
@@ -141,7 +141,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0026,
+    "aggregate_range": 0.0196,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -268,23 +268,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.587,
+      "ratio": 0.997,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.592,
+      "ratio": 1.015,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.603,
+      "ratio": 0.966,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.642,
+      "ratio": 0.996,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.618,
+      "ratio": 0.942,
       "drift": false
     }
   },
@@ -293,10 +293,10 @@
     "verified": {
       "goldbach_even": 292434115,
       "collatz_descent": 329400000,
-      "legendre_square_gap": 1692607,
-      "lehmer_totient": 147800001,
+      "legendre_square_gap": 1708607,
+      "lehmer_totient": 149400001,
       "erdos_straus": 1119127,
-      "twin_primes_hl": 410200000,
+      "twin_primes_hl": 414200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -345,23 +345,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.9,
-    "completed": 10,
+    "success_rate": 0.9091,
+    "completed": 11,
     "last": [
       [
         null,
-        "2026-11-13T04:20:32Z"
-      ],
-      [
-        null,
-        "2026-11-13T04:20:32Z"
+        "2026-11-13T05:16:06Z"
       ],
       [
         "success",
-        "2026-11-13T04:15:32Z"
+        "2026-11-13T05:01:44Z"
+      ],
+      [
+        "success",
+        "2026-11-13T04:20:32Z"
       ]
     ],
-    "fetched_at": "2026-11-13T04:21:06Z"
+    "fetched_at": "2026-11-13T05:16:59Z"
   },
   "feeds": {
     "by_source": {
@@ -409,7 +409,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-13T04:21:05Z"
+      "ts": "2026-11-13T05:16:59Z"
     },
     "health": {
       "arxiv": {

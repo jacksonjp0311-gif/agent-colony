@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "ai-guided",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-13T04:31:37Z",
-  "updated_cycle": "20261113T043016Z_8f5e45",
+  "updated_at": "2026-11-13T05:27:30Z",
+  "updated_cycle": "20261113T052559Z_fff49a",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
