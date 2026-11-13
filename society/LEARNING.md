@@ -14,6 +14,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Voided (environment changed mid-trial): **3**
 - Proposed this snapshot: **1**
 - Waiting on a twin judgment: **0**
+- Hive decision deferred **3** times (`set_knob:direction=up:name=park_cycles:value=8`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
 - Hive shadow picks: resolved 0, correct 0, pending 9, accuracy n/a
 
 ## Per method card

@@ -1,16 +1,16 @@
 {
-  "ts": "2026-11-13T19:19:01Z",
-  "cycle_id": "20261113T191834Z_07fa04",
+  "ts": "2026-11-13T19:52:09Z",
+  "cycle_id": "20261113T195145Z_1f1a7b",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 50,
+      "vandermonde": 48,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
-      "lemma_hard_combinatorics": 2,
       "authored_mut_swap_related_sequence_58aacc9fceff": 2,
+      "lemma_hard_combinatorics": 1,
       "shape:congruence": 1,
       "shape:divisibility": 1,
       "gf_identity": 1,
@@ -107,8 +107,8 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8586,
-      "slope": -8.8e-05,
+      "last": 0.859,
+      "slope": -0.000163,
       "min": 0.8586,
       "max": 0.862
     },
@@ -139,7 +139,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0021,
+    "aggregate_range": 0.0012,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -268,34 +268,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.528,
-      "drift": true
+      "ratio": 1.228,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.249,
+      "ratio": 1.304,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.271,
+      "ratio": 1.256,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.255,
+      "ratio": 1.067,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.22,
+      "ratio": 1.031,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 308434115,
-      "collatz_descent": 345400000,
+      "goldbach_even": 311634115,
+      "collatz_descent": 348600000,
       "legendre_square_gap": 1788607,
       "lehmer_totient": 157400001,
-      "erdos_straus": 1144127,
+      "erdos_straus": 1149127,
       "twin_primes_hl": 434200000,
       "oeis_A104062_next": 518690000001
     },
@@ -346,22 +346,22 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 11,
+    "completed": 10,
     "last": [
       [
         null,
-        "2026-11-13T18:49:49Z"
+        "2026-11-13T19:41:25Z"
+      ],
+      [
+        null,
+        "2026-11-13T19:41:22Z"
       ],
       [
         "success",
-        "2026-11-13T18:49:42Z"
-      ],
-      [
-        "success",
-        "2026-11-13T18:48:54Z"
+        "2026-11-13T19:33:47Z"
       ]
     ],
-    "fetched_at": "2026-11-13T19:08:57Z"
+    "fetched_at": "2026-11-13T19:42:03Z"
   },
   "feeds": {
     "by_source": {
@@ -409,7 +409,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-13T19:08:56Z"
+      "ts": "2026-11-13T19:42:02Z"
     },
     "health": {
       "arxiv": {
@@ -437,7 +437,6 @@
   "signals": [
     "revert_streaks: authored_frontier_cong_xd9add9e9_w1 → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
