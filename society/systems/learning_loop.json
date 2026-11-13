@@ -143,7 +143,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261113T182303Z_f3d9e9",
+  "last_cycle": "20261113T190007Z_92bbed",
   "n_kept": 0,
   "n_proposed": 0,
   "n_reverted": 1,
@@ -158,7 +158,7 @@
     "pending": 9,
     "resolved": 0,
     "source": "hive_shadows",
-    "ts": "2026-11-13T18:25:53Z",
+    "ts": "2026-11-13T19:02:51Z",
     "unlabeled": 0
   },
   "twin_pending": [],
