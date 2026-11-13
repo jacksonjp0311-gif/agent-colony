@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "when": "2026-11-13T01:56:09+0000",
+  "when": "2026-11-13T02:59:59+0000",
   "checks": [
     {
       "check": "ablation_switches_off",

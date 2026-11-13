@@ -1,19 +1,21 @@
 {
-  "last_attempt_at": "2026-11-13T01:47:36Z",
+  "last_attempt_at": "2026-11-13T02:51:39Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-13T01:47:36Z",
+  "last_ok_at": "2026-11-13T02:51:39Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "The closure of the nonreal roots of bounded-height polynomials is connected exactly at pronic heights",
-      "abstract_snippet": "Let C_h be the closure of the nonreal roots of integer polynomials with coefficients of modulus at most h. With the nonzero real roots included, the closure is connected at every height; without them, connectedness becomes arithmetic. We prove that C_h is connected exactly when h=q(q-1) is a pronic number 2, 6, 12, 20, ..., and has at least five components otherwise. At height two this confirms a ",
-      "url": "https://arxiv.org/abs/2611.14517",
-      "arxiv_id": "2611.14517",
+      "title": "Estimating Image Creativity",
+      "abstract_snippet": "What makes an image creative? Although this may seem like a highly subjective decision, research in psychology suggests that creativity may be based on a set of fundamental creativity dimensions such as novelty, surprise, and arousal. A deeper understanding of image creativity can benefit both research and practical applications. Exploring how human viewers use creativity dimensions to evaluate im",
+      "url": "https://arxiv.org/abs/2611.15044",
+      "arxiv_id": "2611.15044",
       "doi": "",
       "authors": [
-        "Bernat Espigule"
+        "Nisan Chhetri",
+        "Christopher G. Healey",
+        "Sina Baghbanijam"
       ],
       "year": 2026,
       "tags": [
@@ -23,17 +25,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-13T01:47:36Z"
+      "fetched_at": "2026-11-13T02:51:39Z"
     },
     {
       "source": "arxiv",
-      "title": "TorchCurves: Differentiable Parametric Curves",
-      "abstract_snippet": "We present TorchCurves, a PyTorch library that treats vector-valued parametric curves as learnable primitives. Its central operation maps batches of scalar inputs to points on curves represented in B-spline or Legendre polynomial bases, with differentiation through both inputs and coefficients. Curve coefficients can be optimized jointly with the surrounding model or produced by another network. T",
-      "url": "https://arxiv.org/abs/2611.14516",
-      "arxiv_id": "2611.14516",
+      "title": "Positivity in symplectic groups and electrical networks",
+      "abstract_snippet": "We study the relation between electrical positivity introduced by Lam and Pylyavskyy $[9]$ and total positivity of symplectic matrices arising from circular planar electrical networks. A particularly convenient framework for our purpose is provided by a construction of an embedding of electrical network into the positive Lagrangian Grassmannian, see Section $1.1$. Employing this technique, we demo",
+      "url": "https://arxiv.org/abs/2611.15043",
+      "arxiv_id": "2611.15043",
       "doi": "",
       "authors": [
-        "Alex Shtoff"
+        "V. Gorbounov",
+        "A. Kazakov"
       ],
       "year": 2026,
       "tags": [
@@ -43,22 +46,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-13T01:47:36Z"
+      "fetched_at": "2026-11-13T02:51:39Z"
     },
     {
       "source": "arxiv",
-      "title": "AutoScaffold: AI-Guided Scaffolding for Reinforcement Learning of Language Models",
-      "abstract_snippet": "Reinforcement learning with verifiable rewards (RLVR) produces rich training experience, yet outcome rewards reduce each attempt to a single number and leave most of this information unused. Training-time scaffolds, such as strategies or hints added to the prompt during training, offer a natural way to turn this information into guidance, but their design and adaptation are largely left to humans ",
-      "url": "https://arxiv.org/abs/2611.14515",
-      "arxiv_id": "2611.14515",
+      "title": "AROMA: Adaptive Representation-Oriented Multimodal Actuation for Vision-Language Model Control",
+      "abstract_snippet": "Mechanistic localization does not by itself yield usable control: causal sensitivity may occupy little activation energy, an accurate local direction may fail at finite scale, and a reachable numeral target may be wrong. We introduce AROMA (Adaptive Representation-Oriented Multimodal Actuation), a frozen-VLM control framework separating where to intervene, which geometry and gain to use, how to re",
+      "url": "https://arxiv.org/abs/2611.15041",
+      "arxiv_id": "2611.15041",
       "doi": "",
       "authors": [
-        "Zijian Zhang",
-        "Rizhen Hu",
-        "Jiangweizhi Peng",
-        "Shiyang Li",
-        "Sujay Bhatt",
-        "Sihan Zeng"
+        "Zhaoning Zhang"
       ],
       "year": 2026,
       "tags": [
@@ -68,20 +66,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-13T01:47:36Z"
+      "fetched_at": "2026-11-13T02:51:39Z"
     },
     {
       "source": "arxiv",
-      "title": "Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations",
-      "abstract_snippet": "LLM agents are increasingly used for open-ended, data-driven scientific discovery, yet most of them evaluate hypotheses pointwise, testing an empirical claim $h$ only against its complement $\\neg h$. When evidence rejects $h$, the agent learns that one explanation is unlikely but not which alternative the evidence supports. To recover that alternative, we introduce Contrastive Discovery, which rep",
-      "url": "https://arxiv.org/abs/2611.14514",
-      "arxiv_id": "2611.14514",
+      "title": "A symmetry on Young tableaux with walls and holes",
+      "abstract_snippet": "The Pons--Batle conjecture on tree-child networks was regarded as a specific and challenging problem in the phylogenetics community. We found an unexpected weighted symmetry for a class of three-row Young tableaux with walls and holes. This weighted symmetry implies the Fuchs--Yu identity, which together with the bijection of Chang, Fuchs, Liu, Wallner, and Yu leads to a simple proof of the Pons--",
+      "url": "https://arxiv.org/abs/2611.15038",
+      "arxiv_id": "2611.15038",
       "doi": "",
       "authors": [
-        "Ziang Liu",
-        "James J. Kim",
-        "Yijia Dai",
-        "Jennifer J. Sun"
+        "Zhicong Lin",
+        "Feihu Liu",
+        "Jing Liu"
       ],
       "year": 2026,
       "tags": [
@@ -91,19 +88,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-13T01:47:36Z"
+      "fetched_at": "2026-11-13T02:51:39Z"
     },
     {
       "source": "arxiv",
-      "title": "Online Graph Coloring: Competitive Ratios Separating Randomized and Deterministic Algorithms",
-      "abstract_snippet": "We study online coloring, focusing on the competitive ratio. The best previously known results were (1) a lower bound of $Ω(n / \\log^2 n)$ for both deterministic and randomized algorithms by Halldórsson and Szegedy (1994), (2) an upper bound of $O(n / \\log n)$ for randomized algorithms by Halldórsson (1997), and (3) an upper bound of $O(n / \\log \\log n)$ for deterministic algorithms by Kawarabayas",
-      "url": "https://arxiv.org/abs/2611.14513",
-      "arxiv_id": "2611.14513",
+      "title": "Mask-Pattern Position Augmentation: Training-Free Long-Context Extrapolation for Diffusion LLMs",
+      "abstract_snippet": "Diffusion large language models (dLLMs) generate by iteratively unmasking tokens with bidirectional attention, but rotary position embeddings (RoPE) still confine them to a fixed pretraining window. Existing training-free extrapolation, notably LongLLaDA, copies NTK-based RoPE scaling from autoregressive (AR) models and applies one static, length-only transform at every position and denoising step",
+      "url": "https://arxiv.org/abs/2611.15029",
+      "arxiv_id": "2611.15029",
       "doi": "",
       "authors": [
-        "Ken-ichi Kawarabayashi",
-        "Hirotaka Yoneda",
-        "Masataka Yoneda"
+        "Gaurav Sarkar",
+        "Syed Affan Daimi"
       ],
       "year": 2026,
       "tags": [
@@ -113,7 +109,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-13T01:47:36Z"
+      "fetched_at": "2026-11-13T02:51:39Z"
     }
   ]
 }

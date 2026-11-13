@@ -6,7 +6,7 @@
    37
   ],
   "divides": [
-   17,
+   18,
    3
   ],
   "identity": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   36,
-   31
+   35,
+   30
   ]
  },
  "mode": "live",
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 75,
+ "n_proved": 74,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -2598,178 +2598,6 @@
     "method": "closed form (sympy)"
    },
    "check": "authored_frontier_rec_xb686d709_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (fib+lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(fib+lucas)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,0": 1,
-          "lucas@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(fib+lucas)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,1": 1,
-          "lucas@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(fib+lucas)",
-        "kids": [
-         {
-          "e": "fib",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "fib@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "fib@1,2": 1,
-          "lucas@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x943cff1c_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -8406,6 +8234,18 @@
    "unknown": true,
    "v": 4
   },
+  "cheb3[oxa055394](n) divides (oxa056971*part)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x2863c010_w1",
+   "checks": 188,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)": {
    "authored": false,
    "certificate": {
@@ -11568,6 +11408,6 @@
    "v": 3
   }
  },
- "seconds": 0.04,
- "ts": "2026-11-13T01:55:23Z"
+ "seconds": 0.03,
+ "ts": "2026-11-13T02:59:14Z"
 }
