@@ -11,17 +11,17 @@
       "temperature_2m": 4.4,
       "wind_speed_10m": 11.9,
       "weather_code": 3,
-      "time": "2026-11-14T21:45",
+      "time": "2026-11-14T22:00",
       "source": "open_meteo"
     },
     {
       "city": "London",
       "lat": 51.51,
       "lon": -0.13,
-      "temperature_2m": 6.1,
+      "temperature_2m": 6.0,
       "wind_speed_10m": 8.3,
       "weather_code": 0,
-      "time": "2026-11-14T21:45",
+      "time": "2026-11-14T22:00",
       "source": "open_meteo"
     },
     {
@@ -31,21 +31,21 @@
       "temperature_2m": 11.5,
       "wind_speed_10m": 3.3,
       "weather_code": 2,
-      "time": "2026-11-14T21:45",
+      "time": "2026-11-14T22:00",
       "source": "open_meteo"
     },
     {
       "city": "Sydney",
       "lat": -33.87,
       "lon": 151.21,
-      "temperature_2m": 20.2,
-      "wind_speed_10m": 15.0,
+      "temperature_2m": 20.3,
+      "wind_speed_10m": 15.2,
       "weather_code": 3,
-      "time": "2026-11-14T21:45",
+      "time": "2026-11-14T22:00",
       "source": "open_meteo"
     }
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-11-14T21:49:54Z"
+  "ts": "2026-11-14T22:09:10Z"
 }

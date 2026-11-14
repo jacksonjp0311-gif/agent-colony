@@ -2168,6 +2168,24 @@ def check_authored_mut_swap_related_sequence_c92be463a0f5() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'D(oxa213536)', 'params': {}, 'rhs': 'cmax[oxa213536]'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
+def check_authored_mut_swap_related_sequence_f992defe4af8() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    D(oxa213536)(n) <= ple3[oxa213536](n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'D(oxa213536)', 'params': {}, 'rhs': 'ple3[oxa213536]'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+def check_authored_mut_swap_related_sequence_5f1e08241fef() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    rad(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'rad', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2405,6 +2423,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mut_swap_related_sequence_5223338a52eb", check_authored_mut_swap_related_sequence_5223338a52eb, False),
     ("authored_mut_swap_related_sequence_78025e23cf57", check_authored_mut_swap_related_sequence_78025e23cf57, False),
     ("authored_mut_swap_related_sequence_c92be463a0f5", check_authored_mut_swap_related_sequence_c92be463a0f5, False),
+    ("authored_mut_swap_related_sequence_f992defe4af8", check_authored_mut_swap_related_sequence_f992defe4af8, False),
+    ("authored_mut_swap_related_sequence_5f1e08241fef", check_authored_mut_swap_related_sequence_5f1e08241fef, False),
 ]
 
 
