@@ -315,7 +315,85 @@ def infer_cap_reason(row: dict[str, Any] | None, e: dict[str, Any] | None = None
     return CAP_DIGIT_OR_TIME, verified
 
 
-def _ref_limited_hi(e: dict[str, Any]) -> int | None:
+# Knob families that actually bind a recorded cap_reason. Used by
+# self-heal to predict only targets a raised knob can move (item 63).
+TERM_CAP_KNOBS = ("fast_term_cap", "gf_term_cap", "deep_term_cap")
+_DIGIT_TIME_KNOBS = {
+    CAP_DIGIT: ("deep_digits",),
+    CAP_TIME: ("deep_seconds",),
+    CAP_DIGIT_OR_TIME: ("deep_digits", "deep_seconds"),
+}
+
+
+def term_cap_knob_from_value(val: Any) -> str:
+    """Map a recorded term-cap value to the knob family that imposed it."""
+    try:
+        v = int(val)
+    except (TypeError, ValueError):
+        return ""
+    caps = evaluator_caps()
+    candidates = (
+        ("fast_term_cap", (int(caps["fast_term_cap"]), int(FAST_TERM_CAP))),
+        ("gf_term_cap", (int(caps["gf_terms"]), int(GF_TERMS), int(_PR6_GF_TERMS))),
+        ("deep_term_cap", (int(caps["deep_n"]), int(DEEP_N), int(_PR6_DEEP_N))),
+    )
+    best = ""
+    best_d = 10**9
+    for name, xs in candidates:
+        for x in xs:
+            try:
+                d = abs(v - int(x))
+            except (TypeError, ValueError):
+                continue
+            if d <= 2 and d < best_d:
+                best, best_d = name, d
+    return best
+
+
+def term_cap_knob_for(
+    e: dict[str, Any] | None = None,
+    defn: dict[str, Any] | None = None,
+    row: dict[str, Any] | None = None,
+) -> str:
+    """Which term-cap knob binds this entry or attempt row.
+
+    Prefers the live evaluator classification (fast C-finite / g.f. /
+    deep). Falls back to the recorded cap_value on the row so a log
+    line can be mapped without reloading the entry.
+    """
+    if e is not None or defn is not None:
+        d = _defn_of(e, defn)
+        if fast_cfinite_available(e, d):
+            return "fast_term_cap"
+        form = str(((e or {}).get("claim") or {}).get("form") or "")
+        kind = str((d or {}).get("kind") or "")
+        if form == "gf" or kind in ("gf", "alg", "egf"):
+            return "gf_term_cap"
+        if d or (e and (e.get("claim") or e.get("definition"))):
+            return "deep_term_cap"
+    if isinstance(row, dict):
+        return term_cap_knob_from_value(row.get("cap_value"))
+    return ""
+
+
+def knobs_for_cap_reason(
+    reason: str,
+    row: dict[str, Any] | None = None,
+    e: dict[str, Any] | None = None,
+) -> frozenset[str]:
+    """Knob names whose raise can actually move a hold with this cap_reason."""
+    reason = str(reason or "")
+    if reason == CAP_TERM:
+        knob = term_cap_knob_for(e, row=row)
+        return frozenset((knob,) if knob else TERM_CAP_KNOBS)
+    knobs = _DIGIT_TIME_KNOBS.get(reason)
+    if knobs:
+        return frozenset(knobs)
+    return frozenset()
+
+
+def _ref_limited_hi(
+e: dict[str, Any]) -> int | None:
     """Highest n the referenced b-files support, or None if refs do not bind."""
     text = _parts_text(e)
     anums = set(_ANUM.findall(text))
