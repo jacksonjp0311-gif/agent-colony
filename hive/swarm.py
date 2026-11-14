@@ -825,16 +825,35 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     if _baseline_is_confounded(baseline_rows, heal_state=st, host=host):
         return {"ok": False, "reason": "confounded_baseline"}
     explore: dict[str, Any] = {}
-    if not _rows_have_signal(baseline_rows):
-        # Same exception as self-heal: a cap change that makes new real
-        # targets eligible may run as an exploratory, attributed trial.
+    has_signal = _rows_have_signal(baseline_rows)
+    # Item 66: a Hive/swarm cap-knob trial runs the same read-only
+    # predictor as a self-heal cap trial (with the item 63 cap_reason ->
+    # knob binding), so it carries predicted_targets and is scored on
+    # depth gain at those targets (item 64). start_trial snapshots
+    # pre_trial_depths before the first trial cycle.
+    is_cap = bool(host.heal_is_cap_knob(name))
+    predicted: list[str] = []
+    if is_cap or not has_signal:
         try:
-            predicted = list(host.heal_predicted_new_targets(name, nxt) or [])
+            predicted = [str(x) for x in (host.heal_predicted_new_targets(name, nxt) or []) if x]
         except Exception:
             predicted = []
+    if not has_signal:
+        # Same exception as self-heal: a cap change that makes new real
+        # targets eligible may run as an exploratory, attributed trial.
         if not predicted:
             return {"ok": False, "reason": "no_signal_baseline"}
         explore = {"exploratory": True, "baseline_signal": False, "predicted_targets": predicted}
+    elif is_cap:
+        if not predicted:
+            # Tighten-only: no target binds to this knob, so the trial
+            # would fall back to the noisy new_oracle_targets score.
+            return {
+                "ok": False,
+                "reason": "no_bound_predicted_target",
+                "detail": {"knob": name, "from": cur, "to": nxt},
+            }
+        explore = {"predicted_targets": predicted}
     trial = {
         **explore,
         "knob": name,
@@ -2141,6 +2160,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                     "fingerprint": winner.fingerprint,
                     "action": winner.action,
                     "deferred_count": deferred_count,
+                    **({"detail": started.get("detail")} if started.get("detail") else {}),
                     "pending_fingerprint": (st.get("pending_apply") or {}).get("fingerprint")
                     if isinstance(st.get("pending_apply"), dict) else None,
                 })
