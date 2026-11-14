@@ -66,22 +66,22 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "(12-4*sqrt(7))a(n-2)",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "(6-sqrt(7))a(n-1)",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "(8-3*sqrt(",
+      "topic": "<https://doi.org/10.1007/s11139-026-01434-1>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "`meta-learning`",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "artifact-first",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-14T08:49:00Z",
-  "updated_cycle": "20261114T084721Z_e6bb2f",
+  "updated_at": "2026-11-14T10:55:55Z",
+  "updated_cycle": "20261114T105427Z_04cda1",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
