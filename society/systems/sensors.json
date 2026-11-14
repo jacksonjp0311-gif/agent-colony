@@ -1,12 +1,12 @@
 {
-  "ts": "2026-11-14T08:14:37Z",
-  "cycle_id": "20261114T081411Z_6c5608",
+  "ts": "2026-11-14T08:49:46Z",
+  "cycle_id": "20261114T084929Z_20fab1",
   "lemma_streaks": {
     "revert_streaks": [
       "authored_frontier_cong_xd9add9e9_w1"
     ],
     "oracle_kills_by_theme": {
-      "vandermonde": 23,
+      "vandermonde": 20,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "authored_mut_swap_related_sequence_58aacc9fceff": 2,
@@ -109,10 +109,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8588,
-      "slope": 2e-05,
+      "last": 0.8613,
+      "slope": 2.9e-05,
       "min": 0.8585,
-      "max": 0.8616
+      "max": 0.8622
     },
     "novelty": {
       "last": 0.75,
@@ -121,16 +121,16 @@
       "max": 0.75
     },
     "kill_rate": {
-      "last": 0.3959,
-      "slope": 0.000264,
+      "last": 0.3966,
+      "slope": 0.000343,
       "min": 0.3931,
-      "max": 0.3959
+      "max": 0.3966
     },
     "kill_rate_term": {
-      "last": 0.9063,
-      "slope": 0.000236,
+      "last": 0.9069,
+      "slope": 0.000306,
       "min": 0.9038,
-      "max": 0.9063
+      "max": 0.9069
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -141,7 +141,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0021,
+    "aggregate_range": 0.0034,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -154,7 +154,9 @@
       "authored_mut_swap_related_sequence_3fcf4c695bad",
       "authored_mut_swap_related_sequence_43bfea4a2cc0",
       "authored_mut_swap_related_sequence_58aacc9fceff",
+      "authored_mut_swap_related_sequence_6e0112880376",
       "authored_mut_swap_related_sequence_b50db24ce154",
+      "authored_mut_swap_related_sequence_c0b3ed8d37bd",
       "authored_mut_swap_related_sequence_e41e92020988"
     ],
     "authored": [
@@ -228,7 +230,9 @@
       "authored_mut_swap_related_sequence_3fcf4c695bad",
       "authored_mut_swap_related_sequence_43bfea4a2cc0",
       "authored_mut_swap_related_sequence_58aacc9fceff",
+      "authored_mut_swap_related_sequence_6e0112880376",
       "authored_mut_swap_related_sequence_b50db24ce154",
+      "authored_mut_swap_related_sequence_c0b3ed8d37bd",
       "authored_mut_swap_related_sequence_e41e92020988",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
@@ -278,34 +282,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.27,
+      "ratio": 0.659,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.278,
+      "ratio": 0.657,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.27,
+      "ratio": 0.701,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.26,
+      "ratio": 0.723,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.216,
+      "ratio": 0.668,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 327634115,
-      "collatz_descent": 364600000,
+      "goldbach_even": 330834115,
+      "collatz_descent": 367800000,
       "legendre_square_gap": 1884607,
       "lehmer_totient": 167000001,
-      "erdos_straus": 1174127,
+      "erdos_straus": 1179127,
       "twin_primes_hl": 458200000,
       "oeis_A104062_next": 518690000001
     },
@@ -356,22 +360,22 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 11,
+    "completed": 10,
     "last": [
       [
         null,
-        "2026-11-14T08:03:00Z"
+        "2026-11-14T08:41:14Z"
+      ],
+      [
+        null,
+        "2026-11-14T08:41:10Z"
       ],
       [
         "success",
-        "2026-11-14T07:43:59Z"
-      ],
-      [
-        "success",
-        "2026-11-14T07:43:59Z"
+        "2026-11-14T08:35:02Z"
       ]
     ],
-    "fetched_at": "2026-11-14T08:03:38Z"
+    "fetched_at": "2026-11-14T08:41:46Z"
   },
   "feeds": {
     "by_source": {
@@ -419,7 +423,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-14T08:03:38Z"
+      "ts": "2026-11-14T08:41:45Z"
     },
     "health": {
       "arxiv": {
