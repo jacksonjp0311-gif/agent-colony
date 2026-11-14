@@ -88,6 +88,39 @@ _CAP_KNOB_KEYS = {
 }
 
 
+# Read-only counterfactual overrides (self_heal.predicted_new_targets).
+# Set only inside ``cap_override``; never persisted, never written.
+_CAP_OVERRIDES: dict[str, int | float] = {}
+
+
+class cap_override:
+    """Context manager: evaluate eligibility as if ``knob`` were ``value``.
+
+    Used to predict whether a cap change would make new targets
+    eligible. Nothing is written; the override is removed on exit.
+    """
+
+    def __init__(self, knob: str, value: Any):
+        self.key = None
+        if knob in _CAP_KNOB_KEYS:
+            key, caster = _CAP_KNOB_KEYS[knob]
+            self.key = key
+            self.value = caster(value)
+
+    def __enter__(self) -> "cap_override":
+        if self.key is not None:
+            self.prev = _CAP_OVERRIDES.get(self.key, None)
+            _CAP_OVERRIDES[self.key] = self.value
+        return self
+
+    def __exit__(self, *exc: Any) -> None:
+        if self.key is not None:
+            if self.prev is None:
+                _CAP_OVERRIDES.pop(self.key, None)
+            else:
+                _CAP_OVERRIDES[self.key] = self.prev
+
+
 def evaluator_caps() -> dict[str, int | float]:
     """Live term / digit / time caps. Module constants, unless a self-heal knob is in force.
 
@@ -117,6 +150,8 @@ def evaluator_caps() -> dict[str, int | float]:
                 caps[key] = caster(val)
     except Exception:
         pass
+    if _CAP_OVERRIDES:
+        caps.update(_CAP_OVERRIDES)
     return caps
 
 

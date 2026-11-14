@@ -210,6 +210,18 @@ def heal_replay_proposal(*args: Any, **kwargs: Any) -> dict[str, Any]:
     return {"accepted": True, "reasons": ["no_host"], "simulated": True, "note": "standalone"}
 
 
+def heal_predicted_new_targets(name: str, value: Any) -> list[str]:
+    """Targets a cap change would make eligible (read-only). Standalone: none."""
+    if _heal is not None:
+        fn = getattr(_heal, "predicted_new_targets", None)
+        if fn is not None:
+            try:
+                return list(fn(name, value) or [])
+            except Exception:
+                return []
+    return []
+
+
 def heal_window_score(rows: Iterable[dict[str, Any]]) -> float:
     if _heal is not None:
         return float(_heal.window_score(rows))

@@ -259,3 +259,23 @@ def test_inconclusive_teaches_nothing(monkeypatch):
     taught = SL.harvest_self_heal_outcomes(object(), st)
     assert taught == []
     assert resolved == []  # an inconclusive close does not score shadows either
+
+
+def test_start_knob_trial_exploratory_when_cap_opens_targets(monkeypatch):
+    rows = [{"cycle_id": f"b{i}", "new_oracle_targets": 0, "new_depth": 0,
+             "oracle_pass_delta": 0, "score": 0.0, "env_fingerprint": "fp"} for i in range(6)]
+    _use_heal(monkeypatch, {"trial": None, "metrics": rows, "evidence": []})
+    monkeypatch.setattr(SL, "_baseline_is_confounded", lambda *a, **k: False)
+    monkeypatch.setattr(host, "heal_predicted_new_targets", lambda name, value: ["oc_FAST"])
+    started = []
+    monkeypatch.setattr(host, "heal_start_trial", lambda trial, **k: started.append(trial))
+    p = SL.Proposal(role="surveyor", label="depth_at_physical_cap",
+                    action={"op": "set_knob", "name": "fast_term_cap", "direction": "up"},
+                    fingerprint="set_knob:direction=up:name=fast_term_cap", symptom="cap", ok=True)
+    out = SL.start_knob_trial(p, cycle_id="c", state=SL._empty_state())
+    assert out["ok"] is True
+    assert started[0]["exploratory"] is True and started[0]["predicted_targets"] == ["oc_FAST"]
+
+
+def test_standalone_host_predicts_nothing():
+    assert host.heal_predicted_new_targets("fast_term_cap", 10700) == []

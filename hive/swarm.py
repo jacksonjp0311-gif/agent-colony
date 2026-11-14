@@ -824,9 +824,19 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
     if _baseline_is_confounded(baseline_rows, heal_state=st, host=host):
         return {"ok": False, "reason": "confounded_baseline"}
+    explore: dict[str, Any] = {}
     if not _rows_have_signal(baseline_rows):
-        return {"ok": False, "reason": "no_signal_baseline"}
+        # Same exception as self-heal: a cap change that makes new real
+        # targets eligible may run as an exploratory, attributed trial.
+        try:
+            predicted = list(host.heal_predicted_new_targets(name, nxt) or [])
+        except Exception:
+            predicted = []
+        if not predicted:
+            return {"ok": False, "reason": "no_signal_baseline"}
+        explore = {"exploratory": True, "baseline_signal": False, "predicted_targets": predicted}
     trial = {
+        **explore,
         "knob": name,
         "from": cur,
         "to": nxt,

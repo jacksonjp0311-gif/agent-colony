@@ -1291,10 +1291,13 @@ def _is_empty_perturb_pool(
     empty_exits = ("no_candidates", "no_eligible", "no_eligible_target", "no eligible target")
     if exit_reason not in empty_exits:
         return False
-    if list(pert.get("session_targets") or []):
-        return False
-    if not pert.get("session_progress") and str(pert.get("exit_cycle") or "") == str(cycle_id or ""):
-        return True
+    # A session that worked targets before running dry is not "empty" on
+    # its exit cycle, but once item 33 blocks re-entry (same pass total,
+    # no eligible target) the pool is empty all the same. Before this,
+    # such a pool never invited supply and the colony idled (Nov 13–14).
+    if not list(pert.get("session_targets") or []):
+        if not pert.get("session_progress") and str(pert.get("exit_cycle") or "") == str(cycle_id or ""):
+            return True
     try:
         from colony.stall import _block_reentry_after_no_candidates
         return bool(_block_reentry_after_no_candidates(dict(stall_state), cycle_id))
@@ -1873,6 +1876,99 @@ def _record_trial_skip(
     return rec
 
 
+# Cap knobs whose effect on eligibility can be predicted read-only.
+CAP_KNOBS = ("gf_term_cap", "deep_term_cap", "fast_term_cap", "deep_digits", "deep_seconds")
+
+
+def eligible_target_ids(stall_state: dict[str, Any] | None = None) -> set[str]:
+    """Ids of real targets that can still progress (same pool PERTURB uses)."""
+    try:
+        import colony.stall as _stall
+        st = stall_state if stall_state is not None else _stall.load_state()
+        excluded = {str(x) for x in ((st.get("perturb") or {}).get("exclude_targets") or []) if x}
+        return {
+            str(c.get("id")) for c in _stall.oracle_reachable_alternatives(st)
+            if c.get("can_progress") and c.get("id") and str(c.get("id")) not in excluded
+        }
+    except Exception:
+        return set()
+
+
+def predicted_new_targets(
+    knob: str,
+    value: Any,
+    *,
+    stall_state: dict[str, Any] | None = None,
+) -> list[str]:
+    """Targets that would become eligible only if ``knob`` were ``value``.
+
+    Read-only counterfactual for cap knobs (term/digit/time caps). Other
+    knobs have no honest predictor and return []. Nothing is written.
+    """
+    if knob not in CAP_KNOBS or knob not in KNOB_SPECS:
+        return []
+    try:
+        from colony.oeis_conjectures import cap_override
+    except Exception:
+        return []
+    before = eligible_target_ids(stall_state)
+    try:
+        with cap_override(knob, value):
+            after = eligible_target_ids(stall_state)
+    except Exception:
+        return []
+    return sorted(after - before)
+
+
+def _exploration_already_failed(state: dict[str, Any], knob: str, value: Any, predicted: list[str]) -> bool:
+    """Same knob, value and predicted targets already ended without credit."""
+    for e in reversed(list(state.get("evidence") or [])):
+        if not isinstance(e, dict) or e.get("event") not in ("trial_inconclusive", "revert"):
+            continue
+        if not e.get("exploratory") or str(e.get("knob") or "") != knob:
+            continue
+        try:
+            same_to = float(e.get("from")) == float(value)  # close events leave the trial value
+        except (TypeError, ValueError):
+            same_to = False
+        if same_to and sorted(e.get("predicted_targets") or []) == sorted(predicted):
+            return True
+    return False
+
+
+def attributable_progress(trial: dict[str, Any], *, attempt_log: dict[str, Any] | None = None,
+                          stall_state: dict[str, Any] | None = None) -> list[str]:
+    """Predicted targets that actually progressed during the trial cycles.
+
+    Only work the change itself made possible counts, so supply or
+    other concurrent work cannot be credited to an exploratory knob.
+    """
+    predicted = {str(x) for x in (trial.get("predicted_targets") or []) if x}
+    if not predicted:
+        return []
+    cycles = [str(r.get("cycle_id") or "") for r in (trial.get("trial_metrics") or []) if r.get("cycle_id")]
+    hit: set[str] = set()
+    try:
+        if attempt_log is None:
+            from colony.oeis_conjectures import load_attempt_log
+            attempt_log = load_attempt_log()
+        for cid in cycles:
+            hit.update(str(t) for t in targets_with_new_depth(attempt_log, cid))
+    except Exception:
+        pass
+    try:
+        if stall_state is None:
+            from colony.stall import load_state as _ls
+            stall_state = _ls()
+        from colony.stall import ORACLE_TURN_OUTCOMES
+        for t in stall_state.get("turns") or []:
+            if str(t.get("cycle_id") or "") in cycles and str(t.get("outcome") or "") in ORACLE_TURN_OUTCOMES:
+                hit.add(str(t.get("name") or ""))
+    except Exception:
+        pass
+    return sorted(hit & predicted)
+
+
 def propose_trial(
     findings: list[dict[str, Any]],
     *,
@@ -1903,9 +1999,12 @@ def propose_trial(
     # Item 58: a window with no signal cannot show "strictly better" in
     # either direction, so a trial would only burn cycles and log a
     # false negative. Record the skip and wait for a cycle with signal.
-    if findings and not window_has_signal([rescore_metric_row(r) for r in window_rows]):
-        _record_trial_skip(st, cycle_id, "no_signal_baseline", findings, window_rows)
-        return None
+    # An exploratory trial is the one exception: a cap change that a
+    # read-only counterfactual shows makes new real targets eligible.
+    # It is credited only for progress on those targets (attribution),
+    # adopt still needs strictly better, and zero-vs-zero is inconclusive.
+    no_signal = bool(findings) and not window_has_signal([rescore_metric_row(r) for r in window_rows])
+    explore_checked: list[dict[str, Any]] = []
     tried: set[tuple[str, str]] = set()
     for finding in findings:
         kind = str(finding.get("kind") or "")
@@ -1931,8 +2030,20 @@ def propose_trial(
             replay = replay_proposal(knob, cur, nxt, direction=direction, evidence=list(st.get("evidence") or []))
             if not replay.get("accepted"):
                 continue
+            explore: dict[str, Any] = {}
+            if no_signal:
+                predicted = predicted_new_targets(knob, nxt)
+                explore_checked.append({"knob": knob, "to": nxt, "predicted": predicted[:8]})
+                if not predicted or _exploration_already_failed(st, knob, nxt, predicted):
+                    continue
+                explore = {
+                    "exploratory": True,
+                    "baseline_signal": False,
+                    "predicted_targets": predicted,
+                }
             baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
             return {
+                **explore,
                 "knob": knob,
                 "from": cur,
                 "to": nxt,
@@ -1956,6 +2067,10 @@ def propose_trial(
                 "applied_to_live_oracle": False,
                 "authorized": False,
             }
+    if no_signal:
+        rec = _record_trial_skip(st, cycle_id, "no_signal_baseline", findings, window_rows)
+        rec["explore_checked"] = explore_checked[:8]
+        st["trial_skip"] = rec
     return None
 
 
@@ -1999,6 +2114,8 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         "baseline_score": trial.get("baseline_score"),
         "window": trial.get("window"),
         "replay": trial.get("replay"),
+        "exploratory": bool(trial.get("exploratory")),
+        "predicted_targets": list(trial.get("predicted_targets") or []),
         "environment_fingerprint": fp["digest"],
         "environment": trial["environment"],
     })
@@ -2129,6 +2246,10 @@ def _close_trial(
         "trial_evidence_id": trial.get("evidence_id"),
         "swarm_fingerprint": trial.get("swarm_fingerprint"),
     }
+    if trial.get("exploratory"):
+        link["exploratory"] = True
+        link["predicted_targets"] = list(trial.get("predicted_targets") or [])
+        link["attributed_targets"] = attributable_progress(trial)
     if decision == "adopt" and helped and knob:
         # Value is already the trial value. Strictly-better rule unchanged.
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
@@ -2257,6 +2378,8 @@ def reconcile_no_signal_trial(state: dict[str, Any], *, cycle_id: str = "") -> d
     trial = state.get("trial")
     if not isinstance(trial, dict):
         return state
+    if trial.get("exploratory"):
+        return state  # opened knowingly on a no-signal baseline; runs its full window
     if not trial_is_no_signal(trial):
         return state
     return _close_trial(state, cycle_id, "inconclusive", reason="no_signal_baseline")
@@ -2288,16 +2411,22 @@ def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
         return state
     trial_score = window_score(rows)
     baseline_score = float(trial.get("baseline_score") or 0)
+    reason = None
     if trial_score > baseline_score:
         decision = "adopt"  # strictly better, unchanged
+        if trial.get("exploratory") and not attributable_progress(trial):
+            # Better, but not because of this change: not evidence either way.
+            decision, reason = "inconclusive", "signal_not_attributable"
     elif trial_is_no_signal(trial):
-        decision = "inconclusive"  # item 58: zero vs zero is not evidence
+        decision, reason = "inconclusive", "no_signal"  # item 58
+    elif (
+        trial.get("exploratory") and trial_score >= baseline_score
+        and not attributable_progress(trial)
+    ):
+        decision, reason = "inconclusive", "signal_not_attributable"
     else:
         decision = "revert"
-    return _close_trial(
-        state, cycle_id, decision,
-        reason="no_signal" if decision == "inconclusive" else None,
-    )
+    return _close_trial(state, cycle_id, decision, reason=reason)
 
 
 # ---------------------------------------------------------------------------
