@@ -607,6 +607,7 @@ jobs:
           COLONY_CHAIN: ${{ vars.COLONY_CHAIN }}
           CURRENT_RUN_ID: ${{ github.run_id }}
           EVOLVE_RESULT: ${{ needs.evolve.result }}
+          NEEDS_JSON: ${{ toJSON(needs) }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF: ${{ github.ref }}
         run: |
