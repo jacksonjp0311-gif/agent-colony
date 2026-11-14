@@ -207,15 +207,59 @@
           "treatment": 9228.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 6
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 0.0,
+      "card_id": "",
+      "cycle_id": "20261114T001612Z_9266d8",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "id": "b75e7fc422884657",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "b75e7fc422884657",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-14T00:18:47Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8606
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 528.0
+        },
+        "reason": "tied_or_fitness_only",
+        "verified_depth_sum": {
+          "control": 9228.0,
+          "treatment": 9228.0
+        }
+      }
     }
   ],
   "families": {
     "set_knob:park_cycles": {
       "keep_rate_permille": 0,
       "kept": 0,
-      "n": 3,
+      "n": 4,
       "reverted": 1,
-      "voided": 2
+      "voided": 3
     },
     "set_knob:perturb_cooldown_cycles": {
       "keep_rate_permille": 0,
@@ -225,7 +269,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261113T230546Z_93eaed",
+  "last_cycle": "20261114T002233Z_3dd2f2",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -236,20 +280,21 @@
     "applied_to_live_oracle": false,
     "authorized": false,
     "card_id": "",
-    "cycle_id": "20261113T200758Z_5a781e",
-    "deferred_count": 5,
+    "cycle_id": "20261114T002233Z_3dd2f2",
+    "deferred_count": 8,
     "deferred_under": "bc3df190b3c05ef7ae259380344afc5bbfbf3c0db23a486bce1e11b7a9c34946",
     "event": "hive_deferred",
     "fingerprint": "set_knob:direction=up:name=park_cycles:value=8",
     "label": "dead_end_streak",
     "method": "",
-    "ts": "2026-11-13T20:09:45Z"
+    "ts": "2026-11-14T00:24:54Z"
   },
+  "n_inconclusive": 0,
   "n_kept": 0,
   "n_proposed": 1,
   "n_reverted": 2,
   "n_twin_held": 0,
-  "n_voided": 3,
+  "n_voided": 4,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
   "pending": [
     {
@@ -275,7 +320,7 @@
     "pending": 9,
     "resolved": 0,
     "source": "hive_shadows",
-    "ts": "2026-11-13T23:08:09Z",
+    "ts": "2026-11-14T00:25:32Z",
     "unlabeled": 0
   },
   "twin_pending": [],
