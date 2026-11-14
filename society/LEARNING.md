@@ -11,11 +11,11 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Method cards tried: **0**
 - Kept: **0**
 - Reverted (including twin-not-better): **4**
-- Voided (environment changed mid-trial): **7**
+- Voided (environment changed mid-trial): **8**
 - Inconclusive (no signal in either window; not counted against the action): **1**
 - Proposed this snapshot: **1**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **5** times (`set_knob:direction=up:name=fast_term_cap:value=10700`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive decision deferred **3** times (`set_knob:direction=up:name=fast_term_cap:value=10700`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
 - Hive shadow picks: resolved 0, correct 0, pending 13, accuracy n/a
 
 ## Per method card
@@ -27,7 +27,7 @@ _None yet._
 | Family | Tried | Kept | Reverted | Keep rate |
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_seconds` | 1 | 0 | 1 | 0‰ |
-| `set_knob:fast_term_cap` | 2 | 0 | 0 | 0‰ |
+| `set_knob:fast_term_cap` | 3 | 0 | 0 | 0‰ |
 | `set_knob:gf_term_cap` | 1 | 0 | 1 | 0‰ |
 | `set_knob:park_cycles` | 4 | 0 | 1 | 0‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
@@ -35,7 +35,6 @@ _None yet._
 
 ## Recent outcomes
 
-- `voided` · card `—` · family `set_knob:perturb_cooldown_cycles` · cycle `20261113T025053Z_f9d404` (baseline 0.0, trial None)
 - `reverted` · card `—` · family `set_knob:perturb_cooldown_cycles` · cycle `20261113T111928Z_824713` (baseline 0.0, trial 0.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261113T164820Z_eef78f` (baseline 0.0, trial None)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261113T191238Z_f24225` (baseline 8.0, trial None)
@@ -47,6 +46,7 @@ _None yet._
 - `voided` · card `—` · family `set_knob:perturb_epsilon` · cycle `20261114T192118Z_6e8a46` (baseline 3.0, trial None)
 - `voided` · card `—` · family `set_knob:fast_term_cap` · cycle `20261114T212240Z_58b193` (baseline 3.0, trial None)
 - `inconclusive` · card `—` · family `set_knob:fast_term_cap` · cycle `20261114T222841Z_1f64d2` (baseline 3.0, trial 3.0)
+- `voided` · card `—` · family `set_knob:fast_term_cap` · cycle `20261114T230121Z_d51dd0` (baseline 3.0, trial None)
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
