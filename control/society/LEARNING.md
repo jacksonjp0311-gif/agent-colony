@@ -12,6 +12,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Kept: **0**
 - Reverted (including twin-not-better): **0**
 - Voided (environment changed mid-trial): **0**
+- Inconclusive (no signal in either window; not counted against the action): **0**
 - Proposed this snapshot: **0**
 - Waiting on a twin judgment: **0**
 - Hive shadow picks: resolved 0, correct 0, pending 0, accuracy n/a
