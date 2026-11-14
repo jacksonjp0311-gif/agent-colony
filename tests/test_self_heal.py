@@ -33,11 +33,25 @@ def _metric(cycle_id, targets=0, depth=0, delta=0, passes=528):
     }
 
 
+def _with_signal(rows):
+    """Item 58: a baseline must carry signal. Alternate oracle_pass_delta
+    +1/-1 in pairs so every paired row moves but the window score stays 0."""
+    n = len(rows) - (len(rows) % 2)
+    for i, r in enumerate(rows):
+        d = (1 if i % 2 == 0 else -1) if i < n else 0
+        r["oracle_pass_delta"] = d
+        r["score"] = SH.score_metrics(int(r.get("new_oracle_targets") or 0),
+                                      int(r.get("new_depth") or 0), d) if d else r.get("score", 0.0)
+    return rows
+
+
 def _prime_baseline(n=6, score_targets=0):
     """Write n flat baseline metric rows and return the state."""
     st = SH.load_state()
     fp = SH.environment_fingerprint(state=st)["digest"]
     rows = [_metric(f"b{i}", targets=score_targets) for i in range(n)]
+    if not score_targets:
+        _with_signal(rows)
     for r in rows:
         r["env_fingerprint"] = fp
     st["metrics"] = rows
@@ -261,14 +275,15 @@ def test_tie_reverts(tmp_path, monkeypatch):
 def test_no_trial_until_baseline_window_is_full(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
     findings = [{"kind": "flat_passes", "evidence": {"stall_cycles": 8, "threshold": 6}}]
-    out = SH.run_cycle("c1", metrics=_metric("c1"), findings=findings)
+    # Item 58: the baseline needs signal; +1/-1 pairs keep the score at 0.
+    out = SH.run_cycle("c1", metrics=_metric("c1", delta=1), findings=findings)
     assert out["trial_started"] is False
     assert out["trial"] is None
     # Five more (total 6) — the 6th can start a trial (baseline is those 6).
     for i in range(2, 6):
-        out = SH.run_cycle(f"c{i}", metrics=_metric(f"c{i}"), findings=findings)
+        out = SH.run_cycle(f"c{i}", metrics=_metric(f"c{i}", delta=1 if i % 2 else -1), findings=findings)
         assert out["trial_started"] is False
-    out = SH.run_cycle("c6", metrics=_metric("c6"), findings=findings)
+    out = SH.run_cycle("c6", metrics=_metric("c6", delta=-1), findings=findings)
     assert out["trial_started"] is True
     assert out["trial"]["knob"] in (
         "perturb_epsilon", "unused_menu_cycles", "perturb_max_cycles",
@@ -918,15 +933,16 @@ def test_fresh_baseline_required_after_void(tmp_path, monkeypatch):
     st["metrics"] = [_metric(f"old{i}", depth=2 if i == 0 else 0) for i in range(6)]
     # First is the confounded cap-driven gain.
     SH.save_state(st)
-    out = SH.run_cycle("n1", metrics=_metric("n1"), findings=findings)
+    # Item 58: the baseline needs signal; +1/-1 pairs keep the score at 0.
+    out = SH.run_cycle("n1", metrics=_metric("n1", delta=1), findings=findings)
     assert out["trial_started"] is False
     assert out["trial"] is None
     # n2–n5: last-6 window still contains at least one unfingerprinted row.
     for i in range(2, 6):
-        out = SH.run_cycle(f"n{i}", metrics=_metric(f"n{i}"), findings=findings)
+        out = SH.run_cycle(f"n{i}", metrics=_metric(f"n{i}", delta=1 if i % 2 else -1), findings=findings)
         assert out["trial_started"] is False, i
     # n6: last 6 are all new, same-fingerprint cycles.
-    out = SH.run_cycle("n6", metrics=_metric("n6"), findings=findings)
+    out = SH.run_cycle("n6", metrics=_metric("n6", delta=-1), findings=findings)
     started = out["trial_started"]
     assert started is True
     # The new baseline does not include the confounded new_depth=2.

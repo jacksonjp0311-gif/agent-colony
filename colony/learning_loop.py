@@ -142,6 +142,7 @@ def _empty_state() -> dict[str, Any]:
         "n_kept": 0,
         "n_reverted": 0,
         "n_voided": 0,
+        "n_inconclusive": 0,
         "n_twin_held": 0,
         "last_hive_deferral": None,
         "applied_to_live_oracle": False,
@@ -346,6 +347,15 @@ def attach_card_findings(
 
 
 def _bump_rate(bucket: dict[str, Any], key: str, outcome: str) -> None:
+    # Item 58: an inconclusive (no-signal) trial is tracked but is not a
+    # try: it does not enter n, so it cannot lower a keep rate.
+    if outcome == "inconclusive":
+        row = dict(bucket.get(key) or {"n": 0, "kept": 0, "reverted": 0, "voided": 0})
+        row["inconclusive"] = int(row.get("inconclusive") or 0) + 1
+        n = int(row.get("n") or 0)
+        row["keep_rate_permille"] = int(1000 * int(row.get("kept") or 0) / n) if n else 0
+        bucket[key] = row
+        return
     # Provisional adopts wait for a twin judgment; do not count them twice.
     if outcome not in ("kept", "reverted", "reverted_twin", "voided"):
         return
@@ -389,10 +399,15 @@ def record_example(
         "self_heal_helped": event.get("self_heal_helped"),
         "strictly_better": event.get("strictly_better"),
         "source": event.get("source") or "learning_loop",
+        "sources": list(event.get("sources") or [event.get("source") or "learning_loop"]),
         "applied_to_live_oracle": False,
         "authorized": False,
         "ts": event.get("ts") or _utc(),
     }
+    if isinstance(event.get("hive_vote"), Mapping):
+        row["hive_vote"] = dict(event["hive_vote"])
+    if event.get("note"):
+        row["note"] = str(event.get("note"))
     row["id"] = str(event.get("id") or _event_id(row))
     # Dedupe by id so harvest is idempotent.
     seen = {str(x.get("id")) for x in (st.get("examples") or []) if isinstance(x, dict)}
@@ -407,6 +422,8 @@ def record_example(
         st["n_reverted"] = int(st.get("n_reverted") or 0) + 1
     elif outcome == "voided":
         st["n_voided"] = int(st.get("n_voided") or 0) + 1
+    elif outcome == "inconclusive":
+        st["n_inconclusive"] = int(st.get("n_inconclusive") or 0) + 1
     if card_id:
         cards = dict(st.get("cards") or {})
         _bump_rate(cards, card_id, outcome)
@@ -569,6 +586,8 @@ def _heal_evidence() -> list[dict[str, Any]]:
 
 def _map_heal_outcome(event: Mapping[str, Any]) -> str | None:
     name = str(event.get("event") or "")
+    if name == "trial_inconclusive":
+        return "inconclusive"
     if name in ("adopt", "trial_adopted"):
         return "provisional_adopt"
     if name in ("revert", "trial_reverted"):
@@ -586,8 +605,14 @@ def harvest_outcomes(
     treatment: Mapping[str, Any] | None = None,
     control: Mapping[str, Any] | None = None,
     write: bool = True,
+    hive_links: list[Mapping[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
-    """Turn new self-heal close events into labeled examples."""
+    """Turn new self-heal close events into labeled examples.
+
+    ``hive_links`` (item 57): Hive pending applies resolved by a linked
+    self-heal trial. The matching close gets ONE example tagged with
+    both sources, not two.
+    """
     st = state if state is not None else load_state()
     ev = list(evidence if evidence is not None else _heal_evidence())
     if treatment is None and control is None:
@@ -607,6 +632,11 @@ def harvest_outcomes(
                 return p
         return {}
 
+    links_by_id: dict[str, Mapping[str, Any]] = {}
+    for link in list(hive_links or []):
+        if isinstance(link, Mapping) and link.get("heal_event_id"):
+            links_by_id[str(link["heal_event_id"])] = link
+
     for event in ev:
         outcome = _map_heal_outcome(event)
         if not outcome:
@@ -615,6 +645,7 @@ def harvest_outcomes(
         if sid and sid in seen:
             continue
         card = _card_for(event)
+        hlink = links_by_id.get(sid)
         action = event.get("action") if isinstance(event.get("action"), Mapping) else {}
         if not action and event.get("knob"):
             action = {
@@ -630,7 +661,9 @@ def harvest_outcomes(
             control=control,
         )
         final = outcome
-        if outcome == "provisional_adopt":
+        if outcome == "inconclusive":
+            pass  # no signal: not a keep, not a revert, no twin judgment
+        elif outcome == "provisional_adopt":
             if decision["keep"]:
                 final = "kept"
             elif decision["reason"] == "twin_unavailable":
@@ -652,6 +685,18 @@ def harvest_outcomes(
                 "self_heal_helped": decision.get("self_heal_helped"),
                 "strictly_better": decision.get("keep"),
                 "source": "self_heal",
+                "sources": ["self_heal", "hive_vote"] if hlink else ["self_heal"],
+                "hive_vote": {
+                    "fingerprint": hlink.get("fingerprint"),
+                    "lower_permille": hlink.get("vote_lower_permille"),
+                    "margin": hlink.get("vote_margin"),
+                    "deferred_count": hlink.get("deferred_count"),
+                    "correct": hlink.get("hive_vote_correct"),
+                } if hlink else None,
+                "note": (
+                    "no signal in baseline or trial window; not evidence for or against the action"
+                    if outcome == "inconclusive" else ""
+                ),
                 "source_id": sid,
                 "id": sid or None,
                 "ts": event.get("ts"),
@@ -861,7 +906,8 @@ def format_visibility(state: dict[str, Any] | None = None) -> str:
     acc_s = f"{acc}‰" if acc is not None else "n/a"
     return (
         f"method cards tried {len(cards)}, kept {st.get('n_kept') or 0}, "
-        f"reverted {st.get('n_reverted') or 0}, voided {st.get('n_voided') or 0}; "
+        f"reverted {st.get('n_reverted') or 0}, voided {st.get('n_voided') or 0}, "
+        f"inconclusive {st.get('n_inconclusive') or 0}; "
         f"proposed {st.get('n_proposed') or 0}; "
         f"twin-held {len(st.get('twin_pending') or [])}; "
         + (
@@ -900,6 +946,7 @@ def render_markdown(state: dict[str, Any] | None = None) -> str:
         f"- Kept: **{st.get('n_kept') or 0}**",
         f"- Reverted (including twin-not-better): **{st.get('n_reverted') or 0}**",
         f"- Voided (environment changed mid-trial): **{st.get('n_voided') or 0}**",
+        f"- Inconclusive (no signal in either window; not counted against the action): **{st.get('n_inconclusive') or 0}**",
         f"- Proposed this snapshot: **{st.get('n_proposed') or 0}**",
         f"- Waiting on a twin judgment: **{len(st.get('twin_pending') or [])}**",
         (
@@ -1014,7 +1061,13 @@ def run_cycle(cycle_id: str = "", **kwargs: Any) -> dict[str, Any]:
             deferred_row = note_hive_deferral(
                 pending_apply, cycle_id=cycle_id, state=st, write=False,
             )
-        harvested = harvest_outcomes(cycle_id, state=st, write=False)
+        hive_links = kwargs.get("hive_links")
+        if isinstance(hive_links, Mapping):
+            hive_links = [hive_links]
+        harvested = harvest_outcomes(
+            cycle_id, state=st, write=False,
+            hive_links=[x for x in list(hive_links or []) if isinstance(x, Mapping)],
+        )
         judged = judge_twin_pending(state=st, write=False)
         shadow = score_shadows(kwargs.get("hive_state"))
         st["shadow"] = shadow

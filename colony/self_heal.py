@@ -483,7 +483,7 @@ def _baseline_exclude_knob(state: dict[str, Any] | None) -> str | None:
     last = st.get("last_self_change") or {}
     if (
         isinstance(last, dict)
-        and last.get("event") in ("adopt", "revert", "trial_voided_confound")
+        and last.get("event") in ("adopt", "revert", "trial_voided_confound", "trial_inconclusive")
         and last.get("knob")
     ):
         return str(last["knob"])
@@ -686,10 +686,12 @@ def _empty_state() -> dict[str, Any]:
         "evidence": [],
         "adopted_count": 0,
         "reverted_count": 0,
+        "inconclusive_count": 0,
         "cycle_index": 0,
         "cycles": [],
         "last_self_change": None,
         "knob_last_trial": {},
+        "trial_skip": None,
     }
 
 
@@ -714,6 +716,7 @@ def load_state() -> dict[str, Any]:
         "trial", "metrics", "quarantine", "failures", "evidence",
         "adopted_count", "reverted_count", "cycle_index", "cycles",
         "last_self_change", "knob_last_trial",
+        "inconclusive_count", "trial_skip",
     ):
         if key in raw:
             state[key] = raw[key]
@@ -730,7 +733,10 @@ def load_state() -> dict[str, Any]:
         state["failures"] = []
     state["adopted_count"] = int(state.get("adopted_count") or 0)
     state["reverted_count"] = int(state.get("reverted_count") or 0)
+    state["inconclusive_count"] = int(state.get("inconclusive_count") or 0)
     state["cycle_index"] = int(state.get("cycle_index") or 0)
+    if not isinstance(state.get("trial_skip"), dict):
+        state["trial_skip"] = None
     return state
 
 
@@ -798,7 +804,7 @@ def append_evidence(state: dict[str, Any], event: dict[str, Any]) -> dict[str, A
     evidence = list(state.get("evidence") or [])
     evidence.append(ev)
     state["evidence"] = evidence
-    if ev.get("event") in ("adopt", "revert", "trial_voided_confound"):
+    if ev.get("event") in ("adopt", "revert", "trial_voided_confound", "trial_inconclusive"):
         state["last_self_change"] = ev
     try:
         append_log(ev)
@@ -890,6 +896,24 @@ def set_knob(name: str, value: Any, *, state: dict[str, Any] | None = None) -> d
     knobs = _enforce_epsilon_pair(knobs)
     st["knobs"] = knobs
     return {"ok": True, "name": name, "value": knobs[name], "state": st}
+
+
+def state_knob(state: dict[str, Any] | None, name: str) -> int | float:
+    """The knob value held in ``state`` (in memory), not re-read from disk.
+
+    ``current_knob`` reloads the saved state. Within one cycle, a trial
+    that just closed in memory is still open on disk, so a proposal
+    stepped from the disk value starts from the stale trial value
+    (run 43523388103: 6→8 reverted, then "8→10" opened with the knob
+    really at 6). Falls back to ``current_knob`` when the state has no
+    legal value.
+    """
+    if is_invariant_name(name) or name not in KNOB_SPECS:
+        raise ValueError(f"not a tunable knob: {name}")
+    knobs = (state or {}).get("knobs") or {}
+    if name in knobs and in_bounds(name, knobs[name]):
+        return _cast(KNOB_SPECS[name], knobs[name])
+    return current_knob(name)
 
 
 def stepped_value(
@@ -1204,6 +1228,27 @@ def collect_metrics(
 
 def window_score(rows: Iterable[dict[str, Any]]) -> float:
     return float(sum(float(r.get("score") or 0) for r in rows))
+
+
+SIGNAL_FIELDS = ("score", "new_oracle_targets", "new_depth", "oracle_pass_delta")
+
+
+def row_has_signal(row: dict[str, Any] | None) -> bool:
+    """True if a metric row moved anything the fixed metric measures."""
+    if not isinstance(row, dict):
+        return False
+    for key in SIGNAL_FIELDS:
+        try:
+            if float(row.get(key) or 0) != 0.0:
+                return True
+        except (TypeError, ValueError):
+            continue
+    return False
+
+
+def window_has_signal(rows: Iterable[dict[str, Any]] | None) -> bool:
+    """False for an empty window or one where every row is all-zero (item 58)."""
+    return any(row_has_signal(r) for r in list(rows or []))
 
 
 # ---------------------------------------------------------------------------
@@ -1780,7 +1825,52 @@ def _knob_on_cooldown(state: dict[str, Any], knob: str, direction: str) -> bool:
     if str(last.get("direction") or "") != direction:
         return False
     last_idx = int(last.get("cycle_index") or -10**9)
+    # A revert restarts the cooldown, so a knob is not re-tried in the
+    # same direction the moment its trial closes.
+    closed = last.get("closed_index")
+    if closed is not None:
+        last_idx = max(last_idx, int(closed))
     return (int(state.get("cycle_index") or 0) - last_idx) < KNOB_RETRY_COOLDOWN
+
+
+def _record_trial_skip(
+    state: dict[str, Any],
+    cycle_id: str,
+    reason: str,
+    findings: list[dict[str, Any]],
+    window_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Remember why no trial opened. One evidence event per skip episode."""
+    prev = state.get("trial_skip") if isinstance(state.get("trial_skip"), dict) else None
+    kinds = sorted({str(f.get("kind") or "") for f in findings if f.get("kind")})
+    if prev and prev.get("reason") == reason:
+        prev = dict(prev)
+        if prev.get("last_cycle") != cycle_id:
+            prev["count"] = int(prev.get("count") or 0) + 1
+        prev["last_cycle"] = cycle_id
+        prev["findings"] = kinds
+        state["trial_skip"] = prev
+        return prev
+    rec = {
+        "reason": reason,
+        "first_cycle": cycle_id,
+        "last_cycle": cycle_id,
+        "count": 1,
+        "findings": kinds,
+        "window": len(window_rows),
+        "window_cycles": [str(r.get("cycle_id") or "") for r in window_rows],
+    }
+    ev = append_evidence(state, {
+        "event": "trial_skipped",
+        "cycle_id": cycle_id,
+        "reason": reason,
+        "findings": kinds,
+        "window": len(window_rows),
+        "window_cycles": rec["window_cycles"],
+    })
+    rec["evidence_id"] = ev.get("id")
+    state["trial_skip"] = rec
+    return rec
 
 
 def propose_trial(
@@ -1799,7 +1889,7 @@ def propose_trial(
     st = state if state is not None else load_state()
     if st.get("trial"):
         return None
-    window = int(current_knob("evaluation_window"))
+    window = int(state_knob(st, "evaluation_window"))
     metrics = list(st.get("metrics") or [])
     if len(metrics) < window:
         return None
@@ -1809,6 +1899,12 @@ def propose_trial(
     # starve the next one of a baseline.
     window_rows = metrics[-window:]
     if baseline_environment_confounded(window_rows, state=st):
+        return None
+    # Item 58: a window with no signal cannot show "strictly better" in
+    # either direction, so a trial would only burn cycles and log a
+    # false negative. Record the skip and wait for a cycle with signal.
+    if findings and not window_has_signal([rescore_metric_row(r) for r in window_rows]):
+        _record_trial_skip(st, cycle_id, "no_signal_baseline", findings, window_rows)
         return None
     tried: set[tuple[str, str]] = set()
     for finding in findings:
@@ -1821,12 +1917,12 @@ def propose_trial(
             tried.add((knob, direction))
             if _knob_on_cooldown(st, knob, direction):
                 continue
-            cur = current_knob(knob)
-            nxt = stepped_value(knob, direction, current=cur, step_size=float(current_knob("step_size")))
+            cur = state_knob(st, knob)
+            nxt = stepped_value(knob, direction, current=cur, step_size=float(state_knob(st, "step_size")))
             if nxt is None:
                 continue
             # Keep the epsilon pair legal if this is one of those two.
-            if knob == "perturb_epsilon" and float(nxt) > float(current_knob("perturb_wide_epsilon")):
+            if knob == "perturb_epsilon" and float(nxt) > float(state_knob(st, "perturb_wide_epsilon")):
                 # Step wide first, or skip if wide cannot rise.
                 wide_nxt = stepped_value("perturb_wide_epsilon", "up")
                 if wide_nxt is None or float(wide_nxt) < float(nxt):
@@ -1881,6 +1977,7 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         return st
     _apply_knob(st, trial["knob"], trial["to"])
     st["trial"] = trial
+    st["trial_skip"] = None
     last = dict(st.get("knob_last_trial") or {})
     last[trial["knob"]] = {
         "direction": trial.get("direction"),
@@ -1909,6 +2006,47 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
     st["trial"] = trial
     save_state(st)
     return st
+
+
+def pre_trial_value(state: dict[str, Any], trial: dict[str, Any]) -> tuple[Any, bool]:
+    """Value the knob held just before this trial started, and whether
+    the trial's recorded ``from`` was stale.
+
+    A trial opened in the same cycle another trial on the same knob
+    closed could record the old trial value as ``from`` (stale disk
+    read). The close event just before ``trial_start``, in that same
+    cycle, says what the knob was actually restored or adopted to.
+    Otherwise ``from`` is used as recorded.
+    """
+    recorded = trial.get("from")
+    knob = str(trial.get("knob") or "")
+    start_id = str(trial.get("evidence_id") or "")
+    started = str(trial.get("started_cycle") or "")
+    evidence = [e for e in list(state.get("evidence") or []) if isinstance(e, dict)]
+    idx = None
+    if start_id:
+        for i, e in enumerate(evidence):
+            if str(e.get("id") or "") == start_id:
+                idx = i
+                break
+    if idx is None:
+        return recorded, False
+    for e in reversed(evidence[:idx]):
+        if str(e.get("knob") or "") != knob:
+            continue
+        name = str(e.get("event") or "")
+        if name not in ("adopt", "revert", "trial_voided_confound", "trial_inconclusive"):
+            continue
+        if str(e.get("cycle_id") or "") != started:
+            break
+        actual = e.get("to")
+        if actual is None or actual == recorded:
+            break
+        try:
+            return _cast(KNOB_SPECS[knob], actual), True
+        except Exception:
+            return actual, True
+    return recorded, False
 
 
 def void_trial_for_confound(
@@ -1941,14 +2079,15 @@ def void_trial_for_confound(
     if not trial:
         return state
     knob = str(trial.get("knob") or "")
+    restore, stale = pre_trial_value(state, trial)
     if knob:
-        _apply_knob(state, knob, trial.get("from"))
+        _apply_knob(state, knob, restore)
     ev = append_evidence(state, {
         "event": "trial_voided_confound",
         "cycle_id": cycle_id,
         "knob": knob,
         "from": trial.get("to"),
-        "to": trial.get("from"),
+        "to": restore,
         "direction": trial.get("direction"),
         "reason": reason,
         "old_fingerprint": old_fingerprint,
@@ -1958,6 +2097,9 @@ def void_trial_for_confound(
         "trial_metrics": list(trial.get("trial_metrics") or []),
         "window": trial.get("window"),
         "started_cycle": trial.get("started_cycle"),
+        "trial_evidence_id": trial.get("evidence_id"),
+        "recorded_from": trial.get("from") if stale else None,
+        "stale_from_corrected": bool(stale),
         "helped": None,
         "adopted": False,
         "reverted": False,
@@ -1967,7 +2109,13 @@ def void_trial_for_confound(
     return state
 
 
-def _close_trial(state: dict[str, Any], cycle_id: str, decision: str) -> dict[str, Any]:
+def _close_trial(
+    state: dict[str, Any],
+    cycle_id: str,
+    decision: str,
+    *,
+    reason: str | None = None,
+) -> dict[str, Any]:
     trial = dict(state.get("trial") or {})
     if not trial:
         return state
@@ -1976,8 +2124,13 @@ def _close_trial(state: dict[str, Any], cycle_id: str, decision: str) -> dict[st
     baseline_score = float(trial.get("baseline_score") or 0)
     helped = trial_score > baseline_score
     knob = str(trial.get("knob") or "")
+    link = {
+        "started_cycle": trial.get("started_cycle"),
+        "trial_evidence_id": trial.get("evidence_id"),
+        "swarm_fingerprint": trial.get("swarm_fingerprint"),
+    }
     if decision == "adopt" and helped and knob:
-        # Value is already the trial value.
+        # Value is already the trial value. Strictly-better rule unchanged.
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
         ev = append_evidence(state, {
             "event": "adopt",
@@ -1993,20 +2146,58 @@ def _close_trial(state: dict[str, Any], cycle_id: str, decision: str) -> dict[st
             "baseline_metrics": trial.get("baseline_metrics"),
             "trial_metrics": trial_rows,
             "helped": True,
+            **link,
         })
+        state["last_self_change"] = ev
+        state["trial"] = None
+        return state
+    restore, stale = pre_trial_value(state, trial)
+    stale_fields = {
+        "recorded_from": trial.get("from") if stale else None,
+        "stale_from_corrected": bool(stale),
+    }
+    if decision == "inconclusive":
+        # Item 58: no signal in either window. The knob still returns to
+        # its prior value (safe default), but this is not a revert: no
+        # reverted_count, and not a negative example for anyone.
+        if knob:
+            _apply_knob(state, knob, restore)
+        state["inconclusive_count"] = int(state.get("inconclusive_count") or 0) + 1
+        ev = append_evidence(state, {
+            "event": "trial_inconclusive",
+            "cycle_id": cycle_id,
+            "knob": knob,
+            "from": trial.get("to"),
+            "to": restore,
+            "direction": trial.get("direction"),
+            "reason": reason or "no_signal",
+            "finding_reason": trial.get("reason"),
+            "baseline_score": baseline_score,
+            "trial_score": trial_score,
+            "window": trial.get("window"),
+            "n_trial_metrics": len(trial_rows),
+            "baseline_metrics": trial.get("baseline_metrics"),
+            "trial_metrics": trial_rows,
+            "helped": None,
+            "adopted": False,
+            "reverted": False,
+            **link,
+            **stale_fields,
+        })
+        _mark_knob_closed(state, knob, cycle_id)
         state["last_self_change"] = ev
         state["trial"] = None
         return state
     # Revert (explicit, or adopt that did not help).
     if knob:
-        _apply_knob(state, knob, trial.get("from"))
+        _apply_knob(state, knob, restore)
     state["reverted_count"] = int(state.get("reverted_count") or 0) + 1
     ev = append_evidence(state, {
         "event": "revert",
         "cycle_id": cycle_id,
         "knob": knob,
         "from": trial.get("to"),  # leaving the trial value
-        "to": trial.get("from"),  # restoring the previous value
+        "to": restore,  # restoring the previous value
         "direction": trial.get("direction"),
         "reason": trial.get("reason") if decision == "revert" else "did_not_improve",
         "baseline_score": baseline_score,
@@ -2016,10 +2207,59 @@ def _close_trial(state: dict[str, Any], cycle_id: str, decision: str) -> dict[st
         "trial_metrics": trial_rows,
         "helped": False,
         "decision_requested": decision,
+        **link,
+        **stale_fields,
     })
+    _mark_knob_closed(state, knob, cycle_id)
     state["last_self_change"] = ev
     state["trial"] = None
     return state
+
+
+def _mark_knob_closed(state: dict[str, Any], knob: str, cycle_id: str) -> None:
+    """Restart the retry cooldown from the close (revert or inconclusive)."""
+    if not knob:
+        return
+    last = dict(state.get("knob_last_trial") or {})
+    rec = dict(last.get(knob) or {})
+    if rec:
+        rec["closed_index"] = int(state.get("cycle_index") or 0)
+        rec["closed_cycle"] = cycle_id
+        last[knob] = rec
+        state["knob_last_trial"] = last
+
+
+def trial_is_no_signal(trial: dict[str, Any] | None) -> bool:
+    """Both the baseline window and the trial rows so far carry no signal."""
+    if not isinstance(trial, dict):
+        return False
+    return (
+        not window_has_signal(trial.get("baseline_metrics"))
+        and not window_has_signal(trial.get("trial_metrics"))
+    )
+
+
+def reconcile_no_signal_trial(state: dict[str, Any], *, cycle_id: str = "") -> dict[str, Any]:
+    """Close an open trial that the item-58 guard would not have opened.
+
+    A trial whose baseline window had no signal, and whose trial rows so
+    far also have none, can only end in a zero-vs-zero revert. Close it
+    now as ``inconclusive`` (knob back to its true prior value) through
+    the same close path. A trial that has started to show signal is left
+    to finish its window. Control arm: no-op.
+    """
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return state
+    except Exception:
+        pass
+    trial = state.get("trial")
+    if not isinstance(trial, dict):
+        return state
+    if not trial_is_no_signal(trial):
+        return state
+    return _close_trial(state, cycle_id, "inconclusive", reason="no_signal_baseline")
 
 
 def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
@@ -2048,8 +2288,16 @@ def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
         return state
     trial_score = window_score(rows)
     baseline_score = float(trial.get("baseline_score") or 0)
-    decision = "adopt" if trial_score > baseline_score else "revert"
-    return _close_trial(state, cycle_id, decision)
+    if trial_score > baseline_score:
+        decision = "adopt"  # strictly better, unchanged
+    elif trial_is_no_signal(trial):
+        decision = "inconclusive"  # item 58: zero vs zero is not evidence
+    else:
+        decision = "revert"
+    return _close_trial(
+        state, cycle_id, decision,
+        reason="no_signal" if decision == "inconclusive" else None,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -2345,6 +2593,12 @@ def run_cycle(
             trial = dict(trial)
             trial["trial_metrics"] = tmetrics
             st["trial"] = trial
+            # Item 58: an open trial with no signal in its baseline and none
+            # in its trial rows (this cycle included) closes inconclusive.
+            try:
+                st = reconcile_no_signal_trial(st, cycle_id=cycle_id)
+            except Exception:
+                pass
             st = maybe_close_trial(st, cycle_id)
 
     started = False
@@ -2383,6 +2637,8 @@ def run_cycle(
         "trial": st.get("trial"),
         "proposal": proposal,
         "supply": supply,
+        "trial_skip": st.get("trial_skip"),
+        "self_changes_inconclusive": vis.get("self_changes_inconclusive", 0),
         "self_changes_adopted": vis["self_changes_adopted"],
         "self_changes_reverted": vis["self_changes_reverted"],
         "last_self_change": vis["last_self_change"],
@@ -2430,9 +2686,11 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
         return {
             "self_changes_adopted": int(st.get("adopted_count") or 0),
             "self_changes_reverted": int(st.get("reverted_count") or 0),
+            "self_changes_inconclusive": int(st.get("inconclusive_count") or 0),
             "last_self_change": last_out,
             "quarantined_steps": quarantined_steps(state=st),
             "self_heal_trial": trial_out,
+            "trial_skip": st.get("trial_skip") if isinstance(st.get("trial_skip"), dict) else None,
         }
     except Exception:
         return {
@@ -2455,6 +2713,9 @@ def format_visibility(vis: dict[str, Any] | None = None) -> str:
         f"self_changes_adopted {adopted}",
         f"self_changes_reverted {reverted}",
     ]
+    inconclusive = int(v.get("self_changes_inconclusive") or 0)
+    if inconclusive:
+        parts.append(f"self_changes_inconclusive {inconclusive}")
     if last:
         ev = last.get("event")
         knob = last.get("knob")
@@ -2470,6 +2731,12 @@ def format_visibility(vis: dict[str, Any] | None = None) -> str:
         parts.append(
             f"trial {trial.get('knob')} {trial.get('from')}→{trial.get('to')} "
             f"({trial.get('n_trial_metrics')}/{trial.get('window')})"
+        )
+    skip = v.get("trial_skip")
+    if skip and not trial:
+        parts.append(
+            f"trial skipped: {skip.get('reason')} "
+            f"({skip.get('count')} cycles since {skip.get('first_cycle')})"
         )
     if q:
         names = ", ".join(

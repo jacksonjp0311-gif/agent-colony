@@ -517,3 +517,98 @@ def test_adapter_forwards_pending_apply(isolated, monkeypatch):
     assert seen["pending_apply"]["deferred_count"] == 3
     assert seen["proposal"]["card_id"] == "mc_abc"
     assert out["learning_loop"]["deferred"]["deferred_count"] == 3
+
+
+# ---------------------------------------------------------------------------
+# Item 58: inconclusive is not a bad example. Item 57: one example, two sources.
+# ---------------------------------------------------------------------------
+
+def _inconclusive_event(eid="inc1"):
+    return {
+        "id": eid, "event": "trial_inconclusive", "knob": "park_cycles",
+        "direction": "up", "from": 10, "to": 6, "trial_score": 0.0,
+        "baseline_score": 0.0, "cycle_id": "c9", "reason": "no_signal_baseline",
+    }
+
+
+def test_inconclusive_outcome_does_not_lower_keep_rate(isolated):
+    st = LL.load_state()
+    st["families"] = {"knob": {"n": 2, "kept": 1, "reverted": 1, "voided": 0, "keep_rate_permille": 500}}
+    rows = LL.harvest_outcomes(
+        "c9", state=st, evidence=[_inconclusive_event()],
+        treatment=None, control=None, write=True,
+    )
+    assert len(rows) == 1
+    assert rows[0]["outcome"] == "inconclusive"
+    assert "not evidence" in rows[0]["note"]
+    st = LL.load_state()
+    assert st["n_inconclusive"] == 1
+    assert st["n_reverted"] == 0 and st["n_kept"] == 0
+    fam = st["families"][rows[0]["family"]]
+    assert fam.get("inconclusive") == 1
+    if rows[0]["family"] == "knob":
+        assert fam["n"] == 2 and fam["keep_rate_permille"] == 500
+    else:
+        assert fam["n"] == 0
+    assert st["twin_pending"] == []  # no twin judgment for no signal
+    # Idempotent.
+    again = LL.harvest_outcomes("c10", state=st, evidence=[_inconclusive_event()],
+                                treatment=None, control=None, write=True)
+    assert again == []
+
+
+def test_bump_rate_inconclusive_is_not_a_try():
+    bucket = {}
+    LL._bump_rate(bucket, "k", "inconclusive")
+    assert bucket["k"]["n"] == 0 and bucket["k"]["inconclusive"] == 1
+    LL._bump_rate(bucket, "k", "kept")
+    assert bucket["k"]["n"] == 1 and bucket["k"]["keep_rate_permille"] == 1000
+
+
+def test_hive_link_tags_one_example_with_both_sources(isolated):
+    revert = {
+        "id": "heal9", "event": "revert", "knob": "park_cycles", "direction": "up",
+        "from": 8, "to": 6, "trial_score": -1.0, "baseline_score": 0.0, "cycle_id": "c9",
+    }
+    link = {
+        "outcome": "revert", "heal_event_id": "heal9", "fingerprint": "set_knob:direction=up:name=park_cycles:value=8",
+        "vote_lower_permille": 901, "vote_margin": 189, "deferred_count": 5,
+        "hive_vote_correct": False, "sources": ["self_heal", "hive_vote"],
+    }
+    st = LL.load_state()
+    rows = LL.harvest_outcomes("c9", state=st, evidence=[revert], treatment=None,
+                               control=None, write=True, hive_links=[link])
+    assert len(rows) == 1
+    assert rows[0]["sources"] == ["self_heal", "hive_vote"]
+    assert rows[0]["hive_vote"]["lower_permille"] == 901
+    assert rows[0]["hive_vote"]["correct"] is False
+    st = LL.load_state()
+    assert st["n_reverted"] == 1  # one outcome, credited once
+
+
+def test_run_cycle_accepts_single_hive_link_mapping(isolated, monkeypatch):
+    revert = {"id": "heal7", "event": "revert", "knob": "park_cycles", "direction": "up",
+              "from": 8, "to": 6, "trial_score": -1.0, "baseline_score": 0.0, "cycle_id": "c7"}
+    monkeypatch.setattr(LL, "_heal_evidence", lambda: [revert])
+    out = LL.run_cycle("c7", hive_links={"heal_event_id": "heal7", "hive_vote_correct": False})
+    st = LL.load_state()
+    ex = [e for e in st["examples"] if e.get("source_id") == "heal7" or e.get("id")]
+    assert any(e.get("sources") == ["self_heal", "hive_vote"] for e in ex), out
+
+
+def test_control_arm_learning_loop_noop(isolated, monkeypatch):
+    monkeypatch.setattr(LL, "self_mod_ok", lambda: False)
+    out = LL.run_cycle("c1", hive_links=[{"heal_event_id": "x"}])
+    assert out["ran"] is False and out["reason"] == "control_arm"
+
+
+def test_adapter_passes_pending_resolved_as_hive_links(monkeypatch):
+    import colony.hive_adapter as HA
+    import colony.learning_loop as LLmod
+    seen = {}
+    resolved = {"heal_event_id": "h1", "outcome": "adopt"}
+    monkeypatch.setattr(HA, "hive_learning_enabled", lambda: True)
+    monkeypatch.setattr(HA.swarm, "on_cycle", lambda cycle_id="": {"ok": True, "pending_resolved": resolved})
+    monkeypatch.setattr(LLmod, "on_cycle", lambda cycle_id="", **k: seen.update(k) or {"ran": True})
+    HA.on_cycle("c1")
+    assert seen["hive_links"] == resolved
