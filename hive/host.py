@@ -222,6 +222,13 @@ def heal_predicted_new_targets(name: str, value: Any) -> list[str]:
     return []
 
 
+def heal_is_cap_knob(name: str) -> bool:
+    """True for cap knobs that have a read-only target predictor."""
+    if _heal is not None:
+        return str(name) in tuple(getattr(_heal, "CAP_KNOBS", ()) or ())
+    return False
+
+
 def heal_window_score(rows: Iterable[dict[str, Any]]) -> float:
     if _heal is not None:
         return float(_heal.window_score(rows))
