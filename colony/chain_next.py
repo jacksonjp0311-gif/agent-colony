@@ -27,6 +27,9 @@ DEFAULT_AUTHORIZE = "false"
 _FAILURE_CONCLUSIONS = frozenset({"failure", "timed_out", "startup_failure"})
 _SUCCESS_CONCLUSIONS = frozenset({"success"})
 _ACTIVE_STATUSES = frozenset({"queued", "in_progress", "waiting", "pending", "requested"})
+# Statuses queried from the API before dispatching. Must cover every
+# status in _ACTIVE_STATUSES.
+ACTIVE_LIST_STATUSES = ("in_progress", "queued", "waiting", "pending", "requested")
 _IGNORE_CONCLUSIONS = frozenset({"cancelled", "skipped", "action_required", "neutral", "stale"})
 
 
@@ -38,6 +41,40 @@ def kill_switch_off(chain_var: str | None) -> bool:
 def is_main_ref(ref: str | None) -> bool:
     r = str(ref or "").strip()
     return r in ("refs/heads/main", "main")
+
+
+def current_run_result(
+    needs_json: str | None,
+    evolve_result: str | None = None,
+) -> str:
+    """Whole-run result for the finishing run, from all needed jobs.
+
+    Prior runs are judged by their run-level ``conclusion``, which is
+    ``failure`` when any job failed. To count the finishing run the same
+    way, it is a failure when any needed job failed or timed out, a
+    success when every needed job succeeded or was skipped, and
+    otherwise falls back to the evolve job's result.
+    """
+    results: list[str] = []
+    try:
+        needs = json.loads(needs_json or "") if needs_json else {}
+    except (TypeError, ValueError):
+        needs = {}
+    if isinstance(needs, dict):
+        for job in needs.values():
+            if isinstance(job, dict):
+                results.append(str(job.get("result") or "").strip().lower())
+    if not results:
+        return str(evolve_result or "").strip().lower()
+    if any(r in ("failure", "timed_out") for r in results):
+        return "failure"
+    if any(r == "cancelled" for r in results):
+        return "cancelled"
+    if all(r in ("success", "skipped") for r in results) and any(
+        r == "success" for r in results
+    ):
+        return "success"
+    return str(evolve_result or "").strip().lower()
 
 
 def consecutive_failure_streak(
@@ -174,7 +211,9 @@ def main(argv: list[str] | None = None) -> int:
     chain_var = os.environ.get("COLONY_CHAIN")
     ref = os.environ.get("GITHUB_REF") or os.environ.get("GITHUB_REF_NAME") or ""
     current_run_id = os.environ.get("CURRENT_RUN_ID") or os.environ.get("GITHUB_RUN_ID") or ""
-    evolve_result = os.environ.get("EVOLVE_RESULT") or ""
+    evolve_result = current_run_result(
+        os.environ.get("NEEDS_JSON"), os.environ.get("EVOLVE_RESULT")
+    )
     repo = os.environ.get("GITHUB_REPOSITORY") or ""
     token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or ""
 
@@ -183,10 +222,12 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     try:
-        in_progress = _list_runs(repo, "in_progress", token)
-        queued = _list_runs(repo, "queued", token)
-        waiting = _list_runs(repo, "waiting", token)
-        other_active = in_progress + queued + waiting
+        # Every active status, including "pending": the evolve workflow
+        # shares one concurrency group, so a new dispatch would replace a
+        # pending run (for example one James started by hand).
+        other_active = []
+        for status in ACTIVE_LIST_STATUSES:
+            other_active.extend(_list_runs(repo, status, token))
         completed = _list_runs(repo, "completed", token)
     except Exception as exc:
         print(f"chain: error listing runs: {exc}", flush=True)
