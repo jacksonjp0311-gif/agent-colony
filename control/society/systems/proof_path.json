@@ -1,8 +1,8 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
-   82,
+   83,
    37
   ],
   "divides": [
@@ -22,7 +22,7 @@
    0
   ],
   "rec": [
-   23,
+   22,
    19
   ]
  },
@@ -4643,18 +4643,6 @@
    "unknown": false,
    "v": 4
   },
-  "a(n) = S(n)(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)": {
-   "authored": false,
-   "certificate": null,
-   "check": "authored_frontier_rec_x1eb25f8c_w1",
-   "checks": 59988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "not proved",
-   "summary": null,
-   "unknown": false,
-   "v": 4
-  },
   "a(n) = S(pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
    "authored": false,
    "certificate": null,
@@ -8242,6 +8230,18 @@
    "unknown": true,
    "v": 4
   },
+  "gpf[podd](n) = 1 (mod 2) for all n = 0 (mod 4)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x9b6486f2_w1",
+   "checks": 9,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "gpf[prr](n) = 1 (mod 2) for all n = 0 (mod 3)": {
    "authored": false,
    "certificate": null,
@@ -9184,6 +9184,6 @@
    "v": 4
   }
  },
- "seconds": 0.02,
- "ts": "2026-11-14T18:26:09Z"
+ "seconds": 0.19,
+ "ts": "2026-11-14T18:58:10Z"
 }
