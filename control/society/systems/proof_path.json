@@ -1,8 +1,8 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
-   81,
+   82,
    37
   ],
   "divides": [
@@ -22,7 +22,7 @@
    0
   ],
   "rec": [
-   27,
+   26,
    22
   ]
  },
@@ -5279,18 +5279,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = S((lucas-fib))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
-   "authored": false,
-   "certificate": null,
-   "check": "authored_frontier_rec_x73d7d0a5_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "not proved",
-   "summary": null,
-   "unknown": false,
-   "v": 4
-  },
   "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
    "authored": false,
    "certificate": null,
@@ -9455,6 +9443,18 @@
    "unknown": true,
    "v": 4
   },
+  "sigma[oxa275972](n) = 0 (mod 2) for all n = 0 (mod 6)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xcc0675e5_w1",
+   "checks": 14,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "sigma[rev](n) = 0 (mod 3) for all n = 2 (mod 3)": {
    "authored": true,
    "certificate": {
@@ -9796,6 +9796,6 @@
    "v": 3
   }
  },
- "seconds": 0.02,
- "ts": "2026-11-14T00:18:16Z"
+ "seconds": 0.25,
+ "ts": "2026-11-14T01:03:13Z"
 }
