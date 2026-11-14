@@ -320,3 +320,168 @@ def test_control_arm_supply_still_disabled(tmp_path, monkeypatch):
     out = SH.run_cycle("c0", metrics=_metric("c0"), findings=[{"kind": "empty_perturb_pool"}])
     assert out["trial_started"] is False
     assert SH.load_state().get("trial") is None
+
+
+# --- round 3: credit post-apply OEIS depth in the trial-start cycle ------
+
+def _attempt(cid, *, verified, prior, extended, tid="oc_A165064_0"):
+    return {
+        "id": tid, "anum": "A165064", "form": "gf", "depth": verified,
+        "bfile_hi": 100, "beyond": True, "status": "holds_on_range",
+        "cycle_id": cid, "planned": verified + 1, "verified_depth": verified,
+        "prior_tested_hi": prior, "extended": extended,
+        "cap_reason": "term_cap", "cap_value": verified + 1,
+    }
+
+
+def test_finalize_credits_start_cycle_depth_to_trial_not_baseline(tmp_path, monkeypatch):
+    """Live bug: oeis_conjectures runs after start_trial in the same cycle,
+    so the cap-enabled depth (A165064 7999→10699) never entered any metric
+    row and could not help the trial. Surplus goes to the trial, not the
+    already-recorded baseline row."""
+    _isolate(tmp_path, monkeypatch)
+    st = _signal_state()
+    st = SH.start_trial({
+        "knob": "fast_term_cap", "from": 8000, "to": 10700, "direction": "up",
+        "reason": "depth_at_physical_cap", "window": 6, "baseline_score": 3.0,
+        "baseline_metrics": st["metrics"][-6:], "trial_metrics": [],
+        "started_cycle": "start", "predicted_targets": ["oc_A165064_0"],
+        "applied_to_live_oracle": False, "authorized": False,
+    }, state=st, cycle_id="start")
+    # Metric row already recorded for the start cycle (pre-OEIS, new_depth 0),
+    # and it is the last baseline cycle — same as the live run.
+    start_row = _metric("start")
+    st["metrics"] = st["metrics"] + [start_row]
+    st["trial"]["baseline_metrics"] = st["metrics"][-6:]
+    st["trial"]["baseline_score"] = 3.0
+    SH.save_state(st)
+
+    log = {"attempts": [
+        {"id": "oc_A165064_0", "anum": "A165064", "verified_depth": 7999,
+         "bfile_hi": 100, "cycle_id": "old", "extended": 6800, "planned": 8000,
+         "status": "holds_on_range", "beyond": True},
+        _attempt("start", verified=10699, prior=7999, extended=2700),
+    ]}
+    st = SH.finalize_cycle_metrics("start", state=SH.load_state(), attempt_log=log, stall_state={})
+    apply = st["trial"]["apply_cycle_metrics"]
+    assert apply["new_depth"] == 1
+    assert apply["score"] == SH.score_metrics(0, 1, 0)
+    assert apply["source"] == "apply_cycle_surplus"
+    # Baseline row is unchanged: the work must not be credited there.
+    recorded = [r for r in st["metrics"] if r["cycle_id"] == "start"][-1]
+    assert recorded["new_depth"] == 0
+    assert recorded["score"] == 0.0
+    assert st["trial"]["baseline_score"] == 3.0
+
+
+def test_apply_cycle_score_counts_toward_strictly_better_after_six_cycles(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    st = _signal_state()
+    # baseline 3.0 from three target-1 rows in the primed+signal state? _signal_state
+    # only sets metrics[0] to targets=1, others 0, baseline_score would be 1 if proposed.
+    st = SH.start_trial({
+        "knob": "fast_term_cap", "from": 8000, "to": 10700, "direction": "up",
+        "reason": "depth_at_physical_cap", "window": 6, "baseline_score": 3.0,
+        "baseline_metrics": [_metric("b0", targets=1), _metric("b1"),
+                             _metric("b2", targets=1), _metric("b3"),
+                             _metric("b4", targets=1), _metric("b5")],
+        "trial_metrics": [],
+        "started_cycle": "start", "predicted_targets": ["oc_A165064_0"],
+        "applied_to_live_oracle": False, "authorized": False,
+    }, state=st, cycle_id="start")
+    st["trial"]["apply_cycle_metrics"] = _metric("start", depth=1)
+    st["trial"]["apply_cycle_metrics"]["source"] = "apply_cycle_surplus"
+    # Same supply rate as the baseline (three 1.0 scores) plus the apply-cycle
+    # depth would be lost without the surplus: 3.0 is not > 3.0.
+    st["trial"]["trial_metrics"] = [
+        _metric("t0", targets=1), _metric("t1"), _metric("t2", targets=1),
+        _metric("t3"), _metric("t4", targets=1), _metric("t5"),
+    ]
+    assert SH.trial_comparison_score(st["trial"]) == 4.0
+    # Window still has to be full: five trial rows must not close.
+    short = dict(st)
+    short["trial"] = dict(st["trial"])
+    short["trial"]["trial_metrics"] = st["trial"]["trial_metrics"][:5]
+    short = SH.maybe_close_trial(short, "t4")
+    assert short["trial"] is not None
+    st = SH.maybe_close_trial(st, "t5")
+    ev = st["evidence"][-1]
+    assert ev["event"] == "adopt"
+    assert ev["trial_score"] == 4.0
+    assert ev["baseline_score"] == 3.0
+    assert ev["apply_cycle_metrics"]["new_depth"] == 1
+    assert st["adopted_count"] == 1
+    assert st["trial"] is None
+
+
+def test_apply_cycle_alone_does_not_shorten_the_window(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    st = _prime_zero()
+    st = SH.start_trial({
+        "knob": "fast_term_cap", "from": 8000, "to": 10700, "direction": "up",
+        "reason": "depth_at_physical_cap", "window": 6, "baseline_score": 0.0,
+        "baseline_metrics": st["metrics"][-6:], "trial_metrics": [],
+        "started_cycle": "start", "exploratory": True,
+        "predicted_targets": ["oc_A165064_0"],
+        "applied_to_live_oracle": False, "authorized": False,
+    }, state=st, cycle_id="start")
+    st["trial"]["apply_cycle_metrics"] = _metric("start", depth=1)
+    st = SH.maybe_close_trial(st, "start")
+    assert st["trial"] is not None  # still waiting for 6 trial cycles
+    assert st["adopted_count"] == 0
+
+
+def test_finalize_updates_open_trial_row_on_later_cycles(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    st = _signal_state()
+    st = SH.start_trial({
+        "knob": "fast_term_cap", "from": 8000, "to": 10700, "direction": "up",
+        "reason": "depth_at_physical_cap", "window": 6, "baseline_score": 3.0,
+        "baseline_metrics": st["metrics"][-6:],
+        "trial_metrics": [_metric("t0")],
+        "started_cycle": "start",
+        "applied_to_live_oracle": False, "authorized": False,
+    }, state=st, cycle_id="start")
+    # A later trial cycle was recorded with new_depth 0 before OEIS ran.
+    st["metrics"] = list(st["metrics"]) + [_metric("t0")]
+    SH.save_state(st)
+    log = {"attempts": [
+        {"id": "oc_A126089_0", "anum": "A126089", "verified_depth": 1199,
+         "bfile_hi": 200, "cycle_id": "old", "extended": 100, "planned": 1200,
+         "status": "holds_on_range", "beyond": True},
+        _attempt("t0", verified=2310, prior=1199, extended=1111, tid="oc_A126089_0"),
+    ]}
+    st = SH.finalize_cycle_metrics("t0", state=SH.load_state(), attempt_log=log, stall_state={})
+    row = [r for r in st["metrics"] if r["cycle_id"] == "t0"][-1]
+    assert row["new_depth"] == 1
+    trow = [r for r in st["trial"]["trial_metrics"] if r["cycle_id"] == "t0"][-1]
+    assert trow["new_depth"] == 1
+    assert trow["score"] == SH.score_metrics(0, 1, 0)
+
+
+def test_attributable_progress_includes_apply_cycle(tmp_path, monkeypatch):
+    trial = {
+        "predicted_targets": ["oc_A165064_0"],
+        "started_cycle": "start",
+        "trial_metrics": [{"cycle_id": "t0"}],
+        "apply_cycle_metrics": {"cycle_id": "start", "new_depth": 1, "score": 1.0},
+    }
+    log = {"attempts": []}
+    import colony.self_heal as M
+    orig = M.targets_with_new_depth
+    try:
+        M.targets_with_new_depth = lambda lg, cid: {"start": ["oc_A165064_0"], "t0": []}.get(cid, [])
+        got = SH.attributable_progress(trial, attempt_log=log, stall_state={"turns": []})
+    finally:
+        M.targets_with_new_depth = orig
+    assert got == ["oc_A165064_0"]
+
+
+def test_trial_is_no_signal_respects_apply_cycle_metrics():
+    trial = {
+        "baseline_metrics": [_metric("b0")],
+        "trial_metrics": [_metric("t0")],
+        "apply_cycle_metrics": _metric("start", depth=1),
+    }
+    assert SH.trial_is_no_signal(trial) is False
+
