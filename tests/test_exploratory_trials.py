@@ -158,6 +158,7 @@ def test_no_signal_without_prediction_still_skips(tmp_path, monkeypatch):
 
 def test_signal_baseline_unchanged_not_exploratory(tmp_path, monkeypatch):
     _isolate(tmp_path, monkeypatch)
+    monkeypatch.setattr(SH, "eligible_target_ids", lambda stall_state=None: set())
     st = _prime_zero()
     st["metrics"][0] = _metric("b0", delta=1)
     st["metrics"][1] = _metric("b1", delta=-1)
@@ -260,3 +261,62 @@ def test_control_arm_never_proposes(tmp_path, monkeypatch):
     monkeypatch.setattr(arm, "self_mod_enabled", lambda: False)
     st = _prime_zero()
     assert SH.propose_trial(CAP_FINDINGS, state=st, cycle_id="c") is None
+
+
+# --- round 2: supply during trials, predicted-effect candidates first ----
+
+def _signal_state():
+    st = _prime_zero()
+    st["metrics"][0] = _metric("b0", targets=1)
+    SH.save_state(st)
+    return SH.load_state()
+
+
+def test_signal_baseline_prefers_predicted_effect_candidate(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _fake_eligibility(monkeypatch)
+    st = _signal_state()
+    prop = SH.propose_trial(CAP_FINDINGS, state=st, cycle_id="c")
+    assert prop["knob"] == "fast_term_cap"  # ahead of park_cycles (no mechanism)
+    assert prop["baseline_score"] == 1.0
+    assert prop["predicted_targets"] == ["oc_FAST"]
+    assert "exploratory" not in prop  # standard strictly-better close
+
+
+def test_signal_trial_close_is_plain_strictly_better(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _fake_eligibility(monkeypatch)
+    st = _signal_state()
+    st = SH.start_trial(SH.propose_trial(CAP_FINDINGS, state=st, cycle_id="b5"), state=st, cycle_id="b5")
+    st["trial"]["trial_metrics"] = [_metric("t0", targets=1)] + [_metric(f"t{i}") for i in range(1, 6)]
+    st = SH.maybe_close_trial(st, "t6")
+    assert st["evidence"][-1]["event"] == "revert"  # 1.0 is not > 1.0
+
+
+def test_supply_runs_while_a_trial_is_open(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _fake_eligibility(monkeypatch)
+    st = _signal_state()
+    SH.start_trial(SH.propose_trial(CAP_FINDINGS, state=st, cycle_id="b5"), state=st, cycle_id="b5")
+    calls = []
+    monkeypatch.setattr(SH, "maybe_supply_oracle_targets",
+                        lambda cycle_id="", findings=None: calls.append(cycle_id) or {"invited": True, "authored": ["x"]})
+    out = SH.run_cycle("t0", metrics=_metric("t0"), findings=[{"kind": "empty_perturb_pool"}])
+    assert out["trial"] is not None
+    assert calls == ["t0"]
+    assert out["supply"]["invited"] is True
+    assert out["trial_started"] is False
+
+
+def test_control_arm_supply_still_disabled(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    import colony.arm as arm
+    monkeypatch.setattr(arm, "self_mod_enabled", lambda: False)
+    monkeypatch.setattr(arm, "is_control", lambda: True, raising=False)
+    authored = []
+    monkeypatch.setattr("colony.target_generator.author_targets",
+                        lambda **k: authored.append(k) or [])
+    _prime_zero()
+    out = SH.run_cycle("c0", metrics=_metric("c0"), findings=[{"kind": "empty_perturb_pool"}])
+    assert out["trial_started"] is False
+    assert SH.load_state().get("trial") is None

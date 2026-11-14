@@ -2006,67 +2006,93 @@ def propose_trial(
     no_signal = bool(findings) and not window_has_signal([rescore_metric_row(r) for r in window_rows])
     explore_checked: list[dict[str, Any]] = []
     tried: set[tuple[str, str]] = set()
+    # Candidates in finding order, then those whose change is predicted
+    # (read-only) to make new real targets eligible are tried first: a
+    # change with a mechanism for new work is the one that can win.
+    ordered: list[tuple[dict[str, Any], str, str]] = []
     for finding in findings:
         kind = str(finding.get("kind") or "")
         suggested = list(finding.get("suggest") or [])
         pairs = suggested + [p for p in DIAGNOSIS_SUGGESTIONS.get(kind, []) if p not in suggested]
         for knob, direction in pairs:
-            if (knob, direction) in tried:
-                continue
-            tried.add((knob, direction))
-            if _knob_on_cooldown(st, knob, direction):
-                continue
-            cur = state_knob(st, knob)
-            nxt = stepped_value(knob, direction, current=cur, step_size=float(state_knob(st, "step_size")))
-            if nxt is None:
-                continue
-            # Keep the epsilon pair legal if this is one of those two.
-            if knob == "perturb_epsilon" and float(nxt) > float(state_knob(st, "perturb_wide_epsilon")):
-                # Step wide first, or skip if wide cannot rise.
-                wide_nxt = stepped_value("perturb_wide_epsilon", "up")
-                if wide_nxt is None or float(wide_nxt) < float(nxt):
-                    if float(KNOB_SPECS["perturb_wide_epsilon"].hi) < float(nxt):
-                        continue
-            replay = replay_proposal(knob, cur, nxt, direction=direction, evidence=list(st.get("evidence") or []))
-            if not replay.get("accepted"):
-                continue
-            explore: dict[str, Any] = {}
-            if no_signal:
-                predicted = predicted_new_targets(knob, nxt)
-                explore_checked.append({"knob": knob, "to": nxt, "predicted": predicted[:8]})
-                if not predicted or _exploration_already_failed(st, knob, nxt, predicted):
+            ordered.append((finding, knob, direction))
+    predicted_cache: dict[tuple[str, str], list[str]] = {}
+
+    def _pred(knob: str, direction: str) -> list[str]:
+        key = (knob, direction)
+        if key not in predicted_cache:
+            predicted_cache[key] = []
+            if knob in CAP_KNOBS and not _knob_on_cooldown(st, knob, direction):
+                try:
+                    nv = stepped_value(knob, direction, current=state_knob(st, knob),
+                                       step_size=float(state_knob(st, "step_size")))
+                    if nv is not None:
+                        predicted_cache[key] = predicted_new_targets(knob, nv)
+                except Exception:
+                    predicted_cache[key] = []
+        return predicted_cache[key]
+
+    ordered.sort(key=lambda c: 0 if _pred(c[1], c[2]) else 1)
+    for finding, knob, direction in ordered:
+        kind = str(finding.get("kind") or "")
+        if (knob, direction) in tried:
+            continue
+        tried.add((knob, direction))
+        if _knob_on_cooldown(st, knob, direction):
+            continue
+        cur = state_knob(st, knob)
+        nxt = stepped_value(knob, direction, current=cur, step_size=float(state_knob(st, "step_size")))
+        if nxt is None:
+            continue
+        # Keep the epsilon pair legal if this is one of those two.
+        if knob == "perturb_epsilon" and float(nxt) > float(state_knob(st, "perturb_wide_epsilon")):
+            # Step wide first, or skip if wide cannot rise.
+            wide_nxt = stepped_value("perturb_wide_epsilon", "up")
+            if wide_nxt is None or float(wide_nxt) < float(nxt):
+                if float(KNOB_SPECS["perturb_wide_epsilon"].hi) < float(nxt):
                     continue
-                explore = {
-                    "exploratory": True,
-                    "baseline_signal": False,
-                    "predicted_targets": predicted,
-                }
-            baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
-            return {
-                **explore,
-                "knob": knob,
-                "from": cur,
-                "to": nxt,
-                "direction": direction,
-                "reason": kind,
-                "finding": finding,
-                "replay": {k: replay.get(k) for k in ("accepted", "reasons", "simulated", "note")},
-                "window": window,
-                "baseline_score": window_score(baseline_rows),
-                "baseline_metrics": [
-                    {k: r.get(k) for k in (
-                        "cycle_id", "new_oracle_targets", "new_depth",
-                        "oracle_pass_delta", "oracle_passes", "score",
-                        "env_fingerprint",
-                    ) if k in r}
-                    for r in baseline_rows
-                ],
-                "trial_metrics": [],
-                "started_cycle": cycle_id,
-                "started_index": int(st.get("cycle_index") or 0),
-                "applied_to_live_oracle": False,
-                "authorized": False,
+        replay = replay_proposal(knob, cur, nxt, direction=direction, evidence=list(st.get("evidence") or []))
+        if not replay.get("accepted"):
+            continue
+        explore: dict[str, Any] = {}
+        if not no_signal and _pred(knob, direction):
+            explore = {"predicted_targets": list(_pred(knob, direction))}  # info only
+        if no_signal:
+            predicted = predicted_new_targets(knob, nxt)
+            explore_checked.append({"knob": knob, "to": nxt, "predicted": predicted[:8]})
+            if not predicted or _exploration_already_failed(st, knob, nxt, predicted):
+                continue
+            explore = {
+                "exploratory": True,
+                "baseline_signal": False,
+                "predicted_targets": predicted,
             }
+        baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
+        return {
+            **explore,
+            "knob": knob,
+            "from": cur,
+            "to": nxt,
+            "direction": direction,
+            "reason": kind,
+            "finding": finding,
+            "replay": {k: replay.get(k) for k in ("accepted", "reasons", "simulated", "note")},
+            "window": window,
+            "baseline_score": window_score(baseline_rows),
+            "baseline_metrics": [
+                {k: r.get(k) for k in (
+                    "cycle_id", "new_oracle_targets", "new_depth",
+                    "oracle_pass_delta", "oracle_passes", "score",
+                    "env_fingerprint",
+                ) if k in r}
+                for r in baseline_rows
+            ],
+            "trial_metrics": [],
+            "started_cycle": cycle_id,
+            "started_index": int(st.get("cycle_index") or 0),
+            "applied_to_live_oracle": False,
+            "authorized": False,
+        }
     if no_signal:
         rec = _record_trial_skip(st, cycle_id, "no_signal_baseline", findings, window_rows)
         rec["explore_checked"] = explore_checked[:8]
@@ -2734,13 +2760,20 @@ def run_cycle(
     proposal = None
     found = findings
     supply: dict[str, Any] = {}
-    if not st.get("trial"):
-        if found is None:
-            found = diagnose(cycle_id, stall_state=stall_state, heal_state=st)
+    # Diagnose and supply run every cycle, trial or not. Before, supply
+    # paused while a trial ran, so a baseline fed by supply was compared
+    # with a trial window that was not: unfair to every trial. Supply is
+    # the same in both windows now; exploratory trials stay attributed.
+    if found is None:
         try:
-            supply = maybe_supply_oracle_targets(cycle_id, findings=found)
-        except Exception as exc:  # noqa: BLE001
-            supply = {"invited": False, "authored": [], "reason": f"error:{type(exc).__name__}"}
+            found = diagnose(cycle_id, stall_state=stall_state, heal_state=st)
+        except Exception:
+            found = []
+    try:
+        supply = maybe_supply_oracle_targets(cycle_id, findings=found)
+    except Exception as exc:  # noqa: BLE001
+        supply = {"invited": False, "authored": [], "reason": f"error:{type(exc).__name__}"}
+    if not st.get("trial"):
         proposal = propose_trial(found, state=st, cycle_id=cycle_id)
         if proposal is not None:
             st = start_trial(proposal, state=st, cycle_id=cycle_id)

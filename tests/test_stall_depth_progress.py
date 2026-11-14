@@ -32,6 +32,10 @@ def _isolate(tmp_path, monkeypatch, *, lessons="", oracle=""):
     monkeypatch.setattr(OC, "REVIEW", tmp_path / "rv.md")
     monkeypatch.setattr(SH, "STATE_PATH", tmp_path / "self_heal.json")
     monkeypatch.setattr(SH, "EVENT_LOG", tmp_path / "self_heal.jsonl")
+    # These tests are about the OEIS menu pool. Do not read live
+    # generated checks from the repo (a fresh authored one is eligible).
+    import colony.target_generator as TG
+    monkeypatch.setattr(TG, "oracle_reachable_generated", lambda state=None, **k: [])
     OC.MENU.write_text(json.dumps({"entries": []}))
     OC.STATE.write_text(json.dumps({"targets": {}, "families": {}, "credit_total": 0}))
     monkeypatch.setenv("COLONY_OEIS_CONJ", "shadow")
