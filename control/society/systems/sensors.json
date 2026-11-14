@@ -1,12 +1,10 @@
 {
-  "ts": "2026-11-14T10:54:46Z",
-  "cycle_id": "20261114T105427Z_04cda1",
+  "ts": "2026-11-14T13:01:50Z",
+  "cycle_id": "20261114T130126Z_bd51db",
   "lemma_streaks": {
-    "revert_streaks": [
-      "authored_frontier_cong_xd9add9e9_w1"
-    ],
+    "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "vandermonde": 25,
+      "vandermonde": 24,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "shape:congruence": 1,
@@ -287,11 +285,11 @@
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 330834115,
-      "collatz_descent": 367800000,
+      "goldbach_even": 334034115,
+      "collatz_descent": 371000000,
       "legendre_square_gap": 1900607,
       "lehmer_totient": 168600001,
-      "erdos_straus": 1179127,
+      "erdos_straus": 1184127,
       "twin_primes_hl": 462200000,
       "oeis_A104062_next": 518690000001
     },
@@ -431,7 +429,6 @@
     }
   },
   "signals": [
-    "revert_streaks: authored_frontier_cong_xd9add9e9_w1 → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],

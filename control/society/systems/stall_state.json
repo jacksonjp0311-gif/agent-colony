@@ -162,15 +162,16 @@
     "20261114T084721Z_e6bb2f",
     "20261114T104927Z_24736e",
     "20261114T105207Z_f8b50b",
-    "20261114T105427Z_04cda1"
+    "20261114T105427Z_04cda1",
+    "20261114T125419Z_66145e",
+    "20261114T125857Z_4e280c",
+    "20261114T130126Z_bd51db"
   ],
   "proposal_parks": {
     "254f76bd3854": {
       "title": "blocked repeat: Chain+seek `lemma_hard_combinatorics` from invariant priors",
       "action": "seek_enable:lemma_hard_combinatorics",
       "blocks": [
-        "20261112T073242Z_cb0118",
-        "20261112T073552Z_77d72b",
         "20261112T112015Z_16d971",
         "20261112T112307Z_be5670",
         "20261112T112559Z_6913e0",
@@ -188,28 +189,18 @@
         "20261113T175253Z_93cc5f",
         "20261113T181526Z_7f68b9",
         "20261114T005843Z_da30fb",
-        "20261114T010112Z_522ae9"
+        "20261114T010112Z_522ae9",
+        "20261114T125419Z_66145e",
+        "20261114T125857Z_4e280c"
       ],
       "consecutive": 2,
-      "parked_until": 162,
+      "parked_until": 188,
       "duration": 24,
-      "parked_from": 138,
-      "parked_at_cycle": "20261114T010112Z_522ae9"
+      "parked_from": 164,
+      "parked_at_cycle": "20261114T125857Z_4e280c"
     }
   },
   "pass_history": [
-    {
-      "cycle_id": "20261113T034027Z_3761d7",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261113T034252Z_17899a",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261113T042121Z_d06de6",
-      "pass_total": 528
-    },
     {
       "cycle_id": "20261113T042455Z_2b827f",
       "pass_total": 528
@@ -516,23 +507,23 @@
     },
     {
       "cycle_id": "20261114T105427Z_04cda1",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261114T125419Z_66145e",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261114T125857Z_4e280c",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261114T130126Z_bd51db",
       "pass_total": 528
     }
   ],
   "kill_history": [
     {
-      "cycle_id": "20261113T034027Z_3761d7",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261113T034252Z_17899a",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261113T042121Z_d06de6",
-      "kills": []
-    },
-    {
       "cycle_id": "20261113T042455Z_2b827f",
       "kills": []
     },
@@ -838,6 +829,18 @@
     },
     {
       "cycle_id": "20261114T105427Z_04cda1",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261114T125419Z_66145e",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261114T125857Z_4e280c",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261114T130126Z_bd51db",
       "kills": []
     }
   ],
@@ -2854,6 +2857,60 @@
     },
     {
       "cycle_id": "20261114T105427Z_04cda1",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261114T125419Z_66145e",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261114T125419Z_66145e",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261114T125419Z_66145e",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261114T125857Z_4e280c",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261114T125857Z_4e280c",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261114T125857Z_4e280c",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261114T130126Z_bd51db",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261114T130126Z_bd51db",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261114T130126Z_bd51db",
       "kind": "claim_theme",
       "name": "vandermonde",
       "outcome": "skip"
