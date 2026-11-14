@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-14T21:01:16Z",
-  "cycle_id": "20261114T210049Z_9ebe53",
+  "ts": "2026-11-14T21:28:03Z",
+  "cycle_id": "20261114T212744Z_ede0fd",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -18,20 +18,6 @@
       "authored_mut_swap_related_sequence_43bfea4a2cc0": 1
     },
     "recent": {
-      "authored_frontier_le_x1c0eba57_w3": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_frontier_divides_x0b1db873_w3": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_frontier_cong_x22ed9f43_w3": {
         "last": "keep",
         "streak": 1,
@@ -107,10 +93,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8594,
-      "slope": 7.7e-05,
+      "last": 0.8609,
+      "slope": 0.000112,
       "min": 0.8591,
-      "max": 0.8609
+      "max": 0.8611
     },
     "novelty": {
       "last": 0.75,
@@ -119,16 +105,16 @@
       "max": 0.75
     },
     "kill_rate": {
-      "last": 0.4047,
-      "slope": 0.000329,
-      "min": 0.4014,
-      "max": 0.4047
+      "last": 0.4061,
+      "slope": 0.000345,
+      "min": 0.402,
+      "max": 0.4061
     },
     "kill_rate_term": {
-      "last": 0.9143,
-      "slope": 0.000306,
-      "min": 0.9112,
-      "max": 0.9143
+      "last": 0.9155,
+      "slope": 0.000316,
+      "min": 0.9118,
+      "max": 0.9155
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -139,7 +125,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0018,
+    "aggregate_range": 0.0017,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -154,6 +140,7 @@
       "authored_mut_swap_related_sequence_3909a3967380",
       "authored_mut_swap_related_sequence_3fcf4c695bad",
       "authored_mut_swap_related_sequence_43bfea4a2cc0",
+      "authored_mut_swap_related_sequence_5223338a52eb",
       "authored_mut_swap_related_sequence_58aacc9fceff",
       "authored_mut_swap_related_sequence_6af0e18deac1",
       "authored_mut_swap_related_sequence_6e0112880376",
@@ -242,6 +229,7 @@
       "authored_mut_swap_related_sequence_3909a3967380",
       "authored_mut_swap_related_sequence_3fcf4c695bad",
       "authored_mut_swap_related_sequence_43bfea4a2cc0",
+      "authored_mut_swap_related_sequence_5223338a52eb",
       "authored_mut_swap_related_sequence_58aacc9fceff",
       "authored_mut_swap_related_sequence_6af0e18deac1",
       "authored_mut_swap_related_sequence_6e0112880376",
@@ -304,23 +292,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.185,
+      "ratio": 0.632,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.196,
+      "ratio": 0.634,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.16,
+      "ratio": 0.652,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.185,
+      "ratio": 0.769,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.086,
+      "ratio": 0.741,
       "drift": false
     }
   },
@@ -329,10 +317,10 @@
     "verified": {
       "goldbach_even": 343634115,
       "collatz_descent": 380600000,
-      "legendre_square_gap": 1948607,
-      "lehmer_totient": 173400001,
+      "legendre_square_gap": 1964607,
+      "lehmer_totient": 175000001,
       "erdos_straus": 1199127,
-      "twin_primes_hl": 474200000,
+      "twin_primes_hl": 478200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -382,22 +370,22 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 11,
+    "completed": 10,
     "last": [
       [
         null,
-        "2026-11-14T20:48:59Z"
+        "2026-11-14T21:18:17Z"
+      ],
+      [
+        null,
+        "2026-11-14T21:18:17Z"
       ],
       [
         "success",
-        "2026-11-14T19:16:31Z"
-      ],
-      [
-        "success",
-        "2026-11-14T19:16:30Z"
+        "2026-11-14T21:11:25Z"
       ]
     ],
-    "fetched_at": "2026-11-14T20:49:42Z"
+    "fetched_at": "2026-11-14T21:19:13Z"
   },
   "feeds": {
     "by_source": {
@@ -445,7 +433,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-14T20:49:41Z"
+      "ts": "2026-11-14T21:19:13Z"
     },
     "health": {
       "arxiv": {
