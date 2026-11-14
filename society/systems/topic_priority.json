@@ -66,22 +66,22 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "2-trees",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
+      "topic": "agent-mediated",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-14T00:24:27Z",
-  "updated_cycle": "20261114T002233Z_3dd2f2",
+  "updated_at": "2026-11-14T01:04:54Z",
+  "updated_cycle": "20261114T010332Z_2cbbc6",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
