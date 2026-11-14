@@ -2132,6 +2132,15 @@ def check_authored_mut_swap_related_sequence_6af0e18deac1() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(gcd(pell,tau))', 'params': {'m': 3, 'q': 4, 'r': 0, 's': 2}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
+def check_authored_mut_swap_related_sequence_1c8a57e0bca1() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    S((oxa048760*n))(n) = 0 (mod 2) for all n = 0 (mod 4)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa048760*n))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2365,6 +2374,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mut_swap_related_sequence_834d4d3f06e0", check_authored_mut_swap_related_sequence_834d4d3f06e0, False),
     ("authored_mut_swap_related_sequence_09affa910944", check_authored_mut_swap_related_sequence_09affa910944, False),
     ("authored_mut_swap_related_sequence_6af0e18deac1", check_authored_mut_swap_related_sequence_6af0e18deac1, False),
+    ("authored_mut_swap_related_sequence_1c8a57e0bca1", check_authored_mut_swap_related_sequence_1c8a57e0bca1, False),
 ]
 
 
