@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-14T06:52:07Z",
-  "cycle_id": "20261114T065108Z_051138",
+  "ts": "2026-11-14T07:12:04Z",
+  "cycle_id": "20261114T071057Z_89c28b",
   "roles": {
     "A": "geometer",
     "B": "legislator",
@@ -8,12 +8,12 @@
     "D": "legislator"
   },
   "msg_ids": [
-    "msg_94b17ed4a6",
-    "msg_9345888455",
-    "msg_c3f47a7376",
-    "msg_416839337a"
+    "msg_52e210216c",
+    "msg_a36166460a",
+    "msg_15ec088ac2",
+    "msg_ee8f7867d7"
   ],
-  "finding_id": "fnd_bdd8f53c91bd",
+  "finding_id": "fnd_15d4a8b780ce",
   "code_touched": true,
   "action_changed": true,
   "load_bear_closed": 1,
@@ -23,8 +23,8 @@
     "action_changed_from_message": 1.0,
     "reply_quality": 0.9114
   },
-  "seed_id": "seed_time_revision_arxiv",
-  "telemetry_ts": "2026-11-14T06:50:29Z",
+  "seed_id": "seed_kinematics_gather",
+  "telemetry_ts": "2026-11-14T07:10:12Z",
   "external_patterns": [
     "global_weather_spread",
     "pulsemesh_goes_live",
@@ -53,7 +53,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "pathfinder",
@@ -62,7 +62,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "improver",
@@ -71,7 +71,7 @@
         "arousal_gap": 0.1,
         "score": 0.376,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "improver",
@@ -80,7 +80,7 @@
         "arousal_gap": 0.1,
         "score": 0.376,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "spark",
@@ -89,7 +89,7 @@
         "arousal_gap": 0.7,
         "score": 0.676,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "spark",
@@ -98,7 +98,7 @@
         "arousal_gap": 0.7,
         "score": 0.676,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "tribute_keeper",
@@ -107,7 +107,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "tribute_keeper",
@@ -116,7 +116,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "memory_weaver",
@@ -125,7 +125,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "memory_weaver",
@@ -134,7 +134,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "builder",
@@ -143,7 +143,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "builder",
@@ -152,7 +152,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "herald",
@@ -161,7 +161,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "herald",
@@ -170,7 +170,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "courier",
@@ -179,7 +179,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "courier",
@@ -188,7 +188,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "scribe",
@@ -197,7 +197,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "scribe",
@@ -206,7 +206,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "surveyor",
@@ -215,7 +215,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "surveyor",
@@ -224,7 +224,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "oracle_scribe",
@@ -233,7 +233,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "oracle_scribe",
@@ -242,7 +242,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "stem_checker",
@@ -251,7 +251,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       },
       {
         "a": "stem_checker",
@@ -260,7 +260,7 @@
         "arousal_gap": 0.13,
         "score": 0.391,
         "trigger_redebate": true,
-        "ts": "2026-11-14T06:52:07Z"
+        "ts": "2026-11-14T07:12:04Z"
       }
     ]
   },
@@ -270,7 +270,7 @@
     "inform_only": true,
     "distribution": {
       "APPROVE": 73,
-      "REFINE": 909,
+      "REFINE": 912,
       "REJECT": 0
     }
   },
