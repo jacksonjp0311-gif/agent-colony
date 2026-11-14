@@ -1251,6 +1251,58 @@ def window_has_signal(rows: Iterable[dict[str, Any]] | None) -> bool:
     return any(row_has_signal(r) for r in list(rows or []))
 
 
+
+def _metric_surplus(fresh: dict[str, Any], original: dict[str, Any]) -> dict[str, Any]:
+    """Progress in ``fresh`` that was not already in the recorded row."""
+    def _int(row: dict[str, Any], key: str) -> int:
+        try:
+            return int(row.get(key) or 0)
+        except (TypeError, ValueError):
+            return 0
+
+    targets = max(0, _int(fresh, "new_oracle_targets") - _int(original, "new_oracle_targets"))
+    depth = max(0, _int(fresh, "new_depth") - _int(original, "new_depth"))
+    delta = max(0, _int(fresh, "oracle_pass_delta") - _int(original, "oracle_pass_delta"))
+    return {
+        "cycle_id": str(fresh.get("cycle_id") or original.get("cycle_id") or ""),
+        "new_oracle_targets": targets,
+        "new_depth": depth,
+        "oracle_passes": fresh.get("oracle_passes", original.get("oracle_passes")),
+        "oracle_pass_delta": delta,
+        "score": score_metrics(targets, depth, delta),
+        "source": "apply_cycle_surplus",
+        "ts": _utc(),
+    }
+
+
+def trial_comparison_score(trial: dict[str, Any] | None) -> float:
+    """Six trial-cycle scores plus any post-apply work in the start cycle.
+
+    ``society.run_cycle`` records self-heal metrics during growth, then
+    runs OEIS conjecture work under the knobs just applied. Depth
+    progress in that later stage of the start cycle is caused by the
+    trial and would otherwise be invisible (the baseline row is already
+    written). It is added here; it is not a 7th window cycle and is
+    not folded into the baseline. The 6-cycle window and the
+    strictly-better rule are unchanged.
+    """
+    if not isinstance(trial, dict):
+        return 0.0
+    extra = trial.get("apply_cycle_metrics")
+    extra_score = float(extra.get("score") or 0) if isinstance(extra, dict) else 0.0
+    return window_score(trial.get("trial_metrics") or []) + extra_score
+
+
+def _trial_signal_rows(trial: dict[str, Any] | None) -> list[dict[str, Any]]:
+    if not isinstance(trial, dict):
+        return []
+    rows = list(trial.get("trial_metrics") or [])
+    extra = trial.get("apply_cycle_metrics")
+    if isinstance(extra, dict):
+        rows = rows + [extra]
+    return rows
+
+
 # ---------------------------------------------------------------------------
 # Diagnosis
 # ---------------------------------------------------------------------------
@@ -1947,6 +1999,14 @@ def attributable_progress(trial: dict[str, Any], *, attempt_log: dict[str, Any] 
     if not predicted:
         return []
     cycles = [str(r.get("cycle_id") or "") for r in (trial.get("trial_metrics") or []) if r.get("cycle_id")]
+    if isinstance(trial.get("apply_cycle_metrics"), dict):
+        start = str(
+            trial.get("started_cycle")
+            or (trial.get("apply_cycle_metrics") or {}).get("cycle_id")
+            or ""
+        )
+        if start and start not in cycles:
+            cycles.append(start)
     hit: set[str] = set()
     try:
         if attempt_log is None:
@@ -2263,7 +2323,7 @@ def _close_trial(
     if not trial:
         return state
     trial_rows = list(trial.get("trial_metrics") or [])
-    trial_score = window_score(trial_rows)
+    trial_score = trial_comparison_score(trial)
     baseline_score = float(trial.get("baseline_score") or 0)
     helped = trial_score > baseline_score
     knob = str(trial.get("knob") or "")
@@ -2276,6 +2336,8 @@ def _close_trial(
         link["exploratory"] = True
         link["predicted_targets"] = list(trial.get("predicted_targets") or [])
         link["attributed_targets"] = attributable_progress(trial)
+    if isinstance(trial.get("apply_cycle_metrics"), dict):
+        link["apply_cycle_metrics"] = trial.get("apply_cycle_metrics")
     if decision == "adopt" and helped and knob:
         # Value is already the trial value. Strictly-better rule unchanged.
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
@@ -2382,7 +2444,7 @@ def trial_is_no_signal(trial: dict[str, Any] | None) -> bool:
         return False
     return (
         not window_has_signal(trial.get("baseline_metrics"))
-        and not window_has_signal(trial.get("trial_metrics"))
+        and not window_has_signal(_trial_signal_rows(trial))
     )
 
 
@@ -2435,7 +2497,7 @@ def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
     rows = list(trial.get("trial_metrics") or [])
     if len(rows) < window:
         return state
-    trial_score = window_score(rows)
+    trial_score = trial_comparison_score(trial)
     baseline_score = float(trial.get("baseline_score") or 0)
     reason = None
     if trial_score > baseline_score:
@@ -2667,6 +2729,75 @@ def _remember_cycle(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
     return state
 
 
+def finalize_cycle_metrics(
+    cycle_id: str = "",
+    *,
+    state: dict[str, Any] | None = None,
+    attempt_log: dict[str, Any] | None = None,
+    stall_state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Rescore this cycle after later stages (OEIS conjectures, new data).
+
+    ``society.run_cycle`` records self-heal metrics during growth, then
+    runs ``oeis_conjectures`` under the knobs just applied. Depth
+    progress in that later stage was invisible to the already-written
+    metric row, so a cap trial could not be credited for the work it
+    caused in its start cycle. The 6-cycle window and strictly-better
+    rule are unchanged: this only accounts for work that already
+    happened. Post-apply surplus on the start cycle is stored as
+    ``apply_cycle_metrics`` on the trial and is never folded into the
+    baseline. Other cycles replace their metric row in place.
+    """
+    cid = str(cycle_id or "")
+    st = state if state is not None else load_state()
+    if not cid:
+        return st
+    try:
+        fresh = collect_metrics(cid, stall_state=stall_state, attempt_log=attempt_log)
+    except Exception:
+        return st
+    hist = list(st.get("metrics") or [])
+    recorded = next((r for r in reversed(hist) if str(r.get("cycle_id") or "") == cid), None)
+    trial = st.get("trial") if isinstance(st.get("trial"), dict) else None
+    started_this = bool(trial and str(trial.get("started_cycle") or "") == cid)
+
+    if started_this and recorded is not None:
+        surplus = _metric_surplus(fresh, recorded)
+        if row_has_signal(surplus):
+            trial = dict(trial)
+            trial["apply_cycle_metrics"] = surplus
+            st["trial"] = trial
+            try:
+                save_state(st)
+            except Exception:
+                pass
+        return st
+
+    if recorded is None:
+        return st
+    fresh = dict(fresh)
+    if recorded.get("env_fingerprint"):
+        fresh["env_fingerprint"] = recorded["env_fingerprint"]
+    if recorded.get("environment"):
+        fresh["environment"] = recorded["environment"]
+    hist = [r for r in hist if str(r.get("cycle_id") or "") != cid]
+    hist.append(fresh)
+    st["metrics"] = hist[-METRICS_KEEP:]
+    if trial:
+        tmetrics = list(trial.get("trial_metrics") or [])
+        if any(str(r.get("cycle_id") or "") == cid for r in tmetrics):
+            tmetrics = [r for r in tmetrics if str(r.get("cycle_id") or "") != cid]
+            tmetrics.append(fresh)
+            trial = dict(trial)
+            trial["trial_metrics"] = tmetrics
+            st["trial"] = trial
+    try:
+        save_state(st)
+    except Exception:
+        pass
+    return st
+
+
 def on_cycle(
     cycle_id: str = "",
     *,
@@ -2845,6 +2976,10 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
                 "n_trial_metrics": len(trial.get("trial_metrics") or []),
                 "baseline_score": trial.get("baseline_score"),
             }
+            apply = trial.get("apply_cycle_metrics")
+            if isinstance(apply, dict):
+                trial_out["apply_cycle_metrics"] = apply
+                trial_out["apply_cycle_score"] = apply.get("score")
         return {
             "self_changes_adopted": int(st.get("adopted_count") or 0),
             "self_changes_reverted": int(st.get("reverted_count") or 0),

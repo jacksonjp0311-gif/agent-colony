@@ -308,6 +308,13 @@ class Society:
             if _nd.mode() != "off":
                 _nd.run_cycle(cid)
         self._stage(result, "new_data", new_data_stage)
+        def self_heal_finalize_stage():
+            # OEIS conjecture work runs after growth, which is where
+            # self-heal records metrics and may apply a cap trial. Rescore
+            # so start-cycle depth is credited to the trial, not lost.
+            from colony.self_heal import finalize_cycle_metrics
+            return finalize_cycle_metrics(cid)
+        self._stage(result, "self_heal_finalize", self_heal_finalize_stage, critical=False)
         def shortlist_stage():
             from colony.shortlist import write
             write(cid)
