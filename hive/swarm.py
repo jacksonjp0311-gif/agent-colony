@@ -1869,9 +1869,19 @@ def _trial_matches_pending(trial: Mapping[str, Any] | None, pending: Mapping[str
     name = str(action.get("name") or "")
     if not name or str(trial.get("knob") or "") != name:
         return False
-    if "value" not in action:
+    if "value" in action:
+        return _num_equal(trial.get("to"), action.get("value"))
+    # Direction-only action: the value Hive would have applied from the
+    # same starting point.
+    direction = str(action.get("direction") or "")
+    if not direction or str(trial.get("direction") or "") != direction:
         return False
-    return _num_equal(trial.get("to"), action.get("value"))
+    try:
+        from hive import host
+        expected = host.heal_stepped_value(name, direction, current=trial.get("from"))
+    except Exception:
+        return False
+    return expected is not None and _num_equal(trial.get("to"), expected)
 
 
 def _find_close_event(evidence: list[Any], link: Mapping[str, Any]) -> dict[str, Any] | None:

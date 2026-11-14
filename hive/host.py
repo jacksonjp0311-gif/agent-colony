@@ -352,7 +352,7 @@ def heal_baseline_environment_confounded(
         else:
             last = state.get("last_self_change") or {}
             if isinstance(last, dict) and last.get("knob") and last.get("event") in (
-                "adopt", "revert", "trial_voided_confound",
+                "adopt", "revert", "trial_voided_confound", "trial_inconclusive",
             ):
                 skip = str(last["knob"])
     current = _standalone_fingerprint(exclude_knob=skip)

@@ -483,7 +483,7 @@ def _baseline_exclude_knob(state: dict[str, Any] | None) -> str | None:
     last = st.get("last_self_change") or {}
     if (
         isinstance(last, dict)
-        and last.get("event") in ("adopt", "revert", "trial_voided_confound")
+        and last.get("event") in ("adopt", "revert", "trial_voided_confound", "trial_inconclusive")
         and last.get("knob")
     ):
         return str(last["knob"])
@@ -804,7 +804,7 @@ def append_evidence(state: dict[str, Any], event: dict[str, Any]) -> dict[str, A
     evidence = list(state.get("evidence") or [])
     evidence.append(ev)
     state["evidence"] = evidence
-    if ev.get("event") in ("adopt", "revert", "trial_voided_confound"):
+    if ev.get("event") in ("adopt", "revert", "trial_voided_confound", "trial_inconclusive"):
         state["last_self_change"] = ev
     try:
         append_log(ev)
@@ -2184,6 +2184,7 @@ def _close_trial(
             **link,
             **stale_fields,
         })
+        _mark_knob_closed(state, knob, cycle_id)
         state["last_self_change"] = ev
         state["trial"] = None
         return state
@@ -2209,17 +2210,23 @@ def _close_trial(
         **link,
         **stale_fields,
     })
-    if knob:
-        last = dict(state.get("knob_last_trial") or {})
-        rec = dict(last.get(knob) or {})
-        if rec:
-            rec["closed_index"] = int(state.get("cycle_index") or 0)
-            rec["closed_cycle"] = cycle_id
-            last[knob] = rec
-            state["knob_last_trial"] = last
+    _mark_knob_closed(state, knob, cycle_id)
     state["last_self_change"] = ev
     state["trial"] = None
     return state
+
+
+def _mark_knob_closed(state: dict[str, Any], knob: str, cycle_id: str) -> None:
+    """Restart the retry cooldown from the close (revert or inconclusive)."""
+    if not knob:
+        return
+    last = dict(state.get("knob_last_trial") or {})
+    rec = dict(last.get(knob) or {})
+    if rec:
+        rec["closed_index"] = int(state.get("cycle_index") or 0)
+        rec["closed_cycle"] = cycle_id
+        last[knob] = rec
+        state["knob_last_trial"] = last
 
 
 def trial_is_no_signal(trial: dict[str, Any] | None) -> bool:
@@ -2540,10 +2547,6 @@ def run_cycle(
         st = reconcile_inflated_trial(st, cycle_id=cycle_id)
     except Exception:
         pass
-    try:
-        st = reconcile_no_signal_trial(st, cycle_id=cycle_id)
-    except Exception:
-        pass
 
     row = metrics if metrics is not None else collect_metrics(cycle_id, stall_state=stall_state)
     row = dict(row)
@@ -2590,6 +2593,12 @@ def run_cycle(
             trial = dict(trial)
             trial["trial_metrics"] = tmetrics
             st["trial"] = trial
+            # Item 58: an open trial with no signal in its baseline and none
+            # in its trial rows (this cycle included) closes inconclusive.
+            try:
+                st = reconcile_no_signal_trial(st, cycle_id=cycle_id)
+            except Exception:
+                pass
             st = maybe_close_trial(st, cycle_id)
 
     started = False

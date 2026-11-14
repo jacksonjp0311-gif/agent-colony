@@ -43,6 +43,18 @@ def _metric(cycle_id, fp, env=None, score=0.0):
     return row
 
 
+def _with_signal(rows):
+    """Item 58: a baseline must carry signal. Alternate oracle_pass_delta
+    +1/-1 in pairs so every paired row moves but the window score stays 0."""
+    n = len(rows) - (len(rows) % 2)
+    for i, r in enumerate(rows):
+        d = (1 if i % 2 == 0 else -1) if i < n else 0
+        r["oracle_pass_delta"] = d
+        r["score"] = SH.score_metrics(int(r.get("new_oracle_targets") or 0),
+                                      int(r.get("new_depth") or 0), d) if d else r.get("score", 0.0)
+    return rows
+
+
 def _two_knob_fingerprints():
     """Digests for the same code with perturb_cooldown_cycles at 6 and at 8."""
     st = SH.load_state()
@@ -77,7 +89,7 @@ def test_just_closed_trial_knob_is_not_a_confound(tmp_path, monkeypatch):
         "direction": "up",
     }
     st["trial"] = None
-    rows = [_metric(f"t{i}", env8["digest"], env8) for i in range(6)]
+    rows = _with_signal([_metric(f"t{i}", env8["digest"], env8) for i in range(6)])
     st["metrics"] = rows
     SH.save_state(st)
     assert SH.baseline_environment_confounded(rows, state=st) is False
@@ -110,7 +122,7 @@ def test_a_different_knob_change_is_still_a_confound(tmp_path, monkeypatch):
         "from": 8,
         "to": 6,
     }
-    rows = [_metric(f"t{i}", env8["digest"], env8) for i in range(6)]
+    rows = _with_signal([_metric(f"t{i}", env8["digest"], env8) for i in range(6)])
     st["metrics"] = rows
     SH.save_state(st)
     assert SH.baseline_environment_confounded(rows, state=st) is True
@@ -145,7 +157,7 @@ def test_start_rule_trial_opens_after_just_closed_knob_trial(tmp_path, monkeypat
         "to": 6,
     }
     st["trial"] = None
-    rows = [_metric(f"t{i}", env8["digest"], env8) for i in range(6)]
+    rows = _with_signal([_metric(f"t{i}", env8["digest"], env8) for i in range(6)])
     st["metrics"] = rows
     st["cycle_index"] = 20
     SH.save_state(st)
@@ -177,7 +189,7 @@ def test_start_knob_trial_opens_after_just_closed_cooldown_trial(tmp_path, monke
         "direction": "up",
     }
     st["trial"] = None
-    rows = [_metric(f"t{i}", env8["digest"], env8) for i in range(6)]
+    rows = _with_signal([_metric(f"t{i}", env8["digest"], env8) for i in range(6)])
     st["metrics"] = rows
     st["cycle_index"] = 20
     SH.save_state(st)
@@ -210,7 +222,7 @@ def test_propose_trial_also_excludes_the_just_closed_knob(tmp_path, monkeypatch)
         "direction": "up",
     }
     st["trial"] = None
-    rows = [_metric(f"t{i}", env8["digest"], env8) for i in range(6)]
+    rows = _with_signal([_metric(f"t{i}", env8["digest"], env8) for i in range(6)])
     st["metrics"] = rows
     st["cycle_index"] = 20
     # knob_last_trial for cooldown should not block a *cap* trial

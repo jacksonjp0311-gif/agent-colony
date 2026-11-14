@@ -49,10 +49,24 @@ def _metric(cycle_id, targets=0, depth=0, delta=0, passes=528):
     }
 
 
+def _with_signal(rows):
+    """Item 58: a baseline must carry signal. Alternate oracle_pass_delta
+    +1/-1 in pairs so every paired row moves but the window score stays 0."""
+    n = len(rows) - (len(rows) % 2)
+    for i, r in enumerate(rows):
+        d = (1 if i % 2 == 0 else -1) if i < n else 0
+        r["oracle_pass_delta"] = d
+        r["score"] = SH.score_metrics(int(r.get("new_oracle_targets") or 0),
+                                      int(r.get("new_depth") or 0), d) if d else r.get("score", 0.0)
+    return rows
+
+
 def _prime_heal(n=6, score_targets=0):
     st = SH.load_state()
     fp = SH.environment_fingerprint(state=st)["digest"]
     rows = [_metric(f"b{i}", targets=score_targets) for i in range(n)]
+    if not score_targets:
+        _with_signal(rows)
     for r in rows:
         r["env_fingerprint"] = fp
     st["metrics"] = rows
@@ -474,7 +488,7 @@ def test_rule_trial_adopts_only_on_strict_improvement(tmp_path, monkeypatch):
     assert any(r.get("trial") for r in st["rules"])
     # Feed six flat metric rows — should revert (not strictly higher).
     # maybe_close_rule_trial calls collect_metrics; stub it to our rows.
-    rows = [_metric(f"t{i}") for i in range(6)]
+    rows = _with_signal([_metric(f"t{i}") for i in range(6)])
     idx = {"i": 0}
 
     def _collect(cycle_id, stall_state=None):
