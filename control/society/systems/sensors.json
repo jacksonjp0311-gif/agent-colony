@@ -1,10 +1,10 @@
 {
-  "ts": "2026-11-14T21:45:13Z",
-  "cycle_id": "20261114T214455Z_29c1ff",
+  "ts": "2026-11-14T22:03:59Z",
+  "cycle_id": "20261114T220329Z_286b5a",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "vandermonde": 11,
+      "vandermonde": 9,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "shape:congruence": 1,
@@ -14,27 +14,6 @@
       "oc_a026772_0": 1
     },
     "recent": {
-      "authored_frontier_cong_xa8371e31_w3": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_frontier_cong_xedd0f0db_w3": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_hl_within_g4_6_6_w2": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_frontier_cong_x41b05781_w3": {
         "last": "keep",
         "streak": 1,
@@ -252,10 +231,10 @@
     "verified": {
       "goldbach_even": 346834115,
       "collatz_descent": 383800000,
-      "legendre_square_gap": 1964607,
-      "lehmer_totient": 175000001,
+      "legendre_square_gap": 1980607,
+      "lehmer_totient": 176600001,
       "erdos_straus": 1204127,
-      "twin_primes_hl": 478200000,
+      "twin_primes_hl": 482200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
