@@ -578,3 +578,37 @@ jobs:
             done
             [ "$ok" = 1 ] || { echo "::error::scoreboard push failed after 3 rebase attempts"; exit 1; }
           fi
+
+
+  # After this run finishes on main, dispatch the next evolve so trials
+  # keep moving with minimal gaps. Kill switch: repo variable
+  # COLONY_CHAIN=off (unset defaults to on). Skips if another evolve
+  # run is already queued or in progress. Chains after failures too,
+  # but stops after 3 consecutive evolve-job failures. Never authorize.
+  chain-next:
+    needs: [evolve, evolve-control, twin-scoreboard]
+    if: ${{ always() && !cancelled() && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Dispatch next evolve (authorize=false)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COLONY_CHAIN: ${{ vars.COLONY_CHAIN }}
+          CURRENT_RUN_ID: ${{ github.run_id }}
+          EVOLVE_RESULT: ${{ needs.evolve.result }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          python3 -m colony.chain_next

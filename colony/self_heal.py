@@ -1468,12 +1468,10 @@ def _empty_pool_cap_suggestions() -> tuple[list[dict[str, Any]], list[tuple[str,
             reasons.append(reason)
             if len(cap_holds) >= 8:
                 break
-        if CAP_TERM in reasons:
-            suggest.extend([("fast_term_cap", "up"), ("gf_term_cap", "up"), ("deep_term_cap", "up")])
-        if CAP_DIGIT in reasons or "digit_or_time_cap" in reasons:
-            suggest.append(("deep_digits", "up"))
-        if CAP_TIME in reasons or "digit_or_time_cap" in reasons:
-            suggest.append(("deep_seconds", "up"))
+        from colony.oeis_conjectures import knobs_for_cap_reason
+        for reason, row in zip(reasons, cap_holds):
+            for cap_knob in knobs_for_cap_reason(reason, row=row):
+                suggest.append((cap_knob, "up"))
         if CAP_REF in reasons and not suggest:
             suggest.extend([("fast_term_cap", "up"), ("deep_term_cap", "up")])
     except Exception:
@@ -1800,12 +1798,10 @@ def diagnose(
         if cap_rows:
             reasons = [r["cap_reason"] for r in cap_rows]
             suggest: list[tuple[str, str]] = []
-            if CAP_TERM in reasons:
-                suggest.extend([("fast_term_cap", "up"), ("gf_term_cap", "up")])
-            if CAP_DIGIT in reasons or "digit_or_time_cap" in reasons:
-                suggest.append(("deep_digits", "up"))
-            if CAP_TIME in reasons or "digit_or_time_cap" in reasons:
-                suggest.append(("deep_seconds", "up"))
+            from colony.oeis_conjectures import knobs_for_cap_reason
+            for reason, row in zip(reasons, cap_rows):
+                for cap_knob in knobs_for_cap_reason(reason, row=row):
+                    suggest.append((cap_knob, "up"))
             findings.append({
                 "kind": "depth_at_physical_cap",
                 "evidence": {
@@ -1950,6 +1946,25 @@ def eligible_target_ids(stall_state: dict[str, Any] | None = None) -> set[str]:
         return set()
 
 
+
+def _predicted_target_fits_knob(tid: str, knob: str, *, attempt_log: dict[str, Any] | None = None) -> bool:
+    """True when this target has no binding cap, or its cap_reason matches knob."""
+    try:
+        from colony.oeis_conjectures import (
+            load_attempt_log, cap_of_row, knobs_for_cap_reason, _last_attempt_row,
+        )
+        log = attempt_log if attempt_log is not None else load_attempt_log()
+        row = _last_attempt_row(str(tid), log)
+        if not isinstance(row, dict):
+            return True
+        reason, _val = cap_of_row(row, None)
+        if not reason:
+            return True
+        return knob in knobs_for_cap_reason(reason, row=row)
+    except Exception:
+        return True
+
+
 def predicted_new_targets(
     knob: str,
     value: Any,
@@ -1973,7 +1988,10 @@ def predicted_new_targets(
             after = eligible_target_ids(stall_state)
     except Exception:
         return []
-    return sorted(after - before)
+    # Item 63: only credit targets whose recorded cap_reason is bound
+    # by this knob family. A term-cap raise must not list a hold that
+    # actually sat at a digit or time ceiling (and vice versa).
+    return [tid for tid in sorted(after - before) if _predicted_target_fits_knob(tid, knob)]
 
 
 def _exploration_already_failed(state: dict[str, Any], knob: str, value: Any, predicted: list[str]) -> bool:
