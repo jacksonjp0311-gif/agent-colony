@@ -1,5 +1,5 @@
 {
- "attempted_now": 1,
+ "attempted_now": 0,
  "by_kind": {
   "cong": [
    82,
@@ -9796,6 +9796,6 @@
    "v": 3
   }
  },
- "seconds": 0.25,
- "ts": "2026-11-14T01:03:13Z"
+ "seconds": 0.03,
+ "ts": "2026-11-14T03:03:08Z"
 }

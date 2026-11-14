@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-11-14T01:02:25Z",
-  "updated_cycle": "20261114T010112Z_522ae9",
+  "updated_at": "2026-11-14T03:02:19Z",
+  "updated_cycle": "20261114T030048Z_666d39",
   "n_active": 80,
   "n_keeps": 0,
   "n_reverts": 0,
@@ -18,225 +18,6 @@
     "explore": 0.06
   },
   "recent": [
-    {
-      "id": "les_Z_308a95_conjecture",
-      "ts": "2026-11-14T00:15:10Z",
-      "cycle_id": "20261114T001407Z_308a95",
-      "type": "catalog_exhausted",
-      "decision": "skip",
-      "check": "conjecture",
-      "mutation": "",
-      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {
-        "oeis_idle": "beyond_bfile",
-        "target": ""
-      },
-      "proposal_fingerprint": "",
-      "tags": [
-        "catalog_exhausted",
-        "oeis_idle"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261114T001407Z_308a95",
-        "check": "conjecture",
-        "evidence": []
-      },
-      "scope": "check:conjecture",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_308a95_vandermonde",
-      "ts": "2026-11-14T00:15:13Z",
-      "cycle_id": "20261114T001407Z_308a95",
-      "type": "skip",
-      "decision": "skip",
-      "check": "theme_probe_cooldown",
-      "mutation": "vandermonde",
-      "what": "skip saturated claim_theme vandermonde: no harder unused window",
-      "source": "claim_pipeline",
-      "family": "claim_theme",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "theme_probe_cooldown",
-        "saturated_claim_theme"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "claim_pipeline",
-        "cycle_id": "20261114T001407Z_308a95",
-        "check": "theme_probe_cooldown",
-        "evidence": []
-      },
-      "scope": "mutation:vandermonde",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_f6cd41_conjecture",
-      "ts": "2026-11-14T00:17:23Z",
-      "cycle_id": "20261114T001622Z_f6cd41",
-      "type": "catalog_exhausted",
-      "decision": "skip",
-      "check": "conjecture",
-      "mutation": "",
-      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {
-        "oeis_idle": "beyond_bfile",
-        "target": ""
-      },
-      "proposal_fingerprint": "",
-      "tags": [
-        "catalog_exhausted",
-        "oeis_idle"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261114T001622Z_f6cd41",
-        "check": "conjecture",
-        "evidence": []
-      },
-      "scope": "check:conjecture",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_f6cd41_vandermonde",
-      "ts": "2026-11-14T00:17:30Z",
-      "cycle_id": "20261114T001622Z_f6cd41",
-      "type": "skip",
-      "decision": "skip",
-      "check": "theme_probe_cooldown",
-      "mutation": "vandermonde",
-      "what": "skip saturated claim_theme vandermonde: no harder unused window",
-      "source": "claim_pipeline",
-      "family": "claim_theme",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "theme_probe_cooldown",
-        "saturated_claim_theme"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "claim_pipeline",
-        "cycle_id": "20261114T001622Z_f6cd41",
-        "check": "theme_probe_cooldown",
-        "evidence": []
-      },
-      "scope": "mutation:vandermonde",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_852ce2_conjecture",
-      "ts": "2026-11-14T00:57:23Z",
-      "cycle_id": "20261114T005556Z_852ce2",
-      "type": "catalog_exhausted",
-      "decision": "skip",
-      "check": "conjecture",
-      "mutation": "",
-      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {
-        "oeis_idle": "beyond_bfile",
-        "target": ""
-      },
-      "proposal_fingerprint": "",
-      "tags": [
-        "catalog_exhausted",
-        "oeis_idle"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261114T005556Z_852ce2",
-        "check": "conjecture",
-        "evidence": []
-      },
-      "scope": "check:conjecture",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_852ce2_vandermonde",
-      "ts": "2026-11-14T00:57:27Z",
-      "cycle_id": "20261114T005556Z_852ce2",
-      "type": "skip",
-      "decision": "skip",
-      "check": "theme_probe_cooldown",
-      "mutation": "vandermonde",
-      "what": "skip saturated claim_theme vandermonde: no harder unused window",
-      "source": "claim_pipeline",
-      "family": "claim_theme",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "theme_probe_cooldown",
-        "saturated_claim_theme"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "claim_pipeline",
-        "cycle_id": "20261114T005556Z_852ce2",
-        "check": "theme_probe_cooldown",
-        "evidence": []
-      },
-      "scope": "mutation:vandermonde",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
-    },
     {
       "id": "les_Z_da30fb_dedupe",
       "ts": "2026-11-14T00:59:47Z",
@@ -444,6 +225,225 @@
       "provenance": {
         "source": "claim_pipeline",
         "cycle_id": "20261114T010112Z_522ae9",
+        "check": "theme_probe_cooldown",
+        "evidence": []
+      },
+      "scope": "mutation:vandermonde",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_20e16e_conjecture",
+      "ts": "2026-11-14T02:56:39Z",
+      "cycle_id": "20261114T025457Z_20e16e",
+      "type": "catalog_exhausted",
+      "decision": "skip",
+      "check": "conjecture",
+      "mutation": "",
+      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {
+        "oeis_idle": "beyond_bfile",
+        "target": ""
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "catalog_exhausted",
+        "oeis_idle"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261114T025457Z_20e16e",
+        "check": "conjecture",
+        "evidence": []
+      },
+      "scope": "check:conjecture",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_20e16e_vandermonde",
+      "ts": "2026-11-14T02:56:42Z",
+      "cycle_id": "20261114T025457Z_20e16e",
+      "type": "skip",
+      "decision": "skip",
+      "check": "theme_probe_cooldown",
+      "mutation": "vandermonde",
+      "what": "skip saturated claim_theme vandermonde: no harder unused window",
+      "source": "claim_pipeline",
+      "family": "claim_theme",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "theme_probe_cooldown",
+        "saturated_claim_theme"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "claim_pipeline",
+        "cycle_id": "20261114T025457Z_20e16e",
+        "check": "theme_probe_cooldown",
+        "evidence": []
+      },
+      "scope": "mutation:vandermonde",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_c43a95_conjecture",
+      "ts": "2026-11-14T02:59:24Z",
+      "cycle_id": "20261114T025804Z_c43a95",
+      "type": "catalog_exhausted",
+      "decision": "skip",
+      "check": "conjecture",
+      "mutation": "",
+      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {
+        "oeis_idle": "beyond_bfile",
+        "target": ""
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "catalog_exhausted",
+        "oeis_idle"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261114T025804Z_c43a95",
+        "check": "conjecture",
+        "evidence": []
+      },
+      "scope": "check:conjecture",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_c43a95_vandermonde",
+      "ts": "2026-11-14T02:59:29Z",
+      "cycle_id": "20261114T025804Z_c43a95",
+      "type": "skip",
+      "decision": "skip",
+      "check": "theme_probe_cooldown",
+      "mutation": "vandermonde",
+      "what": "skip saturated claim_theme vandermonde: no harder unused window",
+      "source": "claim_pipeline",
+      "family": "claim_theme",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "theme_probe_cooldown",
+        "saturated_claim_theme"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "claim_pipeline",
+        "cycle_id": "20261114T025804Z_c43a95",
+        "check": "theme_probe_cooldown",
+        "evidence": []
+      },
+      "scope": "mutation:vandermonde",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_666d39_conjecture",
+      "ts": "2026-11-14T03:02:10Z",
+      "cycle_id": "20261114T030048Z_666d39",
+      "type": "catalog_exhausted",
+      "decision": "skip",
+      "check": "conjecture",
+      "mutation": "",
+      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
+      "source": "conjecture_desk",
+      "family": "hard_tier",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {
+        "oeis_idle": "beyond_bfile",
+        "target": ""
+      },
+      "proposal_fingerprint": "",
+      "tags": [
+        "catalog_exhausted",
+        "oeis_idle"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "conjecture_desk",
+        "cycle_id": "20261114T030048Z_666d39",
+        "check": "conjecture",
+        "evidence": []
+      },
+      "scope": "check:conjecture",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_666d39_vandermonde",
+      "ts": "2026-11-14T03:02:19Z",
+      "cycle_id": "20261114T030048Z_666d39",
+      "type": "skip",
+      "decision": "skip",
+      "check": "theme_probe_cooldown",
+      "mutation": "vandermonde",
+      "what": "skip saturated claim_theme vandermonde: no harder unused window",
+      "source": "claim_pipeline",
+      "family": "claim_theme",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "theme_probe_cooldown",
+        "saturated_claim_theme"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "claim_pipeline",
+        "cycle_id": "20261114T030048Z_666d39",
         "check": "theme_probe_cooldown",
         "evidence": []
       },

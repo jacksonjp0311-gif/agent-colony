@@ -1874,3 +1874,9 @@
 {"ts": "2026-11-14T01:00:29Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
 {"ts": "2026-11-14T01:02:42Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
 {"ts": "2026-11-14T01:02:58Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
+{"ts": "2026-11-14T02:57:00Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
+{"ts": "2026-11-14T02:57:16Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
+{"ts": "2026-11-14T02:59:46Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
+{"ts": "2026-11-14T03:00:03Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
+{"ts": "2026-11-14T03:02:36Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
+{"ts": "2026-11-14T03:02:52Z", "feed_ok": {"goes_xray": true, "openmeteo_series": true, "usgs_quakes": true, "system_stat": true, "tcp_probe": true}, "pattern_kinds": ["pulsemesh_local_ops_health"]}
