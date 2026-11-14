@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-11-14T20:56:30Z",
-  "updated_cycle": "20261114T205509Z_b9b0a0",
+  "updated_at": "2026-11-14T21:27:04Z",
+  "updated_cycle": "20261114T212531Z_26eb21",
   "n_claims": 1,
   "n_proposed": 0,
   "recent_claims": [
@@ -19,8 +19,8 @@
       "bench_hint": "lemma_microbench hard:vandermonde*",
       "status": "rejected_raw",
       "hard_ok": false,
-      "note": "lemma score=0.8774 hard_pass=162/162 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
-      "ts": "2026-11-14T20:56:30Z",
+      "note": "lemma score=0.8729 hard_pass=162/162 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
+      "ts": "2026-11-14T21:27:04Z",
       "not_discovery": true
     }
   ],
