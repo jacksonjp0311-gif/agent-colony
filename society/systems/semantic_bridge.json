@@ -2,34 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 101,
-    "unbridged": 133
+    "unbridged": 135
   },
   "rows": [
-    {
-      "mutation": "authored_sieve_residue_bal_g2_4_6_w2",
-      "status": "ok",
-      "family": "sieve",
-      "template": "residue_bal",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-10-23T21:41:09Z",
-      "cycle_id": "20261023T213950Z_6df91b",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_frontier_le_x46c5cc8a_w3",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-10-23T21:43:31Z",
-      "cycle_id": "20261023T214216Z_588b4d",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_frontier_divides_x0c5f5f5b_w1",
       "status": "unbridged",
@@ -674,8 +649,28 @@
       "kind": "authored_check",
       "oracle_passed": false,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_78025e23cf57",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-14T21:42:59Z",
+      "cycle_id": "20261114T214106Z_161cbb",
+      "kind": "authored_check",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_c92be463a0f5",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-14T21:49:22Z",
+      "cycle_id": "20261114T214745Z_779df3",
+      "kind": "authored_check",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-11-14T21:26:37Z",
+  "updated_at": "2026-11-14T21:49:22Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }
