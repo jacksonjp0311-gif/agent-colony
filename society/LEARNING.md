@@ -12,11 +12,11 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Kept: **0**
 - Reverted (including twin-not-better): **4**
 - Voided (environment changed mid-trial): **7**
-- Inconclusive (no signal in either window; not counted against the action): **0**
+- Inconclusive (no signal in either window; not counted against the action): **1**
 - Proposed this snapshot: **1**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **5** times (`set_knob:direction=up:name=fast_term_cap:value=10700`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 0, correct 0, pending 10, accuracy n/a
+- Hive shadow picks: resolved 0, correct 0, pending 11, accuracy n/a
 
 ## Per method card
 
@@ -46,6 +46,7 @@ _None yet._
 - `reverted` · card `—` · family `set_knob:deep_seconds` · cycle `20261114T183045Z_d19c9c` (baseline 3.0, trial 3.0)
 - `voided` · card `—` · family `set_knob:perturb_epsilon` · cycle `20261114T192118Z_6e8a46` (baseline 3.0, trial None)
 - `voided` · card `—` · family `set_knob:fast_term_cap` · cycle `20261114T212240Z_58b193` (baseline 3.0, trial None)
+- `inconclusive` · card `—` · family `set_knob:fast_term_cap` · cycle `20261114T222841Z_1f64d2` (baseline 3.0, trial 3.0)
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 

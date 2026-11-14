@@ -2186,6 +2186,15 @@ def check_authored_mut_swap_related_sequence_5f1e08241fef() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'rad', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
+def check_authored_mut_swap_related_sequence_c975a0acf97b() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    (gpf*omega)(n) divides dbl((omega*rad))(n) for all n >= 1
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': '(gpf*omega)', 'params': {}, 'rhs': 'dbl((omega*rad))'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2425,6 +2434,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mut_swap_related_sequence_c92be463a0f5", check_authored_mut_swap_related_sequence_c92be463a0f5, False),
     ("authored_mut_swap_related_sequence_f992defe4af8", check_authored_mut_swap_related_sequence_f992defe4af8, False),
     ("authored_mut_swap_related_sequence_5f1e08241fef", check_authored_mut_swap_related_sequence_5f1e08241fef, False),
+    ("authored_mut_swap_related_sequence_c975a0acf97b", check_authored_mut_swap_related_sequence_c975a0acf97b, False),
 ]
 
 

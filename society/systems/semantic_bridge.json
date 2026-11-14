@@ -2,34 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 101,
-    "unbridged": 136
+    "unbridged": 138
   },
   "rows": [
-    {
-      "mutation": "authored_frontier_le_x10223e69_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-11-08T00:00:08Z",
-      "cycle_id": "20261107T235901Z_5fdebf",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_sieve_residue_bal_g4_2_4_w1",
-      "status": "ok",
-      "family": "sieve",
-      "template": "residue_bal",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-11-08T00:02:35Z",
-      "cycle_id": "20261108T000129Z_678dd4",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_sieve_hl_within_g4_6_2_w1",
       "status": "ok",
@@ -669,8 +644,28 @@
       "kind": "authored_check",
       "oracle_passed": false,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_5f1e08241fef",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-14T22:23:25Z",
+      "cycle_id": "20261114T222129Z_a6912d",
+      "kind": "authored_check",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_c975a0acf97b",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-14T22:30:21Z",
+      "cycle_id": "20261114T222841Z_1f64d2",
+      "kind": "authored_check",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-11-14T22:05:57Z",
+  "updated_at": "2026-11-14T22:30:21Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }
