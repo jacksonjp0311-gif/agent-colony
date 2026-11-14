@@ -248,7 +248,9 @@ def test_revert_when_trial_does_not_help(tmp_path, monkeypatch):
     assert SH.current_knob("unused_menu_cycles") == 20
 
 
-def test_tie_reverts(tmp_path, monkeypatch):
+def test_tie_on_background_activity_is_inconclusive(tmp_path, monkeypatch):
+    """Item 65: a 6.0-vs-6.0 tie from new_oracle_targets every cycle
+    is inconclusive, not a revert against the knob."""
     _isolate(tmp_path, monkeypatch)
     _prime_baseline(6, score_targets=1)
     st = SH.load_state()
@@ -267,8 +269,11 @@ def test_tie_reverts(tmp_path, monkeypatch):
     for i in range(6):
         SH.run_cycle(f"t{i+1}", metrics=_metric(f"t{i+1}", targets=1))
     vis = SH.visibility()
-    assert vis["self_changes_reverted"] == 1
+    assert vis["self_changes_reverted"] == 0
     assert vis["self_changes_adopted"] == 0
+    assert vis["self_changes_inconclusive"] == 1
+    assert vis["last_self_change"]["event"] == "trial_inconclusive"
+    assert vis["last_self_change"]["reason"] == "no_variance"
     assert SH.current_knob("park_cycles") == 6
 
 

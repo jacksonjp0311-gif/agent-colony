@@ -262,6 +262,10 @@ _FINGERPRINT_EXCLUDE_DIRS = frozenset({
 _FINGERPRINT_EXCLUDE_FILES = frozenset({
     "dashboard.py",
     "conftest.py",
+    # Item 62: scoring/crediting only. A merge that changes only this
+    # file does not void an open trial; the trial is re-scored from
+    # its recorded per-cycle facts under the new code.
+    "self_heal_score.py",
 })
 _FINGERPRINT_EXCLUDE_SUFFIXES = frozenset({
     ".md", ".html", ".htm", ".css", ".svg", ".txt", ".rst",
@@ -2117,6 +2121,15 @@ def propose_trial(
         explore: dict[str, Any] = {}
         if not no_signal and _pred(knob, direction):
             explore = {"predicted_targets": list(_pred(knob, direction))}  # info only
+        # Item 65: a baseline whose only motion is the periodic
+        # new_oracle_targets alternation cannot show that a knob
+        # without a predicted target helped. Those knobs wait for a
+        # window with new_depth or a pass delta. Predicted-target
+        # cap trials may still open; item 64 scores them on depth.
+        if not no_signal and not _pred(knob, direction):
+            from colony.self_heal_score import window_has_bearing_signal
+            if not window_has_bearing_signal(window_rows):
+                continue
         if no_signal:
             predicted = predicted_new_targets(knob, nxt)
             explore_checked.append({"knob": knob, "to": nxt, "predicted": predicted[:8]})
@@ -2157,6 +2170,10 @@ def propose_trial(
         rec = _record_trial_skip(st, cycle_id, "no_signal_baseline", findings, window_rows)
         rec["explore_checked"] = explore_checked[:8]
         st["trial_skip"] = rec
+    elif findings:
+        from colony.self_heal_score import window_has_bearing_signal
+        if not window_has_bearing_signal(window_rows):
+            _record_trial_skip(st, cycle_id, "no_bearing_signal", findings, window_rows)
     return None
 
 
@@ -2176,6 +2193,14 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
     st = state if state is not None else load_state()
     if st.get("trial"):
         return st
+    # Snapshot official depths before later stages run under the new cap.
+    predicted = [str(x) for x in (trial.get("predicted_targets") or []) if x]
+    if predicted and not isinstance(trial.get("pre_trial_depths"), dict):
+        try:
+            from colony.self_heal_score import snapshot_pre_trial_depths
+            trial["pre_trial_depths"] = snapshot_pre_trial_depths(predicted)
+        except Exception:
+            trial["pre_trial_depths"] = {tid: 0 for tid in predicted}
     _apply_knob(st, trial["knob"], trial["to"])
     st["trial"] = trial
     st["trial_skip"] = None
@@ -2202,6 +2227,7 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         "replay": trial.get("replay"),
         "exploratory": bool(trial.get("exploratory")),
         "predicted_targets": list(trial.get("predicted_targets") or []),
+        "pre_trial_depths": dict(trial.get("pre_trial_depths") or {}),
         "environment_fingerprint": fp["digest"],
         "environment": trial["environment"],
     })
@@ -2323,9 +2349,24 @@ def _close_trial(
     if not trial:
         return state
     trial_rows = list(trial.get("trial_metrics") or [])
-    trial_score = trial_comparison_score(trial)
-    baseline_score = float(trial.get("baseline_score") or 0)
-    helped = trial_score > baseline_score
+    try:
+        from colony.self_heal_score import refresh_trial_scores
+        refresh_trial_scores(trial)
+    except Exception:
+        pass
+    predicted = [str(x) for x in (trial.get("predicted_targets") or []) if x]
+    activity_score = trial_comparison_score(trial)
+    baseline_activity = float(trial.get("baseline_activity_score") or trial.get("baseline_score") or 0)
+    if predicted:
+        trial_score = float(trial.get("predicted_depth_gain") or 0)
+        baseline_score = 0.0  # pre-trial depth is the reference
+        helped = trial_score > baseline_score or (
+            trial_score == baseline_score and activity_score > baseline_activity
+        )
+    else:
+        trial_score = activity_score
+        baseline_score = float(trial.get("baseline_score") or 0)
+        helped = trial_score > baseline_score
     knob = str(trial.get("knob") or "")
     link = {
         "started_cycle": trial.get("started_cycle"),
@@ -2338,6 +2379,13 @@ def _close_trial(
         link["attributed_targets"] = attributable_progress(trial)
     if isinstance(trial.get("apply_cycle_metrics"), dict):
         link["apply_cycle_metrics"] = trial.get("apply_cycle_metrics")
+    if predicted:
+        link["predicted_targets"] = predicted
+        link["pre_trial_depths"] = dict(trial.get("pre_trial_depths") or {})
+        link["current_depths"] = dict(trial.get("current_depths") or {})
+        link["predicted_depth_gain"] = trial.get("predicted_depth_gain")
+        link["activity_score"] = activity_score
+        link["baseline_activity_score"] = baseline_activity
     if decision == "adopt" and helped and knob:
         # Value is already the trial value. Strictly-better rule unchanged.
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
@@ -2496,24 +2544,19 @@ def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
     window = int(trial.get("window") or current_knob("evaluation_window"))
     rows = list(trial.get("trial_metrics") or [])
     if len(rows) < window:
+        # Item 62: keep computed depth/activity fields current even
+        # while the window is still filling, so a scoring-only merge
+        # is reflected without voiding.
+        try:
+            from colony.self_heal_score import refresh_trial_scores
+            refresh_trial_scores(trial)
+            state["trial"] = trial
+        except Exception:
+            pass
         return state
-    trial_score = trial_comparison_score(trial)
-    baseline_score = float(trial.get("baseline_score") or 0)
-    reason = None
-    if trial_score > baseline_score:
-        decision = "adopt"  # strictly better, unchanged
-        if trial.get("exploratory") and not attributable_progress(trial):
-            # Better, but not because of this change: not evidence either way.
-            decision, reason = "inconclusive", "signal_not_attributable"
-    elif trial_is_no_signal(trial):
-        decision, reason = "inconclusive", "no_signal"  # item 58
-    elif (
-        trial.get("exploratory") and trial_score >= baseline_score
-        and not attributable_progress(trial)
-    ):
-        decision, reason = "inconclusive", "signal_not_attributable"
-    else:
-        decision = "revert"
+    from colony.self_heal_score import decide_trial_close
+    decision, reason = decide_trial_close(trial)
+    state["trial"] = trial
     return _close_trial(state, cycle_id, decision, reason=reason)
 
 
@@ -2980,6 +3023,10 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
             if isinstance(apply, dict):
                 trial_out["apply_cycle_metrics"] = apply
                 trial_out["apply_cycle_score"] = apply.get("score")
+            if trial.get("predicted_targets"):
+                trial_out["predicted_targets"] = list(trial.get("predicted_targets") or [])
+                trial_out["predicted_depth_gain"] = trial.get("predicted_depth_gain")
+                trial_out["pre_trial_depths"] = dict(trial.get("pre_trial_depths") or {})
         return {
             "self_changes_adopted": int(st.get("adopted_count") or 0),
             "self_changes_reverted": int(st.get("reverted_count") or 0),
