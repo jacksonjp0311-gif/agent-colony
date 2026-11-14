@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-11-14T08:51:16Z",
-  "updated_cycle": "20261114T084929Z_20fab1",
+  "updated_at": "2026-11-14T11:04:20Z",
+  "updated_cycle": "20261114T110200Z_383eb0",
   "signal": {
-    "ts": "2026-11-14T08:51:16Z",
+    "ts": "2026-11-14T11:04:20Z",
     "accepted_count": 6,
     "strong_candidate_count": 55,
     "unknown_caution_count": 127,
