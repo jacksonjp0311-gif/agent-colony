@@ -10,7 +10,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
 - Kept: **0**
-- Reverted (including twin-not-better): **3**
+- Reverted (including twin-not-better): **4**
 - Voided (environment changed mid-trial): **5**
 - Inconclusive (no signal in either window; not counted against the action): **0**
 - Proposed this snapshot: **1**
@@ -26,6 +26,7 @@ _None yet._
 
 | Family | Tried | Kept | Reverted | Keep rate |
 | --- | ---: | ---: | ---: | ---: |
+| `set_knob:deep_seconds` | 1 | 0 | 1 | 0‰ |
 | `set_knob:fast_term_cap` | 1 | 0 | 0 | 0‰ |
 | `set_knob:gf_term_cap` | 1 | 0 | 1 | 0‰ |
 | `set_knob:park_cycles` | 4 | 0 | 1 | 0‰ |
@@ -41,6 +42,7 @@ _None yet._
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261114T001612Z_9266d8` (baseline 0.0, trial None)
 - `voided` · card `—` · family `set_knob:fast_term_cap` · cycle `20261114T084449Z_66dcde` (baseline 4.0, trial None)
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261114T150332Z_6bd205` (baseline 3.0, trial 3.0)
+- `reverted` · card `—` · family `set_knob:deep_seconds` · cycle `20261114T183045Z_d19c9c` (baseline 3.0, trial 3.0)
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
