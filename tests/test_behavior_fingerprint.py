@@ -9,6 +9,7 @@ import colony.self_heal as SH
 def test_include_behavior_path_excludes_docs_tests_dashboard():
     # Behavior-affecting: code and knob/cap config.
     assert SH.include_behavior_path("colony/self_heal.py") is True
+    assert SH.include_behavior_path("colony/self_heal_score.py") is False
     assert SH.include_behavior_path("colony/self_heal_defaults.json") is True
     assert SH.include_behavior_path("colony/oracle.py") is True
     assert SH.include_behavior_path("hive/swarm.py") is True

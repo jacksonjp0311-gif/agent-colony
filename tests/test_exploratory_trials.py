@@ -290,7 +290,14 @@ def test_signal_trial_close_is_plain_strictly_better(tmp_path, monkeypatch):
     st = SH.start_trial(SH.propose_trial(CAP_FINDINGS, state=st, cycle_id="b5"), state=st, cycle_id="b5")
     st["trial"]["trial_metrics"] = [_metric("t0", targets=1)] + [_metric(f"t{i}") for i in range(1, 6)]
     st = SH.maybe_close_trial(st, "t6")
-    assert st["evidence"][-1]["event"] == "revert"  # 1.0 is not > 1.0
+    ev = st["evidence"][-1]
+    # Item 65: a 1.0-vs-1.0 tie driven only by new_oracle_targets
+    # is inconclusive, not a revert.
+    assert ev["event"] == "trial_inconclusive"
+    assert ev["reason"] == "no_variance"
+    assert ev.get("reverted") is False
+    assert st["reverted_count"] == 0
+    assert st["inconclusive_count"] == 1
 
 
 def test_supply_runs_while_a_trial_is_open(tmp_path, monkeypatch):
@@ -391,8 +398,10 @@ def test_apply_cycle_score_counts_toward_strictly_better_after_six_cycles(tmp_pa
     }, state=st, cycle_id="start")
     st["trial"]["apply_cycle_metrics"] = _metric("start", depth=1)
     st["trial"]["apply_cycle_metrics"]["source"] = "apply_cycle_surplus"
-    # Same supply rate as the baseline (three 1.0 scores) plus the apply-cycle
-    # depth would be lost without the surplus: 3.0 is not > 3.0.
+    # Official depth on the predicted target rose in the start cycle
+    # (A165064 7999→10699 in the live run). Item 64 scores that gain
+    # as the primary signal; the 3.0 activity windows are a tie.
+    st["trial"]["pre_trial_depths"] = {"oc_A165064_0": 7999}
     st["trial"]["trial_metrics"] = [
         _metric("t0", targets=1), _metric("t1"), _metric("t2", targets=1),
         _metric("t3"), _metric("t4", targets=1), _metric("t5"),
@@ -404,11 +413,22 @@ def test_apply_cycle_score_counts_toward_strictly_better_after_six_cycles(tmp_pa
     short["trial"]["trial_metrics"] = st["trial"]["trial_metrics"][:5]
     short = SH.maybe_close_trial(short, "t4")
     assert short["trial"] is not None
-    st = SH.maybe_close_trial(st, "t5")
+    import colony.self_heal_score as SCORE
+    # Inject current depths through decide path by setting them on the trial
+    # and patching official_target_depths.
+    import colony.self_heal as M
+    orig = SCORE.official_target_depths
+    try:
+        SCORE.official_target_depths = lambda **k: {"oc_A165064_0": 10699}
+        st = SH.maybe_close_trial(st, "t5")
+    finally:
+        SCORE.official_target_depths = orig
     ev = st["evidence"][-1]
     assert ev["event"] == "adopt"
-    assert ev["trial_score"] == 4.0
-    assert ev["baseline_score"] == 3.0
+    assert ev["predicted_depth_gain"] == 2700
+    assert ev["trial_score"] == 2700
+    assert ev["baseline_score"] == 0.0  # pre-trial depth is the reference
+    assert ev["activity_score"] == 4.0
     assert ev["apply_cycle_metrics"]["new_depth"] == 1
     assert st["adopted_count"] == 1
     assert st["trial"] is None
@@ -484,4 +504,145 @@ def test_trial_is_no_signal_respects_apply_cycle_metrics():
         "apply_cycle_metrics": _metric("start", depth=1),
     }
     assert SH.trial_is_no_signal(trial) is False
+
+# --- items 64 + 65: predicted-depth scoring and no-variance closes -----
+
+def _six(pattern_targets=(1, 0, 1, 0, 1, 0), prefix="b"):
+    return [_metric(f"{prefix}{i}", targets=t) for i, t in enumerate(pattern_targets)]
+
+
+def test_predicted_depth_gain_is_primary_score():
+    import colony.self_heal_score as SCORE
+    trial = {
+        "predicted_targets": ["oc_A126089_0"],
+        "pre_trial_depths": {"oc_A126089_0": 1199},
+        "baseline_metrics": _six(),
+        "trial_metrics": _six(prefix="t"),
+        "baseline_score": 3.0,
+    }
+    gain, now = SCORE.predicted_depth_gain(trial, current_depths={"oc_A126089_0": 1400})
+    assert gain == 201 and now["oc_A126089_0"] == 1400
+    decision, reason = SCORE.decide_trial_close(trial, current_depths={"oc_A126089_0": 1400})
+    assert decision == "adopt" and reason is None
+    # Activity is a 3.0-vs-3.0 tie; depth is what wins.
+    assert trial["activity_score"] == 3.0
+    assert trial["predicted_depth_gain"] == 201
+
+
+def test_zero_depth_gain_and_3v3_background_is_inconclusive(tmp_path, monkeypatch):
+    """The live deep_seconds 8.0→9.8 trial: A126089 stayed at 1199,
+    every window scored 3.0 from the 1,0,1,0 supply pattern, and the
+    trial reverted. That close is now inconclusive, not a revert."""
+    _isolate(tmp_path, monkeypatch)
+    st = _prime_zero()
+    st = SH.start_trial({
+        "knob": "deep_seconds", "from": 8.0, "to": 9.8, "direction": "up",
+        "reason": "empty_perturb_pool", "window": 6, "baseline_score": 3.0,
+        "baseline_metrics": _six(),
+        "trial_metrics": _six(prefix="t"),
+        "started_cycle": "start", "predicted_targets": ["oc_A126089_0"],
+        "pre_trial_depths": {"oc_A126089_0": 1199},
+        "applied_to_live_oracle": False, "authorized": False,
+    }, state=st, cycle_id="start")
+    import colony.self_heal_score as SCORE
+    orig = SCORE.official_target_depths
+    try:
+        SCORE.official_target_depths = lambda **k: {"oc_A126089_0": 1199}
+        st = SH.maybe_close_trial(st, "t5")
+    finally:
+        SCORE.official_target_depths = orig
+    ev = st["evidence"][-1]
+    assert ev["event"] == "trial_inconclusive"
+    assert ev["reason"] == "no_variance"
+    assert ev["predicted_depth_gain"] == 0
+    assert ev["trial_score"] == 0.0
+    assert ev.get("reverted") is False
+    assert st["reverted_count"] == 0
+    assert st["inconclusive_count"] == 1
+    assert st["knobs"]["deep_seconds"] == 8.0  # restored
+    assert st["trial"] is None
+
+
+def test_no_predicted_target_3v3_is_inconclusive(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    st = _prime_zero()
+    st = SH.start_trial({
+        "knob": "perturb_epsilon", "from": 0.3, "to": 0.39, "direction": "up",
+        "reason": "flat_passes", "window": 6, "baseline_score": 3.0,
+        "baseline_metrics": _six(),
+        "trial_metrics": _six(prefix="t"),
+        "started_cycle": "start", "predicted_targets": [],
+        "applied_to_live_oracle": False, "authorized": False,
+    }, state=st, cycle_id="start")
+    st = SH.maybe_close_trial(st, "t5")
+    ev = st["evidence"][-1]
+    assert ev["event"] == "trial_inconclusive"
+    assert ev["reason"] == "no_variance"
+    assert st["reverted_count"] == 0
+    assert st["inconclusive_count"] == 1
+    assert st["knobs"]["perturb_epsilon"] == 0.3
+    assert st["trial"] is None
+
+
+def test_bearing_signal_tiebreaker_still_adopts_when_depth_tied(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    st = _prime_zero()
+    # Baseline: 3.0 from supply only. Trial: 3.0 supply plus a pass delta.
+    trial_rows = _six(prefix="t")
+    trial_rows[1] = _metric("t1", delta=1)  # score 3, total activity 6
+    st = SH.start_trial({
+        "knob": "fast_term_cap", "from": 8000, "to": 10700, "direction": "up",
+        "reason": "depth_at_physical_cap", "window": 6, "baseline_score": 3.0,
+        "baseline_metrics": _six(),
+        "trial_metrics": trial_rows,
+        "started_cycle": "start", "predicted_targets": ["oc_FAST"],
+        "pre_trial_depths": {"oc_FAST": 100},
+        "applied_to_live_oracle": False, "authorized": False,
+    }, state=st, cycle_id="start")
+    import colony.self_heal_score as SCORE
+    orig = SCORE.official_target_depths
+    try:
+        SCORE.official_target_depths = lambda **k: {"oc_FAST": 100}  # no depth gain
+        st = SH.maybe_close_trial(st, "t5")
+    finally:
+        SCORE.official_target_depths = orig
+    ev = st["evidence"][-1]
+    assert ev["event"] == "adopt"
+    assert ev["predicted_depth_gain"] == 0
+    assert ev["activity_score"] == 6.0
+    assert ev["helped"] is True
+
+
+def test_no_bearing_signal_does_not_open_knob_without_predicted_target(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    # Eligibility empty: no cap has a predicted target.
+    monkeypatch.setattr(SH, "eligible_target_ids", lambda stall_state=None: set())
+    st = _prime_zero()
+    st["metrics"] = _six()  # 3.0 from supply only, no depth or pass delta
+    SH.save_state(st)
+    st = SH.load_state()
+    prop = SH.propose_trial(
+        [{"kind": "flat_passes", "suggest": [("perturb_epsilon", "up")]}],
+        state=st, cycle_id="c",
+    )
+    assert prop is None
+    assert st["trial_skip"]["reason"] == "no_bearing_signal"
+
+
+def test_predicted_cap_trial_still_opens_on_supply_only_baseline(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _fake_eligibility(monkeypatch)
+    st = _prime_zero()
+    st["metrics"] = _six()
+    SH.save_state(st)
+    st = SH.load_state()
+    prop = SH.propose_trial(CAP_FINDINGS, state=st, cycle_id="c")
+    assert prop is not None
+    assert prop["knob"] == "fast_term_cap"
+    assert prop["predicted_targets"] == ["oc_FAST"]
+
+
+def test_scoring_module_is_excluded_from_behavior_fingerprint():
+    assert SH.include_behavior_path("colony/self_heal_score.py") is False
+    assert SH.include_behavior_path("colony/self_heal.py") is True
 
