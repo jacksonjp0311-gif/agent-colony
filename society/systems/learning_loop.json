@@ -295,6 +295,50 @@
           "treatment": 11928.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "gf_term_cap",
+        "op": "set_knob",
+        "value": 1200
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 3.0,
+      "card_id": "",
+      "cycle_id": "20261114T150332Z_6bd205",
+      "event": "labeled_example",
+      "family": "set_knob:gf_term_cap",
+      "id": "e0aae6080e724ac6",
+      "knob": "gf_term_cap",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "e0aae6080e724ac6",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 3.0,
+      "ts": "2026-11-14T15:05:29Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8251
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 528.0
+        },
+        "reason": "verified_depth",
+        "verified_depth_sum": {
+          "control": 9228.0,
+          "treatment": 11928.0
+        }
+      }
     }
   ],
   "families": {
@@ -304,6 +348,13 @@
       "n": 1,
       "reverted": 0,
       "voided": 1
+    },
+    "set_knob:gf_term_cap": {
+      "keep_rate_permille": 0,
+      "kept": 0,
+      "n": 1,
+      "reverted": 1,
+      "voided": 0
     },
     "set_knob:park_cycles": {
       "keep_rate_permille": 0,
@@ -320,7 +371,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261114T130319Z_963866",
+  "last_cycle": "20261114T150332Z_6bd205",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -343,7 +394,7 @@
   "n_inconclusive": 0,
   "n_kept": 0,
   "n_proposed": 1,
-  "n_reverted": 2,
+  "n_reverted": 3,
   "n_twin_held": 0,
   "n_voided": 5,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
@@ -371,7 +422,7 @@
     "pending": 10,
     "resolved": 0,
     "source": "hive_shadows",
-    "ts": "2026-11-14T13:05:49Z",
+    "ts": "2026-11-14T15:06:22Z",
     "unlabeled": 0
   },
   "twin_pending": [],
