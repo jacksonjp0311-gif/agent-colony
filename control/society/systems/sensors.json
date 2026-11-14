@@ -1,10 +1,10 @@
 {
-  "ts": "2026-11-14T21:26:00Z",
-  "cycle_id": "20261114T212531Z_26eb21",
+  "ts": "2026-11-14T21:45:13Z",
+  "cycle_id": "20261114T214455Z_29c1ff",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "vandermonde": 13,
+      "vandermonde": 11,
       "oc_a165064_0": 4,
       "oc_a229019_0": 3,
       "shape:congruence": 1,
@@ -14,27 +14,6 @@
       "oc_a026772_0": 1
     },
     "recent": {
-      "authored_frontier_cong_x22ed9f43_w3": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_sieve_residue_bal_g4_6_2_w2": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
-      "authored_frontier_divides_x0f0ed051_w3": {
-        "last": "keep",
-        "streak": 1,
-        "n": 1,
-        "keeps": 1,
-        "reverts": 0
-      },
       "authored_frontier_cong_xa8371e31_w3": {
         "last": "keep",
         "streak": 1,
@@ -271,11 +250,11 @@
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 343634115,
-      "collatz_descent": 380600000,
+      "goldbach_even": 346834115,
+      "collatz_descent": 383800000,
       "legendre_square_gap": 1964607,
       "lehmer_totient": 175000001,
-      "erdos_straus": 1199127,
+      "erdos_straus": 1204127,
       "twin_primes_hl": 478200000,
       "oeis_A104062_next": 518690000001
     },
