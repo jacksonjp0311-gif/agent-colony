@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-15T03:45:51Z",
-  "cycle_id": "20261115T034525Z_2d4898",
+  "ts": "2026-11-15T04:09:51Z",
+  "cycle_id": "20261115T040923Z_393b86",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -22,9 +22,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8609,
-      "slope": 3.9e-05,
-      "min": 0.8603,
+      "last": 0.8606,
+      "slope": -0.000149,
+      "min": 0.8604,
       "max": 0.8633
     },
     "novelty": {
@@ -34,16 +34,16 @@
       "max": 0.75
     },
     "kill_rate": {
-      "last": 0.4236,
-      "slope": 0.000325,
-      "min": 0.4198,
-      "max": 0.4236
+      "last": 0.4242,
+      "slope": 0.000306,
+      "min": 0.4211,
+      "max": 0.4242
     },
     "kill_rate_term": {
-      "last": 0.9312,
-      "slope": 0.000293,
-      "min": 0.9278,
-      "max": 0.9312
+      "last": 0.9318,
+      "slope": 0.000283,
+      "min": 0.9289,
+      "max": 0.9318
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -54,7 +54,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0019,
+    "aggregate_range": 0.001,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -76,6 +76,7 @@
       "authored_mut_swap_related_sequence_407fbdbac9ef",
       "authored_mut_swap_related_sequence_43bfea4a2cc0",
       "authored_mut_swap_related_sequence_5223338a52eb",
+      "authored_mut_swap_related_sequence_55ef68f19547",
       "authored_mut_swap_related_sequence_566c464aa389",
       "authored_mut_swap_related_sequence_58aacc9fceff",
       "authored_mut_swap_related_sequence_5eb7494b98aa",
@@ -102,6 +103,7 @@
       "authored_mut_swap_related_sequence_c461b03cfcee",
       "authored_mut_swap_related_sequence_c92be463a0f5",
       "authored_mut_swap_related_sequence_c975a0acf97b",
+      "authored_mut_swap_related_sequence_d4fd9cc584c3",
       "authored_mut_swap_related_sequence_dda3900e5ef8",
       "authored_mut_swap_related_sequence_e1949a02138c",
       "authored_mut_swap_related_sequence_e41e92020988",
@@ -192,6 +194,7 @@
       "authored_mut_swap_related_sequence_407fbdbac9ef",
       "authored_mut_swap_related_sequence_43bfea4a2cc0",
       "authored_mut_swap_related_sequence_5223338a52eb",
+      "authored_mut_swap_related_sequence_55ef68f19547",
       "authored_mut_swap_related_sequence_566c464aa389",
       "authored_mut_swap_related_sequence_58aacc9fceff",
       "authored_mut_swap_related_sequence_5eb7494b98aa",
@@ -218,6 +221,7 @@
       "authored_mut_swap_related_sequence_c461b03cfcee",
       "authored_mut_swap_related_sequence_c92be463a0f5",
       "authored_mut_swap_related_sequence_c975a0acf97b",
+      "authored_mut_swap_related_sequence_d4fd9cc584c3",
       "authored_mut_swap_related_sequence_dda3900e5ef8",
       "authored_mut_swap_related_sequence_e1949a02138c",
       "authored_mut_swap_related_sequence_e41e92020988",
@@ -275,34 +279,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.467,
+      "ratio": 1.287,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.476,
+      "ratio": 1.414,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.328,
+      "ratio": 1.356,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.184,
+      "ratio": 1.351,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.225,
+      "ratio": 1.193,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 372434115,
-      "collatz_descent": 409400000,
+      "goldbach_even": 375634115,
+      "collatz_descent": 412600000,
       "legendre_square_gap": 2108607,
       "lehmer_totient": 189400001,
-      "erdos_straus": 1244127,
+      "erdos_straus": 1249127,
       "twin_primes_hl": 514200000,
       "oeis_A104062_next": 518690000001
     },
@@ -357,18 +361,18 @@
     "last": [
       [
         null,
+        "2026-11-15T03:54:58Z"
+      ],
+      [
+        "success",
         "2026-11-15T03:32:51Z"
       ],
       [
         "success",
         "2026-11-15T03:12:13Z"
-      ],
-      [
-        "success",
-        "2026-11-15T02:54:37Z"
       ]
     ],
-    "fetched_at": "2026-11-15T03:33:32Z"
+    "fetched_at": "2026-11-15T03:56:12Z"
   },
   "feeds": {
     "by_source": {
@@ -376,68 +380,73 @@
       "oeis": 5,
       "crossref": 133,
       "wikipedia": 19,
-      "oeis_conj": 230
+      "oeis_conj": 231
     },
     "by_kind": {
       "paper": 388,
       "sequence": 5,
       "summary": 19,
-      "conj_sequence": 230
+      "conj_sequence": 231
     },
     "last_run": {
       "sources": {
         "arxiv": {
+          "error": "cs.LG:HTTPError: HTTP Error 429: Unknown Error; cs.MA:TimeoutError: The read operation timed out",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": false
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
+          "error": "",
+          "fetched": 3,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 7,
+          "new": 1,
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 1,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-15T03:33:31Z"
+      "ts": "2026-11-15T03:55:49Z"
     },
     "health": {
       "arxiv": {
-        "fail": 9,
+        "fail": 10,
         "ok": 87
       },
       "crossref": {
         "fail": 0,
-        "ok": 90
+        "ok": 91
       },
       "oeis": {
         "fail": 0,
-        "ok": 90
+        "ok": 91
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 86
+        "ok": 87
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 90
+        "ok": 91
       }
     }
   },
