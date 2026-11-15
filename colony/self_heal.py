@@ -2304,7 +2304,12 @@ def propose_trial(
     # Item 74: a target that flipped between two binding caps gets one
     # coupled trial raising both knobs (or is retired as compute_bound).
     if has_cap_candidate:
-        coupled = _coupled_candidate(st, ordered, _pred, cycle_id)
+        # Item 77: co-binding caps. When every single cap raise gains a
+        # negligible amount for a recent target, one coupled trial over the
+        # caps that bind together (term cap + deep_digits [+ deep_seconds]).
+        coupled = _cobind_candidate(st, ordered, _pred)
+        if coupled is None:
+            coupled = _coupled_candidate(st, ordered, _pred, cycle_id)
         if coupled is not None:
             baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
             cap_finding = next((f for f, k, _d in ordered if k in CAP_KNOBS), {})
@@ -2480,11 +2485,41 @@ def propose_trial(
         rec = _record_trial_skip(st, cycle_id, "no_signal_baseline", findings, window_rows)
         rec["explore_checked"] = explore_checked[:8]
         st["trial_skip"] = rec
+        # Item 77: 6+ consecutive skips where every candidate predicts no
+        # target log one append-only co_binding_caps finding.
+        try:
+            from colony.self_heal_cobind import note_zero_prediction_skip
+            note_zero_prediction_skip(st, cycle_id, explore_checked)
+        except Exception:
+            pass
     elif findings:
         from colony.self_heal_score import window_has_bearing_signal
         if not window_has_bearing_signal(window_rows):
             _record_trial_skip(st, cycle_id, "no_bearing_signal", findings, window_rows)
     return None
+
+
+def _cobind_candidate(st: dict[str, Any], ordered, pred) -> dict[str, Any] | None:
+    """Item 77: recent cap-trial targets plus current predictions, simulated jointly."""
+    try:
+        from colony.self_heal_cobind import cobind_proposal, recent_targets
+    except Exception:
+        return None
+    targets = list(recent_targets(st))
+    for _f, knob, direction in ordered:
+        if knob in CAP_KNOBS:
+            targets += [t for t in pred(knob, direction) if t not in targets]
+    try:
+        return cobind_proposal(st, targets)
+    except Exception:
+        return None
+
+
+def _coupled_parts(trial: dict[str, Any] | None) -> list[dict[str, Any]]:
+    """Items 74/77: the extra knobs of a coupled trial (second, then any more)."""
+    t = trial or {}
+    parts = [t.get("coupled")] + list(t.get("coupled_more") or [])
+    return [c for c in parts if isinstance(c, dict) and c.get("knob")]
 
 
 def _coupled_candidate(st: dict[str, Any], ordered, pred, cycle_id: str) -> dict[str, Any] | None:
@@ -2523,10 +2558,10 @@ def _coupled_candidate(st: dict[str, Any], ordered, pred, cycle_id: str) -> dict
 
 
 def _restore_coupled(state: dict[str, Any], trial: dict[str, Any]) -> None:
-    """Item 74: put the second knob of a coupled trial back to its pre-trial value."""
-    c = trial.get("coupled") or {}
-    if c.get("knob") and c.get("from") is not None:
-        _apply_knob(state, str(c["knob"]), c["from"])
+    """Items 74/77: put every extra knob of a coupled trial back to its pre-trial value."""
+    for c in _coupled_parts(trial):
+        if c.get("from") is not None:
+            _apply_knob(state, str(c["knob"]), c["from"])
 
 
 def _coupled_closed(state: dict[str, Any], trial: dict[str, Any], cycle_id: str) -> None:
@@ -2534,7 +2569,8 @@ def _coupled_closed(state: dict[str, Any], trial: dict[str, Any], cycle_id: str)
     if not trial.get("coupled"):
         return
     _restore_coupled(state, trial)
-    _mark_knob_closed(state, str(trial["coupled"].get("knob") or ""), cycle_id)
+    for c in _coupled_parts(trial):
+        _mark_knob_closed(state, str(c.get("knob") or ""), cycle_id)
     try:
         from colony.self_heal_coupled import after_close
         after_close(state, trial, "not_adopted", cycle_id=cycle_id)
@@ -2574,19 +2610,19 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         except Exception:
             pass
     _apply_knob(st, trial["knob"], trial["to"])
-    coupled = trial.get("coupled") or {}
-    if coupled.get("knob"):
-        # Item 74: both knobs move together for one trial (bounds via clamp).
+    for coupled in _coupled_parts(trial):
+        # Items 74/77: all knobs move together for one trial (bounds via clamp).
         _apply_knob(st, str(coupled["knob"]), coupled["to"])
     st["trial"] = trial
     st["trial_skip"] = None
+    st["zero_prediction_skips"] = {"count": 0}
     last = dict(st.get("knob_last_trial") or {})
     last[trial["knob"]] = {
         "direction": trial.get("direction"),
         "cycle_index": int(st.get("cycle_index") or 0),
         "cycle_id": cycle_id,
     }
-    if coupled.get("knob"):
+    for coupled in _coupled_parts(trial):
         last[str(coupled["knob"])] = {
             "direction": coupled.get("direction") or "up",
             "cycle_index": int(st.get("cycle_index") or 0),
@@ -2615,6 +2651,8 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
            if trial.get("narrowed_after_overshoot") else {}),
         **({"coupled": trial.get("coupled"), "coupled_flip": trial.get("coupled_flip")}
            if trial.get("coupled") else {}),
+        **({"coupled_more": trial.get("coupled_more")} if trial.get("coupled_more") else {}),
+        **({"cobind": trial.get("cobind")} if trial.get("cobind") else {}),
         "environment_fingerprint": fp["digest"],
         "environment": trial["environment"],
     })
@@ -2702,6 +2740,7 @@ def void_trial_for_confound(
     ev = append_evidence(state, {
         "event": "trial_voided_confound",
         **({"coupled": trial.get("coupled")} if trial.get("coupled") else {}),
+        **({"coupled_more": trial.get("coupled_more")} if trial.get("coupled_more") else {}),
         "cycle_id": cycle_id,
         "knob": knob,
         "from": trial.get("to"),
@@ -2775,6 +2814,10 @@ def _close_trial(
     if trial.get("coupled"):
         link["coupled"] = trial.get("coupled")
         link["coupled_flip"] = trial.get("coupled_flip")
+        if trial.get("coupled_more"):
+            link["coupled_more"] = trial.get("coupled_more")
+        if trial.get("cobind"):
+            link["cobind"] = trial.get("cobind")
     if isinstance(trial.get("apply_cycle_metrics"), dict):
         link["apply_cycle_metrics"] = trial.get("apply_cycle_metrics")
     if predicted:

@@ -1939,7 +1939,7 @@ def can_progress_past(
     reachable = advertised
     if last is not None and last_v > 0:
         reason, _cap_val = cap_of_row(last, e)
-        if reason and not cap_has_been_raised(last, e):
+        if reason and not cap_has_been_raised(last, e) and not _time_cap_was_for_deeper_plan(last, e):
             # Same physical ceiling as last time: we will re-hold at last_v.
             reachable = min(reachable, last_v)
     never = last is None and tested == 0
@@ -1951,6 +1951,24 @@ def can_progress_past(
     # A same-depth hold is not progress, and a planned depth that was
     # never actually reached is not a reason to mark the target done.
     return reachable > bar
+
+
+def _time_cap_was_for_deeper_plan(row: dict[str, Any] | None, e: dict[str, Any]) -> bool:
+    """Item 77: a time cap hit while aiming deeper than the attempt planned now.
+
+    A series attempt spends its time budget on the planned depth, so a time
+    cap recorded at planned 3975 says nothing about planned 2865 or 3144.
+    Such a row must not close the target at the depth that attempt reached
+    (before item 76 that reach could be the stored terms only, e.g. 75).
+    """
+    if not isinstance(row, dict) or row.get("cap_reason") != CAP_TIME:
+        return False
+    try:
+        old_plan = int(row.get("planned") or 0)
+        now_plan = int(planned_depth(e))
+    except (TypeError, ValueError):
+        return False
+    return old_plan > 0 and now_plan < old_plan
 
 
 def already_attempted_pair(eid: str, depth: int, cycle_id: str = "", log: dict[str, Any] | None = None) -> bool:
