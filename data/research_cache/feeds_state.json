@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-15T21:57:30Z",
+    "fetched_at": "2026-11-15T22:19:51Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-15T22:18:51Z",
+        "id": 43768585386,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-15T22:19:04Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-15T21:56:23Z",
         "id": 43766438914,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-15T21:56:29Z"
+        "status": "completed",
+        "updated_at": "2026-11-15T22:18:53Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Read-only tests",
         "status": "completed",
         "updated_at": "2026-11-15T19:42:03Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-15T19:26:32Z",
-        "id": 43752436001,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-15T19:50:09Z"
       }
     ],
     "success_rate": 1.0
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 11,
-      "ok": 91
+      "ok": 92
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-15T18:01:43Z",
+    "arxiv": "2026-11-15T22:19:51Z",
     "crossref": "2026-11-15T20:36:06Z",
     "oeis": "2026-11-15T20:36:04Z",
     "oeis_conj": "2026-11-15T20:36:05Z",
@@ -138,9 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "",
+        "fetched": 8,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -167,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-15T21:57:30Z"
+    "ts": "2026-11-15T22:19:48Z"
   },
-  "runs": 339
+  "runs": 340
 }

@@ -457,10 +457,10 @@
    "credit": 0.0
   },
   "oc_A126089_0": {
-   "attempts": 34,
+   "attempts": 35,
    "status": "holds_on_range",
-   "tested_hi": 2864,
-   "credit": 0.0578
+   "tested_hi": 3148,
+   "credit": 0.0599
   },
   "oc_A027058_0": {
    "attempts": 7,
@@ -609,8 +609,8 @@
  },
  "families": {
   "relation": {
-   "attempts": 415,
-   "credit": 23.0677
+   "attempts": 416,
+   "credit": 23.0698
   },
   "gf": {
    "attempts": 67,
@@ -625,7 +625,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 23.1788,
+ "credit_total": 23.1809,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -755,7 +755,7 @@
    "oc_A126089_0": {
     "anum": "A126089",
     "bfile_hi": 200,
-    "to": 2864,
+    "to": 3148,
     "check": "exact"
    },
    "oc_A165064_0": {
