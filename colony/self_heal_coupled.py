@@ -368,8 +368,10 @@ def after_close(state: dict[str, Any], trial: dict[str, Any], decision: str, *, 
     """(c) A coupled trial that is not adopted retires its predicted targets."""
     if not _self_mod() or not trial.get("coupled") or decision == "adopt":
         return
-    c = trial["coupled"]
-    knobs_at = {str(trial.get("knob")): trial.get("from"), str(c.get("knob")): c.get("from")}
+    knobs_at = {str(trial.get("knob")): trial.get("from")}
+    for c in [trial["coupled"]] + list(trial.get("coupled_more") or []):
+        if isinstance(c, dict) and c.get("knob"):
+            knobs_at[str(c.get("knob"))] = c.get("from")
     for tid in trial.get("predicted_targets") or []:
         retire_compute_bound(state, str(tid), cycle_id=cycle_id, why="coupled_trial_not_adopted",
                              knobs_at=knobs_at, trial_evidence_id=trial.get("evidence_id"))
