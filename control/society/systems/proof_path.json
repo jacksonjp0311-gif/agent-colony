@@ -6,7 +6,7 @@
    35
   ],
   "divides": [
-   24,
+   25,
    3
   ],
   "identity": [
@@ -22,7 +22,7 @@
    0
   ],
   "rec": [
-   11,
+   10,
    8
   ]
  },
@@ -2953,18 +2953,6 @@
    "authored": false,
    "certificate": null,
    "check": "authored_frontier_rec_xe6dcb449_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "not proved",
-   "summary": null,
-   "unknown": false,
-   "v": 4
-  },
-  "a(n) = S(pow2)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)": {
-   "authored": false,
-   "certificate": null,
-   "check": "authored_frontier_rec_x3ff6d912_w1",
    "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
@@ -6356,6 +6344,18 @@
    "unknown": true,
    "v": 4
   },
+  "popcount[oxa003327](n) divides dbl(oxa056971)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x44985a0a_w1",
+   "checks": 88,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "popcount[oxa035100](n) divides dbl(oxa056971)(n) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -7160,6 +7160,6 @@
    "v": 4
   }
  },
- "seconds": 0.02,
- "ts": "2026-11-15T13:00:49Z"
+ "seconds": 0.03,
+ "ts": "2026-11-15T13:20:33Z"
 }
