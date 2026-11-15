@@ -720,7 +720,7 @@ def load_state() -> dict[str, Any]:
         "trial", "metrics", "quarantine", "failures", "evidence",
         "adopted_count", "reverted_count", "cycle_index", "cycles",
         "last_self_change", "knob_last_trial",
-        "inconclusive_count", "trial_skip",
+        "inconclusive_count", "trial_skip", "cycles_dropped",
     ):
         if key in raw:
             state[key] = raw[key]
@@ -777,7 +777,7 @@ def save_state(state: dict[str, Any]) -> None:
     state["evidence"] = merged[-EVIDENCE_KEEP:]
     state["metrics"] = list(state.get("metrics") or [])[-METRICS_KEEP:]
     state["failures"] = list(state.get("failures") or [])[-FAILURES_KEEP:]
-    state["cycles"] = list(state.get("cycles") or [])[-80:]
+    state["cycles"] = list(state.get("cycles") or [])[-CYCLES_KEEP:]
     knobs = dict(state.get("knobs") or default_knobs())
     # Drop anything that is not a legal knob.
     cleaned = {}
@@ -1994,6 +1994,143 @@ def predicted_new_targets(
     return [tid for tid in sorted(after - before) if _predicted_target_fits_knob(tid, knob)]
 
 
+def cap_frontier_values(knob: str, *, attempt_log: dict[str, Any] | None = None) -> list[int]:
+    """Item 67: recorded term caps that bound a target's last attempt, for this knob.
+
+    Read-only. Each value is the cap a target's latest hold actually hit
+    (its live frontier), for targets whose cap_reason binds ``knob``
+    (item 63). Only term-cap knobs have values in knob units.
+    """
+    try:
+        from colony.oeis_conjectures import (
+            TERM_CAP_KNOBS, load_attempt_log, cap_of_row, knobs_for_cap_reason, _last_attempt_row,
+        )
+    except Exception:
+        return []
+    if knob not in TERM_CAP_KNOBS:
+        return []
+    try:
+        log = attempt_log if attempt_log is not None else load_attempt_log()
+    except Exception:
+        return []
+    seen: set[str] = set()
+    out: set[int] = set()
+    for row in list(log.get("attempts") or []):
+        tid = str((row or {}).get("id") or "")
+        if not tid or tid in seen:
+            continue
+        seen.add(tid)
+        last = _last_attempt_row(tid, log)
+        if not isinstance(last, dict):
+            continue
+        try:
+            reason, val = cap_of_row(last, None)
+            if not reason or val is None or knob not in knobs_for_cap_reason(reason, row=last):
+                continue
+            out.add(int(val))
+        except Exception:
+            continue
+    return sorted(out)
+
+
+FRONTIER_MAX_PROBES = 8
+
+
+def frontier_cap_value(
+    knob: str,
+    direction: str,
+    *,
+    current: int | float | None = None,
+    step_size: float | None = None,
+    attempt_log: dict[str, Any] | None = None,
+) -> int | float | None:
+    """Item 67: a cap-knob step taken from the live frontier, within bounds.
+
+    The plain step from the current value is kept when the read-only
+    predictor says it binds a target. Otherwise, for a term-cap raise,
+    step from each recorded bound cap above the current value (smallest
+    first) and return the first value that binds a target. Falls back
+    to the plain step. Bounds come from KNOB_SPECS via stepped_value
+    (clamped). The control arm keeps the plain step.
+    """
+    plain = stepped_value(knob, direction, current=current, step_size=step_size)
+    if direction != "up" or knob not in CAP_KNOBS:
+        return plain
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return plain
+    except Exception:
+        pass
+    cur = current if current is not None else current_knob(knob)
+    if plain is not None and predicted_new_targets(knob, plain):
+        return plain
+    probes = 0
+    for base in cap_frontier_values(knob, attempt_log=attempt_log):
+        if float(base) < float(cur):
+            continue
+        nxt = stepped_value(knob, "up", current=base, step_size=step_size)
+        if nxt is None or (plain is not None and float(nxt) <= float(plain)):
+            continue
+        probes += 1
+        if predicted_new_targets(knob, nxt):
+            return nxt
+        if probes >= FRONTIER_MAX_PROBES:
+            break
+    return plain
+
+
+def cap_retire_key(knob: str) -> str:
+    """Item 67: digest of the state a cap action was checked against.
+
+    Current knob value plus the bound targets' recorded frontier caps.
+    When either moves, a retired action becomes eligible again.
+    """
+    import hashlib
+    try:
+        cur = current_knob(knob)
+    except Exception:
+        cur = None
+    payload = json.dumps({"knob": knob, "current": cur, "frontier": cap_frontier_values(knob)}, sort_keys=True)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
+
+
+def cap_knobs_exhausted(state: dict[str, Any] | None = None) -> bool:
+    """Item 67: no cap knob can bind any target at any allowed frontier step."""
+    st = state if state is not None else load_state()
+    step = float(state_knob(st, "step_size"))
+    for knob in CAP_KNOBS:
+        if knob not in KNOB_SPECS:
+            continue
+        try:
+            nv = frontier_cap_value(knob, "up", current=state_knob(st, knob), step_size=step)
+            if nv is not None and predicted_new_targets(knob, nv):
+                return False
+        except Exception:
+            return False
+    return True
+
+
+# Knob groups a caps-exhausted fall-through never touches (window and
+# step governance stay as they are).
+FALLTHROUGH_EXCLUDED_GROUPS = ("meta", "caps")
+
+
+def _fallthrough_already_failed(state: dict[str, Any], knob: str, value: Any) -> bool:
+    """A caps-exhausted fall-through on this knob and value already ended without credit."""
+    for e in reversed(list(state.get("evidence") or [])):
+        if not isinstance(e, dict) or e.get("event") not in ("trial_inconclusive", "revert"):
+            continue
+        if not e.get("fallthrough") or str(e.get("knob") or "") != knob:
+            continue
+        try:
+            if float(e.get("from")) == float(value):
+                return True
+        except (TypeError, ValueError):
+            continue
+    return False
+
+
 def _exploration_already_failed(state: dict[str, Any], knob: str, value: Any, predicted: list[str]) -> bool:
     """Same knob, value and predicted targets already ended without credit."""
     for e in reversed(list(state.get("evidence") or [])):
@@ -2106,8 +2243,8 @@ def propose_trial(
             predicted_cache[key] = []
             if knob in CAP_KNOBS and not _knob_on_cooldown(st, knob, direction):
                 try:
-                    nv = stepped_value(knob, direction, current=state_knob(st, knob),
-                                       step_size=float(state_knob(st, "step_size")))
+                    nv = frontier_cap_value(knob, direction, current=state_knob(st, knob),
+                                            step_size=float(state_knob(st, "step_size")))
                     if nv is not None:
                         predicted_cache[key] = predicted_new_targets(knob, nv)
                 except Exception:
@@ -2115,6 +2252,19 @@ def propose_trial(
         return predicted_cache[key]
 
     ordered.sort(key=lambda c: 0 if _pred(c[1], c[2]) else 1)
+    exhausted_cache: list[bool] = []
+    # The fall-through applies only when a cap raise was the diagnosed
+    # remedy (a cap finding is present) and no cap can bind a target.
+    has_cap_candidate = any(k in CAP_KNOBS for _f, k, _d in ordered)
+
+    def _caps_exhausted() -> bool:
+        if not exhausted_cache:
+            try:
+                exhausted_cache.append(bool(cap_knobs_exhausted(st)))
+            except Exception:
+                exhausted_cache.append(False)
+        return exhausted_cache[0]
+
     for finding, knob, direction in ordered:
         kind = str(finding.get("kind") or "")
         if (knob, direction) in tried:
@@ -2123,7 +2273,12 @@ def propose_trial(
         if _knob_on_cooldown(st, knob, direction):
             continue
         cur = state_knob(st, knob)
-        nxt = stepped_value(knob, direction, current=cur, step_size=float(state_knob(st, "step_size")))
+        if knob in CAP_KNOBS:
+            # Item 67: step from the live frontier so a used-up value
+            # turns into one that can bind a target (bounds unchanged).
+            nxt = frontier_cap_value(knob, direction, current=cur, step_size=float(state_knob(st, "step_size")))
+        else:
+            nxt = stepped_value(knob, direction, current=cur, step_size=float(state_knob(st, "step_size")))
         if nxt is None:
             continue
         # Keep the epsilon pair legal if this is one of those two.
@@ -2147,7 +2302,21 @@ def propose_trial(
         if not no_signal and not _pred(knob, direction):
             from colony.self_heal_score import window_has_bearing_signal
             if not window_has_bearing_signal(window_rows):
-                continue
+                # Item 67: when every cap knob is used up (no bound
+                # target at any allowed frontier step), a non-cap knob
+                # family may run instead of stopping here. Adopt is
+                # still strictly better; a tie is inconclusive.
+                spec = KNOB_SPECS.get(knob)
+                if (
+                    spec is None
+                    or knob in CAP_KNOBS
+                    or spec.group in FALLTHROUGH_EXCLUDED_GROUPS
+                    or not has_cap_candidate
+                    or not _caps_exhausted()
+                    or _fallthrough_already_failed(st, knob, nxt)
+                ):
+                    continue
+                explore = {"fallthrough": "caps_exhausted"}
         if no_signal:
             predicted = predicted_new_targets(knob, nxt)
             explore_checked.append({"knob": knob, "to": nxt, "predicted": predicted[:8]})
@@ -2246,6 +2415,7 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         "exploratory": bool(trial.get("exploratory")),
         "predicted_targets": list(trial.get("predicted_targets") or []),
         "pre_trial_depths": dict(trial.get("pre_trial_depths") or {}),
+        **({"fallthrough": trial.get("fallthrough")} if trial.get("fallthrough") else {}),
         "environment_fingerprint": fp["digest"],
         "environment": trial["environment"],
     })
@@ -2395,6 +2565,8 @@ def _close_trial(
         link["exploratory"] = True
         link["predicted_targets"] = list(trial.get("predicted_targets") or [])
         link["attributed_targets"] = attributable_progress(trial)
+    if trial.get("fallthrough"):
+        link["fallthrough"] = trial.get("fallthrough")
     if isinstance(trial.get("apply_cycle_metrics"), dict):
         link["apply_cycle_metrics"] = trial.get("apply_cycle_metrics")
     if predicted:
@@ -2776,17 +2948,33 @@ def step(name: str, cycle_id: str = "") -> Iterator[str]:
 # Cycle hook
 # ---------------------------------------------------------------------------
 
+CYCLES_KEEP = 80
+
+
 def _remember_cycle(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
+    """Advance ``cycle_index`` monotonically.
+
+    Item 67: ``cycles`` keeps only the last CYCLES_KEEP ids, so the
+    position in that list stopped growing at 80 and knob cooldowns
+    (which compare cycle_index) never expired. The ids dropped from the
+    front are counted in ``cycles_dropped`` so the index keeps rising.
+    """
     cid = str(cycle_id or "")
     cycles = list(state.get("cycles") or [])
+    dropped = int(state.get("cycles_dropped") or 0)
     if cid and cid not in cycles:
         cycles.append(cid)
-        state["cycle_index"] = len(cycles) - 1
+        if len(cycles) > CYCLES_KEEP:
+            n = len(cycles) - CYCLES_KEEP
+            dropped += n
+            cycles = cycles[n:]
+        state["cycle_index"] = dropped + len(cycles) - 1
     elif cid and cid in cycles:
-        state["cycle_index"] = cycles.index(cid)
+        state["cycle_index"] = dropped + cycles.index(cid)
     else:
         state["cycle_index"] = int(state.get("cycle_index") or 0)
     state["cycles"] = cycles
+    state["cycles_dropped"] = dropped
     return state
 
 
