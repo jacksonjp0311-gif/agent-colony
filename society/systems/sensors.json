@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-15T10:16:45Z",
-  "cycle_id": "20261115T101616Z_e6eeff",
+  "ts": "2026-11-15T10:38:58Z",
+  "cycle_id": "20261115T103829Z_bd3f2a",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_dda3900e5ef8": 1,
       "authored_mut_swap_related_sequence_3909a3967380": 1,
       "authored_mut_swap_related_sequence_8ab886c76fa2": 1,
       "authored_mut_swap_related_sequence_83432cf56e85": 1,
@@ -15,16 +14,17 @@
       "authored_mut_swap_related_sequence_09affa910944": 1,
       "authored_mut_swap_related_sequence_6af0e18deac1": 1,
       "authored_mut_swap_related_sequence_1c8a57e0bca1": 1,
-      "authored_mut_swap_related_sequence_5223338a52eb": 1
+      "authored_mut_swap_related_sequence_5223338a52eb": 1,
+      "authored_mut_swap_related_sequence_78025e23cf57": 1
     },
     "recent": {}
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8607,
-      "slope": 1.5e-05,
-      "min": 0.8606,
+      "last": 0.8606,
+      "slope": -0.000208,
+      "min": 0.8604,
       "max": 0.8639
     },
     "novelty": {
@@ -54,7 +54,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0032,
+    "aggregate_range": 0.0029,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -281,34 +281,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.55,
-      "drift": true
+      "ratio": 1.378,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.54,
-      "drift": true
+      "ratio": 1.381,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.411,
+      "ratio": 1.261,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.51,
-      "drift": true
+      "ratio": 1.371,
+      "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.468,
+      "ratio": 1.277,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 391634115,
-      "collatz_descent": 428600000,
+      "goldbach_even": 394834115,
+      "collatz_descent": 431800000,
       "legendre_square_gap": 2204607,
       "lehmer_totient": 199000001,
-      "erdos_straus": 1274127,
+      "erdos_straus": 1279127,
       "twin_primes_hl": 538200000,
       "oeis_A104062_next": 518690000001
     },
@@ -358,23 +358,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.7273,
-    "completed": 11,
+    "success_rate": 0.6,
+    "completed": 10,
     "last": [
       [
         null,
-        "2026-11-15T10:03:46Z"
+        "2026-11-15T10:26:25Z"
       ],
       [
-        "success",
-        "2026-11-15T09:45:16Z"
+        null,
+        "2026-11-15T10:26:09Z"
       ],
       [
-        "success",
-        "2026-11-15T09:45:15Z"
+        "failure",
+        "2026-11-15T10:06:50Z"
       ]
     ],
-    "fetched_at": "2026-11-15T10:04:33Z"
+    "fetched_at": "2026-11-15T10:26:52Z"
   },
   "feeds": {
     "by_source": {
@@ -422,7 +422,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-15T10:04:32Z"
+      "ts": "2026-11-15T10:26:52Z"
     },
     "health": {
       "arxiv": {
@@ -449,9 +449,8 @@
   },
   "signals": [
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench, fft_stress_microbench, lemma_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge",
-    "ci_health: success_rate 0.7273 → be conservative"
+    "ci_health: success_rate 0.6 → be conservative"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
 }
