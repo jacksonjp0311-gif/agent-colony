@@ -9,9 +9,9 @@
       "lat": 40.71,
       "lon": -74.01,
       "temperature_2m": 4.1,
-      "wind_speed_10m": 12.0,
-      "weather_code": 2,
-      "time": "2026-11-15T03:15",
+      "wind_speed_10m": 13.7,
+      "weather_code": 0,
+      "time": "2026-11-15T03:30",
       "source": "open_meteo"
     },
     {
@@ -20,8 +20,8 @@
       "lon": -0.13,
       "temperature_2m": 4.0,
       "wind_speed_10m": 5.0,
-      "weather_code": 3,
-      "time": "2026-11-15T03:15",
+      "weather_code": 2,
+      "time": "2026-11-15T03:30",
       "source": "open_meteo"
     },
     {
@@ -29,9 +29,9 @@
       "lat": 35.68,
       "lon": 139.76,
       "temperature_2m": 11.8,
-      "wind_speed_10m": 3.6,
+      "wind_speed_10m": 4.0,
       "weather_code": 55,
-      "time": "2026-11-15T03:15",
+      "time": "2026-11-15T03:30",
       "source": "open_meteo"
     },
     {
@@ -39,13 +39,13 @@
       "lat": -33.87,
       "lon": 151.21,
       "temperature_2m": 21.2,
-      "wind_speed_10m": 20.0,
-      "weather_code": 2,
-      "time": "2026-11-15T03:15",
+      "wind_speed_10m": 20.6,
+      "weather_code": 3,
+      "time": "2026-11-15T03:30",
       "source": "open_meteo"
     }
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-11-15T03:21:53Z"
+  "ts": "2026-11-15T03:41:08Z"
 }
