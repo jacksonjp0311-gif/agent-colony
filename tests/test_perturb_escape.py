@@ -47,6 +47,11 @@ def _isolate(tmp_path, monkeypatch, *, lessons="", oracle=""):
     monkeypatch.setattr(OC, "REPORT", tmp_path / "r.json")
     monkeypatch.setattr(OC, "REVIEW", tmp_path / "rv.md")
     monkeypatch.setenv("COLONY_OEIS_CONJ", "shadow")
+    # Item 71: authored checks in the live lemma must not join the pool.
+    lemma = tmp_path / "tg_lemma_impl.py"
+    lemma.write_text("HARD_TIER_LEMMAS: list = [\n]\n", encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_LEMMA", str(lemma))
+    monkeypatch.setenv("COLONY_GENERATED_TARGETS_LOG", str(tmp_path / "generated_targets.jsonl"))
 
 
 def _gf_entry(eid="oc_A165064_0", anum="A165064", published_hi=100, n_terms=20):

@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import pytest
 
@@ -83,7 +84,11 @@ def test_unrelated_target_gets_no_recipe():
 
 
 def test_seed_a104062_record_yields_recipe():
+    # Item 71: the seed record is pinned (first 50 frontier-log rows for this
+    # target at commit 4fdbf9e1), not read from the live, growing log.
     cat = load_catalog()
     t = next(x for x in cat["targets"] if x["id"] == "oeis_A104062_next")
-    r = recipes.extract(t, load_log(limit=100000))
+    fx = Path(__file__).resolve().parent / "fixtures" / "frontier_log_A104062.jsonl"
+    rows = [json.loads(ln) for ln in fx.read_text(encoding="utf-8").splitlines() if ln.strip()]
+    r = recipes.extract(t, rows)
     assert r is not None and r["reproduce_known_first"] and r["outcome"]["terminal_outcomes"] == ["new_term_candidate"]
