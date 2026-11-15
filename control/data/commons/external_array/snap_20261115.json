@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-15T12:38:08Z",
+  "ts": "2026-11-15T13:00:35Z",
   "version": 2,
   "mile": "spark3-port",
   "feeds": {
@@ -24,7 +24,7 @@
           "source": "arxiv"
         }
       ],
-      "ts": "2026-11-15T12:37:53Z"
+      "ts": "2026-11-15T12:59:42Z"
     },
     "nasa_donki_solar": {
       "feed": "nasa_donki_solar",
@@ -32,7 +32,7 @@
       "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
       "count": 0,
       "items": [],
-      "ts": "2026-11-15T12:38:05Z"
+      "ts": "2026-11-15T12:59:54Z"
     },
     "noaa_space_weather": {
       "feed": "noaa_space_weather",
@@ -43,12 +43,12 @@
       "count": 0,
       "latest_kp": null,
       "items": [],
-      "ts": "2026-11-15T12:38:05Z"
+      "ts": "2026-11-15T12:59:54Z"
     },
     "global_weather": {
       "feed": "global_weather",
       "ok": true,
-      "note": "NYC:ok; London:ok; Tokyo:ok; Sydney:ok",
+      "note": "cached_last_good_after:NYC:HTTPError: HTTP Error 429: Too Many Requests",
       "count": 4,
       "items": [
         {
@@ -92,59 +92,59 @@
           "source": "open_meteo"
         }
       ],
-      "live": true,
-      "cached": false,
-      "ts": "2026-11-15T12:38:08Z"
+      "live": false,
+      "cached": true,
+      "ts": "2026-11-15T13:00:35Z"
     },
     "pulsemesh_goes_xray": {
       "feed": "pulsemesh_goes_xray",
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.266237891398837,
+      "latest": -6.245001327588032,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-11-15T12:32:00Z",
-          "v": -8.240035978993774
+          "t": "2026-11-15T12:55:00Z",
+          "v": -8.190762648776067
         },
         {
-          "t": "2026-11-15T12:32:00Z",
-          "v": -6.266150401104761
+          "t": "2026-11-15T12:55:00Z",
+          "v": -6.2490926230555335
         },
         {
-          "t": "2026-11-15T12:33:00Z",
-          "v": -8.58838635060179
+          "t": "2026-11-15T12:56:00Z",
+          "v": -8.25466467410327
         },
         {
-          "t": "2026-11-15T12:33:00Z",
-          "v": -6.266200797007356
+          "t": "2026-11-15T12:56:00Z",
+          "v": -6.247101503965559
         },
         {
-          "t": "2026-11-15T12:34:00Z",
-          "v": -8.325137233108663
+          "t": "2026-11-15T12:57:00Z",
+          "v": -8.123639241869387
         },
         {
-          "t": "2026-11-15T12:34:00Z",
-          "v": -6.2646548587182265
+          "t": "2026-11-15T12:57:00Z",
+          "v": -6.24503005775726
         },
         {
-          "t": "2026-11-15T12:35:00Z",
-          "v": -8.37753036599076
+          "t": "2026-11-15T12:58:00Z",
+          "v": -8.156959291474093
         },
         {
-          "t": "2026-11-15T12:35:00Z",
-          "v": -6.266237891398837
+          "t": "2026-11-15T12:58:00Z",
+          "v": -6.245001327588032
         }
       ],
       "live": true,
-      "ts": "2026-11-15T12:38:08Z"
+      "ts": "2026-11-15T13:00:35Z"
     },
     "pulsemesh_openmeteo": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
-      "note": "mem_ttl:ok",
+      "note": "mem_ttl:cached_last_good_after:HTTPError: HTTP Error 429: Too Many Requests",
       "count": 48,
       "latest": 4.6,
       "unit": "°C",
@@ -188,7 +188,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-11-15T12:38:08Z"
+      "ts": "2026-11-15T13:00:35Z"
     },
     "pulsemesh_usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -248,7 +248,7 @@
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-08&endtime=2026-11-15&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-11-15T12:38:08Z"
+      "ts": "2026-11-15T13:00:35Z"
     },
     "pulsemesh_system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -257,48 +257,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.57373046875,
-          "disk_free_percent": 62.058104158502964,
-          "process_count": 180,
-          "uptime_hours": 0.1998638888888889,
+          "load1": 0.07666015625,
+          "disk_free_percent": 62.05331560688338,
+          "process_count": 182,
+          "uptime_hours": 0.23446666666666668,
           "platform": "Linux-7.0.0-1016-aws-x86_64-with-glibc2.43",
-          "node": "ip-10-0-141-252",
+          "node": "ip-10-0-130-117",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.57373046875,
+      "latest_load1": 0.07666015625,
       "live": true,
-      "ts": "2026-11-15T12:38:08Z"
+      "ts": "2026-11-15T13:00:35Z"
     },
     "pulsemesh_tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 6.051802000001771,
-      "mean_ms": 5.944016000000829,
+      "latest_ms": 1.738422000016726,
+      "mean_ms": 2.273002250007039,
       "items": [
         {
           "probe": 0,
-          "ms": 5.979297000067163
+          "ms": 2.6126369999701637
         },
         {
           "probe": 1,
-          "ms": 5.890031999911116
+          "ms": 2.249923000022136
         },
         {
           "probe": 2,
-          "ms": 5.854933000023266
+          "ms": 2.4910270000191304
         },
         {
           "probe": 3,
-          "ms": 6.051802000001771
+          "ms": 1.738422000016726
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-11-15T12:38:08Z"
+      "ts": "2026-11-15T13:00:35Z"
     }
   },
   "pulsemesh_health": {
@@ -309,7 +309,7 @@
     },
     "pulsemesh_openmeteo": {
       "ok": true,
-      "note": "mem_ttl:ok",
+      "note": "mem_ttl:cached_last_good_after:HTTPError: HTTP Error 429: Too Many Requests",
       "count": 48
     },
     "pulsemesh_usgs_quakes": {
@@ -363,9 +363,9 @@
     },
     {
       "kind": "pulsemesh_goes_live",
-      "summary": "PulseMesh GOES X-ray live latest=-6.266237891398837. Space-weather debate input — not novel physics.",
+      "summary": "PulseMesh GOES X-ray live latest=-6.245001327588032. Space-weather debate input — not novel physics.",
       "signals": {
-        "goes_latest": -6.266237891398837
+        "goes_latest": -6.245001327588032
       },
       "domains": [
         "cosmos",
@@ -376,10 +376,10 @@
     },
     {
       "kind": "pulsemesh_ops_health",
-      "summary": "PulseMesh system_stat/tcp_probe: load1=0.57373046875 probe_ms=5.944016000000829. Ops health for actuation — not consciousness.",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.07666015625 probe_ms=2.273002250007039. Ops health for actuation — not consciousness.",
       "signals": {
-        "load1": 0.57373046875,
-        "probe_ms": 5.944016000000829
+        "load1": 0.07666015625,
+        "probe_ms": 2.273002250007039
       },
       "domains": [
         "government",
