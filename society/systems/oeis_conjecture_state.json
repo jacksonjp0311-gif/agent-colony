@@ -25,10 +25,10 @@
    "credit": 0.0
   },
   "oc_A165064_0": {
-   "attempts": 52,
+   "attempts": 53,
    "status": "holds_on_range",
-   "tested_hi": 18799,
-   "credit": 0.1098
+   "tested_hi": 19999,
+   "credit": 0.1111
   },
   "oc_A023110_0": {
    "attempts": 2,
@@ -613,8 +613,8 @@
    "credit": 23.063
   },
   "gf": {
-   "attempts": 66,
-   "credit": 0.1098
+   "attempts": 67,
+   "credit": 0.1111
   },
   "only_prime": {
    "attempts": 6,
@@ -625,7 +625,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 23.1728,
+ "credit_total": 23.1741,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -761,7 +761,7 @@
    "oc_A165064_0": {
     "anum": "A165064",
     "bfile_hi": 100,
-    "to": 18799,
+    "to": 19999,
     "check": "exact"
    }
   }
