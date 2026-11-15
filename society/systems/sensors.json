@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-15T16:09:24Z",
-  "cycle_id": "20261115T160853Z_7bedeb",
+  "ts": "2026-11-15T16:29:19Z",
+  "cycle_id": "20261115T162859Z_957e5d",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_78025e23cf57": 1,
       "authored_mut_swap_related_sequence_c92be463a0f5": 1,
       "authored_mut_swap_related_sequence_f992defe4af8": 1,
       "authored_mut_swap_related_sequence_5f1e08241fef": 1,
@@ -15,17 +14,18 @@
       "authored_mut_swap_related_sequence_bb7bf2799b09": 1,
       "authored_mut_swap_related_sequence_c461b03cfcee": 1,
       "authored_mut_swap_related_sequence_3a917a302be9": 1,
-      "authored_mut_swap_related_sequence_9944a5433d60": 1
+      "authored_mut_swap_related_sequence_9944a5433d60": 1,
+      "authored_mut_swap_related_sequence_a7fc2de5dabd": 1
     },
     "recent": {}
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8606,
-      "slope": -5.8e-05,
+      "last": 0.8626,
+      "slope": 9.7e-05,
       "min": 0.8606,
-      "max": 0.8616
+      "max": 0.8632
     },
     "novelty": {
       "last": 0.75,
@@ -54,7 +54,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0005,
+    "aggregate_range": 0.0026,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -281,23 +281,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.214,
+      "ratio": 0.627,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.204,
+      "ratio": 0.613,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.182,
+      "ratio": 0.662,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.24,
+      "ratio": 0.67,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.115,
+      "ratio": 0.667,
       "drift": false
     }
   },
@@ -306,10 +306,10 @@
     "verified": {
       "goldbach_even": 420434115,
       "collatz_descent": 457400000,
-      "legendre_square_gap": 2332607,
-      "lehmer_totient": 211800001,
+      "legendre_square_gap": 2348607,
+      "lehmer_totient": 213400001,
       "erdos_straus": 1319127,
-      "twin_primes_hl": 570200000,
+      "twin_primes_hl": 574200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -363,18 +363,18 @@
     "last": [
       [
         null,
+        "2026-11-15T16:19:27Z"
+      ],
+      [
+        "success",
         "2026-11-15T15:55:52Z"
       ],
       [
         "success",
         "2026-11-15T15:43:55Z"
-      ],
-      [
-        "success",
-        "2026-11-15T15:37:51Z"
       ]
     ],
-    "fetched_at": "2026-11-15T15:56:40Z"
+    "fetched_at": "2026-11-15T16:20:14Z"
   },
   "feeds": {
     "by_source": {
@@ -402,27 +402,31 @@
           "ok": true
         },
         "crossref": {
+          "error": "",
+          "fetched": 5,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-15T15:56:39Z"
+      "ts": "2026-11-15T16:20:10Z"
     },
     "health": {
       "arxiv": {
@@ -431,19 +435,19 @@
       },
       "crossref": {
         "fail": 0,
-        "ok": 93
+        "ok": 94
       },
       "oeis": {
         "fail": 0,
-        "ok": 93
+        "ok": 94
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 89
+        "ok": 90
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 93
+        "ok": 94
       }
     }
   },
