@@ -1,11 +1,11 @@
 {
-  "cycle_count": 1071,
-  "witness_events": 89340,
-  "posted_at": "2026-11-15 07:32 UTC",
-  "comms": 58526,
+  "cycle_count": 1074,
+  "witness_events": 89592,
+  "posted_at": "2026-11-15 07:46 UTC",
+  "comms": 58691,
   "fitness": {
-    "ts": "2026-11-15T07:31:49Z",
-    "cycle_id": "20261115T072932Z_2965fc",
+    "ts": "2026-11-15T07:45:58Z",
+    "cycle_id": "20261115T074411Z_211c07",
     "tribute_quality": 1.0,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
