@@ -43,6 +43,16 @@ VERIFY_WINDOWS = ((40, 80), (80, 120), (120, 160))
 PREFILTER_WINDOW = (20, 120)
 MAX_PREFILTER = 24
 MAX_VERIFY = 8
+# Item 69: when the default pass finds no fresh verifying mutation, retry once
+# with wider constant offsets of the SAME mutation kinds. Every candidate still
+# goes through the unchanged triviality filter, prefilter and verify_candidate;
+# the 150 cap and per-cycle cap still bind. Off on the control arm (author_targets
+# returns before this runs when self-modification is disabled).
+WIDE_KINDS = ("perturb_constant",)
+WIDE_CONG_STEPS = (4, 5, -2, 6)
+WIDE_REC_STEPS = (2, -2)
+WIDE_MAX_VERIFY = 4
+_LAST_SUPPLY: dict[str, Any] = {}
 _IDENT = re.compile(r"(?<![A-Za-z0-9_])([A-Za-z_][A-Za-z0-9_]*)(?![A-Za-z0-9_])")
 
 # Tests may redirect these.
@@ -258,8 +268,16 @@ def apply_mutation(
     *,
     related: dict[str, set[str]] | None = None,
     spec: dict[str, Any] | None = None,
+    wide: bool = False,
 ) -> list[dict[str, Any]]:
-    """Return zero or more mutated cores for ``kind``, deterministic order."""
+    """Return zero or more mutated cores for ``kind``, deterministic order.
+
+    ``wide`` (item 69) yields only the wider offsets for ``perturb_constant``
+    (never the default ones, which the default pass already tried) and
+    nothing for other kinds.
+    """
+    if wide and kind not in WIDE_KINDS:
+        return []
     src = _core(claim)
     out: list[dict[str, Any]] = []
     spec = dict(spec or {})
@@ -289,7 +307,7 @@ def apply_mutation(
             except (TypeError, ValueError):
                 m0, r0 = 0, 0
             seen_m = {m0}
-            for dm in (1, 2, -1, 3):
+            for dm in (WIDE_CONG_STEPS if wide else (1, 2, -1, 3)):
                 m = m0 + dm
                 if m < 2 or m in seen_m or r0 >= m:
                     continue
@@ -304,7 +322,7 @@ def apply_mutation(
                     base = int(ci)
                 except (TypeError, ValueError):
                     continue
-                for d in (1, -1):
+                for d in (WIDE_REC_STEPS if wide else (1, -1)):
                     cc = list(coeffs)
                     cc[i] = base + d
                     dst = dict(src)
@@ -344,15 +362,20 @@ def apply_mutation(
 
 def enumerate_mutations(
     claims: list[dict[str, Any]] | None = None,
+    *,
+    wide: bool = False,
 ) -> list[dict[str, Any]]:
-    """All mutation candidates in deterministic order (kind, then source sig, then key)."""
+    """All mutation candidates in deterministic order (kind, then source sig, then key).
+
+    ``wide=True`` enumerates only the wider-offset variants (item 69).
+    """
     held = claims if claims is not None else held_claims()
     graph = related_primitives(held)
     found: list[dict[str, Any]] = []
     seen: set[str] = set()
-    for kind in MUTATION_KINDS:
+    for kind in (WIDE_KINDS if wide else MUTATION_KINDS):
         for src in held:
-            for dst in apply_mutation(src, kind, related=graph):
+            for dst in apply_mutation(src, kind, related=graph, wide=wide):
                 key = canonical_key(dst, kind)
                 if key in seen:
                     continue
@@ -365,6 +388,8 @@ def enumerate_mutations(
                     row["swap"] = dst["_swap"]
                 if dst.get("_widen"):
                     row["widen"] = True
+                if wide:
+                    row["wide"] = True
                 found.append(row)
     found.sort(key=lambda r: (MUTATION_KINDS.index(r["mut_kind"]), r.get("source_sig") or "", canonical_key(r, r["mut_kind"])))
     return found
@@ -527,7 +552,9 @@ def author_targets(
     a new claim can still earn a new Oracle verdict even when the microbench
     hard component is already pinned. The 150 cap and per-cycle cap still bind.
     """
+    _LAST_SUPPLY.clear()
     if not self_mod_ok():
+        _LAST_SUPPLY.update({"reason": "control", "generator_supply_exhausted": False})
         return []
     try:
         from colony.authoring import (
@@ -544,6 +571,10 @@ def author_targets(
     except Exception:
         n = 0
     if n >= cap or max_new <= 0:
+        _LAST_SUPPLY.update({
+            "reason": "at_authored_cap" if n >= cap else "no_budget",
+            "generator_supply_exhausted": False, "n": n, "cap": cap,
+        })
         return []
     budget = min(int(max_new), int(MAX_AUTHORED_PER_CYCLE), cap - n)
 
@@ -566,17 +597,34 @@ def author_targets(
     seen_keys, seen_names = _seen_keys_and_names(src=src)
     verify_fn = verify if verify is not None else verify_candidate
     accepted: list[dict[str, Any]] = []
-    tried = 0
-    for row in enumerate_mutations(claims if claims is not None else held_claims()):
-        if len(accepted) >= budget or tried >= MAX_VERIFY:
+    held = claims if claims is not None else held_claims()
+    stats = {"base": {"eligible": 0, "tried": 0}, "wide": {"eligible": 0, "tried": 0}}
+
+    def _rows():
+        # Default pass first; the wider pass runs only when the default pass
+        # produced nothing (generator supply exhausted).
+        for row in enumerate_mutations(held):
+            yield "base", row
+        if not accepted:
+            for row in enumerate_mutations(held, wide=True):
+                yield "wide", row
+
+    for pass_name, row in _rows():
+        limit = MAX_VERIFY if pass_name == "base" else WIDE_MAX_VERIFY
+        if len(accepted) >= budget:
             break
+        if stats[pass_name]["tried"] >= limit:
+            if pass_name == "wide":
+                break
+            continue
         cand = _eligible_candidate(row, seen_keys, seen_names, skip_filters=skip_filters)
         if cand is None:
             continue
+        stats[pass_name]["eligible"] += 1
         new_src = insert_disabled(src, cand["name"], cand["fn_src"])
         if new_src is None:
             continue
-        tried += 1
+        stats[pass_name]["tried"] += 1
         try:
             res = verify_fn(new_src, cand["name"], list(cand["verify_fns"] or BRIDGE_FNS))
         except Exception as exc:  # noqa: BLE001
@@ -601,6 +649,7 @@ def author_targets(
                 path.write_text(new_src, encoding="utf-8")
                 _invalidate(path)
             except OSError:
+                _record_supply(accepted, stats, cycle_id, write=False)
                 return accepted
             _append_log({
                 "event": "authored",
@@ -624,8 +673,47 @@ def author_targets(
             "claim": cand.get("claim"),
             "key": cand["key"],
             "seconds": res.get("seconds"),
+            "wide": pass_name == "wide",
         })
+    _record_supply(accepted, stats, cycle_id, write=write)
     return accepted
+
+
+def _record_supply(
+    accepted: list[dict[str, Any]],
+    stats: dict[str, dict[str, int]],
+    cycle_id: str,
+    *,
+    write: bool,
+) -> None:
+    """Non-fatal health metric (item 69): did any fresh mutation verify this call?
+
+    ``generator_supply_exhausted`` is True when neither the default pass nor
+    the wider pass produced a verifying mutation while there was room under
+    the cap. It never blocks a run; a ``supply_exhausted`` row is appended to
+    the generator log (append-only) so the drift is visible across cycles.
+    """
+    exhausted = not accepted
+    info = {
+        "reason": "supply_exhausted" if exhausted else "authored",
+        "generator_supply_exhausted": exhausted,
+        # The wider pass runs exactly when the default pass authored nothing.
+        "widened": not any(not r.get("wide") for r in accepted),
+        "eligible": int(stats["base"]["eligible"]),
+        "tried": int(stats["base"]["tried"]),
+        "wide_eligible": int(stats["wide"]["eligible"]),
+        "wide_tried": int(stats["wide"]["tried"]),
+        "wide_accepted": sum(1 for r in accepted if r.get("wide")),
+    }
+    _LAST_SUPPLY.clear()
+    _LAST_SUPPLY.update(info)
+    if exhausted and write:
+        _append_log({"event": "supply_exhausted", "cycle_id": cycle_id, **info})
+
+
+def last_supply() -> dict[str, Any]:
+    """Outcome of the most recent ``author_targets`` call (empty before any call)."""
+    return dict(_LAST_SUPPLY)
 
 
 def _enabled_flags(src: str | None = None) -> dict[str, bool]:

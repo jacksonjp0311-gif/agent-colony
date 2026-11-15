@@ -342,23 +342,45 @@ def test_no_oeis_code_execution_in_generator():
     assert "Never executes" in src or "never executes" in src.lower() or "Never executes fetched" in Path(TG.__file__).read_text()
 
 
-def test_live_registry_can_verify_one_mutation(tmp_path, monkeypatch):
-    """End-to-end on the real held registry, writing only to a temp lemma.
+FIXTURE_HELD = Path(__file__).resolve().parent / "fixtures" / "tg_held_claims_0f903327.json"
 
-    Guards the supply path: at least one mutation of a held claim must pass
-    the triviality filter, hold on a local window, and pass verify_candidate.
-    Skips if the registry is empty (not the case in this repo).
+
+def _pinned_held() -> list[dict]:
+    return json.loads(FIXTURE_HELD.read_text(encoding="utf-8"))["claims"]
+
+
+def _hermetic(tmp_path, monkeypatch):
+    """Item 69: pinned registry, fresh lemma, empty generator log, empty
+    Oracle snapshot, no retired names.
+
+    Mutable run state (the live held registry, the production lemma's authored
+    count against the 150 cap, the append-only generator log, retired names)
+    must not decide the FATAL trust gate.
     """
     lemma, log = _isolate(tmp_path, monkeypatch)
+    oracle = tmp_path / "oracle.json"
+    oracle.write_text(json.dumps(_oracle_snap()), encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    from colony import retire as RT
+    monkeypatch.setattr(RT, "retired_names", lambda *a, **k: set())
+    return lemma, log
+
+
+def test_pinned_registry_can_verify_one_mutation(tmp_path, monkeypatch):
+    """End-to-end on a pinned snapshot of the held registry, writing only to a temp lemma.
+
+    Guards the supply path: at least one mutation of a held claim must pass
+    the triviality filter, hold on a local window, and pass verify_candidate
+    (the real subprocess verifier, not a stub). Replaces the live-registry
+    version, which went red once the production lemma reached the 150 cap.
+    """
+    lemma, log = _hermetic(tmp_path, monkeypatch)
     repo_lemma = Path(__file__).resolve().parents[1] / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
     before = repo_lemma.read_text(encoding="utf-8") if repo_lemma.exists() else ""
-    if repo_lemma.exists():
-        lemma.write_text(before, encoding="utf-8")
-    held = TG.held_claims()
-    if not held:
-        pytest.skip("no held frontier claims in this checkout")
+    held = _pinned_held()
+    assert len(held) >= 100, "pinned fixture must hold the full snapshot"
     rows = TG.author_targets(
-        max_new=1, cycle_id="test_live", write=True, claims=held,
+        max_new=1, cycle_id="test_pinned", write=True, claims=held,
     )
     assert rows, "expected at least one mutation of a held claim to verify"
     assert rows[0]["accepted"] is True
@@ -369,6 +391,16 @@ def test_live_registry_can_verify_one_mutation(tmp_path, monkeypatch):
     assert after == before, "must not write the production lemma"
     reached = TG.oracle_reachable_generated(src=lemma.read_text(encoding="utf-8"))
     assert any(t["id"] == rows[0]["name"] and t["can_progress"] for t in reached)
+    assert TG.last_supply()["generator_supply_exhausted"] is False
+
+
+def test_pinned_registry_supply_is_independent_of_live_registry(tmp_path, monkeypatch):
+    """The FATAL-gate path must not read the live held registry."""
+    _hermetic(tmp_path, monkeypatch)
+    monkeypatch.setattr(TG, "held_claims", lambda *a, **k: pytest.fail("live registry read"))
+    muts = TG.enumerate_mutations(_pinned_held())
+    assert muts, "pinned snapshot must yield mutations"
+    assert {m["mut_kind"] for m in muts} <= set(TG.MUTATION_KINDS)
 
 
 def _oracle_snap(*, kills=None, passes=None, latest=None):

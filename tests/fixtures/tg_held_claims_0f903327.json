@@ -1,0 +1,3122 @@
+{
+ "_source": "held_claims() of society/systems/frontier_conjectures.json registry at commit 0f903327 (2026-11-15T04:15Z, last trust-gate-green data). Pinned for tests/test_target_generator.py (item 69); do not regenerate from live state.",
+ "claims": [
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): phi(x) is even for x >= 3; n < 64 checked directly"
+   },
+   "family": "cong:part+phi",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "S((part*phi))",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "0058ae914b88abe3",
+   "statement": "S((part*phi))(n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 3) repeats after 4 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     3
+    ],
+    "states_checked": 4
+   },
+   "family": "cong:fib",
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(fib)",
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "026fe992564224d4",
+   "statement": "dbl(fib)(n) = 0 (mod 3) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:cmax+podd",
+   "kind": "cong",
+   "label": "conjecture surviving 19 checks",
+   "lhs": "cmax[podd]",
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "059a3953478af636",
+   "statement": "cmax[podd](n) = 1 (mod 3) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "le:oxa035100+oxa257348",
+   "kind": "le",
+   "label": "conjecture surviving 488 checks",
+   "lhs": "oxa035100",
+   "params": {},
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "D((oxa035100*oxa257348))",
+   "sig": "05c42cf16bbca887",
+   "statement": "oxa035100(n) <= D((oxa035100*oxa257348))(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "le:oxa213536+popcount",
+   "kind": "le",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "D(popcount)",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "D(oxa213536)",
+   "sig": "0680898b588fd8e5",
+   "statement": "D(popcount)(n) <= D(oxa213536)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): rev(x) = x (mod 9) (casting out nines); sigma(x) = 0 (mod 3) when x = -1 (mod 3) (divisor pairs d, x/d with d^2 = 1 mod 3); n < 64 checked directly"
+   },
+   "family": "cong:rev+sigma",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "sigma[rev]",
+   "params": {
+    "m": 3,
+    "q": 3,
+    "r": 0,
+    "s": 2
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "06b608750b2e1846",
+   "statement": "sigma[rev](n) = 0 (mod 3) for all n = 2 (mod 3)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:pdist+rad",
+   "kind": "cong",
+   "label": "conjecture surviving 8 checks",
+   "lhs": "rad[pdist]",
+   "params": {
+    "m": 2,
+    "q": 5,
+    "r": 0,
+    "s": 3
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "07de99650444b31d",
+   "statement": "rad[pdist](n) = 0 (mod 2) for all n = 3 (mod 5)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:pell+rad+sqfree+tau",
+   "kind": "divides",
+   "label": "conjecture surviving 3988 checks",
+   "lhs": "gcd(pell,tau)",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "(rad*sqfree)",
+   "sig": "0b1db873cf1fc996",
+   "statement": "gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 2) repeats after 2 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     1,
+     2
+    ],
+    "states_checked": 2
+   },
+   "family": "cong:pell",
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh(pell)",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "0bfbad4529f7739e",
+   "statement": "sh(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:gpf+phi",
+   "kind": "divides",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "gpf[phi]",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "dbl(phi)",
+   "sig": "0c5f5f5b9cc13c37",
+   "statement": "gpf[phi](n) divides dbl(phi)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:cmax+oxa080076",
+   "kind": "cong",
+   "label": "conjecture surviving 88 checks",
+   "lhs": "cmax[oxa080076]",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "0dbd3162f119412e",
+   "statement": "cmax[oxa080076](n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa009191",
+   "kind": "cong",
+   "label": "conjecture surviving 165 checks",
+   "lhs": "dbl(oxa009191)",
+   "params": {
+    "m": 2,
+    "q": 6,
+    "r": 0,
+    "s": 4
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "0df35249e0bb67e2",
+   "statement": "dbl(oxa009191)(n) = 0 (mod 2) for all n = 4 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:prime+prr+tr_petersen",
+   "kind": "divides",
+   "label": "conjecture surviving 1988 checks",
+   "lhs": "prr",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "D(gcd(prime,tr_petersen))",
+   "sig": "0f0ed051bfdd0e91",
+   "statement": "prr(n) divides D(gcd(prime,tr_petersen))(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "le:digsum+rad",
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "digsum[rad]",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "dbl(rad)",
+   "sig": "10223e692bba434e",
+   "statement": "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:cheb4+perm_derange",
+   "kind": "cong",
+   "label": "conjecture surviving 329 checks",
+   "lhs": "S((cheb4*perm_derange))",
+   "params": {
+    "m": 3,
+    "q": 3,
+    "r": 2,
+    "s": 0
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "133f8b292f2b55c7",
+   "statement": "S((cheb4*perm_derange))(n) = 2 (mod 3) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:sigma+sqfree",
+   "kind": "cong",
+   "label": "conjecture surviving 29994 checks",
+   "lhs": "D((sigma*sqfree))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 1
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "16b72492a3c0c5c9",
+   "statement": "D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): mu(x) = 0 when 4 | x; p | x implies p | rad(x); n < 64 checked directly"
+   },
+   "family": "cong:mu+rad",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(gcd(mu,rad))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "170ff17c9770d027",
+   "statement": "dbl(gcd(mu,rad))(n) = 0 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa213536+pdist",
+   "kind": "cong",
+   "label": "conjecture surviving 198 checks",
+   "lhs": "D(gcd(oxa213536,pdist))",
+   "params": {
+    "m": 2,
+    "q": 5,
+    "r": 1,
+    "s": 3
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "1922c1c951195349",
+   "statement": "D(gcd(oxa213536,pdist))(n) = 1 (mod 2) for all n = 3 (mod 5)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:podd+rad",
+   "kind": "cong",
+   "label": "conjecture surviving 5 checks",
+   "lhs": "rad[podd]",
+   "params": {
+    "m": 2,
+    "q": 7,
+    "r": 0,
+    "s": 3
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "192eb85d74be50f2",
+   "statement": "rad[podd](n) = 0 (mod 2) for all n = 3 (mod 7)"
+  },
+  {
+   "certificate": null,
+   "family": "le:gpf+phi+sqfree",
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "(gpf-sqfree)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "phi",
+   "sig": "1c0eba5775e3f1a4",
+   "statement": "(gpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:fib+one",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh((fib-one))",
+   "params": {
+    "c": [
+     -1,
+     0,
+     2
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "1e23008ee991ec93",
+   "statement": "a(n) = sh((fib-one))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:fib",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(fib)",
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "210f1cb88f567118",
+   "statement": "a(n) = D(fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:ple3+stree_ladder",
+   "kind": "cong",
+   "label": "conjecture surviving 662 checks",
+   "lhs": "gcd(ple3,stree_ladder)",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "22ed9f439bce860a",
+   "statement": "gcd(ple3,stree_ladder)(n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly"
+   },
+   "family": "cong:n+pell",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(gcd(n,pell))",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "23fb70a1696e4e62",
+   "statement": "dbl(gcd(n,pell))(n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "divides:cheb3+oxa055394+oxa056971+part",
+   "kind": "divides",
+   "label": "conjecture surviving 188 checks",
+   "lhs": "cheb3[oxa055394]",
+   "params": {},
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "(oxa056971*part)",
+   "sig": "2863c010121feb3b",
+   "statement": "cheb3[oxa055394](n) divides (oxa056971*part)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 10, every class derived from 1 lemma(s): digsum(x+1) = digsum(x) + 1 when x does not end in 9; n < 64 checked directly"
+   },
+   "family": "cong:digsum",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "D((digsum*digsum))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "29d14f44b2f7ff9f",
+   "statement": "D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:lucas",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(lucas)",
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "2d8310993f6fa448",
+   "statement": "a(n) = D(lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); lpf(x) is odd for odd x; n < 64 checked directly"
+   },
+   "family": "cong:cmax+lpf",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "cmax[lpf]",
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 1,
+    "s": 1
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "2e4ae6afd184cb66",
+   "statement": "cmax[lpf](n) = 1 (mod 3) for all n = 1 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): cheb4 changes only at primes; x is composite (a multiple of 3); phi(x) is even for x >= 3; n < 64 checked directly"
+   },
+   "family": "cong:cheb4+phi",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "D(gcd(cheb4,phi))",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 0,
+    "s": 2
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "2f9c789144da160a",
+   "statement": "D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "recurrence residues",
+    "summary": "recurrence residues: residues periodic with period 7 from n = 1 (oxa072850: oeis A072850 signature (1,2,4,6,10,12,-4,-6,-6,0,-2,-2,0,1,1)); every n <= 8 checked"
+   },
+   "family": "cong:oxa072850",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "D(oxa072850)",
+   "params": {
+    "m": 2,
+    "q": 7,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "2ffdc067eb3150cb",
+   "statement": "D(oxa072850)(n) = 0 (mod 2) for all n = 0 (mod 7)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:lucas+stree_grid3",
+   "kind": "divides",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "lucas",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "dbl(stree_grid3)",
+   "sig": "318ee14a29690473",
+   "statement": "lucas(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "divides:fib+stree_grid3",
+   "kind": "divides",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "fib",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "dbl(stree_grid3)",
+   "sig": "3562d07e522609fa",
+   "statement": "fib(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa238873+sigma",
+   "kind": "cong",
+   "label": "conjecture surviving 6 checks",
+   "lhs": "sigma[oxa238873]",
+   "params": {
+    "m": 2,
+    "q": 6,
+    "r": 0,
+    "s": 5
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "381d156bcc66ea08",
+   "statement": "sigma[oxa238873](n) = 0 (mod 2) for all n = 5 (mod 6)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 4, every class derived from 2 lemma(s): fib is periodic mod 3 (defining recurrence; state repeats); tau is multiplicative: exact powers 2^2 divide x, so tau(x) = 0 (mod 3); n < 64 checked directly"
+   },
+   "family": "cong:fib+tau",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(gcd(fib,tau))",
+   "params": {
+    "m": 3,
+    "q": 4,
+    "r": 0,
+    "s": 2
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "396d7d8cee9f186a",
+   "statement": "dbl(gcd(fib,tau))(n) = 0 (mod 3) for all n = 2 (mod 4)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "basic-inequality derivation",
+    "summary": "basic-inequality derivation: n split mod 1, every class derived from 1 lemma(s): gpf(2x) in terms of gpf(x) (multiplicativity / binary digits); n < 64 checked directly"
+   },
+   "family": "le:gpf+omega",
+   "kind": "le",
+   "label": "machine-proved (certificate)",
+   "lhs": "(omega-gpf)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "dbl((omega-gpf))",
+   "sig": "3a8a55f196a9f392",
+   "statement": "(omega-gpf)(n) <= dbl((omega-gpf))(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 4, every class derived from 2 lemma(s): fib is periodic mod 3 (defining recurrence; state repeats); pell is periodic mod 24 (defining recurrence; state repeats); n < 64 checked directly"
+   },
+   "family": "cong:fib+pell",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(gcd(fib,pell))",
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "3bed6d4040716b3a",
+   "statement": "dbl(gcd(fib,pell))(n) = 0 (mod 3) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 1, state mod 2) repeats after 1 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     6
+    ],
+    "states_checked": 1
+   },
+   "family": "cong:pell",
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(pell)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "3cfdd636746aa9bd",
+   "statement": "dbl(pell)(n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa177115+oxa177122",
+   "kind": "cong",
+   "label": "conjecture surviving 388 checks",
+   "lhs": "D(gcd(oxa177115,oxa177122))",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "",
+   "sig": "3f36abbec5118a4f",
+   "statement": "D(gcd(oxa177115,oxa177122))(n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); digsum(x) = x (mod 9) (casting out nines); n < 64 checked directly"
+   },
+   "family": "cong:cmax+digsum",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "cmax[digsum]",
+   "params": {
+    "m": 3,
+    "q": 3,
+    "r": 1,
+    "s": 1
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "3fa7829a33c86398",
+   "statement": "cmax[digsum](n) = 1 (mod 3) for all n = 1 (mod 3)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:pow2",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "S(pow2)",
+   "params": {
+    "c": [
+     -2,
+     3
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "3ff6d9124f0e16c6",
+   "statement": "a(n) = S(pow2)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa048760+pell",
+   "kind": "cong",
+   "label": "conjecture surviving 497 checks",
+   "lhs": "S((oxa048760*pell))",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "41b05781936d093f",
+   "statement": "S((oxa048760*pell))(n) = 0 (mod 2) for all n = 0 (mod 4)"
+  },
+  {
+   "certificate": null,
+   "family": "le:gpf+oxa213536",
+   "kind": "le",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "D(oxa213536)",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "gpf[oxa213536]",
+   "sig": "423b0686caaaa734",
+   "statement": "D(oxa213536)(n) <= gpf[oxa213536](n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "recurrence residues",
+    "summary": "recurrence residues: residues periodic with period 24 from n = 1 (oxa070778: oeis A070778 signature (3,6,-4,-5,1,1)); every n <= 25 checked"
+   },
+   "family": "cong:oxa070778",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "D(oxa070778)",
+   "params": {
+    "m": 5,
+    "q": 6,
+    "r": 0,
+    "s": 3
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "43c47becc30f09e6",
+   "statement": "D(oxa070778)(n) = 0 (mod 5) for all n = 3 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:maxgap+perm_derange",
+   "kind": "cong",
+   "label": "conjecture surviving 247 checks",
+   "lhs": "S(gcd(maxgap,perm_derange))",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "44cc725e645b22f5",
+   "statement": "S(gcd(maxgap,perm_derange))(n) = 1 (mod 2) for all n = 0 (mod 4)"
+  },
+  {
+   "certificate": null,
+   "family": "le:oxa102627+sopfr",
+   "kind": "le",
+   "label": "conjecture surviving 488 checks",
+   "lhs": "sopfr",
+   "params": {},
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "dbl(oxa102627)",
+   "sig": "4651259055ef7696",
+   "statement": "sopfr(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:n",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(n)",
+   "params": {
+    "c": [
+     -1,
+     2
+    ]
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "46867b6fa45e8aea",
+   "statement": "a(n) = dbl(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)"
+  },
+  {
+   "certificate": null,
+   "family": "le:lucas+mu+n+sqfree",
+   "kind": "le",
+   "label": "conjecture surviving 3988 checks",
+   "lhs": "gcd(mu,n)",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "gcd(lucas,sqfree)",
+   "sig": "46c5cc8a53b70f47",
+   "statement": "gcd(mu,n)(n) <= gcd(lucas,sqfree)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:fibw+oxa047700",
+   "kind": "cong",
+   "label": "conjecture surviving 197 checks",
+   "lhs": "dbl(gcd(fibw,oxa047700))",
+   "params": {
+    "m": 5,
+    "q": 5,
+    "r": 1,
+    "s": 2
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "47373ee3b91c452c",
+   "statement": "dbl(gcd(fibw,oxa047700))(n) = 1 (mod 5) for all n = 2 (mod 5)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "recurrence residues",
+    "summary": "recurrence residues: residues periodic with period 6 from n = 1 (oxa072827: oeis A072827 signature (1,2,3,5,6,-1,-1,0,-1,-1)); every n <= 7 checked"
+   },
+   "family": "cong:oxa072827",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(oxa072827)",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "",
+   "sig": "47dd09c7436c7eb9",
+   "statement": "dbl(oxa072827)(n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:pell",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(pell)",
+   "params": {
+    "c": [
+     1,
+     2
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "4adc81ff0769b734",
+   "statement": "a(n) = D(pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa048767",
+   "kind": "cong",
+   "label": "conjecture surviving 494 checks",
+   "lhs": "dbl(oxa048767)",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 1
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "4bb20589ac71b085",
+   "statement": "dbl(oxa048767)(n) = 0 (mod 2) for all n = 1 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): pell is periodic mod 4 (defining recurrence; state repeats); sqfree(x) = 0 when 4 | x; n < 64 checked directly"
+   },
+   "family": "cong:pell+sqfree",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(gcd(pell,sqfree))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "4ea81a4298ea32f4",
+   "statement": "dbl(gcd(pell,sqfree))(n) = 0 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "modpat:lucas+perm_derange",
+   "kind": "modpat",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "gcd(lucas,perm_derange)",
+   "params": {
+    "P": 6,
+    "m": 2,
+    "pat": [
+     1,
+     1,
+     0,
+     1,
+     1,
+     1
+    ]
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "50c3856ae4f79614",
+   "statement": "gcd(lucas,perm_derange)(n) mod 2 depends only on n mod 6 (residues [1, 1, 0, 1, 1, 1] for n = 1..6), all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "le:n+oxa102627",
+   "kind": "le",
+   "label": "conjecture surviving 488 checks",
+   "lhs": "n",
+   "params": {},
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "dbl(oxa102627)",
+   "sig": "50ec247c4b6a40bb",
+   "statement": "n(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "modpat:oxa009191+oxa083105",
+   "kind": "modpat",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "gcd(oxa009191,oxa083105)",
+   "params": {
+    "P": 6,
+    "m": 2,
+    "pat": [
+     1,
+     0,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "51c52e4293994e3a",
+   "statement": "gcd(oxa009191,oxa083105)(n) mod 2 depends only on n mod 6 (residues [1, 0, 1, 1, 1, 1] for n = 1..6), all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 1, state mod 2) repeats after 1 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     2
+    ],
+    "states_checked": 1
+   },
+   "family": "cong:n",
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "dbl(n)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "559ffbb7fc5e2f73",
+   "statement": "dbl(n)(n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "divides:gpf+prime+rad",
+   "kind": "divides",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "dbl(gpf)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "(prime*rad)",
+   "sig": "575aa4355dde7071",
+   "statement": "dbl(gpf)(n) divides (prime*rad)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "recurrence residues",
+    "summary": "recurrence residues: residues periodic with period 9 from n = 1 (oxa033453: oeis A033453 signature (4,-2,1); oxa072856: oeis A072856 signature (3,2,-1,-1,70,39,-31,-114,-522,-184,34,46,1444,202,-606,1204,)); every n <= 10 checked"
+   },
+   "family": "cong:oxa033453+oxa072856",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "gcd(oxa033453,oxa072856)",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 0,
+    "s": 2
+   },
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "",
+   "sig": "58a0cdf7a1b5bbac",
+   "statement": "gcd(oxa033453,oxa072856)(n) = 0 (mod 2) for all n = 2 (mod 3)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:gpf+phi+rad",
+   "kind": "divides",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "(gpf*phi)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "dbl((phi*rad))",
+   "sig": "5979c9b90cd08c65",
+   "statement": "(gpf*phi)(n) divides dbl((phi*rad))(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa080076+prime",
+   "kind": "cong",
+   "label": "conjecture surviving 88 checks",
+   "lhs": "prime[oxa080076]",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "5c4b76fad62db669",
+   "statement": "prime[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:gpf+ple3",
+   "kind": "cong",
+   "label": "conjecture surviving 662 checks",
+   "lhs": "gpf[ple3]",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "5caeb8858bfc5122",
+   "statement": "gpf[ple3](n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:pi",
+   "kind": "cong",
+   "label": "conjecture surviving 29994 checks",
+   "lhs": "S((pi*pi))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "5cb35120fcdea383",
+   "statement": "S((pi*pi))(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "le:gpf+pnot3",
+   "kind": "le",
+   "label": "conjecture surviving 38 checks",
+   "lhs": "gpf[pnot3]",
+   "params": {},
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "pnot3",
+   "sig": "5e2b9e4887d1bc31",
+   "statement": "gpf[pnot3](n) <= pnot3(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:bigomega+oxa056971+oxa107293+oxa213536",
+   "kind": "divides",
+   "label": "conjecture surviving 188 checks",
+   "lhs": "bigomega[oxa213536]",
+   "params": {},
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "(oxa056971*oxa107293)",
+   "sig": "5f61e6bb1b744db4",
+   "statement": "bigomega[oxa213536](n) divides (oxa056971*oxa107293)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): p | x implies p | rad(x); n < 64 checked directly"
+   },
+   "family": "cong:rad",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(rad)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "61fbcbe9442a67e0",
+   "statement": "dbl(rad)(n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 4 and vanishes on 4 consecutive terms, hence everywhere",
+    "checked_terms": 4,
+    "method": "C-finite order bound",
+    "order_bound": 4
+   },
+   "family": "rec:lucas",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(lucas+lucas)",
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "63e3c4d61a1bf441",
+   "statement": "a(n) = (lucas+lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 4 and vanishes on 4 consecutive terms, hence everywhere",
+    "checked_terms": 4,
+    "method": "C-finite order bound",
+    "order_bound": 4
+   },
+   "family": "rec:n",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(n*n)",
+   "params": {
+    "c": [
+     1,
+     -3,
+     3
+    ]
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "65059be9ccd0a460",
+   "statement": "a(n) = (n*n)(n) satisfies a(n+3) = 1*a(n+0) + -3*a(n+1) + 3*a(n+2)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:pi+prime+rad+sqfree",
+   "kind": "divides",
+   "label": "conjecture surviving 29988 checks",
+   "lhs": "pi[prime]",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "(rad*sqfree)",
+   "sig": "69004ae3c80ff95a",
+   "statement": "pi[prime](n) divides (rad*sqfree)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 1, state mod 2) repeats after 1 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     1,
+     2
+    ],
+    "states_checked": 1
+   },
+   "family": "cong:pell",
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(pell)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "69f4c8029f297d56",
+   "statement": "D(pell)(n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): phi(x) is even for x >= 3; n < 64 checked directly"
+   },
+   "family": "cong:phi+rad",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "S((phi*rad))",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "6d3f0f4e272485a3",
+   "statement": "S((phi*rad))(n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 2) repeats after 2 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     -1,
+     2
+    ],
+    "states_checked": 2
+   },
+   "family": "cong:n",
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh(n)",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "6e6fd5fa42f0e104",
+   "statement": "sh(n)(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:gpf+pnot3",
+   "kind": "cong",
+   "label": "conjecture surviving 6 checks",
+   "lhs": "gpf[pnot3]",
+   "params": {
+    "m": 2,
+    "q": 6,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "7064bba534b76c05",
+   "statement": "gpf[pnot3](n) = 1 (mod 2) for all n = 0 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:maxgap+oxa080076",
+   "kind": "cong",
+   "label": "conjecture surviving 88 checks",
+   "lhs": "maxgap[oxa080076]",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "7148ebbcbb597e2b",
+   "statement": "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 0 lemma(s); n < 64 checked directly"
+   },
+   "family": "cong:pi+prime",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "pi[prime]",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "71e9051282319ae2",
+   "statement": "pi[prime](n) = 0 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): phi(x) is even for x >= 3; n < 64 checked directly"
+   },
+   "family": "cong:lpf+phi",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "S((lpf*phi))",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "7528625683c71e45",
+   "statement": "S((lpf*phi))(n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:gpf+prr",
+   "kind": "cong",
+   "label": "conjecture surviving 29 checks",
+   "lhs": "gpf[prr]",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "755f41625fe2b0b9",
+   "statement": "gpf[prr](n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": null,
+   "family": "le:gpf+lpf+mu",
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "(lpf+mu)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "dbl(gpf)",
+   "sig": "7a9213ec6b0fb5b0",
+   "statement": "(lpf+mu)(n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): p | x implies p | rad(x); rad(x) is odd for odd x; n < 64 checked directly"
+   },
+   "family": "cong:n+rad",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "D(gcd(n,rad))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "7b60d9ab9f132d01",
+   "statement": "D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:pell+pow2",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pell+pow2)",
+   "params": {
+    "c": [
+     -2,
+     -3,
+     4
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "7bc8f19bcd489288",
+   "statement": "a(n) = (pell+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)"
+  },
+  {
+   "certificate": null,
+   "family": "rec:lpf+oxa083104",
+   "kind": "rec",
+   "label": "conjecture surviving 488 checks",
+   "lhs": "dbl((lpf+oxa083104))",
+   "params": {
+    "c": [
+     1,
+     -4,
+     4
+    ]
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "7f780ba495263df0",
+   "statement": "a(n) = dbl((lpf+oxa083104))(n) satisfies a(n+3) = 1*a(n+0) + -4*a(n+1) + 4*a(n+2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:lucas+pow2",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pow2-lucas)",
+   "params": {
+    "c": [
+     -2,
+     -1,
+     3
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "816b6a9ef432f074",
+   "statement": "a(n) = (pow2-lucas)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): phi(x) is even for x >= 3; pi changes only at primes; x is composite (a multiple of 2); n < 64 checked directly"
+   },
+   "family": "cong:phi+pi",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "D(gcd(phi,pi))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 1
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "83358e42591cc9a4",
+   "statement": "D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:gpf+pnot3",
+   "kind": "divides",
+   "label": "conjecture surviving 38 checks",
+   "lhs": "gpf[pnot3]",
+   "params": {},
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "pnot3",
+   "sig": "84926b76bac27ae7",
+   "statement": "gpf[pnot3](n) divides pnot3(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa177115",
+   "kind": "cong",
+   "label": "conjecture surviving 188 checks",
+   "lhs": "dbl(oxa177115)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "",
+   "sig": "85b99e19ea952239",
+   "statement": "dbl(oxa177115)(n) = 0 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "le:oxa102627+rad",
+   "kind": "le",
+   "label": "conjecture surviving 488 checks",
+   "lhs": "rad",
+   "params": {},
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "dbl(oxa102627)",
+   "sig": "85e8fa03fcf346a0",
+   "statement": "rad(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:lucas+pow2",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(lucas+pow2)",
+   "params": {
+    "c": [
+     -2,
+     -1,
+     3
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "89566b1c499d9be4",
+   "statement": "a(n) = (lucas+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): digsum(x) = x (mod 9) (casting out nines); sigma(x) = 0 (mod 3) when x = -1 (mod 3) (divisor pairs d, x/d with d^2 = 1 mod 3); n < 64 checked directly"
+   },
+   "family": "cong:digsum+sigma",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "sigma[digsum]",
+   "params": {
+    "m": 3,
+    "q": 3,
+    "r": 0,
+    "s": 2
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "94023555cde59909",
+   "statement": "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 6 lemma(s): case sqfree(n) = 0: mu(n) = 0; case sqfree(n) = 1: mu(n) = +-1 is odd; case sqfree(n) = 1: tau(n) = 2^omega(n) is even (n >= 2); lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; pell is periodic mod 2 (defining; n < 64 checked directly"
+   },
+   "family": "divides:lpf+mu+pell+tau",
+   "kind": "divides",
+   "label": "machine-proved (certificate)",
+   "lhs": "gcd(lpf,tau)",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "(mu*pell)",
+   "sig": "9793919869076686",
+   "statement": "gcd(lpf,tau)(n) divides (mu*pell)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "divides:fib+lucas+stree_grid3",
+   "kind": "divides",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "(fib*lucas)",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "dbl(stree_grid3)",
+   "sig": "9835949a6322db64",
+   "statement": "(fib*lucas)(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "a(n) satisfies a proved integer recurrence of order 2; the pair (n mod 2, state mod 2) repeats after 2 steps and the congruence held on all of them",
+    "method": "periodic state space mod m",
+    "recurrence": [
+     1,
+     2
+    ],
+    "states_checked": 2
+   },
+   "family": "cong:pell",
+   "kind": "cong",
+   "label": "machine-checked (certificate)",
+   "lhs": "D(pell)",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "9854098efe4f4cb1",
+   "statement": "D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "basic-inequality derivation",
+    "summary": "basic-inequality derivation: n split mod 1, every class derived from 2 lemma(s): bigomega(2x) in terms of bigomega(x) (multiplicativity / binary digits); gpf(2x) in terms of gpf(x) (multiplicativity / binary digits); n < 64 checked directly"
+   },
+   "family": "le:bigomega+gpf+tau",
+   "kind": "le",
+   "label": "machine-proved (certificate)",
+   "lhs": "(gpf-tau)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "dbl((gpf-bigomega))",
+   "sig": "9abb4c980ca40600",
+   "statement": "(gpf-tau)(n) <= dbl((gpf-bigomega))(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa238873+sopfr",
+   "kind": "cong",
+   "label": "conjecture surviving 5 checks",
+   "lhs": "sopfr[oxa238873]",
+   "params": {
+    "m": 2,
+    "q": 7,
+    "r": 1,
+    "s": 4
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "9acc763a760ad022",
+   "statement": "sopfr[oxa238873](n) = 1 (mod 2) for all n = 4 (mod 7)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:perm_derange+prime",
+   "kind": "cong",
+   "label": "conjecture surviving 247 checks",
+   "lhs": "S((perm_derange*prime))",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "9c520ec498c2200b",
+   "statement": "S((perm_derange*prime))(n) = 0 (mod 2) for all n = 0 (mod 4)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); gpf(x) is odd for odd x; n < 64 checked directly"
+   },
+   "family": "cong:cmax+gpf",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "cmax[gpf]",
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 1,
+    "s": 1
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "9eef16680fd71139",
+   "statement": "cmax[gpf](n) = 1 (mod 3) for all n = 1 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): Collatz: the maximum of a bounded trajectory from x is x itself or 3y+1 (y odd); so it is 1 (mod 3) when x is odd or x = 1 (mod 3); rad(x) is odd for odd x; n < 64 checked directly"
+   },
+   "family": "cong:cmax+rad",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "cmax[rad]",
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 1,
+    "s": 1
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "9eef16680fd71139",
+   "statement": "cmax[rad](n) = 1 (mod 3) for all n = 1 (mod 2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:pell+pow2",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(pow2-pell)",
+   "params": {
+    "c": [
+     -2,
+     -3,
+     4
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "9f6506856afad9d2",
+   "statement": "a(n) = (pow2-pell)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:n+pow2",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh((n+pow2))",
+   "params": {
+    "c": [
+     2,
+     -5,
+     4
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "a1b5eab279e66eca",
+   "statement": "a(n) = sh((n+pow2))(n) satisfies a(n+3) = 2*a(n+0) + -5*a(n+1) + 4*a(n+2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 4, every class derived from 2 lemma(s): digsum(x) = digsum(x-1) + 1 when x-1 does not end in 9 (no carry); phi(x) is even for x >= 3; n < 64 checked directly"
+   },
+   "family": "cong:digsum+phi",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "S(gcd(digsum,phi))",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 1,
+    "s": 3
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "a68963c24f113950",
+   "statement": "S(gcd(digsum,phi))(n) = 1 (mod 2) for all n = 3 (mod 4)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:fib+oxa048760",
+   "kind": "cong",
+   "label": "conjecture surviving 662 checks",
+   "lhs": "S((fib*oxa048760))",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "a8371e31ccf4390b",
+   "statement": "S((fib*oxa048760))(n) = 0 (mod 2) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "closed form (sympy)",
+    "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): lpf(x) = 2 when 2 | x and no smaller prime divides x; n < 64 checked directly"
+   },
+   "family": "rec:lpf+pow2",
+   "kind": "rec",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl((pow2-lpf))",
+   "params": {
+    "c": [
+     -4,
+     5
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "a92258f87c21b118",
+   "statement": "a(n) = dbl((pow2-lpf))(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)"
+  },
+  {
+   "certificate": null,
+   "family": "le:oxa049980+oxa143773",
+   "kind": "le",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "oxa049980",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "dbl(oxa143773)",
+   "sig": "a99e5b0773e8c555",
+   "statement": "oxa049980(n) <= dbl(oxa143773)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa177122",
+   "kind": "cong",
+   "label": "conjecture surviving 188 checks",
+   "lhs": "dbl(oxa177122)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "",
+   "sig": "a9e515ffbe0783ef",
+   "statement": "dbl(oxa177122)(n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "le:gpf+omega+sigma",
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "(gpf+omega)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "sigma",
+   "sig": "afb0aef859718065",
+   "statement": "(gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa213536+rad",
+   "kind": "cong",
+   "label": "conjecture surviving 494 checks",
+   "lhs": "rad[oxa213536]",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "afdd559f74efe8ab",
+   "statement": "rad[oxa213536](n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "le:bigomega+digsum+pnot3",
+   "kind": "le",
+   "label": "conjecture surviving 38 checks",
+   "lhs": "bigomega[pnot3]",
+   "params": {},
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "dbl(digsum)",
+   "sig": "b0e08ab94515284c",
+   "statement": "bigomega[pnot3](n) <= dbl(digsum)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa080076+ple3",
+   "kind": "cong",
+   "label": "conjecture surviving 88 checks",
+   "lhs": "ple3[oxa080076]",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "b168eb68fc249021",
+   "statement": "ple3[oxa080076](n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:perm_derange+stree_ladder",
+   "kind": "cong",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "gcd(perm_derange,stree_ladder)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "b19ab27cc0ed21b7",
+   "statement": "gcd(perm_derange,stree_ladder)(n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): mu(x) = 0 when 4 | x; n < 64 checked directly"
+   },
+   "family": "cong:mu+n",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(gcd(mu,n))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "b3a71189c278d1b7",
+   "statement": "dbl(gcd(mu,n))(n) = 0 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:ple3+rad",
+   "kind": "cong",
+   "label": "conjecture surviving 331 checks",
+   "lhs": "rad[ple3]",
+   "params": {
+    "m": 2,
+    "q": 6,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "b5f19c6e19038951",
+   "statement": "rad[ple3](n) = 1 (mod 2) for all n = 0 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa275972+prime",
+   "kind": "cong",
+   "label": "conjecture surviving 29 checks",
+   "lhs": "prime[oxa275972]",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "b90a3769033459f8",
+   "statement": "prime[oxa275972](n) = 1 (mod 2) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 6 lemma(s): case sqfree(n) = 0: sqfree(n) = 0; case sqfree(n) = 1; case sqfree(n) = 1: tau(n) = 2^omega(n) is even (n >= 2); lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; pell is periodic mod 2 (defining recurrence; sta; n < 64 checked directly"
+   },
+   "family": "divides:lpf+pell+sqfree+tau",
+   "kind": "divides",
+   "label": "machine-proved (certificate)",
+   "lhs": "gcd(lpf,tau)",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "(pell*sqfree)",
+   "sig": "b94616a25db4d8c7",
+   "statement": "gcd(lpf,tau)(n) divides (pell*sqfree)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:lpf+oxa213536",
+   "kind": "cong",
+   "label": "conjecture surviving 494 checks",
+   "lhs": "lpf[oxa213536]",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "",
+   "sig": "b999e9ad1e53adc7",
+   "statement": "lpf[oxa213536](n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:stree_ladder",
+   "kind": "divides",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "stree_ladder",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "dbl(stree_ladder)",
+   "sig": "ba575886b2b40d0d",
+   "statement": "stree_ladder(n) divides dbl(stree_ladder)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa157100",
+   "kind": "cong",
+   "label": "conjecture surviving 244 checks",
+   "lhs": "S(oxa157100)",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "bae7672a97b68a33",
+   "statement": "S(oxa157100)(n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 6, every class derived from 2 lemma(s): rev(x) = x (mod 9) (casting out nines); sigma(2x) for odd x (multiplicativity, gcd(2, x) = 1); n < 64 checked directly"
+   },
+   "family": "cong:rev+sigma",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "dbl(gcd(rev,sigma))",
+   "params": {
+    "m": 3,
+    "q": 6,
+    "r": 0,
+    "s": 3
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "bb82919e523476f1",
+   "statement": "dbl(gcd(rev,sigma))(n) = 0 (mod 3) for all n = 3 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:cmax+lpf",
+   "kind": "divides",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "lpf[cmax]",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "D(cmax)",
+   "sig": "bca2422e47369175",
+   "statement": "lpf[cmax](n) divides D(cmax)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "basic-inequality derivation",
+    "summary": "basic-inequality derivation: n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly"
+   },
+   "family": "le:omega+phi+sopfr",
+   "kind": "le",
+   "label": "machine-proved (certificate)",
+   "lhs": "sopfr[phi]",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "(sopfr-omega)",
+   "sig": "c234006370822cd4",
+   "statement": "sopfr[phi](n) <= (sopfr-omega)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:fib",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "S(fib)",
+   "params": {
+    "c": [
+     -1,
+     0,
+     2
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "c42ae1f2c4306882",
+   "statement": "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:pdist+rev",
+   "kind": "cong",
+   "label": "conjecture surviving 7 checks",
+   "lhs": "rev[pdist]",
+   "params": {
+    "m": 2,
+    "q": 6,
+    "r": 1,
+    "s": 1
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "c49d8defd91b9639",
+   "statement": "rev[pdist](n) = 1 (mod 2) for all n = 1 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:stree_grid3",
+   "kind": "divides",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "stree_grid3",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "dbl(stree_grid3)",
+   "sig": "c90ee275beefe491",
+   "statement": "stree_grid3(n) divides dbl(stree_grid3)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "argument": "both sides are C-finite (orders <= 1, 1); their difference has order <= 2 and vanishes on n = 1..2, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "identity:pow2",
+   "kind": "identity",
+   "label": "machine-checked (certificate)",
+   "lhs": "pow2",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "D(pow2)",
+   "sig": "cae731b6e9bd2ba7",
+   "statement": "pow2(n) = D(pow2)(n) for all n >= 1"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "recurrence residues",
+    "summary": "recurrence residues: residues periodic with period 6 from n = 1 (oxa033453: oeis A033453 signature (4,-2,1)); every n <= 7 checked"
+   },
+   "family": "cong:oxa033453",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "S(oxa033453)",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "cb3ef3030b2d9000",
+   "statement": "S(oxa033453)(n) = 0 (mod 2) for all n = 0 (mod 3)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "recurrence residues",
+    "summary": "recurrence residues: residues periodic with period 4 from n = 22 (oxa047700: oeis A047700 signature (2,-1)); every n <= 26 checked"
+   },
+   "family": "cong:oxa047700",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "S(oxa047700)",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 1,
+    "s": 1
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "cc4c83b3f3545e76",
+   "statement": "S(oxa047700)(n) = 1 (mod 2) for all n = 1 (mod 4)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa056971",
+   "kind": "cong",
+   "label": "conjecture surviving 44 checks",
+   "lhs": "dbl(oxa056971)",
+   "params": {
+    "m": 3,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "ce2039b7b055c8c4",
+   "statement": "dbl(oxa056971)(n) = 0 (mod 3) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "le:gpf+ple3",
+   "kind": "le",
+   "label": "conjecture surviving 19988 checks",
+   "lhs": "ple3[gpf]",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "ple3",
+   "sig": "cfb2af2a4355388d",
+   "statement": "ple3[gpf](n) <= ple3(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "divides:fibw+oxa056971",
+   "kind": "divides",
+   "label": "conjecture surviving 88 checks",
+   "lhs": "S(fibw)",
+   "params": {},
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "dbl(oxa056971)",
+   "sig": "d050b6c40f0b8d39",
+   "statement": "S(fibw)(n) divides dbl(oxa056971)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:gpf+oxa088902",
+   "kind": "cong",
+   "label": "conjecture surviving 44 checks",
+   "lhs": "gpf[oxa088902]",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 1
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "d63f4625e70478dd",
+   "statement": "gpf[oxa088902](n) = 1 (mod 2) for all n = 1 (mod 2)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:pnot3+tau",
+   "kind": "cong",
+   "label": "conjecture surviving 13 checks",
+   "lhs": "tau[pnot3]",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 0,
+    "s": 2
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "d78e7cfe640cfeed",
+   "statement": "tau[pnot3](n) = 0 (mod 2) for all n = 2 (mod 3)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa038041",
+   "kind": "cong",
+   "label": "conjecture surviving 29 checks",
+   "lhs": "dbl(oxa038041)",
+   "params": {
+    "m": 3,
+    "q": 3,
+    "r": 2,
+    "s": 2
+   },
+   "range": [
+    13,
+    100
+   ],
+   "rhs": "",
+   "sig": "d9add9e97fab9dad",
+   "statement": "dbl(oxa038041)(n) = 2 (mod 3) for all n = 2 (mod 3)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:n",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "sh(n)",
+   "params": {
+    "c": [
+     -1,
+     2
+    ]
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "da021e4e41ec8131",
+   "statement": "a(n) = sh(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:baum+oxa072856",
+   "kind": "cong",
+   "label": "conjecture surviving 63 checks",
+   "lhs": "dbl(gcd(baum,oxa072856))",
+   "params": {
+    "m": 2,
+    "q": 3,
+    "r": 0,
+    "s": 1
+   },
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "",
+   "sig": "da29c2e70c3c733b",
+   "statement": "dbl(gcd(baum,oxa072856))(n) = 0 (mod 2) for all n = 1 (mod 3)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:gpf+oxa238873",
+   "kind": "cong",
+   "label": "conjecture surviving 19 checks",
+   "lhs": "gpf[oxa238873]",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "da9f682211002188",
+   "statement": "gpf[oxa238873](n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:fib+pow2",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "(fib+pow2)",
+   "params": {
+    "c": [
+     -2,
+     -1,
+     3
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "dbd58e7cc6233d79",
+   "statement": "a(n) = (fib+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa177115",
+   "kind": "cong",
+   "label": "conjecture surviving 122 checks",
+   "lhs": "D(oxa177115)",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "dbe366dabb22709b",
+   "statement": "D(oxa177115)(n) = 0 (mod 2) for all n = 0 (mod 4)"
+  },
+  {
+   "certificate": null,
+   "family": "le:bigomega+lpf+sopfr",
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "(bigomega*lpf)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "sopfr",
+   "sig": "dbff107ceb487ae5",
+   "statement": "(bigomega*lpf)(n) <= sopfr(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 10, every class derived from 3 lemma(s): digsum(x+1) = digsum(x) + 1 when x does not end in 9; lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; n < 64 checked directly"
+   },
+   "family": "cong:digsum+lpf",
+   "kind": "cong",
+   "label": "machine-proved (certificate)",
+   "lhs": "D((digsum+lpf))",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 0,
+    "s": 0
+   },
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "",
+   "sig": "dd0b4153a1999942",
+   "statement": "D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "checker": "colony.proof_check.check: ok",
+    "method": "periodic residues",
+    "summary": "periodic residues: n split mod 2, every class derived from 4 lemma(s): lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; lpf(x) is prime (x >= 2); tau of a prime p is +2; pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly"
+   },
+   "family": "divides:lpf+pell+tau",
+   "kind": "divides",
+   "label": "machine-proved (certificate)",
+   "lhs": "tau[lpf]",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "(lpf-pell)",
+   "sig": "dd6cdac879eef3bf",
+   "statement": "tau[lpf](n) divides (lpf-pell)(n) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa033453+stree_grid3",
+   "kind": "cong",
+   "label": "conjecture surviving 488 checks",
+   "lhs": "gcd(oxa033453,stree_grid3)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "e0f689150b20689c",
+   "statement": "gcd(oxa033453,stree_grid3)(n) = 1 (mod 2) for all n >= 1"
+  },
+  {
+   "certificate": null,
+   "family": "cong:pnot3+prime",
+   "kind": "cong",
+   "label": "conjecture surviving 19 checks",
+   "lhs": "prime[pnot3]",
+   "params": {
+    "m": 2,
+    "q": 2,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    50
+   ],
+   "rhs": "",
+   "sig": "e362e67f098ed0ab",
+   "statement": "prime[pnot3](n) = 1 (mod 2) for all n = 0 (mod 2)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 3 and vanishes on 3 consecutive terms, hence everywhere",
+    "checked_terms": 3,
+    "method": "C-finite order bound",
+    "order_bound": 3
+   },
+   "family": "rec:pell",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "S(pell)",
+   "params": {
+    "c": [
+     -1,
+     -1,
+     3
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "e6dcb4497a0ad5d3",
+   "statement": "a(n) = S(pell)(n) satisfies a(n+3) = -1*a(n+0) + -1*a(n+1) + 3*a(n+2)"
+  },
+  {
+   "certificate": null,
+   "family": "le:part+sqfree",
+   "kind": "le",
+   "label": "conjecture surviving 3988 checks",
+   "lhs": "gcd(part,sqfree)",
+   "params": {},
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "dbl(gcd(part,sqfree))",
+   "sig": "e8bb16925d335445",
+   "statement": "gcd(part,sqfree)(n) <= dbl(gcd(part,sqfree))(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:bigomega+ple3",
+   "kind": "cong",
+   "label": "conjecture surviving 331 checks",
+   "lhs": "bigomega[ple3]",
+   "params": {
+    "m": 2,
+    "q": 6,
+    "r": 1,
+    "s": 3
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "ec1ed3ded7303bb4",
+   "statement": "bigomega[ple3](n) = 1 (mod 2) for all n = 3 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "le:cmax+oxa048760",
+   "kind": "le",
+   "label": "conjecture surviving 988 checks",
+   "lhs": "dbl(oxa048760)",
+   "params": {},
+   "range": [
+    13,
+    1000
+   ],
+   "rhs": "dbl(cmax)",
+   "sig": "ec9cc80c17a875ca",
+   "statement": "dbl(oxa048760)(n) <= dbl(cmax)(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:prime+tm",
+   "kind": "cong",
+   "label": "conjecture surviving 997 checks",
+   "lhs": "S((prime*tm))",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 0,
+    "s": 1
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "edd0f0dbd1317d09",
+   "statement": "S((prime*tm))(n) = 0 (mod 2) for all n = 1 (mod 4)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa072856+pi",
+   "kind": "cong",
+   "label": "conjecture surviving 31 checks",
+   "lhs": "D(gcd(oxa072856,pi))",
+   "params": {
+    "m": 2,
+    "q": 6,
+    "r": 0,
+    "s": 3
+   },
+   "range": [
+    13,
+    200
+   ],
+   "rhs": "",
+   "sig": "edd74d6c22a41380",
+   "statement": "D(gcd(oxa072856,pi))(n) = 0 (mod 2) for all n = 3 (mod 6)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:oxa157100+tm",
+   "kind": "cong",
+   "label": "conjecture surviving 122 checks",
+   "lhs": "D(gcd(oxa157100,tm))",
+   "params": {
+    "m": 2,
+    "q": 4,
+    "r": 0,
+    "s": 1
+   },
+   "range": [
+    13,
+    500
+   ],
+   "rhs": "",
+   "sig": "f07be6271077f690",
+   "statement": "D(gcd(oxa157100,tm))(n) = 0 (mod 2) for all n = 1 (mod 4)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:lucas",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "lucas",
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "f5a6fe489383fa0a",
+   "statement": "a(n) = lucas(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)"
+  },
+  {
+   "certificate": {
+    "argument": "the residual of the recurrence is C-finite of order <= 2 and vanishes on 2 consecutive terms, hence everywhere",
+    "checked_terms": 2,
+    "method": "C-finite order bound",
+    "order_bound": 2
+   },
+   "family": "rec:fib",
+   "kind": "rec",
+   "label": "machine-checked (certificate)",
+   "lhs": "fib",
+   "params": {
+    "c": [
+     1,
+     1
+    ]
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "f6501cd4dfef7553",
+   "statement": "a(n) = fib(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)"
+  },
+  {
+   "certificate": null,
+   "family": "le:mu+n",
+   "kind": "le",
+   "label": "conjecture surviving 59988 checks",
+   "lhs": "gcd(mu,n)",
+   "params": {},
+   "range": [
+    13,
+    20000
+   ],
+   "rhs": "dbl(gcd(mu,n))",
+   "sig": "fb3d07d92c0b11c0",
+   "statement": "gcd(mu,n)(n) <= dbl(gcd(mu,n))(n) for all n >= 1 (with equality at some n)"
+  },
+  {
+   "certificate": null,
+   "family": "cong:match_ladder+stree_ladder",
+   "kind": "cong",
+   "label": "conjecture surviving 1988 checks",
+   "lhs": "gcd(match_ladder,stree_ladder)",
+   "params": {
+    "m": 2,
+    "q": 1,
+    "r": 1,
+    "s": 0
+   },
+   "range": [
+    13,
+    2000
+   ],
+   "rhs": "",
+   "sig": "fdcb3b605af002ca",
+   "statement": "gcd(match_ladder,stree_ladder)(n) = 1 (mod 2) for all n >= 1"
+  }
+ ]
+}
