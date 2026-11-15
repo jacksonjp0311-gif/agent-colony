@@ -2,8 +2,8 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-11-15T23:14:32Z",
-    "cycle_id": "20261115T231100Z_0d2828",
+    "ts": "2026-11-15T23:34:49Z",
+    "cycle_id": "20261115T233202Z_7e86d6",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -206,51 +206,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-11-15T20:00:10Z",
-      "cycle_id": "20261115T195620Z_605bb7",
-      "n_meet_bar_actual": 32,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 33,
-      "drop_out_of_bar": 18,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-11-15T20:03:42Z",
-      "cycle_id": "20261115T200015Z_e0a7b6",
-      "n_meet_bar_actual": 32,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 33,
-      "drop_out_of_bar": 18,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
-    {
-      "ts": "2026-11-15T20:07:14Z",
-      "cycle_id": "20261115T200346Z_5d7787",
-      "n_meet_bar_actual": 32,
-      "n_meet_bar_shadow": 14,
-      "n_unknown_claims": 33,
-      "drop_out_of_bar": 18,
-      "enter_bar": 0,
-      "guidance_mode": "live",
-      "near_misses": {
-        "oracle_rows": 0,
-        "shifted_window_failures": 0,
-        "single_reason_kills": 0
-      }
-    },
     {
       "ts": "2026-11-15T20:22:30Z",
       "cycle_id": "20261115T201947Z_33b21a",
@@ -644,6 +599,51 @@
     {
       "ts": "2026-11-15T23:14:32Z",
       "cycle_id": "20261115T231100Z_0d2828",
+      "n_meet_bar_actual": 32,
+      "n_meet_bar_shadow": 14,
+      "n_unknown_claims": 33,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-11-15T23:29:15Z",
+      "cycle_id": "20261115T232539Z_f0ab36",
+      "n_meet_bar_actual": 32,
+      "n_meet_bar_shadow": 14,
+      "n_unknown_claims": 33,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-11-15T23:31:59Z",
+      "cycle_id": "20261115T232919Z_44996e",
+      "n_meet_bar_actual": 32,
+      "n_meet_bar_shadow": 14,
+      "n_unknown_claims": 33,
+      "drop_out_of_bar": 18,
+      "enter_bar": 0,
+      "guidance_mode": "live",
+      "near_misses": {
+        "oracle_rows": 0,
+        "shifted_window_failures": 0,
+        "single_reason_kills": 0
+      }
+    },
+    {
+      "ts": "2026-11-15T23:34:49Z",
+      "cycle_id": "20261115T233202Z_7e86d6",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
