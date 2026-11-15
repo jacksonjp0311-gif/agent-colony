@@ -1,5 +1,5 @@
 {
-  "when": "2026-11-15T10:42:08Z",
+  "when": "2026-11-15T11:00:09Z",
   "mile": "spark3-port",
   "cycle_count": 894,
   "fitness_latest": {
@@ -633,7 +633,7 @@
     "proofs_routine_known_in_principle": 23,
     "beyond_published_range": 3,
     "beyond_exact": 3,
-    "max_depth": 16099,
+    "max_depth": 18799,
     "note": "counterexamples, checked proofs, and range extensions only; not fitness"
   },
   "bus_metrics": {
@@ -655,7 +655,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8607
+    "aggregate_score": 0.8829
   },
   "novelty_gate": {
     "hits": 3,
@@ -675,7 +675,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261115T103829Z_bd3f2a"
+    "cycle_id": "20261115T105718Z_a218f5"
   },
   "oracle": {
     "passes": 528,

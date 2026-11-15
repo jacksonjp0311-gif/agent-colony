@@ -1123,6 +1123,38 @@
    "cap_value": 16100,
    "fast_cfinite": true,
    "deep_terms": 16100
+  },
+  {
+   "id": "oc_A165064_0",
+   "anum": "A165064",
+   "form": "gf",
+   "depth": 100,
+   "bfile_hi": 100,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261115T105718Z_a218f5",
+   "planned": 18800,
+   "verified_depth": 100,
+   "prior_tested_hi": 16099,
+   "extended": 0
+  },
+  {
+   "id": "oc_A165064_0",
+   "anum": "A165064",
+   "form": "gf",
+   "depth": 18799,
+   "bfile_hi": 100,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261115T105718Z_a218f5",
+   "planned": 18800,
+   "verified_depth": 18799,
+   "prior_tested_hi": 16099,
+   "extended": 2700,
+   "cap_reason": "term_cap",
+   "cap_value": 18800,
+   "fast_cfinite": true,
+   "deep_terms": 18800
   }
  ],
  "by_cycle": {
@@ -1263,10 +1295,12 @@
   ],
   "20261115T101616Z_e6eeff": [
    "oc_A165064_0"
+  ],
+  "20261115T105718Z_a218f5": [
+   "oc_A165064_0"
   ]
  },
  "last_forms": [
-  "relation",
   "relation",
   "relation",
   "relation",
@@ -1284,6 +1318,7 @@
   "relation",
   "relation",
   "relation",
+  "gf",
   "gf",
   "gf"
  ]
