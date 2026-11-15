@@ -14,7 +14,7 @@
    1
   ],
   "le": [
-   21,
+   22,
    3
   ],
   "modpat": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   23,
-   19
+   22,
+   18
   ]
  },
  "mode": "live",
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 63,
+ "n_proved": 62,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -3748,174 +3748,6 @@
    "prior_certificate": true,
    "status": "proved",
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (pow2-one)(n) satisfies a(n+2) = -2*a(n+0) + 3*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(pow2-one)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pow2@1,0": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-one)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pow2@1,1": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-one)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "one",
-          "lemma": "one(x) = 1",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "lemma",
-          "val": {
-           "a": {},
-           "c": 1,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pow2@1,2": 1
-         },
-         "c": -1,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "one(x) = 1"
-    ],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x7015518f_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 1 lemma(s): one(x) = 1; n < 64 checked directly",
    "unknown": false,
    "v": 3
   },
@@ -8890,6 +8722,18 @@
    "unknown": true,
    "v": 3
   },
+  "sopfr(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_le_x46512590_w1",
+   "checks": 488,
+   "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "sopfr[oxa238873](n) = 1 (mod 2) for all n = 4 (mod 7)": {
    "authored": false,
    "certificate": null,
@@ -9185,5 +9029,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-15T02:05:38Z"
+ "ts": "2026-11-15T02:26:13Z"
 }

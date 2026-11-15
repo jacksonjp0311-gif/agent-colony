@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-15T02:04:42Z",
+  "updated_at": "2026-11-15T02:22:09Z",
   "passes": 528,
-  "kills": 381,
+  "kills": 382,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4191,
+  "kill_rate": 0.4198,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -25,6 +25,7 @@
     "authored_mut_swap_related_sequence_407fbdbac9ef",
     "authored_mut_swap_related_sequence_43bfea4a2cc0",
     "authored_mut_swap_related_sequence_5223338a52eb",
+    "authored_mut_swap_related_sequence_566c464aa389",
     "authored_mut_swap_related_sequence_58aacc9fceff",
     "authored_mut_swap_related_sequence_5eb7494b98aa",
     "authored_mut_swap_related_sequence_5f1e08241fef",
@@ -54,8 +55,7 @@
     "authored_mut_swap_related_sequence_e41e92020988",
     "authored_mut_swap_related_sequence_eb0f3247ee33",
     "authored_mut_swap_related_sequence_efa7f2b38883",
-    "authored_mut_swap_related_sequence_f992defe4af8",
-    "authored_mut_swap_related_sequence_fd5d7d93e902"
+    "authored_mut_swap_related_sequence_f992defe4af8"
   ],
   "domain_packs": {
     "packs": {
@@ -87,7 +87,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-15T02:04:42Z",
+    "ts": "2026-11-15T02:22:09Z",
     "passed": false,
     "kills": [
       "held_out:held_out_fail",
@@ -100,12 +100,12 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [
-        "msg_3099ad429b",
-        "msg_3c803457d4",
-        "msg_ec811dd528"
+        "msg_15010431f7",
+        "msg_af7612cf83",
+        "msg_149c6b7a12"
       ],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_407fbdbac9ef` kind=authored_check. authored_mut_swap_related_sequence_407fbdbac9ef Not discovery. cycle=20261115T020303Z_ed7ae8.",
-      "attack": "WEIGH: `authored_mut_swap_related_sequence_407fbdbac9ef` (authored_check) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_566c464aa389` kind=authored_check. authored_mut_swap_related_sequence_566c464aa389 Not discovery. cycle=20261115T022047Z_cc0986.",
+      "attack": "WEIGH: `authored_mut_swap_related_sequence_566c464aa389` (authored_check) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -113,7 +113,7 @@
         "in_catalog": true,
         "hard_pass": 162,
         "hard_n": 162,
-        "score": 0.8732,
+        "score": 0.8769,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "stripped_ok"
@@ -124,7 +124,7 @@
         "hard_pass": 162,
         "hard_n": 162,
         "ok": true,
-        "score": 0.8729,
+        "score": 0.8773,
         "shifted_window": null,
         "reason": "held_out_fail"
       },
@@ -197,15 +197,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_swap_related_sequence_407fbdbac9ef",
+      "mutation": "authored_mut_swap_related_sequence_566c464aa389",
       "kind": "authored_check",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": false,
-    "mutation": "authored_mut_swap_related_sequence_407fbdbac9ef",
+    "mutation": "authored_mut_swap_related_sequence_566c464aa389",
     "kind": "authored_check",
     "source": "stall_perturb",
-    "cycle_id": "20261115T020303Z_ed7ae8",
+    "cycle_id": "20261115T022047Z_cc0986",
     "note": "Oracle FAIL kills keep. kills=['held_out:held_out_fail', 'collective_kill']. No fitness credit.",
     "not_agi": true,
     "not_discovery": true

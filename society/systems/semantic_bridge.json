@@ -2,19 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 101,
-    "unbridged": 153
+    "unbridged": 154
   },
   "rows": [
-    {
-      "mutation": "authored_frontier_cong_xb999e9ad_w1",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-11-08T22:22:51Z",
-      "cycle_id": "20261108T222034Z_dc390b",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_sieve_hl_within_g4_2_4_w2",
       "status": "ok",
@@ -629,8 +619,18 @@
       "kind": "authored_check",
       "oracle_passed": false,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_566c464aa389",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-15T02:22:10Z",
+      "cycle_id": "20261115T022047Z_cc0986",
+      "kind": "authored_check",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-11-15T02:04:42Z",
+  "updated_at": "2026-11-15T02:22:10Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

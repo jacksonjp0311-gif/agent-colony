@@ -71,12 +71,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-mediated",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "binomial-faulhaber",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-15T02:05:00Z",
-  "updated_cycle": "20261115T020303Z_ed7ae8",
+  "updated_at": "2026-11-15T02:25:14Z",
+  "updated_cycle": "20261115T022331Z_2ff527",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
