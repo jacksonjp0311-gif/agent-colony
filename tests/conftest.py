@@ -129,6 +129,15 @@ LIVE_REFUSED: dict = {}
 _GUARD = {"nodeid": None, "allowed": False, "written": set()}
 
 
+def guard_key(item) -> str:
+    """Stable id ``tests/<file>.py::<name>`` independent of how pytest was invoked."""
+    try:
+        rel = Path(str(item.path)).resolve().relative_to(ROOT).as_posix()
+    except Exception:
+        return str(getattr(item, "nodeid", ""))
+    return f"{rel}::{item.name}"
+
+
 def is_live_state_path(path) -> str:
     """Repo-relative path if ``path`` is guarded live run-state data, else ''."""
     try:
@@ -225,7 +234,7 @@ def _isolate_live_state_constants(request, tmp_path, monkeypatch):
     redirected file. Grandfathered tests keep the live paths. A test that
     needs other data creates it under the redirected path.
     """
-    if request.node.nodeid in GRANDFATHERED or LIVE_STATE_GUARD_MODE == "off":
+    if guard_key(request.node) in GRANDFATHERED or LIVE_STATE_GUARD_MODE == "off":
         return
     import shutil
     base = tmp_path / "_live_state"
@@ -270,8 +279,8 @@ def _isolate_live_state_constants(request, tmp_path, monkeypatch):
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_call(item):
-    _GUARD["nodeid"] = item.nodeid
-    _GUARD["allowed"] = item.nodeid in GRANDFATHERED
+    _GUARD["nodeid"] = guard_key(item)
+    _GUARD["allowed"] = _GUARD["nodeid"] in GRANDFATHERED
     _GUARD["written"] = set()
     try:
         yield

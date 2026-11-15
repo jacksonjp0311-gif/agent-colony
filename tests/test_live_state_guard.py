@@ -22,10 +22,26 @@ TESTS = ROOT / "tests"
 GRANDFATHER_CEILING = 9
 
 
+_GUARD_MOD: list = []
+
+
+@pytest.fixture(autouse=True)
+def _find_guard_module(request):
+    # Look the conftest up through pytest's plugin manager by file: with
+    # `pytest tests hive/tests` hive's conftest owns the bare module name.
+    if not _GUARD_MOD:
+        want = (TESTS / "conftest.py").resolve()
+        for plugin in request.config.pluginmanager.get_plugins():
+            f = getattr(plugin, "__file__", None)
+            if f and Path(f).resolve() == want and hasattr(plugin, "LIVE_STATE_GUARD_MODE"):
+                _GUARD_MOD.append(plugin)
+                break
+
+
 def _conftest():
-    mod = sys.modules.get("conftest")
-    assert mod is not None and hasattr(mod, "LIVE_STATE_GUARD_MODE"), "tests/conftest.py guard not loaded"
-    return mod
+    if not _GUARD_MOD:
+        raise AssertionError("tests/conftest.py guard not loaded")
+    return _GUARD_MOD[0]
 
 
 def _live_file() -> Path:
