@@ -151,10 +151,10 @@ def digit_model(tid: str, log: dict[str, Any]) -> DigitModel | None:
 
 def time_limit(tid: str, seconds: float, log: dict[str, Any]) -> float:
     """Deepest n expected to fit ``seconds`` (item-76 rows); inf without time evidence."""
-    from colony.self_heal_coupled import TIME_COST_POWER, TIME_FIT_MARGIN, _time_rows
+    from colony.self_heal_coupled import TIME_COST_POWER, time_points
     lim = INF
-    for planned, secs in _time_rows(tid, log):
-        lim = min(lim, planned * (float(seconds) * TIME_FIT_MARGIN / secs) ** (1.0 / TIME_COST_POWER))
+    for planned, secs, margin in time_points(tid, log):
+        lim = min(lim, planned * (float(seconds) * margin / secs) ** (1.0 / TIME_COST_POWER))
     return lim
 
 
@@ -357,7 +357,9 @@ def note_zero_prediction_skip(state: dict[str, Any], cycle_id: str,
         return None
     from colony.self_heal import append_evidence
     from colony.self_heal_coupled import _log, term_knob_of
-    all_zero = bool(explore_checked) and all(not (c.get("predicted") or []) for c in explore_checked)
+    # Item 78: a candidate skipped as co-binding (negligible gain) counts as zero.
+    all_zero = bool(explore_checked) and all(
+        not (c.get("predicted") or []) or c.get("skipped") == "co_binding_caps" for c in explore_checked)
     streak = dict(state.get("zero_prediction_skips") or {})
     if not all_zero:
         state["zero_prediction_skips"] = {"count": 0}
@@ -396,3 +398,98 @@ def note_zero_prediction_skip(state: dict[str, Any], cycle_id: str,
     state["zero_prediction_skips"] = streak
     state["co_binding_caps"] = {"cycle_id": cycle_id, "targets": named, "evidence_id": ev.get("id")}
     return ev
+
+
+# --- Item 78: the cobind check in front of every cap trial -------------------
+
+def step_gain(state: dict[str, Any], tid: str, values: dict[str, Any], *,
+              attempt_log: dict[str, Any] | None = None) -> int | None:
+    """Predicted depth gain on ``tid`` if the cap knobs in ``values`` take those values.
+
+    None when the target has no term-cap evidence or ``values`` names no
+    cap that limits it (then this check has nothing to say).
+    """
+    from colony.self_heal import state_knob
+    from colony.self_heal_coupled import _log, term_knob_of
+    log = _log(attempt_log)
+    tk = term_knob_of(tid, log)
+    if not tk:
+        return None
+    names = (tk, DIGIT_KNOB, TIME_KNOB)
+    if not any(k in values for k in names):
+        return None
+    vals = {k: (values[k] if k in values else state_knob(state, k)) for k in names}
+    lim = reach(tid, vals[tk], vals[DIGIT_KNOB], vals[TIME_KNOB], log)
+    r = lim["reach"]
+    if not math.isfinite(r):
+        return None
+    return int(max(0.0, r - current_depth(tid, log)))
+
+
+def trial_values(trial: dict[str, Any]) -> dict[str, Any]:
+    """Knob -> value for a proposed trial (single or coupled)."""
+    out: dict[str, Any] = {}
+    if trial.get("knob"):
+        out[str(trial["knob"])] = trial.get("to")
+    for c in [trial.get("coupled")] + list(trial.get("coupled_more") or []):
+        if isinstance(c, dict) and c.get("knob"):
+            out[str(c["knob"])] = c.get("to")
+    return out
+
+
+def negligible_step(state: dict[str, Any], values: dict[str, Any], predicted: list[str], *,
+                    attempt_log: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    """Item 78 (1): None when the step is worth a trial, else why it is not.
+
+    Every predicted target the cobind model knows gains less than the
+    item-77 negligible bar under these knob values, because other caps bind
+    with it. A target the model cannot judge never blocks the step.
+    """
+    if not _self_mod() or not predicted:
+        return None
+    from colony.self_heal_coupled import _log
+    log = _log(attempt_log)
+    gains: dict[str, int] = {}
+    for tid in predicted:
+        g = step_gain(state, str(tid), values, attempt_log=log)
+        if g is None:
+            return None
+        if g >= negligible_gain(current_depth(str(tid), log)):
+            return None
+        gains[str(tid)] = g
+    return {"skipped": "co_binding_caps", "predicted_gain": gains}
+
+
+def retire_time_bound(state: dict[str, Any], targets: list[str], *, cycle_id: str,
+                      attempt_log: dict[str, Any] | None = None) -> list[str]:
+    """Item 78 (2): time binds at the deep_seconds ceiling for the next useful step.
+
+    With ``deep_seconds`` at its KnobSpec ceiling, a target whose modelled
+    time limit at that ceiling is below depth + the negligible bar cannot be
+    moved by any cap raise: it is retired as compute_bound (item 74,
+    append-only ``target_retired``), so the proposer moves on. It returns
+    only if deep_seconds ever rises above the ceiling value.
+    """
+    if not _self_mod():
+        return []
+    from colony.self_heal import KNOB_SPECS, state_knob
+    from colony.self_heal_coupled import _log, compute_bound, retire_compute_bound, term_knob_of, time_points
+    log = _log(attempt_log)
+    hi = float(KNOB_SPECS[TIME_KNOB].hi)
+    cur = float(state_knob(state, TIME_KNOB))
+    if cur < hi:
+        return []
+    out: list[str] = []
+    for tid in targets or []:
+        tid = str(tid)
+        if compute_bound(state, tid) or not term_knob_of(tid, log) or not time_points(tid, log):
+            continue
+        depth = current_depth(tid, log)
+        lim = time_limit(tid, hi, log)
+        if not math.isfinite(lim) or lim >= depth + negligible_gain(depth):
+            continue
+        ev = retire_compute_bound(state, tid, cycle_id=cycle_id, why="time_cap_at_deep_seconds_ceiling",
+                                  knobs_at={TIME_KNOB: cur})
+        if ev is not None:
+            out.append(tid)
+    return out
