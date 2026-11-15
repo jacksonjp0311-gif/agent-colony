@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-15T06:11:30Z",
-  "cycle_id": "20261115T061105Z_1be4da",
+  "ts": "2026-11-15T06:31:43Z",
+  "cycle_id": "20261115T063118Z_a62abe",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -22,10 +22,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.861,
-      "slope": 2.4e-05,
+      "last": 0.8612,
+      "slope": 5.7e-05,
       "min": 0.8606,
-      "max": 0.8615
+      "max": 0.8616
     },
     "novelty": {
       "last": 0.75,
@@ -35,14 +35,14 @@
     },
     "kill_rate": {
       "last": 0.4255,
-      "slope": 0.000165,
-      "min": 0.4236,
+      "slope": 4.9e-05,
+      "min": 0.4248,
       "max": 0.4255
     },
     "kill_rate_term": {
       "last": 0.9329,
-      "slope": 0.000141,
-      "min": 0.9312,
+      "slope": 3.5e-05,
+      "min": 0.9324,
       "max": 0.9329
     },
     "lesson_uptake": {
@@ -54,7 +54,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0009,
+    "aggregate_range": 0.001,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -281,34 +281,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.918,
+      "ratio": 0.836,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.893,
+      "ratio": 0.866,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.898,
+      "ratio": 0.84,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.946,
+      "ratio": 0.866,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.969,
+      "ratio": 0.868,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 378834115,
-      "collatz_descent": 415800000,
+      "goldbach_even": 382034115,
+      "collatz_descent": 419000000,
       "legendre_square_gap": 2140607,
       "lehmer_totient": 192600001,
-      "erdos_straus": 1254127,
+      "erdos_straus": 1259127,
       "twin_primes_hl": 522200000,
       "oeis_A104062_next": 518690000001
     },
@@ -363,18 +363,18 @@
     "last": [
       [
         null,
+        "2026-11-15T06:20:25Z"
+      ],
+      [
+        "success",
         "2026-11-15T05:59:38Z"
       ],
       [
         "success",
         "2026-11-15T05:38:05Z"
-      ],
-      [
-        "success",
-        "2026-11-15T05:38:00Z"
       ]
     ],
-    "fetched_at": "2026-11-15T06:00:21Z"
+    "fetched_at": "2026-11-15T06:21:08Z"
   },
   "feeds": {
     "by_source": {
@@ -422,7 +422,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-15T06:00:20Z"
+      "ts": "2026-11-15T06:21:08Z"
     },
     "health": {
       "arxiv": {
