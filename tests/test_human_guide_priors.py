@@ -146,13 +146,25 @@ def test_lesson_uptake_credits_human_guides(tmp_path, monkeypatch):
 
 
 
-def test_guide_seek_avoids_process_spam():
+def test_guide_seek_avoids_process_spam(tmp_path, monkeypatch):
+    import colony.lessons as L
     from colony.lessons import guide_process_spam_avoided, seek_proposal_from_guides
-    # Live ledger has our become guide
+    # Item 71: write the become guide into an isolated ledger instead of
+    # relying on the live one (live run state must not decide this test).
+    monkeypatch.setattr(L, "LESSONS_JSONL", tmp_path / "lessons.jsonl")
+    monkeypatch.setattr(L, "LEDGER_SYSTEM", tmp_path / "lesson_ledger.json")
+    assert guide_process_spam_avoided() is False
+    write_human_guide(
+        what="BECOME SOMETHING MORE: prefer novelty",
+        author="James Jackson",
+        mutation="become_uptake",
+        catalog_hint={"prefer": ["novelty"], "avoid": ["process_spam"]},
+        tags=["human_guide", "become"],
+    )
     assert guide_process_spam_avoided() is True
     pick = seek_proposal_from_guides(cycle_id="t")
     if pick is None:
-        # Live ledger may have every target cooled: seek must then propose nothing
+        # Every target may be cooled: seek must then propose nothing
         # (desk authors new checks) rather than fall back to a cooled/process target.
         return
     t, h, a = pick

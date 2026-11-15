@@ -1,0 +1,19 @@
+# Item 71: tests that still read live mutable run state (data/, society/, control/).
+# Each is listed with its reason. tests/test_live_state_guard.py caps this list:
+# it may only shrink. Do not add a test here to make it pass; pin a fixture instead.
+#
+# Intentional integrity / safety invariants over the committed live data
+# (they must hold on any healthy state, and a failure means the data is bad):
+tests/test_depth_caps.py::test_production_log_view_backfills_all_legacy_rows
+tests/test_society_state_split.py::test_real_committed_state_load_equivalence
+tests/test_society_state_split.py::test_control_committed_copy_also_equivalent
+tests/test_trust_loop.py::test_holdout_v2_never_in_colony_readable_state
+tests/test_trust_loop.py::test_gate_entry_point_runs_and_reports
+#
+# Write guards: compare live bytes before and after to prove nothing was written:
+tests/test_research_desk.py::test_pytest_does_not_write_the_repo
+tests/test_twin_control.py::test_subprocess_control_writes_only_under_control_root
+#
+# Whole-cycle regressions that copy the live society/ tree into a sandbox:
+tests/test_reliability_regressions.py::test_two_normal_cycles_and_failed_stage_diagnostics[retirement]
+tests/test_reliability_regressions.py::test_two_normal_cycles_and_failed_stage_diagnostics[diagnostics]
