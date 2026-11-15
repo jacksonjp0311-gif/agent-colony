@@ -721,7 +721,7 @@ def load_state() -> dict[str, Any]:
         "adopted_count", "reverted_count", "cycle_index", "cycles",
         "last_self_change", "knob_last_trial",
         "inconclusive_count", "trial_skip", "cycles_dropped",
-        "retired_cap_knobs",
+        "retired_cap_knobs", "compute_bound_targets",
     ):
         if key in raw:
             state[key] = raw[key]
@@ -1955,8 +1955,35 @@ def eligible_target_ids(stall_state: dict[str, Any] | None = None) -> set[str]:
 
 
 
-def _predicted_target_fits_knob(tid: str, knob: str, *, attempt_log: dict[str, Any] | None = None) -> bool:
-    """True when this target has no binding cap, or its cap_reason matches knob."""
+def _predicted_target_fits_knob(
+    tid: str,
+    knob: str,
+    *,
+    attempt_log: dict[str, Any] | None = None,
+    state: dict[str, Any] | None = None,
+) -> bool:
+    """True when this target has no binding cap, or its cap_reason matches knob.
+
+    Item 74: the binding cap is recomputed under the CURRENT knob values,
+    ignoring attempt rows recorded under other knob values, and a target
+    retired as compute_bound is not predicted at all (self-mod arm only).
+    """
+    try:
+        from colony.arm import self_mod_enabled
+        item74 = bool(self_mod_enabled())
+    except Exception:
+        item74 = True
+    if item74:
+        try:
+            from colony.self_heal_coupled import compute_bound, prediction_fits
+            st = state if state is not None else load_state()
+            if compute_bound(st, str(tid)):
+                return False
+            fits = prediction_fits(str(tid), knob, dict(st.get("knobs") or {}), attempt_log=attempt_log)
+            if fits is not None:
+                return bool(fits)
+        except Exception:
+            pass
     try:
         from colony.oeis_conjectures import (
             load_attempt_log, cap_of_row, knobs_for_cap_reason, _last_attempt_row,
@@ -1978,6 +2005,7 @@ def predicted_new_targets(
     value: Any,
     *,
     stall_state: dict[str, Any] | None = None,
+    state: dict[str, Any] | None = None,
 ) -> list[str]:
     """Targets that would become eligible only if ``knob`` were ``value``.
 
@@ -1999,7 +2027,7 @@ def predicted_new_targets(
     # Item 63: only credit targets whose recorded cap_reason is bound
     # by this knob family. A term-cap raise must not list a hold that
     # actually sat at a digit or time ceiling (and vice versa).
-    return [tid for tid in sorted(after - before) if _predicted_target_fits_knob(tid, knob)]
+    return [tid for tid in sorted(after - before) if _predicted_target_fits_knob(tid, knob, state=state)]
 
 
 def cap_frontier_values(knob: str, *, attempt_log: dict[str, Any] | None = None) -> list[int]:
@@ -2254,7 +2282,7 @@ def propose_trial(
                     nv = frontier_cap_value(knob, direction, current=state_knob(st, knob),
                                             step_size=float(state_knob(st, "step_size")))
                     if nv is not None:
-                        predicted_cache[key] = predicted_new_targets(knob, nv)
+                        predicted_cache[key] = predicted_new_targets(knob, nv, state=st)
                 except Exception:
                     predicted_cache[key] = []
         return predicted_cache[key]
@@ -2272,6 +2300,37 @@ def propose_trial(
     # The fall-through applies only when a cap raise was the diagnosed
     # remedy (a cap finding is present) and no cap can bind a target.
     has_cap_candidate = any(k in CAP_KNOBS for _f, k, _d in ordered)
+
+    # Item 74: a target that flipped between two binding caps gets one
+    # coupled trial raising both knobs (or is retired as compute_bound).
+    if has_cap_candidate:
+        coupled = _coupled_candidate(st, ordered, _pred, cycle_id)
+        if coupled is not None:
+            baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
+            cap_finding = next((f for f, k, _d in ordered if k in CAP_KNOBS), {})
+            return {
+                **coupled,
+                "baseline_signal": not no_signal,
+                "reason": str(cap_finding.get("kind") or "depth_at_physical_cap"),
+                "finding": cap_finding,
+                "replay": {"accepted": True, "reasons": [], "simulated": False,
+                           "note": "coupled trial; online trial will decide"},
+                "window": window,
+                "baseline_score": window_score(baseline_rows),
+                "baseline_metrics": [
+                    {k: r.get(k) for k in (
+                        "cycle_id", "new_oracle_targets", "new_depth",
+                        "oracle_pass_delta", "oracle_passes", "score",
+                        "env_fingerprint",
+                    ) if k in r}
+                    for r in baseline_rows
+                ],
+                "trial_metrics": [],
+                "started_cycle": cycle_id,
+                "started_index": int(st.get("cycle_index") or 0),
+                "applied_to_live_oracle": False,
+                "authorized": False,
+            }
 
     def _caps_exhausted() -> bool:
         if not exhausted_cache:
@@ -2334,14 +2393,16 @@ def propose_trial(
                     continue
                 explore = {"fallthrough": "caps_exhausted"}
         if no_signal:
-            predicted = predicted_new_targets(knob, nxt)
+            predicted = predicted_new_targets(knob, nxt, state=st)
             narrowed = None
             if predicted and _exploration_already_failed(st, knob, nxt, predicted):
                 # Item 73b: the same exploration already ended without
                 # credit. If it failed because its target hit another cap
                 # (the step overshot), retry at the midpoint step.
                 from colony.self_heal_ladder import narrower_after_overshoot
-                narrowed = narrower_after_overshoot(st, knob, cur, nxt, predicted)
+                narrowed = narrower_after_overshoot(
+                    st, knob, cur, nxt, predicted,
+                    predict=lambda k, v: predicted_new_targets(k, v, state=st))
                 if narrowed is not None:
                     failed_to = nxt
                     nxt, predicted, why = narrowed
@@ -2396,6 +2457,55 @@ def propose_trial(
     return None
 
 
+def _coupled_candidate(st: dict[str, Any], ordered, pred, cycle_id: str) -> dict[str, Any] | None:
+    """Item 74: targets of recent failed cap trials and current predictions."""
+    try:
+        from colony.self_heal_coupled import FLIP_LOOKBACK_EVENTS, coupled_proposal
+    except Exception:
+        return None
+    targets: list[str] = []
+    for e in reversed(list(st.get("evidence") or [])[-FLIP_LOOKBACK_EVENTS:]):
+        if isinstance(e, dict) and e.get("event") in ("trial_inconclusive", "revert") \
+                and str(e.get("knob") or "") in CAP_KNOBS:
+            targets += [str(t) for t in (e.get("predicted_targets") or []) if t]
+    for _f, knob, direction in ordered:
+        if knob in CAP_KNOBS:
+            targets += list(pred(knob, direction))
+    seen: list[str] = []
+    for t in targets:
+        if t not in seen:
+            seen.append(t)
+    try:
+        prop = coupled_proposal(st, seen, cycle_id=cycle_id)
+    except Exception:
+        return None
+    if prop is None:
+        return None
+    if _knob_on_cooldown(st, prop["knob"], "up") or _knob_on_cooldown(st, prop["coupled"]["knob"], "up"):
+        return None
+    return prop
+
+
+def _restore_coupled(state: dict[str, Any], trial: dict[str, Any]) -> None:
+    """Item 74: put the second knob of a coupled trial back to its pre-trial value."""
+    c = trial.get("coupled") or {}
+    if c.get("knob") and c.get("from") is not None:
+        _apply_knob(state, str(c["knob"]), c["from"])
+
+
+def _coupled_closed(state: dict[str, Any], trial: dict[str, Any], cycle_id: str) -> None:
+    """Item 74: a coupled trial that was not adopted restores both knobs and retires its target."""
+    if not trial.get("coupled"):
+        return
+    _restore_coupled(state, trial)
+    _mark_knob_closed(state, str(trial["coupled"].get("knob") or ""), cycle_id)
+    try:
+        from colony.self_heal_coupled import after_close
+        after_close(state, trial, "not_adopted", cycle_id=cycle_id)
+    except Exception:
+        pass
+
+
 def _apply_knob(state: dict[str, Any], name: str, value: Any) -> None:
     knobs = dict(state.get("knobs") or default_knobs())
     knobs[name] = clamp(name, value)
@@ -2428,6 +2538,10 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         except Exception:
             pass
     _apply_knob(st, trial["knob"], trial["to"])
+    coupled = trial.get("coupled") or {}
+    if coupled.get("knob"):
+        # Item 74: both knobs move together for one trial (bounds via clamp).
+        _apply_knob(st, str(coupled["knob"]), coupled["to"])
     st["trial"] = trial
     st["trial_skip"] = None
     last = dict(st.get("knob_last_trial") or {})
@@ -2436,6 +2550,12 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         "cycle_index": int(st.get("cycle_index") or 0),
         "cycle_id": cycle_id,
     }
+    if coupled.get("knob"):
+        last[str(coupled["knob"])] = {
+            "direction": coupled.get("direction") or "up",
+            "cycle_index": int(st.get("cycle_index") or 0),
+            "cycle_id": cycle_id,
+        }
     st["knob_last_trial"] = last
     fp = environment_fingerprint(exclude_knob=str(trial.get("knob") or "") or None, state=st)
     trial["environment_fingerprint"] = fp["digest"]
@@ -2457,6 +2577,8 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         **({"fallthrough": trial.get("fallthrough")} if trial.get("fallthrough") else {}),
         **({"narrowed_after_overshoot": trial.get("narrowed_after_overshoot")}
            if trial.get("narrowed_after_overshoot") else {}),
+        **({"coupled": trial.get("coupled"), "coupled_flip": trial.get("coupled_flip")}
+           if trial.get("coupled") else {}),
         "environment_fingerprint": fp["digest"],
         "environment": trial["environment"],
     })
@@ -2540,8 +2662,10 @@ def void_trial_for_confound(
     restore, stale = pre_trial_value(state, trial)
     if knob:
         _apply_knob(state, knob, restore)
+    _restore_coupled(state, trial)
     ev = append_evidence(state, {
         "event": "trial_voided_confound",
+        **({"coupled": trial.get("coupled")} if trial.get("coupled") else {}),
         "cycle_id": cycle_id,
         "knob": knob,
         "from": trial.get("to"),
@@ -2612,6 +2736,9 @@ def _close_trial(
         link["ladder"] = trial.get("ladder")
     if trial.get("narrowed_after_overshoot"):
         link["narrowed_after_overshoot"] = trial.get("narrowed_after_overshoot")
+    if trial.get("coupled"):
+        link["coupled"] = trial.get("coupled")
+        link["coupled_flip"] = trial.get("coupled_flip")
     if isinstance(trial.get("apply_cycle_metrics"), dict):
         link["apply_cycle_metrics"] = trial.get("apply_cycle_metrics")
     if predicted:
@@ -2677,6 +2804,7 @@ def _close_trial(
             **stale_fields,
         })
         _mark_knob_closed(state, knob, cycle_id)
+        _coupled_closed(state, trial, cycle_id)
         state["last_self_change"] = ev
         state["trial"] = None
         return state
@@ -2703,6 +2831,7 @@ def _close_trial(
         **stale_fields,
     })
     _mark_knob_closed(state, knob, cycle_id)
+    _coupled_closed(state, trial, cycle_id)
     state["last_self_change"] = ev
     state["trial"] = None
     return state
@@ -3205,6 +3334,8 @@ def run_cycle(
     try:
         from colony.self_heal_ladder import retire_ceiling_cap_knobs, filter_retired_findings
         retire_ceiling_cap_knobs(st, cycle_id)
+        from colony.self_heal_coupled import refresh_compute_bound
+        refresh_compute_bound(st, cycle_id)
         found = filter_retired_findings(found, st)
     except Exception:
         pass
