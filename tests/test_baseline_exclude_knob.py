@@ -9,8 +9,11 @@ are untouched.
 from __future__ import annotations
 
 import copy
+import json
+from pathlib import Path
 
 import colony.self_heal as SH
+import colony.oeis_conjectures as OC
 import colony.stall as S
 import hive.swarm as SL
 import hive.library as FL
@@ -26,6 +29,47 @@ def _isolate(tmp_path, monkeypatch):
     monkeypatch.setattr(SL, "STATE_PATH", tmp_path / "swarm_learn.json")
     monkeypatch.setattr(SL, "EVENT_LOG", tmp_path / "swarm_learn.jsonl")
     monkeypatch.setattr(SL, "RULES_PATH", tmp_path / "swarm_rules.json")
+
+
+FRONTIER_FIXTURE = Path(__file__).resolve().parent / "fixtures" / "frontier_A165064_term_cap.json"
+
+
+def _pin_frontier(tmp_path, monkeypatch, which="at_8000_cap", *, with_history=True):
+    """Item 71: pinned frontier instead of live society/ data.
+
+    One real OEIS target (oc_A165064_0, a fast C-finite g.f.) with its
+    recorded history from commit 4fdbf9e1. ``at_8000_cap`` has its last hold
+    at term_cap 8000 (so a fast_term_cap raise binds it); ``at_10700_cap``
+    has it verified to 10699 and ``at_13400_cap`` to 13399 (11dbf650), so
+    8000 -> 10700 binds nothing there.
+    ``with_history=False`` keeps the target state but an empty attempt log
+    (the shape the trust gate saw on 2026-11-15).
+    Also isolates the target generator so live authored checks cannot add
+    or remove reachable targets.
+    """
+    fx = json.loads(FRONTIER_FIXTURE.read_text(encoding="utf-8"))
+    snap = fx[which]
+    menu = tmp_path / "oeis_conjectures.json"
+    menu.write_text(json.dumps({"entries": [fx["menu_entry"]]}), encoding="utf-8")
+    state = tmp_path / "oeis_conjecture_state.json"
+    state.write_text(json.dumps({
+        "targets": {"oc_A165064_0": snap["state_target"]}, "families": {}, "credit_total": 0.0,
+    }), encoding="utf-8")
+    log = tmp_path / "oeis_attempt_log.json"
+    attempts = snap["attempts"] if with_history else []
+    log.write_text(json.dumps({"attempts": attempts, "by_cycle": {}, "last_forms": []}), encoding="utf-8")
+    monkeypatch.setattr(OC, "MENU", menu)
+    monkeypatch.setattr(OC, "STATE", state)
+    monkeypatch.setattr(OC, "ATTEMPT_LOG", log)
+    lemma = tmp_path / "lemma_impl.py"
+    lemma.write_text("HARD_TIER_LEMMAS: list = [\n]\n", encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_LEMMA", str(lemma))
+    monkeypatch.setenv("COLONY_GENERATED_TARGETS_LOG", str(tmp_path / "generated_targets.jsonl"))
+    oracle = tmp_path / "oracle.json"
+    oracle.write_text("{}", encoding="utf-8")
+    monkeypatch.setenv("COLONY_TG_ORACLE", str(oracle))
+    from colony import retire as RT
+    monkeypatch.setattr(RT, "retired_names", lambda *a, **k: set())
 
 
 def _metric(cycle_id, fp, env=None, score=0.0):
@@ -177,8 +221,7 @@ def test_start_rule_trial_opens_after_just_closed_knob_trial(tmp_path, monkeypat
     assert swarm_st["trial"]["fingerprint"] == proposal.fingerprint
 
 
-def test_start_knob_trial_opens_after_just_closed_cooldown_trial(tmp_path, monkeypatch):
-    _isolate(tmp_path, monkeypatch)
+def _just_closed_cooldown_state():
     st, env6, env8 = _two_knob_fingerprints()
     st["knobs"]["perturb_cooldown_cycles"] = 6
     st["last_self_change"] = {
@@ -193,8 +236,11 @@ def test_start_knob_trial_opens_after_just_closed_cooldown_trial(tmp_path, monke
     st["metrics"] = rows
     st["cycle_index"] = 20
     SH.save_state(st)
+    return st
 
-    proposal = Proposal(
+
+def _fast_term_cap_proposal():
+    return Proposal(
         role="surveyor",
         label="empty_perturb_pool",
         action={"op": "set_knob", "name": "fast_term_cap", "direction": "up"},
@@ -202,12 +248,48 @@ def test_start_knob_trial_opens_after_just_closed_cooldown_trial(tmp_path, monke
         symptom="empty perturb pool cap",
         ok=True,
     )
+
+
+def test_start_knob_trial_opens_after_just_closed_cooldown_trial(tmp_path, monkeypatch):
+    _isolate(tmp_path, monkeypatch)
+    _pin_frontier(tmp_path, monkeypatch, "at_8000_cap")
+    st = _just_closed_cooldown_state()
+    assert int(st["knobs"]["fast_term_cap"]) == 8000
     # Fingerprint will be filled by validate path; start_knob_trial uses the action.
-    out = SL.start_knob_trial(proposal, cycle_id="now", state=SL._empty_state())
+    out = SL.start_knob_trial(_fast_term_cap_proposal(), cycle_id="now", state=SL._empty_state())
     assert out["ok"] is True, out
     assert out["reason"] == "trial_started"
     assert out["trial"]["knob"] == "fast_term_cap"
     assert out["trial"]["from"] != out["trial"]["to"]
+    # The trial is bound to the pinned cap-held target (item 66), not a noisy score.
+    assert out["trial"]["predicted_targets"] == ["oc_A165064_0"]
+
+
+def test_start_knob_trial_still_defers_when_no_target_binds(tmp_path, monkeypatch):
+    """Item 71: frontier already at 13399 and no recorded cap to step from.
+
+    8000 -> 10700 binds nothing, so the Hive cap trial is deferred exactly
+    as before (no_bound_predicted_target). This is the live state that
+    turned the trust gate red; it is now a pinned expectation.
+    """
+    _isolate(tmp_path, monkeypatch)
+    _pin_frontier(tmp_path, monkeypatch, "at_13400_cap", with_history=False)
+    _just_closed_cooldown_state()
+    out = SL.start_knob_trial(_fast_term_cap_proposal(), cycle_id="now", state=SL._empty_state())
+    assert out["ok"] is False
+    assert out["reason"] == "no_bound_predicted_target"
+    assert out["detail"] == {"knob": "fast_term_cap", "from": 8000, "to": 10700}
+
+
+def test_start_knob_trial_steps_from_recorded_frontier_cap(tmp_path, monkeypatch):
+    """Item 67 on pinned data: with the 10700 hold recorded, the raise steps past it."""
+    _isolate(tmp_path, monkeypatch)
+    _pin_frontier(tmp_path, monkeypatch, "at_10700_cap")
+    _just_closed_cooldown_state()
+    out = SL.start_knob_trial(_fast_term_cap_proposal(), cycle_id="now", state=SL._empty_state())
+    assert out["ok"] is True, out
+    assert out["trial"]["to"] > 10700
+    assert out["trial"]["predicted_targets"] == ["oc_A165064_0"]
 
 
 def test_propose_trial_also_excludes_the_just_closed_knob(tmp_path, monkeypatch):
