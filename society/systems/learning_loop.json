@@ -648,13 +648,57 @@
           "treatment": 12582.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "deep_digits",
+        "op": "set_knob",
+        "value": 7700
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 0.0,
+      "card_id": "",
+      "cycle_id": "20261115T042451Z_fcdbe4",
+      "event": "labeled_example",
+      "family": "set_knob:deep_digits",
+      "id": "02e606cb4909444a",
+      "knob": "deep_digits",
+      "method": "",
+      "outcome": "kept",
+      "self_heal_helped": true,
+      "source": "self_heal",
+      "source_id": "02e606cb4909444a",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": true,
+      "trial_score": 199.0,
+      "ts": "2026-11-15T04:27:36Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8606
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 528.0
+        },
+        "reason": "verified_depth",
+        "verified_depth_sum": {
+          "control": 9228.0,
+          "treatment": 12781.0
+        }
+      }
     }
   ],
   "families": {
     "set_knob:deep_digits": {
       "keep_rate_permille": 1000,
-      "kept": 1,
-      "n": 1,
+      "kept": 2,
+      "n": 2,
       "reverted": 0,
       "voided": 0
     },
@@ -702,7 +746,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261115T040923Z_393b86",
+  "last_cycle": "20261115T043315Z_540da3",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -723,7 +767,7 @@
     "ts": "2026-11-14T23:48:36Z"
   },
   "n_inconclusive": 1,
-  "n_kept": 2,
+  "n_kept": 3,
   "n_proposed": 1,
   "n_reverted": 4,
   "n_twin_held": 0,
@@ -750,10 +794,10 @@
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 22,
-    "pending": 15,
+    "pending": 18,
     "resolved": 22,
     "source": "hive_shadows",
-    "ts": "2026-11-15T04:13:01Z",
+    "ts": "2026-11-15T04:36:38Z",
     "unlabeled": 0
   },
   "twin_pending": [],
