@@ -2,34 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 101,
-    "unbridged": 157
+    "unbridged": 159
   },
   "rows": [
-    {
-      "mutation": "authored_frontier_cong_x5cb35120_w3",
-      "status": "unbridged",
-      "reason": "no claim parser for this check family",
-      "ts": "2026-11-08T23:10:25Z",
-      "cycle_id": "20261108T230902Z_ce3ce1",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
-    {
-      "mutation": "authored_sieve_two_counter_g4_2_6_w2",
-      "status": "ok",
-      "family": "sieve",
-      "template": "two_counter",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-11-08T23:13:40Z",
-      "cycle_id": "20261108T231214Z_dc24f8",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_frontier_cong_xd9add9e9_w1",
       "status": "unbridged",
@@ -624,8 +599,28 @@
       "kind": "authored_check",
       "oracle_passed": false,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_f7c77a787e41",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-15T03:18:41Z",
+      "cycle_id": "20261115T031703Z_b410d4",
+      "kind": "authored_check",
+      "oracle_passed": false,
+      "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_189b60a6e65e",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-15T03:25:12Z",
+      "cycle_id": "20261115T032346Z_77a973",
+      "kind": "authored_check",
+      "oracle_passed": false,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-11-15T03:03:04Z",
+  "updated_at": "2026-11-15T03:25:12Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

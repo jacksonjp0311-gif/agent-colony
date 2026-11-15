@@ -651,7 +651,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261115T030416Z_acb8d6",
+  "last_cycle": "20261115T032346Z_77a973",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -699,10 +699,10 @@
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 16,
-    "pending": 12,
+    "pending": 15,
     "resolved": 16,
     "source": "hive_shadows",
-    "ts": "2026-11-15T03:07:16Z",
+    "ts": "2026-11-15T03:26:29Z",
     "unlabeled": 0
   },
   "twin_pending": [],
