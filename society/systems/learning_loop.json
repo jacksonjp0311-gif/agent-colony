@@ -780,6 +780,51 @@
           "treatment": 13038.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "gf_term_cap",
+        "op": "set_knob",
+        "value": 2310
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 0.0,
+      "card_id": "",
+      "cycle_id": "20261115T073045Z_83bc39",
+      "event": "labeled_example",
+      "family": "set_knob:gf_term_cap",
+      "id": "4e4adea12afe4767",
+      "knob": "gf_term_cap",
+      "method": "",
+      "note": "no signal in baseline or trial window; not evidence for or against the action",
+      "outcome": "inconclusive",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "4e4adea12afe4767",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 0.0,
+      "ts": "2026-11-15T07:32:36Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8612
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 528.0
+        },
+        "reason": "verified_depth",
+        "verified_depth_sum": {
+          "control": 9228.0,
+          "treatment": 13038.0
+        }
+      }
     }
   ],
   "families": {
@@ -806,6 +851,7 @@
       "voided": 3
     },
     "set_knob:gf_term_cap": {
+      "inconclusive": 1,
       "keep_rate_permille": 500,
       "kept": 1,
       "n": 2,
@@ -834,7 +880,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261115T071113Z_fe5d0c",
+  "last_cycle": "20261115T073045Z_83bc39",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -854,7 +900,7 @@
     "method": "",
     "ts": "2026-11-14T23:48:36Z"
   },
-  "n_inconclusive": 1,
+  "n_inconclusive": 2,
   "n_kept": 4,
   "n_proposed": 1,
   "n_reverted": 4,
@@ -882,10 +928,10 @@
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 33,
-    "pending": 20,
+    "pending": 22,
     "resolved": 33,
     "source": "hive_shadows",
-    "ts": "2026-11-15T07:14:08Z",
+    "ts": "2026-11-15T07:33:15Z",
     "unlabeled": 0
   },
   "twin_pending": [],
