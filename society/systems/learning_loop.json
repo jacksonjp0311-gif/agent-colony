@@ -1313,6 +1313,50 @@
           "treatment": 22893.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "gf_term_cap",
+        "op": "set_knob",
+        "value": 2865
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 0.0,
+      "card_id": "",
+      "cycle_id": "20261115T195620Z_605bb7",
+      "event": "labeled_example",
+      "family": "set_knob:gf_term_cap",
+      "id": "82a2460eed1940ed",
+      "knob": "gf_term_cap",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "82a2460eed1940ed",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-15T19:59:16Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8607
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 528.0
+        },
+        "reason": "verified_depth",
+        "verified_depth_sum": {
+          "control": 9228.0,
+          "treatment": 22893.0
+        }
+      }
     }
   ],
   "families": {
@@ -1341,11 +1385,11 @@
     },
     "set_knob:gf_term_cap": {
       "inconclusive": 3,
-      "keep_rate_permille": 500,
+      "keep_rate_permille": 400,
       "kept": 2,
-      "n": 4,
+      "n": 5,
       "reverted": 1,
-      "voided": 1
+      "voided": 2
     },
     "set_knob:park_cycles": {
       "keep_rate_permille": 0,
@@ -1369,7 +1413,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261115T193859Z_f3f959",
+  "last_cycle": "20261115T200346Z_5d7787",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -1394,7 +1438,7 @@
   "n_proposed": 1,
   "n_reverted": 4,
   "n_twin_held": 0,
-  "n_voided": 10,
+  "n_voided": 11,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
   "pending": [
     {
@@ -1417,10 +1461,10 @@
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 100,
-    "pending": 17,
+    "pending": 20,
     "resolved": 100,
     "source": "hive_shadows",
-    "ts": "2026-11-15T19:42:52Z",
+    "ts": "2026-11-15T20:07:14Z",
     "unlabeled": 0
   },
   "twin_pending": [],
