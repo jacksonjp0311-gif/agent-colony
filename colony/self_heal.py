@@ -2307,9 +2307,16 @@ def propose_trial(
         # Item 77: co-binding caps. When every single cap raise gains a
         # negligible amount for a recent target, one coupled trial over the
         # caps that bind together (term cap + deep_digits [+ deep_seconds]).
-        coupled = _cobind_candidate(st, ordered, _pred)
+        coupled = _cobind_candidate(st, ordered, _pred, cycle_id)
         if coupled is None:
             coupled = _coupled_candidate(st, ordered, _pred, cycle_id)
+            # Item 78: the item-74/76 coupled form also passes the cobind check.
+            gate = _cobind_gate(st, coupled) if coupled is not None else None
+            if gate is not None:
+                explore_checked.append({"knob": coupled["knob"], "to": coupled["to"],
+                                        "coupled": (coupled.get("coupled") or {}).get("knob"),
+                                        "predicted": list(coupled.get("predicted_targets") or [])[:8], **gate})
+                coupled = None
         if coupled is not None:
             baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
             cap_finding = next((f for f, k, _d in ordered if k in CAP_KNOBS), {})
@@ -2455,6 +2462,22 @@ def propose_trial(
                         continue
                     nxt, preds, replay = term_to, preds2, r2
                 explore = {**explore, **risk, "exploratory": True, "predicted_targets": preds}
+        # Item 78 (1): every cap trial (single, time-risk coupled, overshoot
+        # midpoint, ladder) passes the cobind check: if other caps bind with
+        # it so its predicted gain is negligible, it does not open. The
+        # coupled form, when one exists, was already proposed above.
+        if knob in CAP_KNOBS:
+            preds = list(explore.get("predicted_targets") or _pred(knob, direction) or [])
+            gate = _cobind_gate(st, {"knob": knob, "to": nxt, "coupled": explore.get("coupled"),
+                                     "coupled_more": explore.get("coupled_more"),
+                                     "predicted_targets": preds})
+            if gate is not None:
+                if explore_checked and explore_checked[-1].get("knob") == knob \
+                        and explore_checked[-1].get("to") == nxt:
+                    explore_checked[-1].update(gate)
+                else:
+                    explore_checked.append({"knob": knob, "to": nxt, "predicted": preds[:8], **gate})
+                continue
         baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
         return {
             **explore,
@@ -2499,18 +2522,38 @@ def propose_trial(
     return None
 
 
-def _cobind_candidate(st: dict[str, Any], ordered, pred) -> dict[str, Any] | None:
-    """Item 77: recent cap-trial targets plus current predictions, simulated jointly."""
+def _cobind_candidate(st: dict[str, Any], ordered, pred, cycle_id: str = "") -> dict[str, Any] | None:
+    """Item 77: recent cap-trial targets plus current predictions, simulated jointly.
+
+    Item 78: a target that time binds at the deep_seconds ceiling is retired
+    as compute_bound first, so no trial is spent on it.
+    """
     try:
-        from colony.self_heal_cobind import cobind_proposal, recent_targets
+        from colony.self_heal_cobind import cobind_proposal, recent_targets, retire_time_bound
     except Exception:
         return None
     targets = list(recent_targets(st))
+    try:
+        retire_time_bound(st, targets, cycle_id=cycle_id)
+    except Exception:
+        pass
     for _f, knob, direction in ordered:
         if knob in CAP_KNOBS:
             targets += [t for t in pred(knob, direction) if t not in targets]
     try:
+        retire_time_bound(st, targets, cycle_id=cycle_id)
         return cobind_proposal(st, targets)
+    except Exception:
+        return None
+
+
+def _cobind_gate(st: dict[str, Any], trial: dict[str, Any] | None) -> dict[str, Any] | None:
+    """Item 78 (1): None if a cap trial may open, else the co-binding skip record."""
+    if not trial or not trial.get("predicted_targets"):
+        return None
+    try:
+        from colony.self_heal_cobind import negligible_step, trial_values
+        return negligible_step(st, trial_values(trial), list(trial.get("predicted_targets") or []))
     except Exception:
         return None
 

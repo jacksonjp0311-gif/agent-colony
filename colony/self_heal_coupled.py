@@ -412,16 +412,50 @@ def _time_rows(tid: str, log: dict[str, Any]) -> list[tuple[float, float]]:
     return out
 
 
+def _measured_time_rows(tid: str, log: dict[str, Any]) -> list[tuple[float, float]]:
+    """Item 78: (planned, seconds) actually measured on series-path rows.
+
+    A series attempt expands the whole planned length before any cap is
+    applied, so ``deep_elapsed_s`` (recorded since item 76) is the time that
+    planned depth took on the runner, whether or not the time cap fired.
+    The latest few, newest first.
+    """
+    out: list[tuple[float, float]] = []
+    for row in reversed(_rows(tid, log)):
+        if row.get("fast_cfinite") is True:
+            continue
+        planned, secs = _num(row.get("planned")), _num(row.get("deep_elapsed_s"))
+        if not planned or planned <= 0 or not secs or secs <= 0:
+            continue
+        out.append((planned, secs))
+        if len(out) >= TIME_ROWS_RECENT:
+            break
+    return out
+
+
+def time_points(tid: str, log: dict[str, Any]) -> list[tuple[float, float, float]]:
+    """(planned, seconds, fit margin) for the time model of ``tid``.
+
+    Measured rows (item 78) are exact, so they fit the budget without the
+    safety margin; without them, the lower bounds from time-capped rows are
+    used with TIME_FIT_MARGIN (item 76).
+    """
+    measured = _measured_time_rows(tid, log)
+    if measured:
+        return [(p, s, 1.0) for p, s in measured]
+    return [(p, s, TIME_FIT_MARGIN) for p, s in _time_rows(tid, log)]
+
+
 def time_needed(tid: str, knob: str, to: Any, *,
                 attempt_log: dict[str, Any] | None = None) -> float | None:
     """Seconds ``tid`` is expected to need when ``knob`` (a term cap) goes to ``to``.
 
-    Read from rows where the time cap actually stopped the attempt short of
-    its planned depth: the larger of the recorded time cap and the measured
-    ``deep_elapsed_s``, scaled by (to / planned)^TIME_COST_POWER (series
-    cost grows about cubically in the number of terms). The largest
-    estimate over the latest such rows, or None when the time cap never
-    stopped this target.
+    From ``time_points``: measured series times when recorded (item 78),
+    else rows where the time cap stopped the attempt short of its planned
+    depth (the larger of the cap and any measured time), scaled by
+    (to / planned)^TIME_COST_POWER (series cost grows about cubically in
+    the number of terms). The largest estimate, or None without time
+    evidence for this target.
     """
     log = _log(attempt_log)
     tk = term_knob_of(tid, log)
@@ -431,7 +465,7 @@ def time_needed(tid: str, knob: str, to: Any, *,
     if goal is None or goal <= 0:
         return None
     best: float | None = None
-    for planned, secs in _time_rows(tid, log):
+    for planned, secs, _margin in time_points(tid, log):
         need = secs * (goal / planned) ** TIME_COST_POWER
         best = need if best is None else max(best, need)
     return best
@@ -452,11 +486,11 @@ def fit_term_to_time(tid: str, knob: str, cur: Any, to: Any, seconds: Any, *,
     if goal is None or lo is None or budget is None or budget <= 0:
         return to
     need = time_needed(tid, knob, to, attempt_log=log)
-    if need is None or need <= budget * TIME_FIT_MARGIN:
+    if need is None or need <= budget * min(m for _p, _s, m in time_points(tid, log)):
         return to
     limit = goal
-    for planned, secs in _time_rows(tid, log):
-        limit = min(limit, planned * (budget * TIME_FIT_MARGIN / secs) ** (1.0 / TIME_COST_POWER))
+    for planned, secs, margin in time_points(tid, log):
+        limit = min(limit, planned * (budget * margin / secs) ** (1.0 / TIME_COST_POWER))
     val = clamp(knob, int(math.floor(limit)))
     if float(val) <= lo:
         return None
