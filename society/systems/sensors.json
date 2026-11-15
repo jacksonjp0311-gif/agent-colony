@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-15T22:51:25Z",
-  "cycle_id": "20261115T225059Z_ece8d0",
+  "ts": "2026-11-15T23:11:21Z",
+  "cycle_id": "20261115T231100Z_0d2828",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_98dac34715ca": 1,
       "authored_mut_swap_related_sequence_98f7a10162e6": 1,
       "authored_mut_swap_related_sequence_efa7f2b38883": 1,
       "authored_mut_swap_related_sequence_fd5d7d93e902": 1,
@@ -15,17 +14,18 @@
       "authored_mut_swap_related_sequence_1e32e19fc335": 1,
       "authored_mut_swap_related_sequence_f7c77a787e41": 1,
       "authored_mut_swap_related_sequence_189b60a6e65e": 1,
-      "authored_mut_swap_related_sequence_19b958c5439c": 1
+      "authored_mut_swap_related_sequence_19b958c5439c": 1,
+      "authored_mut_swap_related_sequence_55ef68f19547": 1
     },
     "recent": {}
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8611,
-      "slope": -0.000173,
+      "last": 0.8629,
+      "slope": 6.5e-05,
       "min": 0.8611,
-      "max": 0.8638
+      "max": 0.8637
     },
     "novelty": {
       "last": 0.75,
@@ -54,7 +54,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0012,
+    "aggregate_range": 0.0026,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -281,34 +281,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.315,
+      "ratio": 0.844,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.533,
-      "drift": true
+      "ratio": 0.813,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.321,
+      "ratio": 0.874,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.219,
+      "ratio": 0.884,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.287,
+      "ratio": 0.827,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 449234115,
-      "collatz_descent": 486200000,
+      "goldbach_even": 452434115,
+      "collatz_descent": 489400000,
       "legendre_square_gap": 2492607,
       "lehmer_totient": 227800001,
-      "erdos_straus": 1364127,
+      "erdos_straus": 1369127,
       "twin_primes_hl": 610200000,
       "oeis_A104062_next": 518690000001
     },
@@ -363,18 +363,18 @@
     "last": [
       [
         null,
+        "2026-11-15T23:01:11Z"
+      ],
+      [
+        "success",
         "2026-11-15T22:39:03Z"
       ],
       [
         "success",
         "2026-11-15T22:18:51Z"
-      ],
-      [
-        "success",
-        "2026-11-15T21:56:23Z"
       ]
     ],
-    "fetched_at": "2026-11-15T22:39:58Z"
+    "fetched_at": "2026-11-15T23:01:54Z"
   },
   "feeds": {
     "by_source": {
@@ -422,7 +422,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-15T22:39:58Z"
+      "ts": "2026-11-15T23:01:53Z"
     },
     "health": {
       "arxiv": {
@@ -449,7 +449,6 @@
   },
   "signals": [
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_stress_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

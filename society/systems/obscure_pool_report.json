@@ -61,112 +61,6 @@
  "history": [
   {
    "counts": {
-    "explained_by_known_check": 0,
-    "explained_by_reference": 0,
-    "fresh": 182,
-    "machine_checked": 0,
-    "no_reference_found": 0,
-    "passed_filter": 10,
-    "produced": 204,
-    "surprise": 0,
-    "survived": 2,
-    "tested": 10
-   },
-   "cycle_id": "20261115T193153Z_b74365",
-   "mode": "live",
-   "survivors": [
-    {
-     "hunt_value": 0.0,
-     "label": "conjecture surviving 488 checks",
-     "oeis": [
-      "found"
-     ],
-     "prediction": 0.9285,
-     "statement": "a(n) = D(oxa082411)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
-     "unknown": false
-    },
-    {
-     "hunt_value": 0.0,
-     "label": "conjecture surviving 488 checks",
-     "oeis": [
-      "found"
-     ],
-     "prediction": 0.9286,
-     "statement": "a(n) = sh(oxa033453)(n) satisfies a(n+3) = 1*a(n+0) + -2*a(n+1) + 4*a(n+2)",
-     "unknown": false
-    }
-   ]
-  },
-  {
-   "counts": {
-    "explained_by_known_check": 0,
-    "explained_by_reference": 0,
-    "fresh": 195,
-    "machine_checked": 0,
-    "no_reference_found": 2,
-    "passed_filter": 8,
-    "produced": 215,
-    "surprise": 2,
-    "survived": 3,
-    "tested": 8
-   },
-   "cycle_id": "20261115T193537Z_cd29b5",
-   "mode": "live",
-   "survivors": [
-    {
-     "hunt_value": 0.0,
-     "label": "conjecture surviving 1988 checks",
-     "oeis": [
-      "too_simple",
-      "not_found"
-     ],
-     "prediction": 0.2836,
-     "statement": "gcd(csteps,gold)(n) <= gold[oxa211338](n) for all n >= 1 (with equality at some n)",
-     "unknown": false
-    },
-    {
-     "hunt_value": 1.0,
-     "label": "conjecture surviving 122 checks",
-     "oeis": [
-      "not_found"
-     ],
-     "prediction": 0.1855,
-     "statement": "D(gcd(oxa316344,oxa349050))(n) = 1 (mod 2) for all n = 1 (mod 4)",
-     "unknown": true
-    }
-   ]
-  },
-  {
-   "counts": {
-    "explained_by_known_check": 0,
-    "explained_by_reference": 0,
-    "fresh": 202,
-    "machine_checked": 0,
-    "no_reference_found": 0,
-    "passed_filter": 14,
-    "produced": 217,
-    "surprise": 0,
-    "survived": 1,
-    "tested": 14
-   },
-   "cycle_id": "20261115T193859Z_f3f959",
-   "mode": "live",
-   "survivors": [
-    {
-     "hunt_value": 0.0,
-     "label": "conjecture surviving 1988 checks",
-     "oeis": [
-      "primitive",
-      "found"
-     ],
-     "prediction": 0.4148,
-     "statement": "oxa009191(n) = gcd(oxa009191,tau)(n) for all n >= 1",
-     "unknown": false
-    }
-   ]
-  },
-  {
-   "counts": {
     "explained_by_known_check": 3,
     "explained_by_reference": 0,
     "fresh": 175,
@@ -1086,6 +980,110 @@
      "unknown": false
     }
    ]
+  },
+  {
+   "counts": {
+    "explained_by_known_check": 3,
+    "explained_by_reference": 0,
+    "fresh": 178,
+    "machine_checked": 0,
+    "no_reference_found": 3,
+    "passed_filter": 18,
+    "produced": 210,
+    "surprise": 0,
+    "survived": 4,
+    "tested": 18
+   },
+   "cycle_id": "20261115T230514Z_6397ca",
+   "mode": "live",
+   "survivors": [
+    {
+     "hunt_value": 0.0,
+     "label": "conjecture surviving 488 checks",
+     "oeis": [
+      "not_found"
+     ],
+     "prediction": 0.9293,
+     "statement": "a(n) = dbl(oxa083105)(n) satisfies a(n+2) = -1*a(n+0) + 3*a(n+1)",
+     "unknown": false
+    },
+    {
+     "hunt_value": 0.0,
+     "label": "conjecture surviving 988 checks",
+     "oeis": [
+      "primitive"
+     ],
+     "prediction": 0.9294,
+     "statement": "a(n) = oxa082411(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+     "unknown": false
+    },
+    {
+     "hunt_value": 0.0,
+     "label": "conjecture surviving 988 checks",
+     "oeis": [
+      "not_found"
+     ],
+     "prediction": 0.9294,
+     "statement": "a(n) = (oxa082411-oxa083105)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+     "unknown": false
+    }
+   ]
+  },
+  {
+   "counts": {
+    "explained_by_known_check": 0,
+    "explained_by_reference": 0,
+    "fresh": 202,
+    "machine_checked": 0,
+    "no_reference_found": 0,
+    "passed_filter": 14,
+    "produced": 224,
+    "surprise": 0,
+    "survived": 2,
+    "tested": 14
+   },
+   "cycle_id": "20261115T230809Z_c01fc7",
+   "mode": "live",
+   "survivors": [
+    {
+     "hunt_value": 0.0,
+     "label": "conjecture surviving 988 checks",
+     "oeis": [
+      "found"
+     ],
+     "prediction": 0.9292,
+     "statement": "a(n) = sh(oxa083105)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+     "unknown": false
+    },
+    {
+     "hunt_value": 0.0,
+     "label": "conjecture surviving 1988 checks",
+     "oeis": [
+      "not_found",
+      "found"
+     ],
+     "prediction": 0.2824,
+     "statement": "(cheb4+oxa009191)(n) <= dbl(phi)(n) for all n >= 1 (with equality at some n)",
+     "unknown": false
+    }
+   ]
+  },
+  {
+   "counts": {
+    "explained_by_known_check": 0,
+    "explained_by_reference": 0,
+    "fresh": 158,
+    "machine_checked": 0,
+    "no_reference_found": 0,
+    "passed_filter": 12,
+    "produced": 183,
+    "surprise": 0,
+    "survived": 0,
+    "tested": 12
+   },
+   "cycle_id": "20261115T231100Z_0d2828",
+   "mode": "live",
+   "survivors": []
   }
  ],
  "mode": "live",
@@ -1094,11 +1092,11 @@
   "oxa000414": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1352,
+   "fresh": 1363,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 101,
-   "produced": 1501,
+   "produced": 1512,
    "surprise": 0,
    "survived": 1,
    "tested": 101
@@ -1106,11 +1104,11 @@
   "oxa003327": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1320,
+   "fresh": 1325,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 130,
-   "produced": 1622,
+   "produced": 1629,
    "surprise": 0,
    "survived": 0,
    "tested": 130
@@ -1118,47 +1116,47 @@
   "oxa007359": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1291,
+   "fresh": 1302,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 118,
-   "produced": 1506,
+   "passed_filter": 119,
+   "produced": 1517,
    "surprise": 0,
    "survived": 4,
-   "tested": 118
+   "tested": 119
   },
   "oxa007837": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1825,
+   "fresh": 1836,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 117,
-   "produced": 2215,
+   "passed_filter": 120,
+   "produced": 2229,
    "surprise": 0,
    "survived": 0,
-   "tested": 117
+   "tested": 120
   },
   "oxa009191": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1747,
+   "fresh": 1756,
    "machine_checked": 0,
    "no_reference_found": 2,
-   "passed_filter": 179,
-   "produced": 1980,
+   "passed_filter": 180,
+   "produced": 1990,
    "surprise": 2,
-   "survived": 24,
-   "tested": 179
+   "survived": 25,
+   "tested": 180
   },
   "oxa023201": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2734,
+   "fresh": 2743,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 42,
-   "produced": 2878,
+   "produced": 2887,
    "surprise": 0,
    "survived": 1,
    "tested": 42
@@ -1166,11 +1164,11 @@
   "oxa033453": {
    "explained_by_known_check": 126,
    "explained_by_reference": 0,
-   "fresh": 1668,
+   "fresh": 1677,
    "machine_checked": 0,
    "no_reference_found": 134,
    "passed_filter": 262,
-   "produced": 1777,
+   "produced": 1786,
    "surprise": 8,
    "survived": 231,
    "tested": 262
@@ -1178,23 +1176,23 @@
   "oxa035100": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 1471,
+   "fresh": 1479,
    "machine_checked": 0,
    "no_reference_found": 2,
-   "passed_filter": 101,
-   "produced": 1546,
+   "passed_filter": 102,
+   "produced": 1554,
    "surprise": 2,
    "survived": 8,
-   "tested": 101
+   "tested": 102
   },
   "oxa038041": {
    "explained_by_known_check": 0,
    "explained_by_reference": 13,
-   "fresh": 1754,
+   "fresh": 1764,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 112,
-   "produced": 1920,
+   "produced": 1930,
    "surprise": 1,
    "survived": 43,
    "tested": 112
@@ -1202,35 +1200,35 @@
   "oxa046386": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1548,
+   "fresh": 1558,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 207,
-   "produced": 1821,
+   "passed_filter": 209,
+   "produced": 1831,
    "surprise": 0,
    "survived": 0,
-   "tested": 207
+   "tested": 209
   },
   "oxa046387": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1583,
+   "fresh": 1590,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 243,
-   "produced": 1794,
+   "passed_filter": 244,
+   "produced": 1802,
    "surprise": 0,
    "survived": 0,
-   "tested": 243
+   "tested": 244
   },
   "oxa047700": {
    "explained_by_known_check": 1,
    "explained_by_reference": 0,
-   "fresh": 1430,
+   "fresh": 1436,
    "machine_checked": 0,
    "no_reference_found": 3,
    "passed_filter": 84,
-   "produced": 1635,
+   "produced": 1642,
    "surprise": 2,
    "survived": 4,
    "tested": 84
@@ -1238,11 +1236,11 @@
   "oxa048760": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1424,
+   "fresh": 1427,
    "machine_checked": 0,
    "no_reference_found": 4,
    "passed_filter": 172,
-   "produced": 1594,
+   "produced": 1597,
    "surprise": 4,
    "survived": 7,
    "tested": 172
@@ -1250,11 +1248,11 @@
   "oxa048767": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1831,
+   "fresh": 1844,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 104,
-   "produced": 2207,
+   "produced": 2220,
    "surprise": 1,
    "survived": 6,
    "tested": 104
@@ -1262,11 +1260,11 @@
   "oxa049980": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1888,
+   "fresh": 1895,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 128,
-   "produced": 2325,
+   "produced": 2334,
    "surprise": 1,
    "survived": 3,
    "tested": 128
@@ -1274,35 +1272,35 @@
   "oxa055394": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1518,
+   "fresh": 1529,
    "machine_checked": 0,
    "no_reference_found": 2,
-   "passed_filter": 144,
-   "produced": 1831,
+   "passed_filter": 146,
+   "produced": 1844,
    "surprise": 2,
    "survived": 3,
-   "tested": 144
+   "tested": 146
   },
   "oxa056971": {
    "explained_by_known_check": 0,
    "explained_by_reference": 8,
-   "fresh": 2586,
+   "fresh": 2605,
    "machine_checked": 0,
    "no_reference_found": 5,
-   "passed_filter": 90,
-   "produced": 2818,
+   "passed_filter": 91,
+   "produced": 2839,
    "surprise": 5,
    "survived": 18,
-   "tested": 90
+   "tested": 91
   },
   "oxa065516": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1455,
+   "fresh": 1463,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 129,
-   "produced": 1852,
+   "produced": 1863,
    "surprise": 0,
    "survived": 2,
    "tested": 129
@@ -1310,11 +1308,11 @@
   "oxa066739": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1465,
+   "fresh": 1470,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 82,
-   "produced": 1777,
+   "produced": 1783,
    "surprise": 0,
    "survived": 2,
    "tested": 82
@@ -1322,11 +1320,11 @@
   "oxa068307": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1604,
+   "fresh": 1611,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 128,
-   "produced": 1752,
+   "produced": 1761,
    "surprise": 0,
    "survived": 2,
    "tested": 128
@@ -1334,11 +1332,11 @@
   "oxa070778": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1505,
+   "fresh": 1517,
    "machine_checked": 0,
    "no_reference_found": 3,
    "passed_filter": 89,
-   "produced": 1731,
+   "produced": 1745,
    "surprise": 3,
    "survived": 3,
    "tested": 89
@@ -1346,35 +1344,35 @@
   "oxa071561": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1753,
+   "fresh": 1767,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 193,
-   "produced": 2067,
+   "passed_filter": 194,
+   "produced": 2083,
    "surprise": 0,
    "survived": 0,
-   "tested": 193
+   "tested": 194
   },
   "oxa072827": {
    "explained_by_known_check": 2,
    "explained_by_reference": 1,
-   "fresh": 2247,
+   "fresh": 2269,
    "machine_checked": 0,
    "no_reference_found": 4,
-   "passed_filter": 75,
-   "produced": 2504,
+   "passed_filter": 77,
+   "produced": 2528,
    "surprise": 2,
    "survived": 7,
-   "tested": 75
+   "tested": 77
   },
   "oxa072850": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 2141,
+   "fresh": 2153,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 73,
-   "produced": 2431,
+   "produced": 2444,
    "surprise": 1,
    "survived": 8,
    "tested": 73
@@ -1382,23 +1380,23 @@
   "oxa072856": {
    "explained_by_known_check": 0,
    "explained_by_reference": 11,
-   "fresh": 1759,
+   "fresh": 1766,
    "machine_checked": 0,
    "no_reference_found": 3,
-   "passed_filter": 97,
-   "produced": 2014,
+   "passed_filter": 98,
+   "produced": 2021,
    "surprise": 3,
    "survived": 30,
-   "tested": 97
+   "tested": 98
   },
   "oxa073681": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3289,
+   "fresh": 3305,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 45,
-   "produced": 3587,
+   "produced": 3606,
    "surprise": 0,
    "survived": 2,
    "tested": 45
@@ -1406,59 +1404,59 @@
   "oxa080076": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3468,
+   "fresh": 3483,
    "machine_checked": 0,
    "no_reference_found": 4,
    "passed_filter": 72,
-   "produced": 3782,
+   "produced": 3801,
    "surprise": 4,
    "survived": 40,
    "tested": 72
   },
   "oxa082411": {
-   "explained_by_known_check": 107,
+   "explained_by_known_check": 108,
    "explained_by_reference": 0,
-   "fresh": 1480,
+   "fresh": 1488,
    "machine_checked": 0,
-   "no_reference_found": 113,
-   "passed_filter": 298,
-   "produced": 1521,
+   "no_reference_found": 114,
+   "passed_filter": 300,
+   "produced": 1529,
    "surprise": 6,
-   "survived": 264,
-   "tested": 298
+   "survived": 266,
+   "tested": 300
   },
   "oxa083104": {
    "explained_by_known_check": 220,
    "explained_by_reference": 0,
-   "fresh": 1409,
+   "fresh": 1412,
    "machine_checked": 0,
    "no_reference_found": 226,
    "passed_filter": 319,
-   "produced": 1482,
+   "produced": 1485,
    "surprise": 6,
    "survived": 294,
    "tested": 319
   },
   "oxa083105": {
-   "explained_by_known_check": 111,
+   "explained_by_known_check": 113,
    "explained_by_reference": 0,
-   "fresh": 1493,
+   "fresh": 1508,
    "machine_checked": 0,
-   "no_reference_found": 119,
-   "passed_filter": 291,
-   "produced": 1597,
+   "no_reference_found": 121,
+   "passed_filter": 294,
+   "produced": 1612,
    "surprise": 8,
-   "survived": 270,
-   "tested": 291
+   "survived": 273,
+   "tested": 294
   },
   "oxa088902": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1522,
+   "fresh": 1529,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 111,
-   "produced": 1960,
+   "produced": 1970,
    "surprise": 2,
    "survived": 3,
    "tested": 111
@@ -1466,23 +1464,23 @@
   "oxa100953": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1516,
+   "fresh": 1522,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 127,
-   "produced": 1846,
+   "passed_filter": 128,
+   "produced": 1857,
    "surprise": 0,
    "survived": 2,
-   "tested": 127
+   "tested": 128
   },
   "oxa102627": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1563,
+   "fresh": 1570,
    "machine_checked": 0,
    "no_reference_found": 3,
    "passed_filter": 156,
-   "produced": 1883,
+   "produced": 1893,
    "surprise": 3,
    "survived": 11,
    "tested": 156
@@ -1490,11 +1488,11 @@
   "oxa107293": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1429,
+   "fresh": 1435,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 81,
-   "produced": 1530,
+   "produced": 1536,
    "surprise": 1,
    "survived": 7,
    "tested": 81
@@ -1502,11 +1500,11 @@
   "oxa112088": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1726,
+   "fresh": 1731,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 70,
-   "produced": 2207,
+   "produced": 2215,
    "surprise": 0,
    "survived": 3,
    "tested": 70
@@ -1514,23 +1512,23 @@
   "oxa143472": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1604,
+   "fresh": 1615,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 128,
-   "produced": 1805,
+   "passed_filter": 130,
+   "produced": 1818,
    "surprise": 0,
    "survived": 10,
-   "tested": 128
+   "tested": 130
   },
   "oxa143619": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1654,
+   "fresh": 1656,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 104,
-   "produced": 1950,
+   "produced": 1952,
    "surprise": 0,
    "survived": 5,
    "tested": 104
@@ -1538,11 +1536,11 @@
   "oxa143644": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1545,
+   "fresh": 1554,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 138,
-   "produced": 1788,
+   "produced": 1797,
    "surprise": 0,
    "survived": 2,
    "tested": 138
@@ -1550,35 +1548,35 @@
   "oxa143773": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1534,
+   "fresh": 1537,
    "machine_checked": 0,
    "no_reference_found": 1,
-   "passed_filter": 216,
-   "produced": 1821,
+   "passed_filter": 217,
+   "produced": 1824,
    "surprise": 1,
    "survived": 11,
-   "tested": 216
+   "tested": 217
   },
   "oxa157100": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1558,
+   "fresh": 1571,
    "machine_checked": 0,
    "no_reference_found": 2,
-   "passed_filter": 96,
-   "produced": 1857,
+   "passed_filter": 99,
+   "produced": 1872,
    "surprise": 2,
    "survived": 22,
-   "tested": 96
+   "tested": 99
   },
   "oxa177115": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2604,
+   "fresh": 2617,
    "machine_checked": 0,
    "no_reference_found": 3,
    "passed_filter": 89,
-   "produced": 3001,
+   "produced": 3017,
    "surprise": 3,
    "survived": 5,
    "tested": 89
@@ -1586,11 +1584,11 @@
   "oxa177117": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2740,
+   "fresh": 2752,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 72,
-   "produced": 2875,
+   "produced": 2887,
    "surprise": 0,
    "survived": 0,
    "tested": 72
@@ -1598,11 +1596,11 @@
   "oxa177122": {
    "explained_by_known_check": 0,
    "explained_by_reference": 36,
-   "fresh": 2145,
+   "fresh": 2156,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 97,
-   "produced": 2371,
+   "produced": 2384,
    "surprise": 2,
    "survived": 40,
    "tested": 97
@@ -1610,47 +1608,47 @@
   "oxa209861": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 1585,
+   "fresh": 1589,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 227,
-   "produced": 1829,
+   "passed_filter": 228,
+   "produced": 1835,
    "surprise": 0,
    "survived": 3,
-   "tested": 227
+   "tested": 228
   },
   "oxa211337": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1507,
+   "fresh": 1519,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 140,
-   "produced": 1612,
+   "passed_filter": 142,
+   "produced": 1625,
    "surprise": 0,
    "survived": 1,
-   "tested": 140
+   "tested": 142
   },
   "oxa211338": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1416,
+   "fresh": 1427,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 152,
-   "produced": 1810,
+   "passed_filter": 153,
+   "produced": 1823,
    "surprise": 0,
    "survived": 5,
-   "tested": 152
+   "tested": 153
   },
   "oxa213536": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2813,
+   "fresh": 2823,
    "machine_checked": 0,
    "no_reference_found": 6,
    "passed_filter": 114,
-   "produced": 3198,
+   "produced": 3209,
    "surprise": 6,
    "survived": 7,
    "tested": 114
@@ -1658,47 +1656,47 @@
   "oxa227145": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1684,
+   "fresh": 1698,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 140,
-   "produced": 2046,
+   "passed_filter": 142,
+   "produced": 2061,
    "surprise": 0,
    "survived": 3,
-   "tested": 140
+   "tested": 142
   },
   "oxa238873": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1777,
+   "fresh": 1789,
    "machine_checked": 0,
    "no_reference_found": 3,
-   "passed_filter": 216,
-   "produced": 2104,
+   "passed_filter": 220,
+   "produced": 2120,
    "surprise": 3,
    "survived": 8,
-   "tested": 216
+   "tested": 220
   },
   "oxa257348": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1783,
+   "fresh": 1796,
    "machine_checked": 0,
    "no_reference_found": 1,
-   "passed_filter": 137,
-   "produced": 2153,
+   "passed_filter": 139,
+   "produced": 2167,
    "surprise": 1,
    "survived": 2,
-   "tested": 137
+   "tested": 139
   },
   "oxa261061": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1799,
+   "fresh": 1802,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 135,
-   "produced": 2203,
+   "produced": 2209,
    "surprise": 0,
    "survived": 0,
    "tested": 135
@@ -1706,35 +1704,35 @@
   "oxa275972": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1685,
+   "fresh": 1695,
    "machine_checked": 0,
    "no_reference_found": 1,
-   "passed_filter": 156,
-   "produced": 2044,
+   "passed_filter": 158,
+   "produced": 2055,
    "surprise": 1,
    "survived": 5,
-   "tested": 156
+   "tested": 158
   },
   "oxa316344": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 1550,
+   "fresh": 1558,
    "machine_checked": 0,
    "no_reference_found": 3,
-   "passed_filter": 95,
-   "produced": 1710,
+   "passed_filter": 97,
+   "produced": 1719,
    "surprise": 3,
    "survived": 6,
-   "tested": 95
+   "tested": 97
   },
   "oxa325534": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1680,
+   "fresh": 1687,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 62,
-   "produced": 2099,
+   "produced": 2109,
    "surprise": 0,
    "survived": 0,
    "tested": 62
@@ -1742,11 +1740,11 @@
   "oxa325535": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1486,
+   "fresh": 1495,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 104,
-   "produced": 1842,
+   "produced": 1851,
    "surprise": 0,
    "survived": 4,
    "tested": 104
@@ -1754,11 +1752,11 @@
   "oxa349050": {
    "explained_by_known_check": 1,
    "explained_by_reference": 0,
-   "fresh": 2553,
+   "fresh": 2564,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 59,
-   "produced": 2762,
+   "produced": 2774,
    "surprise": 1,
    "survived": 7,
    "tested": 59
@@ -1766,11 +1764,11 @@
   "oxa381636": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1687,
+   "fresh": 1693,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 219,
-   "produced": 2035,
+   "produced": 2042,
    "surprise": 0,
    "survived": 0,
    "tested": 219

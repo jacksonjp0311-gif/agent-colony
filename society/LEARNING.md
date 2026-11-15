@@ -9,14 +9,14 @@ decides a keep. Reverts and voids are recorded too. This is not
 AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
-- Kept: **10**
+- Kept: **11**
 - Reverted (including twin-not-better): **4**
 - Voided (environment changed mid-trial): **11**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **1**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **8** times (`set_knob:direction=up:name=fast_term_cap:value=10700`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 100, correct 0, pending 43, accuracy 0‰
+- Hive shadow picks: resolved 100, correct 0, pending 45, accuracy 0‰
 
 ## Per method card
 
@@ -29,14 +29,13 @@ _None yet._
 | `set_knob:deep_digits` | 4 | 4 | 0 | 1000‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
-| `set_knob:gf_term_cap` | 5 | 2 | 1 | 400‰ |
+| `set_knob:gf_term_cap` | 6 | 3 | 1 | 500‰ |
 | `set_knob:park_cycles` | 4 | 0 | 1 | 0‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 1 | 0 | 0 | 0‰ |
 
 ## Recent outcomes
 
-- `inconclusive` · card `—` · family `set_knob:deep_seconds` · cycle `20261115T081147Z_f93bc9` (baseline 0.0, trial 0.0)
 - `kept` · card `—` · family `set_knob:fast_term_cap` · cycle `20261115T101616Z_e6eeff` (baseline 0.0, trial 2700.0)
 - `kept` · card `—` · family `set_knob:fast_term_cap` · cycle `20261115T105718Z_a218f5` (baseline 0.0, trial 2700.0)
 - `kept` · card `—` · family `set_knob:fast_term_cap` · cycle `20261115T113729Z_b3155f` (baseline 0.0, trial 2700.0)
@@ -48,6 +47,7 @@ _None yet._
 - `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261115T175054Z_8f2c59` (baseline 0.0, trial 324.0)
 - `inconclusive` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T183448Z_55489d` (baseline 0.0, trial 0.0)
 - `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T195620Z_605bb7` (baseline 0.0, trial None)
+- `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T231100Z_0d2828` (baseline 0.0, trial 284.0)
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
