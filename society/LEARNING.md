@@ -16,7 +16,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Proposed this snapshot: **1**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **8** times (`set_knob:direction=up:name=fast_term_cap:value=10700`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 0, correct 0, pending 16, accuracy n/a
+- Hive shadow picks: resolved 0, correct 0, pending 19, accuracy n/a
 
 ## Per method card
 
