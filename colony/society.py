@@ -308,6 +308,12 @@ class Society:
             if _nd.mode() != "off":
                 _nd.run_cycle(cid)
         self._stage(result, "new_data", new_data_stage)
+        def self_heal_trial_retry_stage():
+            # Item 76 (c): every predicted target of an open trial is
+            # attempted at least once in the trial window (self-mod arm only).
+            from colony.self_heal import retry_trial_targets
+            return retry_trial_targets(cid)
+        self._stage(result, "self_heal_trial_retry", self_heal_trial_retry_stage, critical=False)
         def self_heal_finalize_stage():
             # OEIS conjecture work runs after growth, which is where
             # self-heal records metrics and may apply a cap trial. Rescore

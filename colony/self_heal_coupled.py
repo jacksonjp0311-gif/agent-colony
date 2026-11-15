@@ -32,6 +32,15 @@ import math
 from typing import Any
 
 FLIP_LOOKBACK_EVENTS = 40
+# Item 76: e.g.f. / series cost grows about cubically in the number of terms
+# (O(L^2) coefficient products on O(L)-bit numbers): gf 2865 -> 3975 took
+# ~2.8x the time. A coupled raise aims to fit inside this share of the new
+# time budget.
+TIME_COST_POWER = 3.0
+TIME_FIT_MARGIN = 0.9
+# Only the most recent time-capped rows: older ones ran under other code or
+# runners (A126089 once timed out at gf 2310 and later finished 2865).
+TIME_ROWS_RECENT = 3
 CLOSED_FAIL = ("trial_inconclusive", "revert")
 
 
@@ -316,6 +325,25 @@ def coupled_proposal(state: dict[str, Any], targets: list[str], *, cycle_id: str
             retire_compute_bound(state, tid, cycle_id=cycle_id, why="knob_at_physical_ceiling",
                                  knobs_at=knobs_at, trial_evidence_id=flip.get("trial_evidence_id"))
             continue
+        fit = None
+        if o == "deep_seconds":
+            # Item 76: when the time cap stopped the failed raise, size the
+            # pair from the observed time (cubic cost): at least the time
+            # estimate for deep_seconds, and a narrower term step when even
+            # the knob's ceiling cannot cover the full raise.
+            need = time_needed(tid, b, to_b, attempt_log=log)
+            if need is not None and need > float(to_o):
+                from colony.self_heal import clamp as _clamp
+                to_o = _clamp(o, max(float(to_o), math.ceil(need * 10.0) / 10.0))
+            fit = fit_term_to_time(tid, b, cur_b, to_b, to_o, attempt_log=log)
+            if fit is None:
+                retire_compute_bound(state, tid, cycle_id=cycle_id, why="time_cap_beyond_knob_ceiling",
+                                     knobs_at=knobs_at, trial_evidence_id=flip.get("trial_evidence_id"))
+                continue
+            if fit != to_b:
+                fit, to_b = to_b, fit
+            else:
+                fit = None
         try:
             before = eligible_target_ids()
             with cap_override(b, to_b), cap_override(o, to_o):
@@ -329,6 +357,7 @@ def coupled_proposal(state: dict[str, Any], targets: list[str], *, cycle_id: str
             "coupled": {"knob": o, "from": cur_o, "to": to_o, "direction": "up",
                         "cap_reason": flip["other_cap_reason"]},
             "coupled_flip": {k: flip[k] for k in ("target", "binding_now", "other_cap_reason", "trial_evidence_id")},
+            **({"narrowed_to_time_budget": {"failed_to": fit, "to": to_b}} if fit is not None else {}),
             "exploratory": True,
             "predicted_targets": [tid],
         }
@@ -344,3 +373,144 @@ def after_close(state: dict[str, Any], trial: dict[str, Any], decision: str, *, 
     for tid in trial.get("predicted_targets") or []:
         retire_compute_bound(state, str(tid), cycle_id=cycle_id, why="coupled_trial_not_adopted",
                              knobs_at=knobs_at, trial_evidence_id=trial.get("evidence_id"))
+
+
+# --- Item 76: a term-cap raise that the time cap would stop ------------------
+
+def _attempt_reach(row: dict[str, Any]) -> float | None:
+    """Depth the attempt itself reached (before any item-76 floor)."""
+    for key in ("attempt_verified_depth", "verified_depth", "depth"):
+        v = _num(row.get(key))
+        if v is not None:
+            return v
+    return None
+
+
+def _time_rows(tid: str, log: dict[str, Any]) -> list[tuple[float, float]]:
+    """(planned, seconds) of the latest rows where the time cap stopped ``tid`` short.
+
+    ``seconds`` is the larger of the recorded time cap and the measured
+    ``deep_elapsed_s`` (a lower bound on the time that depth needs).
+    """
+    from colony.oeis_conjectures import CAP_TIME
+    out: list[tuple[float, float]] = []
+    for row in reversed(_rows(tid, log)):
+        if row.get("cap_reason") != CAP_TIME:
+            continue
+        planned = _num(row.get("planned"))
+        reach = _attempt_reach(row)
+        if not planned or planned <= 0 or (reach is not None and reach >= planned - 1):
+            continue
+        base = [x for x in (_num(row.get("cap_value")), _num(row.get("deep_elapsed_s"))) if x]
+        if not base:
+            continue
+        out.append((planned, max(base)))
+        if len(out) >= TIME_ROWS_RECENT:
+            break
+    return out
+
+
+def time_needed(tid: str, knob: str, to: Any, *,
+                attempt_log: dict[str, Any] | None = None) -> float | None:
+    """Seconds ``tid`` is expected to need when ``knob`` (a term cap) goes to ``to``.
+
+    Read from rows where the time cap actually stopped the attempt short of
+    its planned depth: the larger of the recorded time cap and the measured
+    ``deep_elapsed_s``, scaled by (to / planned)^TIME_COST_POWER (series
+    cost grows about cubically in the number of terms). The largest
+    estimate over the latest such rows, or None when the time cap never
+    stopped this target.
+    """
+    log = _log(attempt_log)
+    tk = term_knob_of(tid, log)
+    if tk and tk != knob:
+        return None
+    goal = _num(to)
+    if goal is None or goal <= 0:
+        return None
+    best: float | None = None
+    for planned, secs in _time_rows(tid, log):
+        need = secs * (goal / planned) ** TIME_COST_POWER
+        best = need if best is None else max(best, need)
+    return best
+
+
+def fit_term_to_time(tid: str, knob: str, cur: Any, to: Any, seconds: Any, *,
+                     attempt_log: dict[str, Any] | None = None) -> Any:
+    """Largest term-cap value in (cur, to] whose expected time fits ``seconds``.
+
+    Uses the same time-capped rows as ``time_needed`` with a safety margin.
+    Returns ``to`` unchanged when it already fits or there is no time
+    evidence, and None when no value above ``cur`` fits (the raise cannot
+    escape the time cap within the second knob's bounds).
+    """
+    from colony.self_heal import clamp
+    log = _log(attempt_log)
+    goal, lo, budget = _num(to), _num(cur), _num(seconds)
+    if goal is None or lo is None or budget is None or budget <= 0:
+        return to
+    need = time_needed(tid, knob, to, attempt_log=log)
+    if need is None or need <= budget * TIME_FIT_MARGIN:
+        return to
+    limit = goal
+    for planned, secs in _time_rows(tid, log):
+        limit = min(limit, planned * (budget * TIME_FIT_MARGIN / secs) ** (1.0 / TIME_COST_POWER))
+    val = clamp(knob, int(math.floor(limit)))
+    if float(val) <= lo:
+        return None
+    return val
+
+
+def time_risk_coupled(state: dict[str, Any], knob: str, cur: Any, to: Any,
+                      predicted: list[str], *,
+                      attempt_log: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    """Item 76 (b): turn a single term-cap raise into a coupled raise.
+
+    When a predicted target already timed out at a smaller planned depth
+    (or at this one) and the time it is expected to need at ``to`` is above
+    the current ``deep_seconds``, the single raise would only re-hit the
+    time cap (the gf 2865 -> 3975 trial). Return the ``coupled`` fields that
+    also raise ``deep_seconds`` (scaled like the adopted coupled trial #9,
+    at least the estimate, clamped to its KnobSpec bounds). None when there
+    is no time risk, the second knob cannot rise, or the pair already failed
+    for that target (item 74 retires it then). No-op on the control arm.
+    """
+    if not _self_mod():
+        return None
+    from colony.oeis_conjectures import TERM_CAP_KNOBS
+    from colony.self_heal import KNOB_SPECS, clamp, state_knob
+    other = "deep_seconds"
+    if knob not in TERM_CAP_KNOBS or other not in KNOB_SPECS:
+        return None
+    log = _log(attempt_log)
+    cur_o = state_knob(state, other)
+    for tid in predicted or []:
+        tid = str(tid)
+        if compute_bound(state, tid):
+            continue
+        need = time_needed(tid, knob, to, attempt_log=log)
+        if need is None or need <= float(cur_o):
+            continue
+        if coupled_already_failed(state, tid, knob, other) is not None:
+            continue
+        to_o = coupled_values(knob, cur, to, other, cur_o)
+        if to_o is None:
+            continue
+        to_o = max(float(to_o), float(clamp(other, math.ceil(need * 10.0) / 10.0)))
+        to_o = clamp(other, to_o)
+        if float(to_o) <= float(cur_o):
+            continue
+        # Past the second knob's ceiling the full raise cannot fit: aim the
+        # term cap at the largest value that does (None: nothing fits).
+        term_to = fit_term_to_time(tid, knob, cur, to, to_o, attempt_log=log)
+        if term_to is None:
+            continue
+        return {
+            "term_to": term_to,
+            "coupled": {"knob": other, "from": cur_o, "to": to_o, "direction": "up",
+                        "cap_reason": "time_cap"},
+            "coupled_time_risk": {"target": tid, "need_seconds": round(float(need), 2),
+                                  "deep_seconds": cur_o, "term_cap_to": to,
+                                  "term_cap_fit": term_to},
+        }
+    return None

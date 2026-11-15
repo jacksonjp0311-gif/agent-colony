@@ -1078,7 +1078,7 @@ def _extend_cfinite(
 
 def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str = "A",
            seconds: float | None = None, info: dict[str, Any] | None = None,
-           entry: dict[str, Any] | None = None) -> list[int] | None:
+           entry: dict[str, Any] | None = None, keep_hi: int | None = None) -> list[int] | None:
     """Compute terms from the definition (initial values from the b-file for a recursion), require
     that they reproduce EVERY b-file term, then continue to N terms (time/size capped).
 
@@ -1090,11 +1090,22 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
     If ``info`` is provided it is filled with ``cap_reason``, ``cap_value``,
     ``computed_hi`` and the live caps. The return value is still the term
     list (or None), so existing callers are unchanged.
+
+    Item 76: ``keep_hi`` is the index already verified by an earlier
+    attempt. The time cap never truncates the table at or below it, so a
+    timed-out attempt (for example an e.g.f. series whose expansion used
+    the whole budget) keeps the verified prefix instead of dropping back to
+    the stored terms. Terms past ``keep_hi`` are still cut at the time cap,
+    and the digit / term caps are unchanged.
     """
     caps = evaluator_caps()
     if seconds is None:
         seconds = float(caps["deep_seconds"])
     bits = digit_bit_budget(caps["deep_digits"])
+    try:
+        keep = int(keep_hi) if keep_hi is not None else -1
+    except (TypeError, ValueError):
+        keep = -1
     term_cap = term_cap_for(entry, defn)
     want = min(max(int(N), len(terms)), int(term_cap))
     t0 = time.time()
@@ -1135,7 +1146,7 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
                 if n > off + len(terms) and abs(int(v)).bit_length() > bits:
                     cap_reason, cap_value = CAP_DIGIT, caps["deep_digits"]
                     break
-                if n > off + len(terms) and time.time() - t0 > seconds:
+                if n > off + len(terms) and n > keep and time.time() - t0 > seconds:
                     cap_reason, cap_value = CAP_TIME, seconds
                     break
                 scaled.append(v)
@@ -1178,7 +1189,7 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
             if j >= len(terms) and abs(out[-1]).bit_length() > bits:
                 cap_reason, cap_value = CAP_DIGIT, caps["deep_digits"]
                 break
-            if j >= len(terms) and time.time() - t0 > seconds:
+            if j >= len(terms) and n > keep and time.time() - t0 > seconds:
                 cap_reason, cap_value = CAP_TIME, seconds
                 break
     if len(out) < len(terms) or out[:len(terms)] != terms:
@@ -1198,6 +1209,7 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
         info["digit_cap"] = caps["deep_digits"]
         info["time_cap"] = seconds
         info["fast_cfinite"] = used_fast
+        info["elapsed_s"] = round(time.time() - t0, 2)
     return out
 
 
@@ -1332,11 +1344,22 @@ def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool
         # Past the published terms, from the vetted definition. A g.f. claim is
         # included: the longer table is what test_claim compares the claim to.
         want = term_cap_for(e)
-        deep = extend(e["definition"], off, terms, want, "A", info=cap_info, entry=e)
+        # Item 76: a time cap must not drop the range an earlier attempt
+        # already verified (prior_hi); terms past it still obey the cap.
+        keep_hi = prior_hi
+        if keep_hi is None:
+            try:
+                keep_hi = _tested_hi_from_state(str(e.get("id") or ""), e, None) or None
+            except Exception:
+                keep_hi = None
+        deep = extend(e["definition"], off, terms, want, "A", info=cap_info, entry=e,
+                      keep_hi=keep_hi)
     tA = test_claim(claim, _tables(e, deep or terms), "A")
     res: dict[str, Any] = {"action": "attempt_disprove", "id": e["id"], "anum": e["anum"], "tested": tA["tested"],
                            "range": [tA["lo"], tA["hi"]], "deep_terms": len(deep) if deep else 0,
                            "bfile_terms": len(terms), "bfile_hi": max(off + len(terms) - 1, e.get("published_hi") or 0), "data_hi": data_hi, "status": "holds_on_range"}
+    if cap_info.get("elapsed_s") is not None:
+        res["deep_elapsed_s"] = cap_info["elapsed_s"]
     if tA["tested"] < MIN_TESTED:
         res["status"] = "untestable_here"
         _annotate_attempt_cap(e, res, deep, cap_info)
@@ -2024,6 +2047,14 @@ def remember_attempt(
         verified = verified_depth(e, [r] if isinstance(r, dict) else [])
         if verified <= 0:
             verified = bh
+        # Item 76: a hold never records a verified depth below the depth
+        # already verified (e.g. a timed-out attempt under a raised cap).
+        # The attempt's own reach is kept as ``attempt_verified_depth``.
+        floored_from: int | None = None
+        if (isinstance(r, dict) and str(r.get("status") or "") == "holds_on_range"
+                and int(prior_th or 0) > int(verified or 0)):
+            floored_from = int(verified or 0)
+            verified = int(prior_th or 0)
         beyond = int(verified or 0) > bh
         rec: dict[str, Any] = {
             "id": eid,
@@ -2042,6 +2073,9 @@ def remember_attempt(
         # never rewritten (no data churn).
         rec["verified_depth"] = int(verified or 0)
         rec["prior_tested_hi"] = int(prior_th or 0)
+        if floored_from is not None:
+            rec["attempt_verified_depth"] = floored_from
+            rec["verified_depth_floor"] = "prior_tested_hi"
         if isinstance(r, dict):
             ext = r.get("extended")
             if ext is not None:
@@ -2058,6 +2092,8 @@ def remember_attempt(
                 rec["fast_cfinite"] = r["fast_cfinite"]
             if r.get("deep_terms") is not None:
                 rec["deep_terms"] = r.get("deep_terms")
+            if r.get("deep_elapsed_s") is not None:
+                rec["deep_elapsed_s"] = r.get("deep_elapsed_s")
         log["attempts"].append(rec)
     log["attempts"] = log["attempts"][-400:]
     if form:
@@ -2384,7 +2420,11 @@ def run_cycle(
     beyond_bfile: bool = False,
     use_state_for_choice: bool = False,
     purpose: str = "",
+    only_ids: list[str] | None = None,
 ) -> dict[str, Any] | None:
+    """One OEIS conjecture pass. ``only_ids`` (item 76c) attempts exactly
+    those menu entries instead of the colony's own choice; self-heal uses it
+    so every predicted target of an open trial is attempted in its window."""
     m = mode()
     if m == "off":
         return None
@@ -2393,10 +2433,15 @@ def run_cycle(
         return None
     state = _load(STATE, {"targets": {}, "families": {}, "credit_total": 0.0})
     choice_state = state if (m == "live" or use_state_for_choice) else {"targets": {}, "families": {}}
-    picks = choose(
-        menu, choice_state, cycle_id, PICKS if k is None else k,
-        forms=forms, beyond_bfile=beyond_bfile,
-    )
+    if only_ids is not None:
+        wanted = [str(x) for x in only_ids]
+        by_id = {str(e.get("id") or ""): e for e in menu}
+        picks = [by_id[x] for x in wanted if x in by_id]
+    else:
+        picks = choose(
+            menu, choice_state, cycle_id, PICKS if k is None else k,
+            forms=forms, beyond_bfile=beyond_bfile,
+        )
     results = []
     for e in picks:
         st = state["targets"].get(e["id"], {})

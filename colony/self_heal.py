@@ -2420,6 +2420,36 @@ def propose_trial(
             }
             if narrowed is not None:
                 explore["narrowed_after_overshoot"] = {"failed_to": failed_to, "cap_reason": why}
+        # Item 76 (b): a term-cap raise whose predicted target already
+        # timed out at a smaller depth would only re-hit the time cap.
+        # Prefer one coupled trial (term cap + deep_seconds), as in the
+        # adopted coupled trial #9. Same slot, window and strictly-better.
+        if direction == "up":
+            preds = list(explore.get("predicted_targets") or _pred(knob, direction) or [])
+            try:
+                from colony.self_heal_coupled import time_risk_coupled
+                risk = time_risk_coupled(st, knob, cur, nxt, preds) if preds else None
+            except Exception:
+                risk = None
+            if risk is not None:
+                if _knob_on_cooldown(st, str(risk["coupled"]["knob"]), "up"):
+                    if no_signal and explore_checked:
+                        explore_checked[-1]["deferred"] = "time_risk_coupled_knob_on_cooldown"
+                    continue
+                term_to = risk.pop("term_to", nxt)
+                if term_to != nxt:
+                    # Narrowed so the raise fits the second knob's ceiling;
+                    # the narrowed value must still predict the target.
+                    preds2 = predicted_new_targets(knob, term_to, state=st)
+                    target = str(risk["coupled_time_risk"]["target"])
+                    if target not in preds2:
+                        continue
+                    r2 = replay_proposal(knob, cur, term_to, direction=direction,
+                                         evidence=list(st.get("evidence") or []))
+                    if not r2.get("accepted"):
+                        continue
+                    nxt, preds, replay = term_to, preds2, r2
+                explore = {**explore, **risk, "exploratory": True, "predicted_targets": preds}
         baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
         return {
             **explore,
@@ -2481,7 +2511,13 @@ def _coupled_candidate(st: dict[str, Any], ordered, pred, cycle_id: str) -> dict
         return None
     if prop is None:
         return None
-    if _knob_on_cooldown(st, prop["knob"], "up") or _knob_on_cooldown(st, prop["coupled"]["knob"], "up"):
+    # Item 76 (b): the primary (term-cap) knob's cooldown came from the very
+    # trial that timed out; the coupled follow-up that adds the missing
+    # time budget is the remedy for that failure, so it is not held by it.
+    # The second knob's cooldown still applies.
+    follow_up_time = (prop.get("coupled") or {}).get("cap_reason") == "time_cap"
+    if (_knob_on_cooldown(st, prop["knob"], "up") and not follow_up_time) \
+            or _knob_on_cooldown(st, prop["coupled"]["knob"], "up"):
         return None
     return prop
 
@@ -3156,6 +3192,104 @@ def _remember_cycle(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
     state["cycles"] = cycles
     state["cycles_dropped"] = dropped
     return state
+
+
+def trial_targets_to_retry(
+    state: dict[str, Any] | None = None,
+    cycle_id: str = "",
+    *,
+    attempt_log: dict[str, Any] | None = None,
+) -> list[str]:
+    """Item 76 (c): predicted targets of the open trial not yet attempted in its window.
+
+    The window is the trial's cycles after its start cycle (the start cycle
+    runs its normal picks under the new knobs). A predicted target that the
+    normal picks skipped in every window cycle so far is returned, so the
+    trial cannot close no_signal only because its target was never tried.
+    Empty on the control arm, with no trial, or in the start cycle.
+    """
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return []
+    except Exception:
+        pass
+    st = state if state is not None else load_state()
+    trial = st.get("trial")
+    if not isinstance(trial, dict):
+        return []
+    predicted = [str(x) for x in (trial.get("predicted_targets") or []) if x]
+    started = str(trial.get("started_cycle") or "")
+    cid = str(cycle_id or "")
+    if not predicted or not cid or cid == started:
+        return []
+    window = {str(r.get("cycle_id") or "") for r in (trial.get("trial_metrics") or []) if isinstance(r, dict)}
+    window.add(cid)
+    window.discard(started)
+    window.discard("")
+    if attempt_log is None:
+        try:
+            from colony.oeis_conjectures import load_attempt_log
+            attempt_log = load_attempt_log()
+        except Exception:
+            attempt_log = {"attempts": []}
+    attempted = {
+        str(r.get("id") or "") for r in (attempt_log.get("attempts") or [])
+        if isinstance(r, dict) and str(r.get("cycle_id") or "") in window
+    }
+    try:
+        from colony.self_heal_coupled import compute_bound
+    except Exception:
+        compute_bound = lambda _s, _t: False  # noqa: E731
+    return [t for t in predicted if t not in attempted and not compute_bound(st, t)]
+
+
+def retry_trial_targets(cycle_id: str = "", *, state: dict[str, Any] | None = None,
+                        runner: Any = None) -> dict[str, Any]:
+    """Item 76 (c): attempt each still-untried predicted target once this cycle.
+
+    Runs one OEIS pass restricted to those targets (search past the verified
+    range; the item-76 keep rule means a timeout keeps the verified prefix).
+    Never the Oracle, never authorize. Records an append-only
+    ``trial_target_retry`` evidence event. No-op on the control arm.
+    """
+    st = state if state is not None else load_state()
+    ids = trial_targets_to_retry(st, cycle_id)
+    out: dict[str, Any] = {"retried": [], "cycle_id": cycle_id,
+                           "applied_to_live_oracle": False, "authorized": False}
+    if not ids:
+        return out
+    if runner is None:
+        from colony import oeis_conjectures as _oc
+        if _oc.mode() == "off":
+            out["skipped"] = "oeis_conjectures_off"
+            return out
+
+        def runner(cid: str, tids: list[str]) -> Any:
+            return _oc.run_cycle(cid, fetch=False, beyond_bfile=True, only_ids=tids,
+                                 purpose="trial_predicted_retry")
+    rep = None
+    try:
+        rep = runner(cycle_id, ids)
+    except Exception as exc:  # noqa: BLE001
+        out["error"] = f"{type(exc).__name__}:{exc}"[:200]
+    chosen = [str(c.get("id") or "") for c in ((rep or {}).get("chosen") or []) if isinstance(c, dict)]
+    out["retried"] = chosen if rep else []
+    trial = st.get("trial") or {}
+    append_evidence(st, {
+        "event": "trial_target_retry",
+        "cycle_id": cycle_id,
+        "knob": trial.get("knob"),
+        "trial_started_cycle": trial.get("started_cycle"),
+        "targets": ids,
+        "attempted": out["retried"],
+        "reason": "predicted_target_not_attempted_in_trial_window",
+    })
+    try:
+        save_state(st)
+    except Exception:
+        pass
+    return out
 
 
 def finalize_cycle_metrics(
