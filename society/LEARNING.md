@@ -12,11 +12,11 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Kept: **8**
 - Reverted (including twin-not-better): **4**
 - Voided (environment changed mid-trial): **9**
-- Inconclusive (no signal in either window; not counted against the action): **4**
+- Inconclusive (no signal in either window; not counted against the action): **5**
 - Proposed this snapshot: **1**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **8** times (`set_knob:direction=up:name=fast_term_cap:value=10700`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 47, correct 0, pending 59, accuracy 0‰
+- Hive shadow picks: resolved 47, correct 0, pending 61, accuracy 0‰
 
 ## Per method card
 
@@ -36,7 +36,6 @@ _None yet._
 
 ## Recent outcomes
 
-- `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T025824Z_a34dca` (baseline 0.0, trial 300.0)
 - `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261115T033809Z_03dc64` (baseline 0.0, trial 354.0)
 - `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261115T042451Z_fcdbe4` (baseline 0.0, trial 199.0)
 - `voided` · card `—` · family `set_knob:deep_seconds` · cycle `20261115T054332Z_047561` (baseline 4.0, trial None)
@@ -48,6 +47,7 @@ _None yet._
 - `kept` · card `—` · family `set_knob:fast_term_cap` · cycle `20261115T113729Z_b3155f` (baseline 0.0, trial 2700.0)
 - `kept` · card `—` · family `set_knob:fast_term_cap` · cycle `20261115T122007Z_b4802c` (baseline 0.0, trial 1200.0)
 - `inconclusive` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T150158Z_ae4d61` (baseline 0.0, trial 0.0)
+- `inconclusive` · card `—` · family `set_knob:deep_seconds` · cycle `20261115T154457Z_1ab8a3` (baseline 0.0, trial 0.0)
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
