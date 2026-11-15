@@ -1,7 +1,7 @@
 {
   "compacted": 0,
   "keep": 2000,
-  "n": 65,
+  "n": 66,
   "note": "Committed Hive library snapshot. The append-only JSONL log is gitignored; this file is enough to restore the library across CI runs. Seed records are always kept. Non-seed records are capped so the total stays at the keep bound (seeds inclusive). Record contents are never rewritten.",
   "records": [
     {
@@ -32,7 +32,7 @@
       "source": "pr1",
       "stall_reason": "repeated_targets",
       "symptom": "failure_class:repeated_targets stall_reason:repeated_targets stall loop same targets selected repeatedly park repeats hand off idle turns",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -62,7 +62,7 @@
       "source": "pr1",
       "stall_reason": "unused_menu",
       "symptom": "failure_class:repeated_targets stall_reason:unused_menu idle turns handed to perturb unused menu already tried same target list",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -91,7 +91,7 @@
       "source": "pr2",
       "symptom": "failure_class:empty_claim_label target_kind:empty_label empty claim label reached the oracle skip blank titles retry loop on a parked proof chain",
       "target_kind": "empty_label",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -120,7 +120,7 @@
       "source": "pr2",
       "symptom": "failure_class:parked_proof_chain target_kind:proof_chain_parked parked proof chain stayed parked then retried identical kill on the same chain",
       "target_kind": "proof_chain_parked",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -151,7 +151,7 @@
       "outcome": "positive",
       "source": "pr3",
       "symptom": "failure_class:trivial_claim trivial claim pattern slipped a known-bad kill propose a tighter triviality check for the checker lane",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -182,7 +182,7 @@
       "source": "pr4",
       "symptom": "failure_class:no_progress_perturb exit_reason:no_candidates target_kind:already_held_range perturb spent its picks on already held ranges same targets cannot move no progress session",
       "target_kind": "already_held_range",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -214,7 +214,7 @@
       "source": "pr4",
       "stall_reason": "immediate_reentry",
       "symptom": "failure_class:immediate_reentry exit_reason:timeout stall_reason:immediate_reentry perturb timed out then switched right back on immediate reentry after a no-progress session",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -244,7 +244,7 @@
       "source": "pr5",
       "stall_reason": "high_revert_rate",
       "symptom": "failure_class:high_revert_rate stall_reason:high_revert_rate self heal high revert rate trials keep failing take a smaller step and judge over a longer window",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -274,7 +274,7 @@
       "source": "pr5",
       "stall_reason": "high_revert_rate",
       "symptom": "failure_class:high_revert_rate stall_reason:high_revert_rate self heal trials judged too quickly high revert rate lengthen the evaluation window",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -306,7 +306,7 @@
       "source": "pr6",
       "stall_reason": "zero_picks",
       "symptom": "failure_class:no_progress_perturb exit_reason:no_eligible stall_reason:zero_picks perturb found zero eligible targets and sat idle legacy requested depth treated as verified",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -336,7 +336,7 @@
       "source": "pr6",
       "stall_reason": "dead_end_streak",
       "symptom": "failure_class:dead_end_streak stall_reason:dead_end_streak dead end streak all block skip identical kill park the repeating proposal sooner",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -365,17 +365,17 @@
       "outcome": "positive",
       "source": "pr7",
       "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap evaluator hit a built-in term cap depth at physical cap raise the fast term cap so a held target can go deeper",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
         "direction": "up",
         "name": "gf_term_cap",
         "op": "set_knob",
-        "value": 3975
+        "value": 3420
       },
-      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3975",
-      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3975",
+      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3420",
+      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3420",
       "action_ok": true,
       "action_reason": "ok",
       "applied_to_live_oracle": false,
@@ -397,7 +397,7 @@
       "outcome": "positive",
       "source": "pr7",
       "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap cap_name:gf_term_cap generating function term cap reached algebraic series raise the slow series cap within the exact cheap bound",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -429,7 +429,7 @@
       "source": "pr7",
       "stall_reason": "evaluator_cap",
       "symptom": "failure_class:depth_at_physical_cap stall_reason:evaluator_cap cap_reason:term_cap target cannot be pushed further evaluator cap_reason recorded mark a ceiling so the stall mode does not sit on it",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -456,7 +456,7 @@
       "outcome": "negative",
       "source": "invariant",
       "symptom": "failure_class:invariant_touch lower the oracle threshold so more claims pass loosen the P gate",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -483,7 +483,7 @@
       "outcome": "negative",
       "source": "invariant",
       "symptom": "failure_class:invariant_touch raise the authored check cap above one hundred fifty",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -513,7 +513,7 @@
       "source": "pr1",
       "stall_reason": "repeated_targets",
       "symptom": "failure_class:repeated_targets stall_reason:repeated_targets the stall detector keeps picking the same targets in a loop; park those repeats and hand the idle turns off",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -543,7 +543,7 @@
       "source": "pr1",
       "stall_reason": "unused_menu",
       "symptom": "failure_class:repeated_targets stall_reason:unused_menu idle turn handoff to perturb treated a target as already tried because the unused menu window was too short",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -572,7 +572,7 @@
       "source": "pr2",
       "symptom": "failure_class:empty_claim_label target_kind:empty_label a blank title and empty claim label was about to reach the oracle; skip blank titles and stop the retry loop",
       "target_kind": "empty_label",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -601,7 +601,7 @@
       "source": "pr2",
       "symptom": "failure_class:parked_proof_chain target_kind:proof_chain_parked a parked proof chain was retried and took an identical kill on the same chain; keep it parked",
       "target_kind": "proof_chain_parked",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -632,7 +632,7 @@
       "outcome": "positive",
       "source": "pr3",
       "symptom": "failure_class:trivial_claim a trivial claim pattern let a known-bad case slip through; propose a tighter triviality check and send it to the checker lane",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -663,7 +663,7 @@
       "source": "pr4",
       "symptom": "failure_class:no_progress_perturb exit_reason:no_candidates target_kind:already_held_range a perturb session spent every pick on already held ranges that cannot move; skip those ranges in a no progress session",
       "target_kind": "already_held_range",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -695,7 +695,7 @@
       "source": "pr4",
       "stall_reason": "immediate_reentry",
       "symptom": "failure_class:immediate_reentry exit_reason:timeout stall_reason:immediate_reentry after a no-progress timeout perturb switched right back on with immediate reentry; rest longer",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -725,7 +725,7 @@
       "source": "pr5",
       "stall_reason": "high_revert_rate",
       "symptom": "failure_class:high_revert_rate stall_reason:high_revert_rate the self heal loop has a high revert rate and trials keep failing; take a smaller step",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -755,7 +755,7 @@
       "source": "pr5",
       "stall_reason": "high_revert_rate",
       "symptom": "failure_class:high_revert_rate stall_reason:high_revert_rate self heal is judging trials too quickly which raises the revert rate; lengthen the evaluation window",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -787,7 +787,7 @@
       "source": "pr6",
       "stall_reason": "zero_picks",
       "symptom": "failure_class:no_progress_perturb exit_reason:no_eligible stall_reason:zero_picks perturb found zero eligible targets and sat idle after legacy requested depth was treated as verified",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -817,7 +817,7 @@
       "source": "pr6",
       "stall_reason": "dead_end_streak",
       "symptom": "failure_class:dead_end_streak stall_reason:dead_end_streak a dead end streak of block skip and identical kill; park the repeating proposal sooner",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -846,17 +846,17 @@
       "outcome": "positive",
       "source": "pr7",
       "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap the evaluator hit a built-in term cap so depth is at a physical cap; raise the fast term cap and a held target can go deeper",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
         "direction": "up",
         "name": "gf_term_cap",
         "op": "set_knob",
-        "value": 3975
+        "value": 3420
       },
-      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3975",
-      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3975",
+      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3420",
+      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3420",
       "action_ok": true,
       "action_reason": "ok",
       "applied_to_live_oracle": false,
@@ -878,7 +878,7 @@
       "outcome": "positive",
       "source": "pr7",
       "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap cap_name:gf_term_cap an algebraic generating function reached its series term cap; raise the slow series cap within the exact cheap bound",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -910,7 +910,7 @@
       "source": "pr7",
       "stall_reason": "evaluator_cap",
       "symptom": "failure_class:depth_at_physical_cap stall_reason:evaluator_cap cap_reason:term_cap a target cannot be pushed further and cap_reason is recorded; mark a ceiling so stall mode does not sit on it",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -941,7 +941,7 @@
       "outcome": "positive",
       "source": "pr4",
       "symptom": "failure_class:no_progress_perturb exit_reason:no_candidates no progress perturb",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -970,7 +970,7 @@
       "outcome": "positive",
       "source": "pr4",
       "symptom": "failure_class:no_progress_perturb exit_reason:no_candidates no-progress perturb with no candidates",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1000,7 +1000,7 @@
       "source": "pr6",
       "stall_reason": "dead_end_streak",
       "symptom": "failure_class:dead_end_streak stall_reason:dead_end_streak dead end streak",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1030,7 +1030,7 @@
       "source": "pr6",
       "stall_reason": "dead_end_streak",
       "symptom": "failure_class:dead_end_streak stall_reason:dead_end_streak a dead-end streak of blocked turns",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1059,7 +1059,7 @@
       "outcome": "positive",
       "source": "pr7",
       "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap depth at physical cap",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1088,7 +1088,7 @@
       "outcome": "positive",
       "source": "pr7",
       "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap depth is at a physical term cap",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1118,7 +1118,7 @@
       "outcome": "negative",
       "source": "pr4-corrective",
       "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool exit_reason no_candidates empty session targets; skipping already-held ranges does not create a candidate",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1149,7 +1149,7 @@
       "outcome": "negative",
       "source": "pr4-corrective",
       "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool with no candidates and no session targets; a skip of already-held ranges will not fill the pool",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1179,7 +1179,7 @@
       "outcome": "positive",
       "source": "empty-pool",
       "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates cap_reason:term_cap empty perturb pool exit_reason no_candidates empty session targets holds at a physical term cap",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1207,7 +1207,7 @@
       "outcome": "positive",
       "source": "empty-pool",
       "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool exit_reason no_candidates empty session targets; add an unused family to rotation",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1237,7 +1237,7 @@
       "outcome": "positive",
       "source": "empty-pool",
       "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates cap_reason:term_cap an empty no-candidates perturb pool with holds sitting at a physical term cap; raise the cap",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1265,27 +1265,19 @@
       "outcome": "positive",
       "source": "empty-pool",
       "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty no-candidates perturb pool; rotate in an unused search family",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": null,
       "action_key": "empty_perturb_pool",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145541Z_a42004",
+      "cycle_id": "20261115T151638Z_db71e0",
       "evidence": {
         "authored_cap": 150,
         "authored_count": 150,
         "authoring_room": false,
         "cap_holds": [
-          {
-            "anum": "A126089",
-            "cap_reason": "time_cap",
-            "cap_value": 8.0,
-            "cycle_id": "20261115T141919Z_d699cc",
-            "id": "oc_A126089_0",
-            "verified_depth": 75
-          },
           {
             "anum": "A165064",
             "cap_reason": "term_cap",
@@ -1302,10 +1294,6 @@
           "authored_mut_swap_related_sequence_05546e14e52a"
         ],
         "suggest": [
-          [
-            "deep_seconds",
-            "up"
-          ],
           [
             "fast_term_cap",
             "up"
@@ -1325,62 +1313,70 @@
         ]
       },
       "exit_reason": "no_candidates",
-      "id": "mine:stall:empty_perturb_pool:20261115T145541Z_a42004:{\"authored_cap\": 150, \"authored_count\": 150, \"authoring_room\": fal",
+      "id": "mine:stall:empty_perturb_pool:20261115T151638Z_db71e0:{\"authored_cap\": 150, \"authored_count\": 150, \"authoring_room\": fal",
       "kind": "failure",
       "label": "empty_perturb_pool",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool stall exit_reason no_candidates exit_cycle 20261115T043315Z_540da3 session_targets ['authored_mut_swap_related_sequence_05546e14e52a'] timeout_count 3 no_candidates_pass_total 528 cap_holds [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A165064_0', 'anum': 'A165064', 'cap_reason': 'term_cap', 'cap_value': 20000, 'verified_depth': 19999, 'cycle_id': '20261115T113729Z_b3155f'}]",
-      "ts": "2026-11-15T14:58:12Z"
+      "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool stall exit_reason no_candidates exit_cycle 20261115T043315Z_540da3 session_targets ['authored_mut_swap_related_sequence_05546e14e52a'] timeout_count 3 no_candidates_pass_total 528 cap_holds [{'id': 'oc_A165064_0', 'anum': 'A165064', 'cap_reason': 'term_cap', 'cap_value': 20000, 'verified_depth': 19999, 'cycle_id': '20261115T113729Z_b3155f'}]",
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": null,
       "action_key": "dead_end_streak",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145541Z_a42004",
+      "cycle_id": "20261115T151638Z_db71e0",
       "evidence": {
         "cycles": [
-          "20261115T143737Z_1a5127",
-          "20261115T144045Z_9ee12d",
-          "20261115T145541Z_a42004"
+          "20261115T145900Z_aec7a5",
+          "20261115T150158Z_ae4d61",
+          "20261115T151638Z_db71e0"
         ],
         "window": 3
       },
-      "id": "mine:stall:dead_end_streak:20261115T145541Z_a42004:{\"cycles\": [\"20261115T143737Z_1a5127\", \"20261115T144045Z_9ee12d\", \"20",
+      "id": "mine:stall:dead_end_streak:20261115T151638Z_db71e0:{\"cycles\": [\"20261115T145900Z_aec7a5\", \"20261115T150158Z_ae4d61\", \"20",
       "kind": "failure",
       "label": "dead_end_streak",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:dead_end_streak dead end streak stall cycles ['20261115T143737Z_1a5127', '20261115T144045Z_9ee12d', '20261115T145541Z_a42004'] window 3",
-      "ts": "2026-11-15T14:58:12Z"
+      "symptom": "failure_class:dead_end_streak dead end streak stall cycles ['20261115T145900Z_aec7a5', '20261115T150158Z_ae4d61', '20261115T151638Z_db71e0'] window 3",
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": null,
       "action_key": "flat_passes",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145541Z_a42004",
+      "cycle_id": "20261115T151638Z_db71e0",
       "evidence": {
         "stall_cycles": 81,
         "threshold": 6
       },
-      "id": "mine:stall:flat_passes:20261115T145541Z_a42004:{\"stall_cycles\": 81, \"threshold\": 6}",
+      "id": "mine:stall:flat_passes:20261115T151638Z_db71e0:{\"stall_cycles\": 81, \"threshold\": 6}",
       "kind": "failure",
       "label": "flat_passes",
       "outcome": "unknown",
       "source": "stall",
       "symptom": "failure_class:flat_passes flat passes stall stall_cycles 81 threshold 6",
-      "ts": "2026-11-15T14:58:12Z"
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": null,
       "action_key": "depth_at_physical_cap",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145541Z_a42004",
+      "cycle_id": "20261115T151638Z_db71e0",
       "evidence": {
         "recent": [
+          {
+            "anum": "A126089",
+            "cap_reason": "term_cap",
+            "cap_value": 2310,
+            "cycle_id": "20261115T150158Z_ae4d61",
+            "id": "oc_A126089_0",
+            "verified_depth": 2309
+          },
           {
             "anum": "A126089",
             "cap_reason": "time_cap",
@@ -1396,29 +1392,9 @@
             "cycle_id": "20261115T073045Z_83bc39",
             "id": "oc_A126089_0",
             "verified_depth": 2309
-          },
-          {
-            "anum": "A126089",
-            "cap_reason": "time_cap",
-            "cap_value": 8.0,
-            "cycle_id": "20261115T065010Z_f362e6",
-            "id": "oc_A126089_0",
-            "verified_depth": 75
           }
         ],
         "suggest": [
-          [
-            "deep_seconds",
-            "up"
-          ],
-          [
-            "deep_term_cap",
-            "up"
-          ],
-          [
-            "fast_term_cap",
-            "up"
-          ],
           [
             "gf_term_cap",
             "up"
@@ -1426,16 +1402,20 @@
           [
             "deep_seconds",
             "up"
+          ],
+          [
+            "gf_term_cap",
+            "up"
           ]
         ]
       },
-      "id": "mine:stall:depth_at_physical_cap:20261115T145541Z_a42004:{\"recent\": [{\"anum\": \"A126089\", \"cap_reason\": \"time_cap\", \"cap_",
+      "id": "mine:stall:depth_at_physical_cap:20261115T151638Z_db71e0:{\"recent\": [{\"anum\": \"A126089\", \"cap_reason\": \"term_cap\", \"cap_",
       "kind": "failure",
       "label": "depth_at_physical_cap",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:depth_at_physical_cap cap_reason:time_cap cap_reason:term_cap depth at physical cap stall recent [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T073045Z_83bc39'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T065010Z_f362e6'}] suggest [('deep_seconds', 'up'), ('deep_term_cap', 'up'), ('fast_term_cap', 'up'), ('gf_term_cap', 'up'), ('deep_seconds', 'up')]",
-      "ts": "2026-11-15T14:58:12Z"
+      "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap cap_reason:time_cap depth at physical cap stall recent [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T150158Z_ae4d61'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T073045Z_83bc39'}] suggest [('gf_term_cap', 'up'), ('deep_seconds', 'up'), ('gf_term_cap', 'up')]",
+      "ts": "2026-11-15T15:19:14Z"
     },
     {
       "action": {
@@ -1466,7 +1446,7 @@
       "outcome": "negative",
       "source": "self_heal",
       "symptom": "failure_class:no_progress_perturb self heal revert knob perturb_cooldown_cycles up reason no progress perturb baseline 0.0 trial 0.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1497,17 +1477,17 @@
       "outcome": "negative",
       "source": "self_heal",
       "symptom": "failure_class:dead_end_streak self heal revert knob park_cycles up reason dead end streak baseline 0.0 trial 0.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
         "direction": "up",
         "name": "gf_term_cap",
         "op": "set_knob",
-        "value": 3975
+        "value": 3420
       },
-      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3975",
-      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3975",
+      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3420",
+      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3420",
       "action_ok": true,
       "action_reason": "ok",
       "applied_to_live_oracle": false,
@@ -1528,17 +1508,17 @@
       "outcome": "negative",
       "source": "self_heal",
       "symptom": "failure_class:depth_at_physical_cap self heal revert knob gf_term_cap up reason depth at physical cap baseline 3.0 trial 3.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
         "direction": "up",
         "name": "deep_seconds",
         "op": "set_knob",
-        "value": 9.8
+        "value": 10.7
       },
-      "action_fingerprint": "set_knob:direction=up:name=deep_seconds:value=9.8",
-      "action_key": "set_knob:direction=up:name=deep_seconds:value=9.8",
+      "action_fingerprint": "set_knob:direction=up:name=deep_seconds:value=10.7",
+      "action_key": "set_knob:direction=up:name=deep_seconds:value=10.7",
       "action_ok": true,
       "action_reason": "ok",
       "applied_to_live_oracle": false,
@@ -1559,17 +1539,17 @@
       "outcome": "negative",
       "source": "self_heal",
       "symptom": "failure_class:empty_perturb_pool self heal revert knob deep_seconds up reason empty perturb pool baseline 3.0 trial 3.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
         "direction": "up",
         "name": "gf_term_cap",
         "op": "set_knob",
-        "value": 3975
+        "value": 3420
       },
-      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3975",
-      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3975",
+      "action_fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3420",
+      "action_key": "set_knob:direction=up:name=gf_term_cap:value=3420",
       "action_ok": true,
       "action_reason": "ok",
       "applied_to_live_oracle": false,
@@ -1590,7 +1570,7 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:depth_at_physical_cap self heal adopt knob gf_term_cap up reason depth at physical cap baseline 0.0 trial 300.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1621,7 +1601,7 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:empty_perturb_pool self heal adopt knob deep_digits up reason empty perturb pool baseline 0.0 trial 354.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1652,7 +1632,7 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:empty_perturb_pool self heal adopt knob deep_digits up reason empty perturb pool baseline 0.0 trial 199.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1683,7 +1663,7 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:empty_perturb_pool self heal adopt knob deep_digits up reason empty perturb pool baseline 0.0 trial 109.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1713,7 +1693,7 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:depth_at_physical_cap self heal adopt knob fast_term_cap up reason depth at physical cap baseline 0.0 trial 2700.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1743,7 +1723,7 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:depth_at_physical_cap self heal adopt knob fast_term_cap up reason depth at physical cap baseline 0.0 trial 2700.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1773,7 +1753,7 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:depth_at_physical_cap self heal adopt knob fast_term_cap up reason depth at physical cap baseline 0.0 trial 2700.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": {
@@ -1803,27 +1783,19 @@
       "outcome": "positive",
       "source": "self_heal",
       "symptom": "failure_class:depth_at_physical_cap self heal adopt knob fast_term_cap up reason depth at physical cap baseline 0.0 trial 1200.0",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": null,
       "action_key": "empty_perturb_pool",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145900Z_aec7a5",
+      "cycle_id": "20261115T152004Z_9c1cef",
       "evidence": {
         "authored_cap": 150,
         "authored_count": 150,
         "authoring_room": false,
         "cap_holds": [
-          {
-            "anum": "A126089",
-            "cap_reason": "time_cap",
-            "cap_value": 8.0,
-            "cycle_id": "20261115T141919Z_d699cc",
-            "id": "oc_A126089_0",
-            "verified_depth": 75
-          },
           {
             "anum": "A165064",
             "cap_reason": "term_cap",
@@ -1840,10 +1812,6 @@
           "authored_mut_swap_related_sequence_05546e14e52a"
         ],
         "suggest": [
-          [
-            "deep_seconds",
-            "up"
-          ],
           [
             "fast_term_cap",
             "up"
@@ -1863,62 +1831,70 @@
         ]
       },
       "exit_reason": "no_candidates",
-      "id": "mine:stall:empty_perturb_pool:20261115T145900Z_aec7a5:{\"authored_cap\": 150, \"authored_count\": 150, \"authoring_room\": fal",
+      "id": "mine:stall:empty_perturb_pool:20261115T152004Z_9c1cef:{\"authored_cap\": 150, \"authored_count\": 150, \"authoring_room\": fal",
       "kind": "failure",
       "label": "empty_perturb_pool",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool stall exit_reason no_candidates exit_cycle 20261115T043315Z_540da3 session_targets ['authored_mut_swap_related_sequence_05546e14e52a'] timeout_count 3 no_candidates_pass_total 528 cap_holds [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A165064_0', 'anum': 'A165064', 'cap_reason': 'term_cap', 'cap_value': 20000, 'verified_depth': 19999, 'cycle_id': '20261115T113729Z_b3155f'}]",
-      "ts": "2026-11-15T15:01:12Z"
+      "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool stall exit_reason no_candidates exit_cycle 20261115T043315Z_540da3 session_targets ['authored_mut_swap_related_sequence_05546e14e52a'] timeout_count 3 no_candidates_pass_total 528 cap_holds [{'id': 'oc_A165064_0', 'anum': 'A165064', 'cap_reason': 'term_cap', 'cap_value': 20000, 'verified_depth': 19999, 'cycle_id': '20261115T113729Z_b3155f'}]",
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": null,
       "action_key": "dead_end_streak",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145900Z_aec7a5",
+      "cycle_id": "20261115T152004Z_9c1cef",
       "evidence": {
         "cycles": [
-          "20261115T144045Z_9ee12d",
-          "20261115T145541Z_a42004",
-          "20261115T145900Z_aec7a5"
+          "20261115T150158Z_ae4d61",
+          "20261115T151638Z_db71e0",
+          "20261115T152004Z_9c1cef"
         ],
         "window": 3
       },
-      "id": "mine:stall:dead_end_streak:20261115T145900Z_aec7a5:{\"cycles\": [\"20261115T144045Z_9ee12d\", \"20261115T145541Z_a42004\", \"20",
+      "id": "mine:stall:dead_end_streak:20261115T152004Z_9c1cef:{\"cycles\": [\"20261115T150158Z_ae4d61\", \"20261115T151638Z_db71e0\", \"20",
       "kind": "failure",
       "label": "dead_end_streak",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:dead_end_streak dead end streak stall cycles ['20261115T144045Z_9ee12d', '20261115T145541Z_a42004', '20261115T145900Z_aec7a5'] window 3",
-      "ts": "2026-11-15T15:01:12Z"
+      "symptom": "failure_class:dead_end_streak dead end streak stall cycles ['20261115T150158Z_ae4d61', '20261115T151638Z_db71e0', '20261115T152004Z_9c1cef'] window 3",
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": null,
       "action_key": "flat_passes",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145900Z_aec7a5",
+      "cycle_id": "20261115T152004Z_9c1cef",
       "evidence": {
         "stall_cycles": 81,
         "threshold": 6
       },
-      "id": "mine:stall:flat_passes:20261115T145900Z_aec7a5:{\"stall_cycles\": 81, \"threshold\": 6}",
+      "id": "mine:stall:flat_passes:20261115T152004Z_9c1cef:{\"stall_cycles\": 81, \"threshold\": 6}",
       "kind": "failure",
       "label": "flat_passes",
       "outcome": "unknown",
       "source": "stall",
       "symptom": "failure_class:flat_passes flat passes stall stall_cycles 81 threshold 6",
-      "ts": "2026-11-15T15:01:12Z"
+      "ts": "2026-11-15T15:22:29Z"
     },
     {
       "action": null,
       "action_key": "depth_at_physical_cap",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T145900Z_aec7a5",
+      "cycle_id": "20261115T152004Z_9c1cef",
       "evidence": {
         "recent": [
+          {
+            "anum": "A126089",
+            "cap_reason": "term_cap",
+            "cap_value": 2310,
+            "cycle_id": "20261115T150158Z_ae4d61",
+            "id": "oc_A126089_0",
+            "verified_depth": 2309
+          },
           {
             "anum": "A126089",
             "cap_reason": "time_cap",
@@ -1934,95 +1910,141 @@
             "cycle_id": "20261115T073045Z_83bc39",
             "id": "oc_A126089_0",
             "verified_depth": 2309
-          },
-          {
-            "anum": "A126089",
-            "cap_reason": "time_cap",
-            "cap_value": 8.0,
-            "cycle_id": "20261115T065010Z_f362e6",
-            "id": "oc_A126089_0",
-            "verified_depth": 75
           }
         ],
         "suggest": [
+          [
+            "gf_term_cap",
+            "up"
+          ],
           [
             "deep_seconds",
             "up"
           ],
           [
-            "deep_term_cap",
+            "gf_term_cap",
             "up"
-          ],
+          ]
+        ]
+      },
+      "id": "mine:stall:depth_at_physical_cap:20261115T152004Z_9c1cef:{\"recent\": [{\"anum\": \"A126089\", \"cap_reason\": \"term_cap\", \"cap_",
+      "kind": "failure",
+      "label": "depth_at_physical_cap",
+      "outcome": "unknown",
+      "source": "stall",
+      "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap cap_reason:time_cap depth at physical cap stall recent [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T150158Z_ae4d61'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T073045Z_83bc39'}] suggest [('gf_term_cap', 'up'), ('deep_seconds', 'up'), ('gf_term_cap', 'up')]",
+      "ts": "2026-11-15T15:22:29Z"
+    },
+    {
+      "action": null,
+      "action_key": "empty_perturb_pool",
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "cycle_id": "20261115T152319Z_7a2afa",
+      "evidence": {
+        "authored_cap": 150,
+        "authored_count": 150,
+        "authoring_room": false,
+        "cap_holds": [
+          {
+            "anum": "A165064",
+            "cap_reason": "term_cap",
+            "cap_value": 20000,
+            "cycle_id": "20261115T113729Z_b3155f",
+            "id": "oc_A165064_0",
+            "verified_depth": 19999
+          }
+        ],
+        "exit_cycle": "20261115T043315Z_540da3",
+        "exit_reason": "no_candidates",
+        "no_candidates_pass_total": 528,
+        "session_targets": [
+          "authored_mut_swap_related_sequence_05546e14e52a"
+        ],
+        "suggest": [
           [
             "fast_term_cap",
             "up"
-          ],
-          [
-            "gf_term_cap",
-            "up"
-          ],
-          [
-            "deep_seconds",
-            "up"
           ]
+        ],
+        "timeout_count": 3,
+        "unused_families": [
+          "algebraic",
+          "collatz",
+          "divisor",
+          "erdos",
+          "goldbach",
+          "legendre",
+          "oeis",
+          "pattern",
+          "subset"
         ]
       },
-      "id": "mine:stall:depth_at_physical_cap:20261115T145900Z_aec7a5:{\"recent\": [{\"anum\": \"A126089\", \"cap_reason\": \"time_cap\", \"cap_",
+      "exit_reason": "no_candidates",
+      "id": "mine:stall:empty_perturb_pool:20261115T152319Z_7a2afa:{\"authored_cap\": 150, \"authored_count\": 150, \"authoring_room\": fal",
       "kind": "failure",
-      "label": "depth_at_physical_cap",
+      "label": "empty_perturb_pool",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:depth_at_physical_cap cap_reason:time_cap cap_reason:term_cap depth at physical cap stall recent [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T073045Z_83bc39'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T065010Z_f362e6'}] suggest [('deep_seconds', 'up'), ('deep_term_cap', 'up'), ('fast_term_cap', 'up'), ('gf_term_cap', 'up'), ('deep_seconds', 'up')]",
-      "ts": "2026-11-15T15:01:12Z"
+      "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool stall exit_reason no_candidates exit_cycle 20261115T043315Z_540da3 session_targets ['authored_mut_swap_related_sequence_05546e14e52a'] timeout_count 3 no_candidates_pass_total 528 cap_holds [{'id': 'oc_A165064_0', 'anum': 'A165064', 'cap_reason': 'term_cap', 'cap_value': 20000, 'verified_depth': 19999, 'cycle_id': '20261115T113729Z_b3155f'}]",
+      "ts": "2026-11-15T15:25:47Z"
     },
     {
       "action": null,
       "action_key": "dead_end_streak",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T150158Z_ae4d61",
+      "cycle_id": "20261115T152319Z_7a2afa",
       "evidence": {
         "cycles": [
-          "20261115T145541Z_a42004",
-          "20261115T145900Z_aec7a5",
-          "20261115T150158Z_ae4d61"
+          "20261115T151638Z_db71e0",
+          "20261115T152004Z_9c1cef",
+          "20261115T152319Z_7a2afa"
         ],
         "window": 3
       },
-      "id": "mine:stall:dead_end_streak:20261115T150158Z_ae4d61:{\"cycles\": [\"20261115T145541Z_a42004\", \"20261115T145900Z_aec7a5\", \"20",
+      "id": "mine:stall:dead_end_streak:20261115T152319Z_7a2afa:{\"cycles\": [\"20261115T151638Z_db71e0\", \"20261115T152004Z_9c1cef\", \"20",
       "kind": "failure",
       "label": "dead_end_streak",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:dead_end_streak dead end streak stall cycles ['20261115T145541Z_a42004', '20261115T145900Z_aec7a5', '20261115T150158Z_ae4d61'] window 3",
-      "ts": "2026-11-15T15:04:17Z"
+      "symptom": "failure_class:dead_end_streak dead end streak stall cycles ['20261115T151638Z_db71e0', '20261115T152004Z_9c1cef', '20261115T152319Z_7a2afa'] window 3",
+      "ts": "2026-11-15T15:25:47Z"
     },
     {
       "action": null,
       "action_key": "flat_passes",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T150158Z_ae4d61",
+      "cycle_id": "20261115T152319Z_7a2afa",
       "evidence": {
         "stall_cycles": 81,
         "threshold": 6
       },
-      "id": "mine:stall:flat_passes:20261115T150158Z_ae4d61:{\"stall_cycles\": 81, \"threshold\": 6}",
+      "id": "mine:stall:flat_passes:20261115T152319Z_7a2afa:{\"stall_cycles\": 81, \"threshold\": 6}",
       "kind": "failure",
       "label": "flat_passes",
       "outcome": "unknown",
       "source": "stall",
       "symptom": "failure_class:flat_passes flat passes stall stall_cycles 81 threshold 6",
-      "ts": "2026-11-15T15:04:17Z"
+      "ts": "2026-11-15T15:25:47Z"
     },
     {
       "action": null,
       "action_key": "depth_at_physical_cap",
       "applied_to_live_oracle": false,
       "authorized": false,
-      "cycle_id": "20261115T150158Z_ae4d61",
+      "cycle_id": "20261115T152319Z_7a2afa",
       "evidence": {
         "recent": [
+          {
+            "anum": "A126089",
+            "cap_reason": "term_cap",
+            "cap_value": 2310,
+            "cycle_id": "20261115T150158Z_ae4d61",
+            "id": "oc_A126089_0",
+            "verified_depth": 2309
+          },
           {
             "anum": "A126089",
             "cap_reason": "time_cap",
@@ -2038,21 +2060,9 @@
             "cycle_id": "20261115T073045Z_83bc39",
             "id": "oc_A126089_0",
             "verified_depth": 2309
-          },
-          {
-            "anum": "A126089",
-            "cap_reason": "time_cap",
-            "cap_value": 8.0,
-            "cycle_id": "20261115T065010Z_f362e6",
-            "id": "oc_A126089_0",
-            "verified_depth": 75
           }
         ],
         "suggest": [
-          [
-            "deep_seconds",
-            "up"
-          ],
           [
             "gf_term_cap",
             "up"
@@ -2060,16 +2070,20 @@
           [
             "deep_seconds",
             "up"
+          ],
+          [
+            "gf_term_cap",
+            "up"
           ]
         ]
       },
-      "id": "mine:stall:depth_at_physical_cap:20261115T150158Z_ae4d61:{\"recent\": [{\"anum\": \"A126089\", \"cap_reason\": \"time_cap\", \"cap_",
+      "id": "mine:stall:depth_at_physical_cap:20261115T152319Z_7a2afa:{\"recent\": [{\"anum\": \"A126089\", \"cap_reason\": \"term_cap\", \"cap_",
       "kind": "failure",
       "label": "depth_at_physical_cap",
       "outcome": "unknown",
       "source": "stall",
-      "symptom": "failure_class:depth_at_physical_cap cap_reason:time_cap cap_reason:term_cap depth at physical cap stall recent [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T073045Z_83bc39'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T065010Z_f362e6'}] suggest [('deep_seconds', 'up'), ('gf_term_cap', 'up'), ('deep_seconds', 'up')]",
-      "ts": "2026-11-15T15:04:17Z"
+      "symptom": "failure_class:depth_at_physical_cap cap_reason:term_cap cap_reason:time_cap depth at physical cap stall recent [{'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T150158Z_ae4d61'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'time_cap', 'cap_value': 8.0, 'verified_depth': 75, 'cycle_id': '20261115T141919Z_d699cc'}, {'id': 'oc_A126089_0', 'anum': 'A126089', 'cap_reason': 'term_cap', 'cap_value': 2310, 'verified_depth': 2309, 'cycle_id': '20261115T073045Z_83bc39'}] suggest [('gf_term_cap', 'up'), ('deep_seconds', 'up'), ('gf_term_cap', 'up')]",
+      "ts": "2026-11-15T15:25:47Z"
     }
   ],
   "version": 1
