@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-15T20:36:07Z",
+    "fetched_at": "2026-11-15T20:57:28Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-15T20:56:43Z",
+        "id": 43760869906,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-15T20:56:54Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-15T20:34:57Z",
         "id": 43758891042,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-15T20:35:02Z"
+        "status": "completed",
+        "updated_at": "2026-11-15T20:56:46Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-15T18:00:58Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-15T17:21:40Z",
-        "id": 43740669966,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-15T17:41:12Z"
       }
     ],
     "success_rate": 1.0
@@ -147,31 +147,27 @@
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 3,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-11-15T20:36:03Z"
+    "ts": "2026-11-15T20:57:27Z"
   },
-  "runs": 335
+  "runs": 336
 }

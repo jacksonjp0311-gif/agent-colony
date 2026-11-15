@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-15T20:47:12Z",
-  "cycle_id": "20261115T204646Z_5fb1c4",
+  "ts": "2026-11-15T21:08:19Z",
+  "cycle_id": "20261115T210754Z_b9dd62",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_3a917a302be9": 1,
       "authored_mut_swap_related_sequence_9944a5433d60": 1,
       "authored_mut_swap_related_sequence_a7fc2de5dabd": 1,
       "authored_mut_swap_related_sequence_abd2d19e66bf": 1,
@@ -15,7 +14,8 @@
       "authored_mut_swap_related_sequence_fd5d7d93e902": 1,
       "authored_mut_swap_related_sequence_407fbdbac9ef": 1,
       "authored_mut_swap_related_sequence_566c464aa389": 1,
-      "authored_mut_swap_related_sequence_f136673b49cd": 1
+      "authored_mut_swap_related_sequence_f136673b49cd": 1,
+      "authored_mut_swap_related_sequence_86310fedcc8c": 1
     },
     "recent": {}
   },
@@ -23,9 +23,9 @@
     "n": 12,
     "aggregate": {
       "last": 0.8612,
-      "slope": 2.1e-05,
+      "slope": 5e-05,
       "min": 0.8606,
-      "max": 0.8629
+      "max": 0.8623
     },
     "novelty": {
       "last": 0.75,
@@ -54,7 +54,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0017,
+    "aggregate_range": 0.0009,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -281,7 +281,7 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.012,
+      "ratio": 1.0,
       "drift": false
     },
     "fft_stress_microbench": {
@@ -289,26 +289,26 @@
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.05,
+      "ratio": 0.977,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.971,
+      "ratio": 0.967,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.927,
+      "ratio": 0.891,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 439634115,
-      "collatz_descent": 476600000,
+      "goldbach_even": 442834115,
+      "collatz_descent": 479800000,
       "legendre_square_gap": 2444607,
       "lehmer_totient": 223000001,
-      "erdos_straus": 1349127,
+      "erdos_straus": 1354127,
       "twin_primes_hl": 598200000,
       "oeis_A104062_next": 518690000001
     },
@@ -363,18 +363,18 @@
     "last": [
       [
         null,
+        "2026-11-15T20:56:43Z"
+      ],
+      [
+        "success",
         "2026-11-15T20:34:57Z"
       ],
       [
         "success",
         "2026-11-15T20:15:10Z"
-      ],
-      [
-        "success",
-        "2026-11-15T19:50:06Z"
       ]
     ],
-    "fetched_at": "2026-11-15T20:36:07Z"
+    "fetched_at": "2026-11-15T20:57:28Z"
   },
   "feeds": {
     "by_source": {
@@ -402,31 +402,27 @@
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 3,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-15T20:36:03Z"
+      "ts": "2026-11-15T20:57:27Z"
     },
     "health": {
       "arxiv": {
