@@ -2,11 +2,11 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   85,
-   37
+   84,
+   36
   ],
   "divides": [
-   22,
+   23,
    3
   ],
   "identity": [
@@ -30,7 +30,7 @@
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 55,
+ "n_proved": 54,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -1181,77 +1181,6 @@
    "summary": null,
    "unknown": true,
    "v": 4
-  },
-  "D(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 2,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "D(pell)",
-       "kids": [
-        {
-         "e": "pell",
-         "lemma": "pell is periodic mod 2 (defining recurrence; state repeats)",
-         "pt": [
-          1,
-          1
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 1,
-          "d": 2
-         }
-        },
-        {
-         "e": "pell",
-         "lemma": "pell is periodic mod 2 (defining recurrence; state repeats)",
-         "pt": [
-          1,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "Ddiff",
-       "val": {
-        "a": {},
-        "c": 1,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "pell is periodic mod 2 (defining recurrence; state repeats)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x9854098e_w1",
-   "checks": 1994,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
   },
   "D(pell)(n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
@@ -6945,6 +6874,18 @@
    "unknown": true,
    "v": 4
   },
+  "popcount[oxa035100](n) divides dbl(oxa056971)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_xbc13def9_w1",
+   "checks": 88,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "pow2(n) = D(pow2)(n) for all n >= 1": {
    "authored": false,
    "certificate": {
@@ -7725,6 +7666,6 @@
    "v": 4
   }
  },
- "seconds": 0.03,
- "ts": "2026-11-15T02:22:48Z"
+ "seconds": 0.02,
+ "ts": "2026-11-15T02:40:02Z"
 }
