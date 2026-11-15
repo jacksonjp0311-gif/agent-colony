@@ -229,6 +229,30 @@ def heal_is_cap_knob(name: str) -> bool:
     return False
 
 
+def heal_frontier_cap_value(name: str, direction: str, *, current: Any = None) -> Any:
+    """Item 67: cap step from the live frontier. Standalone: the plain step."""
+    if _heal is not None:
+        fn = getattr(_heal, "frontier_cap_value", None)
+        if fn is not None:
+            try:
+                return fn(name, direction, current=current)
+            except Exception:
+                pass
+    return heal_stepped_value(name, direction, current=current)
+
+
+def heal_cap_retire_key(name: str) -> str:
+    """Item 67: state key a dead cap action is retired under. Standalone: ''."""
+    if _heal is not None:
+        fn = getattr(_heal, "cap_retire_key", None)
+        if fn is not None:
+            try:
+                return str(fn(name) or "")
+            except Exception:
+                return ""
+    return ""
+
+
 def heal_window_score(rows: Iterable[dict[str, Any]]) -> float:
     if _heal is not None:
         return float(_heal.window_score(rows))

@@ -168,6 +168,7 @@ def _empty_state() -> dict[str, Any]:
         "shadows": [],
         "library_persisted": False,
         "pending_apply": None,
+        "retired_actions": {},
     }
 
 
@@ -203,6 +204,8 @@ def load_state() -> dict[str, Any]:
         st["calibration"] = None
     if not isinstance(st.get("pending_apply"), dict):
         st["pending_apply"] = None
+    if not isinstance(st.get("retired_actions"), dict):
+        st["retired_actions"] = {}
     return st
 
 
@@ -474,6 +477,110 @@ def _library_action(router: Router, match: Match | None) -> dict[str, Any] | Non
     return None
 
 
+def _with_frontier_value(action: Mapping[str, Any]) -> dict[str, Any]:
+    """Item 67: a direction-only cap raise takes its value from the live frontier.
+
+    The value is the first step past a bound target's recorded cap that
+    the read-only predictor says binds a target, clamped to the knob's
+    existing bounds. Explicit values and non-cap knobs are unchanged.
+    """
+    out = dict(action)
+    if str(out.get("op") or "") != "set_knob" or out.get("value") is not None:
+        return out
+    name = str(out.get("name") or "")
+    direction = str(out.get("direction") or "")
+    if not name or direction != "up":
+        return out
+    try:
+        from hive import host
+        if not host.heal_is_cap_knob(name):
+            return out
+        nxt = host.heal_frontier_cap_value(name, direction, current=host.heal_current_knob(name))
+    except Exception:
+        return out
+    if nxt is not None:
+        out["value"] = nxt
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Item 67: retire an action that was deferred as no_bound_predicted_target
+# ---------------------------------------------------------------------------
+
+RETIRE_REASON = "no_bound_predicted_target"
+RETIRED_KEEP = 50
+
+
+def _retire_key_for(action: Mapping[str, Any] | None) -> str:
+    if not isinstance(action, Mapping) or str(action.get("op") or "") != "set_knob":
+        return ""
+    try:
+        from hive import host
+        return str(host.heal_cap_retire_key(str(action.get("name") or "")) or "")
+    except Exception:
+        return ""
+
+
+def retire_action(
+    state: dict[str, Any],
+    proposal: "Proposal",
+    cycle_id: str,
+    *,
+    reason: str = RETIRE_REASON,
+    detail: Mapping[str, Any] | None = None,
+) -> dict[str, Any] | None:
+    """Mark this exact action (knob, direction, value) dead under the current state.
+
+    Recorded append-only as an ``action_retired`` evidence row. The
+    retirement lapses when the state key (knob value plus the bound
+    targets' recorded caps) changes. Gates are not touched.
+    """
+    key = _retire_key_for(proposal.action)
+    if not key:
+        return None
+    retired = dict(state.get("retired_actions") or {})
+    fp = str(proposal.fingerprint or "")
+    prev = retired.get(fp) if isinstance(retired.get(fp), dict) else None
+    if prev and str(prev.get("key") or "") == key:
+        return prev
+    ev = append_evidence(state, {
+        "event": "action_retired",
+        "cycle_id": cycle_id,
+        "reason": reason,
+        "fingerprint": fp,
+        "action": dict(proposal.action or {}),
+        "label": proposal.label,
+        "role": proposal.role,
+        "retire_key": key,
+        **({"detail": dict(detail)} if detail else {}),
+    })
+    rec = {"key": key, "cycle_id": cycle_id, "reason": reason, "evidence_id": ev.get("id")}
+    retired[fp] = rec
+    if len(retired) > RETIRED_KEEP:
+        retired = dict(list(retired.items())[-RETIRED_KEEP:])
+    state["retired_actions"] = retired
+    return rec
+
+
+def is_retired(state: Mapping[str, Any], proposal: "Proposal") -> bool:
+    rec = (state.get("retired_actions") or {}).get(str(proposal.fingerprint or ""))
+    if not isinstance(rec, Mapping):
+        return False
+    key = _retire_key_for(proposal.action)
+    return bool(key) and str(rec.get("key") or "") == key
+
+
+def drop_retired_proposals(state: dict[str, Any], proposals: list["Proposal"]) -> list[str]:
+    """Make retired proposals ineligible so the runner-up or a fresh proposal can win."""
+    dropped: list[str] = []
+    for p in proposals:
+        if p.ok and not p.veto and is_retired(state, p):
+            p.ok = False
+            p.reason = "retired_dead_action"
+            dropped.append(str(p.fingerprint or ""))
+    return dropped
+
+
 def propose_for_role(
     role: str,
     findings: list[dict[str, Any]],
@@ -519,6 +626,7 @@ def propose_for_role(
         action = _action_for_role(role, chosen, retrieved)
     if action is None:
         return None
+    action = _with_frontier_value(action)
     validated = FA.validate(action)
     ev = chosen.get("evidence") if isinstance(chosen.get("evidence"), Mapping) else {}
     card_id = str(chosen.get("card_id") or ev.get("card_id") or "")
@@ -810,7 +918,11 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     if len(metrics) < window:
         return {"ok": False, "reason": "not_enough_metrics"}
     cur = current_knob(name)
-    if "value" in action and action.get("direction"):
+    is_cap = bool(host.heal_is_cap_knob(name))
+    if is_cap and direction == "up" and action.get("direction"):
+        # Item 67: same live-frontier value the proposal carried.
+        nxt = host.heal_frontier_cap_value(name, direction, current=cur)
+    elif "value" in action and action.get("direction"):
         nxt = stepped_value(name, direction, current=cur)
     elif "value" in action:
         nxt = action.get("value")
@@ -831,7 +943,6 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     # knob binding), so it carries predicted_targets and is scored on
     # depth gain at those targets (item 64). start_trial snapshots
     # pre_trial_depths before the first trial cycle.
-    is_cap = bool(host.heal_is_cap_knob(name))
     predicted: list[str] = []
     if is_cap or not has_signal:
         try:
@@ -2083,6 +2194,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     if findings and not st.get("trial") and applied_this_cycle < MAX_ACTIONS_PER_CYCLE:
         proposals = swarm_propose(findings, router)
         st["proposals_count"] = int(st.get("proposals_count") or 0) + len(proposals)
+        retired_dropped = drop_retired_proposals(st, proposals)
         vote_result = vote(proposals, router)
         if vote_result.abstained or vote_result.winner is None:
             st["abstained_count"] = int(st.get("abstained_count") or 0) + 1
@@ -2094,6 +2206,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                 "reason": vote_result.reason,
                 "shadow_id": None if shadow is None else shadow.get("id"),
                 "source": "shadow" if shadow is not None else None,
+                **({"retired_dropped": retired_dropped} if retired_dropped else {}),
             })
             # Item 56: on a clean window, a fresh vote that fails the
             # (unchanged) Wilson gate drops the pending decision. A
@@ -2147,6 +2260,11 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
             else:
                 reason = str(started.get("reason") or "")
                 deferred_count = 0
+                if reason == RETIRE_REASON:
+                    retire_action(st, winner, cycle_id, detail=started.get("detail"))
+                    pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
+                    if pending and str(pending.get("fingerprint") or "") == str(winner.fingerprint or ""):
+                        st = _drop_pending_apply(st, cycle_id, reason="action_retired", vote_result=vote_result)
                 if reason in ("confounded_baseline", "no_signal_baseline"):
                     st = _remember_pending_apply(st, winner, vote_result, cycle_id)
                     pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
@@ -2161,6 +2279,7 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                     "action": winner.action,
                     "deferred_count": deferred_count,
                     **({"detail": started.get("detail")} if started.get("detail") else {}),
+                    **({"retired_dropped": retired_dropped} if retired_dropped else {}),
                     "pending_fingerprint": (st.get("pending_apply") or {}).get("fingerprint")
                     if isinstance(st.get("pending_apply"), dict) else None,
                 })
