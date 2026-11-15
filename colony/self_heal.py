@@ -721,6 +721,7 @@ def load_state() -> dict[str, Any]:
         "adopted_count", "reverted_count", "cycle_index", "cycles",
         "last_self_change", "knob_last_trial",
         "inconclusive_count", "trial_skip", "cycles_dropped",
+        "retired_cap_knobs",
     ):
         if key in raw:
             state[key] = raw[key]
@@ -2258,7 +2259,15 @@ def propose_trial(
                     predicted_cache[key] = []
         return predicted_cache[key]
 
-    ordered.sort(key=lambda c: 0 if _pred(c[1], c[2]) else 1)
+    # Item 72: a knob already climbed >=2 adopts in a row on the same
+    # targets with Oracle passes flat goes behind every other candidate.
+    from colony.self_heal_ladder import ladder_state as _ladder_state
+
+    def _ladder(knob: str, direction: str) -> int:
+        preds = _pred(knob, direction)
+        return 1 if preds and _ladder_state(st, knob, preds)["active"] else 0
+
+    ordered.sort(key=lambda c: (_ladder(c[1], c[2]), 0 if _pred(c[1], c[2]) else 1))
     exhausted_cache: list[bool] = []
     # The fall-through applies only when a cap raise was the diagnosed
     # remedy (a cap finding is present) and no cap can bind a target.
@@ -2326,14 +2335,30 @@ def propose_trial(
                 explore = {"fallthrough": "caps_exhausted"}
         if no_signal:
             predicted = predicted_new_targets(knob, nxt)
+            narrowed = None
+            if predicted and _exploration_already_failed(st, knob, nxt, predicted):
+                # Item 73b: the same exploration already ended without
+                # credit. If it failed because its target hit another cap
+                # (the step overshot), retry at the midpoint step.
+                from colony.self_heal_ladder import narrower_after_overshoot
+                narrowed = narrower_after_overshoot(st, knob, cur, nxt, predicted)
+                if narrowed is not None:
+                    failed_to = nxt
+                    nxt, predicted, why = narrowed
+                    replay = replay_proposal(knob, cur, nxt, direction=direction,
+                                             evidence=list(st.get("evidence") or []))
+                    if not replay.get("accepted"):
+                        continue
             explore_checked.append({"knob": knob, "to": nxt, "predicted": predicted[:8]})
-            if not predicted or _exploration_already_failed(st, knob, nxt, predicted):
+            if not predicted or (narrowed is None and _exploration_already_failed(st, knob, nxt, predicted)):
                 continue
             explore = {
                 "exploratory": True,
                 "baseline_signal": False,
                 "predicted_targets": predicted,
             }
+            if narrowed is not None:
+                explore["narrowed_after_overshoot"] = {"failed_to": failed_to, "cap_reason": why}
         baseline_rows = [rescore_metric_row(r) for r in metrics[-window:]]
         return {
             **explore,
@@ -2395,6 +2420,13 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
             trial["pre_trial_depths"] = snapshot_pre_trial_depths(predicted)
         except Exception:
             trial["pre_trial_depths"] = {tid: 0 for tid in predicted}
+    if predicted:
+        # Item 72: what "marginal value" is measured against at close.
+        try:
+            from colony.self_heal_ladder import snapshot_marginal_baseline
+            snapshot_marginal_baseline(trial)
+        except Exception:
+            pass
     _apply_knob(st, trial["knob"], trial["to"])
     st["trial"] = trial
     st["trial_skip"] = None
@@ -2423,6 +2455,8 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
         "predicted_targets": list(trial.get("predicted_targets") or []),
         "pre_trial_depths": dict(trial.get("pre_trial_depths") or {}),
         **({"fallthrough": trial.get("fallthrough")} if trial.get("fallthrough") else {}),
+        **({"narrowed_after_overshoot": trial.get("narrowed_after_overshoot")}
+           if trial.get("narrowed_after_overshoot") else {}),
         "environment_fingerprint": fp["digest"],
         "environment": trial["environment"],
     })
@@ -2574,6 +2608,10 @@ def _close_trial(
         link["attributed_targets"] = attributable_progress(trial)
     if trial.get("fallthrough"):
         link["fallthrough"] = trial.get("fallthrough")
+    if trial.get("ladder"):
+        link["ladder"] = trial.get("ladder")
+    if trial.get("narrowed_after_overshoot"):
+        link["narrowed_after_overshoot"] = trial.get("narrowed_after_overshoot")
     if isinstance(trial.get("apply_cycle_metrics"), dict):
         link["apply_cycle_metrics"] = trial.get("apply_cycle_metrics")
     if predicted:
@@ -2753,6 +2791,12 @@ def maybe_close_trial(state: dict[str, Any], cycle_id: str) -> dict[str, Any]:
         return state
     from colony.self_heal_score import decide_trial_close
     decision, reason = decide_trial_close(trial)
+    # Item 72: tighten-only diminishing-returns check on a cap ladder.
+    try:
+        from colony.self_heal_ladder import apply_diminishing_returns
+        decision, reason = apply_diminishing_returns(state, trial, decision, reason)
+    except Exception:
+        pass
     state["trial"] = trial
     return _close_trial(state, cycle_id, decision, reason=reason)
 
@@ -3156,6 +3200,14 @@ def run_cycle(
             found = diagnose(cycle_id, stall_state=stall_state, heal_state=st)
         except Exception:
             found = []
+    # Item 73a: cap knobs at their physical ceiling are retired and stop
+    # counting as findings (self-mod arm only; no-op on control).
+    try:
+        from colony.self_heal_ladder import retire_ceiling_cap_knobs, filter_retired_findings
+        retire_ceiling_cap_knobs(st, cycle_id)
+        found = filter_retired_findings(found, st)
+    except Exception:
+        pass
     try:
         supply = maybe_supply_oracle_targets(cycle_id, findings=found)
     except Exception as exc:  # noqa: BLE001
@@ -3166,6 +3218,13 @@ def run_cycle(
             st = start_trial(proposal, state=st, cycle_id=cycle_id)
             started = True
         else:
+            # Item 73c: say whether the empty-pool refill from the target
+            # generator ran or was held by the 150 cap (cap unchanged).
+            if isinstance(st.get("trial_skip"), dict) and supply:
+                st["trial_skip"]["supply"] = {
+                    k: supply.get(k) for k in ("invited", "reason", "n", "cap") if k in supply
+                }
+                st["trial_skip"]["supply"]["authored"] = len(supply.get("authored") or [])
             try:
                 save_state(st)
             except Exception:
