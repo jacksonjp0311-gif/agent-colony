@@ -1575,6 +1575,11 @@ def maybe_supply_oracle_targets(
         gen_reason = f"generate_error:{type(exc).__name__}"
     else:
         gen_reason = ""
+    try:
+        from colony.target_generator import last_supply
+        gen_supply = last_supply()
+    except Exception:  # noqa: BLE001
+        gen_supply = {}
     if generated:
         return {
             "invited": True,
@@ -1582,18 +1587,20 @@ def maybe_supply_oracle_targets(
             "reason": "generated",
             "n": n,
             "cap": cap,
+            "generator_supply": gen_supply,
         }
     try:
         rows = author_checks(max_new=min(1, int(MAX_AUTHORED_PER_CYCLE)), cycle_id=cycle_id, write=True)
     except Exception as exc:  # noqa: BLE001
         return {"invited": True, "authored": [], "reason": f"author_error:{type(exc).__name__}", "n": n, "cap": cap,
-                "generate_reason": gen_reason}
+                "generate_reason": gen_reason, "generator_supply": gen_supply}
     return {
         "invited": True,
         "authored": list(rows or []),
         "reason": "authored" if rows else (gen_reason or "no_candidate"),
         "n": n,
         "cap": cap,
+        "generator_supply": gen_supply,
     }
 
 
