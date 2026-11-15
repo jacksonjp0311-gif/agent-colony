@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-15T11:40:05Z",
+  "ts": "2026-11-15T12:00:36Z",
   "version": 2,
   "mile": "spark3-port",
   "feeds": {
@@ -24,7 +24,7 @@
           "source": "arxiv"
         }
       ],
-      "ts": "2026-11-15T11:39:49Z"
+      "ts": "2026-11-15T12:00:20Z"
     },
     "nasa_donki_solar": {
       "feed": "nasa_donki_solar",
@@ -32,7 +32,7 @@
       "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
       "count": 0,
       "items": [],
-      "ts": "2026-11-15T11:40:01Z"
+      "ts": "2026-11-15T12:00:32Z"
     },
     "noaa_space_weather": {
       "feed": "noaa_space_weather",
@@ -43,7 +43,7 @@
       "count": 0,
       "latest_kp": null,
       "items": [],
-      "ts": "2026-11-15T11:40:01Z"
+      "ts": "2026-11-15T12:00:32Z"
     },
     "global_weather": {
       "feed": "global_weather",
@@ -55,91 +55,91 @@
           "city": "NYC",
           "lat": 40.71,
           "lon": -74.01,
-          "temperature_2m": 3.3,
-          "wind_speed_10m": 11.4,
+          "temperature_2m": 3.1,
+          "wind_speed_10m": 12.2,
           "weather_code": 0,
-          "time": "2026-11-15T11:30",
+          "time": "2026-11-15T12:00",
           "source": "open_meteo"
         },
         {
           "city": "London",
           "lat": 51.51,
           "lon": -0.13,
-          "temperature_2m": 8.3,
-          "wind_speed_10m": 6.8,
+          "temperature_2m": 8.5,
+          "wind_speed_10m": 8.3,
           "weather_code": 53,
-          "time": "2026-11-15T11:30",
+          "time": "2026-11-15T12:00",
           "source": "open_meteo"
         },
         {
           "city": "Tokyo",
           "lat": 35.68,
           "lon": 139.76,
-          "temperature_2m": 11.5,
-          "wind_speed_10m": 4.3,
+          "temperature_2m": 11.7,
+          "wind_speed_10m": 4.0,
           "weather_code": 51,
-          "time": "2026-11-15T11:30",
+          "time": "2026-11-15T12:00",
           "source": "open_meteo"
         },
         {
           "city": "Sydney",
           "lat": -33.87,
           "lon": 151.21,
-          "temperature_2m": 17.3,
-          "wind_speed_10m": 11.4,
+          "temperature_2m": 17.1,
+          "wind_speed_10m": 11.7,
           "weather_code": 51,
-          "time": "2026-11-15T11:30",
+          "time": "2026-11-15T12:00",
           "source": "open_meteo"
         }
       ],
       "live": true,
       "cached": false,
-      "ts": "2026-11-15T11:40:05Z"
+      "ts": "2026-11-15T12:00:36Z"
     },
     "pulsemesh_goes_xray": {
       "feed": "pulsemesh_goes_xray",
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.281464671441346,
+      "latest": -6.264094267058986,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-11-15T11:33:00Z",
-          "v": -8.348338626947424
+          "t": "2026-11-15T11:54:00Z",
+          "v": -8.319500807547659
         },
         {
-          "t": "2026-11-15T11:33:00Z",
-          "v": -6.27491527887236
+          "t": "2026-11-15T11:54:00Z",
+          "v": -6.27886784281936
         },
         {
-          "t": "2026-11-15T11:34:00Z",
-          "v": -8.583204970141823
+          "t": "2026-11-15T11:55:00Z",
+          "v": -8.289947794634879
         },
         {
-          "t": "2026-11-15T11:34:00Z",
-          "v": -6.276581495880401
+          "t": "2026-11-15T11:55:00Z",
+          "v": -6.280116790721541
         },
         {
-          "t": "2026-11-15T11:35:00Z",
-          "v": -8.501077967523301
+          "t": "2026-11-15T11:56:00Z",
+          "v": -8.174897629253845
         },
         {
-          "t": "2026-11-15T11:35:00Z",
-          "v": -6.279339898921765
+          "t": "2026-11-15T11:56:00Z",
+          "v": -6.274793904788645
         },
         {
-          "t": "2026-11-15T11:36:00Z",
-          "v": -8.319698877900013
+          "t": "2026-11-15T11:57:00Z",
+          "v": -8.127400715032515
         },
         {
-          "t": "2026-11-15T11:36:00Z",
-          "v": -6.281464671441346
+          "t": "2026-11-15T11:57:00Z",
+          "v": -6.264094267058986
         }
       ],
       "live": true,
-      "ts": "2026-11-15T11:40:05Z"
+      "ts": "2026-11-15T12:00:36Z"
     },
     "pulsemesh_openmeteo": {
       "feed": "pulsemesh_openmeteo",
@@ -188,7 +188,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-11-15T11:40:05Z"
+      "ts": "2026-11-15T12:00:36Z"
     },
     "pulsemesh_usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -248,7 +248,7 @@
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-08&endtime=2026-11-15&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-11-15T11:40:05Z"
+      "ts": "2026-11-15T12:00:36Z"
     },
     "pulsemesh_system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -257,48 +257,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.57421875,
-          "disk_free_percent": 59.53306547747092,
-          "process_count": 163,
-          "uptime_hours": 0.26157777777777774,
+          "load1": 0.69140625,
+          "disk_free_percent": 59.53166749523761,
+          "process_count": 160,
+          "uptime_hours": 0.2877777777777778,
           "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
           "node": "runnervmccnms",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.57421875,
+      "latest_load1": 0.69140625,
       "live": true,
-      "ts": "2026-11-15T11:40:05Z"
+      "ts": "2026-11-15T12:00:36Z"
     },
     "pulsemesh_tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 1.4177819999758867,
-      "mean_ms": 1.658748000011201,
+      "latest_ms": 10.734288000094239,
+      "mean_ms": 10.666643749971172,
       "items": [
         {
           "probe": 0,
-          "ms": 1.995548000081726
+          "ms": 8.91037199994571
         },
         {
           "probe": 1,
-          "ms": 1.714945000003354
+          "ms": 8.894075999933193
         },
         {
           "probe": 2,
-          "ms": 1.506716999983837
+          "ms": 14.127838999911546
         },
         {
           "probe": 3,
-          "ms": 1.4177819999758867
+          "ms": 10.734288000094239
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-11-15T11:40:05Z"
+      "ts": "2026-11-15T12:00:36Z"
     }
   },
   "pulsemesh_health": {
@@ -331,24 +331,24 @@
   "cross_domain_patterns": [
     {
       "kind": "global_weather_spread",
-      "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 3.3), ('London', 8.3), ('Tokyo', 11.5), ('Sydney', 17.3)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 3.1), ('London', 8.5), ('Tokyo', 11.7), ('Sydney', 17.1)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
       "signals": {
         "cities": [
           [
             "NYC",
-            3.3
+            3.1
           ],
           [
             "London",
-            8.3
+            8.5
           ],
           [
             "Tokyo",
-            11.5
+            11.7
           ],
           [
             "Sydney",
-            17.3
+            17.1
           ]
         ],
         "kp": null
@@ -363,9 +363,9 @@
     },
     {
       "kind": "pulsemesh_goes_live",
-      "summary": "PulseMesh GOES X-ray live latest=-6.281464671441346. Space-weather debate input — not novel physics.",
+      "summary": "PulseMesh GOES X-ray live latest=-6.264094267058986. Space-weather debate input — not novel physics.",
       "signals": {
-        "goes_latest": -6.281464671441346
+        "goes_latest": -6.264094267058986
       },
       "domains": [
         "cosmos",
@@ -376,10 +376,10 @@
     },
     {
       "kind": "pulsemesh_ops_health",
-      "summary": "PulseMesh system_stat/tcp_probe: load1=0.57421875 probe_ms=1.658748000011201. Ops health for actuation — not consciousness.",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.69140625 probe_ms=10.666643749971172. Ops health for actuation — not consciousness.",
       "signals": {
-        "load1": 0.57421875,
-        "probe_ms": 1.658748000011201
+        "load1": 0.69140625,
+        "probe_ms": 10.666643749971172
       },
       "domains": [
         "government",
