@@ -66,17 +66,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "-1..1",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "binomial-faulhaber",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-15T00:30:58Z",
-  "updated_cycle": "20261115T002852Z_a466f0",
+  "updated_at": "2026-11-15T00:52:33Z",
+  "updated_cycle": "20261115T005049Z_a2ae1d",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

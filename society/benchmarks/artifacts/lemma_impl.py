@@ -2276,6 +2276,24 @@ def check_authored_mut_swap_related_sequence_abd2d19e66bf() -> bool:
     return all(type(c := frontier_holds({'kind': 'rec', 'lhs': '(lucas+one)', 'params': {'c': [-1, 0, 2]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
+def check_authored_mut_swap_related_sequence_148ef77da33b() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    digsum(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+def check_authored_mut_swap_related_sequence_98dac34715ca() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    pi(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'pi', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2525,6 +2543,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mut_swap_related_sequence_9944a5433d60", check_authored_mut_swap_related_sequence_9944a5433d60, False),
     ("authored_mut_swap_related_sequence_a7fc2de5dabd", check_authored_mut_swap_related_sequence_a7fc2de5dabd, False),
     ("authored_mut_swap_related_sequence_abd2d19e66bf", check_authored_mut_swap_related_sequence_abd2d19e66bf, False),
+    ("authored_mut_swap_related_sequence_148ef77da33b", check_authored_mut_swap_related_sequence_148ef77da33b, False),
+    ("authored_mut_swap_related_sequence_98dac34715ca", check_authored_mut_swap_related_sequence_98dac34715ca, False),
 ]
 
 
