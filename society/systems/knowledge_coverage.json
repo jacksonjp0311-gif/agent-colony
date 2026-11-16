@@ -10,7 +10,7 @@
       "reads": 1
     },
     "cognitive_science": {
-      "cards_formed": 2,
+      "cards_formed": 3,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 4,
@@ -19,22 +19,22 @@
       "reads": 2
     },
     "consciousness_self_models": {
-      "cards_formed": 0,
+      "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 0,
-      "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 1
+      "concepts": 4,
+      "distinct_concepts": 2,
+      "papers": 8,
+      "reads": 2
     },
     "learning_theory": {
       "cards_formed": 0,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 0,
-      "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 1
+      "concepts": 9,
+      "distinct_concepts": 2,
+      "papers": 8,
+      "reads": 2
     },
     "mathematics": {
       "cards_formed": 0,
@@ -42,8 +42,8 @@
       "cards_tested": 0,
       "concepts": 0,
       "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 2
+      "papers": 8,
+      "reads": 3
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -127,7 +127,7 @@
       "reads": 2
     }
   },
-  "fields_with_papers": 5,
+  "fields_with_papers": 8,
   "n_fields": 14,
   "note": "Breadth of reading. Cards are kept only by self-heal windows + twin control. Not AGI.",
   "top_architecture_ideas": [
@@ -234,33 +234,38 @@
       "n_papers": 5
     },
     {
-      "description": "Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).",
+      "description": "The colony tracks its own prediction accuracy per desk and uses it to weight proposals (calibrated self-model; not a consciousness claim).",
       "examples": [
-        {
-          "arxiv_id": "2611.17879",
-          "field": "neural_architecture",
-          "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning"
-        },
         {
           "arxiv_id": "2610.37327",
           "field": "cognitive_science",
           "title": "Local learning is all you need: brain-aligned predictive coding networks"
+        },
+        {
+          "arxiv_id": "2611.12762",
+          "field": "consciousness_self_models",
+          "title": "Sage-Taiyi: A Metacognitive Architecture for Scientific Discovery"
+        },
+        {
+          "arxiv_id": "2611.05844",
+          "field": "consciousness_self_models",
+          "title": "Sure Enough to Share? Overconfidence in GenAI Video Discernment is Associated with Sharing Intentions"
         }
       ],
       "fields": [
         "cognitive_science",
-        "neural_architecture"
+        "consciousness_self_models"
       ],
-      "idea": "prediction_error_routing",
-      "n_papers": 2
+      "idea": "self_model_calibration",
+      "n_papers": 4
     }
   ],
   "totals": {
-    "cards_formed": 15,
+    "cards_formed": 17,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 35,
-    "papers": 41,
-    "reads": 21
+    "concepts": 48,
+    "papers": 65,
+    "reads": 24
   }
 }

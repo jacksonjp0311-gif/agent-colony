@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T03:14:01Z",
+  "updated_at": "2026-11-16T04:08:13Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
     "goldbach_even": {
       "family": "goldbach",
       "status": "open",
-      "verified_hi": 478034115,
+      "verified_hi": 481234115,
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "window": 3200000,
       "result": null
@@ -15,7 +15,7 @@
     "collatz_descent": {
       "family": "collatz",
       "status": "open",
-      "verified_hi": 518200000,
+      "verified_hi": 521400000,
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "window": 3200000,
       "result": null
@@ -23,7 +23,7 @@
     "legendre_square_gap": {
       "family": "legendre",
       "status": "open",
-      "verified_hi": 2636607,
+      "verified_hi": 2652607,
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "window": 16000,
       "result": null
@@ -31,7 +31,7 @@
     "lehmer_totient": {
       "family": "lehmer_totient",
       "status": "open",
-      "verified_hi": 242200001,
+      "verified_hi": 243800001,
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "window": 1600000,
       "result": null
@@ -39,7 +39,7 @@
     "erdos_straus": {
       "family": "erdos_straus",
       "status": "open",
-      "verified_hi": 1409127,
+      "verified_hi": 1414127,
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "window": 5000,
       "result": null
@@ -47,7 +47,7 @@
     "twin_primes_hl": {
       "family": "twin_hl",
       "status": "open",
-      "verified_hi": 646200000,
+      "verified_hi": 650200000,
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "window": 4000000,
       "result": null
@@ -273,11 +273,11 @@
   "reviews": [],
   "last": {
     "target": "collatz_descent",
-    "lo": 515000001,
-    "hi": 518200000,
+    "lo": 518200001,
+    "hi": 521400000,
     "outcome": "extended",
-    "verified_hi": 518200000,
-    "cycle_id": "20261116T031241Z_f8dce5"
+    "verified_hi": 521400000,
+    "cycle_id": "20261116T040629Z_90a9aa"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

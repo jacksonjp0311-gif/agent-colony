@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T03:14:02Z",
-  "updated_cycle": "20261116T031241Z_f8dce5",
+  "updated_at": "2026-11-16T04:08:14Z",
+  "updated_cycle": "20261116T040629Z_90a9aa",
   "n_active": 80,
   "n_keeps": 0,
   "n_reverts": 0,
@@ -19,47 +19,9 @@
   },
   "recent": [
     {
-      "id": "les_Z_f42d9d_conjecture",
-      "ts": "2026-11-16T02:50:05Z",
-      "cycle_id": "20261116T024818Z_f42d9d",
-      "type": "catalog_exhausted",
-      "decision": "skip",
-      "check": "conjecture",
-      "mutation": "",
-      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {
-        "oeis_idle": "beyond_bfile",
-        "target": ""
-      },
-      "proposal_fingerprint": "",
-      "tags": [
-        "catalog_exhausted",
-        "oeis_idle"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261116T024818Z_f42d9d",
-        "check": "conjecture",
-        "evidence": []
-      },
-      "scope": "check:conjecture",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_f42d9d_vandermonde",
-      "ts": "2026-11-16T02:50:08Z",
-      "cycle_id": "20261116T024818Z_f42d9d",
+      "id": "les_Z_4f37fd_vandermonde",
+      "ts": "2026-11-16T03:39:48Z",
+      "cycle_id": "20261116T033835Z_4f37fd",
       "type": "skip",
       "decision": "skip",
       "check": "theme_probe_cooldown",
@@ -83,7 +45,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261116T024818Z_f42d9d",
+        "cycle_id": "20261116T033835Z_4f37fd",
         "check": "theme_probe_cooldown",
         "evidence": []
       },
@@ -92,9 +54,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_9014f4_conjecture",
-      "ts": "2026-11-16T02:53:01Z",
-      "cycle_id": "20261116T025134Z_9014f4",
+      "id": "les_Z_50be7e_conjecture",
+      "ts": "2026-11-16T03:42:04Z",
+      "cycle_id": "20261116T034057Z_50be7e",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -121,7 +83,7 @@
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261116T025134Z_9014f4",
+        "cycle_id": "20261116T034057Z_50be7e",
         "check": "conjecture",
         "evidence": []
       },
@@ -130,9 +92,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
     },
     {
-      "id": "les_Z_9014f4_vandermonde",
-      "ts": "2026-11-16T02:53:05Z",
-      "cycle_id": "20261116T025134Z_9014f4",
+      "id": "les_Z_50be7e_vandermonde",
+      "ts": "2026-11-16T03:42:12Z",
+      "cycle_id": "20261116T034057Z_50be7e",
       "type": "skip",
       "decision": "skip",
       "check": "theme_probe_cooldown",
@@ -156,7 +118,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261116T025134Z_9014f4",
+        "cycle_id": "20261116T034057Z_50be7e",
         "check": "theme_probe_cooldown",
         "evidence": []
       },
@@ -165,9 +127,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_227227_conjecture",
-      "ts": "2026-11-16T02:55:53Z",
-      "cycle_id": "20261116T025425Z_227227",
+      "id": "les_Z_5e60cd_conjecture",
+      "ts": "2026-11-16T04:01:18Z",
+      "cycle_id": "20261116T035914Z_5e60cd",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -194,7 +156,7 @@
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261116T025425Z_227227",
+        "cycle_id": "20261116T035914Z_5e60cd",
         "check": "conjecture",
         "evidence": []
       },
@@ -203,9 +165,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
     },
     {
-      "id": "les_Z_227227_vandermonde",
-      "ts": "2026-11-16T02:56:02Z",
-      "cycle_id": "20261116T025425Z_227227",
+      "id": "les_Z_5e60cd_vandermonde",
+      "ts": "2026-11-16T04:01:22Z",
+      "cycle_id": "20261116T035914Z_5e60cd",
       "type": "skip",
       "decision": "skip",
       "check": "theme_probe_cooldown",
@@ -229,7 +191,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261116T025425Z_227227",
+        "cycle_id": "20261116T035914Z_5e60cd",
         "check": "theme_probe_cooldown",
         "evidence": []
       },
@@ -238,9 +200,45 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_1b6b99_conjecture",
-      "ts": "2026-11-16T03:08:38Z",
-      "cycle_id": "20261116T030708Z_1b6b99",
+      "id": "les_Z_fbeb4a_stall",
+      "ts": "2026-11-16T04:03:27Z",
+      "cycle_id": "20261116T040255Z_fbeb4a",
+      "type": "skip",
+      "decision": "skip",
+      "check": "stall",
+      "mutation": "",
+      "what": "STALL detected at cycle 20261116T040255Z_fbeb4a, entering perturb (seed 4664215141401000814)",
+      "source": "stall",
+      "family": "stall",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "stall_detected",
+        "perturb",
+        "flat_passes"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "stall",
+        "cycle_id": "20261116T040255Z_fbeb4a",
+        "check": "stall",
+        "evidence": []
+      },
+      "scope": "check:stall",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `stall` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_fbeb4a_conjecture",
+      "ts": "2026-11-16T04:04:54Z",
+      "cycle_id": "20261116T040255Z_fbeb4a",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -267,7 +265,7 @@
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261116T030708Z_1b6b99",
+        "cycle_id": "20261116T040255Z_fbeb4a",
         "check": "conjecture",
         "evidence": []
       },
@@ -276,9 +274,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
     },
     {
-      "id": "les_Z_1b6b99_vandermonde",
-      "ts": "2026-11-16T03:08:41Z",
-      "cycle_id": "20261116T030708Z_1b6b99",
+      "id": "les_Z_fbeb4a_vandermonde",
+      "ts": "2026-11-16T04:04:57Z",
+      "cycle_id": "20261116T040255Z_fbeb4a",
       "type": "skip",
       "decision": "skip",
       "check": "theme_probe_cooldown",
@@ -302,7 +300,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261116T030708Z_1b6b99",
+        "cycle_id": "20261116T040255Z_fbeb4a",
         "check": "theme_probe_cooldown",
         "evidence": []
       },
@@ -311,9 +309,83 @@
       "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
     },
     {
-      "id": "les_Z_62cb87_conjecture",
-      "ts": "2026-11-16T03:11:21Z",
-      "cycle_id": "20261116T031002Z_62cb87",
+      "id": "les_Z_fbeb4a_stall",
+      "ts": "2026-11-16T04:04:59Z",
+      "cycle_id": "20261116T040255Z_fbeb4a",
+      "type": "skip",
+      "decision": "skip",
+      "check": "stall",
+      "mutation": "",
+      "what": "PERTURB had 0 eligible picks at cycle 20261116T040255Z_fbeb4a, escalating to mutation-first and a broader pool",
+      "source": "stall",
+      "family": "stall",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "perturb",
+        "escalate",
+        "mutate",
+        "zero_picks"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "stall",
+        "cycle_id": "20261116T040255Z_fbeb4a",
+        "check": "stall",
+        "evidence": []
+      },
+      "scope": "check:stall",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `stall` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_fbeb4a_stall",
+      "ts": "2026-11-16T04:05:01Z",
+      "cycle_id": "20261116T040255Z_fbeb4a",
+      "type": "skip",
+      "decision": "skip",
+      "check": "stall",
+      "mutation": "",
+      "what": "Recovered at cycle 20261116T040255Z_fbeb4a because no_candidates",
+      "source": "stall",
+      "family": "stall",
+      "before_score": null,
+      "after_score": null,
+      "skill_bias": {},
+      "genome_prior": {},
+      "catalog_hint": {},
+      "proposal_fingerprint": "",
+      "tags": [
+        "stall_recovered",
+        "perturb",
+        "no_candidates",
+        "no_candidates"
+      ],
+      "evidence": [],
+      "author": null,
+      "expired": false,
+      "status": "candidate",
+      "provenance": {
+        "source": "stall",
+        "cycle_id": "20261116T040255Z_fbeb4a",
+        "check": "stall",
+        "evidence": []
+      },
+      "scope": "check:stall",
+      "counterexamples": [],
+      "invalidated_if": "a later Oracle/holdout verdict on `stall` contradicts decision=skip"
+    },
+    {
+      "id": "les_Z_90a9aa_conjecture",
+      "ts": "2026-11-16T04:08:09Z",
+      "cycle_id": "20261116T040629Z_90a9aa",
       "type": "catalog_exhausted",
       "decision": "skip",
       "check": "conjecture",
@@ -340,7 +412,7 @@
       "status": "candidate",
       "provenance": {
         "source": "conjecture_desk",
-        "cycle_id": "20261116T031002Z_62cb87",
+        "cycle_id": "20261116T040629Z_90a9aa",
         "check": "conjecture",
         "evidence": []
       },
@@ -349,9 +421,9 @@
       "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
     },
     {
-      "id": "les_Z_62cb87_vandermonde",
-      "ts": "2026-11-16T03:11:23Z",
-      "cycle_id": "20261116T031002Z_62cb87",
+      "id": "les_Z_90a9aa_vandermonde",
+      "ts": "2026-11-16T04:08:14Z",
+      "cycle_id": "20261116T040629Z_90a9aa",
       "type": "skip",
       "decision": "skip",
       "check": "theme_probe_cooldown",
@@ -375,80 +447,7 @@
       "status": "candidate",
       "provenance": {
         "source": "claim_pipeline",
-        "cycle_id": "20261116T031002Z_62cb87",
-        "check": "theme_probe_cooldown",
-        "evidence": []
-      },
-      "scope": "mutation:vandermonde",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `vandermonde` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_f8dce5_conjecture",
-      "ts": "2026-11-16T03:13:58Z",
-      "cycle_id": "20261116T031241Z_f8dce5",
-      "type": "catalog_exhausted",
-      "decision": "skip",
-      "check": "conjecture",
-      "mutation": "",
-      "what": "catalog exhausted \u2014 OEIS idle turn (zero-credit family or beyond b-file)",
-      "source": "conjecture_desk",
-      "family": "hard_tier",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {
-        "oeis_idle": "beyond_bfile",
-        "target": ""
-      },
-      "proposal_fingerprint": "",
-      "tags": [
-        "catalog_exhausted",
-        "oeis_idle"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "conjecture_desk",
-        "cycle_id": "20261116T031241Z_f8dce5",
-        "check": "conjecture",
-        "evidence": []
-      },
-      "scope": "check:conjecture",
-      "counterexamples": [],
-      "invalidated_if": "a later Oracle/holdout verdict on `conjecture` contradicts decision=skip"
-    },
-    {
-      "id": "les_Z_f8dce5_vandermonde",
-      "ts": "2026-11-16T03:14:01Z",
-      "cycle_id": "20261116T031241Z_f8dce5",
-      "type": "skip",
-      "decision": "skip",
-      "check": "theme_probe_cooldown",
-      "mutation": "vandermonde",
-      "what": "skip saturated claim_theme vandermonde: no harder unused window",
-      "source": "claim_pipeline",
-      "family": "claim_theme",
-      "before_score": null,
-      "after_score": null,
-      "skill_bias": {},
-      "genome_prior": {},
-      "catalog_hint": {},
-      "proposal_fingerprint": "",
-      "tags": [
-        "theme_probe_cooldown",
-        "saturated_claim_theme"
-      ],
-      "evidence": [],
-      "author": null,
-      "expired": false,
-      "status": "candidate",
-      "provenance": {
-        "source": "claim_pipeline",
-        "cycle_id": "20261116T031241Z_f8dce5",
+        "cycle_id": "20261116T040629Z_90a9aa",
         "check": "theme_probe_cooldown",
         "evidence": []
       },

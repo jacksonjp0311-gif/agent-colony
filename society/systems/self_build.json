@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 18,
+ "cycle_index": 21,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -30,14 +30,14 @@
     "plan": []
    }
   },
-  "opened_cycle_id": "20261116T025418Z_bc5f88",
-  "code_fp": "7ab6e2fda502619cd2836c5a82ec408d513f16a197cba71d18ddfea1304c878a",
-  "opened_cycle_index": 17,
-  "open_row": 110,
+  "opened_cycle_id": "20261116T034257Z_9f3f23",
+  "code_fp": "8baf147194cb0bff244f3eac56615ce6ba674d714b79ce1e6207532c8ad8f251",
+  "opened_cycle_index": 20,
+  "open_row": 111,
   "window_rows": 2,
   "baseline_gain": [
-   0.0,
-   217088.0
+   1.0,
+   12000.0
   ]
  },
  "tried": {
@@ -90,7 +90,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261116T025418Z_bc5f88",
+  "cycle_id": "20261116T034257Z_9f3f23",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -99,12 +99,12 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 195,
-     "duplicate": 28,
-     "trivial_formal": 1,
+     "fitted": 183,
+     "duplicate": 19,
+     "trivial_formal": 2,
      "trivial_shuffle_null": 2,
-     "trivial_idle_part": 8,
-     "trivial_implied_parts": 61,
+     "trivial_idle_part": 4,
+     "trivial_implied_parts": 91,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
@@ -112,34 +112,35 @@
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 2,
-     "expected_by_closure": 5,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 4,
      "loose_inequality": 0,
-     "tested": 19,
-     "survived": 8,
-     "falsified": 11,
-     "machine_checked": 5,
+     "tested": 20,
+     "survived": 6,
+     "falsified": 14,
+     "machine_checked": 4,
      "surprises": 0,
-     "known_result": 1,
+     "known_result": 0,
      "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
      "no_reference_found": 1,
      "explained_by_known_check": 1,
-     "trivial_confirmed on range": 7,
-     "trivial_known_in_principle(definition_parity)": 2
+     "trivial_known_in_principle(definition_parity)": 2,
+     "trivial_confirmed on range": 11,
+     "trivial_known_in_principle(compositional)": 1
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 1.411
+  "cpu_s": 1.622
  },
  "last_skip": null,
  "kept_count": 1,
  "reverted_count": 1,
  "inconclusive_count": 0,
- "voided_count": 1,
+ "voided_count": 2,
  "heal_turn": null,
- "last_propose_cycle": "20261116T025418Z_bc5f88"
+ "last_propose_cycle": "20261116T034257Z_9f3f23"
 }
