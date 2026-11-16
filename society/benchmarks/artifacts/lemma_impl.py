@@ -2346,6 +2346,42 @@ def check_oeis_a000262_lah_row_sums(n: int) -> bool:
     return lah == a[n]
 
 
+def check_oeis_a001764_ternary_trees(n: int) -> bool:
+    """Ternary trees A001764: C(3n,n)/(2n+1) equals the tree decomposition
+    a(m) = sum_{i+j+k=m-1} a(i) a(j) a(k)."""
+    if n < 0:
+        return True
+    a = [1]
+    for m in range(1, n + 1):
+        pair = [sum(a[i] * a[s - i] for i in range(s + 1)) for s in range(m)]
+        a.append(sum(a[i] * pair[m - 1 - i] for i in range(m)))
+    return (2 * n + 1) * a[n] == math.comb(3 * n, n)
+
+
+def check_oeis_a000957_fine_no_hills(n: int) -> bool:
+    """Fine numbers A000957: Dyck paths with no hill (peak at height 1), counted by a path DP,
+    satisfy 2 F(n) + F(n-1) = Catalan(n) = C(2n,n)/(n+1)."""
+    if n < 1:
+        return True
+
+    def no_hills(m: int) -> int:
+        if m == 0:
+            return 1
+        # state: (height, last step was an up-step from height 0)
+        cur = {(0, False): 1}
+        for _ in range(2 * m):
+            nxt = {}
+            for (h, from0), c in cur.items():
+                key = (h + 1, h == 0)
+                nxt[key] = nxt.get(key, 0) + c
+                if h > 0 and not (h == 1 and from0):
+                    key = (h - 1, False)
+                    nxt[key] = nxt.get(key, 0) + c
+            cur = nxt
+        return cur.get((0, False), 0)
+    return 2 * no_hills(n) + no_hills(n - 1) == math.comb(2 * n, n) // (n + 1)
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2583,6 +2619,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a002426_central_trinomial", lambda: all(check_oeis_a002426_central_trinomial(n) for n in range(0, 50)), True),
     ("oeis_a000111_zigzag_boustrophedon", lambda: all(check_oeis_a000111_zigzag_boustrophedon(n) for n in range(0, 40)), True),
     ("oeis_a000262_lah_row_sums", lambda: all(check_oeis_a000262_lah_row_sums(n) for n in range(0, 40)), True),
+    ("oeis_a001764_ternary_trees", lambda: all(check_oeis_a001764_ternary_trees(n) for n in range(0, 40)), True),
+    ("oeis_a000957_fine_no_hills", lambda: all(check_oeis_a000957_fine_no_hills(n) for n in range(1, 40)), False),
 ]
 
 

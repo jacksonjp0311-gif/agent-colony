@@ -1,9 +1,9 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
    92,
-   34
+   33
   ],
   "divides": [
    25,
@@ -26,7 +26,7 @@
  "n_authored": 22,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 41,
+ "n_proved": 40,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -973,6 +973,18 @@
    "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): p | x implies p | rad(x); rad(x) is odd for odd x; n < 64 checked directly",
    "unknown": false,
    "v": 3
+  },
+  "D(gcd(oxa047700,oxa316344))(n) = 1 (mod 2) for all n = 2 (mod 4)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x4f28bb89_w1",
+   "checks": 497,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
   },
   "D(gcd(oxa072856,pi))(n) = 0 (mod 2) for all n = 3 (mod 6)": {
    "authored": false,
@@ -5243,60 +5255,6 @@
    "unknown": true,
    "v": 4
   },
-  "sh(n)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 2,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "sh(n)",
-       "kids": [
-        {
-         "e": "n",
-         "pt": [
-          1,
-          1
-         ],
-         "rule": "nclass",
-         "val": {
-          "a": {},
-          "c": 1,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "sh",
-       "val": {
-        "a": {},
-        "c": 1,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x6e6fd5fa_w1",
-   "checks": 29994,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 2, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)": {
    "authored": false,
    "certificate": {
@@ -5757,6 +5715,6 @@
    "v": 4
   }
  },
- "seconds": 0.03,
- "ts": "2026-11-16T14:15:57Z"
+ "seconds": 0.17,
+ "ts": "2026-11-16T14:46:00Z"
 }

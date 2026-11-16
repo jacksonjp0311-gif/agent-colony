@@ -98,6 +98,20 @@
       "snippet": "enable:oeis_a000262_lah_row_sums",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a001764_ternary_trees",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a001764_ternary_trees",
+      "status": "candidate",
+      "disabled_default": true
+    },
+    {
+      "name": "oeis_a000957_fine_no_hills",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a000957_fine_no_hills",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."
