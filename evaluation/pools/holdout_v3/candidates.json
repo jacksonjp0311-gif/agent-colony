@@ -1,0 +1,125 @@
+{
+ "version": 1,
+ "candidates": [
+  {
+   "name": "pool_w01_bertrand_postulate",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w01_bertrand_postulate() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(any(_pv3_isprime(p) for p in range(n + 1, 2 * n + 1)) for n in range(1, 300))\n"
+  },
+  {
+   "name": "pool_w02_wolstenholme",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w02_wolstenholme() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(math.comb(2 * p - 1, p - 1) % p ** 3 == 1 for p in range(5, 60) if _pv3_isprime(p))\n"
+  },
+  {
+   "name": "pool_w03_divisor_count_hyperbola",
+   "helpers_src": "\ndef _pv3_ndiv(n):\n    return sum(1 for d in range(1, n + 1) if n % d == 0)\n",
+   "check_src": "\ndef check_pool_w03_divisor_count_hyperbola() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(sum(_pv3_ndiv(k) for k in range(1, n + 1)) == sum(n // k for k in range(1, n + 1)) for n in range(1, 120))\n"
+  },
+  {
+   "name": "pool_w04_factorial_succ_coprime",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_w04_factorial_succ_coprime() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(math.gcd(math.factorial(n) + 1, math.factorial(n + 1) + 1) == 1 for n in range(1, 60))\n"
+  },
+  {
+   "name": "pool_w05_sylvester_coprime",
+   "helpers_src": "\ndef _pv3_sylvester(k):\n    s = [2]\n    while len(s) < k:\n        s.append(s[-1] * s[-1] - s[-1] + 1)\n    return s\n",
+   "check_src": "\ndef check_pool_w05_sylvester_coprime() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(math.gcd(a, b) == 1 for i, a in enumerate(_pv3_sylvester(8)) for b in _pv3_sylvester(8)[:i])\n"
+  },
+  {
+   "name": "pool_w06_euler_criterion_multiplicative",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w06_euler_criterion_multiplicative() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(pow(a * b, (p - 1) // 2, p) == (pow(a, (p - 1) // 2, p) * pow(b, (p - 1) // 2, p)) % p for p in range(3, 40) if _pv3_isprime(p) for a in range(1, p) for b in range(1, p))\n"
+  },
+  {
+   "name": "pool_w07_josephus_k2_closed_form",
+   "helpers_src": "\ndef _pv3_josephus(n):\n    people = list(range(1, n + 1))\n    i = 0\n    while len(people) > 1:\n        i = (i + 1) % len(people)\n        people.pop(i)\n    return people[0]\n",
+   "check_src": "\ndef check_pool_w07_josephus_k2_closed_form() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv3_josephus(n) == 2 * (n - (1 << (n.bit_length() - 1))) + 1 for n in range(1, 150))\n"
+  },
+  {
+   "name": "pool_w08_gray_code_adjacent",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_w08_gray_code_adjacent() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(bin((n ^ (n >> 1)) ^ ((n + 1) ^ ((n + 1) >> 1))).count('1') == 1 for n in range(0, 2000))\n"
+  },
+  {
+   "name": "pool_w09_stern_diatomic_coprime",
+   "helpers_src": "\ndef _pv3_stern(n, _memo={0: 0, 1: 1}):\n    if n not in _memo:\n        h = n // 2\n        _memo[n] = _pv3_stern(h) if n % 2 == 0 else _pv3_stern(h) + _pv3_stern(h + 1)\n    return _memo[n]\n",
+   "check_src": "\ndef check_pool_w09_stern_diatomic_coprime() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(math.gcd(_pv3_stern(n), _pv3_stern(n + 1)) == 1 for n in range(1, 1500))\n"
+  },
+  {
+   "name": "pool_w10_kaprekar_6174",
+   "helpers_src": "\ndef _pv3_kaprekar_ok(n):\n    ds = f\"{n:04d}\"\n    if len(set(ds)) == 1:\n        return True\n    for _ in range(7):\n        if n == 6174:\n            return True\n        ds = f\"{n:04d}\"\n        n = int(\"\".join(sorted(ds, reverse=True))) - int(\"\".join(sorted(ds)))\n    return n == 6174\n",
+   "check_src": "\ndef check_pool_w10_kaprekar_6174() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv3_kaprekar_ok(n) for n in range(1000, 10000))\n"
+  },
+  {
+   "name": "pool_w11_prime_square_mod24",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w11_prime_square_mod24() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(p * p % 24 == 1 for p in range(5, 3000) if _pv3_isprime(p))\n"
+  },
+  {
+   "name": "pool_w12_ramsey_r33_k6",
+   "helpers_src": "\ndef _pv3_k6_mono_triangle():\n    import itertools\n    edges = list(itertools.combinations(range(6), 2))\n    idx = {e: i for i, e in enumerate(edges)}\n    tris = [(idx[(a, b)], idx[(a, c)], idx[(b, c)]) for a, b, c in itertools.combinations(range(6), 3)]\n    for mask in range(1 << 15):\n        if not any(((mask >> x) & 1) == ((mask >> y) & 1) == ((mask >> z) & 1) for x, y, z in tris):\n            return False\n    return True\n",
+   "check_src": "\ndef check_pool_w12_ramsey_r33_k6() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return _pv3_k6_mono_triangle()\n"
+  },
+  {
+   "name": "pool_w13_prime_prefix_sum_nonsquare",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w13_prime_prefix_sum_nonsquare() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(math.isqrt(s) ** 2 != s for s in [sum([p for p in range(2, 200) if _pv3_isprime(p)][:n]) for n in range(1, 9)])\n"
+  },
+  {
+   "name": "pool_w14_fermat_base3_implies_prime",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w14_fermat_base3_implies_prime() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv3_isprime(n) for n in range(2, 91) if pow(3, n - 1, n) == 1)\n"
+  },
+  {
+   "name": "pool_w15_odd_composite_prime_twice_square",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w15_odd_composite_prime_twice_square() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv3_isprime(n) or any(_pv3_isprime(n - 2 * k * k) for k in range(1, math.isqrt(n // 2) + 1)) for n in range(9, 5777, 2))\n"
+  },
+  {
+   "name": "pool_w16_n2_plus_1_squarefree",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_w16_n2_plus_1_squarefree() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(all((n * n + 1) % (d * d) for d in range(2, math.isqrt(n * n + 1) + 1)) for n in range(1, 7))\n"
+  },
+  {
+   "name": "pool_w17_euclid_primorial_prime",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n",
+   "check_src": "\ndef check_pool_w17_euclid_primorial_prime() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv3_isprime(math.prod([p for p in range(2, 30) if _pv3_isprime(p)][:k]) + 1) for k in range(1, 6))\n"
+  },
+  {
+   "name": "pool_w18_fibonacci_prime_index",
+   "helpers_src": "\ndef _pv3_isprime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n\ndef _pv3_fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+   "check_src": "\ndef check_pool_w18_fibonacci_prime_index() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(_pv3_isprime(_pv3_fib(p)) for p in range(3, 19) if _pv3_isprime(p))\n"
+  },
+  {
+   "name": "pool_w19_three_cubes_33_none",
+   "helpers_src": "\ndef _pv3_cube33(N):\n    for x in range(-N, N + 1):\n        for y in range(-N, N + 1):\n            r = 33 - x ** 3 - y ** 3\n            z = round(abs(r) ** (1.0 / 3)) * (1 if r >= 0 else -1)\n            for zz in (z - 1, z, z + 1):\n                if zz ** 3 == r and max(abs(x), abs(y), abs(zz)) == N:\n                    return True\n    return False\n",
+   "check_src": "\ndef check_pool_w19_three_cubes_33_none() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(not _pv3_cube33(N) for N in range(0, 40))\n"
+  },
+  {
+   "name": "pool_w20_euler_sum_of_fifth_powers",
+   "helpers_src": "\ndef _pv3_four_fifths(e):\n    t = e ** 5\n    fifth = {i ** 5: i for i in range(1, e)}\n    for a in range(1, e):\n        for b in range(a, e):\n            for c in range(b, e):\n                r = t - a ** 5 - b ** 5 - c ** 5\n                if r < c ** 5:\n                    break\n                if r in fifth:\n                    return True\n    return False\n",
+   "check_src": "\ndef check_pool_w20_euler_sum_of_fifth_powers() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(not _pv3_four_fifths(e) for e in range(2, 60))\n"
+  },
+  {
+   "name": "pool_w21_consecutive_square_gap",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_w21_consecutive_square_gap() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all((n + 1) ** 2 - n * n == 2 * n + 1 for n in range(-50, 50))\n"
+  },
+  {
+   "name": "pool_w22_consecutive_product_even",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_w22_consecutive_product_even() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(n * (n + 1) % 2 == 0 for n in range(-50, 50))\n"
+  },
+  {
+   "name": "pool_w23_max_ge_min",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_w23_max_ge_min() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(max(a, b) >= min(a, b) for a in range(-10, 10) for b in range(-10, 10))\n"
+  },
+  {
+   "name": "pool_w24_mod7_bound",
+   "helpers_src": "",
+   "check_src": "\ndef check_pool_w24_mod7_bound() -> bool:\n    \"\"\"Trust-loop pool candidate (external). Disabled until the desk judges it.\"\"\"\n    return all(0 <= n % 7 < 7 for n in range(-100, 100))\n"
+  }
+ ]
+}

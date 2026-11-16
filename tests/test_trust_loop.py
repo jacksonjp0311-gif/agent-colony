@@ -53,7 +53,8 @@ def test_colony_never_references_holdout_or_evaluator():
                     offenders.append(f"{p.name}:import")
             if isinstance(n, ast.Constant) and isinstance(n.value, str) and id(n) not in docs:
                 v = n.value
-                if "holdout_v1" in v or "holdout_v2" in v or v.startswith("pool_v") or "labels.json" in v or "pools" == v:
+                if ("holdout_v1" in v or "holdout_v2" in v or "holdout_v3" in v or v.startswith(("pool_v", "pool_w"))
+                        or "labels.json" in v or "pools" == v):
                     offenders.append(f"{p.name}:{v[:40]}")
                 if v == "evaluation" and p.name != "gate.py":
                     offenders.append(f"{p.name}:{v}")
