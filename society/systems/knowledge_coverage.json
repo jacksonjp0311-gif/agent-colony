@@ -100,22 +100,22 @@
       "reads": 2
     },
     "recursive_self_improvement": {
-      "cards_formed": 1,
+      "cards_formed": 2,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 0,
-      "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 1
+      "concepts": 1,
+      "distinct_concepts": 1,
+      "papers": 8,
+      "reads": 2
     },
     "self_learning_loops": {
       "cards_formed": 2,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 8,
+      "concepts": 10,
       "distinct_concepts": 4,
-      "papers": 9,
-      "reads": 2
+      "papers": 11,
+      "reads": 3
     },
     "swarm_collective_intelligence": {
       "cards_formed": 6,
@@ -124,10 +124,10 @@
       "concepts": 7,
       "distinct_concepts": 2,
       "papers": 8,
-      "reads": 2
+      "reads": 3
     }
   },
-  "fields_with_papers": 8,
+  "fields_with_papers": 9,
   "n_fields": 14,
   "note": "Breadth of reading. Cards are kept only by self-heal windows + twin control. Not AGI.",
   "top_architecture_ideas": [
@@ -158,6 +158,31 @@
       "n_papers": 7
     },
     {
+      "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
+      "examples": [
+        {
+          "arxiv_id": "2611.15426",
+          "field": "self_learning_loops",
+          "title": "SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction"
+        },
+        {
+          "arxiv_id": "2611.10841",
+          "field": "self_learning_loops",
+          "title": "A Gamified Framework for Conflict-Driven Design: Discovering Strategies for Collaborative Resilience with Multi-Agent Learning"
+        },
+        {
+          "arxiv_id": "2611.08908",
+          "field": "self_learning_loops",
+          "title": "Toward LLM Self-Play Under Data Scarcity: Effectiveness, Generalizability, and Trustworthiness"
+        }
+      ],
+      "fields": [
+        "self_learning_loops"
+      ],
+      "idea": "self_play_challenger",
+      "n_papers": 7
+    },
+    {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
       "examples": [
         {
@@ -182,31 +207,6 @@
       ],
       "idea": "meta_controller",
       "n_papers": 6
-    },
-    {
-      "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
-      "examples": [
-        {
-          "arxiv_id": "2611.15426",
-          "field": "self_learning_loops",
-          "title": "SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction"
-        },
-        {
-          "arxiv_id": "2611.10841",
-          "field": "self_learning_loops",
-          "title": "A Gamified Framework for Conflict-Driven Design: Discovering Strategies for Collaborative Resilience with Multi-Agent Learning"
-        },
-        {
-          "arxiv_id": "2611.08908",
-          "field": "self_learning_loops",
-          "title": "Toward LLM Self-Play Under Data Scarcity: Effectiveness, Generalizability, and Trustworthiness"
-        }
-      ],
-      "fields": [
-        "self_learning_loops"
-      ],
-      "idea": "self_play_challenger",
-      "n_papers": 5
     },
     {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
@@ -261,11 +261,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 17,
+    "cards_formed": 18,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 48,
-    "papers": 65,
-    "reads": 30
+    "concepts": 51,
+    "papers": 75,
+    "reads": 33
   }
 }

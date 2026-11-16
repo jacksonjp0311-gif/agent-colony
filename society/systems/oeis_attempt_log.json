@@ -2282,6 +2282,21 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A039924_0",
+   "anum": "A039924",
+   "form": "relation",
+   "depth": 499,
+   "bfile_hi": 5000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T053003Z_763b1a",
+   "planned": 5000,
+   "verified_depth": 499,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
@@ -2543,13 +2558,16 @@
    "oc_A000002_0",
    "oc_A275207_0",
    "oc_A001171_0"
+  ],
+  "20261116T053003Z_763b1a": [
+   "oc_A039924_0"
   ]
  },
  "last_forms": [
   "relation",
+  "gf",
+  "gf",
   "relation",
-  "gf",
-  "gf",
   "relation",
   "relation",
   "relation",

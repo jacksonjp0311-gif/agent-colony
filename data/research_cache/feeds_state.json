@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-16T05:04:05Z",
+    "fetched_at": "2026-11-16T05:25:57Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-16T05:25:06Z",
+        "id": 43810086871,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-16T05:25:11Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-16T05:03:26Z",
         "id": 43807764880,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-16T05:03:31Z"
+        "status": "completed",
+        "updated_at": "2026-11-16T05:25:09Z"
       },
       {
         "conclusion": "success",
@@ -90,17 +98,9 @@
         "name": "Read-only tests",
         "status": "completed",
         "updated_at": "2026-11-16T04:30:23Z"
-      },
-      {
-        "conclusion": "failure",
-        "created_at": "2026-11-16T04:18:16Z",
-        "id": 43803281801,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-16T04:36:29Z"
       }
     ],
-    "success_rate": 0.9091
+    "success_rate": 1.0
   },
   "health": {
     "arxiv": {
@@ -147,31 +147,27 @@
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 3,
-        "new": 1,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 10,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 1,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-11-16T05:04:00Z"
+    "ts": "2026-11-16T05:25:57Z"
   },
-  "runs": 355
+  "runs": 356
 }
