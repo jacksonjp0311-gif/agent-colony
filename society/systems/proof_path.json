@@ -1,12 +1,12 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
    90,
    35
   ],
   "divides": [
-   21,
+   22,
    3
   ],
   "identity": [
@@ -22,7 +22,7 @@
    0
   ],
   "rec": [
-   10,
+   9,
    8
   ]
  },
@@ -3008,18 +3008,6 @@
    "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
    "unknown": false,
    "v": 3
-  },
-  "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)": {
-   "authored": false,
-   "certificate": null,
-   "check": "authored_frontier_rec_xc42ae1f2_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "not proved",
-   "summary": null,
-   "unknown": false,
-   "v": 4
   },
   "a(n) = dbl((lpf+oxa083104))(n) satisfies a(n+3) = 1*a(n+0) + -4*a(n+1) + 4*a(n+2)": {
    "authored": false,
@@ -6302,6 +6290,18 @@
    "unknown": true,
    "v": 4
   },
+  "phi[rev](n) divides dbl(oxa056971)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_xb83e5226_w1",
+   "checks": 88,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "pi[prime](n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
    "certificate": {
@@ -7161,5 +7161,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T07:36:47Z"
+ "ts": "2026-11-16T08:01:24Z"
 }

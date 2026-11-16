@@ -1,22 +1,23 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T07:35:36Z",
+  "updated_at": "2026-11-16T08:00:00Z",
   "hits": 10,
   "kills": 15,
   "rows": 30,
   "kill_rows": 20,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T07:35:36Z",
-    "cycle_id": "20261116T073404Z_c1df68",
-    "mutation": "stem_velocity_addition",
+    "ts": "2026-11-16T08:00:00Z",
+    "cycle_id": "20261116T075834Z_fb4564",
+    "mutation": "stem_kepler_third_law",
     "kind": "stem_enable",
     "novel_to_commons": false,
     "kills": [
+      "already_in_lesson_ledger_or_history",
       "held_out:hard_tier_green_and_hard_enable"
     ],
     "textbook_reuse": 0.3333,
-    "in_ledger": false,
+    "in_ledger": true,
     "own_authoring_record_only": false,
     "oracle_used": "caller_verdict",
     "stripped": {
@@ -25,7 +26,7 @@
       "hard_pass": 171,
       "hard_n": 171,
       "stripped_fails_usefulness": true,
-      "score": 0.8716,
+      "score": 0.8717,
       "impl_id": "lemma_impl_v2_basic10_hard171"
     },
     "held_out": {

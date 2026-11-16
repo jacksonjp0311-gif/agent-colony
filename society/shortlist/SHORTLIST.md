@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-11-16 02:37 AM ET
+# Proposal shortlist — 2026-11-16 03:02 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-36 of 167 proposals meet the authorize bar (27 after grouping near-duplicates; 23 colony-authored, 4 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+36 of 168 proposals meet the authorize bar (27 after grouping near-duplicates; 23 colony-authored, 4 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -11,7 +11,7 @@ View only: nothing here is authorized. Only James authorizes.
 | 3 | imp_6a3c68_50 | 0.8837 | 1.0 | 0.0 | APPROVE | 1 | 16 (0.6583, below bar) | Enable `authored_frontier_le_x10223e69_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8837, novelty 1.0. |
 | 4 | imp_6fad91_50 | 0.8832 | 1.0 | 0.0 | APPROVE | 2 | 24 (0.6461, below bar) | Enable `authored_frontier_cong_xa8371e31_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8832, novelty 1.0. |
 | 5 | imp_3a01d0_50 | 0.8829 | 1.0 | 0.0 | APPROVE | 1 | 17 (0.6575, below bar) | Enable `authored_frontier_divides_x0c5f5f5b_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8829, novelty 1.0. |
-| 6 | imp_824b7f_50 | 0.8813 | 1.0 | 0.0 | APPROVE | 3 | 25 (0.6442, below bar) | Enable `authored_frontier_cong_x41b05781_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8813, novelty 1.0. |
+| 6 | imp_824b7f_50 | 0.8813 | 1.0 | 0.0 | n/a yet | 3 | 25 (0.6442, below bar) | Enable `authored_frontier_cong_x41b05781_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8813, novelty 1.0. |
 | 7 | imp_36d506_50 | 0.8784 | 1.0 | 0.0 | APPROVE | 1 | 2 (0.8784) | Enable `authored_frontier_le_x423b0686_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8784, novelty 1.0. |
 | 8 | imp_8790f7_50 | 0.8774 | 1.0 | 0.0 | n/a yet | 1 | 3 (0.8774) | Enable `authored_frontier_cong_x29d14f44_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8774, novelty 1.0. |
 | 9 | imp_dbe023_50 | 0.8774 | 1.0 | 0.0 | n/a yet | 1 | 4 (0.8774) | Enable `authored_frontier_cong_x2f9c7891_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8774, novelty 1.0. |
@@ -45,13 +45,13 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 14 (actual 36). Unknown clai
 | 9 | imp_18d1e0_50 | `authored_frontier_cong_xbb82919e_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 23 |
 | 10 | imp_53f6c2_49 | `authored_frontier_cong_x06b60875_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 25 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 22, novelty_killed: 25, oracle_killed_in_own_cycle: 8, status: 93, target_unresolved: 93
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 22, novelty_killed: 26, oracle_killed_in_own_cycle: 8, status: 92, target_unresolved: 93
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 15 tested, 4 survived held-out, 11 falsified, 2 machine-checked, 0 surprises; dropped 30 duplicates, 114 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1124.
-Totals: tested 12215, survived 4651, surprises 133, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 14 tested, 4 survived held-out, 10 falsified, 2 machine-checked, 0 surprises; dropped 26 duplicates, 61 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1125.
+Totals: tested 12313, survived 4681, surprises 134, false surprises (failed later re-test) 0.
 Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |

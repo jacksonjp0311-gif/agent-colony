@@ -1537,15 +1537,61 @@
           "treatment": 412559.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "deep_digits",
+        "op": "set_knob",
+        "value": 11647
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 24.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261116T075057Z_0b95bb",
+      "event": "labeled_example",
+      "family": "set_knob:deep_digits",
+      "field": "",
+      "id": "d063b1f59a2c4f34",
+      "knob": "deep_digits",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "d063b1f59a2c4f34",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-16T07:53:22Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8127
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 552.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 107573.0,
+          "treatment": 432558.0
+        }
+      }
     }
   ],
   "families": {
     "set_knob:deep_digits": {
-      "keep_rate_permille": 1000,
+      "keep_rate_permille": 800,
       "kept": 4,
-      "n": 4,
+      "n": 5,
       "reverted": 0,
-      "voided": 0
+      "voided": 1
     },
     "set_knob:deep_seconds": {
       "inconclusive": 2,
@@ -1593,7 +1639,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261116T073404Z_c1df68",
+  "last_cycle": "20261116T075834Z_fb4564",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -1618,7 +1664,7 @@
   "n_proposed": 7,
   "n_reverted": 4,
   "n_twin_held": 0,
-  "n_voided": 14,
+  "n_voided": 15,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
   "pending": [
     {
@@ -1758,7 +1804,7 @@
     "pending": 64,
     "resolved": 100,
     "source": "hive_shadows",
-    "ts": "2026-11-16T07:37:20Z",
+    "ts": "2026-11-16T08:02:06Z",
     "unlabeled": 0
   },
   "twin_pending": [],
