@@ -3014,6 +3014,88 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A005206_0",
+   "anum": "A005206",
+   "form": "relation",
+   "depth": 499,
+   "bfile_hi": 20000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T114535Z_5e1ee7",
+   "planned": 20000,
+   "verified_depth": 499,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A178520_0",
+   "anum": "A178520",
+   "form": "relation",
+   "depth": 262,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T114535Z_5e1ee7",
+   "planned": 1000,
+   "verified_depth": 262,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A094213_0",
+   "anum": "A094213",
+   "form": "gf",
+   "depth": 369,
+   "bfile_hi": 369,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261116T114836Z_dc23c0",
+   "planned": 20000,
+   "verified_depth": 369,
+   "prior_tested_hi": 4352,
+   "extended": 0
+  },
+  {
+   "id": "oc_A094213_0",
+   "anum": "A094213",
+   "form": "gf",
+   "depth": 4608,
+   "bfile_hi": 369,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T114836Z_dc23c0",
+   "planned": 20000,
+   "verified_depth": 4608,
+   "prior_tested_hi": 4352,
+   "extended": 256,
+   "cap_reason": "digit_cap",
+   "cap_value": 12000,
+   "fast_cfinite": true,
+   "deep_terms": 4609,
+   "deep_elapsed_s": 0.03
+  },
+  {
+   "id": "oc_A094213_0",
+   "anum": "A094213",
+   "form": "gf",
+   "depth": 4608,
+   "bfile_hi": 369,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T115202Z_9322f5",
+   "planned": 20000,
+   "verified_depth": 4608,
+   "prior_tested_hi": 4608,
+   "extended": 0,
+   "cap_reason": "digit_cap",
+   "cap_value": 12000,
+   "fast_cfinite": true,
+   "deep_terms": 4609,
+   "deep_elapsed_s": 0.03
   }
  ],
  "by_cycle": {
@@ -3347,13 +3429,19 @@
    "oc_A101596_0",
    "oc_A129147_0",
    "oc_A116385_0"
+  ],
+  "20261116T114535Z_5e1ee7": [
+   "oc_A005206_0",
+   "oc_A178520_0"
+  ],
+  "20261116T114836Z_dc23c0": [
+   "oc_A094213_0"
+  ],
+  "20261116T115202Z_9322f5": [
+   "oc_A094213_0"
   ]
  },
  "last_forms": [
-  "relation",
-  "relation",
-  "relation",
-  "relation",
   "relation",
   "gf",
   "relation",
@@ -3369,6 +3457,10 @@
   "relation",
   "relation",
   "relation",
-  "relation"
+  "relation",
+  "relation",
+  "relation",
+  "gf",
+  "gf"
  ]
 }

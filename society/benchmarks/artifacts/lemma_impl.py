@@ -2266,6 +2266,18 @@ def check_oeis_a000085_involutions(n: int) -> bool:
     return True
 
 
+def check_oeis_a001045_jacobsthal_sum(n: int) -> bool:
+    """Jacobsthal A001045: J(k) = J(k-1) + 2 J(k-2) equals (2^n - (-1)^n)/3 and
+    sum_k C(n-1-k, k) 2^k."""
+    if n < 1:
+        return True
+    j0, j1 = 0, 1
+    for _ in range(n - 1):
+        j0, j1 = j1, j1 + 2 * j0
+    return 3 * j1 == 2 ** n - (-1) ** n and j1 == sum(math.comb(n - 1 - k, k) * 2 ** k
+                                                      for k in range((n - 1) // 2 + 1))
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2499,6 +2511,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a001850_central_delannoy", lambda: all(check_oeis_a001850_central_delannoy(n) for n in range(0, 30)), True),
     ("oeis_a006318_schroeder_paths", lambda: all(check_oeis_a006318_schroeder_paths(n) for n in range(0, 30)), True),
     ("oeis_a000085_involutions", lambda: all(check_oeis_a000085_involutions(n) for n in range(0, 50)), True),
+    ("oeis_a001045_jacobsthal_sum", lambda: all(check_oeis_a001045_jacobsthal_sum(n) for n in range(1, 60)), True),
 ]
 
 

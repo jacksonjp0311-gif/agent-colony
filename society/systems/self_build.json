@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 63,
+ "cycle_index": 66,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -13,78 +13,7 @@
   "parent": "bp_default",
   "operator": "add"
  },
- "trial": {
-  "blueprint": {
-   "id": "bp_38f7742e537ff6ee",
-   "signature": "38f7742e537ff6ee",
-   "steps": [
-    {
-     "component": "frontier_extra_batch",
-     "n": 1
-    },
-    {
-     "component": "oeis_swarm_improvers",
-     "n": 1
-    }
-   ],
-   "parent": "bp_1a40beac596f0ebe",
-   "operator": "add",
-   "evidence": [
-    "oeis_swarm_improvers"
-   ],
-   "weight": 2.85,
-   "added": [
-    {
-     "component": "oeis_swarm_improvers",
-     "n": 1
-    }
-   ],
-   "evidence_detail": {
-    "oeis_swarm_improvers": {
-     "papers": [
-      "2611.01081",
-      "2611.04370",
-      "2611.04504",
-      "2611.07618",
-      "2611.07996",
-      "2611.08615",
-      "2611.12953",
-      "2611.16555"
-     ],
-     "n_papers": 8,
-     "idea_rank": 1,
-     "cards": 8,
-     "lessons": 0,
-     "boost": 6.0
-    }
-   },
-   "self_test": {
-    "ok": true,
-    "reason": "ok",
-    "plan": [
-     {
-      "component": "frontier_extra_batch",
-      "n": 1,
-      "planned": 1
-     },
-     {
-      "component": "oeis_swarm_improvers",
-      "n": 1,
-      "planned": 1
-     }
-    ]
-   }
-  },
-  "opened_cycle_id": "20261116T105433Z_ef1110",
-  "code_fp": "87df268562677b5ae6771c3a6b5c3fb987dcfba08ec1aacde59fc722ddc3f7d2",
-  "opened_cycle_index": 58,
-  "open_row": 124,
-  "window_rows": 2,
-  "baseline_gain": [
-   6.0,
-   2304.0
-  ]
- },
+ "trial": null,
  "tried": {
   "1a40beac596f0ebe": {
    "outcome": "kept",
@@ -117,6 +46,21 @@
    "steps": [],
    "id": "bp_default",
    "cycle_id": "20261116T055604Z_3aae26"
+  },
+  "38f7742e537ff6ee": {
+   "outcome": "reverted",
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    },
+    {
+     "component": "oeis_swarm_improvers",
+     "n": 1
+    }
+   ],
+   "id": "bp_38f7742e537ff6ee",
+   "cycle_id": "20261116T114535Z_5e1ee7"
   }
  },
  "component_stats": {
@@ -147,14 +91,14 @@
   "oeis_swarm_improvers": {
    "tried": 1,
    "kept": 0,
-   "reverted": 0,
+   "reverted": 1,
    "inconclusive": 0
   }
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261116T112835Z_03c2fb",
-  "blueprint": "bp_38f7742e537ff6ee",
+  "cycle_id": "20261116T115202Z_9322f5",
+  "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
     "component": "frontier_extra_batch",
@@ -162,60 +106,56 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 191,
-     "duplicate": 19,
-     "trivial_formal": 0,
-     "trivial_shuffle_null": 1,
-     "trivial_idle_part": 3,
-     "trivial_implied_parts": 52,
+     "fitted": 197,
+     "duplicate": 20,
+     "trivial_formal": 3,
+     "trivial_shuffle_null": 2,
+     "trivial_idle_part": 10,
+     "trivial_implied_parts": 60,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
-     "trivial_case_split": 0,
+     "trivial_case_split": 1,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 0,
-     "expected_by_closure": 1,
+     "trivial_digit_rule": 1,
+     "expected_by_closure": 4,
      "loose_inequality": 0,
-     "tested": 12,
+     "tested": 18,
      "survived": 6,
-     "falsified": 6,
-     "machine_checked": 1,
+     "falsified": 12,
+     "machine_checked": 4,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 3,
+     "oeis_known": 2,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 1,
-     "explained_by_known_check": 1,
+     "trivial_known_in_principle(compositional)": 1,
      "trivial_confirmed on range": 4,
-     "explained_by_reference": 1
+     "trivial_known_in_principle(definition_parity)": 1
     }
-   },
-   {
-    "component": "oeis_swarm_improvers",
-    "n": 1,
-    "actions": 0,
-    "skipped": "nothing_open"
    }
   ],
   "actions": 1,
-  "cpu_s": 2.758
+  "cpu_s": 1.562
  },
- "last_skip": null,
+ "last_skip": {
+  "cycle_id": "20261116T115202Z_9322f5",
+  "reason": "self_heal_trial_open"
+ },
  "kept_count": 1,
- "reverted_count": 2,
+ "reverted_count": 3,
  "inconclusive_count": 0,
  "voided_count": 4,
  "heal_turn": null,
  "last_propose_cycle": "20261116T105433Z_ef1110",
  "operator_stats": {
   "add": {
-   "tried": 2,
+   "tried": 3,
    "kept": 1,
-   "reverted": 1
+   "reverted": 2
   },
   "remove": {
    "tried": 1,
