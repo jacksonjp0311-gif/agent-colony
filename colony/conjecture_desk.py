@@ -349,6 +349,18 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = "", extra_
     # the Oracle judges the enable) — authoring never enables anything.
     fresh_authored: set[str] = set()
     authoring_ran = False
+    hard_tier_built = None
+    if not extra_pick and _self_mod():
+        # Spark: no hand-written hard-tier family left to enable → add the next vetted OEIS
+        # relation family, DISABLED (the Oracle decides on a later cycle's enable).
+        try:
+            from colony.hard_tier_families import build_next as _build_family
+            hard_tier_built = _build_family(LEMMA_IMPL, cycle_id=cycle_id)
+            if hard_tier_built and hard_tier_built.get("name"):
+                fresh_authored.add(str(hard_tier_built["name"]))
+                src = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else src
+        except Exception:  # noqa: BLE001
+            hard_tier_built = None
     try:
         from colony.authoring import guide_authoring_active, author_checks
         from colony.lessons import variant_mutation_snippets as _vms
@@ -358,10 +370,10 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = "", extra_
         if (not extra_pick and (not _variants and not _vms() or _fb_live())
                 and guide_authoring_active()):
             authoring_ran = True
-            fresh_authored = {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
+            fresh_authored = fresh_authored | {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
             src = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else src
     except Exception:
-        fresh_authored = set()
+        pass
     # Same cooldown filter seek uses (kill cooldown + human-guide blocks + revert penalties).
     # Fail closed: if it cannot be built, nothing is picked this cycle.
     cooled: dict[str, str] = {}
@@ -413,7 +425,7 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = "", extra_
             from colony.authoring import guide_authoring_active, author_checks
             if guide_authoring_active():
                 authoring_ran = True
-                fresh_authored = {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
+                fresh_authored = fresh_authored | {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
         except Exception:
             pass
     if not chosen:
