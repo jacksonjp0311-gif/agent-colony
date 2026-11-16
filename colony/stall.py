@@ -1957,6 +1957,19 @@ def run_perturb_turn(
         if _is_shape_label(concrete):
             submitted["skipped"] = "empty_shape_label"
             return
+        # Item 81: a generated (authored_mut_) disabled check is judged by the conjecture desk (enable, bench,
+        # Oracle kind hard_enable with the shifted-window held-out), not submitted here as kind
+        # authored_check, which can never pass held-out. Not an attempt: the perturb budget
+        # moves on to the next real candidate. Control arm: unchanged.
+        try:
+            from colony.target_generator import perturb_handoff_live
+            _handoff = perturb_handoff_live() and str(concrete.get("id") or "").startswith("authored_mut_")
+        except Exception:
+            _handoff = False
+        if _handoff:
+            submitted["skipped"] = "handed_to_conjecture_desk"
+            submitted["handoff"] = {"to": "conjecture_desk", "desk_kind": "hard_enable"}
+            return
         if oracle_submit is not None:
             try:
                 submitted["oracle"] = oracle_submit(concrete)

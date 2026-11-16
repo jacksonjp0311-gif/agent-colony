@@ -1299,6 +1299,21 @@ def unenabled_chain_variants(*, respect_cooldown: bool = True) -> list[dict[str,
                     links = []
                 if links:
                     cites = dict(cites, links=links, chain_proven=all(l.get("proven") for l in links))
+            if not links and name.startswith("authored_mut_"):
+                # Item 81: generated (target generator) claims call the same frontier bridge.
+                # Handed to the desk only while the current triviality / known-result filter
+                # still passes them (fail closed when it cannot tell).
+                try:
+                    from colony.target_generator import perturb_handoff_live
+                    from colony import frontier_checks as _fk
+                    fn = _f.get(f"check_{name}")
+                    art = path.read_text(encoding="utf-8")
+                    if perturb_handoff_live() and fn is not None and _fk.trivial_now(name, src=art) is False:
+                        links = _fk.frontier_links(fn, art)
+                except Exception:
+                    links = []
+                if links:
+                    cites = dict(cites, links=links, chain_proven=all(l.get("proven") for l in links))
             if not links and name.startswith("authored_newdata_"):
                 # New-data check: its component is the new-data bridge (independent recomputation),
                 # proven only when the bridge is present and the engine's own self-test passes.
