@@ -116,3 +116,8 @@ Checker: x-side residual is a polynomial of degree 0 with zero radical part; rec
 OEIS text (formula): "Conjecture D-finite with recurrence: n*a(n) = (n-3)*a(n-1) +4*(n-3)*a(n-2) +3*(3*n-10)*a(n-3) +(7*n-27)*a(n-4) +2*(2*n-9)*a(n-5). - _R. J. Mathar_, Jan 24 2020"
 Parsed claim: `{"form": "relation", "parts": ["n*a(n)", "(n-3)*a(n-1)+4*(n-3)*a(n-2)+3*(3*n-10)*a(n-3)+(7*n-27)*a(n-4)+2*(2*n-9)*a(n-5)"], "rels": ["="], "mod": null, "n0": null}`
 Checker: x-side residual is a polynomial of degree 4 with zero radical part; recurrence holds for n >= 6 by the operator identity and is checked directly on 1..5
+
+## A135052 — proved_checked (cycle 20261116T025134Z_61a584)
+OEIS text (formula): "Conjecture: (n+2)*a(n) +(-5*n-4)*a(n-1) +2*(2*n+1)*a(n-2) +4*(2*n-5)*a(n-3) +12*(-n+3)*a(n-4) +4*(n-4)*a(n-5)=0. - _R. J. Mathar_, Apr 19 2015"
+Parsed claim: `{"form": "relation", "mod": null, "n0": null, "parts": ["(n+2)*a(n)+(-5*n-4)*a(n-1)+2*(2*n+1)*a(n-2)+4*(2*n-5)*a(n-3)+12*(-n+3)*a(n-4)+4*(n-4)*a(n-5)", "0"], "rels": ["="]}`
+Checker: x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 5 by the operator identity and is checked directly on 0..4

@@ -1445,6 +1445,52 @@
           "treatment": 23177.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 6
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 2.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261116T025134Z_61a584",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "14c7dad22f9a43bc",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "14c7dad22f9a43bc",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-16T02:53:38Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8345
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 531.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 66379.0,
+          "treatment": 329415.0
+        }
+      }
     }
   ],
   "families": {
@@ -1482,9 +1528,9 @@
     "set_knob:park_cycles": {
       "keep_rate_permille": 0,
       "kept": 0,
-      "n": 4,
+      "n": 5,
       "reverted": 1,
-      "voided": 3
+      "voided": 4
     },
     "set_knob:perturb_cooldown_cycles": {
       "keep_rate_permille": 0,
@@ -1501,7 +1547,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261116T023643Z_d5724a",
+  "last_cycle": "20261116T025726Z_f55a5f",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -1523,10 +1569,10 @@
   },
   "n_inconclusive": 6,
   "n_kept": 11,
-  "n_proposed": 4,
+  "n_proposed": 6,
   "n_reverted": 4,
   "n_twin_held": 0,
-  "n_voided": 12,
+  "n_voided": 13,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
   "pending": [
     {
@@ -1600,16 +1646,54 @@
       "method": "Stop a perturbation run sooner when it stops paying (early stopping).",
       "source": "hive_vote",
       "ts": "2026-11-16T01:06:33Z"
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "stall_cycles",
+        "op": "set_knob",
+        "value": 5
+      },
+      "card_id": "mc_93fe2efd485d",
+      "concept": "",
+      "cycle_id": "20261116T025418Z_bc5f88",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=down:name=stall_cycles:value=5",
+      "knob": "stall_cycles",
+      "method": "React sooner when expected progress does not arrive (error-driven stall detection).",
+      "source": "hive_vote",
+      "ts": "2026-11-16T02:56:15Z"
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "family_rotation_penalty",
+        "op": "set_knob",
+        "value": 0.7825
+      },
+      "card_id": "mc_93ae4b835e45",
+      "concept": "",
+      "cycle_id": "20261116T025726Z_f55a5f",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=down:name=family_rotation_penalty:value=0.7825",
+      "knob": "family_rotation_penalty",
+      "method": "Rotate away from the last-tried claim form more strongly (novelty over repetition).",
+      "source": "hive_vote",
+      "ts": "2026-11-16T02:59:19Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 100,
-    "pending": 59,
+    "pending": 61,
     "resolved": 100,
     "source": "hive_shadows",
-    "ts": "2026-11-16T02:39:59Z",
+    "ts": "2026-11-16T02:59:52Z",
     "unlabeled": 0
   },
   "twin_pending": [],
