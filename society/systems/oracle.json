@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T06:02:30Z",
-  "passes": 543,
+  "updated_at": "2026-11-16T06:49:06Z",
+  "passes": 546,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4205,
+  "kill_rate": 0.4191,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 15,
-    "kills": 45,
+    "passes": 18,
+    "kills": 42,
     "easy_pad_kills": 0,
-    "kill_rate": 0.75
+    "kill_rate": 0.7
   },
-  "bus_ok_rate": 0.7167,
+  "bus_ok_rate": 0.6667,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_38103ffd94ce",
@@ -29,6 +29,9 @@
     "pisano_prime_period",
     "primitive_root_count",
     "ramanujan_partition_congruences",
+    "stem_elastic_collision",
+    "stem_kepler_third_law",
+    "stem_shm_energy",
     "zeckendorf_unique"
   ],
   "unique_mutations_kill": [
@@ -42,7 +45,6 @@
     "authored_mut_swap_related_sequence_19b958c5439c",
     "authored_mut_swap_related_sequence_1c8a57e0bca1",
     "authored_mut_swap_related_sequence_1e32e19fc335",
-    "authored_mut_swap_related_sequence_3909a3967380",
     "authored_mut_swap_related_sequence_3a917a302be9",
     "authored_mut_swap_related_sequence_407fbdbac9ef",
     "authored_mut_swap_related_sequence_5223338a52eb",
@@ -57,7 +59,6 @@
     "authored_mut_swap_related_sequence_834d4d3f06e0",
     "authored_mut_swap_related_sequence_86310fedcc8c",
     "authored_mut_swap_related_sequence_89e5a4bd266c",
-    "authored_mut_swap_related_sequence_8ab886c76fa2",
     "authored_mut_swap_related_sequence_98dac34715ca",
     "authored_mut_swap_related_sequence_98f7a10162e6",
     "authored_mut_swap_related_sequence_9944a5433d60",
@@ -70,8 +71,10 @@
     "authored_mut_swap_related_sequence_c92be463a0f5",
     "authored_mut_swap_related_sequence_c975a0acf97b",
     "authored_mut_swap_related_sequence_d4fd9cc584c3",
-    "authored_mut_swap_related_sequence_dda3900e5ef8",
-    "authored_mut_swap_related_sequence_eb0f3247ee33"
+    "authored_mut_swap_related_sequence_eb0f3247ee33",
+    "authored_mut_swap_related_sequence_efa7f2b38883",
+    "authored_mut_swap_related_sequence_f136673b49cd",
+    "authored_mut_swap_related_sequence_f7c77a787e41"
   ],
   "domain_packs": {
     "packs": {
@@ -98,12 +101,22 @@
     },
     "stem_mutations": [
       "energy_work",
+      "stem_elastic_collision",
+      "stem_kepler_third_law",
+      "stem_shm_energy",
+      "stem_resistor_power_balance",
+      "stem_isothermal_work",
+      "stem_snell_least_time",
+      "stem_rc_discharge",
+      "stem_thin_lens_matrix",
+      "stem_velocity_addition",
+      "stem_wheatstone_balance",
       "stem_easy_pad_units"
     ],
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T06:02:30Z",
+    "ts": "2026-11-16T06:49:06Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -113,16 +126,14 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_a6110dabd1ce` kind=hard_enable. lemma mutation authored_mut_swap_related_sequence_a6110dabd1ce 0.8715->0.8716 (compared 0.857->0.857; speed",
-      "attack": "WEIGH: `authored_mut_swap_related_sequence_a6110dabd1ce` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `stem_shm_energy` kind=stem_enable. lemma mutation stem_shm_energy 0.825->0.8688 Not discovery. cycle=20261116T064734Z_241667.",
+      "attack": "WEIGH: `stem_shm_energy` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
+        "pack": "stem_kinematics",
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 173,
-        "hard_n": 173,
-        "score": 0.8715,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -131,80 +142,33 @@
         "basis": "before_src"
       },
       "held_out": {
+        "pack": "stem_kinematics",
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 173,
-        "hard_n": 173,
-        "ok": true,
-        "score": 0.8716,
-        "shifted_window": {
-          "ok": true,
-          "status": "pass",
-          "reason": "shift_window_pass",
-          "applied": true,
-          "ranges_shifted": 0,
-          "probes": 3,
-          "windows_shifted": 1,
-          "shifted": [
-            {
-              "from": [
-                [
-                  40,
-                  80
-                ],
-                [
-                  80,
-                  120
-                ],
-                [
-                  120,
-                  160
-                ]
-              ],
-              "to": [
-                [
-                  161,
-                  200
-                ],
-                [
-                  201,
-                  240
-                ],
-                [
-                  241,
-                  281
-                ]
-              ]
-            }
-          ],
-          "seconds": 0.446,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': 'dbl(tau)', 'params': {}, 'rhs': 'S(oxa316344)'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 200), (201, 240), (241, 281)])))",
-          "scope": "finite_shifted_window_only_not_universal_proof"
-        },
-        "reason": "held_out_hard_green",
+        "n_pass": 5,
+        "n_checks": 5,
+        "score": 0.8688,
+        "reason": "stem_held_out_green",
         "hard_pass_delta": 1,
         "delta_override": false
       },
       "cas": {
+        "pack": "stem_kinematics",
         "cas_ok": true,
         "ok_for_oracle": true,
-        "engine": "sympy",
-        "reason": "cas_pass",
+        "engine": "pure_python_stem",
+        "reason": "stem_cas_pass",
         "checks": [
           {
-            "label": "binomial_symmetry",
+            "label": "suvat_v2",
             "ok": true
           },
           {
-            "label": "pascal",
+            "label": "centripetal_T",
             "ok": true
           },
           {
-            "label": "square_expand",
-            "ok": true
-          },
-          {
-            "label": "hard_enable_probes",
+            "label": "energy_work_numeric",
             "ok": true
           }
         ]
@@ -256,15 +220,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_swap_related_sequence_a6110dabd1ce",
-      "kind": "hard_enable",
+      "mutation": "stem_shm_energy",
+      "kind": "stem_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mut_swap_related_sequence_a6110dabd1ce",
-    "kind": "hard_enable",
+    "mutation": "stem_shm_energy",
+    "kind": "stem_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T060054Z_fed15c",
+    "cycle_id": "20261116T064734Z_241667",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

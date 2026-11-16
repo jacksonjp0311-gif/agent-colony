@@ -1,5 +1,5 @@
 {
-  "when": "2026-11-16T06:28:28Z",
+  "when": "2026-11-16T06:51:23Z",
   "mile": "spark3-port",
   "cycle_count": 894,
   "fitness_latest": {
@@ -627,12 +627,12 @@
     "swarm_max_actions_per_cycle": 1
   },
   "honest_scoreboard": {
-    "score": 36,
+    "score": 37,
     "counterexamples_verified": 0,
     "proofs_checked": 24,
     "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 12,
-    "beyond_exact": 10,
+    "beyond_published_range": 13,
+    "beyond_exact": 11,
     "max_depth": 155648,
     "note": "counterexamples, checked proofs, and range extensions only; not fitness"
   },
@@ -655,34 +655,34 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8727
+    "aggregate_score": 0.8726
   },
   "novelty_gate": {
-    "hits": 11,
-    "kills": 6
+    "hits": 10,
+    "kills": 9
   },
   "debate_multihop": {
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.9286,
+      "reply_rate": 0.9643,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
-      "reply_quality": 0.9112
+      "reply_quality": 0.9113
     }
   },
   "exploration_budget_fp": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261116T062431Z_fba36d"
+    "cycle_id": "20261116T064734Z_241667"
   },
   "oracle": {
-    "passes": 543,
+    "passes": 546,
     "kills": 394,
     "easy_pad_kills": 32,
-    "total": 937,
-    "kill_rate": 0.4205
+    "total": 940,
+    "kill_rate": 0.4191
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."
