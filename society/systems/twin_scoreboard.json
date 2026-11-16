@@ -11,15 +11,15 @@
     "note": "Fork point for the control arm. Control state is copied from treatment at the first control evolve, then frozen (self-heal knobs reset to defaults; the in-flight perturb_cooldown_cycles trial is not continued). After that, control evolves on its own tree. seeded_sha is filled at that first run.",
     "fork_note_hive": "Forked after Hive merged (PR #8). Control disables Hive learning through colony/hive_adapter.py."
   },
-  "updated_at": "2026-11-16T06:34:37Z",
-  "paired_runs": 118,
-  "treatment_cycles": 1212,
-  "control_cycles": 1260,
+  "updated_at": "2026-11-16T06:58:50Z",
+  "paired_runs": 119,
+  "treatment_cycles": 1215,
+  "control_cycles": 1263,
   "treatment": {
-    "oracle_passes": 543,
+    "oracle_passes": 546,
     "oracle_kills": 394,
-    "verified_depth_sum": 412559,
-    "beyond_published_count": 12,
+    "verified_depth_sum": 432558,
+    "beyond_published_count": 13,
     "depths": [
       {
         "id": "oc_A071722_0",
@@ -58,6 +58,14 @@
         "anum": "A165064",
         "verified_depth": 19999,
         "published_hi": 100,
+        "beyond_published": true,
+        "check": "exact"
+      },
+      {
+        "id": "oc_A296516_0",
+        "anum": "A296516",
+        "verified_depth": 19999,
+        "published_hi": 200,
         "beyond_published": true,
         "check": "exact"
       },
@@ -121,19 +129,19 @@
     "counterexamples": 0,
     "proofs": 24,
     "non_routine_proofs": 0,
-    "fitness": 0.8286,
-    "novelty": 0.6471,
+    "fitness": 0.819,
+    "novelty": 0.5263,
     "adopts": 11,
     "reverts": 4,
-    "cycle_count": 1212,
+    "cycle_count": 1215,
     "self_heal_frozen": false,
     "self_heal_trial": null
   },
   "control": {
     "oracle_passes": 528,
     "oracle_kills": 340,
-    "verified_depth_sum": 99574,
-    "beyond_published_count": 10,
+    "verified_depth_sum": 107573,
+    "beyond_published_count": 11,
     "depths": [
       {
         "id": "oc_A071722_0",
@@ -164,6 +172,14 @@
         "anum": "A165064",
         "verified_depth": 7999,
         "published_hi": 100,
+        "beyond_published": true,
+        "check": "exact"
+      },
+      {
+        "id": "oc_A296516_0",
+        "anum": "A296516",
+        "verified_depth": 7999,
+        "published_hi": 200,
         "beyond_published": true,
         "check": "exact"
       },
@@ -223,20 +239,20 @@
     "novelty": 0.75,
     "adopts": 0,
     "reverts": 0,
-    "cycle_count": 1260,
+    "cycle_count": 1263,
     "self_heal_frozen": true,
     "self_heal_trial": null
   },
   "delta": {
-    "oracle_passes": 15,
+    "oracle_passes": 18,
     "oracle_kills": 54,
-    "verified_depth_sum": 312985,
+    "verified_depth_sum": 324985,
     "beyond_published_count": 2,
     "counterexamples": 0,
     "proofs": 0,
     "non_routine_proofs": 0,
-    "fitness": -0.0288,
-    "novelty": -0.1029,
+    "fitness": -0.0384,
+    "novelty": -0.2237,
     "adopts": 11,
     "reverts": 4,
     "cycle_count": -48
@@ -7366,6 +7382,63 @@
       },
       "treatment_cycles": 1212,
       "control_cycles": 1260
+    },
+    {
+      "ts": "2026-11-16T06:58:50Z",
+      "run_id": "43817744092",
+      "cycles_this_run": 3,
+      "paired": true,
+      "treatment_result": "success",
+      "control_result": "success",
+      "treatment": {
+        "oracle_passes": 546,
+        "oracle_kills": 394,
+        "verified_depth_sum": 432558,
+        "beyond_published_count": 13,
+        "counterexamples": 0,
+        "proofs": 24,
+        "non_routine_proofs": 0,
+        "fitness": 0.819,
+        "novelty": 0.5263,
+        "adopts": 11,
+        "reverts": 4,
+        "cycle_count": 1215,
+        "self_heal_frozen": false,
+        "self_heal_trial": null
+      },
+      "control": {
+        "oracle_passes": 528,
+        "oracle_kills": 340,
+        "verified_depth_sum": 107573,
+        "beyond_published_count": 11,
+        "counterexamples": 0,
+        "proofs": 24,
+        "non_routine_proofs": 0,
+        "fitness": 0.8574,
+        "novelty": 0.75,
+        "adopts": 0,
+        "reverts": 0,
+        "cycle_count": 1263,
+        "self_heal_frozen": true,
+        "self_heal_trial": null,
+        "missing": null
+      },
+      "delta": {
+        "oracle_passes": 18,
+        "oracle_kills": 54,
+        "verified_depth_sum": 324985,
+        "beyond_published_count": 2,
+        "counterexamples": 0,
+        "proofs": 0,
+        "non_routine_proofs": 0,
+        "fitness": -0.0384,
+        "novelty": -0.2237,
+        "adopts": 11,
+        "reverts": 4,
+        "cycle_count": -48
+      },
+      "treatment_cycles": 1215,
+      "control_cycles": 1263
     }
   ]
 }
