@@ -2307,8 +2307,20 @@ def propose_trial(
         preds = _pred(knob, direction)
         return 1 if preds and last_single and set(preds) <= last_single else 0
 
+    # Item 89: within a tier, a (knob, direction) that already reverted sorts after one that has not.
+    try:
+        from colony.failure_modes import heal_repeat_failures, live as _fm_live, load as _fm_load
+        _fm_rows = _fm_load() if _fm_live() else []
+    except Exception:  # noqa: BLE001
+        _fm_rows = []
+
+    def _fails(knob: str, direction: str) -> int:
+        if not _fm_rows:
+            return 0
+        return heal_repeat_failures(knob, direction, _fm_rows)
+
     ordered.sort(key=lambda c: (_ladder(c[1], c[2]), 0 if _pred(c[1], c[2]) else 1,
-                                _narrow(c[1], c[2]), -len(_pred(c[1], c[2]))))
+                                _narrow(c[1], c[2]), _fails(c[1], c[2]), -len(_pred(c[1], c[2]))))
     exhausted_cache: list[bool] = []
     # The fall-through applies only when a cap raise was the diagnosed
     # remedy (a cap finding is present) and no cap can bind a target.
@@ -3530,6 +3542,7 @@ def run_cycle(
     except Exception:
         self_mod = True
     # Control arm: record metrics, but do not void, close, or start a trial.
+    _ev_ids_before = {str(e.get("id")) for e in (st.get("evidence") or []) if isinstance(e, dict)}
     if trial and self_mod:
         changed, old_fp, new_fp = trial_fingerprint_mismatch(trial, state=st)
         if changed:
@@ -3593,6 +3606,13 @@ def run_cycle(
         supply = maybe_supply_oracle_targets(cycle_id, findings=found)
     except Exception as exc:  # noqa: BLE001
         supply = {"invited": False, "authored": [], "reason": f"error:{type(exc).__name__}"}
+    if trial and self_mod:
+        try:  # item 89: exact failure mode of a reverted / inconclusive / voided trial
+            from colony.failure_modes import log_heal_events
+            log_heal_events([e for e in (st.get("evidence") or [])
+                             if isinstance(e, dict) and str(e.get("id")) not in _ev_ids_before])
+        except Exception:  # noqa: BLE001
+            pass
     self_build_open = False
     build_turn = False
     if trial and not st.get("trial") and self_mod:
