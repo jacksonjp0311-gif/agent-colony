@@ -2656,6 +2656,81 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A363559_0",
+   "anum": "A363559",
+   "form": "relation",
+   "depth": 7,
+   "bfile_hi": 300,
+   "beyond": false,
+   "status": "untestable_here",
+   "cycle_id": "20261116T204348Z_71648e",
+   "planned": 300,
+   "verified_depth": 7,
+   "prior_tested_hi": 0,
+   "extended": 7,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A363569_0",
+   "anum": "A363569",
+   "form": "relation",
+   "depth": 8,
+   "bfile_hi": 4100,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T204348Z_71648e",
+   "planned": 4100,
+   "verified_depth": 8,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A299406_0",
+   "anum": "A299406",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 65537,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T204348Z_71648e",
+   "planned": 65537,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A363558_0",
+   "anum": "A363558",
+   "form": "relation",
+   "depth": 7,
+   "bfile_hi": 300,
+   "beyond": false,
+   "status": "untestable_here",
+   "cycle_id": "20261116T204348Z_71648e",
+   "planned": 300,
+   "verified_depth": 7,
+   "prior_tested_hi": 0,
+   "extended": 7,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A173614_0",
+   "anum": "A173614",
+   "form": "relation",
+   "depth": 501,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T204634Z_919898",
+   "planned": 10000,
+   "verified_depth": 501,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
@@ -2932,6 +3007,15 @@
   ],
   "20261116T201343Z_e6ac6f": [
    "oc_A162477_0"
+  ],
+  "20261116T204348Z_71648e": [
+   "oc_A363559_0",
+   "oc_A363569_0",
+   "oc_A299406_0",
+   "oc_A363558_0"
+  ],
+  "20261116T204634Z_919898": [
+   "oc_A173614_0"
   ]
  },
  "last_forms": [
@@ -2939,20 +3023,20 @@
   "relation",
   "relation",
   "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
   "gf",
   "relation",
   "relation",
   "relation",
   "relation",
   "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "gf",
   "relation",
   "relation"
  ]
