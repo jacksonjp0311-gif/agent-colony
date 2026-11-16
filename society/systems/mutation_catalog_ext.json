@@ -112,6 +112,13 @@
       "snippet": "enable:oeis_a000957_fine_no_hills",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a001003_little_schroeder",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a001003_little_schroeder",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

@@ -2382,6 +2382,34 @@ def check_oeis_a000957_fine_no_hills(n: int) -> bool:
     return 2 * no_hills(n) + no_hills(n - 1) == math.comb(2 * n, n) // (n + 1)
 
 
+def check_oeis_a001003_little_schroeder(n: int) -> bool:
+    """Little Schroeder A001003 by (k+1) s(k) = 3(2k-1) s(k-1) - (k-2) s(k-2) is half the large
+    Schroeder number counted by a lattice-path DP (steps E, N, NE staying weakly below y = x)."""
+    if n < 1:
+        return True
+    s = [1, 1]
+    for k in range(2, n + 1):
+        num = 3 * (2 * k - 1) * s[k - 1] - (k - 2) * s[k - 2]
+        if num % (k + 1):
+            return False
+        s.append(num // (k + 1))
+    grid = [[0] * (n + 1) for _ in range(n + 1)]
+    grid[0][0] = 1
+    for x in range(n + 1):
+        for y in range(x + 1):
+            if x == 0 and y == 0:
+                continue
+            v = 0
+            if x > 0 and y <= x - 1:
+                v += grid[x - 1][y]
+            if y > 0:
+                v += grid[x][y - 1]
+            if x > 0 and y > 0:
+                v += grid[x - 1][y - 1]
+            grid[x][y] = v
+    return 2 * s[n] == grid[n][n]
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2620,7 +2648,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a000111_zigzag_boustrophedon", lambda: all(check_oeis_a000111_zigzag_boustrophedon(n) for n in range(0, 40)), True),
     ("oeis_a000262_lah_row_sums", lambda: all(check_oeis_a000262_lah_row_sums(n) for n in range(0, 40)), True),
     ("oeis_a001764_ternary_trees", lambda: all(check_oeis_a001764_ternary_trees(n) for n in range(0, 40)), True),
-    ("oeis_a000957_fine_no_hills", lambda: all(check_oeis_a000957_fine_no_hills(n) for n in range(1, 40)), False),
+    ("oeis_a000957_fine_no_hills", lambda: all(check_oeis_a000957_fine_no_hills(n) for n in range(1, 40)), True),
+    ("oeis_a001003_little_schroeder", lambda: all(check_oeis_a001003_little_schroeder(n) for n in range(1, 40)), True),
 ]
 
 

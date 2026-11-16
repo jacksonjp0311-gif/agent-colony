@@ -433,9 +433,9 @@
    "credit": 0.0
   },
   "oc_A027174_0": {
-   "attempts": 6,
+   "attempts": 7,
    "status": "holds_on_range",
-   "tested_hi": 249,
+   "tested_hi": 6850,
    "credit": 0.0
   },
   "oc_A027027_0": {
@@ -499,9 +499,9 @@
    "credit": 0.0
   },
   "oc_A027175_0": {
-   "attempts": 6,
+   "attempts": 7,
    "status": "holds_on_range",
-   "tested_hi": 250,
+   "tested_hi": 6865,
    "credit": 0.0
   },
   "oc_A026743_0": {
@@ -607,9 +607,9 @@
    "credit": 0.0
   },
   "oc_A005558_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 256,
+   "tested_hi": 10578,
    "credit": 0.0
   },
   "oc_A308217_0": {
@@ -721,9 +721,9 @@
    "credit": 0.0
   },
   "oc_A127632_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 211,
+   "tested_hi": 83968,
    "credit": 0.0
   },
   "oc_A200312_0": {
@@ -733,15 +733,15 @@
    "credit": 0.0
   },
   "oc_A000781_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 254,
-   "credit": 0.0
+   "tested_hi": 6843,
+   "credit": 0.0308
   },
   "oc_A263986_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 255,
+   "tested_hi": 8878,
    "credit": 0.0
   },
   "oc_A059279_0": {
@@ -757,9 +757,9 @@
    "credit": 0.0
   },
   "oc_A220902_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 255,
+   "tested_hi": 5913,
    "credit": 0.0
   },
   "oc_A116363_0": {
@@ -913,10 +913,10 @@
    "credit": 0.0
   },
   "oc_A002627_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 95,
-   "credit": 0.0
+   "tested_hi": 3821,
+   "credit": 0.0465
   },
   "oc_A002414_0": {
    "attempts": 1,
@@ -1045,10 +1045,10 @@
    "credit": 0.0
   },
   "oc_A002867_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 82,
-   "credit": 0.0
+   "tested_hi": 3523,
+   "credit": 0.05
   },
   "oc_A338636_0": {
    "attempts": 1,
@@ -1105,9 +1105,9 @@
    "credit": 0.0
   },
   "oc_A141222_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 200,
+   "tested_hi": 233472,
    "credit": 0.0
   },
   "oc_A172062_0": {
@@ -1253,12 +1253,30 @@
    "status": "holds_on_range",
    "tested_hi": 40,
    "credit": 0.0
+  },
+  "oc_A053532_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 96,
+   "credit": 0.0
+  },
+  "oc_A046699_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 56,
+   "credit": 0.0
+  },
+  "oc_A358074_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 518,
-   "credit": 24.2198
+   "attempts": 531,
+   "credit": 24.3471
   },
   "gf": {
    "attempts": 79,
@@ -1273,7 +1291,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 24.7972,
+ "credit_total": 24.9245,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -1494,6 +1512,82 @@
     "bfile_hi": 216,
     "to": 19999,
     "check": "exact"
+   },
+   "oc_A000781_0": {
+    "anum": "A000781",
+    "bfile_hi": 1657,
+    "to": 6843,
+    "check": "exact"
+   },
+   "oc_A002867_0": {
+    "anum": "A002867",
+    "bfile_hi": 100,
+    "to": 3523,
+    "check": "exact"
+   },
+   "oc_A002627_0": {
+    "anum": "A002627",
+    "bfile_hi": 449,
+    "to": 3821,
+    "check": "exact"
+   }
+  },
+  "conditional_extensions": {
+   "oc_A220902_0": {
+    "anum": "A220902",
+    "bfile_hi": 1667,
+    "to": 5913,
+    "status": "holds_on_range",
+    "provenance": "formula",
+    "source": "a(n) = Catalan(n) - Catalan(n-1) + Catalan(n-2)"
+   },
+   "oc_A127632_0": {
+    "anum": "A127632",
+    "bfile_hi": 1000,
+    "to": 83968,
+    "status": "holds_on_range",
+    "provenance": "formula",
+    "source": "D-finite with recurrence 3*n*(n-1)*(n+1)*a(n) -4*n*(7*n-2)*(n-1)*a(n-1) +8*(n-1)*(2*n^2+30*n-65)*a(n-2) +8*(56*n^3-520*n^2+1534*n-1445)*a(n-3) -32*(4*n-15)*(2*n"
+   },
+   "oc_A005558_0": {
+    "anum": "A005558",
+    "bfile_hi": 1000,
+    "to": 10578,
+    "status": "holds_on_range",
+    "provenance": "formula",
+    "source": "a(n) = A000108(floor((n+1)/2))*A000108(floor(n/2))*(2*(floor(n/2))+1)"
+   },
+   "oc_A141222_0": {
+    "anum": "A141222",
+    "bfile_hi": 200,
+    "to": 233472,
+    "status": "holds_on_range",
+    "provenance": "formula",
+    "source": "Recurrence: (n+1)*(n^2 + n - 1)*a(n) = 2*(2*n-1)*(n^2 + 3*n + 1)*a(n-1)"
+   },
+   "oc_A027174_0": {
+    "anum": "A027174",
+    "bfile_hi": 1600,
+    "to": 6850,
+    "status": "holds_on_range",
+    "provenance": "formula",
+    "source": "a(n) = 2*binomial(2*n+2, n-1) + binomial(2*n, n-2) - 4"
+   },
+   "oc_A027175_0": {
+    "anum": "A027175",
+    "bfile_hi": 1600,
+    "to": 6865,
+    "status": "holds_on_range",
+    "provenance": "formula",
+    "source": "a(n) = 2*binomial(2*n+1, n) + binomial(2*n-1, n-1) - 4"
+   },
+   "oc_A263986_0": {
+    "anum": "A263986",
+    "bfile_hi": 1667,
+    "to": 8878,
+    "status": "holds_on_range",
+    "provenance": "formula",
+    "source": "a(n) = A000108(n) - A000045(n)"
    }
   }
  }

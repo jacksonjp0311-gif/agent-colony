@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 78,
- "last_refill_index": 77,
+ "cycle_index": 81,
+ "last_refill_index": 80,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -834,6 +834,38 @@
   "34ab1e48a2a28aa8": {
    "cycle_id": "20261116T143753Z_18aabe",
    "n_hits": 10
+  },
+  "e1823b12c4ffa105": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 10
+  },
+  "a1abe1284a12fe28": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 2
+  },
+  "c057d371cb3c7f90": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 5
+  },
+  "cee4da14e24bee83": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 5
+  },
+  "72dbba82bbfc21b6": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 0
+  },
+  "77931aee23650582": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 0
+  },
+  "5171a72a38194ba5": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 10
+  },
+  "3ebe27e0df4b149d": {
+   "cycle_id": "20261116T150646Z_212850",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -965,40 +997,23 @@
   "A180195": "20261116T143753Z_18aabe",
   "A091539": "20261116T143753Z_18aabe"
  },
- "refills": 26,
+ "refills": 27,
  "added": 112,
  "last": {
-  "cycle_id": "20261116T143753Z_18aabe",
-  "open_before": 0,
+  "cycle_id": "20261116T150646Z_212850",
+  "open_before": 6,
   "pages_read": 8,
-  "requests": 14,
-  "new": [
-   {
-    "id": "oc_A358074_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A053532_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A046699_0",
-    "form": "relation",
-    "definition": false
-   }
-  ],
+  "requests": 8,
+  "new": [],
   "stats": {
-   "entries": 52,
-   "resolved_skipped": 10,
-   "keyword_skipped": 4,
-   "statements": 47,
-   "parsed": 5,
-   "no_bfile": 2,
+   "entries": 35,
+   "resolved_skipped": 12,
+   "keyword_skipped": 5,
+   "statements": 28,
+   "parsed": 0,
+   "no_bfile": 0,
    "fails_on_data": 0,
-   "kept": 3,
-   "def_candidates": 0
+   "kept": 0
   }
  }
 }
