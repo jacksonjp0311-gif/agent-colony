@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T07:12:09Z",
-  "passes": 549,
+  "updated_at": "2026-11-16T07:35:34Z",
+  "passes": 552,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4178,
+  "kill_rate": 0.4165,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 21,
-    "kills": 39,
+    "passes": 24,
+    "kills": 36,
     "easy_pad_kills": 0,
-    "kill_rate": 0.65
+    "kill_rate": 0.6
   },
-  "bus_ok_rate": 0.6167,
+  "bus_ok_rate": 0.5667,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_38103ffd94ce",
@@ -32,9 +32,12 @@
     "stem_elastic_collision",
     "stem_isothermal_work",
     "stem_kepler_third_law",
+    "stem_rc_discharge",
     "stem_resistor_power_balance",
     "stem_shm_energy",
     "stem_snell_least_time",
+    "stem_thin_lens_matrix",
+    "stem_velocity_addition",
     "zeckendorf_unique"
   ],
   "unique_mutations_kill": [
@@ -42,7 +45,6 @@
     "Chain+seek `authored_mut_swap_related_sequence_38103ffd94ce` from invariant priors",
     "authored_mut_perturb_constant_703a4fa11fd2",
     "authored_mut_swap_related_sequence_05546e14e52a",
-    "authored_mut_swap_related_sequence_09affa910944",
     "authored_mut_swap_related_sequence_148ef77da33b",
     "authored_mut_swap_related_sequence_189b60a6e65e",
     "authored_mut_swap_related_sequence_19b958c5439c",
@@ -58,13 +60,11 @@
     "authored_mut_swap_related_sequence_6af0e18deac1",
     "authored_mut_swap_related_sequence_78025e23cf57",
     "authored_mut_swap_related_sequence_818b81b6a804",
-    "authored_mut_swap_related_sequence_834d4d3f06e0",
     "authored_mut_swap_related_sequence_86310fedcc8c",
     "authored_mut_swap_related_sequence_98dac34715ca",
     "authored_mut_swap_related_sequence_98f7a10162e6",
     "authored_mut_swap_related_sequence_9944a5433d60",
     "authored_mut_swap_related_sequence_a7fc2de5dabd",
-    "authored_mut_swap_related_sequence_aa16db33659f",
     "authored_mut_swap_related_sequence_abd2d19e66bf",
     "authored_mut_swap_related_sequence_bb7bf2799b09",
     "authored_mut_swap_related_sequence_c461b03cfcee",
@@ -118,7 +118,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T07:12:09Z",
+    "ts": "2026-11-16T07:35:34Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -128,8 +128,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `stem_snell_least_time` kind=stem_enable. lemma mutation stem_snell_least_time 0.825->0.8688 Not discovery. cycle=20261116T071049Z_b350bd.",
-      "attack": "WEIGH: `stem_snell_least_time` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `stem_velocity_addition` kind=stem_enable. lemma mutation stem_velocity_addition 0.825->0.8688 Not discovery. cycle=20261116T073404Z_c1df68.",
+      "attack": "WEIGH: `stem_velocity_addition` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -218,15 +218,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "stem_snell_least_time",
+      "mutation": "stem_velocity_addition",
       "kind": "stem_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "stem_snell_least_time",
+    "mutation": "stem_velocity_addition",
     "kind": "stem_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T071049Z_b350bd",
+    "cycle_id": "20261116T073404Z_c1df68",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

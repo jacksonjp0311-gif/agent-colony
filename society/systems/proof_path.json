@@ -27,7 +27,7 @@
   ]
  },
  "mode": "live",
- "n_authored": 23,
+ "n_authored": 22,
  "n_authored_proved": 9,
  "n_claims": 150,
  "n_proved": 50,
@@ -84,7 +84,7 @@
    "v": 4
   },
   "(gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)": {
-   "authored": true,
+   "authored": false,
    "certificate": null,
    "check": "authored_frontier_le_xafb0aef8_w1",
    "checks": 59988,
@@ -7160,6 +7160,6 @@
    "v": 4
   }
  },
- "seconds": 0.02,
- "ts": "2026-11-16T07:13:23Z"
+ "seconds": 0.03,
+ "ts": "2026-11-16T07:36:47Z"
 }

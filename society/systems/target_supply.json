@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 39,
- "last_refill_index": 38,
+ "cycle_index": 42,
+ "last_refill_index": 41,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -418,6 +418,38 @@
   "69871e82ab6260b0": {
    "cycle_id": "20261116T070652Z_9358b4",
    "n_hits": 10
+  },
+  "bcc0c23282839cf9": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 10
+  },
+  "3d09ea7680d6889c": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 10
+  },
+  "a00c511fc0695a8a": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 5
+  },
+  "aa14d38ed71f7748": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 5
+  },
+  "6100483c060dcf42": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 10
+  },
+  "fedb50c7cdb12fc9": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 10
+  },
+  "77e145dc4088c80e": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 10
+  },
+  "f85c233219d04bf2": {
+   "cycle_id": "20261116T072957Z_85253d",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -497,43 +529,48 @@
   "A276068": "20261116T070652Z_9358b4",
   "A082397": "20261116T070652Z_9358b4",
   "A190171": "20261116T070652Z_9358b4",
-  "A215095": "20261116T070652Z_9358b4"
+  "A215095": "20261116T070652Z_9358b4",
+  "A306810": "20261116T072957Z_85253d",
+  "A306809": "20261116T072957Z_85253d",
+  "A309666": "20261116T072957Z_85253d",
+  "A168503": "20261116T072957Z_85253d",
+  "A131935": "20261116T072957Z_85253d",
+  "A168505": "20261116T072957Z_85253d"
  },
- "refills": 13,
- "added": 68,
+ "refills": 14,
+ "added": 71,
  "last": {
-  "cycle_id": "20261116T070652Z_9358b4",
+  "cycle_id": "20261116T072957Z_85253d",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 27,
+  "requests": 18,
   "new": [
    {
-    "id": "oc_A273905_0",
+    "id": "oc_A285348_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A080894_0",
+    "id": "oc_A285349_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A116387_0",
+    "id": "oc_A186338_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 22,
-   "resolved_skipped": 1,
-   "keyword_skipped": 0,
-   "statements": 28,
-   "parsed": 16,
+   "entries": 59,
+   "resolved_skipped": 11,
+   "keyword_skipped": 5,
+   "statements": 62,
+   "parsed": 13,
    "no_bfile": 10,
-   "fails_on_data": 3,
+   "fails_on_data": 0,
    "kept": 3,
-   "def_candidates": 2,
-   "def_fails_on_data": 2
+   "def_candidates": 0
   }
  }
 }

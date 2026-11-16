@@ -1962,14 +1962,6 @@ def check_authored_frontier_le_x423b0686_w1() -> bool:
     return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'D(oxa213536)', 'params': {}, 'rhs': 'gpf[oxa213536]'}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])
 
 
-def check_authored_frontier_le_xafb0aef8_w1() -> bool:
-    """Authored frontier check (desk): the colony's own conjecture
-    (gpf+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)
-    re-tested on windows [(41, 2026), (2027, 4012), (4013, 5998)]. conjecture surviving 59988 checks. Bounded evidence, not proof.
-    Disabled until the Oracle passes it.
-    """
-    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(gpf+omega)', 'params': {}, 'rhs': 'sigma'}, a, b)) is int and c > 0 for a, b in [(41, 2026), (2027, 4012), (4013, 5998)])
-
 def check_authored_mut_swap_related_sequence_58aacc9fceff() -> bool:
     """Authored mutated claim (target generator, swap_related_sequence):
     gcd(pell,bigomega)(n) divides (rad*sqfree)(n) for all n >= 1
@@ -2395,7 +2387,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_cong_x41b05781_w3", check_authored_frontier_cong_x41b05781_w3, True),
     ("authored_frontier_cong_xb5f19c6e_w1", check_authored_frontier_cong_xb5f19c6e_w1, True),
     ("authored_frontier_le_x423b0686_w1", check_authored_frontier_le_x423b0686_w1, True),
-    ("authored_frontier_le_xafb0aef8_w1", check_authored_frontier_le_xafb0aef8_w1, True),
     ("authored_mut_swap_related_sequence_58aacc9fceff", check_authored_mut_swap_related_sequence_58aacc9fceff, False),
     ("authored_mut_swap_related_sequence_7f7f296d8a72", check_authored_mut_swap_related_sequence_7f7f296d8a72, False),
 ]
