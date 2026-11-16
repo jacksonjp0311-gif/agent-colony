@@ -88,6 +88,22 @@ def self_mod_ok() -> bool:
         return True
 
 
+def perturb_handoff_live() -> bool:
+    """Item 81: generated checks go to the conjecture desk (enable + Oracle kind hard_enable,
+    with the real shifted-window held-out test) instead of being submitted by stall-perturb as
+    kind ``authored_check``, which sense_held_out never lets survive. COLONY_PERTURB_HANDOFF=
+    live|off (default live). Always off on the control arm (old behaviour, frozen)."""
+    if not self_mod_ok():
+        return False
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return False
+    except Exception:  # noqa: BLE001
+        return False
+    return os.environ.get("COLONY_PERTURB_HANDOFF", "live").strip().lower() == "live"
+
+
 def _pytest_would_write_repo(path: Path) -> bool:
     """Refuse to mutate the real tree when a unit test forgot to isolate."""
     if not os.environ.get("PYTEST_CURRENT_TEST"):
@@ -605,7 +621,10 @@ def author_targets(
     try:
         from colony import retire_audit as _ra
         from colony.retire import ORACLE as _orc_path, _jsonl as _orc_rows
-        dead_fams = _ra.dead_families(_orc_rows(_orc_path)) if _ra.mode() != "off" else set()
+        # Item 81: with the desk handoff live, those kills came from a route that is no
+        # longer used, so they say nothing about new members; the block applies only when off.
+        dead_fams = (_ra.dead_families(_orc_rows(_orc_path))
+                     if _ra.mode() != "off" and not perturb_handoff_live() else set())
     except Exception:  # noqa: BLE001
         dead_fams = set()
     dead_skipped = 0
@@ -901,7 +920,13 @@ def perturb_candidates(
     *,
     src: str | None = None,
 ) -> list[dict[str, Any]]:
-    """PERTURB-menu slice of still-reachable generated checks."""
+    """PERTURB-menu slice of still-reachable generated checks.
+
+    Item 81: empty while the desk handoff is live. Those checks are judged by
+    the conjecture desk (hard_enable), so the perturb budget goes to other
+    candidates instead of slots it would only hand off."""
+    if perturb_handoff_live():
+        return []
     tried = tried or set()
     ledger = ledger or set()
     out = []
