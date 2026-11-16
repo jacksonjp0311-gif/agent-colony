@@ -56,8 +56,22 @@ def known_identities() -> set[str]:
 
 
 def known_identities_readonly() -> set[str]:
-    """The exact set ``known_identities`` returns, without rewriting the snapshot."""
+    """The exact set ``known_identities`` returns, without rewriting the snapshot.
+
+    Item 97 (James, delegated): lesson/history entries listed in the append-only exemption
+    record (colony/ledger_exemptions.py: entries that came ONLY from the pre-#59 STEM held-out
+    bug) are not prior knowledge. Only those exact lines are skipped; treatment arm only."""
     ids: set[str] = set()
+    skip: set[tuple[str, str]] = set()
+    try:
+        from colony import ledger_exemptions as _lx
+        if _lx.active():
+            skip = _lx.exempt_ids()
+    except Exception:  # noqa: BLE001
+        skip = set()
+
+    def _exempt(source: str, raw: str) -> bool:
+        return bool(skip) and (source, _lx.line_id(raw)) in skip
     if KNOWN.exists():
         try:
             data = json.loads(KNOWN.read_text(encoding="utf-8"))
@@ -67,7 +81,7 @@ def known_identities_readonly() -> set[str]:
             pass
     if LESSONS.exists():
         for ln in LESSONS.read_text(encoding="utf-8").splitlines():
-            if not ln.strip():
+            if not ln.strip() or _exempt("lessons", ln):
                 continue
             try:
                 e = json.loads(ln)
@@ -81,6 +95,8 @@ def known_identities_readonly() -> set[str]:
                 ids.add(fam)
     if HISTORY.exists():
         for ln in HISTORY.read_text(encoding="utf-8").splitlines()[-80:]:
+            if _exempt("history", ln):
+                continue
             try:
                 e = json.loads(ln)
             except json.JSONDecodeError:
