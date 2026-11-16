@@ -213,6 +213,10 @@ def test_open_stale_trial_closes_inconclusive_to_true_prior(tmp_path, monkeypatc
     """The live 8→10 trial: next cycle closes it inconclusive, back to 6,
     via the normal run_cycle path (no data hand-edits)."""
     _replay_stale_open(tmp_path, monkeypatch)
+    # Item 84 hands the next proposal to self-build after a trial ends; this test is about
+    # the no-signal guard, so self-build declines its turn here.
+    import colony.self_build as SB
+    monkeypatch.setattr(SB, "build_turn_pending", lambda heal_state, state=None: False)
     out = SH.run_cycle("Y", metrics=_metric("Y"), findings=FINDINGS)
     st = SH.load_state()
     inc = [e for e in st["evidence"] if e["event"] == "trial_inconclusive"]
