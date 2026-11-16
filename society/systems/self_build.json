@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 12,
+ "cycle_index": 15,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -15,45 +15,46 @@
  },
  "trial": {
   "blueprint": {
-   "id": "bp_a85e465622ced7b1",
-   "signature": "a85e465622ced7b1",
+   "id": "bp_8d66d1f85a72b397",
+   "signature": "8d66d1f85a72b397",
    "steps": [
     {
      "component": "frontier_extra_batch",
      "n": 1
     },
     {
-     "component": "oeis_extra_pass",
+     "component": "oeis_consensus_vote",
      "n": 1
     }
    ],
    "parent": "bp_1a40beac596f0ebe",
    "operator": "add",
    "evidence": [
-    "oeis_extra_pass"
+    "oeis_consensus_vote"
    ],
-   "weight": 2.775,
+   "weight": 2.75,
    "added": [
     {
-     "component": "oeis_extra_pass",
+     "component": "oeis_consensus_vote",
      "n": 1
     }
    ],
    "evidence_detail": {
-    "oeis_extra_pass": {
+    "oeis_consensus_vote": {
      "papers": [
-      "2611.08335",
-      "2611.11977",
-      "2611.14424",
-      "2611.15071",
-      "2611.15923",
-      "2611.17314"
+      "2611.01081",
+      "2611.04370",
+      "2611.04504",
+      "2611.07618",
+      "2611.07996",
+      "2611.08615",
+      "2611.14042"
      ],
-     "n_papers": 6,
-     "idea_rank": 0,
-     "cards": 1,
+     "n_papers": 7,
+     "idea_rank": 1,
+     "cards": 6,
      "lessons": 0,
-     "boost": 5.55
+     "boost": 5.5
     }
    },
    "self_test": {
@@ -66,20 +67,20 @@
       "planned": 1
      },
      {
-      "component": "oeis_extra_pass",
+      "component": "oeis_consensus_vote",
       "n": 1,
       "planned": 1
      }
     ]
    }
   },
-  "opened_cycle_id": "20261116T014345Z_0a7381",
-  "opened_cycle_index": 7,
-  "open_row": 107,
+  "opened_cycle_id": "20261116T023057Z_33747b",
+  "opened_cycle_index": 13,
+  "open_row": 109,
   "window_rows": 2,
   "baseline_gain": [
-   2.0,
-   0.0
+   1.0,
+   249087.0
   ]
  },
  "tried": {
@@ -93,6 +94,21 @@
    ],
    "id": "bp_1a40beac596f0ebe",
    "cycle_id": "20261116T014345Z_0a7381"
+  },
+  "a85e465622ced7b1": {
+   "outcome": "reverted",
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    },
+    {
+     "component": "oeis_extra_pass",
+     "n": 1
+    }
+   ],
+   "id": "bp_a85e465622ced7b1",
+   "cycle_id": "20261116T023057Z_33747b"
   }
  },
  "component_stats": {
@@ -105,14 +121,20 @@
   "oeis_extra_pass": {
    "tried": 1,
    "kept": 0,
+   "reverted": 1,
+   "inconclusive": 0
+  },
+  "oeis_consensus_vote": {
+   "tried": 1,
+   "kept": 0,
    "reverted": 0,
    "inconclusive": 0
   }
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261116T021631Z_9d4a04",
-  "blueprint": "bp_a85e465622ced7b1",
+  "cycle_id": "20261116T023643Z_d5724a",
+  "blueprint": "bp_8d66d1f85a72b397",
   "ran": [
    {
     "component": "frontier_extra_batch",
@@ -120,12 +142,12 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 189,
-     "duplicate": 33,
-     "trivial_formal": 2,
-     "trivial_shuffle_null": 3,
-     "trivial_idle_part": 9,
-     "trivial_implied_parts": 56,
+     "fitted": 184,
+     "duplicate": 16,
+     "trivial_formal": 4,
+     "trivial_shuffle_null": 1,
+     "trivial_idle_part": 15,
+     "trivial_implied_parts": 55,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
@@ -134,35 +156,33 @@
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 3,
+     "expected_by_closure": 0,
      "loose_inequality": 0,
-     "tested": 13,
-     "survived": 5,
-     "falsified": 8,
-     "machine_checked": 3,
+     "tested": 12,
+     "survived": 0,
+     "falsified": 12,
+     "machine_checked": 0,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 2,
+     "oeis_known": 0,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 7,
-     "trivial_known_in_principle(definition_parity)": 1,
-     "trivial_known_in_principle(compositional)": 1
+     "trivial_confirmed on range": 6
     }
    },
    {
-    "component": "oeis_extra_pass",
+    "component": "oeis_consensus_vote",
     "n": 1,
     "actions": 0,
     "skipped": "nothing_open"
    }
   ],
   "actions": 1,
-  "cpu_s": 1.782
+  "cpu_s": 2.074
  },
  "last_skip": null,
  "kept_count": 1,
- "reverted_count": 0,
+ "reverted_count": 1,
  "inconclusive_count": 0
 }

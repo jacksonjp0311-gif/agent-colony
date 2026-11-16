@@ -90,6 +90,7 @@ class ConjectureResult:
     promotion: dict[str, Any] | None = None
     why_believe: dict[str, Any] | None = None  # machine note: components + ranges + Challenger
     self_rejected: bool = False  # Challenger withheld it from the Oracle
+    extras: list[dict[str, Any]] = field(default_factory=list)  # item 86: extra hard_enable picks this cycle
 
 
 def propose_from_themes(themes, *, ledger=None, cycle_id: str = ""):
@@ -165,6 +166,34 @@ def speed_neutral_scores(before: dict, after: dict, name: str) -> tuple[float, f
     return bs, as_, ""
 
 
+# Item 86: the Oracle re-runs every hard_enable entry on a disjoint shifted window
+# (colony/trust/shifted_holdout.py). Enabling only flips the entry's flag, so an entry whose
+# expression has no shiftable shape, or no data headroom, is killed there every time. The
+# desk skips such entries before spending its pick (the same check, run early; never a pass).
+_SHIFT_STRUCTURAL = ("shift_not_applicable(",)
+
+
+def shift_prescreen_reason(name: str, *, src_path: Path | None = None) -> str | None:
+    """'prescreen_shift:<reason>' when the Oracle's shifted-window held-out cannot pass, else None."""
+    try:
+        from colony.trust.shifted_holdout import shifted_window_check
+        r = shifted_window_check(Path(src_path or LEMMA_IMPL), name)
+    except Exception:  # noqa: BLE001 -- unknown: let the Oracle decide
+        return None
+    reason = str(r.get("reason") or "")
+    if r.get("status") != "pass" and any(reason.startswith(t) for t in _SHIFT_STRUCTURAL):
+        return f"prescreen_shift:{reason}"
+    return None
+
+
+def _self_mod() -> bool:
+    try:
+        from colony.arm import self_mod_enabled
+        return bool(self_mod_enabled())
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def pick_mutation(
     ordered: list[tuple[str, str, str]],
     *,
@@ -173,6 +202,8 @@ def pick_mutation(
     recent_reverts: dict[str, int] | None = None,
     force_mutation: str | None = None,
     lemma_src: str = "",
+    shift_prescreen: bool = False,
+    only_kinds: tuple[str, ...] | None = None,
 ) -> tuple[str | None, str, str, dict[str, str]]:
     """First pickable mutation → (name, kind, snippet, cooled{name: reason}).
 
@@ -226,6 +257,13 @@ def pick_mutation(
         if k == "hard_enable" and snip == f"enable:{name}" and lemma_src and f'("{name}"' not in lemma_src:
             cooled[name] = "no_check_to_enable"   # an enable stub with no check behind it always fails
             continue
+        if only_kinds is not None and (k or "") not in only_kinds:
+            continue
+        if shift_prescreen and k == "hard_enable":
+            why_shift = shift_prescreen_reason(name)
+            if why_shift:
+                cooled[name] = why_shift
+                continue
         return name, k, snip, cooled
     return None, "", "", cooled
 
@@ -280,7 +318,7 @@ def recover_interrupted(*, cycle_id: str = "") -> dict[str, Any] | None:
     return rec
 
 
-def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
+def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = "", extra_pick: bool = False):
     recover_interrupted(cycle_id=cycle_id)
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     STEM_BACKUP_DIR.mkdir(parents=True, exist_ok=True)
@@ -317,7 +355,8 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         from colony.frontier_checks import fallback_live as _fb_live
         # COLONY_RETEST_FALLBACK=live: author (at most MAX_AUTHORED_PER_CYCLE) every cycle, so the
         # next cycle always has a disabled check waiting instead of alternating author / enable
-        if (not _variants and not _vms() or _fb_live()) and guide_authoring_active():
+        if (not extra_pick and (not _variants and not _vms() or _fb_live())
+                and guide_authoring_active()):
             authoring_ran = True
             fresh_authored = {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
             src = LEMMA_IMPL.read_text(encoding="utf-8") if LEMMA_IMPL.exists() else src
@@ -342,7 +381,15 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = ""):
         chosen, kind, snippet, cooled = pick_mutation(
             ordered, cooldown=cooldown, fresh_authored=fresh_authored,
             recent_reverts=recent_reverts, force_mutation=force_mutation, lemma_src=lemma_src,
+            shift_prescreen=_self_mod(),
+            only_kinds=("hard_enable",) if extra_pick else None,
         )
+    if extra_pick and not chosen:
+        # Item 86: an extra pick only enables a waiting hard_enable entry; it never authors,
+        # takes an OEIS idle turn, or writes a history row when there is none.
+        return ConjectureResult(ts=_utc(), decision="skip", before_score=before_score,
+                                after_score=before_score, delta=0.0,
+                                note="extra pick: no hard_enable entry left", kind="")
     if chosen and (kind or "").startswith("stem"):
         # STEM mutations live in kinematics_impl.
         target_impl = KINEMATICS_IMPL
@@ -814,8 +861,31 @@ def _write_witness(results: list[ConjectureResult]) -> None:
     WITNESS_NOTE.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+# Item 86: once the authored-check cap has free slots and the stall perturb hands its
+# generated checks to the desk, one enable per cycle is the bottleneck. After a pick the
+# Oracle passed, the desk takes up to DESK_EXTRA_PICKS more hard_enable picks in the same
+# cycle (self-mod arm only; control keeps one). Each extra pick goes through the same
+# bench, Challenger, diff-scope and Oracle (shifted-window held-out) as the first.
+DESK_EXTRA_PICKS = 2
+DESK_EXTRA_BUDGET_S = 150.0
+
+
 def run_from_growth(cycle_id: str, ledger=None):
-    return improve_once(ledger=ledger, cycle_id=cycle_id)
+    first = improve_once(ledger=ledger, cycle_id=cycle_id)
+    if not _self_mod():
+        return first
+    import time as _time
+    t0 = _time.monotonic()
+    last = first
+    for _ in range(DESK_EXTRA_PICKS):
+        if last.decision != "keep" or last.kind != "hard_enable":
+            break
+        if _time.monotonic() - t0 > DESK_EXTRA_BUDGET_S:
+            first.extras.append({"stopped": "budget"})
+            break
+        last = improve_once(ledger=ledger, cycle_id=cycle_id, extra_pick=True)
+        first.extras.append({"mutation": last.mutation, "kind": last.kind, "decision": last.decision})
+    return first
 
 
 if __name__ == "__main__":

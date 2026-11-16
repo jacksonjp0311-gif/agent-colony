@@ -61,6 +61,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$l$-values",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$p$-parity",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -77,11 +82,6 @@
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-16T02:18:12Z",
-  "updated_cycle": "20261116T021631Z_9d4a04",
+  "updated_at": "2026-11-16T02:38:18Z",
+  "updated_cycle": "20261116T023643Z_d5724a",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
