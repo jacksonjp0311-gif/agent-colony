@@ -1,45 +1,36 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T13:05:11Z",
-  "hits": 12,
+  "updated_at": "2026-11-16T14:14:20Z",
+  "hits": 14,
   "kills": 7,
   "rows": 30,
-  "kill_rows": 18,
+  "kill_rows": 16,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T13:05:11Z",
-    "cycle_id": "20261116T130331Z_d9d7a5",
-    "mutation": "stem_wheatstone_balance",
-    "kind": "stem_enable",
+    "ts": "2026-11-16T14:14:20Z",
+    "cycle_id": "20261116T141231Z_b6cdf5",
+    "mutation": "oeis_a000262_lah_row_sums",
+    "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
     "textbook_reuse": 0.0,
     "in_ledger": false,
-    "own_authoring_record_only": false,
+    "own_authoring_record_only": true,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 179,
-      "hard_n": 179,
+      "hard_pass": 181,
+      "hard_n": 181,
       "stripped_fails_usefulness": true,
-      "score": 0.8747,
-      "impl_id": "lemma_impl_v2_basic10_hard179"
+      "score": 0.868,
+      "impl_id": "lemma_impl_v2_basic10_hard180"
     },
     "held_out": {
       "survives": true,
-      "test": "stem_held_out_v1",
-      "hard_pass": 179,
-      "stem_n_pass": 5,
-      "n_held_out": 8,
-      "mutants": 34,
-      "mutants_killed": 26,
-      "reason": "stem_harder_instance_green"
-    },
-    "stem_triviality": {
-      "trivial": false,
-      "reason": "independent_route_or_unanalyzable:return",
-      "test": "stem_triviality_v1"
+      "reason": "hard_tier_green_and_hard_enable",
+      "hard_pass": 181,
+      "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
   },

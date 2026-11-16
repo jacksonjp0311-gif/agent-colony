@@ -1,14 +1,14 @@
 {
   "version": 1,
   "totals": {
-    "assessed": 274,
-    "verdict_APPROVE": 274,
-    "tentative_keeps": 246,
-    "guard_ran": 252,
-    "profile:colony/fixed@1.0.0:APPROVE": 274,
-    "profile:selfmod/adaptive@1.1.0:APPROVE": 274,
-    "profile:tsp/adaptive@1.1.0:APPROVE": 166,
-    "probe:state:APPROVE": 256,
+    "assessed": 276,
+    "verdict_APPROVE": 276,
+    "tentative_keeps": 248,
+    "guard_ran": 254,
+    "profile:colony/fixed@1.0.0:APPROVE": 276,
+    "profile:selfmod/adaptive@1.1.0:APPROVE": 276,
+    "profile:tsp/adaptive@1.1.0:APPROVE": 168,
+    "probe:state:APPROVE": 258,
     "profile:tsp/adaptive@1.1.0:REFINE": 108,
     "profile:tsp/adaptive@1.1.0:would_block_keep": 87,
     "veto:live:would_veto_keep": 21,
@@ -19,220 +19,6 @@
     "veto_scoped_out:item98": 1
   },
   "rows": [
-    {
-      "ts": "2026-11-09T17:06:54Z",
-      "cycle_id": "20261109T170524Z_899946",
-      "mutation": "authored_frontier_cong_x41b05781_w3",
-      "kind": "hard_enable",
-      "mode": "live",
-      "tentative_keep": true,
-      "source": "Athanor 3.0.0 (James Jackson)",
-      "verdict": "APPROVE",
-      "reason": "selfmod/adaptive@1.1.0[state probe]: H7>=threshold",
-      "gate_profile": "selfmod/adaptive@1.1.0",
-      "validity_passed": true,
-      "validity_failures": 0,
-      "validity_first_failure": null,
-      "guard": {
-        "ran": true,
-        "passed": true,
-        "reason": "ok",
-        "seconds": 0.643,
-        "n_basic": 10,
-        "n_hard": 160,
-        "n_pass": 170
-      },
-      "profiles": {
-        "colony/fixed@1.0.0": {
-          "verdict": "APPROVE",
-          "reason": "H7>=threshold",
-          "h7": 1.0,
-          "tau": 0.7,
-          "tol": 1.0,
-          "dphi_max": 0.233333,
-          "valid": true
-        },
-        "selfmod/adaptive@1.1.0": {
-          "verdict": "APPROVE",
-          "reason": "H7>=threshold",
-          "h7": 1.0,
-          "tau": 0.75,
-          "tol": 0.7,
-          "dphi_max": 0.333333,
-          "valid": true
-        },
-        "tsp/adaptive@1.1.0": {
-          "verdict": "REFINE",
-          "reason": "H7 in refine band",
-          "h7": 0.7,
-          "tau": 0.78,
-          "tol": 0.7,
-          "dphi_max": 0.333333,
-          "valid": true
-        }
-      },
-      "n_probes": 171,
-      "probe": "state",
-      "legacy_verdict": "APPROVE",
-      "state_verdict": "APPROVE",
-      "state_dphi": {
-        "checks_basic": 0.0,
-        "checks_catalog": 0.0,
-        "checks_authored": 0.233333,
-        "coverage": 0.233333,
-        "score": 0.004667,
-        "tier_ok": 0.0,
-        "runtime": 0.005068,
-        "structure": 0.0,
-        "novelty_mix": 0.086216,
-        "oracle_pattern": 0.233333
-      },
-      "state_drift_raw": {
-        "checks_basic": 0.0,
-        "checks_catalog": 0.0,
-        "checks_authored": 0.5,
-        "coverage": 0.035714,
-        "score": 0.0002,
-        "tier_ok": 0.0,
-        "runtime": 0.004846,
-        "structure": 0.0,
-        "novelty_mix": 0.003695,
-        "oracle_pattern": 0.05
-      },
-      "state_error": null,
-      "veto": {
-        "vetoed": false,
-        "areas": [],
-        "thresholds": {},
-        "calibrated": true,
-        "mode": "live"
-      },
-      "state_h7": 1.0,
-      "drift_nonzero": [],
-      "structural": 0.0,
-      "e_cur": 0.14300000000000002,
-      "e_best": 0.14300000000000002,
-      "step": 224,
-      "would_block": false,
-      "block": false,
-      "would_veto": false,
-      "would_block_by_probe": {
-        "legacy": false,
-        "state": false
-      },
-      "would_block_by_profile": {
-        "colony/fixed@1.0.0": false,
-        "selfmod/adaptive@1.1.0": false,
-        "tsp/adaptive@1.1.0": true
-      }
-    },
-    {
-      "ts": "2026-11-10T19:56:16Z",
-      "cycle_id": "20261110T195437Z_630eed",
-      "mutation": "authored_frontier_cong_xb5f19c6e_w1",
-      "kind": "hard_enable",
-      "mode": "live",
-      "tentative_keep": true,
-      "source": "Athanor 3.0.0 (James Jackson)",
-      "verdict": "APPROVE",
-      "reason": "selfmod/adaptive@1.1.0[state probe]: H7>=threshold",
-      "gate_profile": "selfmod/adaptive@1.1.0",
-      "validity_passed": true,
-      "validity_failures": 0,
-      "validity_first_failure": null,
-      "guard": {
-        "ran": true,
-        "passed": true,
-        "reason": "ok",
-        "seconds": 0.909,
-        "n_basic": 10,
-        "n_hard": 161,
-        "n_pass": 171
-      },
-      "profiles": {
-        "colony/fixed@1.0.0": {
-          "verdict": "APPROVE",
-          "reason": "H7>=threshold",
-          "h7": 1.0,
-          "tau": 0.7,
-          "tol": 1.0,
-          "dphi_max": 0.233333,
-          "valid": true
-        },
-        "selfmod/adaptive@1.1.0": {
-          "verdict": "APPROVE",
-          "reason": "H7>=threshold",
-          "h7": 1.0,
-          "tau": 0.75,
-          "tol": 0.7,
-          "dphi_max": 0.333333,
-          "valid": true
-        },
-        "tsp/adaptive@1.1.0": {
-          "verdict": "REFINE",
-          "reason": "H7 in refine band",
-          "h7": 0.7,
-          "tau": 0.78,
-          "tol": 0.7,
-          "dphi_max": 0.333333,
-          "valid": true
-        }
-      },
-      "n_probes": 172,
-      "probe": "state",
-      "legacy_verdict": "APPROVE",
-      "state_verdict": "APPROVE",
-      "state_dphi": {
-        "checks_basic": 0.0,
-        "checks_catalog": 0.0,
-        "checks_authored": 0.233333,
-        "coverage": 0.233333,
-        "score": 0.004667,
-        "tier_ok": 0.0,
-        "runtime": 0.007127,
-        "structure": 0.0,
-        "novelty_mix": 0.085145,
-        "oracle_pattern": 0.233333
-      },
-      "state_drift_raw": {
-        "checks_basic": 0.0,
-        "checks_catalog": 0.0,
-        "checks_authored": 0.5,
-        "coverage": 0.035714,
-        "score": 0.0002,
-        "tier_ok": 0.0,
-        "runtime": 0.006816,
-        "structure": 0.0,
-        "novelty_mix": 0.003649,
-        "oracle_pattern": 0.05
-      },
-      "state_error": null,
-      "veto": {
-        "vetoed": false,
-        "areas": [],
-        "thresholds": {},
-        "calibrated": true,
-        "mode": "live"
-      },
-      "state_h7": 1.0,
-      "drift_nonzero": [],
-      "structural": 0.0,
-      "e_cur": 0.14300000000000002,
-      "e_best": 0.14300000000000002,
-      "step": 225,
-      "would_block": false,
-      "block": false,
-      "would_veto": false,
-      "would_block_by_probe": {
-        "legacy": false,
-        "state": false
-      },
-      "would_block_by_profile": {
-        "colony/fixed@1.0.0": false,
-        "selfmod/adaptive@1.1.0": false,
-        "tsp/adaptive@1.1.0": true
-      }
-    },
     {
       "ts": "2026-11-10T19:59:09Z",
       "cycle_id": "20261110T195758Z_845dfc",
@@ -5360,12 +5146,226 @@
         "selfmod/adaptive@1.1.0": false,
         "tsp/adaptive@1.1.0": true
       }
+    },
+    {
+      "ts": "2026-11-16T14:05:20Z",
+      "cycle_id": "20261116T140310Z_0fb332",
+      "mutation": "oeis_a000111_zigzag_boustrophedon",
+      "kind": "hard_enable",
+      "mode": "live",
+      "tentative_keep": true,
+      "source": "Athanor 3.0.0 (James Jackson)",
+      "verdict": "APPROVE",
+      "reason": "selfmod/adaptive@1.1.0[state probe]: H7>=threshold",
+      "gate_profile": "selfmod/adaptive@1.1.0",
+      "validity_passed": true,
+      "validity_failures": 0,
+      "validity_first_failure": null,
+      "guard": {
+        "ran": true,
+        "passed": true,
+        "reason": "ok",
+        "seconds": 1.33,
+        "n_basic": 10,
+        "n_hard": 180,
+        "n_pass": 190
+      },
+      "profiles": {
+        "colony/fixed@1.0.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 1.0,
+          "tau": 0.7,
+          "tol": 1.0,
+          "dphi_max": 0.233333,
+          "valid": true
+        },
+        "selfmod/adaptive@1.1.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 1.0,
+          "tau": 0.75,
+          "tol": 0.7,
+          "dphi_max": 0.333333,
+          "valid": true
+        },
+        "tsp/adaptive@1.1.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 0.8,
+          "tau": 0.78,
+          "tol": 0.7,
+          "dphi_max": 0.333333,
+          "valid": true
+        }
+      },
+      "n_probes": 191,
+      "probe": "state",
+      "legacy_verdict": "APPROVE",
+      "state_verdict": "APPROVE",
+      "state_dphi": {
+        "checks_basic": 0.0,
+        "checks_catalog": 0.233333,
+        "checks_authored": 0.0,
+        "coverage": 0.233333,
+        "score": 0.0,
+        "tier_ok": 0.0,
+        "runtime": 0.00327,
+        "structure": 0.0,
+        "novelty_mix": 0.048521,
+        "oracle_pattern": 0.0
+      },
+      "state_drift_raw": {
+        "checks_basic": 0.0,
+        "checks_catalog": 0.5,
+        "checks_authored": 0.0,
+        "coverage": 0.035714,
+        "score": 0.0,
+        "tier_ok": 0.0,
+        "runtime": 0.003127,
+        "structure": 0.0,
+        "novelty_mix": 0.002079,
+        "oracle_pattern": 0.0
+      },
+      "state_error": null,
+      "veto": {
+        "vetoed": false,
+        "areas": [],
+        "thresholds": {},
+        "calibrated": true,
+        "mode": "live"
+      },
+      "state_h7": 1.0,
+      "drift_nonzero": [],
+      "structural": 0.0,
+      "e_cur": 0.14300000000000002,
+      "e_best": 0.14300000000000002,
+      "step": 274,
+      "would_block": false,
+      "block": false,
+      "would_veto": false,
+      "would_block_by_probe": {
+        "legacy": false,
+        "state": false
+      },
+      "would_block_by_profile": {
+        "colony/fixed@1.0.0": false,
+        "selfmod/adaptive@1.1.0": false,
+        "tsp/adaptive@1.1.0": false
+      }
+    },
+    {
+      "ts": "2026-11-16T14:14:19Z",
+      "cycle_id": "20261116T141231Z_b6cdf5",
+      "mutation": "oeis_a000262_lah_row_sums",
+      "kind": "hard_enable",
+      "mode": "live",
+      "tentative_keep": true,
+      "source": "Athanor 3.0.0 (James Jackson)",
+      "verdict": "APPROVE",
+      "reason": "selfmod/adaptive@1.1.0[state probe]: H7>=threshold",
+      "gate_profile": "selfmod/adaptive@1.1.0",
+      "validity_passed": true,
+      "validity_failures": 0,
+      "validity_first_failure": null,
+      "guard": {
+        "ran": true,
+        "passed": true,
+        "reason": "ok",
+        "seconds": 1.326,
+        "n_basic": 10,
+        "n_hard": 181,
+        "n_pass": 191
+      },
+      "profiles": {
+        "colony/fixed@1.0.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 1.0,
+          "tau": 0.7,
+          "tol": 1.0,
+          "dphi_max": 0.233333,
+          "valid": true
+        },
+        "selfmod/adaptive@1.1.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 1.0,
+          "tau": 0.75,
+          "tol": 0.7,
+          "dphi_max": 0.333333,
+          "valid": true
+        },
+        "tsp/adaptive@1.1.0": {
+          "verdict": "APPROVE",
+          "reason": "H7>=threshold",
+          "h7": 0.8,
+          "tau": 0.78,
+          "tol": 0.7,
+          "dphi_max": 0.333333,
+          "valid": true
+        }
+      },
+      "n_probes": 192,
+      "probe": "state",
+      "legacy_verdict": "APPROVE",
+      "state_verdict": "APPROVE",
+      "state_dphi": {
+        "checks_basic": 0.0,
+        "checks_catalog": 0.233333,
+        "checks_authored": 0.0,
+        "coverage": 0.233333,
+        "score": 0.0,
+        "tier_ok": 0.0,
+        "runtime": 0.005163,
+        "structure": 0.0,
+        "novelty_mix": 0.047984,
+        "oracle_pattern": 0.0
+      },
+      "state_drift_raw": {
+        "checks_basic": 0.0,
+        "checks_catalog": 0.5,
+        "checks_authored": 0.0,
+        "coverage": 0.035714,
+        "score": 0.0,
+        "tier_ok": 0.0,
+        "runtime": 0.004938,
+        "structure": 0.0,
+        "novelty_mix": 0.002056,
+        "oracle_pattern": 0.0
+      },
+      "state_error": null,
+      "veto": {
+        "vetoed": false,
+        "areas": [],
+        "thresholds": {},
+        "calibrated": true,
+        "mode": "live"
+      },
+      "state_h7": 1.0,
+      "drift_nonzero": [],
+      "structural": 0.0,
+      "e_cur": 0.14300000000000002,
+      "e_best": 0.14300000000000002,
+      "step": 275,
+      "would_block": false,
+      "block": false,
+      "would_veto": false,
+      "would_block_by_probe": {
+        "legacy": false,
+        "state": false
+      },
+      "would_block_by_profile": {
+        "colony/fixed@1.0.0": false,
+        "selfmod/adaptive@1.1.0": false,
+        "tsp/adaptive@1.1.0": false
+      }
     }
   ],
   "schedule": {
-    "step": 274,
+    "step": 276,
     "best_e": 0.14300000000000002
   },
-  "updated_at": "2026-11-16T13:05:10Z",
+  "updated_at": "2026-11-16T14:14:19Z",
   "note": "Athanor gate (Athanor 3.0.0 (James Jackson)) on lemma-desk self-edits. shadow = report-only; live = a keep needs APPROVE (monotone, after the Oracle; never changes Oracle, P or authorize)."
 }

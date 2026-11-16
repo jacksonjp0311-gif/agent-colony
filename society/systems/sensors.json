@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-16T13:07:57Z",
-  "cycle_id": "20261116T130733Z_d79239",
+  "ts": "2026-11-16T14:13:03Z",
+  "cycle_id": "20261116T141231Z_b6cdf5",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -26,13 +26,6 @@
       "authored_mut_swap_related_sequence_2d4852ce385c": 1
     },
     "recent": {
-      "stem_thin_lens_matrix": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "stem_velocity_addition": {
         "last": "revert",
         "streak": 1,
@@ -109,34 +102,41 @@
         "n": 1,
         "keeps": 1,
         "reverts": 0
+      },
+      "oeis_a000111_zigzag_boustrophedon": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8283,
-      "slope": 0.003059,
-      "min": 0.7841,
-      "max": 0.8283
+      "last": 0.8282,
+      "slope": 0.000367,
+      "min": 0.8101,
+      "max": 0.8294
     },
     "novelty": {
-      "last": 0.6316,
-      "slope": 0.006283,
+      "last": 0.65,
+      "slope": 0.016629,
       "min": 0.4762,
-      "max": 0.6316
+      "max": 0.65
     },
     "kill_rate": {
-      "last": 0.407,
-      "slope": -0.000255,
-      "min": 0.407,
-      "max": 0.41
+      "last": 0.4066,
+      "slope": -0.000329,
+      "min": 0.4066,
+      "max": 0.4096
     },
     "kill_rate_term": {
-      "last": 0.9163,
-      "slope": -0.000228,
-      "min": 0.9163,
-      "max": 0.919
+      "last": 0.9159,
+      "slope": -0.000294,
+      "min": 0.9159,
+      "max": 0.9186
     },
     "lesson_uptake": {
       "last": 0.36,
@@ -147,18 +147,19 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0132,
-    "novelty_max": 0.6316,
+    "aggregate_range": 0.0193,
+    "novelty_max": 0.65,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 189,
+    "enabled": 190,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xd9add9e9_w1",
       "authored_mut_swap_related_sequence_58aacc9fceff",
-      "authored_mut_swap_related_sequence_7f7f296d8a72"
+      "authored_mut_swap_related_sequence_7f7f296d8a72",
+      "oeis_a000262_lah_row_sums"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -263,7 +264,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 4
+    "exhausted_recent": 3
   },
   "guides": {
     "n_guides": 17,
@@ -277,34 +278,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.723,
+      "ratio": 1.273,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.714,
+      "ratio": 1.272,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.734,
+      "ratio": 1.207,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.747,
+      "ratio": 1.386,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.766,
+      "ratio": 1.403,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 497234115,
-      "collatz_descent": 534200000,
+      "goldbach_even": 500434115,
+      "collatz_descent": 537400000,
       "legendre_square_gap": 2732607,
       "lehmer_totient": 251800001,
-      "erdos_straus": 1439127,
+      "erdos_straus": 1444127,
       "twin_primes_hl": 670200000,
       "oeis_A104062_next": 518690000001
     },
@@ -317,11 +318,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4578,
+        "challenged": 4577,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 322,
+        "challenged": 323,
         "blocked": 0
       },
       "claim": {
@@ -329,8 +330,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.307,
-    "post_challenger_oracle_judged": 417,
+    "post_challenger_oracle_kill_rate": 0.3062,
+    "post_challenger_oracle_judged": 418,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -354,23 +355,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 1.0,
-    "completed": 10,
+    "success_rate": 0.7778,
+    "completed": 9,
     "last": [
       [
         null,
-        "2026-11-16T12:55:23Z"
+        "2026-11-16T13:57:21Z"
       ],
       [
-        "success",
-        "2026-11-16T12:48:58Z"
+        null,
+        "2026-11-16T13:57:18Z"
       ],
       [
-        "success",
-        "2026-11-16T12:48:42Z"
+        null,
+        "2026-11-16T13:56:57Z"
       ]
     ],
-    "fetched_at": "2026-11-16T12:56:13Z"
+    "fetched_at": "2026-11-16T13:57:46Z"
   },
   "feeds": {
     "by_source": {
@@ -418,7 +419,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-16T12:56:13Z"
+      "ts": "2026-11-16T13:57:45Z"
     },
     "health": {
       "arxiv": {
@@ -446,7 +447,8 @@
   "signals": [
     "revert_streaks: stem_elastic_collision, stem_isothermal_work, stem_kepler_third_law, stem_rc_discharge → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
+    "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge",
+    "ci_health: success_rate 0.7778 → be conservative"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
 }

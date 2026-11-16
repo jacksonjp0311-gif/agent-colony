@@ -2333,6 +2333,19 @@ def check_oeis_a000111_zigzag_boustrophedon(n: int) -> bool:
     return True
 
 
+def check_oeis_a000262_lah_row_sums(n: int) -> bool:
+    """A000262 (sets of lists): sum_k L(n,k) with unsigned Lah L(n,k) = C(n-1,k-1) n!/k! equals
+    the recurrence a(k) = (2k-1) a(k-1) - (k-1)(k-2) a(k-2)."""
+    if n < 0:
+        return True
+    lah = 1 if n == 0 else sum(math.comb(n - 1, k - 1) * math.factorial(n) // math.factorial(k)
+                               for k in range(1, n + 1))
+    a = [1, 1]
+    for k in range(2, n + 1):
+        a.append((2 * k - 1) * a[k - 1] - (k - 1) * (k - 2) * a[k - 2])
+    return lah == a[n]
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2568,7 +2581,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a000085_involutions", lambda: all(check_oeis_a000085_involutions(n) for n in range(0, 50)), True),
     ("oeis_a001045_jacobsthal_sum", lambda: all(check_oeis_a001045_jacobsthal_sum(n) for n in range(1, 60)), True),
     ("oeis_a002426_central_trinomial", lambda: all(check_oeis_a002426_central_trinomial(n) for n in range(0, 50)), True),
-    ("oeis_a000111_zigzag_boustrophedon", lambda: all(check_oeis_a000111_zigzag_boustrophedon(n) for n in range(0, 40)), False),
+    ("oeis_a000111_zigzag_boustrophedon", lambda: all(check_oeis_a000111_zigzag_boustrophedon(n) for n in range(0, 40)), True),
+    ("oeis_a000262_lah_row_sums", lambda: all(check_oeis_a000262_lah_row_sums(n) for n in range(0, 40)), True),
 ]
 
 

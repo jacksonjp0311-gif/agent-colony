@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-11-16 08:10 AM ET
+# Proposal shortlist — 2026-11-16 09:16 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -6,7 +6,7 @@ View only: nothing here is authorized. Only James authorizes.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
-| 1 | imp_630eed_49 | 0.8895 | 1.0 | 0.0 | APPROVE | 1 | 1 (0.8895) | Enable `authored_frontier_cong_xb5f19c6e_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8895, novelty 1.0. |
+| 1 | imp_630eed_49 | 0.8895 | 1.0 | 0.0 | n/a yet | 1 | 1 (0.8895) | Enable `authored_frontier_cong_xb5f19c6e_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8895, novelty 1.0. |
 | 2 | imp_a201b5_50 | 0.8871 | 1.0 | 0.0 | n/a yet | 2 | 15 (0.6617, below bar) | Enable `authored_frontier_divides_x318ee14a_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8871, novelty 1.0. |
 | 3 | imp_6a3c68_50 | 0.8837 | 1.0 | 0.0 | n/a yet | 1 | 16 (0.6583, below bar) | Enable `authored_frontier_le_x10223e69_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8837, novelty 1.0. |
 | 4 | imp_6fad91_50 | 0.8832 | 1.0 | 0.0 | n/a yet | 2 | 24 (0.6461, below bar) | Enable `authored_frontier_cong_xa8371e31_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8832, novelty 1.0. |
@@ -50,9 +50,9 @@ Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 22, novelty_k
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 17 tested, 7 survived held-out, 10 falsified, 6 machine-checked, 0 surprises; dropped 27 duplicates, 47 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1099.
-Totals: tested 13199, survived 4992, surprises 141, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 1 with no reference found.
+Mode `live`. Last cycle: 15 tested, 5 survived held-out, 10 falsified, 4 machine-checked, 0 surprises; dropped 24 duplicates, 55 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1094.
+Totals: tested 13295, survived 5025, surprises 143, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|

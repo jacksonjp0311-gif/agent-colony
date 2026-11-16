@@ -91,6 +91,13 @@
       "snippet": "enable:oeis_a000111_zigzag_boustrophedon",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a000262_lah_row_sums",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a000262_lah_row_sums",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

@@ -1,9 +1,9 @@
-# Conjecture desk witness — 2026-11-16T13:09:05Z
+# Conjecture desk witness — 2026-11-16T14:14:21Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.8751→0.8751 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['abel_summation', 'alternating_binomial_row', 'bell_stirling_sum', 'bell_triangle_recurrence', 'bezout_identity', 'binomial_hockey_deep', 'binomial_inversion_small', 'binomial_sum_row']. Authored new disabled checks: ['oeis_a000111_zigzag_boustrophedon']. OEIS idle attempt: no open target.
-  - themes: WeightBench: Evaluating Language Models as Weight-Space Prog, Neutrosophic Convergence Spaces, The Sociolinguistics of Machine Identity: LLM Personality an
+- `oeis_a000262_lah_row_sums` (hard_enable) → **keep** 0.8679→0.8679 (+0.0000) — Kept `oeis_a000262_lah_row_sums` (hard_enable): lemma score 0.8679→0.8679 checks 190→191 hard_pass 180→181 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 180->181 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]
+  - themes: AI Safety via Debate, Pairing AIS with RF: Analysis of a Markovian Approach for Ma, FETTUCCINE: Fast and efficient brain-to-text decoding on mob
 
 ## Honesty
 
