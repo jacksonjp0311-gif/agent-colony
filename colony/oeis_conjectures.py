@@ -1114,7 +1114,23 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
     cap_value: int | float | None = None
 
     used_fast = False
-    if defn.get("kind") in ("gf", "rec"):
+    widened = False
+    if defn.get("kind") in ("xexpr", "holo"):
+        # Item 105: widened definitions have their own two evaluators (colony/oeis_definitions.py).
+        from colony import oeis_definitions as OD
+        got, why = OD.extend_widened(defn, off, list(terms), want, path, float(seconds), bits)
+        if got is None or len(got) < len(terms) or got[:len(terms)] != list(terms):
+            if info is not None:
+                info["cap_reason"] = None
+                info["cap_value"] = None
+            return None
+        out = got
+        if why == "digit_cap":
+            cap_reason, cap_value = CAP_DIGIT, caps["deep_digits"]
+        elif why == "time_cap":
+            cap_reason, cap_value = CAP_TIME, seconds
+        used_fast = widened = True
+    elif defn.get("kind") in ("gf", "rec"):
         got, cap_reason, cap_value = _extend_cfinite(defn, off, terms, want, seconds, bits)
         if got is not None:
             out = got
@@ -1208,7 +1224,9 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
         info["term_cap"] = int(term_cap)
         info["digit_cap"] = caps["deep_digits"]
         info["time_cap"] = seconds
-        info["fast_cfinite"] = used_fast
+        info["fast_cfinite"] = used_fast and not widened
+        if widened:
+            info["widened_definition"] = str(defn.get("provenance") or "")
         info["elapsed_s"] = round(time.time() - t0, 2)
     return out
 
@@ -1327,6 +1345,20 @@ def _annotate_attempt_cap(
 
 
 def attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool = True) -> dict[str, Any]:
+    res = _attempt_disprove(e, prior_hi, fetch)
+    d = e.get("definition")
+    if not d:
+        try:
+            d = computable_definition(e)
+        except Exception:  # noqa: BLE001
+            d = None
+    if d and d.get("kind") in ("xexpr", "holo"):
+        from colony import oeis_definitions as OD
+        OD.label_result(d, res)
+    return res
+
+
+def _attempt_disprove(e: dict[str, Any], prior_hi: int | None = None, fetch: bool = True) -> dict[str, Any]:
     if not e.get("definition"):
         try:
             defn = computable_definition(e)
@@ -1651,7 +1683,12 @@ def computable_definition(e: dict[str, Any]) -> dict[str, Any] | None:
                 return cand
         except (B.Bad, ZeroDivisionError, TypeError, ValueError, RecursionError, KeyError, OverflowError):
             return None
-    return None
+    # Item 105: a widened definition (NAME / FORMULA / guess) that reproduced the whole b-file.
+    try:
+        from colony import oeis_definitions as OD
+        return OD.definition_for(e)
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def bfile_hi_of(e: dict[str, Any]) -> int:
@@ -2361,6 +2398,8 @@ def credit_of(res: dict[str, Any], prior_hi: int | None) -> float:
     if res.get("status") in ("counterexample_verified", "proved_checked"):
         return CREDIT_RESOLVE
     if res.get("action") == "attempt_disprove" and res.get("status") == "holds_on_range":
+        if res.get("conditional"):
+            return 0.0   # item 105: range from a formula / guessed definition earns no credit
         hi = max((res.get("range") or [0, 0])[1] or 0, res.get("deep_hi") or 0)
         # only range beyond the OEIS b-file (already checked by OEIS contributors) counts as extension
         base = max(prior_hi or 0, res.get("data_hi") or 0, res.get("bfile_hi") or 0, 1)
@@ -2386,6 +2425,20 @@ def _flag(e: dict[str, Any], res: dict[str, Any], cid: str) -> None:
         fh.write("".join(lines))
 
 
+CONDITIONAL_LOG = ROOT / "data" / "commons" / "oeis_conditional_hits.jsonl"
+
+
+def _log_conditional(e: dict[str, Any], res: dict[str, Any], cid: str) -> None:
+    """Item 105: append-only record of a failure found with a formula / guessed definition (not a result)."""
+    row = {"at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "cycle": cid, "id": e["id"],
+           "anum": e["anum"], "status": res.get("status"), "n": res.get("counterexample_n"),
+           "provenance": res.get("definition_provenance"), "source": res.get("definition_source"),
+           "note": "conditional: the terms past the b-file come from a non-definitional formula; needs review"}
+    CONDITIONAL_LOG.parent.mkdir(parents=True, exist_ok=True)
+    with CONDITIONAL_LOG.open("a") as fh:
+        fh.write(json.dumps(row, sort_keys=True) + "\n")
+
+
 def _score(state: dict[str, Any], e: dict[str, Any], acts: list[dict[str, Any]]) -> None:
     """Honest scoreboard: (a) counterexamples verified on two code paths, (b) proof_check-accepted proofs,
     (c) entries whose computable definition was checked beyond the published (b-file) range."""
@@ -2401,6 +2454,16 @@ def _score(state: dict[str, Any], e: dict[str, Any], acts: list[dict[str, Any]])
             routine = kind == "alg" or checker.startswith("routine")
             sb["proofs"][e["id"]] = {"anum": e["anum"], "checker": checker[:120],
                                      "routine": routine}
+        elif r.get("action") == "attempt_disprove" and r["status"] in ("holds_on_range", "counterexample_conditional") \
+                and r.get("conditional"):
+            # Item 105: a formula / guessed definition. Kept apart from the verified scoreboard.
+            bh = r.get("bfile_hi") or 0
+            top = max((r.get("range") or [0, 0])[1] or 0, r.get("deep_hi") or 0)
+            ce = sb.setdefault("conditional_extensions", {})
+            if top > bh and top > (ce.get(e["id"]) or {}).get("to", 0):
+                ce[e["id"]] = {"anum": e["anum"], "bfile_hi": bh, "to": top, "status": r["status"],
+                               "provenance": r.get("definition_provenance"),
+                               "source": r.get("definition_source", "")[:160]}
         elif r.get("action") == "attempt_disprove" and r["status"] == "holds_on_range":
             bh = r.get("bfile_hi") or 0
             top_exact = (r.get("range") or [0, 0])[1] or 0
@@ -2459,6 +2522,11 @@ def run_cycle(
     menu = load_menu()
     if not menu:
         return None
+    try:
+        from colony import oeis_definitions as OD   # item 105: definitions for newly supplied entries
+        OD.refresh(menu, budget_s=20.0)
+    except Exception:  # noqa: BLE001
+        pass
     state = _load(STATE, {"targets": {}, "families": {}, "credit_total": 0.0})
     choice_state = state if (m == "live" or use_state_for_choice) else {"targets": {}, "families": {}}
     if only_ids is not None:
@@ -2512,6 +2580,8 @@ def run_cycle(
             for r in acts:
                 if r["status"] in ("counterexample_verified", "proved_checked"):
                     _flag(e, r, cycle_id)
+                elif r["status"] == "counterexample_conditional":
+                    _log_conditional(e, r, cycle_id)
             _score(state, e, acts)
     rep = {"mode": m, "cycle": cycle_id, "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
            "menu_size": len(menu), "purpose": purpose,
