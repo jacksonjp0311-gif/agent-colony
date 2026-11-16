@@ -2583,8 +2583,17 @@ def run_cycle(
                 elif r["status"] == "counterexample_conditional":
                     _log_conditional(e, r, cycle_id)
             _score(state, e, acts)
+    hunts = None
+    if only_ids is None:
+        try:   # item 106: counterexample hunters on held claims, once per cycle (treatment only)
+            from colony import counterexample_hunters as CH
+            hunts = CH.turn(cycle_id)
+        except Exception:  # noqa: BLE001
+            hunts = None
     rep = {"mode": m, "cycle": cycle_id, "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
            "menu_size": len(menu), "purpose": purpose,
+           "hunters": None if not hunts else [{k: h.get(k) for k in ("hunter", "anum", "status", "lo", "hi", "n",
+                                                                     "sampled")} for h in hunts.get("hunts") or []],
            "chosen": [{"id": e["id"], "anum": e["anum"], "form": (e.get("claim") or {}).get("form"),
                        "text": e["text"]} for e in picks],
            "results": results, "scoreboard": scoreboard(state),
