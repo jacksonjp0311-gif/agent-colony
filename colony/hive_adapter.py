@@ -136,7 +136,13 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         _install_method_ops()
     except Exception:  # noqa: BLE001
         pass
-    return swarm.run_cycle(cycle_id)
+    result = swarm.run_cycle(cycle_id)
+    try:  # spark idea: exact cause of a Hive pick that started no trial (append-only failure log)
+        from colony.failure_modes import log_hive_pick
+        log_hive_pick(result)
+    except Exception:  # noqa: BLE001
+        pass
+    return result
 
 
 def card_proposal_from_result(result: Mapping[str, Any] | None) -> dict[str, Any] | None:
