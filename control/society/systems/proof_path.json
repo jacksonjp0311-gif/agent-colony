@@ -2,11 +2,11 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   87,
-   32
+   86,
+   31
   ],
   "divides": [
-   29,
+   30,
    3
   ],
   "le": [
@@ -26,7 +26,7 @@
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 39,
+ "n_proved": 38,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -3767,63 +3767,6 @@
    "unknown": false,
    "v": 3
   },
-  "dbl(rad)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(rad)",
-       "kids": [
-        {
-         "e": "rad",
-         "lemma": "p | x implies p | rad(x)",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "p | x implies p | rad(x)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x61fbcbe9_w1",
-   "checks": 59988,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): p | x implies p | rad(x); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)": {
    "authored": true,
    "certificate": null,
@@ -4769,6 +4712,18 @@
    "unknown": true,
    "v": 4
   },
+  "gpf[oxa048760](n) divides dbl(oxa056971)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x7d86a3c0_w1",
+   "checks": 88,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "gpf[oxa088902](n) = 1 (mod 2) for all n = 1 (mod 2)": {
    "authored": false,
    "certificate": null,
@@ -5674,5 +5629,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T13:48:49Z"
+ "ts": "2026-11-16T14:10:29Z"
 }
