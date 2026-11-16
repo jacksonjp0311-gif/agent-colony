@@ -3577,6 +3577,14 @@ def run_cycle(
         found = filter_retired_findings(found, st)
     except Exception:
         pass
+    # Item 79: one research method card (from the knowledge library) joins
+    # the candidates as a finding with a suggested legal knob. It is
+    # ordered and gated like any other finding; treatment arm only.
+    try:
+        from colony.learning_loop import self_heal_findings
+        found = self_heal_findings(found, cycle_id)
+    except Exception:
+        pass
     try:
         supply = maybe_supply_oracle_targets(cycle_id, findings=found)
     except Exception as exc:  # noqa: BLE001
