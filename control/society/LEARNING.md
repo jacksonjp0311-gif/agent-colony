@@ -29,5 +29,30 @@ _None yet._
 
 _None yet._
 
+## Reading breadth (knowledge library)
+
+knowledge: 0 papers across 0/14 fields, 0 concepts, 0 cards formed, 0 tested, 0 kept.
+
+| Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| automated_reasoning | 0 | 0 | 0 | 0 | 0 |
+| cognitive_science | 0 | 0 | 0 | 0 | 0 |
+| consciousness_self_models | 0 | 0 | 0 | 0 | 0 |
+| learning_theory | 0 | 0 | 0 | 0 | 0 |
+| mathematics | 0 | 0 | 0 | 0 | 0 |
+| meta_learning | 0 | 0 | 0 | 0 | 0 |
+| multi_agent_systems | 0 | 0 | 0 | 0 | 0 |
+| neural_architecture | 0 | 0 | 0 | 0 | 0 |
+| open_endedness | 0 | 0 | 0 | 0 | 0 |
+| optimization_search | 0 | 0 | 0 | 0 | 0 |
+| physics_complex_systems | 0 | 0 | 0 | 0 | 0 |
+| recursive_self_improvement | 0 | 0 | 0 | 0 | 0 |
+| self_learning_loops | 0 | 0 | 0 | 0 | 0 |
+| swarm_collective_intelligence | 0 | 0 | 0 | 0 | 0 |
+
+## Architecture ideas (proposals for a human-built PR; never auto-executed)
+
+_None yet._
+
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
