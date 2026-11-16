@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 90,
- "last_refill_index": 89,
+ "cycle_index": 93,
+ "last_refill_index": 92,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -962,6 +962,38 @@
   "262e190ebe24a8cc": {
    "cycle_id": "20261116T163416Z_7e4bff",
    "n_hits": 8
+  },
+  "7fd74fb8727aefc2": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 2
+  },
+  "ef7ccfca4d08353f": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 2
+  },
+  "cd475a4179d88cce": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 0
+  },
+  "e612e029f5ac95d2": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 0
+  },
+  "6cebb7fcfbf1fe1c": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 7
+  },
+  "827a321a479261b9": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 7
+  },
+  "d449a057169dcae5": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 6
+  },
+  "4cbab2698449309d": {
+   "cycle_id": "20261116T170346Z_d6431c",
+   "n_hits": 6
   }
  },
  "rejected": {
@@ -1098,36 +1130,27 @@
   "A024472": "20261116T163416Z_7e4bff",
   "A088913": "20261116T163416Z_7e4bff",
   "A307181": "20261116T163416Z_7e4bff",
-  "A307307": "20261116T163416Z_7e4bff"
+  "A307307": "20261116T163416Z_7e4bff",
+  "A025245": "20261116T170346Z_d6431c",
+  "A171556": "20261116T170346Z_d6431c"
  },
- "refills": 30,
+ "refills": 31,
  "added": 116,
  "last": {
-  "cycle_id": "20261116T163416Z_7e4bff",
+  "cycle_id": "20261116T170346Z_d6431c",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 15,
-  "new": [
-   {
-    "id": "oc_A233359_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A025093_0",
-    "form": "gf",
-    "definition": false
-   }
-  ],
+  "requests": 10,
+  "new": [],
   "stats": {
-   "entries": 46,
-   "resolved_skipped": 9,
-   "keyword_skipped": 4,
-   "statements": 48,
-   "parsed": 10,
-   "no_bfile": 7,
+   "entries": 13,
+   "resolved_skipped": 6,
+   "keyword_skipped": 0,
+   "statements": 8,
+   "parsed": 2,
+   "no_bfile": 2,
    "fails_on_data": 0,
-   "kept": 2,
+   "kept": 0,
    "def_candidates": 0
   }
  }

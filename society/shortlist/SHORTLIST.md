@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-11-16 11:44 AM ET
+# Proposal shortlist — 2026-11-16 12:11 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-36 of 169 proposals meet the authorize bar (27 after grouping near-duplicates; 23 colony-authored, 4 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+36 of 170 proposals meet the authorize bar (27 after grouping near-duplicates; 23 colony-authored, 4 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -25,7 +25,7 @@ Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classic
 |---|---|---:|---|---|---:|---|---|
 | 1 | imp_9f3f23_50 | 0.8822 | catalog | APPROVE | 1 | 29 (0.6322, below bar) | Building block `kummer_carries` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.8822. |
 | 2 | imp_6284c8_50 | 0.8774 | catalog | APPROVE | 1 | 30 (0.6274, below bar) | Building block `pisano_prime_period` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.8774. |
-| 3 | imp_856c19_50 | 0.825 | catalog | APPROVE | 1 | 35 (0.575, below bar) | Building block `jacobi_two_squares` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 3 | imp_856c19_50 | 0.825 | catalog | n/a yet | 1 | 35 (0.575, below bar) | Building block `jacobi_two_squares` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 | 4 | imp_b020ff_50 | 0.825 | catalog | APPROVE | 1 | 36 (0.575, below bar) | Building block `zeckendorf_unique` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
@@ -45,13 +45,13 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 14 (actual 36). Unknown clai
 | 9 | imp_18d1e0_50 | `authored_frontier_cong_xbb82919e_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 23 |
 | 10 | imp_53f6c2_49 | `authored_frontier_cong_x06b60875_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 25 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 22, novelty_killed: 26, oracle_killed_in_own_cycle: 8, status: 92, target_unresolved: 94
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 22, novelty_killed: 26, oracle_killed_in_own_cycle: 8, status: 92, target_unresolved: 95
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 18 tested, 6 survived held-out, 12 falsified, 5 machine-checked, 0 surprises; dropped 22 duplicates, 96 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1077.
-Totals: tested 13796, survived 5202, surprises 145, false surprises (failed later re-test) 0.
+Mode `live`. Last cycle: 17 tested, 5 survived held-out, 12 falsified, 3 machine-checked, 0 surprises; dropped 26 duplicates, 22 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1077.
+Totals: tested 13886, survived 5231, surprises 145, false surprises (failed later re-test) 0.
 Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 1 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
