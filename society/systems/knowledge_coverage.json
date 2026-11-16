@@ -7,7 +7,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 0,
-      "reads": 1
+      "reads": 2
     },
     "cognitive_science": {
       "cards_formed": 3,
@@ -43,7 +43,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 8,
-      "reads": 3
+      "reads": 4
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -61,7 +61,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 0,
-      "reads": 1
+      "reads": 2
     },
     "neural_architecture": {
       "cards_formed": 4,
@@ -266,6 +266,6 @@
     "cards_tested": 0,
     "concepts": 48,
     "papers": 65,
-    "reads": 27
+    "reads": 30
   }
 }

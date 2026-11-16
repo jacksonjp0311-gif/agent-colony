@@ -1,36 +1,15 @@
 {
-  "ts": "2026-11-16T04:55:02Z",
+  "ts": "2026-11-16T05:17:30Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261116T045202Z_4bfdba"
+    "cycle_id": "20261116T051533Z_eed64e"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
   "last_oracle_passes": 542,
   "spawn_retire_log": [
-    {
-      "ts": "2026-11-15T22:53:27Z",
-      "cycle_id": "20261115T225059Z_ece8d0",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-15T23:07:36Z",
-      "cycle_id": "20261115T230514Z_6397ca",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-15T23:10:25Z",
-      "cycle_id": "20261115T230809Z_c01fc7",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-11-15T23:13:20Z",
       "cycle_id": "20261115T231100Z_0d2828",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-16T05:10:17Z",
+      "cycle_id": "20261116T050721Z_31855b",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-16T05:14:22Z",
+      "cycle_id": "20261116T051056Z_613a12",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-16T05:17:43Z",
+      "cycle_id": "20261116T051533Z_eed64e",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-11-16T04:55:20Z",
+  "updated_at": "2026-11-16T05:17:43Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.010902,
     "hockey_stick": 0.010902,
@@ -350,8 +350,8 @@
     "faulhaber_power_sums": 0.014432,
     "lagrange_cyclic_orders": 0.011534,
     "burnside_necklaces": 0.011534,
-    "jacobi_two_squares": 0.037124,
-    "jacobi_four_squares": 0.037124,
+    "jacobi_two_squares": 0.037125,
+    "jacobi_four_squares": 0.037125,
     "legendre_factorial_valuation": 0.032999,
     "kummer_carries": 0.032999,
     "ramanujan_partition_congruences": 0.032999,

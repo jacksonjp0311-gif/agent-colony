@@ -2159,6 +2159,15 @@ def check_pisano_prime_period(p: int) -> bool:
     return (p - 1) % per == 0 if p % 5 in (1, 4) else (2 * (p + 1)) % per == 0
 
 
+def check_authored_mut_swap_related_sequence_7f7f296d8a72() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    dbl(phi)(n) <= S(oxa316344)(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'dbl(phi)', 'params': {}, 'rhs': 'S(oxa316344)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2386,6 +2395,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_x423b0686_w1", check_authored_frontier_le_x423b0686_w1, True),
     ("authored_frontier_le_xafb0aef8_w1", check_authored_frontier_le_xafb0aef8_w1, True),
     ("authored_mut_swap_related_sequence_58aacc9fceff", check_authored_mut_swap_related_sequence_58aacc9fceff, False),
+    ("authored_mut_swap_related_sequence_7f7f296d8a72", check_authored_mut_swap_related_sequence_7f7f296d8a72, False),
 ]
 
 
