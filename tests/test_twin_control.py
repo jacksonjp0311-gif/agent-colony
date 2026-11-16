@@ -38,7 +38,7 @@ def _tiny_society(root: Path, *, passes=528, kills=340, depth_a=7999, depth_b=11
             "counterexamples": {},
             "proofs": {
                 "p1": {"anum": "A000001", "routine": True},
-                "p2": {"anum": "A000002", "routine": False},
+                "p2": {"anum": "A000002", "routine": False, "certificate_verified": True},
             },
             "extensions": {
                 "oc_A165064_0": {"anum": "A165064", "bfile_hi": 100, "to": depth_a, "check": "exact"},

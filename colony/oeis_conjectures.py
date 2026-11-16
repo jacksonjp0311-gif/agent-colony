@@ -2451,9 +2451,12 @@ def _score(state: dict[str, Any], e: dict[str, Any], acts: list[dict[str, Any]])
             kind = (e.get("definition") or {}).get("kind")
             # Algebraic g.f. certificates and C-finite order-bound closures are routine.
             # Anything else proof_check accepted is counted with them, but not as routine.
-            routine = kind == "alg" or checker.startswith("routine")
+            routine = kind == "alg" or checker.startswith("routine") or bool(r.get("certificate_routine"))
+            # Item 107: non-routine needs a verified machine certificate (certificate_judge).
             sb["proofs"][e["id"]] = {"anum": e["anum"], "checker": checker[:120],
-                                     "routine": routine}
+                                     "routine": routine,
+                                     "certificate_verified": bool(r.get("certificate_verified")),
+                                     "certificate_type": r.get("certificate_type")}
         elif r.get("action") == "attempt_disprove" and r["status"] in ("holds_on_range", "counterexample_conditional") \
                 and r.get("conditional"):
             # Item 105: a formula / guessed definition. Kept apart from the verified scoreboard.
@@ -2583,6 +2586,20 @@ def run_cycle(
                 elif r["status"] == "counterexample_conditional":
                     _log_conditional(e, r, cycle_id)
             _score(state, e, acts)
+    if only_ids is None and m == "live":
+        try:   # item 107: certificate judge over sound definitions (treatment only, logs only)
+            from colony import certificate_judge as CJ
+            _cj = CJ.judge_menu(menu)
+            for row in (_cj or {}).get("new") or []:
+                if row.get("what") == "claim" and row.get("certificate_verified"):
+                    ent = next((x for x in menu if x.get("id") == row.get("id")), None)
+                    if ent is not None:
+                        _score(state, ent, [{"status": "proved_checked", "checker": row["checker"][:120],
+                                             "certificate_verified": True,
+                                             "certificate_type": row["certificate"]["type"],
+                                             "certificate_routine": bool(row.get("routine"))}])
+        except Exception:  # noqa: BLE001
+            pass
     hunts = None
     if only_ids is None:
         try:   # item 106: counterexample hunters on held claims, once per cycle (treatment only)
