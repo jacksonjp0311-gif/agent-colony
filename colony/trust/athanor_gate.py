@@ -302,6 +302,22 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
     # per-area hard veto (added check beside Athanor's verdict; recorded separately)
     vt = row.get("veto") or {}
     row["would_veto"] = bool(tentative_keep and vt.get("vetoed"))
+    if row["would_veto"]:
+        # Item 98: the calibrated veto was fitted on the lemma bench only; a one-check STEM enable
+        # on the 4-check kinematics bench always trips the score area (category mismatch). The
+        # scope never touches Athanor's math, the verdict, other areas or other kinds.
+        try:
+            from colony.trust.athanor_veto_scope import assess as _scope_assess
+            sc = _scope_assess(kind=kind, mutation=mutation, veto=vt, raw=row.get("state_drift_raw"),
+                               before=before, after=after, score_before=before_score,
+                               score_after=after_score)
+        except Exception as exc:  # noqa: BLE001
+            sc = {"mode": "error", "waive": False, "error": type(exc).__name__}
+        if sc.get("mode") != "off":
+            row["veto_scope"] = sc
+        if sc.get("waive"):
+            row["would_veto"] = False
+            row["veto_scoped_out"] = True
     if (row["would_veto"] and mode == "live" and vt.get("mode") == "live" and row.get("probe") == "state"
             and not row["block"]):
         row["block"] = True
@@ -326,6 +342,8 @@ def gate_desk_change(*, before: dict[str, Any] | None, after: dict[str, Any] | N
                 _bump(tot, "guard_failed")
         if row["would_block"]:
             _bump(tot, "would_block_keep")
+        if row.get("veto_scoped_out"):
+            _bump(tot, "veto_scoped_out:item98")
         if row["would_veto"]:
             _bump(tot, f"veto:{vt.get('mode')}:would_veto_keep")
             for ar in vt.get("areas") or []:
