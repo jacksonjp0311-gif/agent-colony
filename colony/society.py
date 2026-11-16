@@ -308,6 +308,14 @@ class Society:
             if _nd.mode() != "off":
                 _nd.run_cycle(cid)
         self._stage(result, "new_data", new_data_stage)
+        def self_build_stage():
+            # Item 80: the colony runs its active self-built blueprint (extra
+            # flows composed from building blocks) and trials new ones against
+            # baseline and twin, keeping or reverting with no human sign-off.
+            # No-op on the control arm. Oracle, P>=0.70, 150 cap unchanged.
+            from colony.self_build import run_cycle as _sb
+            return _sb(cid)
+        self._stage(result, "self_build", self_build_stage, critical=False)
         def self_heal_trial_retry_stage():
             # Item 76 (c): every predicted target of an open trial is
             # attempted at least once in the trial window (self-mod arm only).
