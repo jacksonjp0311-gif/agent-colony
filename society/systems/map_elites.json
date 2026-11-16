@@ -248,11 +248,11 @@
    "pythagorean_generation"
   ],
   "top_without": [
-   "euler_theorem",
-   "bezout_identity",
-   "crt_coprime_pair",
-   "lucas_theorem_binomial",
-   "euler_pentagonal"
+   "oeis_a000032_lucas_norm",
+   "oeis_a001006_motzkin_ballot_sum",
+   "oeis_a005043_riordan_motzkin",
+   "oeis_a001850_central_delannoy",
+   "oeis_a006318_schroeder_paths"
   ],
   "would_change_first": true
  }
