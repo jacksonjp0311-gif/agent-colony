@@ -2288,6 +2288,21 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A302864_0",
+   "anum": "A302864",
+   "form": "relation",
+   "depth": 40,
+   "bfile_hi": 40,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T142847Z_0bfc13",
+   "planned": 40,
+   "verified_depth": 40,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
@@ -2520,6 +2535,9 @@
    "oc_A234361_0",
    "oc_A236097_0",
    "oc_A235924_0"
+  ],
+  "20261116T142847Z_0bfc13": [
+   "oc_A302864_0"
   ]
  },
  "last_forms": [
@@ -2534,8 +2552,8 @@
   "relation",
   "relation",
   "relation",
-  "relation",
   "gf",
+  "relation",
   "relation",
   "relation",
   "relation",
