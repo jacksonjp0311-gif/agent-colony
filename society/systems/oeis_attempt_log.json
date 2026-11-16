@@ -3975,13 +3975,26 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A003278_0",
+   "anum": "A003278",
+   "form": "relation",
+   "depth": 48,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T222759Z_1beee5",
+   "planned": 10000,
+   "verified_depth": 48,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "cap_reason": "ref_limited",
+   "cap_value": 48,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
-  "20261113T182024Z_1c5c58": [
-   "oc_A234269_0",
-   "oc_A239201_0"
-  ],
   "20261113T182303Z_f3d9e9": [
    "oc_A240688_0",
    "oc_A242781_0"
@@ -4319,6 +4332,9 @@
    "oc_A326781_0",
    "oc_A328202_0",
    "oc_A365429_0"
+  ],
+  "20261116T222759Z_1beee5": [
+   "oc_A003278_0"
   ]
  },
  "last_forms": [
@@ -4330,7 +4346,6 @@
   "relation",
   "relation",
   "relation",
-  "relation",
   "gf",
   "relation",
   "relation",
@@ -4340,6 +4355,7 @@
   "relation",
   "relation",
   "gf",
+  "relation",
   "relation",
   "relation"
  ]
