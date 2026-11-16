@@ -50,6 +50,13 @@ def _utc() -> str:
 
 
 def known_identities() -> set[str]:
+    ids = known_identities_readonly()
+    _persist_known(ids)
+    return ids
+
+
+def known_identities_readonly() -> set[str]:
+    """The exact set ``known_identities`` returns, without rewriting the snapshot."""
     ids: set[str] = set()
     if KNOWN.exists():
         try:
@@ -81,6 +88,10 @@ def known_identities() -> set[str]:
             mut = (e.get("mutation") or "").lower()
             if mut:
                 ids.add(mut)
+    return ids
+
+
+def _persist_known(ids: set[str]) -> None:
     # Persist snapshot
     KNOWN.parent.mkdir(parents=True, exist_ok=True)
     KNOWN.write_text(
@@ -96,7 +107,18 @@ def known_identities() -> set[str]:
         + "\n",
         encoding="utf-8",
     )
-    return ids
+
+
+def in_ledger_kill(name: str, known: set[str] | None = None) -> bool:
+    """Item 97: exactly the gate's ``already_in_lesson_ledger_or_history`` condition, read-only."""
+    n = (name or "").strip()
+    if not n:
+        return False
+    known = known_identities_readonly() if known is None else known
+    hit = n.lower() in known or any(n.lower() in k for k in known)
+    if hit and _only_own_authoring_record(n, known):
+        return False
+    return hit
 
 
 def _only_own_authoring_record(name: str, known: set[str]) -> bool:

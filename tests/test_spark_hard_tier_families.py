@@ -13,6 +13,18 @@ ROOT = Path(__file__).resolve().parents[1]
 LEMMA = ROOT / "society" / "benchmarks" / "artifacts" / "lemma_impl.py"
 
 
+def _base_src() -> str:
+    """The real catalog with every pool family the colony already built removed again
+    (in memory only), so pool tests do not depend on how many families were built."""
+    import re
+    src = LEMMA.read_text(encoding="utf-8")
+    for name, _w, fn_src in H.POOL:
+        src = src.replace(fn_src.strip("\n") + "\n\n\n", "")
+        src = re.sub(rf'^    \("{name}", lambda: .*\n', "", src, flags=re.M)
+        assert f"check_{name}" not in src, name
+    return src
+
+
 def _ns(fn_src: str) -> dict:
     ns: dict = {"math": math}
     exec(fn_src, ns)
@@ -50,7 +62,8 @@ def test_pool_matches_oeis_opening_terms():
 
 def test_pool_names_are_new_and_not_textbook():
     from colony.novelty_gate import TEXTBOOK_IDENTITIES, textbook_reuse_score
-    src = LEMMA.read_text(encoding="utf-8")
+    src = _base_src()
+    assert len({n for n, _w, _f in H.POOL}) == len(H.POOL)
     for name, _w, _f in H.POOL:
         assert f'("{name}"' not in src
         assert textbook_reuse_score(name) < 0.34, name
@@ -59,8 +72,7 @@ def test_pool_names_are_new_and_not_textbook():
 
 @pytest.mark.parametrize("name,window,fn_src", H.POOL)
 def test_pool_entry_verifies_and_is_falsifiable(name, window, fn_src):
-    src = LEMMA.read_text(encoding="utf-8")
-    new = H.insert_family(src, name, window, fn_src)
+    new = H.insert_family(_base_src(), name, window, fn_src)
     v = H.verify(new, name, window)
     assert v["accepted"], v
     assert v["shift_status"] == "pass" and v["mutants_killed"] >= 1
@@ -70,7 +82,7 @@ def test_broken_relation_is_rejected():
     name, window, fn_src = H.POOL[3]
     bad = fn_src.replace("math.comb(n + k, k)", "math.comb(n + k, k + 1)")
     assert bad != fn_src
-    v = H.verify(H.insert_family(LEMMA.read_text(encoding="utf-8"), name, window, bad), name, window)
+    v = H.verify(H.insert_family(_base_src(), name, window, bad), name, window)
     assert not v["accepted"]
 
 
@@ -81,7 +93,7 @@ def test_builds_one_disabled_family_only_when_none_remain(tmp_path, monkeypatch)
     import colony.conjecture_mutations as CM
     monkeypatch.setattr(CM, "register_mutation_candidate", lambda *a, **k: registered.append(a))
     p = tmp_path / "lemma_impl.py"
-    shutil.copy(LEMMA, p)
+    p.write_text(_base_src(), encoding="utf-8")
     assert H.families_remaining(p.read_text()) == []
     row = H.build_next(p, cycle_id="t")
     name = H.POOL[0][0]
