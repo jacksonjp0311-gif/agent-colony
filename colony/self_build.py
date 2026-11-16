@@ -773,6 +773,40 @@ def _comp_weight(name: str, stats: Mapping[str, Any], ev: Mapping[str, Any], mac
     return w
 
 
+WIDE_OPERATORS = ("replace", "pair", "jump")
+# Item 87: prior factor per mutation operator; the learned factor multiplies it.
+OPERATOR_PRIOR = {"add": 1.0, "use_macro": 1.0, "resize": 0.9, "remove": 0.5, "swap": 0.6,
+                  "crossover": 1.0, "replace": 0.8, "pair": 0.7, "jump": 0.6}
+
+
+def operator_stats_from_log(rows: Iterable[Mapping[str, Any]]) -> dict[str, dict[str, int]]:
+    """Per-operator tried/kept/reverted counts rebuilt from the append-only blueprint log."""
+    opened: dict[str, str] = {}
+    out: dict[str, dict[str, int]] = {}
+    for r in rows:
+        ev, bid = r.get("event"), str(r.get("blueprint") or "")
+        if ev == "blueprint_trial_open":
+            opened[bid] = str(r.get("operator") or "")
+        elif ev in ("blueprint_trial_close", "blueprint_trial_void"):
+            op = str(r.get("operator") or opened.get(bid) or "")
+            if not op:
+                continue
+            s = out.setdefault(op, {"tried": 0, "kept": 0, "reverted": 0})
+            outcome = r.get("outcome")
+            if outcome in ("kept", "reverted"):  # inconclusive / voided: no evidence either way
+                s["tried"] += 1
+                s[outcome] += 1
+    return out
+
+
+def operator_factor(op: str, op_stats: Mapping[str, Any] | None) -> float:
+    """Prior x learned keep rate. Laplace (kept+1)/(tried+2), scaled so an unseen operator is 1.0."""
+    prior = float(OPERATOR_PRIOR.get(op, 0.5))
+    s = (op_stats or {}).get(op) or {}
+    kept, tried = float(s.get("kept") or 0), float(s.get("tried") or 0)
+    return prior * ((kept + 1.0) / (tried + 2.0)) / 0.5
+
+
 def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str, Any]]:
     """All legal one-move children of the active blueprint, best first."""
     active = state.get("active") or DEFAULT_BLUEPRINT
@@ -782,23 +816,34 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
     tried = state.get("tried") or {}
     parent = active.get("id") or "bp_default"
     raw: list[tuple[float, dict[str, Any], list[dict[str, Any]]]] = []
+    seen_sig: set[str] = set()
     try:
         from colony.failure_modes import component_losses, live as _fm_live
         losses = component_losses() if _fm_live() else {}
     except Exception:  # noqa: BLE001
         losses = {}
 
+    op_stats = state.get("operator_stats") or {}
+
     def add(new_steps: list[dict[str, Any]], operator: str, added: list[dict[str, Any]], factor: float = 1.0):
         bp = make_blueprint(new_steps, parent=parent, operator=operator,
                             evidence=[a["component"] for a in added])
         if bp["signature"] in tried or bp["signature"] == signature(steps):
             return
+        if operator in WIDE_OPERATORS and bp["signature"] in seen_sig:
+            return  # a wide move that repeats an existing child adds nothing
         ok, _ = validate(bp, macros)
         if not ok:
             return
-        w = factor
-        for a in added:
-            w *= _comp_weight(a["component"], stats, ev, macros, losses)
+        seen_sig.add(bp["signature"])
+        # Item 87: operator prior x keep rate learned from past kept / reverted trials.
+        w = factor * operator_factor(operator, op_stats) / max(1e-9, float(OPERATOR_PRIOR.get(operator, 0.5)))
+        cw = [_comp_weight(a["component"], stats, ev, macros, losses) for a in added]
+        if operator == "pair" and cw:
+            w *= min(cw)  # a pair ranks like its weaker half: it never rides on its best component
+        else:
+            for x in cw:
+                w *= x
         raw.append((w, bp, added))
 
     names = sorted(COMPONENTS) + sorted(macros)
@@ -814,12 +859,37 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
                 if 1 <= n <= int(COMPONENTS[s["component"]]["max_n"]):
                     new = [dict(x) for x in steps]
                     new[i] = {"component": s["component"], "n": n}
-                    add(new, "resize", [new[i]], 0.9)
-        add(steps[:i] + steps[i + 1:], "remove", [], 0.5)
+                    add(new, "resize", [new[i]], OPERATOR_PRIOR["resize"])
+        add(steps[:i] + steps[i + 1:], "remove", [], OPERATOR_PRIOR["remove"])
         if i + 1 < len(steps):
             new = [dict(x) for x in steps]
             new[i], new[i + 1] = new[i + 1], new[i]
-            add(new, "swap", [], 0.6)
+            add(new, "swap", [], OPERATOR_PRIOR["swap"])
+    # Item 87: wider moves. replace = swap one step for a component not in the blueprint;
+    # jump = resize by 2; pair = add two components from different desks in one move.
+    present = {s["component"] for s in steps}
+    for i, s in enumerate(steps):
+        if s["component"] not in COMPONENTS:
+            continue
+        for name in sorted(COMPONENTS):
+            if name in present:
+                continue
+            new = [dict(x) for x in steps]
+            new[i] = {"component": name, "n": min(s["n"], int(COMPONENTS[name]["max_n"]))}
+            add(new, "replace", [new[i]], OPERATOR_PRIOR["replace"])
+        for d in (2, -2):
+            n = s["n"] + d
+            if 1 <= n <= int(COMPONENTS[s["component"]]["max_n"]):
+                new = [dict(x) for x in steps]
+                new[i] = {"component": s["component"], "n": n}
+                add(new, "jump", [new[i]], OPERATOR_PRIOR["jump"])
+    comps = [n for n in sorted(COMPONENTS) if n not in present]
+    for a_i, a_name in enumerate(comps):
+        for b_name in comps[a_i + 1:]:
+            if COMPONENTS[a_name].get("plan") is COMPONENTS[b_name].get("plan"):
+                continue  # same desk twice is a resize, not a pair
+            pair = [{"component": a_name, "n": 1}, {"component": b_name, "n": 1}]
+            add(steps + pair, "pair", pair, OPERATOR_PRIOR["pair"])
     for sig, rec in sorted(tried.items()):
         if isinstance(rec, dict) and rec.get("outcome") == "kept":
             extra = [_norm_step(x) for x in rec.get("steps") or [] if _norm_step(x) not in steps]
@@ -1037,6 +1107,11 @@ def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write
     names = [s["component"] for s in expand(bp.get("added") or bp.get("steps") or [], st.get("macros"))]
     stats = st.setdefault("component_stats", {})
     _bump(stats, names, outcome if outcome != "kept" else "kept")
+    if outcome in ("kept", "reverted") and bp.get("operator"):
+        ops = st.setdefault("operator_stats", {}).setdefault(str(bp["operator"]),
+                                                            {"tried": 0, "kept": 0, "reverted": 0})
+        ops["tried"] = int(ops.get("tried") or 0) + 1
+        ops[outcome] = int(ops.get(outcome) or 0) + 1
     if outcome == "kept":
         st["active"] = {k: bp.get(k) for k in ("id", "signature", "steps", "parent", "operator")}
         st["kept_count"] = int(st.get("kept_count") or 0) + 1
@@ -1079,6 +1154,11 @@ def run_cycle(cycle_id: str = "", *, ctx: Context | None = None, board: Mapping[
     ctx = ctx or Context(cycle_id, exclude_ids=_excluded_targets(heal))
     board = board if board is not None else load_board()
     st["cycle_index"] = int(st.get("cycle_index") or 0) + 1
+    if "operator_stats" not in st:  # item 87: learn operator weights from the whole history once
+        try:
+            st["operator_stats"] = operator_stats_from_log(load_log(log_path))
+        except Exception:  # noqa: BLE001
+            st["operator_stats"] = {}
     closed = _close(st, board, cycle_id, write=write, log_path=log_path)
     trial = st.get("trial")
     current = (trial or {}).get("blueprint") if isinstance(trial, dict) else st.get("active")
