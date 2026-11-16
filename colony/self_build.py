@@ -1154,6 +1154,21 @@ def _log_failure(row: Mapping[str, Any], bp: Mapping[str, Any], st: Mapping[str,
         pass
 
 
+def _overlap_flags(rows: list[dict[str, Any]], a: int, b: int, exclude_id: str | None) -> list[dict[str, Any]] | None:
+    """Item 104 (flag only): other experiments that shared time with paired rows a..b.
+
+    The keep / revert verdict is NOT changed by this; it records when a window or its baseline
+    was shared with another trial so a confounded verdict is visible in the log."""
+    try:
+        from colony.experiment_reservation import enabled, overlapping, trial_intervals
+        if not enabled() or a < 0 or b <= a or a >= len(rows):
+            return None
+        end = rows[b].get("ts") if b < len(rows) else None
+        return overlapping(rows[a].get("ts"), end, trial_intervals(), exclude_id=exclude_id)
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write: bool,
            log_path: Path | None) -> dict[str, Any] | None:
     trial = st.get("trial")
@@ -1211,6 +1226,11 @@ def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write
            "blueprint": bp.get("id"), "steps": bp.get("steps"), "parent": bp.get("parent"),
            "operator": bp.get("operator"), "active_after": (st.get("active") or {}).get("id"),
            "verdict": verdict, "authorized": False, "human_signoff_required": False}
+    flags = _overlap_flags(rows, start, start + w, bp.get("id"))
+    if flags is not None:
+        row["window_overlaps"] = flags
+        if trial.get("baseline_overlaps") is not None:
+            row["baseline_overlaps"] = trial.get("baseline_overlaps")
     if write:
         append_log(row, log_path)
         if outcome != "kept":
@@ -1250,9 +1270,19 @@ def run_cycle(cycle_id: str = "", *, ctx: Context | None = None, board: Mapping[
     proposal = None
     if not st.get("trial") and st.get("heal_turn") and _heal_had_turn(heal, st["heal_turn"]):
         st["heal_turn"] = None
+    reserve = None
+    if not st.get("trial") and not heal.get("trial") and not st.get("heal_turn"):
+        # Item 104: one exclusive experiment reservation (also a Hive rule trial; fails closed).
+        try:
+            from colony.experiment_reservation import check as _reserve_check
+            reserve = _reserve_check("self_build", states={"self_build": st, "self_heal": heal})
+        except Exception as exc:  # noqa: BLE001
+            reserve = {"ok": False, "reason": "reservation_unreadable", "detail": type(exc).__name__}
     if not st.get("trial"):
         if heal.get("trial"):
             st["last_skip"] = {"cycle_id": cycle_id, "reason": "self_heal_trial_open"}
+        elif reserve is not None and not reserve.get("ok"):
+            st["last_skip"] = {"cycle_id": cycle_id, "reason": str(reserve.get("reason"))}
         elif st.get("heal_turn"):
             # Item 84: after a blueprint trial ends, self-heal gets the next turn first.
             st["last_skip"] = {"cycle_id": cycle_id, "reason": "self_heal_turn"}
@@ -1276,6 +1306,9 @@ def run_cycle(cycle_id: str = "", *, ctx: Context | None = None, board: Mapping[
                 opened = {"blueprint": proposal, "opened_cycle_id": cycle_id, "code_fp": code_fingerprint(),
                           "opened_cycle_index": st["cycle_index"], "open_row": open_row,
                           "window_rows": w, "baseline_gain": list(base) if base else None}
+                bflags = _overlap_flags(rows, open_row - w, open_row, proposal.get("id"))
+                if bflags is not None:
+                    opened["baseline_overlaps"] = bflags
                 if execute:
                     st["trial"] = opened
                     _bump(st.setdefault("component_stats", {}),
@@ -1290,6 +1323,8 @@ def run_cycle(cycle_id: str = "", *, ctx: Context | None = None, board: Mapping[
                                     "evidence": proposal.get("evidence_detail"),
                                     "self_test": proposal.get("self_test"),
                                     "baseline_gain": opened["baseline_gain"], "window_rows": w,
+                                    **({"baseline_overlaps": opened["baseline_overlaps"]}
+                                       if "baseline_overlaps" in opened else {}),
                                     "authorized": False, "human_signoff_required": False}, log_path)
     if write:
         save_state(st, state_path)

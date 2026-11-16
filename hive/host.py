@@ -204,6 +204,24 @@ def heal_start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = No
     return {"ok": False, "reason": "no_host"}
 
 
+def experiment_holder(requester: str) -> str | None:
+    """Item 104: None when ``requester`` may open an experiment, else the refusal reason.
+
+    Standalone (no host bound, or a host without the hook): Hive is the only experimenter,
+    so None. A bound host whose hook raises fails closed.
+    """
+    if _heal is None:
+        return None
+    fn = getattr(_heal, "experiment_holder", None)
+    if not callable(fn):
+        return None
+    try:
+        out = fn(requester)
+    except Exception:  # noqa: BLE001
+        return "reservation_unreadable"
+    return None if out is None else str(out)
+
+
 def heal_replay_proposal(*args: Any, **kwargs: Any) -> dict[str, Any]:
     if _heal is not None:
         return _heal.replay_proposal(*args, **kwargs)
