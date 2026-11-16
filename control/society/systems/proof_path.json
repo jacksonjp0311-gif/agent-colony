@@ -2,11 +2,11 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   86,
-   31
+   85,
+   30
   ],
   "divides": [
-   30,
+   31,
    3
   ],
   "le": [
@@ -26,7 +26,7 @@
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 38,
+ "n_proved": 37,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -3710,63 +3710,6 @@
    "unknown": true,
    "v": 4
   },
-  "dbl(pell)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(pell)",
-       "kids": [
-        {
-         "e": "pell",
-         "lemma": "pell is periodic mod 2 (defining recurrence; state repeats)",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "pell is periodic mod 2 (defining recurrence; state repeats)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x3cfdd636_w1",
-   "checks": 3988,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)": {
    "authored": true,
    "certificate": null,
@@ -4880,6 +4823,18 @@
    "unknown": true,
    "v": 4
   },
+  "maxgap[oxa049980](n) divides dbl(oxa056971)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_xdc942d4e_w1",
+   "checks": 88,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -5629,5 +5584,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T22:32:29Z"
+ "ts": "2026-11-16T23:03:30Z"
 }
