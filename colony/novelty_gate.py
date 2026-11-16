@@ -246,6 +246,25 @@ def stripped_baseline_fails(mutation: str, baseline_src: str | None = None) -> d
         }
 
 
+def _stem_held_out_active() -> bool:
+    """Item 95 path is treatment-only: the frozen control arm keeps the old held-out test."""
+    try:
+        from colony.arm import self_mod_enabled
+
+        return bool(self_mod_enabled())
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def stem_triviality_kill(mutation: str, kind: str) -> dict[str, Any] | None:
+    """Item 95: the STEM triviality filter (symbolic tautology of the check's own definitions)."""
+    if kind != "stem_enable" or not _stem_held_out_active():
+        return None
+    from colony.stem_held_out import triviality
+
+    return triviality(mutation)
+
+
 def held_out_harder_survives(mutation: str, kind: str) -> dict[str, Any]:
     """Survives held-out harder check = hard_enable that actually passes when enabled.
 
@@ -253,6 +272,12 @@ def held_out_harder_survives(mutation: str, kind: str) -> dict[str, Any]:
     """
     if kind == "easy_pad" or mutation.startswith("easy_pad"):
         return {"survives": False, "reason": "easy_pad_fails_held_out_harder"}
+    if kind == "stem_enable" and _stem_held_out_active():
+        # Item 95: a STEM enable gets its own held-out test (a harder instance from the same
+        # STEM pack). It keeps every condition below except the kind and adds STEM ones.
+        from colony.stem_held_out import held_out as stem_held_out
+
+        return stem_held_out(mutation)
     try:
         from society.benchmarks.lemma_microbench import run as run_lemma
 
@@ -317,6 +342,9 @@ def evaluate(
         kills.append("stripped_baseline_does_not_fail_usefulness")
     if not held.get("survives"):
         kills.append(f"held_out:{held.get('reason')}")
+    stem_triv = stem_triviality_kill(name, kind or "")
+    if stem_triv and stem_triv.get("trivial"):
+        kills.append(f"trivial:{stem_triv.get('reason')}")
 
     # Oracle mile: novelty alone is not enough — Oracle must also not kill
     oracle_used = "own_run"
@@ -378,6 +406,7 @@ def evaluate(
         "oracle_used": oracle_used,
         "stripped": stripped,
         "held_out": held,
+        **({"stem_triviality": stem_triv} if stem_triv is not None else {}),
         "note": (
             "Novelty = new-to-commons under machine gates only. "
             "Not theorem discovery. Textbook reuse ≈ 0 required. Not AGI."
