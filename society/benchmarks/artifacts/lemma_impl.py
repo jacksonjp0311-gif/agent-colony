@@ -2410,6 +2410,36 @@ def check_oeis_a001003_little_schroeder(n: int) -> bool:
     return 2 * s[n] == grid[n][n]
 
 
+def check_oeis_a005259_apery_recurrence(n: int) -> bool:
+    """Apery numbers A005259: sum_k C(n,k)^2 C(n+k,k)^2 satisfies Apery's recurrence
+    k^3 a(k) = (34k^3 - 51k^2 + 27k - 5) a(k-1) - (k-1)^3 a(k-2)."""
+    if n < 0:
+        return True
+    closed = sum(math.comb(n, k) ** 2 * math.comb(n + k, k) ** 2 for k in range(n + 1))
+    a = [1, 5]
+    for k in range(2, n + 1):
+        num = (34 * k ** 3 - 51 * k ** 2 + 27 * k - 5) * a[k - 1] - (k - 1) ** 3 * a[k - 2]
+        if num % k ** 3:
+            return False
+        a.append(num // k ** 3)
+    return closed == a[n]
+
+
+def check_oeis_a000172_franel_recurrence(n: int) -> bool:
+    """Franel numbers A000172: sum_k C(n,k)^3 satisfies Franel's recurrence
+    (k+1)^2 a(k+1) = (7k^2 + 7k + 2) a(k) + 8 k^2 a(k-1)."""
+    if n < 0:
+        return True
+    closed = sum(math.comb(n, k) ** 3 for k in range(n + 1))
+    a = [1, 2]
+    for k in range(1, n):
+        num = (7 * k * k + 7 * k + 2) * a[k] + 8 * k * k * a[k - 1]
+        if num % (k + 1) ** 2:
+            return False
+        a.append(num // (k + 1) ** 2)
+    return closed == a[n]
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2650,6 +2680,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a001764_ternary_trees", lambda: all(check_oeis_a001764_ternary_trees(n) for n in range(0, 40)), True),
     ("oeis_a000957_fine_no_hills", lambda: all(check_oeis_a000957_fine_no_hills(n) for n in range(1, 40)), True),
     ("oeis_a001003_little_schroeder", lambda: all(check_oeis_a001003_little_schroeder(n) for n in range(1, 40)), True),
+    ("oeis_a005259_apery_recurrence", lambda: all(check_oeis_a005259_apery_recurrence(n) for n in range(0, 40)), True),
+    ("oeis_a000172_franel_recurrence", lambda: all(check_oeis_a000172_franel_recurrence(n) for n in range(0, 40)), False),
 ]
 
 

@@ -1,23 +1,71 @@
 {
   "ci_health": {
     "completed": 10,
-    "fetched_at": "2026-11-16T14:58:13Z",
+    "fetched_at": "2026-11-16T15:23:49Z",
     "runs": [
       {
         "conclusion": null,
-        "created_at": "2026-11-16T14:56:30Z",
-        "id": 43891082408,
+        "created_at": "2026-11-16T15:22:11Z",
+        "id": 43895572194,
         "name": "Colony evolve",
         "status": "in_progress",
-        "updated_at": "2026-11-16T14:56:36Z"
+        "updated_at": "2026-11-16T15:22:18Z"
       },
       {
         "conclusion": null,
+        "created_at": "2026-11-16T15:22:10Z",
+        "id": 43895568958,
+        "name": "Read-only tests",
+        "status": "in_progress",
+        "updated_at": "2026-11-16T15:22:14Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-16T15:12:37Z",
+        "id": 43893893977,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-16T15:21:26Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-16T15:12:28Z",
+        "id": 43893867612,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-16T15:20:43Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-16T15:04:35Z",
+        "id": 43892476535,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-16T15:12:04Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-16T15:04:25Z",
+        "id": 43892447719,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-16T15:12:34Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-16T14:56:30Z",
+        "id": 43891082408,
+        "name": "Colony evolve",
+        "status": "completed",
+        "updated_at": "2026-11-16T15:22:14Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-16T14:54:13Z",
         "id": 43890668121,
         "name": "Read-only tests",
-        "status": "in_progress",
-        "updated_at": "2026-11-16T14:54:17Z"
+        "status": "completed",
+        "updated_at": "2026-11-16T15:01:25Z"
       },
       {
         "conclusion": "success",
@@ -50,54 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-16T14:56:33Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-16T14:22:04Z",
-        "id": 43884968052,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-16T14:30:37Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-16T13:57:21Z",
-        "id": 43880794158,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-16T14:05:51Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-16T13:57:18Z",
-        "id": 43880785364,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-16T14:04:28Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-16T13:56:57Z",
-        "id": 43880725870,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-16T14:26:52Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-16T13:49:54Z",
-        "id": 43879572623,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-16T13:57:01Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-16T13:49:32Z",
-        "id": 43879514689,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-16T13:56:20Z"
       }
     ],
     "success_rate": 1.0
@@ -138,10 +138,9 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "",
-        "fetched": 8,
-        "new": 2,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-16T14:58:09Z"
+    "ts": "2026-11-16T15:23:49Z"
   },
-  "runs": 374
+  "runs": 375
 }

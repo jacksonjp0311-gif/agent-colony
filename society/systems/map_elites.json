@@ -1,0 +1,259 @@
+{
+ "cells": {
+  "easy_pad:catalog|easy_pad|checked": {
+   "attempts": 18,
+   "elite": null,
+   "hits": 0
+  },
+  "hard_enable:authored|binomial|checked": {
+   "attempts": 25,
+   "elite": {
+    "cycle_id": "20261008T135334Z_a7097d",
+    "mutation": "authored_binomial_inversion_small__legendre_duplication_small_w1",
+    "ts": "2026-10-08T13:53:46Z"
+   },
+   "hits": 15
+  },
+  "hard_enable:authored|lattice_paths|checked": {
+   "attempts": 12,
+   "elite": {
+    "cycle_id": "20261009T061530Z_118ffc",
+    "mutation": "authored_catalan_convolution__derangement_subfactorial_w1",
+    "ts": "2026-10-09T06:15:43Z"
+   },
+   "hits": 10
+  },
+  "hard_enable:authored|linear_recurrence|checked": {
+   "attempts": 24,
+   "elite": {
+    "cycle_id": "20261009T061639Z_0cd410",
+    "mutation": "authored_fibonacci_addition__euler_totient_multiplicative_w1",
+    "ts": "2026-10-09T06:16:52Z"
+   },
+   "hits": 21
+  },
+  "hard_enable:authored|number_theory|checked": {
+   "attempts": 2,
+   "elite": {
+    "cycle_id": "20261017T173135Z_96efa1",
+    "mutation": "authored_crt_coprime_pair__cycle_spanning_trees_w1",
+    "ts": "2026-10-17T17:32:09Z"
+   },
+   "hits": 2
+  },
+  "hard_enable:authored|other|checked": {
+   "attempts": 229,
+   "elite": {
+    "cycle_id": "20261017T014113Z_0e800e",
+    "mutation": "authored_sieve_hl_within_g2_w1",
+    "ts": "2026-10-17T01:41:25Z"
+   },
+   "hits": 170
+  },
+  "hard_enable:authored|set_partitions_perms|checked": {
+   "attempts": 13,
+   "elite": {
+    "cycle_id": "20261008T074243Z_325a70",
+    "mutation": "authored_sum_first_n_cubes__stirling_second_row_w1",
+    "ts": "2026-10-08T07:42:55Z"
+   },
+   "hits": 13
+  },
+  "hard_enable:authored|sums_series|checked": {
+   "attempts": 7,
+   "elite": {
+    "cycle_id": "20261013T225858Z_0eff45",
+    "mutation": "authored_geometric_sum__legendre_duplication_small_w1",
+    "ts": "2026-10-13T22:59:07Z"
+   },
+   "hits": 5
+  },
+  "hard_enable:catalog|binomial|checked": {
+   "attempts": 1,
+   "elite": {
+    "cycle_id": "20261017T153608Z_57362b",
+    "mutation": "alternating_binomial_row",
+    "ts": "2026-10-17T15:36:39Z"
+   },
+   "hits": 1
+  },
+  "hard_enable:catalog|geometry|checked": {
+   "attempts": 1,
+   "elite": null,
+   "hits": 0
+  },
+  "hard_enable:catalog|lattice_paths|checked": {
+   "attempts": 1,
+   "elite": null,
+   "hits": 0
+  },
+  "hard_enable:catalog|linear_recurrence|checked": {
+   "attempts": 3,
+   "elite": {
+    "cycle_id": "20261017T141730Z_1f6041",
+    "mutation": "lucas_theorem_binomial",
+    "ts": "2026-10-17T14:18:01Z"
+   },
+   "hits": 2
+  },
+  "hard_enable:catalog|number_theory|checked": {
+   "attempts": 6,
+   "elite": {
+    "cycle_id": "20261017T135450Z_471d30",
+    "mutation": "mobius_divisor_sum",
+    "ts": "2026-10-17T13:55:12Z"
+   },
+   "hits": 6
+  },
+  "hard_enable:catalog|orthogonal_poly|checked": {
+   "attempts": 1,
+   "elite": {
+    "cycle_id": "20261116T033914Z_856c19",
+    "mutation": "legendre_factorial_valuation",
+    "ts": "2026-11-16T03:41:18Z"
+   },
+   "hits": 1
+  },
+  "hard_enable:catalog|other|checked": {
+   "attempts": 25,
+   "elite": {
+    "cycle_id": "20261017T104417Z_b83c74",
+    "mutation": "fermat_little",
+    "ts": "2026-10-17T10:44:36Z"
+   },
+   "hits": 25
+  },
+  "hard_enable:catalog|set_partitions_perms|checked": {
+   "attempts": 5,
+   "elite": {
+    "cycle_id": "20261017T110237Z_29279d",
+    "mutation": "euler_theorem",
+    "ts": "2026-10-17T11:03:06Z"
+   },
+   "hits": 4
+  },
+  "hard_enable:catalog|sums_series|checked": {
+   "attempts": 2,
+   "elite": {
+    "cycle_id": "20261017T164110Z_1a4ec1",
+    "mutation": "telescoping_sum",
+    "ts": "2026-10-17T16:41:31Z"
+   },
+   "hits": 2
+  },
+  "hard_enable:oeis_supply|binomial|checked": {
+   "attempts": 1,
+   "elite": {
+    "cycle_id": "20261116T153323Z_cbd490",
+    "mutation": "oeis_a005259_apery_recurrence",
+    "ts": "2026-11-16T15:34:48Z"
+   },
+   "hits": 1
+  },
+  "hard_enable:oeis_supply|lattice_paths|checked": {
+   "attempts": 5,
+   "elite": {
+    "cycle_id": "20261116T102534Z_bd7b0c",
+    "mutation": "oeis_a001006_motzkin_ballot_sum",
+    "ts": "2026-11-16T10:27:40Z"
+   },
+   "hits": 5
+  },
+  "hard_enable:oeis_supply|linear_recurrence|checked": {
+   "attempts": 2,
+   "elite": {
+    "cycle_id": "20261116T084918Z_fc228f",
+    "mutation": "oeis_a000032_lucas_norm",
+    "ts": "2026-11-16T08:50:56Z"
+   },
+   "hits": 2
+  },
+  "hard_enable:oeis_supply|other|checked": {
+   "attempts": 5,
+   "elite": {
+    "cycle_id": "20261116T112029Z_bcbf49",
+    "mutation": "oeis_a006318_schroeder_paths",
+    "ts": "2026-11-16T11:22:37Z"
+   },
+   "hits": 5
+  },
+  "hard_enable:oeis_supply|set_partitions_perms|checked": {
+   "attempts": 1,
+   "elite": {
+    "cycle_id": "20261116T112835Z_03c2fb",
+    "mutation": "oeis_a000085_involutions",
+    "ts": "2026-11-16T11:30:20Z"
+   },
+   "hits": 1
+  },
+  "stem_enable:catalog|circuits|checked": {
+   "attempts": 3,
+   "elite": null,
+   "hits": 0
+  },
+  "stem_enable:catalog|circuits|held_out": {
+   "attempts": 5,
+   "elite": {
+    "cycle_id": "20261116T130331Z_d9d7a5",
+    "mutation": "stem_wheatstone_balance",
+    "ts": "2026-11-16T13:05:11Z"
+   },
+   "hits": 2
+  },
+  "stem_enable:catalog|mechanics|checked": {
+   "attempts": 5,
+   "elite": null,
+   "hits": 0
+  },
+  "stem_enable:catalog|mechanics|held_out": {
+   "attempts": 1,
+   "elite": null,
+   "hits": 0
+  },
+  "stem_enable:catalog|optics|checked": {
+   "attempts": 2,
+   "elite": null,
+   "hits": 0
+  },
+  "stem_enable:catalog|optics|held_out": {
+   "attempts": 2,
+   "elite": null,
+   "hits": 1
+  },
+  "stem_enable:catalog|relativity|checked": {
+   "attempts": 1,
+   "elite": null,
+   "hits": 0
+  },
+  "stem_enable:catalog|thermo|checked": {
+   "attempts": 1,
+   "elite": null,
+   "hits": 0
+  },
+  "stem_enable:catalog|thermo|held_out": {
+   "attempts": 2,
+   "elite": null,
+   "hits": 1
+  }
+ },
+ "n_cells": 31,
+ "n_elites": 20,
+ "note": "derived from append-only logs; elites = novelty-gate hits with an Oracle PASS keep",
+ "shadow": {
+  "top_with": [
+   "stem_easy_pad_units",
+   "catalan_bounded",
+   "motzkin_bounded",
+   "narayana_sum",
+   "pythagorean_generation"
+  ],
+  "top_without": [
+   "euler_theorem",
+   "bezout_identity",
+   "crt_coprime_pair",
+   "lucas_theorem_binomial",
+   "euler_pentagonal"
+  ],
+  "would_change_first": true
+ }
+}

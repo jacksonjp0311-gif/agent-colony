@@ -1,6 +1,10 @@
 {
- "last_cycle": "20261116T151106Z_18dafa",
+ "last_cycle": "20261116T153827Z_d93459",
  "targets": {
+  "oc_A006501_0": {
+   "far_hi": 0,
+   "hunts": 1
+  },
   "oc_A071715_0": {
    "far_hi": 159744,
    "hunts": 1

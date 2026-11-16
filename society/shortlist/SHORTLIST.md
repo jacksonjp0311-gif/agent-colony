@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-11-16 10:14 AM ET
+# Proposal shortlist — 2026-11-16 10:41 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -50,9 +50,9 @@ Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 22, novelty_k
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 19 tested, 6 survived held-out, 13 falsified, 3 machine-checked, 0 surprises; dropped 19 duplicates, 94 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1087.
-Totals: tested 13497, survived 5090, surprises 144, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 2 with no reference found.
+Mode `live`. Last cycle: 15 tested, 6 survived held-out, 9 falsified, 3 machine-checked, 0 surprises; dropped 20 duplicates, 77 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1084.
+Totals: tested 13599, survived 5130, surprises 145, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
@@ -61,9 +61,9 @@ Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 2 with
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((oxa009191*oxa047700))(n) = 1 (mod 2) for all n = 4 (mod 11) | conjecture surviving 181 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
 | D((oxa048760*perm_derange))(n) = 0 (mod 7) for all n = 4 (mod 7) | conjecture surviving 141 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
+| D((oxa157100*rs))(n) = 0 (mod 2) for all n = 0 (mod 4) | conjecture surviving 122 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
 | D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks |  | not_found | 1.0 |
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |
-| D(gcd(oxa047700,oxa316344))(n) = 1 (mod 2) for all n = 2 (mod 4) | conjecture surviving 497 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |

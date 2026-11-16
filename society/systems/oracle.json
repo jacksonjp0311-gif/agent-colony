@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T15:12:24Z",
-  "passes": 579,
+  "updated_at": "2026-11-16T15:34:46Z",
+  "passes": 580,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4049,
+  "kill_rate": 0.4045,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 51,
-    "kills": 9,
+    "passes": 52,
+    "kills": 8,
     "easy_pad_kills": 0,
-    "kill_rate": 0.15
+    "kill_rate": 0.1333
   },
-  "bus_ok_rate": 0.1167,
+  "bus_ok_rate": 0.1,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_2d4852ce385c",
@@ -39,6 +39,7 @@
     "oeis_a001850_central_delannoy",
     "oeis_a002426_central_trinomial",
     "oeis_a005043_riordan_motzkin",
+    "oeis_a005259_apery_recurrence",
     "oeis_a006318_schroeder_paths",
     "pisano_prime_period",
     "primitive_root_count",
@@ -63,8 +64,7 @@
     "authored_mut_swap_related_sequence_189b60a6e65e",
     "authored_mut_swap_related_sequence_19b958c5439c",
     "authored_mut_swap_related_sequence_55ef68f19547",
-    "authored_mut_swap_related_sequence_d4fd9cc584c3",
-    "authored_mut_swap_related_sequence_f7c77a787e41"
+    "authored_mut_swap_related_sequence_d4fd9cc584c3"
   ],
   "domain_packs": {
     "packs": {
@@ -106,7 +106,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T15:12:24Z",
+    "ts": "2026-11-16T15:34:46Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -116,16 +116,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `oeis_a001003_little_schroeder` kind=hard_enable. lemma mutation oeis_a001003_little_schroeder 0.873->0.873 (compared 0.857->0.857; speed_noise:+0.001) Not discovery. cycle=20",
-      "attack": "WEIGH: `oeis_a001003_little_schroeder` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `oeis_a005259_apery_recurrence` kind=hard_enable. lemma mutation oeis_a005259_apery_recurrence 0.8728->0.8724 (compared 0.857->0.857; speed_noise:-0.007) Not discovery. cycle=",
+      "attack": "WEIGH: `oeis_a005259_apery_recurrence` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 184,
-        "hard_n": 184,
-        "score": 0.8729,
+        "hard_pass": 185,
+        "hard_n": 185,
+        "score": 0.8725,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -136,19 +136,19 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 184,
-        "hard_n": 184,
+        "hard_pass": 185,
+        "hard_n": 185,
         "ok": true,
-        "score": 0.873,
+        "score": 0.8724,
         "shifted_window": {
           "ok": true,
           "status": "pass",
           "reason": "shift_window_pass",
           "applied": true,
           "ranges_shifted": 1,
-          "probes": 39,
-          "seconds": 0.053,
-          "window_expr": "all((check_oeis_a001003_little_schroeder(n) for n in _oracle_shifted_range(40, 79, 1)))",
+          "probes": 40,
+          "seconds": 0.045,
+          "window_expr": "all((check_oeis_a005259_apery_recurrence(n) for n in _oracle_shifted_range(40, 80, 1)))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -226,15 +226,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "oeis_a001003_little_schroeder",
+      "mutation": "oeis_a005259_apery_recurrence",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "oeis_a001003_little_schroeder",
+    "mutation": "oeis_a005259_apery_recurrence",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T151106Z_18dafa",
+    "cycle_id": "20261116T153323Z_cbd490",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
