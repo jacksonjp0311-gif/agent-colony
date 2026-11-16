@@ -4,10 +4,10 @@
       "cards_formed": 0,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 0,
-      "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 2
+      "concepts": 2,
+      "distinct_concepts": 1,
+      "papers": 8,
+      "reads": 3
     },
     "cognitive_science": {
       "cards_formed": 3,
@@ -42,8 +42,8 @@
       "cards_tested": 0,
       "concepts": 0,
       "distinct_concepts": 0,
-      "papers": 8,
-      "reads": 5
+      "papers": 16,
+      "reads": 6
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -55,13 +55,13 @@
       "reads": 4
     },
     "multi_agent_systems": {
-      "cards_formed": 0,
+      "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 0,
-      "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 2
+      "concepts": 3,
+      "distinct_concepts": 3,
+      "papers": 8,
+      "reads": 3
     },
     "neural_architecture": {
       "cards_formed": 5,
@@ -73,7 +73,7 @@
       "reads": 3
     },
     "open_endedness": {
-      "cards_formed": 2,
+      "cards_formed": 6,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 6,
@@ -82,7 +82,7 @@
       "reads": 3
     },
     "optimization_search": {
-      "cards_formed": 2,
+      "cards_formed": 3,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 7,
@@ -127,7 +127,7 @@
       "reads": 3
     }
   },
-  "fields_with_papers": 12,
+  "fields_with_papers": 14,
   "n_fields": 14,
   "note": "Breadth of reading. Cards are kept only by self-heal windows + twin control. Not AGI.",
   "top_architecture_ideas": [
@@ -179,11 +179,12 @@
         }
       ],
       "fields": [
+        "multi_agent_systems",
         "neural_architecture",
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 7
+      "n_papers": 8
     },
     {
       "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
@@ -263,11 +264,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 24,
+    "cards_formed": 30,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 71,
-    "papers": 102,
-    "reads": 42
+    "concepts": 76,
+    "papers": 126,
+    "reads": 45
   }
 }

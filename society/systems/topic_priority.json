@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "binomial-faulhaber",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-16T06:49:29Z",
-  "updated_cycle": "20261116T064734Z_241667",
+  "updated_at": "2026-11-16T07:12:36Z",
+  "updated_cycle": "20261116T071049Z_b350bd",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

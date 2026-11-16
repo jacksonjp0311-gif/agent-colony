@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T06:49:08Z",
+  "updated_at": "2026-11-16T07:12:10Z",
   "hits": 10,
-  "kills": 9,
+  "kills": 12,
   "rows": 30,
   "kill_rows": 20,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T06:49:08Z",
-    "cycle_id": "20261116T064734Z_241667",
-    "mutation": "stem_shm_energy",
+    "ts": "2026-11-16T07:12:10Z",
+    "cycle_id": "20261116T071049Z_b350bd",
+    "mutation": "stem_snell_least_time",
     "kind": "stem_enable",
     "novel_to_commons": false,
     "kills": [
@@ -25,7 +25,7 @@
       "hard_pass": 172,
       "hard_n": 172,
       "stripped_fails_usefulness": true,
-      "score": 0.8715,
+      "score": 0.8762,
       "impl_id": "lemma_impl_v2_basic10_hard172"
     },
     "held_out": {

@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T06:49:06Z",
-  "passes": 546,
+  "updated_at": "2026-11-16T07:12:09Z",
+  "passes": 549,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4191,
+  "kill_rate": 0.4178,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 18,
-    "kills": 42,
+    "passes": 21,
+    "kills": 39,
     "easy_pad_kills": 0,
-    "kill_rate": 0.7
+    "kill_rate": 0.65
   },
-  "bus_ok_rate": 0.6667,
+  "bus_ok_rate": 0.6167,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_38103ffd94ce",
@@ -30,8 +30,11 @@
     "primitive_root_count",
     "ramanujan_partition_congruences",
     "stem_elastic_collision",
+    "stem_isothermal_work",
     "stem_kepler_third_law",
+    "stem_resistor_power_balance",
     "stem_shm_energy",
+    "stem_snell_least_time",
     "zeckendorf_unique"
   ],
   "unique_mutations_kill": [
@@ -55,14 +58,11 @@
     "authored_mut_swap_related_sequence_6af0e18deac1",
     "authored_mut_swap_related_sequence_78025e23cf57",
     "authored_mut_swap_related_sequence_818b81b6a804",
-    "authored_mut_swap_related_sequence_83432cf56e85",
     "authored_mut_swap_related_sequence_834d4d3f06e0",
     "authored_mut_swap_related_sequence_86310fedcc8c",
-    "authored_mut_swap_related_sequence_89e5a4bd266c",
     "authored_mut_swap_related_sequence_98dac34715ca",
     "authored_mut_swap_related_sequence_98f7a10162e6",
     "authored_mut_swap_related_sequence_9944a5433d60",
-    "authored_mut_swap_related_sequence_a170e23a5eb9",
     "authored_mut_swap_related_sequence_a7fc2de5dabd",
     "authored_mut_swap_related_sequence_aa16db33659f",
     "authored_mut_swap_related_sequence_abd2d19e66bf",
@@ -74,7 +74,9 @@
     "authored_mut_swap_related_sequence_eb0f3247ee33",
     "authored_mut_swap_related_sequence_efa7f2b38883",
     "authored_mut_swap_related_sequence_f136673b49cd",
-    "authored_mut_swap_related_sequence_f7c77a787e41"
+    "authored_mut_swap_related_sequence_f7c77a787e41",
+    "authored_mut_swap_related_sequence_f992defe4af8",
+    "authored_mut_swap_related_sequence_fd5d7d93e902"
   ],
   "domain_packs": {
     "packs": {
@@ -116,7 +118,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T06:49:06Z",
+    "ts": "2026-11-16T07:12:09Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -126,8 +128,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `stem_shm_energy` kind=stem_enable. lemma mutation stem_shm_energy 0.825->0.8688 Not discovery. cycle=20261116T064734Z_241667.",
-      "attack": "WEIGH: `stem_shm_energy` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `stem_snell_least_time` kind=stem_enable. lemma mutation stem_snell_least_time 0.825->0.8688 Not discovery. cycle=20261116T071049Z_b350bd.",
+      "attack": "WEIGH: `stem_snell_least_time` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -165,10 +167,6 @@
           },
           {
             "label": "centripetal_T",
-            "ok": true
-          },
-          {
-            "label": "energy_work_numeric",
             "ok": true
           }
         ]
@@ -220,15 +218,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "stem_shm_energy",
+      "mutation": "stem_snell_least_time",
       "kind": "stem_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "stem_shm_energy",
+    "mutation": "stem_snell_least_time",
     "kind": "stem_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T064734Z_241667",
+    "cycle_id": "20261116T071049Z_b350bd",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
