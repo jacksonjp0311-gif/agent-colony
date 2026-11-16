@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 54,
- "last_refill_index": 53,
+ "cycle_index": 57,
+ "last_refill_index": 56,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -578,6 +578,38 @@
   "45b6a69446a80969": {
    "cycle_id": "20261116T102958Z_cf0ab7",
    "n_hits": 10
+  },
+  "4a0b000029172f5d": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 10
+  },
+  "39cf0c6ae28ba7ba": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 10
+  },
+  "919848f69eb2c8b0": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 10
+  },
+  "b9bb114a90302994": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 10
+  },
+  "cf3a45f16c08b57f": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 10
+  },
+  "3eea4dff81ecd65b": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 3
+  },
+  "126bd35013316a85": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 10
+  },
+  "b4e6ed2d9b4f0f26": {
+   "cycle_id": "20261116T105830Z_573298",
+   "n_hits": 2
   }
  },
  "rejected": {
@@ -695,61 +727,47 @@
   "A302183": "20261116T084918Z_fc228f",
   "A302182": "20261116T084918Z_fc228f",
   "A134424": "20261116T102958Z_cf0ab7",
-  "A191792": "20261116T102958Z_cf0ab7"
+  "A191792": "20261116T102958Z_cf0ab7",
+  "A243585": "20261116T105830Z_573298"
  },
- "refills": 18,
- "added": 91,
+ "refills": 19,
+ "added": 95,
  "last": {
-  "cycle_id": "20261116T102958Z_cf0ab7",
-  "open_before": 0,
+  "cycle_id": "20261116T105830Z_573298",
+  "open_before": 3,
   "pages_read": 8,
-  "requests": 17,
+  "requests": 13,
   "new": [
    {
-    "id": "oc_A172063_0",
+    "id": "oc_A116385_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A172064_0",
+    "id": "oc_A129147_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A172062_0",
+    "id": "oc_A101596_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A104624_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A081798_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A141222_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A172025_0",
+    "id": "oc_A138164_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 34,
-   "resolved_skipped": 6,
-   "keyword_skipped": 1,
-   "statements": 36,
-   "parsed": 10,
-   "no_bfile": 2,
+   "entries": 52,
+   "resolved_skipped": 14,
+   "keyword_skipped": 2,
+   "statements": 51,
+   "parsed": 5,
+   "no_bfile": 1,
    "fails_on_data": 0,
-   "kept": 7,
+   "kept": 4,
    "def_candidates": 0
   }
  }

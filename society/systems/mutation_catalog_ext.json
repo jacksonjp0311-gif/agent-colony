@@ -49,6 +49,20 @@
       "snippet": "enable:oeis_a005043_riordan_motzkin",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a001850_central_delannoy",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a001850_central_delannoy",
+      "status": "candidate",
+      "disabled_default": true
+    },
+    {
+      "name": "oeis_a006318_schroeder_paths",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a006318_schroeder_paths",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

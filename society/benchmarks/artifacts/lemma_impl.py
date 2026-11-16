@@ -2220,6 +2220,35 @@ def check_oeis_a005043_riordan_motzkin(n: int) -> bool:
     return row[0] == r[n] + r[n + 1]
 
 
+def check_oeis_a001850_central_delannoy(n: int) -> bool:
+    """Central Delannoy A001850: grid-path count with steps E, N, NE to (n, n)
+    equals sum_k C(n,k) C(n+k,k)."""
+    grid = [[0] * (n + 1) for _ in range(n + 1)]
+    for i in range(n + 1):
+        for j in range(n + 1):
+            if i == 0 or j == 0:
+                grid[i][j] = 1
+            else:
+                grid[i][j] = grid[i - 1][j] + grid[i][j - 1] + grid[i - 1][j - 1]
+    return grid[n][n] == sum(math.comb(n, k) * math.comb(n + k, k) for k in range(n + 1))
+
+
+def check_oeis_a006318_schroeder_paths(n: int) -> bool:
+    """Large Schroeder A006318: paths (0,0)->(2n,0) with U, D, flat-2 steps never below 0
+    (DP) equal sum_k C(n+k, n-k) C(2k,k)/(k+1)."""
+    ways = [dict() for _ in range(2 * n + 1)]
+    ways[0][0] = 1
+    for x in range(2 * n):
+        for h, v in ways[x].items():
+            ways[x + 1][h + 1] = ways[x + 1].get(h + 1, 0) + v
+            if h:
+                ways[x + 1][h - 1] = ways[x + 1].get(h - 1, 0) + v
+            if x + 2 <= 2 * n:
+                ways[x + 2][h] = ways[x + 2].get(h, 0) + v
+    closed = sum(math.comb(n + k, n - k) * (math.comb(2 * k, k) // (k + 1)) for k in range(n + 1))
+    return ways[2 * n].get(0, 0) == closed
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2450,6 +2479,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a000032_lucas_norm", lambda: all(check_oeis_a000032_lucas_norm(n) for n in range(1, 60)), True),
     ("oeis_a001006_motzkin_ballot_sum", lambda: all(check_oeis_a001006_motzkin_ballot_sum(n) for n in range(0, 40)), True),
     ("oeis_a005043_riordan_motzkin", lambda: all(check_oeis_a005043_riordan_motzkin(n) for n in range(0, 40)), True),
+    ("oeis_a001850_central_delannoy", lambda: all(check_oeis_a001850_central_delannoy(n) for n in range(0, 30)), True),
+    ("oeis_a006318_schroeder_paths", lambda: all(check_oeis_a006318_schroeder_paths(n) for n in range(0, 30)), False),
 ]
 
 

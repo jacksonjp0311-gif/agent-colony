@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T10:36:07Z",
+  "updated_at": "2026-11-16T11:00:08Z",
   "hits": 11,
   "kills": 11,
   "rows": 30,
   "kill_rows": 19,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T10:36:07Z",
-    "cycle_id": "20261116T103423Z_b164b7",
-    "mutation": "oeis_a005043_riordan_motzkin",
+    "ts": "2026-11-16T11:00:08Z",
+    "cycle_id": "20261116T105830Z_573298",
+    "mutation": "oeis_a001850_central_delannoy",
     "kind": "hard_enable",
     "novel_to_commons": true,
     "kills": [],
@@ -20,16 +20,16 @@
     "stripped": {
       "already_enabled": false,
       "in_catalog": true,
-      "hard_pass": 174,
-      "hard_n": 174,
+      "hard_pass": 175,
+      "hard_n": 175,
       "stripped_fails_usefulness": true,
-      "score": 0.8684,
-      "impl_id": "lemma_impl_v2_basic10_hard173"
+      "score": 0.8699,
+      "impl_id": "lemma_impl_v2_basic10_hard175"
     },
     "held_out": {
       "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 174,
+      "hard_pass": 175,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
