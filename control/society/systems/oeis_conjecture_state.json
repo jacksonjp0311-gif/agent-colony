@@ -1355,6 +1355,12 @@
    "status": "holds_on_range",
    "tested_hi": 199,
    "credit": 0.0
+  },
+  "oc_A298267_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0
   }
  },
  "families": {
@@ -1363,7 +1369,7 @@
    "credit": 24.1488
   },
   "gf": {
-   "attempts": 73,
+   "attempts": 74,
    "credit": 0.564
   },
   "only_prime": {
