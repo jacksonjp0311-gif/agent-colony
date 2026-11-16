@@ -178,11 +178,25 @@ def pick_mutation_order(candidates: list[tuple[str, str, str]]) -> list[tuple[st
             factor = {n: (factor or {}).get(n, 1.0) * _kf.get(n, 1.0) for n in names}
     except Exception:
         pass
+    _me_mode = "off"
+    try:  # item 108: MAP-Elites archive (live: order factor; shadow: record only, order unchanged)
+        from colony import map_elites as _me
+        _me_mode = _me.mode() if names else "off"
+        if _me_mode == "live":
+            _mf = _me.factors(rest)
+            factor = {n: (factor or {}).get(n, 1.0) * _mf.get(n, 1.0) for n in names}
+    except Exception:
+        _me_mode = "off"
     if factor:
         rest_sorted = sorted(rest, key=lambda t: float(dist.get(t[0]) or 0.0) * factor.get(t[0], 1.0),
                              reverse=True)
     else:
         rest_sorted = sorted(rest, key=lambda t: float(dist.get(t[0]) or 0.0), reverse=True)
+    if _me_mode == "shadow":
+        try:
+            _me.shadow_record(rest, rest_sorted)
+        except Exception:
+            pass
     return boosted + rest_sorted
 
 
