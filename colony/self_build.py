@@ -755,16 +755,22 @@ def evidence(ideas: list[dict[str, Any]] | None = None, cards: list[Any] | None 
 
 # --------------------------------------------------------------------------- generator
 
-def _comp_weight(name: str, stats: Mapping[str, Any], ev: Mapping[str, Any], macros: Mapping[str, Any]) -> float:
+def _comp_weight(name: str, stats: Mapping[str, Any], ev: Mapping[str, Any], macros: Mapping[str, Any],
+                 losses: Mapping[str, int] | None = None) -> float:
     if name in macros:
         parts = expand([{"component": name}], macros)
-        ws = [_comp_weight(p["component"], stats, ev, {}) for p in parts]
+        ws = [_comp_weight(p["component"], stats, ev, {}, losses) for p in parts]
         return (sum(ws) / len(ws) if ws else 0.5) * 1.1
     s = stats.get(name) or {}
     kept = float(s.get("kept") or 0)
     tried = float(s.get("tried") or 0)
     rate = (kept + 1.0) / (tried + 2.0)
-    return rate * float((ev.get(name) or {}).get("boost") or 1.0)
+    w = rate * float((ev.get(name) or {}).get("boost") or 1.0)
+    if losses:
+        # Item 89: components whose blueprints really lost (reverted) are weighted down.
+        from colony.failure_modes import component_penalty
+        w *= component_penalty(name, losses)
+    return w
 
 
 def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str, Any]]:
@@ -776,6 +782,11 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
     tried = state.get("tried") or {}
     parent = active.get("id") or "bp_default"
     raw: list[tuple[float, dict[str, Any], list[dict[str, Any]]]] = []
+    try:
+        from colony.failure_modes import component_losses, live as _fm_live
+        losses = component_losses() if _fm_live() else {}
+    except Exception:  # noqa: BLE001
+        losses = {}
 
     def add(new_steps: list[dict[str, Any]], operator: str, added: list[dict[str, Any]], factor: float = 1.0):
         bp = make_blueprint(new_steps, parent=parent, operator=operator,
@@ -787,7 +798,7 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
             return
         w = factor
         for a in added:
-            w *= _comp_weight(a["component"], stats, ev, macros)
+            w *= _comp_weight(a["component"], stats, ev, macros, losses)
         raw.append((w, bp, added))
 
     names = sorted(COMPONENTS) + sorted(macros)
@@ -980,7 +991,18 @@ def _void(st: dict[str, Any], trial: dict[str, Any], cycle_id: str, reason: str,
            "authorized": False, "human_signoff_required": False}
     if write:
         append_log(row, log_path)
+        _log_failure(row, bp, st)
     return row
+
+
+def _log_failure(row: Mapping[str, Any], bp: Mapping[str, Any], st: Mapping[str, Any]) -> None:
+    """Item 89: exact failure mode of a non-kept blueprint trial (append-only)."""
+    try:
+        from colony.failure_modes import log_blueprint
+        names = [s["component"] for s in expand(bp.get("added") or bp.get("steps") or [], st.get("macros"))]
+        log_blueprint(row, components=names)
+    except Exception:  # noqa: BLE001
+        pass
 
 
 def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write: bool,
@@ -1037,6 +1059,8 @@ def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write
            "verdict": verdict, "authorized": False, "human_signoff_required": False}
     if write:
         append_log(row, log_path)
+        if outcome != "kept":
+            _log_failure(row, bp, st)
     return row
 
 
@@ -1076,6 +1100,12 @@ def run_cycle(cycle_id: str = "", *, ctx: Context | None = None, board: Mapping[
         else:
             st["last_propose_cycle"] = cycle_id
             proposal, rejected = propose(st, ctx, ev)
+            if write and rejected:
+                try:  # item 89: why each candidate was rejected
+                    from colony.failure_modes import log_rejections
+                    log_rejections(cycle_id, rejected)
+                except Exception:  # noqa: BLE001
+                    pass
             if proposal is None:
                 st["last_skip"] = {"cycle_id": cycle_id, "reason": "no_candidate_passed_self_test",
                                    "rejected": rejected[:12]}
