@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T17:05:21Z",
+  "updated_at": "2026-11-16T18:01:44Z",
   "hits": 20,
   "kills": 6,
   "rows": 30,
   "kill_rows": 10,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T17:05:21Z",
-    "cycle_id": "20261116T170346Z_d6431c",
-    "mutation": "authored_mut_swap_related_sequence_52a5162a7db1",
+    "ts": "2026-11-16T18:01:44Z",
+    "cycle_id": "20261116T180001Z_faef68",
+    "mutation": "authored_mut_swap_related_sequence_539c6e5aed66",
     "kind": "hard_enable",
     "novel_to_commons": false,
     "kills": [
