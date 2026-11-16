@@ -1,8 +1,8 @@
 {
-  "last_attempt_at": "2026-11-16T01:44:17Z",
-  "last_status": 200,
-  "retry_after_until": null,
-  "last_error": "",
+  "last_attempt_at": "2026-11-16T02:05:01Z",
+  "last_status": 429,
+  "retry_after_until": "2026-11-16T02:35:01Z",
+  "last_error": "HTTP 429 (throttled)",
   "last_ok_at": "2026-11-16T01:44:17Z",
   "hits": [
     {

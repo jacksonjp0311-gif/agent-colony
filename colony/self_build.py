@@ -95,7 +95,12 @@ LOG_PATH = ROOT / "data" / "commons" / "blueprint_log.jsonl"
 IDEAS_PATH = ROOT / "data" / "commons" / "architecture_ideas.jsonl"
 
 WINDOW_CYCLES = 6           # same window length self-heal uses (not changed here)
-INCONCLUSIVE_CYCLES = 18    # no paired twin data by then: inconclusive, revert
+INCONCLUSIVE_CYCLES = 18    # (pre item 84) no paired twin data by then: inconclusive, revert
+# Item 84: a blueprint trial gets one window plus a short grace, then closes on the
+# paired rows it has (still strictly better than baseline AND twin to keep) or is
+# inconclusive (reverted). A code change inside the window voids it (no credit).
+GRACE_CYCLES = 3
+TRIAL_MAX_CYCLES = WINDOW_CYCLES + GRACE_CYCLES
 MAX_STEPS = 4               # steps per blueprint after macro expansion
 MAX_TOTAL_SIZE = 6          # sum of step sizes per blueprint
 MAX_HEAVY = 1               # heavy components (whole generator batch) per blueprint
@@ -915,6 +920,28 @@ def blocks_self_heal(state: Mapping[str, Any] | None = None) -> bool:
     return bool(st.get("trial"))
 
 
+def _heal_had_turn(heal: Mapping[str, Any], turn: Mapping[str, Any]) -> bool:
+    """True once self-heal ran its proposer in a cycle after ``turn`` (or holds a trial)."""
+    if heal.get("trial") or heal.get("build_turn"):
+        return True  # holding a trial, or itself waiting for self-build: no deadlock
+    last = str(heal.get("last_propose_cycle") or "")
+    return bool(last) and last > str(turn.get("cycle_id") or "")
+
+
+def build_turn_pending(heal_state: Mapping[str, Any], state: Mapping[str, Any] | None = None) -> bool:
+    """Item 84: after a self-heal trial ends, self-build proposes before self-heal opens another."""
+    if not self_mod_ok():
+        return False
+    turn = heal_state.get("build_turn")
+    if not isinstance(turn, dict):
+        return False
+    st = state if state is not None else load_state()
+    last = str(st.get("last_propose_cycle") or "")
+    if st.get("trial") or (last and last >= str(turn.get("cycle_id") or "")):
+        return False
+    return True
+
+
 def _excluded_targets(heal: Mapping[str, Any]) -> set[str]:
     out = set(str(x) for x in (heal.get("compute_bound_targets") or {}))
     trial = heal.get("trial")
@@ -931,11 +958,43 @@ def _bump(stats: dict[str, Any], names: Iterable[str], key: str) -> None:
         s[key] = int(s.get(key) or 0) + 1
 
 
+def code_fingerprint() -> str:
+    """Digest of running behavior code (same narrowed digest self-heal voids on)."""
+    try:
+        from colony.self_heal import _colony_file_digest
+        return str(_colony_file_digest())
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def _void(st: dict[str, Any], trial: dict[str, Any], cycle_id: str, reason: str, *, write: bool,
+          log_path: Path | None, fp: str = "") -> dict[str, Any]:
+    """Item 84: end a confounded trial with no credit; the active blueprint is unchanged."""
+    bp = trial.get("blueprint") or {}
+    st["trial"] = None
+    st["voided_count"] = int(st.get("voided_count") or 0) + 1
+    st["heal_turn"] = {"cycle_id": cycle_id, "cycle_index": st.get("cycle_index")}
+    row = {"event": "blueprint_trial_void", "cycle_id": cycle_id, "outcome": "voided", "reason": reason,
+           "blueprint": bp.get("id"), "steps": bp.get("steps"), "old_code_fp": trial.get("code_fp"),
+           "new_code_fp": fp, "active_after": (st.get("active") or {}).get("id"),
+           "authorized": False, "human_signoff_required": False}
+    if write:
+        append_log(row, log_path)
+    return row
+
+
 def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write: bool,
            log_path: Path | None) -> dict[str, Any] | None:
     trial = st.get("trial")
     if not isinstance(trial, dict):
         return None
+    fp = code_fingerprint()
+    if fp and not trial.get("code_fp") and not trial.get("opened_cycle_id"):
+        trial["code_fp"] = fp  # hand-built trial dict (no open record): start tracking now
+    if fp and trial.get("code_fp") != fp:
+        # a code change landed inside the window (or a pre-item-84 trial with no fingerprint)
+        return _void(st, trial, cycle_id, "code_changed_in_window" if trial.get("code_fp") else
+                     "no_code_fingerprint_at_open", write=write, log_path=log_path, fp=fp)
     age = int(st["cycle_index"]) - int(trial.get("opened_cycle_index") or 0)
     rows = _paired_rows(board)
     w = int(trial.get("window_rows") or window_rows(rows))
@@ -943,9 +1002,10 @@ def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write
     if age < WINDOW_CYCLES:
         return None
     if len(rows) - 1 < start + w:
-        if age < INCONCLUSIVE_CYCLES:
+        if age < TRIAL_MAX_CYCLES:
             return None
-        verdict = {"keep": False, "reason": "inconclusive_no_paired_window"}
+        verdict = {"keep": False, "reason": "inconclusive_no_paired_window",
+                   "time_limit_cycles": TRIAL_MAX_CYCLES}
         outcome = "inconclusive"
     else:
         verdict = decide(gain(rows, start, start + w),
@@ -970,6 +1030,7 @@ def _close(st: dict[str, Any], board: Mapping[str, Any], cycle_id: str, *, write
     st.setdefault("tried", {})[bp.get("signature") or ""] = {
         "outcome": outcome, "steps": bp.get("steps"), "id": bp.get("id"), "cycle_id": cycle_id}
     st["trial"] = None
+    st["heal_turn"] = {"cycle_id": cycle_id, "cycle_index": st.get("cycle_index")}
     row = {"event": "blueprint_trial_close", "cycle_id": cycle_id, "outcome": outcome,
            "blueprint": bp.get("id"), "steps": bp.get("steps"), "parent": bp.get("parent"),
            "operator": bp.get("operator"), "active_after": (st.get("active") or {}).get("id"),
@@ -1004,10 +1065,16 @@ def run_cycle(cycle_id: str = "", *, ctx: Context | None = None, board: Mapping[
     opened = None
     rejected: list[dict[str, Any]] = []
     proposal = None
+    if not st.get("trial") and st.get("heal_turn") and _heal_had_turn(heal, st["heal_turn"]):
+        st["heal_turn"] = None
     if not st.get("trial"):
         if heal.get("trial"):
             st["last_skip"] = {"cycle_id": cycle_id, "reason": "self_heal_trial_open"}
+        elif st.get("heal_turn"):
+            # Item 84: after a blueprint trial ends, self-heal gets the next turn first.
+            st["last_skip"] = {"cycle_id": cycle_id, "reason": "self_heal_turn"}
         else:
+            st["last_propose_cycle"] = cycle_id
             proposal, rejected = propose(st, ctx, ev)
             if proposal is None:
                 st["last_skip"] = {"cycle_id": cycle_id, "reason": "no_candidate_passed_self_test",
@@ -1017,7 +1084,7 @@ def run_cycle(cycle_id: str = "", *, ctx: Context | None = None, board: Mapping[
                 w = window_rows(rows)
                 open_row = len(rows) - 1
                 base = gain(rows, open_row - w, open_row)
-                opened = {"blueprint": proposal, "opened_cycle_id": cycle_id,
+                opened = {"blueprint": proposal, "opened_cycle_id": cycle_id, "code_fp": code_fingerprint(),
                           "opened_cycle_index": st["cycle_index"], "open_row": open_row,
                           "window_rows": w, "baseline_gain": list(base) if base else None}
                 if execute:

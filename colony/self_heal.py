@@ -722,6 +722,10 @@ def load_state() -> dict[str, Any]:
         "last_self_change", "knob_last_trial",
         "inconclusive_count", "trial_skip", "cycles_dropped",
         "retired_cap_knobs", "compute_bound_targets",
+        # Items 70/77/84: these were written but dropped on reload before item 84.
+        "zero_prediction_skips", "co_binding_caps",
+        "retirement_audits", "retirement_audit_sig",
+        "build_turn", "last_propose_cycle",
     ):
         if key in raw:
             state[key] = raw[key]
@@ -3590,21 +3594,30 @@ def run_cycle(
     except Exception as exc:  # noqa: BLE001
         supply = {"invited": False, "authored": [], "reason": f"error:{type(exc).__name__}"}
     self_build_open = False
+    build_turn = False
+    if trial and not st.get("trial") and self_mod:
+        # Item 84: a self-heal trial ended this cycle; self-build proposes before the next one.
+        st["build_turn"] = {"cycle_id": cycle_id}
     if not st.get("trial"):
         # Item 80: wait while a self-build blueprint trial is open so neither
         # trial is credited with the other's gain (self-mod arm only).
         try:
-            from colony.self_build import blocks_self_heal
+            from colony.self_build import blocks_self_heal, build_turn_pending
             self_build_open = bool(blocks_self_heal())
+            build_turn = (not self_build_open) and bool(build_turn_pending(st))
+            if not build_turn and st.get("build_turn"):
+                st["build_turn"] = None
         except Exception:
             self_build_open = False
-    if self_build_open:
-        st["trial_skip"] = {"cycle_id": cycle_id, "reason": "self_build_trial_open"}
+    if self_build_open or build_turn:
+        st["trial_skip"] = {"cycle_id": cycle_id,
+                            "reason": "self_build_trial_open" if self_build_open else "self_build_turn"}
         try:
             save_state(st)
         except Exception:
             pass
     elif not st.get("trial"):
+        st["last_propose_cycle"] = cycle_id
         proposal = propose_trial(found, state=st, cycle_id=cycle_id)
         if proposal is not None:
             st = start_trial(proposal, state=st, cycle_id=cycle_id)
