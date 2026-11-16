@@ -1139,11 +1139,35 @@
    "status": "holds_on_range",
    "tested_hi": 200,
    "credit": 0.0
+  },
+  "oc_A138164_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 367,
+   "credit": 0.0
+  },
+  "oc_A101596_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 168,
+   "credit": 0.0
+  },
+  "oc_A116385_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A129147_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 478,
+   "attempts": 482,
    "credit": 24.1488
   },
   "gf": {
