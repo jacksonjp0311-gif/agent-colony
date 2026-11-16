@@ -77,6 +77,20 @@
       "snippet": "enable:oeis_a001045_jacobsthal_sum",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a002426_central_trinomial",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a002426_central_trinomial",
+      "status": "candidate",
+      "disabled_default": true
+    },
+    {
+      "name": "oeis_a000111_zigzag_boustrophedon",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a000111_zigzag_boustrophedon",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

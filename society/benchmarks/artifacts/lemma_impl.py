@@ -2280,6 +2280,59 @@ def check_oeis_a001045_jacobsthal_sum(n: int) -> bool:
 
 
 
+def check_oeis_a002426_central_trinomial(n: int) -> bool:
+    """Central trinomial A002426: coefficient of x^n in (1+x+x^2)^n (polynomial powers) equals
+    sum_k C(n,2k) C(2k,k) and the P-recurrence k a(k) = (2k-1) a(k-1) + 3(k-1) a(k-2)."""
+    if n < 0:
+        return True
+    poly = [1]
+    for _ in range(n):
+        nxt = [0] * (len(poly) + 2)
+        for i, c in enumerate(poly):
+            nxt[i] += c
+            nxt[i + 1] += c
+            nxt[i + 2] += c
+        poly = nxt
+    coeff = poly[n]
+    closed = sum(math.comb(n, 2 * k) * math.comb(2 * k, k) for k in range(n // 2 + 1))
+    a = [1, 1]
+    for k in range(2, n + 1):
+        num = (2 * k - 1) * a[k - 1] + 3 * (k - 1) * a[k - 2]
+        if num % k:
+            return False
+        a.append(num // k)
+    return coeff == closed == a[n]
+
+
+def check_oeis_a000111_zigzag_boustrophedon(n: int) -> bool:
+    """Euler zigzag A000111: the Seidel boustrophedon triangle equals the convolution
+    recurrence 2 a(k+1) = sum_j C(k,j) a(j) a(k-j) (k >= 1); brute-force alternating
+    permutations for small n."""
+    if n < 0:
+        return True
+    row, zz = [1], [1]
+    for k in range(1, n + 1):
+        nxt = [0]
+        for x in reversed(row):
+            nxt.append(nxt[-1] + x)
+        row = nxt
+        zz.append(row[-1])
+    a = [1, 1]
+    for k in range(1, n):
+        s = sum(math.comb(k, j) * a[j] * a[k - j] for j in range(k + 1))
+        if s % 2:
+            return False
+        a.append(s // 2)
+    if zz[n] != a[n]:
+        return False
+    if 2 <= n <= 7:
+        import itertools
+        brute = sum(1 for p in itertools.permutations(range(n))
+                    if all((p[i] < p[i + 1]) == (i % 2 == 1) for i in range(n - 1)))
+        return brute == a[n]
+    return True
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2514,6 +2567,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a006318_schroeder_paths", lambda: all(check_oeis_a006318_schroeder_paths(n) for n in range(0, 30)), True),
     ("oeis_a000085_involutions", lambda: all(check_oeis_a000085_involutions(n) for n in range(0, 50)), True),
     ("oeis_a001045_jacobsthal_sum", lambda: all(check_oeis_a001045_jacobsthal_sum(n) for n in range(1, 60)), True),
+    ("oeis_a002426_central_trinomial", lambda: all(check_oeis_a002426_central_trinomial(n) for n in range(0, 50)), True),
+    ("oeis_a000111_zigzag_boustrophedon", lambda: all(check_oeis_a000111_zigzag_boustrophedon(n) for n in range(0, 40)), False),
 ]
 
 

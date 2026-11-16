@@ -220,7 +220,7 @@ STEM_CHECKS: list[tuple[str, Callable[[], bool], bool]] = [
     ("stem_wheatstone_balance", lambda: all(
         check_wheatstone_balance(r1, r2, r3, r4, rg)
         for r1, r2, r3, r4 in ((1, 2, 3, 6), (10, 10, 5, 5), (1, 2, 3, 7), (4, 1, 2, 3)) for rg in (1, 50)
-    ), False),
+    ), True),
 ]
 
 
