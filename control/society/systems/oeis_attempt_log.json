@@ -935,6 +935,83 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A140829_0",
+   "anum": "A140829",
+   "form": "gf",
+   "depth": 50,
+   "bfile_hi": 50,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261116T024818Z_f42d9d",
+   "planned": 8000,
+   "verified_depth": 50,
+   "prior_tested_hi": 0,
+   "extended": 50
+  },
+  {
+   "id": "oc_A140829_0",
+   "anum": "A140829",
+   "form": "gf",
+   "depth": 7999,
+   "bfile_hi": 50,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T024818Z_f42d9d",
+   "planned": 8000,
+   "verified_depth": 7999,
+   "prior_tested_hi": 0,
+   "extended": 7949,
+   "cap_reason": "term_cap",
+   "cap_value": 8000,
+   "fast_cfinite": true,
+   "deep_terms": 8000,
+   "deep_elapsed_s": 0.01
+  },
+  {
+   "id": "oc_A278472_0",
+   "anum": "A278472",
+   "form": "relation",
+   "depth": 249,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T024818Z_f42d9d",
+   "planned": 1000,
+   "verified_depth": 249,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A120503_0",
+   "anum": "A120503",
+   "form": "relation",
+   "depth": 74,
+   "bfile_hi": 74,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T024818Z_f42d9d",
+   "planned": 74,
+   "verified_depth": 74,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A135052_0",
+   "anum": "A135052",
+   "form": "relation",
+   "depth": 1000,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "proved_checked",
+   "cycle_id": "20261116T024818Z_f42d9d",
+   "planned": 1200,
+   "verified_depth": 1000,
+   "prior_tested_hi": 0,
+   "extended": 1000
   }
  ],
  "by_cycle": {
@@ -1037,6 +1114,12 @@
   "20261116T023239Z_d690fd": [
    "oc_A000781_0",
    "oc_A200312_0"
+  ],
+  "20261116T024818Z_f42d9d": [
+   "oc_A140829_0",
+   "oc_A278472_0",
+   "oc_A120503_0",
+   "oc_A135052_0"
   ]
  },
  "last_forms": [
@@ -1056,7 +1139,7 @@
   "relation",
   "relation",
   "relation",
-  "relation",
+  "gf",
   "relation",
   "relation",
   "relation"
