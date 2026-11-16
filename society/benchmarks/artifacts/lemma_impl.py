@@ -2249,6 +2249,23 @@ def check_oeis_a006318_schroeder_paths(n: int) -> bool:
     return ways[2 * n].get(0, 0) == closed
 
 
+def check_oeis_a000085_involutions(n: int) -> bool:
+    """Involutions A000085: a(k) = a(k-1) + (k-1) a(k-2) equals sum_j n! / (j! (n-2j)! 2^j);
+    for n <= 7 also a brute-force count over all permutations."""
+    a = [1, 1]
+    for k in range(2, n + 1):
+        a.append(a[k - 1] + (k - 1) * a[k - 2])
+    closed = sum(math.factorial(n) // (math.factorial(j) * math.factorial(n - 2 * j) * 2 ** j)
+                 for j in range(n // 2 + 1))
+    if a[n] != closed:
+        return False
+    if n <= 7:
+        import itertools
+        brute = sum(1 for p in itertools.permutations(range(n)) if all(p[p[i]] == i for i in range(n)))
+        return brute == a[n]
+    return True
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2480,7 +2497,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a001006_motzkin_ballot_sum", lambda: all(check_oeis_a001006_motzkin_ballot_sum(n) for n in range(0, 40)), True),
     ("oeis_a005043_riordan_motzkin", lambda: all(check_oeis_a005043_riordan_motzkin(n) for n in range(0, 40)), True),
     ("oeis_a001850_central_delannoy", lambda: all(check_oeis_a001850_central_delannoy(n) for n in range(0, 30)), True),
-    ("oeis_a006318_schroeder_paths", lambda: all(check_oeis_a006318_schroeder_paths(n) for n in range(0, 30)), False),
+    ("oeis_a006318_schroeder_paths", lambda: all(check_oeis_a006318_schroeder_paths(n) for n in range(0, 30)), True),
+    ("oeis_a000085_involutions", lambda: all(check_oeis_a000085_involutions(n) for n in range(0, 50)), True),
 ]
 
 

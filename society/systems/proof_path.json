@@ -14,7 +14,7 @@
    1
   ],
   "le": [
-   26,
+   27,
    3
   ],
   "modpat": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   7,
-   6
+   6,
+   5
   ]
  },
  "mode": "live",
  "n_authored": 22,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 48,
+ "n_proved": 47,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -3252,130 +3252,6 @@
    "unknown": true,
    "v": 3
   },
-  "a(n) = dbl(n)(n) satisfies a(n+2) = -1*a(n+0) + 2*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "dbl(n)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           2,
-           0
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 2
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "n@1,0": 2
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl(n)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           2,
-           2
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 2
-           },
-           "c": 2,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "n@1,0": 2
-         },
-         "c": 2,
-         "d": 0
-        }
-       },
-       {
-        "e": "dbl(n)",
-        "kids": [
-         {
-          "e": "n",
-          "pt": [
-           2,
-           4
-          ],
-          "rule": "n",
-          "val": {
-           "a": {
-            "n@1,0": 2
-           },
-           "c": 4,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "dbl",
-        "val": {
-         "a": {
-          "n@1,0": 2
-         },
-         "c": 4,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x46867b6f_w1",
-   "checks": 59988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "bigomega[oxa213536](n) divides (oxa056971*oxa107293)(n) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -5998,6 +5874,18 @@
    "unknown": true,
    "v": 4
   },
+  "ple3[lpf](n) <= ple3(n) for all n >= 1 (with equality at some n)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_le_x108e4340_w1",
+   "checks": 19988,
+   "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "ple3[oxa080076](n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -6779,5 +6667,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T11:05:30Z"
+ "ts": "2026-11-16T11:31:30Z"
 }

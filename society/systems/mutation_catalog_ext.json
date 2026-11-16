@@ -63,6 +63,13 @@
       "snippet": "enable:oeis_a006318_schroeder_paths",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a000085_involutions",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a000085_involutions",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."
