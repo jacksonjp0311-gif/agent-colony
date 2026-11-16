@@ -637,6 +637,27 @@ def method_names(key: str) -> list[str]:
 PUSH_PER_CYCLE = 4
 
 
+RETRY_UNKNOWN_DAYS = 1
+
+
+def retryable(rec: dict[str, Any] | None, now: datetime | None = None) -> bool:
+    """A tried discovery item worth another look (item 82)."""
+    if not isinstance(rec, dict):
+        return False
+    status = str(rec.get("status") or "")
+    if status == LABEL_UNKNOWN:
+        wait = RETRY_UNKNOWN_DAYS
+    elif status in ("not_in_oeis", "no_alignment"):
+        wait = INDEX_MAX_AGE_DAYS
+    else:
+        return False
+    try:
+        ts = datetime.strptime(str(rec.get("ts") or ""), "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return True
+    return ((now or datetime.now(timezone.utc)) - ts).days >= wait
+
+
 def _done(e: dict[str, Any]) -> bool:
     """Already pushed against this version of the published b-file: wait for the frontier to move
     (the index is re-fetched after INDEX_MAX_AGE_DAYS; a changed b-file re-opens the target)."""
@@ -673,7 +694,11 @@ def run_cycle(cycle_id: str = "", *, net: Net | None = None, lookup: Any = "defa
     st.setdefault("tried_items", {})
     t_start = time.process_time()
     disc = []
+    # Item 82: a fetch failure is retried after a day, and an item the monthly
+    # OEIS index did not know (or whose terms did not align) is retried once
+    # the index can have changed, so discovery never runs dry for good.
     untried = [it for it in items() if it not in st["tried_items"]]
+    untried += [it for it in items() if it in st["tried_items"] and retryable(st["tried_items"][it])]
     for it in untried[:DISCOVER_PER_CYCLE]:
         try:
             d = discover(it, net, lookup)
