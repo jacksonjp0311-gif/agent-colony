@@ -472,6 +472,36 @@ def _pick_calibrated(ctx: Context, n: int) -> list[str]:
     return _rank(pool, score)[:n]
 
 
+def improver_ballots(ctx: Context) -> dict[str, list[str]]:
+    """Item 85 (swarm_topology, top-ranked research idea): every improver flow the colony
+    already has ranks the ONE shared open pool; each ranking is one ballot.
+
+    Improvers: replay buffer (recent depth gain), novelty archive, prediction error,
+    calibrated self-model, and the consensus desk's own Borda result. Partial rankings
+    (an improver with nothing to say about a target) simply give it no points.
+    """
+    pool = ctx.oeis_pool()
+    if not pool:
+        return {}
+    n = len(pool)
+    ballots = {
+        "replay": _pick_replay(ctx, n),
+        "novelty": _pick_novelty(ctx, n),
+        "prediction_error": _pick_prediction_error(ctx, n),
+        "calibrated": _pick_calibrated(ctx, n),
+        "consensus": consensus(voters(ctx, pool), n, 1),
+    }
+    return {k: v for k, v in ballots.items() if v}
+
+
+def _pick_swarm(ctx: Context, n: int, quorum: int = 2) -> list[str]:
+    """Swarm of improvers over one shared pool; Borda vote with a quorum picks the pass."""
+    ballots = improver_ballots(ctx)
+    if not ballots:
+        return []
+    return consensus(ballots, n, min(int(quorum), len(ballots)))
+
+
 _ID_PICKERS: dict[str, Callable[..., list[str]]] = {}
 
 
@@ -564,6 +594,8 @@ COMPONENTS: dict[str, dict[str, Any]] = {
                              "ideas": ("novelty_archive",), "plan": _plan_oeis, "run": _run_oeis},
     "oeis_prediction_error": {"desk": "oeis", "flow": "prediction_error_routing", "max_n": 3, "heavy": False,
                               "ideas": ("prediction_error_routing",), "plan": _plan_oeis, "run": _run_oeis},
+    "oeis_swarm_improvers": {"desk": "oeis", "flow": "swarm_topology", "max_n": 3, "heavy": False,
+                             "prior": 0.95, "ideas": ("swarm_topology",), "plan": _plan_oeis, "run": _run_oeis},
     "frontier_extra_batch": {"desk": "frontier", "flow": "open_ended_generation", "max_n": 1, "heavy": True,
                              "ideas": ("novelty_archive",), "plan": _plan_frontier, "run": _run_frontier},
     "new_data_extra_push": {"desk": "new_data", "flow": "retry_curriculum", "max_n": 2, "heavy": False,
@@ -573,6 +605,7 @@ _ID_PICKERS.update({
     "oeis_novelty_archive": _pick_novelty,
     "oeis_prediction_error": _pick_prediction_error,
     "oeis_calibrated_vote": _pick_calibrated,
+    "oeis_swarm_improvers": _pick_swarm,  # item 85
 })
 
 # Words in method cards / lessons that count as evidence for a component.
@@ -585,6 +618,7 @@ _EVIDENCE_PATTERNS: dict[str, re.Pattern[str]] = {
     "oeis_calibrated_vote": re.compile(r"\b(calibrat\w*|self-model|metacognit\w*)\b", re.I),
     "oeis_novelty_archive": re.compile(r"\b(novelty|quality diversity|archive)\b", re.I),
     "oeis_prediction_error": re.compile(r"\b(prediction error|surprise|predictive coding)\b", re.I),
+    "oeis_swarm_improvers": re.compile(r"\b(swarm|multi-agent|population of agents|consensus)\b", re.I),
     "frontier_extra_batch": re.compile(r"\b(open-ended|exploration|generator)\b", re.I),
     "new_data_extra_push": re.compile(r"\b(new data|frontier push|extend(ed)? terms)\b", re.I),
 }
@@ -766,6 +800,8 @@ def _comp_weight(name: str, stats: Mapping[str, Any], ev: Mapping[str, Any], mac
     tried = float(s.get("tried") or 0)
     rate = (kept + 1.0) / (tried + 2.0)
     w = rate * float((ev.get(name) or {}).get("boost") or 1.0)
+    # Item 85: a newly added component sharing an established one's evidence starts just behind it.
+    w *= float((COMPONENTS.get(name) or {}).get("prior", 1.0))
     if losses:
         # Item 89: components whose blueprints really lost (reverted) are weighted down.
         from colony.failure_modes import component_penalty
