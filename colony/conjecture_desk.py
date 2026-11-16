@@ -228,6 +228,7 @@ def pick_mutation(
     except Exception:
         _ledger_view, _enabled_catalog = None, set()
         pick_skips_recorded = None  # type: ignore[assignment]
+    _known: set[str] | None = None
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
             continue
@@ -251,6 +252,20 @@ def pick_mutation(
             stem_src = KINEMATICS_IMPL.read_text(encoding="utf-8") if KINEMATICS_IMPL.exists() else ""
             if _already_has(stem_src, name):
                 continue
+            if shift_prescreen and k == "stem_enable":
+                # Item 97: the novelty gate kills a STEM pick already in the ledger/history
+                # (and the Athanor area veto reverts every STEM enable), so the slot is
+                # wasted. Same condition as the gate, read-only. Treatment only.
+                try:
+                    from colony.novelty_gate import in_ledger_kill, known_identities_readonly
+                    if _known is None:
+                        _known = known_identities_readonly()
+                    _ledgered = in_ledger_kill(name, _known)
+                except Exception:  # noqa: BLE001 -- cannot tell: let the gate decide
+                    _ledgered = False
+                if _ledgered:
+                    cooled[name] = "already_in_lesson_ledger_or_history"
+                    continue
             if shift_prescreen and k == "stem_enable" and snip == f"enable:{name}":
                 # Item 96: tautological STEM enables do not use an Oracle slot (the novelty
                 # gate kills them as trivial anyway). Logged + lesson via the pre-screen.
