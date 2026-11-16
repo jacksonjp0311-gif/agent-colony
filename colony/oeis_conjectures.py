@@ -2226,6 +2226,11 @@ def choose(
         log = _empty_attempt_log()
     recent_forms = list(log.get("last_forms") or [])
     last_form = recent_forms[-1] if recent_forms else ""
+    try:  # item 103: near-miss focus (order only; same checkers)
+        from colony import hard_tier_focus as _htf
+        _htf_stats = _htf.stats(log) if _htf.enabled() else None
+    except Exception:  # noqa: BLE001
+        _htf, _htf_stats = None, None
     scored = []
     for e in menu:
         eid = e.get("id")
@@ -2271,6 +2276,11 @@ def choose(
         # Rotate off the form that was just attempted, when others are available.
         if last_form and form == last_form:
             score *= _rotation_penalty()
+        if _htf_stats is not None:
+            try:
+                score *= _htf.factor(e, st, _htf_stats, past=past, bfile_hi=bfile_hi_of(e))
+            except Exception:  # noqa: BLE001
+                pass
         # Band 0: zero-credit, not an already-handled holonomic relation.
         # Within band 0, a computable past-b-file target ranks ahead of a
         # published-range-only one via the tract/score, not a hardcoded id.
