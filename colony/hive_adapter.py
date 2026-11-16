@@ -131,6 +131,11 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     """Same as Hive's ``run_cycle``, skipped on the control arm."""
     if not hive_learning_enabled():
         return _disabled(cycle_id)
+    try:  # item 91: method cards become Hive-testable library ops (append-only, idempotent)
+        from colony.method_ops import install as _install_method_ops
+        _install_method_ops()
+    except Exception:  # noqa: BLE001
+        pass
     return swarm.run_cycle(cycle_id)
 
 
