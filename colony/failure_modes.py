@@ -136,6 +136,35 @@ def log_rejections(cycle_id: str, rejected: list[Mapping[str, Any]], *, path: Pa
                    "rejected": [dict(r) for r in rejected[:40]]}, path)
 
 
+def hive_pick_row(result: Mapping[str, Any] | None) -> dict[str, Any] | None:
+    """Spark idea: exact cause when a Hive cycle voted but started no trial (abstain, no legal
+    proposal, deferral). Read-only on Hive; the Wilson gate itself is untouched."""
+    if not isinstance(result, Mapping) or result.get("skipped"):
+        return None
+    vote = result.get("vote")
+    if not isinstance(vote, Mapping) or result.get("started"):
+        return None
+    win = vote.get("winner") if isinstance(vote.get("winner"), Mapping) else {}
+    run = vote.get("runner_up") if isinstance(vote.get("runner_up"), Mapping) else {}
+    reason = str(vote.get("reason") or "unknown")
+    outcome = "abstained" if vote.get("abstained") else "accepted_not_started"
+    lower = int(vote.get("lower_permille") or 0)
+    gate = int(vote.get("wilson_gate") or 700)
+    return {"event": "self_change_failure", "kind": "hive_pick", "cycle_id": str(result.get("cycle_id") or ""),
+            "outcome": outcome, "failed_check": reason, "mode": f"{outcome}:{reason}",
+            "winner": win.get("fingerprint"), "label": win.get("label"), "card_id": win.get("card_id") or "",
+            "role": win.get("role"), "runner_up": run.get("fingerprint"),
+            "lower_permille": lower, "wilson_gate": gate, "short_by_permille": max(0, gate - lower),
+            "margin": int(vote.get("margin") or 0), "bucket": int(vote.get("bucket") or 0),
+            "bucket_n": int(vote.get("bucket_n") or 0), "n_votes": int(vote.get("n_votes") or 0),
+            "n_vetoes": int(vote.get("n_vetoes") or 0), "n_proposals": int(result.get("n_proposals") or 0)}
+
+
+def log_hive_pick(result: Mapping[str, Any] | None, *, path: Path | None = None) -> dict[str, Any] | None:
+    row = hive_pick_row(result)
+    return append(row, path) if row else None
+
+
 def component_losses(rows: list[dict[str, Any]] | None = None) -> Counter:
     """Real losses (reverted blueprints) per component; inconclusive/voided are not counted."""
     rows = load() if rows is None else rows
