@@ -1,36 +1,15 @@
 {
-  "ts": "2026-11-15T23:49:05Z",
+  "ts": "2026-11-16T00:14:15Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261115T234707Z_419d09"
+    "cycle_id": "20261116T001206Z_3d186a"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
   "last_oracle_passes": 528,
   "spawn_retire_log": [
-    {
-      "ts": "2026-11-15T19:16:42Z",
-      "cycle_id": "20261115T191420Z_e15acb",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-15T19:29:55Z",
-      "cycle_id": "20261115T192729Z_fe0374",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-15T19:32:39Z",
-      "cycle_id": "20261115T193032Z_ab8b5f",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-11-15T19:35:28Z",
       "cycle_id": "20261115T193314Z_b6d6df",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-16T00:08:26Z",
+      "cycle_id": "20261116T000453Z_9b5469",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-16T00:11:27Z",
+      "cycle_id": "20261116T000908Z_d4452e",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-16T00:14:26Z",
+      "cycle_id": "20261116T001206Z_3d186a",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-11-15T23:49:14Z",
+  "updated_at": "2026-11-16T00:14:26Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.016525,
     "hockey_stick": 0.016525,
