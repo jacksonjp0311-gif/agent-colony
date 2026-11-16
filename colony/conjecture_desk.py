@@ -870,6 +870,12 @@ DESK_EXTRA_PICKS = 2
 DESK_EXTRA_BUDGET_S = 150.0
 
 
+def oracle_passed_pick(r: ConjectureResult) -> bool:
+    """A hard_enable pick the Oracle passed (kept, or reverted afterwards by the desk's own
+    coverage-slot rule: 4 of 4 Oracle passes on Nov 16 were then reverted as 'score flat')."""
+    return r.kind == "hard_enable" and (r.decision == "keep" or "oracle=PASS" in (r.note or ""))
+
+
 def run_from_growth(cycle_id: str, ledger=None):
     first = improve_once(ledger=ledger, cycle_id=cycle_id)
     if not _self_mod():
@@ -878,7 +884,7 @@ def run_from_growth(cycle_id: str, ledger=None):
     t0 = _time.monotonic()
     last = first
     for _ in range(DESK_EXTRA_PICKS):
-        if last.decision != "keep" or last.kind != "hard_enable":
+        if not oracle_passed_pick(last):
             break
         if _time.monotonic() - t0 > DESK_EXTRA_BUDGET_S:
             first.extras.append({"stopped": "budget"})

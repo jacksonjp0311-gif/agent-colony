@@ -98,3 +98,18 @@ def test_control_arm_takes_one_pick(monkeypatch):
     monkeypatch.setattr(D, "improve_once", _fake([("keep", "hard_enable")] * 4, calls))
     assert D.run_from_growth("c").extras == [] and calls == [False]
     assert D._self_mod() is False
+
+
+def test_extra_pick_also_follows_an_oracle_pass_the_desk_reverted(monkeypatch):
+    monkeypatch.delenv("COLONY_ARM", raising=False)
+    monkeypatch.setenv("COLONY_SELF_MOD", "on")
+    calls = []
+
+    def improve_once(*, ledger=None, cycle_id="", extra_pick=False, force_mutation=None):
+        calls.append(extra_pick)
+        note = "| oracle=PASS fitness_credit=True | coverage_slot_refused" if len(calls) == 1 else "| oracle=KILL"
+        return D.ConjectureResult(ts="t", decision="revert", before_score=1, after_score=1, delta=0,
+                                  mutation=f"m{len(calls)}", kind="hard_enable", note=note)
+    monkeypatch.setattr(D, "improve_once", improve_once)
+    r = D.run_from_growth("c")
+    assert calls == [False, True] and r.extras[0]["mutation"] == "m2"
