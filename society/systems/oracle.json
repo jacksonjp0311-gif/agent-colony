@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T19:55:48Z",
-  "passes": 586,
+  "updated_at": "2026-11-16T20:57:08Z",
+  "passes": 587,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.402,
+  "kill_rate": 0.4016,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -15,7 +15,6 @@
   },
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
-    "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_2d4852ce385c",
     "authored_mut_swap_related_sequence_38103ffd94ce",
     "authored_mut_swap_related_sequence_3c874f89f994",
@@ -23,6 +22,7 @@
     "authored_mut_swap_related_sequence_539c6e5aed66",
     "authored_mut_swap_related_sequence_6086023df475",
     "authored_mut_swap_related_sequence_6ed44acf6664",
+    "authored_mut_swap_related_sequence_780ec4e5fee0",
     "authored_mut_swap_related_sequence_a3d177b50be9",
     "authored_mut_swap_related_sequence_a6110dabd1ce",
     "dedekind_reciprocity",
@@ -100,7 +100,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T19:55:48Z",
+    "ts": "2026-11-16T20:57:08Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -110,8 +110,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_6ed44acf6664` kind=hard_enable. lemma mutation authored_mut_swap_related_sequence_6ed44acf6664 0.8669->0.8671 (compared 0.857->0.857; speed",
-      "attack": "WEIGH: `authored_mut_swap_related_sequence_6ed44acf6664` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_780ec4e5fee0` kind=hard_enable. lemma mutation authored_mut_swap_related_sequence_780ec4e5fee0 0.8673->0.8672 (compared 0.857->0.857; speed",
+      "attack": "WEIGH: `authored_mut_swap_related_sequence_780ec4e5fee0` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -119,7 +119,7 @@
         "in_catalog": true,
         "hard_pass": 188,
         "hard_n": 188,
-        "score": 0.867,
+        "score": 0.8672,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -133,7 +133,7 @@
         "hard_pass": 188,
         "hard_n": 188,
         "ok": true,
-        "score": 0.8671,
+        "score": 0.8672,
         "shifted_window": {
           "ok": true,
           "status": "pass",
@@ -174,8 +174,8 @@
               ]
             }
           ],
-          "seconds": 0.57,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': 'stree_ladder[lpf]', 'params': {}, 'rhs': 'stree_ladder'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 200), (201, 240), (241, 281)])))",
+          "seconds": 0.565,
+          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': 'ple3[tau]', 'params': {}, 'rhs': 'ple3'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 200), (201, 240), (241, 281)])))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -253,15 +253,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_swap_related_sequence_6ed44acf6664",
+      "mutation": "authored_mut_swap_related_sequence_780ec4e5fee0",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mut_swap_related_sequence_6ed44acf6664",
+    "mutation": "authored_mut_swap_related_sequence_780ec4e5fee0",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T195352Z_b26173",
+    "cycle_id": "20261116T205517Z_8430ed",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

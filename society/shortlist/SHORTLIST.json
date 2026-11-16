@@ -1,7 +1,7 @@
 {
-  "ts": "2026-11-16T20:33:23Z",
+  "ts": "2026-11-16T21:04:19Z",
   "view_only": true,
-  "n_considered": 174,
+  "n_considered": 175,
   "n_meet_bar": 36,
   "n_groups": 27,
   "n_authored_groups": 23,
@@ -444,7 +444,7 @@
       "hunt": {
         "unknown": false,
         "in_oeis": false,
-        "oeis_reuse": 0.0833,
+        "oeis_reuse": 0.5,
         "oeis_checked": true,
         "family": "kummer_carries",
         "siblings_passed": 0,
@@ -582,8 +582,8 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-11-16T20:33:23Z",
-    "cycle_id": "20261116T202906Z_a13d81",
+    "ts": "2026-11-16T21:04:19Z",
+    "cycle_id": "20261116T205955Z_19b64c",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -791,7 +791,7 @@
   },
   "excluded_reasons": {
     "status": 93,
-    "target_unresolved": 98,
+    "target_unresolved": 99,
     "novelty_killed": 26,
     "no_oracle_pass_in_own_cycle": 23,
     "hearing": 2,
@@ -804,5 +804,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261116T202906Z_a13d81"
+  "cycle_id": "20261116T205955Z_19b64c"
 }
