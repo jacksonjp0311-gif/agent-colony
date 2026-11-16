@@ -891,6 +891,30 @@ def _rows_have_signal(rows: Iterable[Mapping[str, Any]] | None) -> bool:
     return False
 
 
+def _reservation_holder(requester: str) -> str | None:
+    """Item 104: the host's exclusive experiment reservation (None = free / standalone)."""
+    try:
+        from hive import host
+        fn = getattr(host, "experiment_holder", None)
+        return fn(requester) if callable(fn) else None
+    except Exception:  # noqa: BLE001
+        return "reservation_unreadable"
+
+
+# Item 104: a Wilson-passing winner deferred only because another experiment holds the
+# reservation is kept as pending_apply (same as a confounded baseline), not discarded.
+# The gate is unchanged: it applies only if a later fresh vote passes Wilson again.
+RESERVATION_DEFER_REASONS = (
+    "self_heal_trial_running", "self_heal_trial_open", "self_build_trial_open",
+    "hive_rule_trial_open", "reservation_unreadable",
+)
+
+
+def _pending_on_reservation() -> bool:
+    import os
+    return (os.environ.get("HIVE_PENDING_ON_RESERVATION") or "on").strip().lower() != "off"
+
+
 def _heal_busy() -> bool:
     try:
         from hive import host
@@ -926,6 +950,9 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     """Hand a set_knob winner to self-heal's ``start_trial``."""
     if _heal_busy():
         return {"ok": False, "reason": "self_heal_trial_running"}
+    held = _reservation_holder("self_heal")
+    if held:
+        return {"ok": False, "reason": held}
     action = proposal.action
     name = str(action.get("name") or "")
     direction = str(action.get("direction") or "up")
@@ -1024,7 +1051,11 @@ def start_knob_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
         "source": "swarm",
         "swarm_fingerprint": proposal.fingerprint,
     }
-    start_trial(trial, state=st, cycle_id=cycle_id)
+    after = start_trial(trial, state=st, cycle_id=cycle_id)
+    if isinstance(after, dict) and "knobs" in after and not after.get("trial"):
+        # Item 104: the host refused (its own reservation check); nothing was applied.
+        skip = after.get("trial_skip") if isinstance(after.get("trial_skip"), dict) else {}
+        return {"ok": False, "reason": str(skip.get("reason") or "self_heal_refused")}
     return {"ok": True, "reason": "trial_started", "trial": trial, "via": "self_heal"}
 
 
@@ -1032,6 +1063,9 @@ def start_rule_trial(proposal: Proposal, *, cycle_id: str, state: dict[str, Any]
     """Equivalent windowed trial for a non-knob action, same fixed metric."""
     if state.get("trial"):
         return {"ok": False, "reason": "swarm_trial_running"}
+    held = _reservation_holder("hive_rule")
+    if held:
+        return {"ok": False, "reason": held}
     try:
         from hive import host
         current_knob = host.heal_current_knob
@@ -2297,7 +2331,9 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                     pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
                     if pending and str(pending.get("fingerprint") or "") == str(winner.fingerprint or ""):
                         st = _drop_pending_apply(st, cycle_id, reason="action_retired", vote_result=vote_result)
-                if reason in ("confounded_baseline", "no_signal_baseline"):
+                if reason in ("confounded_baseline", "no_signal_baseline") or (
+                    reason in RESERVATION_DEFER_REASONS and _pending_on_reservation()
+                ):
                     st = _remember_pending_apply(st, winner, vote_result, cycle_id)
                     pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
                     deferred_count = int((pending or {}).get("deferred_count") or 0)

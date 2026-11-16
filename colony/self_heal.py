@@ -2699,6 +2699,17 @@ def start_trial(trial: dict[str, Any], *, state: dict[str, Any] | None = None, c
     st = state if state is not None else load_state()
     if st.get("trial"):
         return st
+    # Item 104: one exclusive experiment reservation (self-build / self-heal / Hive rule).
+    # Hive hands knob winners straight here, so the check lives here too; unreadable fails closed.
+    try:
+        from colony.experiment_reservation import check as _reserve_check
+        _res = _reserve_check("self_heal", states={"self_heal": st})
+    except Exception as exc:  # noqa: BLE001
+        _res = {"ok": False, "reason": "reservation_unreadable", "detail": type(exc).__name__}
+    if not _res.get("ok"):
+        st["trial_skip"] = {"cycle_id": cycle_id, "reason": _res.get("reason"), "knob": trial.get("knob"),
+                            "source": trial.get("source") or "self_heal"}
+        return st
     # Snapshot official depths before later stages run under the new cap.
     predicted = [str(x) for x in (trial.get("predicted_targets") or []) if x]
     if predicted and not isinstance(trial.get("pre_trial_depths"), dict):
@@ -3643,6 +3654,7 @@ def run_cycle(
             pass
     self_build_open = False
     build_turn = False
+    _reserve_reason: str | None = None
     if trial and not st.get("trial") and self_mod:
         # Item 84: a self-heal trial ended this cycle; self-build proposes before the next one.
         st["build_turn"] = {"cycle_id": cycle_id}
@@ -3657,9 +3669,24 @@ def run_cycle(
                 st["build_turn"] = None
         except Exception:
             self_build_open = False
+            try:  # item 104: with the reservation on, an unreadable self-build fails closed
+                from colony.experiment_reservation import enabled as _reserve_on
+                if _reserve_on():
+                    self_build_open, _reserve_reason = True, "reservation_unreadable"
+            except Exception:  # noqa: BLE001
+                pass
+        if not self_build_open and not build_turn:
+            try:  # item 104: also wait for a Hive rule trial (and fail closed on unreadable state)
+                from colony.experiment_reservation import check as _reserve_check
+                _r = _reserve_check("self_heal", states={"self_heal": st})
+                if not _r.get("ok") and _r.get("reason") != "reservation_off":
+                    self_build_open, _reserve_reason = True, str(_r.get("reason"))
+            except Exception:  # noqa: BLE001
+                pass
     if self_build_open or build_turn:
         st["trial_skip"] = {"cycle_id": cycle_id,
-                            "reason": "self_build_trial_open" if self_build_open else "self_build_turn"}
+                            "reason": (_reserve_reason or "self_build_trial_open")
+                            if self_build_open else "self_build_turn"}
         try:
             save_state(st)
         except Exception:
@@ -3821,3 +3848,9 @@ def format_visibility(vis: dict[str, Any] | None = None) -> str:
     else:
         parts.append("quarantined steps: none")
     return "; ".join(parts)
+
+
+def experiment_holder(requester: str) -> str | None:
+    """Item 104 host hook for Hive: None if ``requester`` may open an experiment, else why not."""
+    from colony.experiment_reservation import experiment_holder as _eh
+    return _eh(requester)
