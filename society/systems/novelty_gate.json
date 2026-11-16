@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T11:49:57Z",
-  "hits": 11,
-  "kills": 11,
+  "updated_at": "2026-11-16T12:44:23Z",
+  "hits": 10,
+  "kills": 9,
   "rows": 30,
-  "kill_rows": 19,
+  "kill_rows": 20,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T11:49:57Z",
-    "cycle_id": "20261116T114836Z_dc23c0",
-    "mutation": "oeis_a001045_jacobsthal_sum",
-    "kind": "hard_enable",
+    "ts": "2026-11-16T12:44:23Z",
+    "cycle_id": "20261116T124253Z_88fbd8",
+    "mutation": "stem_rc_discharge",
+    "kind": "stem_enable",
     "novel_to_commons": true,
     "kills": [],
-    "textbook_reuse": 0.0,
+    "textbook_reuse": 0.3333,
     "in_ledger": false,
     "own_authoring_record_only": false,
     "oracle_used": "caller_verdict",
@@ -23,14 +23,24 @@
       "hard_pass": 178,
       "hard_n": 178,
       "stripped_fails_usefulness": true,
-      "score": 0.8764,
+      "score": 0.8712,
       "impl_id": "lemma_impl_v2_basic10_hard178"
     },
     "held_out": {
       "survives": true,
-      "reason": "hard_tier_green_and_hard_enable",
+      "test": "stem_held_out_v1",
       "hard_pass": 178,
-      "ok": true
+      "stem_n_pass": 4,
+      "n_held_out": 9,
+      "mutants": 29,
+      "mutants_killed": 19,
+      "reason": "stem_harder_instance_green"
+    },
+    "stem_triviality": {
+      "trivial": false,
+      "reason": "not_a_tautology",
+      "test": "stem_triviality_v1",
+      "n_claims": 2
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
   },

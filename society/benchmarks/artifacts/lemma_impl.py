@@ -2278,13 +2278,6 @@ def check_oeis_a001045_jacobsthal_sum(n: int) -> bool:
                                                       for k in range((n - 1) // 2 + 1))
 
 
-def check_authored_mut_swap_related_sequence_2d4852ce385c() -> bool:
-    """Authored mutated claim (target generator, swap_related_sequence):
-    gpf(n) divides D(gcd(prime,tr_petersen))(n) for all n >= 1
-    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
-    Disabled until the Oracle passes it. Never executes fetched code.
-    """
-    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gpf', 'params': {}, 'rhs': 'D(gcd(prime,tr_petersen))'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2521,7 +2514,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a006318_schroeder_paths", lambda: all(check_oeis_a006318_schroeder_paths(n) for n in range(0, 30)), True),
     ("oeis_a000085_involutions", lambda: all(check_oeis_a000085_involutions(n) for n in range(0, 50)), True),
     ("oeis_a001045_jacobsthal_sum", lambda: all(check_oeis_a001045_jacobsthal_sum(n) for n in range(1, 60)), True),
-    ("authored_mut_swap_related_sequence_2d4852ce385c", check_authored_mut_swap_related_sequence_2d4852ce385c, False),
 ]
 
 

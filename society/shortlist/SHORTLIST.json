@@ -1,7 +1,7 @@
 {
-  "ts": "2026-11-16T12:20:43Z",
+  "ts": "2026-11-16T12:46:30Z",
   "view_only": true,
-  "n_considered": 168,
+  "n_considered": 169,
   "n_meet_bar": 36,
   "n_groups": 27,
   "n_authored_groups": 23,
@@ -279,7 +279,7 @@
       "hunt": {
         "unknown": true,
         "in_oeis": false,
-        "oeis_reuse": 0.0833,
+        "oeis_reuse": 0.5,
         "oeis_checked": true,
         "family": "authored_frontier_le_x423b0686",
         "siblings_passed": 0,
@@ -582,12 +582,12 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-11-16T12:20:43Z",
-    "cycle_id": "20261116T121649Z_5715a3",
+    "ts": "2026-11-16T12:46:30Z",
+    "cycle_id": "20261116T124253Z_88fbd8",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
-      "strength": 0.5,
+      "strength": 1.0,
       "K_PRIOR": 0.10921
     },
     "n_meet_bar_actual": 36,
@@ -784,15 +784,15 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
-    "status": 92,
-    "target_unresolved": 93,
     "novelty_killed": 26,
+    "status": 92,
+    "target_unresolved": 94,
     "no_oracle_pass_in_own_cycle": 22,
     "hearing": 2,
     "oracle_killed_in_own_cycle": 8
@@ -804,5 +804,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261116T121649Z_5715a3"
+  "cycle_id": "20261116T124253Z_88fbd8"
 }

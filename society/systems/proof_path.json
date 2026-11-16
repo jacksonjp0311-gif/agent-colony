@@ -1,12 +1,12 @@
 {
- "attempted_now": 0,
+ "attempted_now": 3,
  "by_kind": {
   "cong": [
    92,
    35
   ],
   "divides": [
-   22,
+   24,
    3
   ],
   "identity": [
@@ -14,7 +14,7 @@
    1
   ],
   "le": [
-   27,
+   28,
    3
   ],
   "modpat": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   6,
-   5
+   3,
+   2
   ]
  },
  "mode": "live",
  "n_authored": 22,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 47,
+ "n_proved": 44,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -2409,618 +2409,6 @@
    "unknown": false,
    "v": 3
   },
-  "a(n) = (pow2-lucas)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(pow2-lucas)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,0": -1,
-          "pow2@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-lucas)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,1": -1,
-          "pow2@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-lucas)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,2": -1,
-          "pow2@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-lucas)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "lucas@1,3": -1,
-          "pow2@1,3": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x816b6a9e_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = (pow2-pell)(n) satisfies a(n+3) = -2*a(n+0) + -3*a(n+1) + 4*a(n+2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "(pow2-pell)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,0": -1,
-          "pow2@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-pell)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,1": -1,
-          "pow2@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-pell)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,2": -1,
-          "pow2@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "(pow2-pell)",
-        "kids": [
-         {
-          "e": "pow2",
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pow2@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "pell",
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "pell@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         3
-        ],
-        "rule": "arith",
-        "val": {
-         "a": {
-          "pell@1,3": -1,
-          "pow2@1,3": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x9f650685_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = D(lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "D(lucas)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           0
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,0": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "Ddiff",
-        "val": {
-         "a": {
-          "lucas@1,0": -1,
-          "lucas@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "D(lucas)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           1
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,1": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "Ddiff",
-        "val": {
-         "a": {
-          "lucas@1,1": -1,
-          "lucas@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "D(lucas)",
-        "kids": [
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           3
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,3": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         },
-         {
-          "e": "lucas",
-          "pt": [
-           1,
-           2
-          ],
-          "rule": "atom",
-          "val": {
-           "a": {
-            "lucas@1,2": 1
-           },
-           "c": 0,
-           "d": 0
-          }
-         }
-        ],
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "Ddiff",
-        "val": {
-         "a": {
-          "lucas@1,2": -1,
-          "lucas@1,3": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_x2d831099_w1",
-   "checks": 3988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "a(n) = dbl((lpf+oxa083104))(n) satisfies a(n+3) = 1*a(n+0) + -4*a(n+1) + 4*a(n+2)": {
    "authored": false,
    "certificate": null,
@@ -4416,12 +3804,36 @@
    "unknown": false,
    "v": 3
   },
+  "dbl(oxa009191)(n) <= dbl(tau)(n) for all n >= 1 (with equality at some n)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_le_xa005950c_w1",
+   "checks": 988,
+   "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "dbl(oxa009191)(n) = 0 (mod 2) for all n = 4 (mod 6)": {
    "authored": false,
    "certificate": null,
    "check": "authored_frontier_cong_x0df35249_w1",
    "checks": 165,
    "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
+  "dbl(oxa009191)(n) divides dbl(tau)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x6cb18f4b_w1",
+   "checks": 988,
+   "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
@@ -6277,6 +5689,18 @@
    "unknown": true,
    "v": 3
   },
+  "sigma[lpf](n) divides (pdbl*stree_grid3)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x41aa6adb_w1",
+   "checks": 1988,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "sigma[oxa238873](n) = 0 (mod 2) for all n = 5 (mod 6)": {
    "authored": false,
    "certificate": null,
@@ -6666,6 +6090,6 @@
    "v": 4
   }
  },
- "seconds": 0.03,
- "ts": "2026-11-16T12:20:02Z"
+ "seconds": 0.04,
+ "ts": "2026-11-16T12:45:45Z"
 }
