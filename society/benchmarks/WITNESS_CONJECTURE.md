@@ -1,9 +1,9 @@
-# Conjecture desk witness — 2026-11-16T15:39:49Z
+# Conjecture desk witness — 2026-11-16T16:09:56Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.8729→0.8729 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['abel_summation', 'alternating_binomial_row', 'bell_stirling_sum', 'bell_triangle_recurrence', 'bezout_identity', 'binomial_hockey_deep', 'binomial_inversion_small', 'binomial_sum_row']. Authored new disabled checks: ['oeis_a000172_franel_recurrence']. OEIS idle attempt: no open target.
-  - themes: AI Safety via Debate, Pairing AIS with RF: Analysis of a Markovian Approach for Ma, FETTUCCINE: Fast and efficient brain-to-text decoding on mob
+- `oeis_a002893_hexagonal_walks` (hard_enable) → **keep** 0.8673→0.8674 (+0.0001) — Kept `oeis_a002893_hexagonal_walks` (hard_enable): lemma score 0.8673→0.8674 checks 196→197 hard_pass 186→187 (machine-checked + Oracle pass; not novel discovery). | oracle=PASS fitness_credit=True kills=[] | promotion=coverage: coverage: hard_pass 186->187 with lemma score flat 0.857->0.857; Oracle passed; adds a machine check, not a capability gain | novelty_gate novel=True kills=[]
+  - themes: WeightBench: Evaluating Language Models as Weight-Space Prog, Neutrosophic Convergence Spaces, The Sociolinguistics of Machine Identity: LLM Personality an
 
 ## Honesty
 

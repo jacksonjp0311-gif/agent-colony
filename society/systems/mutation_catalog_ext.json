@@ -133,6 +133,13 @@
       "snippet": "enable:oeis_a000172_franel_recurrence",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a002893_hexagonal_walks",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a002893_hexagonal_walks",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

@@ -97,6 +97,38 @@
    ],
    "version": 1
   },
+  "oc_A001722_0": {
+   "anum": "A001722",
+   "definition": null,
+   "source_sha": "d3d086b4c1d548b9",
+   "terms_sha": "00557c57461e68c1",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A001723_0": {
+   "anum": "A001723",
+   "definition": null,
+   "source_sha": "94436b370d9d4225",
+   "terms_sha": "cfccc2376fc9e855",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
   "oc_A001724_0": {
    "anum": "A001724",
    "definition": null,

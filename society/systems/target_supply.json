@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 84,
- "last_refill_index": 83,
+ "cycle_index": 87,
+ "last_refill_index": 86,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -898,6 +898,38 @@
   "77ca170af3d79f10": {
    "cycle_id": "20261116T153323Z_cbd490",
    "n_hits": 5
+  },
+  "b65a6890b2d8686e": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 10
+  },
+  "57d888c578c87d81": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 8
+  },
+  "d7fd4884415cb046": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 10
+  },
+  "3a4b7e77077d7926": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 5
+  },
+  "d2ae4b7c5cc80af3": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 10
+  },
+  "dd8b8f9cc89b993d": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 10
+  },
+  "6ea2ecc3564604b4": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 7
+  },
+  "dace33048742edb7": {
+   "cycle_id": "20261116T160258Z_032cac",
+   "n_hits": 7
   }
  },
  "rejected": {
@@ -1028,36 +1060,26 @@
   "A306473": "20261116T140755Z_537ebc",
   "A180195": "20261116T143753Z_18aabe",
   "A091539": "20261116T143753Z_18aabe",
-  "A345651": "20261116T153323Z_cbd490"
+  "A345651": "20261116T153323Z_cbd490",
+  "A001784": "20261116T160258Z_032cac"
  },
- "refills": 28,
+ "refills": 29,
  "added": 114,
  "last": {
-  "cycle_id": "20261116T153323Z_cbd490",
+  "cycle_id": "20261116T160258Z_032cac",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 11,
-  "new": [
-   {
-    "id": "oc_A001722_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A001723_0",
-    "form": "relation",
-    "definition": false
-   }
-  ],
+  "requests": 9,
+  "new": [],
   "stats": {
-   "entries": 44,
-   "resolved_skipped": 11,
-   "keyword_skipped": 3,
-   "statements": 55,
-   "parsed": 3,
-   "no_bfile": 1,
+   "entries": 54,
+   "resolved_skipped": 13,
+   "keyword_skipped": 4,
+   "statements": 57,
+   "parsed": 2,
+   "no_bfile": 2,
    "fails_on_data": 0,
-   "kept": 2,
+   "kept": 0,
    "def_candidates": 0
   }
  }

@@ -142,13 +142,13 @@
    "hits": 2
   },
   "hard_enable:oeis_supply|binomial|checked": {
-   "attempts": 1,
+   "attempts": 2,
    "elite": {
     "cycle_id": "20261116T153323Z_cbd490",
     "mutation": "oeis_a005259_apery_recurrence",
     "ts": "2026-11-16T15:34:48Z"
    },
-   "hits": 1
+   "hits": 2
   },
   "hard_enable:oeis_supply|lattice_paths|checked": {
    "attempts": 5,
@@ -169,13 +169,13 @@
    "hits": 2
   },
   "hard_enable:oeis_supply|other|checked": {
-   "attempts": 5,
+   "attempts": 6,
    "elite": {
     "cycle_id": "20261116T112029Z_bcbf49",
     "mutation": "oeis_a006318_schroeder_paths",
     "ts": "2026-11-16T11:22:37Z"
    },
-   "hits": 5
+   "hits": 6
   },
   "hard_enable:oeis_supply|set_partitions_perms|checked": {
    "attempts": 1,
