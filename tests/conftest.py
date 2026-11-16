@@ -71,6 +71,8 @@ def _isolate_self_heal(tmp_path, monkeypatch):
     import colony.self_heal as SH
     monkeypatch.setattr(SH, "STATE_PATH", tmp_path / "self_heal.json")
     monkeypatch.setattr(SH, "EVENT_LOG", tmp_path / "self_heal.jsonl")
+    import colony.failure_modes as FM  # item 89
+    monkeypatch.setattr(FM, "LOG", tmp_path / "self_change_failures.jsonl")
 
 
 

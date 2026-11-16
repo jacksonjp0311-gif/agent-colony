@@ -1987,6 +1987,178 @@ def check_authored_mut_swap_related_sequence_58aacc9fceff() -> bool:
 
 
 
+
+# Hard-tier domain refill (item 88, 2026-11-15, decisions delegated by James): classical PROVEN
+# results from areas the catalog did not yet cover (sums of squares, p-adic valuations,
+# partition congruences, primitive roots, Zeckendorf, Dedekind sums, Korselt, Pisano).
+# Each is a numeric machine check on a literal range (the Oracle re-runs it on a disjoint
+# shifted window). They start DISABLED; only the desk's hard_enable through the Oracle can
+# turn one on. Finite-window evidence of known theorems, not discoveries.
+
+
+def _r2(n: int) -> int:
+    """Number of (x, y) in Z^2 with x^2 + y^2 = n (brute force)."""
+    r = math.isqrt(n)
+    return sum(1 for x in range(-r, r + 1) for y in (math.isqrt(n - x * x),)
+               if y * y == n - x * x for _s in ((1,) if y == 0 else (1, -1)))
+
+
+def check_jacobi_two_squares(n: int) -> bool:
+    """Jacobi: r2(n) = 4 (d_1(n) - d_3(n)), divisors counted by residue mod 4 (classical)."""
+    if n < 1:
+        return True
+    d1 = sum(1 for d in _divisors(n) if d % 4 == 1)
+    d3 = sum(1 for d in _divisors(n) if d % 4 == 3)
+    return _r2(n) == 4 * (d1 - d3)
+
+
+def check_jacobi_four_squares(n: int) -> bool:
+    """Jacobi: r4(n) = 8 * sum of divisors d of n with 4 not dividing d (classical)."""
+    if n < 1:
+        return True
+    r4 = sum(_r2(k) * _r2(n - k) for k in range(0, n + 1))
+    return r4 == 8 * sum(d for d in _divisors(n) if d % 4)
+
+
+def _digit_sum(n: int, p: int) -> int:
+    s = 0
+    while n:
+        n, r = divmod(n, p)
+        s += r
+    return s
+
+
+def _vp(n: int, p: int) -> int:
+    v = 0
+    while n and n % p == 0:
+        n //= p
+        v += 1
+    return v
+
+
+def check_legendre_factorial_valuation(n: int) -> bool:
+    """Legendre: v_p(n!) = (n - s_p(n)) / (p - 1) for every prime p < 30 (classical)."""
+    if n < 0:
+        return True
+    f = math.factorial(n)
+    return all(_vp(f, p) * (p - 1) == n - _digit_sum(n, p) for p in _small_primes(30))
+
+
+def _carries(m: int, n: int, p: int) -> int:
+    c = k = 0
+    while m or n or c:
+        s = m % p + n % p + c
+        c = 1 if s >= p else 0
+        k += c
+        m //= p
+        n //= p
+    return k
+
+
+def check_kummer_carries(m: int) -> bool:
+    """Kummer: v_p(C(m+n, m)) = number of carries adding m and n in base p (p < 12, n < 24; classical)."""
+    if m < 0:
+        return True
+    return all(_vp(math.comb(m + n, m), p) == _carries(m, n, p)
+               for p in _small_primes(12) for n in range(0, 24))
+
+
+def _partition_counts(limit: int) -> list[int]:
+    p = [1] + [0] * limit
+    for part in range(1, limit + 1):
+        for s in range(part, limit + 1):
+            p[s] += p[s - part]
+    return p
+
+
+def check_ramanujan_partition_congruences(k: int) -> bool:
+    """Ramanujan: p(5k+4) ≡ 0 (mod 5), p(7k+5) ≡ 0 (mod 7), p(11k+6) ≡ 0 (mod 11) (classical)."""
+    if k < 0:
+        return True
+    p = _partition_counts(11 * k + 6)
+    return p[5 * k + 4] % 5 == 0 and p[7 * k + 5] % 7 == 0 and p[11 * k + 6] % 11 == 0
+
+
+def _mult_order(a: int, n: int) -> int:
+    k, x = 1, a % n
+    while x != 1:
+        x = x * a % n
+        k += 1
+    return k
+
+
+def check_primitive_root_count(p: int) -> bool:
+    """For a prime p, the number of primitive roots mod p is phi(p - 1); vacuous for non-primes (classical)."""
+    if not _is_prime(p) or p == 2:
+        return True
+    return sum(1 for a in range(1, p) if _mult_order(a, p) == p - 1) == _phi(p - 1)
+
+
+def check_zeckendorf_unique(n: int) -> bool:
+    """Zeckendorf: n >= 1 is a sum of non-consecutive distinct Fibonacci numbers (F_2=1, F_3=2, ...) in exactly one way."""
+    if n < 1:
+        return True
+    fib = [1, 2]
+    while fib[-1] <= n:
+        fib.append(fib[-1] + fib[-2])
+
+    def ways(i: int, rest: int) -> int:  # choose from fib[0..i], never two adjacent indices
+        if rest == 0:
+            return 1
+        if i < 0 or rest < 0:
+            return 0
+        return ways(i - 2, rest - fib[i]) + ways(i - 1, rest)
+
+    return ways(len(fib) - 1, n) == 1
+
+
+def _dedekind_sum(h: int, k: int):
+    from fractions import Fraction
+
+    def saw(x):
+        if x.denominator == 1:
+            return Fraction(0)
+        return x - math.floor(x) - Fraction(1, 2)
+
+    return sum(saw(Fraction(i, k)) * saw(Fraction(h * i, k)) for i in range(1, k))
+
+
+def check_dedekind_reciprocity(k: int) -> bool:
+    """Dedekind reciprocity: s(h,k) + s(k,h) = -1/4 + (h/k + k/h + 1/(hk)) / 12 for coprime 1 <= h < k (classical)."""
+    from fractions import Fraction
+    if k < 2:
+        return True
+    return all(_dedekind_sum(h, k) + _dedekind_sum(k, h)
+               == Fraction(-1, 4) + (Fraction(h, k) + Fraction(k, h) + Fraction(1, h * k)) / 12
+               for h in range(1, k) if math.gcd(h, k) == 1)
+
+
+def check_korselt_criterion(n: int) -> bool:
+    """Korselt: composite n has a^n ≡ a (mod n) for all a iff n is squarefree and p-1 | n-1 for each prime p | n (classical)."""
+    if n < 4 or _is_prime(n):
+        return True
+    fermat_all = all(pow(a, n, n) == a for a in range(n))
+    ps = [p for p in _small_primes(n) if n % p == 0]
+    korselt = all(n % (p * p) and (n - 1) % (p - 1) == 0 for p in ps)
+    return fermat_all == korselt
+
+
+def _pisano(m: int) -> int:
+    a, b, k = 0, 1, 0
+    while True:
+        a, b, k = b, (a + b) % m, k + 1
+        if a == 0 and b == 1:
+            return k
+
+
+def check_pisano_prime_period(p: int) -> bool:
+    """Pisano period pi(p) divides p - 1 if p ≡ ±1 (mod 5) and 2(p + 1) if p ≡ ±2 (mod 5), primes p > 5 (classical)."""
+    if not _is_prime(p) or p <= 5:
+        return True
+    per = _pisano(p)
+    return (p - 1) % per == 0 if p % 5 in (1, 4) else (2 * (p + 1)) % per == 0
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2101,6 +2273,17 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("faulhaber_power_sums", lambda: all(check_faulhaber_power_sums(n) for n in range(0, 30)), True),
     ("lagrange_cyclic_orders", lambda: all(check_lagrange_cyclic_orders(n) for n in range(2, 40)), True),
     ("burnside_necklaces", lambda: all(check_burnside_necklaces(n) for n in range(1, 8)), True),
+    # Hard-tier domain refill (item 88, 2026-11-15): classical PROVEN results, start DISABLED (Oracle decides)
+    ("jacobi_two_squares", lambda: all(check_jacobi_two_squares(n) for n in range(1, 400)), False),
+    ("jacobi_four_squares", lambda: all(check_jacobi_four_squares(n) for n in range(1, 90)), False),
+    ("legendre_factorial_valuation", lambda: all(check_legendre_factorial_valuation(n) for n in range(0, 200)), False),
+    ("kummer_carries", lambda: all(check_kummer_carries(m) for m in range(0, 40)), False),
+    ("ramanujan_partition_congruences", lambda: all(check_ramanujan_partition_congruences(k) for k in range(0, 30)), False),
+    ("primitive_root_count", lambda: all(check_primitive_root_count(p) for p in range(2, 200)), False),
+    ("zeckendorf_unique", lambda: all(check_zeckendorf_unique(n) for n in range(1, 300)), False),
+    ("dedekind_reciprocity", lambda: all(check_dedekind_reciprocity(k) for k in range(2, 30)), False),
+    ("korselt_criterion", lambda: all(check_korselt_criterion(n) for n in range(4, 1200)), False),
+    ("pisano_prime_period", lambda: all(check_pisano_prime_period(p) for p in range(7, 400)), False),
 
     ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, True),
     ("authored_oeis_a000108__catalan_bounded", check_authored_oeis_a000108__catalan_bounded, True),
