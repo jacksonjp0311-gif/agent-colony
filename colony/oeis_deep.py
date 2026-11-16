@@ -341,6 +341,9 @@ def generator(e: dict[str, Any]):
             return CF(cfinite(d, e["offset"], e["terms"]))
         if d.get("kind") == "alg" and d.get("recurrence"):
             return Holo(d["recurrence"], e["offset"])
+        if d.get("kind") == "holo":
+            from colony import oeis_definitions as OD   # item 105 widened P-recursive definition
+            return OD.holo_gen(d, e["offset"], e["terms"])
     except (NotCFinite, B.Bad, ZeroDivisionError, KeyError, ValueError):
         return None
     return None
