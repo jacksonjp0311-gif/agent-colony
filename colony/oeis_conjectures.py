@@ -2607,10 +2607,18 @@ def run_cycle(
             hunts = CH.turn(cycle_id)
         except Exception:  # noqa: BLE001
             hunts = None
+    lemmas = None
+    if only_ids is None and m == "live":
+        try:   # item 109: TxGraffiti-style bound generators -> knowledge library (treatment only)
+            from colony import txgraffiti as TG
+            lemmas = TG.turn(cycle_id, menu)
+        except Exception:  # noqa: BLE001
+            lemmas = None
     rep = {"mode": m, "cycle": cycle_id, "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
            "menu_size": len(menu), "purpose": purpose,
            "hunters": None if not hunts else [{k: h.get(k) for k in ("hunter", "anum", "status", "lo", "hi", "n",
                                                                      "sampled")} for h in hunts.get("hunts") or []],
+           "lemmas": None if not lemmas else {"stored": lemmas.get("stored"), "stats": lemmas.get("stats")},
            "chosen": [{"id": e["id"], "anum": e["anum"], "form": (e.get("claim") or {}).get("form"),
                        "text": e["text"]} for e in picks],
            "results": results, "scoreboard": scoreboard(state),
