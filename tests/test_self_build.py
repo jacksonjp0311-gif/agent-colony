@@ -158,8 +158,8 @@ def test_self_test_rejects_dead_steps_and_accepts_live_ones():
         assert not res["ok"] and res["reason"].startswith("dead_step"), name
     live = _ctx(free=2, nd=3)
     for name in SB.COMPONENTS:
-        if name == "oeis_replay_buffer":
-            continue  # needs recent gain in the attempt log
+        if name in ("oeis_replay_buffer", "oeis_prediction_error"):
+            continue  # need recent gain / planned depths in the attempt log
         assert SB.self_test(SB.make_blueprint([{"component": name, "n": 1}]), live)["ok"], name
 
 
@@ -379,3 +379,61 @@ def test_self_heal_skips_proposal_while_blueprint_trial_open(monkeypatch):
     out = SH.run_cycle("c1", metrics={}, stall_state={}, findings=[])
     assert not called
     assert (out.get("trial_skip") or {}).get("reason") == "self_build_trial_open"
+
+
+# --------------------------------------------------------------------------- item-79 idea blocks
+
+def _ideas_file(tmp_path, counts):
+    f = tmp_path / "architecture_ideas.jsonl"
+    rows = []
+    for idea, n in counts.items():
+        rows += [json.dumps({"event": "architecture_idea", "idea": idea,
+                             "arxiv_id": f"{idea}.{i}"}) + "\n" for i in range(n)]
+    f.write_text("".join(rows))
+    return f
+
+
+TOP_IDEAS = {"swarm_topology": 13, "self_model_calibration": 4, "specialist_routing": 4,
+             "novelty_archive": 3, "prediction_error_routing": 2}
+
+
+def test_every_top_idea_has_a_building_block():
+    covered = {i for spec in SB.COMPONENTS.values() for i in spec["ideas"]}
+    assert set(TOP_IDEAS) <= covered
+
+
+def test_first_blueprints_are_seeded_from_top_ranked_ideas(tmp_path):
+    ev = SB.evidence(ideas=SB.load_ideas(_ideas_file(tmp_path, TOP_IDEAS)), cards=[], lessons=[])
+    order = [c["steps"][0]["component"] for c in SB.candidates(SB.empty_state(), ev) if c["steps"][0]["n"] == 1]
+    assert order[0] == "oeis_consensus_vote"                       # swarm_topology, 13 papers
+    assert set(order[1:3]) == {"oeis_calibrated_vote", "oeis_form_router"}  # 4 papers each
+    assert order.index("oeis_novelty_archive") < order.index("oeis_extra_pass")
+    assert order.index("oeis_prediction_error") < order.index("oeis_extra_pass")
+    # with a live pool the swarm block is the first trial proposed
+    bp, _ = SB.propose(SB.empty_state(), _ctx(), ev)
+    assert bp["steps"] == [{"component": "oeis_consensus_vote", "n": 1}]
+
+
+def test_novelty_prediction_error_and_calibrated_blocks_pick_targets():
+    menu = _menu(6)
+    attempts = [{"id": menu[0]["id"], "form": "gf", "planned": 100, "verified_depth": 40},
+                {"id": menu[3]["id"], "form": "gf", "planned": 100, "verified_depth": 99},
+                {"id": menu[1]["id"], "form": "relation", "planned": 50, "verified_depth": 50},
+                {"id": menu[4]["id"], "form": "relation", "planned": 50, "verified_depth": 60}]
+    ctx = _ctx(oeis=FakeOEIS(menu=menu, attempts=attempts))
+    # property form never attempted -> novelty archive goes there first
+    assert SB._pick_novelty(ctx, 1) == [menu[2]["id"]]
+    assert SB._pick_prediction_error(ctx, 2) == [menu[0]["id"], menu[4]["id"]]
+    # relation predictions came true 2/2, gf 0/2 -> calibrated vote prefers relation targets
+    top = SB._pick_calibrated(ctx, 2)
+    assert all(e["claim"]["form"] == "relation" for e in menu if e["id"] in top)
+
+
+def test_flat_baseline_does_not_block_opening_and_twin_decides(paths):
+    board = {"history": [_row(5, 100, 5, 100)] * 3}   # flat: no signal in the baseline window
+    ctx = _ctx(oeis=FakeOEIS(menu=[]), free=1)
+    out = SB.run_cycle("c0", ctx=ctx, board=board, heal={}, ev=NO_EV)
+    assert out["opened"] is not None and out["opened"]["baseline_gain"] == [0.0, 0.0]
+    board["history"] += [_row(5, 104, 5, 100), _row(5, 108, 5, 100)]
+    _run(SB.WINDOW_CYCLES, board, ctx)
+    assert SB.load_state()["kept_count"] == 1

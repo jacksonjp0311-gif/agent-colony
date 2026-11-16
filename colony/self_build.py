@@ -24,6 +24,13 @@ How it works, in plain words:
     (swarm consensus).
   - ``oeis_form_router``: route a pass to the claim form with the best
     credit per attempt (specialist / mixture-of-experts style routing).
+  - ``oeis_calibrated_vote``: weight each target by how often the colony's
+    own depth prediction for its form came true (calibrated self-model; not
+    a consciousness claim).
+  - ``oeis_novelty_archive``: least-explored claim forms first (novelty /
+    quality-diversity archive).
+  - ``oeis_prediction_error``: targets whose last planned depth missed most
+    (prediction-error routing).
   - ``frontier_extra_batch``: one more frontier-conjecture generator batch,
     only when an authored-check slot is free under the unchanged 150 cap.
   - ``new_data_extra_push``: a second new-data push past the OEIS frontier.
@@ -38,7 +45,8 @@ How it works, in plain words:
   blueprint it makes candidates by adding, resizing, removing or swapping
   steps, by crossing over with earlier kept blueprints, and by using
   macros. Each component's weight is its own kept rate (Laplace) times the
-  evidence for it: architecture ideas from the research desk
+  evidence for it, so the first blueprints are seeded from the top-ranked
+  research-desk ideas: architecture ideas from the research desk
   (``data/commons/architecture_ideas.jsonl``, item 79; absent is fine),
   method cards and lessons whose text names the idea.
 
@@ -56,7 +64,9 @@ How it works, in plain words:
   the trial *and* strictly better than the twin (treatment gained more
   than control). Otherwise the colony reverts to the previous blueprint
   automatically. No paired data within 18 cycles is inconclusive and is
-  reverted too.
+  reverted too. A trial never waits for signal in the baseline window: a
+  flat baseline is (0, 0), so the twin comparison over the trial window
+  decides.
 
 * **Log.** ``data/commons/blueprint_log.jsonl`` is append-only. Every
   trial open and close is recorded with its parent blueprint, the
@@ -394,6 +404,72 @@ def _route_form(ctx: Context) -> str | None:
     return sorted(forms, key=lambda f: (-rate(f), f))[0]
 
 
+def _attempt_stats(ctx: Context) -> tuple[dict[str, int], dict[str, float], dict[str, tuple[int, int]]]:
+    """Per form attempt counts, per target last |planned - verified| error,
+    and per form (accurate, total) prediction calibration from the attempt log."""
+    form_n: dict[str, int] = {}
+    err: dict[str, float] = {}
+    calib: dict[str, tuple[int, int]] = {}
+    for r in ctx.attempt_log():
+        f = str(r.get("form") or "")
+        if f:
+            form_n[f] = form_n.get(f, 0) + 1
+        if r.get("planned") is None:
+            continue
+        try:
+            planned = int(r.get("planned") or 0)
+            got = int(r.get("verified_depth", r.get("depth")) or 0)
+        except (TypeError, ValueError):
+            continue
+        tid = str(r.get("id") or "")
+        if tid:
+            err[tid] = float(abs(planned - got))
+        if f:
+            a, t = calib.get(f, (0, 0))
+            calib[f] = (a + (1 if got >= planned else 0), t + 1)
+    return form_n, err, calib
+
+
+def _pick_novelty(ctx: Context, n: int) -> list[str]:
+    """Novelty archive: least-explored claim forms first, then least-tried targets."""
+    pool = ctx.oeis_pool()
+    form_n, _, _ = _attempt_stats(ctx)
+    tg = ctx.oeis_state().get("targets") or {}
+    return [str(e["id"]) for e in sorted(pool, key=lambda e: (
+        form_n.get(_form(e), 0), int((tg.get(e["id"]) or {}).get("attempts") or 0), str(e["id"])))][:n]
+
+
+def _pick_prediction_error(ctx: Context, n: int) -> list[str]:
+    """Prediction-error routing: targets whose last planned depth missed most."""
+    pool = ctx.oeis_pool()
+    _, err, _ = _attempt_stats(ctx)
+    ranked = [e for e in pool if err.get(str(e["id"]), 0.0) > 0]
+    return _rank(ranked, lambda e: err.get(str(e["id"]), 0.0))[:n]
+
+
+def _pick_calibrated(ctx: Context, n: int) -> list[str]:
+    """Calibrated self-model: weight each proposal by how often the colony's own
+    depth prediction for that form came true (Laplace), times its headroom."""
+    pool = ctx.oeis_pool()
+    if not pool:
+        return []
+    _, _, calib = _attempt_stats(ctx)
+    tg = ctx.oeis_state().get("targets") or {}
+
+    def score(e: dict[str, Any]) -> float:
+        a, t = calib.get(_form(e), (0, 0))
+        prior = int((tg.get(e["id"]) or {}).get("tested_hi") or 0)
+        try:
+            head = max(0, int(ctx.oeis.planned_depth(e, prior or None)) - prior)
+        except Exception:
+            head = 0
+        return (a + 1.0) / (t + 2.0) * (1.0 + head)
+    return _rank(pool, score)[:n]
+
+
+_ID_PICKERS: dict[str, Callable[..., list[str]]] = {}
+
+
 def _plan_oeis(ctx: Context, comp: str, n: int) -> int:
     if not ctx.oeis_live():
         return 0
@@ -408,6 +484,8 @@ def _plan_oeis(ctx: Context, comp: str, n: int) -> int:
     if comp == "oeis_form_router":
         f = _route_form(ctx)
         return min(n, len(ctx.oeis_pool(forms={f}))) if f else 0
+    if comp in _ID_PICKERS:
+        return len(_ID_PICKERS[comp](ctx, n))
     return 0
 
 
@@ -418,6 +496,8 @@ def _run_oeis(ctx: Context, comp: str, n: int) -> dict[str, Any]:
         return ctx.run_oeis(purpose=comp, only_ids=_pick_replay(ctx, n))
     if comp == "oeis_consensus_vote":
         return ctx.run_oeis(purpose=comp, only_ids=_pick_vote(ctx, n))
+    if comp in _ID_PICKERS:
+        return ctx.run_oeis(purpose=comp, only_ids=_ID_PICKERS[comp](ctx, n))
     if comp == "oeis_form_router":
         f = _route_form(ctx)
         ids = [str(e["id"]) for e in ctx.oeis_pool(forms={f})][:n] if f else []
@@ -466,22 +546,29 @@ COMPONENTS: dict[str, dict[str, Any]] = {
     "oeis_beyond_bfile": {"desk": "oeis", "flow": "self_play_challenger", "max_n": 3, "heavy": False,
                           "ideas": ("self_play_challenger",), "plan": _plan_oeis, "run": _run_oeis},
     "oeis_replay_buffer": {"desk": "oeis", "flow": "working_memory_attention", "max_n": 3, "heavy": False,
-                           "ideas": ("working_memory_buffer", "prediction_error_routing",
-                                     "global_workspace_broadcast"),
+                           "ideas": ("working_memory_buffer", "global_workspace_broadcast"),
                            "plan": _plan_oeis, "run": _run_oeis},
     "oeis_consensus_vote": {"desk": "oeis", "flow": "swarm_consensus", "max_n": 3, "heavy": False,
                             "ideas": ("swarm_topology", "hierarchical_roles", "message_passing_desks"),
                             "plan": _plan_oeis, "run": _run_oeis},
+    "oeis_calibrated_vote": {"desk": "oeis", "flow": "self_model_calibration", "max_n": 3, "heavy": False,
+                             "ideas": ("self_model_calibration",), "plan": _plan_oeis, "run": _run_oeis},
     "oeis_form_router": {"desk": "oeis", "flow": "specialist_routing", "max_n": 3, "heavy": False,
-                         "ideas": ("specialist_routing", "self_model_calibration"),
-                         "plan": _plan_oeis, "run": _run_oeis},
+                         "ideas": ("specialist_routing",), "plan": _plan_oeis, "run": _run_oeis},
+    "oeis_novelty_archive": {"desk": "oeis", "flow": "novelty_archive", "max_n": 3, "heavy": False,
+                             "ideas": ("novelty_archive",), "plan": _plan_oeis, "run": _run_oeis},
+    "oeis_prediction_error": {"desk": "oeis", "flow": "prediction_error_routing", "max_n": 3, "heavy": False,
+                              "ideas": ("prediction_error_routing",), "plan": _plan_oeis, "run": _run_oeis},
     "frontier_extra_batch": {"desk": "frontier", "flow": "open_ended_generation", "max_n": 1, "heavy": True,
-                             "ideas": ("novelty_archive", "self_play_challenger"),
-                             "plan": _plan_frontier, "run": _run_frontier},
+                             "ideas": ("novelty_archive",), "plan": _plan_frontier, "run": _run_frontier},
     "new_data_extra_push": {"desk": "new_data", "flow": "retry_curriculum", "max_n": 2, "heavy": False,
-                            "ideas": ("meta_controller", "working_memory_buffer"),
-                            "plan": _plan_new_data, "run": _run_new_data},
+                            "ideas": ("meta_controller",), "plan": _plan_new_data, "run": _run_new_data},
 }
+_ID_PICKERS.update({
+    "oeis_novelty_archive": _pick_novelty,
+    "oeis_prediction_error": _pick_prediction_error,
+    "oeis_calibrated_vote": _pick_calibrated,
+})
 
 # Words in method cards / lessons that count as evidence for a component.
 _EVIDENCE_PATTERNS: dict[str, re.Pattern[str]] = {
@@ -490,7 +577,10 @@ _EVIDENCE_PATTERNS: dict[str, re.Pattern[str]] = {
     "oeis_replay_buffer": re.compile(r"\b(replay|working memory|attention|buffer|recency)\b", re.I),
     "oeis_consensus_vote": re.compile(r"\b(swarm|consensus|vote|voting|ensemble|collective)\b", re.I),
     "oeis_form_router": re.compile(r"\b(rout(e|ing)|mixture of experts|specialist|gating)\b", re.I),
-    "frontier_extra_batch": re.compile(r"\b(novelty|open-ended|quality diversity|exploration)\b", re.I),
+    "oeis_calibrated_vote": re.compile(r"\b(calibrat\w*|self-model|metacognit\w*)\b", re.I),
+    "oeis_novelty_archive": re.compile(r"\b(novelty|quality diversity|archive)\b", re.I),
+    "oeis_prediction_error": re.compile(r"\b(prediction error|surprise|predictive coding)\b", re.I),
+    "frontier_extra_batch": re.compile(r"\b(open-ended|exploration|generator)\b", re.I),
     "new_data_extra_push": re.compile(r"\b(new data|frontier push|extend(ed)? terms)\b", re.I),
 }
 
@@ -636,15 +726,25 @@ def evidence(ideas: list[dict[str, Any]] | None = None, cards: list[Any] | None 
         except Exception:
             lessons = []
     out: dict[str, dict[str, Any]] = {}
+    per_idea: dict[str, set[str]] = {}
+    for r in ideas:
+        if r.get("idea") and r.get("arxiv_id"):
+            per_idea.setdefault(str(r["idea"]), set()).add(str(r["arxiv_id"]))
+    order = sorted(per_idea, key=lambda k: (-len(per_idea[k]), k))
+    ranks = {k: i for i, k in enumerate(order)}
     for name, spec in COMPONENTS.items():
         papers = sorted({str(r.get("arxiv_id")) for r in ideas
                          if r.get("idea") in spec["ideas"] and r.get("arxiv_id")})
         pat = _EVIDENCE_PATTERNS.get(name)
         n_cards = sum(1 for t in _texts(cards) if pat and pat.search(t))
         n_lessons = sum(1 for t in _texts(lessons) if pat and pat.search(t))
-        boost = 1.0 + 0.25 * min(4, len(papers)) + 0.1 * min(5, n_cards) + 0.05 * min(5, n_lessons)
-        out[name] = {"papers": papers[:8], "n_papers": len(papers), "cards": n_cards,
-                     "lessons": n_lessons, "boost": round(boost, 4)}
+        rank = min((ranks[i] for i in spec["ideas"] if i in ranks), default=None)
+        # Papers dominate (top-ranked research-desk ideas seed the first
+        # blueprints); cards and lessons only break ties.
+        boost = (1.0 + 0.5 * min(16, len(papers)) + (1.5 / (1 + rank) if rank is not None else 0.0)
+                 + 0.05 * min(5, n_cards) + 0.02 * min(5, n_lessons))
+        out[name] = {"papers": papers[:8], "n_papers": len(papers), "idea_rank": rank,
+                     "cards": n_cards, "lessons": n_lessons, "boost": round(boost, 4)}
     return out
 
 
@@ -959,7 +1059,7 @@ def dry_run(cycle_id: str = "dry_run") -> dict[str, Any]:
             "self_heal_trial_open": bool(heal.get("trial")),
             "excluded_targets": sorted(ctx.exclude_ids),
             "free_authored_slots": ctx.free_authored_slots(),
-            "evidence": {k: {kk: v[kk] for kk in ("n_papers", "cards", "lessons", "boost")}
+            "evidence": {k: {kk: v[kk] for kk in ("n_papers", "idea_rank", "cards", "lessons", "boost")}
                          for k, v in ev.items()},
             "candidates": tested}
 
