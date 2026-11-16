@@ -2,362 +2,6 @@
  "runs": [
   {
    "mode": "live",
-   "cycle": "20261116T114503Z_fabcf7",
-   "at": "2026-11-16T11:46:08Z",
-   "menu_size": 161,
-   "purpose": "zero_credit_family",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114503Z_fabcf7",
-   "at": "2026-11-16T11:46:08Z",
-   "menu_size": 161,
-   "purpose": "beyond_bfile",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114503Z_fabcf7",
-   "at": "2026-11-16T11:46:36Z",
-   "menu_size": 161,
-   "purpose": "zero_credit_family",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114503Z_fabcf7",
-   "at": "2026-11-16T11:46:37Z",
-   "menu_size": 161,
-   "purpose": "beyond_bfile",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114503Z_fabcf7",
-   "at": "2026-11-16T11:47:09Z",
-   "menu_size": 161,
-   "purpose": "",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114732Z_98d5e2",
-   "at": "2026-11-16T11:48:37Z",
-   "menu_size": 161,
-   "purpose": "zero_credit_family",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114732Z_98d5e2",
-   "at": "2026-11-16T11:48:38Z",
-   "menu_size": 161,
-   "purpose": "beyond_bfile",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114732Z_98d5e2",
-   "at": "2026-11-16T11:49:11Z",
-   "menu_size": 161,
-   "purpose": "zero_credit_family",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114732Z_98d5e2",
-   "at": "2026-11-16T11:49:12Z",
-   "menu_size": 161,
-   "purpose": "beyond_bfile",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T114732Z_98d5e2",
-   "at": "2026-11-16T11:49:43Z",
-   "menu_size": 161,
-   "purpose": "",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T120309Z_729dd1",
-   "at": "2026-11-16T12:04:38Z",
-   "menu_size": 161,
-   "purpose": "zero_credit_family",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T120309Z_729dd1",
-   "at": "2026-11-16T12:04:39Z",
-   "menu_size": 161,
-   "purpose": "beyond_bfile",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T120309Z_729dd1",
-   "at": "2026-11-16T12:05:08Z",
-   "menu_size": 161,
-   "purpose": "zero_credit_family",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T120309Z_729dd1",
-   "at": "2026-11-16T12:05:09Z",
-   "menu_size": 161,
-   "purpose": "beyond_bfile",
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261116T120309Z_729dd1",
-   "at": "2026-11-16T12:05:44Z",
-   "menu_size": 164,
-   "purpose": "",
-   "chosen": [
-    {
-     "id": "oc_A026010_0",
-     "anum": "A026010",
-     "form": "relation",
-     "text": "Conjecture: (n+3)*a(n) - 2*a(n-1) + (-5*n-3)*a(n-2) + 2*a(n-3) + 4*(n-3)*a(n-4) = 0. - _R. J. Mathar_, Jun 20 2013"
-    },
-    {
-     "id": "oc_A327463_0",
-     "anum": "A327463",
-     "form": "relation",
-     "text": "Conjecture: a(n) <= 5."
-    },
-    {
-     "id": "oc_A001711_0",
-     "anum": "A001711",
-     "form": "relation",
-     "text": "Conjectural D-finite with recurrence: a(n) + (-2*n-5)*a(n-1) + (n+2)^2*a(n-2)=0. - _R. J. Mathar_, Feb 16 2020"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A026010_0",
-     "anum": "A026010",
-     "tested": 496,
-     "range": [
-      4,
-      499
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 500,
-     "bfile_hi": 3326,
-     "data_hi": 33,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A327463_0",
-     "anum": "A327463",
-     "tested": 97,
-     "range": [
-      1,
-      97
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 97,
-     "bfile_hi": 97,
-     "data_hi": 97,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A001711_0",
-     "anum": "A001711",
-     "tested": 91,
-     "range": [
-      2,
-      92
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 93,
-     "bfile_hi": 440,
-     "data_hi": 19,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 37,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 13,
-    "beyond_exact": 12,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
    "cycle": "20261116T120610Z_6abc2e",
    "at": "2026-11-16T12:07:26Z",
    "menu_size": 164,
@@ -542,6 +186,374 @@
     "proofs_routine_known_in_principle": 24,
     "beyond_published_range": 13,
     "beyond_exact": 12,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123038Z_411198",
+   "at": "2026-11-16T12:32:17Z",
+   "menu_size": 164,
+   "purpose": "zero_credit_family",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 37,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 13,
+    "beyond_exact": 12,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123038Z_411198",
+   "at": "2026-11-16T12:32:17Z",
+   "menu_size": 164,
+   "purpose": "beyond_bfile",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 37,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 13,
+    "beyond_exact": 12,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123038Z_411198",
+   "at": "2026-11-16T12:32:52Z",
+   "menu_size": 164,
+   "purpose": "zero_credit_family",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 37,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 13,
+    "beyond_exact": 12,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123038Z_411198",
+   "at": "2026-11-16T12:32:53Z",
+   "menu_size": 164,
+   "purpose": "beyond_bfile",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 37,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 13,
+    "beyond_exact": 12,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123038Z_411198",
+   "at": "2026-11-16T12:33:32Z",
+   "menu_size": 167,
+   "purpose": "",
+   "chosen": [
+    {
+     "id": "oc_A322043_0",
+     "anum": "A322043",
+     "form": "gf",
+     "text": "G.f.: x*(53 + 323*x + 53*x^2) / (1 - x)^3."
+    },
+    {
+     "id": "oc_A097188_0",
+     "anum": "A097188",
+     "form": "relation",
+     "text": "Conjecture: (n+1)*a(n) +3*(-3*n+1)*a(n-1)=0. - _R. J. Mathar_, Nov 16 2012"
+    },
+    {
+     "id": "oc_A282031_0",
+     "anum": "A282031",
+     "form": "relation",
+     "text": "Conjecture: -3*A122858(n) - A229616(n) + 4*a(n) = 0 for all n. - _Thomas Baruchel_, Jun 23 2018"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A322043_0",
+     "anum": "A322043",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A322043_0",
+     "anum": "A322043",
+     "tested": 7999,
+     "range": [
+      1,
+      7999
+     ],
+     "deep_terms": 8000,
+     "bfile_terms": 216,
+     "bfile_hi": 216,
+     "data_hi": 43,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 7783,
+     "cap_reason": "term_cap",
+     "cap_value": 8000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A097188_0",
+     "anum": "A097188",
+     "tested": 160,
+     "range": [
+      1,
+      160
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 161,
+     "bfile_hi": 200,
+     "data_hi": 20,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A282031_0",
+     "anum": "A282031",
+     "tested": 500,
+     "range": [
+      0,
+      499
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 500,
+     "bfile_hi": 10000,
+     "data_hi": 59,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123402Z_82d33e",
+   "at": "2026-11-16T12:35:26Z",
+   "menu_size": 167,
+   "purpose": "zero_credit_family",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123402Z_82d33e",
+   "at": "2026-11-16T12:35:26Z",
+   "menu_size": 167,
+   "purpose": "beyond_bfile",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123402Z_82d33e",
+   "at": "2026-11-16T12:35:57Z",
+   "menu_size": 167,
+   "purpose": "zero_credit_family",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123402Z_82d33e",
+   "at": "2026-11-16T12:35:58Z",
+   "menu_size": 167,
+   "purpose": "beyond_bfile",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123402Z_82d33e",
+   "at": "2026-11-16T12:36:35Z",
+   "menu_size": 167,
+   "purpose": "",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123704Z_388a82",
+   "at": "2026-11-16T12:38:28Z",
+   "menu_size": 167,
+   "purpose": "zero_credit_family",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123704Z_388a82",
+   "at": "2026-11-16T12:38:28Z",
+   "menu_size": 167,
+   "purpose": "beyond_bfile",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123704Z_388a82",
+   "at": "2026-11-16T12:39:06Z",
+   "menu_size": 167,
+   "purpose": "zero_credit_family",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123704Z_388a82",
+   "at": "2026-11-16T12:39:06Z",
+   "menu_size": 167,
+   "purpose": "beyond_bfile",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261116T123704Z_388a82",
+   "at": "2026-11-16T12:39:43Z",
+   "menu_size": 167,
+   "purpose": "",
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 38,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 14,
+    "beyond_exact": 13,
     "max_depth": 49152
    },
    "note": "selection-layer credit only; nothing authorized or posted"

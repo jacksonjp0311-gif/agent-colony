@@ -1,74 +1,23 @@
 {
   "version": 1,
-  "total_actions": 3833,
-  "successes": 3833,
+  "total_actions": 3842,
+  "successes": 3842,
   "failures": 0,
   "gated_blocked": 0,
   "queued": 0,
   "throttled": 0,
   "success_rate": 1.0,
   "by_kind": {
-    "external_api_probe": 1275,
-    "spawn_subdebate": 1275,
-    "controlled_experiment": 1275,
+    "external_api_probe": 1278,
+    "spawn_subdebate": 1278,
+    "controlled_experiment": 1278,
     "adjust_telemetry_weights": 8
   },
   "by_side": {
-    "internal": 1283,
-    "external": 2550
+    "internal": 1286,
+    "external": 2556
   },
   "cycle_history": [
-    {
-      "cycle_id": "20261116T081134Z_79dbe1",
-      "ts": "2026-11-16T08:14:13Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true,
-      "cortex_inform_only": true,
-      "cortex_drift": 0.073646,
-      "cortex_memory_reuse": 0.75
-    },
-    {
-      "cycle_id": "20261116T081513Z_1f19cd",
-      "ts": "2026-11-16T08:17:33Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true,
-      "cortex_inform_only": true,
-      "cortex_drift": 0.073646,
-      "cortex_memory_reuse": 0.75
-    },
-    {
-      "cycle_id": "20261116T081829Z_7cb1e9",
-      "ts": "2026-11-16T08:20:56Z",
-      "success_rate": 1.0,
-      "conflict_rate": 0.2198,
-      "n_executed": 3,
-      "n_queued": 1,
-      "internal": 1,
-      "external": 2,
-      "throttle_factor": 0.85,
-      "athanor_verdict": "REFINE",
-      "athanor_h7": 0.5384615384615384,
-      "athanor_inform_only": true,
-      "cortex_inform_only": true,
-      "cortex_drift": 0.073646,
-      "cortex_memory_reuse": 0.75
-    },
     {
       "cycle_id": "20261116T084122Z_aa180e",
       "ts": "2026-11-16T08:45:39Z",
@@ -527,109 +476,61 @@
       "cortex_inform_only": true,
       "cortex_drift": 0.073646,
       "cortex_memory_reuse": 0.75
+    },
+    {
+      "cycle_id": "20261116T123038Z_411198",
+      "ts": "2026-11-16T12:33:09Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.073646,
+      "cortex_memory_reuse": 0.75
+    },
+    {
+      "cycle_id": "20261116T123402Z_82d33e",
+      "ts": "2026-11-16T12:36:14Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.073646,
+      "cortex_memory_reuse": 0.75
+    },
+    {
+      "cycle_id": "20261116T123704Z_388a82",
+      "ts": "2026-11-16T12:39:22Z",
+      "success_rate": 1.0,
+      "conflict_rate": 0.2198,
+      "n_executed": 3,
+      "n_queued": 1,
+      "internal": 1,
+      "external": 2,
+      "throttle_factor": 0.85,
+      "athanor_verdict": "REFINE",
+      "athanor_h7": 0.5384615384615384,
+      "athanor_inform_only": true,
+      "cortex_inform_only": true,
+      "cortex_drift": 0.073646,
+      "cortex_memory_reuse": 0.75
     }
   ],
   "throttle_events": [],
   "examples": [
-    {
-      "ts": "2026-11-16T11:49:12Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': False, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
-      "motivating_signal": {
-        "kind": "global_weather_spread",
-        "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 1.6), ('London', 6.9), ('Tokyo', 13.8), ('Sydney', 16.0)]. Cross-correlate with solar/space feeds for commons reso"
-      }
-    },
-    {
-      "ts": "2026-11-16T11:49:28Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_2a43f945e1', 'topic': 'global_weather_spread'}",
-      "motivating_signal": {
-        "kind": "global_weather_spread",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-11-16T11:49:28Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.5, 'after': 0.5, 'delta': -0.05}",
-      "motivating_signal": {
-        "kind": "oracle_easy_pad",
-        "easy_pad_kills": 32
-      }
-    },
-    {
-      "ts": "2026-11-16T12:05:09Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': False, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
-      "motivating_signal": {
-        "kind": "global_weather_spread",
-        "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 1.5), ('London', 7.0), ('Tokyo', 13.7), ('Sydney', 16.1)]. Cross-correlate with solar/space feeds for commons reso"
-      }
-    },
-    {
-      "ts": "2026-11-16T12:05:25Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_b8b5360f41', 'topic': 'global_weather_spread'}",
-      "motivating_signal": {
-        "kind": "global_weather_spread",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-11-16T12:05:25Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.5, 'after': 0.5, 'delta': -0.05}",
-      "motivating_signal": {
-        "kind": "oracle_easy_pad",
-        "easy_pad_kills": 32
-      }
-    },
-    {
-      "ts": "2026-11-16T12:07:56Z",
-      "kind": "external_api_probe",
-      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
-      "success": true,
-      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': False, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
-      "motivating_signal": {
-        "kind": "global_weather_spread",
-        "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 1.5), ('London', 7.0), ('Tokyo', 13.7), ('Sydney', 16.1)]. Cross-correlate with solar/space feeds for commons reso"
-      }
-    },
-    {
-      "ts": "2026-11-16T12:08:12Z",
-      "kind": "spawn_subdebate",
-      "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
-      "success": true,
-      "result_snip": "{'msg_id': 'msg_a84147911a', 'topic': 'global_weather_spread'}",
-      "motivating_signal": {
-        "kind": "global_weather_spread",
-        "from": "external_or_residual"
-      }
-    },
-    {
-      "ts": "2026-11-16T12:08:12Z",
-      "kind": "controlled_experiment",
-      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
-      "success": true,
-      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.5, 'after': 0.5, 'delta': -0.05}",
-      "motivating_signal": {
-        "kind": "oracle_easy_pad",
-        "easy_pad_kills": 32
-      }
-    },
     {
       "ts": "2026-11-16T12:10:37Z",
       "kind": "external_api_probe",
@@ -662,9 +563,108 @@
         "kind": "oracle_easy_pad",
         "easy_pad_kills": 32
       }
+    },
+    {
+      "ts": "2026-11-16T12:32:53Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': False, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
+      "motivating_signal": {
+        "kind": "global_weather_spread",
+        "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 2.4), ('London', 7.3), ('Tokyo', 13.2), ('Sydney', 16.0)]. Cross-correlate with solar/space feeds for commons reso"
+      }
+    },
+    {
+      "ts": "2026-11-16T12:33:09Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_011ae9fb1b', 'topic': 'global_weather_spread'}",
+      "motivating_signal": {
+        "kind": "global_weather_spread",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-11-16T12:33:09Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.5, 'after': 0.5, 'delta': -0.05}",
+      "motivating_signal": {
+        "kind": "oracle_easy_pad",
+        "easy_pad_kills": 32
+      }
+    },
+    {
+      "ts": "2026-11-16T12:35:58Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': False, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
+      "motivating_signal": {
+        "kind": "global_weather_spread",
+        "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 2.4), ('London', 7.3), ('Tokyo', 13.2), ('Sydney', 16.0)]. Cross-correlate with solar/space feeds for commons reso"
+      }
+    },
+    {
+      "ts": "2026-11-16T12:36:14Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_02bdbce35d', 'topic': 'global_weather_spread'}",
+      "motivating_signal": {
+        "kind": "global_weather_spread",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-11-16T12:36:14Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.5, 'after': 0.5, 'delta': -0.05}",
+      "motivating_signal": {
+        "kind": "oracle_easy_pad",
+        "easy_pad_kills": 32
+      }
+    },
+    {
+      "ts": "2026-11-16T12:39:06Z",
+      "kind": "external_api_probe",
+      "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
+      "success": true,
+      "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': False, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
+      "motivating_signal": {
+        "kind": "global_weather_spread",
+        "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 2.4), ('London', 7.3), ('Tokyo', 13.2), ('Sydney', 16.0)]. Cross-correlate with solar/space feeds for commons reso"
+      }
+    },
+    {
+      "ts": "2026-11-16T12:39:22Z",
+      "kind": "spawn_subdebate",
+      "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
+      "success": true,
+      "result_snip": "{'msg_id': 'msg_1544d9ff38', 'topic': 'global_weather_spread'}",
+      "motivating_signal": {
+        "kind": "global_weather_spread",
+        "from": "external_or_residual"
+      }
+    },
+    {
+      "ts": "2026-11-16T12:39:22Z",
+      "kind": "controlled_experiment",
+      "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
+      "success": true,
+      "result_snip": "{'param': 'exploration_budget.fp', 'before': 0.5, 'after': 0.5, 'delta': -0.05}",
+      "motivating_signal": {
+        "kind": "oracle_easy_pad",
+        "easy_pad_kills": 32
+      }
     }
   ],
-  "ts": "2026-11-16T12:10:53Z",
+  "ts": "2026-11-16T12:39:22Z",
   "note": "ACTION/ACTUATION log. Bounded probes only. Durable accept still needs human authorize.",
   "non_claims": [
     "not_AGI",
