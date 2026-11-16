@@ -812,7 +812,10 @@ def _comp_weight(name: str, stats: Mapping[str, Any], ev: Mapping[str, Any], mac
 WIDE_OPERATORS = ("replace", "pair", "jump")
 # Item 87: prior factor per mutation operator; the learned factor multiplies it.
 OPERATOR_PRIOR = {"add": 1.0, "use_macro": 1.0, "resize": 0.9, "remove": 0.5, "swap": 0.6,
-                  "crossover": 1.0, "replace": 0.8, "pair": 0.7, "jump": 0.6}
+                  "crossover": 1.0, "replace": 0.8, "pair": 0.7, "jump": 0.6,
+                  # Item 92: structural moves (order and grouping of steps, not sizes or knobs)
+                  "insert_front": 0.9, "move": 0.7, "merge": 0.6, "split": 0.6, "inline_macro": 0.7}
+STRUCTURAL_OPERATORS = ("insert_front", "move", "merge", "split", "inline_macro")
 
 
 def operator_stats_from_log(rows: Iterable[Mapping[str, Any]]) -> dict[str, dict[str, int]]:
@@ -866,7 +869,7 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
                             evidence=[a["component"] for a in added])
         if bp["signature"] in tried or bp["signature"] == signature(steps):
             return
-        if operator in WIDE_OPERATORS and bp["signature"] in seen_sig:
+        if (operator in WIDE_OPERATORS or operator in STRUCTURAL_OPERATORS) and bp["signature"] in seen_sig:
             return  # a wide move that repeats an existing child adds nothing
         ok, _ = validate(bp, macros)
         if not ok:
@@ -919,6 +922,37 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
                 new = [dict(x) for x in steps]
                 new[i] = {"component": s["component"], "n": n}
                 add(new, "jump", [new[i]], OPERATOR_PRIOR["jump"])
+    # Item 92: structural moves. Steps run in order and share the cycle's attempted set, so
+    # position and grouping change which targets each step gets. insert_front = a new block
+    # ahead of the others; move = non-adjacent reorder (adjacent is swap); merge = two adjacent
+    # passes of one component become one; split = one pass becomes two; inline_macro = a macro
+    # step is replaced by its parts so each becomes individually mutable.
+    if steps:
+        for name in sorted(COMPONENTS):
+            step = {"component": name, "n": 1}
+            add([step] + steps, "insert_front", [step], OPERATOR_PRIOR["insert_front"])
+    for i in range(len(steps)):
+        for j in (0, len(steps) - 1):
+            if abs(i - j) >= 2:
+                new = [dict(x) for x in steps]
+                st_i = new.pop(i)
+                new.insert(j, st_i)
+                add(new, "move", [], OPERATOR_PRIOR["move"])
+    for i in range(len(steps) - 1):
+        a, b = steps[i], steps[i + 1]
+        if a["component"] == b["component"] and a["component"] in COMPONENTS:
+            n = a["n"] + b["n"]
+            if n <= int(COMPONENTS[a["component"]]["max_n"]):
+                merged = {"component": a["component"], "n": n}
+                add(steps[:i] + [merged] + steps[i + 2:], "merge", [merged], OPERATOR_PRIOR["merge"])
+    for i, s in enumerate(steps):
+        if s["component"] in COMPONENTS and s["n"] >= 2:
+            parts = [{"component": s["component"], "n": s["n"] - 1}, {"component": s["component"], "n": 1}]
+            add(steps[:i] + parts + steps[i + 1:], "split", [], OPERATOR_PRIOR["split"])
+        elif s["component"] in macros:
+            inner = [_norm_step(x) for x in (macros[s["component"]].get("steps") or [])]
+            if inner:
+                add(steps[:i] + inner + steps[i + 1:], "inline_macro", [], OPERATOR_PRIOR["inline_macro"])
     comps = [n for n in sorted(COMPONENTS) if n not in present]
     for a_i, a_name in enumerate(comps):
         for b_name in comps[a_i + 1:]:
