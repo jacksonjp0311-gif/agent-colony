@@ -12,6 +12,10 @@ Rules (first match wins):
                     all(check_A ...) and all(check_B ...) on separate windows, so the claim is
                     implied by its two parts (the triviality filter's implied_parts idea).
   trivial_frontier  an authored frontier conjecture that the CURRENT triviality filter flags.
+  dead_weight       (item 70, colony/retire_audit.py) a disabled authored check the Oracle killed on
+                    every verdict with a substantive held-out fail and never passed, retired only
+                    when every replay agrees (kill replay, verdict-history replay, per-check bench
+                    replay); otherwise abstain. Self-mod arm only.
 
 Never retired (protected): anything on a receipt under society/receipts (authorized or decided)
 made by or with James (a receipt delegated only via GitHub Actions cron does not protect; see
@@ -376,9 +380,22 @@ def plan(*, src: str | None = None, oracle_rows: list[dict[str, Any]] | None = N
             if ok is False:
                 cands.append({"name": n, "category": "trivial_frontier",
                               "reason": "the current triviality filter flags this frontier claim as a rewrite"})
+    # Item 70: certified dead weight (disabled, never passed, every replay agrees); self-mod arm only.
+    out_extra: dict[str, Any] = {}
+    try:
+        from colony import retire_audit as _ra
+        if _ra.mode() != "off":
+            arch = [str(r.get("fn_src") or "") for r in load_record().get("records") or []]
+            dw, abst = _ra.candidates(authored, flags, protected, oracle_rows, fns, archived_src=arch,
+                                      skip={c["name"] for c in cands})
+            cands += dw
+            out_extra["dead_weight_mode"] = _ra.mode()
+            out_extra["dead_weight_abstained"] = abst
+            out_extra["dead_families"] = sorted(_ra.dead_families(oracle_rows))
+    except Exception as e:  # noqa: BLE001
+        out_extra["dead_weight_error"] = str(e)[:200]
     # extra sieve sweeps first (they crowded the keeps), then the rest in rule order
     cands.sort(key=lambda c: (not (c["category"] == "sweep" and c["name"].startswith(PREFIX + "sieve_")),))
-    out_extra: dict[str, Any] = {}
     released = [c for c in cands if c["name"] in machine_only]
     if released:
         n_ok, note = machine_release_approval()
@@ -493,18 +510,64 @@ def bench_ok(src: str) -> dict[str, Any]:
     return r
 
 
+def bench_outcomes(src: str) -> dict[str, Any]:
+    """Per-check outcomes {basic: {name: bool}, hard: {name: bool}} (subprocess on a temp copy)."""
+    import subprocess
+    import tempfile
+    path = _lemma_path()
+    with tempfile.NamedTemporaryFile("w", suffix=".py", dir=path.parent, prefix="_retire_probe_",
+                                     delete=False, encoding="utf-8") as fh:
+        fh.write(src)
+        tmp = Path(fh.name)
+    code = ("import importlib.util,json,sys;sys.path.insert(0,sys.argv[2]);"
+            "s=importlib.util.spec_from_file_location('retire_probe',sys.argv[1]);"
+            "m=importlib.util.module_from_spec(s);s.loader.exec_module(m);"
+            "b=m.run_basic_checks();h=m.run_hard_checks();"
+            "print(json.dumps({'basic':{k:bool(v) for k,v in b.items()},'hard':{k:bool(v) for k,v in h.items()}}))")
+    try:
+        p = subprocess.run([sys.executable, "-c", code, str(tmp), str(ROOT)], capture_output=True, text=True,
+                           timeout=600)
+        return json.loads(p.stdout.strip().splitlines()[-1]) if p.returncode == 0 else {"error": p.stderr[-400:]}
+    except Exception as e:  # noqa: BLE001
+        return {"error": str(e)[:400]}
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, record: Path = RECORD,
           check_bench: bool = True, state_path: Path | None = STATE) -> dict[str, Any]:
     path = path or _lemma_path()
-    names = [c["name"] for c in p.get("candidates") or []]
+    cands = list(p.get("candidates") or [])
+    held: dict[str, Any] = {}
+    try:
+        from colony import retire_audit as _ra
+        dw_live = _ra.mode() == "live"
+    except Exception:  # noqa: BLE001
+        dw_live = False
+    if not dw_live and any(c.get("category") == "dead_weight" for c in cands):
+        held["dead_weight_not_live"] = [c["name"] for c in cands if c.get("category") == "dead_weight"]
+        cands = [c for c in cands if c.get("category") != "dead_weight"]
+    names = [c["name"] for c in cands]
     if not names:
-        return {"applied": 0}
+        return {"applied": 0, **held}
     src = path.read_text(encoding="utf-8")
     new_src, archive = remove(src, names)
+    if check_bench and any(c.get("category") == "dead_weight" for c in cands):
+        # Item 70 R3: dead weight is retired only when every remaining check's outcome is identical.
+        from colony.retire_audit import bench_agrees
+        agree, why = bench_agrees(bench_outcomes(src), bench_outcomes(new_src))
+        if not agree:
+            held["dead_weight_abstained_bench"] = why
+            cands = [c for c in cands if c.get("category") != "dead_weight"]
+            names = [c["name"] for c in cands]
+            if not names:
+                return {"applied": 0, **held}
+            new_src, archive = remove(src, names)
     if check_bench:
         b = bench_ok(new_src)
         if not b.get("ok"):
-            return {"applied": 0, "aborted": "bench check failed after removal", "bench": b}
+            return {"applied": 0, "aborted": "bench check failed after removal", "bench": b, **held}
+    p = {**p, "candidates": cands}
     rec = load_record(record)
     ts = _utc()
     for c in p["candidates"]:
@@ -513,7 +576,7 @@ def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, re
             "name": c["name"], "category": c["category"], "reason": c["reason"], "ts": ts, "cycle_id": cycle_id,
             "catalog": a.get("catalog"), "enabled": a.get("enabled"), "fn_src": a.get("fn_src"),
             "entry": a.get("entry"),
-            **{k: c[k] for k in ("family", "expected", "components", "released_from", "approval") if k in c}})
+            **{k: c[k] for k in ("family", "expected", "components", "released_from", "approval", "replay") if k in c}})
     rec["n_retired"] = len([r for r in rec["records"] if not r.get("restored_at")])
     rec["note"] = ("Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` "
                    "(comes back disabled; must pass the Oracle again). Logs and history untouched.")
@@ -544,7 +607,7 @@ def apply(p: dict[str, Any], *, cycle_id: str = "", path: Path | None = None, re
                 withdrawn += more
         except Exception:  # noqa: BLE001
             pass
-    return {"applied": len(names), "names": names, "withdrawn": withdrawn}
+    return {"applied": len(names), "names": names, "withdrawn": withdrawn, **held}
 
 
 
