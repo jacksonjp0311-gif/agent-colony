@@ -2283,7 +2283,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("zeckendorf_unique", lambda: all(check_zeckendorf_unique(n) for n in range(1, 300)), True),
     ("dedekind_reciprocity", lambda: all(check_dedekind_reciprocity(k) for k in range(2, 30)), True),
     ("korselt_criterion", lambda: all(check_korselt_criterion(n) for n in range(4, 1200)), True),
-    ("pisano_prime_period", lambda: all(check_pisano_prime_period(p) for p in range(7, 400)), False),
+    ("pisano_prime_period", lambda: all(check_pisano_prime_period(p) for p in range(7, 400)), True),
 
     ("authored_bell_triangle_recurrence__binomial_inversion_small_w1", check_authored_bell_triangle_recurrence__binomial_inversion_small_w1, True),
     ("authored_oeis_a000108__catalan_bounded", check_authored_oeis_a000108__catalan_bounded, True),

@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-11-15 10:51 PM ET
+# Proposal shortlist — 2026-11-15 11:56 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-34 of 156 proposals meet the authorize bar (25 after grouping near-duplicates; 23 colony-authored, 2 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+36 of 157 proposals meet the authorize bar (27 after grouping near-duplicates; 23 colony-authored, 4 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -17,18 +17,20 @@ View only: nothing here is authorized. Only James authorizes.
 | 9 | imp_dbe023_50 | 0.8774 | 1.0 | 0.0 | n/a yet | 1 | 4 (0.8774) | Enable `authored_frontier_cong_x2f9c7891_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8774, novelty 1.0. |
 | 10 | imp_70e921_50 | 0.8769 | 1.0 | 0.0 | n/a yet | 2 | 18 (0.6515, below bar) | Enable `authored_frontier_divides_xc90ee275_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8769, novelty 1.0. |
 
-## Building blocks enabled (2 groups meet the bar)
+## Building blocks enabled (4 groups meet the bar)
 
 Textbook / classical lemmas (desk catalog incl. the 68954ec refill, or a classical identity). They meet the bar but are not novel: novelty counts as 0 for ranking and they are kept out of the top list above.
 
 | # | Proposal | P | Kind | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---|---|---:|---|---|
 | 1 | imp_9f3f23_50 | 0.8822 | catalog | APPROVE | 1 | 29 (0.6322, below bar) | Building block `kummer_carries` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.8822. |
-| 2 | imp_856c19_50 | 0.825 | catalog | APPROVE | 1 | 34 (0.575, below bar) | Building block `jacobi_two_squares` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 2 | imp_6284c8_50 | 0.8774 | catalog | APPROVE | 1 | 30 (0.6274, below bar) | Building block `pisano_prime_period` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.8774. |
+| 3 | imp_856c19_50 | 0.825 | catalog | APPROVE | 1 | 35 (0.575, below bar) | Building block `jacobi_two_squares` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
+| 4 | imp_b020ff_50 | 0.825 | catalog | APPROVE | 1 | 36 (0.575, below bar) | Building block `zeckendorf_unique` (catalog; textbook, not novel) — Oracle passed it in its own cycle; P 0.825. |
 
 ## Hunt shadow (view only — would-be ranking if the unknown were rewarded)
 
-Rules in colony/hunt_shadow.py. Would meet the bar: 14 (actual 34). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 33 (0 with OEIS unchecked). Would drop out of the bar: 20; would enter: 0.
+Rules in colony/hunt_shadow.py. Would meet the bar: 14 (actual 36). Unknown claims (Oracle-surviving, not textbook, not in OEIS): 33 (0 with OEIS unchecked). Would drop out of the bar: 22; would enter: 0.
 
 | Shadow # | Proposal | Target | P → P_shadow | Shadow bar | Unknown | Expected | Actual # |
 |---:|---|---|---|---|---|---:|---:|
@@ -43,14 +45,14 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 14 (actual 34). Unknown clai
 | 9 | imp_18d1e0_50 | `authored_frontier_cong_xbb82919e_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 23 |
 | 10 | imp_53f6c2_49 | `authored_frontier_cong_x06b60875_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 25 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 19, novelty_killed: 20, oracle_killed_in_own_cycle: 9, status: 93, target_unresolved: 91
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 19, novelty_killed: 20, oracle_killed_in_own_cycle: 9, status: 92, target_unresolved: 91
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 15 tested, 4 survived held-out, 11 falsified, 2 machine-checked, 0 surprises; dropped 23 duplicates, 56 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1147.
-Totals: tested 11550, survived 4442, surprises 130, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 1 with no reference found.
+Mode `live`. Last cycle: 11 tested, 2 survived held-out, 9 falsified, 1 machine-checked, 0 surprises; dropped 20 duplicates, 66 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1146.
+Totals: tested 11600, survived 4461, surprises 130, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|

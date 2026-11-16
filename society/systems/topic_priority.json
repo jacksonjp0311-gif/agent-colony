@@ -66,22 +66,22 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "$γ$-positivity",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "<https://doi.org/10.1007/s00373-025-03006-4>",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-mediated",
+      "topic": "artifact-first",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-16T03:49:58Z",
-  "updated_cycle": "20261116T034746Z_b020ff",
+  "updated_at": "2026-11-16T04:54:34Z",
+  "updated_cycle": "20261116T045202Z_4bfdba",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

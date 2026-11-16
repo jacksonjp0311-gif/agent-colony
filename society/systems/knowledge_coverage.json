@@ -79,7 +79,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 0,
-      "reads": 1
+      "reads": 2
     },
     "optimization_search": {
       "cards_formed": 0,
@@ -88,7 +88,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 0,
-      "reads": 1
+      "reads": 2
     },
     "physics_complex_systems": {
       "cards_formed": 0,
@@ -97,7 +97,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 0,
-      "reads": 1
+      "reads": 2
     },
     "recursive_self_improvement": {
       "cards_formed": 1,
@@ -266,6 +266,6 @@
     "cards_tested": 0,
     "concepts": 48,
     "papers": 65,
-    "reads": 24
+    "reads": 27
   }
 }
