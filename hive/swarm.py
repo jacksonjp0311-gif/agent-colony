@@ -1539,8 +1539,15 @@ def _recompute_bucket_totals(cal: dict[str, Any]) -> None:
     for bucket in cal.get("buckets") or []:
         n = 0
         correct = 0
+        use_outcome = _outcome_grading_on()
         for src, v in (bucket.get("by_source") or {}).items():
             if not isinstance(v, dict):
+                continue
+            # Item 110: with HIVE_OUTCOME_GRADING the outcome-graded slice
+            # replaces the exact-match shadow slice (kept in state, unread).
+            if src == "shadow" and use_outcome:
+                continue
+            if src == "outcome" and not use_outcome:
                 continue
             n += int(v.get("n") or 0)
             correct += int(v.get("correct") or 0)
@@ -1548,6 +1555,53 @@ def _recompute_bucket_totals(cal: dict[str, Any]) -> None:
         bucket["correct"] = correct
         bucket["lower_permille"] = wilson_lower_permille(correct, n)
         bucket["accuracy_permille"] = int((correct * 1000) // n) if n else 0
+
+
+def _outcome_grading_on() -> bool:
+    try:
+        from hive.outcome_grading import outcome_grading_enabled
+        return outcome_grading_enabled()
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def grade_outcomes(router: Router, state: dict[str, Any]) -> dict[str, Any] | None:
+    """Item 110: grade shadow picks by measured trial outcome (switch on only).
+
+    Appends newly complete units to the outcome ledger (append-only),
+    rebuilds the ``outcome`` slice from the whole ledger, and reloads
+    the router's bucket totals. The Wilson gate itself is unchanged.
+    """
+    if not _outcome_grading_on():
+        return None
+    import hive.outcome_grading as OG
+    try:
+        from hive import host
+        heal_ev = list(host.heal_load_state().get("evidence") or [])
+    except Exception:  # noqa: BLE001
+        heal_ev = []
+    preds = OG.collect_predictions(state)
+    trials = OG.collect_trials(heal_ev, list(state.get("evidence") or []))
+    res = OG.grade(preds, trials)
+    new = OG.append_units(res["units"])
+    rows = OG.load_ledger()
+    cal = _ensure_calibration(state)
+    OG.apply_to_calibration(cal, rows)
+    _recompute_bucket_totals(cal)
+    apply_calibration_to_router(router, state)
+    info = {
+        "rule": OG.RULE,
+        "predictions": res["n_predictions"],
+        "graded": res["n_graded"],
+        "correct": res["n_correct"],
+        "wrong": res["n_wrong"],
+        "abstain": res["n_abstain"],
+        "units": len(rows),
+        "units_correct": sum(1 for r in rows if r.get("correct")),
+        "new_units": len(new),
+    }
+    state["outcome_grading"] = info
+    return info
 
 
 def _bucket_for(cal: dict[str, Any], margin: int) -> dict[str, Any] | None:
@@ -1846,7 +1900,8 @@ def resolve_shadows(
         else:
             correct = matched
         margin = int(shadow.get("margin") or 0)
-        router.record_outcome(margin, correct)
+        if not _outcome_grading_on():  # item 110: match grading no longer feeds the router
+            router.record_outcome(margin, correct)
         cal = _ensure_calibration(state)
         _add_source_count(cal, source="shadow", margin=margin, correct=correct)
         shadow["resolved"] = True
@@ -2248,6 +2303,10 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     for rec in FL.load_records():
         if str(rec.get("source") or "") in HUMAN_FIX_SOURCES and rec.get("outcome") == "positive":
             resolve_shadows(router, st, rec)
+    try:  # item 110: outcome grading (HIVE_OUTCOME_GRADING; never on control)
+        grade_outcomes(router, st)
+    except Exception:  # noqa: BLE001
+        pass
 
     findings = observe(cycle_id)
     _record_first_seen(st, findings, cycle_id, int(st.get("cycle_index") or 0))
@@ -2504,6 +2563,7 @@ def visibility(state: dict[str, Any] | None = None) -> dict[str, Any]:
             "swarm_roles": list(SWARM_ROLES),
             "swarm_max_actions_per_cycle": MAX_ACTIONS_PER_CYCLE,
             "swarm_pending_apply": _pending_summary(st.get("pending_apply")),
+            "swarm_outcome_grading": st.get("outcome_grading"),
         }
     except Exception:
         return {

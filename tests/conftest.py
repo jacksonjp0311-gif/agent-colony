@@ -87,6 +87,8 @@ def _bind_and_isolate_hive(tmp_path, monkeypatch):
     monkeypatch.setattr(SL, "STATE_PATH", tmp_path / "swarm_learn.json")
     monkeypatch.setattr(SL, "EVENT_LOG", tmp_path / "swarm_learn.jsonl")
     monkeypatch.setattr(SL, "RULES_PATH", tmp_path / "swarm_rules.json")
+    import hive.outcome_grading as OG
+    monkeypatch.setattr(OG, "LEDGER_PATH", tmp_path / "hive_outcome_grades.jsonl")
 
 
 # --- Item 71: live mutable run-state guard ------------------------------------

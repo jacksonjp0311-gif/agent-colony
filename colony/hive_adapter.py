@@ -110,6 +110,8 @@ def bind() -> None:
     swarm.ROOT = REPO_ROOT
     swarm.STATE_PATH = society_dir() / "systems" / "swarm_learn.json"
     swarm.EVENT_LOG = data_dir() / "commons" / "swarm_learn.jsonl"
+    import hive.outcome_grading as _og  # item 110 ledger follows the arm
+    _og.LEDGER_PATH = data_dir() / "commons" / "hive_outcome_grades.jsonl"
     swarm.RULES_PATH = society_dir() / "systems" / "swarm_rules.json"
 
 
