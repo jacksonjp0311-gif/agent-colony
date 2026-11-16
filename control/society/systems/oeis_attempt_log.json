@@ -1466,6 +1466,84 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A025165_0",
+   "anum": "A025165",
+   "form": "relation",
+   "depth": 167,
+   "bfile_hi": 800,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T063555Z_5e5417",
+   "planned": 800,
+   "verified_depth": 167,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A296516_0",
+   "anum": "A296516",
+   "form": "gf",
+   "depth": 200,
+   "bfile_hi": 200,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261116T063555Z_5e5417",
+   "planned": 8000,
+   "verified_depth": 200,
+   "prior_tested_hi": 0,
+   "extended": 200
+  },
+  {
+   "id": "oc_A296516_0",
+   "anum": "A296516",
+   "form": "gf",
+   "depth": 7999,
+   "bfile_hi": 200,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T063555Z_5e5417",
+   "planned": 8000,
+   "verified_depth": 7999,
+   "prior_tested_hi": 0,
+   "extended": 7799,
+   "cap_reason": "term_cap",
+   "cap_value": 8000,
+   "fast_cfinite": true,
+   "deep_terms": 8000,
+   "deep_elapsed_s": 0.04
+  },
+  {
+   "id": "oc_A283991_0",
+   "anum": "A283991",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 65537,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T063555Z_5e5417",
+   "planned": 65537,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A226302_0",
+   "anum": "A226302",
+   "form": "relation",
+   "depth": 501,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T063555Z_5e5417",
+   "planned": 1000,
+   "verified_depth": 501,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
@@ -1616,6 +1694,12 @@
    "oc_A344503_0",
    "oc_A079006_0",
    "oc_A091540_0"
+  ],
+  "20261116T063555Z_5e5417": [
+   "oc_A025165_0",
+   "oc_A296516_0",
+   "oc_A283991_0",
+   "oc_A226302_0"
   ]
  },
  "last_forms": [
@@ -1630,13 +1714,13 @@
   "relation",
   "relation",
   "relation",
+  "gf",
+  "relation",
   "relation",
   "relation",
   "relation",
   "relation",
   "gf",
-  "relation",
-  "relation",
   "relation",
   "relation"
  ]

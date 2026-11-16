@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-16T06:20:44Z",
+  "ts": "2026-11-16T06:44:41Z",
   "version": 1,
   "mile": "cortex-cerebrum-sidecar",
   "latest": {
@@ -20,8 +20,8 @@
     "double_gate": false,
     "can_accept_ledger": false,
     "note": "Cerebrum admits Cortex inform-only. No ledger authority. P>=0.70 human authorize remains ceiling. Not AGI.",
-    "ts": "2026-11-16T06:20:44Z",
-    "cycle_id": "20261116T061856Z_5a66e3"
+    "ts": "2026-11-16T06:44:41Z",
+    "cycle_id": "20261116T064237Z_91b98d"
   },
   "inform_only": true,
   "ledger_authority": false,
