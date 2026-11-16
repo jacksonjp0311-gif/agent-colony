@@ -406,7 +406,8 @@ def test_first_blueprints_are_seeded_from_top_ranked_ideas(tmp_path):
     ev = SB.evidence(ideas=SB.load_ideas(_ideas_file(tmp_path, TOP_IDEAS)), cards=[], lessons=[])
     order = [c["steps"][0]["component"] for c in SB.candidates(SB.empty_state(), ev) if c["steps"][0]["n"] == 1]
     assert order[0] == "oeis_consensus_vote"                       # swarm_topology, 13 papers
-    assert set(order[1:3]) == {"oeis_calibrated_vote", "oeis_form_router"}  # 4 papers each
+    assert order[1] == "oeis_swarm_improvers"   # item 85: same 13 papers, new-component prior 0.95
+    assert set(order[2:4]) == {"oeis_calibrated_vote", "oeis_form_router"}  # 4 papers each
     assert order.index("oeis_novelty_archive") < order.index("oeis_extra_pass")
     assert order.index("oeis_prediction_error") < order.index("oeis_extra_pass")
     # with a live pool the swarm block is the first trial proposed
@@ -437,3 +438,29 @@ def test_flat_baseline_does_not_block_opening_and_twin_decides(paths):
     board["history"] += [_row(5, 104, 5, 100), _row(5, 108, 5, 100)]
     _run(SB.WINDOW_CYCLES, board, ctx)
     assert SB.load_state()["kept_count"] == 1
+
+
+def test_item85_swarm_improvers_vote_over_one_shared_pool():
+    """Item 85 (top-ranked idea swarm_topology): the improver flows each rank the one shared
+    pool and a Borda vote with a quorum picks; it is an ordinary blueprint component, so it is
+    only ever kept through the trial machinery (strictly better than baseline and twin)."""
+    menu = _menu(6)
+    attempts = [{"id": menu[0]["id"], "form": "gf", "planned": 100, "verified_depth": 40},
+                {"id": menu[3]["id"], "form": "gf", "planned": 100, "verified_depth": 99},
+                {"id": menu[1]["id"], "form": "relation", "planned": 50, "verified_depth": 50},
+                {"id": menu[4]["id"], "form": "relation", "planned": 50, "verified_depth": 60}]
+    ctx = _ctx(oeis=FakeOEIS(menu=menu, attempts=attempts))
+    ballots = SB.improver_ballots(ctx)
+    assert {"novelty", "prediction_error", "calibrated", "consensus"} <= set(ballots)
+    pool_ids = {e["id"] for e in menu}
+    assert all(set(b) <= pool_ids for b in ballots.values())  # one shared pool
+    picks = SB._pick_swarm(ctx, 2)
+    assert 1 <= len(picks) <= 2 and set(picks) <= pool_ids
+    assert picks == SB._pick_swarm(ctx, 2)  # deterministic
+    assert SB._plan_oeis(ctx, "oeis_swarm_improvers", 2) == len(picks)
+    spec = SB.COMPONENTS["oeis_swarm_improvers"]
+    assert "swarm_topology" in spec["ideas"] and spec["max_n"] == 3 and not spec["heavy"]
+    ok, _ = SB.validate(SB.make_blueprint([{"component": "oeis_swarm_improvers", "n": 1}]))
+    assert ok
+    empty = _ctx(oeis=FakeOEIS(menu=[]))
+    assert SB.improver_ballots(empty) == {} and SB._pick_swarm(empty, 2) == []
