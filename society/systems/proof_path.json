@@ -2,11 +2,11 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   92,
-   32
+   89,
+   29
   ],
   "divides": [
-   25,
+   28,
    3
   ],
   "le": [
@@ -26,7 +26,7 @@
  "n_authored": 22,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 39,
+ "n_proved": 36,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -449,6 +449,18 @@
    "authored": false,
    "certificate": null,
    "check": "authored_frontier_divides_x9b755e24_w1",
+   "checks": 488,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
+  "(oxa316344+tm)(n) divides D(oxa177117)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x0e9284db_w1",
    "checks": 488,
    "kind": "divides",
    "prior_certificate": false,
@@ -2501,6 +2513,18 @@
    "unknown": true,
    "v": 4
   },
+  "cheb3[oxa055394](n) divides (oxa056971*oxa083105)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x503b80af_w1",
+   "checks": 188,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "cheb3[oxa055394](n) divides (oxa056971*part)(n) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -3575,60 +3599,6 @@
    "unknown": true,
    "v": 4
   },
-  "dbl(n)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(n)",
-       "kids": [
-        {
-         "e": "n",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "nclass",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x559ffbb7_w1",
-   "checks": 59988,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "dbl(oxa009191)(n) <= dbl(tau)(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
    "certificate": null,
@@ -3781,120 +3751,6 @@
    "summary": null,
    "unknown": true,
    "v": 4
-  },
-  "dbl(pell)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(pell)",
-       "kids": [
-        {
-         "e": "pell",
-         "lemma": "pell is periodic mod 2 (defining recurrence; state repeats)",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "pell is periodic mod 2 (defining recurrence; state repeats)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x3cfdd636_w1",
-   "checks": 3988,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "dbl(rad)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(rad)",
-       "kids": [
-        {
-         "e": "rad",
-         "lemma": "p | x implies p | rad(x)",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "p | x implies p | rad(x)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x61fbcbe9_w1",
-   "checks": 59988,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): p | x implies p | rad(x); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
   },
   "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)": {
    "authored": true,
@@ -4949,6 +4805,18 @@
    "unknown": true,
    "v": 4
   },
+  "maxgap[oxa049980](n) divides (oxa056971*oxa211337)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x97a64106_w1",
+   "checks": 188,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -5674,5 +5542,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T17:11:04Z"
+ "ts": "2026-11-16T17:39:17Z"
 }

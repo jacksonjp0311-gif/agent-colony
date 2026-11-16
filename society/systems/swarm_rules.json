@@ -4,6 +4,6 @@
   "n": 0,
   "note": "Active non-knob Hive rules. An empty list is a valid snapshot and must be written so the file persists.",
   "rules": [],
-  "updated_at": "2026-11-16T17:10:47Z",
+  "updated_at": "2026-11-16T17:39:00Z",
   "version": 1
 }
