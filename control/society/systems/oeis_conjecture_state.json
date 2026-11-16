@@ -1265,11 +1265,23 @@
    "status": "holds_on_range",
    "tested_hi": 96,
    "credit": 0.0
+  },
+  "oc_A001723_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 89,
+   "credit": 0.0
+  },
+  "oc_A001722_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 90,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 498,
+   "attempts": 500,
    "credit": 24.1488
   },
   "gf": {
