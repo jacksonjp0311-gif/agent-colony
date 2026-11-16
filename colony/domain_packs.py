@@ -183,6 +183,16 @@ def enable_stem(src: str, name: str) -> str | None:
 
 STEM_MUTATIONS: list[tuple[str, str, str]] = [
     ("energy_work", "stem_enable", "enable:energy_work"),
+    ("stem_elastic_collision", "stem_enable", "enable:stem_elastic_collision"),
+    ("stem_kepler_third_law", "stem_enable", "enable:stem_kepler_third_law"),
+    ("stem_shm_energy", "stem_enable", "enable:stem_shm_energy"),
+    ("stem_resistor_power_balance", "stem_enable", "enable:stem_resistor_power_balance"),
+    ("stem_isothermal_work", "stem_enable", "enable:stem_isothermal_work"),
+    ("stem_snell_least_time", "stem_enable", "enable:stem_snell_least_time"),
+    ("stem_rc_discharge", "stem_enable", "enable:stem_rc_discharge"),
+    ("stem_thin_lens_matrix", "stem_enable", "enable:stem_thin_lens_matrix"),
+    ("stem_velocity_addition", "stem_enable", "enable:stem_velocity_addition"),
+    ("stem_wheatstone_balance", "stem_enable", "enable:stem_wheatstone_balance"),
     ("stem_easy_pad_units", "stem_easy_pad", "pad"),
 ]
 
