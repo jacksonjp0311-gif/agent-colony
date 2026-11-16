@@ -1501,7 +1501,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261116T004154Z_5c29b4",
+  "last_cycle": "20261116T010729Z_348e53",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -1523,7 +1523,7 @@
   },
   "n_inconclusive": 6,
   "n_kept": 11,
-  "n_proposed": 2,
+  "n_proposed": 4,
   "n_reverted": 4,
   "n_twin_held": 0,
   "n_voided": 12,
@@ -1562,16 +1562,54 @@
       "method": "Perturb candidate claims a little more widely (annealing-style search).",
       "source": "hive_vote",
       "ts": "2026-11-16T00:46:40Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "perturb_wide_epsilon",
+        "op": "set_knob",
+        "value": 0.605
+      },
+      "card_id": "mc_1ac9672070ad",
+      "concept": "",
+      "cycle_id": "20261116T010000Z_7b716e",
+      "deferred_count": 1,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=up:name=perturb_wide_epsilon:value=0.605",
+      "knob": "perturb_wide_epsilon",
+      "method": "Sample more broadly when many agents contribute (swarm-style wide search).",
+      "source": "hive_vote",
+      "ts": "2026-11-16T01:03:08Z"
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "perturb_max_cycles",
+        "op": "set_knob",
+        "value": 7
+      },
+      "card_id": "mc_ce948e178945",
+      "concept": "",
+      "cycle_id": "20261116T010400Z_e1621a",
+      "deferred_count": 1,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=down:name=perturb_max_cycles:value=7",
+      "knob": "perturb_max_cycles",
+      "method": "Stop a perturbation run sooner when it stops paying (early stopping).",
+      "source": "hive_vote",
+      "ts": "2026-11-16T01:06:33Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 100,
-    "pending": 55,
+    "pending": 57,
     "resolved": 100,
     "source": "hive_shadows",
-    "ts": "2026-11-16T00:47:22Z",
+    "ts": "2026-11-16T01:10:49Z",
     "unlabeled": 0
   },
   "twin_pending": [],

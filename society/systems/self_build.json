@@ -1,0 +1,122 @@
+{
+ "version": 1,
+ "cycle_index": 3,
+ "active": {
+  "id": "bp_default",
+  "steps": []
+ },
+ "trial": {
+  "blueprint": {
+   "id": "bp_1a40beac596f0ebe",
+   "signature": "1a40beac596f0ebe",
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    }
+   ],
+   "parent": "bp_default",
+   "operator": "add",
+   "evidence": [
+    "frontier_extra_batch"
+   ],
+   "weight": 0.525,
+   "added": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    }
+   ],
+   "evidence_detail": {
+    "frontier_extra_batch": {
+     "papers": [],
+     "n_papers": 0,
+     "idea_rank": null,
+     "cards": 1,
+     "lessons": 0,
+     "boost": 1.05
+    }
+   },
+   "self_test": {
+    "ok": true,
+    "reason": "ok",
+    "plan": [
+     {
+      "component": "frontier_extra_batch",
+      "n": 1,
+      "planned": 1
+     }
+    ]
+   }
+  },
+  "opened_cycle_id": "20261116T010000Z_7b716e",
+  "opened_cycle_index": 1,
+  "open_row": 105,
+  "window_rows": 2,
+  "baseline_gain": [
+   0.0,
+   0.0
+  ]
+ },
+ "tried": {},
+ "component_stats": {
+  "frontier_extra_batch": {
+   "tried": 1,
+   "kept": 0,
+   "reverted": 0,
+   "inconclusive": 0
+  }
+ },
+ "macros": {},
+ "last_run": {
+  "cycle_id": "20261116T010729Z_348e53",
+  "blueprint": "bp_1a40beac596f0ebe",
+  "ran": [
+   {
+    "component": "frontier_extra_batch",
+    "n": 1,
+    "actions": 1,
+    "counts": {
+     "expressions": 260,
+     "fitted": 195,
+     "duplicate": 26,
+     "trivial_formal": 1,
+     "trivial_shuffle_null": 5,
+     "trivial_idle_part": 10,
+     "trivial_implied_parts": 113,
+     "trivial_shared_operand": 0,
+     "trivial_growth_dominance": 0,
+     "trivial_case_split": 0,
+     "trivial_parity_rules": 1,
+     "trivial_running_sum_tail": 0,
+     "trivial_basic_inequality": 0,
+     "trivial_rewrite_closure": 0,
+     "trivial_digit_rule": 1,
+     "expected_by_closure": 4,
+     "loose_inequality": 1,
+     "tested": 20,
+     "survived": 9,
+     "falsified": 11,
+     "machine_checked": 4,
+     "surprises": 0,
+     "known_result": 0,
+     "oeis_known": 3,
+     "oeis_unchecked": 0,
+     "retested": 0,
+     "false_surprises": 0,
+     "no_reference_found": 1,
+     "explained_by_known_check": 1,
+     "trivial_known_in_principle(definition_parity)": 5,
+     "trivial_confirmed on range": 12,
+     "trivial_known_in_principle(compositional)": 1
+    }
+   }
+  ],
+  "actions": 1,
+  "cpu_s": 2.812
+ },
+ "last_skip": null,
+ "kept_count": 0,
+ "reverted_count": 0,
+ "inconclusive_count": 0
+}

@@ -1988,13 +1988,8 @@ def check_authored_mut_perturb_constant_703a4fa11fd2() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa048760*pell))', 'params': {'m': 4, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
-def check_authored_mut_perturb_constant_e6cbf4fdcc3b() -> bool:
-    """Authored mutated claim (target generator, perturb_constant):
-    rad[ple3](n) = 1 (mod 3) for all n = 0 (mod 6)
-    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
-    Disabled until the Oracle passes it. Never executes fetched code.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'rad[ple3]', 'params': {'m': 3, 'q': 6, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2214,7 +2209,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_xafb0aef8_w1", check_authored_frontier_le_xafb0aef8_w1, True),
     ("authored_mut_swap_related_sequence_58aacc9fceff", check_authored_mut_swap_related_sequence_58aacc9fceff, False),
     ("authored_mut_perturb_constant_703a4fa11fd2", check_authored_mut_perturb_constant_703a4fa11fd2, False),
-    ("authored_mut_perturb_constant_e6cbf4fdcc3b", check_authored_mut_perturb_constant_e6cbf4fdcc3b, False),
 ]
 
 
