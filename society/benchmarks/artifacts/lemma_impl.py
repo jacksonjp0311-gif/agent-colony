@@ -2197,6 +2197,29 @@ def check_oeis_a001006_motzkin_ballot_sum(n: int) -> bool:
     return row[0] == closed
 
 
+def check_oeis_a005043_riordan_motzkin(n: int) -> bool:
+    """Riordan A005043 by its recurrence (k+1) R(k) = (k-1)(2 R(k-1) + 3 R(k-2));
+    Motzkin A001006 by lattice paths: M(n) = R(n) + R(n+1)."""
+    r = [1, 0]
+    for k in range(2, n + 2):
+        num = (k - 1) * (2 * r[k - 1] + 3 * r[k - 2])
+        if num % (k + 1):
+            return False
+        r.append(num // (k + 1))
+    row = [1] + [0] * (n + 1)
+    for _ in range(n):
+        new = [0] * (n + 2)
+        for h, v in enumerate(row):
+            if v:
+                new[h] += v
+                if h + 1 <= n:
+                    new[h + 1] += v
+                if h:
+                    new[h - 1] += v
+        row = new
+    return row[0] == r[n] + r[n + 1]
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2425,7 +2448,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mut_swap_related_sequence_58aacc9fceff", check_authored_mut_swap_related_sequence_58aacc9fceff, False),
     ("authored_mut_swap_related_sequence_7f7f296d8a72", check_authored_mut_swap_related_sequence_7f7f296d8a72, False),
     ("oeis_a000032_lucas_norm", lambda: all(check_oeis_a000032_lucas_norm(n) for n in range(1, 60)), True),
-    ("oeis_a001006_motzkin_ballot_sum", lambda: all(check_oeis_a001006_motzkin_ballot_sum(n) for n in range(0, 40)), False),
+    ("oeis_a001006_motzkin_ballot_sum", lambda: all(check_oeis_a001006_motzkin_ballot_sum(n) for n in range(0, 40)), True),
+    ("oeis_a005043_riordan_motzkin", lambda: all(check_oeis_a005043_riordan_motzkin(n) for n in range(0, 40)), True),
 ]
 
 

@@ -2834,6 +2834,21 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A260147_0",
+   "anum": "A260147",
+   "form": "relation",
+   "depth": 8,
+   "bfile_hi": 8200,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T102534Z_bd7b0c",
+   "planned": 8200,
+   "verified_depth": 8,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
@@ -3147,6 +3162,9 @@
    "oc_A094213_0",
    "oc_A359643_0",
    "oc_A105872_0"
+  ],
+  "20261116T102534Z_bd7b0c": [
+   "oc_A260147_0"
   ]
  },
  "last_forms": [
@@ -3158,7 +3176,6 @@
   "relation",
   "relation",
   "relation",
-  "relation",
   "gf",
   "relation",
   "relation",
@@ -3168,6 +3185,7 @@
   "relation",
   "relation",
   "gf",
+  "relation",
   "relation",
   "relation"
  ]

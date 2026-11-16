@@ -42,6 +42,13 @@
       "snippet": "enable:oeis_a001006_motzkin_ballot_sum",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a005043_riordan_motzkin",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a005043_riordan_motzkin",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

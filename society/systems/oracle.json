@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T08:55:18Z",
-  "passes": 562,
+  "updated_at": "2026-11-16T10:36:05Z",
+  "passes": 564,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4121,
+  "kill_rate": 0.4113,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 34,
-    "kills": 26,
+    "passes": 36,
+    "kills": 24,
     "easy_pad_kills": 0,
-    "kill_rate": 0.4333
+    "kill_rate": 0.4
   },
-  "bus_ok_rate": 0.4,
+  "bus_ok_rate": 0.3667,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_38103ffd94ce",
@@ -27,6 +27,8 @@
     "kummer_carries",
     "legendre_factorial_valuation",
     "oeis_a000032_lucas_norm",
+    "oeis_a001006_motzkin_ballot_sum",
+    "oeis_a005043_riordan_motzkin",
     "pisano_prime_period",
     "primitive_root_count",
     "ramanujan_partition_congruences",
@@ -61,10 +63,8 @@
     "authored_mut_swap_related_sequence_9944a5433d60",
     "authored_mut_swap_related_sequence_a7fc2de5dabd",
     "authored_mut_swap_related_sequence_abd2d19e66bf",
-    "authored_mut_swap_related_sequence_bb7bf2799b09",
     "authored_mut_swap_related_sequence_c461b03cfcee",
     "authored_mut_swap_related_sequence_d4fd9cc584c3",
-    "authored_mut_swap_related_sequence_eb0f3247ee33",
     "authored_mut_swap_related_sequence_efa7f2b38883",
     "authored_mut_swap_related_sequence_f136673b49cd",
     "authored_mut_swap_related_sequence_f7c77a787e41",
@@ -110,7 +110,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T08:55:18Z",
+    "ts": "2026-11-16T10:36:05Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -120,14 +120,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `stem_wheatstone_balance` kind=stem_enable. lemma mutation stem_wheatstone_balance 0.825->0.8688 Not discovery. cycle=20261116T085340Z_60c3e8.",
-      "attack": "WEIGH: `stem_wheatstone_balance` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `oeis_a005043_riordan_motzkin` kind=hard_enable. lemma mutation oeis_a005043_riordan_motzkin 0.8685->0.8685 (compared 0.857->0.857; speed_noise:-0.001) Not discovery. cycle=20",
+      "attack": "WEIGH: `oeis_a005043_riordan_motzkin` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "pack": "stem_kinematics",
         "already_enabled": true,
         "in_catalog": true,
+        "hard_pass": 174,
+        "hard_n": 174,
+        "score": 0.8685,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -136,29 +138,47 @@
         "basis": "before_src"
       },
       "held_out": {
-        "pack": "stem_kinematics",
         "survives": true,
         "ok_for_oracle": true,
-        "n_pass": 5,
-        "n_checks": 5,
-        "score": 0.8688,
-        "reason": "stem_held_out_green",
+        "hard_pass": 174,
+        "hard_n": 174,
+        "ok": true,
+        "score": 0.8685,
+        "shifted_window": {
+          "ok": true,
+          "status": "pass",
+          "reason": "shift_window_pass",
+          "applied": true,
+          "ranges_shifted": 1,
+          "probes": 40,
+          "seconds": 0.074,
+          "window_expr": "all((check_oeis_a005043_riordan_motzkin(n) for n in _oracle_shifted_range(40, 80, 1)))",
+          "scope": "finite_shifted_window_only_not_universal_proof"
+        },
+        "reason": "held_out_hard_green",
         "hard_pass_delta": 1,
         "delta_override": false
       },
       "cas": {
-        "pack": "stem_kinematics",
         "cas_ok": true,
         "ok_for_oracle": true,
-        "engine": "pure_python_stem",
-        "reason": "stem_cas_pass",
+        "engine": "sympy",
+        "reason": "cas_pass",
         "checks": [
           {
-            "label": "suvat_v2",
+            "label": "binomial_symmetry",
             "ok": true
           },
           {
-            "label": "centripetal_T",
+            "label": "pascal",
+            "ok": true
+          },
+          {
+            "label": "square_expand",
+            "ok": true
+          },
+          {
+            "label": "catalan_positive",
             "ok": true
           }
         ]
@@ -210,15 +230,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "stem_wheatstone_balance",
-      "kind": "stem_enable",
+      "mutation": "oeis_a005043_riordan_motzkin",
+      "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "stem_wheatstone_balance",
-    "kind": "stem_enable",
+    "mutation": "oeis_a005043_riordan_motzkin",
+    "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T085340Z_60c3e8",
+    "cycle_id": "20261116T103423Z_b164b7",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
