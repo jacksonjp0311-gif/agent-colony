@@ -332,6 +332,17 @@ def evaluate(
         elif not bool(_get("passed")):
             kills.append(f"oracle_kill:{_get('kills')}")
     else:
+        _drop = None
+        try:  # item 83: drop what the Oracle's own held-out would kill (pre-filter; not a verdict)
+            from colony.oracle_prescreen import screen as _prescreen
+            _drop = _prescreen(name, kind or "", source=oracle_source or "novelty_gate", cycle_id=cycle_id,
+                               claim_text=claim_text)
+        except Exception:  # noqa: BLE001
+            _drop = None
+        if _drop is not None:
+            oracle_used = "prescreen_drop"
+            kills.append(f"oracle_prescreen:{_drop['would_kill']}")
+    if oracle_used == "own_run":
         try:
             from colony.oracle import evaluate as oracle_evaluate
             ov = oracle_evaluate(

@@ -1979,6 +1979,17 @@ def run_perturb_turn(
                 submitted["error"] = str(exc)[:200]
                 return
         elif bus is not None:
+            try:  # item 83: drop what the Oracle's own held-out would kill; budget moves on
+                from colony.oracle_prescreen import screen as _prescreen
+                _drop = _prescreen(str(concrete.get("id") or "perturb"),
+                                   str(concrete.get("kind") or "authored_check"), source="stall_perturb",
+                                   cycle_id=cycle_id, claim_text=str(concrete.get("text") or ""))
+            except Exception:  # noqa: BLE001
+                _drop = None
+            if _drop is not None:
+                submitted["skipped"] = "oracle_prescreen"
+                submitted["prescreen"] = _drop["would_kill"]
+                return
             try:
                 from colony.oracle import gate_keep
                 dec, ov = gate_keep(

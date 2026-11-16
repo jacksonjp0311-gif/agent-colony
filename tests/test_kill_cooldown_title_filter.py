@@ -117,6 +117,9 @@ def test_novelty_gate_oracle_source_is_label_only(monkeypatch):
         seen.append(kw)
         return _V()
 
+    # item 83: process titles are pre-screened (never reach the Oracle) when live; this test is
+    # about the Oracle call itself, so the pre-screen is off here
+    monkeypatch.setenv("COLONY_ORACLE_PRESCREEN", "off")
     monkeypatch.setattr(O, "evaluate", fake_oracle)
     monkeypatch.setattr(NG, "_persist_system", lambda v: None)
     monkeypatch.setattr(NG, "GATE_LOG", __import__("pathlib").Path(__import__("tempfile").mkdtemp()) / "g.jsonl")

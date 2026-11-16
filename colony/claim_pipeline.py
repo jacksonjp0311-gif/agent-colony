@@ -401,6 +401,19 @@ def propose_checked(
             c.note = (c.note or "") + f" | bus_receipt={receipt['channel']}:{receipt['msg_id']}"
         else:
             c.note = (c.note or "") + " | bus_receipt_invalid_or_missing"
+        # Item 83: a theme whose held-out cannot pass (no / disabled harder window) is dropped
+        # before the Oracle (the Oracle's own held-out on a best-case bench); same outcome as its kill.
+        try:
+            from colony.oracle_prescreen import screen as _prescreen
+            _drop = _prescreen(c.theme_id, "claim_theme", source="claim_pipeline", cycle_id=cycle_id,
+                               claim_text=c.text)
+        except Exception:  # noqa: BLE001
+            _drop = None
+        if _drop is not None:
+            c.status = "rejected_raw"
+            c.hard_ok = False
+            c.note = (c.note or "") + f" | oracle_prescreen_drop {_drop['would_kill']} (not an Oracle verdict)"
+            continue
         # Oracle mile: real bus only; fail-closed without it
         try:
             from colony.oracle import gate_keep as oracle_gate
