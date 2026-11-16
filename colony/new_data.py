@@ -750,6 +750,12 @@ def run_cycle(cycle_id: str = "", *, net: Net | None = None, lookup: Any = "defa
         {k: d.get(k) for k in ("item", "status", "anum", "why")} for d in disc], "pushed": pushed,
         "sparse": sparse_res, "net_requests": net.n, "cpu_s": round(time.process_time() - t_start, 3),
         "oeis_index": "available" if lookup else "absent"}
+    try:  # item 104: shadow report of the bounded scheduler's view (no allocation change)
+        from colony import work_scheduler as _ws
+        if _ws.mode() != "off":
+            summary["work_sched"] = _ws.shadow_view(idx, _done)
+    except Exception as exc:  # noqa: BLE001
+        summary["work_sched"] = {"error": str(exc)[:120]}
     st["last"] = summary
     st["history"] = (st.get("history") or [])[-40:] + [summary]
     st["mode"] = mode()
