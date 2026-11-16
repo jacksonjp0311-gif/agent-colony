@@ -54,6 +54,7 @@ LESSON_TYPES = frozenset({
     "reward",
     "keep", "revert", "skip",
     "lesson_retired", "lesson_revised",
+    "oracle_prescreen",   # item 83: a pre-screen drop (not an Oracle verdict); counts like a kill for cooldown
 })
 
 
@@ -556,7 +557,7 @@ def is_title_only_kill(e: dict, *, _cache: dict | None = None) -> bool:
     ``novelty_gate_deferred_title``: the target was never judged in its cycle) also counts —
     otherwise a target the desk never judges could be re-proposed forever.
     """
-    if e.get("type") != "oracle_kill":
+    if e.get("type") not in ("oracle_kill", "oracle_prescreen"):
         return False
     if str(e.get("source") or "") != "novelty_gate" or str(e.get("family") or "") != "process":
         return False
@@ -584,7 +585,7 @@ def oracle_kill_theme_counts(*, lookback: int = 400) -> dict[str, int]:
     counts: dict[str, int] = {}
     _cache: dict[str, str] = {}
     for e in load_lessons(limit=lookback, include_expired=True):
-        if e.get("type") != "oracle_kill":
+        if e.get("type") not in ("oracle_kill", "oracle_prescreen"):   # item 83: a drop counts like its kill
             continue
         if is_title_only_kill(e, _cache=_cache):
             continue
