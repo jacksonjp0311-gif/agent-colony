@@ -123,6 +123,17 @@ MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("pisano_prime_period", "hard_enable", "enable:pisano_prime_period"),
     # STEM kinematics domain pack
     ("energy_work", "stem_enable", "enable:energy_work"),
+    # Wider STEM pack (item 94) — disabled in kinematics_impl; Oracle decides
+    ("stem_elastic_collision", "stem_enable", "enable:stem_elastic_collision"),
+    ("stem_kepler_third_law", "stem_enable", "enable:stem_kepler_third_law"),
+    ("stem_shm_energy", "stem_enable", "enable:stem_shm_energy"),
+    ("stem_resistor_power_balance", "stem_enable", "enable:stem_resistor_power_balance"),
+    ("stem_isothermal_work", "stem_enable", "enable:stem_isothermal_work"),
+    ("stem_snell_least_time", "stem_enable", "enable:stem_snell_least_time"),
+    ("stem_rc_discharge", "stem_enable", "enable:stem_rc_discharge"),
+    ("stem_thin_lens_matrix", "stem_enable", "enable:stem_thin_lens_matrix"),
+    ("stem_velocity_addition", "stem_enable", "enable:stem_velocity_addition"),
+    ("stem_wheatstone_balance", "stem_enable", "enable:stem_wheatstone_balance"),
     ("stem_easy_pad_units", "stem_easy_pad", "pad"),
     ("easy_pad_assoc_add", "easy_pad", _EASY_PAD_ASSOC),
     ("easy_pad_zero_identity", "easy_pad", _EASY_PAD_ZERO),
