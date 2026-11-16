@@ -16,7 +16,7 @@
       "concepts": 4,
       "distinct_concepts": 3,
       "papers": 8,
-      "reads": 2
+      "reads": 3
     },
     "consciousness_self_models": {
       "cards_formed": 1,
@@ -52,7 +52,7 @@
       "concepts": 7,
       "distinct_concepts": 3,
       "papers": 8,
-      "reads": 3
+      "reads": 4
     },
     "multi_agent_systems": {
       "cards_formed": 0,
@@ -64,13 +64,13 @@
       "reads": 2
     },
     "neural_architecture": {
-      "cards_formed": 4,
+      "cards_formed": 5,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 9,
-      "distinct_concepts": 5,
-      "papers": 8,
-      "reads": 2
+      "concepts": 12,
+      "distinct_concepts": 7,
+      "papers": 14,
+      "reads": 3
     },
     "open_endedness": {
       "cards_formed": 0,
@@ -231,7 +231,7 @@
         "neural_architecture"
       ],
       "idea": "specialist_routing",
-      "n_papers": 5
+      "n_papers": 6
     },
     {
       "description": "The colony tracks its own prediction accuracy per desk and uses it to weight proposals (calibrated self-model; not a consciousness claim).",
@@ -261,11 +261,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 18,
+    "cards_formed": 19,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 51,
-    "papers": 75,
-    "reads": 33
+    "concepts": 54,
+    "papers": 81,
+    "reads": 36
   }
 }

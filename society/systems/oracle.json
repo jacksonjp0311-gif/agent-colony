@@ -1,24 +1,25 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T04:44:38Z",
-  "passes": 542,
+  "updated_at": "2026-11-16T06:02:30Z",
+  "passes": 543,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4209,
+  "kill_rate": 0.4205,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 14,
-    "kills": 46,
+    "passes": 15,
+    "kills": 45,
     "easy_pad_kills": 0,
-    "kill_rate": 0.7667
+    "kill_rate": 0.75
   },
-  "bus_ok_rate": 0.7333,
+  "bus_ok_rate": 0.7167,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_38103ffd94ce",
     "authored_mut_swap_related_sequence_3c874f89f994",
     "authored_mut_swap_related_sequence_a3d177b50be9",
+    "authored_mut_swap_related_sequence_a6110dabd1ce",
     "dedekind_reciprocity",
     "jacobi_four_squares",
     "jacobi_two_squares",
@@ -70,7 +71,7 @@
     "authored_mut_swap_related_sequence_c975a0acf97b",
     "authored_mut_swap_related_sequence_d4fd9cc584c3",
     "authored_mut_swap_related_sequence_dda3900e5ef8",
-    "authored_mut_swap_related_sequence_e1949a02138c"
+    "authored_mut_swap_related_sequence_eb0f3247ee33"
   ],
   "domain_packs": {
     "packs": {
@@ -102,7 +103,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T04:44:38Z",
+    "ts": "2026-11-16T06:02:30Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -112,16 +113,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `pisano_prime_period` kind=hard_enable. lemma mutation pisano_prime_period 0.8684->0.8684 (compared 0.857->0.857; speed_noise:+0.000) Not discovery. cycle=20261116T044217Z_628",
-      "attack": "WEIGH: `pisano_prime_period` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_a6110dabd1ce` kind=hard_enable. lemma mutation authored_mut_swap_related_sequence_a6110dabd1ce 0.8715->0.8716 (compared 0.857->0.857; speed",
+      "attack": "WEIGH: `authored_mut_swap_related_sequence_a6110dabd1ce` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 172,
-        "hard_n": 172,
-        "score": 0.8682,
+        "hard_pass": 173,
+        "hard_n": 173,
+        "score": 0.8715,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -132,19 +133,52 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 172,
-        "hard_n": 172,
+        "hard_pass": 173,
+        "hard_n": 173,
         "ok": true,
-        "score": 0.8684,
+        "score": 0.8716,
         "shifted_window": {
           "ok": true,
           "status": "pass",
           "reason": "shift_window_pass",
           "applied": true,
-          "ranges_shifted": 1,
-          "probes": 393,
-          "seconds": 0.064,
-          "window_expr": "all((check_pisano_prime_period(p) for p in _oracle_shifted_range(400, 793, 1)))",
+          "ranges_shifted": 0,
+          "probes": 3,
+          "windows_shifted": 1,
+          "shifted": [
+            {
+              "from": [
+                [
+                  40,
+                  80
+                ],
+                [
+                  80,
+                  120
+                ],
+                [
+                  120,
+                  160
+                ]
+              ],
+              "to": [
+                [
+                  161,
+                  200
+                ],
+                [
+                  201,
+                  240
+                ],
+                [
+                  241,
+                  281
+                ]
+              ]
+            }
+          ],
+          "seconds": 0.446,
+          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': 'dbl(tau)', 'params': {}, 'rhs': 'S(oxa316344)'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 200), (201, 240), (241, 281)])))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -222,15 +256,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "pisano_prime_period",
+      "mutation": "authored_mut_swap_related_sequence_a6110dabd1ce",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "pisano_prime_period",
+    "mutation": "authored_mut_swap_related_sequence_a6110dabd1ce",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T044217Z_6284c8",
+    "cycle_id": "20261116T060054Z_fed15c",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

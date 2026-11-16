@@ -1,8 +1,8 @@
 {
- "attempted_now": 0,
+ "attempted_now": 1,
  "by_kind": {
   "cong": [
-   88,
+   89,
    35
   ],
   "divides": [
@@ -22,15 +22,15 @@
    0
   ],
   "rec": [
-   13,
-   9
+   12,
+   8
   ]
  },
  "mode": "live",
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 51,
+ "n_proved": 50,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -3381,79 +3381,6 @@
    },
    "check": "authored_frontier_rec_x46867b6f_w1",
    "checks": 59988,
-   "kind": "rec",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
-  "a(n) = fib(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "shifts": [
-       {
-        "e": "fib",
-        "pt": [
-         1,
-         0
-        ],
-        "rule": "atom",
-        "val": {
-         "a": {
-          "fib@1,0": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "fib",
-        "pt": [
-         1,
-         1
-        ],
-        "rule": "atom",
-        "val": {
-         "a": {
-          "fib@1,1": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       },
-       {
-        "e": "fib",
-        "pt": [
-         1,
-         2
-        ],
-        "rule": "atom",
-        "val": {
-         "a": {
-          "fib@1,2": 1
-         },
-         "c": 0,
-         "d": 0
-        }
-       }
-      ]
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_rec_xf6501cd4_w1",
-   "checks": 3988,
    "kind": "rec",
    "prior_certificate": true,
    "status": "proved",
@@ -6856,6 +6783,18 @@
    "unknown": true,
    "v": 4
   },
+  "sigma[pnot3](n) = 0 (mod 2) for all n = 5 (mod 6)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_x7b9004e6_w1",
+   "checks": 6,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "sigma[rev](n) = 0 (mod 3) for all n = 2 (mod 3)": {
    "authored": true,
    "certificate": {
@@ -7221,6 +7160,6 @@
    "v": 4
   }
  },
- "seconds": 0.03,
- "ts": "2026-11-16T05:39:27Z"
+ "seconds": 0.26,
+ "ts": "2026-11-16T06:03:36Z"
 }

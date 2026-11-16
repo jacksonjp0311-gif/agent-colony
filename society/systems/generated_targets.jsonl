@@ -113,3 +113,4 @@
 {"event": "passed", "name": "authored_mut_swap_related_sequence_38103ffd94ce", "source": "oracle"}
 {"event": "passed", "name": "authored_mut_swap_related_sequence_3c874f89f994", "source": "oracle"}
 {"event": "passed", "name": "authored_mut_swap_related_sequence_a3d177b50be9", "source": "oracle"}
+{"claim": {"kind": "le", "lhs": "dbl(tau)", "params": {}, "rhs": "S(oxa316344)"}, "cycle_id": "20261116T055604Z_3aae26", "event": "authored", "key": "a6110dabd1ce3db8db96fdacb2e1c78912411f747a329d385d8120e5a6c25fb0", "mut_kind": "swap_related_sequence", "name": "authored_mut_swap_related_sequence_a6110dabd1ce", "source_statement": "dbl(gpf)(n) <= S(oxa316344)(n) for all n >= 1 (with equality at some n)", "statement": "dbl(tau)(n) <= S(oxa316344)(n) for all n >= 1 (with equality at some n)"}

@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 27,
- "last_refill_index": 26,
+ "cycle_index": 30,
+ "last_refill_index": 29,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -290,6 +290,38 @@
   "a2129f3614fdc0b8": {
    "cycle_id": "20261116T053325Z_c70140",
    "n_hits": 10
+  },
+  "0c3a3a5fb13fbc66": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 10
+  },
+  "5de943a4b189a1e7": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 10
+  },
+  "c34d00165603ce8e": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 8
+  },
+  "ee4055424e2ebeea": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 8
+  },
+  "4b1e214d99723e40": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 10
+  },
+  "aefd423ed7526458": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 10
+  },
+  "616cc55b6119ef0a": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 10
+  },
+  "47290417d222d902": {
+   "cycle_id": "20261116T055604Z_3aae26",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -347,40 +379,44 @@
   "A290642": "20261116T044657Z_c1f860",
   "A337500": "20261116T044657Z_c1f860",
   "A278023": "20261116T051056Z_613a12",
-  "A195350": "20261116T051056Z_613a12"
+  "A195350": "20261116T051056Z_613a12",
+  "A027182": "20261116T055604Z_3aae26",
+  "A344502": "20261116T055604Z_3aae26",
+  "A292461": "20261116T055604Z_3aae26",
+  "A218045": "20261116T055604Z_3aae26"
  },
- "refills": 9,
- "added": 55,
+ "refills": 10,
+ "added": 58,
  "last": {
-  "cycle_id": "20261116T053325Z_c70140",
+  "cycle_id": "20261116T055604Z_3aae26",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 11,
+  "requests": 17,
   "new": [
    {
-    "id": "oc_A068082_0",
+    "id": "oc_A344503_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A002627_0",
+    "id": "oc_A091540_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A002414_0",
-    "form": "gf",
+    "id": "oc_A079006_0",
+    "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 63,
-   "resolved_skipped": 11,
-   "keyword_skipped": 13,
-   "statements": 73,
-   "parsed": 5,
-   "no_bfile": 0,
-   "fails_on_data": 0,
+   "entries": 58,
+   "resolved_skipped": 16,
+   "keyword_skipped": 1,
+   "statements": 49,
+   "parsed": 7,
+   "no_bfile": 2,
+   "fails_on_data": 2,
    "kept": 3,
    "def_candidates": 0
   }

@@ -16,7 +16,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Proposed this snapshot: **7**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **4** times (`set_knob:direction=up:name=park_cycles:value=8`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 100, correct 0, pending 63, accuracy 0‰
+- Hive shadow picks: resolved 100, correct 0, pending 64, accuracy 0‰
 
 ## Per method card
 
@@ -51,7 +51,7 @@ _None yet._
 
 ## Reading breadth (knowledge library)
 
-knowledge: 75 papers across 9/14 fields, 51 concepts, 18 cards formed, 0 tested, 0 kept.
+knowledge: 81 papers across 9/14 fields, 54 concepts, 19 cards formed, 0 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -62,7 +62,7 @@ knowledge: 75 papers across 9/14 fields, 51 concepts, 18 cards formed, 0 tested,
 | mathematics | 8 | 0 | 0 | 0 | 0 |
 | meta_learning | 8 | 7 | 0 | 0 | 0 |
 | multi_agent_systems | 0 | 0 | 0 | 0 | 0 |
-| neural_architecture | 8 | 9 | 4 | 0 | 0 |
+| neural_architecture | 14 | 12 | 5 | 0 | 0 |
 | open_endedness | 0 | 0 | 0 | 0 | 0 |
 | optimization_search | 0 | 0 | 0 | 0 | 0 |
 | physics_complex_systems | 0 | 0 | 0 | 0 | 0 |
@@ -75,7 +75,7 @@ knowledge: 75 papers across 9/14 fields, 51 concepts, 18 cards formed, 0 tested,
 - `swarm_topology` — 7 papers (neural_architecture, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
 - `self_play_challenger` — 7 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 - `meta_controller` — 6 papers (meta_learning, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
-- `specialist_routing` — 5 papers (neural_architecture): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
+- `specialist_routing` — 6 papers (neural_architecture): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `self_model_calibration` — 4 papers (cognitive_science, consciousness_self_models): The colony tracks its own prediction accuracy per desk and uses it to weight proposals (calibrated self-model; not a consciousness claim).
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
