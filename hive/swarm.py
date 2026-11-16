@@ -24,6 +24,8 @@ external model is called.
 """
 from __future__ import annotations
 
+import os
+
 import json
 import uuid
 from dataclasses import dataclass
@@ -377,6 +379,33 @@ def _is_empty_pool_skip(finding: Mapping[str, Any], action: Mapping[str, Any] | 
     )
 
 
+def skip_bound_knobs_enabled() -> bool:
+    """Item 101 kill switch (HIVE_SKIP_BOUND_KNOBS=off restores the old first-suggestion pick)."""
+    return (os.environ.get("HIVE_SKIP_BOUND_KNOBS") or "on").strip().lower() != "off"
+
+
+def _first_legal_knob(cands: list[dict[str, Any]]) -> dict[str, Any]:
+    """Item 101: the first candidate knob move that is still legal.
+
+    The failure log showed 22 of 23 Hive picks that started nothing abstained with
+    ``no_legal_proposal``: the only finding was ``depth_at_physical_cap`` and every role proposed
+    ``fast_term_cap up``, which is already at its bound (``step_hits_bound``), although
+    ``gf_term_cap up`` (the next self-heal suggestion for the same finding) was legal. This
+    skips suggestions that cannot move and keeps the order otherwise. Candidate side only: the
+    validation, the legislator veto, the vote and the Wilson 700 permille gate are unchanged.
+    When none is legal it returns the first candidate (the old behaviour, still rejected).
+    """
+    if not skip_bound_knobs_enabled() or len(cands) == 1:
+        return dict(cands[0])
+    for a in cands:
+        try:
+            if FA.validate(_with_frontier_value(dict(a))).ok:
+                return dict(a)
+        except Exception:  # noqa: BLE001
+            continue
+    return dict(cands[0])
+
+
 def _action_for_role(
     role: str,
     finding: Mapping[str, Any],
@@ -420,16 +449,19 @@ def _action_for_role(
         knobs = list(focus.get("preferred_knobs") or [])
         # Prefer a diagnosis suggestion from self-heal when the knob is
         # in this role's list.
+        cands: list[dict[str, Any]] = []
         try:
             from hive import host
             for knob, direction in host.DIAGNOSIS_SUGGESTIONS.get(kind, []):
                 if knobs and knob not in knobs:
                     continue
-                return {"op": "set_knob", "name": knob, "direction": direction}
+                cands.append({"op": "set_knob", "name": knob, "direction": direction})
         except Exception:
             pass
         if knobs:
-            return {"op": "set_knob", "name": knobs[0], "direction": "up"}
+            cands.append({"op": "set_knob", "name": knobs[0], "direction": "up"})
+        if cands:
+            return _first_legal_knob(cands)
     if "add_skip_rule" in ops and kind in (
         "repeated_targets", "no_progress_perturb", "empty_claim_label",
     ):
