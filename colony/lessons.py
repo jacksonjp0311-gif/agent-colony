@@ -1352,6 +1352,37 @@ def preferred_variant_mutations() -> list[str]:
     return [n for n, _k, _s in variant_mutation_snippets()]
 
 
+def oracle_passed_themes() -> set[str]:
+    """Item 90: theme keys of targets the Oracle has already passed (read-only on oracle.jsonl).
+
+    A Chain / Chain+seek wrapper of an already-passed target cannot add anything: the wrapper
+    kind never survives the Oracle's held-out, and its kill row became the target's latest
+    result in the novelty window, displacing the real hit. Reads the log; edits nothing.
+    """
+    out: set[str] = set()
+    try:
+        from colony.oracle import ORACLE_LOG
+        path = ORACLE_LOG
+    except Exception:  # noqa: BLE001
+        path = Path(__file__).resolve().parent.parent / "data" / "commons" / "oracle.jsonl"
+    try:
+        with open(path, encoding="utf-8") as fh:
+            for ln in fh:
+                if '"passed": true' not in ln:
+                    continue
+                try:
+                    row = json.loads(ln)
+                except json.JSONDecodeError:
+                    continue
+                if row.get("passed") is True:
+                    k = theme_key(str(row.get("mutation") or ""))
+                    if k:
+                        out.add(k)
+    except OSError:
+        pass
+    return out
+
+
 def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | None:
     """Build one seek-oriented improvement from guides + papers/ledger themes (not process spam).
 
@@ -1425,6 +1456,18 @@ def seek_proposal_from_guides(*, cycle_id: str = "") -> tuple[str, str, str] | N
             continue
         seen.add(t)
         ordered.append(c)
+    # Item 90: never wrap a target the Oracle already passed (live arm only; control frozen).
+    # Its wrapper is always killed and would displace the hit as the target's latest novelty row.
+    try:
+        from colony.arm import self_mod_enabled
+        if self_mod_enabled():
+            _passed = oracle_passed_themes()
+            if _passed:
+                ordered = [c for c in ordered if (theme_key(c) or c) not in _passed]
+                if not ordered:
+                    return None  # nothing unpassed to seek: the desk authors new checks instead
+    except Exception:  # noqa: BLE001
+        pass
     # Re-enabling an already-enabled target adds nothing (Oracle: stripped_not_useful) — skip
     if seek_variants:
         fresh = [c for c in ordered if target_enabled(theme_key(c) or c) is not True]
