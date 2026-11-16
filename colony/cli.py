@@ -105,7 +105,16 @@ def main(argv: list[str] | None = None) -> int:
         default=None,
         help="GitHub Actions job result for the control arm (success/failure/skipped)",
     )
+    sub.add_parser(
+        "self-build",
+        help="Read-only dry run of the self-build pipeline (item 80): candidate blueprints and self-tests",
+    )
     args = parser.parse_args(argv)
+
+    if args.cmd == "self-build":
+        from colony.self_build import dry_run
+        print(json.dumps(dry_run(), indent=2, default=str))
+        return 0
 
     from colony.society import Society
 

@@ -3589,7 +3589,22 @@ def run_cycle(
         supply = maybe_supply_oracle_targets(cycle_id, findings=found)
     except Exception as exc:  # noqa: BLE001
         supply = {"invited": False, "authored": [], "reason": f"error:{type(exc).__name__}"}
+    self_build_open = False
     if not st.get("trial"):
+        # Item 80: wait while a self-build blueprint trial is open so neither
+        # trial is credited with the other's gain (self-mod arm only).
+        try:
+            from colony.self_build import blocks_self_heal
+            self_build_open = bool(blocks_self_heal())
+        except Exception:
+            self_build_open = False
+    if self_build_open:
+        st["trial_skip"] = {"cycle_id": cycle_id, "reason": "self_build_trial_open"}
+        try:
+            save_state(st)
+        except Exception:
+            pass
+    elif not st.get("trial"):
         proposal = propose_trial(found, state=st, cycle_id=cycle_id)
         if proposal is not None:
             st = start_trial(proposal, state=st, cycle_id=cycle_id)
