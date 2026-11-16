@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-16T05:54:09Z",
-  "cycle_id": "20261116T055349Z_a9ea33",
+  "ts": "2026-11-16T06:19:21Z",
+  "cycle_id": "20261116T061856Z_5a66e3",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
@@ -10,7 +10,7 @@
     "n": 12,
     "aggregate": {
       "last": 0.8574,
-      "slope": 0.000378,
+      "slope": 0.001133,
       "min": 0.8394,
       "max": 0.8574
     },
@@ -193,10 +193,10 @@
     "verified": {
       "goldbach_even": 490834115,
       "collatz_descent": 527800000,
-      "legendre_square_gap": 2684607,
-      "lehmer_totient": 247000001,
+      "legendre_square_gap": 2700607,
+      "lehmer_totient": 248600001,
       "erdos_straus": 1429127,
-      "twin_primes_hl": 658200000,
+      "twin_primes_hl": 662200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
