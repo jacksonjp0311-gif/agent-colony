@@ -3,7 +3,7 @@
  "by_kind": {
   "cong": [
    89,
-   35
+   34
   ],
   "divides": [
    28,
@@ -26,7 +26,7 @@
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 42,
+ "n_proved": 41,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -636,6 +636,18 @@
    "summary": "periodic residues: n split mod 2, every class derived from 3 lemma(s): digsum(x+1) = digsum(x) + 1 when x does not end in 9 (no carry; e.g. x even); lpf(x) = 2 when 2 | x and no smaller prime divides x; lpf(x) is odd for odd x; n < 64 checked directly",
    "unknown": true,
    "v": 3
+  },
+  "D((gpf*oxa157100))(n) = 0 (mod 2) for all n = 1 (mod 2)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xa837a24d_w1",
+   "checks": 244,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
   },
   "D((oxa157100*rs))(n) = 0 (mod 2) for all n = 0 (mod 4)": {
    "authored": false,
@@ -5285,63 +5297,6 @@
    "unknown": false,
    "v": 3
   },
-  "sh(pell)(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 2,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "sh(pell)",
-       "kids": [
-        {
-         "e": "pell",
-         "lemma": "pell is periodic mod 2 (defining recurrence; state repeats)",
-         "pt": [
-          1,
-          1
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 1,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "sh",
-       "val": {
-        "a": {},
-        "c": 1,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "pell is periodic mod 2 (defining recurrence; state repeats)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x0bfbad45_w1",
-   "checks": 1994,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 2, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "sigma[digsum](n) = 0 (mod 3) for all n = 2 (mod 3)": {
    "authored": false,
    "certificate": {
@@ -5803,5 +5758,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T07:55:32Z"
+ "ts": "2026-11-16T08:21:18Z"
 }
