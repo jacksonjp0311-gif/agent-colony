@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 102,
- "last_refill_index": 101,
+ "cycle_index": 105,
+ "last_refill_index": 104,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -1090,6 +1090,38 @@
   "d2ff84b5d13c03cc": {
    "cycle_id": "20261116T182728Z_138eae",
    "n_hits": 1
+  },
+  "b704e5da9855bf7c": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 0
+  },
+  "f30598dcd9898df5": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 0
+  },
+  "911a8529c17ec507": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 10
+  },
+  "7404eb517f6c5a41": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 10
+  },
+  "c29c8cf8f65b20cc": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 10
+  },
+  "38a4fe5da77b129a": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 1
+  },
+  "5f55b40a1bd0bad8": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 0
+  },
+  "8d5594cf9b3a5cab": {
+   "cycle_id": "20261116T185529Z_d445e0",
+   "n_hits": 0
   }
  },
  "rejected": {
@@ -1228,29 +1260,30 @@
   "A307181": "20261116T163416Z_7e4bff",
   "A307307": "20261116T163416Z_7e4bff",
   "A025245": "20261116T170346Z_d6431c",
-  "A171556": "20261116T170346Z_d6431c"
+  "A171556": "20261116T170346Z_d6431c",
+  "A393104": "20261116T185529Z_d445e0"
  },
- "refills": 34,
- "added": 127,
+ "refills": 35,
+ "added": 128,
  "last": {
-  "cycle_id": "20261116T182728Z_138eae",
-  "open_before": 6,
+  "cycle_id": "20261116T185529Z_d445e0",
+  "open_before": 0,
   "pages_read": 8,
   "requests": 10,
   "new": [
    {
-    "id": "oc_A127804_0",
-    "form": "relation",
+    "id": "oc_A298267_0",
+    "form": "gf",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 7,
-   "resolved_skipped": 2,
-   "keyword_skipped": 2,
-   "statements": 3,
-   "parsed": 1,
-   "no_bfile": 0,
+   "entries": 29,
+   "resolved_skipped": 10,
+   "keyword_skipped": 1,
+   "statements": 27,
+   "parsed": 3,
+   "no_bfile": 1,
    "fails_on_data": 0,
    "kept": 1,
    "def_candidates": 0
