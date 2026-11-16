@@ -49,5 +49,30 @@ _None yet._
 - `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T231100Z_0d2828` (baseline 0.0, trial 284.0)
 - `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T234549Z_0bd39c` (baseline 0.0, trial None)
 
+## Reading breadth (knowledge library)
+
+knowledge: 0 papers across 0/14 fields, 0 concepts, 1 cards formed, 0 tested, 0 kept.
+
+| Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| automated_reasoning | 0 | 0 | 0 | 0 | 0 |
+| cognitive_science | 0 | 0 | 0 | 0 | 0 |
+| consciousness_self_models | 0 | 0 | 0 | 0 | 0 |
+| learning_theory | 0 | 0 | 0 | 0 | 0 |
+| mathematics | 0 | 0 | 0 | 0 | 0 |
+| meta_learning | 0 | 0 | 0 | 0 | 0 |
+| multi_agent_systems | 0 | 0 | 0 | 0 | 0 |
+| neural_architecture | 0 | 0 | 0 | 0 | 0 |
+| open_endedness | 0 | 0 | 0 | 0 | 0 |
+| optimization_search | 0 | 0 | 0 | 0 | 0 |
+| physics_complex_systems | 0 | 0 | 0 | 0 | 0 |
+| recursive_self_improvement | 0 | 0 | 1 | 0 | 0 |
+| self_learning_loops | 0 | 0 | 0 | 0 | 0 |
+| swarm_collective_intelligence | 0 | 0 | 0 | 0 | 0 |
+
+## Architecture ideas (proposals for a human-built PR; never auto-executed)
+
+_None yet._
+
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
