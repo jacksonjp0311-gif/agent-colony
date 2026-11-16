@@ -29,19 +29,26 @@ def _impl():
 def test_new_stem_family_holds_and_starts_disabled(name):
     m = _impl()
     row = next(r for r in m.STEM_CHECKS if r[0] == name)
-    assert row[2] is False  # Oracle decides
+    # Shipped disabled; the colony may since have enabled it through the unchanged Oracle
+    # (stem_enable keep, e.g. stem_wheatstone_balance at 2026-11-16T13:11Z). Either is valid.
+    assert row[2] in (False, True)
     assert row[1]() is True
     assert (name, "stem_enable", f"enable:{name}") in MUTATION_SNIPPETS
     assert name in [n for n, _, _ in DP.STEM_MUTATIONS]
     assert DP.pack_for_kind("stem_enable", name) == "stem_kinematics"
     src = IMPL.read_text()
     enabled = DP.enable_stem(src, name)
-    assert enabled is not None and enabled.count(", True),") == src.count(", True),") + 1
+    if row[2] is False:
+        assert enabled is not None and enabled.count(", True),") == src.count(", True),") + 1
+    else:
+        assert enabled is None  # already on: nothing left to flip
 
 
 def test_disabled_entries_do_not_change_the_live_bench():
     m = _impl()
-    assert set(m.run_stem_checks()) == {"suvat_identity", "projectile_range", "circular_centripetal", "energy_work"}
+    on = {r[0] for r in m.STEM_CHECKS if r[0] in NEW and r[2] is True}  # enabled since by the Oracle
+    assert set(m.run_stem_checks()) == {"suvat_identity", "projectile_range", "circular_centripetal",
+                                        "energy_work"} | on
 
 
 def test_checks_are_not_vacuous():
