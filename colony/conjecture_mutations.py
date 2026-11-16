@@ -110,6 +110,17 @@ MUTATION_SNIPPETS: list[tuple[str, str, str]] = [
     ("faulhaber_power_sums", "hard_enable", "enable:faulhaber_power_sums"),
     ("lagrange_cyclic_orders", "hard_enable", "enable:lagrange_cyclic_orders"),
     ("burnside_necklaces", "hard_enable", "enable:burnside_necklaces"),
+    # Hard-tier domain refill (item 88) — classical lemmas, disabled in lemma_impl; Oracle decides
+    ("jacobi_two_squares", "hard_enable", "enable:jacobi_two_squares"),
+    ("jacobi_four_squares", "hard_enable", "enable:jacobi_four_squares"),
+    ("legendre_factorial_valuation", "hard_enable", "enable:legendre_factorial_valuation"),
+    ("kummer_carries", "hard_enable", "enable:kummer_carries"),
+    ("ramanujan_partition_congruences", "hard_enable", "enable:ramanujan_partition_congruences"),
+    ("primitive_root_count", "hard_enable", "enable:primitive_root_count"),
+    ("zeckendorf_unique", "hard_enable", "enable:zeckendorf_unique"),
+    ("dedekind_reciprocity", "hard_enable", "enable:dedekind_reciprocity"),
+    ("korselt_criterion", "hard_enable", "enable:korselt_criterion"),
+    ("pisano_prime_period", "hard_enable", "enable:pisano_prime_period"),
     # STEM kinematics domain pack
     ("energy_work", "stem_enable", "enable:energy_work"),
     ("stem_easy_pad_units", "stem_easy_pad", "pad"),

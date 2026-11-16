@@ -1,24 +1,33 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T02:52:58Z",
-  "passes": 532,
+  "updated_at": "2026-11-16T03:49:35Z",
+  "passes": 541,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4255,
+  "kill_rate": 0.4214,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 4,
-    "kills": 56,
+    "passes": 13,
+    "kills": 47,
     "easy_pad_kills": 0,
-    "kill_rate": 0.9333
+    "kill_rate": 0.7833
   },
-  "bus_ok_rate": 0.9,
+  "bus_ok_rate": 0.75,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_38103ffd94ce",
     "authored_mut_swap_related_sequence_3c874f89f994",
-    "authored_mut_swap_related_sequence_a3d177b50be9"
+    "authored_mut_swap_related_sequence_a3d177b50be9",
+    "dedekind_reciprocity",
+    "jacobi_four_squares",
+    "jacobi_two_squares",
+    "korselt_criterion",
+    "kummer_carries",
+    "legendre_factorial_valuation",
+    "primitive_root_count",
+    "ramanujan_partition_congruences",
+    "zeckendorf_unique"
   ],
   "unique_mutations_kill": [
     "Chain `authored_mut_perturb_constant_e6cbf4fdcc3b` citing Density and holes of the visible points in certain",
@@ -33,17 +42,13 @@
     "authored_mut_swap_related_sequence_1e32e19fc335",
     "authored_mut_swap_related_sequence_3909a3967380",
     "authored_mut_swap_related_sequence_3a917a302be9",
-    "authored_mut_swap_related_sequence_3fcf4c695bad",
     "authored_mut_swap_related_sequence_407fbdbac9ef",
-    "authored_mut_swap_related_sequence_43bfea4a2cc0",
     "authored_mut_swap_related_sequence_5223338a52eb",
     "authored_mut_swap_related_sequence_55ef68f19547",
     "authored_mut_swap_related_sequence_566c464aa389",
-    "authored_mut_swap_related_sequence_58aacc9fceff",
     "authored_mut_swap_related_sequence_5eb7494b98aa",
     "authored_mut_swap_related_sequence_5f1e08241fef",
     "authored_mut_swap_related_sequence_6af0e18deac1",
-    "authored_mut_swap_related_sequence_6e0112880376",
     "authored_mut_swap_related_sequence_78025e23cf57",
     "authored_mut_swap_related_sequence_818b81b6a804",
     "authored_mut_swap_related_sequence_83432cf56e85",
@@ -58,9 +63,13 @@
     "authored_mut_swap_related_sequence_a7fc2de5dabd",
     "authored_mut_swap_related_sequence_aa16db33659f",
     "authored_mut_swap_related_sequence_abd2d19e66bf",
-    "authored_mut_swap_related_sequence_b50db24ce154",
     "authored_mut_swap_related_sequence_bb7bf2799b09",
-    "authored_mut_swap_related_sequence_c0b3ed8d37bd"
+    "authored_mut_swap_related_sequence_c0b3ed8d37bd",
+    "authored_mut_swap_related_sequence_c461b03cfcee",
+    "authored_mut_swap_related_sequence_c92be463a0f5",
+    "authored_mut_swap_related_sequence_c975a0acf97b",
+    "authored_mut_swap_related_sequence_d4fd9cc584c3",
+    "authored_mut_swap_related_sequence_dda3900e5ef8"
   ],
   "domain_packs": {
     "packs": {
@@ -92,7 +101,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T02:52:58Z",
+    "ts": "2026-11-16T03:49:35Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -102,16 +111,16 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_3c874f89f994` kind=hard_enable. lemma mutation authored_mut_swap_related_sequence_3c874f89f994 0.8817->0.8815 (compared 0.857->0.857; speed",
-      "attack": "WEIGH: `authored_mut_swap_related_sequence_3c874f89f994` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `korselt_criterion` kind=hard_enable. lemma mutation korselt_criterion 0.8726->0.871 (compared 0.857->0.857; speed_noise:-0.031) Not discovery. cycle=20261116T034746Z_b020ff.",
+      "attack": "WEIGH: `korselt_criterion` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
         "already_enabled": true,
         "in_catalog": true,
-        "hard_pass": 163,
-        "hard_n": 163,
-        "score": 0.8817,
+        "hard_pass": 171,
+        "hard_n": 171,
+        "score": 0.8715,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -122,52 +131,19 @@
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 163,
-        "hard_n": 163,
+        "hard_pass": 171,
+        "hard_n": 171,
         "ok": true,
-        "score": 0.8815,
+        "score": 0.871,
         "shifted_window": {
           "ok": true,
           "status": "pass",
           "reason": "shift_window_pass",
           "applied": true,
-          "ranges_shifted": 0,
-          "probes": 3,
-          "windows_shifted": 1,
-          "shifted": [
-            {
-              "from": [
-                [
-                  40,
-                  80
-                ],
-                [
-                  80,
-                  120
-                ],
-                [
-                  120,
-                  160
-                ]
-              ],
-              "to": [
-                [
-                  161,
-                  200
-                ],
-                [
-                  201,
-                  240
-                ],
-                [
-                  241,
-                  281
-                ]
-              ]
-            }
-          ],
-          "seconds": 0.382,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': 'dbl(bigomega)', 'params': {}, 'rhs': 'S(oxa316344)'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 200), (201, 240), (241, 281)])))",
+          "ranges_shifted": 1,
+          "probes": 1196,
+          "seconds": 0.143,
+          "window_expr": "all((check_korselt_criterion(n) for n in _oracle_shifted_range(1200, 2396, 1)))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -245,15 +221,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_swap_related_sequence_3c874f89f994",
+      "mutation": "korselt_criterion",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mut_swap_related_sequence_3c874f89f994",
+    "mutation": "korselt_criterion",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T025134Z_61a584",
+    "cycle_id": "20261116T034746Z_b020ff",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

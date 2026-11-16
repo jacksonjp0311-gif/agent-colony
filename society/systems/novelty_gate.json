@@ -1,39 +1,35 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T02:56:16Z",
-  "hits": 1,
+  "updated_at": "2026-11-16T03:49:36Z",
+  "hits": 10,
   "kills": 5,
   "rows": 30,
-  "kill_rows": 29,
+  "kill_rows": 20,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T02:56:16Z",
-    "cycle_id": "",
-    "mutation": "Chain+seek `authored_mut_swap_related_sequence_3c874f89f994` from invariant priors",
-    "kind": "process",
-    "novel_to_commons": false,
-    "kills": [
-      "stripped_baseline_does_not_fail_usefulness",
-      "held_out:hard_tier_green_and_hard_enable",
-      "oracle_prescreen:held_out:held_out_fail"
-    ],
+    "ts": "2026-11-16T03:49:36Z",
+    "cycle_id": "20261116T034746Z_b020ff",
+    "mutation": "korselt_criterion",
+    "kind": "hard_enable",
+    "novel_to_commons": true,
+    "kills": [],
     "textbook_reuse": 0.0,
     "in_ledger": false,
     "own_authoring_record_only": false,
-    "oracle_used": "prescreen_drop",
+    "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": false,
-      "hard_pass": 162,
-      "hard_n": 162,
-      "stripped_fails_usefulness": false,
-      "score": 0.8812,
-      "impl_id": "lemma_impl_v2_basic10_hard162"
+      "in_catalog": true,
+      "hard_pass": 171,
+      "hard_n": 171,
+      "stripped_fails_usefulness": true,
+      "score": 0.8716,
+      "impl_id": "lemma_impl_v2_basic10_hard163"
     },
     "held_out": {
-      "survives": false,
+      "survives": true,
       "reason": "hard_tier_green_and_hard_enable",
-      "hard_pass": 162,
+      "hard_pass": 171,
       "ok": true
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
