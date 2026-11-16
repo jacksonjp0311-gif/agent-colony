@@ -2228,6 +2228,27 @@ def attributable_progress(trial: dict[str, Any], *, attempt_log: dict[str, Any] 
     return sorted(hit & predicted)
 
 
+def learned_move_rates(state: Mapping[str, Any] | dict[str, Any]) -> dict[tuple[str, str], float]:
+    """Item 87: Laplace keep rate (adopts+1)/(adopts+reverts+2) per (knob, direction) from evidence.
+
+    Inconclusive and voided trials carry no evidence either way. Self-mod arm only (control: {}).
+    """
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return {}
+    except Exception:  # noqa: BLE001
+        return {}
+    counts: dict[tuple[str, str], list[int]] = {}
+    for e in state.get("evidence") or []:
+        if not isinstance(e, dict) or e.get("event") not in ("adopt", "revert"):
+            continue
+        key = (str(e.get("knob") or ""), str(e.get("direction") or ""))
+        c = counts.setdefault(key, [0, 0])
+        c[0 if e["event"] == "adopt" else 1] += 1
+    return {k: (a + 1.0) / (a + r + 2.0) for k, (a, r) in counts.items()}
+
+
 def propose_trial(
     findings: list[dict[str, Any]],
     *,
@@ -2319,8 +2340,15 @@ def propose_trial(
             return 0
         return heal_repeat_failures(knob, direction, _fm_rows)
 
+    # Item 87: then by the (knob, direction) keep rate learned from past adopts / reverts.
+    _learned = learned_move_rates(st)
+
+    def _rate(knob: str, direction: str) -> float:
+        return _learned.get((knob, direction), 0.5)
+
     ordered.sort(key=lambda c: (_ladder(c[1], c[2]), 0 if _pred(c[1], c[2]) else 1,
-                                _narrow(c[1], c[2]), _fails(c[1], c[2]), -len(_pred(c[1], c[2]))))
+                                _narrow(c[1], c[2]), _fails(c[1], c[2]), -_rate(c[1], c[2]),
+                                -len(_pred(c[1], c[2]))))
     exhausted_cache: list[bool] = []
     # The fall-through applies only when a cap raise was the diagnosed
     # remedy (a cap finding is present) and no cap can bind a target.
