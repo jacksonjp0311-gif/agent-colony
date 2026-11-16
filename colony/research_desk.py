@@ -216,14 +216,25 @@ POLICY_KNOBS = (
 )
 
 
-def extract_cards(hit: dict[str, Any]) -> list[dict[str, Any]]:
+def _all_rules() -> list[tuple[re.Pattern[str], str, dict[str, Any], str]]:
+    """Original lexicon first (ids unchanged), then item-79 concept families."""
+    rules = [(p, m, a, "") for p, m, a in _RULES]
+    try:
+        from colony.knowledge_library import concept_rules
+        rules.extend(concept_rules())
+    except Exception:
+        pass
+    return rules
+
+
+def extract_cards(hit: dict[str, Any], *, field: str = "") -> list[dict[str, Any]]:
     """Apply the lexicon in order; at most one card per rule per abstract."""
     text = f"{hit.get('title') or ''} {hit.get('abstract') or ''}"
     if not text.strip():
         return []
     out: list[dict[str, Any]] = []
     seen_ops: set[str] = set()
-    for pattern, method, action in _RULES:
+    for pattern, method, action, concept in _all_rules():
         if not pattern.search(text):
             continue
         ok, reason, payload = _validate_action(action)
@@ -261,6 +272,10 @@ def extract_cards(hit: dict[str, Any]) -> list[dict[str, Any]]:
                 "source": hit.get("source") or "arxiv",
             },
         }
+        if concept:
+            card["concept"] = concept
+        if field or hit.get("field"):
+            card["field"] = str(field or hit.get("field"))
         out.append(card)
     return out
 
@@ -307,16 +322,36 @@ def run_desk(
     body: str | None = None,
     fetch: Callable[[], str] | None = None,
     write: bool = True,
-    query: str = QUERY,
+    query: str | None = None,
+    topic: dict[str, str] | None = None,
 ) -> dict[str, Any]:
-    """Fetch (or accept a body), extract cards, append new ones. Control is a no-op."""
+    """Fetch (or accept a body), extract cards, append new ones. Control is a no-op.
+
+    Item 79: the query rotates round-robin over ``knowledge_library.TOPICS``
+    (one topic per cycle). Every abstract read lands in the append-only
+    knowledge library with its field tag; concepts that imply structural
+    change go to the architecture-ideas log. Abstracts are data only.
+    """
     report: dict[str, Any] = {
         "ran": False, "cards": [], "n_hits": 0, "n_new": 0, "reason": "",
-        "query": query,
+        "query": query or "",
     }
     if not self_mod_ok():
         report["reason"] = "control_frozen"
         return report
+    try:
+        from colony import knowledge_library as KL
+    except Exception:  # noqa: BLE001
+        KL = None  # type: ignore[assignment]
+    library_rows = KL.load_library() if KL is not None else []
+    if topic is None:
+        if query is not None or KL is None:
+            topic = {"field": "recursive_self_improvement", "topic": "legacy", "query": query or QUERY}
+        else:
+            topic = KL.next_topic(library_rows, cycle_id)
+    query = query or topic.get("query") or QUERY
+    field = str(topic.get("field") or "")
+    report.update(query=query, field=field, topic=topic.get("topic") or "")
     raw = body
     if raw is None:
         if fetch is not None:
@@ -326,30 +361,39 @@ def run_desk(
                 report["reason"] = f"fetch_error:{type(exc).__name__}"
                 return report
         else:
-            raw = _default_fetch(query)
-    if not raw:
-        report["reason"] = "empty_fetch"
-        report["ran"] = True
-        return report
-    if write:
+            raw, why = _polite_fetch(query, write=write)
+            if why:
+                report["fetch_status"] = why
+    budget = _desk_budget()
+    seen = known_card_ids()
+    new_cards: list[dict[str, Any]] = []
+    hits = parse_atom(raw) if raw else []
+    report["n_hits"] = len(hits)
+    if raw and write:
         _append(cache_path(), {
             "event": "fetch",
             "cycle_id": cycle_id,
             "query": query,
+            "field": field,
             "sha256": hashlib.sha256(raw.encode()).hexdigest(),
             "n_chars": len(raw),
             # Store the body so a later cycle can replay without a refetch.
             # Text only; never executed.
             "body": raw[:200_000],
         })
-    hits = parse_atom(raw)
-    report["n_hits"] = len(hits)
-    seen = known_card_ids()
-    budget = _desk_budget()
-    new_cards: list[dict[str, Any]] = []
+    known_papers = KL.known_paper_ids(library_rows) if KL is not None else set()
+    idea_seen = {(str(r.get("idea")), str(r.get("arxiv_id")))
+                 for r in (KL.load_ideas() if KL is not None else [])}
+    n_new_papers = 0
+    n_concepts = 0
+    n_ideas = 0
     for hit in hits:
-        for card in extract_cards(hit):
-            if card["id"] in seen:
+        hit = dict(hit, field=field)
+        concepts = KL.extract_concepts(hit) if KL is not None else []
+        n_concepts += len(concepts)
+        formed: list[str] = []
+        for card in extract_cards(hit, field=field):
+            if card["id"] in seen or len(new_cards) >= budget:
                 continue
             card = dict(card)
             card["cycle_id"] = cycle_id
@@ -358,16 +402,146 @@ def run_desk(
                 _append(cards_path(), card)
             seen.add(card["id"])
             new_cards.append(card)
+            formed.append(card["id"])
+        if KL is None:
+            continue
+        aid = str(hit.get("arxiv_id") or "")
+        if aid and aid not in known_papers:
+            known_papers.add(aid)
+            n_new_papers += 1
+            if write:
+                KL._append(KL.library_path(), KL.paper_row(
+                    hit, field=field, topic=str(topic.get("topic") or ""), cycle_id=cycle_id,
+                    concepts=concepts, card_ids=formed))
+        for idea in KL.idea_rows(hit, field=field, cycle_id=cycle_id, concepts=concepts, seen=idea_seen):
+            n_ideas += 1
+            if write:
+                KL._append(KL.ideas_path(), idea)
+    # Backlog: papers already in the library whose mappable concepts did
+    # not become cards (budget) form them on later cycles, oldest first.
+    if KL is not None and len(new_cards) < budget:
+        for row in library_rows:
             if len(new_cards) >= budget:
                 break
-        if len(new_cards) >= budget:
-            break
+            if row.get("event") != "paper" or not row.get("mapped_concepts"):
+                continue
+            for card in extract_cards(row, field=str(row.get("field") or "")):
+                if card["id"] in seen or len(new_cards) >= budget:
+                    continue
+                card = dict(card)
+                card["cycle_id"] = cycle_id
+                card["query"] = "library_backlog"
+                if write:
+                    _append(cards_path(), card)
+                seen.add(card["id"])
+                new_cards.append(card)
+    if KL is not None and write:
+        KL._append(KL.library_path(), {
+            "event": "topic_read", "cycle_id": cycle_id, "field": field,
+            "topic": topic.get("topic") or "", "query": query,
+            "n_hits": len(hits), "n_new_papers": n_new_papers,
+            "n_concepts": n_concepts, "n_ideas": n_ideas, "n_cards": len(new_cards),
+            "fetch_status": report.get("fetch_status") or ("ok" if raw else "empty"),
+        })
+        try:
+            cov = KL.coverage()
+            KL.write_coverage(cov)
+            report["coverage"] = KL.format_coverage(cov)
+        except Exception:
+            pass
+    report.update(n_new_papers=n_new_papers, n_concepts=n_concepts, n_ideas=n_ideas)
     report["ran"] = True
     report["cards"] = new_cards
     report["n_new"] = len(new_cards)
-    report["reason"] = "ok" if new_cards else "no_new_cards"
     report["budget"] = budget
+    if not raw and not new_cards:
+        report["reason"] = "empty_fetch"
+    else:
+        report["reason"] = "ok" if new_cards else "no_new_cards"
     return report
+
+
+DESK_MIN_INTERVAL_S = 120          # one polite arXiv GET per ~2 min at most
+DESK_STATE_NAME = "research_desk_arxiv.json"
+
+
+def desk_state_path() -> Path:
+    return Path(os.environ.get("COLONY_RESEARCH_DESK_STATE") or (
+        _repo() / "society" / "systems" / DESK_STATE_NAME
+    ))
+
+
+def _polite_fetch(query: str, *, write: bool = True, now: float | None = None,
+                  getter: Callable[..., dict[str, Any]] | None = None) -> tuple[str, str]:
+    """One arXiv GET honouring Retry-After (desk + gather state) and a min interval.
+
+    Returns (body, status). status is "" on a live fetch, else a reason.
+    Fail-soft; never raises. The body is text only and never executed.
+    """
+    import time as _time
+    now = _time.time() if now is None else now
+    try:
+        from colony import research_gather as RG
+    except Exception:  # noqa: BLE001
+        RG = None  # type: ignore[assignment]
+    path = desk_state_path()
+    try:
+        st = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    except Exception:
+        st = {}
+
+    def _ts(v: Any) -> float:
+        if RG is None or not v:
+            return 0.0
+        try:
+            return float(RG._parse_ts(v) or 0.0)
+        except Exception:
+            return 0.0
+
+    gather_wait = 0.0
+    if RG is not None:
+        try:
+            gather_wait = _ts(RG._load_arxiv_state().get("retry_after_until"))
+        except Exception:
+            gather_wait = 0.0
+    wait_until = max(_ts(st.get("retry_after_until")), gather_wait,
+                     _ts(st.get("last_attempt_at")) + DESK_MIN_INTERVAL_S)
+    if now < wait_until:
+        return "", "rate_limited_wait"
+    params = urlencode({"search_query": query, "start": 0, "max_results": MAX_RESULTS,
+                        "sortBy": "submittedDate", "sortOrder": "descending"})
+    url = f"{ARXIV_API}?{params}"
+    r: dict[str, Any] = {}
+    try:
+        g = getter or (RG._http_get_full if RG is not None else None)
+        if g is None:
+            body = _default_fetch(query)
+            r = {"ok": bool(body), "status": 200 if body else 0, "body": body}
+        else:
+            r = dict(g(url, accept="application/atom+xml") or {})
+    except Exception as exc:  # noqa: BLE001
+        r = {"ok": False, "status": 0, "error": type(exc).__name__}
+    status = int(r.get("status") or 0)
+    if RG is not None:
+        st["last_attempt_at"] = RG._iso(now)
+    st["last_status"] = status
+    why = ""
+    if status in (429, 503):
+        secs = RG._retry_after_s(r.get("retry_after"), now) if RG is not None else 1800.0
+        if RG is not None:
+            st["retry_after_until"] = RG._iso(now + secs)
+        why = f"throttled_{status}"
+    elif not r.get("ok"):
+        why = f"fetch_fail:{status or r.get('error') or 'error'}"
+    else:
+        st["retry_after_until"] = None
+    if write and not _pytest_would_write_repo(path):
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(st, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        except Exception:
+            pass
+    return (str(r.get("body") or "") if r.get("ok") else ""), why
 
 
 def _default_fetch(query: str) -> str:

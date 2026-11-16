@@ -251,17 +251,31 @@ def next_card_proposal(
     st = state if state is not None else load_state()
     pool = list(cards if cards is not None else _load_cards())
     tried = _tried_ids(st)
+    # Item 79: an op a card already tested (any card) is not re-tested by
+    # another card with the same op; support = distinct papers backing it.
+    tried_ops = _tried_card_ops(st)
+    support: dict[str, set[str]] = {}
+    for card in pool:
+        action = card.get("op") if isinstance(card.get("op"), Mapping) else {}
+        key = card_op_key(action)
+        src = card.get("source") if isinstance(card.get("source"), Mapping) else {}
+        support.setdefault(key, set()).add(str(src.get("arxiv_id") or card.get("id") or ""))
     legal: list[dict[str, Any]] = []
     for card in pool:
         cid = str(card.get("id") or "")
         if not cid or cid in tried:
             continue
         action = card.get("op") if isinstance(card.get("op"), Mapping) else {}
+        if card_op_key(action) in tried_ops:
+            continue
         ok, reason, payload = _validate_action(action)
         if not ok:
             continue
         legal.append({
             "card_id": cid,
+            "field": str(card.get("field") or ""),
+            "concept": str(card.get("concept") or ""),
+            "support": len(support.get(card_op_key(action)) or ()),
             "method": str(card.get("method") or ""),
             "action": {
                 k: payload[k] if k in payload else action[k]
@@ -293,7 +307,30 @@ def next_card_proposal(
         name = str((item["action"] or {}).get("name") or "")
         if name and name in hints:
             return item
+    # Most-supported op first (more independent papers); ties keep log order.
+    best = max(int(x.get("support") or 0) for x in legal)
+    for item in legal:
+        if int(item.get("support") or 0) == best:
+            return item
     return legal[0]
+
+
+def card_op_key(action: Mapping[str, Any] | None) -> str:
+    """Op identity without the resolved value: op + name/direction/family/order."""
+    if not isinstance(action, Mapping):
+        return ""
+    keep = {k: action[k] for k in ("op", "name", "direction", "family", "order") if k in action}
+    return json.dumps(keep, sort_keys=True, default=str)
+
+
+def _tried_card_ops(state: Mapping[str, Any]) -> set[str]:
+    out: set[str] = set()
+    for row in list(state.get("pending") or []) + list(state.get("examples") or []):
+        if not isinstance(row, Mapping) or not row.get("card_id"):
+            continue
+        if isinstance(row.get("action"), Mapping) and row["action"]:
+            out.add(card_op_key(row["action"]))
+    return out
 
 
 def attach_card_findings(
@@ -328,6 +365,9 @@ def attach_card_findings(
         "card_id": card_id,
         "card_action": action,
         "method": proposal["method"],
+        "field": proposal.get("field") or "",
+        "concept": proposal.get("concept") or "",
+        "support": int(proposal.get("support") or 0),
         "suggest": (
             [(action.get("name"), action.get("direction") or "up")]
             if action.get("op") == "set_knob" and action.get("name")
@@ -335,6 +375,7 @@ def attach_card_findings(
         ),
         "evidence": {
             "card_id": card_id,
+            "field": proposal.get("field") or "",
             "method": proposal["method"],
             "source": proposal.get("source") or {},
             "snippet": proposal.get("evidence") or "",
@@ -389,6 +430,8 @@ def record_example(
         "outcome": outcome,
         "card_id": card_id,
         "method": str(event.get("method") or ""),
+        "field": str(event.get("field") or ""),
+        "concept": str(event.get("concept") or ""),
         "family": family,
         "action": dict(action) if action else {},
         "knob": event.get("knob"),
@@ -429,6 +472,8 @@ def record_example(
         _bump_rate(cards, card_id, outcome)
         if card_id in cards and row.get("method"):
             cards[card_id]["method"] = row["method"]
+        if card_id in cards and row.get("field"):
+            cards[card_id]["field"] = row["field"]
         st["cards"] = cards
     families = dict(st.get("families") or {})
     _bump_rate(families, family, outcome)
@@ -675,6 +720,8 @@ def harvest_outcomes(
                 "outcome": final,
                 "card_id": card.get("card_id") or event.get("card_id") or "",
                 "method": card.get("method") or event.get("method") or "",
+                "field": card.get("field") or "",
+                "concept": card.get("concept") or "",
                 "action": action,
                 "family": op_family(action),
                 "knob": event.get("knob"),
@@ -705,11 +752,18 @@ def harvest_outcomes(
             write=False,
         )
         row["source_id"] = sid
+        if card and card.get("card_id") and card.get("source") == "self_heal":
+            # Item 79: a self-heal-opened card trial is closed by this event;
+            # later trials of the same knob are not credited to the card.
+            pending_cards = [p for p in pending_cards if p is not card]
+            st["pending"] = [p for p in list(st.get("pending") or [])
+                             if str(p.get("card_id")) != str(card.get("card_id"))]
         if final == "provisional_adopt":
             tpend = list(st.get("twin_pending") or [])
             tpend.append({
                 "source_id": sid,
                 "card_id": row.get("card_id"),
+                "field": row.get("field"),
                 "method": row.get("method"),
                 "action": row.get("action"),
                 "knob": row.get("knob"),
@@ -803,6 +857,9 @@ def note_proposal(
         "fingerprint": proposal.get("fingerprint") or "",
         "cycle_id": cycle_id or proposal.get("cycle_id") or "",
         "deferred_count": int(proposal.get("deferred_count") or 0),
+        "field": str(proposal.get("field") or ""),
+        "concept": str(proposal.get("concept") or ""),
+        "source": str(proposal.get("source") or "hive_vote"),
         "ts": _utc(),
     }
     pending = list(st.get("pending") or [])
@@ -816,6 +873,65 @@ def note_proposal(
         _append(log_path(), {**row, "applied_to_live_oracle": False, "authorized": False})
         save_state(st)
     return row
+
+
+def note_self_heal_card_trial(
+    trial: Mapping[str, Any] | None,
+    *,
+    cycle_id: str = "",
+    state: dict[str, Any] | None = None,
+    write: bool = True,
+) -> dict[str, Any] | None:
+    """Item 79: record a self-heal trial opened from a method-card finding.
+
+    The card's suggested knob competed with every other finding inside
+    self-heal's own ``propose_trial`` (same gates, same 6-cycle windows,
+    strictly better, twin control). This only labels the open trial with
+    the card and its source field so the close event is credited to it.
+    """
+    if not isinstance(trial, Mapping) or not self_mod_ok():
+        return None
+    finding = trial.get("finding") if isinstance(trial.get("finding"), Mapping) else {}
+    if str(finding.get("kind") or "") != "method_card" or not finding.get("card_id"):
+        return None
+    st = state if state is not None else load_state()
+    cid = str(finding["card_id"])
+    for p in list(st.get("pending") or []):
+        if str(p.get("card_id")) == cid and p.get("source") == "self_heal":
+            return None
+    for ex in list(st.get("examples") or []):
+        if str(ex.get("card_id")) == cid:
+            return None
+    action = dict(finding.get("card_action") or {})
+    action.setdefault("value", trial.get("to"))
+    return note_proposal({
+        "card_id": cid,
+        "method": finding.get("method") or "",
+        "action": action,
+        "fingerprint": trial.get("fingerprint") or trial.get("env_fingerprint") or "",
+        "field": finding.get("field") or "",
+        "concept": finding.get("concept") or "",
+        "source": "self_heal",
+        "cycle_id": trial.get("started_cycle") or cycle_id,
+    }, cycle_id=cycle_id, state=st, write=write)
+
+
+def self_heal_findings(findings: list[Any], cycle_id: str = "") -> list[dict[str, Any]]:
+    """Self-heal's findings plus at most one method-card finding (treatment only).
+
+    The card enters ``propose_trial`` as one more candidate behind the
+    diagnosed findings. Nothing is applied here and no gate changes.
+    """
+    base = [dict(f) for f in list(findings or []) if isinstance(f, Mapping)]
+    if not self_mod_ok():
+        return base
+    try:
+        st = load_state()
+        if any(p.get("source") == "self_heal" for p in list(st.get("pending") or [])):
+            return base  # one card trial at a time
+        return attach_card_findings(base, cycle_id, state=st)
+    except Exception:
+        return base
 
 
 def note_hive_deferral(
@@ -1008,8 +1124,32 @@ def render_markdown(state: dict[str, Any] | None = None) -> str:
                 f"family `{ex.get('family') or '—'}` · cycle `{ex.get('cycle_id') or '—'}` "
                 f"(baseline {ex.get('baseline_score')}, trial {ex.get('trial_score')})"
             )
+    lines.extend(_knowledge_lines(st))
     lines.extend(["", "Not AGI. Not discovery. Human authorize still required for durable accepts.", ""])
     return "\n".join(ln for ln in lines if ln is not None) + "\n"
+
+
+def _knowledge_lines(st: Mapping[str, Any]) -> list[str]:
+    """Item 79: reading breadth per field and top architecture ideas."""
+    try:
+        from colony import knowledge_library as KL
+        cov = KL.coverage(learning_state=st)
+        ideas = KL.rank_ideas(limit=5)
+    except Exception:
+        return []
+    out = ["", "## Reading breadth (knowledge library)", "",
+           KL.format_coverage(cov) + ".", "",
+           "| Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |",
+           "| --- | ---: | ---: | ---: | ---: | ---: |"]
+    for f, r in sorted((cov.get("fields") or {}).items()):
+        out.append(f"| {f} | {r.get('papers', 0)} | {r.get('concepts', 0)} | "
+                   f"{r.get('cards_formed', 0)} | {r.get('cards_tested', 0)} | {r.get('cards_kept', 0)} |")
+    out.extend(["", "## Architecture ideas (proposals for a human-built PR; never auto-executed)", ""])
+    if not ideas:
+        out.append("_None yet._")
+    for i in ideas:
+        out.append(f"- `{i['idea']}` — {i['n_papers']} papers ({', '.join(i['fields']) or '—'}): {i['description']}")
+    return out
 
 
 def write_markdown(state: dict[str, Any] | None = None) -> Path:
@@ -1035,10 +1175,17 @@ def dashboard_section(state: dict[str, Any] | None = None) -> str:
             )
         )
     listing = "".join(rows) or "<li><em>None yet.</em></li>"
+    knowledge = ""
+    try:
+        from colony import knowledge_library as KL
+        knowledge = f"<p>{escape(KL.format_coverage(KL.coverage(learning_state=st)))}</p>\n"
+    except Exception:
+        knowledge = ""
     return (
         "<h2>Method cards tried, kept, reverted</h2>\n"
         f"<p>{body}</p>\n"
         f"<ul>{listing}</ul>\n"
+        + knowledge
     )
 
 
@@ -1068,11 +1215,20 @@ def run_cycle(cycle_id: str = "", **kwargs: Any) -> dict[str, Any]:
             cycle_id, state=st, write=False,
             hive_links=[x for x in list(hive_links or []) if isinstance(x, Mapping)],
         )
+        card_trial = None
+        try:
+            from colony.self_heal import load_state as _load_heal
+            card_trial = note_self_heal_card_trial(
+                (_load_heal() or {}).get("trial"), cycle_id=cycle_id, state=st, write=False)
+        except Exception:
+            card_trial = None
         judged = judge_twin_pending(state=st, write=False)
         shadow = score_shadows(kwargs.get("hive_state"))
         st["shadow"] = shadow
         st["last_cycle"] = cycle_id or st.get("last_cycle") or ""
         extra = [deferred_row] if deferred_row else []
+        if card_trial:
+            extra.append({**card_trial, "applied_to_live_oracle": False, "authorized": False})
         if self_mod_ok():
             for row in harvested + judged + extra:
                 _append(log_path(), row)
@@ -1085,6 +1241,7 @@ def run_cycle(cycle_id: str = "", **kwargs: Any) -> dict[str, Any]:
             "twin_judged": judged,
             "shadow": shadow,
             "deferred": deferred_row,
+            "card_trial": card_trial,
             "visibility": format_visibility(st),
             "n_kept": st.get("n_kept") or 0,
             "n_reverted": st.get("n_reverted") or 0,
