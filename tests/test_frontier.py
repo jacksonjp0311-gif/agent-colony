@@ -60,8 +60,15 @@ def test_catalog_is_labeled_evidence_not_proof():
 def test_frontier_is_not_in_any_proof_scored_tier():
     from society.benchmarks.lemma_microbench import run as run_lemma
     names = " ".join(run_lemma()["checks"])
+    # Classical PROVEN theorems that merely share a frontier family's name prefix (Legendre's
+    # duplication formula, Legendre's formula for v_p(n!)) are not the open Legendre conjecture.
+    # Explicit list: any other family-prefixed name in a proof-scored tier still fails.
+    proven_namesakes = ("legendre_duplication", "legendre_factorial_valuation")
+    scrubbed = names
+    for nm in proven_namesakes:
+        scrubbed = scrubbed.replace(nm, "")
     for t in json.loads(FR.CATALOG.read_text())["targets"]:
-        assert t["id"] not in names and t["family"] + "_" not in names.replace("legendre_duplication", "")
+        assert t["id"] not in names and t["family"] + "_" not in scrubbed
     assert FR.IMPL.parent.name != "artifacts"  # out of the lemma/artifact scans
     import colony.fitness as F
     assert "frontier" not in open(F.__file__, encoding="utf-8").read()
