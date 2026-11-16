@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-11-16 03:31 AM ET
+# Proposal shortlist — 2026-11-16 03:57 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -9,7 +9,7 @@ View only: nothing here is authorized. Only James authorizes.
 | 1 | imp_630eed_49 | 0.8895 | 1.0 | 0.0 | APPROVE | 1 | 1 (0.8895) | Enable `authored_frontier_cong_xb5f19c6e_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8895, novelty 1.0. |
 | 2 | imp_a201b5_50 | 0.8871 | 1.0 | 0.0 | n/a yet | 2 | 15 (0.6617, below bar) | Enable `authored_frontier_divides_x318ee14a_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8871, novelty 1.0. |
 | 3 | imp_6a3c68_50 | 0.8837 | 1.0 | 0.0 | n/a yet | 1 | 16 (0.6583, below bar) | Enable `authored_frontier_le_x10223e69_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8837, novelty 1.0. |
-| 4 | imp_6fad91_50 | 0.8832 | 1.0 | 0.0 | APPROVE | 2 | 24 (0.6461, below bar) | Enable `authored_frontier_cong_xa8371e31_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8832, novelty 1.0. |
+| 4 | imp_6fad91_50 | 0.8832 | 1.0 | 0.0 | n/a yet | 2 | 24 (0.6461, below bar) | Enable `authored_frontier_cong_xa8371e31_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8832, novelty 1.0. |
 | 5 | imp_3a01d0_50 | 0.8829 | 1.0 | 0.0 | n/a yet | 1 | 17 (0.6575, below bar) | Enable `authored_frontier_divides_x0c5f5f5b_w2` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8829, novelty 1.0. |
 | 6 | imp_824b7f_50 | 0.8813 | 1.0 | 0.0 | n/a yet | 3 | 25 (0.6442, below bar) | Enable `authored_frontier_cong_x41b05781_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8813, novelty 1.0. |
 | 7 | imp_36d506_50 | 0.8784 | 1.0 | 0.0 | APPROVE | 1 | 2 (0.8784) | Enable `authored_frontier_le_x423b0686_w1` (Oracle passed it in its own cycle); builds on frontier:frontier_holds; P 0.8784, novelty 1.0. |
@@ -50,12 +50,13 @@ Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 22, novelty_k
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 10 tested, 3 survived held-out, 7 falsified, 2 machine-checked, 0 surprises; dropped 26 duplicates, 43 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1123.
-Totals: tested 12399, survived 4710, surprises 134, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
+Mode `live`. Last cycle: 22 tested, 7 survived held-out, 15 falsified, 5 machine-checked, 1 surprises; dropped 26 duplicates, 88 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1122.
+Totals: tested 12508, survived 4750, surprises 136, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 2 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
+| D((cubic*rad))(n) = 0 (mod 3) for all n = 2 (mod 3) | conjecture surviving 663 checks | no reference found (checked: classical catalog, A007947) | not_found | 1.0 |
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((oxa009191*oxa047700))(n) = 1 (mod 2) for all n = 4 (mod 11) | conjecture surviving 181 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
@@ -63,7 +64,6 @@ Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with
 | D((sigma*sqfree))(n) = 0 (mod 2) for all n = 1 (mod 2) | conjecture surviving 29994 checks |  | not_found | 1.0 |
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(oxa072856,pi))(n) = 0 (mod 2) for all n = 3 (mod 6) | conjecture surviving 31 checks | no reference found (checked: classical catalog, A000720) | not_found | 1.0 |
-| D(gcd(oxa157100,tm))(n) = 0 (mod 2) for all n = 1 (mod 4) | conjecture surviving 122 checks | no reference found (checked: classical catalog) | not_found | 1.0 |
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |

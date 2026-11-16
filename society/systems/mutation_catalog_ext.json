@@ -28,6 +28,20 @@
       "snippet": "enable:lemma_hard_combinatorics",
       "status": "candidate",
       "disabled_default": true
+    },
+    {
+      "name": "oeis_a000032_lucas_norm",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a000032_lucas_norm",
+      "status": "candidate",
+      "disabled_default": true
+    },
+    {
+      "name": "oeis_a001006_motzkin_ballot_sum",
+      "kind": "hard_enable",
+      "snippet": "enable:oeis_a001006_motzkin_ballot_sum",
+      "status": "candidate",
+      "disabled_default": true
     }
   ],
   "note": "Data-driven overlay from lessons catalog_hint. Enables stay candidate until authorize."

@@ -2162,6 +2162,41 @@ def check_authored_mut_swap_related_sequence_7f7f296d8a72() -> bool:
 
 
 
+def check_oeis_a000032_lucas_norm(n: int) -> bool:
+    """Lucas A000032 vs Fibonacci A000045: L(n) = F(n-1) + F(n+1) and L(n)^2 - 5 F(n)^2 = 4 (-1)^n.
+    L by its own recurrence, F by fast doubling (independent routes)."""
+    if n < 1:
+        return True
+    lo, hi = 2, 1
+    for _ in range(n):
+        lo, hi = hi, lo + hi
+
+    def fib(k: int) -> int:
+        a, b = 0, 1
+        for bit in bin(k)[2:]:
+            c, d = a * (2 * b - a), a * a + b * b
+            a, b = (d, c + d) if bit == "1" else (c, d)
+        return a
+    return lo == fib(n - 1) + fib(n + 1) and lo * lo - 5 * fib(n) ** 2 == 4 * (-1) ** n
+
+
+def check_oeis_a001006_motzkin_ballot_sum(n: int) -> bool:
+    """Motzkin A001006: lattice-path count (U/D/F, never below 0) equals sum_k C(n,2k) C(2k,k)/(k+1)."""
+    row = [1] + [0] * (n + 1)
+    for _ in range(n):
+        new = [0] * (n + 2)
+        for h, v in enumerate(row):
+            if v:
+                new[h] += v
+                if h + 1 <= n:
+                    new[h + 1] += v
+                if h:
+                    new[h - 1] += v
+        row = new
+    closed = sum(math.comb(n, 2 * k) * (math.comb(2 * k, k) // (k + 1)) for k in range(n // 2 + 1))
+    return row[0] == closed
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2389,6 +2424,8 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_x423b0686_w1", check_authored_frontier_le_x423b0686_w1, True),
     ("authored_mut_swap_related_sequence_58aacc9fceff", check_authored_mut_swap_related_sequence_58aacc9fceff, False),
     ("authored_mut_swap_related_sequence_7f7f296d8a72", check_authored_mut_swap_related_sequence_7f7f296d8a72, False),
+    ("oeis_a000032_lucas_norm", lambda: all(check_oeis_a000032_lucas_norm(n) for n in range(1, 60)), True),
+    ("oeis_a001006_motzkin_ballot_sum", lambda: all(check_oeis_a001006_motzkin_ballot_sum(n) for n in range(0, 40)), False),
 ]
 
 
