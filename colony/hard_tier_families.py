@@ -477,6 +477,36 @@ def _append(row: dict[str, Any]) -> None:
         pass
 
 
+def birth_record_enabled() -> bool:
+    """Item 100 kill switch: COLONY_SUPPLY_BIRTH_RECORD=off stops writing the authoring record."""
+    return (os.environ.get("COLONY_SUPPLY_BIRTH_RECORD") or "live").strip().lower() != "off"
+
+
+def _birth_record(name: str, window: tuple[int, int], cycle_id: str) -> dict[str, Any] | None:
+    """Item 100: the family's authoring record (lesson type ``authored_check``), like every other
+    authored hard check. Without it a later keep of the family cites no prior lesson, so every
+    supply keep scored 0 in lesson uptake (7 of the last 7 keeps). The novelty gate already treats
+    a candidate's own authoring record as not prior knowledge; the 150 cap counts ``authored_``
+    entries in the lemma file, not lessons, so it is unaffected. Treatment only (supply is)."""
+    if not birth_record_enabled() or not _self_mod():
+        return None
+    try:
+        from colony import lessons as _L
+        real = Path(os.path.join(os.fspath(ROOT), "data", "commons", "lessons.jsonl"))
+        if os.environ.get("PYTEST_CURRENT_TEST") and Path(_L.LESSONS_JSONL).resolve() == real.resolve():
+            return None  # tests never write the real lesson log
+        return _L.write_lesson(
+            decision="skip", check="authoring", source="conjecture_desk", cycle_id=cycle_id,
+            mutation=name, lesson_type="authored_check", family="hard_tier",
+            what=(f"authored hard-tier family `{name}` (vetted OEIS relation, window {window[0]}..{window[1]}), "
+                  "inserted DISABLED; the Oracle decides the enable. Not discovery."),
+            tags=["authoring", "authored_check", "hard_tier_supply", "oeis"],
+            evidence=["data/commons/hard_tier_supply.jsonl", "colony/hard_tier_families.py"],
+        )
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def build_next(lemma_path: Path, *, cycle_id: str = "", write: bool = True,
                blocked: set[str] | None = None) -> dict[str, Any] | None:
     """Add one vetted family (disabled) when none remain. None when nothing to do."""
@@ -512,6 +542,7 @@ def build_next(lemma_path: Path, *, cycle_id: str = "", write: bool = True,
             except Exception:  # noqa: BLE001
                 pass
             _append(row)
+            row["birth_record"] = bool(_birth_record(name, window, cycle_id))
         return row
     if tried:
         _append({"ts": _utc(), "cycle_id": cycle_id, "name": None, "tried": tried, "written": False})
