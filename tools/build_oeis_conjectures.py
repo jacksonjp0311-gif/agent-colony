@@ -113,6 +113,94 @@ def verified_definition(ent):
         return False
 
 
+def collect_candidates(raw, stats):
+    """Parsed, unresolved conjecture statements from OEIS search hits, computable group first."""
+    cands = []
+    for a, e in sorted(raw.items()):
+        kw = set(str(e.get("keyword") or "").split(","))
+        if kw & BAD_KW:
+            stats["keyword_skipped"] += 1
+            continue
+        if resolved(e):
+            stats["resolved_skipped"] += 1
+            continue
+        for sec, ln, block in statements(e):
+            stats["statements"] += 1
+            try:
+                claim = OC.normalize(ln)
+            except (OC.Unparsed, Exception) as ex:  # noqa: BLE001
+                r = str(ex).split(":")[0][:30]
+                stats["reasons"][r] = stats["reasons"].get(r, 0) + 1
+                continue
+            stats["parsed"] += 1
+            score = len(e.get("comment") or []) + len(e.get("formula") or []) + 2 * len(e.get("reference") or [])
+            has_def = OC.parse_definition(str(e.get("name") or "")) is not None
+            stats["def_candidates"] = stats.get("def_candidates", 0) + int(has_def)
+            cands.append((0 if has_def else 1, score, a, e, sec, ln, block, claim))
+    cands.sort(key=lambda c: (c[0], c[1], c[2]))
+    return cands
+
+
+def make_entry(cand, net, per_anum, stats, verbose=True):
+    """One menu entry (b-file agrees with DATA, claim holds on DATA, definition reproduces
+    the b-file) or None. Data only: nothing fetched is executed."""
+    grp, score, a, e, sec, ln, block, claim = cand
+    if per_anum.get(a, 0) >= 3:
+        return None
+    data = [int(x) for x in str(e.get("data") or "").split(",") if x.strip()]
+    off = int(str(e.get("offset") or "0").split(",")[0])
+    b = bfile(net, a, data, MAX_DIGITS if grp else DEF_DIGITS)
+    if not b or b[0] != off or len(b[1]) < max(MIN_TERMS if grp else MIN_DEF_TERMS, len(data)):
+        stats["no_bfile"] += 1
+        if not grp:
+            stats["def_no_bfile"] = stats.get("def_no_bfile", 0) + 1
+        if verbose:
+            print("  no b-file", a, b and (b[0], len(b[1])), off, len(data), flush=True)
+        return None
+    refs = {}
+    for r in OC.refs(claim):
+        rb = bfile(net, r, None, max(MAX_DIGITS if grp else DEF_DIGITS, max(len(str(abs(x))) for x in b[1]) + 5))
+        if not rb:
+            stats["no_bfile"] += 1
+            return None
+        refs[r] = {"offset": rb[0], "terms": rb[1][:min(REF_TERMS, off + len(b[1]) + 12 - rb[0])]}
+    ent = {"id": "oc_%s_%d" % (a, per_anum.get(a, 0)), "anum": a, "name": str(e.get("name") or "")[:300],
+           "offset": off, "keyword": e.get("keyword"), "section": sec, "text": ln,
+           "block_header": block, "claim": claim, "obscurity": score, "data_n": len(data),
+           "definition": OC.parse_definition(str(e.get("name") or "")), "refs": refs, "terms": b[1],
+           "published_hi": b[2]}
+    chk = OC.test_claim(claim, OC._tables(ent, b[1][:len(data)]), "A")
+    if chk["tested"] < 3 or chk["first_fail"] is not None:
+        stats["fails_on_data"] += 1
+        if not grp:
+            stats["def_fails_on_data"] = stats.get("def_fails_on_data", 0) + 1
+        if verbose:
+            print("  data-check fail", a, chk["tested"], chk["first_fail"], ln[:70], flush=True)
+        return None
+    if ent["definition"] and not verified_definition(ent):
+        ent["definition"] = None   # does not reproduce the b-file: not trusted
+        stats["def_mismatch"] = stats.get("def_mismatch", 0) + 1
+    if grp == 0 and not ent["definition"]:
+        return None
+    per_anum[a] = per_anum.get(a, 0) + 1
+    if verbose:
+        print(a, claim["form"], len(b[1]), "def" if ent["definition"] else "-", "|", ln[:90], flush=True)
+    return ent
+
+
+def search_page(net, q, page, fn):
+    """One OEIS JSON search page as a list of hits. Text parsed as JSON data only."""
+    url = "https://oeis.org/search?fmt=json&start=%d&q=%s" % (10 * page, q.replace(" ", "+").replace('"', "%22"))
+    txt = net.get(url, fn)
+    try:
+        res = json.loads(txt or "null") or []
+    except ValueError:
+        res = []
+    if isinstance(res, dict):
+        res = res.get("results") or []
+    return [e for e in res if isinstance(e, dict) and "number" in e]
+
+
 def main():
     N.NET_MAX_PER_CYCLE = 10 ** 6
     net = N.Net()
@@ -156,82 +244,23 @@ def main():
     print("entries", len(raw), flush=True)
     stats = {"entries": len(raw), "resolved_skipped": 0, "keyword_skipped": 0, "statements": 0, "parsed": 0,
              "no_bfile": 0, "fails_on_data": 0, "kept": 0, "reasons": {}}
-    cands = []
-    for a, e in sorted(raw.items()):
-        kw = set(str(e.get("keyword") or "").split(","))
-        if kw & BAD_KW:
-            stats["keyword_skipped"] += 1
-            continue
-        if resolved(e):
-            stats["resolved_skipped"] += 1
-            continue
-        for sec, ln, block in statements(e):
-            stats["statements"] += 1
-            try:
-                claim = OC.normalize(ln)
-            except (OC.Unparsed, Exception) as ex:  # noqa: BLE001
-                r = str(ex).split(":")[0][:30]
-                stats["reasons"][r] = stats["reasons"].get(r, 0) + 1
-                continue
-            stats["parsed"] += 1
-            score = len(e.get("comment") or []) + len(e.get("formula") or []) + 2 * len(e.get("reference") or [])
-            has_def = OC.parse_definition(str(e.get("name") or "")) is not None
-            stats["def_candidates"] = stats.get("def_candidates", 0) + int(has_def)
-            cands.append((0 if has_def else 1, score, a, e, sec, ln, block, claim))
-    cands.sort(key=lambda c: (c[0], c[1], c[2]))
+    cands = collect_candidates(raw, stats)
     entries, per_anum = [], {}
     n_def = n_plain = 0
-    for grp, score, a, e, sec, ln, block, claim in cands:
+    for cand in cands:
+        grp = cand[0]
         if n_def >= MAX_DEF_ENTRIES and n_plain >= MAX_ENTRIES:
             break
         if (grp == 0 and n_def >= MAX_DEF_ENTRIES) or (grp == 1 and n_plain >= MAX_ENTRIES):
             continue
-        if per_anum.get(a, 0) >= 3:
-            continue
-        data = [int(x) for x in str(e.get("data") or "").split(",") if x.strip()]
-        off = int(str(e.get("offset") or "0").split(",")[0])
-        b = bfile(net, a, data, MAX_DIGITS if grp else DEF_DIGITS)
-        if not b or b[0] != off or len(b[1]) < max(MIN_TERMS if grp else MIN_DEF_TERMS, len(data)):
-            stats["no_bfile"] += 1
-            if not grp:
-                stats["def_no_bfile"] = stats.get("def_no_bfile", 0) + 1
-            print("  no b-file", a, b and (b[0], len(b[1])), off, len(data), flush=True)
-            continue
-        refs, ok = {}, True
-        for r in OC.refs(claim):
-            rb = bfile(net, r, None, max(MAX_DIGITS if grp else DEF_DIGITS, max(len(str(abs(x))) for x in b[1]) + 5))
-            if not rb:
-                ok = False
-                break
-            refs[r] = {"offset": rb[0], "terms": rb[1][:min(REF_TERMS, off + len(b[1]) + 12 - rb[0])]}
-        if not ok:
-            stats["no_bfile"] += 1
-            continue
-        ent = {"id": "oc_%s_%d" % (a, per_anum.get(a, 0)), "anum": a, "name": str(e.get("name") or "")[:300],
-               "offset": off, "keyword": e.get("keyword"), "section": sec, "text": ln,
-               "block_header": block, "claim": claim, "obscurity": score, "data_n": len(data),
-               "definition": OC.parse_definition(str(e.get("name") or "")), "refs": refs, "terms": b[1],
-               "published_hi": b[2]}
-        chk = OC.test_claim(claim, OC._tables(ent, b[1][:len(data)]) if claim["form"] != "gf" else
-                            OC._tables(ent, b[1][:len(data)]), "A")
-        if chk["tested"] < 3 or chk["first_fail"] is not None:
-            stats["fails_on_data"] += 1
-            if not grp:
-                stats["def_fails_on_data"] = stats.get("def_fails_on_data", 0) + 1
-            print("  data-check fail", a, chk["tested"], chk["first_fail"], ln[:70], flush=True)
-            continue
-        if ent["definition"] and not verified_definition(ent):
-            ent["definition"] = None   # does not reproduce the b-file: not trusted
-            stats["def_mismatch"] = stats.get("def_mismatch", 0) + 1
-        if grp == 0 and not ent["definition"]:
+        ent = make_entry(cand, net, per_anum, stats)
+        if ent is None:
             continue
         if ent["definition"]:
             n_def += 1
         else:
             n_plain += 1
-        per_anum[a] = per_anum.get(a, 0) + 1
         entries.append(ent)
-        print(a, claim["form"], len(b[1]), "def" if ent["definition"] else "-", "|", ln[:90], flush=True)
     stats["kept"] = len(entries)
     stats["with_definition"] = n_def
     stats["definition_kinds"] = {}

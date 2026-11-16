@@ -302,6 +302,12 @@ class Society:
                         _oc.run_cycle(cid)
                 self._stage(result, "oeis_conjectures", oeis_conj)
 
+        def target_supply_stage():
+            # Item 82: keep the OEIS target list stocked. Both arms adopt the
+            # same earlier-run targets; only treatment fetches (polite, data only).
+            from colony.target_supply import run_cycle as _ts
+            return _ts(cid)
+        self._stage(result, "target_supply", target_supply_stage, critical=False)
         self._stage(result, "frontier", frontier_stage)
         def new_data_stage():
             from colony import new_data as _nd
