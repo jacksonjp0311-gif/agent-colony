@@ -2,24 +2,9 @@
   "version": 1,
   "totals": {
     "ok": 101,
-    "unbridged": 167
+    "unbridged": 168
   },
   "rows": [
-    {
-      "mutation": "authored_sieve_hl_within_g4_6_6_w2",
-      "status": "ok",
-      "family": "sieve",
-      "template": "hl_within",
-      "mismatches": [],
-      "mutants_tested": 3,
-      "mutants_not_rejected": [],
-      "artifact": "society/benchmarks/artifacts/lemma_impl.py",
-      "ts": "2026-11-09T11:14:16Z",
-      "cycle_id": "20261109T111304Z_fd3a37",
-      "kind": "hard_enable",
-      "oracle_passed": true,
-      "mode": "report_only"
-    },
     {
       "mutation": "authored_frontier_cong_x41b05781_w3",
       "status": "unbridged",
@@ -614,8 +599,18 @@
       "kind": "hard_enable",
       "oracle_passed": true,
       "mode": "report_only"
+    },
+    {
+      "mutation": "authored_mut_swap_related_sequence_3c874f89f994",
+      "status": "unbridged",
+      "reason": "no claim parser for this check family",
+      "ts": "2026-11-16T02:52:58Z",
+      "cycle_id": "20261116T025134Z_61a584",
+      "kind": "hard_enable",
+      "oracle_passed": true,
+      "mode": "report_only"
     }
   ],
-  "updated_at": "2026-11-16T01:47:50Z",
+  "updated_at": "2026-11-16T02:52:58Z",
   "note": "REPORT-ONLY semantic bridge: claim vs parameters + mutants that must fail. Never kills or changes an Oracle verdict."
 }

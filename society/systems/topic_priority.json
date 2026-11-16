@@ -61,7 +61,17 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "$p$-parity",
+      "topic": "$l$-values",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "$γ$-positivity",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "<https://doi.org/10.1007/s00373-025-03006-4>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -71,17 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
+      "topic": "agent-mediated",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-16T02:18:12Z",
-  "updated_cycle": "20261116T021631Z_9d4a04",
+  "updated_at": "2026-11-16T02:58:56Z",
+  "updated_cycle": "20261116T025726Z_f55a5f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

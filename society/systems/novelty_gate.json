@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T01:52:04Z",
+  "updated_at": "2026-11-16T02:56:16Z",
   "hits": 1,
-  "kills": 4,
+  "kills": 5,
   "rows": 30,
   "kill_rows": 29,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T01:52:04Z",
+    "ts": "2026-11-16T02:56:16Z",
     "cycle_id": "",
-    "mutation": "Chain+seek `authored_mut_swap_related_sequence_a3d177b50be9` from invariant priors",
+    "mutation": "Chain+seek `authored_mut_swap_related_sequence_3c874f89f994` from invariant priors",
     "kind": "process",
     "novel_to_commons": false,
     "kills": [
@@ -27,7 +27,7 @@
       "hard_pass": 162,
       "hard_n": 162,
       "stripped_fails_usefulness": false,
-      "score": 0.8809,
+      "score": 0.8812,
       "impl_id": "lemma_impl_v2_basic10_hard162"
     },
     "held_out": {

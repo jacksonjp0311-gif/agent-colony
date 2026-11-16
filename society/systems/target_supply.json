@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 9,
- "last_refill_index": 8,
+ "cycle_index": 15,
+ "last_refill_index": 14,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -98,6 +98,70 @@
   "3fb1c95649ddfe10": {
    "cycle_id": "20261116T020725Z_66f2d7",
    "n_hits": 0
+  },
+  "6263208fb4f04b65": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "4e73a6205f95e524": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "c5d596648cd1b9b8": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "1af938872e9e31e0": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "94ca0b9d96fd3032": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 3
+  },
+  "5dcd45fced2a0a37": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 3
+  },
+  "2694ad22cb865056": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "546c0e55666c8686": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "4ab61095454ae96a": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 8
+  },
+  "77a272f4fa445b8d": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 8
+  },
+  "01028b37c9d9a37d": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "832e126a9c2fcccf": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "9f57342c1e6470a2": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "29ac6bcb8d0130bc": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "ac970b0eceabe9ae": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 9
+  },
+  "2406b89e33e5b193": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 9
   }
  },
  "rejected": {
@@ -119,76 +183,49 @@
   "A141353": "20261116T020725Z_66f2d7",
   "A026008": "20261116T020725Z_66f2d7",
   "A110199": "20261116T020725Z_66f2d7",
-  "A165201": "20261116T020725Z_66f2d7"
+  "A165201": "20261116T020725Z_66f2d7",
+  "A024849": "20261116T023341Z_562a22",
+  "A104632": "20261116T023341Z_562a22",
+  "A279014": "20261116T023341Z_562a22",
+  "A268600": "20261116T023341Z_562a22",
+  "A306967": "20261116T023341Z_562a22",
+  "A307208": "20261116T023341Z_562a22",
+  "A217214": "20261116T025418Z_bc5f88",
+  "A290648": "20261116T025418Z_bc5f88",
+  "A108430": "20261116T025418Z_bc5f88",
+  "A247471": "20261116T025418Z_bc5f88",
+  "A268601": "20261116T025418Z_bc5f88",
+  "A182899": "20261116T025418Z_bc5f88",
+  "A060774": "20261116T025418Z_bc5f88"
  },
- "refills": 3,
- "added": 28,
+ "refills": 5,
+ "added": 34,
  "last": {
-  "cycle_id": "20261116T020725Z_66f2d7",
-  "open_before": 3,
+  "cycle_id": "20261116T025418Z_bc5f88",
+  "open_before": 0,
   "pages_read": 8,
-  "requests": 23,
+  "requests": 17,
   "new": [
    {
-    "id": "oc_A000781_0",
-    "form": "relation",
+    "id": "oc_A322599_0",
+    "form": "gf",
     "definition": false
    },
    {
-    "id": "oc_A139376_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A059279_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A116363_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A026005_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A200312_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A220902_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A263986_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A228329_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A127632_0",
-    "form": "relation",
+    "id": "oc_A322600_0",
+    "form": "gf",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 47,
-   "resolved_skipped": 5,
-   "keyword_skipped": 6,
-   "statements": 52,
-   "parsed": 16,
-   "no_bfile": 4,
-   "fails_on_data": 1,
-   "kept": 10,
+   "entries": 48,
+   "resolved_skipped": 10,
+   "keyword_skipped": 3,
+   "statements": 48,
+   "parsed": 12,
+   "no_bfile": 6,
+   "fails_on_data": 2,
+   "kept": 2,
    "def_candidates": 0
   }
  }
