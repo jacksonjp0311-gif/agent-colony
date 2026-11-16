@@ -3607,21 +3607,159 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A026013_0",
+   "anum": "A026013",
+   "form": "relation",
+   "depth": 253,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182409Z_b8ef42",
+   "planned": 1000,
+   "verified_depth": 253,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A176479_0",
+   "anum": "A176479",
+   "form": "relation",
+   "depth": 197,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182409Z_b8ef42",
+   "planned": 1000,
+   "verified_depth": 197,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A025567_0",
+   "anum": "A025567",
+   "form": "relation",
+   "depth": 316,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182409Z_b8ef42",
+   "planned": 1000,
+   "verified_depth": 316,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A225034_0",
+   "anum": "A225034",
+   "form": "relation",
+   "depth": 316,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182409Z_b8ef42",
+   "planned": 1000,
+   "verified_depth": 316,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A026023_0",
+   "anum": "A026023",
+   "form": "relation",
+   "depth": 499,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182728Z_138eae",
+   "planned": 1000,
+   "verified_depth": 499,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A026027_0",
+   "anum": "A026027",
+   "form": "relation",
+   "depth": 253,
+   "bfile_hi": 1667,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182728Z_138eae",
+   "planned": 1667,
+   "verified_depth": 253,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A050168_0",
+   "anum": "A050168",
+   "form": "relation",
+   "depth": 499,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182728Z_138eae",
+   "planned": 1000,
+   "verified_depth": 499,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A026018_0",
+   "anum": "A026018",
+   "form": "relation",
+   "depth": 253,
+   "bfile_hi": 1667,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T182728Z_138eae",
+   "planned": 1667,
+   "verified_depth": 253,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A026017_0",
+   "anum": "A026017",
+   "form": "relation",
+   "depth": 253,
+   "bfile_hi": 1667,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T183049Z_7f7d82",
+   "planned": 1667,
+   "verified_depth": 253,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A026026_0",
+   "anum": "A026026",
+   "form": "relation",
+   "depth": 254,
+   "bfile_hi": 1668,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T183049Z_7f7d82",
+   "planned": 1668,
+   "verified_depth": 254,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
-  "20261113T010318Z_e7b0b9": [
-   "oc_A126089_0",
-   "oc_A165064_0"
-  ],
-  "20261113T014648Z_b2870e": [
-   "oc_A126089_0",
-   "oc_A165064_0"
-  ],
-  "20261113T165317Z_0b7a16": [
-   "oc_A025577_0",
-   "oc_A071264_0"
-  ],
   "20261113T171958Z_9681da": [
    "oc_A097332_0",
    "oc_A102882_0"
@@ -3949,6 +4087,22 @@
   "20261116T165913Z_bcd4ad": [
    "oc_A025093_0",
    "oc_A233359_0"
+  ],
+  "20261116T182409Z_b8ef42": [
+   "oc_A026013_0",
+   "oc_A176479_0",
+   "oc_A025567_0",
+   "oc_A225034_0"
+  ],
+  "20261116T182728Z_138eae": [
+   "oc_A026023_0",
+   "oc_A026027_0",
+   "oc_A050168_0",
+   "oc_A026018_0"
+  ],
+  "20261116T183049Z_7f7d82": [
+   "oc_A026017_0",
+   "oc_A026026_0"
   ]
  },
  "last_forms": [
@@ -3960,17 +4114,17 @@
   "relation",
   "relation",
   "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
   "gf",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
   "relation"
  ]
 }
