@@ -863,6 +863,11 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
         losses = {}
 
     op_stats = state.get("operator_stats") or {}
+    try:  # item 102: learn from this colony's own kept / reverted blueprints
+        from colony import self_build_lessons as _sbl
+        _les = _sbl.lessons() if _sbl.enabled() else None
+    except Exception:  # noqa: BLE001
+        _sbl, _les = None, None
 
     def add(new_steps: list[dict[str, Any]], operator: str, added: list[dict[str, Any]], factor: float = 1.0):
         bp = make_blueprint(new_steps, parent=parent, operator=operator,
@@ -874,10 +879,14 @@ def candidates(state: Mapping[str, Any], ev: Mapping[str, Any]) -> list[dict[str
         ok, _ = validate(bp, macros)
         if not ok:
             return
+        if _les is not None and _sbl.blocked(added, _les, macros):
+            return  # item 102: never re-add a component whose own blueprint was reverted
         seen_sig.add(bp["signature"])
         # Item 87: operator prior x keep rate learned from past kept / reverted trials.
         w = factor * operator_factor(operator, op_stats) / max(1e-9, float(OPERATOR_PRIOR.get(operator, 0.5)))
         cw = [_comp_weight(a["component"], stats, ev, macros, losses) for a in added]
+        if _les is not None:
+            cw = [x * _sbl.desk_factor(a["component"], _les, COMPONENTS, macros) for x, a in zip(cw, added)]
         if operator == "pair" and cw:
             w *= min(cw)  # a pair ranks like its weaker half: it never rides on its best component
         else:
