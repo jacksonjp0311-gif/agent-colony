@@ -17,7 +17,11 @@ What gets dropped:
     disabled (``held_out:already_saturated_no_harder_window``): this depends
     only on the lemma catalog, not on the bench.
 
-What is never pre-screened: kinds whose held-out runs real work (hard_enable /
+Item 96: a ``stem_enable`` whose check is a symbolic tautology of its own definitions is
+dropped (``trivial:stem_symbolic_tautology``): the novelty gate's own item-95 triviality kill,
+so it would be killed regardless of the Oracle. Its held-out is still never pre-screened.
+
+What is never pre-screened by held-out: kinds whose held-out runs real work (hard_enable /
 hard_check shifted window, stem packs), the empty kind, and easy_pad (the Oracle's
 sieve self-test, whose kill is the point). Those always go to
 the Oracle. Everything that is submitted is judged by the unchanged Oracle.
@@ -70,8 +74,31 @@ def held_out_best_case(mutation: str, kind: str) -> dict[str, Any] | None:
     return sense_held_out((mutation or "").strip(), kind, after_snapshot=dict(BEST_SNAPSHOT))
 
 
+def stem_trivial_drop(mutation: str, kind: str) -> dict[str, Any] | None:
+    """Item 96: a ``stem_enable`` the novelty gate kills as a symbolic tautology anyway.
+
+    This calls the novelty gate's OWN triviality kill (``stem_triviality_kill``, item 95), so it
+    can only drop what the gate would kill as trivial regardless of the Oracle's verdict.
+    The check reads only the check function's body, which an enable does not change.
+    Treatment only (the gate function returns None when self-mod is off)."""
+    if (kind or "").strip() != "stem_enable":
+        return None
+    from colony.novelty_gate import stem_triviality_kill
+    t = stem_triviality_kill((mutation or "").strip(), "stem_enable")
+    if not (t and t.get("trivial")):
+        return None
+    return {"mutation": (mutation or "").strip(), "kind": kind, "would_kill": f"trivial:{t.get('reason')}",
+            "rule": "novelty_gate.stem_triviality_kill (the gate's own kill; not an Oracle verdict)",
+            "catalog_hint": None}
+
+
 def check(mutation: str, kind: str) -> dict[str, Any] | None:
     """A drop record when the candidate cannot pass the Oracle's held-out, else None."""
+    if (kind or "").strip() == "stem_enable":
+        try:
+            return stem_trivial_drop(mutation, kind)
+        except Exception:  # noqa: BLE001
+            return None  # cannot tell: submit (the Oracle decides)
     try:
         held = held_out_best_case(mutation, kind)
     except Exception:  # noqa: BLE001
