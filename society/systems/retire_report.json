@@ -1,10 +1,17 @@
 {
- "ts": "2026-11-16T00:15:42Z",
+ "ts": "2026-11-16T00:42:06Z",
  "mode": "live",
- "n_authored": 150,
+ "n_authored": 102,
  "n_candidates": 0,
  "machine_receipts": "live",
  "machine_release_limit": 40,
+ "dead_weight_mode": "live",
+ "dead_weight_abstained": {
+  "authored_frontier_cong_xd9add9e9_w1": "a kill that is not a substantive held-out fail"
+ },
+ "dead_families": [
+  "authored_mut_swap_related_sequence"
+ ],
  "by_category": {},
  "candidates": [],
  "rule": {
@@ -15,9 +22,9 @@
   "sieve_grace_hours": 0.25,
   "max_per_run": 60
  },
- "cycle_id": "20261116T001530Z_7f80fb",
+ "cycle_id": "20261116T004154Z_5c29b4",
  "applied": {
   "applied": 0
  },
- "n_protected": 60
+ "n_protected": 61
 }

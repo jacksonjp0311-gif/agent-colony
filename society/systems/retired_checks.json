@@ -3283,8 +3283,988 @@
    "fn_src": "def check_authored_frontier_cong_xcc4c83b3_w1() -> bool:\n    \"\"\"Authored frontier check (desk): the colony's own conjecture\n    S(oxa047700)(n) = 1 (mod 2) for all n = 1 (mod 4)\n    re-tested on windows [(41, 326), (327, 612), (613, 898)]. machine-proved (certificate). Bounded evidence, not proof.\n    Disabled until the Oracle passes it.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S(oxa047700)', 'params': {'m': 2, 'q': 4, 'r': 1, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(41, 326), (327, 612), (613, 898)])\n",
    "entry": "    (\"authored_frontier_cong_xcc4c83b3_w1\", check_authored_frontier_cong_xcc4c83b3_w1, True),\n",
    "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_b50db24ce154",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_b50db24ce154() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    rad[phi](n) divides dbl(phi)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'rad[phi]', 'params': {}, 'rhs': 'dbl(phi)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_b50db24ce154\", check_authored_mut_swap_related_sequence_b50db24ce154, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_e41e92020988",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_e41e92020988() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    gpf[rad](n) divides dbl(rad)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gpf[rad]', 'params': {}, 'rhs': 'dbl(rad)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_e41e92020988\", check_authored_mut_swap_related_sequence_e41e92020988, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_3fcf4c695bad",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_3fcf4c695bad() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    phi[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'phi[rad]', 'params': {}, 'rhs': 'dbl(rad)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_3fcf4c695bad\", check_authored_mut_swap_related_sequence_3fcf4c695bad, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_43bfea4a2cc0",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_43bfea4a2cc0() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    digsum[ple3](n) <= dbl(ple3)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum[ple3]', 'params': {}, 'rhs': 'dbl(ple3)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_43bfea4a2cc0\", check_authored_mut_swap_related_sequence_43bfea4a2cc0, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_6e0112880376",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_6e0112880376() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    digsum[gpf](n) <= dbl(gpf)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum[gpf]', 'params': {}, 'rhs': 'dbl(gpf)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_6e0112880376\", check_authored_mut_swap_related_sequence_6e0112880376, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_c0b3ed8d37bd",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_c0b3ed8d37bd() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    digsum[phi](n) <= dbl(phi)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum[phi]', 'params': {}, 'rhs': 'dbl(phi)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_c0b3ed8d37bd\", check_authored_mut_swap_related_sequence_c0b3ed8d37bd, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_e1949a02138c",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_e1949a02138c() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    digsum[tau](n) <= dbl(tau)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum[tau]', 'params': {}, 'rhs': 'dbl(tau)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_e1949a02138c\", check_authored_mut_swap_related_sequence_e1949a02138c, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_dda3900e5ef8",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_dda3900e5ef8() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    (lpf-sqfree)(n) <= phi(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(lpf-sqfree)', 'params': {}, 'rhs': 'phi'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_dda3900e5ef8\", check_authored_mut_swap_related_sequence_dda3900e5ef8, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_3909a3967380",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_3909a3967380() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = sh((fib-lucas))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': 'sh((fib-lucas))', 'params': {'c': [-1, 0, 2]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_3909a3967380\", check_authored_mut_swap_related_sequence_3909a3967380, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_8ab886c76fa2",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_8ab886c76fa2() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = sh((lucas-one))(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': 'sh((lucas-one))', 'params': {'c': [-1, 0, 2]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_8ab886c76fa2\", check_authored_mut_swap_related_sequence_8ab886c76fa2, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_83432cf56e85",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_83432cf56e85() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = D(lucas)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': 'D(lucas)', 'params': {'c': [1, 1]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_83432cf56e85\", check_authored_mut_swap_related_sequence_83432cf56e85, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_a170e23a5eb9",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_a170e23a5eb9() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = D(fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': 'D(fib)', 'params': {'c': [1, 1]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_a170e23a5eb9\", check_authored_mut_swap_related_sequence_a170e23a5eb9, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_89e5a4bd266c",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_89e5a4bd266c() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    lucas(n) divides dbl(fib)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'lucas', 'params': {}, 'rhs': 'dbl(fib)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_89e5a4bd266c\", check_authored_mut_swap_related_sequence_89e5a4bd266c, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_aa16db33659f",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_aa16db33659f() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    fib(n) divides dbl(stree_grid3)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'fib', 'params': {}, 'rhs': 'dbl(stree_grid3)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_aa16db33659f\", check_authored_mut_swap_related_sequence_aa16db33659f, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_834d4d3f06e0",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_834d4d3f06e0() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    lucas(n) divides dbl(stree_grid3)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'lucas', 'params': {}, 'rhs': 'dbl(stree_grid3)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_834d4d3f06e0\", check_authored_mut_swap_related_sequence_834d4d3f06e0, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_09affa910944",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_09affa910944() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    dbl(gcd(stree_grid3,tau))(n) = 0 (mod 3) for all n = 2 (mod 4)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(gcd(stree_grid3,tau))', 'params': {'m': 3, 'q': 4, 'r': 0, 's': 2}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_09affa910944\", check_authored_mut_swap_related_sequence_09affa910944, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_6af0e18deac1",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_6af0e18deac1() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    dbl(gcd(pell,tau))(n) = 0 (mod 3) for all n = 2 (mod 4)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'dbl(gcd(pell,tau))', 'params': {'m': 3, 'q': 4, 'r': 0, 's': 2}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_6af0e18deac1\", check_authored_mut_swap_related_sequence_6af0e18deac1, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_1c8a57e0bca1",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_1c8a57e0bca1() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    S((oxa048760*n))(n) = 0 (mod 2) for all n = 0 (mod 4)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa048760*n))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_1c8a57e0bca1\", check_authored_mut_swap_related_sequence_1c8a57e0bca1, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_5223338a52eb",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_5223338a52eb() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    S((oxa048760*rad))(n) = 0 (mod 2) for all n = 0 (mod 4)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa048760*rad))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_5223338a52eb\", check_authored_mut_swap_related_sequence_5223338a52eb, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_78025e23cf57",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_78025e23cf57() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    S((oxa048760*lpf))(n) = 0 (mod 2) for all n = 0 (mod 4)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa048760*lpf))', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_78025e23cf57\", check_authored_mut_swap_related_sequence_78025e23cf57, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_c92be463a0f5",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_c92be463a0f5() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    D(oxa213536)(n) <= cmax[oxa213536](n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'D(oxa213536)', 'params': {}, 'rhs': 'cmax[oxa213536]'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_c92be463a0f5\", check_authored_mut_swap_related_sequence_c92be463a0f5, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_f992defe4af8",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_f992defe4af8() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    D(oxa213536)(n) <= ple3[oxa213536](n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'D(oxa213536)', 'params': {}, 'rhs': 'ple3[oxa213536]'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_f992defe4af8\", check_authored_mut_swap_related_sequence_f992defe4af8, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_5f1e08241fef",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_5f1e08241fef() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    rad(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'rad', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_5f1e08241fef\", check_authored_mut_swap_related_sequence_5f1e08241fef, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_c975a0acf97b",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_c975a0acf97b() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    (gpf*omega)(n) divides dbl((omega*rad))(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': '(gpf*omega)', 'params': {}, 'rhs': 'dbl((omega*rad))'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_c975a0acf97b\", check_authored_mut_swap_related_sequence_c975a0acf97b, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_5eb7494b98aa",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_5eb7494b98aa() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = (fib+fib)(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': '(fib+fib)', 'params': {'c': [1, 1]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_5eb7494b98aa\", check_authored_mut_swap_related_sequence_5eb7494b98aa, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_818b81b6a804",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_818b81b6a804() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    pi[prime](n) divides (rad*phi)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'pi[prime]', 'params': {}, 'rhs': '(rad*phi)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_818b81b6a804\", check_authored_mut_swap_related_sequence_818b81b6a804, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_eb0f3247ee33",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_eb0f3247ee33() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    pi[prime](n) divides (rad*mu)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'pi[prime]', 'params': {}, 'rhs': '(rad*mu)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_eb0f3247ee33\", check_authored_mut_swap_related_sequence_eb0f3247ee33, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_bb7bf2799b09",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_bb7bf2799b09() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    (lpf+mu)(n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(lpf+mu)', 'params': {}, 'rhs': 'dbl(rad)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_bb7bf2799b09\", check_authored_mut_swap_related_sequence_bb7bf2799b09, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_c461b03cfcee",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_c461b03cfcee() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    (lpf+mu)(n) <= dbl(phi)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(lpf+mu)', 'params': {}, 'rhs': 'dbl(phi)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_c461b03cfcee\", check_authored_mut_swap_related_sequence_c461b03cfcee, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_3a917a302be9",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_3a917a302be9() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    D(gcd(n,phi))(n) = 1 (mod 2) for all n = 0 (mod 2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(gcd(n,phi))', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_3a917a302be9\", check_authored_mut_swap_related_sequence_3a917a302be9, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_9944a5433d60",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_9944a5433d60() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = (fib-lucas)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': '(fib-lucas)', 'params': {'c': [-2, -1, 3]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_9944a5433d60\", check_authored_mut_swap_related_sequence_9944a5433d60, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_a7fc2de5dabd",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_a7fc2de5dabd() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = (pow2-fib)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': '(pow2-fib)', 'params': {'c': [-2, -1, 3]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_a7fc2de5dabd\", check_authored_mut_swap_related_sequence_a7fc2de5dabd, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_abd2d19e66bf",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_abd2d19e66bf() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = (lucas+one)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': '(lucas+one)', 'params': {'c': [-1, 0, 2]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_abd2d19e66bf\", check_authored_mut_swap_related_sequence_abd2d19e66bf, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_148ef77da33b",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_148ef77da33b() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    digsum(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'digsum', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_148ef77da33b\", check_authored_mut_swap_related_sequence_148ef77da33b, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_98dac34715ca",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_98dac34715ca() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    pi(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'pi', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_98dac34715ca\", check_authored_mut_swap_related_sequence_98dac34715ca, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_98f7a10162e6",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_98f7a10162e6() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    n(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'n', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_98f7a10162e6\", check_authored_mut_swap_related_sequence_98f7a10162e6, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_efa7f2b38883",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_efa7f2b38883() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    gpf(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'gpf', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_efa7f2b38883\", check_authored_mut_swap_related_sequence_efa7f2b38883, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_fd5d7d93e902",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_fd5d7d93e902() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    phi(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'phi', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_fd5d7d93e902\", check_authored_mut_swap_related_sequence_fd5d7d93e902, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_407fbdbac9ef",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_407fbdbac9ef() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = (fib+pow2)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': '(fib+pow2)', 'params': {'c': [-2, -1, 3]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_407fbdbac9ef\", check_authored_mut_swap_related_sequence_407fbdbac9ef, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_566c464aa389",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_566c464aa389() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    a(n) = (lucas+fib)(n) satisfies a(n+3) = -2*a(n+0) + -1*a(n+1) + 3*a(n+2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'rec', 'lhs': '(lucas+fib)', 'params': {'c': [-2, -1, 3]}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_566c464aa389\", check_authored_mut_swap_related_sequence_566c464aa389, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_f136673b49cd",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_f136673b49cd() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    lpf(n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'lpf', 'params': {}, 'rhs': 'dbl(oxa102627)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_f136673b49cd\", check_authored_mut_swap_related_sequence_f136673b49cd, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_86310fedcc8c",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_86310fedcc8c() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    sigma[rad](n) = 0 (mod 3) for all n = 2 (mod 3)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'sigma[rad]', 'params': {'m': 3, 'q': 3, 'r': 0, 's': 2}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_86310fedcc8c\", check_authored_mut_swap_related_sequence_86310fedcc8c, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_1e32e19fc335",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_1e32e19fc335() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    (one*lucas)(n) divides dbl(stree_grid3)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': '(one*lucas)', 'params': {}, 'rhs': 'dbl(stree_grid3)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_1e32e19fc335\", check_authored_mut_swap_related_sequence_1e32e19fc335, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_f7c77a787e41",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_f7c77a787e41() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    (sqfree-tau)(n) <= dbl((sqfree-bigomega))(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(sqfree-tau)', 'params': {}, 'rhs': 'dbl((sqfree-bigomega))'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_f7c77a787e41\", check_authored_mut_swap_related_sequence_f7c77a787e41, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_189b60a6e65e",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_189b60a6e65e() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    S((lucas*oxa048760))(n) = 0 (mod 2) for all n = 0 (mod 3)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((lucas*oxa048760))', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_189b60a6e65e\", check_authored_mut_swap_related_sequence_189b60a6e65e, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_19b958c5439c",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_19b958c5439c() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    S((stree_grid3*oxa048760))(n) = 0 (mod 2) for all n = 0 (mod 3)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'S((stree_grid3*oxa048760))', 'params': {'m': 2, 'q': 3, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_19b958c5439c\", check_authored_mut_swap_related_sequence_19b958c5439c, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_55ef68f19547",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_55ef68f19547() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    (rad+omega)(n) <= sigma(n) for all n >= 1 (with equality at some n)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(rad+omega)', 'params': {}, 'rhs': 'sigma'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_55ef68f19547\", check_authored_mut_swap_related_sequence_55ef68f19547, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_d4fd9cc584c3",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_d4fd9cc584c3() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    pell[oxa213536](n) = 1 (mod 2) for all n = 0 (mod 2)\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'pell[oxa213536]', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_d4fd9cc584c3\", check_authored_mut_swap_related_sequence_d4fd9cc584c3, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
+  },
+  {
+   "name": "authored_mut_swap_related_sequence_05546e14e52a",
+   "category": "dead_weight",
+   "reason": "disabled, Oracle-killed on all 1 verdict(s) (held_out_fail, kind authored_check), never passed; kill replay agrees, no verdict or check depends on it, passes 528 -> 528",
+   "ts": "2026-11-16T00:32:24Z",
+   "cycle_id": "20261116T003202Z_dd48cf",
+   "catalog": "HARD_TIER_LEMMAS",
+   "enabled": false,
+   "fn_src": "def check_authored_mut_swap_related_sequence_05546e14e52a() -> bool:\n    \"\"\"Authored mutated claim (target generator, swap_related_sequence):\n    gcd(lpf,tau)(n) divides (pell*mu)(n) for all n >= 1\n    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.\n    Disabled until the Oracle passes it. Never executes fetched code.\n    \"\"\"\n    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(lpf,tau)', 'params': {}, 'rhs': '(pell*mu)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])\n",
+   "entry": "    (\"authored_mut_swap_related_sequence_05546e14e52a\", check_authored_mut_swap_related_sequence_05546e14e52a, False),\n",
+   "replay": {
+    "verdicts": 1,
+    "kill_replays_agree": 1,
+    "kind": "authored_check",
+    "history_refs": 0,
+    "passes_before": 528,
+    "passes_after": 528
+   },
+   "proposals_withdrawn": []
   }
  ],
- "n_retired": 210,
+ "n_retired": 259,
  "note": "Retired authored checks (COLONY_RETIRE). Restore with `python -m colony.retire restore NAME` (comes back disabled; must pass the Oracle again). Logs and history untouched."
 }

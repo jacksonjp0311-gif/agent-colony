@@ -1501,7 +1501,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261116T001530Z_7f80fb",
+  "last_cycle": "20261116T004154Z_5c29b4",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -1523,7 +1523,7 @@
   },
   "n_inconclusive": 6,
   "n_kept": 11,
-  "n_proposed": 1,
+  "n_proposed": 2,
   "n_reverted": 4,
   "n_twin_held": 0,
   "n_voided": 12,
@@ -1543,16 +1543,35 @@
       "knob": "curriculum_pace",
       "method": "Practice easier cases before harder ones (curriculum).",
       "ts": "2026-11-13T19:15:03Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "perturb_epsilon",
+        "op": "set_knob",
+        "value": 0.39
+      },
+      "card_id": "mc_bacbbd75d04b",
+      "concept": "",
+      "cycle_id": "20261116T004154Z_5c29b4",
+      "deferred_count": 1,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=up:name=perturb_epsilon:value=0.39",
+      "knob": "perturb_epsilon",
+      "method": "Perturb candidate claims a little more widely (annealing-style search).",
+      "source": "hive_vote",
+      "ts": "2026-11-16T00:46:40Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 100,
-    "pending": 53,
+    "pending": 55,
     "resolved": 100,
     "source": "hive_shadows",
-    "ts": "2026-11-16T00:18:37Z",
+    "ts": "2026-11-16T00:47:22Z",
     "unlabeled": 0
   },
   "twin_pending": [],

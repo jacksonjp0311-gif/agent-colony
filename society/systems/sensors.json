@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-16T00:15:57Z",
-  "cycle_id": "20261116T001530Z_7f80fb",
+  "ts": "2026-11-16T00:42:21Z",
+  "cycle_id": "20261116T004154Z_5c29b4",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_fd5d7d93e902": 1,
       "authored_mut_swap_related_sequence_407fbdbac9ef": 1,
       "authored_mut_swap_related_sequence_566c464aa389": 1,
       "authored_mut_swap_related_sequence_f136673b49cd": 1,
@@ -15,17 +14,18 @@
       "authored_mut_swap_related_sequence_19b958c5439c": 1,
       "authored_mut_swap_related_sequence_55ef68f19547": 1,
       "authored_mut_swap_related_sequence_d4fd9cc584c3": 1,
-      "authored_mut_swap_related_sequence_05546e14e52a": 1
+      "authored_mut_swap_related_sequence_05546e14e52a": 1,
+      "authored_mut_perturb_constant_703a4fa11fd2": 1
     },
     "recent": {}
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.861,
-      "slope": -0.000158,
-      "min": 0.861,
-      "max": 0.8637
+      "last": 0.8607,
+      "slope": -0.00079,
+      "min": 0.843,
+      "max": 0.8635
     },
     "novelty": {
       "last": 0.75,
@@ -34,16 +34,16 @@
       "max": 0.75
     },
     "kill_rate": {
-      "last": 0.4255,
-      "slope": 0.0,
+      "last": 0.4261,
+      "slope": 2.3e-05,
       "min": 0.4255,
-      "max": 0.4255
+      "max": 0.4261
     },
     "kill_rate_term": {
-      "last": 0.9329,
-      "slope": 0.0,
+      "last": 0.9335,
+      "slope": 2.3e-05,
       "min": 0.9329,
-      "max": 0.9329
+      "max": 0.9335
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -54,7 +54,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0021,
+    "aggregate_range": 0.0186,
     "novelty_max": 0.75,
     "window": 6,
     "reason": "moving"
@@ -64,56 +64,8 @@
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_mut_swap_related_sequence_05546e14e52a",
-      "authored_mut_swap_related_sequence_09affa910944",
-      "authored_mut_swap_related_sequence_148ef77da33b",
-      "authored_mut_swap_related_sequence_189b60a6e65e",
-      "authored_mut_swap_related_sequence_19b958c5439c",
-      "authored_mut_swap_related_sequence_1c8a57e0bca1",
-      "authored_mut_swap_related_sequence_1e32e19fc335",
-      "authored_mut_swap_related_sequence_3909a3967380",
-      "authored_mut_swap_related_sequence_3a917a302be9",
-      "authored_mut_swap_related_sequence_3fcf4c695bad",
-      "authored_mut_swap_related_sequence_407fbdbac9ef",
-      "authored_mut_swap_related_sequence_43bfea4a2cc0",
-      "authored_mut_swap_related_sequence_5223338a52eb",
-      "authored_mut_swap_related_sequence_55ef68f19547",
-      "authored_mut_swap_related_sequence_566c464aa389",
-      "authored_mut_swap_related_sequence_58aacc9fceff",
-      "authored_mut_swap_related_sequence_5eb7494b98aa",
-      "authored_mut_swap_related_sequence_5f1e08241fef",
-      "authored_mut_swap_related_sequence_6af0e18deac1",
-      "authored_mut_swap_related_sequence_6e0112880376",
-      "authored_mut_swap_related_sequence_78025e23cf57",
-      "authored_mut_swap_related_sequence_818b81b6a804",
-      "authored_mut_swap_related_sequence_83432cf56e85",
-      "authored_mut_swap_related_sequence_834d4d3f06e0",
-      "authored_mut_swap_related_sequence_86310fedcc8c",
-      "authored_mut_swap_related_sequence_89e5a4bd266c",
-      "authored_mut_swap_related_sequence_8ab886c76fa2",
-      "authored_mut_swap_related_sequence_98dac34715ca",
-      "authored_mut_swap_related_sequence_98f7a10162e6",
-      "authored_mut_swap_related_sequence_9944a5433d60",
-      "authored_mut_swap_related_sequence_a170e23a5eb9",
-      "authored_mut_swap_related_sequence_a7fc2de5dabd",
-      "authored_mut_swap_related_sequence_aa16db33659f",
-      "authored_mut_swap_related_sequence_abd2d19e66bf",
-      "authored_mut_swap_related_sequence_b50db24ce154",
-      "authored_mut_swap_related_sequence_bb7bf2799b09",
-      "authored_mut_swap_related_sequence_c0b3ed8d37bd",
-      "authored_mut_swap_related_sequence_c461b03cfcee",
-      "authored_mut_swap_related_sequence_c92be463a0f5",
-      "authored_mut_swap_related_sequence_c975a0acf97b",
-      "authored_mut_swap_related_sequence_d4fd9cc584c3",
-      "authored_mut_swap_related_sequence_dda3900e5ef8",
-      "authored_mut_swap_related_sequence_e1949a02138c",
-      "authored_mut_swap_related_sequence_e41e92020988",
-      "authored_mut_swap_related_sequence_eb0f3247ee33",
-      "authored_mut_swap_related_sequence_efa7f2b38883",
-      "authored_mut_swap_related_sequence_f136673b49cd",
-      "authored_mut_swap_related_sequence_f7c77a787e41",
-      "authored_mut_swap_related_sequence_f992defe4af8",
-      "authored_mut_swap_related_sequence_fd5d7d93e902"
+      "authored_mut_perturb_constant_703a4fa11fd2",
+      "authored_mut_swap_related_sequence_58aacc9fceff"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -183,56 +135,8 @@
       "authored_hockey_stick__pell_companion_w1",
       "authored_hockey_stick__stirling_second_row_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
-      "authored_mut_swap_related_sequence_05546e14e52a",
-      "authored_mut_swap_related_sequence_09affa910944",
-      "authored_mut_swap_related_sequence_148ef77da33b",
-      "authored_mut_swap_related_sequence_189b60a6e65e",
-      "authored_mut_swap_related_sequence_19b958c5439c",
-      "authored_mut_swap_related_sequence_1c8a57e0bca1",
-      "authored_mut_swap_related_sequence_1e32e19fc335",
-      "authored_mut_swap_related_sequence_3909a3967380",
-      "authored_mut_swap_related_sequence_3a917a302be9",
-      "authored_mut_swap_related_sequence_3fcf4c695bad",
-      "authored_mut_swap_related_sequence_407fbdbac9ef",
-      "authored_mut_swap_related_sequence_43bfea4a2cc0",
-      "authored_mut_swap_related_sequence_5223338a52eb",
-      "authored_mut_swap_related_sequence_55ef68f19547",
-      "authored_mut_swap_related_sequence_566c464aa389",
+      "authored_mut_perturb_constant_703a4fa11fd2",
       "authored_mut_swap_related_sequence_58aacc9fceff",
-      "authored_mut_swap_related_sequence_5eb7494b98aa",
-      "authored_mut_swap_related_sequence_5f1e08241fef",
-      "authored_mut_swap_related_sequence_6af0e18deac1",
-      "authored_mut_swap_related_sequence_6e0112880376",
-      "authored_mut_swap_related_sequence_78025e23cf57",
-      "authored_mut_swap_related_sequence_818b81b6a804",
-      "authored_mut_swap_related_sequence_83432cf56e85",
-      "authored_mut_swap_related_sequence_834d4d3f06e0",
-      "authored_mut_swap_related_sequence_86310fedcc8c",
-      "authored_mut_swap_related_sequence_89e5a4bd266c",
-      "authored_mut_swap_related_sequence_8ab886c76fa2",
-      "authored_mut_swap_related_sequence_98dac34715ca",
-      "authored_mut_swap_related_sequence_98f7a10162e6",
-      "authored_mut_swap_related_sequence_9944a5433d60",
-      "authored_mut_swap_related_sequence_a170e23a5eb9",
-      "authored_mut_swap_related_sequence_a7fc2de5dabd",
-      "authored_mut_swap_related_sequence_aa16db33659f",
-      "authored_mut_swap_related_sequence_abd2d19e66bf",
-      "authored_mut_swap_related_sequence_b50db24ce154",
-      "authored_mut_swap_related_sequence_bb7bf2799b09",
-      "authored_mut_swap_related_sequence_c0b3ed8d37bd",
-      "authored_mut_swap_related_sequence_c461b03cfcee",
-      "authored_mut_swap_related_sequence_c92be463a0f5",
-      "authored_mut_swap_related_sequence_c975a0acf97b",
-      "authored_mut_swap_related_sequence_d4fd9cc584c3",
-      "authored_mut_swap_related_sequence_dda3900e5ef8",
-      "authored_mut_swap_related_sequence_e1949a02138c",
-      "authored_mut_swap_related_sequence_e41e92020988",
-      "authored_mut_swap_related_sequence_eb0f3247ee33",
-      "authored_mut_swap_related_sequence_efa7f2b38883",
-      "authored_mut_swap_related_sequence_f136673b49cd",
-      "authored_mut_swap_related_sequence_f7c77a787e41",
-      "authored_mut_swap_related_sequence_f992defe4af8",
-      "authored_mut_swap_related_sequence_fd5d7d93e902",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
       "authored_newdata_a006666_k10001_w1",
@@ -281,34 +185,34 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.356,
+      "ratio": 1.448,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.352,
+      "ratio": 1.438,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.337,
+      "ratio": 1.42,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.31,
+      "ratio": 1.428,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.306,
+      "ratio": 1.202,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 455634115,
-      "collatz_descent": 492600000,
+      "goldbach_even": 458834115,
+      "collatz_descent": 495800000,
       "legendre_square_gap": 2524607,
       "lehmer_totient": 231000001,
-      "erdos_straus": 1374127,
+      "erdos_straus": 1379127,
       "twin_primes_hl": 618200000,
       "oeis_A104062_next": 518690000001
     },
@@ -363,18 +267,18 @@
     "last": [
       [
         null,
-        "2026-11-16T00:03:51Z"
+        "2026-11-16T00:26:10Z"
       ],
       [
         null,
-        "2026-11-16T00:01:17Z"
+        "2026-11-16T00:20:11Z"
       ],
       [
         "success",
-        "2026-11-15T23:40:38Z"
+        "2026-11-16T00:13:21Z"
       ]
     ],
-    "fetched_at": "2026-11-16T00:04:38Z"
+    "fetched_at": "2026-11-16T00:27:08Z"
   },
   "feeds": {
     "by_source": {
@@ -422,7 +326,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-16T00:04:37Z"
+      "ts": "2026-11-16T00:27:08Z"
     },
     "health": {
       "arxiv": {

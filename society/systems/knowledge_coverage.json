@@ -1,0 +1,234 @@
+{
+  "fields": {
+    "automated_reasoning": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "cognitive_science": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "consciousness_self_models": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "learning_theory": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "mathematics": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "meta_learning": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 7,
+      "distinct_concepts": 3,
+      "papers": 8,
+      "reads": 1
+    },
+    "multi_agent_systems": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "neural_architecture": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "open_endedness": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "optimization_search": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "physics_complex_systems": {
+      "cards_formed": 0,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "recursive_self_improvement": {
+      "cards_formed": 1,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 0,
+      "distinct_concepts": 0,
+      "papers": 0,
+      "reads": 0
+    },
+    "self_learning_loops": {
+      "cards_formed": 2,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 8,
+      "distinct_concepts": 4,
+      "papers": 8,
+      "reads": 1
+    },
+    "swarm_collective_intelligence": {
+      "cards_formed": 2,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 7,
+      "distinct_concepts": 2,
+      "papers": 8,
+      "reads": 1
+    }
+  },
+  "fields_with_papers": 3,
+  "n_fields": 14,
+  "note": "Breadth of reading. Cards are kept only by self-heal windows + twin control. Not AGI.",
+  "top_architecture_ideas": [
+    {
+      "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
+      "examples": [
+        {
+          "arxiv_id": "2611.17314",
+          "field": "meta_learning",
+          "title": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces"
+        },
+        {
+          "arxiv_id": "2611.15923",
+          "field": "meta_learning",
+          "title": "Reinforcement Learning for Target Jerk Estimation in Interceptor Homing Phase"
+        },
+        {
+          "arxiv_id": "2611.15071",
+          "field": "meta_learning",
+          "title": "Improving Efficiency and Power in Small Rare-Disease Trials Through Prespecified, Data-Adaptive Covariate Adjustment"
+        }
+      ],
+      "fields": [
+        "meta_learning",
+        "self_learning_loops"
+      ],
+      "idea": "meta_controller",
+      "n_papers": 6
+    },
+    {
+      "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
+      "examples": [
+        {
+          "arxiv_id": "2611.08615",
+          "field": "swarm_collective_intelligence",
+          "title": "s$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL"
+        },
+        {
+          "arxiv_id": "2611.07996",
+          "field": "swarm_collective_intelligence",
+          "title": "SEER: A Scalable Event-Driven Runtime for Parallel Execution of Multi-Agent Reinforcement Learning Environments"
+        },
+        {
+          "arxiv_id": "2611.07618",
+          "field": "swarm_collective_intelligence",
+          "title": "A Bilevel Neurodynamic Approach for Distributed SCAD-Regularized Sparse Least Squares"
+        }
+      ],
+      "fields": [
+        "swarm_collective_intelligence"
+      ],
+      "idea": "swarm_topology",
+      "n_papers": 6
+    },
+    {
+      "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
+      "examples": [
+        {
+          "arxiv_id": "2611.15426",
+          "field": "self_learning_loops",
+          "title": "SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction"
+        },
+        {
+          "arxiv_id": "2611.10841",
+          "field": "self_learning_loops",
+          "title": "A Gamified Framework for Conflict-Driven Design: Discovering Strategies for Collaborative Resilience with Multi-Agent Learning"
+        },
+        {
+          "arxiv_id": "2611.08908",
+          "field": "self_learning_loops",
+          "title": "Toward LLM Self-Play Under Data Scarcity: Effectiveness, Generalizability, and Trustworthiness"
+        }
+      ],
+      "fields": [
+        "self_learning_loops"
+      ],
+      "idea": "self_play_challenger",
+      "n_papers": 5
+    },
+    {
+      "description": "Desks exchange typed messages along a fixed graph instead of one linear stage order.",
+      "examples": [
+        {
+          "arxiv_id": "2611.14042",
+          "field": "meta_learning",
+          "title": "Resilient Integrated Access and Backhaul Network Planning via Graph Neural Network Curriculum Learning"
+        }
+      ],
+      "fields": [
+        "meta_learning"
+      ],
+      "idea": "message_passing_desks",
+      "n_papers": 1
+    }
+  ],
+  "totals": {
+    "cards_formed": 5,
+    "cards_kept": 0,
+    "cards_tested": 0,
+    "concepts": 22,
+    "papers": 24,
+    "reads": 3
+  }
+}
