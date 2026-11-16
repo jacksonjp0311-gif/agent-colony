@@ -211,6 +211,9 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
 
             cj = conjecture_run(cycle_id, ledger=self.ledger)
             g.improvements.append(f"conjecture:{cj.mutation or 'none'}:{cj.decision}")
+            for _x in getattr(cj, "extras", None) or []:  # item 86: extra hard_enable picks
+                if _x.get("mutation"):
+                    g.improvements.append(f"conjecture:{_x['mutation']}:{_x.get('decision')}")
             self.witness.record(
                 cycle_id=cycle_id,
                 kind="conjecture_desk",
@@ -227,6 +230,7 @@ class GrowthLoop(GrowthSteps1, GrowthSteps2, GrowthSteps3):
                     "delta": cj.delta,
                     "note": cj.note,
                     "n_proposals": len(cj.proposals),
+                    "extras": list(getattr(cj, "extras", None) or []),
                 },
             )
         except Exception as exc:  # noqa: BLE001
