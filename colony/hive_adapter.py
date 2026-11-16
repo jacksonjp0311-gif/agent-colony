@@ -131,18 +131,26 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     """Same as Hive's ``run_cycle``, skipped on the control arm."""
     if not hive_learning_enabled():
         return _disabled(cycle_id)
+    _before_hive()
+    result = swarm.run_cycle(cycle_id)
+    _after_hive(result)
+    return result
+
+
+def _before_hive() -> None:
     try:  # item 91: method cards become Hive-testable library ops (append-only, idempotent)
         from colony.method_ops import install as _install_method_ops
         _install_method_ops()
     except Exception:  # noqa: BLE001
         pass
-    result = swarm.run_cycle(cycle_id)
+
+
+def _after_hive(result: Any) -> None:
     try:  # spark idea: exact cause of a Hive pick that started no trial (append-only failure log)
         from colony.failure_modes import log_hive_pick
         log_hive_pick(result)
     except Exception:  # noqa: BLE001
         pass
-    return result
 
 
 def card_proposal_from_result(result: Mapping[str, Any] | None) -> dict[str, Any] | None:
@@ -171,7 +179,9 @@ def on_cycle(cycle_id: str = "") -> dict[str, Any]:
     """Evolve-cycle entry. Control returns without calling Hive."""
     if not hive_learning_enabled():
         return _disabled(cycle_id)
+    _before_hive()  # the evolve path (on_cycle) gets the same hooks as run_cycle
     result = swarm.on_cycle(cycle_id)
+    _after_hive(result)
     try:
         from colony.learning_loop import on_cycle as _ll
         result = dict(result or {})
