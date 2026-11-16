@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 117,
- "last_refill_index": 116,
+ "cycle_index": 120,
+ "last_refill_index": 119,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -1250,6 +1250,38 @@
   "4b4f765fd24f8ab5": {
    "cycle_id": "20261116T205517Z_8430ed",
    "n_hits": 10
+  },
+  "8404e74278258d78": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 1
+  },
+  "fa044027771c43b5": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 1
+  },
+  "fefbb039d4205cdb": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 10
+  },
+  "4939e3d78c56d1d6": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 10
+  },
+  "5cf5d0eed3799cb6": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 10
+  },
+  "6f745647fab5e3ba": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 10
+  },
+  "e2e0814bc82caebe": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 8
+  },
+  "459ec096e3976931": {
+   "cycle_id": "20261116T212332Z_224880",
+   "n_hits": 8
   }
  },
  "rejected": {
@@ -1406,51 +1438,32 @@
   "A219692": "20261116T192428Z_5b0afa",
   "A045406": "20261116T192428Z_5b0afa",
   "A348410": "20261116T192428Z_5b0afa",
-  "A351743": "20261116T205517Z_8430ed"
+  "A351743": "20261116T205517Z_8430ed",
+  "A264596": "20261116T212332Z_224880"
  },
- "refills": 39,
- "added": 141,
+ "refills": 40,
+ "added": 142,
  "last": {
-  "cycle_id": "20261116T205517Z_8430ed",
-  "open_before": 1,
+  "cycle_id": "20261116T212332Z_224880",
+  "open_before": 0,
   "pages_read": 8,
-  "requests": 16,
+  "requests": 14,
   "new": [
    {
-    "id": "oc_A365429_0",
+    "id": "oc_A003278_0",
     "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A295741_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A328202_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A023887_0",
-    "form": "only_prime",
-    "definition": false
-   },
-   {
-    "id": "oc_A326781_0",
-    "form": "gf",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 64,
-   "resolved_skipped": 14,
-   "keyword_skipped": 4,
-   "statements": 71,
-   "parsed": 8,
+   "entries": 40,
+   "resolved_skipped": 7,
+   "keyword_skipped": 2,
+   "statements": 36,
+   "parsed": 2,
    "no_bfile": 0,
    "fails_on_data": 1,
-   "kept": 5,
+   "kept": 1,
    "def_candidates": 0
   }
  }

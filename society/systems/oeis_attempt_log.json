@@ -3912,13 +3912,72 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A326781_0",
+   "anum": "A326781",
+   "form": "gf",
+   "depth": 55,
+   "bfile_hi": 55,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261116T211949Z_e1ca90",
+   "planned": 20000,
+   "verified_depth": 55,
+   "prior_tested_hi": 0,
+   "extended": 55
+  },
+  {
+   "id": "oc_A326781_0",
+   "anum": "A326781",
+   "form": "gf",
+   "depth": 19999,
+   "bfile_hi": 55,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T211949Z_e1ca90",
+   "planned": 20000,
+   "verified_depth": 19999,
+   "prior_tested_hi": 0,
+   "extended": 19944,
+   "cap_reason": "term_cap",
+   "cap_value": 20000,
+   "fast_cfinite": true,
+   "deep_terms": 20000,
+   "deep_elapsed_s": 0.01
+  },
+  {
+   "id": "oc_A328202_0",
+   "anum": "A328202",
+   "form": "relation",
+   "depth": 503,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T211949Z_e1ca90",
+   "planned": 10000,
+   "verified_depth": 503,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A365429_0",
+   "anum": "A365429",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 100000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T211949Z_e1ca90",
+   "planned": 100000,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
-  "20261113T181736Z_a30ecb": [
-   "oc_A174783_0",
-   "oc_A212205_0"
-  ],
   "20261113T182024Z_1c5c58": [
    "oc_A234269_0",
    "oc_A239201_0"
@@ -4255,12 +4314,14 @@
   ],
   "20261116T205517Z_8430ed": [
    "oc_A299406_0"
+  ],
+  "20261116T211949Z_e1ca90": [
+   "oc_A326781_0",
+   "oc_A328202_0",
+   "oc_A365429_0"
   ]
  },
  "last_forms": [
-  "relation",
-  "relation",
-  "relation",
   "relation",
   "relation",
   "relation",
@@ -4276,6 +4337,9 @@
   "relation",
   "relation",
   "relation",
+  "relation",
+  "relation",
+  "gf",
   "relation",
   "relation"
  ]
