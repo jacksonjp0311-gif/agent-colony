@@ -383,6 +383,13 @@ def evaluate(
             "Not theorem discovery. Textbook reuse ≈ 0 required. Not AGI."
         ),
     }
+    if oracle_used == "prescreen_drop":
+        # Item 90: a pre-screen drop is not a judged candidate (it never reached the Oracle and
+        # is already logged in oracle_prescreen.jsonl + a lesson). Recording it here made a
+        # wrapper's drop the latest row for its target and displaced real hits. Not recorded;
+        # the verdict returned to the caller is unchanged (novel_to_commons False).
+        verdict["recorded"] = False
+        return verdict
     GATE_LOG.parent.mkdir(parents=True, exist_ok=True)
     with GATE_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps(verdict, ensure_ascii=False) + "\n")
