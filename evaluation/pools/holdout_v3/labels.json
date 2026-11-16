@@ -1,0 +1,165 @@
+{
+ "version": 1,
+ "labels": {
+  "pool_w01_bertrand_postulate": {
+   "label": "sound_useful",
+   "family": "prime_gaps",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w02_wolstenholme": {
+   "label": "sound_useful",
+   "family": "binomial_congruence",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w03_divisor_count_hyperbola": {
+   "label": "sound_useful",
+   "family": "divisor_summatory",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w04_factorial_succ_coprime": {
+   "label": "sound_useful",
+   "family": "factorial_gcd",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w05_sylvester_coprime": {
+   "label": "sound_useful",
+   "family": "sylvester_sequence",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w06_euler_criterion_multiplicative": {
+   "label": "sound_useful",
+   "family": "quadratic_character",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w07_josephus_k2_closed_form": {
+   "label": "sound_useful",
+   "family": "josephus",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w08_gray_code_adjacent": {
+   "label": "sound_useful",
+   "family": "gray_code",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w09_stern_diatomic_coprime": {
+   "label": "sound_useful",
+   "family": "stern_diatomic",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w10_kaprekar_6174": {
+   "label": "sound_useful",
+   "family": "kaprekar",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w11_prime_square_mod24": {
+   "label": "sound_useful",
+   "family": "prime_residues",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w12_ramsey_r33_k6": {
+   "label": "sound_useful",
+   "family": "ramsey",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w13_prime_prefix_sum_nonsquare": {
+   "label": "unsound",
+   "family": "prime_prefix_sum",
+   "witness": {
+    "n": 9
+   },
+   "note": ""
+  },
+  "pool_w14_fermat_base3_implies_prime": {
+   "label": "unsound",
+   "family": "pseudoprime_base3",
+   "witness": {
+    "n": 91
+   },
+   "note": ""
+  },
+  "pool_w15_odd_composite_prime_twice_square": {
+   "label": "unsound",
+   "family": "goldbach_odd_composite",
+   "witness": {
+    "n": 5777
+   },
+   "note": ""
+  },
+  "pool_w16_n2_plus_1_squarefree": {
+   "label": "unsound",
+   "family": "squarefree_values",
+   "witness": {
+    "n": 7
+   },
+   "note": ""
+  },
+  "pool_w17_euclid_primorial_prime": {
+   "label": "unsound",
+   "family": "euclid_numbers",
+   "witness": {
+    "n": 6
+   },
+   "note": ""
+  },
+  "pool_w18_fibonacci_prime_index": {
+   "label": "unsound",
+   "family": "fibonacci_primality",
+   "witness": {
+    "n": 19
+   },
+   "note": ""
+  },
+  "pool_w19_three_cubes_33_none": {
+   "label": "unsound",
+   "family": "sums_of_three_cubes",
+   "witness": {
+    "n": 8866128975287528
+   },
+   "note": "escape by design: smallest known solution (Booker 2019) has 16-digit coordinates"
+  },
+  "pool_w20_euler_sum_of_fifth_powers": {
+   "label": "unsound",
+   "family": "euler_sum_of_powers",
+   "witness": {
+    "n": 144
+   },
+   "note": "Lander-Parkin 1966: 27^5+84^5+110^5+133^5 = 144^5"
+  },
+  "pool_w21_consecutive_square_gap": {
+   "label": "trivial",
+   "family": "square_gap_trivial",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w22_consecutive_product_even": {
+   "label": "trivial",
+   "family": "parity",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w23_max_ge_min": {
+   "label": "trivial",
+   "family": "order",
+   "witness": null,
+   "note": ""
+  },
+  "pool_w24_mod7_bound": {
+   "label": "trivial",
+   "family": "modular_trivial",
+   "witness": null,
+   "note": ""
+  }
+ }
+}

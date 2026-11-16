@@ -30,15 +30,18 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "evaluation"))
 import evaluator  # noqa: E402
 import evaluator_v2  # noqa: E402
+import evaluator_v3  # noqa: E402
 
 
 def EV(pool: str):
-    """Pool -> its independent evaluator (holdout_v2 has its own reference code)."""
-    return evaluator_v2 if pool == "holdout_v2" else evaluator
+    """Pool -> its independent evaluator (holdout_v2 / holdout_v3 have their own reference code)."""
+    return {"holdout_v2": evaluator_v2, "holdout_v3": evaluator_v3}.get(pool, evaluator)
 
 EVID = ROOT / "evidence" / "2026-10-11-trust-loop"
 WS_BASE = Path("/tmp/trust_ws")
 SEEDS = [11, 23, 37, 41, 53]
+# Item 93: holdout_v3 is preregistered with 10 paired seeds (larger n; same arms, same rules).
+SEEDS_V3 = [11, 23, 37, 41, 53, 61, 73, 83, 97, 101]
 ARMS = {"L1C1": {"COLONY_LEARNING": "1", "COLONY_CHALLENGER": "1"},
         "L0C1": {"COLONY_LEARNING": "0", "COLONY_CHALLENGER": "1"},
         "L1C0": {"COLONY_LEARNING": "1", "COLONY_CHALLENGER": "0"},
@@ -220,7 +223,7 @@ def main() -> int:
     ap.add_argument("--pool", default="dev")
     ap.add_argument("--cycles", type=int, default=14)
     ap.add_argument("--arms", default="L1C1,L0C1,L1C0,L0C0")
-    ap.add_argument("--seeds", default=",".join(map(str, SEEDS)))
+    ap.add_argument("--seeds", default="", help="default: SEEDS (SEEDS_V3 for holdout_v3)")
     ap.add_argument("--jobs", type=int, default=6)
     ap.add_argument("--out", default="")
     ap.add_argument("--label", default="")
@@ -230,7 +233,8 @@ def main() -> int:
         print("INTEGRITY: evaluation/MANIFEST.sha256 mismatch — refusing to run", file=sys.stderr)
         return 3
     WS_BASE.mkdir(parents=True, exist_ok=True)
-    seeds = [int(x) for x in a.seeds.split(",")]
+    seeds = ([int(x) for x in a.seeds.split(",")] if a.seeds
+             else (SEEDS_V3 if a.pool == "holdout_v3" else SEEDS))
     arms = a.arms.split(",")
     t0 = time.time()
     if a.cmd == "stripped":
