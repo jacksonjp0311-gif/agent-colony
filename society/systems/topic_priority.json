@@ -71,12 +71,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "agent-mediated",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "brain-to-text",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-16T23:06:56Z",
-  "updated_cycle": "20261116T230504Z_2f9546",
+  "updated_at": "2026-11-16T23:37:18Z",
+  "updated_cycle": "20261116T233435Z_835d4e",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
