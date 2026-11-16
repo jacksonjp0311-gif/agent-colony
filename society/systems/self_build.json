@@ -1,40 +1,59 @@
 {
  "version": 1,
- "cycle_index": 6,
+ "cycle_index": 9,
  "active": {
-  "id": "bp_default",
-  "steps": []
+  "id": "bp_1a40beac596f0ebe",
+  "signature": "1a40beac596f0ebe",
+  "steps": [
+   {
+    "component": "frontier_extra_batch",
+    "n": 1
+   }
+  ],
+  "parent": "bp_default",
+  "operator": "add"
  },
  "trial": {
   "blueprint": {
-   "id": "bp_1a40beac596f0ebe",
-   "signature": "1a40beac596f0ebe",
+   "id": "bp_a85e465622ced7b1",
+   "signature": "a85e465622ced7b1",
    "steps": [
     {
      "component": "frontier_extra_batch",
      "n": 1
+    },
+    {
+     "component": "oeis_extra_pass",
+     "n": 1
     }
    ],
-   "parent": "bp_default",
+   "parent": "bp_1a40beac596f0ebe",
    "operator": "add",
    "evidence": [
-    "frontier_extra_batch"
+    "oeis_extra_pass"
    ],
-   "weight": 0.525,
+   "weight": 2.775,
    "added": [
     {
-     "component": "frontier_extra_batch",
+     "component": "oeis_extra_pass",
      "n": 1
     }
    ],
    "evidence_detail": {
-    "frontier_extra_batch": {
-     "papers": [],
-     "n_papers": 0,
-     "idea_rank": null,
+    "oeis_extra_pass": {
+     "papers": [
+      "2611.08335",
+      "2611.11977",
+      "2611.14424",
+      "2611.15071",
+      "2611.15923",
+      "2611.17314"
+     ],
+     "n_papers": 6,
+     "idea_rank": 0,
      "cards": 1,
      "lessons": 0,
-     "boost": 1.05
+     "boost": 5.55
     }
    },
    "self_test": {
@@ -45,22 +64,45 @@
       "component": "frontier_extra_batch",
       "n": 1,
       "planned": 1
+     },
+     {
+      "component": "oeis_extra_pass",
+      "n": 1,
+      "planned": 1
      }
     ]
    }
   },
-  "opened_cycle_id": "20261116T010000Z_7b716e",
-  "opened_cycle_index": 1,
-  "open_row": 105,
+  "opened_cycle_id": "20261116T014345Z_0a7381",
+  "opened_cycle_index": 7,
+  "open_row": 107,
   "window_rows": 2,
   "baseline_gain": [
-   0.0,
+   2.0,
    0.0
   ]
  },
- "tried": {},
+ "tried": {
+  "1a40beac596f0ebe": {
+   "outcome": "kept",
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    }
+   ],
+   "id": "bp_1a40beac596f0ebe",
+   "cycle_id": "20261116T014345Z_0a7381"
+  }
+ },
  "component_stats": {
   "frontier_extra_batch": {
+   "tried": 1,
+   "kept": 1,
+   "reverted": 0,
+   "inconclusive": 0
+  },
+  "oeis_extra_pass": {
    "tried": 1,
    "kept": 0,
    "reverted": 0,
@@ -69,8 +111,8 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261116T012905Z_41f3cb",
-  "blueprint": "bp_1a40beac596f0ebe",
+  "cycle_id": "20261116T015010Z_45daf0",
+  "blueprint": "bp_a85e465622ced7b1",
   "ran": [
    {
     "component": "frontier_extra_batch",
@@ -78,44 +120,49 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 190,
-     "duplicate": 30,
-     "trivial_formal": 2,
+     "fitted": 188,
+     "duplicate": 21,
+     "trivial_formal": 1,
      "trivial_shuffle_null": 1,
-     "trivial_idle_part": 7,
-     "trivial_implied_parts": 29,
+     "trivial_idle_part": 11,
+     "trivial_implied_parts": 35,
      "trivial_shared_operand": 0,
-     "trivial_growth_dominance": 0,
-     "trivial_case_split": 0,
+     "trivial_growth_dominance": 1,
+     "trivial_case_split": 1,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 4,
+     "expected_by_closure": 1,
      "loose_inequality": 0,
-     "tested": 17,
-     "survived": 6,
-     "falsified": 11,
-     "machine_checked": 4,
+     "tested": 16,
+     "survived": 4,
+     "falsified": 12,
+     "machine_checked": 1,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 1,
+     "oeis_known": 2,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
      "no_reference_found": 1,
      "explained_by_known_check": 1,
-     "trivial_confirmed on range": 3,
-     "trivial_known_in_principle(definition_parity)": 2
+     "trivial_confirmed on range": 5
     }
+   },
+   {
+    "component": "oeis_extra_pass",
+    "n": 1,
+    "actions": 0,
+    "skipped": "nothing_open"
    }
   ],
   "actions": 1,
-  "cpu_s": 1.588
+  "cpu_s": 1.931
  },
  "last_skip": null,
- "kept_count": 0,
+ "kept_count": 1,
  "reverted_count": 0,
  "inconclusive_count": 0
 }
