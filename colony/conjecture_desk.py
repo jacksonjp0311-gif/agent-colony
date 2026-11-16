@@ -251,6 +251,17 @@ def pick_mutation(
             stem_src = KINEMATICS_IMPL.read_text(encoding="utf-8") if KINEMATICS_IMPL.exists() else ""
             if _already_has(stem_src, name):
                 continue
+            if shift_prescreen and k == "stem_enable" and snip == f"enable:{name}":
+                # Item 96: tautological STEM enables do not use an Oracle slot (the novelty
+                # gate kills them as trivial anyway). Logged + lesson via the pre-screen.
+                try:
+                    from colony.oracle_prescreen import screen as _prescreen
+                    _drop = _prescreen(name, k, source="conjecture_desk_pick")
+                except Exception:  # noqa: BLE001
+                    _drop = None
+                if _drop:
+                    cooled[name] = f"oracle_prescreen:{_drop['would_kill']}"
+                    continue
             return name, k, snip, cooled
         if _already_has(lemma_src, name):
             continue
