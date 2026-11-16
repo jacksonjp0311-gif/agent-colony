@@ -599,6 +599,16 @@ def author_targets(
     accepted: list[dict[str, Any]] = []
     held = claims if claims is not None else held_claims()
     stats = {"base": {"eligible": 0, "tried": 0}, "wide": {"eligible": 0, "tried": 0}}
+    # Item 70: a generated family whose every Oracle verdict is a replay-certified
+    # held-out kill (>= 3 members, none ever passed) is not authored again: its
+    # checks only hold cap slots. Tighten-only; the Oracle and the cap are unchanged.
+    try:
+        from colony import retire_audit as _ra
+        from colony.retire import ORACLE as _orc_path, _jsonl as _orc_rows
+        dead_fams = _ra.dead_families(_orc_rows(_orc_path)) if _ra.mode() != "off" else set()
+    except Exception:  # noqa: BLE001
+        dead_fams = set()
+    dead_skipped = 0
 
     def _rows():
         # Default pass first; the wider pass runs only when the default pass
@@ -619,6 +629,10 @@ def author_targets(
             continue
         cand = _eligible_candidate(row, seen_keys, seen_names, skip_filters=skip_filters)
         if cand is None:
+            continue
+        if dead_fams and _dead_family(cand["name"]) in dead_fams:
+            dead_skipped += 1
+            seen_names.add(cand["name"])
             continue
         stats[pass_name]["eligible"] += 1
         new_src = insert_disabled(src, cand["name"], cand["fn_src"])
@@ -675,8 +689,15 @@ def author_targets(
             "seconds": res.get("seconds"),
             "wide": pass_name == "wide",
         })
+    if dead_skipped:
+        stats["dead_family_skipped"] = dead_skipped  # type: ignore[assignment]
     _record_supply(accepted, stats, cycle_id, write=write)
     return accepted
+
+
+def _dead_family(name: str) -> str:
+    from colony.retire_audit import family
+    return family(name)
 
 
 def _record_supply(
@@ -705,6 +726,8 @@ def _record_supply(
         "wide_tried": int(stats["wide"]["tried"]),
         "wide_accepted": sum(1 for r in accepted if r.get("wide")),
     }
+    if stats.get("dead_family_skipped"):
+        info["dead_family_skipped"] = int(stats["dead_family_skipped"])  # type: ignore[arg-type]
     _LAST_SUPPLY.clear()
     _LAST_SUPPLY.update(info)
     if exhausted and write:

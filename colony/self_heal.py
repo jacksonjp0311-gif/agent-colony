@@ -2295,7 +2295,16 @@ def propose_trial(
         preds = _pred(knob, direction)
         return 1 if preds and _ladder_state(st, knob, preds)["active"] else 0
 
-    ordered.sort(key=lambda c: (_ladder(c[1], c[2]), 0 if _pred(c[1], c[2]) else 1))
+    # Item 70 (a): broader predicted sets first; after an adopt scored on a single
+    # target, a candidate that again names only that target goes behind the rest.
+    last_single = _last_adopt_single_target(st)
+
+    def _narrow(knob: str, direction: str) -> int:
+        preds = _pred(knob, direction)
+        return 1 if preds and last_single and set(preds) <= last_single else 0
+
+    ordered.sort(key=lambda c: (_ladder(c[1], c[2]), 0 if _pred(c[1], c[2]) else 1,
+                                _narrow(c[1], c[2]), -len(_pred(c[1], c[2]))))
     exhausted_cache: list[bool] = []
     # The fall-through applies only when a cap raise was the diagnosed
     # remedy (a cap finding is present) and no cap can bind a target.
@@ -2520,6 +2529,15 @@ def propose_trial(
         if not window_has_bearing_signal(window_rows):
             _record_trial_skip(st, cycle_id, "no_bearing_signal", findings, window_rows)
     return None
+
+
+def _last_adopt_single_target(st: dict[str, Any]) -> set[str]:
+    """Item 70 (a): the one predicted target of the latest adopt, if it named exactly one."""
+    for e in reversed(st.get("evidence") or []):
+        if e.get("event") == "adopt":
+            preds = list(e.get("predicted_targets") or [])
+            return set(preds) if len(preds) == 1 else set()
+    return set()
 
 
 def _cobind_candidate(st: dict[str, Any], ordered, pred, cycle_id: str = "") -> dict[str, Any] | None:
@@ -3576,6 +3594,12 @@ def run_cycle(
                     k: supply.get(k) for k in ("invited", "reason", "n", "cap") if k in supply
                 }
                 st["trial_skip"]["supply"]["authored"] = len(supply.get("authored") or [])
+            # Item 70 (b): no proposal -> spend the stall on a read-only retirement audit.
+            try:
+                from colony.retire_audit import stall_audit
+                stall_audit(st, cycle_id)
+            except Exception:
+                pass
             try:
                 save_state(st)
             except Exception:
