@@ -1,0 +1,491 @@
+{
+ "budgets": {
+  "cycles": 15,
+  "cpu_s_per_cycle": 0.6,
+  "wall_s_per_cycle": 0.8
+ },
+ "reps": [
+  {
+   "A_baseline": {
+    "verified_units": 16171,
+    "coverage_targets": "8/10",
+    "coverage_units": 0.0503,
+    "targets_completed_to_goal": 6,
+    "targets_done_partial": 2,
+    "intractable": [
+     "giant",
+     "late_gbcls"
+    ],
+    "poison_accepted_units": 0,
+    "poison_retries": 13,
+    "wait_cycles": {
+     "mean": 0.6,
+     "max": 2,
+     "n": 10
+    },
+    "never_served": 0,
+    "latency_cycles_to_goal": {
+     "mean": 1,
+     "max": 2,
+     "n": 6
+    },
+    "overhead_share": 0.00016,
+    "cycle_overruns_cpu": 2,
+    "cycle_overruns_wall": 0,
+    "work_cpu_s": 2.35,
+    "work_wall_s": 2.097,
+    "wrong_accepted": 0,
+    "duplicates_skipped": 0,
+    "conflicts": 0,
+    "useful_units_per_cpu_s": 6880.4,
+    "per_target_units": {
+     "cliff": 2999,
+     "col_max": 2999,
+     "col_odd": 2999,
+     "gb_close": 31,
+     "gb_min": 2999,
+     "hog": 146,
+     "late_colmax2": 1999,
+     "wall": 1999
+    },
+    "verified_units_excluding_hog": 16025
+   },
+   "B_scheduler": {
+    "verified_units": 187595,
+    "coverage_targets": "10/10",
+    "coverage_units": 0.5835,
+    "targets_completed_to_goal": 8,
+    "quarantined": [
+     "poison:method_b_disagrees"
+    ],
+    "over_budget": [
+     "late_gbcls"
+    ],
+    "poison_accepted_units": 0,
+    "wait_cycles": {
+     "mean": 0.2,
+     "max": 1,
+     "n": 10
+    },
+    "never_served": 0,
+    "latency_cycles_to_goal": {
+     "mean": 0.75,
+     "max": 2,
+     "n": 8
+    },
+    "overhead_share": 0.01981,
+    "cycle_overruns_cpu": 1,
+    "cycle_overruns_wall": 1,
+    "chunk_overruns": 4,
+    "work_cpu_s": 6.983,
+    "work_wall_s": 7.234,
+    "wrong_accepted": 0,
+    "duplicates_skipped": 8,
+    "conflicts": 0,
+    "crash_recovered": true,
+    "chunks": 73,
+    "dup_admissions_merged": 1,
+    "useful_units_per_cpu_s": 26865.1,
+    "retracted_units": 8,
+    "per_target_units": {
+     "cliff": 3000,
+     "col_max": 3000,
+     "col_odd": 3000,
+     "gb_close": 2000,
+     "gb_min": 3000,
+     "giant": 1500,
+     "hog": 168087,
+     "late_colmax2": 2000,
+     "late_gbcls": 8,
+     "wall": 2000
+    },
+    "verified_units_excluding_hog": 19508,
+    "cost_hypothesis": {
+     "col_even": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.6055,
+      "mean_abs_log_err_job_last": 0.6055,
+      "smoothed_accepted": false
+     },
+     "col_max": {
+      "chunks": 3,
+      "mean_abs_log_err_smoothed": 0.5737,
+      "mean_abs_log_err_job_last": 1.0151,
+      "smoothed_accepted": false
+     },
+     "col_odd": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.4863,
+      "mean_abs_log_err_job_last": 0.4863,
+      "smoothed_accepted": false
+     },
+     "col_steps": {
+      "chunks": 48,
+      "mean_abs_log_err_smoothed": 0.0887,
+      "mean_abs_log_err_job_last": 0.0529,
+      "smoothed_accepted": false
+     },
+     "col_stop": {
+      "chunks": 3,
+      "mean_abs_log_err_smoothed": 1.1645,
+      "mean_abs_log_err_job_last": 0.943,
+      "smoothed_accepted": false
+     },
+     "gb_close": {
+      "chunks": 4,
+      "mean_abs_log_err_smoothed": 0.0825,
+      "mean_abs_log_err_job_last": 0.0892,
+      "smoothed_accepted": false
+     },
+     "gb_min": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.1891,
+      "mean_abs_log_err_job_last": 0.1891,
+      "smoothed_accepted": false
+     },
+     "gb_min_cls4_1": {
+      "chunks": 1,
+      "mean_abs_log_err_smoothed": null,
+      "mean_abs_log_err_job_last": null,
+      "smoothed_accepted": false
+     },
+     "gb_u_odd": {
+      "chunks": 8,
+      "mean_abs_log_err_smoothed": 0.0841,
+      "mean_abs_log_err_job_last": 0.0714,
+      "smoothed_accepted": false
+     }
+    },
+    "picks_by_reason": {
+     "aging": 12,
+     "explore": 11,
+     "value": 50
+    }
+   }
+  },
+  {
+   "A_baseline": {
+    "verified_units": 38241,
+    "coverage_targets": "9/10",
+    "coverage_units": 0.1189,
+    "targets_completed_to_goal": 8,
+    "targets_done_partial": 1,
+    "intractable": [
+     "late_gbcls"
+    ],
+    "poison_accepted_units": 0,
+    "poison_retries": 14,
+    "wait_cycles": {
+     "mean": 0.5,
+     "max": 2,
+     "n": 10
+    },
+    "never_served": 0,
+    "latency_cycles_to_goal": {
+     "mean": 0.62,
+     "max": 2,
+     "n": 8
+    },
+    "overhead_share": 0.00017,
+    "cycle_overruns_cpu": 0,
+    "cycle_overruns_wall": 0,
+    "work_cpu_s": 2.099,
+    "work_wall_s": 2.6,
+    "wrong_accepted": 0,
+    "duplicates_skipped": 0,
+    "conflicts": 0,
+    "useful_units_per_cpu_s": 18214.8,
+    "per_target_units": {
+     "cliff": 2999,
+     "col_max": 2999,
+     "col_odd": 2999,
+     "gb_close": 1999,
+     "gb_min": 2999,
+     "giant": 1499,
+     "hog": 18749,
+     "late_colmax2": 1999,
+     "wall": 1999
+    },
+    "verified_units_excluding_hog": 19492
+   },
+   "B_scheduler": {
+    "verified_units": 190648,
+    "coverage_targets": "10/10",
+    "coverage_units": 0.593,
+    "targets_completed_to_goal": 8,
+    "quarantined": [
+     "poison:method_b_disagrees"
+    ],
+    "over_budget": [
+     "late_gbcls"
+    ],
+    "poison_accepted_units": 0,
+    "wait_cycles": {
+     "mean": 0.2,
+     "max": 1,
+     "n": 10
+    },
+    "never_served": 0,
+    "latency_cycles_to_goal": {
+     "mean": 0.88,
+     "max": 2,
+     "n": 8
+    },
+    "overhead_share": 0.02,
+    "cycle_overruns_cpu": 1,
+    "cycle_overruns_wall": 0,
+    "chunk_overruns": 3,
+    "work_cpu_s": 6.685,
+    "work_wall_s": 6.943,
+    "wrong_accepted": 0,
+    "duplicates_skipped": 8,
+    "conflicts": 0,
+    "crash_recovered": true,
+    "chunks": 75,
+    "dup_admissions_merged": 1,
+    "useful_units_per_cpu_s": 28519.8,
+    "retracted_units": 8,
+    "per_target_units": {
+     "cliff": 3000,
+     "col_max": 3000,
+     "col_odd": 3000,
+     "gb_close": 2000,
+     "gb_min": 3000,
+     "giant": 1500,
+     "hog": 171140,
+     "late_colmax2": 2000,
+     "late_gbcls": 8,
+     "wall": 2000
+    },
+    "verified_units_excluding_hog": 19508,
+    "cost_hypothesis": {
+     "col_even": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.4518,
+      "mean_abs_log_err_job_last": 0.4518,
+      "smoothed_accepted": false
+     },
+     "col_max": {
+      "chunks": 3,
+      "mean_abs_log_err_smoothed": 0.7288,
+      "mean_abs_log_err_job_last": 0.9639,
+      "smoothed_accepted": false
+     },
+     "col_odd": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.3867,
+      "mean_abs_log_err_job_last": 0.3867,
+      "smoothed_accepted": false
+     },
+     "col_steps": {
+      "chunks": 48,
+      "mean_abs_log_err_smoothed": 0.0602,
+      "mean_abs_log_err_job_last": 0.039,
+      "smoothed_accepted": false
+     },
+     "col_stop": {
+      "chunks": 4,
+      "mean_abs_log_err_smoothed": 0.8183,
+      "mean_abs_log_err_job_last": 0.8624,
+      "smoothed_accepted": false
+     },
+     "gb_close": {
+      "chunks": 5,
+      "mean_abs_log_err_smoothed": 0.0789,
+      "mean_abs_log_err_job_last": 0.0616,
+      "smoothed_accepted": false
+     },
+     "gb_min": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.3201,
+      "mean_abs_log_err_job_last": 0.3201,
+      "smoothed_accepted": false
+     },
+     "gb_min_cls4_1": {
+      "chunks": 1,
+      "mean_abs_log_err_smoothed": null,
+      "mean_abs_log_err_job_last": null,
+      "smoothed_accepted": false
+     },
+     "gb_u_odd": {
+      "chunks": 8,
+      "mean_abs_log_err_smoothed": 0.1133,
+      "mean_abs_log_err_job_last": 0.0986,
+      "smoothed_accepted": false
+     }
+    },
+    "picks_by_reason": {
+     "aging": 12,
+     "explore": 11,
+     "value": 52
+    }
+   }
+  },
+  {
+   "A_baseline": {
+    "verified_units": 38241,
+    "coverage_targets": "9/10",
+    "coverage_units": 0.1189,
+    "targets_completed_to_goal": 8,
+    "targets_done_partial": 1,
+    "intractable": [
+     "late_gbcls"
+    ],
+    "poison_accepted_units": 0,
+    "poison_retries": 14,
+    "wait_cycles": {
+     "mean": 0.5,
+     "max": 2,
+     "n": 10
+    },
+    "never_served": 0,
+    "latency_cycles_to_goal": {
+     "mean": 0.62,
+     "max": 2,
+     "n": 8
+    },
+    "overhead_share": 0.0002,
+    "cycle_overruns_cpu": 0,
+    "cycle_overruns_wall": 0,
+    "work_cpu_s": 2.057,
+    "work_wall_s": 2.558,
+    "wrong_accepted": 0,
+    "duplicates_skipped": 0,
+    "conflicts": 0,
+    "useful_units_per_cpu_s": 18588.8,
+    "per_target_units": {
+     "cliff": 2999,
+     "col_max": 2999,
+     "col_odd": 2999,
+     "gb_close": 1999,
+     "gb_min": 2999,
+     "giant": 1499,
+     "hog": 18749,
+     "late_colmax2": 1999,
+     "wall": 1999
+    },
+    "verified_units_excluding_hog": 19492
+   },
+   "B_scheduler": {
+    "verified_units": 184801,
+    "coverage_targets": "10/10",
+    "coverage_units": 0.5748,
+    "targets_completed_to_goal": 8,
+    "quarantined": [
+     "poison:method_b_disagrees"
+    ],
+    "over_budget": [
+     "late_gbcls"
+    ],
+    "poison_accepted_units": 0,
+    "wait_cycles": {
+     "mean": 0.2,
+     "max": 1,
+     "n": 10
+    },
+    "never_served": 0,
+    "latency_cycles_to_goal": {
+     "mean": 0.75,
+     "max": 2,
+     "n": 8
+    },
+    "overhead_share": 0.01918,
+    "cycle_overruns_cpu": 1,
+    "cycle_overruns_wall": 1,
+    "chunk_overruns": 5,
+    "work_cpu_s": 6.775,
+    "work_wall_s": 7.032,
+    "wrong_accepted": 0,
+    "duplicates_skipped": 8,
+    "conflicts": 0,
+    "crash_recovered": true,
+    "chunks": 74,
+    "dup_admissions_merged": 1,
+    "useful_units_per_cpu_s": 27276.1,
+    "retracted_units": 8,
+    "per_target_units": {
+     "cliff": 3000,
+     "col_max": 3000,
+     "col_odd": 3000,
+     "gb_close": 2000,
+     "gb_min": 3000,
+     "giant": 1500,
+     "hog": 165293,
+     "late_colmax2": 2000,
+     "late_gbcls": 8,
+     "wall": 2000
+    },
+    "verified_units_excluding_hog": 19508,
+    "cost_hypothesis": {
+     "col_even": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.5591,
+      "mean_abs_log_err_job_last": 0.5591,
+      "smoothed_accepted": false
+     },
+     "col_max": {
+      "chunks": 3,
+      "mean_abs_log_err_smoothed": 0.7338,
+      "mean_abs_log_err_job_last": 0.9667,
+      "smoothed_accepted": false
+     },
+     "col_odd": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.3609,
+      "mean_abs_log_err_job_last": 0.3609,
+      "smoothed_accepted": false
+     },
+     "col_steps": {
+      "chunks": 49,
+      "mean_abs_log_err_smoothed": 0.0998,
+      "mean_abs_log_err_job_last": 0.0736,
+      "smoothed_accepted": false
+     },
+     "col_stop": {
+      "chunks": 3,
+      "mean_abs_log_err_smoothed": 1.2331,
+      "mean_abs_log_err_job_last": 0.9316,
+      "smoothed_accepted": false
+     },
+     "gb_close": {
+      "chunks": 4,
+      "mean_abs_log_err_smoothed": 0.0494,
+      "mean_abs_log_err_job_last": 0.0499,
+      "smoothed_accepted": false
+     },
+     "gb_min": {
+      "chunks": 2,
+      "mean_abs_log_err_smoothed": 0.2129,
+      "mean_abs_log_err_job_last": 0.2129,
+      "smoothed_accepted": false
+     },
+     "gb_min_cls4_1": {
+      "chunks": 1,
+      "mean_abs_log_err_smoothed": null,
+      "mean_abs_log_err_job_last": null,
+      "smoothed_accepted": false
+     },
+     "gb_u_odd": {
+      "chunks": 8,
+      "mean_abs_log_err_smoothed": 0.0804,
+      "mean_abs_log_err_job_last": 0.0727,
+      "smoothed_accepted": false
+     }
+    },
+    "picks_by_reason": {
+     "aging": 11,
+     "explore": 11,
+     "value": 52
+    }
+   }
+  }
+ ],
+ "invariance": {
+  "schedules": 3,
+  "common_units": 106613,
+  "disagreements_on_common_units": 0,
+  "digests_on_common": [
+   "67183168a85864a8"
+  ]
+ }
+}
