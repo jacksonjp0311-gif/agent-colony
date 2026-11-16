@@ -171,6 +171,13 @@ def pick_mutation_order(candidates: list[tuple[str, str, str]]) -> list[tuple[st
             factor = {n: hunt.weight_factor(n, valuer=_v, s=_s) for n in names}
     except Exception:
         factor = None
+    try:  # item 99: steer away from proposal families that keep repeating (order only)
+        from colony import novelty_kind_bias as _nkb
+        if names and _nkb.enabled():
+            _kf = _nkb.factors(names)
+            factor = {n: (factor or {}).get(n, 1.0) * _kf.get(n, 1.0) for n in names}
+    except Exception:
+        pass
     if factor:
         rest_sorted = sorted(rest, key=lambda t: float(dist.get(t[0]) or 0.0) * factor.get(t[0], 1.0),
                              reverse=True)

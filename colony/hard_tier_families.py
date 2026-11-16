@@ -159,6 +159,180 @@ def check_oeis_a001045_jacobsthal_sum(n: int) -> bool:
     return 3 * j1 == 2 ** n - (-1) ** n and j1 == sum(math.comb(n - 1 - k, k) * 2 ** k
                                                       for k in range((n - 1) // 2 + 1))
 '''),
+    ("oeis_a002426_central_trinomial", (0, 50), '''
+def check_oeis_a002426_central_trinomial(n: int) -> bool:
+    """Central trinomial A002426: coefficient of x^n in (1+x+x^2)^n (polynomial powers) equals
+    sum_k C(n,2k) C(2k,k) and the P-recurrence k a(k) = (2k-1) a(k-1) + 3(k-1) a(k-2)."""
+    if n < 0:
+        return True
+    poly = [1]
+    for _ in range(n):
+        nxt = [0] * (len(poly) + 2)
+        for i, c in enumerate(poly):
+            nxt[i] += c
+            nxt[i + 1] += c
+            nxt[i + 2] += c
+        poly = nxt
+    coeff = poly[n]
+    closed = sum(math.comb(n, 2 * k) * math.comb(2 * k, k) for k in range(n // 2 + 1))
+    a = [1, 1]
+    for k in range(2, n + 1):
+        num = (2 * k - 1) * a[k - 1] + 3 * (k - 1) * a[k - 2]
+        if num % k:
+            return False
+        a.append(num // k)
+    return coeff == closed == a[n]
+'''),
+    ("oeis_a000111_zigzag_boustrophedon", (0, 40), '''
+def check_oeis_a000111_zigzag_boustrophedon(n: int) -> bool:
+    """Euler zigzag A000111: the Seidel boustrophedon triangle equals the convolution
+    recurrence 2 a(k+1) = sum_j C(k,j) a(j) a(k-j) (k >= 1); brute-force alternating
+    permutations for small n."""
+    if n < 0:
+        return True
+    row, zz = [1], [1]
+    for k in range(1, n + 1):
+        nxt = [0]
+        for x in reversed(row):
+            nxt.append(nxt[-1] + x)
+        row = nxt
+        zz.append(row[-1])
+    a = [1, 1]
+    for k in range(1, n):
+        s = sum(math.comb(k, j) * a[j] * a[k - j] for j in range(k + 1))
+        if s % 2:
+            return False
+        a.append(s // 2)
+    if zz[n] != a[n]:
+        return False
+    if 2 <= n <= 7:
+        import itertools
+        brute = sum(1 for p in itertools.permutations(range(n))
+                    if all((p[i] < p[i + 1]) == (i % 2 == 1) for i in range(n - 1)))
+        return brute == a[n]
+    return True
+'''),
+    ("oeis_a000262_lah_row_sums", (0, 40), '''
+def check_oeis_a000262_lah_row_sums(n: int) -> bool:
+    """A000262 (sets of lists): sum_k L(n,k) with unsigned Lah L(n,k) = C(n-1,k-1) n!/k! equals
+    the recurrence a(k) = (2k-1) a(k-1) - (k-1)(k-2) a(k-2)."""
+    if n < 0:
+        return True
+    lah = 1 if n == 0 else sum(math.comb(n - 1, k - 1) * math.factorial(n) // math.factorial(k)
+                               for k in range(1, n + 1))
+    a = [1, 1]
+    for k in range(2, n + 1):
+        a.append((2 * k - 1) * a[k - 1] - (k - 1) * (k - 2) * a[k - 2])
+    return lah == a[n]
+'''),
+    ("oeis_a001764_ternary_trees", (0, 40), '''
+def check_oeis_a001764_ternary_trees(n: int) -> bool:
+    """Ternary trees A001764: C(3n,n)/(2n+1) equals the tree decomposition
+    a(m) = sum_{i+j+k=m-1} a(i) a(j) a(k)."""
+    if n < 0:
+        return True
+    a = [1]
+    for m in range(1, n + 1):
+        pair = [sum(a[i] * a[s - i] for i in range(s + 1)) for s in range(m)]
+        a.append(sum(a[i] * pair[m - 1 - i] for i in range(m)))
+    return (2 * n + 1) * a[n] == math.comb(3 * n, n)
+'''),
+    ("oeis_a000957_fine_no_hills", (1, 40), '''
+def check_oeis_a000957_fine_no_hills(n: int) -> bool:
+    """Fine numbers A000957: Dyck paths with no hill (peak at height 1), counted by a path DP,
+    satisfy 2 F(n) + F(n-1) = Catalan(n) = C(2n,n)/(n+1)."""
+    if n < 1:
+        return True
+
+    def no_hills(m: int) -> int:
+        if m == 0:
+            return 1
+        # state: (height, last step was an up-step from height 0)
+        cur = {(0, False): 1}
+        for _ in range(2 * m):
+            nxt = {}
+            for (h, from0), c in cur.items():
+                key = (h + 1, h == 0)
+                nxt[key] = nxt.get(key, 0) + c
+                if h > 0 and not (h == 1 and from0):
+                    key = (h - 1, False)
+                    nxt[key] = nxt.get(key, 0) + c
+            cur = nxt
+        return cur.get((0, False), 0)
+    return 2 * no_hills(n) + no_hills(n - 1) == math.comb(2 * n, n) // (n + 1)
+'''),
+    ("oeis_a001003_little_schroeder", (1, 40), '''
+def check_oeis_a001003_little_schroeder(n: int) -> bool:
+    """Little Schroeder A001003 by (k+1) s(k) = 3(2k-1) s(k-1) - (k-2) s(k-2) is half the large
+    Schroeder number counted by a lattice-path DP (steps E, N, NE staying weakly below y = x)."""
+    if n < 1:
+        return True
+    s = [1, 1]
+    for k in range(2, n + 1):
+        num = 3 * (2 * k - 1) * s[k - 1] - (k - 2) * s[k - 2]
+        if num % (k + 1):
+            return False
+        s.append(num // (k + 1))
+    grid = [[0] * (n + 1) for _ in range(n + 1)]
+    grid[0][0] = 1
+    for x in range(n + 1):
+        for y in range(x + 1):
+            if x == 0 and y == 0:
+                continue
+            v = 0
+            if x > 0 and y <= x - 1:
+                v += grid[x - 1][y]
+            if y > 0:
+                v += grid[x][y - 1]
+            if x > 0 and y > 0:
+                v += grid[x - 1][y - 1]
+            grid[x][y] = v
+    return 2 * s[n] == grid[n][n]
+'''),
+    ("oeis_a005259_apery_recurrence", (0, 40), '''
+def check_oeis_a005259_apery_recurrence(n: int) -> bool:
+    """Apery numbers A005259: sum_k C(n,k)^2 C(n+k,k)^2 satisfies Apery's recurrence
+    k^3 a(k) = (34k^3 - 51k^2 + 27k - 5) a(k-1) - (k-1)^3 a(k-2)."""
+    if n < 0:
+        return True
+    closed = sum(math.comb(n, k) ** 2 * math.comb(n + k, k) ** 2 for k in range(n + 1))
+    a = [1, 5]
+    for k in range(2, n + 1):
+        num = (34 * k ** 3 - 51 * k ** 2 + 27 * k - 5) * a[k - 1] - (k - 1) ** 3 * a[k - 2]
+        if num % k ** 3:
+            return False
+        a.append(num // k ** 3)
+    return closed == a[n]
+'''),
+    ("oeis_a000172_franel_recurrence", (0, 40), '''
+def check_oeis_a000172_franel_recurrence(n: int) -> bool:
+    """Franel numbers A000172: sum_k C(n,k)^3 satisfies Franel's recurrence
+    (k+1)^2 a(k+1) = (7k^2 + 7k + 2) a(k) + 8 k^2 a(k-1)."""
+    if n < 0:
+        return True
+    closed = sum(math.comb(n, k) ** 3 for k in range(n + 1))
+    a = [1, 2]
+    for k in range(1, n):
+        num = (7 * k * k + 7 * k + 2) * a[k] + 8 * k * k * a[k - 1]
+        if num % (k + 1) ** 2:
+            return False
+        a.append(num // (k + 1) ** 2)
+    return closed == a[n]
+'''),
+    ("oeis_a002893_hexagonal_walks", (0, 40), '''
+def check_oeis_a002893_hexagonal_walks(n: int) -> bool:
+    """A002893: sum_k C(n,k)^2 C(2k,k) satisfies (k+1)^2 a(k+1) = (10k^2 + 10k + 3) a(k) - 9 k^2 a(k-1)."""
+    if n < 0:
+        return True
+    closed = sum(math.comb(n, k) ** 2 * math.comb(2 * k, k) for k in range(n + 1))
+    a = [1, 3]
+    for k in range(1, n):
+        num = (10 * k * k + 10 * k + 3) * a[k] - 9 * k * k * a[k - 1]
+        if num % (k + 1) ** 2:
+            return False
+        a.append(num // (k + 1) ** 2)
+    return closed == a[n]
+'''),
 ]
 
 # A few opening terms of each sequence (OEIS), used by the vetting test.
@@ -170,6 +344,16 @@ OEIS_TERMS: dict[str, list[int]] = {
     "A006318": [1, 2, 6, 22, 90, 394, 1806, 8558],
     "A000085": [1, 1, 2, 4, 10, 26, 76, 232, 764, 2620],
     "A001045": [0, 1, 1, 3, 5, 11, 21, 43, 85, 171],
+    # item 99: widened pool
+    "A002426": [1, 1, 3, 7, 19, 51, 141, 393, 1107, 3139],
+    "A000111": [1, 1, 1, 2, 5, 16, 61, 272, 1385, 7936],
+    "A000262": [1, 1, 3, 13, 73, 501, 4051, 37633],
+    "A001764": [1, 1, 3, 12, 55, 273, 1428, 7752],
+    "A000957": [1, 0, 1, 2, 6, 18, 57, 186, 622, 2120],
+    "A001003": [1, 1, 3, 11, 45, 197, 903, 4279, 20793],
+    "A005259": [1, 5, 73, 1445, 33001, 819005],
+    "A000172": [1, 2, 10, 56, 346, 2252, 15184],
+    "A002893": [1, 3, 15, 93, 639, 4653, 35169],
 }
 
 
