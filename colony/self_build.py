@@ -605,6 +605,8 @@ def run_blueprint(bp: Mapping[str, Any], ctx: Context, macros: Mapping[str, Any]
 
 def load_ideas(path: Path | None = None) -> list[dict[str, Any]]:
     """Item-79 architecture ideas; a missing file is simply no evidence."""
+    if path is None and os.environ.get("COLONY_ARCH_IDEAS"):
+        path = Path(os.environ["COLONY_ARCH_IDEAS"])  # same override item 79 uses
     return [r for r in load_log(Path(path or IDEAS_PATH)) if r.get("event") == "architecture_idea"]
 
 
