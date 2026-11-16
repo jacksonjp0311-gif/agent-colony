@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-16T08:02:04Z",
+  "ts": "2026-11-16T08:31:16Z",
   "view_only": true,
   "n_considered": 168,
   "n_meet_bar": 36,
@@ -107,7 +107,7 @@
       "building_blocks": [
         "frontier:frontier_holds"
       ],
-      "athanor_verdict": "APPROVE",
+      "athanor_verdict": null,
       "rank": 0.7302,
       "hunt": {
         "unknown": true,
@@ -190,7 +190,7 @@
       "building_blocks": [
         "frontier:frontier_holds"
       ],
-      "athanor_verdict": "APPROVE",
+      "athanor_verdict": null,
       "rank": 0.7297,
       "hunt": {
         "unknown": true,
@@ -582,8 +582,8 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-11-16T08:02:04Z",
-    "cycle_id": "20261116T075834Z_fb4564",
+    "ts": "2026-11-16T08:31:16Z",
+    "cycle_id": "20261116T082649Z_8d726c",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -804,5 +804,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261116T075834Z_fb4564"
+  "cycle_id": "20261116T082649Z_8d726c"
 }

@@ -4,181 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 401,
-    "ok": 401
+    "n": 404,
+    "ok": 404
   },
   "rows": [
-    {
-      "ts": "2026-11-10T19:59:10Z",
-      "cycle_id": "20261110T195758Z_845dfc",
-      "mutation": "authored_sieve_residue_bal_g6_6_6_w2",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.3333,
-      "live_novel": true,
-      "status": "ok",
-      "terms": [
-        "quadruplets",
-        "primes",
-        "congruent",
-        "mod",
-        "residue",
-        "kept",
-        "hard",
-        "enable",
-        "lemma",
-        "score",
-        "checks",
-        "pass"
-      ],
-      "shadow_textbook_reuse": 0.25,
-      "matches": [
-        {
-          "anum": "A381525",
-          "name_sha256": "643a76b11f0a09ea",
-          "coverage": 0.25,
-          "bm25": -16.927
-        },
-        {
-          "anum": "A270799",
-          "name_sha256": "6f4b546f4562c8de",
-          "coverage": 0.25,
-          "bm25": -16.093
-        },
-        {
-          "anum": "A271210",
-          "name_sha256": "3dd8ccac683e7141",
-          "coverage": 0.25,
-          "bm25": -15.702
-        },
-        {
-          "anum": "A271264",
-          "name_sha256": "e1bd0d5626800554",
-          "coverage": 0.25,
-          "bm25": -14.975
-        },
-        {
-          "anum": "A271263",
-          "name_sha256": "c954deb74f50dc63",
-          "coverage": 0.25,
-          "bm25": -14.975
-        }
-      ],
-      "would_flag": false
-    },
-    {
-      "ts": "2026-11-10T19:59:16Z",
-      "cycle_id": "20261110T195758Z_845dfc",
-      "mutation": "vandermonde",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.3333,
-      "live_novel": false,
-      "status": "ok",
-      "terms": [
-        "binomial",
-        "claim",
-        "candidate",
-        "not",
-        "discovered",
-        "paper",
-        "themes",
-        "around",
-        "from",
-        "attention",
-        "all",
-        "you"
-      ],
-      "shadow_textbook_reuse": 0.25,
-      "matches": [
-        {
-          "anum": "A136377",
-          "name_sha256": "450b16b39aa2d808",
-          "coverage": 0.25,
-          "bm25": -16.145
-        },
-        {
-          "anum": "A111771",
-          "name_sha256": "3da765457824d8f4",
-          "coverage": 0.25,
-          "bm25": -13.561
-        },
-        {
-          "anum": "A098912",
-          "name_sha256": "31ab216a923db5c6",
-          "coverage": 0.25,
-          "bm25": -11.429
-        },
-        {
-          "anum": "A374337",
-          "name_sha256": "af923a172f9ba19b",
-          "coverage": 0.25,
-          "bm25": -11.163
-        },
-        {
-          "anum": "A374339",
-          "name_sha256": "f5b4650bf0c4e5af",
-          "coverage": 0.25,
-          "bm25": -11.031
-        }
-      ],
-      "would_flag": false
-    },
-    {
-      "ts": "2026-11-10T20:02:13Z",
-      "cycle_id": "20261110T200054Z_504366",
-      "mutation": "vandermonde",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.3333,
-      "live_novel": false,
-      "status": "ok",
-      "terms": [
-        "binomial",
-        "claim",
-        "candidate",
-        "not",
-        "discovered",
-        "paper",
-        "themes",
-        "around",
-        "from",
-        "attention",
-        "all",
-        "you"
-      ],
-      "shadow_textbook_reuse": 0.25,
-      "matches": [
-        {
-          "anum": "A136377",
-          "name_sha256": "450b16b39aa2d808",
-          "coverage": 0.25,
-          "bm25": -16.145
-        },
-        {
-          "anum": "A111771",
-          "name_sha256": "3da765457824d8f4",
-          "coverage": 0.25,
-          "bm25": -13.561
-        },
-        {
-          "anum": "A098912",
-          "name_sha256": "31ab216a923db5c6",
-          "coverage": 0.25,
-          "bm25": -11.429
-        },
-        {
-          "anum": "A374337",
-          "name_sha256": "af923a172f9ba19b",
-          "coverage": 0.25,
-          "bm25": -11.163
-        },
-        {
-          "anum": "A374339",
-          "name_sha256": "f5b4650bf0c4e5af",
-          "coverage": 0.25,
-          "bm25": -11.031
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-11-10T23:20:04Z",
       "cycle_id": "20261110T231810Z_dbbc4c",
@@ -3422,6 +3251,177 @@
           "name_sha256": "27bd60b6e54d9463",
           "coverage": 0.0833,
           "bm25": -13.225
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-16T08:17:49Z",
+      "cycle_id": "20261116T081623Z_069aee",
+      "mutation": "stem_shm_energy",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.3333,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "stem",
+        "shm",
+        "energy",
+        "reverted",
+        "enable",
+        "score",
+        "true",
+        "hard",
+        "pass",
+        "oracle",
+        "tier",
+        "required"
+      ],
+      "shadow_textbook_reuse": 0.1667,
+      "matches": [
+        {
+          "anum": "A318165",
+          "name_sha256": "71ce26a9040176ae",
+          "coverage": 0.1667,
+          "bm25": -10.923
+        },
+        {
+          "anum": "A085851",
+          "name_sha256": "c4ba1ba4e2ba645e",
+          "coverage": 0.0833,
+          "bm25": -13.489
+        },
+        {
+          "anum": "A085850",
+          "name_sha256": "01526637707f76b3",
+          "coverage": 0.0833,
+          "bm25": -13.489
+        },
+        {
+          "anum": "A007236",
+          "name_sha256": "c7527707d708821d",
+          "coverage": 0.0833,
+          "bm25": -13.489
+        },
+        {
+          "anum": "A385712",
+          "name_sha256": "306c632c2e36d114",
+          "coverage": 0.0833,
+          "bm25": -12.985
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-16T08:22:38Z",
+      "cycle_id": "20261116T082124Z_2e9e02",
+      "mutation": "stem_resistor_power_balance",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.3333,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "stem",
+        "resistor",
+        "power",
+        "balance",
+        "reverted",
+        "enable",
+        "score",
+        "true",
+        "hard",
+        "pass",
+        "oracle",
+        "tier"
+      ],
+      "shadow_textbook_reuse": 0.1667,
+      "matches": [
+        {
+          "anum": "A090099",
+          "name_sha256": "ee2043fa23e5c5df",
+          "coverage": 0.1667,
+          "bm25": -14.234
+        },
+        {
+          "anum": "A225540",
+          "name_sha256": "58a5d6bb3b4036e7",
+          "coverage": 0.1667,
+          "bm25": -12.699
+        },
+        {
+          "anum": "A065773",
+          "name_sha256": "206c35aba207ec5c",
+          "coverage": 0.1667,
+          "bm25": -12.176
+        },
+        {
+          "anum": "A083240",
+          "name_sha256": "65a447c6e3cdccfe",
+          "coverage": 0.1667,
+          "bm25": -11.571
+        },
+        {
+          "anum": "A036380",
+          "name_sha256": "bdda44441b06bde6",
+          "coverage": 0.1667,
+          "bm25": -11.29
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-16T08:28:01Z",
+      "cycle_id": "20261116T082649Z_8d726c",
+      "mutation": "stem_isothermal_work",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.3333,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "stem",
+        "isothermal",
+        "work",
+        "reverted",
+        "enable",
+        "score",
+        "true",
+        "hard",
+        "pass",
+        "oracle",
+        "tier",
+        "required"
+      ],
+      "shadow_textbook_reuse": 0.1667,
+      "matches": [
+        {
+          "anum": "A318165",
+          "name_sha256": "71ce26a9040176ae",
+          "coverage": 0.1667,
+          "bm25": -10.923
+        },
+        {
+          "anum": "A085851",
+          "name_sha256": "c4ba1ba4e2ba645e",
+          "coverage": 0.0833,
+          "bm25": -13.489
+        },
+        {
+          "anum": "A085850",
+          "name_sha256": "01526637707f76b3",
+          "coverage": 0.0833,
+          "bm25": -13.489
+        },
+        {
+          "anum": "A007236",
+          "name_sha256": "c7527707d708821d",
+          "coverage": 0.0833,
+          "bm25": -13.489
+        },
+        {
+          "anum": "A385712",
+          "name_sha256": "306c632c2e36d114",
+          "coverage": 0.0833,
+          "bm25": -12.985
         }
       ],
       "would_flag": false

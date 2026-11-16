@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T07:59:59Z",
-  "passes": 555,
+  "updated_at": "2026-11-16T08:28:00Z",
+  "passes": 558,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4152,
+  "kill_rate": 0.4139,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
-    "passes": 27,
-    "kills": 33,
+    "passes": 30,
+    "kills": 30,
     "easy_pad_kills": 0,
-    "kill_rate": 0.55
+    "kill_rate": 0.5
   },
-  "bus_ok_rate": 0.5167,
+  "bus_ok_rate": 0.4667,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_e6cbf4fdcc3b",
     "authored_mut_swap_related_sequence_38103ffd94ce",
@@ -56,7 +56,6 @@
     "authored_mut_swap_related_sequence_566c464aa389",
     "authored_mut_swap_related_sequence_5eb7494b98aa",
     "authored_mut_swap_related_sequence_5f1e08241fef",
-    "authored_mut_swap_related_sequence_78025e23cf57",
     "authored_mut_swap_related_sequence_818b81b6a804",
     "authored_mut_swap_related_sequence_86310fedcc8c",
     "authored_mut_swap_related_sequence_98dac34715ca",
@@ -66,14 +65,12 @@
     "authored_mut_swap_related_sequence_abd2d19e66bf",
     "authored_mut_swap_related_sequence_bb7bf2799b09",
     "authored_mut_swap_related_sequence_c461b03cfcee",
-    "authored_mut_swap_related_sequence_c92be463a0f5",
     "authored_mut_swap_related_sequence_c975a0acf97b",
     "authored_mut_swap_related_sequence_d4fd9cc584c3",
     "authored_mut_swap_related_sequence_eb0f3247ee33",
     "authored_mut_swap_related_sequence_efa7f2b38883",
     "authored_mut_swap_related_sequence_f136673b49cd",
     "authored_mut_swap_related_sequence_f7c77a787e41",
-    "authored_mut_swap_related_sequence_f992defe4af8",
     "authored_mut_swap_related_sequence_fd5d7d93e902"
   ],
   "domain_packs": {
@@ -116,7 +113,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-16T07:59:59Z",
+    "ts": "2026-11-16T08:28:00Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -126,8 +123,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `stem_kepler_third_law` kind=stem_enable. lemma mutation stem_kepler_third_law 0.825->0.8688 Not discovery. cycle=20261116T075834Z_fb4564.",
-      "attack": "WEIGH: `stem_kepler_third_law` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `stem_isothermal_work` kind=stem_enable. lemma mutation stem_isothermal_work 0.825->0.8688 Not discovery. cycle=20261116T082649Z_8d726c.",
+      "attack": "WEIGH: `stem_isothermal_work` (stem_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -165,6 +162,10 @@
           },
           {
             "label": "centripetal_T",
+            "ok": true
+          },
+          {
+            "label": "energy_work_numeric",
             "ok": true
           }
         ]
@@ -216,15 +217,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "stem_kepler_third_law",
+      "mutation": "stem_isothermal_work",
       "kind": "stem_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "stem_kepler_third_law",
+    "mutation": "stem_isothermal_work",
     "kind": "stem_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261116T075834Z_fb4564",
+    "cycle_id": "20261116T082649Z_8d726c",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

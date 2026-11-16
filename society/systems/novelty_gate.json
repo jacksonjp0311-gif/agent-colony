@@ -1,20 +1,19 @@
 {
   "version": 1,
-  "updated_at": "2026-11-16T08:00:00Z",
+  "updated_at": "2026-11-16T08:28:01Z",
   "hits": 10,
-  "kills": 15,
+  "kills": 13,
   "rows": 30,
   "kill_rows": 20,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-16T08:00:00Z",
-    "cycle_id": "20261116T075834Z_fb4564",
-    "mutation": "stem_kepler_third_law",
+    "ts": "2026-11-16T08:28:01Z",
+    "cycle_id": "20261116T082649Z_8d726c",
+    "mutation": "stem_isothermal_work",
     "kind": "stem_enable",
     "novel_to_commons": false,
     "kills": [
-      "already_in_lesson_ledger_or_history",
-      "held_out:hard_tier_green_and_hard_enable"
+      "already_in_lesson_ledger_or_history"
     ],
     "textbook_reuse": 0.3333,
     "in_ledger": true,
@@ -26,14 +25,23 @@
       "hard_pass": 171,
       "hard_n": 171,
       "stripped_fails_usefulness": true,
-      "score": 0.8717,
+      "score": 0.8745,
       "impl_id": "lemma_impl_v2_basic10_hard171"
     },
     "held_out": {
-      "survives": false,
-      "reason": "hard_tier_green_and_hard_enable",
+      "survives": true,
+      "test": "stem_held_out_v1",
       "hard_pass": 171,
-      "ok": true
+      "stem_n_pass": 4,
+      "n_held_out": 6,
+      "mutants": 24,
+      "mutants_killed": 20,
+      "reason": "stem_harder_instance_green"
+    },
+    "stem_triviality": {
+      "trivial": false,
+      "reason": "independent_route_or_unanalyzable:GeneratorExp",
+      "test": "stem_triviality_v1"
     },
     "note": "Novelty = new-to-commons under machine gates only. Not theorem discovery. Textbook reuse \u2248 0 required. Not AGI."
   },

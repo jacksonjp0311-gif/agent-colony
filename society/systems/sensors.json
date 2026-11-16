@@ -1,9 +1,12 @@
 {
-  "ts": "2026-11-16T07:59:00Z",
-  "cycle_id": "20261116T075834Z_fb4564",
+  "ts": "2026-11-16T08:27:10Z",
+  "cycle_id": "20261116T082649Z_8d726c",
   "lemma_streaks": {
     "revert_streaks": [
-      "stem_elastic_collision"
+      "stem_elastic_collision",
+      "stem_kepler_third_law",
+      "stem_resistor_power_balance",
+      "stem_shm_energy"
     ],
     "oracle_kills_by_theme": {
       "authored_mut_swap_related_sequence_58aacc9fceff": 3,
@@ -38,24 +41,24 @@
       },
       "stem_kepler_third_law": {
         "last": "revert",
-        "streak": 1,
-        "n": 1,
+        "streak": 2,
+        "n": 2,
         "keeps": 0,
-        "reverts": 1
+        "reverts": 2
       },
       "stem_shm_energy": {
         "last": "revert",
-        "streak": 1,
-        "n": 1,
+        "streak": 2,
+        "n": 2,
         "keeps": 0,
-        "reverts": 1
+        "reverts": 2
       },
       "stem_resistor_power_balance": {
         "last": "revert",
-        "streak": 1,
-        "n": 1,
+        "streak": 2,
+        "n": 2,
         "keeps": 0,
-        "reverts": 1
+        "reverts": 2
       },
       "stem_isothermal_work": {
         "last": "revert",
@@ -104,28 +107,28 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.816,
-      "slope": -0.001129,
+      "last": 0.8176,
+      "slope": -0.000255,
       "min": 0.8122,
-      "max": 0.8286
+      "max": 0.8203
     },
     "novelty": {
-      "last": 0.4,
-      "slope": -0.022395,
+      "last": 0.4167,
+      "slope": -0.010765,
       "min": 0.3846,
-      "max": 0.6471
+      "max": 0.5263
     },
     "kill_rate": {
-      "last": 0.4156,
-      "slope": -0.000441,
-      "min": 0.4156,
-      "max": 0.4205
+      "last": 0.4143,
+      "slope": -0.00044,
+      "min": 0.4143,
+      "max": 0.4191
     },
     "kill_rate_term": {
-      "last": 0.9241,
-      "slope": -0.000396,
-      "min": 0.9241,
-      "max": 0.9284
+      "last": 0.9229,
+      "slope": -0.000389,
+      "min": 0.9229,
+      "max": 0.9272
     },
     "lesson_uptake": {
       "last": 0.36,
@@ -136,8 +139,8 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0047,
-    "novelty_max": 0.4545,
+    "aggregate_range": 0.0054,
+    "novelty_max": 0.4167,
     "window": 6,
     "reason": "moving"
   },
@@ -266,23 +269,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.141,
+      "ratio": 0.781,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.127,
+      "ratio": 0.766,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.127,
+      "ratio": 0.768,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.125,
+      "ratio": 0.941,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.117,
+      "ratio": 0.975,
       "drift": false
     }
   },
@@ -291,10 +294,10 @@
     "verified": {
       "goldbach_even": 484434115,
       "collatz_descent": 521400000,
-      "legendre_square_gap": 2652607,
-      "lehmer_totient": 243800001,
+      "legendre_square_gap": 2668607,
+      "lehmer_totient": 245400001,
       "erdos_straus": 1419127,
-      "twin_primes_hl": 650200000,
+      "twin_primes_hl": 654200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -306,11 +309,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4598,
+        "challenged": 4595,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 302,
+        "challenged": 305,
         "blocked": 0
       },
       "claim": {
@@ -318,8 +321,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.3224,
-    "post_challenger_oracle_judged": 397,
+    "post_challenger_oracle_kill_rate": 0.32,
+    "post_challenger_oracle_judged": 400,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -344,22 +347,22 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 11,
+    "completed": 10,
     "last": [
       [
         null,
-        "2026-11-16T07:46:03Z"
+        "2026-11-16T08:10:40Z"
+      ],
+      [
+        null,
+        "2026-11-16T08:08:57Z"
       ],
       [
         "success",
-        "2026-11-16T07:39:28Z"
-      ],
-      [
-        "success",
-        "2026-11-16T07:30:23Z"
+        "2026-11-16T07:46:49Z"
       ]
     ],
-    "fetched_at": "2026-11-16T07:46:49Z"
+    "fetched_at": "2026-11-16T08:12:04Z"
   },
   "feeds": {
     "by_source": {
@@ -407,7 +410,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-16T07:46:49Z"
+      "ts": "2026-11-16T08:12:03Z"
     },
     "health": {
       "arxiv": {
@@ -433,7 +436,7 @@
     }
   },
   "signals": [
-    "revert_streaks: stem_elastic_collision → deprioritize in seek",
+    "revert_streaks: stem_elastic_collision, stem_kepler_third_law, stem_resistor_power_balance, stem_shm_energy → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
