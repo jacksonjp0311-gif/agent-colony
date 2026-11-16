@@ -71,7 +71,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ai-guided",
+      "topic": "a(n)=9^(-1)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-16T07:33:43Z",
-  "updated_cycle": "20261116T073123Z_65d0db",
+  "updated_at": "2026-11-16T07:54:57Z",
+  "updated_cycle": "20261116T075308Z_2717d9",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

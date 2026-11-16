@@ -2,16 +2,12 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   88,
+   89,
    35
   ],
   "divides": [
    28,
    3
-  ],
-  "identity": [
-   1,
-   1
   ],
   "le": [
    30,
@@ -30,7 +26,7 @@
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 43,
+ "n_proved": 42,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -4965,6 +4961,18 @@
    "unknown": true,
    "v": 4
   },
+  "phi[podd](n) = 0 (mod 2) for all n = 0 (mod 4)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_cong_xa199bc08_w1",
+   "checks": 9,
+   "kind": "cong",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "pi[prime](n) = 0 (mod 2) for all n = 0 (mod 2)": {
    "authored": false,
    "certificate": {
@@ -5078,95 +5086,6 @@
    "summary": null,
    "unknown": true,
    "v": 4
-  },
-  "pow2(n) = D(pow2)(n) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "pow2",
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "atom",
-       "val": {
-        "a": {
-         "pow2@1,0": 1
-        },
-        "c": 0,
-        "d": 0
-       }
-      },
-      "rhs": {
-       "e": "D(pow2)",
-       "kids": [
-        {
-         "e": "pow2",
-         "pt": [
-          1,
-          1
-         ],
-         "rule": "atom",
-         "val": {
-          "a": {
-           "pow2@1,1": 1
-          },
-          "c": 0,
-          "d": 0
-         }
-        },
-        {
-         "e": "pow2",
-         "pt": [
-          1,
-          0
-         ],
-         "rule": "atom",
-         "val": {
-          "a": {
-           "pow2@1,0": 1
-          },
-          "c": 0,
-          "d": 0
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "Ddiff",
-       "val": {
-        "a": {
-         "pow2@1,0": -1,
-         "pow2@1,1": 1
-        },
-        "c": 0,
-        "d": 0
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "closed form (sympy)"
-   },
-   "check": "authored_frontier_identity_xcae731b6_w1",
-   "checks": 3988,
-   "kind": "identity",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "closed form (sympy): n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
   },
   "prime[oxa080076](n) = 1 (mod 2) for all n >= 1": {
    "authored": false,
@@ -5884,5 +5803,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T07:34:23Z"
+ "ts": "2026-11-16T07:55:32Z"
 }
