@@ -1,11 +1,9 @@
 {
-  "ts": "2026-11-16T02:57:45Z",
-  "cycle_id": "20261116T025726Z_f55a5f",
+  "ts": "2026-11-16T03:48:11Z",
+  "cycle_id": "20261116T034746Z_b020ff",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_d4fd9cc584c3": 1,
-      "authored_mut_swap_related_sequence_05546e14e52a": 1,
       "authored_mut_perturb_constant_703a4fa11fd2": 1,
       "authored_mut_perturb_constant_e6cbf4fdcc3b": 1,
       "authored_mut_swap_related_sequence_38103ffd94ce": 1,
@@ -40,55 +38,101 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "jacobi_two_squares": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "jacobi_four_squares": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "legendre_factorial_valuation": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "kummer_carries": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "ramanujan_partition_congruences": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
+      },
+      "primitive_root_count": {
+        "last": "keep",
+        "streak": 1,
+        "n": 1,
+        "keeps": 1,
+        "reverts": 0
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8329,
-      "slope": -0.001134,
-      "min": 0.8289,
-      "max": 0.8449
+      "last": 0.8221,
+      "slope": -0.001517,
+      "min": 0.8148,
+      "max": 0.8413
     },
     "novelty": {
-      "last": 0.1667,
-      "slope": -0.021908,
+      "last": 0.5833,
+      "slope": 0.01556,
       "min": 0.1667,
-      "max": 0.4
+      "max": 0.5833
     },
     "kill_rate": {
-      "last": 0.4255,
-      "slope": -6.3e-05,
-      "min": 0.4255,
-      "max": 0.4264
+      "last": 0.4227,
+      "slope": -0.000201,
+      "min": 0.4227,
+      "max": 0.4259
     },
     "kill_rate_term": {
-      "last": 0.9329,
-      "slope": -6.3e-05,
-      "min": 0.9329,
-      "max": 0.9338
+      "last": 0.9305,
+      "slope": -0.000191,
+      "min": 0.9305,
+      "max": 0.9334
     },
     "lesson_uptake": {
-      "last": 0.9,
-      "slope": 0.0,
-      "min": 0.9,
+      "last": 0.36,
+      "slope": -0.037762,
+      "min": 0.36,
       "max": 0.9
     }
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0059,
-    "novelty_max": 0.2,
+    "aggregate_range": 0.0197,
+    "novelty_max": 0.5833,
     "window": 6,
     "reason": "moving"
   },
   "catalog": {
-    "enabled": 172,
+    "enabled": 178,
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_mut_swap_related_sequence_58aacc9fceff"
+      "authored_mut_swap_related_sequence_58aacc9fceff",
+      "dedekind_reciprocity",
+      "korselt_criterion",
+      "pisano_prime_period",
+      "zeckendorf_unique"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -193,7 +237,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 8
+    "exhausted_recent": 3
   },
   "guides": {
     "n_guides": 17,
@@ -207,23 +251,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.987,
+      "ratio": 1.441,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.016,
+      "ratio": 1.494,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.995,
+      "ratio": 1.431,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.045,
+      "ratio": 1.254,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.007,
+      "ratio": 1.12,
       "drift": false
     }
   },
@@ -232,10 +276,10 @@
     "verified": {
       "goldbach_even": 468434115,
       "collatz_descent": 505400000,
-      "legendre_square_gap": 2572607,
-      "lehmer_totient": 235800001,
+      "legendre_square_gap": 2588607,
+      "lehmer_totient": 237400001,
       "erdos_straus": 1394127,
-      "twin_primes_hl": 630200000,
+      "twin_primes_hl": 634200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -247,11 +291,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4620,
+        "challenged": 4614,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 280,
+        "challenged": 286,
         "blocked": 0
       },
       "claim": {
@@ -259,8 +303,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.3413,
-    "post_challenger_oracle_judged": 375,
+    "post_challenger_oracle_kill_rate": 0.336,
+    "post_challenger_oracle_judged": 381,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -284,23 +328,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 1.0,
-    "completed": 9,
+    "success_rate": 0.9091,
+    "completed": 11,
     "last": [
       [
         null,
-        "2026-11-16T02:46:57Z"
+        "2026-11-16T03:34:19Z"
       ],
       [
-        null,
-        "2026-11-16T02:42:42Z"
+        "success",
+        "2026-11-16T03:22:15Z"
       ],
       [
-        null,
-        "2026-11-16T02:41:56Z"
+        "success",
+        "2026-11-16T03:19:29Z"
       ]
     ],
-    "fetched_at": "2026-11-16T02:48:11Z"
+    "fetched_at": "2026-11-16T03:35:06Z"
   },
   "feeds": {
     "by_source": {
@@ -348,7 +392,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-16T02:48:10Z"
+      "ts": "2026-11-16T03:35:05Z"
     },
     "health": {
       "arxiv": {

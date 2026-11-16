@@ -13,10 +13,10 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Reverted (including twin-not-better): **4**
 - Voided (environment changed mid-trial): **13**
 - Inconclusive (no signal in either window; not counted against the action): **6**
-- Proposed this snapshot: **6**
+- Proposed this snapshot: **7**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **3** times (`set_knob:direction=up:name=park_cycles:value=8`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 100, correct 0, pending 61, accuracy 0‰
+- Hive shadow picks: resolved 100, correct 0, pending 62, accuracy 0‰
 
 ## Per method card
 
@@ -51,15 +51,15 @@ _None yet._
 
 ## Reading breadth (knowledge library)
 
-knowledge: 41 papers across 5/14 fields, 35 concepts, 15 cards formed, 0 tested, 0 kept.
+knowledge: 65 papers across 8/14 fields, 48 concepts, 17 cards formed, 0 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | automated_reasoning | 0 | 0 | 0 | 0 | 0 |
-| cognitive_science | 8 | 4 | 2 | 0 | 0 |
-| consciousness_self_models | 0 | 0 | 0 | 0 | 0 |
-| learning_theory | 0 | 0 | 0 | 0 | 0 |
-| mathematics | 0 | 0 | 0 | 0 | 0 |
+| cognitive_science | 8 | 4 | 3 | 0 | 0 |
+| consciousness_self_models | 8 | 4 | 1 | 0 | 0 |
+| learning_theory | 8 | 9 | 0 | 0 | 0 |
+| mathematics | 8 | 0 | 0 | 0 | 0 |
 | meta_learning | 8 | 7 | 0 | 0 | 0 |
 | multi_agent_systems | 0 | 0 | 0 | 0 | 0 |
 | neural_architecture | 8 | 9 | 4 | 0 | 0 |
@@ -76,7 +76,7 @@ knowledge: 41 papers across 5/14 fields, 35 concepts, 15 cards formed, 0 tested,
 - `meta_controller` — 6 papers (meta_learning, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
 - `self_play_challenger` — 5 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 - `specialist_routing` — 5 papers (neural_architecture): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
-- `prediction_error_routing` — 2 papers (cognitive_science, neural_architecture): Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).
+- `self_model_calibration` — 4 papers (cognitive_science, consciousness_self_models): The colony tracks its own prediction accuracy per desk and uses it to weight proposals (calibrated self-model; not a consciousness claim).
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 

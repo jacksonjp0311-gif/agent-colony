@@ -1547,7 +1547,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261116T025726Z_f55a5f",
+  "last_cycle": "20261116T034746Z_b020ff",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -1569,7 +1569,7 @@
   },
   "n_inconclusive": 6,
   "n_kept": 11,
-  "n_proposed": 6,
+  "n_proposed": 7,
   "n_reverted": 4,
   "n_twin_held": 0,
   "n_voided": 13,
@@ -1684,16 +1684,35 @@
       "method": "Rotate away from the last-tried claim form more strongly (novelty over repetition).",
       "source": "hive_vote",
       "ts": "2026-11-16T02:59:19Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "unused_menu_cycles",
+        "op": "set_knob",
+        "value": 25
+      },
+      "card_id": "mc_e170e02332fe",
+      "concept": "",
+      "cycle_id": "20261116T033914Z_856c19",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=up:name=unused_menu_cycles:value=25",
+      "knob": "unused_menu_cycles",
+      "method": "Remember already-tried targets for longer before retrying them (longer working memory).",
+      "source": "hive_vote",
+      "ts": "2026-11-16T03:42:04Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
     "incorrect": 100,
-    "pending": 61,
+    "pending": 62,
     "resolved": 100,
     "source": "hive_shadows",
-    "ts": "2026-11-16T02:59:52Z",
+    "ts": "2026-11-16T03:51:06Z",
     "unlabeled": 0
   },
   "twin_pending": [],

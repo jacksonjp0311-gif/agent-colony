@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 15,
- "last_refill_index": 14,
+ "cycle_index": 18,
+ "last_refill_index": 17,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -162,6 +162,38 @@
   "2406b89e33e5b193": {
    "cycle_id": "20261116T025418Z_bc5f88",
    "n_hits": 9
+  },
+  "70b1a30cd7b29c58": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 10
+  },
+  "ecb3f49cf86d4d44": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 9
+  },
+  "5ea229695751e252": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 10
+  },
+  "118ce388265efab2": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 10
+  },
+  "9c376094dacb56ef": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 10
+  },
+  "483ccfcde6e095de": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 10
+  },
+  "701d0e84cac30366": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 10
+  },
+  "4a4aaed9d9c7428e": {
+   "cycle_id": "20261116T034257Z_9f3f23",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -196,37 +228,95 @@
   "A247471": "20261116T025418Z_bc5f88",
   "A268601": "20261116T025418Z_bc5f88",
   "A182899": "20261116T025418Z_bc5f88",
-  "A060774": "20261116T025418Z_bc5f88"
+  "A060774": "20261116T025418Z_bc5f88",
+  "A141771": "20261116T034257Z_9f3f23",
+  "A181142": "20261116T034257Z_9f3f23",
+  "A121747": "20261116T034257Z_9f3f23",
+  "A121750": "20261116T034257Z_9f3f23",
+  "A121580": "20261116T034257Z_9f3f23",
+  "A187252": "20261116T034257Z_9f3f23",
+  "A121584": "20261116T034257Z_9f3f23",
+  "A174193": "20261116T034257Z_9f3f23",
+  "A308726": "20261116T034257Z_9f3f23",
+  "A013302": "20261116T034257Z_9f3f23",
+  "A121751": "20261116T034257Z_9f3f23",
+  "A276168": "20261116T034257Z_9f3f23",
+  "A001278": "20261116T034257Z_9f3f23",
+  "A001279": "20261116T034257Z_9f3f23",
+  "A001280": "20261116T034257Z_9f3f23",
+  "A001277": "20261116T034257Z_9f3f23",
+  "A000907": "20261116T034257Z_9f3f23"
  },
- "refills": 5,
- "added": 34,
+ "refills": 6,
+ "added": 44,
  "last": {
-  "cycle_id": "20261116T025418Z_bc5f88",
+  "cycle_id": "20261116T034257Z_9f3f23",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 17,
+  "requests": 38,
   "new": [
    {
-    "id": "oc_A322599_0",
-    "form": "gf",
+    "id": "oc_A116406_0",
+    "form": "relation",
+    "definition": true
+   },
+   {
+    "id": "oc_A052999_0",
+    "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A322600_0",
-    "form": "gf",
+    "id": "oc_A096471_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A162972_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A177259_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A177260_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A059894_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A177258_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A224292_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A000483_0",
+    "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 48,
-   "resolved_skipped": 10,
-   "keyword_skipped": 3,
-   "statements": 48,
-   "parsed": 12,
-   "no_bfile": 6,
-   "fails_on_data": 2,
-   "kept": 2,
-   "def_candidates": 0
+   "entries": 74,
+   "resolved_skipped": 14,
+   "keyword_skipped": 4,
+   "statements": 97,
+   "parsed": 32,
+   "no_bfile": 17,
+   "fails_on_data": 1,
+   "kept": 10,
+   "def_candidates": 2,
+   "def_fails_on_data": 1
   }
  }
 }
