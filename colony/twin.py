@@ -167,6 +167,13 @@ def _self_heal_frozen(state_root: Path, heal: dict[str, Any]) -> bool:
     return bool(heal.get("frozen"))
 
 
+def non_routine_count(proofs: dict[str, Any]) -> int:
+    """Item 107: a proof is non-routine only with a VERIFIED machine certificate and a non-routine
+    type. Rows without ``certificate_verified`` (all earlier proofs) never count as non-routine."""
+    return sum(1 for v in (proofs or {}).values()
+               if isinstance(v, dict) and not v.get("routine") and v.get("certificate_verified") is True)
+
+
 def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
     """Read one arm's metrics from its state root. Missing files become 0 / empty."""
     systems = Path(state_root) / "society" / "systems"
@@ -207,9 +214,8 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
         })
     depths.sort(key=lambda r: (-int(r.get("verified_depth") or 0), str(r.get("anum") or "")))
 
-    routine = sum(1 for v in proofs.values() if isinstance(v, dict) and v.get("routine"))
     proofs_n = len(proofs)
-    non_routine = proofs_n - routine
+    non_routine = non_routine_count(proofs)
 
     try:
         from colony.society_state import load_data
