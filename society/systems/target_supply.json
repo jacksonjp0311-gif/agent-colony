@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 12,
- "last_refill_index": 11,
+ "cycle_index": 15,
+ "last_refill_index": 14,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -130,6 +130,38 @@
   "546c0e55666c8686": {
    "cycle_id": "20261116T023341Z_562a22",
    "n_hits": 10
+  },
+  "4ab61095454ae96a": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 8
+  },
+  "77a272f4fa445b8d": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 8
+  },
+  "01028b37c9d9a37d": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "832e126a9c2fcccf": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "9f57342c1e6470a2": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "29ac6bcb8d0130bc": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 10
+  },
+  "ac970b0eceabe9ae": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 9
+  },
+  "2406b89e33e5b193": {
+   "cycle_id": "20261116T025418Z_bc5f88",
+   "n_hits": 9
   }
  },
  "rejected": {
@@ -157,47 +189,44 @@
   "A279014": "20261116T023341Z_562a22",
   "A268600": "20261116T023341Z_562a22",
   "A306967": "20261116T023341Z_562a22",
-  "A307208": "20261116T023341Z_562a22"
+  "A307208": "20261116T023341Z_562a22",
+  "A217214": "20261116T025418Z_bc5f88",
+  "A290648": "20261116T025418Z_bc5f88",
+  "A108430": "20261116T025418Z_bc5f88",
+  "A247471": "20261116T025418Z_bc5f88",
+  "A268601": "20261116T025418Z_bc5f88",
+  "A182899": "20261116T025418Z_bc5f88",
+  "A060774": "20261116T025418Z_bc5f88"
  },
- "refills": 4,
- "added": 32,
+ "refills": 5,
+ "added": 34,
  "last": {
-  "cycle_id": "20261116T023341Z_562a22",
-  "open_before": 6,
+  "cycle_id": "20261116T025418Z_bc5f88",
+  "open_before": 0,
   "pages_read": 8,
-  "requests": 19,
+  "requests": 17,
   "new": [
    {
-    "id": "oc_A135052_0",
-    "form": "relation",
-    "definition": true
-   },
-   {
-    "id": "oc_A140829_0",
+    "id": "oc_A322599_0",
     "form": "gf",
     "definition": false
    },
    {
-    "id": "oc_A278472_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A120503_0",
-    "form": "relation",
+    "id": "oc_A322600_0",
+    "form": "gf",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 52,
-   "resolved_skipped": 9,
+   "entries": 48,
+   "resolved_skipped": 10,
    "keyword_skipped": 3,
-   "statements": 51,
-   "parsed": 15,
-   "no_bfile": 7,
+   "statements": 48,
+   "parsed": 12,
+   "no_bfile": 6,
    "fails_on_data": 2,
-   "kept": 4,
-   "def_candidates": 1
+   "kept": 2,
+   "def_candidates": 0
   }
  }
 }

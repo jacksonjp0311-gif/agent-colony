@@ -10,13 +10,13 @@
       "reads": 1
     },
     "cognitive_science": {
-      "cards_formed": 0,
+      "cards_formed": 2,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 0,
-      "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 1
+      "concepts": 4,
+      "distinct_concepts": 3,
+      "papers": 8,
+      "reads": 2
     },
     "consciousness_self_models": {
       "cards_formed": 0,
@@ -52,7 +52,7 @@
       "concepts": 7,
       "distinct_concepts": 3,
       "papers": 8,
-      "reads": 2
+      "reads": 3
     },
     "multi_agent_systems": {
       "cards_formed": 0,
@@ -64,13 +64,13 @@
       "reads": 1
     },
     "neural_architecture": {
-      "cards_formed": 0,
+      "cards_formed": 4,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 0,
-      "distinct_concepts": 0,
-      "papers": 0,
-      "reads": 1
+      "concepts": 9,
+      "distinct_concepts": 5,
+      "papers": 8,
+      "reads": 2
     },
     "open_endedness": {
       "cards_formed": 0,
@@ -127,10 +127,36 @@
       "reads": 2
     }
   },
-  "fields_with_papers": 3,
+  "fields_with_papers": 5,
   "n_fields": 14,
   "note": "Breadth of reading. Cards are kept only by self-heal windows + twin control. Not AGI.",
   "top_architecture_ideas": [
+    {
+      "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
+      "examples": [
+        {
+          "arxiv_id": "2611.08615",
+          "field": "swarm_collective_intelligence",
+          "title": "s$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL"
+        },
+        {
+          "arxiv_id": "2611.07996",
+          "field": "swarm_collective_intelligence",
+          "title": "SEER: A Scalable Event-Driven Runtime for Parallel Execution of Multi-Agent Reinforcement Learning Environments"
+        },
+        {
+          "arxiv_id": "2611.07618",
+          "field": "swarm_collective_intelligence",
+          "title": "A Bilevel Neurodynamic Approach for Distributed SCAD-Regularized Sparse Least Squares"
+        }
+      ],
+      "fields": [
+        "neural_architecture",
+        "swarm_collective_intelligence"
+      ],
+      "idea": "swarm_topology",
+      "n_papers": 7
+    },
     {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
       "examples": [
@@ -155,31 +181,6 @@
         "self_learning_loops"
       ],
       "idea": "meta_controller",
-      "n_papers": 6
-    },
-    {
-      "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
-      "examples": [
-        {
-          "arxiv_id": "2611.08615",
-          "field": "swarm_collective_intelligence",
-          "title": "s$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL"
-        },
-        {
-          "arxiv_id": "2611.07996",
-          "field": "swarm_collective_intelligence",
-          "title": "SEER: A Scalable Event-Driven Runtime for Parallel Execution of Multi-Agent Reinforcement Learning Environments"
-        },
-        {
-          "arxiv_id": "2611.07618",
-          "field": "swarm_collective_intelligence",
-          "title": "A Bilevel Neurodynamic Approach for Distributed SCAD-Regularized Sparse Least Squares"
-        }
-      ],
-      "fields": [
-        "swarm_collective_intelligence"
-      ],
-      "idea": "swarm_topology",
       "n_papers": 6
     },
     {
@@ -208,27 +209,58 @@
       "n_papers": 5
     },
     {
-      "description": "Desks exchange typed messages along a fixed graph instead of one linear stage order.",
+      "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
       "examples": [
         {
-          "arxiv_id": "2611.14042",
-          "field": "meta_learning",
-          "title": "Resilient Integrated Access and Backhaul Network Planning via Graph Neural Network Curriculum Learning"
+          "arxiv_id": "2611.17879",
+          "field": "neural_architecture",
+          "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning"
+        },
+        {
+          "arxiv_id": "2611.17857",
+          "field": "neural_architecture",
+          "title": "Fuse-All MoE Inference Kernel with Load Balancing on TPUs"
+        },
+        {
+          "arxiv_id": "2611.17472",
+          "field": "neural_architecture",
+          "title": "Do Mixture-of-Experts Routers Benefit from Ensembling?"
         }
       ],
       "fields": [
-        "meta_learning"
+        "neural_architecture"
       ],
-      "idea": "message_passing_desks",
-      "n_papers": 1
+      "idea": "specialist_routing",
+      "n_papers": 5
+    },
+    {
+      "description": "Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).",
+      "examples": [
+        {
+          "arxiv_id": "2611.17879",
+          "field": "neural_architecture",
+          "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning"
+        },
+        {
+          "arxiv_id": "2610.37327",
+          "field": "cognitive_science",
+          "title": "Local learning is all you need: brain-aligned predictive coding networks"
+        }
+      ],
+      "fields": [
+        "cognitive_science",
+        "neural_architecture"
+      ],
+      "idea": "prediction_error_routing",
+      "n_papers": 2
     }
   ],
   "totals": {
-    "cards_formed": 9,
+    "cards_formed": 15,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 22,
-    "papers": 25,
-    "reads": 18
+    "concepts": 35,
+    "papers": 41,
+    "reads": 21
   }
 }

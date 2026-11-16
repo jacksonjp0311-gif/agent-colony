@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-16T01:52:03Z",
-  "n": 554,
+  "updated_at": "2026-11-16T02:56:15Z",
+  "n": 556,
   "identities": [
     "abel_summation",
     "adversarial_cassini_ext",
@@ -198,10 +198,10 @@
     "authored_mut_swap_related_sequence_38103ffd94ce",
     "authored_mut_swap_related_sequence_3909a3967380",
     "authored_mut_swap_related_sequence_3a917a302be9",
+    "authored_mut_swap_related_sequence_3c874f89f994",
     "authored_mut_swap_related_sequence_3fcf4c695bad",
     "authored_mut_swap_related_sequence_407fbdbac9ef",
-    "authored_mut_swap_related_sequence_43bfea4a2cc0",
-    "authored_mut_swap_related_sequence_5223338a52eb"
+    "authored_mut_swap_related_sequence_43bfea4a2cc0"
   ],
   "note": "Known identities from lessons + conjecture history. Not discovery."
 }
