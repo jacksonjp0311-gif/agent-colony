@@ -1,22 +1,24 @@
 {
-  "last_attempt_at": "2026-11-16T05:08:55Z",
-  "last_status": 0,
+  "last_attempt_at": "2026-11-16T05:30:08Z",
+  "last_status": 200,
   "retry_after_until": null,
-  "last_error": "ReadTimeout: The read operation timed out",
-  "last_ok_at": "2026-11-16T04:23:30Z",
+  "last_error": "",
+  "last_ok_at": "2026-11-16T05:30:08Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Sample-efficient prediction of high-entropy alloy strength through outcome-aware robust sequential learning",
-      "abstract_snippet": "Accurate prediction of high-entropy alloy (HEA) strength can guide composition and processing decisions; however, obtaining tensile-test data for HEAs can be costly and experimentally demanding. This study proposes Robust Outcome-aware Sequential Experimentation for High-Entropy Alloys (ROSE-HEA), a sample-efficient framework for predicting ultimate tensile strength (UTS) from alloy composition an",
-      "url": "https://arxiv.org/abs/2611.18462",
-      "arxiv_id": "2611.18462",
+      "title": "Pairing AIS with RF: Analysis of a Markovian Approach for Maritime Data Fusion",
+      "abstract_snippet": "Monitoring maritime activities is important for safety and security, particularly for detecting illegal activities, but remains challenging due to the size and complexity of the maritime domain. The Automatic Identification System (AIS) is commonly used for this purpose, despite its known vulnerabilities. In contrast, space-based radio frequency (RF) observations provide an independent source of v",
+      "url": "https://arxiv.org/abs/2611.18563",
+      "arxiv_id": "2611.18563",
       "doi": "",
       "authors": [
-        "Ahmed Shoyeb Raihan",
-        "Md Habibor Rahman",
-        "Ashish Nimbarte",
-        "Imtiaz Ahmed"
+        "Daniel Grimm",
+        "Kyra Jongman",
+        "Renato Cordeiro Ferreira",
+        "Giuseppe Cascavilla",
+        "Alfredo Cuzzocrea",
+        "Willem-Jan Van Den Heuvel"
       ],
       "year": 2026,
       "tags": [
@@ -26,18 +28,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T04:23:30Z"
+      "fetched_at": "2026-11-16T05:30:08Z"
     },
     {
       "source": "arxiv",
-      "title": "Callo: Serving Cache-Miss Requests with Speculative Decoding on Invalidated KV under Prefill-Decode Disaggregation",
-      "abstract_snippet": "Agent sessions may involve frequent context edits, which effectively invalidate cached KV state and force requests to wait for re-prefill before decoding. We present Callo, a disaggregated serving system that leverages invalidated KV for speculative drafts to reduce this latency, while verifying drafts against the exact KV after prefill before committing tokens. Callo makes effective use of decode",
-      "url": "https://arxiv.org/abs/2611.18459",
-      "arxiv_id": "2611.18459",
+      "title": "FETTUCCINE: Fast and efficient brain-to-text decoding on mobile devices",
+      "abstract_snippet": "Recent advances in speech neuroprostheses have enabled new communication avenues for people who have lost the ability to speak due to neurological illness or injury. These systems can decode neural activity during attempted speech into text by relying on language priors to achieve high decoding accuracy. This performance currently comes at the cost of using a compute-intensive language modeling st",
+      "url": "https://arxiv.org/abs/2611.18561",
+      "arxiv_id": "2611.18561",
       "doi": "",
       "authors": [
-        "Jianjun Ou",
-        "Matthew Lentz"
+        "Jonathan D. McCart",
+        "Pranav I. Deevi",
+        "Mehdi Azabou",
+        "Nanda H. Krishna",
+        "Caleb A. McKinney",
+        "Nicholas S. Card"
       ],
       "year": 2026,
       "tags": [
@@ -47,22 +53,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T04:23:30Z"
+      "fetched_at": "2026-11-16T05:30:08Z"
     },
     {
       "source": "arxiv",
-      "title": "Black-Box Uncertainty Quantification for Large Language Models via Ensemble-of-Ensembles",
-      "abstract_snippet": "Reliable use of large language models (LLMs) requires uncertainty estimates that separate ambiguity intrinsic to a prompt from genuine knowledge gaps. Bayesian and deep-ensemble methods deliver this aleatoric/epistemic decomposition in principle, but are computationally prohibitive at LLM scale and require white-box access. Existing black-box methods, in contrast, summarize to a single scalar that",
-      "url": "https://arxiv.org/abs/2611.18453",
-      "arxiv_id": "2611.18453",
+      "title": "Training Reasoning Models in Simulation to Natively Use Real Robots",
+      "abstract_snippet": "Robot-use agents (RUAs) have emerged as a promising approach to general-purpose robot control. However, strong performance has so far been achieved only by frontier proprietary models such as GPT-6 Astra and Claude Fable 5.2, whereas open-weight models remain substantially less capable. We show that an open-weight 27B reasoning model can be trained to use real robots natively through reinforcement",
+      "url": "https://arxiv.org/abs/2611.18562",
+      "arxiv_id": "2611.18562",
       "doi": "",
       "authors": [
-        "Wang Ma",
-        "Debarun Bhattacharjya",
-        "Junkyu Lee",
-        "Nhan H Pham",
-        "Harsha Kokel",
-        "Qiang Ji"
+        "Jiaming Tang",
+        "Zhuoyang Zhang",
+        "Junxian Guo",
+        "Fangzhou Zhao",
+        "Yilong Zhao",
+        "Zekai Li"
       ],
       "year": 2026,
       "tags": [
@@ -72,18 +78,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T04:23:30Z"
+      "fetched_at": "2026-11-16T05:30:08Z"
     },
     {
       "source": "arxiv",
-      "title": "PACT: A Decoder-Confidence-Guided Two-Round Receiver for Joint Channel and Phase-Noise Estimation in Sub-THz OFDM",
-      "abstract_snippet": "Frequency-selective fading and oscillator phase noise (PN) jointly impair coded sub-THz OFDM reception. We propose a decoder-confidence-guided two-round receiver combining a {pilot-aware complex transformer} (PACT) estimator, banded linear minimum mean-square error equalization, and neural normalized min-sum decoding. PACT jointly estimates the frequency-domain channel and effective time-domain PN",
-      "url": "https://arxiv.org/abs/2611.18450",
-      "arxiv_id": "2611.18450",
+      "title": "BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations",
+      "abstract_snippet": "Learning semantically meaningful human movement representations from 3D pose sequences is essential for human behavior modeling. Existing self-supervised methods derive supervision from artificial assumptions, e.g., invariance to augmentation within a certain range or recoverability of masked regions at a certain temporal scale, introducing heuristic hyperparameters that make the learned semantics",
+      "url": "https://arxiv.org/abs/2611.18559",
+      "arxiv_id": "2611.18559",
       "doi": "",
       "authors": [
-        "Ruilin Wang",
-        "Xiaodai Dong"
+        "Genki Kinoshita",
+        "Ko Nishino"
       ],
       "year": 2026,
       "tags": [
@@ -93,17 +99,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T04:23:30Z"
+      "fetched_at": "2026-11-16T05:30:08Z"
     },
     {
       "source": "arxiv",
-      "title": "A quotient formula for the Behrend function",
-      "abstract_snippet": "The Behrend function is essential in enumerative geometry. However, computing it, even in zero dimension, has been a highly subtle and mysterious matter since its introduction in the 2000s. We present a quotient formula for the Behrend function of any closed $r$-dimensional affine scheme $X^r \\subset \\mathbb{A}^N$, evaluated at a singular point, where $0\\leq r \\leq N-1$. In particular, if the sche",
-      "url": "https://arxiv.org/abs/2611.18432",
-      "arxiv_id": "2611.18432",
+      "title": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
+      "abstract_snippet": "Recent work shows that large language models (LLMs) can operate directly on the parameters of other neural networks. They can read what a network was trained to do, fix a network that fails, and write working networks from scratch, all without gradient descent. This capability has been termed Weight-Space Programming (WSP). Exploring this new paradigm systematically requires a robust benchmark. We",
+      "url": "https://arxiv.org/abs/2611.18553",
+      "arxiv_id": "2611.18553",
       "doi": "",
       "authors": [
-        "Fatemeh Rezaee"
+        "Aayush Marasini",
+        "Barsat Khadka",
+        "Nick Rahimi"
       ],
       "year": 2026,
       "tags": [
@@ -113,7 +121,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T04:23:30Z"
+      "fetched_at": "2026-11-16T05:30:08Z"
     }
   ]
 }

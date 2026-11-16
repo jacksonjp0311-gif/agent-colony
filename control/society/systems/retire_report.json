@@ -1,5 +1,5 @@
 {
- "ts": "2026-11-16T05:12:37Z",
+ "ts": "2026-11-16T05:33:07Z",
  "mode": "live",
  "n_authored": 100,
  "n_candidates": 0,
@@ -15,7 +15,7 @@
   "sieve_grace_hours": 0.25,
   "max_per_run": 60
  },
- "cycle_id": "20261116T051224Z_1195b3",
+ "cycle_id": "20261116T053254Z_318125",
  "applied": {
   "applied": 0
  },
