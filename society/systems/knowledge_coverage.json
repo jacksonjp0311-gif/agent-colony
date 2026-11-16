@@ -25,7 +25,7 @@
       "concepts": 4,
       "distinct_concepts": 2,
       "papers": 8,
-      "reads": 2
+      "reads": 3
     },
     "learning_theory": {
       "cards_formed": 0,
@@ -34,7 +34,7 @@
       "concepts": 9,
       "distinct_concepts": 2,
       "papers": 8,
-      "reads": 2
+      "reads": 3
     },
     "mathematics": {
       "cards_formed": 0,
@@ -43,7 +43,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 8,
-      "reads": 4
+      "reads": 5
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -266,6 +266,6 @@
     "cards_tested": 0,
     "concepts": 54,
     "papers": 81,
-    "reads": 36
+    "reads": 39
   }
 }

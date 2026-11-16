@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 30,
- "last_refill_index": 29,
+ "cycle_index": 33,
+ "last_refill_index": 32,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -322,6 +322,38 @@
   "47290417d222d902": {
    "cycle_id": "20261116T055604Z_3aae26",
    "n_hits": 10
+  },
+  "efd02b5fa1b41ee9": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 8
+  },
+  "01bed66dce6ff144": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 8
+  },
+  "c2a4c84f3f19d171": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 7
+  },
+  "c8cab8775c225660": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 7
+  },
+  "0409b1672a9f008c": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 10
+  },
+  "07959d2a533a8f8b": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 10
+  },
+  "5e34fc6959286a89": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 10
+  },
+  "2828840a2ac99c24": {
+   "cycle_id": "20261116T062021Z_5ba009",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -383,41 +415,50 @@
   "A027182": "20261116T055604Z_3aae26",
   "A344502": "20261116T055604Z_3aae26",
   "A292461": "20261116T055604Z_3aae26",
-  "A218045": "20261116T055604Z_3aae26"
+  "A218045": "20261116T055604Z_3aae26",
+  "A396723": "20261116T062021Z_5ba009",
+  "A396724": "20261116T062021Z_5ba009",
+  "A396722": "20261116T062021Z_5ba009",
+  "A283431": "20261116T062021Z_5ba009"
  },
- "refills": 10,
- "added": 58,
+ "refills": 11,
+ "added": 62,
  "last": {
-  "cycle_id": "20261116T055604Z_3aae26",
+  "cycle_id": "20261116T062021Z_5ba009",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 17,
+  "requests": 19,
   "new": [
    {
-    "id": "oc_A344503_0",
+    "id": "oc_A025165_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A091540_0",
+    "id": "oc_A283991_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A079006_0",
+    "id": "oc_A226302_0",
     "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A296516_0",
+    "form": "gf",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 58,
-   "resolved_skipped": 16,
-   "keyword_skipped": 1,
-   "statements": 49,
-   "parsed": 7,
-   "no_bfile": 2,
-   "fails_on_data": 2,
-   "kept": 3,
+   "entries": 45,
+   "resolved_skipped": 6,
+   "keyword_skipped": 2,
+   "statements": 55,
+   "parsed": 9,
+   "no_bfile": 3,
+   "fails_on_data": 1,
+   "kept": 4,
    "def_candidates": 0
   }
  }
