@@ -1994,6 +1994,15 @@ def check_authored_mut_perturb_constant_703a4fa11fd2() -> bool:
 
 
 
+def check_authored_mut_swap_related_sequence_3c874f89f994() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    dbl(bigomega)(n) <= S(oxa316344)(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'dbl(bigomega)', 'params': {}, 'rhs': 'S(oxa316344)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2211,6 +2220,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_frontier_le_xafb0aef8_w1", check_authored_frontier_le_xafb0aef8_w1, True),
     ("authored_mut_swap_related_sequence_58aacc9fceff", check_authored_mut_swap_related_sequence_58aacc9fceff, False),
     ("authored_mut_perturb_constant_703a4fa11fd2", check_authored_mut_perturb_constant_703a4fa11fd2, False),
+    ("authored_mut_swap_related_sequence_3c874f89f994", check_authored_mut_swap_related_sequence_3c874f89f994, False),
 ]
 
 

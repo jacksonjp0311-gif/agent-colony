@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 9,
- "last_refill_index": 8,
+ "cycle_index": 12,
+ "last_refill_index": 11,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -98,6 +98,38 @@
   "3fb1c95649ddfe10": {
    "cycle_id": "20261116T020725Z_66f2d7",
    "n_hits": 0
+  },
+  "6263208fb4f04b65": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "4e73a6205f95e524": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "c5d596648cd1b9b8": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "1af938872e9e31e0": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "94ca0b9d96fd3032": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 3
+  },
+  "5dcd45fced2a0a37": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 3
+  },
+  "2694ad22cb865056": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
+  },
+  "546c0e55666c8686": {
+   "cycle_id": "20261116T023341Z_562a22",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -119,77 +151,53 @@
   "A141353": "20261116T020725Z_66f2d7",
   "A026008": "20261116T020725Z_66f2d7",
   "A110199": "20261116T020725Z_66f2d7",
-  "A165201": "20261116T020725Z_66f2d7"
+  "A165201": "20261116T020725Z_66f2d7",
+  "A024849": "20261116T023341Z_562a22",
+  "A104632": "20261116T023341Z_562a22",
+  "A279014": "20261116T023341Z_562a22",
+  "A268600": "20261116T023341Z_562a22",
+  "A306967": "20261116T023341Z_562a22",
+  "A307208": "20261116T023341Z_562a22"
  },
- "refills": 3,
- "added": 28,
+ "refills": 4,
+ "added": 32,
  "last": {
-  "cycle_id": "20261116T020725Z_66f2d7",
-  "open_before": 3,
+  "cycle_id": "20261116T023341Z_562a22",
+  "open_before": 6,
   "pages_read": 8,
-  "requests": 23,
+  "requests": 19,
   "new": [
    {
-    "id": "oc_A000781_0",
+    "id": "oc_A135052_0",
+    "form": "relation",
+    "definition": true
+   },
+   {
+    "id": "oc_A140829_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A278472_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A139376_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A059279_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A116363_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A026005_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A200312_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A220902_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A263986_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A228329_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A127632_0",
+    "id": "oc_A120503_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 47,
-   "resolved_skipped": 5,
-   "keyword_skipped": 6,
-   "statements": 52,
-   "parsed": 16,
-   "no_bfile": 4,
-   "fails_on_data": 1,
-   "kept": 10,
-   "def_candidates": 0
+   "entries": 52,
+   "resolved_skipped": 9,
+   "keyword_skipped": 3,
+   "statements": 51,
+   "parsed": 15,
+   "no_bfile": 7,
+   "fails_on_data": 2,
+   "kept": 4,
+   "def_candidates": 1
   }
  }
 }

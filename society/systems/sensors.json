@@ -1,11 +1,9 @@
 {
-  "ts": "2026-11-16T02:16:52Z",
-  "cycle_id": "20261116T021631Z_9d4a04",
+  "ts": "2026-11-16T02:37:05Z",
+  "cycle_id": "20261116T023643Z_d5724a",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_189b60a6e65e": 1,
-      "authored_mut_swap_related_sequence_19b958c5439c": 1,
       "authored_mut_swap_related_sequence_55ef68f19547": 1,
       "authored_mut_swap_related_sequence_d4fd9cc584c3": 1,
       "authored_mut_swap_related_sequence_05546e14e52a": 1,
@@ -41,27 +39,27 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8348,
-      "slope": 0.000552,
-      "min": 0.8087,
-      "max": 0.8492
+      "last": 0.8346,
+      "slope": -0.001343,
+      "min": 0.8343,
+      "max": 0.8481
     },
     "novelty": {
       "last": 0.2,
-      "slope": -0.040736,
+      "slope": -0.028322,
       "min": 0.2,
-      "max": 0.75
+      "max": 0.5
     },
     "kill_rate": {
       "last": 0.4259,
-      "slope": 2.1e-05,
-      "min": 0.4252,
+      "slope": -3.8e-05,
+      "min": 0.4258,
       "max": 0.4264
     },
     "kill_rate_term": {
       "last": 0.9334,
-      "slope": 2.9e-05,
-      "min": 0.9326,
+      "slope": -2.6e-05,
+      "min": 0.9332,
       "max": 0.9338
     },
     "lesson_uptake": {
@@ -73,8 +71,8 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0101,
-    "novelty_max": 0.4,
+    "aggregate_range": 0.007,
+    "novelty_max": 0.3333,
     "window": 6,
     "reason": "moving"
   },
@@ -190,7 +188,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 8
+    "exhausted_recent": 9
   },
   "guides": {
     "n_guides": 17,
@@ -204,23 +202,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.718,
+      "ratio": 0.91,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.723,
+      "ratio": 0.925,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.749,
+      "ratio": 0.953,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.839,
+      "ratio": 0.981,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.819,
+      "ratio": 0.967,
       "drift": false
     }
   },
@@ -229,10 +227,10 @@
     "verified": {
       "goldbach_even": 465234115,
       "collatz_descent": 502200000,
-      "legendre_square_gap": 2556607,
-      "lehmer_totient": 234200001,
+      "legendre_square_gap": 2572607,
+      "lehmer_totient": 235800001,
       "erdos_straus": 1389127,
-      "twin_primes_hl": 626200000,
+      "twin_primes_hl": 630200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -286,29 +284,29 @@
     "last": [
       [
         null,
+        "2026-11-16T02:26:17Z"
+      ],
+      [
+        "success",
         "2026-11-16T02:00:20Z"
       ],
       [
         "success",
         "2026-11-16T01:39:04Z"
-      ],
-      [
-        "success",
-        "2026-11-16T01:33:58Z"
       ]
     ],
-    "fetched_at": "2026-11-16T02:01:07Z"
+    "fetched_at": "2026-11-16T02:27:27Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 255,
+      "arxiv": 261,
       "oeis": 5,
       "crossref": 135,
       "wikipedia": 19,
       "oeis_conj": 231
     },
     "by_kind": {
-      "paper": 390,
+      "paper": 396,
       "sequence": 5,
       "summary": 19,
       "conj_sequence": 231
@@ -316,9 +314,10 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 8,
+          "new": 6,
+          "ok": true
         },
         "ci_health": {
           "new": 0,
@@ -345,12 +344,12 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-16T02:01:06Z"
+      "ts": "2026-11-16T02:27:23Z"
     },
     "health": {
       "arxiv": {
         "fail": 11,
-        "ok": 92
+        "ok": 93
       },
       "crossref": {
         "fail": 0,
