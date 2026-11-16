@@ -9,14 +9,14 @@ decides a keep. Reverts and voids are recorded too. This is not
 AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
-- Kept: **12**
+- Kept: **13**
 - Reverted (including twin-not-better): **6**
 - Voided (environment changed mid-trial): **15**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **7**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=10`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 100, correct 0, pending 96, accuracy 0‰
+- Hive shadow picks: resolved 100, correct 0, pending 97, accuracy 0‰
 
 ## Per method card
 
@@ -30,13 +30,12 @@ _None yet._
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
-| `set_knob:park_cycles` | 8 | 0 | 3 | 0‰ |
+| `set_knob:park_cycles` | 9 | 1 | 3 | 111‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 1 | 0 | 0 | 0‰ |
 
 ## Recent outcomes
 
-- `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T171106Z_386886` (baseline 0.0, trial 231.0)
 - `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261115T175054Z_8f2c59` (baseline 0.0, trial 324.0)
 - `inconclusive` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T183448Z_55489d` (baseline 0.0, trial 0.0)
 - `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T195620Z_605bb7` (baseline 0.0, trial None)
@@ -48,6 +47,7 @@ _None yet._
 - `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261116T123849Z_0ac470` (baseline 0.0, trial 256.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T173537Z_be43ea` (baseline 8.0, trial 5.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T183049Z_7f7d82` (baseline 5.0, trial 4.0)
+- `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261116T192905Z_bc22f0` (baseline 4.0, trial 5.0)
 
 ## Reading breadth (knowledge library)
 

@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 105,
- "last_refill_index": 104,
+ "cycle_index": 108,
+ "last_refill_index": 107,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -1122,6 +1122,38 @@
   "8d5594cf9b3a5cab": {
    "cycle_id": "20261116T185529Z_d445e0",
    "n_hits": 0
+  },
+  "50d509f77ac58640": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
+  },
+  "68076427ca8e171e": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
+  },
+  "35cc5e4fbb878a19": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
+  },
+  "713b3fb798625027": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
+  },
+  "09aa969052c9290f": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
+  },
+  "d0aae4f4dd1a563e": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
+  },
+  "e27ecd201030bc4e": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
+  },
+  "cb074a2d32a8061a": {
+   "cycle_id": "20261116T192428Z_5b0afa",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -1261,30 +1293,46 @@
   "A307307": "20261116T163416Z_7e4bff",
   "A025245": "20261116T170346Z_d6431c",
   "A171556": "20261116T170346Z_d6431c",
-  "A393104": "20261116T185529Z_d445e0"
+  "A393104": "20261116T185529Z_d445e0",
+  "A176612": "20261116T192428Z_5b0afa",
+  "A176609": "20261116T192428Z_5b0afa",
+  "A176611": "20261116T192428Z_5b0afa",
+  "A176749": "20261116T192428Z_5b0afa",
+  "A176750": "20261116T192428Z_5b0afa",
+  "A176752": "20261116T192428Z_5b0afa",
+  "A176756": "20261116T192428Z_5b0afa",
+  "A176757": "20261116T192428Z_5b0afa",
+  "A176759": "20261116T192428Z_5b0afa",
+  "A176606": "20261116T192428Z_5b0afa",
+  "A176607": "20261116T192428Z_5b0afa",
+  "A176675": "20261116T192428Z_5b0afa",
+  "A176605": "20261116T192428Z_5b0afa",
+  "A219692": "20261116T192428Z_5b0afa",
+  "A045406": "20261116T192428Z_5b0afa",
+  "A348410": "20261116T192428Z_5b0afa"
  },
- "refills": 35,
- "added": 128,
+ "refills": 36,
+ "added": 129,
  "last": {
-  "cycle_id": "20261116T185529Z_d445e0",
+  "cycle_id": "20261116T192428Z_5b0afa",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 10,
+  "requests": 25,
   "new": [
    {
-    "id": "oc_A298267_0",
-    "form": "gf",
+    "id": "oc_A368633_0",
+    "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 29,
-   "resolved_skipped": 10,
-   "keyword_skipped": 1,
-   "statements": 27,
-   "parsed": 3,
-   "no_bfile": 1,
-   "fails_on_data": 0,
+   "entries": 62,
+   "resolved_skipped": 17,
+   "keyword_skipped": 7,
+   "statements": 61,
+   "parsed": 17,
+   "no_bfile": 13,
+   "fails_on_data": 3,
    "kept": 1,
    "def_candidates": 0
   }
