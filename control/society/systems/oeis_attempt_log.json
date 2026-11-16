@@ -2794,6 +2794,23 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A003278_0",
+   "anum": "A003278",
+   "form": "relation",
+   "depth": 48,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261116T222217Z_2a65b4",
+   "planned": 10000,
+   "verified_depth": 48,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "cap_reason": "ref_limited",
+   "cap_value": 48,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
@@ -3084,6 +3101,9 @@
    "oc_A365429_0",
    "oc_A326781_0",
    "oc_A328202_0"
+  ],
+  "20261116T222217Z_2a65b4": [
+   "oc_A003278_0"
   ]
  },
  "last_forms": [
@@ -3095,7 +3115,6 @@
   "relation",
   "relation",
   "relation",
-  "relation",
   "gf",
   "relation",
   "relation",
@@ -3106,6 +3125,7 @@
   "relation",
   "relation",
   "gf",
+  "relation",
   "relation"
  ]
 }
