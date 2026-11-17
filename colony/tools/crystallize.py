@@ -117,3 +117,34 @@ def retrieve(fingerprint: str, source: str = "colony") -> bool:
     reload_into(router)
     key = f"{source}:{fingerprint}"
     return any(getattr(p, "key", "") == key for p in getattr(router, "prototypes", []))
+
+
+
+def crystallize_stable(source: str = "colony", min_count: int = 2) -> int:
+    """Crystallize fingerprints seen at least min_count times as reverted.
+
+    Durable learning from repeated observation. Fail-open. Returns count written.
+    """
+    try:
+        from collections import Counter
+        import json
+        from pathlib import Path
+        ex = Path(__file__).resolve().parent.parent.parent / "data" / "commons" / "exchange.jsonl"
+        if not ex.exists():
+            return 0
+        counts = Counter()
+        for line in ex.read_text(encoding="utf-8").splitlines()[-200:]:
+            try:
+                rec = json.loads(line)
+                if rec.get("outcome") in ("reverted", "failed", "failure") and rec.get("fingerprint"):
+                    counts[str(rec["fingerprint"])] += 1
+            except Exception:
+                continue
+        n = 0
+        for fp, c in counts.items():
+            if c >= min_count:
+                if crystallize({"fingerprint": fp}, source=source, category="stable"):
+                    n += 1
+        return n
+    except Exception:
+        return 0

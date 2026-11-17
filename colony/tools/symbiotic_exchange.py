@@ -35,12 +35,8 @@ def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra
     except Exception:
         pass
 
-def foreign_fingerprints(my_source: str, limit: int = 50) -> List[str]:
-    """Fingerprints written by any source other than my_source.
-
-    Only failure outcomes count — matches One Mind's filter so both
-    lineages penalize the same class of foreign evidence.
-    """
+def foreign_fingerprints(my_source: str, limit: int = 200) -> List[str]:
+    """Fingerprints written by any source other than my_source."""
     if not EXCHANGE.exists():
         return []
     out = []
