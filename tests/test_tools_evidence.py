@@ -156,3 +156,24 @@ def test_evolutionary_bias_fail_open():
     # Existing fingerprint that has failed should be non-positive
     pen2 = s._failure_penalty("park_cycles")
     assert pen2 <= 0
+
+
+def test_bias_actually_changes_score():
+    import hive.swarm as s
+    from hive.bitwork import Match
+    from dataclasses import dataclass
+    @dataclass
+    class P:
+        fingerprint: str
+        match: Match
+    m = Match(
+        category="t", action_key="park_cycles", score=500, margin=0,
+        overlap=0, hamming=0, prototype_key="", polarity="",
+        lower_permille=0, accuracy_permille=0, bucket_n=0,
+        accepted=False, abstained=True, reason=""
+    )
+    prop = P("park_cycles", m)
+    out = s._apply_evolutionary_bias(prop)
+    # If any recent failures exist for this fp, score must drop; otherwise stay equal
+    pen = s._failure_penalty("park_cycles")
+    assert out.match.score == 500 + pen

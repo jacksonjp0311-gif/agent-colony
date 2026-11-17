@@ -617,26 +617,34 @@ def drop_retired_proposals(state: dict[str, Any], proposals: list["Proposal"]) -
 def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
     """Integer penalty from recent identical self-change failures.
 
+    Exact match on fingerprint or canonical action key only.
     Pure count over the existing failure log. No new dependency.
-    Returns a non-positive integer to subtract from Bitwork score.
-    Fail-open: any error returns 0.
+    Returns a non-positive integer. Fail-open: any error returns 0.
     """
     try:
         from pathlib import Path
         import json
+        if not fingerprint:
+            return 0
         log = Path(__file__).resolve().parent.parent / "data" / "commons" / "self_change_failures.jsonl"
         if not log.exists():
             return 0
         count = 0
+        fp = str(fingerprint)
         for line in log.read_text(encoding="utf-8").splitlines()[-limit:]:
             try:
                 rec = json.loads(line)
+                # Prefer explicit fingerprint or action_key fields when present
+                rec_fp = str(rec.get("fingerprint") or rec.get("action_key") or "")
                 subj = rec.get("subject") or {}
-                if str(subj.get("knob") or "") in fingerprint or str(rec.get("failed_check") or "") in fingerprint:
+                knob = str(subj.get("knob") or "")
+                # Exact equality only — no substring
+                if rec_fp and rec_fp == fp:
+                    count += 1
+                elif knob and knob == fp:
                     count += 1
             except Exception:
                 continue
-        # Cap the penalty so it cannot dominate the Wilson gate.
         return -min(count * 50, 200)
     except Exception:
         return 0
@@ -645,21 +653,25 @@ def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
 def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
     """Fail-open score adjustment using existing failure log.
 
-    Subtracts a small integer derived from recent identical failures.
-    Does not change the Wilson gate or the vote structure.
+    Creates a new Match (frozen dataclass) with adjusted score.
+    Does not mutate. Does not change the Wilson gate or vote structure.
     """
     if proposal is None or proposal.match is None:
         return proposal
     try:
+        from dataclasses import replace
         pen = _failure_penalty(proposal.fingerprint)
-        if pen != 0 and hasattr(proposal.match, "score"):
-            # Match is a dataclass-like; adjust score in place if mutable,
-            # otherwise leave a note. Prefer in-place when possible.
-            try:
-                proposal.match.score = int(proposal.match.score) + pen
-            except Exception:
-                pass
-        return proposal
+        if pen == 0:
+            return proposal
+        old = proposal.match
+        new_score = int(getattr(old, "score", 0)) + pen
+        new_match = replace(old, score=new_score)
+        # Proposal may also be frozen or a simple namespace; try replace then fallback
+        try:
+            return replace(proposal, match=new_match)
+        except Exception:
+            proposal.match = new_match  # if Proposal is mutable
+            return proposal
     except Exception:
         return proposal
 
