@@ -6,8 +6,8 @@
       "cards_tested": 0,
       "concepts": 2,
       "distinct_concepts": 1,
-      "papers": 9,
-      "reads": 10
+      "papers": 17,
+      "reads": 11
     },
     "cognitive_science": {
       "cards_formed": 3,
@@ -42,8 +42,8 @@
       "cards_tested": 0,
       "concepts": 0,
       "distinct_concepts": 0,
-      "papers": 24,
-      "reads": 21
+      "papers": 31,
+      "reads": 22
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -58,10 +58,10 @@
       "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 3,
+      "concepts": 4,
       "distinct_concepts": 3,
-      "papers": 8,
-      "reads": 10
+      "papers": 9,
+      "reads": 11
     },
     "neural_architecture": {
       "cards_formed": 6,
@@ -73,7 +73,7 @@
       "reads": 11
     },
     "open_endedness": {
-      "cards_formed": 8,
+      "cards_formed": 10,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 11,
@@ -82,7 +82,7 @@
       "reads": 11
     },
     "optimization_search": {
-      "cards_formed": 5,
+      "cards_formed": 9,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 16,
@@ -264,11 +264,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 38,
+    "cards_formed": 44,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 105,
-    "papers": 175,
-    "reads": 162
+    "concepts": 106,
+    "papers": 191,
+    "reads": 165
   }
 }

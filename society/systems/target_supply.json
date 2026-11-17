@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 156,
- "last_refill_index": 155,
+ "cycle_index": 159,
+ "last_refill_index": 158,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -1666,6 +1666,38 @@
   "c20b97974fd97f45": {
    "cycle_id": "20261117T094603Z_e69cd7",
    "n_hits": 10
+  },
+  "fac091401811e760": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
+  },
+  "540000dcd72d4c80": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
+  },
+  "aaf83bb81c5ead73": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
+  },
+  "c7ce79ed60a0b04d": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
+  },
+  "332da4372315fe92": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
+  },
+  "92b45d8677d2e6fe": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
+  },
+  "f333129e56e33e69": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
+  },
+  "9ccf7353d0a57a9b": {
+   "cycle_id": "20261117T101622Z_6df7d0",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -1845,76 +1877,49 @@
   "A360921": "20261117T094603Z_e69cd7",
   "A007008": "20261117T094603Z_e69cd7",
   "A095338": "20261117T094603Z_e69cd7",
-  "A005559": "20261117T094603Z_e69cd7"
+  "A005559": "20261117T094603Z_e69cd7",
+  "A161006": "20261117T101622Z_6df7d0",
+  "A288249": "20261117T101622Z_6df7d0",
+  "A104722": "20261117T101622Z_6df7d0"
  },
- "refills": 52,
- "added": 183,
+ "refills": 53,
+ "added": 187,
  "last": {
-  "cycle_id": "20261117T094603Z_e69cd7",
-  "open_before": 4,
+  "cycle_id": "20261117T101622Z_6df7d0",
+  "open_before": 5,
   "pages_read": 8,
-  "requests": 24,
+  "requests": 15,
   "new": [
    {
-    "id": "oc_A333510_0",
+    "id": "oc_A167481_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A005560_0",
+    "id": "oc_A073155_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A005561_0",
+    "id": "oc_A090826_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A005562_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A157792_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A182881_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A216211_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A089324_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A182879_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A182531_0",
+    "id": "oc_A054341_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 71,
-   "resolved_skipped": 10,
-   "keyword_skipped": 4,
-   "statements": 75,
-   "parsed": 19,
-   "no_bfile": 6,
-   "fails_on_data": 0,
-   "kept": 10,
+   "entries": 75,
+   "resolved_skipped": 9,
+   "keyword_skipped": 7,
+   "statements": 64,
+   "parsed": 7,
+   "no_bfile": 2,
+   "fails_on_data": 1,
+   "kept": 4,
    "def_candidates": 0
   }
  }
