@@ -1,4 +1,4 @@
-# A035026 terms computed beyond the OEIS b-file (https://oeis.org/A035026/b035026.txt, checked 2026-10-18T12:50:00Z).
+# A035026 terms computed beyond the OEIS b-file (https://oeis.org/A035026/b035026.txt, checked 2026-11-17T12:51:05Z).
 # Computed by colony.new_data (gb_o_all:terms); verified 2 ways: numpy FFT convolution of the prime indicator (floating point, rounded) / direct integer enumeration over an independent odd-only sieve.
 10001 352
 10002 674

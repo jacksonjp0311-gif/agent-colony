@@ -24,60 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 0.022,
-   "cycle_id": "20261117T025949Z_15c75e",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.021,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T03:02:22Z"
-  },
-  {
-   "cpu_s": 0.03,
-   "cycle_id": "20261117T032304Z_7fc357",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.019,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T03:25:39Z"
-  },
-  {
-   "cpu_s": 0.019,
-   "cycle_id": "20261117T032603Z_0b9982",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.018,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T03:28:17Z"
-  },
-  {
    "cpu_s": 0.018,
    "cycle_id": "20261117T032841Z_11bf5f",
    "discovered": [],
@@ -760,25 +706,197 @@
     "searches": []
    },
    "ts": "2026-11-17T12:20:26Z"
+  },
+  {
+   "cpu_s": 0.553,
+   "cycle_id": "20261117T124152Z_26bf27",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_u_odd:recpos",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A002375",
+     "checked": "2026-11-17T12:45:45Z",
+     "cpu_a": 0.011,
+     "cpu_b": 0.46,
+     "cpu_s": 0.471,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 20000,
+     "item": "gb_u_odd:terms",
+     "linked_k_max": 20000,
+     "methods": [
+      "numpy FFT convolution of the prime indicator (floating point, rounded)",
+      "direct integer enumeration over an independent odd-only sieve"
+     ],
+     "n_values": 1000,
+     "ns": [
+      20001,
+      21000
+     ],
+     "op": "terms",
+     "pub_k_max": 20000,
+     "sha256": "e917a47a97e47f19",
+     "source": "https://oeis.org/A002375/b002375.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-11-17T12:45:45Z"
+    }
+   ],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.019,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T12:45:45Z"
+  },
+  {
+   "cpu_s": 0.384,
+   "cycle_id": "20261117T124610Z_d2e6cc",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_u_all:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_u_all:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.018,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T12:48:27Z"
+  },
+  {
+   "cpu_s": 0.289,
+   "cycle_id": "20261117T124852Z_efdda8",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_o_all:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 2,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A035026",
+     "checked": "2026-11-17T12:51:05Z",
+     "cpu_a": 0.003,
+     "cpu_b": 0.244,
+     "cpu_s": 0.247,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 10000,
+     "item": "gb_o_all:terms",
+     "linked_k_max": 10000,
+     "methods": [
+      "numpy FFT convolution of the prime indicator (floating point, rounded)",
+      "direct integer enumeration over an independent odd-only sieve"
+     ],
+     "n_values": 1000,
+     "ns": [
+      10001,
+      11000
+     ],
+     "op": "terms",
+     "pub_k_max": 10000,
+     "sha256": "7587365638dd226b",
+     "source": "https://oeis.org/A035026/b035026.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-11-17T12:51:05Z"
+    }
+   ],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.018,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T12:51:06Z"
   }
  ],
  "last": {
-  "cpu_s": 0.022,
-  "cycle_id": "20261117T121729Z_7b3a61",
-  "discovered": [],
+  "cpu_s": 0.289,
+  "cycle_id": "20261117T124852Z_efdda8",
+  "discovered": [
+   {
+    "anum": null,
+    "item": "gb_o_all:recpos",
+    "status": "not_in_oeis",
+    "why": "not found in the local OEIS index (frontier unknown)"
+   }
+  ],
   "mode": "live",
-  "net_requests": 0,
+  "net_requests": 2,
   "oeis_index": "available",
-  "pushed": [],
+  "pushed": [
+   {
+    "anum": "A035026",
+    "checked": "2026-11-17T12:51:05Z",
+    "cpu_a": 0.003,
+    "cpu_b": 0.244,
+    "cpu_s": 0.247,
+    "d": 0,
+    "first_disagreement": null,
+    "frontier_n": 10000,
+    "item": "gb_o_all:terms",
+    "linked_k_max": 10000,
+    "methods": [
+     "numpy FFT convolution of the prime indicator (floating point, rounded)",
+     "direct integer enumeration over an independent odd-only sieve"
+    ],
+    "n_values": 1000,
+    "ns": [
+     10001,
+     11000
+    ],
+    "op": "terms",
+    "pub_k_max": 10000,
+    "sha256": "7587365638dd226b",
+    "source": "https://oeis.org/A035026/b035026.txt",
+    "status": "computed beyond published frontier (verified 2 ways)",
+    "ts": "2026-11-17T12:51:05Z"
+   }
+  ],
   "sparse": {
    "candidates_seen": 466,
-   "cpu_s": 0.021,
+   "cpu_s": 0.018,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-11-17T12:20:26Z"
+  "ts": "2026-11-17T12:51:06Z"
  },
  "mode": "live",
  "sparse": {
@@ -4160,7 +4278,7 @@
   "gb_o_all:recpos": {
    "anum": null,
    "status": "not_in_oeis",
-   "ts": "2026-10-18T12:49:56Z",
+   "ts": "2026-11-17T12:51:03Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_o_all:recval": {
@@ -4184,19 +4302,19 @@
   "gb_u_all:recval": {
    "anum": null,
    "status": "no_alignment",
-   "ts": "2026-10-18T12:48:12Z",
+   "ts": "2026-11-17T12:48:27Z",
    "why": "OEIS terms differ beyond the probe"
   },
   "gb_u_all:terms": {
    "anum": null,
    "status": "not_in_oeis",
-   "ts": "2026-10-18T12:48:12Z",
+   "ts": "2026-11-17T12:48:27Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_u_odd:recpos": {
    "anum": null,
    "status": "no_alignment",
-   "ts": "2026-10-18T12:22:23Z",
+   "ts": "2026-11-17T12:45:35Z",
    "why": "OEIS terms differ beyond the probe"
   },
   "gb_u_odd:recval": {

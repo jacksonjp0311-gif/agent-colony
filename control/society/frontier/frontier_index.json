@@ -8,21 +8,21 @@
     "overlap": 60
    },
    "anum": "A002375",
-   "checked": "2026-10-18T12:22:31Z",
+   "checked": "2026-11-17T12:45:45Z",
    "cost": {
     "N": 21000,
-    "cpu_s": 0.018117893999999524
+    "cpu_s": 0.011120576000010374
    },
    "done_for_sha": "e917a47a97e47f19",
    "item": "gb_u_odd:terms",
    "last": {
-    "cpu_s": 0.642,
+    "cpu_s": 0.471,
     "ns": [
      20001,
      21000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T12:22:31Z",
+    "ts": "2026-11-17T12:45:45Z",
     "why": null
    },
    "n_pub_terms": 20000,
@@ -34,9 +34,9 @@
    "sha256": "e917a47a97e47f19",
    "source": "https://oeis.org/A002375/b002375.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.642,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 1.113,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:22:21Z",
@@ -455,21 +455,21 @@
     "overlap": 60
    },
    "anum": "A035026",
-   "checked": "2026-10-18T12:50:00Z",
+   "checked": "2026-11-17T12:51:05Z",
    "cost": {
     "N": 11000,
-    "cpu_s": 0.009062708000001862
+    "cpu_s": 0.0026967579999563895
    },
    "done_for_sha": "7587365638dd226b",
    "item": "gb_o_all:terms",
    "last": {
-    "cpu_s": 0.376,
+    "cpu_s": 0.247,
     "ns": [
      10001,
      11000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T12:50:00Z",
+    "ts": "2026-11-17T12:51:05Z",
     "why": null
    },
    "n_pub_terms": 10000,
@@ -481,9 +481,9 @@
    "sha256": "7587365638dd226b",
    "source": "https://oeis.org/A035026/b035026.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.376,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 0.623,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:49:50Z",
