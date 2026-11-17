@@ -11,10 +11,10 @@
     "note": "Fork point for the control arm. Control state is copied from treatment at the first control evolve, then frozen (self-heal knobs reset to defaults; the in-flight perturb_cooldown_cycles trial is not continued). After that, control evolves on its own tree. seeded_sha is filled at that first run.",
     "fork_note_hive": "Forked after Hive merged (PR #8). Control disables Hive learning through colony/hive_adapter.py."
   },
-  "updated_at": "2026-11-17T19:18:18Z",
+  "updated_at": "2026-11-17T19:38:46Z",
   "paired_runs": 174,
   "treatment_cycles": 1375,
-  "control_cycles": 1466,
+  "control_cycles": 1469,
   "treatment": {
     "oracle_passes": 597,
     "oracle_kills": 394,
@@ -711,7 +711,7 @@
     "novelty": 0.75,
     "adopts": 0,
     "reverts": 0,
-    "cycle_count": 1466,
+    "cycle_count": 1469,
     "self_heal_frozen": true,
     "self_heal_trial": null
   },
@@ -11693,6 +11693,50 @@
       "delta": {},
       "treatment_cycles": 1375,
       "control_cycles": 1466
+    },
+    {
+      "ts": "2026-11-17T19:38:46Z",
+      "run_id": "44157270983",
+      "cycles_this_run": 3,
+      "paired": false,
+      "treatment_result": "failure",
+      "control_result": "success",
+      "treatment": {
+        "oracle_passes": 597,
+        "oracle_kills": 394,
+        "verified_depth_sum": 1063324,
+        "beyond_published_count": 48,
+        "counterexamples": 0,
+        "proofs": 24,
+        "non_routine_proofs": 0,
+        "fitness": 0.8451,
+        "novelty": 0.4667,
+        "adopts": 15,
+        "reverts": 10,
+        "cycle_count": 1375,
+        "self_heal_frozen": false,
+        "self_heal_trial": null
+      },
+      "control": {
+        "oracle_passes": 528,
+        "oracle_kills": 340,
+        "verified_depth_sum": 291168,
+        "beyond_published_count": 35,
+        "counterexamples": 0,
+        "proofs": 24,
+        "non_routine_proofs": 0,
+        "fitness": 0.8574,
+        "novelty": 0.75,
+        "adopts": 0,
+        "reverts": 0,
+        "cycle_count": 1469,
+        "self_heal_frozen": true,
+        "self_heal_trial": null,
+        "missing": null
+      },
+      "delta": {},
+      "treatment_cycles": 1375,
+      "control_cycles": 1469
     }
   ]
 }
