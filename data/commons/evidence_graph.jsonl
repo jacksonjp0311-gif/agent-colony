@@ -1,3 +1,4 @@
 {"ts": "2026-11-17T02:31:48.639686+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:3a1fd029"}
 {"ts": "2026-11-17T11:55:14.320225+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:18fb727a"}
 {"ts": "2026-11-17T12:22:08.883707+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:c2267e6c"}
+{"ts": "2026-11-17T14:21:54.479352+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:48216b3a"}

@@ -2143,6 +2143,52 @@
           "treatment": 723341.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 5.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261117T141904Z_441571",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "51e586d3633c4d3f",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "51e586d3633c4d3f",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-17T14:21:43Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8444
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 595.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 227176.0,
+          "treatment": 783338.0
+        }
+      }
     }
   ],
   "families": {
@@ -2199,14 +2245,14 @@
       "voided": 1
     },
     "set_knob:step_size": {
-      "keep_rate_permille": 500,
+      "keep_rate_permille": 333,
       "kept": 1,
-      "n": 2,
+      "n": 3,
       "reverted": 0,
-      "voided": 1
+      "voided": 2
     }
   },
-  "last_cycle": "20261117T135750Z_8f853a",
+  "last_cycle": "20261117T142310Z_46f01c",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -2231,7 +2277,7 @@
   "n_proposed": 8,
   "n_reverted": 10,
   "n_twin_held": 0,
-  "n_voided": 17,
+  "n_voided": 18,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
   "pending": [
     {
@@ -2386,11 +2432,11 @@
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 69,
-    "pending": 131,
-    "resolved": 69,
+    "incorrect": 67,
+    "pending": 133,
+    "resolved": 67,
     "source": "hive_shadows",
-    "ts": "2026-11-17T14:03:28Z",
+    "ts": "2026-11-17T14:27:03Z",
     "unlabeled": 0
   },
   "twin_pending": [],

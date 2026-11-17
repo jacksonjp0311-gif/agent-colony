@@ -1331,3 +1331,5 @@
 {"ts": "2026-11-17T13:48:01Z", "cycle_id": "20261117T134454Z_485b7a", "kind": "memory_drift", "drift": 0.073659, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
 {"ts": "2026-11-17T13:53:34Z", "cycle_id": "20261117T135019Z_739b1f", "kind": "memory_drift", "drift": 0.073757, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
 {"ts": "2026-11-17T14:00:32Z", "cycle_id": "20261117T135750Z_8f853a", "kind": "memory_drift", "drift": 0.07228, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-11-17T14:21:21Z", "cycle_id": "20261117T141904Z_441571", "kind": "memory_drift", "drift": 0.0744, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-11-17T14:25:19Z", "cycle_id": "20261117T142310Z_46f01c", "kind": "memory_drift", "drift": 0.074573, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}

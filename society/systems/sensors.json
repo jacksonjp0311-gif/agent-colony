@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-17T13:58:20Z",
-  "cycle_id": "20261117T135750Z_8f853a",
+  "ts": "2026-11-17T14:23:31Z",
+  "cycle_id": "20261117T142310Z_46f01c",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -26,13 +26,6 @@
       "authored_mut_swap_related_sequence_7b1943ff0d90": 1
     },
     "recent": {
-      "authored_mut_swap_related_sequence_52a5162a7db1": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_mut_swap_related_sequence_539c6e5aed66": {
         "last": "revert",
         "streak": 1,
@@ -109,33 +102,40 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "authored_mut_swap_related_sequence_91412b658647": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8505,
-      "slope": 0.000705,
+      "last": 0.8519,
+      "slope": 0.000873,
       "min": 0.8346,
       "max": 0.8539
     },
     "novelty": {
-      "last": 0.5667,
-      "slope": -0.004192,
-      "min": 0.5667,
+      "last": 0.5333,
+      "slope": -0.006062,
+      "min": 0.5333,
       "max": 0.6
     },
     "kill_rate": {
-      "last": 0.3988,
-      "slope": -5e-05,
-      "min": 0.3988,
+      "last": 0.3984,
+      "slope": -7.3e-05,
+      "min": 0.3984,
       "max": 0.3992
     },
     "kill_rate_term": {
-      "last": 0.9089,
-      "slope": -5e-05,
-      "min": 0.9089,
+      "last": 0.9085,
+      "slope": -7.3e-05,
+      "min": 0.9085,
       "max": 0.9093
     },
     "lesson_uptake": {
@@ -147,7 +147,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0047,
+    "aggregate_range": 0.0075,
     "novelty_max": 0.5667,
     "window": 6,
     "reason": "moving"
@@ -161,8 +161,7 @@
       "authored_mut_swap_related_sequence_3b3fef4a07b3",
       "authored_mut_swap_related_sequence_5632d000cf00",
       "authored_mut_swap_related_sequence_58aacc9fceff",
-      "authored_mut_swap_related_sequence_7f7f296d8a72",
-      "authored_mut_swap_related_sequence_91412b658647"
+      "authored_mut_swap_related_sequence_7f7f296d8a72"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -236,7 +235,6 @@
       "authored_mut_swap_related_sequence_5632d000cf00",
       "authored_mut_swap_related_sequence_58aacc9fceff",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
-      "authored_mut_swap_related_sequence_91412b658647",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
       "authored_newdata_a006666_k10001_w1",
@@ -271,7 +269,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 8
   },
   "guides": {
     "n_guides": 17,
@@ -285,23 +283,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.561,
-      "drift": true
+      "ratio": 1.02,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.545,
-      "drift": true
+      "ratio": 1.021,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.465,
+      "ratio": 1.027,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.42,
+      "ratio": 0.981,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.33,
+      "ratio": 0.887,
       "drift": false
     }
   },
@@ -309,10 +307,10 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 554834115,
-      "collatz_descent": 591800000,
+      "collatz_descent": 595000000,
       "legendre_square_gap": 3020607,
       "lehmer_totient": 280600001,
-      "erdos_straus": 1529127,
+      "erdos_straus": 1534127,
       "twin_primes_hl": 742200000,
       "oeis_A104062_next": 518690000001
     },
@@ -325,11 +323,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4558,
+        "challenged": 4557,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 342,
+        "challenged": 343,
         "blocked": 0
       },
       "claim": {
@@ -337,8 +335,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.2929,
-    "post_challenger_oracle_judged": 437,
+    "post_challenger_oracle_kill_rate": 0.2922,
+    "post_challenger_oracle_judged": 438,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -367,18 +365,18 @@
     "last": [
       [
         null,
-        "2026-11-17T13:37:11Z"
+        "2026-11-17T13:53:36Z"
       ],
       [
         "success",
-        "2026-11-17T13:07:56Z"
+        "2026-11-17T13:53:19Z"
       ],
       [
         "success",
-        "2026-11-17T12:40:03Z"
+        "2026-11-17T13:47:39Z"
       ]
     ],
-    "fetched_at": "2026-11-17T13:38:09Z"
+    "fetched_at": "2026-11-17T14:14:55Z"
   },
   "feeds": {
     "by_source": {
@@ -426,7 +424,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-17T13:38:09Z"
+      "ts": "2026-11-17T14:14:55Z"
     },
     "health": {
       "arxiv": {
@@ -454,7 +452,6 @@
   "signals": [
     "revert_streaks: stem_elastic_collision, stem_isothermal_work, stem_kepler_third_law, stem_rc_discharge → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench, fft_stress_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

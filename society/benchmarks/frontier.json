@@ -12,7 +12,7 @@
       "start": 4,
       "verified": {
         "lo": 4,
-        "hi": 554834115,
+        "hi": 558034115,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -24,15 +24,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-17T13:20:39Z",
-      "runs": 189,
+      "last_run": "2026-11-17T14:24:59Z",
+      "runs": 190,
       "extensions": [
-        {
-          "ts": "2026-11-16T22:35:05Z",
-          "lo": 522834116,
-          "hi": 526034115,
-          "seconds": 2.4178
-        },
         {
           "ts": "2026-11-16T23:32:06Z",
           "lo": 526034116,
@@ -86,10 +80,16 @@
           "lo": 551634116,
           "hi": 554834115,
           "seconds": 1.6889
+        },
+        {
+          "ts": "2026-11-17T14:24:59Z",
+          "lo": 554834116,
+          "hi": 558034115,
+          "seconds": 1.3198
         }
       ],
       "last_data": {
-        "max_least_prime": 1061
+        "max_least_prime": 919
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -430,7 +430,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 1529127,
+        "hi": 1534127,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -442,15 +442,9 @@
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-17T13:16:49Z",
-      "runs": 189,
+      "last_run": "2026-11-17T14:21:01Z",
+      "runs": 190,
       "extensions": [
-        {
-          "ts": "2026-11-16T22:30:47Z",
-          "lo": 1479128,
-          "hi": 1484127,
-          "seconds": 1.8498
-        },
         {
           "ts": "2026-11-16T23:27:40Z",
           "lo": 1484128,
@@ -504,10 +498,16 @@
           "lo": 1524128,
           "hi": 1529127,
           "seconds": 0.993
+        },
+        {
+          "ts": "2026-11-17T14:21:01Z",
+          "lo": 1529128,
+          "hi": 1534127,
+          "seconds": 0.917
         }
       ],
       "last_data": {
-        "certificates": 344
+        "certificates": 334
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-17T13:59:59Z"
+  "updated_at": "2026-11-17T14:25:01Z"
 }

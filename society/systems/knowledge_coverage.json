@@ -16,7 +16,7 @@
       "concepts": 4,
       "distinct_concepts": 3,
       "papers": 8,
-      "reads": 12
+      "reads": 13
     },
     "consciousness_self_models": {
       "cards_formed": 1,
@@ -25,7 +25,7 @@
       "concepts": 4,
       "distinct_concepts": 2,
       "papers": 9,
-      "reads": 12
+      "reads": 13
     },
     "learning_theory": {
       "cards_formed": 1,
@@ -269,6 +269,6 @@
     "cards_tested": 0,
     "concepts": 106,
     "papers": 197,
-    "reads": 185
+    "reads": 187
   }
 }
