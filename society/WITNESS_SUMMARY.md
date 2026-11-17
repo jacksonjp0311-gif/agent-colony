@@ -14,7 +14,7 @@
 **Checker proposals awaiting human review:** checker proposals awaiting human review: 0; last cycle mined 1, accepted 0, rejected 1
 **Self-heal:** self_changes_adopted 15; self_changes_reverted 10; self_changes_inconclusive 6; last_self_change trial_voided_confound step_size 0.0634→0.0975 (baseline 7.0, trial None, environment_changed); trial step_size 0.0975→0.0634 (0/6); quarantined steps: none
 **Hive:** library 74 records 81; replay accuracy 943 permille, Wilson lower 846 permille; adopted 0; reverted 0; abstained 306; time-to-fix none yet; pending set_knob:direction=up:name=park_cycles:value=11 (deferred 1)
-**Treatment vs control:** paired_runs 166; Δpasses +66; Δdepth +544162; Δadopts +15 (early differences are noise)
+**Treatment vs control:** paired_runs 167; Δpasses +66; Δdepth +556162; Δadopts +15 (early differences are noise)
 **Method cards tried, kept, reverted:** method cards tried 0, kept 15, reverted 10, voided 17, inconclusive 6; proposed 8; twin-held 0; Hive decision deferred 1 times; Hive shadows resolved 70 (correct 0, accuracy 0‰). Kept only if strictly better than the self-heal baseline and the twin. Not AGI.
 **Bus reply rate:** 0.8
 **Improvement proposals:** 50 (all candidate until human authorize)
