@@ -2,11 +2,11 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   88,
-   28
+   87,
+   27
   ],
   "divides": [
-   29,
+   30,
    3
   ],
   "le": [
@@ -26,7 +26,7 @@
  "n_authored": 22,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 35,
+ "n_proved": 34,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -880,134 +880,6 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): cheb4 changes only at primes; x is composite (a multiple of 3); phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
-   "v": 3
-  },
-  "D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 2,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "D(gcd(n,rad))",
-       "kids": [
-        {
-         "e": "gcd(n,rad)",
-         "kids": [
-          {
-           "e": "n",
-           "pt": [
-            1,
-            1
-           ],
-           "rule": "nclass",
-           "val": {
-            "a": {},
-            "c": 1,
-            "d": 2
-           }
-          },
-          {
-           "e": "rad",
-           "lemma": "rad(x) is odd for odd x",
-           "pt": [
-            1,
-            1
-           ],
-           "rule": "lemma",
-           "val": {
-            "a": {},
-            "c": 1,
-            "d": 2
-           }
-          }
-         ],
-         "pt": [
-          1,
-          1
-         ],
-         "rule": "gcd",
-         "val": {
-          "a": {},
-          "c": 1,
-          "d": 2
-         }
-        },
-        {
-         "e": "gcd(n,rad)",
-         "kids": [
-          {
-           "e": "n",
-           "pt": [
-            1,
-            0
-           ],
-           "rule": "nclass",
-           "val": {
-            "a": {},
-            "c": 0,
-            "d": 2
-           }
-          },
-          {
-           "e": "rad",
-           "lemma": "p | x implies p | rad(x)",
-           "pt": [
-            1,
-            0
-           ],
-           "rule": "lemma",
-           "val": {
-            "a": {},
-            "c": 0,
-            "d": 2
-           }
-          }
-         ],
-         "pt": [
-          1,
-          0
-         ],
-         "rule": "gcd",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "Ddiff",
-       "val": {
-        "a": {},
-        "c": 1,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "p | x implies p | rad(x)",
-     "rad(x) is odd for odd x"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x7b60d9ab_w1",
-   "checks": 29994,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): p | x implies p | rad(x); rad(x) is odd for odd x; n < 64 checked directly",
-   "unknown": false,
    "v": 3
   },
   "D(gcd(oxa047700,oxa316344))(n) = 1 (mod 2) for all n = 2 (mod 4)": {
@@ -5452,6 +5324,18 @@
    "unknown": true,
    "v": 3
   },
+  "tau[oxa048760](n) divides dbl(oxa056971)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_xd8f27599_w1",
+   "checks": 88,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "tau[pnot3](n) = 0 (mod 2) for all n = 2 (mod 3)": {
    "authored": false,
    "certificate": null,
@@ -5465,6 +5349,6 @@
    "v": 4
   }
  },
- "seconds": 0.04,
- "ts": "2026-11-16T23:38:18Z"
+ "seconds": 0.03,
+ "ts": "2026-11-17T00:07:44Z"
 }

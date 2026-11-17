@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-11-16 06:39 PM ET
+# Proposal shortlist — 2026-11-16 07:08 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -50,9 +50,9 @@ Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 23, novelty_k
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 15 tested, 2 survived held-out, 13 falsified, 2 machine-checked, 0 surprises; dropped 19 duplicates, 79 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1039.
-Totals: tested 15121, survived 5634, surprises 149, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
+Mode `live`. Last cycle: 20 tested, 10 survived held-out, 10 falsified, 7 machine-checked, 0 surprises; dropped 17 duplicates, 149 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.1036.
+Totals: tested 15223, survived 5677, surprises 151, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 3 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
@@ -67,4 +67,4 @@ Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with
 | D((digsum*digsum))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D((digsum+lpf))(n) = 0 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |
 | D(gcd(cheb4,phi))(n) = 0 (mod 2) for all n = 2 (mod 3) | machine-proved (certificate) |  | not_found | 1.0 |
-| D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2) | machine-proved (certificate) |  | found | 0.0 |
+| D(gcd(phi,pi))(n) = 0 (mod 2) for all n = 1 (mod 2) | machine-proved (certificate) |  | not_found | 1.0 |

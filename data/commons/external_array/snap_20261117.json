@@ -1,0 +1,399 @@
+{
+  "ts": "2026-11-17T00:07:07Z",
+  "version": 2,
+  "mile": "spark3-port",
+  "feeds": {
+    "arxiv": {
+      "feed": "arxiv",
+      "ok": true,
+      "note": "ok_text",
+      "count": 2,
+      "items": [
+        {
+          "title": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
+          "id": "http://arxiv.org/abs/2611.18553v1",
+          "published": "2026-11-13T18:58:08Z",
+          "summary": "Recent work shows that large language models (LLMs) can operate directly on the parameters of other neural networks. They can read what a network was trained to do, fix a network that fails, and write working networks from scratch, all without gradient descent. This capability ha",
+          "source": "arxiv"
+        },
+        {
+          "title": "Imitation Bootstrapped Multi-Agent Reinforcement Learning",
+          "id": "http://arxiv.org/abs/2611.18543v1",
+          "published": "",
+          "summary": "",
+          "source": "arxiv"
+        }
+      ],
+      "ts": "2026-11-17T00:06:51Z"
+    },
+    "nasa_donki_solar": {
+      "feed": "nasa_donki_solar",
+      "ok": false,
+      "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "count": 0,
+      "items": [],
+      "ts": "2026-11-17T00:07:03Z"
+    },
+    "noaa_space_weather": {
+      "feed": "noaa_space_weather",
+      "ok": false,
+      "deprecated": true,
+      "quarantined": true,
+      "note": "quarantined: NOAA Kp feed soft-skipped; use GOES X-ray proxy",
+      "count": 0,
+      "latest_kp": null,
+      "items": [],
+      "ts": "2026-11-17T00:07:03Z"
+    },
+    "global_weather": {
+      "feed": "global_weather",
+      "ok": true,
+      "note": "NYC:ok; London:ok; Tokyo:ok; Sydney:ok",
+      "count": 4,
+      "items": [
+        {
+          "city": "NYC",
+          "lat": 40.71,
+          "lon": -74.01,
+          "temperature_2m": 8.0,
+          "wind_speed_10m": 9.9,
+          "weather_code": 0,
+          "time": "2026-11-17T00:00",
+          "source": "open_meteo"
+        },
+        {
+          "city": "London",
+          "lat": 51.51,
+          "lon": -0.13,
+          "temperature_2m": 4.7,
+          "wind_speed_10m": 18.0,
+          "weather_code": 55,
+          "time": "2026-11-17T00:00",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "temperature_2m": 11.6,
+          "wind_speed_10m": 5.4,
+          "weather_code": 3,
+          "time": "2026-11-17T00:00",
+          "source": "open_meteo"
+        },
+        {
+          "city": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "temperature_2m": 19.5,
+          "wind_speed_10m": 10.1,
+          "weather_code": 51,
+          "time": "2026-11-17T00:00",
+          "source": "open_meteo"
+        }
+      ],
+      "live": true,
+      "cached": false,
+      "ts": "2026-11-17T00:07:06Z"
+    },
+    "pulsemesh_goes_xray": {
+      "feed": "pulsemesh_goes_xray",
+      "ok": true,
+      "note": "ok",
+      "count": 64,
+      "latest": -6.051326127924329,
+      "unit": "log10 W/m^2",
+      "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+      "items": [
+        {
+          "t": "2026-11-17T00:01:00Z",
+          "v": -7.5794218016403025
+        },
+        {
+          "t": "2026-11-17T00:01:00Z",
+          "v": -6.046927805239391
+        },
+        {
+          "t": "2026-11-17T00:02:00Z",
+          "v": -7.653901472838213
+        },
+        {
+          "t": "2026-11-17T00:02:00Z",
+          "v": -6.0457561585729165
+        },
+        {
+          "t": "2026-11-17T00:03:00Z",
+          "v": -7.660774671165197
+        },
+        {
+          "t": "2026-11-17T00:03:00Z",
+          "v": -6.050297819977224
+        },
+        {
+          "t": "2026-11-17T00:04:00Z",
+          "v": -7.636452544637988
+        },
+        {
+          "t": "2026-11-17T00:04:00Z",
+          "v": -6.051326127924329
+        }
+      ],
+      "live": true,
+      "ts": "2026-11-17T00:07:06Z"
+    },
+    "pulsemesh_openmeteo": {
+      "feed": "pulsemesh_openmeteo",
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48,
+      "latest": 8.7,
+      "unit": "°C",
+      "variable": "temperature_2m",
+      "lat": 40.71,
+      "lon": -74.01,
+      "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
+      "items": [
+        {
+          "t": "2026-11-16T00:00",
+          "v": 6.9
+        },
+        {
+          "t": "2026-11-16T01:00",
+          "v": 6.9
+        },
+        {
+          "t": "2026-11-16T02:00",
+          "v": 6.1
+        },
+        {
+          "t": "2026-11-16T03:00",
+          "v": 5.8
+        },
+        {
+          "t": "2026-11-16T04:00",
+          "v": 5.1
+        },
+        {
+          "t": "2026-11-16T05:00",
+          "v": 4.2
+        },
+        {
+          "t": "2026-11-16T06:00",
+          "v": 4.1
+        },
+        {
+          "t": "2026-11-16T07:00",
+          "v": 3.5
+        }
+      ],
+      "live": false,
+      "cached": true,
+      "ts": "2026-11-17T00:07:06Z"
+    },
+    "pulsemesh_usgs_quakes": {
+      "feed": "pulsemesh_usgs_quakes",
+      "ok": true,
+      "note": "ok",
+      "count": 100,
+      "latest": 2.5,
+      "items": [
+        {
+          "mag": 2.5,
+          "place": "9 km SSW of Willow, Alaska",
+          "time": 1794870325904,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "146 km SSE of Isangel, Vanuatu",
+          "time": 1794866158945,
+          "source": "usgs"
+        },
+        {
+          "mag": 2.79,
+          "place": "16 km NW of Lopez Point, CA",
+          "time": 1794863839700,
+          "source": "usgs"
+        },
+        {
+          "mag": 6.6,
+          "place": "148 km WSW of Tual, Indonesia",
+          "time": 1794863480515,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.6,
+          "place": "144 km NW of Kavieng, Papua New Guinea",
+          "time": 1794857580666,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.7,
+          "place": "77 km WSW of Changuillo, Peru",
+          "time": 1794857194776,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.1,
+          "place": "63 km NNE of Stony River, Alaska",
+          "time": 1794856040534,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.6,
+          "place": "64 km SSE of Unalaska, Alaska",
+          "time": 1794852496110,
+          "source": "usgs"
+        }
+      ],
+      "live": true,
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-10&endtime=2026-11-17&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-11-17T00:07:06Z"
+    },
+    "pulsemesh_system_stat": {
+      "feed": "pulsemesh_system_stat",
+      "ok": true,
+      "note": "ok",
+      "count": 4,
+      "items": [
+        {
+          "load1": 0.5927734375,
+          "disk_free_percent": 59.35633568190825,
+          "process_count": 153,
+          "uptime_hours": 0.3453333333333333,
+          "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
+          "node": "runnervmccnms",
+          "source": "system_stat"
+        }
+      ],
+      "latest_load1": 0.5927734375,
+      "live": true,
+      "ts": "2026-11-17T00:07:06Z"
+    },
+    "pulsemesh_tcp_probe": {
+      "feed": "pulsemesh_tcp_probe",
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4,
+      "latest_ms": 6.111732000135817,
+      "mean_ms": 7.679655250058204,
+      "items": [
+        {
+          "probe": 0,
+          "ms": 13.231973000074504
+        },
+        {
+          "probe": 1,
+          "ms": 5.520416000081241
+        },
+        {
+          "probe": 2,
+          "ms": 5.854499999941254
+        },
+        {
+          "probe": 3,
+          "ms": 6.111732000135817
+        }
+      ],
+      "live": true,
+      "host": "1.1.1.1",
+      "port": 443,
+      "ts": "2026-11-17T00:07:07Z"
+    }
+  },
+  "pulsemesh_health": {
+    "pulsemesh_goes_xray": {
+      "ok": true,
+      "note": "ok",
+      "count": 64
+    },
+    "pulsemesh_openmeteo": {
+      "ok": true,
+      "note": "mem_ttl:ok",
+      "count": 48
+    },
+    "pulsemesh_usgs_quakes": {
+      "ok": true,
+      "note": "ok",
+      "count": 100
+    },
+    "pulsemesh_system_stat": {
+      "ok": true,
+      "note": "ok",
+      "count": 4
+    },
+    "pulsemesh_tcp_probe": {
+      "ok": true,
+      "note": "ok=4/4 host=1.1.1.1:443",
+      "count": 4
+    }
+  },
+  "cross_domain_patterns": [
+    {
+      "kind": "global_weather_spread",
+      "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 8.0), ('London', 4.7), ('Tokyo', 11.6), ('Sydney', 19.5)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "signals": {
+        "cities": [
+          [
+            "NYC",
+            8.0
+          ],
+          [
+            "London",
+            4.7
+          ],
+          [
+            "Tokyo",
+            11.6
+          ],
+          [
+            "Sydney",
+            19.5
+          ]
+        ],
+        "kp": null
+      },
+      "domains": [
+        "nature",
+        "commons",
+        "government"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_goes_live",
+      "summary": "PulseMesh GOES X-ray live latest=-6.051326127924329. Space-weather debate input — not novel physics.",
+      "signals": {
+        "goes_latest": -6.051326127924329
+      },
+      "domains": [
+        "cosmos",
+        "gather"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    },
+    {
+      "kind": "pulsemesh_ops_health",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.5927734375 probe_ms=7.679655250058204. Ops health for actuation — not consciousness.",
+      "signals": {
+        "load1": 0.5927734375,
+        "probe_ms": 7.679655250058204
+      },
+      "domains": [
+        "government",
+        "commons",
+        "oracle"
+      ],
+      "not_discovery": true,
+      "not_novel_physics": true
+    }
+  ],
+  "note": "EXTERNAL ARRAY + PulseMesh collectors for agent query during debate. Graceful degrade. Correlations are debate input — not discovery.",
+  "non_claims": [
+    "not_AGI",
+    "not_novel_physics",
+    "not_Millennium"
+  ]
+}

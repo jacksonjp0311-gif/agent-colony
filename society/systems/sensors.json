@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-16T23:35:07Z",
-  "cycle_id": "20261116T233435Z_835d4e",
+  "ts": "2026-11-17T00:04:58Z",
+  "cycle_id": "20261117T000430Z_7fec4f",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -115,33 +115,33 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8536,
-      "slope": -0.00113,
+      "last": 0.8583,
+      "slope": -9.1e-05,
       "min": 0.8247,
-      "max": 0.8637
+      "max": 0.8629
     },
     "novelty": {
       "last": 0.7143,
-      "slope": -0.004503,
+      "slope": -0.004947,
       "min": 0.7143,
       "max": 0.7692
     },
     "kill_rate": {
       "last": 0.4008,
-      "slope": -6.4e-05,
+      "slope": -7.3e-05,
       "min": 0.4008,
       "max": 0.4016
     },
     "kill_rate_term": {
       "last": 0.9107,
-      "slope": -6.4e-05,
+      "slope": -7.3e-05,
       "min": 0.9107,
       "max": 0.9115
     },
     "lesson_uptake": {
       "last": 0.9,
-      "slope": 0.020769,
-      "min": 0.36,
+      "slope": 0.0,
+      "min": 0.9,
       "max": 0.9
     }
   },
@@ -277,23 +277,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.447,
+      "ratio": 1.123,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.855,
-      "drift": true
+      "ratio": 1.112,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.409,
+      "ratio": 1.098,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.334,
+      "ratio": 1.072,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.193,
+      "ratio": 1.154,
       "drift": false
     }
   },
@@ -302,10 +302,10 @@
     "verified": {
       "goldbach_even": 529234115,
       "collatz_descent": 566200000,
-      "legendre_square_gap": 2876607,
-      "lehmer_totient": 266200001,
+      "legendre_square_gap": 2892607,
+      "lehmer_totient": 267800001,
       "erdos_straus": 1489127,
-      "twin_primes_hl": 706200000,
+      "twin_primes_hl": 710200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -359,18 +359,18 @@
     "last": [
       [
         null,
+        "2026-11-16T23:48:39Z"
+      ],
+      [
+        "success",
         "2026-11-16T23:17:26Z"
       ],
       [
         "success",
         "2026-11-16T22:52:27Z"
-      ],
-      [
-        "success",
-        "2026-11-16T22:20:47Z"
       ]
     ],
-    "fetched_at": "2026-11-16T23:18:23Z"
+    "fetched_at": "2026-11-16T23:49:49Z"
   },
   "feeds": {
     "by_source": {
@@ -389,10 +389,9 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
@@ -419,7 +418,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-16T23:18:19Z"
+      "ts": "2026-11-16T23:49:48Z"
     },
     "health": {
       "arxiv": {
@@ -447,7 +446,6 @@
   "signals": [
     "revert_streaks: stem_elastic_collision, stem_isothermal_work, stem_kepler_third_law, stem_rc_discharge → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_stress_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

@@ -1,5 +1,5 @@
 {
-  "when": "2026-11-16T23:39:38Z",
+  "when": "2026-11-17T00:08:55Z",
   "mile": "spark3-port",
   "cycle_count": 894,
   "fitness_latest": {
@@ -655,7 +655,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8751
+    "aggregate_score": 0.8775
   },
   "novelty_gate": {
     "hits": 20,
@@ -665,7 +665,7 @@
     "action_changed": true,
     "code_touched": true,
     "bus_metrics": {
-      "reply_rate": 0.9643,
+      "reply_rate": 0.9286,
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "reply_quality": 0.9113
@@ -675,7 +675,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261116T233435Z_835d4e"
+    "cycle_id": "20261117T000430Z_7fec4f"
   },
   "oracle": {
     "passes": 589,
