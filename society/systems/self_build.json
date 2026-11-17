@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 184,
+ "cycle_index": 187,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -222,7 +222,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261117T142310Z_46f01c",
+  "cycle_id": "20261117T145515Z_771267",
   "blueprint": "bp_8d66d1f85a72b397",
   "ran": [
    {
@@ -231,49 +231,46 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 193,
-     "duplicate": 23,
-     "trivial_formal": 3,
-     "trivial_shuffle_null": 0,
-     "trivial_idle_part": 4,
-     "trivial_implied_parts": 38,
+     "fitted": 174,
+     "duplicate": 21,
+     "trivial_formal": 2,
+     "trivial_shuffle_null": 2,
+     "trivial_idle_part": 6,
+     "trivial_implied_parts": 54,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
-     "trivial_parity_rules": 1,
+     "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
-     "trivial_basic_inequality": 1,
+     "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 1,
-     "expected_by_closure": 4,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 1,
      "loose_inequality": 0,
      "tested": 20,
-     "survived": 9,
-     "falsified": 11,
-     "machine_checked": 4,
+     "survived": 6,
+     "falsified": 14,
+     "machine_checked": 1,
      "surprises": 0,
-     "known_result": 1,
+     "known_result": 0,
      "oeis_known": 3,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 1,
-     "explained_by_known_check": 1,
-     "trivial_confirmed on range": 4,
-     "trivial_known_in_principle(compositional)": 1
+     "no_reference_found": 2,
+     "explained_by_known_check": 2,
+     "trivial_confirmed on range": 6
     }
    },
    {
     "component": "oeis_consensus_vote",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A252354_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    }
   ],
-  "actions": 2,
-  "cpu_s": 4.79
+  "actions": 1,
+  "cpu_s": 8.25
  },
  "last_skip": null,
  "kept_count": 1,

@@ -2507,6 +2507,15 @@ def check_authored_mut_swap_related_sequence_5632d000cf00() -> bool:
 
 
 
+def check_authored_mut_swap_related_sequence_a3f7acd2f788() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    stree_ladder[gpf](n) <= stree_ladder(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'stree_ladder[gpf]', 'params': {}, 'rhs': 'stree_ladder'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2753,6 +2762,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mut_swap_related_sequence_3b3fef4a07b3", check_authored_mut_swap_related_sequence_3b3fef4a07b3, False),
     ("authored_mut_swap_related_sequence_157fd7ef3654", check_authored_mut_swap_related_sequence_157fd7ef3654, False),
     ("authored_mut_swap_related_sequence_5632d000cf00", check_authored_mut_swap_related_sequence_5632d000cf00, False),
+    ("authored_mut_swap_related_sequence_a3f7acd2f788", check_authored_mut_swap_related_sequence_a3f7acd2f788, False),
 ]
 
 
