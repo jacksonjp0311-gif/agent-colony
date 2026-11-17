@@ -655,7 +655,9 @@ def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
         # Symbiotic: add penalty from foreign receipts if present
         try:
             from colony.tools.symbiotic_exchange import foreign_penalty
-            local += foreign_penalty(fp, my_source="colony")
+            from colony.tools.surgical_implants import graph_connected
+            if graph_connected("colony"):
+                local += foreign_penalty(fp, my_source="colony")
         except Exception:
             pass
         return max(local, -300)  # hard cap

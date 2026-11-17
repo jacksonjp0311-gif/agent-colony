@@ -38,14 +38,21 @@ def crystallize(treatment: Any = None, fingerprint: str = "", source: str = "col
                 except Exception:
                     continue
         STORE.parent.mkdir(parents=True, exist_ok=True)
-        rec = {
-            "key": key,
-            "fingerprint": fp,
-            "source": source,
-            "lineage": source,
-            "category": category,
-            "ts": _utc(),
-        }
+        try:
+            from colony.tools.surgical_implants import sparse_delta
+            rec = sparse_delta(fp, category, source)
+            rec["key"] = key
+            rec["ts"] = _utc()
+            rec["lineage"] = source
+        except Exception:
+            rec = {
+                "key": key,
+                "fingerprint": fp,
+                "source": source,
+                "lineage": source,
+                "category": category,
+                "ts": _utc(),
+            }
         with STORE.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec) + "\n")
         # Also learn into a live router if available (best-effort)

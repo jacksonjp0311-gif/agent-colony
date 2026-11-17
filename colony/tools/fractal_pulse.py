@@ -87,6 +87,12 @@ def pulse(
         emit = None  # type: ignore
 
     ok = 0
+    try:
+        from colony.tools.surgical_implants import share_or_solo
+        if share_or_solo(0.5):  # residual proxy; share when signal present
+            pass  # receipts already emitted below
+    except Exception:
+        pass
     for r in results:
         if r.get("ok"):
             ok += 1
