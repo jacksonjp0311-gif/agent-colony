@@ -13,7 +13,7 @@ STORE = ROOT / "data" / "commons" / "crystallized.jsonl"
 EXCHANGE = ROOT / "data" / "commons" / "exchange.jsonl"
 
 
-def reload_check(source: str = "colony") -> dict:
+def reload_check(source: str = "one-mind") -> dict:
     """How many crystallized fingerprints a fresh process can retrieve."""
     try:
         from colony.tools.crystallize import retrieve
@@ -37,7 +37,7 @@ def reload_check(source: str = "colony") -> dict:
         return {"checked": 0, "holes": 0}
 
 
-def listen(source: str = "colony") -> int:
+def listen(source: str = "one-mind") -> int:
     """Pull the other lineage and count foreign fingerprints."""
     try:
         from colony.tools.reciprocal_exchange import merge_remote
@@ -48,7 +48,7 @@ def listen(source: str = "colony") -> int:
         return 0
 
 
-def dream(source: str = "colony") -> int:
+def dream(source: str = "one-mind") -> int:
     """Prune by use. Returns count kept. Fail-open."""
     try:
         if not STORE.exists():
@@ -68,21 +68,22 @@ def dream(source: str = "colony") -> int:
 
 
 def echo(source: str, report: dict) -> None:
-    """One receipt. The next evolve will find it."""
+    """One receipt the other lineage can read. Dream talks."""
     try:
         from colony.tools.symbiotic_exchange import append_receipt
+        other = "colony" if source == "one-mind" else "one-mind"
         append_receipt(
             source,
-            "watch",
-            f"watch:{report.get('checked', 0)}:{report.get('foreign', 0)}",
+            "dream",
+            f"dream:{other}:{report.get('checked', 0)}",
             "observed",
-            report,
+            {**report, "to": other, "from": source},
         )
     except Exception:
         pass
 
 
-def run(source: str = "colony") -> dict:
+def run(source: str = "one-mind") -> dict:
     report = reload_check(source)
     report["foreign"] = listen(source)
     report["kept"] = dream(source)
@@ -92,5 +93,5 @@ def run(source: str = "colony") -> dict:
 
 if __name__ == "__main__":
     import sys
-    src = sys.argv[1] if len(sys.argv) > 1 else "colony"
+    src = sys.argv[1] if len(sys.argv) > 1 else "one-mind"
     print(json.dumps(run(src)))
