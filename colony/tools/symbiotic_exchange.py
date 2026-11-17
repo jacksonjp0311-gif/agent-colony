@@ -36,7 +36,11 @@ def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra
         pass
 
 def foreign_fingerprints(my_source: str, limit: int = 50) -> List[str]:
-    """Fingerprints written by any source other than my_source."""
+    """Fingerprints written by any source other than my_source.
+
+    Only failure outcomes count — matches One Mind's filter so both
+    lineages penalize the same class of foreign evidence.
+    """
     if not EXCHANGE.exists():
         return []
     out = []
@@ -44,7 +48,9 @@ def foreign_fingerprints(my_source: str, limit: int = 50) -> List[str]:
         for line in EXCHANGE.read_text(encoding="utf-8").splitlines()[-limit:]:
             try:
                 rec = json.loads(line)
-                if rec.get("source") != my_source and rec.get("fingerprint"):
+                if (rec.get("source") != my_source
+                        and rec.get("fingerprint")
+                        and rec.get("outcome") in ("reverted", "failed", "failure")):
                     out.append(str(rec["fingerprint"]))
             except Exception:
                 continue
