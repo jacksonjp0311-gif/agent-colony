@@ -12,11 +12,11 @@
       "start": 4,
       "verified": {
         "lo": 4,
-        "hi": 543558851,
+        "hi": 546717891,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
-      "window": 3200000,
+      "window": 1600000,
       "min_window": 20000,
       "max_window": 4000000,
       "budget_s": 2.5,
@@ -24,15 +24,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-17T04:08:41Z",
-      "runs": 193,
+      "last_run": "2026-11-17T07:00:50Z",
+      "runs": 194,
       "extensions": [
-        {
-          "ts": "2026-11-16T18:49:37Z",
-          "lo": 516358852,
-          "hi": 517958851,
-          "seconds": 1.2104
-        },
         {
           "ts": "2026-11-16T19:48:28Z",
           "lo": 517958852,
@@ -86,10 +80,16 @@
           "lo": 540358852,
           "hi": 543558851,
           "seconds": 1.1831
+        },
+        {
+          "ts": "2026-11-17T07:00:50Z",
+          "lo": 543558852,
+          "hi": 546717891,
+          "seconds": 2.5003
         }
       ],
       "last_data": {
-        "max_least_prime": 1033
+        "max_least_prime": 997
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -223,7 +223,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 3084607,
+        "hi": 3100607,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -235,15 +235,9 @@
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-17T04:21:19Z",
-      "runs": 193,
+      "last_run": "2026-11-17T07:04:47Z",
+      "runs": 194,
       "extensions": [
-        {
-          "ts": "2026-11-16T18:52:56Z",
-          "lo": 2924608,
-          "hi": 2940607,
-          "seconds": 1.7797
-        },
         {
           "ts": "2026-11-16T19:50:53Z",
           "lo": 2940608,
@@ -297,10 +291,16 @@
           "lo": 3068608,
           "hi": 3084607,
           "seconds": 1.4432
+        },
+        {
+          "ts": "2026-11-17T07:04:47Z",
+          "lo": 3084608,
+          "hi": 3100607,
+          "seconds": 1.9376
         }
       ],
       "last_data": {
-        "max_first_prime_offset": 298
+        "max_first_prime_offset": 247
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-17T06:29:30Z"
+  "updated_at": "2026-11-17T07:04:57Z"
 }
