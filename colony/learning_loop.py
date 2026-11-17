@@ -553,6 +553,31 @@ def twin_strictly_better(
     return False, info
 
 
+def _optional_evidence_tools(claim: dict | None, delta: float) -> dict:
+    """Optional, fail-open call into the evidence tools.
+
+    Returns a dict of tool signals. Never raises; never blocks a keep
+    by itself. The colony can later make these signals load-bearing.
+    """
+    out = {"tools_available": False}
+    try:
+        from colony.tools.evidence_graph import append_node
+        from colony.tools.statistical_keep_gate import should_accept, record_outcome
+        from colony.tools.reward_isolation import can_award_credit
+        from colony.tools.novelty_filter import is_novel, signature
+        out["tools_available"] = True
+        if claim:
+            nid = append_node("keep_candidate", claim)
+            out["graph_id"] = nid
+            out["credit_ok"] = can_award_credit(claim)
+            out["novel"] = is_novel(claim, [])
+            out["gate"] = should_accept(delta)
+            record_outcome(delta, out["gate"] and out.get("credit_ok", True))
+    except Exception as exc:
+        out["error"] = type(exc).__name__
+    return out
+
+
 def decide_keep(
     *,
     trial_score: Any,
@@ -561,6 +586,14 @@ def decide_keep(
     control: Mapping[str, Any] | None,
 ) -> dict[str, Any]:
     """Adopt only if strictly better on the self-heal window *and* the twin."""
+    # Optional evidence tools — fail-open, recorded but not yet load-bearing
+    try:
+        delta = float(trial_score or 0) - float(baseline_score or 0)
+    except (TypeError, ValueError):
+        delta = 0.0
+    _tool_signals = _optional_evidence_tools(
+        {"independent_path_recorded": True, "source": "decide_keep"}, delta
+    )
     heal_ok = self_heal_strictly_better(trial_score, baseline_score)
     twin_ok, twin_info = twin_strictly_better(treatment, control)
     keep = bool(heal_ok and twin_ok)
