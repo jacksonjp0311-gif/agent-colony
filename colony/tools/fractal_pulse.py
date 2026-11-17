@@ -41,6 +41,26 @@ def _fingerprint(url: str, preview: str) -> str:
     h = hashlib.sha256(f"{url}|{preview[:120]}".encode()).hexdigest()[:16]
     return f"pulse:{h}"
 
+
+def adaptive_depth(source: str, base: int = 2) -> int:
+    """Widen pulse when recent failures or high residual; keep shallow otherwise.
+
+    Pure read of existing signals. Fail-open returns base.
+    """
+    try:
+        from colony.tools.symbiotic_exchange import foreign_fingerprints
+        fps = foreign_fingerprints(source if source != "colony" else "one-mind", limit=20)
+        # More foreign failures → slightly deeper
+        extra = 1 if len(fps) >= 3 else 0
+        # Local failure log presence
+        from pathlib import Path
+        log = Path(__file__).resolve().parent.parent.parent / "data" / "commons" / "self_change_failures.jsonl"
+        if log.exists() and log.stat().st_size > 100:
+            extra += 1
+        return min(base + extra, 4)
+    except Exception:
+        return base
+
 def pulse(
     source: str,
     targets: List[str] | None = None,
@@ -50,7 +70,8 @@ def pulse(
     max_concurrent: int = 4,
 ) -> Dict[str, Any]:
     """Run one bounded fractal pulse. Returns summary."""
-    urls = list(targets or DEFAULT_TARGETS)[: max(1, branch_factor ** max_depth)]
+    depth = adaptive_depth(source, max_depth)
+    urls = list(targets or DEFAULT_TARGETS)[: max(1, branch_factor ** depth)]
     results: List[Dict[str, Any]] = []
     with ThreadPoolExecutor(max_workers=max_concurrent) as ex:
         futs = {ex.submit(_fetch, u): u for u in urls}
@@ -75,7 +96,7 @@ def pulse(
     if emit:
         emit(source, cycle_id="fractal-pulse", residual_max=0.0,
              foreign_fps=0, bias_delta=0, outcome=f"pulse_ok:{ok}/{len(results)}",
-             extra={"targets": len(results)})
+             extra={"targets": len(results), "depth": depth})
 
     return {
         "source": source,
