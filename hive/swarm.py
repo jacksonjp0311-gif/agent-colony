@@ -835,6 +835,11 @@ def propose_for_role(
             if prop and getattr(prop, "fingerprint", ""):
                 delta += agreed_prior(prop.fingerprint)
                 delta += kept_prior(prop.fingerprint)
+                try:
+                    from colony.tools.surgical_implants import tag_and_capture, precision_weight
+                    delta += int(tag_and_capture(prop.fingerprint, [prop.fingerprint]) * precision_weight(1))
+                except Exception:
+                    pass
         except Exception:
             pass
         foreign = 0

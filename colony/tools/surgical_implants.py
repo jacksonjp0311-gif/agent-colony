@@ -279,3 +279,49 @@ def energy_settled(scores: list, eps: int = 0) -> bool:
         return int(scores[-1]) >= int(scores[-2]) - int(eps)
     except Exception:
         return False
+
+
+def precision_weight(observation_count: int, floor: float = 0.25, cap: float = 1.0) -> float:
+    """Active-inference precision: more observations, more trust.
+
+    Precision scales a prior. It does not create one.
+    Fail-open returns 1.0.
+    """
+    try:
+        n = max(0, int(observation_count))
+        return min(cap, floor + (1.0 - floor) * min(n, 8) / 8.0)
+    except Exception:
+        return 1.0
+
+
+def eligible(fingerprint: str, recent: list, window: int = 12) -> bool:
+    """Three-factor eligibility: only a recently touched fingerprint can be modified.
+
+    Acetylcholine-style gate. No recent touch, no prior.
+    Fail-open returns True.
+    """
+    try:
+        if not fingerprint or not recent:
+            return True
+        tail = [str(x) for x in recent[-window:]]
+        return fingerprint in tail or any(fingerprint.split(":")[0] in str(x) for x in tail)
+    except Exception:
+        return True
+
+
+def tag_and_capture(fingerprint: str, kept_fingerprints: list) -> int:
+    """Synaptic tagging and capture.
+
+    A weak tag (this proposal) captures a protein (a kept record on the same knob).
+    Returns a capped bonus. Not a keep. Fail-open returns 0.
+    """
+    try:
+        if not fingerprint or not kept_fingerprints:
+            return 0
+        knob = str(fingerprint).split(":")[0]
+        for fp in kept_fingerprints:
+            if str(fp) == fingerprint or str(fp).startswith(knob + ":"):
+                return 30
+        return 0
+    except Exception:
+        return 0
