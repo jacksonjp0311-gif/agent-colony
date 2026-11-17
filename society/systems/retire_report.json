@@ -1,21 +1,15 @@
 {
- "ts": "2026-11-17T02:07:35Z",
- "mode": "shadow",
+ "ts": "2026-11-17T02:33:30Z",
+ "mode": "live",
  "n_authored": 102,
  "n_candidates": 0,
- "machine_receipts": "shadow",
+ "machine_receipts": "live",
  "machine_release_limit": 40,
  "dead_weight_mode": "live",
  "dead_weight_abstained": {
   "authored_frontier_cong_xd9add9e9_w1": "a kill that is not a substantive held-out fail"
  },
  "dead_families": [],
- "machine_receipts_shadow": {
-  "note": "report-only (COLONY_RETIRE_MACHINE_RECEIPTS=shadow): checks protected only by receipts delegated via GitHub Actions cron that the approved rule would retire; nothing retired",
-  "would_retire": 0,
-  "by_category": {},
-  "names": []
- },
  "by_category": {},
  "candidates": [],
  "rule": {
@@ -26,6 +20,9 @@
   "sieve_grace_hours": 0.25,
   "max_per_run": 60
  },
- "cycle_id": "20261117T020714Z_c2459c",
+ "cycle_id": "20261117T023317Z_0a9f9b",
+ "applied": {
+  "applied": 0
+ },
  "n_protected": 62
 }

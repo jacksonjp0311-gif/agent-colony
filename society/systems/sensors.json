@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-17T02:07:53Z",
-  "cycle_id": "20261117T020714Z_c2459c",
+  "ts": "2026-11-17T02:33:45Z",
+  "cycle_id": "20261117T023317Z_0a9f9b",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -13,7 +13,6 @@
     ],
     "oracle_kills_by_theme": {
       "authored_mut_swap_related_sequence_58aacc9fceff": 3,
-      "authored_mut_swap_related_sequence_a6110dabd1ce": 1,
       "stem_thin_lens_matrix": 1,
       "stem_velocity_addition": 1,
       "stem_elastic_collision": 1,
@@ -23,7 +22,8 @@
       "authored_mut_swap_related_sequence_539c6e5aed66": 1,
       "authored_mut_swap_related_sequence_6086023df475": 1,
       "authored_mut_swap_related_sequence_6ed44acf6664": 1,
-      "authored_mut_swap_related_sequence_780ec4e5fee0": 1
+      "authored_mut_swap_related_sequence_780ec4e5fee0": 1,
+      "authored_mut_swap_related_sequence_8d6d6a34114b": 1
     },
     "recent": {
       "oeis_a001003_little_schroeder": {
@@ -115,26 +115,26 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8562,
-      "slope": -0.000647,
+      "last": 0.8573,
+      "slope": -0.000411,
       "min": 0.8386,
       "max": 0.8591
     },
     "novelty": {
       "last": 0.6786,
-      "slope": -0.003994,
+      "slope": -0.00337,
       "min": 0.6786,
       "max": 0.7143
     },
     "kill_rate": {
       "last": 0.4004,
-      "slope": -4.5e-05,
+      "slope": -3.8e-05,
       "min": 0.4004,
       "max": 0.4008
     },
     "kill_rate_term": {
       "last": 0.9104,
-      "slope": -3.4e-05,
+      "slope": -2.8e-05,
       "min": 0.9104,
       "max": 0.9107
     },
@@ -147,7 +147,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0184,
+    "aggregate_range": 0.0187,
     "novelty_max": 0.6786,
     "window": 6,
     "reason": "moving"
@@ -279,23 +279,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.872,
+      "ratio": 1.225,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.855,
+      "ratio": 1.22,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.918,
+      "ratio": 1.043,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 2.552,
+      "ratio": 2.713,
       "drift": true
     },
     "kinematics_microbench": {
-      "ratio": 1.053,
+      "ratio": 0.962,
       "drift": false
     }
   },
@@ -307,7 +307,7 @@
       "legendre_square_gap": 2924607,
       "lehmer_totient": 271000001,
       "erdos_straus": 1499127,
-      "twin_primes_hl": 714200000,
+      "twin_primes_hl": 718200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -346,9 +346,9 @@
       "sieve.forecast_and_count": "colony.instruments.sieve:forecast_and_count"
     },
     "sieve": {
-      "c_helper_built": false,
+      "c_helper_built": true,
       "compiler": true,
-      "primesieve_cli": false,
+      "primesieve_cli": true,
       "max_span": 10000000000,
       "py_max_span": 200000000,
       "timeout_s": 120.0
@@ -361,18 +361,18 @@
     "last": [
       [
         null,
-        "2026-11-17T01:18:55Z"
+        "2026-11-17T02:15:09Z"
       ],
       [
         "success",
-        "2026-11-17T00:50:12Z"
+        "2026-11-17T02:15:02Z"
       ],
       [
         "success",
-        "2026-11-17T00:18:33Z"
+        "2026-11-17T02:10:28Z"
       ]
     ],
-    "fetched_at": "2026-11-17T01:19:46Z"
+    "fetched_at": "2026-11-17T02:22:33Z"
   },
   "feeds": {
     "by_source": {
@@ -420,7 +420,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-17T01:19:46Z"
+      "ts": "2026-11-17T02:22:33Z"
     },
     "health": {
       "arxiv": {
