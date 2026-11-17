@@ -105,3 +105,31 @@ def test_swarm_facade_and_adapter():
     assert c["ok"] is True
     n = query_tools({"action": "novel", "claim": {"ops": ["residue_check"]}})
     assert n["ok"] is True
+
+
+def test_sensory_memory_connective():
+    from colony.tools.sensory_surface import sense
+    from colony.tools.memory_organ import remember, recall
+    from colony.tools.connective import pulse, route_to_swarm
+    from colony.hive_adapter import query_tools
+
+    snap = sense("test")
+    assert snap["ok"] is True
+    assert "sensors" in snap["channels"]
+
+    mid = remember("test_kind", {"value": 1}, rate="working")
+    assert mid.startswith("mem:")
+    items = recall(kind="test_kind")
+    assert any(i["id"] == mid for i in items)
+
+    p = pulse("cycle-test")
+    assert p["ok"] is True
+    assert "memory_id" in p
+
+    r = route_to_swarm({"action": "sense", "query": "x"})
+    assert r["ok"] is True
+
+    q = query_tools({"action": "sense", "query": "swarm"})
+    assert q.get("ok") is True
+    q2 = query_tools({"action": "pulse", "cycle": "c1"})
+    assert q2.get("ok") is True

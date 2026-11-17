@@ -22,3 +22,14 @@ These optional tools implement the full improvement plan while preserving the co
 All are loadable. The colony proposes their use through the existing conjecture desk; the Oracle verifies; human authorization remains required for durable promotion. Twin-control arms stay frozen for comparison.
 
 No running cycle is modified by the presence of these modules. Phase 0 invariants are now available as callables the society can adopt.
+
+
+## Sensory / Memory / Connective expansion
+
+| Module | Role |
+|--------|------|
+| `sensory_surface.py` | Unified query over sensors, external array, PulseMesh, evidence graph |
+| `memory_organ.py` | Multi-rate memory (working / durable / retained); mirrors into evidence graph |
+| `connective.py` | Pulse summaries and route sense/recall to swarm and bus |
+
+All fail-soft. Swarm calls them through the existing adapter. No free-form generation. Human authorize unchanged.

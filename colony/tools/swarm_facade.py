@@ -50,7 +50,6 @@ def query_tools(request: Dict[str, Any]) -> Dict[str, Any]:
             out.update(ok=True, method=compose(ops, request.get("params")))
         elif action == "ablate":
             from colony.tools.ablation_harness import run_ablation
-            # caller supplies already-run results
             wr = request.get("with_result") or {}
             wor = request.get("without_result") or {}
             delta = run_ablation(
@@ -59,6 +58,15 @@ def query_tools(request: Dict[str, Any]) -> Dict[str, Any]:
                 lambda: wor,
             )
             out.update(ok=True, ablation=delta)
+        elif action == "sense":
+            from colony.tools.connective import route_to_swarm
+            out.update(route_to_swarm(request))
+        elif action == "recall":
+            from colony.tools.connective import route_to_swarm
+            out.update(route_to_swarm(request))
+        elif action == "pulse":
+            from colony.tools.connective import route_to_swarm
+            out.update(route_to_swarm(request))
         else:
             out["error"] = "unknown_action"
     except Exception as exc:

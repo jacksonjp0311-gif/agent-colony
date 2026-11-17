@@ -225,3 +225,20 @@ The colony now exposes a small set of evidence-gated tools that Hive/swarm roles
 
 Entry point: `colony.hive_adapter.query_tools(request_dict)`. Plain dict in, plain dict out. Fail-open. Hive never imports colony. The tools do not change keep decisions by themselves; they give the swarm cleaner signals and durable traces so its internal loops can become more attributable. See `docs/improvements/CYBERNETIC_TOOLS.md`.
 
+
+
+## Sensory, memory, and connective tissue
+
+The colony now has expanded surfaces the swarm and agents can query adaptively:
+
+- **Sensory surface** (`colony/tools/sensory_surface.py`) — unified snapshot of internal sensors, external array, PulseMesh, and recent evidence. Correlations remain debate input only.
+- **Memory organ** (`colony/tools/memory_organ.py`) — multi-rate (working / durable / retained) on top of the evidence graph. No auto-promote. Human authorize remains the ceiling.
+- **Connective tissue** (`colony/tools/connective.py`) — pulses a compact summary and routes sense/recall into the bus and swarm facade.
+
+Swarm entry points (via `colony.hive_adapter.query_tools`):
+- `{"action": "sense"}`
+- `{"action": "recall", "kind": "..."}`
+- `{"action": "pulse", "cycle": "..."}`
+
+Fail-soft. Local-first. Not AGI. See `docs/improvements/CYBERNETIC_TOOLS.md`.
+
