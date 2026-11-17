@@ -91,7 +91,7 @@ def transactional_crystallize(
 
 # ---------------------------------------------------------------------------
 # 4. Weight-space invariant: store only the sparse delta
-    # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 def sparse_delta(
     fingerprint: str,
@@ -161,3 +161,79 @@ def latent_eval_invariant() -> str:
     This function exists to name the invariant, not to add code.
     """
     return "bitwork_is_latent_evaluation"
+
+
+# ---------------------------------------------------------------------------
+# 7. Homeostasis: keep total prior mass bounded
+# ---------------------------------------------------------------------------
+
+def homeostatic_scale(score: int, recent_mean: float = 0.0, target: float = 0.0) -> int:
+    """Pull score toward a target when recent mean drifts.
+
+    Synaptic scaling: activity above target reduces gain; below raises it.
+    Fail-open returns the original score.
+    """
+    try:
+        drift = float(recent_mean) - float(target)
+        if drift > 50:
+            return int(score * 0.9)
+        if drift < -50:
+            return int(score * 1.1)
+        return int(score)
+    except Exception:
+        return int(score)
+
+
+# ---------------------------------------------------------------------------
+# 8. Refractory: do not re-select the same fingerprint immediately
+# ---------------------------------------------------------------------------
+
+def refractory(fingerprint: str, last_fp: str = "") -> bool:
+    """True if this fingerprint is allowed (not in refractory).
+
+    Biological refractory period prevents immediate re-firing.
+    Empty last_fp always allows.
+    """
+    try:
+        if not last_fp:
+            return True
+        return str(fingerprint) != str(last_fp)
+    except Exception:
+        return True
+
+
+# ---------------------------------------------------------------------------
+# 9. Lateral inhibition / WTA: keep only the strongest of a small set
+# ---------------------------------------------------------------------------
+
+def winner_take_all(candidates: List[Mapping[str, Any]], k: int = 1) -> List[Mapping[str, Any]]:
+    """Return the top-k by score. Others are inhibited.
+
+    Lateral inhibition: the strongest suppresses the rest.
+    Fail-open returns the original list.
+    """
+    try:
+        if not candidates:
+            return []
+        ranked = sorted(candidates, key=lambda c: int(c.get("score", 0)), reverse=True)
+        return ranked[: max(1, k)]
+    except Exception:
+        return list(candidates)
+
+
+# ---------------------------------------------------------------------------
+# 10. Pruning: drop weak prototypes under a mass cap
+# ---------------------------------------------------------------------------
+
+def prune_weak(records: List[Mapping[str, Any]], max_keep: int = 64) -> List[Mapping[str, Any]]:
+    """Keep the most recent max_keep records. Older weak ones are pruned.
+
+    Two-factor consolidation: sparse connectivity by dropping excess.
+    Fail-open returns the original list.
+    """
+    try:
+        if len(records) <= max_keep:
+            return list(records)
+        return list(records[-max_keep:])
+    except Exception:
+        return list(records)
