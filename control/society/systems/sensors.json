@@ -1,14 +1,14 @@
 {
-  "ts": "2026-11-17T15:23:18Z",
-  "cycle_id": "20261117T152247Z_1603ff",
+  "ts": "2026-11-17T16:00:40Z",
+  "cycle_id": "20261117T160013Z_7f61e9",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
     "recent": {
       "stem_elastic_collision": {
         "last": "skip",
-        "streak": 187,
-        "n": 187,
+        "streak": 190,
+        "n": 190,
         "keeps": 0,
         "reverts": 0
       }
@@ -199,10 +199,10 @@
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 556317891,
+      "goldbach_even": 557917891,
       "collatz_descent": 630200000,
-      "legendre_square_gap": 3196607,
-      "lehmer_totient": 298200001,
+      "legendre_square_gap": 3212607,
+      "lehmer_totient": 299800001,
       "erdos_straus": 1589127,
       "twin_primes_hl": 786200000,
       "oeis_A104062_next": 518690000001
