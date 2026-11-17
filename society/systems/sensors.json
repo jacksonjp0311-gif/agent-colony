@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-17T03:06:54Z",
-  "cycle_id": "20261117T030628Z_8e9179",
+  "ts": "2026-11-17T08:16:20Z",
+  "cycle_id": "20261117T081550Z_ced212",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -115,26 +115,26 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8554,
-      "slope": 1.9e-05,
-      "min": 0.8386,
+      "last": 0.8374,
+      "slope": -0.000594,
+      "min": 0.8374,
       "max": 0.8573
     },
     "novelty": {
       "last": 0.6552,
-      "slope": -0.001636,
+      "slope": -0.002618,
       "min": 0.6552,
       "max": 0.6786
     },
     "kill_rate": {
       "last": 0.4,
-      "slope": -2.8e-05,
+      "slope": -4.5e-05,
       "min": 0.4,
       "max": 0.4004
     },
     "kill_rate_term": {
       "last": 0.91,
-      "slope": -2.8e-05,
+      "slope": -4.5e-05,
       "min": 0.91,
       "max": 0.9104
     },
@@ -147,7 +147,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.006,
+    "aggregate_range": 0.0199,
     "novelty_max": 0.6786,
     "window": 6,
     "reason": "moving"
@@ -279,23 +279,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.836,
+      "ratio": 1.129,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.872,
+      "ratio": 1.166,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.207,
+      "ratio": 1.152,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.671,
+      "ratio": 0.899,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.88,
+      "ratio": 1.058,
       "drift": false
     }
   },
@@ -304,8 +304,8 @@
     "verified": {
       "goldbach_even": 538834115,
       "collatz_descent": 575800000,
-      "legendre_square_gap": 2924607,
-      "lehmer_totient": 271000001,
+      "legendre_square_gap": 2940607,
+      "lehmer_totient": 272600001,
       "erdos_straus": 1504127,
       "twin_primes_hl": 718200000,
       "oeis_A104062_next": 518690000001
