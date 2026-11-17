@@ -73,22 +73,22 @@
       "reads": 11
     },
     "open_endedness": {
-      "cards_formed": 6,
+      "cards_formed": 8,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 6,
+      "concepts": 11,
       "distinct_concepts": 1,
-      "papers": 6,
-      "reads": 10
+      "papers": 11,
+      "reads": 11
     },
     "optimization_search": {
-      "cards_formed": 3,
+      "cards_formed": 5,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 7,
-      "distinct_concepts": 2,
-      "papers": 7,
-      "reads": 10
+      "concepts": 16,
+      "distinct_concepts": 3,
+      "papers": 15,
+      "reads": 11
     },
     "physics_complex_systems": {
       "cards_formed": 1,
@@ -96,8 +96,8 @@
       "cards_tested": 0,
       "concepts": 4,
       "distinct_concepts": 3,
-      "papers": 8,
-      "reads": 10
+      "papers": 15,
+      "reads": 11
     },
     "recursive_self_improvement": {
       "cards_formed": 2,
@@ -131,6 +131,34 @@
   "n_fields": 14,
   "note": "Breadth of reading. Cards are kept only by self-heal windows + twin control. Not AGI.",
   "top_architecture_ideas": [
+    {
+      "description": "Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).",
+      "examples": [
+        {
+          "arxiv_id": "2611.17097",
+          "field": "neural_architecture",
+          "title": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving"
+        },
+        {
+          "arxiv_id": "2611.12762",
+          "field": "consciousness_self_models",
+          "title": "Sage-Taiyi: A Metacognitive Architecture for Scientific Discovery"
+        },
+        {
+          "arxiv_id": "2611.15885",
+          "field": "recursive_self_improvement",
+          "title": "Reward-Driven Collider Physics Challenges for Self-Improving Agentic AI via Reinforcement Learning"
+        }
+      ],
+      "fields": [
+        "consciousness_self_models",
+        "neural_architecture",
+        "open_endedness",
+        "recursive_self_improvement"
+      ],
+      "idea": "novelty_archive",
+      "n_papers": 14
+    },
     {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
       "examples": [
@@ -182,34 +210,6 @@
       ],
       "idea": "swarm_topology",
       "n_papers": 10
-    },
-    {
-      "description": "Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).",
-      "examples": [
-        {
-          "arxiv_id": "2611.17097",
-          "field": "neural_architecture",
-          "title": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving"
-        },
-        {
-          "arxiv_id": "2611.12762",
-          "field": "consciousness_self_models",
-          "title": "Sage-Taiyi: A Metacognitive Architecture for Scientific Discovery"
-        },
-        {
-          "arxiv_id": "2611.15885",
-          "field": "recursive_self_improvement",
-          "title": "Reward-Driven Collider Physics Challenges for Self-Improving Agentic AI via Reinforcement Learning"
-        }
-      ],
-      "fields": [
-        "consciousness_self_models",
-        "neural_architecture",
-        "open_endedness",
-        "recursive_self_improvement"
-      ],
-      "idea": "novelty_archive",
-      "n_papers": 9
     },
     {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
@@ -264,11 +264,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 34,
+    "cards_formed": 38,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 91,
-    "papers": 155,
-    "reads": 159
+    "concepts": 105,
+    "papers": 175,
+    "reads": 162
   }
 }
