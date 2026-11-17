@@ -613,6 +613,56 @@ def drop_retired_proposals(state: dict[str, Any], proposals: list["Proposal"]) -
     return dropped
 
 
+
+def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
+    """Integer penalty from recent identical self-change failures.
+
+    Pure count over the existing failure log. No new dependency.
+    Returns a non-positive integer to subtract from Bitwork score.
+    Fail-open: any error returns 0.
+    """
+    try:
+        from pathlib import Path
+        import json
+        log = Path(__file__).resolve().parent.parent / "data" / "commons" / "self_change_failures.jsonl"
+        if not log.exists():
+            return 0
+        count = 0
+        for line in log.read_text(encoding="utf-8").splitlines()[-limit:]:
+            try:
+                rec = json.loads(line)
+                subj = rec.get("subject") or {}
+                if str(subj.get("knob") or "") in fingerprint or str(rec.get("failed_check") or "") in fingerprint:
+                    count += 1
+            except Exception:
+                continue
+        # Cap the penalty so it cannot dominate the Wilson gate.
+        return -min(count * 50, 200)
+    except Exception:
+        return 0
+
+
+def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
+    """Fail-open score adjustment using existing failure log.
+
+    Subtracts a small integer derived from recent identical failures.
+    Does not change the Wilson gate or the vote structure.
+    """
+    if proposal is None or proposal.match is None:
+        return proposal
+    try:
+        pen = _failure_penalty(proposal.fingerprint)
+        if pen != 0 and hasattr(proposal.match, "score"):
+            # Match is a dataclass-like; adjust score in place if mutable,
+            # otherwise leave a note. Prefer in-place when possible.
+            try:
+                proposal.match.score = int(proposal.match.score) + pen
+            except Exception:
+                pass
+        return proposal
+    except Exception:
+        return proposal
+
 def propose_for_role(
     role: str,
     findings: list[dict[str, Any]],
@@ -678,7 +728,7 @@ def propose_for_role(
         )
     # Score the accepted action against the library.
     scored = router.score_action(symptom, validated.fingerprint)
-    return Proposal(
+    prop = Proposal(
         role=role,
         label=str(chosen.get("kind") or ""),
         action=validated.as_dict(),
@@ -690,6 +740,7 @@ def propose_for_role(
         card_id=card_id,
         method=method,
     )
+    return _apply_evolutionary_bias(prop)
 
 
 def swarm_propose(

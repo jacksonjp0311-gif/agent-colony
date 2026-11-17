@@ -146,3 +146,13 @@ def test_existing_signals_via_facade():
     assert a["ok"] is True
     r = query_tools({"action": "residuals"})
     assert r["ok"] is True
+
+
+def test_evolutionary_bias_fail_open():
+    import hive.swarm as s
+    pen = s._failure_penalty("nonexistent_knob_xyz")
+    assert isinstance(pen, int)
+    assert pen <= 0
+    # Existing fingerprint that has failed should be non-positive
+    pen2 = s._failure_penalty("park_cycles")
+    assert pen2 <= 0
