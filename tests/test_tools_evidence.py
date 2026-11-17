@@ -133,3 +133,16 @@ def test_sensory_memory_connective():
     assert q.get("ok") is True
     q2 = query_tools({"action": "pulse", "cycle": "c1"})
     assert q2.get("ok") is True
+
+
+def test_existing_signals_via_facade():
+    from colony.hive_adapter import query_tools
+    s = query_tools({"action": "sensors"})
+    assert s["ok"] is True
+    assert "trends" in s
+    f = query_tools({"action": "failures", "limit": 1})
+    assert f["ok"] is True
+    a = query_tools({"action": "athanor"})
+    assert a["ok"] is True
+    r = query_tools({"action": "residuals"})
+    assert r["ok"] is True

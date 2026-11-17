@@ -67,6 +67,18 @@ def query_tools(request: Dict[str, Any]) -> Dict[str, Any]:
         elif action == "pulse":
             from colony.tools.connective import route_to_swarm
             out.update(route_to_swarm(request))
+        elif action == "athanor":
+            from colony.tools.existing_signals import athanor_h7
+            out.update(athanor_h7(request.get("traj")))
+        elif action == "residuals":
+            from colony.tools.existing_signals import residual_snapshot
+            out.update(residual_snapshot(request.get("role")))
+        elif action == "failures":
+            from colony.tools.existing_signals import recent_failures
+            out.update(recent_failures(int(request.get("limit", 5))))
+        elif action == "sensors":
+            from colony.tools.existing_signals import sensors_snapshot
+            out.update(sensors_snapshot())
         else:
             out["error"] = "unknown_action"
     except Exception as exc:

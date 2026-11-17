@@ -1,3 +1,7 @@
+
+# RECEIPT ONLY. Canonical memory and drift live in Cortex sidecar + Cerebrum
+# boundary. This log is an append-only trace the swarm may query. It never
+# promotes, never authorizes, never overrides residuals or Athanor.
 """Multi-rate memory organ on top of the evidence graph.
 
 - working: last N nodes (volatile query)

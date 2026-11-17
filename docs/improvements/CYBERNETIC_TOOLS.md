@@ -33,3 +33,12 @@ No running cycle is modified by the presence of these modules. Phase 0 invariant
 | `connective.py` | Pulse summaries and route sense/recall to swarm and bus |
 
 All fail-soft. Swarm calls them through the existing adapter. No free-form generation. Human authorize unchanged.
+
+
+## Thin readers over existing surfaces (no new weight)
+
+Swarm facade actions `sensors`, `athanor`, `residuals`, `failures` read the
+colony's existing sensors snapshot, Athanor H₇, residual state, and
+self-change failure log. They do not re-implement math or add authority.
+Memory organ remains receipt-only. Canonical signals stay in Cortex sidecar,
+Cerebrum boundary, and residuals.
