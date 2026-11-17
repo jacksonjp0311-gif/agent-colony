@@ -208,3 +208,20 @@ block dependent growth and promotion while ingestion remains fail-soft.
 Read-only pull-request CI runs the existing suite plus isolated real-cycle
 regressions. These are reliability fixes, not evidence of capability gain. The
 historical evaluation results and limitations above remain unchanged.
+
+
+## Evidence tools (optional, adaptive)
+
+The colony now exposes a small set of evidence-gated tools that Hive/swarm roles can call adaptively through the adapter:
+
+- Shared evidence graph
+- Statistical keep gate
+- Invariant contracts / reward isolation
+- Ablation harness
+- Constrained method composition
+- Prospective grading
+- Novelty / diversity filter
+- Hunter persistence
+
+Entry point: `colony.hive_adapter.query_tools(request_dict)`. Plain dict in, plain dict out. Fail-open. Hive never imports colony. The tools do not change keep decisions by themselves; they give the swarm cleaner signals and durable traces so its internal loops can become more attributable. See `docs/improvements/CYBERNETIC_TOOLS.md`.
+

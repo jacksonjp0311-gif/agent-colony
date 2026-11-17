@@ -242,3 +242,15 @@ __all__ = (
     "swarm",
     "visibility",
 )
+
+
+def query_tools(request: dict[str, Any]) -> dict[str, Any]:
+    """Adaptive tool surface for Hive/swarm roles.
+
+    Plain dict in, plain dict out. Fail-open. Hive never imports colony.
+    """
+    try:
+        from colony.tools.swarm_facade import query_tools as _qt
+        return _qt(request)
+    except Exception as exc:
+        return {"ok": False, "error": type(exc).__name__}

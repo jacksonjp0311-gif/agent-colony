@@ -91,3 +91,17 @@ def test_learning_loop_optional_hook():
     )
     assert r["keep"] is True
     assert "twin" in r
+
+
+def test_swarm_facade_and_adapter():
+    from colony.hive_adapter import query_tools
+    r = query_tools({"action": "record", "claim": {"id": "swarm-test"}})
+    assert r["ok"] is True
+    assert "graph_id" in r
+    g = query_tools({"action": "gate", "delta": 0.04})
+    assert g["ok"] is True
+    assert "accept" in g
+    c = query_tools({"action": "compose", "ops": ["modular_search"]})
+    assert c["ok"] is True
+    n = query_tools({"action": "novel", "claim": {"ops": ["residue_check"]}})
+    assert n["ok"] is True
