@@ -2937,6 +2937,36 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A221858_0",
+   "anum": "A221858",
+   "form": "property",
+   "depth": 500,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261117T001940Z_c08de9",
+   "planned": 10000,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A240722_0",
+   "anum": "A240722",
+   "form": "relation",
+   "depth": 167,
+   "bfile_hi": 200,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261117T001940Z_c08de9",
+   "planned": 200,
+   "verified_depth": 167,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
@@ -3242,11 +3272,13 @@
   ],
   "20261116T231825Z_d3a8e9": [
    "oc_A294159_0"
+  ],
+  "20261117T001940Z_c08de9": [
+   "oc_A221858_0",
+   "oc_A240722_0"
   ]
  },
  "last_forms": [
-  "relation",
-  "relation",
   "gf",
   "relation",
   "relation",
@@ -3264,6 +3296,8 @@
   "gf",
   "relation",
   "relation",
+  "relation",
+  "property",
   "relation"
  ]
 }
