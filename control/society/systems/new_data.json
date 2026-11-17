@@ -24,42 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 0.029,
-   "cycle_id": "20261116T184752Z_dcd27c",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.028,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-16T18:50:39Z"
-  },
-  {
-   "cpu_s": 0.029,
-   "cycle_id": "20261116T185111Z_f967aa",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.028,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-16T18:54:07Z"
-  },
-  {
    "cpu_s": 0.035,
    "cycle_id": "20261116T191551Z_047f58",
    "discovered": [],
@@ -767,11 +731,47 @@
     "searches": []
    },
    "ts": "2026-11-17T02:01:19Z"
+  },
+  {
+   "cpu_s": 0.03,
+   "cycle_id": "20261117T022305Z_f60f3b",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.018,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T02:25:33Z"
+  },
+  {
+   "cpu_s": 0.019,
+   "cycle_id": "20261117T022557Z_76ee30",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.018,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T02:28:07Z"
   }
  ],
  "last": {
-  "cpu_s": 0.023,
-  "cycle_id": "20261117T015845Z_b1002b",
+  "cpu_s": 0.019,
+  "cycle_id": "20261117T022557Z_76ee30",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -779,13 +779,13 @@
   "pushed": [],
   "sparse": {
    "candidates_seen": 466,
-   "cpu_s": 0.022,
+   "cpu_s": 0.018,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-11-17T02:01:19Z"
+  "ts": "2026-11-17T02:28:07Z"
  },
  "mode": "live",
  "sparse": {
