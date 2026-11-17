@@ -1,36 +1,15 @@
 {
-  "ts": "2026-11-17T00:07:07Z",
+  "ts": "2026-11-17T00:37:51Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261117T000430Z_7fec4f"
+    "cycle_id": "20261117T003503Z_cc2994"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 589,
+  "last_oracle_passes": 590,
   "spawn_retire_log": [
-    {
-      "ts": "2026-11-16T17:10:55Z",
-      "cycle_id": "20261116T170753Z_5c0f97",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-16T17:29:55Z",
-      "cycle_id": "20261116T172620Z_c02115",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-16T17:34:18Z",
-      "cycle_id": "20261116T173101Z_85e538",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-11-16T17:39:06Z",
       "cycle_id": "20261116T173537Z_be43ea",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-17T00:29:40Z",
+      "cycle_id": "20261117T002536Z_c6af33",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-17T00:33:45Z",
+      "cycle_id": "20261117T003050Z_3512b6",
+      "event": "credit",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-11-17T00:38:19Z",
+      "cycle_id": "20261117T003503Z_cc2994",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-11-17T00:07:31Z",
+  "updated_at": "2026-11-17T00:38:19Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.003809,
     "hockey_stick": 0.003809,
@@ -350,8 +350,8 @@
     "faulhaber_power_sums": 0.005035,
     "lagrange_cyclic_orders": 0.004029,
     "burnside_necklaces": 0.004029,
-    "jacobi_two_squares": 0.012964,
-    "jacobi_four_squares": 0.012964,
+    "jacobi_two_squares": 0.012965,
+    "jacobi_four_squares": 0.012965,
     "legendre_factorial_valuation": 0.01152,
     "kummer_carries": 0.01152,
     "ramanujan_partition_congruences": 0.01152,
@@ -370,22 +370,22 @@
     "stem_thin_lens_matrix": 0.005315,
     "stem_velocity_addition": 0.005315,
     "stem_wheatstone_balance": 0.001618,
-    "oeis_a000032_lucas_norm": 0.039162,
-    "oeis_a001006_motzkin_ballot_sum": 0.039162,
-    "oeis_a005043_riordan_motzkin": 0.039162,
-    "oeis_a001850_central_delannoy": 0.039162,
-    "oeis_a006318_schroeder_paths": 0.039162,
-    "oeis_a000085_involutions": 0.039162,
-    "oeis_a001045_jacobsthal_sum": 0.039162,
-    "oeis_a002426_central_trinomial": 0.039162,
-    "oeis_a000111_zigzag_boustrophedon": 0.039162,
-    "oeis_a000262_lah_row_sums": 0.039162,
-    "oeis_a001764_ternary_trees": 0.039162,
-    "oeis_a000957_fine_no_hills": 0.039162,
-    "oeis_a001003_little_schroeder": 0.039162,
-    "oeis_a005259_apery_recurrence": 0.039162,
-    "oeis_a000172_franel_recurrence": 0.039162,
-    "oeis_a002893_hexagonal_walks": 0.039162
+    "oeis_a000032_lucas_norm": 0.039161,
+    "oeis_a001006_motzkin_ballot_sum": 0.039161,
+    "oeis_a005043_riordan_motzkin": 0.039161,
+    "oeis_a001850_central_delannoy": 0.039161,
+    "oeis_a006318_schroeder_paths": 0.039161,
+    "oeis_a000085_involutions": 0.039161,
+    "oeis_a001045_jacobsthal_sum": 0.039161,
+    "oeis_a002426_central_trinomial": 0.039161,
+    "oeis_a000111_zigzag_boustrophedon": 0.039161,
+    "oeis_a000262_lah_row_sums": 0.039161,
+    "oeis_a001764_ternary_trees": 0.039161,
+    "oeis_a000957_fine_no_hills": 0.039161,
+    "oeis_a001003_little_schroeder": 0.039161,
+    "oeis_a005259_apery_recurrence": 0.039161,
+    "oeis_a000172_franel_recurrence": 0.039161,
+    "oeis_a002893_hexagonal_walks": 0.039161
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -438,7 +438,8 @@
     "authored_mut_swap_related_sequence_6ed44acf6664": 1,
     "authored_mut_swap_related_sequence_780ec4e5fee0": 1,
     "authored_mut_swap_related_sequence_8d6d6a34114b": 1,
-    "authored_mut_swap_related_sequence_b9ccb7463b3e": 1
+    "authored_mut_swap_related_sequence_b9ccb7463b3e": 1,
+    "authored_mut_swap_related_sequence_d7641743d5d4": 1
   },
   "keep_rewards": {
     "authored_bell_triangle_recurrence__hermite_recurrence_w1": 1,

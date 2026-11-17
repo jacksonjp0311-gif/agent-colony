@@ -1,7 +1,7 @@
 {
-  "ts": "2026-11-17T00:08:28Z",
+  "ts": "2026-11-17T00:39:19Z",
   "view_only": true,
-  "n_considered": 177,
+  "n_considered": 178,
   "n_meet_bar": 36,
   "n_groups": 27,
   "n_authored_groups": 23,
@@ -482,8 +482,8 @@
       "rank": 0.5264,
       "hunt": {
         "unknown": false,
-        "in_oeis": false,
-        "oeis_reuse": 0.25,
+        "in_oeis": true,
+        "oeis_reuse": 1.0,
         "oeis_checked": true,
         "family": "pisano_prime_period",
         "siblings_passed": 0,
@@ -582,8 +582,8 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-11-17T00:08:28Z",
-    "cycle_id": "20261117T000430Z_7fec4f",
+    "ts": "2026-11-17T00:39:19Z",
+    "cycle_id": "20261117T003503Z_cc2994",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -791,7 +791,7 @@
   },
   "excluded_reasons": {
     "status": 93,
-    "target_unresolved": 101,
+    "target_unresolved": 102,
     "novelty_killed": 26,
     "no_oracle_pass_in_own_cycle": 23,
     "hearing": 2,
@@ -804,5 +804,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261117T000430Z_7fec4f"
+  "cycle_id": "20261117T003503Z_cc2994"
 }
