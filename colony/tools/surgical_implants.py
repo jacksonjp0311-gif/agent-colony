@@ -226,15 +226,38 @@ def winner_take_all(candidates: List[Mapping[str, Any]], k: int = 1) -> List[Map
 # ---------------------------------------------------------------------------
 
 def prune_weak(records: List[Mapping[str, Any]], max_keep: int = 64) -> List[Mapping[str, Any]]:
-    """Keep the most recent max_keep records. Older weak ones are pruned.
+    """Activity-dependent synaptic pruning.
 
-    Two-factor consolidation: sparse connectivity by dropping excess.
+    Biology: unused synapses die, used ones stay, under a fixed budget.
+    Math: rank by use count (how often the fingerprint appears in the
+    exchange). Keep the top max_keep. Ties broken by recency.
     Fail-open returns the original list.
+
+        rank(r) = count(exchange.fingerprint == r.fingerprint)
+        keep = top_max_keep(rank, then ts)
     """
     try:
         if len(records) <= max_keep:
             return list(records)
-        return list(records[-max_keep:])
+        from collections import Counter
+        import json
+        from pathlib import Path as P
+        counts: Counter = Counter()
+        ex = P(__file__).resolve().parent.parent.parent / "data" / "commons" / "exchange.jsonl"
+        if ex.exists():
+            for line in ex.read_text(encoding="utf-8").splitlines()[-400:]:
+                try:
+                    rec = json.loads(line)
+                    if rec.get("fingerprint"):
+                        counts[str(rec["fingerprint"])] += 1
+                except Exception:
+                    continue
+        ranked = sorted(
+            records,
+            key=lambda r: (counts.get(str(r.get("fingerprint", "")), 0), str(r.get("ts", ""))),
+            reverse=True,
+        )
+        return list(ranked[:max_keep])
     except Exception:
         return list(records)
 

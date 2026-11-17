@@ -242,3 +242,9 @@ Swarm entry points (via `colony.hive_adapter.query_tools`):
 
 Fail-soft. Local-first. Not AGI. See `docs/improvements/CYBERNETIC_TOOLS.md`.
 
+## Symbiosis (current)
+
+Colony and One Mind share `data/commons/exchange.jsonl`.
+Each pulls the other's receipts before scoring. Foreign fingerprints are priors, not verdicts.
+`crystallized.jsonl` holds durable records. Pruning is activity-dependent: most-used fingerprints stay.
+
