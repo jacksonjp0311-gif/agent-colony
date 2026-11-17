@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-17T19:50:01Z",
+  "updated_at": "2026-11-17T20:09:54Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -23,7 +23,7 @@
     "legendre_square_gap": {
       "family": "legendre",
       "status": "open",
-      "verified_hi": 3260607,
+      "verified_hi": 3276607,
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "window": 16000,
       "result": null
@@ -31,7 +31,7 @@
     "lehmer_totient": {
       "family": "lehmer_totient",
       "status": "open",
-      "verified_hi": 304600001,
+      "verified_hi": 306200001,
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "window": 1600000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "goldbach_even",
-    "lo": 562717892,
-    "hi": 564317891,
+    "target": "lehmer_totient",
+    "lo": 304600002,
+    "hi": 306200001,
     "outcome": "extended",
-    "verified_hi": 564317891,
-    "cycle_id": "20261117T194808Z_1ca469"
+    "verified_hi": 306200001,
+    "cycle_id": "20261117T200756Z_0dcf99"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

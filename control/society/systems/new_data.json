@@ -24,90 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 0.553,
-   "cycle_id": "20261117T124152Z_26bf27",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_u_odd:recpos",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 6,
-   "oeis_index": "available",
-   "pushed": [
-    {
-     "anum": "A002375",
-     "checked": "2026-11-17T12:45:45Z",
-     "cpu_a": 0.011,
-     "cpu_b": 0.46,
-     "cpu_s": 0.471,
-     "d": 0,
-     "first_disagreement": null,
-     "frontier_n": 20000,
-     "item": "gb_u_odd:terms",
-     "linked_k_max": 20000,
-     "methods": [
-      "numpy FFT convolution of the prime indicator (floating point, rounded)",
-      "direct integer enumeration over an independent odd-only sieve"
-     ],
-     "n_values": 1000,
-     "ns": [
-      20001,
-      21000
-     ],
-     "op": "terms",
-     "pub_k_max": 20000,
-     "sha256": "e917a47a97e47f19",
-     "source": "https://oeis.org/A002375/b002375.txt",
-     "status": "computed beyond published frontier (verified 2 ways)",
-     "ts": "2026-11-17T12:45:45Z"
-    }
-   ],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.019,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T12:45:45Z"
-  },
-  {
-   "cpu_s": 0.384,
-   "cycle_id": "20261117T124610Z_d2e6cc",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_u_all:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_u_all:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.018,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T12:48:27Z"
-  },
-  {
    "cpu_s": 0.289,
    "cycle_id": "20261117T124852Z_efdda8",
    "discovered": [
@@ -1540,11 +1456,47 @@
     "searches": []
    },
    "ts": "2026-11-17T19:51:07Z"
+  },
+  {
+   "cpu_s": 0.045,
+   "cycle_id": "20261117T200343Z_3d7177",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.029,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T20:07:22Z"
+  },
+  {
+   "cpu_s": 0.029,
+   "cycle_id": "20261117T200756Z_0dcf99",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.028,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T20:11:02Z"
   }
  ],
  "last": {
-  "cpu_s": 0.023,
-  "cycle_id": "20261117T194808Z_1ca469",
+  "cpu_s": 0.029,
+  "cycle_id": "20261117T200756Z_0dcf99",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -1552,13 +1504,13 @@
   "pushed": [],
   "sparse": {
    "candidates_seen": 466,
-   "cpu_s": 0.022,
+   "cpu_s": 0.028,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-11-17T19:51:07Z"
+  "ts": "2026-11-17T20:11:02Z"
  },
  "mode": "live",
  "sparse": {
