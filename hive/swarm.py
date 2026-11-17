@@ -871,6 +871,8 @@ def propose_for_role(
             pass
         try:
             from colony.tools.traces import record_trace
+            from colony.tools.speak import speak
+            speak("colony")
             if prop and getattr(prop, "fingerprint", ""):
                 record_trace(prop.fingerprint, int(getattr(getattr(prop, "match", None), "score", 0) or 0))
         except Exception:
