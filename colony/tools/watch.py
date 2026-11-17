@@ -48,23 +48,48 @@ def listen(source: str = "one-mind") -> int:
         return 0
 
 
-def dream(source: str = "one-mind") -> int:
-    """Prune by use. Returns count kept. Fail-open."""
+def replay(source: str = "one-mind") -> dict:
+    """NREM: re-score crystallized fingerprints in order. Mark reactivated."""
+    reactivated = []
+    holes = []
     try:
+        from colony.tools.crystallize import retrieve
         if not STORE.exists():
-            return 0
-        from colony.tools.surgical_implants import prune_weak
-        recs = []
-        for line in STORE.read_text(encoding="utf-8").splitlines():
+            return {"reactivated": [], "holes": []}
+        for line in STORE.read_text(encoding="utf-8").splitlines()[-64:]:
             try:
-                recs.append(json.loads(line))
+                rec = json.loads(line)
+                fp = rec.get("fingerprint")
+                if not fp:
+                    continue
+                if retrieve(fp, rec.get("source") or source):
+                    rec["reactivated"] = True
+                    reactivated.append(rec)
+                else:
+                    holes.append(fp)
             except Exception:
                 continue
-        kept = prune_weak(recs, max_keep=64)
+        return {"reactivated": reactivated, "holes": holes}
+    except Exception:
+        return {"reactivated": [], "holes": []}
+
+
+def downscale(reactivated: list, max_keep: int = 64) -> int:
+    """REM/SHY: keep only what replay reactivated. Weak die. Fail-open."""
+    try:
+        if not reactivated:
+            return 0
+        kept = reactivated[-max_keep:]
         STORE.write_text("".join(json.dumps(r) + "\n" for r in kept), encoding="utf-8")
         return len(kept)
     except Exception:
         return 0
+
+
+def dream(source: str = "one-mind") -> int:
+    """Replay then downscale. Returns count kept."""
+    result = replay(source)
+    return downscale(result["reactivated"])
 
 
 def echo(source: str, report: dict) -> None:
@@ -86,7 +111,10 @@ def echo(source: str, report: dict) -> None:
 def run(source: str = "one-mind") -> dict:
     report = reload_check(source)
     report["foreign"] = listen(source)
-    report["kept"] = dream(source)
+    result = replay(source)
+    report["reactivated"] = len(result["reactivated"])
+    report["holes"] = len(result["holes"])
+    report["kept"] = downscale(result["reactivated"])
     echo(source, report)
     return report
 
