@@ -23,6 +23,7 @@ def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra
         rec = {
             "ts": _utc(),
             "source": source,
+            "lineage": source,  # never rewritten on import
             "kind": kind,
             "fingerprint": str(fingerprint),
             "outcome": outcome,
