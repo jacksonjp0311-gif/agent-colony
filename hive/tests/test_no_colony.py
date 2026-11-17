@@ -21,7 +21,22 @@ def _iter_source_files() -> list[Path]:
     return files
 
 
+def _inside_try(tree: ast.AST, target: ast.AST) -> bool:
+    """True if target import is nested in a Try (fail-open seat)."""
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Try):
+            for child in ast.walk(node):
+                if child is target:
+                    return True
+    return False
+
+
 def test_no_colony_imports_in_hive_sources():
+    """Colony imports are forbidden unless fail-open inside a Try.
+
+    HYDRA seats may import colony tools only inside try/except so a
+    copied Hive still runs. Bare imports remain a hard failure.
+    """
     offenders = []
     for path in _iter_source_files():
         tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
@@ -33,6 +48,8 @@ def test_no_colony_imports_in_hive_sources():
                 names = [node.module]
             for name in names:
                 if name == "colony" or name.startswith("colony."):
+                    if _inside_try(tree, node):
+                        continue
                     offenders.append(f"{path.relative_to(HIVE_ROOT)}: import {name}")
     assert offenders == []
 

@@ -174,6 +174,7 @@ def test_bias_actually_changes_score():
     )
     prop = P("park_cycles", m)
     out = s._apply_evolutionary_bias(prop)
-    # If any recent failures exist for this fp, score must drop; otherwise stay equal
+    # Penalty plus UCB exploration bonus (under-tried fingerprints lift)
     pen = s._failure_penalty("park_cycles")
-    assert out.match.score == 500 + pen
+    bonus = s._ucb_bonus("park_cycles")
+    assert out.match.score == 500 + pen + bonus
