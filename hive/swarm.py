@@ -721,6 +721,12 @@ def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
         bonus = _ucb_bonus(proposal.fingerprint)
         delta = pen + bonus
         try:
+            from colony.tools.symbiotic_exchange import kept_prior, agreed_prior
+            delta += kept_prior(proposal.fingerprint)
+            delta += agreed_prior(proposal.fingerprint)
+        except Exception:
+            pass
+        try:
             from colony.tools.surgical_implants import (
                 refractory, component_scope, homeostatic_scale, energy_settled,
             )
