@@ -830,6 +830,12 @@ def propose_for_role(
         delta = 0
         if biased and biased.match and prop and prop.match:
             delta = int(getattr(biased.match, "score", 0)) - int(getattr(prop.match, "score", 0))
+        try:
+            from colony.tools.symbiotic_exchange import agreed_prior
+            if prop and getattr(prop, "fingerprint", ""):
+                delta += agreed_prior(prop.fingerprint)
+        except Exception:
+            pass
         foreign = 0
         try:
             from colony.tools.reciprocal_exchange import merge_remote

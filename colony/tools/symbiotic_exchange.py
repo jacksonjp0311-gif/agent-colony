@@ -59,3 +59,23 @@ def foreign_penalty(fingerprint: str, my_source: str = "colony") -> int:
     fps = foreign_fingerprints(my_source)
     count = sum(1 for fp in fps if fp == fingerprint)
     return -min(count * 30, 120)
+
+
+def agreed_prior(fingerprint: str) -> int:
+    """Small bonus if dream marked this fingerprint agreed. Prior, not a keep."""
+    try:
+        import json
+        from pathlib import Path as P
+        store = P(__file__).resolve().parent.parent.parent / "data" / "commons" / "crystallized.jsonl"
+        if not store.exists() or not fingerprint:
+            return 0
+        for line in store.read_text(encoding="utf-8").splitlines()[-64:]:
+            try:
+                rec = json.loads(line)
+                if rec.get("fingerprint") == fingerprint and rec.get("agreed"):
+                    return 40
+            except Exception:
+                continue
+        return 0
+    except Exception:
+        return 0
