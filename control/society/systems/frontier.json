@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-17T11:14:49Z",
+  "updated_at": "2026-11-17T11:47:24Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
@@ -15,7 +15,7 @@
     "collatz_descent": {
       "family": "collatz",
       "status": "open",
-      "verified_hi": 617400000,
+      "verified_hi": 620600000,
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "window": 3200000,
       "result": null
@@ -39,7 +39,7 @@
     "erdos_straus": {
       "family": "erdos_straus",
       "status": "open",
-      "verified_hi": 1569127,
+      "verified_hi": 1574127,
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "window": 5000,
       "result": null
@@ -47,7 +47,7 @@
     "twin_primes_hl": {
       "family": "twin_hl",
       "status": "open",
-      "verified_hi": 770200000,
+      "verified_hi": 774200000,
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "window": 4000000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "lehmer_totient",
-    "lo": 291800002,
-    "hi": 293400001,
+    "target": "erdos_straus",
+    "lo": 1569128,
+    "hi": 1574127,
     "outcome": "extended",
-    "verified_hi": 293400001,
-    "cycle_id": "20261117T111308Z_c1977a"
+    "verified_hi": 1574127,
+    "cycle_id": "20261117T114600Z_b40666"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
