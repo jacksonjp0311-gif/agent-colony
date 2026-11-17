@@ -612,6 +612,23 @@ def decide_keep(
             "twin_not_better" if twin_info.get("compared") else "twin_unavailable"
         )
     )
+    try:
+        from colony.tools.symbiotic_exchange import append_receipt
+        fp = ""
+        if isinstance(treatment, dict):
+            fp = str(treatment.get("fingerprint") or treatment.get("knob") or "")
+        else:
+            fp = str(getattr(treatment, "fingerprint", "") or "")
+        if fp:
+            append_receipt(
+                "colony",
+                "keep_decision",
+                fp,
+                "kept" if keep else "reverted",
+                {"reason": reason},
+            )
+    except Exception:
+        pass
     return {
         "keep": keep,
         "reason": reason,
