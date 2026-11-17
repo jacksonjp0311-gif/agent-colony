@@ -74,6 +74,25 @@ def replay(source: str = "one-mind") -> dict:
         return {"reactivated": [], "holes": []}
 
 
+def integrate(source: str, reactivated: list) -> int:
+    """Raise rank when the other lineage dreamed a fingerprint we hold.
+
+    Agreement is a prior, not a keep. Fail-open.
+    """
+    try:
+        from colony.tools.symbiotic_exchange import foreign_fingerprints
+        foreign = set(foreign_fingerprints(source, limit=200))
+        n = 0
+        for rec in reactivated:
+            fp = str(rec.get("fingerprint", ""))
+            if fp and fp in foreign:
+                rec["agreed"] = True
+                n += 1
+        return n
+    except Exception:
+        return 0
+
+
 def downscale(reactivated: list, max_keep: int = 64) -> int:
     """REM/SHY: keep only what replay reactivated. Weak die. Fail-open."""
     try:
@@ -114,6 +133,7 @@ def run(source: str = "one-mind") -> dict:
     result = replay(source)
     report["reactivated"] = len(result["reactivated"])
     report["holes"] = len(result["holes"])
+    report["agreed"] = integrate(source, result["reactivated"])
     report["kept"] = downscale(result["reactivated"])
     echo(source, report)
     return report
