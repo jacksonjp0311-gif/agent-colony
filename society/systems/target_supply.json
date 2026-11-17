@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 148,
- "last_refill_index": 146,
+ "cycle_index": 150,
+ "last_refill_index": 149,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -1570,6 +1570,38 @@
   "b3e97530e821b638": {
    "cycle_id": "20261117T030628Z_8e9179",
    "n_hits": 10
+  },
+  "7d9657c92ea6d830": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 10
+  },
+  "f25c7e71ea4a7f87": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 7
+  },
+  "1197c113edb5c29a": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 10
+  },
+  "1dae9e241bb89598": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 10
+  },
+  "ca7e6f3fdacfe23b": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 10
+  },
+  "778e3e4065c75311": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 10
+  },
+  "d6a7cfc9477d543d": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 10
+  },
+  "d348bace32afddac": {
+   "cycle_id": "20261117T084013Z_72e299",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -1727,36 +1759,71 @@
   "A045406": "20261116T192428Z_5b0afa",
   "A348410": "20261116T192428Z_5b0afa",
   "A351743": "20261116T205517Z_8430ed",
-  "A264596": "20261116T212332Z_224880"
+  "A264596": "20261116T212332Z_224880",
+  "A027179": "20261117T084013Z_72e299",
+  "A227051": "20261117T084013Z_72e299",
+  "A249056": "20261117T084013Z_72e299",
+  "A121695": "20261117T084013Z_72e299",
+  "A121752": "20261117T084013Z_72e299"
  },
- "refills": 49,
- "added": 156,
+ "refills": 50,
+ "added": 164,
  "last": {
-  "cycle_id": "20261117T030628Z_8e9179",
+  "cycle_id": "20261117T084013Z_72e299",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 11,
+  "requests": 21,
   "new": [
    {
-    "id": "oc_A302694_0",
+    "id": "oc_A011553_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A360659_0",
+    "id": "oc_A261955_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A261956_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A261950_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A261951_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A261954_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A261957_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A261952_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 55,
-   "resolved_skipped": 7,
-   "keyword_skipped": 14,
-   "statements": 44,
-   "parsed": 2,
-   "no_bfile": 0,
+   "entries": 59,
+   "resolved_skipped": 8,
+   "keyword_skipped": 2,
+   "statements": 66,
+   "parsed": 21,
+   "no_bfile": 5,
    "fails_on_data": 0,
-   "kept": 2,
+   "kept": 8,
    "def_candidates": 0
   }
  }
