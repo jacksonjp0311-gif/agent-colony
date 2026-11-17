@@ -81,7 +81,20 @@ def reload_into(router: Any = None) -> int:
         from hive.bitwork import Router
         router = Router()
     n = 0
-    for line in STORE.read_text(encoding="utf-8").splitlines():
+    lines = STORE.read_text(encoding="utf-8").splitlines()
+    try:
+        from colony.tools.surgical_implants import prune_weak
+        recs = []
+        for line in lines:
+            try:
+                recs.append(__import__("json").loads(line))
+            except Exception:
+                continue
+        recs = prune_weak(recs, max_keep=64)
+        lines = [__import__("json").dumps(r) for r in recs]
+    except Exception:
+        pass
+    for line in lines:
         try:
             rec = json.loads(line)
             router.learn(
