@@ -328,7 +328,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 287000001,
+        "hi": 288600001,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -340,15 +340,9 @@
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-17T04:24:35Z",
-      "runs": 193,
+      "last_run": "2026-11-17T08:05:54Z",
+      "runs": 194,
       "extensions": [
-        {
-          "ts": "2026-11-16T19:17:40Z",
-          "lo": 271000002,
-          "hi": 272600001,
-          "seconds": 2.2356
-        },
         {
           "ts": "2026-11-16T20:15:33Z",
           "lo": 272600002,
@@ -402,6 +396,12 @@
           "lo": 285400002,
           "hi": 287000001,
           "seconds": 2.2071
+        },
+        {
+          "ts": "2026-11-17T08:05:54Z",
+          "lo": 287000002,
+          "hi": 288600001,
+          "seconds": 1.936
         }
       ],
       "stall_streak": 0,
@@ -535,11 +535,11 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 758200000,
+        "hi": 762200000,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi2": 2671537,
-        "hl_ratio": 0.986983
+        "pi2": 2684010,
+        "hl_ratio": 0.98692
       },
       "window": 4000000,
       "min_window": 20000,
@@ -549,15 +549,9 @@
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-17T06:21:47Z",
-      "runs": 193,
+      "last_run": "2026-11-17T08:08:42Z",
+      "runs": 194,
       "extensions": [
-        {
-          "ts": "2026-11-16T19:20:47Z",
-          "lo": 718200001,
-          "hi": 722200000,
-          "seconds": 0.2508
-        },
         {
           "ts": "2026-11-16T20:19:05Z",
           "lo": 722200001,
@@ -611,14 +605,20 @@
           "lo": 754200001,
           "hi": 758200000,
           "seconds": 0.2838
+        },
+        {
+          "ts": "2026-11-17T08:08:42Z",
+          "lo": 758200001,
+          "hi": 762200000,
+          "seconds": 0.1343
         }
       ],
       "last_data": {
-        "x": 758200000,
-        "pi2": 2671537,
-        "segment_pairs": 12632,
-        "hl_estimate": 2706771.57,
-        "ratio": 0.986983
+        "x": 762200000,
+        "pi2": 2684010,
+        "segment_pairs": 12473,
+        "hl_estimate": 2719583.41,
+        "ratio": 0.98692
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-17T07:04:57Z"
+  "updated_at": "2026-11-17T08:08:42Z"
 }
