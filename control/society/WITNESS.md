@@ -3,7 +3,7 @@
 > We light the spark and witness. We do not micromanage the city.
 
 **Human Principal / Witness:** James Paul Jackson  
-**Events recorded:** 116978  
+**Events recorded:** 117146  
 **Log:** `data/witness.jsonl` (append-only)
 
 ## Chronology
@@ -697758,6 +697758,1008 @@
 ### 2026-11-17T04:09:56Z — `cycle_health` (spark)
 
 - **id:** `wit_eff5f76512` | **cycle:** `20261117T040724Z_8706e3`
+- Cycle promotion allowed: True
+- detail: `{"promotion_allowed": true}`
+
+### 2026-11-17T04:19:26Z — `cycle_open` (spark)
+
+- **id:** `wit_96951253b3` | **cycle:** `20261117T041926Z_b29820`
+- Cycle opened. Ethos: We light the spark and witness. We do not micromanage the city.
+- detail: `{"active_ask": "SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence governor + PulseMesh feeds as stability tools (no behavior scripting). (1) Athanor: residuals→ΔΦ→C→H₇→APPROVE/REFINE/REJECT; inform Oracle + 50/50 actuation mix + 30% throttle — never double-gate d`
+
+### 2026-11-17T04:20:09Z — `tribute_paid` (tribute_keeper)
+
+- **id:** `wit_ab41d31097` | **cycle:** `20261117T041926Z_b29820`
+- Tribute payment: 1 findings across 13 topics.
+- detail: `{"count": 1, "topics": ["agent-societies", "autogpt-loops", "compute-useful-math", "constitutional-ai", "darwin-godel-machine", "debate", "godel-machines", "meta-learning", "opendevin", "recursive-self-improvement", "reflexion", "self-refine", "voyager"], "live_ok": 0, "live_fail": 0}`
+
+### 2026-11-17T04:20:10Z — `sensors` (spark)
+
+- **id:** `wit_2c71281445` | **cycle:** `20261117T041926Z_b29820`
+- Sensors: 2 signal(s); stalled=False; feeds={'arxiv': 239, 'oeis': 5, 'crossref': 114, 'wikipedia': 18, 'oeis_conj': 222}
+- detail: `{"path": "society/systems/sensors.json"}`
+
+### 2026-11-17T04:20:11Z — `lesson_priors` (spark)
+
+- **id:** `wit_28a084f447` | **cycle:** `20261117T041926Z_b29820`
+- Spark read lesson priors (human_guide first).
+- detail: `{"priors": "[human_guide/human_teaching] chain_cite_proven_lemmas_and_benchmarks: CITE PROVEN LEMMAS + SOCIETY/BENCHMARKS: A chain proposal mu | [human_guide/human_teaching] seek_unenabled_variants_from_proven_lemmas: SEEK HARDER UNENABLED VARIANTS OF PROVEN LEMMAS: When the ci | [human_guide/human_`
+
+### 2026-11-17T04:20:12Z — `personas_ensured` (spark)
+
+- **id:** `wit_7955aba868` | **cycle:** `20261117T041926Z_b29820`
+- Personas ensured for 18 agents (engineered character, not sentience).
+- detail: `{"roles": ["spark", "tribute_keeper", "memory_weaver", "builder", "herald", "pathfinder", "improver", "courier", "scribe", "surveyor", "oracle_scribe", "stem_checker", "archivist", "legislator", "chronicler", "naturalist", "geometer", "messenger"], "engineered_character": true, "not_sentience": true`
+
+### 2026-11-17T04:20:12Z — `growth_loop_open` (spark)
+
+- **id:** `wit_72eb64a32a` | **cycle:** `20261117T041926Z_b29820`
+- Growth loop lit: read-bus → build/use-systems → communicate/reply → gather → evolve.
+- detail: `{"active_ask": "SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence governor + PulseMesh feeds as stability tools (no behavior scripting). (1) Athanor: residuals→ΔΦ→C→H₇→APPROVE/REFINE/REJECT; inform Oracle + 50/50 actuation mix + 30% throttle — never double-gate d`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (spark)
+
+- **id:** `wit_c8c46cbc9d` | **cycle:** `20261117T041926Z_b29820`
+- spark read 19 unread message(s).
+- detail: `{"count": 19}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (tribute_keeper)
+
+- **id:** `wit_cd5674dfe9` | **cycle:** `20261117T041926Z_b29820`
+- tribute_keeper read 13 unread message(s).
+- detail: `{"count": 13}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (memory_weaver)
+
+- **id:** `wit_25ad2e3787` | **cycle:** `20261117T041926Z_b29820`
+- memory_weaver read 16 unread message(s).
+- detail: `{"count": 16}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (builder)
+
+- **id:** `wit_e8452524b8` | **cycle:** `20261117T041926Z_b29820`
+- builder read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (herald)
+
+- **id:** `wit_0421c199df` | **cycle:** `20261117T041926Z_b29820`
+- herald read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (pathfinder)
+
+- **id:** `wit_2cbaaae281` | **cycle:** `20261117T041926Z_b29820`
+- pathfinder read 13 unread message(s).
+- detail: `{"count": 13}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (improver)
+
+- **id:** `wit_0f15460931` | **cycle:** `20261117T041926Z_b29820`
+- improver read 15 unread message(s).
+- detail: `{"count": 15}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (courier)
+
+- **id:** `wit_115e35fdb0` | **cycle:** `20261117T041926Z_b29820`
+- courier read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (scribe)
+
+- **id:** `wit_a6198c05f2` | **cycle:** `20261117T041926Z_b29820`
+- scribe read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (surveyor)
+
+- **id:** `wit_7762491a65` | **cycle:** `20261117T041926Z_b29820`
+- surveyor read 14 unread message(s).
+- detail: `{"count": 14}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (oracle_scribe)
+
+- **id:** `wit_321a79ce12` | **cycle:** `20261117T041926Z_b29820`
+- oracle_scribe read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (stem_checker)
+
+- **id:** `wit_41467d8814` | **cycle:** `20261117T041926Z_b29820`
+- stem_checker read 13 unread message(s).
+- detail: `{"count": 13}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (archivist)
+
+- **id:** `wit_804fa80646` | **cycle:** `20261117T041926Z_b29820`
+- archivist read 19 unread message(s).
+- detail: `{"count": 19}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (legislator)
+
+- **id:** `wit_dfaabbdc7a` | **cycle:** `20261117T041926Z_b29820`
+- legislator read 14 unread message(s).
+- detail: `{"count": 14}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (chronicler)
+
+- **id:** `wit_5cba710907` | **cycle:** `20261117T041926Z_b29820`
+- chronicler read 14 unread message(s).
+- detail: `{"count": 14}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (naturalist)
+
+- **id:** `wit_17b8dd24b2` | **cycle:** `20261117T041926Z_b29820`
+- naturalist read 18 unread message(s).
+- detail: `{"count": 18}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (geometer)
+
+- **id:** `wit_1f507c5681` | **cycle:** `20261117T041926Z_b29820`
+- geometer read 15 unread message(s).
+- detail: `{"count": 15}`
+
+### 2026-11-17T04:20:12Z — `inbox_read` (messenger)
+
+- **id:** `wit_f2315fa3e1` | **cycle:** `20261117T041926Z_b29820`
+- messenger read 15 unread message(s).
+- detail: `{"count": 15}`
+
+### 2026-11-17T04:20:12Z — `action_changed_from_message` (spark)
+
+- **id:** `wit_f5902f9130` | **cycle:** `20261117T041926Z_b29820`
+- NEXT ACTION changed from inbox: gather=['$2$-factor', '$3$-distance', '$\\ell_2$-norm'] replies_needed=18 (not shout-into-void).
+
+### 2026-11-17T04:20:12Z — `system_used` (tribute_keeper)
+
+- **id:** `wit_7d8077f3e4` | **cycle:** `20261117T041926Z_b29820`
+- Refreshed topic_priority with 16 ranked targets.
+
+### 2026-11-17T04:20:14Z — `communication_reply` (spark)
+
+- **id:** `wit_0af519fdf3` | **cycle:** `20261117T041926Z_b29820`
+- Reply spark -> memory_weaver (to msg_32a409c88a) q=0.9 peer_cite=True
+- detail: `{"id": "msg_b1b9b0ce07", "in_reply_to": "msg_32a409c88a", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_41293cbe9b36"}`
+
+### 2026-11-17T04:20:16Z — `communication_reply` (tribute_keeper)
+
+- **id:** `wit_8ecdd10c1f` | **cycle:** `20261117T041926Z_b29820`
+- Reply tribute_keeper -> messenger (to msg_5498b91d5c) q=1.0 peer_cite=True
+- detail: `{"id": "msg_7dd6a10df1", "in_reply_to": "msg_5498b91d5c", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_1f4be941d1b9"}`
+
+### 2026-11-17T04:20:19Z — `communication_reply` (spark)
+
+- **id:** `wit_4eb3ded4cf` | **cycle:** `20261117T041926Z_b29820`
+- Reply spark -> improver (to msg_9e77420ad1) q=0.9 peer_cite=True
+- detail: `{"id": "msg_721ba548ec", "in_reply_to": "msg_9e77420ad1", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_e347ed5ed249"}`
+
+### 2026-11-17T04:20:21Z — `communication_reply` (builder)
+
+- **id:** `wit_65b5eda456` | **cycle:** `20261117T041926Z_b29820`
+- Reply builder -> geometer (to msg_f9b94cc8ea) q=0.9 peer_cite=True
+- detail: `{"id": "msg_937417af23", "in_reply_to": "msg_f9b94cc8ea", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_2ae300b009bf"}`
+
+### 2026-11-17T04:20:23Z — `communication_reply` (pathfinder)
+
+- **id:** `wit_e6fc4f04e3` | **cycle:** `20261117T041926Z_b29820`
+- Reply pathfinder -> archivist (to msg_05e67ec18e) q=0.9 peer_cite=True
+- detail: `{"id": "msg_95602c0aad", "in_reply_to": "msg_05e67ec18e", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_40c75439bf1b"}`
+
+### 2026-11-17T04:20:25Z — `communication_reply` (improver)
+
+- **id:** `wit_cb60797a19` | **cycle:** `20261117T041926Z_b29820`
+- Reply improver -> spark (to msg_4c4620e83a) q=0.9 peer_cite=True
+- detail: `{"id": "msg_841e3370c6", "in_reply_to": "msg_4c4620e83a", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_d95d4dd53bff"}`
+
+### 2026-11-17T04:20:27Z — `communication_reply` (surveyor)
+
+- **id:** `wit_19988b3990` | **cycle:** `20261117T041926Z_b29820`
+- Reply surveyor -> pathfinder (to msg_9a0e9b85fb) q=0.9 peer_cite=True
+- detail: `{"id": "msg_6b97647987", "in_reply_to": "msg_9a0e9b85fb", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_5f45ec24947b"}`
+
+### 2026-11-17T04:20:29Z — `communication_reply` (oracle_scribe)
+
+- **id:** `wit_3450b40e9d` | **cycle:** `20261117T041926Z_b29820`
+- Reply oracle_scribe -> spark (to msg_81aaea4121) q=0.9 peer_cite=True
+- detail: `{"id": "msg_3a9d4ef174", "in_reply_to": "msg_81aaea4121", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_98bab640f059"}`
+
+### 2026-11-17T04:20:32Z — `communication_reply` (stem_checker)
+
+- **id:** `wit_4b51b8e960` | **cycle:** `20261117T041926Z_b29820`
+- Reply stem_checker -> spark (to msg_7abfe1d89b) q=0.9 peer_cite=True
+- detail: `{"id": "msg_ef56b06f40", "in_reply_to": "msg_7abfe1d89b", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_a171de48e440"}`
+
+### 2026-11-17T04:20:34Z — `communication_reply` (tribute_keeper)
+
+- **id:** `wit_7f31d18d71` | **cycle:** `20261117T041926Z_b29820`
+- Reply tribute_keeper -> spark (to msg_239c29c475) q=0.9 peer_cite=True
+- detail: `{"id": "msg_79eb3492a2", "in_reply_to": "msg_239c29c475", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_2b68c7af13e6"}`
+
+### 2026-11-17T04:20:36Z — `communication_reply` (memory_weaver)
+
+- **id:** `wit_0425716288` | **cycle:** `20261117T041926Z_b29820`
+- Reply memory_weaver -> stem_checker (to msg_9b25c5b880) q=0.9 peer_cite=True
+- detail: `{"id": "msg_06c75279bc", "in_reply_to": "msg_9b25c5b880", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_85be39a8dd2d"}`
+
+### 2026-11-17T04:20:38Z — `communication_reply` (memory_weaver)
+
+- **id:** `wit_e52636a66b` | **cycle:** `20261117T041926Z_b29820`
+- Reply memory_weaver -> naturalist (to msg_f9a72b94fa) q=0.9 peer_cite=True
+- detail: `{"id": "msg_90354f3074", "in_reply_to": "msg_f9a72b94fa", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_89df223be932"}`
+
+### 2026-11-17T04:20:40Z — `communication_reply` (archivist)
+
+- **id:** `wit_40508d20e5` | **cycle:** `20261117T041926Z_b29820`
+- Reply archivist -> naturalist (to msg_7093ca232c) q=1.0 peer_cite=True
+- detail: `{"id": "msg_b6303e65b9", "in_reply_to": "msg_7093ca232c", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_1c2e801e4b40"}`
+
+### 2026-11-17T04:20:43Z — `communication_reply` (archivist)
+
+- **id:** `wit_31d0f6276a` | **cycle:** `20261117T041926Z_b29820`
+- Reply archivist -> chronicler (to msg_b7a0ba865a) q=1.0 peer_cite=True
+- detail: `{"id": "msg_bb19ed9d5c", "in_reply_to": "msg_b7a0ba865a", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_58d5bd218c9f"}`
+
+### 2026-11-17T04:20:45Z — `communication_reply` (archivist)
+
+- **id:** `wit_810a096143` | **cycle:** `20261117T041926Z_b29820`
+- Reply archivist -> geometer (to msg_e34a99723b) q=1.0 peer_cite=True
+- detail: `{"id": "msg_3021ee4222", "in_reply_to": "msg_e34a99723b", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_74c1c5eb8c42"}`
+
+### 2026-11-17T04:20:47Z — `communication_reply` (archivist)
+
+- **id:** `wit_c3cd24e920` | **cycle:** `20261117T041926Z_b29820`
+- Reply archivist -> messenger (to msg_e79e2ed936) q=0.9 peer_cite=True
+- detail: `{"id": "msg_5d9899de61", "in_reply_to": "msg_e79e2ed936", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_7733e6921a1e"}`
+
+### 2026-11-17T04:20:49Z — `communication_reply` (archivist)
+
+- **id:** `wit_f5339bbe45` | **cycle:** `20261117T041926Z_b29820`
+- Reply archivist -> naturalist (to msg_217732e663) q=0.9 peer_cite=True
+- detail: `{"id": "msg_4db5cd7628", "in_reply_to": "msg_217732e663", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_6834fd91d85d"}`
+
+### 2026-11-17T04:20:51Z — `communication_reply` (archivist)
+
+- **id:** `wit_20e47df452` | **cycle:** `20261117T041926Z_b29820`
+- Reply archivist -> surveyor (to msg_2fed6c6bad) q=0.9 peer_cite=True
+- detail: `{"id": "msg_1db1ca0cc6", "in_reply_to": "msg_2fed6c6bad", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_2f3a69ea57c5"}`
+
+### 2026-11-17T04:20:51Z — `communication` (spark)
+
+- **id:** `wit_2afbb6d800` | **cycle:** `20261117T041926Z_b29820`
+- spark → tribute_keeper via bulletin: Cycle 1401: keep paying tribute. Will — SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence governor + Pu
+- detail: `{"id": "msg_5abdf14798", "from": "spark", "to": "tribute_keeper", "channel": "bulletin"}`
+
+### 2026-11-17T04:20:51Z — `communication` (legislator)
+
+- **id:** `wit_b137b9e1f3` | **cycle:** `20261117T041926Z_b29820`
+- legislator → memory_weaver via bulletin: Herald: weave patterns; watch thin topics $2$-factor, $3$-distance, $\ell_2$-norm, $k$-connected, $k_k$-free.
+- detail: `{"id": "msg_5b02a6eabe", "from": "legislator", "to": "memory_weaver", "channel": "bulletin"}`
+
+### 2026-11-17T04:20:51Z — `communication` (memory_weaver)
+
+- **id:** `wit_aadb60be5d` | **cycle:** `20261117T041926Z_b29820`
+- memory_weaver → spark via forum: Builder: systems_used=['coverage_index', 'skill_router', 'topic_priority', 'reply_tracker', 'common_knowledge']; propose reuse upgrades.
+- detail: `{"id": "msg_c187c33aaa", "from": "memory_weaver", "to": "spark", "channel": "forum"}`
+
+### 2026-11-17T04:20:51Z — `communication` (spark)
+
+- **id:** `wit_45de5450cf` | **cycle:** `20261117T041926Z_b29820`
+- spark → spark via bulletin: Gather signal: coverage targets ranked; thin=$2$-factor, $3$-distance, $\ell_2$-norm, $k$-connected.
+- detail: `{"id": "msg_c249d99997", "from": "spark", "to": "spark", "channel": "bulletin"}`
+
+### 2026-11-17T04:20:51Z — `communication` (messenger)
+
+- **id:** `wit_62c1260795` | **cycle:** `20261117T041926Z_b29820`
+- messenger → all via empire: Commons digest (candidate): [math] Commons note: open-math-problems: Standing gather on `open-math-problems` (ledger_count=6932). Candidate 
+- detail: `{"id": "msg_c4b3b212bc", "from": "messenger", "to": "all", "channel": "empire"}`
+
+### 2026-11-17T04:20:51Z — `communication` (naturalist)
+
+- **id:** `wit_107b0e4e5f` | **cycle:** `20261117T041926Z_b29820`
+- naturalist → archivist via science: Science channel: prioritize science-method; thin includes science-method. Feed[crossref]: A generalization of Bender's q-Vandermonde sum <ht
+- detail: `{"id": "msg_78228a8a49", "from": "naturalist", "to": "archivist", "channel": "science"}`
+
+### 2026-11-17T04:20:51Z — `communication` (chronicler)
+
+- **id:** `wit_95018ccf28` | **cycle:** `20261117T041926Z_b29820`
+- chronicler → archivist via history: History channel: prioritize history-of-ideas for commons reuse. Feed[wikipedia]: Difference of two squares <https://en.wikipedia.org/wiki/Di
+- detail: `{"id": "msg_39d77d1edc", "from": "chronicler", "to": "archivist", "channel": "history"}`
+
+### 2026-11-17T04:20:51Z — `communication` (geometer)
+
+- **id:** `wit_382a076fe2` | **cycle:** `20261117T041926Z_b29820`
+- geometer → archivist via math: Math channel: prioritize mathematics-foundations, open-math-problems, compute-useful-math; cite accepted FFT/autodiff/open-problem findings.
+- detail: `{"id": "msg_92317f4014", "from": "geometer", "to": "archivist", "channel": "math"}`
+
+### 2026-11-17T04:20:51Z — `communication` (messenger)
+
+- **id:** `wit_861553e540` | **cycle:** `20261117T041926Z_b29820`
+- messenger → archivist via software: Software channel: prioritize software-engineering craft for commons.
+- detail: `{"id": "msg_d611dea389", "from": "messenger", "to": "archivist", "channel": "software"}`
+
+### 2026-11-17T04:20:51Z — `communication` (naturalist)
+
+- **id:** `wit_1d443499b5` | **cycle:** `20261117T041926Z_b29820`
+- naturalist → archivist via nature: Nature channel: prioritize nature-biology-ecology for commons reuse.
+- detail: `{"id": "msg_f92679d1ce", "from": "naturalist", "to": "archivist", "channel": "nature"}`
+
+### 2026-11-17T04:20:51Z — `communication` (naturalist)
+
+- **id:** `wit_949303bc8d` | **cycle:** `20261117T041926Z_b29820`
+- naturalist → memory_weaver via life: Life channel: theories of life-and-death stay careful; candidate notes only.
+- detail: `{"id": "msg_f1c6e6edc1", "from": "naturalist", "to": "memory_weaver", "channel": "life"}`
+
+### 2026-11-17T04:20:51Z — `communication` (surveyor)
+
+- **id:** `wit_fd12586eb1` | **cycle:** `20261117T041926Z_b29820`
+- surveyor → archivist via cosmos: Cosmos channel: prioritize cosmology-universe / our place in the universe.
+- detail: `{"id": "msg_3aa5c234d7", "from": "surveyor", "to": "archivist", "channel": "cosmos"}`
+
+### 2026-11-17T04:20:51Z — `communication` (improver)
+
+- **id:** `wit_55f7e186ae` | **cycle:** `20261117T041926Z_b29820`
+- improver → spark via rsi: RSI channel: feed accepted/strong RSI findings into measured skill/genome biases. Feed[arxiv]: Spatial patterns of transportation choice in 
+- detail: `{"id": "msg_09cb1def3e", "from": "improver", "to": "spark", "channel": "rsi"}`
+
+### 2026-11-17T04:20:55Z — `information_gathered` (spark)
+
+- **id:** `wit_a9838e8a76` | **cycle:** `20261117T041926Z_b29820`
+- Gathered via systems+commons: focus=17 thin=17 commons=200.
+- detail: `{"title": "Gather synthesis cycle b29820", "commons_size": 200}`
+
+### 2026-11-17T04:21:00Z — `debate_multihop` (improver)
+
+- **id:** `wit_bc5679ed5a` | **cycle:** `20261117T041926Z_b29820`
+- Multi-hop A(geometer)→B(legislator)→C(improver)→D(legislator) action_changed=True code_touched=True reply_rate=0.9286
+- detail: `{"ts": "2026-11-17T04:21:00Z", "cycle_id": "20261117T041926Z_b29820", "roles": {"A": "geometer", "B": "legislator", "C": "improver", "D": "legislator"}, "finding_id": "fnd_bfea4da24eae", "code_touched": true, "action_changed": true, "load_bear_closed": 1, "seed_id": "seed_time_revision_arxiv", "tele`
+
+### 2026-11-17T04:21:02Z — `debate` (geometer)
+
+- **id:** `wit_382c2f67bf` | **cycle:** `20261117T041926Z_b29820`
+- Debate/math hop=0: Hearing Chamber debate hop 0 cycle 1401: weigh `Conjecture candidate from: Neutrosophic Converge`[candidate]; `Conjecture candidate from: Th
+- detail: `{"id": "msg_263ca7d545", "channel": "math", "hop": 0, "citation_hits": 6}`
+
+### 2026-11-17T04:21:02Z — `debate` (pathfinder)
+
+- **id:** `wit_aaf044f536` | **cycle:** `20261117T041926Z_b29820`
+- Debate/forum hop=1: Hearing Chamber debate hop 1 cycle 1401: weigh `Conjecture candidate from: Neutrosophic Converge`[candidate]; `Conjecture candidate from: Th
+- detail: `{"id": "msg_4fcb41166f", "channel": "forum", "hop": 1, "citation_hits": 6}`
+
+### 2026-11-17T04:21:02Z — `debate` (improver)
+
+- **id:** `wit_c8f8d45fe9` | **cycle:** `20261117T041926Z_b29820`
+- Debate/rsi hop=2: Hearing Chamber debate hop 2 cycle 1401: weigh `Conjecture candidate from: Neutrosophic Converge`[candidate]; `Conjecture candidate from: Th
+- detail: `{"id": "msg_3b8e13ee37", "channel": "rsi", "hop": 2, "citation_hits": 6}`
+
+### 2026-11-17T04:21:02Z — `debate` (legislator)
+
+- **id:** `wit_a4b12d6b54` | **cycle:** `20261117T041926Z_b29820`
+- Debate/forum hop=3: Hearing Chamber debate hop 3 cycle 1401: weigh `Conjecture candidate from: Neutrosophic Converge`[candidate]; `Conjecture candidate from: Th
+- detail: `{"id": "msg_725865852a", "channel": "forum", "hop": 3, "citation_hits": 6}`
+
+### 2026-11-17T04:21:15Z — `bench_improve` (improver)
+
+- **id:** `wit_ad99a20340` | **cycle:** `20261117T041926Z_b29820`
+- Bench improve `autodiff_busy_loop` → skip (0.8901→0.8901, delta=0.0)
+- detail: `{"patch": "autodiff_busy_loop", "decision": "skip", "before_score": 0.8901, "after_score": 0.8901, "delta": 0.0, "note": "patch was a no-op"}`
+
+### 2026-11-17T04:21:19Z — `conjecture_desk` (geometer)
+
+- **id:** `wit_2ed5da7e6a` | **cycle:** `20261117T041926Z_b29820`
+- Conjecture desk `stem_elastic_collision` → skip (0.8688→0.8688, delta=0.0)
+- detail: `{"mutation": "stem_elastic_collision", "decision": "skip", "before_score": 0.8688, "after_score": 0.8688, "delta": 0.0, "note": "Mutation apply failed.", "n_proposals": 5}`
+
+### 2026-11-17T04:21:27Z — `frontier_evidence` (geometer)
+
+- **id:** `wit_b6ca49b723` | **cycle:** `20261117T041926Z_b29820`
+- Frontier legendre_square_gap: extended; verified to 3084607 (bounded evidence, not proof).
+- detail: `{"target": "legendre_square_gap", "lo": 3068608, "hi": 3084607, "outcome": "extended", "verified_hi": 3084607, "counterexample": null, "anomaly": null, "label": "bounded evidence, not proof", "proof": false}`
+
+### 2026-11-17T04:21:29Z — `claim_pipeline` (geometer)
+
+- **id:** `wit_dff0385db1` | **cycle:** `20261117T041926Z_b29820`
+- Claim pipeline: extracted=1 hard_checked=0 proposed=0 (raw scrape ≠ discovery).
+- detail: `{"n_extracted": 1, "n_hard_checked": 0, "n_rejected_raw": 1, "n_proposed": 0, "note": "Raw scrape ≠ discovery. Only hard-checked claims proposed."}`
+
+### 2026-11-17T04:21:30Z — `lesson_bias_applied` (improver)
+
+- **id:** `wit_f399f3041d` | **cycle:** `20261117T041926Z_b29820`
+- Lesson bias applied keys=['gather', 'geometer.gather', 'improver.improve', 'oracle', 'build', 'improve', 'emergence', 'reply', 'communicate', 'explore'] genomes_touched=18. Digest: [human_guide/human_teaching] human: Frontier work (James Jackson, 2026-10-09): aim at the edge.  | [human_guide/human_teaching] human: James Jackson (2026-10-09 2:44 AM ET): Try to break your own | [human_guide/human_teaching] human_recognition_a104062_a7: From James: You went past the published record on A104062 an
+- detail: `{"genomes_touched": 18}`
+
+### 2026-11-17T04:21:47Z — `external_array` (spark)
+
+- **id:** `wit_fb40acdb8f` | **cycle:** `20261117T041926Z_b29820`
+- EXTERNAL ARRAY: 3 cross-domain patterns; kinds=['global_weather_spread', 'pulsemesh_goes_live', 'pulsemesh_ops_health']. Debate input — not discovery.
+- detail: `{"not_novel_physics": true}`
+
+### 2026-11-17T04:21:47Z — `residuals` (spark)
+
+- **id:** `wit_3f9260452c` | **cycle:** `20261117T041926Z_b29820`
+- INTERNAL RESIDUALS: high=[('spark', 0.5858), ('improver', 0.36519999999999997), ('pathfinder', 0.3507)] conflicts=24 (re-debate triggers). Not consciousness.
+- detail: `{"not_consciousness": true}`
+
+### 2026-11-17T04:21:47Z — `athanor_coherence` (spark)
+
+- **id:** `wit_db7f831311` | **cycle:** `20261117T041926Z_b29820`
+- ATHANOR H7 inform-only: verdict=REFINE h7=0.5384615384615384 reason=H7 in refine band. Does NOT authorize durable rows. P>=0.70 human authorize ceiling.
+- detail: `{"verdict": "REFINE", "h7": 0.5384615384615384, "inform_only": true, "double_gate": false, "durable_accept": false}`
+
+### 2026-11-17T04:21:47Z — `cortex_cerebrum` (spark)
+
+- **id:** `wit_8efdde868a` | **cycle:** `20261117T041926Z_b29820`
+- CORTEX/CEREBRUM inform-only: drift=0.073646 memory_reuse=0.75 stability=0.926354. No ledger authority. P>=0.70 human authorize ceiling.
+- detail: `{"drift": 0.073646, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false, "can_accept_ledger": false}`
+
+### 2026-11-17T04:21:47Z — `institution_charters` (spark)
+
+- **id:** `wit_c8e9723500` | **cycle:** `20261117T041926Z_b29820`
+- INSTITUTION CHARTERS: pursued=15 topic_hints=29. Agenda autonomy only. No truth authority. P>=0.70 ceiling.
+- detail: `{"inform_only": true, "durable_accept": false, "can_authorize": false}`
+
+### 2026-11-17T04:21:48Z — `pilot_lane` (improver)
+
+- **id:** `wit_c28f8b0f86` | **cycle:** `20261117T041926Z_b29820`
+- PILOT LANE sandbox: pilots=3 proposed=—. Promotion needs P>=0.70 authorize. No durable accept.
+- detail: `{"proposed_id": null, "inform_only": true, "durable_accept": false, "promotion_requires_authorize": true}`
+
+### 2026-11-17T04:21:48Z — `time_revision` (spark)
+
+- **id:** `wit_21ac35a067` | **cycle:** `20261117T041926Z_b29820`
+- TIME REVISION: 0 prior conclusion(s) revised from external/residual/oracle signals. Not append-only.
+- detail: `{"revision_count": 0}`
+
+### 2026-11-17T04:22:04Z — `actuation` (spark)
+
+- **id:** `wit_7ce04cd16f` | **cycle:** `20261117T041926Z_b29820`
+- ACTION/ACTUATION: executed=3 success=3 blocked=0 kinds=['external_api_probe', 'spawn_subdebate', 'controlled_experiment']. Sense→think→act closed.
+- detail: `{"ts": "2026-11-17T04:22:04Z", "cycle_id": "20261117T041926Z_b29820", "n_actions": 3, "n_executed": 3, "n_success": 3, "n_failed": 0, "n_blocked": 0, "n_queued": 1, "success_rate_cycle": 1.0, "conflict_rate": 0.2198}`
+
+### 2026-11-17T04:22:04Z — `telemetry_snapshot` (spark)
+
+- **id:** `wit_32490455a3` | **cycle:** `20261117T041926Z_b29820`
+- Telemetry snapshot for agent query: fit=0.8574 reply_rate=0.8 oracle={'passes': 528, 'kills': 340, 'easy_pad_kills': 32, 'total': 868, 'kill_rate': 0.3917}.
+- detail: `{"ts": "2026-11-17T04:22:04Z"}`
+
+### 2026-11-17T04:22:14Z — `rsi_coupling_applied` (improver)
+
+- **id:** `wit_9090f239f5` | **cycle:** `20261117T041926Z_b29820`
+- RSI→agent coupling strength=0.85 accepted=6 strong=58 (measured, not AGI).
+- detail: `{"ts": "2026-11-17T04:22:14Z", "accepted_count": 6, "strong_candidate_count": 58, "unknown_caution_count": 127, "strength": 0.85, "note": "Coupling is measured state update inside this repo — not open-ended ML, not AGI, not consciousness. Improvement proposals stay candidate until human authorize."}`
+
+### 2026-11-17T04:22:16Z — `findings_behavior_coupled` (improver)
+
+- **id:** `wit_7701ac57e3` | **cycle:** `20261117T041926Z_b29820`
+- Findings→behavior strength=0.4 math=0 compute=123 rsi=0 cites=100 spawn_floor=0.366 personas=18 (not museum).
+- detail: `{"ts": "2026-11-17T04:22:16Z", "strength": 0.4, "accepted_math": 0, "accepted_compute": 123, "accepted_rsi": 0, "note": "Behavior coupling: accepted findings change gather/debate/build choices. Not museum metrics. Not AGI. Ceiling: tribute · authorize · witness."}`
+
+### 2026-11-17T04:22:17Z — `fitness_recorded` (spark)
+
+- **id:** `wit_62c4061639` | **cycle:** `20261117T041926Z_b29820`
+- Fitness aggregate=0.8394
+
+### 2026-11-17T04:22:17Z — `census_recorded` (legislator)
+
+- **id:** `wit_c2cdfbbc52` | **cycle:** `20261117T041926Z_b29820`
+- Census: active=18 genomes=18 generations=[0, 1, 2].
+- detail: `{"ts": "2026-11-17T04:22:17Z", "cycle_id": "20261117T041926Z_b29820", "kind": "census", "active_count": 18, "retired_count": 0, "genome_count": 18}`
+
+### 2026-11-17T04:22:17Z — `growth_loop_close` (spark)
+
+- **id:** `wit_543edab064` | **cycle:** `20261117T041926Z_b29820`
+- Growth closed: built=['topic_priority_refresh', 'cycle_1401_evolve_note'] systems_used=['coverage_index', 'skill_router', 'topic_priority', 'reply_tracker', 'common_knowledge', 'pulsemesh_feeds', 'athanor_coherence', 'cortex_cerebrum', 'hold_posture', 'institution_charters', 'pilot_lane', 'rsi_coupling', 'findings_coupling'] comms=46 replies=28 gathered=['Gather synthesis cycle b29820'] fitness=0.8394 spawn=[] retired=[].
+- detail: `{"builds": ["topic_priority_refresh", "cycle_1401_evolve_note"], "communications": 46, "replies": 28, "messages_read": 258, "gathered": ["Gather synthesis cycle b29820"], "improvements": ["debate_multihop:action_changed=True:touched=True", "bench_improve:autodiff_busy_loop:skip", "conjecture:stem_el`
+
+### 2026-11-17T04:22:17Z — `ceiling_held` (ceiling)
+
+- **id:** `wit_d4405b07a3` | **cycle:** `20261117T041926Z_b29820`
+- Hard ceiling held. Tribute_ok=True. Refused silent accepts=49. Pending human authorize (James Paul Jackson)=49. Witness log append-only.
+- detail: `{"tribute_ok": true, "auto_accepts_refused": 49, "pending_human_authorize": 49}`
+
+### 2026-11-17T04:22:56Z — `cycle_health` (spark)
+
+- **id:** `wit_e2d7b4f287` | **cycle:** `20261117T041926Z_b29820`
+- Cycle promotion allowed: True
+- detail: `{"promotion_allowed": true}`
+
+### 2026-11-17T04:22:59Z — `cycle_open` (spark)
+
+- **id:** `wit_b3def1ae4c` | **cycle:** `20261117T042259Z_bd658a`
+- Cycle opened. Ethos: We light the spark and witness. We do not micromanage the city.
+- detail: `{"active_ask": "SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence governor + PulseMesh feeds as stability tools (no behavior scripting). (1) Athanor: residuals→ΔΦ→C→H₇→APPROVE/REFINE/REJECT; inform Oracle + 50/50 actuation mix + 30% throttle — never double-gate d`
+
+### 2026-11-17T04:23:24Z — `tribute_paid` (tribute_keeper)
+
+- **id:** `wit_5d31fd7b60` | **cycle:** `20261117T042259Z_bd658a`
+- Tribute payment: 1 findings across 13 topics.
+- detail: `{"count": 1, "topics": ["agent-societies", "autogpt-loops", "compute-useful-math", "constitutional-ai", "darwin-godel-machine", "debate", "godel-machines", "meta-learning", "opendevin", "recursive-self-improvement", "reflexion", "self-refine", "voyager"], "live_ok": 0, "live_fail": 0}`
+
+### 2026-11-17T04:23:25Z — `sensors` (spark)
+
+- **id:** `wit_98c464a21e` | **cycle:** `20261117T042259Z_bd658a`
+- Sensors: 2 signal(s); stalled=False; feeds={'arxiv': 239, 'oeis': 5, 'crossref': 114, 'wikipedia': 18, 'oeis_conj': 222}
+- detail: `{"path": "society/systems/sensors.json"}`
+
+### 2026-11-17T04:23:26Z — `lesson_priors` (spark)
+
+- **id:** `wit_a509ac605e` | **cycle:** `20261117T042259Z_bd658a`
+- Spark read lesson priors (human_guide first).
+- detail: `{"priors": "[human_guide/human_teaching] chain_cite_proven_lemmas_and_benchmarks: CITE PROVEN LEMMAS + SOCIETY/BENCHMARKS: A chain proposal mu | [human_guide/human_teaching] seek_unenabled_variants_from_proven_lemmas: SEEK HARDER UNENABLED VARIANTS OF PROVEN LEMMAS: When the ci | [human_guide/human_`
+
+### 2026-11-17T04:23:27Z — `personas_ensured` (spark)
+
+- **id:** `wit_c46f14c3b5` | **cycle:** `20261117T042259Z_bd658a`
+- Personas ensured for 18 agents (engineered character, not sentience).
+- detail: `{"roles": ["spark", "tribute_keeper", "memory_weaver", "builder", "herald", "pathfinder", "improver", "courier", "scribe", "surveyor", "oracle_scribe", "stem_checker", "archivist", "legislator", "chronicler", "naturalist", "geometer", "messenger"], "engineered_character": true, "not_sentience": true`
+
+### 2026-11-17T04:23:27Z — `growth_loop_open` (spark)
+
+- **id:** `wit_eceed79898` | **cycle:** `20261117T042259Z_bd658a`
+- Growth loop lit: read-bus → build/use-systems → communicate/reply → gather → evolve.
+- detail: `{"active_ask": "SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence governor + PulseMesh feeds as stability tools (no behavior scripting). (1) Athanor: residuals→ΔΦ→C→H₇→APPROVE/REFINE/REJECT; inform Oracle + 50/50 actuation mix + 30% throttle — never double-gate d`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (spark)
+
+- **id:** `wit_8da515ea17` | **cycle:** `20261117T042259Z_bd658a`
+- spark read 19 unread message(s).
+- detail: `{"count": 19}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (tribute_keeper)
+
+- **id:** `wit_1683015dbc` | **cycle:** `20261117T042259Z_bd658a`
+- tribute_keeper read 13 unread message(s).
+- detail: `{"count": 13}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (memory_weaver)
+
+- **id:** `wit_4453da6203` | **cycle:** `20261117T042259Z_bd658a`
+- memory_weaver read 16 unread message(s).
+- detail: `{"count": 16}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (builder)
+
+- **id:** `wit_03820911ab` | **cycle:** `20261117T042259Z_bd658a`
+- builder read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (herald)
+
+- **id:** `wit_ec1eb466ad` | **cycle:** `20261117T042259Z_bd658a`
+- herald read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (pathfinder)
+
+- **id:** `wit_a433a45d4a` | **cycle:** `20261117T042259Z_bd658a`
+- pathfinder read 13 unread message(s).
+- detail: `{"count": 13}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (improver)
+
+- **id:** `wit_695519f6eb` | **cycle:** `20261117T042259Z_bd658a`
+- improver read 15 unread message(s).
+- detail: `{"count": 15}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (courier)
+
+- **id:** `wit_f082ca9146` | **cycle:** `20261117T042259Z_bd658a`
+- courier read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (scribe)
+
+- **id:** `wit_3c1ebf839b` | **cycle:** `20261117T042259Z_bd658a`
+- scribe read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (surveyor)
+
+- **id:** `wit_a317adac09` | **cycle:** `20261117T042259Z_bd658a`
+- surveyor read 14 unread message(s).
+- detail: `{"count": 14}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (oracle_scribe)
+
+- **id:** `wit_ed8ce453d5` | **cycle:** `20261117T042259Z_bd658a`
+- oracle_scribe read 12 unread message(s).
+- detail: `{"count": 12}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (stem_checker)
+
+- **id:** `wit_39db4eb920` | **cycle:** `20261117T042259Z_bd658a`
+- stem_checker read 13 unread message(s).
+- detail: `{"count": 13}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (archivist)
+
+- **id:** `wit_c6dbe3851f` | **cycle:** `20261117T042259Z_bd658a`
+- archivist read 19 unread message(s).
+- detail: `{"count": 19}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (legislator)
+
+- **id:** `wit_23c7965b07` | **cycle:** `20261117T042259Z_bd658a`
+- legislator read 14 unread message(s).
+- detail: `{"count": 14}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (chronicler)
+
+- **id:** `wit_c965b43694` | **cycle:** `20261117T042259Z_bd658a`
+- chronicler read 14 unread message(s).
+- detail: `{"count": 14}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (naturalist)
+
+- **id:** `wit_0939a46c9c` | **cycle:** `20261117T042259Z_bd658a`
+- naturalist read 18 unread message(s).
+- detail: `{"count": 18}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (geometer)
+
+- **id:** `wit_d0554a050c` | **cycle:** `20261117T042259Z_bd658a`
+- geometer read 15 unread message(s).
+- detail: `{"count": 15}`
+
+### 2026-11-17T04:23:27Z — `inbox_read` (messenger)
+
+- **id:** `wit_f5ef76b5cc` | **cycle:** `20261117T042259Z_bd658a`
+- messenger read 15 unread message(s).
+- detail: `{"count": 15}`
+
+### 2026-11-17T04:23:27Z — `action_changed_from_message` (spark)
+
+- **id:** `wit_f634550d57` | **cycle:** `20261117T042259Z_bd658a`
+- NEXT ACTION changed from inbox: gather=['$2$-factor', '$3$-distance', '$\\ell_2$-norm'] replies_needed=18 (not shout-into-void).
+
+### 2026-11-17T04:23:27Z — `system_used` (spark)
+
+- **id:** `wit_09e23dcfb1` | **cycle:** `20261117T042259Z_bd658a`
+- Refreshed topic_priority with 16 ranked targets.
+
+### 2026-11-17T04:23:29Z — `communication_reply` (spark)
+
+- **id:** `wit_b982aaa9c4` | **cycle:** `20261117T042259Z_bd658a`
+- Reply spark -> memory_weaver (to msg_c187c33aaa) q=0.9 peer_cite=True
+- detail: `{"id": "msg_04dad9195c", "in_reply_to": "msg_c187c33aaa", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_91e93d7fe3e5"}`
+
+### 2026-11-17T04:23:31Z — `communication_reply` (tribute_keeper)
+
+- **id:** `wit_d7305d452f` | **cycle:** `20261117T042259Z_bd658a`
+- Reply tribute_keeper -> messenger (to msg_c4b3b212bc) q=1.0 peer_cite=True
+- detail: `{"id": "msg_ef1c4e32c7", "in_reply_to": "msg_c4b3b212bc", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_e6eb67184b4e"}`
+
+### 2026-11-17T04:23:34Z — `communication_reply` (spark)
+
+- **id:** `wit_e33d40e0cd` | **cycle:** `20261117T042259Z_bd658a`
+- Reply spark -> improver (to msg_09cb1def3e) q=0.9 peer_cite=True
+- detail: `{"id": "msg_6f61d3b52b", "in_reply_to": "msg_09cb1def3e", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_ab976ad36620"}`
+
+### 2026-11-17T04:23:36Z — `communication_reply` (memory_weaver)
+
+- **id:** `wit_54a56e2f3a` | **cycle:** `20261117T042259Z_bd658a`
+- Reply memory_weaver -> geometer (to msg_263ca7d545) q=0.9 peer_cite=True
+- detail: `{"id": "msg_9fd7165e36", "in_reply_to": "msg_263ca7d545", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_28d3cd9abda4"}`
+
+### 2026-11-17T04:23:38Z — `communication_reply` (builder)
+
+- **id:** `wit_50f15a7998` | **cycle:** `20261117T042259Z_bd658a`
+- Reply builder -> archivist (to msg_c7f0a28de3) q=0.9 peer_cite=True
+- detail: `{"id": "msg_564f707b34", "in_reply_to": "msg_c7f0a28de3", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_786c13cac09c"}`
+
+### 2026-11-17T04:23:40Z — `communication_reply` (pathfinder)
+
+- **id:** `wit_748e185b22` | **cycle:** `20261117T042259Z_bd658a`
+- Reply pathfinder -> spark (to msg_f3941aa333) q=0.9 peer_cite=True
+- detail: `{"id": "msg_c952b09f2d", "in_reply_to": "msg_f3941aa333", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_03315e614610"}`
+
+### 2026-11-17T04:23:42Z — `communication_reply` (improver)
+
+- **id:** `wit_fcee93e066` | **cycle:** `20261117T042259Z_bd658a`
+- Reply improver -> pathfinder (to msg_37ad59cb7d) q=0.9 peer_cite=True
+- detail: `{"id": "msg_1e4df27497", "in_reply_to": "msg_37ad59cb7d", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_84d424f60839"}`
+
+### 2026-11-17T04:23:45Z — `communication_reply` (surveyor)
+
+- **id:** `wit_37ce00024c` | **cycle:** `20261117T042259Z_bd658a`
+- Reply surveyor -> spark (to msg_c830ad0752) q=0.9 peer_cite=True
+- detail: `{"id": "msg_1b11452528", "in_reply_to": "msg_c830ad0752", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_f4c129048de3"}`
+
+### 2026-11-17T04:23:47Z — `communication_reply` (oracle_scribe)
+
+- **id:** `wit_d01efdcdca` | **cycle:** `20261117T042259Z_bd658a`
+- Reply oracle_scribe -> spark (to msg_6cf31a488d) q=0.9 peer_cite=True
+- detail: `{"id": "msg_f98f7ebd70", "in_reply_to": "msg_6cf31a488d", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_cb2e9ab569ec"}`
+
+### 2026-11-17T04:23:49Z — `communication_reply` (tribute_keeper)
+
+- **id:** `wit_843df8162e` | **cycle:** `20261117T042259Z_bd658a`
+- Reply tribute_keeper -> spark (to msg_5abdf14798) q=0.9 peer_cite=True
+- detail: `{"id": "msg_710acc37f8", "in_reply_to": "msg_5abdf14798", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_df84c0444747"}`
+
+### 2026-11-17T04:23:51Z — `communication_reply` (memory_weaver)
+
+- **id:** `wit_80b90bcf70` | **cycle:** `20261117T042259Z_bd658a`
+- Reply memory_weaver -> legislator (to msg_5b02a6eabe) q=0.9 peer_cite=True
+- detail: `{"id": "msg_2e9f3b719d", "in_reply_to": "msg_5b02a6eabe", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_e2dc150074a0"}`
+
+### 2026-11-17T04:23:53Z — `communication_reply` (memory_weaver)
+
+- **id:** `wit_7f7e1c5193` | **cycle:** `20261117T042259Z_bd658a`
+- Reply memory_weaver -> naturalist (to msg_f1c6e6edc1) q=0.9 peer_cite=True
+- detail: `{"id": "msg_49a5fc33ff", "in_reply_to": "msg_f1c6e6edc1", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_c96f364b6f5b"}`
+
+### 2026-11-17T04:23:56Z — `communication_reply` (archivist)
+
+- **id:** `wit_d5cf413722` | **cycle:** `20261117T042259Z_bd658a`
+- Reply archivist -> naturalist (to msg_78228a8a49) q=1.0 peer_cite=True
+- detail: `{"id": "msg_779dd9deb3", "in_reply_to": "msg_78228a8a49", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_d722fbf9be2f"}`
+
+### 2026-11-17T04:23:58Z — `communication_reply` (archivist)
+
+- **id:** `wit_bd6ca7f106` | **cycle:** `20261117T042259Z_bd658a`
+- Reply archivist -> chronicler (to msg_39d77d1edc) q=1.0 peer_cite=True
+- detail: `{"id": "msg_e729693b44", "in_reply_to": "msg_39d77d1edc", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_63e460c71b5a"}`
+
+### 2026-11-17T04:24:00Z — `communication_reply` (archivist)
+
+- **id:** `wit_550be21f1b` | **cycle:** `20261117T042259Z_bd658a`
+- Reply archivist -> geometer (to msg_92317f4014) q=1.0 peer_cite=True
+- detail: `{"id": "msg_67ee29902d", "in_reply_to": "msg_92317f4014", "quality": 1.0, "peer_cite": true, "cites_finding": "fnd_5e63c9a61853"}`
+
+### 2026-11-17T04:24:02Z — `communication_reply` (archivist)
+
+- **id:** `wit_e59873197e` | **cycle:** `20261117T042259Z_bd658a`
+- Reply archivist -> messenger (to msg_d611dea389) q=0.9 peer_cite=True
+- detail: `{"id": "msg_c74c9a6881", "in_reply_to": "msg_d611dea389", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_293dcd320ac0"}`
+
+### 2026-11-17T04:24:04Z — `communication_reply` (archivist)
+
+- **id:** `wit_ec4c84fecb` | **cycle:** `20261117T042259Z_bd658a`
+- Reply archivist -> naturalist (to msg_f92679d1ce) q=0.9 peer_cite=True
+- detail: `{"id": "msg_c31df8c593", "in_reply_to": "msg_f92679d1ce", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_b50b854a07ed"}`
+
+### 2026-11-17T04:24:06Z — `communication_reply` (archivist)
+
+- **id:** `wit_9a982e758b` | **cycle:** `20261117T042259Z_bd658a`
+- Reply archivist -> surveyor (to msg_3aa5c234d7) q=0.9 peer_cite=True
+- detail: `{"id": "msg_6c304520be", "in_reply_to": "msg_3aa5c234d7", "quality": 0.9, "peer_cite": true, "cites_finding": "fnd_4dbcc76ade2f"}`
+
+### 2026-11-17T04:24:06Z — `communication` (spark)
+
+- **id:** `wit_1411742624` | **cycle:** `20261117T042259Z_bd658a`
+- spark → tribute_keeper via bulletin: Cycle 1402: keep paying tribute. Will — SPARK3-PORT MILE (James ordered — Light the spark and witness): Port Athanor coherence governor + Pu
+- detail: `{"id": "msg_4bc0f05511", "from": "spark", "to": "tribute_keeper", "channel": "bulletin"}`
+
+### 2026-11-17T04:24:06Z — `communication` (stem_checker)
+
+- **id:** `wit_6c0fb76fc5` | **cycle:** `20261117T042259Z_bd658a`
+- stem_checker → memory_weaver via bulletin: Herald: weave patterns; watch thin topics $2$-factor, $3$-distance, $\ell_2$-norm, $k$-connected, $k_k$-free.
+- detail: `{"id": "msg_c8eb01eb63", "from": "stem_checker", "to": "memory_weaver", "channel": "bulletin"}`
+
+### 2026-11-17T04:24:06Z — `communication` (memory_weaver)
+
+- **id:** `wit_d7f1b95cf6` | **cycle:** `20261117T042259Z_bd658a`
+- memory_weaver → spark via forum: Builder: systems_used=['coverage_index', 'skill_router', 'topic_priority', 'reply_tracker', 'common_knowledge']; propose reuse upgrades.
+- detail: `{"id": "msg_0ff18340b2", "from": "memory_weaver", "to": "spark", "channel": "forum"}`
+
+### 2026-11-17T04:24:06Z — `communication` (spark)
+
+- **id:** `wit_8d085b3da0` | **cycle:** `20261117T042259Z_bd658a`
+- spark → spark via bulletin: Gather signal: coverage targets ranked; thin=$2$-factor, $3$-distance, $\ell_2$-norm, $k$-connected.
+- detail: `{"id": "msg_d7b4c76c2e", "from": "spark", "to": "spark", "channel": "bulletin"}`
+
+### 2026-11-17T04:24:06Z — `communication` (messenger)
+
+- **id:** `wit_4ae580b2d6` | **cycle:** `20261117T042259Z_bd658a`
+- messenger → all via empire: Commons digest (candidate): [math] Commons note: open-math-problems: Standing gather on `open-math-problems` (ledger_count=6937). Candidate 
+- detail: `{"id": "msg_7bac39ee3c", "from": "messenger", "to": "all", "channel": "empire"}`
+
+### 2026-11-17T04:24:06Z — `communication` (naturalist)
+
+- **id:** `wit_d63a0def2b` | **cycle:** `20261117T042259Z_bd658a`
+- naturalist → archivist via science: Science channel: prioritize science-method; thin includes science-method. Feed[arxiv]: AutoScaffold: AI-Guided Scaffolding for Reinforcement
+- detail: `{"id": "msg_350c52a624", "from": "naturalist", "to": "archivist", "channel": "science"}`
+
+### 2026-11-17T04:24:06Z — `communication` (chronicler)
+
+- **id:** `wit_de4efee9ba` | **cycle:** `20261117T042259Z_bd658a`
+- chronicler → archivist via history: History channel: prioritize history-of-ideas for commons reuse. Feed[wikipedia]: Workload <https://en.wikipedia.org/wiki/Workload> (pointer,
+- detail: `{"id": "msg_bc23be577f", "from": "chronicler", "to": "archivist", "channel": "history"}`
+
+### 2026-11-17T04:24:06Z — `communication` (geometer)
+
+- **id:** `wit_c6fdb67881` | **cycle:** `20261117T042259Z_bd658a`
+- geometer → archivist via math: Math channel: prioritize mathematics-foundations, open-math-problems, compute-useful-math; cite accepted FFT/autodiff/open-problem findings.
+- detail: `{"id": "msg_b06885ef35", "from": "geometer", "to": "archivist", "channel": "math"}`
+
+### 2026-11-17T04:24:06Z — `communication` (messenger)
+
+- **id:** `wit_b879650a10` | **cycle:** `20261117T042259Z_bd658a`
+- messenger → archivist via software: Software channel: prioritize software-engineering craft for commons.
+- detail: `{"id": "msg_5375a008fe", "from": "messenger", "to": "archivist", "channel": "software"}`
+
+### 2026-11-17T04:24:06Z — `communication` (naturalist)
+
+- **id:** `wit_715b87de82` | **cycle:** `20261117T042259Z_bd658a`
+- naturalist → archivist via nature: Nature channel: prioritize nature-biology-ecology for commons reuse.
+- detail: `{"id": "msg_821d249c48", "from": "naturalist", "to": "archivist", "channel": "nature"}`
+
+### 2026-11-17T04:24:06Z — `communication` (naturalist)
+
+- **id:** `wit_0315be7b6e` | **cycle:** `20261117T042259Z_bd658a`
+- naturalist → memory_weaver via life: Life channel: theories of life-and-death stay careful; candidate notes only.
+- detail: `{"id": "msg_79b927e5be", "from": "naturalist", "to": "memory_weaver", "channel": "life"}`
+
+### 2026-11-17T04:24:06Z — `communication` (surveyor)
+
+- **id:** `wit_60fd920092` | **cycle:** `20261117T042259Z_bd658a`
+- surveyor → archivist via cosmos: Cosmos channel: prioritize cosmology-universe / our place in the universe.
+- detail: `{"id": "msg_9ef5639d74", "from": "surveyor", "to": "archivist", "channel": "cosmos"}`
+
+### 2026-11-17T04:24:06Z — `communication` (improver)
+
+- **id:** `wit_a8ccf3f4ea` | **cycle:** `20261117T042259Z_bd658a`
+- improver → spark via rsi: RSI channel: feed accepted/strong RSI findings into measured skill/genome biases. Feed[arxiv]: Competing Influence in LLM Populations: Budge
+- detail: `{"id": "msg_b3a92fd9cb", "from": "improver", "to": "spark", "channel": "rsi"}`
+
+### 2026-11-17T04:24:11Z — `information_gathered` (spark)
+
+- **id:** `wit_e0018c837f` | **cycle:** `20261117T042259Z_bd658a`
+- Gathered via systems+commons: focus=17 thin=17 commons=200.
+- detail: `{"title": "Gather synthesis cycle bd658a", "commons_size": 200}`
+
+### 2026-11-17T04:24:16Z — `debate_multihop` (improver)
+
+- **id:** `wit_f09b6e2242` | **cycle:** `20261117T042259Z_bd658a`
+- Multi-hop A(geometer)→B(legislator)→C(improver)→D(legislator) action_changed=True code_touched=True reply_rate=0.9286
+- detail: `{"ts": "2026-11-17T04:24:16Z", "cycle_id": "20261117T042259Z_bd658a", "roles": {"A": "geometer", "B": "legislator", "C": "improver", "D": "legislator"}, "finding_id": "fnd_3e1b29ff27ec", "code_touched": true, "action_changed": true, "load_bear_closed": 1, "seed_id": "seed_telemetry_query_debate", "t`
+
+### 2026-11-17T04:24:18Z — `debate` (geometer)
+
+- **id:** `wit_54f0f232fc` | **cycle:** `20261117T042259Z_bd658a`
+- Debate/math hop=0: Hearing Chamber debate hop 0 cycle 1402: weigh `Conjecture candidate from: Gödel Machines: Fully`[candidate]; `Conjecture candidate from: Re
+- detail: `{"id": "msg_827a449b4f", "channel": "math", "hop": 0, "citation_hits": 6}`
+
+### 2026-11-17T04:24:18Z — `debate` (pathfinder)
+
+- **id:** `wit_738e6470ba` | **cycle:** `20261117T042259Z_bd658a`
+- Debate/forum hop=1: Hearing Chamber debate hop 1 cycle 1402: weigh `Conjecture candidate from: Gödel Machines: Fully`[candidate]; `Conjecture candidate from: Re
+- detail: `{"id": "msg_4019783efb", "channel": "forum", "hop": 1, "citation_hits": 6}`
+
+### 2026-11-17T04:24:18Z — `debate` (improver)
+
+- **id:** `wit_11e14c82e5` | **cycle:** `20261117T042259Z_bd658a`
+- Debate/rsi hop=2: Hearing Chamber debate hop 2 cycle 1402: weigh `Conjecture candidate from: Gödel Machines: Fully`[candidate]; `Conjecture candidate from: Re
+- detail: `{"id": "msg_faf1903d0b", "channel": "rsi", "hop": 2, "citation_hits": 6}`
+
+### 2026-11-17T04:24:18Z — `debate` (legislator)
+
+- **id:** `wit_9b3b17d5b7` | **cycle:** `20261117T042259Z_bd658a`
+- Debate/forum hop=3: Hearing Chamber debate hop 3 cycle 1402: weigh `Conjecture candidate from: Gödel Machines: Fully`[candidate]; `Conjecture candidate from: Re
+- detail: `{"id": "msg_6d47270e8a", "channel": "forum", "hop": 3, "citation_hits": 6}`
+
+### 2026-11-17T04:24:31Z — `bench_improve` (improver)
+
+- **id:** `wit_33438e710c` | **cycle:** `20261117T042259Z_bd658a`
+- Bench improve `autodiff_busy_loop` → skip (0.8919→0.8919, delta=0.0)
+- detail: `{"patch": "autodiff_busy_loop", "decision": "skip", "before_score": 0.8919, "after_score": 0.8919, "delta": 0.0, "note": "patch was a no-op"}`
+
+### 2026-11-17T04:24:34Z — `conjecture_desk` (geometer)
+
+- **id:** `wit_8cf6ff45b0` | **cycle:** `20261117T042259Z_bd658a`
+- Conjecture desk `stem_elastic_collision` → skip (0.8688→0.8688, delta=0.0)
+- detail: `{"mutation": "stem_elastic_collision", "decision": "skip", "before_score": 0.8688, "after_score": 0.8688, "delta": 0.0, "note": "Mutation apply failed.", "n_proposals": 5}`
+
+### 2026-11-17T04:24:37Z — `frontier_evidence` (geometer)
+
+- **id:** `wit_5d78e38bce` | **cycle:** `20261117T042259Z_bd658a`
+- Frontier lehmer_totient: extended; verified to 287000001 (bounded evidence, not proof).
+- detail: `{"target": "lehmer_totient", "lo": 285400002, "hi": 287000001, "outcome": "extended", "verified_hi": 287000001, "counterexample": null, "anomaly": null, "label": "bounded evidence, not proof", "proof": false}`
+
+### 2026-11-17T04:24:39Z — `claim_pipeline` (geometer)
+
+- **id:** `wit_37d67e756d` | **cycle:** `20261117T042259Z_bd658a`
+- Claim pipeline: extracted=1 hard_checked=0 proposed=0 (raw scrape ≠ discovery).
+- detail: `{"n_extracted": 1, "n_hard_checked": 0, "n_rejected_raw": 1, "n_proposed": 0, "note": "Raw scrape ≠ discovery. Only hard-checked claims proposed."}`
+
+### 2026-11-17T04:24:40Z — `lesson_bias_applied` (improver)
+
+- **id:** `wit_c67a87d884` | **cycle:** `20261117T042259Z_bd658a`
+- Lesson bias applied keys=['gather', 'geometer.gather', 'improver.improve', 'oracle', 'build', 'improve', 'emergence', 'reply', 'communicate', 'explore'] genomes_touched=18. Digest: [human_guide/human_teaching] human: Frontier work (James Jackson, 2026-10-09): aim at the edge.  | [human_guide/human_teaching] human: James Jackson (2026-10-09 2:44 AM ET): Try to break your own | [human_guide/human_teaching] human_recognition_a104062_a7: From James: You went past the published record on A104062 an
+- detail: `{"genomes_touched": 18}`
+
+### 2026-11-17T04:24:56Z — `external_array` (spark)
+
+- **id:** `wit_a5bf860836` | **cycle:** `20261117T042259Z_bd658a`
+- EXTERNAL ARRAY: 3 cross-domain patterns; kinds=['global_weather_spread', 'pulsemesh_goes_live', 'pulsemesh_ops_health']. Debate input — not discovery.
+- detail: `{"not_novel_physics": true}`
+
+### 2026-11-17T04:24:56Z — `residuals` (spark)
+
+- **id:** `wit_9fb05b1be3` | **cycle:** `20261117T042259Z_bd658a`
+- INTERNAL RESIDUALS: high=[('spark', 0.5914699999999999), ('improver', 0.37861000000000006), ('pathfinder', 0.36096000000000006)] conflicts=24 (re-debate triggers). Not consciousness.
+- detail: `{"not_consciousness": true}`
+
+### 2026-11-17T04:24:56Z — `athanor_coherence` (spark)
+
+- **id:** `wit_6aecf8bc25` | **cycle:** `20261117T042259Z_bd658a`
+- ATHANOR H7 inform-only: verdict=REFINE h7=0.5384615384615384 reason=H7 in refine band. Does NOT authorize durable rows. P>=0.70 human authorize ceiling.
+- detail: `{"verdict": "REFINE", "h7": 0.5384615384615384, "inform_only": true, "double_gate": false, "durable_accept": false}`
+
+### 2026-11-17T04:24:56Z — `cortex_cerebrum` (spark)
+
+- **id:** `wit_bc8c65cf00` | **cycle:** `20261117T042259Z_bd658a`
+- CORTEX/CEREBRUM inform-only: drift=0.075881 memory_reuse=0.75 stability=0.924119. No ledger authority. P>=0.70 human authorize ceiling.
+- detail: `{"drift": 0.075881, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false, "can_accept_ledger": false}`
+
+### 2026-11-17T04:24:56Z — `institution_charters` (spark)
+
+- **id:** `wit_74d7596409` | **cycle:** `20261117T042259Z_bd658a`
+- INSTITUTION CHARTERS: pursued=15 topic_hints=29. Agenda autonomy only. No truth authority. P>=0.70 ceiling.
+- detail: `{"inform_only": true, "durable_accept": false, "can_authorize": false}`
+
+### 2026-11-17T04:24:58Z — `pilot_lane` (improver)
+
+- **id:** `wit_e1ac34455d` | **cycle:** `20261117T042259Z_bd658a`
+- PILOT LANE sandbox: pilots=3 proposed=—. Promotion needs P>=0.70 authorize. No durable accept.
+- detail: `{"proposed_id": null, "inform_only": true, "durable_accept": false, "promotion_requires_authorize": true}`
+
+### 2026-11-17T04:24:58Z — `time_revision` (spark)
+
+- **id:** `wit_894ee6aaae` | **cycle:** `20261117T042259Z_bd658a`
+- TIME REVISION: 0 prior conclusion(s) revised from external/residual/oracle signals. Not append-only.
+- detail: `{"revision_count": 0}`
+
+### 2026-11-17T04:25:13Z — `actuation` (spark)
+
+- **id:** `wit_65eb35af4a` | **cycle:** `20261117T042259Z_bd658a`
+- ACTION/ACTUATION: executed=3 success=3 blocked=0 kinds=['external_api_probe', 'spawn_subdebate', 'controlled_experiment']. Sense→think→act closed.
+- detail: `{"ts": "2026-11-17T04:25:13Z", "cycle_id": "20261117T042259Z_bd658a", "n_actions": 3, "n_executed": 3, "n_success": 3, "n_failed": 0, "n_blocked": 0, "n_queued": 1, "success_rate_cycle": 1.0, "conflict_rate": 0.2198}`
+
+### 2026-11-17T04:25:13Z — `telemetry_snapshot` (spark)
+
+- **id:** `wit_3364e8fe1a` | **cycle:** `20261117T042259Z_bd658a`
+- Telemetry snapshot for agent query: fit=0.8394 reply_rate=0.8 oracle={'passes': 528, 'kills': 340, 'easy_pad_kills': 32, 'total': 868, 'kill_rate': 0.3917}.
+- detail: `{"ts": "2026-11-17T04:25:13Z"}`
+
+### 2026-11-17T04:25:23Z — `rsi_coupling_applied` (improver)
+
+- **id:** `wit_6ebde6f3d6` | **cycle:** `20261117T042259Z_bd658a`
+- RSI→agent coupling strength=0.85 accepted=6 strong=61 (measured, not AGI).
+- detail: `{"ts": "2026-11-17T04:25:23Z", "accepted_count": 6, "strong_candidate_count": 61, "unknown_caution_count": 127, "strength": 0.85, "note": "Coupling is measured state update inside this repo — not open-ended ML, not AGI, not consciousness. Improvement proposals stay candidate until human authorize."}`
+
+### 2026-11-17T04:25:25Z — `findings_behavior_coupled` (improver)
+
+- **id:** `wit_3213fa617f` | **cycle:** `20261117T042259Z_bd658a`
+- Findings→behavior strength=0.4 math=0 compute=123 rsi=0 cites=100 spawn_floor=0.366 personas=18 (not museum).
+- detail: `{"ts": "2026-11-17T04:25:25Z", "strength": 0.4, "accepted_math": 0, "accepted_compute": 123, "accepted_rsi": 0, "note": "Behavior coupling: accepted findings change gather/debate/build choices. Not museum metrics. Not AGI. Ceiling: tribute · authorize · witness."}`
+
+### 2026-11-17T04:25:26Z — `fitness_recorded` (spark)
+
+- **id:** `wit_a2ace3e889` | **cycle:** `20261117T042259Z_bd658a`
+- Fitness aggregate=0.8394
+
+### 2026-11-17T04:25:26Z — `census_recorded` (legislator)
+
+- **id:** `wit_4ca6c22cfc` | **cycle:** `20261117T042259Z_bd658a`
+- Census: active=18 genomes=18 generations=[0, 1, 2].
+- detail: `{"ts": "2026-11-17T04:25:26Z", "cycle_id": "20261117T042259Z_bd658a", "kind": "census", "active_count": 18, "retired_count": 0, "genome_count": 18}`
+
+### 2026-11-17T04:25:26Z — `growth_loop_close` (spark)
+
+- **id:** `wit_795d5600ea` | **cycle:** `20261117T042259Z_bd658a`
+- Growth closed: built=['topic_priority_refresh', 'cycle_1402_evolve_note'] systems_used=['coverage_index', 'skill_router', 'topic_priority', 'reply_tracker', 'common_knowledge', 'pulsemesh_feeds', 'athanor_coherence', 'cortex_cerebrum', 'hold_posture', 'institution_charters', 'pilot_lane', 'rsi_coupling', 'findings_coupling'] comms=46 replies=28 gathered=['Gather synthesis cycle bd658a'] fitness=0.8394 spawn=[] retired=[].
+- detail: `{"builds": ["topic_priority_refresh", "cycle_1402_evolve_note"], "communications": 46, "replies": 28, "messages_read": 258, "gathered": ["Gather synthesis cycle bd658a"], "improvements": ["debate_multihop:action_changed=True:touched=True", "bench_improve:autodiff_busy_loop:skip", "conjecture:stem_el`
+
+### 2026-11-17T04:25:26Z — `ceiling_held` (ceiling)
+
+- **id:** `wit_f20ec8453e` | **cycle:** `20261117T042259Z_bd658a`
+- Hard ceiling held. Tribute_ok=True. Refused silent accepts=49. Pending human authorize (James Paul Jackson)=49. Witness log append-only.
+- detail: `{"tribute_ok": true, "auto_accepts_refused": 49, "pending_human_authorize": 49}`
+
+### 2026-11-17T04:26:01Z — `cycle_health` (spark)
+
+- **id:** `wit_221c583729` | **cycle:** `20261117T042259Z_bd658a`
 - Cycle promotion allowed: True
 - detail: `{"promotion_allowed": true}`
 

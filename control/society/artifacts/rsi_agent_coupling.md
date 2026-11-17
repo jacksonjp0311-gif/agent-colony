@@ -2,11 +2,11 @@
 
 > Measured feed from accepted/strong RSI ledger findings into improver, skill_router, and genome mutation biases. **Not AGI. Not consciousness.**
 
-**Updated:** 2026-11-17T04:09:27Z  
-**Cycle:** `20261117T040724Z_8706e3`  
+**Updated:** 2026-11-17T04:25:23Z  
+**Cycle:** `20261117T042259Z_bd658a`  
 **Strength:** 0.85  
 **Accepted RSI findings:** 6  
-**Strong candidates:** 55  
+**Strong candidates:** 61  
 
 See society/systems/rsi_coupling.json for biases.
 
