@@ -2946,6 +2946,12 @@ def _close_trial(
     if decision == "adopt" and helped and knob:
         # Value is already the trial value. Strictly-better rule unchanged.
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
+        try:
+            from colony.tools.crystallize import crystallize
+            fp = f"{knob}:{trial.get('direction')}:{trial.get('to')}"
+            crystallize({"fingerprint": fp}, source="colony", category="kept")
+        except Exception:
+            pass
         ev = append_evidence(state, {
             "event": "adopt",
             "cycle_id": cycle_id,
