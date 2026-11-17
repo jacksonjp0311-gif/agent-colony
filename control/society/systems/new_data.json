@@ -24,60 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 0.029,
-   "cycle_id": "20261117T091140Z_54a792",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.028,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T09:14:33Z"
-  },
-  {
-   "cpu_s": 0.035,
-   "cycle_id": "20261117T093317Z_0343e8",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.022,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T09:36:14Z"
-  },
-  {
-   "cpu_s": 0.022,
-   "cycle_id": "20261117T093644Z_fb4879",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.021,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T09:39:20Z"
-  },
-  {
    "cpu_s": 0.022,
    "cycle_id": "20261117T093951Z_131cb7",
    "discovered": [],
@@ -1438,44 +1384,155 @@
     "searches": []
    },
    "ts": "2026-11-17T16:36:25Z"
+  },
+  {
+   "cpu_s": 43.697,
+   "cycle_id": "20261117T170256Z_6dd260",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls3_2_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls3_2_c:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls3_2_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.019,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T17:06:29Z"
+  },
+  {
+   "cpu_s": 43.423,
+   "cycle_id": "20261117T170653Z_46e82e",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_min_cls3_2_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_1_c:terms",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_cls6_1_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.018,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T17:09:58Z"
+  },
+  {
+   "cpu_s": 43.285,
+   "cycle_id": "20261117T171022Z_e5b4d7",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_cls6_1_c:recval",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1_c:terms",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    },
+    {
+     "anum": null,
+     "item": "gb_min_cls6_1_c:recpos",
+     "status": "not_in_oeis",
+     "why": "not found in the local OEIS index (frontier unknown)"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.018,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T17:13:23Z"
   }
  ],
  "last": {
-  "cpu_s": 32.536,
-  "cycle_id": "20261117T163301Z_177bed",
+  "cpu_s": 43.285,
+  "cycle_id": "20261117T171022Z_e5b4d7",
   "discovered": [
    {
     "anum": null,
-    "item": "gb_min_cls3_1_c:recval",
-    "status": "not_in_oeis",
-    "why": "not found in the local OEIS index (frontier unknown)"
-   },
-   {
-    "anum": null,
-    "item": "gb_cls3_2_c:terms",
+    "item": "gb_cls6_1_c:recval",
     "status": "no_alignment",
     "why": "OEIS terms differ beyond the probe"
    },
    {
     "anum": null,
-    "item": "gb_cls3_2_c:recpos",
+    "item": "gb_min_cls6_1_c:terms",
+    "status": "not_in_oeis",
+    "why": "not found in the local OEIS index (frontier unknown)"
+   },
+   {
+    "anum": null,
+    "item": "gb_min_cls6_1_c:recpos",
     "status": "not_in_oeis",
     "why": "not found in the local OEIS index (frontier unknown)"
    }
   ],
   "mode": "live",
-  "net_requests": 6,
+  "net_requests": 0,
   "oeis_index": "available",
   "pushed": [],
   "sparse": {
    "candidates_seen": 466,
-   "cpu_s": 0.015,
+   "cpu_s": 0.018,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-11-17T16:36:25Z"
+  "ts": "2026-11-17T17:13:23Z"
  },
  "mode": "live",
  "sparse": {
@@ -4467,7 +4524,7 @@
   "gb_cls3_2_c:recval": {
    "anum": null,
    "status": "no_alignment",
-   "ts": "2026-10-18T14:48:47Z",
+   "ts": "2026-11-17T17:05:45Z",
    "why": "OEIS terms differ beyond the probe"
   },
   "gb_cls3_2_c:terms": {
@@ -4569,19 +4626,19 @@
   "gb_cls6_1_c:recpos": {
    "anum": null,
    "status": "not_in_oeis",
-   "ts": "2026-10-18T14:52:37Z",
+   "ts": "2026-11-17T17:09:58Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_cls6_1_c:recval": {
    "anum": null,
    "status": "no_alignment",
-   "ts": "2026-10-18T14:52:37Z",
+   "ts": "2026-11-17T17:12:40Z",
    "why": "OEIS terms differ beyond the probe"
   },
   "gb_cls6_1_c:terms": {
    "anum": null,
    "status": "no_alignment",
-   "ts": "2026-10-18T14:52:37Z",
+   "ts": "2026-11-17T17:09:58Z",
    "why": "OEIS terms differ beyond the probe"
   },
   "gb_cls6_5:recpos": {
@@ -4695,19 +4752,19 @@
   "gb_min_cls3_2_c:recpos": {
    "anum": null,
    "status": "not_in_oeis",
-   "ts": "2026-10-18T14:50:33Z",
+   "ts": "2026-11-17T17:06:29Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_min_cls3_2_c:recval": {
    "anum": null,
    "status": "no_alignment",
-   "ts": "2026-10-18T14:51:14Z",
+   "ts": "2026-11-17T17:09:58Z",
    "why": "OEIS terms differ beyond the probe"
   },
   "gb_min_cls3_2_c:terms": {
    "anum": null,
    "status": "not_in_oeis",
-   "ts": "2026-10-18T14:49:54Z",
+   "ts": "2026-11-17T17:05:45Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_min_cls4_1:recpos": {
@@ -4803,7 +4860,7 @@
   "gb_min_cls6_1_c:recpos": {
    "anum": null,
    "status": "not_in_oeis",
-   "ts": "2026-10-18T14:57:43Z",
+   "ts": "2026-11-17T17:13:23Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_min_cls6_1_c:recval": {
@@ -4815,7 +4872,7 @@
   "gb_min_cls6_1_c:terms": {
    "anum": null,
    "status": "not_in_oeis",
-   "ts": "2026-10-18T14:56:46Z",
+   "ts": "2026-11-17T17:12:40Z",
    "why": "not found in the local OEIS index (frontier unknown)"
   },
   "gb_min_cls6_5:recpos": {
