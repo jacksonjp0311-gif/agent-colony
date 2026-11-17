@@ -1,4 +1,4 @@
-# A047160 terms computed beyond the OEIS b-file (https://oeis.org/A047160/b047160.txt, checked 2026-10-18T12:55:48Z).
+# A047160 terms computed beyond the OEIS b-file (https://oeis.org/A047160/b047160.txt, checked 2026-11-17T12:58:35Z).
 # Computed by colony.new_data (gb_close:terms); verified 2 ways: sieve scan downward from n / Miller-Rabin scan outward from n.
 10001 60
 10002 35

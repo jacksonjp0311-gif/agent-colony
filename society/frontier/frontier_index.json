@@ -50,21 +50,21 @@
     "overlap": 60
    },
    "anum": "A006577",
-   "checked": "2026-10-18T12:57:24Z",
+   "checked": "2026-11-17T12:58:31Z",
    "cost": {
     "N": 11000,
-    "cpu_s": 0.027605307000001744
+    "cpu_s": 0.0122204580000016
    },
    "done_for_sha": "45d02dc2e7bbc236",
    "item": "col_steps:terms",
    "last": {
-    "cpu_s": 0.039,
+    "cpu_s": 0.02,
     "ns": [
      10001,
      11000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T12:57:24Z",
+    "ts": "2026-11-17T12:58:31Z",
     "why": null
    },
    "n_pub_terms": 10000,
@@ -76,9 +76,9 @@
    "sha256": "45d02dc2e7bbc236",
    "source": "https://oeis.org/A006577/b006577.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.039,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 0.059,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:57:14Z",
@@ -224,11 +224,11 @@
    "done_for_sha": "1aebb537ac7cbb02",
    "item": "col_steps:recval",
    "last": {
-    "cpu_s": 0.387,
+    "cpu_s": null,
     "ns": null,
-    "status": "matches published",
-    "ts": "2026-10-18T12:57:24Z",
-    "why": "no record beyond the published ones up to n = 200000"
+    "status": "frontier unknown",
+    "ts": "2026-11-17T12:58:35Z",
+    "why": "b-file unavailable now"
    },
    "n_pub_terms": 148,
    "name": "Record number of steps to reach 1 in '3x+1' problem, corresponding to starting values in A006877.",
@@ -241,7 +241,7 @@
    "stats": {
     "beyond": 0,
     "cpu_s": 0.387,
-    "tries": 1
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:57:20Z",
@@ -455,21 +455,21 @@
     "overlap": 60
    },
    "anum": "A035026",
-   "checked": "2026-10-18T12:50:00Z",
+   "checked": "2026-11-17T12:54:31Z",
    "cost": {
     "N": 11000,
-    "cpu_s": 0.009062708000001862
+    "cpu_s": 0.002648012000008748
    },
    "done_for_sha": "7587365638dd226b",
    "item": "gb_o_all:terms",
    "last": {
-    "cpu_s": 0.376,
+    "cpu_s": 0.245,
     "ns": [
      10001,
      11000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T12:50:00Z",
+    "ts": "2026-11-17T12:54:31Z",
     "why": null
    },
    "n_pub_terms": 10000,
@@ -481,9 +481,9 @@
    "sha256": "7587365638dd226b",
    "source": "https://oeis.org/A035026/b035026.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.376,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 0.621,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:49:50Z",
@@ -497,21 +497,21 @@
     "overlap": 59
    },
    "anum": "A047160",
-   "checked": "2026-10-18T12:55:48Z",
+   "checked": "2026-11-17T12:58:35Z",
    "cost": {
     "N": 11000,
-    "cpu_s": 0.025994928999999445
+    "cpu_s": 0.01295374799997262
    },
    "done_for_sha": "72ce0134afaabba4",
    "item": "gb_close:terms",
    "last": {
-    "cpu_s": 0.091,
+    "cpu_s": 0.059,
     "ns": [
      10001,
      11000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T12:55:48Z",
+    "ts": "2026-11-17T12:58:35Z",
     "why": null
    },
    "n_pub_terms": 9999,
@@ -523,9 +523,9 @@
    "sha256": "72ce0134afaabba4",
    "source": "https://oeis.org/A047160/b047160.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.091,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 0.15,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:55:38Z",
@@ -629,11 +629,11 @@
    "done_for_sha": "64b088f1a0d94825",
    "item": "gb_close:recval",
    "last": {
-    "cpu_s": 0.611,
+    "cpu_s": null,
     "ns": null,
-    "status": "matches published",
-    "ts": "2026-10-18T12:55:48Z",
-    "why": "no record beyond the published ones up to n = 200000"
+    "status": "frontier unknown",
+    "ts": "2026-11-17T12:58:35Z",
+    "why": "b-file unavailable now"
    },
    "n_pub_terms": 64,
    "name": "Records in A047160.",
@@ -646,7 +646,7 @@
    "stats": {
     "beyond": 0,
     "cpu_s": 0.611,
-    "tries": 1
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:55:44Z",

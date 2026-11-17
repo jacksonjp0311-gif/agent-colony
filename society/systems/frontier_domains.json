@@ -13,106 +13,6 @@
  },
  "history": [
   {
-   "cycle_id": "20261117T094603Z_e69cd7",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 10,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 10,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 2
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 16,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 16,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    }
-   },
-   "mode": "live",
-   "survivors": []
-  },
-  {
-   "cycle_id": "20261117T095103Z_dbbd70",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 8,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 8,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 12,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 12,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 2
-    }
-   },
-   "mode": "live",
-   "survivors": []
-  },
-  {
-   "cycle_id": "20261117T095103Z_dbbd70",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 16,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 16,
-     "surprise": 0,
-     "survived": 1,
-     "tested": 2
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 8,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 1,
-     "produced": 8,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 1
-    }
-   },
-   "mode": "live",
-   "survivors": [
-    {
-     "deep": null,
-     "statement": "cubic(n) = 0 (mod 3) for all n = 2 (mod 3)",
-     "unknown": false,
-     "why": null
-    }
-   ]
-  },
-  {
    "cycle_id": "20261117T101211Z_432e27",
    "groups": {
     "qseries": {
@@ -976,6 +876,113 @@
      "why": null
     }
    ]
+  },
+  {
+   "cycle_id": "20261117T124602Z_5b2957",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 9,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 2,
+     "produced": 11,
+     "surprise": 0,
+     "survived": 1,
+     "tested": 2
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 21,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 24,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    }
+   },
+   "mode": "live",
+   "survivors": [
+    {
+     "deep": null,
+     "statement": "cubic(n) = 0 (mod 3) for all n = 2 (mod 3)",
+     "unknown": false,
+     "why": null
+    }
+   ]
+  },
+  {
+   "cycle_id": "20261117T124953Z_43c558",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 6,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 6,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 13,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 14,
+     "surprise": 0,
+     "survived": 1,
+     "tested": 1
+    }
+   },
+   "mode": "live",
+   "survivors": [
+    {
+     "deep": null,
+     "statement": "lpf[oxa048767](n) <= S(pfold)(n) for all n >= 1 (with equality at some n)",
+     "unknown": false,
+     "why": null
+    }
+   ]
+  },
+  {
+   "cycle_id": "20261117T125508Z_49719d",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 11,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 13,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 12,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 14,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    }
+   },
+   "mode": "live",
+   "survivors": []
   }
  ],
  "mode": "live",
@@ -984,11 +991,11 @@
   "baum": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2047,
+   "fresh": 2053,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 137,
-   "produced": 2205,
+   "produced": 2213,
    "surprise": 2,
    "survived": 2,
    "tested": 137
@@ -996,23 +1003,23 @@
   "cubic": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1742,
+   "fresh": 1750,
    "machine_checked": 0,
    "no_reference_found": 3,
-   "passed_filter": 275,
-   "produced": 1866,
+   "passed_filter": 276,
+   "produced": 1875,
    "surprise": 3,
-   "survived": 143,
-   "tested": 275
+   "survived": 144,
+   "tested": 276
   },
   "fibw": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2054,
+   "fresh": 2063,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 116,
-   "produced": 2234,
+   "produced": 2243,
    "surprise": 2,
    "survived": 4,
    "tested": 116
@@ -1020,23 +1027,23 @@
   "overpart": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3222,
+   "fresh": 3233,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 76,
-   "produced": 3323,
+   "passed_filter": 77,
+   "produced": 3335,
    "surprise": 0,
    "survived": 0,
-   "tested": 76
+   "tested": 77
   },
   "pdbl": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2000,
+   "fresh": 2004,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 119,
-   "produced": 2162,
+   "produced": 2167,
    "surprise": 2,
    "survived": 6,
    "tested": 119
@@ -1044,23 +1051,23 @@
   "pfold": {
    "explained_by_known_check": 0,
    "explained_by_reference": 3,
-   "fresh": 1739,
+   "fresh": 1746,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 143,
-   "produced": 1827,
+   "passed_filter": 144,
+   "produced": 1835,
    "surprise": 0,
-   "survived": 8,
-   "tested": 143
+   "survived": 9,
+   "tested": 144
   },
   "podd": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2105,
+   "fresh": 2108,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 183,
-   "produced": 2571,
+   "produced": 2576,
    "surprise": 2,
    "survived": 9,
    "tested": 183
@@ -1068,23 +1075,23 @@
   "pplane": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1773,
+   "fresh": 1777,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 188,
-   "produced": 2049,
+   "passed_filter": 189,
+   "produced": 2053,
    "surprise": 0,
    "survived": 0,
-   "tested": 188
+   "tested": 189
   },
   "rs": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 1939,
+   "fresh": 1947,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 107,
-   "produced": 2035,
+   "produced": 2045,
    "surprise": 1,
    "survived": 3,
    "tested": 107
@@ -1092,14 +1099,14 @@
   "tm": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 2134,
+   "fresh": 2146,
    "machine_checked": 0,
    "no_reference_found": 3,
-   "passed_filter": 137,
-   "produced": 2233,
+   "passed_filter": 138,
+   "produced": 2245,
    "surprise": 3,
    "survived": 19,
-   "tested": 137
+   "tested": 138
   }
  }
 }
