@@ -721,7 +721,11 @@ def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
         bonus = _ucb_bonus(proposal.fingerprint)
         delta = pen + bonus
         try:
-            from colony.tools.surgical_implants import refractory, component_scope, homeostatic_scale
+            from colony.tools.surgical_implants import (
+                refractory, component_scope, homeostatic_scale, energy_settled,
+            )
+            if energy_settled([getattr(proposal.match, "score", 0)]):
+                pass
             if not refractory(proposal.fingerprint, last_fp=""):
                 return proposal
             if not component_scope(getattr(proposal, "role", "improver"), getattr(proposal, "op", "set_knob")):

@@ -237,3 +237,22 @@ def prune_weak(records: List[Mapping[str, Any]], max_keep: int = 64) -> List[Map
         return list(records[-max_keep:])
     except Exception:
         return list(records)
+
+
+
+# ---------------------------------------------------------------------------
+# 11. CRAM invariant: stop when energy stops dropping
+# ---------------------------------------------------------------------------
+
+def energy_settled(scores: list, eps: int = 0) -> bool:
+    """True if the last two scores did not decrease.
+
+    Classical energy descent (Hopfield/CRAM): once E stops falling,
+    the system has settled. Early stop is free. Fail-open returns False.
+    """
+    try:
+        if not scores or len(scores) < 2:
+            return False
+        return int(scores[-1]) >= int(scores[-2]) - int(eps)
+    except Exception:
+        return False
