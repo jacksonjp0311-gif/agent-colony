@@ -1961,11 +1961,71 @@
    "status": "holds_on_range",
    "tested_hi": 253,
    "credit": 0.0
+  },
+  "oc_A191313_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 498,
+   "credit": 0.0
+  },
+  "oc_A084261_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 184,
+   "credit": 0.0
+  },
+  "oc_A125267_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 361,
+   "credit": 0.0
+  },
+  "oc_A191309_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 496,
+   "credit": 0.0
+  },
+  "oc_A124431_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 264,
+   "credit": 0.0
+  },
+  "oc_A274479_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 255,
+   "credit": 0.0
+  },
+  "oc_A191398_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A191531_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A257388_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 223,
+   "credit": 0.0
+  },
+  "oc_A126568_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 600,
+   "attempts": 610,
    "credit": 24.1488
   },
   "gf": {
