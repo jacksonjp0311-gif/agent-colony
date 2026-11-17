@@ -1,25 +1,99 @@
-"""Crystallize a verified keep into Bitwork.
+"""Crystallize a verified keep into durable Bitwork prototypes.
 
-On a durable keep, append a prototype for the fingerprint so later
-queries can retrieve it. Fail-open. Lineage-preserving.
+Stores a uniquely identified record. A fresh process can reload
+and retrieve it. Fail-open. Lineage-preserving.
 """
 from __future__ import annotations
+from typing import Any, Mapping
+from pathlib import Path
+import json
+from datetime import datetime, timezone
 
-def crystallize(fingerprint: str, source: str = "colony", category: str = "kept") -> bool:
-    if not fingerprint:
+ROOT = Path(__file__).resolve().parent.parent.parent
+STORE = ROOT / "data" / "commons" / "crystallized.jsonl"
+
+def _utc() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+def _fingerprint(treatment: Any) -> str:
+    """Extract fingerprint from dict or object."""
+    if treatment is None:
+        return ""
+    if isinstance(treatment, Mapping):
+        return str(treatment.get("fingerprint") or treatment.get("knob") or "")
+    return str(getattr(treatment, "fingerprint", "") or "")
+
+def crystallize(treatment: Any = None, fingerprint: str = "", source: str = "colony", category: str = "kept") -> bool:
+    fp = fingerprint or _fingerprint(treatment)
+    if not fp:
         return False
+    key = f"{source}:{fp}"
     try:
-        from hive.bitwork import Router
-        router = Router()
-        text = f"kept {fingerprint} from {source}"
-        router.learn(
-            text=text,
-            category=category,
-            action_key=fingerprint,
-            positive=True,
-            source_id=source,
-            proto_key=f"{source}:{fingerprint}",
-        )
+        # Skip if already stored
+        if STORE.exists():
+            for line in STORE.read_text(encoding="utf-8").splitlines():
+                try:
+                    if json.loads(line).get("key") == key:
+                        return True  # already durable
+                except Exception:
+                    continue
+        STORE.parent.mkdir(parents=True, exist_ok=True)
+        rec = {
+            "key": key,
+            "fingerprint": fp,
+            "source": source,
+            "lineage": source,
+            "category": category,
+            "ts": _utc(),
+        }
+        with STORE.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec) + "\n")
+        # Also learn into a live router if available (best-effort)
+        try:
+            from hive.bitwork import Router
+            router = Router()
+            router.learn(
+                text=f"kept {fp} from {source}",
+                category=category,
+                action_key=fp,
+                positive=True,
+                source_id=source,
+                proto_key=key,
+            )
+        except Exception:
+            pass
         return True
     except Exception:
         return False
+
+def reload_into(router: Any = None) -> int:
+    """Load durable records into a Router. Returns count loaded."""
+    if not STORE.exists():
+        return 0
+    if router is None:
+        from hive.bitwork import Router
+        router = Router()
+    n = 0
+    for line in STORE.read_text(encoding="utf-8").splitlines():
+        try:
+            rec = json.loads(line)
+            router.learn(
+                text=f"kept {rec['fingerprint']} from {rec['source']}",
+                category=rec.get("category", "kept"),
+                action_key=rec["fingerprint"],
+                positive=True,
+                source_id=rec["source"],
+                proto_key=rec["key"],
+            )
+            n += 1
+        except Exception:
+            continue
+    return n
+
+def retrieve(fingerprint: str, source: str = "colony") -> bool:
+    """True if a fresh load finds this fingerprint."""
+    from hive.bitwork import Router
+    router = Router()
+    reload_into(router)
+    key = f"{source}:{fingerprint}"
+    return any(getattr(p, "key", "") == key for p in getattr(router, "prototypes", []))

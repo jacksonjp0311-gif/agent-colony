@@ -600,7 +600,7 @@ def decide_keep(
     if keep:
         try:
             from colony.tools.crystallize import crystallize
-            crystallize(str(getattr(treatment, "fingerprint", "") or ""), source="colony")
+            crystallize(treatment, source="colony")
         except Exception:
             pass
     reason = "kept" if keep else (
