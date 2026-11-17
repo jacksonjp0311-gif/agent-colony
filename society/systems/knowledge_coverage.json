@@ -61,7 +61,7 @@
       "concepts": 3,
       "distinct_concepts": 3,
       "papers": 8,
-      "reads": 9
+      "reads": 10
     },
     "neural_architecture": {
       "cards_formed": 5,
@@ -105,8 +105,8 @@
       "cards_tested": 0,
       "concepts": 1,
       "distinct_concepts": 1,
-      "papers": 8,
-      "reads": 9
+      "papers": 9,
+      "reads": 10
     },
     "self_learning_loops": {
       "cards_formed": 2,
@@ -114,8 +114,8 @@
       "cards_tested": 0,
       "concepts": 10,
       "distinct_concepts": 4,
-      "papers": 11,
-      "reads": 10
+      "papers": 12,
+      "reads": 11
     },
     "swarm_collective_intelligence": {
       "cards_formed": 6,
@@ -268,7 +268,7 @@
     "cards_kept": 0,
     "cards_tested": 0,
     "concepts": 76,
-    "papers": 127,
-    "reads": 149
+    "papers": 129,
+    "reads": 152
   }
 }

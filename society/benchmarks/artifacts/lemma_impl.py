@@ -2479,13 +2479,6 @@ def check_authored_mut_swap_related_sequence_3b3fef4a07b3() -> bool:
     return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'cheb3[oxa055394]', 'params': {}, 'rhs': '(oxa056971*oxa009191)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
-def check_authored_mut_swap_related_sequence_e4140eac9f41() -> bool:
-    """Authored mutated claim (target generator, swap_related_sequence):
-    D(gcd(oxa056971,pi))(n) = 0 (mod 2) for all n = 1 (mod 2)
-    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
-    Disabled until the Oracle passes it. Never executes fetched code.
-    """
-    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(gcd(oxa056971,pi))', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
@@ -2732,7 +2725,6 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a000172_franel_recurrence", lambda: all(check_oeis_a000172_franel_recurrence(n) for n in range(0, 40)), True),
     ("oeis_a002893_hexagonal_walks", lambda: all(check_oeis_a002893_hexagonal_walks(n) for n in range(0, 40)), True),
     ("authored_mut_swap_related_sequence_3b3fef4a07b3", check_authored_mut_swap_related_sequence_3b3fef4a07b3, False),
-    ("authored_mut_swap_related_sequence_e4140eac9f41", check_authored_mut_swap_related_sequence_e4140eac9f41, False),
 ]
 
 

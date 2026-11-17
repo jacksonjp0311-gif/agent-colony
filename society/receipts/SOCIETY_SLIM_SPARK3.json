@@ -1,5 +1,5 @@
 {
-  "when": "2026-11-17T02:40:05Z",
+  "when": "2026-11-17T03:11:40Z",
   "mile": "spark3-port",
   "cycle_count": 894,
   "fitness_latest": {
@@ -655,11 +655,11 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8887
+    "aggregate_score": 0.8809
   },
   "novelty_gate": {
     "hits": 19,
-    "kills": 9
+    "kills": 10
   },
   "debate_multihop": {
     "action_changed": true,
@@ -675,14 +675,14 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261117T023317Z_0a9f9b"
+    "cycle_id": "20261117T030628Z_8e9179"
   },
   "oracle": {
-    "passes": 590,
+    "passes": 591,
     "kills": 394,
     "easy_pad_kills": 32,
-    "total": 984,
-    "kill_rate": 0.4004
+    "total": 985,
+    "kill_rate": 0.4
   },
   "easy_pad_dies": true,
   "note": "Slim CI receipt. Giant JSONL not rewritten. Spark3 Athanor+PulseMesh port mile. Not AGI. Not novel theorems."
