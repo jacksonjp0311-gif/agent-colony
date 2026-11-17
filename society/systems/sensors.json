@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-17T01:38:18Z",
-  "cycle_id": "20261117T013746Z_5ba9c8",
+  "ts": "2026-11-17T02:07:53Z",
+  "cycle_id": "20261117T020714Z_c2459c",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -115,26 +115,26 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8561,
-      "slope": -0.000783,
+      "last": 0.8562,
+      "slope": -0.000647,
       "min": 0.8386,
       "max": 0.8591
     },
     "novelty": {
       "last": 0.6786,
-      "slope": -0.004369,
+      "slope": -0.003994,
       "min": 0.6786,
       "max": 0.7143
     },
     "kill_rate": {
       "last": 0.4004,
-      "slope": -4.9e-05,
+      "slope": -4.5e-05,
       "min": 0.4004,
       "max": 0.4008
     },
     "kill_rate_term": {
       "last": 0.9104,
-      "slope": -3.7e-05,
+      "slope": -3.4e-05,
       "min": 0.9104,
       "max": 0.9107
     },
@@ -279,23 +279,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.103,
+      "ratio": 0.872,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.088,
+      "ratio": 0.855,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.186,
+      "ratio": 0.918,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.21,
-      "drift": false
+      "ratio": 2.552,
+      "drift": true
     },
     "kinematics_microbench": {
-      "ratio": 1.076,
+      "ratio": 1.053,
       "drift": false
     }
   },
@@ -304,8 +304,8 @@
     "verified": {
       "goldbach_even": 535634115,
       "collatz_descent": 572600000,
-      "legendre_square_gap": 2908607,
-      "lehmer_totient": 269400001,
+      "legendre_square_gap": 2924607,
+      "lehmer_totient": 271000001,
       "erdos_straus": 1499127,
       "twin_primes_hl": 714200000,
       "oeis_A104062_next": 518690000001
@@ -346,9 +346,9 @@
       "sieve.forecast_and_count": "colony.instruments.sieve:forecast_and_count"
     },
     "sieve": {
-      "c_helper_built": true,
+      "c_helper_built": false,
       "compiler": true,
-      "primesieve_cli": true,
+      "primesieve_cli": false,
       "max_span": 10000000000,
       "py_max_span": 200000000,
       "timeout_s": 120.0
@@ -448,6 +448,7 @@
   "signals": [
     "revert_streaks: stem_elastic_collision, stem_isothermal_work, stem_kepler_third_law, stem_rc_discharge → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
+    "bench_timing_drift: lemma_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

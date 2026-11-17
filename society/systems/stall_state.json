@@ -543,17 +543,19 @@
     "20261117T010509Z_15fab9",
     "20261117T012618Z_c63b0d",
     "20261117T013246Z_fef545",
-    "20261117T013746Z_5ba9c8"
+    "20261117T013746Z_5ba9c8",
+    "20261117T020457Z_c71851",
+    "20261117T020714Z_c2459c"
   ],
   "proposal_parks": {
     "254f76bd3854": {
       "title": "blocked repeat: Chain+seek `lemma_hard_combinatorics` from invariant priors",
       "action": "seek_enable:lemma_hard_combinatorics",
       "blocks": [
-        "20261116T051533Z_eed64e",
         "20261116T192027Z_244f58",
         "20261116T192428Z_5b0afa",
-        "20261116T051533Z_eed64e",
+        "20261116T192027Z_244f58",
+        "20261116T192428Z_5b0afa",
         "20261116T192027Z_244f58",
         "20261116T192428Z_5b0afa",
         "20261116T192027Z_244f58",
@@ -1223,30 +1225,6 @@
     }
   ],
   "turns": [
-    {
-      "cycle_id": "20261116T012639Z_86844e",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T012905Z_41f3cb",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261116T012905Z_41f3cb",
-      "kind": "oeis_idle",
-      "name": "",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T012905Z_41f3cb",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
     {
       "cycle_id": "20261116T014345Z_0a7381",
       "kind": "proposal",
@@ -3622,6 +3600,30 @@
       "kind": "claim_theme",
       "name": "vandermonde",
       "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T020457Z_c71851",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261117T020457Z_c71851",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T020457Z_c71851",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T020714Z_c2459c",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
     }
   ],
   "targets_tried": [
