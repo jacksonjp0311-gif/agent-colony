@@ -2107,25 +2107,25 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261117T105055Z_eb1662",
+  "last_cycle": "20261117T112306Z_3f5aa4",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
       "name": "park_cycles",
       "op": "set_knob",
-      "value": 12
+      "value": 11
     },
     "applied_to_live_oracle": false,
     "authorized": false,
     "card_id": "",
-    "cycle_id": "20261117T102047Z_a18dd9",
-    "deferred_count": 5,
-    "deferred_under": "963b6aea9185777214aaaa40ca7003aa023f11c2938740e154f326370d140c86",
+    "cycle_id": "20261117T112306Z_3f5aa4",
+    "deferred_count": 2,
+    "deferred_under": "546e6003966c5c562a960bc71c7b3265ec10e86a74fdcd5dbf629af5a6a69d4f",
     "event": "hive_deferred",
-    "fingerprint": "set_knob:direction=up:name=park_cycles:value=12",
+    "fingerprint": "set_knob:direction=up:name=park_cycles:value=11",
     "label": "dead_end_streak",
     "method": "",
-    "ts": "2026-11-17T10:23:31Z"
+    "ts": "2026-11-17T11:26:25Z"
   },
   "n_inconclusive": 6,
   "n_kept": 14,
@@ -2287,11 +2287,11 @@
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 73,
-    "pending": 127,
-    "resolved": 73,
+    "incorrect": 72,
+    "pending": 128,
+    "resolved": 72,
     "source": "hive_shadows",
-    "ts": "2026-11-17T10:55:02Z",
+    "ts": "2026-11-17T11:27:37Z",
     "unlabeled": 0
   },
   "twin_pending": [],

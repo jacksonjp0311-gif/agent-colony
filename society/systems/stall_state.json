@@ -567,7 +567,10 @@
     "20261117T102047Z_a18dd9",
     "20261117T104013Z_0afe29",
     "20261117T104633Z_edeaff",
-    "20261117T105055Z_eb1662"
+    "20261117T105055Z_eb1662",
+    "20261117T111250Z_8a1f60",
+    "20261117T111751Z_b4a315",
+    "20261117T112306Z_3f5aa4"
   ],
   "proposal_parks": {
     "254f76bd3854": {
@@ -604,18 +607,6 @@
   },
   "pass_history": [
     {
-      "cycle_id": "20261116T153323Z_cbd490",
-      "pass_total": 580
-    },
-    {
-      "cycle_id": "20261116T153827Z_d93459",
-      "pass_total": 580
-    },
-    {
-      "cycle_id": "20261116T155756Z_014cfc",
-      "pass_total": 581
-    },
-    {
       "cycle_id": "20261116T160258Z_032cac",
       "pass_total": 581
     },
@@ -921,23 +912,23 @@
     },
     {
       "cycle_id": "20261117T105055Z_eb1662",
+      "pass_total": 592
+    },
+    {
+      "cycle_id": "20261117T111250Z_8a1f60",
+      "pass_total": 592
+    },
+    {
+      "cycle_id": "20261117T111751Z_b4a315",
+      "pass_total": 592
+    },
+    {
+      "cycle_id": "20261117T112306Z_3f5aa4",
       "pass_total": 592
     }
   ],
   "kill_history": [
     {
-      "cycle_id": "20261116T153323Z_cbd490",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261116T153827Z_d93459",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261116T155756Z_014cfc",
-      "kills": []
-    },
-    {
       "cycle_id": "20261116T160258Z_032cac",
       "kills": []
     },
@@ -1244,63 +1235,21 @@
     {
       "cycle_id": "20261117T105055Z_eb1662",
       "kills": []
+    },
+    {
+      "cycle_id": "20261117T111250Z_8a1f60",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261117T111751Z_b4a315",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261117T112306Z_3f5aa4",
+      "kills": []
     }
   ],
   "turns": [
-    {
-      "cycle_id": "20261116T053003Z_763b1a",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261116T053003Z_763b1a",
-      "kind": "oeis_idle",
-      "name": "",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T053003Z_763b1a",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T053325Z_c70140",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261116T053325Z_c70140",
-      "kind": "oeis_idle",
-      "name": "",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T053325Z_c70140",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T053650Z_4fc81b",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261116T053650Z_4fc81b",
-      "kind": "oeis_idle",
-      "name": "",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T053650Z_4fc81b",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
     {
       "cycle_id": "20261116T055233Z_f4bf0c",
       "kind": "proposal",
@@ -3646,6 +3595,60 @@
       "kind": "claim_theme",
       "name": "vandermonde",
       "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T111250Z_8a1f60",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261117T111250Z_8a1f60",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T111250Z_8a1f60",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T111751Z_b4a315",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261117T111751Z_b4a315",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T111751Z_b4a315",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T112306Z_3f5aa4",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261117T112306Z_3f5aa4",
+      "kind": "oeis_idle",
+      "name": "",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261117T112306Z_3f5aa4",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
     }
   ],
   "targets_tried": [
@@ -4179,10 +4182,17 @@
         "oc_A026923_0"
       ],
       "kind": "depth"
+    },
+    {
+      "cycle_id": "20261117T111751Z_b4a315",
+      "targets": [
+        "oc_A023110_0"
+      ],
+      "kind": "depth"
     }
   ],
   "last_new_pass_cycle": "20261117T104633Z_edeaff",
-  "last_depth_progress_cycle": "20261116T230132Z_4734f8",
+  "last_depth_progress_cycle": "20261117T111751Z_b4a315",
   "depth_progress_history": [
     {
       "cycle_id": "20261113T165317Z_0b7a16",
@@ -4291,6 +4301,12 @@
       "cycle_id": "20261116T230132Z_4734f8",
       "targets": [
         "oc_A026923_0"
+      ]
+    },
+    {
+      "cycle_id": "20261117T111751Z_b4a315",
+      "targets": [
+        "oc_A023110_0"
       ]
     }
   ],
