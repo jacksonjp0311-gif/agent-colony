@@ -9,14 +9,14 @@ decides a keep. Reverts and voids are recorded too. This is not
 AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
-- Kept: **14**
+- Kept: **15**
 - Reverted (including twin-not-better): **10**
 - Voided (environment changed mid-trial): **16**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **8**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **2** times (`set_knob:direction=up:name=park_cycles:value=11`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 72, correct 0, pending 128, accuracy 0‰
+- Hive shadow picks: resolved 74, correct 0, pending 126, accuracy 0‰
 
 ## Per method card
 
@@ -33,10 +33,10 @@ _None yet._
 | `set_knob:park_cycles` | 15 | 2 | 7 | 133‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 1 | 0 | 0 | 0‰ |
+| `set_knob:step_size` | 1 | 1 | 0 | 1000‰ |
 
 ## Recent outcomes
 
-- `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261116T061643Z_252f96` (baseline 1.0, trial None)
 - `voided` · card `—` · family `set_knob:deep_digits` · cycle `20261116T075057Z_0b95bb` (baseline 24.0, trial None)
 - `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261116T123849Z_0ac470` (baseline 0.0, trial 256.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T173537Z_be43ea` (baseline 8.0, trial 5.0)
@@ -48,6 +48,7 @@ _None yet._
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261117T000430Z_7fec4f` (baseline 6.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261117T010509Z_15fab9` (baseline 4.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261117T022831Z_add0c8` (baseline 4.0, trial None)
+- `kept` · card `—` · family `set_knob:step_size` · cycle `20261117T115227Z_31a000` (baseline 5.0, trial 7.0)
 
 ## Reading breadth (knowledge library)
 
