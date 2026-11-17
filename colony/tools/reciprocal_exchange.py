@@ -61,14 +61,15 @@ def merge_remote(my_source: str) -> int:
     remote = fetch_remote(my_source)
     if not remote:
         return 0
-    existing = {json.dumps(r, sort_keys=True) for r in _read_lines(LOCAL)}
+    def _stable(r):
+        return json.dumps({k: r.get(k) for k in ("source", "lineage", "fingerprint", "kind", "outcome") if k in r}, sort_keys=True)
+    existing = {_stable(r) for r in _read_lines(LOCAL)}
     added = 0
     LOCAL.parent.mkdir(parents=True, exist_ok=True)
     with LOCAL.open("a", encoding="utf-8") as f:
         for rec in remote:
             # Dedup on stable fields only (ignore import metadata and local ts)
-            stable = {k: rec.get(k) for k in ("source", "lineage", "fingerprint", "kind", "outcome") if k in rec}
-            key = json.dumps(stable, sort_keys=True)
+            key = _stable(rec)
             if key not in existing:
                 f.write(json.dumps(rec) + "\n")
                 existing.add(key)

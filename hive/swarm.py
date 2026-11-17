@@ -868,7 +868,7 @@ def propose_for_role(
         try:
             from colony.tools.symbiotic_exchange import append_receipt, foreign_fingerprints
             if prop and getattr(prop, "fingerprint", ""):
-                append_receipt("colony", "proposal", prop.fingerprint, "reverted",
+                append_receipt("colony", "proposal", prop.fingerprint, "proposed",
                                {"bias_delta": delta})
             if delta < 0 and prop and getattr(prop, "fingerprint", ""):
                 fps = foreign_fingerprints("colony", limit=200)
