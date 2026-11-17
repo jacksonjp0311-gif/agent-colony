@@ -663,6 +663,48 @@ def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
         return 0
 
 
+
+def _ucb_bonus(fingerprint: str, c: int = 80) -> int:
+    """UCB-style exploration bonus. Under-tried fingerprints get a lift.
+
+    Pure count over failure log + exchange. Fail-open returns 0.
+    """
+    try:
+        import math
+        from pathlib import Path
+        import json
+        if not fingerprint:
+            return 0
+        n_fp = 0
+        n_total = 1
+        log = Path(__file__).resolve().parent.parent / "data" / "commons" / "self_change_failures.jsonl"
+        if log.exists():
+            for line in log.read_text(encoding="utf-8").splitlines()[-100:]:
+                n_total += 1
+                try:
+                    rec = json.loads(line)
+                    fp = str(rec.get("fingerprint") or (rec.get("subject") or {}).get("knob") or "")
+                    if fp == fingerprint:
+                        n_fp += 1
+                except Exception:
+                    continue
+        # Also count exchange
+        ex = Path(__file__).resolve().parent.parent / "data" / "commons" / "exchange.jsonl"
+        if ex.exists():
+            for line in ex.read_text(encoding="utf-8").splitlines()[-50:]:
+                n_total += 1
+                try:
+                    rec = json.loads(line)
+                    if str(rec.get("fingerprint") or "") == fingerprint:
+                        n_fp += 1
+                except Exception:
+                    continue
+        n_fp = max(n_fp, 1)
+        bonus = int(c * math.sqrt(math.log(max(n_total, 2)) / n_fp))
+        return min(bonus, 150)
+    except Exception:
+        return 0
+
 def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
     """Fail-open score adjustment using existing failure log.
 
@@ -674,10 +716,12 @@ def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
     try:
         from dataclasses import replace
         pen = _failure_penalty(proposal.fingerprint)
-        if pen == 0:
+        bonus = _ucb_bonus(proposal.fingerprint)
+        delta = pen + bonus
+        if delta == 0:
             return proposal
         old = proposal.match
-        new_score = int(getattr(old, "score", 0)) + pen
+        new_score = int(getattr(old, "score", 0)) + delta
         new_match = replace(old, score=new_score)
         # Proposal may also be frozen or a simple namespace; try replace then fallback
         try:
