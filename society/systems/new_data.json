@@ -24,72 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 0.028,
-   "cycle_id": "20261116T233004Z_af21ba",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.027,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-16T23:33:47Z",
-   "work_sched": {
-    "done": 12,
-    "eligible": 0,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
-   "cpu_s": 0.029,
-   "cycle_id": "20261116T233435Z_835d4e",
-   "discovered": [],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.028,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-16T23:38:26Z",
-   "work_sched": {
-    "done": 12,
-    "eligible": 0,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
    "cpu_s": 0.026,
    "cycle_id": "20261116T235534Z_8468c0",
    "discovered": [],
@@ -1382,11 +1316,112 @@
     "sparse_eligible": 0,
     "sparse_entries": 6
    }
+  },
+  {
+   "cpu_s": 0.669,
+   "cycle_id": "20261117T121839Z_ea1759",
+   "discovered": [
+    {
+     "anum": null,
+     "item": "gb_u_odd:recpos",
+     "status": "no_alignment",
+     "why": "OEIS terms differ beyond the probe"
+    }
+   ],
+   "mode": "live",
+   "net_requests": 6,
+   "oeis_index": "available",
+   "pushed": [
+    {
+     "anum": "A002375",
+     "checked": "2026-11-17T12:22:51Z",
+     "cpu_a": 0.012,
+     "cpu_b": 0.575,
+     "cpu_s": 0.587,
+     "d": 0,
+     "first_disagreement": null,
+     "frontier_n": 20000,
+     "item": "gb_u_odd:terms",
+     "linked_k_max": 20000,
+     "methods": [
+      "numpy FFT convolution of the prime indicator (floating point, rounded)",
+      "direct integer enumeration over an independent odd-only sieve"
+     ],
+     "n_values": 1000,
+     "ns": [
+      20001,
+      21000
+     ],
+     "op": "terms",
+     "pub_k_max": 20000,
+     "sha256": "e917a47a97e47f19",
+     "source": "https://oeis.org/A002375/b002375.txt",
+     "status": "computed beyond published frontier (verified 2 ways)",
+     "ts": "2026-11-17T12:22:51Z"
+    }
+   ],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T12:22:51Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
+  },
+  {
+   "cpu_s": 0.022,
+   "cycle_id": "20261117T122338Z_ce43c3",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-17T12:27:51Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
   }
  ],
  "last": {
   "cpu_s": 0.022,
-  "cycle_id": "20261117T115716Z_4baa87",
+  "cycle_id": "20261117T122338Z_ce43c3",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -1400,7 +1435,7 @@
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-11-17T12:00:47Z",
+  "ts": "2026-11-17T12:27:51Z",
   "work_sched": {
    "done": 12,
    "eligible": 0,
@@ -4833,7 +4868,7 @@
   "gb_u_odd:recpos": {
    "anum": null,
    "status": "no_alignment",
-   "ts": "2026-10-18T12:22:23Z",
+   "ts": "2026-11-17T12:22:41Z",
    "why": "OEIS terms differ beyond the probe"
   },
   "gb_u_odd:recval": {
