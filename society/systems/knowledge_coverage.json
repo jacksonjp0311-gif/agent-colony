@@ -24,17 +24,17 @@
       "cards_tested": 0,
       "concepts": 4,
       "distinct_concepts": 2,
-      "papers": 8,
-      "reads": 10
+      "papers": 9,
+      "reads": 11
     },
     "learning_theory": {
-      "cards_formed": 0,
+      "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 9,
-      "distinct_concepts": 2,
-      "papers": 8,
-      "reads": 10
+      "concepts": 15,
+      "distinct_concepts": 3,
+      "papers": 13,
+      "reads": 11
     },
     "mathematics": {
       "cards_formed": 0,
@@ -42,8 +42,8 @@
       "cards_tested": 0,
       "concepts": 0,
       "distinct_concepts": 0,
-      "papers": 16,
-      "reads": 20
+      "papers": 24,
+      "reads": 21
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -264,11 +264,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 33,
+    "cards_formed": 34,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 85,
-    "papers": 141,
-    "reads": 156
+    "concepts": 91,
+    "papers": 155,
+    "reads": 159
   }
 }

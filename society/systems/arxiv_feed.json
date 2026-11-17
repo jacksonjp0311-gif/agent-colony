@@ -1,24 +1,24 @@
 {
-  "last_attempt_at": "2026-11-17T02:58:00Z",
+  "last_attempt_at": "2026-11-17T09:09:26Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-17T02:58:00Z",
+  "last_ok_at": "2026-11-17T09:09:26Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Neural Dual Bounds: Valid-by-Construction JGLP Warm-Starts for MAP and Constrained MAP",
-      "abstract_snippet": "We present Neural Dual Bounds, a calibration-free framework that produces deterministic upper bounds for MAP inference in probabilistic graphical models using a single neural-network forward pass. The framework trains a network to output the edge messages of a mini-bucket style upper bound on a given join-graph decomposition in a self-supervised manner by directly minimizing a smooth dual objectiv",
-      "url": "https://arxiv.org/abs/2611.19218",
-      "arxiv_id": "2611.19218",
+      "title": "Latent Lattice Language Models",
+      "abstract_snippet": "Language models typically increase per-token computation through deeper or looped layers and latent reasoning steps, while richer residual connections improve information flow across layers. We instead increase computational capacity: the number of active computational states a model maintains. We introduce the Lattice of Latents, a set of per-layer horizontal latent streams that run recurrently a",
+      "url": "https://arxiv.org/abs/2611.21608",
+      "arxiv_id": "2611.21608",
       "doi": "",
       "authors": [
-        "Akshay Vyas",
-        "Shivvrat Arya",
-        "Brij Malhotra",
-        "Tahrima Rahman",
-        "Vibhav Gogate",
-        "Nicholas Ruozzi"
+        "Shivam Duggal",
+        "Zongze Wu",
+        "William T. Freeman",
+        "Antonio Torralba",
+        "Richard Zhang",
+        "Eli Shechtman"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +28,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-17T02:58:00Z"
+      "fetched_at": "2026-11-17T09:09:26Z"
     },
     {
       "source": "arxiv",
-      "title": "On-policy distillation as a Backdoor Propagation Channel",
-      "abstract_snippet": "On-policy distillation (OPD) is emerging as an important paradigm for the post training of large language models, improving student models by leveraging supervision generated online by teacher models. However, whether this process also transfers latent security risks from teacher models to student models remains insufficiently studied. In this work, we reveal a new security risk in which an attack",
-      "url": "https://arxiv.org/abs/2611.19207",
-      "arxiv_id": "2611.19207",
+      "title": "Quantifying the added value of human forecaster discussions for tropical cyclone intensity prediction",
+      "abstract_snippet": "The National Hurricane Center routinely releases Tropical Cyclone Discussions that offer insights into its tropical cyclone forecasts. This study examines the added value of these discussions for intensity forecasting beyond a set of numerical predictors. For 637 Atlantic and eastern North Pacific tropical cyclones from the 2002-2023 hurricane seasons, we analyze the discussion text and its combin",
+      "url": "https://arxiv.org/abs/2611.21602",
+      "arxiv_id": "2611.21602",
       "doi": "",
       "authors": [
-        "Zane Fu",
-        "Yanzhao Zheng",
-        "Ziting Qin",
-        "Qianshan Wei",
-        "Yi Yu",
-        "Gongli Xi"
+        "Ilia Azizi",
+        "Frederick Iat-Hin Tam",
+        "Marc-Olivier Boldi",
+        "Valérie Chavez-Demoulin",
+        "Tom Beucler"
       ],
       "year": 2026,
       "tags": [
@@ -53,22 +52,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-17T02:58:00Z"
+      "fetched_at": "2026-11-17T09:09:26Z"
     },
     {
       "source": "arxiv",
-      "title": "LogT: Logically Think with Images for Visual Search",
-      "abstract_snippet": "Thinking with images empowers vision-language models (VLMs) to use an external Zoom-in tool for fine-grained visual search. Recent works employ supervised fine-tuning (SFT) and reinforcement learning (RL) with tool-specific designs to enable such capabilities. However, achieving logical reasoning alongside accurate and efficient tool use remains a significant challenge. To address this, we shift t",
-      "url": "https://arxiv.org/abs/2611.19200",
-      "arxiv_id": "2611.19200",
+      "title": "How VLMs Plan What's Next",
+      "abstract_snippet": "When a vision-language model describes an image, it names one object at a time and it rarely repeats itself, yet how the model plans this order is far from obvious. We characterize the mechanism a VLM uses to decide where to look before it looks. The mechanism has four main parts. First, binding heads match the relevant text tokens against the image and resolve them into pointers to the matched im",
+      "url": "https://arxiv.org/abs/2611.21600",
+      "arxiv_id": "2611.21600",
       "doi": "",
       "authors": [
-        "Yanjun Fu",
-        "Quanzeng You",
-        "Jiadong Guo",
-        "Yujie Lu",
-        "Sai Charitha Akula",
-        "Haiping Wu"
+        "Rohit Gandikota",
+        "Arnab Sen Sharma",
+        "Adam Belfki",
+        "David Bau"
       ],
       "year": 2026,
       "tags": [
@@ -78,18 +75,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-17T02:58:00Z"
+      "fetched_at": "2026-11-17T09:09:26Z"
     },
     {
       "source": "arxiv",
-      "title": "Generalization Testing of Grid Foundation Models for Power Flow and Optimal Power Flow",
-      "abstract_snippet": "There is growing interest in foundation models (FMs) for power grids, particularly for power flow and optimal power flow. Their usefulness depends on generalization accuracy, which existing works test on their own benchmarks. We propose a three-axis framework to test their generalization limits: changed admittance matrices of training grids, load levels, and unseen grids. We test GENCO, LUMINA and",
-      "url": "https://arxiv.org/abs/2611.19194",
-      "arxiv_id": "2611.19194",
+      "title": "Hyperlyve: Parallelized Enumeration and Exact Lyapunov Stability Certification for Deep ReLU Networks",
+      "abstract_snippet": "We introduce Hyperlyve (Hyperplane Partitioned Lyapunov Verification and Enumeration), a framework for proving the asymptotic stability of nonlinear dynamical systems, including those with neural network controllers. Hyperlyve learns and formally certifies continuous piecewise-affine (CPA) neural Lyapunov functions within a counterexample-guided inductive synthesis (CEGIS) loop. Hyperlyve's key in",
+      "url": "https://arxiv.org/abs/2611.21599",
+      "arxiv_id": "2611.21599",
       "doi": "",
       "authors": [
-        "Ayushi Jolotia",
-        "Parikshit Pareek"
+        "Brian Yarbrough",
+        "Jesse Wayment",
+        "Jingbo Wang",
+        "Philip E. Paré",
+        "Shreyas Sundaram"
       ],
       "year": 2026,
       "tags": [
@@ -99,19 +99,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-17T02:58:00Z"
+      "fetched_at": "2026-11-17T09:09:26Z"
     },
     {
       "source": "arxiv",
-      "title": "The length of the longest path in random acyclic orientations of a complete multipartite graph",
-      "abstract_snippet": "We study the distribution of the length of the longest path in a uniformly random acyclic orientation of a complete multipartite graph. We derive an explicit analytic expression for the probability generating function of the longest path length, and, for an arbitrary fixed number of parts of equal size, we apply analytic combinatorics in several variables to obtain asymptotics (as the part size te",
-      "url": "https://arxiv.org/abs/2611.19164",
-      "arxiv_id": "2611.19164",
+      "title": "Mitigating Catastrophic Forgetting with Physics-Indexed Specialist Memory: the Evolutionary Neuroplastic Agent",
+      "abstract_snippet": "Continual reinforcement learning requires adaptation to changing conditions while preserving performance under previously encountered dynamics. It was investigated whether specialists generated by evolutionary search can provide a reusable memory when combined with environment detection and failure-driven search. The Evolutionary Neuroplastic Agent (ENA) evolves small neural networks without gradi",
+      "url": "https://arxiv.org/abs/2611.21598",
+      "arxiv_id": "2611.21598",
       "doi": "",
       "authors": [
-        "Aiden Corcoran",
-        "Erik Lundberg",
-        "Elisabeth Rodriguez"
+        "Blas Eugenio Vicco Zarate",
+        "Miguel Hernán Vicco"
       ],
       "year": 2026,
       "tags": [
@@ -121,7 +120,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-17T02:58:00Z"
+      "fetched_at": "2026-11-17T09:09:26Z"
     }
   ]
 }
