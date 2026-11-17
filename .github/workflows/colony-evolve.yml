@@ -4,6 +4,9 @@
 name: Colony evolve
 
 on:
+  workflow_run:
+    workflows: ["Colony watch"]
+    types: [completed]
   schedule:
     - cron: "26 */6 * * *"
   workflow_dispatch:

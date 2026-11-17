@@ -1,0 +1,34 @@
+name: Colony watch
+
+on:
+  workflow_run:
+    workflows: ["Colony evolve"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: colony-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Watch
+        run: PYTHONPATH=. python3 -m colony.tools.watch colony
+      - name: Commit watch receipt
+        run: |
+          git config user.name "James Jackson"
+          git config user.email "jacksonjp0311-gif@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "colony watch $(date -u +%Y-%m-%dT%H%MZ)"
+          git pull --rebase origin main || true
+          git push
