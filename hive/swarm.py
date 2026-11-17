@@ -826,7 +826,13 @@ def propose_for_role(
         delta = 0
         if biased and biased.match and prop and prop.match:
             delta = int(getattr(biased.match, "score", 0)) - int(getattr(prop.match, "score", 0))
-        emit("colony", cycle_id="", residual_max=0.0, foreign_fps=0,
+        foreign = 0
+        try:
+            from colony.tools.symbiotic_exchange import foreign_fingerprints
+            foreign = len(foreign_fingerprints("colony", limit=50))
+        except Exception:
+            foreign = 0
+        emit("colony", cycle_id="", residual_max=0.0, foreign_fps=foreign,
              bias_delta=delta, outcome="proposed")
     except Exception:
         pass
