@@ -43,7 +43,7 @@ Full values: `society/frontier/data/<A-number>_beyond.txt` (b-file format).
 | A006666 | col_even:terms | 10000 | computed beyond published frontier (verified 2 ways) | 2 | 2000 | 0.051 |
 | A006667 | col_odd:terms | 10000 | computed beyond published frontier (verified 2 ways) | 2 | 2000 | 0.069 |
 | A006877 | col_steps:recpos | 148 | published records reach n ~ 14727207461063895712; beyond the CPU budget | 1 | 0 | 0.0 |
-| A006878 | col_steps:recval | 148 | matches published | 1 | 0 | 0.387 |
+| A006878 | col_steps:recval | 148 | matches published | 2 | 0 | 0.728 |
 | A006884 | col_max:recpos | 98 | published records reach n ~ 2358909599867980429760; beyond the CPU budget | 1 | 0 | 0.0 |
 | A006885 | col_max:recval | 97 | matches published | 2 | 0 | 0.521 |
 | A025586 | col_max:terms | 10000 | computed beyond published frontier (verified 2 ways) | 3 | 2000 | 0.048 |
@@ -53,5 +53,5 @@ Full values: `society/frontier/data/<A-number>_beyond.txt` (b-file format).
 | A047160 | gb_close:terms | 10000 | frontier unknown | 2 | 1000 | 0.091 |
 | A053033 | gb_u_all:recpos | 266 | published records reach n ~ 9699691; beyond the CPU budget | 1 | 0 | 0.0 |
 | A102419 | col_stop:terms | 10000 | computed beyond published frontier (verified 2 ways) | 3 | 2000 | 0.048 |
-| A155764 | gb_close:recval | 64 | frontier unknown | 2 | 0 | 0.611 |
+| A155764 | gb_close:recval | 64 | matches published | 3 | 0 | 1.215 |
 | A155765 | gb_close:recpos | 61 | published records reach n ~ 2117398595; beyond the CPU budget | 1 | 0 | 0.0 |

@@ -216,18 +216,18 @@
     "overlap": 38
    },
    "anum": "A006878",
-   "checked": "2026-10-18T12:57:24Z",
+   "checked": "2026-11-17T13:41:55Z",
    "cost": {
     "N": 200000,
-    "cpu_s": 0.387079724000003
+    "cpu_s": 0.34128141200000073
    },
    "done_for_sha": "1aebb537ac7cbb02",
    "item": "col_steps:recval",
    "last": {
-    "cpu_s": 0.387,
+    "cpu_s": 0.341,
     "ns": null,
     "status": "matches published",
-    "ts": "2026-10-18T12:57:24Z",
+    "ts": "2026-11-17T13:41:55Z",
     "why": "no record beyond the published ones up to n = 200000"
    },
    "n_pub_terms": 148,
@@ -240,8 +240,8 @@
    "source": "https://oeis.org/A006878/b006878.txt",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.387,
-    "tries": 1
+    "cpu_s": 0.728,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:57:20Z",
@@ -618,19 +618,19 @@
     "overlap": 28
    },
    "anum": "A155764",
-   "checked": "2026-10-18T12:55:48Z",
+   "checked": "2026-11-17T13:41:59Z",
    "cost": {
     "N": 200000,
-    "cpu_s": 0.6108249210000025
+    "cpu_s": 0.6035134480000011
    },
    "done_for_sha": "64b088f1a0d94825",
    "item": "gb_close:recval",
    "last": {
-    "cpu_s": null,
+    "cpu_s": 0.604,
     "ns": null,
-    "status": "frontier unknown",
-    "ts": "2026-11-17T13:20:59Z",
-    "why": "b-file unavailable now"
+    "status": "matches published",
+    "ts": "2026-11-17T13:41:59Z",
+    "why": "no record beyond the published ones up to n = 200000"
    },
    "n_pub_terms": 64,
    "name": "Records in A047160.",
@@ -642,8 +642,8 @@
    "source": "https://oeis.org/A155764/b155764.txt",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.611,
-    "tries": 2
+    "cpu_s": 1.215,
+    "tries": 3
    },
    "status": "matched",
    "ts": "2026-10-18T12:55:44Z",

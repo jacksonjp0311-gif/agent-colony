@@ -1,14 +1,14 @@
 {
-  "ts": "2026-11-17T13:20:03Z",
+  "ts": "2026-11-17T13:48:57Z",
   "version": 1,
-  "latest_cycle_id": "20261117T131753Z_ebec71",
+  "latest_cycle_id": "20261117T134639Z_229ccb",
   "latest_revision_count": 0,
   "total_revisions": 4,
   "latest_revisions": [],
   "latest_inputs": {
     "pattern_kinds": [
-      "global_weather_spread",
       "pulsemesh_goes_live",
+      "global_weather_spread",
       "pulsemesh_ops_health"
     ],
     "n_residual_conflicts": 24,
