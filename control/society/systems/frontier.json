@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-11-17T20:50:27Z",
+  "updated_at": "2026-11-17T21:06:43Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
     "goldbach_even": {
       "family": "goldbach",
       "status": "open",
-      "verified_hi": 564317891,
+      "verified_hi": 565917891,
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "window": 1600000,
       "result": null
@@ -23,7 +23,7 @@
     "legendre_square_gap": {
       "family": "legendre",
       "status": "open",
-      "verified_hi": 3276607,
+      "verified_hi": 3292607,
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "window": 16000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "erdos_straus",
-    "lo": 1609128,
-    "hi": 1614127,
+    "target": "legendre_square_gap",
+    "lo": 3276608,
+    "hi": 3292607,
     "outcome": "extended",
-    "verified_hi": 1614127,
-    "cycle_id": "20261117T204843Z_550b45"
+    "verified_hi": 3292607,
+    "cycle_id": "20261117T210509Z_5b8df6"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }

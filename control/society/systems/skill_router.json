@@ -14,10 +14,10 @@
       "communicate": 0.99,
       "gather": 0.99,
       "improve": 0.99,
-      "emergence": 0.7984
+      "emergence": 0.7954
     },
     "tribute_keeper": {
-      "tribute": 0.9782,
+      "tribute": 0.9526,
       "build": 0.9794,
       "communicate": 0.99,
       "gather": 0.99,
@@ -61,7 +61,7 @@
       "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
-      "improve": 0.88,
+      "improve": 0.8778,
       "emergence": 0.99
     },
     "courier": {
@@ -117,7 +117,7 @@
       "build": 0.99,
       "communicate": 0.99,
       "gather": 0.99,
-      "improve": 0.9661,
+      "improve": 0.9629,
       "emergence": 0.99
     },
     "chronicler": {
@@ -185,6 +185,6 @@
     "promotion_requires_authorize": true,
     "P_min": 0.7
   },
-  "updated_at": "2026-11-17T20:51:17Z",
-  "updated_cycle": "20261117T204843Z_550b45"
+  "updated_at": "2026-11-17T21:07:34Z",
+  "updated_cycle": "20261117T210509Z_5b8df6"
 }
