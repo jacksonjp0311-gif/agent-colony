@@ -36,181 +36,6 @@
    "ts": "2026-10-18T12:55:48Z"
   },
   {
-   "anum": "A006577",
-   "bfile_sha256": "45d02dc2e7bbc236",
-   "checked": "2026-10-18T12:57:24Z",
-   "cpu_s": 0.039,
-   "cycle_id": "20261018T125555Z_a08606",
-   "d": 0,
-   "data_file": "society/frontier/data/A006577_beyond.txt",
-   "first": [
-    10001,
-    179
-   ],
-   "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A006577/b006577.txt",
-   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "col_steps:terms",
-   "k_range": [
-    10001,
-    11000
-   ],
-   "label": "computed beyond published frontier (verified 2 ways)",
-   "last": [
-    11000,
-    42
-   ],
-   "linked_k_max": 10000,
-   "methods": [
-    "memoized iteration (stops at the first smaller value)",
-    "naive bit-level iteration with the (3x+1)/2 shortcut"
-   ],
-   "n_terms": 1000,
-   "name": "Number of halving and tripling steps to reach 1 in '3x+1' problem, or -1 if 1 is never reached.",
-   "op": "terms",
-   "ts": "2026-10-18T12:57:24Z"
-  },
-  {
-   "anum": "A006667",
-   "bfile_sha256": "23235908a8daf58b",
-   "checked": "2026-10-18T12:58:56Z",
-   "cpu_s": 0.039,
-   "cycle_id": "20261018T125730Z_b17c0b",
-   "d": 0,
-   "data_file": "society/frontier/data/A006667_beyond.txt",
-   "first": [
-    10001,
-    64
-   ],
-   "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A006667/b006667.txt",
-   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "col_odd:terms",
-   "k_range": [
-    10001,
-    11000
-   ],
-   "label": "computed beyond published frontier (verified 2 ways)",
-   "last": [
-    11000,
-    11
-   ],
-   "linked_k_max": 10000,
-   "methods": [
-    "memoized iteration (stops at the first smaller value)",
-    "naive bit-level iteration with the (3x+1)/2 shortcut"
-   ],
-   "n_terms": 1000,
-   "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
-   "op": "terms",
-   "ts": "2026-10-18T12:58:56Z"
-  },
-  {
-   "anum": "A006666",
-   "bfile_sha256": "b4541b86d1985fa2",
-   "checked": "2026-10-18T13:02:20Z",
-   "cpu_s": 0.02,
-   "cycle_id": "20261018T130110Z_62a316",
-   "d": 0,
-   "data_file": "society/frontier/data/A006666_beyond.txt",
-   "first": [
-    10001,
-    115
-   ],
-   "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A006666/b006666.txt",
-   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "col_even:terms",
-   "k_range": [
-    10001,
-    11000
-   ],
-   "label": "computed beyond published frontier (verified 2 ways)",
-   "last": [
-    11000,
-    31
-   ],
-   "linked_k_max": 10000,
-   "methods": [
-    "memoized iteration (stops at the first smaller value)",
-    "naive bit-level iteration with the (3x+1)/2 shortcut"
-   ],
-   "n_terms": 1000,
-   "name": "Number of halving steps to reach 1 in '3x+1' problem, or -1 if this never happens.",
-   "op": "terms",
-   "ts": "2026-10-18T13:02:20Z"
-  },
-  {
-   "anum": "A025586",
-   "bfile_sha256": "9778c2d36745e53e",
-   "checked": "2026-10-18T13:03:33Z",
-   "cpu_s": 0.02,
-   "cycle_id": "20261018T130224Z_542f3d",
-   "d": 0,
-   "data_file": "society/frontier/data/A025586_beyond.txt",
-   "first": [
-    10001,
-    250504
-   ],
-   "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A025586/b025586.txt",
-   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "col_max:terms",
-   "k_range": [
-    10001,
-    11000
-   ],
-   "label": "computed beyond published frontier (verified 2 ways)",
-   "last": [
-    11000,
-    20896
-   ],
-   "linked_k_max": 10000,
-   "methods": [
-    "memoized iteration (stops at the first smaller value)",
-    "naive bit-level iteration with the (3x+1)/2 shortcut"
-   ],
-   "n_terms": 1000,
-   "name": "Largest value in '3x+1' trajectory of n.",
-   "op": "terms",
-   "ts": "2026-10-18T13:03:33Z"
-  },
-  {
-   "anum": "A102419",
-   "bfile_sha256": "2e4226aa560903dd",
-   "checked": "2026-10-18T13:04:41Z",
-   "cpu_s": 0.02,
-   "cycle_id": "20261018T130337Z_925ac5",
-   "d": 0,
-   "data_file": "society/frontier/data/A102419_beyond.txt",
-   "first": [
-    10001,
-    3
-   ],
-   "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A102419/b102419.txt",
-   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "col_stop:terms",
-   "k_range": [
-    10001,
-    11000
-   ],
-   "label": "computed beyond published frontier (verified 2 ways)",
-   "last": [
-    11000,
-    1
-   ],
-   "linked_k_max": 10000,
-   "methods": [
-    "memoized iteration (stops at the first smaller value)",
-    "naive bit-level iteration with the (3x+1)/2 shortcut"
-   ],
-   "n_terms": 1000,
-   "name": "\"Dropping time\" in 3x+1 problem starting at n (number of steps to reach a lower number than starting value); a(1) = 0 by convention. Also called glide(n).",
-   "op": "terms",
-   "ts": "2026-10-18T13:04:41Z"
-  },
-  {
    "anum": "A002375",
    "bfile_sha256": "e917a47a97e47f19",
    "checked": "2026-11-17T12:45:45Z",
@@ -279,6 +104,181 @@
    "name": "Number of times that i and 2n-i are both prime, for i = 1, ..., 2n-1.",
    "op": "terms",
    "ts": "2026-11-17T12:51:06Z"
+  },
+  {
+   "anum": "A006666",
+   "bfile_sha256": "b4541b86d1985fa2",
+   "checked": "2026-11-17T13:14:03Z",
+   "cpu_s": 0.031,
+   "cycle_id": "20261117T130902Z_672f89",
+   "d": 0,
+   "data_file": "control/society/frontier/data/A006666_beyond.txt",
+   "first": [
+    10001,
+    115
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A006666/b006666.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_even:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    31
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Number of halving steps to reach 1 in '3x+1' problem, or -1 if this never happens.",
+   "op": "terms",
+   "ts": "2026-11-17T13:14:03Z"
+  },
+  {
+   "anum": "A006667",
+   "bfile_sha256": "23235908a8daf58b",
+   "checked": "2026-11-17T13:17:15Z",
+   "cpu_s": 0.03,
+   "cycle_id": "20261117T131433Z_c03f69",
+   "d": 0,
+   "data_file": "control/society/frontier/data/A006667_beyond.txt",
+   "first": [
+    10001,
+    64
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A006667/b006667.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_odd:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    11
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
+   "op": "terms",
+   "ts": "2026-11-17T13:17:15Z"
+  },
+  {
+   "anum": "A025586",
+   "bfile_sha256": "9778c2d36745e53e",
+   "checked": "2026-11-17T13:17:17Z",
+   "cpu_s": 0.028,
+   "cycle_id": "20261117T131433Z_c03f69",
+   "d": 0,
+   "data_file": "control/society/frontier/data/A025586_beyond.txt",
+   "first": [
+    10001,
+    250504
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A025586/b025586.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_max:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    20896
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Largest value in '3x+1' trajectory of n.",
+   "op": "terms",
+   "ts": "2026-11-17T13:17:17Z"
+  },
+  {
+   "anum": "A102419",
+   "bfile_sha256": "2e4226aa560903dd",
+   "checked": "2026-11-17T13:17:21Z",
+   "cpu_s": 0.028,
+   "cycle_id": "20261117T131433Z_c03f69",
+   "d": 0,
+   "data_file": "control/society/frontier/data/A102419_beyond.txt",
+   "first": [
+    10001,
+    3
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A102419/b102419.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_stop:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    1
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "\"Dropping time\" in 3x+1 problem starting at n (number of steps to reach a lower number than starting value); a(1) = 0 by convention. Also called glide(n).",
+   "op": "terms",
+   "ts": "2026-11-17T13:17:21Z"
+  },
+  {
+   "anum": "A006577",
+   "bfile_sha256": "45d02dc2e7bbc236",
+   "checked": "2026-11-17T13:20:51Z",
+   "cpu_s": 0.028,
+   "cycle_id": "20261117T131753Z_ebec71",
+   "d": 0,
+   "data_file": "control/society/frontier/data/A006577_beyond.txt",
+   "first": [
+    10001,
+    179
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A006577/b006577.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_steps:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    42
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Number of halving and tripling steps to reach 1 in '3x+1' problem, or -1 if 1 is never reached.",
+   "op": "terms",
+   "ts": "2026-11-17T13:20:51Z"
   }
  ]
 }
