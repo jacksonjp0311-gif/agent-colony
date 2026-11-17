@@ -4,67 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 452,
-    "ok": 452
+    "n": 453,
+    "ok": 453
   },
   "rows": [
-    {
-      "ts": "2026-11-16T07:27:54Z",
-      "cycle_id": "20261116T072606Z_e4708c",
-      "mutation": "stem_rc_discharge",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.3333,
-      "live_novel": false,
-      "status": "ok",
-      "terms": [
-        "stem",
-        "discharge",
-        "reverted",
-        "enable",
-        "score",
-        "true",
-        "hard",
-        "pass",
-        "oracle",
-        "tier",
-        "required",
-        "keep"
-      ],
-      "shadow_textbook_reuse": 0.1667,
-      "matches": [
-        {
-          "anum": "A318165",
-          "name_sha256": "71ce26a9040176ae",
-          "coverage": 0.1667,
-          "bm25": -10.923
-        },
-        {
-          "anum": "A085851",
-          "name_sha256": "c4ba1ba4e2ba645e",
-          "coverage": 0.0833,
-          "bm25": -13.489
-        },
-        {
-          "anum": "A085850",
-          "name_sha256": "01526637707f76b3",
-          "coverage": 0.0833,
-          "bm25": -13.489
-        },
-        {
-          "anum": "A007236",
-          "name_sha256": "c7527707d708821d",
-          "coverage": 0.0833,
-          "bm25": -13.489
-        },
-        {
-          "anum": "A051732",
-          "name_sha256": "d8d5c612ca6230a1",
-          "coverage": 0.0833,
-          "bm25": -13.307
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-11-16T07:31:31Z",
       "cycle_id": "20261116T072957Z_85253d",
@@ -3417,6 +3360,62 @@
           "name_sha256": "f6fbf9b1a0033747",
           "coverage": 0.1667,
           "bm25": -12.791
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-17T13:17:43Z",
+      "cycle_id": "",
+      "mutation": "Chain+seek `authored_mut_swap_related_sequence_7b1943ff0d90` from invariant priors",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "chain",
+        "seek",
+        "mut",
+        "swap",
+        "related",
+        "sequence",
+        "7b1943ff0d90",
+        "from",
+        "invariant",
+        "priors",
+        "enable"
+      ],
+      "shadow_textbook_reuse": 0.2727,
+      "matches": [
+        {
+          "anum": "A363861",
+          "name_sha256": "9ffac27761ab7546",
+          "coverage": 0.2727,
+          "bm25": -17.303
+        },
+        {
+          "anum": "A208735",
+          "name_sha256": "5c5858a4044f3670",
+          "coverage": 0.2727,
+          "bm25": -16.533
+        },
+        {
+          "anum": "A208734",
+          "name_sha256": "79472b3df374d927",
+          "coverage": 0.2727,
+          "bm25": -16.533
+        },
+        {
+          "anum": "A208733",
+          "name_sha256": "fe89b080f3ceff7d",
+          "coverage": 0.2727,
+          "bm25": -16.533
+        },
+        {
+          "anum": "A208732",
+          "name_sha256": "5c5858a4044f3670",
+          "coverage": 0.2727,
+          "bm25": -16.533
         }
       ],
       "would_flag": false

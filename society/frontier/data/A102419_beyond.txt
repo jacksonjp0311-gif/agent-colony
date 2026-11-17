@@ -1,4 +1,4 @@
-# A102419 terms computed beyond the OEIS b-file (https://oeis.org/A102419/b102419.txt, checked 2026-10-18T13:04:41Z).
+# A102419 terms computed beyond the OEIS b-file (https://oeis.org/A102419/b102419.txt, checked 2026-11-17T13:18:18Z).
 # Computed by colony.new_data (col_stop:terms); verified 2 ways: memoized iteration (stops at the first smaller value) / naive bit-level iteration with the (3x+1)/2 shortcut.
 10001 3
 10002 1

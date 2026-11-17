@@ -92,10 +92,10 @@
     "overlap": 60
    },
    "anum": "A006666",
-   "checked": "2026-10-18T13:02:20Z",
+   "checked": "2026-11-17T13:18:12Z",
    "cost": {
     "N": 11000,
-    "cpu_s": 0.013842075999999537
+    "cpu_s": 0.012340970999986212
    },
    "done_for_sha": "b4541b86d1985fa2",
    "item": "col_even:terms",
@@ -106,7 +106,7 @@
      11000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T13:02:20Z",
+    "ts": "2026-11-17T13:18:12Z",
     "why": null
    },
    "n_pub_terms": 10000,
@@ -118,9 +118,9 @@
    "sha256": "b4541b86d1985fa2",
    "source": "https://oeis.org/A006666/b006666.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.02,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 0.04,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T13:02:18Z",
@@ -134,7 +134,7 @@
     "overlap": 60
    },
    "anum": "A006667",
-   "checked": "2026-10-18T12:58:56Z",
+   "checked": "2026-11-17T13:18:20Z",
    "cost": {
     "N": 11000,
     "cpu_s": 0.027497806999974728
@@ -142,14 +142,11 @@
    "done_for_sha": "23235908a8daf58b",
    "item": "col_odd:terms",
    "last": {
-    "cpu_s": 0.039,
-    "ns": [
-     10001,
-     11000
-    ],
-    "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T12:58:56Z",
-    "why": null
+    "cpu_s": null,
+    "ns": null,
+    "status": "frontier unknown",
+    "ts": "2026-11-17T13:18:20Z",
+    "why": "entry links not fetched (a longer linked table may exist)"
    },
    "n_pub_terms": 10000,
    "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
@@ -162,7 +159,7 @@
    "stats": {
     "beyond": 1000,
     "cpu_s": 0.039,
-    "tries": 1
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:58:46Z",
@@ -216,19 +213,19 @@
     "overlap": 38
    },
    "anum": "A006878",
-   "checked": "2026-10-18T12:57:24Z",
+   "checked": "2026-11-17T13:26:18Z",
    "cost": {
     "N": 200000,
-    "cpu_s": 0.387079724000003
+    "cpu_s": 0.22171467600003325
    },
    "done_for_sha": "1aebb537ac7cbb02",
    "item": "col_steps:recval",
    "last": {
-    "cpu_s": null,
+    "cpu_s": 0.222,
     "ns": null,
-    "status": "frontier unknown",
-    "ts": "2026-11-17T12:58:35Z",
-    "why": "b-file unavailable now"
+    "status": "matches published",
+    "ts": "2026-11-17T13:26:18Z",
+    "why": "no record beyond the published ones up to n = 200000"
    },
    "n_pub_terms": 148,
    "name": "Record number of steps to reach 1 in '3x+1' problem, corresponding to starting values in A006877.",
@@ -240,8 +237,8 @@
    "source": "https://oeis.org/A006878/b006878.txt",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.387,
-    "tries": 2
+    "cpu_s": 0.609,
+    "tries": 4
    },
    "status": "matched",
    "ts": "2026-10-18T12:57:20Z",
@@ -295,18 +292,18 @@
     "overlap": 22
    },
    "anum": "A006885",
-   "checked": "2026-10-18T13:03:33Z",
+   "checked": "2026-11-17T13:22:05Z",
    "cost": {
     "N": 200000,
-    "cpu_s": 0.18717607100001032
+    "cpu_s": 0.22171528000001217
    },
    "done_for_sha": "7007b273e50fc2d5",
    "item": "col_max:recval",
    "last": {
-    "cpu_s": 0.187,
+    "cpu_s": 0.222,
     "ns": null,
     "status": "matches published",
-    "ts": "2026-10-18T13:03:33Z",
+    "ts": "2026-11-17T13:22:05Z",
     "why": "no record beyond the published ones up to n = 200000"
    },
    "n_pub_terms": 97,
@@ -319,8 +316,8 @@
    "source": "https://oeis.org/A006885/b006885.txt",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.187,
-    "tries": 1
+    "cpu_s": 0.409,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T13:03:29Z",
@@ -334,10 +331,10 @@
     "overlap": 60
    },
    "anum": "A025586",
-   "checked": "2026-10-18T13:03:33Z",
+   "checked": "2026-11-17T13:18:14Z",
    "cost": {
     "N": 11000,
-    "cpu_s": 0.013803527999996845
+    "cpu_s": 0.01213696299998901
    },
    "done_for_sha": "9778c2d36745e53e",
    "item": "col_max:terms",
@@ -348,7 +345,7 @@
      11000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T13:03:33Z",
+    "ts": "2026-11-17T13:18:14Z",
     "why": null
    },
    "n_pub_terms": 10000,
@@ -360,9 +357,9 @@
    "sha256": "9778c2d36745e53e",
    "source": "https://oeis.org/A025586/b025586.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.02,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 0.04,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T13:03:23Z",
@@ -416,18 +413,18 @@
     "overlap": 32
    },
    "anum": "A033959",
-   "checked": "2026-10-18T12:58:56Z",
+   "checked": "2026-11-17T13:22:01Z",
    "cost": {
     "N": 200000,
-    "cpu_s": 0.3845498809999981
+    "cpu_s": 0.2230805330000294
    },
    "done_for_sha": "131a4c0d0740e5db",
    "item": "col_odd:recval",
    "last": {
-    "cpu_s": 0.385,
+    "cpu_s": 0.223,
     "ns": null,
     "status": "matches published",
-    "ts": "2026-10-18T12:58:56Z",
+    "ts": "2026-11-17T13:22:01Z",
     "why": "no record beyond the published ones up to n = 200000"
    },
    "n_pub_terms": 57,
@@ -440,8 +437,8 @@
    "source": "https://oeis.org/A033959/b033959.txt",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.385,
-    "tries": 1
+    "cpu_s": 0.608,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T12:58:52Z",
@@ -579,10 +576,10 @@
     "overlap": 60
    },
    "anum": "A102419",
-   "checked": "2026-10-18T13:04:41Z",
+   "checked": "2026-11-17T13:18:18Z",
    "cost": {
     "N": 11000,
-    "cpu_s": 0.013756157999992524
+    "cpu_s": 0.012420152000004236
    },
    "done_for_sha": "2e4226aa560903dd",
    "item": "col_stop:terms",
@@ -593,7 +590,7 @@
      11000
     ],
     "status": "computed beyond published frontier (verified 2 ways)",
-    "ts": "2026-10-18T13:04:41Z",
+    "ts": "2026-11-17T13:18:18Z",
     "why": null
    },
    "n_pub_terms": 10000,
@@ -605,9 +602,9 @@
    "sha256": "2e4226aa560903dd",
    "source": "https://oeis.org/A102419/b102419.txt",
    "stats": {
-    "beyond": 1000,
-    "cpu_s": 0.02,
-    "tries": 1
+    "beyond": 2000,
+    "cpu_s": 0.04,
+    "tries": 2
    },
    "status": "matched",
    "ts": "2026-10-18T13:04:39Z",
@@ -621,19 +618,19 @@
     "overlap": 28
    },
    "anum": "A155764",
-   "checked": "2026-10-18T12:55:48Z",
+   "checked": "2026-11-17T13:22:09Z",
    "cost": {
     "N": 200000,
-    "cpu_s": 0.6108249210000025
+    "cpu_s": 0.4026098470000079
    },
    "done_for_sha": "64b088f1a0d94825",
    "item": "gb_close:recval",
    "last": {
-    "cpu_s": null,
+    "cpu_s": 0.403,
     "ns": null,
-    "status": "frontier unknown",
-    "ts": "2026-11-17T12:58:35Z",
-    "why": "b-file unavailable now"
+    "status": "matches published",
+    "ts": "2026-11-17T13:22:09Z",
+    "why": "no record beyond the published ones up to n = 200000"
    },
    "n_pub_terms": 64,
    "name": "Records in A047160.",
@@ -645,8 +642,8 @@
    "source": "https://oeis.org/A155764/b155764.txt",
    "stats": {
     "beyond": 0,
-    "cpu_s": 0.611,
-    "tries": 2
+    "cpu_s": 1.014,
+    "tries": 3
    },
    "status": "matched",
    "ts": "2026-10-18T12:55:44Z",

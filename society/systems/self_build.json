@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 176,
+ "cycle_index": 179,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -13,85 +13,7 @@
   "parent": "bp_default",
   "operator": "add"
  },
- "trial": {
-  "blueprint": {
-   "id": "bp_b56ab275141d32db",
-   "signature": "b56ab275141d32db",
-   "steps": [
-    {
-     "component": "oeis_novelty_archive",
-     "n": 1
-    }
-   ],
-   "parent": "bp_1a40beac596f0ebe",
-   "operator": "replace",
-   "evidence": [
-    "oeis_novelty_archive"
-   ],
-   "weight": 1.04,
-   "added": [
-    {
-     "component": "oeis_novelty_archive",
-     "n": 1
-    }
-   ],
-   "evidence_detail": {
-    "oeis_novelty_archive": {
-     "papers": [
-      "2611.12762",
-      "2611.15515",
-      "2611.15718",
-      "2611.15885",
-      "2611.16591",
-      "2611.16767",
-      "2611.17097",
-      "2611.17931"
-     ],
-     "n_papers": 14,
-     "idea_rank": 0,
-     "cards": 14,
-     "lessons": 0,
-     "boost": 9.75
-    }
-   },
-   "self_test": {
-    "ok": true,
-    "reason": "ok",
-    "plan": [
-     {
-      "component": "oeis_novelty_archive",
-      "n": 1,
-      "planned": 1
-     }
-    ]
-   }
-  },
-  "opened_cycle_id": "20261117T121839Z_ea1759",
-  "code_fp": "c5c120eea82f15784d43b2517f8a16030199bb91ea5af96db758e441a04b0635",
-  "opened_cycle_index": 172,
-  "open_row": 163,
-  "window_rows": 2,
-  "baseline_gain": [
-   1.0,
-   32960.0
-  ],
-  "baseline_overlaps": [
-   {
-    "slot": "self_heal",
-    "id": "step_size@20261117T104633Z_edeaff",
-    "start": "2026-11-17T10:46:33Z",
-    "end": "2026-11-17T11:52:27Z",
-    "outcome": "adopt"
-   },
-   {
-    "slot": "self_heal",
-    "id": "step_size@20261117T115716Z_4baa87",
-    "start": "2026-11-17T11:57:16Z",
-    "end": "2026-11-17T12:18:39Z",
-    "outcome": "trial_voided_confound"
-   }
-  ]
- },
+ "trial": null,
  "tried": {
   "1a40beac596f0ebe": {
    "outcome": "kept",
@@ -154,6 +76,17 @@
    ],
    "id": "bp_2f6751f78eea7495",
    "cycle_id": "20261117T104013Z_0afe29"
+  },
+  "b56ab275141d32db": {
+   "outcome": "reverted",
+   "steps": [
+    {
+     "component": "oeis_novelty_archive",
+     "n": 1
+    }
+   ],
+   "id": "bp_b56ab275141d32db",
+   "cycle_id": "20261117T131856Z_b34a27"
   }
  },
  "component_stats": {
@@ -178,7 +111,7 @@
   "oeis_novelty_archive": {
    "tried": 2,
    "kept": 0,
-   "reverted": 0,
+   "reverted": 1,
    "inconclusive": 0
   },
   "oeis_swarm_improvers": {
@@ -202,22 +135,56 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261117T125508Z_49719d",
-  "blueprint": "bp_b56ab275141d32db",
+  "cycle_id": "20261117T132244Z_e3bb6c",
+  "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
-    "component": "oeis_novelty_archive",
+    "component": "frontier_extra_batch",
     "n": 1,
-    "actions": 0,
-    "skipped": "nothing_open"
+    "actions": 1,
+    "counts": {
+     "expressions": 260,
+     "fitted": 180,
+     "duplicate": 18,
+     "trivial_formal": 1,
+     "trivial_shuffle_null": 4,
+     "trivial_idle_part": 5,
+     "trivial_implied_parts": 47,
+     "trivial_shared_operand": 0,
+     "trivial_growth_dominance": 0,
+     "trivial_case_split": 2,
+     "trivial_parity_rules": 0,
+     "trivial_running_sum_tail": 0,
+     "trivial_basic_inequality": 0,
+     "trivial_rewrite_closure": 0,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 7,
+     "loose_inequality": 0,
+     "tested": 18,
+     "survived": 8,
+     "falsified": 10,
+     "machine_checked": 7,
+     "surprises": 0,
+     "known_result": 0,
+     "oeis_known": 0,
+     "oeis_unchecked": 0,
+     "retested": 0,
+     "false_surprises": 0,
+     "no_reference_found": 1,
+     "explained_by_known_check": 1,
+     "trivial_confirmed on range": 5
+    }
    }
   ],
-  "actions": 0,
-  "cpu_s": 3.862
+  "actions": 1,
+  "cpu_s": 1.271
  },
- "last_skip": null,
+ "last_skip": {
+  "cycle_id": "20261117T132244Z_e3bb6c",
+  "reason": "self_heal_trial_open"
+ },
  "kept_count": 1,
- "reverted_count": 4,
+ "reverted_count": 5,
  "inconclusive_count": 0,
  "voided_count": 5,
  "heal_turn": null,
@@ -234,6 +201,11 @@
    "reverted": 1
   },
   "insert_front": {
+   "tried": 1,
+   "kept": 0,
+   "reverted": 1
+  },
+  "replace": {
    "tried": 1,
    "kept": 0,
    "reverted": 1

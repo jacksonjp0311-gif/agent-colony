@@ -1,4 +1,4 @@
-# A006666 terms computed beyond the OEIS b-file (https://oeis.org/A006666/b006666.txt, checked 2026-10-18T13:02:20Z).
+# A006666 terms computed beyond the OEIS b-file (https://oeis.org/A006666/b006666.txt, checked 2026-11-17T13:18:12Z).
 # Computed by colony.new_data (col_even:terms); verified 2 ways: memoized iteration (stops at the first smaller value) / naive bit-level iteration with the (3x+1)/2 shortcut.
 10001 115
 10002 45
