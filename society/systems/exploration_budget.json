@@ -1,36 +1,15 @@
 {
-  "ts": "2026-11-17T10:23:12Z",
+  "ts": "2026-11-17T10:53:36Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261117T102047Z_a18dd9"
+    "cycle_id": "20261117T105055Z_eb1662"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 591,
+  "last_oracle_passes": 592,
   "spawn_retire_log": [
-    {
-      "ts": "2026-11-16T21:30:12Z",
-      "cycle_id": "20261116T212728Z_656378",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-16T22:31:56Z",
-      "cycle_id": "20261116T222759Z_1beee5",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-16T22:36:09Z",
-      "cycle_id": "20261116T223306Z_b283e1",
-      "event": "credit",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 1
-    },
     {
       "ts": "2026-11-16T22:41:04Z",
       "cycle_id": "20261116T223741Z_2814ab",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-17T10:45:28Z",
+      "cycle_id": "20261117T104013Z_0afe29",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-17T10:49:27Z",
+      "cycle_id": "20261117T104633Z_edeaff",
+      "event": "credit",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-11-17T10:54:03Z",
+      "cycle_id": "20261117T105055Z_eb1662",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-11-17T10:23:37Z",
+  "updated_at": "2026-11-17T10:54:03Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.003809,
     "hockey_stick": 0.003809,
@@ -440,7 +440,8 @@
     "authored_mut_swap_related_sequence_8d6d6a34114b": 1,
     "authored_mut_swap_related_sequence_b9ccb7463b3e": 1,
     "authored_mut_swap_related_sequence_d7641743d5d4": 1,
-    "authored_mut_swap_related_sequence_e4140eac9f41": 1
+    "authored_mut_swap_related_sequence_e4140eac9f41": 1,
+    "authored_mut_swap_related_sequence_4408c31f407d": 1
   },
   "keep_rewards": {
     "authored_bell_triangle_recurrence__hermite_recurrence_w1": 1,

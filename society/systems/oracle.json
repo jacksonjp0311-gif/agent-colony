@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-17T02:59:15Z",
-  "passes": 591,
+  "updated_at": "2026-11-17T10:48:18Z",
+  "passes": 592,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.4,
+  "kill_rate": 0.3996,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -16,7 +16,7 @@
   "bus_ok_rate": 0.0,
   "unique_mutations_pass": [
     "authored_mut_swap_related_sequence_2d4852ce385c",
-    "authored_mut_swap_related_sequence_3c874f89f994",
+    "authored_mut_swap_related_sequence_4408c31f407d",
     "authored_mut_swap_related_sequence_52a5162a7db1",
     "authored_mut_swap_related_sequence_539c6e5aed66",
     "authored_mut_swap_related_sequence_6086023df475",
@@ -97,7 +97,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-17T02:59:15Z",
+    "ts": "2026-11-17T10:48:18Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -107,8 +107,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_e4140eac9f41` kind=hard_enable. lemma mutation authored_mut_swap_related_sequence_e4140eac9f41 0.8702->0.8701 (compared 0.857->0.857; speed",
-      "attack": "WEIGH: `authored_mut_swap_related_sequence_e4140eac9f41` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_mut_swap_related_sequence_4408c31f407d` kind=hard_enable. lemma mutation authored_mut_swap_related_sequence_4408c31f407d 0.8702->0.8701 (compared 0.857->0.857; speed",
+      "attack": "WEIGH: `authored_mut_swap_related_sequence_4408c31f407d` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -116,7 +116,7 @@
         "in_catalog": true,
         "hard_pass": 188,
         "hard_n": 188,
-        "score": 0.8701,
+        "score": 0.8703,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -158,21 +158,21 @@
               "to": [
                 [
                   161,
-                  190
+                  200
                 ],
                 [
-                  191,
-                  220
+                  201,
+                  240
                 ],
                 [
-                  221,
-                  252
+                  241,
+                  281
                 ]
               ]
             }
           ],
-          "seconds": 0.446,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'cong', 'lhs': 'D(gcd(oxa056971,pi))', 'params': {'m': 2, 'q': 2, 'r': 0, 's': 1}, 'rhs': ''}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 190), (191, 220), (221, 252)])))",
+          "seconds": 0.448,
+          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': 'oxa238873[phi]', 'params': {}, 'rhs': '(oxa238873-omega)'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 200), (201, 240), (241, 281)])))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -250,15 +250,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_swap_related_sequence_e4140eac9f41",
+      "mutation": "authored_mut_swap_related_sequence_4408c31f407d",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mut_swap_related_sequence_e4140eac9f41",
+    "mutation": "authored_mut_swap_related_sequence_4408c31f407d",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261117T025720Z_e61e08",
+    "cycle_id": "20261117T104633Z_edeaff",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

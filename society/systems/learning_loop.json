@@ -2107,7 +2107,7 @@
       "voided": 1
     }
   },
-  "last_cycle": "20261117T102047Z_a18dd9",
+  "last_cycle": "20261117T105055Z_eb1662",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -2129,7 +2129,7 @@
   },
   "n_inconclusive": 6,
   "n_kept": 14,
-  "n_proposed": 7,
+  "n_proposed": 8,
   "n_reverted": 10,
   "n_twin_held": 0,
   "n_voided": 16,
@@ -2263,16 +2263,35 @@
       "method": "Remember already-tried targets for longer before retrying them (longer working memory).",
       "source": "hive_vote",
       "ts": "2026-11-16T03:42:04Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "retry_policy_cycles",
+        "op": "set_knob",
+        "value": 4
+      },
+      "card_id": "mc_c54402191c99",
+      "concept": "",
+      "cycle_id": "20261117T105055Z_eb1662",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=up:name=retry_policy_cycles:value=4",
+      "knob": "retry_policy_cycles",
+      "method": "Replay failed attempts before giving up, so the colony learns from its own misses.",
+      "source": "hive_vote",
+      "ts": "2026-11-17T10:53:55Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 76,
-    "pending": 124,
-    "resolved": 76,
+    "incorrect": 73,
+    "pending": 127,
+    "resolved": 73,
     "source": "hive_shadows",
-    "ts": "2026-11-17T10:24:29Z",
+    "ts": "2026-11-17T10:55:02Z",
     "unlabeled": 0
   },
   "twin_pending": [],

@@ -1018,6 +1018,22 @@
    ],
    "version": 1
   },
+  "oc_A054341_0": {
+   "anum": "A054341",
+   "definition": null,
+   "source_sha": "522031c790586370",
+   "terms_sha": "10b82c987fead507",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
   "oc_A055217_0": {
    "anum": "A055217",
    "definition": null,
@@ -1071,6 +1087,22 @@
    "definition": null,
    "source_sha": "6a93f13d85ad4091",
    "terms_sha": "88cc287801ffa087",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A073155_0": {
+   "anum": "A073155",
+   "definition": null,
+   "source_sha": "72b43d4ea4363a3d",
+   "terms_sha": "927ef724531d3c3b",
    "tried": [
     {
      "kind": "holo",
@@ -1160,6 +1192,22 @@
    "source_sha": "28589132e0df2c0e",
    "terms_sha": "035518c01c19d4a8",
    "tried": [],
+   "version": 1
+  },
+  "oc_A090826_0": {
+   "anum": "A090826",
+   "definition": null,
+   "source_sha": "46a9226fde6958f6",
+   "terms_sha": "4c10a902fabd732e",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
    "version": 1
   },
   "oc_A091540_0": {
@@ -1878,6 +1926,22 @@
    "definition": null,
    "source_sha": "65c019192f0c2653",
    "terms_sha": "c4a592bc859c1c94",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A167481_0": {
+   "anum": "A167481",
+   "definition": null,
+   "source_sha": "4de031177cc68101",
+   "terms_sha": "0f140afba05ed13d",
    "tried": [
     {
      "kind": "holo",
