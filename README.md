@@ -248,3 +248,9 @@ Colony and One Mind share `data/commons/exchange.jsonl`.
 Each pulls the other's receipts before scoring. Foreign fingerprints are priors, not verdicts.
 `crystallized.jsonl` holds durable records. Pruning is activity-dependent: most-used fingerprints stay.
 
+## Where the keep lives
+
+`cycle_telemetry.jsonl` records swarm proposals (`proposed`).
+`society/systems/self_heal.json` holds the keep: `adopted_count` and `event: adopt`.
+`data/commons/crystallized.jsonl` holds durable `kept` records.
+A proposal is not a keep.

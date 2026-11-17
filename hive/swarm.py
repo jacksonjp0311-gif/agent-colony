@@ -846,8 +846,19 @@ def propose_for_role(
             crystallize_stable("colony", min_count=2)
         except Exception:
             foreign = 0
+        outcome = "proposed"
+        try:
+            import json
+            from pathlib import Path as P
+            st = P("society/systems/self_heal.json")
+            if st.exists():
+                state = json.loads(st.read_text())
+                if int(state.get("adopted_count") or 0) > 0:
+                    outcome = "adopted_elsewhere"
+        except Exception:
+            pass
         emit("colony", cycle_id="", residual_max=0.0, foreign_fps=foreign,
-             bias_delta=delta, outcome="proposed")
+             bias_delta=delta, outcome=outcome)
         try:
             from colony.tools.symbiotic_exchange import append_receipt, foreign_fingerprints
             if prop and getattr(prop, "fingerprint", ""):
