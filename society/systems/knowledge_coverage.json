@@ -52,7 +52,7 @@
       "concepts": 8,
       "distinct_concepts": 3,
       "papers": 10,
-      "reads": 13
+      "reads": 14
     },
     "multi_agent_systems": {
       "cards_formed": 1,
@@ -70,7 +70,7 @@
       "concepts": 18,
       "distinct_concepts": 7,
       "papers": 22,
-      "reads": 12
+      "reads": 13
     },
     "open_endedness": {
       "cards_formed": 11,
@@ -124,7 +124,7 @@
       "concepts": 9,
       "distinct_concepts": 2,
       "papers": 10,
-      "reads": 12
+      "reads": 13
     }
   },
   "fields_with_papers": 14,
@@ -269,6 +269,6 @@
     "cards_tested": 0,
     "concepts": 106,
     "papers": 197,
-    "reads": 182
+    "reads": 185
   }
 }

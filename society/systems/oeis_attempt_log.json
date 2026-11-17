@@ -5321,15 +5321,84 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A186388_0",
+   "anum": "A186388",
+   "form": "relation",
+   "depth": 93,
+   "bfile_hi": 93,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261117T134454Z_485b7a",
+   "planned": 93,
+   "verified_depth": 93,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A235614_0",
+   "anum": "A235614",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261117T134454Z_485b7a",
+   "planned": 10000,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A186390_0",
+   "anum": "A186390",
+   "form": "relation",
+   "depth": 86,
+   "bfile_hi": 86,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261117T134454Z_485b7a",
+   "planned": 86,
+   "verified_depth": 86,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A246697_0",
+   "anum": "A246697",
+   "form": "relation",
+   "depth": 42,
+   "bfile_hi": 42,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261117T134454Z_485b7a",
+   "planned": 42,
+   "verified_depth": 42,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A303399_0",
+   "anum": "A303399",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261117T135019Z_739b1f",
+   "planned": 10000,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
-  "20261115T224413Z_ada24d": [
-   "oc_A126089_0"
-  ],
-  "20261115T231100Z_0d2828": [
-   "oc_A126089_0"
-  ],
   "20261115T232539Z_f0ab36": [
    "oc_A126089_0"
   ],
@@ -5714,22 +5783,31 @@
    "oc_A179967_0",
    "oc_A228330_0",
    "oc_A190918_0"
+  ],
+  "20261117T134454Z_485b7a": [
+   "oc_A186388_0",
+   "oc_A235614_0",
+   "oc_A186390_0",
+   "oc_A246697_0"
+  ],
+  "20261117T135019Z_739b1f": [
+   "oc_A303399_0"
   ]
  },
  "last_forms": [
   "relation",
   "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
+  "relation",
   "gf",
   "relation",
   "relation",
   "relation",
   "relation",
   "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
-  "gf",
   "relation",
   "relation",
   "relation",
