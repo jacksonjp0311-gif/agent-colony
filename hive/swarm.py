@@ -645,7 +645,14 @@ def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
                     count += 1
             except Exception:
                 continue
-        return -min(count * 50, 200)
+        local = -min(count * 50, 200)
+        # Symbiotic: add penalty from foreign receipts if present
+        try:
+            from colony.tools.symbiotic_exchange import foreign_penalty
+            local += foreign_penalty(fp, my_source="colony")
+        except Exception:
+            pass
+        return max(local, -300)  # hard cap
     except Exception:
         return 0
 
