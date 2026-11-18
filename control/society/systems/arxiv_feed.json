@@ -1,24 +1,23 @@
 {
-  "last_attempt_at": "2026-11-18T03:35:02Z",
+  "last_attempt_at": "2026-11-18T04:09:58Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-18T03:35:02Z",
+  "last_ok_at": "2026-11-18T04:09:58Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Social Signal Bench: Evidence-Weighted Evaluation of Co-occurring Social Signals in Video and Audio",
-      "abstract_snippet": "Recognizing social signals such as interest and hesitation requires interpreting context-dependent behaviors that may co-occur in conversation. Existing affective computing benchmarks rarely evaluate such co-occurring signals, and conventional multi-label F1 overlooks semantic relationships and annotator disagreement. We introduce Social Signal Bench, a 47-hour densely annotated benchmark for the ",
-      "url": "https://arxiv.org/abs/2611.22704",
-      "arxiv_id": "2611.22704",
+      "title": "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching",
+      "abstract_snippet": "Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, which leads to overfitting and the catastrophic forgetting of the tails of the data distribution. To prevent this collapse, we introduce Ambient",
+      "url": "https://arxiv.org/abs/2611.23229",
+      "arxiv_id": "2611.23229",
       "doi": "",
       "authors": [
-        "Siddharth Ravi",
-        "Anders R. Bargum",
-        "Hugo Anselme",
-        "Patrizio Cugia di Sant'Orsola",
-        "Alberto Cardaci",
-        "Flora Kincso Parragi"
+        "Giannis Daras",
+        "Marios Papachristou",
+        "Adam Klivans",
+        "Antonio Torralba",
+        "Constantinos Daskalakis"
       ],
       "year": 2026,
       "tags": [
@@ -28,18 +27,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T03:35:02Z"
+      "fetched_at": "2026-11-18T04:09:58Z"
     },
     {
       "source": "arxiv",
-      "title": "The minimum degree of minimally k-extendable graphs for some k",
-      "abstract_snippet": "A graph on at least 2k+2 vertices is k-extendable if every matching of size k extends to a perfect matching, and it is minimally k-extendable if it is k-extendable but deleting any edge is not. Plummer proved that every k-extendable graph is (k+1)-connected. So its minimum degree is at least k+1. Lou and Yu conjectured that a minimally k-extendable graph on at most 4k vertices has minimum degree i",
-      "url": "https://arxiv.org/abs/2611.22690",
-      "arxiv_id": "2611.22690",
+      "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
+      "abstract_snippet": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. Th",
+      "url": "https://arxiv.org/abs/2611.23228",
+      "arxiv_id": "2611.23228",
       "doi": "",
       "authors": [
-        "Zhiyong Gan",
-        "Yi Huang"
+        "Rui Ning",
+        "Om Chabra",
+        "Hari Balakrishnan"
       ],
       "year": 2026,
       "tags": [
@@ -49,19 +49,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T03:35:02Z"
+      "fetched_at": "2026-11-18T04:09:58Z"
     },
     {
       "source": "arxiv",
-      "title": "CULypso: A Clustered Federated Unlearning paradigm for Vehicular Ad-Hoc Networks",
-      "abstract_snippet": "Unlearning has emerged as an essential security and privacy-preserving solution in Machine Learning, enabling networks to support their clients' rights for data erasure, as mandated by data protection regulations. Introducing such a non-trivial task to an edge, highly mobile and time-sensitive vehicular network is an even greater, largely unexplored challenge. This article argues that a hierarchic",
-      "url": "https://arxiv.org/abs/2611.22682",
-      "arxiv_id": "2611.22682",
+      "title": "Sidorenko Inequalities in Oriented Graphs",
+      "abstract_snippet": "We introduce relative Sidorenko and relative anti-Sidorenko inequalities for oriented graphs, strengthening the corresponding well-studied notions for tournaments by allowing arbitrary host graphs. An orientation $\\vec H$ of a graph $H$ is relatively Sidorenko if $\\hom(\\vec H,\\vec G) \\ge 2^{-e(H)}\\hom(H,G)$ for every oriented graph $\\vec G$ with underlying graph $G$, and relatively anti-Sidorenko ",
+      "url": "https://arxiv.org/abs/2611.23222",
+      "arxiv_id": "2611.23222",
       "doi": "",
       "authors": [
-        "Eleftheria Chini",
-        "George Margaritis",
-        "Dimitrios Katsaros"
+        "Veronica Bitonti",
+        "Emma Hogan",
+        "Jonathan A. Noel",
+        "Dmitry Tsarev"
       ],
       "year": 2026,
       "tags": [
@@ -71,18 +72,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T03:35:02Z"
+      "fetched_at": "2026-11-18T04:09:58Z"
     },
     {
       "source": "arxiv",
-      "title": "AlignedHPO: Efficient Surrogate-Guided Loss Hyperparameter Optimization",
-      "abstract_snippet": "Modern deep learning losses involve multiple hyperparameters, such as weights, scales, and margins, typically tuned manually or through expensive black-box optimization despite their differentiability. We propose AlignedHPO, an efficient framework for tuning differentiable loss hyperparameters using gradient alignment and surrogate validation objectives. Our method employs Jacobian-vector products",
-      "url": "https://arxiv.org/abs/2611.22658",
-      "arxiv_id": "2611.22658",
+      "title": "An inexact stochastic variance-reduced gradient method for constrained convex finite-sum optimization",
+      "abstract_snippet": "In this paper, we study a class of constrained convex finite-sum optimization problems. In many practical applications, all or some of the constraints are hard constraints that represent imperative requirements. Consequently, any desirable approximate solution must (nearly) satisfy these constraints. Motivated by this, we focus on computing an $ε$-$surely\\ feasible\\ stochastic\\ optimal$ ($ε$-SFSO)",
+      "url": "https://arxiv.org/abs/2611.23221",
+      "arxiv_id": "2611.23221",
       "doi": "",
       "authors": [
-        "Ivan Karpukhin",
-        "Andrey Savchenko"
+        "Zhaosong Lu",
+        "Yifeng Xiao"
       ],
       "year": 2026,
       "tags": [
@@ -92,17 +93,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T03:35:02Z"
+      "fetched_at": "2026-11-18T04:09:58Z"
     },
     {
       "source": "arxiv",
-      "title": "Golomb rulers with real marks: the real and integer optima agree up to ten marks",
-      "abstract_snippet": "A Golomb ruler is a set of integer marks whose pairwise differences are distinct. We let the marks be real numbers and ask that every difference be at least 1 and that any two differences be at least 1 apart. Every integer Golomb ruler satisfies these conditions, so the least length $G_R(n)$ of such a real ruler with $n$ marks is at most the optimal Golomb length $G_Z(n)$. Fixing the order of all ",
-      "url": "https://arxiv.org/abs/2611.22656",
-      "arxiv_id": "2611.22656",
+      "title": "Do LLM Agents Still Need to Be Told How to Self-Improve?",
+      "abstract_snippet": "LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves. As models become more capable, this motivates a basic question: do these increasingly capable models still need us to specify how they should self-improve? In this paper we study an autonomous paradigm in which, given basic primitives, resources, an",
+      "url": "https://arxiv.org/abs/2611.23219",
+      "arxiv_id": "2611.23219",
       "doi": "",
       "authors": [
-        "Esther Notik"
+        "Shobhita Sundaram",
+        "Cansu Sancaktar",
+        "Phillip Isola"
       ],
       "year": 2026,
       "tags": [
@@ -112,7 +115,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T03:35:02Z"
+      "fetched_at": "2026-11-18T04:09:58Z"
     }
   ]
 }
