@@ -24,162 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 16.899,
-   "cycle_id": "20261117T171855Z_98cc8e",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls4_3_c:recval",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls3_1_c:terms",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls3_1_c:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.021,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T17:23:03Z",
-   "work_sched": {
-    "done": 12,
-    "eligible": 0,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
-   "cpu_s": 62.024,
-   "cycle_id": "20261117T174244Z_3a209f",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_cls3_1_c:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls3_1_c:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls3_1_c:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.028,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T17:49:04Z",
-   "work_sched": {
-    "done": 12,
-    "eligible": 0,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
-   "cpu_s": 62.859,
-   "cycle_id": "20261117T175013Z_19f416",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls3_1_c:recval",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls3_2_c:terms",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls3_2_c:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 0,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.027,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T17:56:21Z",
-   "work_sched": {
-    "done": 12,
-    "eligible": 0,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
    "cpu_s": 64.021,
    "cycle_id": "20261117T175720Z_c6e34e",
    "discovered": [
@@ -1534,11 +1378,110 @@
     "sparse_eligible": 0,
     "sparse_entries": 6
    }
+  },
+  {
+   "cpu_s": 0.023,
+   "cycle_id": "20261118T091537Z_171e25",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-18T09:20:11Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
+  },
+  {
+   "cpu_s": 0.022,
+   "cycle_id": "20261118T092054Z_d11de3",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-18T09:25:26Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
+  },
+  {
+   "cpu_s": 0.021,
+   "cycle_id": "20261118T092611Z_bdc428",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.02,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-18T09:32:51Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
   }
  ],
  "last": {
-  "cpu_s": 0.022,
-  "cycle_id": "20261118T085339Z_bd6608",
+  "cpu_s": 0.021,
+  "cycle_id": "20261118T092611Z_bdc428",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -1546,13 +1489,13 @@
   "pushed": [],
   "sparse": {
    "candidates_seen": 466,
-   "cpu_s": 0.021,
+   "cpu_s": 0.02,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-11-18T08:57:59Z",
+  "ts": "2026-11-18T09:32:51Z",
   "work_sched": {
    "done": 12,
    "eligible": 0,

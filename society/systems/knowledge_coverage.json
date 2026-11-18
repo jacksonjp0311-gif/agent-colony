@@ -6,8 +6,8 @@
       "cards_tested": 0,
       "concepts": 4,
       "distinct_concepts": 1,
-      "papers": 25,
-      "reads": 15
+      "papers": 26,
+      "reads": 16
     },
     "cognitive_science": {
       "cards_formed": 5,
@@ -42,8 +42,8 @@
       "cards_tested": 0,
       "concepts": 0,
       "distinct_concepts": 0,
-      "papers": 33,
-      "reads": 31
+      "papers": 34,
+      "reads": 32
     },
     "meta_learning": {
       "cards_formed": 2,
@@ -73,16 +73,16 @@
       "reads": 16
     },
     "open_endedness": {
-      "cards_formed": 16,
+      "cards_formed": 20,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 16,
+      "concepts": 20,
       "distinct_concepts": 1,
-      "papers": 16,
-      "reads": 15
+      "papers": 20,
+      "reads": 16
     },
     "optimization_search": {
-      "cards_formed": 13,
+      "cards_formed": 15,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 25,
@@ -157,7 +157,7 @@
         "recursive_self_improvement"
       ],
       "idea": "novelty_archive",
-      "n_papers": 20
+      "n_papers": 24
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -271,11 +271,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 67,
+    "cards_formed": 73,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 136,
-    "papers": 244,
-    "reads": 236
+    "concepts": 140,
+    "papers": 250,
+    "reads": 239
   }
 }

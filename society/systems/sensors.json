@@ -1,14 +1,11 @@
 {
-  "ts": "2026-11-18T08:54:07Z",
-  "cycle_id": "20261118T085339Z_bd6608",
+  "ts": "2026-11-18T09:26:38Z",
+  "cycle_id": "20261118T092611Z_bdc428",
   "lemma_streaks": {
     "revert_streaks": [
-      "stem_elastic_collision",
       "stem_isothermal_work",
-      "stem_kepler_third_law",
       "stem_rc_discharge",
       "stem_resistor_power_balance",
-      "stem_shm_energy",
       "stem_snell_least_time"
     ],
     "oracle_kills_by_theme": {
@@ -115,26 +112,26 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8407,
-      "slope": -0.001326,
+      "last": 0.8408,
+      "slope": 0.00147,
       "min": 0.8043,
-      "max": 0.8436
+      "max": 0.8434
     },
     "novelty": {
       "last": 0.3667,
-      "slope": -0.003726,
+      "slope": -0.001281,
       "min": 0.3667,
       "max": 0.4
     },
     "kill_rate": {
       "last": 0.396,
-      "slope": -4.5e-05,
+      "slope": -1.5e-05,
       "min": 0.396,
       "max": 0.3964
     },
     "kill_rate_term": {
       "last": 0.9064,
-      "slope": -3.4e-05,
+      "slope": -1.2e-05,
       "min": 0.9064,
       "max": 0.9067
     },
@@ -269,7 +266,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 10
   },
   "guides": {
     "n_guides": 17,
@@ -283,23 +280,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.112,
+      "ratio": 1.065,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.122,
+      "ratio": 1.064,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.084,
+      "ratio": 1.107,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.093,
+      "ratio": 1.072,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.997,
+      "ratio": 0.988,
       "drift": false
     }
   },
@@ -308,10 +305,10 @@
     "verified": {
       "goldbach_even": 578759363,
       "collatz_descent": 620600000,
-      "legendre_square_gap": 3148607,
-      "lehmer_totient": 293400001,
+      "legendre_square_gap": 3164607,
+      "lehmer_totient": 295000001,
       "erdos_straus": 1574127,
-      "twin_primes_hl": 774200000,
+      "twin_primes_hl": 778200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -361,7 +358,7 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 10,
+    "completed": 11,
     "last": [
       [
         null,
@@ -372,11 +369,11 @@
         "2026-11-18T08:35:25Z"
       ],
       [
-        null,
+        "success",
         "2026-11-18T08:35:18Z"
       ]
     ],
-    "fetched_at": "2026-11-18T08:36:27Z"
+    "fetched_at": "2026-11-18T09:09:55Z"
   },
   "feeds": {
     "by_source": {
@@ -424,7 +421,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-18T08:36:26Z"
+      "ts": "2026-11-18T09:09:54Z"
     },
     "health": {
       "arxiv": {
@@ -450,7 +447,7 @@
     }
   },
   "signals": [
-    "revert_streaks: stem_elastic_collision, stem_isothermal_work, stem_kepler_third_law, stem_rc_discharge → deprioritize in seek",
+    "revert_streaks: stem_isothermal_work, stem_rc_discharge, stem_resistor_power_balance, stem_snell_least_time → deprioritize in seek",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],

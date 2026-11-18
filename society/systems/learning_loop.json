@@ -2397,7 +2397,7 @@
       "voided": 2
     }
   },
-  "last_cycle": "20261118T085339Z_bd6608",
+  "last_cycle": "20261118T092611Z_bdc428",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -2408,18 +2408,18 @@
     "applied_to_live_oracle": false,
     "authorized": false,
     "card_id": "",
-    "cycle_id": "20261118T070959Z_33332e",
-    "deferred_count": 1,
-    "deferred_under": "ca2760a25900d34f382a76df238a329a01795426b0191bd5e9c279c7ae560db3",
+    "cycle_id": "20261118T092611Z_bdc428",
+    "deferred_count": 2,
+    "deferred_under": "56eadc7341bc933b7a73d405be1889946fcfbc26ebf5f4f6f5d731573e1127b3",
     "event": "hive_deferred",
     "fingerprint": "set_knob:direction=up:name=park_cycles:value=12",
     "label": "dead_end_streak",
     "method": "",
-    "ts": "2026-11-18T07:12:56Z"
+    "ts": "2026-11-18T09:32:09Z"
   },
   "n_inconclusive": 6,
   "n_kept": 17,
-  "n_proposed": 9,
+  "n_proposed": 10,
   "n_reverted": 11,
   "n_twin_held": 0,
   "n_voided": 18,
@@ -2591,16 +2591,33 @@
       "method": "Bound how much work one desk may do in a cycle.",
       "source": "hive_vote",
       "ts": "2026-11-18T04:31:52Z"
+    },
+    {
+      "action": {
+        "family": "algebraic",
+        "op": "add_family_rotation"
+      },
+      "card_id": "mc_dec77af285c3",
+      "concept": "",
+      "cycle_id": "20261118T092611Z_bdc428",
+      "deferred_count": 2,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "add_family_rotation:family=algebraic",
+      "knob": null,
+      "method": "Rotate which claim family is attempted so search does not stick on one shape.",
+      "source": "hive_vote",
+      "ts": "2026-11-18T09:32:09Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 35,
-    "pending": 165,
-    "resolved": 35,
+    "incorrect": 34,
+    "pending": 166,
+    "resolved": 34,
     "source": "hive_shadows",
-    "ts": "2026-11-18T08:58:41Z",
+    "ts": "2026-11-18T09:33:28Z",
     "unlabeled": 0
   },
   "twin_pending": [],
