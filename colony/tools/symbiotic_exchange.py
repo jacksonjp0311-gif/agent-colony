@@ -136,7 +136,9 @@ def foreign_kept_prior(fingerprint: str, my_source: str = "colony") -> int:
         from pathlib import Path as P
         if not fingerprint:
             return 0
-        store = P(__file__).resolve().parent.parent.parent / "data" / "commons" / "exchange.jsonl"
+        store = P(__file__).resolve().parent.parent.parent / "data" / "commons" / "evidence_view.jsonl"
+        if not store.exists():
+            store = P(__file__).resolve().parent.parent.parent / "data" / "commons" / "exchange.jsonl"
         if not store.exists():
             return 0
         for line in store.read_text(encoding="utf-8").splitlines()[-400:]:
