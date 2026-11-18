@@ -1,24 +1,24 @@
 {
-  "last_attempt_at": "2026-11-18T01:47:43Z",
+  "last_attempt_at": "2026-11-18T03:06:22Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-18T01:47:43Z",
+  "last_ok_at": "2026-11-18T03:06:22Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Latent Lattice Language Models",
-      "abstract_snippet": "Language models typically increase per-token computation through deeper or looped layers and latent reasoning steps, while richer residual connections improve information flow across layers. We instead increase computational capacity: the number of active computational states a model maintains. We introduce the Lattice of Latents, a set of per-layer horizontal latent streams that run recurrently a",
-      "url": "https://arxiv.org/abs/2611.21608",
-      "arxiv_id": "2611.21608",
+      "title": "Social Signal Bench: Evidence-Weighted Evaluation of Co-occurring Social Signals in Video and Audio",
+      "abstract_snippet": "Recognizing social signals such as interest and hesitation requires interpreting context-dependent behaviors that may co-occur in conversation. Existing affective computing benchmarks rarely evaluate such co-occurring signals, and conventional multi-label F1 overlooks semantic relationships and annotator disagreement. We introduce Social Signal Bench, a 47-hour densely annotated benchmark for the ",
+      "url": "https://arxiv.org/abs/2611.22704",
+      "arxiv_id": "2611.22704",
       "doi": "",
       "authors": [
-        "Shivam Duggal",
-        "Zongze Wu",
-        "William T. Freeman",
-        "Antonio Torralba",
-        "Richard Zhang",
-        "Eli Shechtman"
+        "Siddharth Ravi",
+        "Anders R. Bargum",
+        "Hugo Anselme",
+        "Patrizio Cugia di Sant'Orsola",
+        "Alberto Cardaci",
+        "Flora Kincso Parragi"
       ],
       "year": 2026,
       "tags": [
@@ -28,21 +28,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T01:47:43Z"
+      "fetched_at": "2026-11-18T03:06:26Z"
     },
     {
       "source": "arxiv",
-      "title": "Quantifying the added value of human forecaster discussions for tropical cyclone intensity prediction",
-      "abstract_snippet": "The National Hurricane Center routinely releases Tropical Cyclone Discussions that offer insights into its tropical cyclone forecasts. This study examines the added value of these discussions for intensity forecasting beyond a set of numerical predictors. For 637 Atlantic and eastern North Pacific tropical cyclones from the 2002-2023 hurricane seasons, we analyze the discussion text and its combin",
-      "url": "https://arxiv.org/abs/2611.21602",
-      "arxiv_id": "2611.21602",
+      "title": "The minimum degree of minimally k-extendable graphs for some k",
+      "abstract_snippet": "A graph on at least 2k+2 vertices is k-extendable if every matching of size k extends to a perfect matching, and it is minimally k-extendable if it is k-extendable but deleting any edge is not. Plummer proved that every k-extendable graph is (k+1)-connected. So its minimum degree is at least k+1. Lou and Yu conjectured that a minimally k-extendable graph on at most 4k vertices has minimum degree i",
+      "url": "https://arxiv.org/abs/2611.22690",
+      "arxiv_id": "2611.22690",
       "doi": "",
       "authors": [
-        "Ilia Azizi",
-        "Frederick Iat-Hin Tam",
-        "Marc-Olivier Boldi",
-        "Valérie Chavez-Demoulin",
-        "Tom Beucler"
+        "Zhiyong Gan",
+        "Yi Huang"
       ],
       "year": 2026,
       "tags": [
@@ -52,20 +49,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T01:47:43Z"
+      "fetched_at": "2026-11-18T03:06:26Z"
     },
     {
       "source": "arxiv",
-      "title": "How VLMs Plan What's Next",
-      "abstract_snippet": "When a vision-language model describes an image, it names one object at a time and it rarely repeats itself, yet how the model plans this order is far from obvious. We characterize the mechanism a VLM uses to decide where to look before it looks. The mechanism has four main parts. First, binding heads match the relevant text tokens against the image and resolve them into pointers to the matched im",
-      "url": "https://arxiv.org/abs/2611.21600",
-      "arxiv_id": "2611.21600",
+      "title": "CULypso: A Clustered Federated Unlearning paradigm for Vehicular Ad-Hoc Networks",
+      "abstract_snippet": "Unlearning has emerged as an essential security and privacy-preserving solution in Machine Learning, enabling networks to support their clients' rights for data erasure, as mandated by data protection regulations. Introducing such a non-trivial task to an edge, highly mobile and time-sensitive vehicular network is an even greater, largely unexplored challenge. This article argues that a hierarchic",
+      "url": "https://arxiv.org/abs/2611.22682",
+      "arxiv_id": "2611.22682",
       "doi": "",
       "authors": [
-        "Rohit Gandikota",
-        "Arnab Sen Sharma",
-        "Adam Belfki",
-        "David Bau"
+        "Eleftheria Chini",
+        "George Margaritis",
+        "Dimitrios Katsaros"
       ],
       "year": 2026,
       "tags": [
@@ -75,21 +71,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T01:47:43Z"
+      "fetched_at": "2026-11-18T03:06:26Z"
     },
     {
       "source": "arxiv",
-      "title": "Hyperlyve: Parallelized Enumeration and Exact Lyapunov Stability Certification for Deep ReLU Networks",
-      "abstract_snippet": "We introduce Hyperlyve (Hyperplane Partitioned Lyapunov Verification and Enumeration), a framework for proving the asymptotic stability of nonlinear dynamical systems, including those with neural network controllers. Hyperlyve learns and formally certifies continuous piecewise-affine (CPA) neural Lyapunov functions within a counterexample-guided inductive synthesis (CEGIS) loop. Hyperlyve's key in",
-      "url": "https://arxiv.org/abs/2611.21599",
-      "arxiv_id": "2611.21599",
+      "title": "AlignedHPO: Efficient Surrogate-Guided Loss Hyperparameter Optimization",
+      "abstract_snippet": "Modern deep learning losses involve multiple hyperparameters, such as weights, scales, and margins, typically tuned manually or through expensive black-box optimization despite their differentiability. We propose AlignedHPO, an efficient framework for tuning differentiable loss hyperparameters using gradient alignment and surrogate validation objectives. Our method employs Jacobian-vector products",
+      "url": "https://arxiv.org/abs/2611.22658",
+      "arxiv_id": "2611.22658",
       "doi": "",
       "authors": [
-        "Brian Yarbrough",
-        "Jesse Wayment",
-        "Jingbo Wang",
-        "Philip E. Paré",
-        "Shreyas Sundaram"
+        "Ivan Karpukhin",
+        "Andrey Savchenko"
       ],
       "year": 2026,
       "tags": [
@@ -99,18 +92,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T01:47:43Z"
+      "fetched_at": "2026-11-18T03:06:26Z"
     },
     {
       "source": "arxiv",
-      "title": "Mitigating Catastrophic Forgetting with Physics-Indexed Specialist Memory: the Evolutionary Neuroplastic Agent",
-      "abstract_snippet": "Continual reinforcement learning requires adaptation to changing conditions while preserving performance under previously encountered dynamics. It was investigated whether specialists generated by evolutionary search can provide a reusable memory when combined with environment detection and failure-driven search. The Evolutionary Neuroplastic Agent (ENA) evolves small neural networks without gradi",
-      "url": "https://arxiv.org/abs/2611.21598",
-      "arxiv_id": "2611.21598",
+      "title": "Golomb rulers with real marks: the real and integer optima agree up to ten marks",
+      "abstract_snippet": "A Golomb ruler is a set of integer marks whose pairwise differences are distinct. We let the marks be real numbers and ask that every difference be at least 1 and that any two differences be at least 1 apart. Every integer Golomb ruler satisfies these conditions, so the least length $G_R(n)$ of such a real ruler with $n$ marks is at most the optimal Golomb length $G_Z(n)$. Fixing the order of all ",
+      "url": "https://arxiv.org/abs/2611.22656",
+      "arxiv_id": "2611.22656",
       "doi": "",
       "authors": [
-        "Blas Eugenio Vicco Zarate",
-        "Miguel Hernán Vicco"
+        "Esther Notik"
       ],
       "year": 2026,
       "tags": [
@@ -120,7 +112,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-18T01:47:43Z"
+      "fetched_at": "2026-11-18T03:06:26Z"
     }
   ]
 }
