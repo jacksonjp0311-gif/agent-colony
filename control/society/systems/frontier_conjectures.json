@@ -158,108 +158,6 @@
  },
  "history": [
   {
-   "cycle_id": "20261118T033423Z_91b612",
-   "duplicate": 18,
-   "expected_by_closure": 4,
-   "explained_by_known_check": 2,
-   "expressions": 260,
-   "false_surprises": 0,
-   "falsified": 8,
-   "fitted": 192,
-   "known_result": 0,
-   "loose_inequality": 0,
-   "machine_checked": 4,
-   "no_reference_found": 2,
-   "oeis_known": 0,
-   "oeis_unchecked": 0,
-   "retested": 0,
-   "surprises": 0,
-   "survived": 6,
-   "tested": 14,
-   "trivial_basic_inequality": 0,
-   "trivial_case_split": 1,
-   "trivial_confirmed on range": 5,
-   "trivial_digit_rule": 1,
-   "trivial_formal": 1,
-   "trivial_growth_dominance": 0,
-   "trivial_idle_part": 15,
-   "trivial_implied_parts": 44,
-   "trivial_known_in_principle(definition_parity)": 1,
-   "trivial_parity_rules": 0,
-   "trivial_rewrite_closure": 0,
-   "trivial_running_sum_tail": 0,
-   "trivial_shared_operand": 0,
-   "trivial_shuffle_null": 2,
-   "ts": "2026-11-18T03:37:25Z"
-  },
-  {
-   "cycle_id": "20261118T033757Z_a2f346",
-   "duplicate": 15,
-   "expected_by_closure": 3,
-   "expressions": 260,
-   "false_surprises": 0,
-   "falsified": 11,
-   "fitted": 169,
-   "known_result": 0,
-   "loose_inequality": 0,
-   "machine_checked": 3,
-   "oeis_known": 0,
-   "oeis_unchecked": 0,
-   "retested": 0,
-   "surprises": 0,
-   "survived": 3,
-   "tested": 14,
-   "trivial_basic_inequality": 0,
-   "trivial_case_split": 0,
-   "trivial_confirmed on range": 7,
-   "trivial_digit_rule": 0,
-   "trivial_formal": 2,
-   "trivial_growth_dominance": 0,
-   "trivial_idle_part": 4,
-   "trivial_implied_parts": 61,
-   "trivial_parity_rules": 0,
-   "trivial_rewrite_closure": 0,
-   "trivial_running_sum_tail": 0,
-   "trivial_shared_operand": 0,
-   "trivial_shuffle_null": 2,
-   "ts": "2026-11-18T03:40:40Z"
-  },
-  {
-   "cycle_id": "20261118T034112Z_1fe906",
-   "duplicate": 16,
-   "expected_by_closure": 5,
-   "explained_by_known_check": 1,
-   "expressions": 260,
-   "false_surprises": 0,
-   "falsified": 7,
-   "fitted": 176,
-   "known_result": 1,
-   "loose_inequality": 0,
-   "machine_checked": 5,
-   "no_reference_found": 1,
-   "oeis_known": 1,
-   "oeis_unchecked": 0,
-   "retested": 0,
-   "surprises": 0,
-   "survived": 8,
-   "tested": 15,
-   "trivial_basic_inequality": 0,
-   "trivial_case_split": 0,
-   "trivial_confirmed on range": 6,
-   "trivial_digit_rule": 1,
-   "trivial_formal": 0,
-   "trivial_growth_dominance": 0,
-   "trivial_idle_part": 6,
-   "trivial_implied_parts": 29,
-   "trivial_known_in_principle(definition_parity)": 2,
-   "trivial_parity_rules": 0,
-   "trivial_rewrite_closure": 0,
-   "trivial_running_sum_tail": 0,
-   "trivial_shared_operand": 0,
-   "trivial_shuffle_null": 0,
-   "ts": "2026-11-18T03:43:55Z"
-  },
-  {
    "cycle_id": "20261118T040907Z_35a244",
    "duplicate": 15,
    "expected_by_closure": 5,
@@ -1191,15 +1089,117 @@
    "trivial_shared_operand": 0,
    "trivial_shuffle_null": 1,
    "ts": "2026-11-18T08:50:01Z"
+  },
+  {
+   "cycle_id": "20261118T090953Z_619334",
+   "duplicate": 21,
+   "expected_by_closure": 2,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 14,
+   "fitted": 180,
+   "known_result": 0,
+   "loose_inequality": 0,
+   "machine_checked": 2,
+   "oeis_known": 0,
+   "oeis_unchecked": 0,
+   "retested": 0,
+   "surprises": 0,
+   "survived": 2,
+   "tested": 16,
+   "trivial_basic_inequality": 0,
+   "trivial_case_split": 0,
+   "trivial_confirmed on range": 4,
+   "trivial_digit_rule": 1,
+   "trivial_formal": 2,
+   "trivial_growth_dominance": 1,
+   "trivial_idle_part": 10,
+   "trivial_implied_parts": 55,
+   "trivial_known_in_principle(definition_parity)": 4,
+   "trivial_parity_rules": 0,
+   "trivial_rewrite_closure": 0,
+   "trivial_running_sum_tail": 0,
+   "trivial_shared_operand": 0,
+   "trivial_shuffle_null": 2,
+   "ts": "2026-11-18T09:12:39Z"
+  },
+  {
+   "cycle_id": "20261118T091307Z_1653e7",
+   "duplicate": 18,
+   "expected_by_closure": 2,
+   "explained_by_known_check": 1,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 10,
+   "fitted": 185,
+   "known_result": 1,
+   "loose_inequality": 0,
+   "machine_checked": 2,
+   "no_reference_found": 1,
+   "oeis_known": 2,
+   "oeis_unchecked": 0,
+   "retested": 0,
+   "surprises": 0,
+   "survived": 6,
+   "tested": 16,
+   "trivial_basic_inequality": 0,
+   "trivial_case_split": 1,
+   "trivial_confirmed on range": 2,
+   "trivial_digit_rule": 0,
+   "trivial_formal": 1,
+   "trivial_growth_dominance": 0,
+   "trivial_idle_part": 10,
+   "trivial_implied_parts": 58,
+   "trivial_known_in_principle(definition_parity)": 1,
+   "trivial_parity_rules": 1,
+   "trivial_rewrite_closure": 0,
+   "trivial_running_sum_tail": 1,
+   "trivial_shared_operand": 0,
+   "trivial_shuffle_null": 1,
+   "ts": "2026-11-18T09:15:40Z"
+  },
+  {
+   "cycle_id": "20261118T091609Z_a91720",
+   "duplicate": 16,
+   "expected_by_closure": 5,
+   "expressions": 260,
+   "false_surprises": 0,
+   "falsified": 12,
+   "fitted": 191,
+   "known_result": 0,
+   "loose_inequality": 1,
+   "machine_checked": 5,
+   "oeis_known": 1,
+   "oeis_unchecked": 0,
+   "retested": 0,
+   "surprises": 0,
+   "survived": 7,
+   "tested": 19,
+   "trivial_basic_inequality": 0,
+   "trivial_case_split": 0,
+   "trivial_confirmed on range": 6,
+   "trivial_digit_rule": 1,
+   "trivial_formal": 4,
+   "trivial_growth_dominance": 0,
+   "trivial_idle_part": 8,
+   "trivial_implied_parts": 65,
+   "trivial_known_in_principle(compositional)": 1,
+   "trivial_known_in_principle(definition_parity)": 1,
+   "trivial_parity_rules": 0,
+   "trivial_rewrite_closure": 0,
+   "trivial_running_sum_tail": 0,
+   "trivial_shared_operand": 0,
+   "trivial_shuffle_null": 0,
+   "ts": "2026-11-18T09:18:41Z"
   }
  ],
  "kind_stats": {
   "cong": [
-   8382,
-   1099
+   8408,
+   1100
   ],
   "divides": [
-   2093,
+   2101,
    149
   ],
   "identity": [
@@ -1207,78 +1207,56 @@
    88
   ],
   "le": [
-   901,
-   237
+   903,
+   238
   ],
   "modpat": [
-   114,
+   115,
    9
   ],
   "rec": [
-   4982,
-   4637
+   4996,
+   4650
   ]
  },
  "last": {
-  "brier": 0.0993,
+  "brier": 0.0992,
   "counts": {
-   "deep_na": 1,
-   "duplicate": 17,
-   "expected_by_closure": 8,
+   "duplicate": 16,
+   "expected_by_closure": 5,
    "expressions": 260,
    "false_surprises": 0,
    "falsified": 12,
-   "fitted": 186,
+   "fitted": 191,
    "known_result": 0,
-   "loose_inequality": 0,
-   "machine_checked": 8,
-   "no_reference_found": 1,
-   "oeis_known": 0,
+   "loose_inequality": 1,
+   "machine_checked": 5,
+   "oeis_known": 1,
    "oeis_unchecked": 0,
    "retested": 0,
-   "surprises": 1,
-   "survived": 9,
-   "tested": 21,
+   "surprises": 0,
+   "survived": 7,
+   "tested": 19,
    "trivial_basic_inequality": 0,
    "trivial_case_split": 0,
-   "trivial_confirmed on range": 12,
-   "trivial_digit_rule": 2,
-   "trivial_formal": 3,
+   "trivial_confirmed on range": 6,
+   "trivial_digit_rule": 1,
+   "trivial_formal": 4,
    "trivial_growth_dominance": 0,
-   "trivial_idle_part": 7,
-   "trivial_implied_parts": 88,
-   "trivial_known_in_principle(compositional)": 2,
+   "trivial_idle_part": 8,
+   "trivial_implied_parts": 65,
+   "trivial_known_in_principle(compositional)": 1,
    "trivial_known_in_principle(definition_parity)": 1,
    "trivial_parity_rules": 0,
    "trivial_rewrite_closure": 0,
    "trivial_running_sum_tail": 0,
    "trivial_shared_operand": 0,
-   "trivial_shuffle_null": 1
+   "trivial_shuffle_null": 0
   },
-  "cycle_id": "20261118T084649Z_dd3068",
+  "cycle_id": "20261118T091609Z_a91720",
   "fit_n": 12,
   "mode": "live",
   "new_survivors": [
-   {
-    "hunt_value": 0.0,
-    "label": "machine-checked (certificate)",
-    "oeis": [
-     "found"
-    ],
-    "prediction": 0.9305,
-    "statement": "a(n) = D(pow2)(n) satisfies a(n+1) = 2*a(n+0)",
-    "unknown": false
-   },
-   {
-    "hunt_value": 0.0,
-    "label": "machine-checked (certificate)",
-    "oeis": [
-     "not_found"
-    ],
-    "prediction": 0.9305,
-    "statement": "a(n) = D(chrom_cycle3)(n) satisfies a(n+2) = 2*a(n+0) + 1*a(n+1)",
-    "unknown": false
-   },
    {
     "hunt_value": 0.0,
     "label": "machine-checked (certificate)",
@@ -1296,27 +1274,7 @@
      "found"
     ],
     "prediction": 0.9305,
-    "statement": "a(n) = D(pell)(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)",
-    "unknown": false
-   },
-   {
-    "hunt_value": 0.0,
-    "label": "machine-checked (certificate)",
-    "oeis": [
-     "primitive"
-    ],
-    "prediction": 0.9305,
-    "statement": "a(n) = pell(n) satisfies a(n+2) = 1*a(n+0) + 2*a(n+1)",
-    "unknown": false
-   },
-   {
-    "hunt_value": 0.0,
-    "label": "machine-checked (certificate)",
-    "oeis": [
-     "primitive"
-    ],
-    "prediction": 0.9305,
-    "statement": "a(n) = fib(n) satisfies a(n+2) = 1*a(n+0) + 1*a(n+1)",
+    "statement": "a(n) = D(stree_ladder)(n) satisfies a(n+2) = -1*a(n+0) + 4*a(n+1)",
     "unknown": false
    },
    {
@@ -1326,7 +1284,7 @@
      "found"
     ],
     "prediction": 0.9305,
-    "statement": "a(n) = (pow2*tr_tribo)(n) satisfies a(n+3) = 8*a(n+0) + 4*a(n+1) + 2*a(n+2)",
+    "statement": "a(n) = D(pow2)(n) satisfies a(n+1) = 2*a(n+0)",
     "unknown": false
    },
    {
@@ -1334,31 +1292,51 @@
     "label": "machine-checked (certificate)",
     "oeis": [
      "found"
+    ],
+    "prediction": 0.9305,
+    "statement": "a(n) = S(fib)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "machine-checked (certificate)",
+    "oeis": [
+     "primitive"
+    ],
+    "prediction": 0.9305,
+    "statement": "a(n) = chrom_cycle3(n) satisfies a(n+2) = 2*a(n+0) + 1*a(n+1)",
+    "unknown": false
+   },
+   {
+    "hunt_value": 0.0,
+    "label": "conjecture surviving 488 checks",
+    "oeis": [
+     "primitive"
     ],
     "prediction": 0.9306,
-    "statement": "a(n) = S(lucas)(n) satisfies a(n+3) = -1*a(n+0) + 2*a(n+2)",
+    "statement": "a(n) = oxa033453(n) satisfies a(n+3) = 1*a(n+0) + -2*a(n+1) + 4*a(n+2)",
     "unknown": false
    },
    {
-    "hunt_value": 1.0,
-    "label": "conjecture surviving 1988 checks",
+    "hunt_value": 0.0,
+    "label": "conjecture surviving 488 checks",
     "oeis": [
-     "not_found",
-     "too_simple"
+     "found",
+     "not_found"
     ],
-    "prediction": 0.0712,
-    "statement": "sigma[oxa009191](n) divides dbl(mu)(n) for all n >= 1",
-    "unknown": true
+    "prediction": 0.2636,
+    "statement": "digsum[n](n) <= dbl(oxa102627)(n) for all n >= 1 (with equality at some n)",
+    "unknown": false
    }
   ],
   "oeis_index": "available",
-  "ts": "2026-11-18T08:50:01Z"
+  "ts": "2026-11-18T09:18:41Z"
  },
  "mode": "live",
  "note": "Self-chosen conjectures checked on held-out ranges. 'conjecture surviving N checks' is bounded evidence, never proof; 'machine-checked' carries a decidable certificate. Report-only unless COLONY_FRONTIER=live. See colony/frontier_conjectures.py.",
  "op_stats": {
   "*": [
-   811,
+   814,
    15
   ],
   "+": [
@@ -1366,54 +1344,54 @@
    4
   ],
   "-": [
-   404,
+   405,
    7
   ],
   "D": [
-   2800,
+   2812,
    22
   ],
   "S": [
-   2603,
+   2610,
    18
   ],
   "dbl": [
-   2891,
+   2899,
    59
   ],
   "gcd": [
-   2141,
+   2149,
    16
   ],
   "o": [
-   2601,
+   2610,
    66
   ],
   "p": [
-   3071,
+   3080,
    20
   ],
   "sh": [
-   2177,
+   2181,
    0
   ]
  },
  "predictions": {
   "bins": {
    "0": [
-    1067,
-    86.6098,
+    1076,
+    87.2679,
     46
    ],
    "1": [
-    4933,
-    758.721,
-    300
+    4959,
+    762.1283,
+    301
    ],
    "2": [
-    2540,
-    628.5297,
-    268
+    2542,
+    629.0577,
+    269
    ],
    "3": [
     1590,
@@ -1446,13 +1424,13 @@
     258
    ],
    "9": [
-    4706,
-    4358.2434,
-    4385
+    4720,
+    4371.2703,
+    4398
    ]
   },
-  "brier_sum": 1658.33696,
-  "n": 16695
+  "brier_sum": 1661.110824,
+  "n": 16746
  },
  "prim_stats": {
   "baum": [
@@ -1460,19 +1438,19 @@
    1
   ],
   "bigomega": [
-   294,
+   295,
    7
   ],
   "cheb3": [
-   222,
+   223,
    1
   ],
   "cheb4": [
-   188,
+   189,
    2
   ],
   "chrom_cycle3": [
-   376,
+   377,
    0
   ],
   "chrom_grid3": [
@@ -1484,31 +1462,31 @@
    0
   ],
   "cmax": [
-   210,
+   212,
    6
   ],
   "csteps": [
-   208,
+   209,
    0
   ],
   "cubic": [
-   238,
+   239,
    0
   ],
   "digsum": [
-   415,
+   419,
    7
   ],
   "ds3": [
-   297,
+   298,
    1
   ],
   "fib": [
-   364,
+   367,
    5
   ],
   "fibw": [
-   109,
+   111,
    1
   ],
   "gold": [
@@ -1524,11 +1502,11 @@
    0
   ],
   "lpf": [
-   454,
+   455,
    10
   ],
   "lucas": [
-   359,
+   360,
    4
   ],
   "match_ladder": [
@@ -1536,15 +1514,15 @@
    1
   ],
   "maxgap": [
-   364,
+   365,
    5
   ],
   "mu": [
-   200,
+   201,
    9
   ],
   "n": [
-   413,
+   414,
    5
   ],
   "omega": [
@@ -1556,7 +1534,7 @@
    0
   ],
   "overpart": [
-   74,
+   75,
    0
   ],
   "oxa000414": [
@@ -1568,15 +1546,15 @@
    1
   ],
   "oxa007359": [
-   207,
+   208,
    0
   ],
   "oxa007837": [
-   190,
+   192,
    0
   ],
   "oxa009191": [
-   299,
+   301,
    9
   ],
   "oxa023201": [
@@ -1584,7 +1562,7 @@
    0
   ],
   "oxa033453": [
-   386,
+   387,
    3
   ],
   "oxa035100": [
@@ -1596,15 +1574,15 @@
    4
   ],
   "oxa046386": [
-   318,
+   319,
    0
   ],
   "oxa046387": [
-   440,
+   441,
    0
   ],
   "oxa047700": [
-   146,
+   147,
    4
   ],
   "oxa048760": [
@@ -1612,11 +1590,11 @@
    3
   ],
   "oxa048767": [
-   169,
+   170,
    1
   ],
   "oxa049980": [
-   234,
+   235,
    3
   ],
   "oxa055394": [
@@ -1624,7 +1602,7 @@
    2
   ],
   "oxa056971": [
-   171,
+   172,
    21
   ],
   "oxa065516": [
@@ -1640,15 +1618,15 @@
    0
   ],
   "oxa070778": [
-   126,
+   127,
    1
   ],
   "oxa071561": [
-   327,
+   328,
    1
   ],
   "oxa072827": [
-   101,
+   102,
    1
   ],
   "oxa072850": [
@@ -1668,19 +1646,19 @@
    4
   ],
   "oxa082411": [
-   446,
+   447,
    0
   ],
   "oxa083104": [
-   476,
+   477,
    0
   ],
   "oxa083105": [
-   442,
+   443,
    1
   ],
   "oxa088902": [
-   216,
+   219,
    3
   ],
   "oxa100953": [
@@ -1688,7 +1666,7 @@
    0
   ],
   "oxa102627": [
-   269,
+   273,
    6
   ],
   "oxa107293": [
@@ -1700,7 +1678,7 @@
    0
   ],
   "oxa143472": [
-   193,
+   197,
    0
   ],
   "oxa143619": [
@@ -1712,7 +1690,7 @@
    0
   ],
   "oxa143773": [
-   355,
+   357,
    4
   ],
   "oxa157100": [
@@ -1724,11 +1702,11 @@
    3
   ],
   "oxa177117": [
-   119,
+   120,
    1
   ],
   "oxa177122": [
-   121,
+   122,
    2
   ],
   "oxa209861": [
@@ -1740,11 +1718,11 @@
    2
   ],
   "oxa211338": [
-   286,
+   289,
    1
   ],
   "oxa213536": [
-   183,
+   184,
    5
   ],
   "oxa227145": [
@@ -1752,7 +1730,7 @@
    1
   ],
   "oxa238873": [
-   395,
+   397,
    4
   ],
   "oxa257348": [
@@ -1764,7 +1742,7 @@
    0
   ],
   "oxa275972": [
-   307,
+   308,
    5
   ],
   "oxa316344": [
@@ -1784,11 +1762,11 @@
    1
   ],
   "oxa381636": [
-   382,
+   383,
    1
   ],
   "part": [
-   341,
+   342,
    4
   ],
   "pdbl": [
@@ -1796,11 +1774,11 @@
    0
   ],
   "pdist": [
-   206,
+   207,
    3
   ],
   "pell": [
-   401,
+   403,
    8
   ],
   "perm_derange": [
@@ -1808,23 +1786,23 @@
    4
   ],
   "pfold": [
-   128,
+   129,
    1
   ],
   "phi": [
-   310,
+   311,
    15
   ],
   "pi": [
-   302,
+   303,
    3
   ],
   "ple3": [
-   363,
+   365,
    6
   ],
   "pnot3": [
-   234,
+   235,
    7
   ],
   "podd": [
@@ -1832,15 +1810,15 @@
    4
   ],
   "popcount": [
-   401,
+   402,
    6
   ],
   "pow2": [
-   399,
+   401,
    1
   ],
   "pplane": [
-   176,
+   178,
    0
   ],
   "prime": [
@@ -1848,7 +1826,7 @@
    11
   ],
   "prr": [
-   258,
+   259,
    2
   ],
   "rad": [
@@ -1876,19 +1854,19 @@
    8
   ],
   "stree_grid3": [
-   152,
+   153,
    5
   ],
   "stree_ladder": [
-   360,
+   361,
    4
   ],
   "tau": [
-   389,
+   390,
    12
   ],
   "tm": [
-   135,
+   137,
    3
   ],
   "tr_petersen": [
@@ -1896,7 +1874,7 @@
    1
   ],
   "tr_tribo": [
-   311,
+   312,
    0
   ]
  },
@@ -7102,12 +7080,6 @@
   }
  },
  "rejected_ids": [
-  "9b36236f463e",
-  "9b66d46786ce",
-  "9b6cd6b609f6",
-  "9b7692c5b41e",
-  "9b7789e705d9",
-  "9b85546f7744",
   "9b940a85c90b",
   "9b9b45326537",
   "9ba0efcd286f",
@@ -7147,6 +7119,7 @@
   "9d2a9cce6fee",
   "9d3ef32fc346",
   "9d54c4308753",
+  "9d5791e8ccbc",
   "9d60c0666741",
   "9d80e67a1bb8",
   "9d84686d6cc3",
@@ -7458,6 +7431,7 @@
   "ac0b78e64ee7",
   "ac1e53b42abc",
   "ac23f6347086",
+  "ac251c0d37db",
   "ac3666d94383",
   "ac460c2b4e9f",
   "ac4e2aa4a624",
@@ -8106,6 +8080,7 @@
   "ce7b0512e922",
   "ce85f2e5068d",
   "ceb2537c5b7e",
+  "ceb4004663bf",
   "ceb52800dcca",
   "ced2636aaac6",
   "cee126f38510",
@@ -8379,6 +8354,7 @@
   "dbd7d30c0089",
   "dbe796f6e559",
   "dbf33b31c555",
+  "dbf38ed817c2",
   "dc247656fedb",
   "dc2ab570b16d",
   "dc4bfff86b86",
@@ -8549,6 +8525,7 @@
   "e48e60717f93",
   "e49a532bc11d",
   "e49eb32ee0e0",
+  "e4b59be42e98",
   "e4b6c9e05209",
   "e4ebbb84d63e",
   "e4ecc244585e",
@@ -8803,6 +8780,7 @@
   "f142da9acc62",
   "f14eefc35e97",
   "f1574ae31226",
+  "f171efb47ca7",
   "f176b39f9b6a",
   "f182eb274bad",
   "f185fe44fb96",
@@ -9104,7 +9082,6 @@
   "fff680221f94"
  ],
  "signatures": [
-  "f66baf36cdd1674c",
   "f66c2ed3c0d2d5a7",
   "f66e01af3a87df20",
   "f66f83b3bfd7d7d8",
@@ -9164,6 +9141,7 @@
   "f6ad4331055001a9",
   "f6ae3e5ac9d24524",
   "f6aec064564106f3",
+  "f6b73944eeddca63",
   "f6b7ced1e76a2b72",
   "f6b923098099086f",
   "f6ba444f26ee7025",
@@ -11108,37 +11086,37 @@
  "totals": {
   "deep_na": 96,
   "deep_survived": 1,
-  "duplicate": 40287,
-  "expected_by_closure": 3150,
-  "explained_by_known_check": 877,
+  "duplicate": 40342,
+  "expected_by_closure": 3159,
+  "explained_by_known_check": 878,
   "explained_by_reference": 77,
   "false_surprises": 0,
-  "falsified": 10476,
-  "known_result": 170,
-  "loose_inequality": 96,
-  "machine_checked": 3155,
-  "no_reference_found": 1000,
-  "oeis_known": 1695,
+  "falsified": 10512,
+  "known_result": 171,
+  "loose_inequality": 97,
+  "machine_checked": 3164,
+  "no_reference_found": 1001,
+  "oeis_known": 1698,
   "oeis_unchecked": 0,
   "retested": 220,
   "surprises": 157,
-  "survived": 6219,
-  "tested": 16695,
+  "survived": 6234,
+  "tested": 16746,
   "trivial_basic_inequality": 89,
-  "trivial_case_split": 250,
-  "trivial_confirmed on range": 3863,
-  "trivial_digit_rule": 505,
-  "trivial_formal": 2231,
-  "trivial_growth_dominance": 83,
-  "trivial_idle_part": 10840,
-  "trivial_implied_parts": 70442,
-  "trivial_known_in_principle(compositional)": 1154,
-  "trivial_known_in_principle(definition_parity)": 1479,
+  "trivial_case_split": 251,
+  "trivial_confirmed on range": 3875,
+  "trivial_digit_rule": 507,
+  "trivial_formal": 2238,
+  "trivial_growth_dominance": 84,
+  "trivial_idle_part": 10868,
+  "trivial_implied_parts": 70620,
+  "trivial_known_in_principle(compositional)": 1155,
+  "trivial_known_in_principle(definition_parity)": 1485,
   "trivial_outer_self": 38,
-  "trivial_parity_rules": 2413,
+  "trivial_parity_rules": 2414,
   "trivial_rewrite_closure": 91,
-  "trivial_running_sum_tail": 160,
+  "trivial_running_sum_tail": 161,
   "trivial_shared_operand": 434,
-  "trivial_shuffle_null": 3091
+  "trivial_shuffle_null": 3094
  }
 }
