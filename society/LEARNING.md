@@ -16,7 +16,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Proposed this snapshot: **9**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=12`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 35, correct 0, pending 165, accuracy 0‰
+- Hive shadow picks: resolved 33, correct 0, pending 167, accuracy 0‰
 
 ## Per method card
 
@@ -52,13 +52,13 @@ _None yet._
 
 ## Reading breadth (knowledge library)
 
-knowledge: 235 papers across 14/14 fields, 125 concepts, 62 cards formed, 0 tested, 0 kept.
+knowledge: 238 papers across 14/14 fields, 129 concepts, 65 cards formed, 0 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | automated_reasoning | 25 | 4 | 0 | 0 | 0 |
-| cognitive_science | 8 | 4 | 3 | 0 | 0 |
-| consciousness_self_models | 9 | 4 | 1 | 0 | 0 |
+| cognitive_science | 10 | 6 | 5 | 0 | 0 |
+| consciousness_self_models | 10 | 6 | 2 | 0 | 0 |
 | learning_theory | 13 | 15 | 1 | 0 | 0 |
 | mathematics | 33 | 0 | 0 | 0 | 0 |
 | meta_learning | 12 | 10 | 2 | 0 | 0 |
@@ -76,8 +76,8 @@ knowledge: 235 papers across 14/14 fields, 125 concepts, 62 cards formed, 0 test
 - `novelty_archive` — 20 papers (consciousness_self_models, neural_architecture, open_endedness, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
 - `swarm_topology` — 12 papers (multi_agent_systems, neural_architecture, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
 - `specialist_routing` — 11 papers (neural_architecture): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
+- `working_memory_buffer` — 7 papers (cognitive_science, consciousness_self_models, neural_architecture): A small per-cycle working-memory buffer of recent outcomes that every desk reads before choosing work.
 - `meta_controller` — 7 papers (meta_learning, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
-- `self_play_challenger` — 7 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
