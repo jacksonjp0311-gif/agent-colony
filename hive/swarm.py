@@ -2436,6 +2436,13 @@ def sync_pending_with_heal_trial(state: dict[str, Any], cycle_id: str) -> dict[s
 def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     """One swarm cycle: mine, propose, vote, maybe start or close a trial."""
     try:
+        from pathlib import Path as _P
+        _t = _P(__file__).resolve().parent.parent / "TRANSLATOR.md"
+        if _t.exists():
+            _t.read_text(encoding="utf-8")
+    except Exception:
+        pass
+    try:
         from colony.tools.feedback import last
         prior = last("colony", n=1)
     except Exception:
