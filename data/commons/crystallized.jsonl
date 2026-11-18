@@ -29,3 +29,4 @@
 {"key": "colony:dream:one-mind:9", "fingerprint": "dream:one-mind:9", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119668+00:00", "reactivated": true}
 {"key": "colony:dream:one-mind:29", "fingerprint": "dream:one-mind:29", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T03:44:38.514058+00:00", "reactivated": true}
 {"key": "colony:park_cycles:up:11", "fingerprint": "park_cycles:up:11", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-18T06:35:47.663556+00:00", "reactivated": true}
+{"key": "colony:evaluation_window:up:7", "fingerprint": "evaluation_window:up:7", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-18T08:50:43.325811+00:00"}

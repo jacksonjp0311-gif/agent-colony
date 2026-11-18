@@ -31,10 +31,10 @@
       "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 15,
+      "concepts": 17,
       "distinct_concepts": 3,
-      "papers": 13,
-      "reads": 15
+      "papers": 15,
+      "reads": 16
     },
     "mathematics": {
       "cards_formed": 0,
@@ -82,22 +82,22 @@
       "reads": 15
     },
     "optimization_search": {
-      "cards_formed": 11,
+      "cards_formed": 13,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 21,
+      "concepts": 25,
       "distinct_concepts": 3,
-      "papers": 21,
-      "reads": 15
+      "papers": 24,
+      "reads": 16
     },
     "physics_complex_systems": {
       "cards_formed": 3,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 7,
-      "distinct_concepts": 4,
-      "papers": 18,
-      "reads": 15
+      "concepts": 8,
+      "distinct_concepts": 5,
+      "papers": 19,
+      "reads": 16
     },
     "recursive_self_improvement": {
       "cards_formed": 4,
@@ -207,10 +207,40 @@
         }
       ],
       "fields": [
-        "neural_architecture"
+        "neural_architecture",
+        "physics_complex_systems"
       ],
       "idea": "specialist_routing",
-      "n_papers": 11
+      "n_papers": 12
+    },
+    {
+      "description": "Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).",
+      "examples": [
+        {
+          "arxiv_id": "2611.17879",
+          "field": "neural_architecture",
+          "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning"
+        },
+        {
+          "arxiv_id": "2610.37327",
+          "field": "cognitive_science",
+          "title": "Local learning is all you need: brain-aligned predictive coding networks"
+        },
+        {
+          "arxiv_id": "2611.16220",
+          "field": "physics_complex_systems",
+          "title": "Learning memory forces and bounding frequency errors in fractional Kuramoto grids"
+        }
+      ],
+      "fields": [
+        "cognitive_science",
+        "learning_theory",
+        "neural_architecture",
+        "optimization_search",
+        "physics_complex_systems"
+      ],
+      "idea": "prediction_error_routing",
+      "n_papers": 7
     },
     {
       "description": "A small per-cycle working-memory buffer of recent outcomes that every desk reads before choosing work.",
@@ -238,40 +268,14 @@
       ],
       "idea": "working_memory_buffer",
       "n_papers": 7
-    },
-    {
-      "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
-      "examples": [
-        {
-          "arxiv_id": "2611.17314",
-          "field": "meta_learning",
-          "title": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces"
-        },
-        {
-          "arxiv_id": "2611.15923",
-          "field": "meta_learning",
-          "title": "Reinforcement Learning for Target Jerk Estimation in Interceptor Homing Phase"
-        },
-        {
-          "arxiv_id": "2611.15071",
-          "field": "meta_learning",
-          "title": "Improving Efficiency and Power in Small Rare-Disease Trials Through Prespecified, Data-Adaptive Covariate Adjustment"
-        }
-      ],
-      "fields": [
-        "meta_learning",
-        "self_learning_loops"
-      ],
-      "idea": "meta_controller",
-      "n_papers": 7
     }
   ],
   "totals": {
-    "cards_formed": 65,
+    "cards_formed": 67,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 129,
-    "papers": 238,
-    "reads": 233
+    "concepts": 136,
+    "papers": 244,
+    "reads": 236
   }
 }
