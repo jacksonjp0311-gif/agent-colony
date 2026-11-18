@@ -2549,11 +2549,17 @@
    "status": "holds_on_range",
    "tested_hi": 500,
    "credit": 0.0
+  },
+  "oc_A085614_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 151,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 694,
+   "attempts": 695,
    "credit": 24.3471
   },
   "gf": {

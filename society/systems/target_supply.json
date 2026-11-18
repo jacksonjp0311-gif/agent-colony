@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 233,
- "last_refill_index": 232,
+ "cycle_index": 236,
+ "last_refill_index": 235,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -2466,6 +2466,38 @@
   "773637e339757648": {
    "cycle_id": "20261118T092054Z_d11de3",
    "n_hits": 10
+  },
+  "a372e4dae9f563f8": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
+  },
+  "536a5c7788b6a170": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
+  },
+  "8400143741b4a99d": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
+  },
+  "f3620a4a1801f420": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
+  },
+  "f1955cc97b4dced8": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
+  },
+  "44e6f220198fe8a9": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
+  },
+  "c30bf25dfd84fc05": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
+  },
+  "a937ca54f35d4d81": {
+   "cycle_id": "20261118T095746Z_4d7bbe",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -2717,29 +2749,74 @@
   "A124999": "20261118T084732Z_ecfd3b",
   "A071900": "20261118T092054Z_d11de3"
  },
- "refills": 77,
- "added": 335,
+ "refills": 78,
+ "added": 345,
  "last": {
-  "cycle_id": "20261118T092054Z_d11de3",
+  "cycle_id": "20261118T095746Z_4d7bbe",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 10,
+  "requests": 21,
   "new": [
    {
-    "id": "oc_A085614_0",
+    "id": "oc_A300307_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A189665_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A235189_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A144750_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A183897_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A222139_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A222276_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A222459_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A230269_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A002146_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 77,
-   "resolved_skipped": 14,
-   "keyword_skipped": 0,
-   "statements": 88,
-   "parsed": 2,
-   "no_bfile": 1,
+   "entries": 72,
+   "resolved_skipped": 16,
+   "keyword_skipped": 1,
+   "statements": 74,
+   "parsed": 12,
+   "no_bfile": 0,
    "fails_on_data": 0,
-   "kept": 1,
+   "kept": 10,
    "def_candidates": 0
   }
  }
