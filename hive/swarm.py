@@ -722,9 +722,15 @@ def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
         delta = pen + bonus
         try:
             from colony.tools.symbiotic_exchange import kept_prior, agreed_prior, foreign_kept_prior
-            delta += kept_prior(proposal.fingerprint)
-            delta += agreed_prior(proposal.fingerprint)
-            delta += foreign_kept_prior(proposal.fingerprint, "colony")
+            kp = kept_prior(proposal.fingerprint)
+            ap = agreed_prior(proposal.fingerprint)
+            fp = foreign_kept_prior(proposal.fingerprint, "colony")
+            delta += kp + ap + fp
+            try:
+                from colony.tools.attribution import record
+                record(proposal.fingerprint, int(getattr(proposal.match, "score", 0)), fp, "ranked", "colony")
+            except Exception:
+                pass
         except Exception:
             pass
         try:
