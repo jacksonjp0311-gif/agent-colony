@@ -7,3 +7,4 @@
 {"delta": 2.0, "accepted": true}
 {"delta": -7.0, "accepted": false}
 {"delta": 10.0, "accepted": true}
+{"delta": -6.0, "accepted": false}

@@ -10,13 +10,13 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
 - Kept: **18**
-- Reverted (including twin-not-better): **12**
+- Reverted (including twin-not-better): **13**
 - Voided (environment changed mid-trial): **18**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 23, correct 0, pending 177, accuracy 0‰
+- Hive decision deferred **2** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive shadow picks: resolved 22, correct 0, pending 178, accuracy 0‰
 
 ## Per method card
 
@@ -31,14 +31,13 @@ _None yet._
 | `set_knob:evaluation_window` | 2 | 1 | 1 | 500‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
-| `set_knob:park_cycles` | 17 | 4 | 7 | 235‰ |
+| `set_knob:park_cycles` | 18 | 4 | 8 | 222‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 1 | 0 | 0 | 0‰ |
 | `set_knob:step_size` | 4 | 1 | 1 | 250‰ |
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T230504Z_2f9546` (baseline 7.0, trial 6.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261117T000430Z_7fec4f` (baseline 6.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261117T010509Z_15fab9` (baseline 4.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261117T022831Z_add0c8` (baseline 4.0, trial None)
@@ -50,6 +49,7 @@ _None yet._
 - `kept` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T084732Z_ecfd3b` (baseline 4.0, trial 6.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T102815Z_f488c2` (baseline 9.0, trial 2.0)
 - `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261118T115552Z_3b7d06` (baseline 3.0, trial 13.0)
+- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261118T135951Z_b01427` (baseline 10.0, trial 4.0)
 
 ## Reading breadth (knowledge library)
 
