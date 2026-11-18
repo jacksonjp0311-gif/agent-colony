@@ -66,12 +66,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "`meta-learning`",
+      "topic": "<https://doi.org/10.1007/s11139-026-01434-1>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "a(n)=9^(-1)",
+      "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-18T17:15:42Z",
-  "updated_cycle": "20261118T171326Z_1273a5",
+  "updated_at": "2026-11-18T17:54:45Z",
+  "updated_cycle": "20261118T175244Z_450db7",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
