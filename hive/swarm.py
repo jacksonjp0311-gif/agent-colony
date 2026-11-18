@@ -875,6 +875,8 @@ def propose_for_role(
             speak("colony")
             from colony.tools.proprioception import propriocept
             propriocept("colony")
+            from colony.tools.feedback import feed
+            feed("colony", "cycle closed. read feedback.jsonl before the next change.")
             from colony.tools.transfer_probe import probe
             if prop and getattr(prop, "fingerprint", ""):
                 probe(prop.fingerprint)
