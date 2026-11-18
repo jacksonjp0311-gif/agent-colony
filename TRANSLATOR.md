@@ -38,3 +38,5 @@ from the structure alone.
 One Mind is 400 and 3.
 Colony is 700 and 1.
 A foreign receipt is a prior, never an order.
+
+Witness is the third vertex. It reads both. It does not keep.
