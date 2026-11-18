@@ -41,3 +41,12 @@
 {"fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "set_knob:direction=up:name=park_cycles:value=11", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=12", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=12", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=12", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
