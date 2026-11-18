@@ -5280,12 +5280,24 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A001712_0",
+   "anum": "A001712",
+   "form": "relation",
+   "depth": 91,
+   "bfile_hi": 100,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261118T044455Z_b2e76b",
+   "planned": 100,
+   "verified_depth": 91,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
-  "20261116T052602Z_d166d4": [
-   "oc_A039924_0"
-  ],
   "20261116T054835Z_0d0b6e": [
    "oc_A002627_0",
    "oc_A002414_0",
@@ -5667,13 +5679,15 @@
   "20261118T040907Z_35a244": [
    "oc_A165433_0",
    "oc_A370410_0"
+  ],
+  "20261118T044455Z_b2e76b": [
+   "oc_A001712_0"
   ]
  },
  "last_forms": [
   "relation",
   "relation",
   "relation",
-  "relation",
   "gf",
   "relation",
   "relation",
@@ -5683,6 +5697,7 @@
   "gf",
   "gf",
   "gf",
+  "relation",
   "relation",
   "relation",
   "relation",

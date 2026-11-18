@@ -1,7 +1,7 @@
 {
-  "ts": "2026-11-18T04:19:59Z",
+  "ts": "2026-11-18T04:52:36Z",
   "version": 1,
-  "latest_cycle_id": "20261118T041729Z_993f4c",
+  "latest_cycle_id": "20261118T045050Z_8ac33f",
   "latest_revision_count": 0,
   "total_revisions": 4,
   "latest_revisions": [],
@@ -13,7 +13,7 @@
     ],
     "n_residual_conflicts": 24,
     "oracle_easy_pad_kills": 32,
-    "fitness_delta": -0.018000000000000016,
+    "fitness_delta": 0.018000000000000016,
     "kp": null
   },
   "examples": [
