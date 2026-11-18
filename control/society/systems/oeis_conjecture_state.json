@@ -2375,16 +2375,58 @@
    "status": "holds_on_range",
    "tested_hi": 126,
    "credit": 0.0
+  },
+  "oc_A308760_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A232504_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A308758_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A274100_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 168,
+   "credit": 0.0
+  },
+  "oc_A308733_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A391629_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 100,
+   "credit": 0.0
+  },
+  "oc_A026596_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 368,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 654,
+   "attempts": 658,
    "credit": 24.1488
   },
   "gf": {
-   "attempts": 103,
-   "credit": 1.9207
+   "attempts": 106,
+   "credit": 2.0707
   },
   "only_prime": {
    "attempts": 6,
@@ -2395,7 +2437,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 26.0695,
+ "credit_total": 26.2195,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -2777,6 +2819,24 @@
     "anum": "A283505",
     "bfile_hi": 126,
     "to": 5120,
+    "check": "exact"
+   },
+   "oc_A308760_0": {
+    "anum": "A308760",
+    "bfile_hi": 48,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A308758_0": {
+    "anum": "A308758",
+    "bfile_hi": 52,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A308733_0": {
+    "anum": "A308733",
+    "bfile_hi": 54,
+    "to": 7999,
     "check": "exact"
    }
   }
