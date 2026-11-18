@@ -117,7 +117,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 678200000,
+        "hi": 681400000,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -129,15 +129,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-18T10:27:31Z",
-      "runs": 216,
+      "last_run": "2026-11-18T11:47:37Z",
+      "runs": 217,
       "extensions": [
-        {
-          "ts": "2026-11-17T21:31:18Z",
-          "lo": 646200001,
-          "hi": 649400000,
-          "seconds": 1.9411
-        },
         {
           "ts": "2026-11-17T22:20:47Z",
           "lo": 649400001,
@@ -191,11 +185,17 @@
           "lo": 675000001,
           "hi": 678200000,
           "seconds": 1.8298
+        },
+        {
+          "ts": "2026-11-18T11:47:37Z",
+          "lo": 678200001,
+          "hi": 681400000,
+          "seconds": 1.5477
         }
       ],
       "last_data": {
-        "max_stopping_time": 455,
-        "argmax": 677205407
+        "max_stopping_time": 391,
+        "argmax": 678896063
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -430,7 +430,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 1664127,
+        "hi": 1669127,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -442,15 +442,9 @@
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-18T10:31:26Z",
-      "runs": 216,
+      "last_run": "2026-11-18T11:51:47Z",
+      "runs": 217,
       "extensions": [
-        {
-          "ts": "2026-11-17T21:48:10Z",
-          "lo": 1614128,
-          "hi": 1619127,
-          "seconds": 2.0044
-        },
         {
           "ts": "2026-11-18T01:20:42Z",
           "lo": 1619128,
@@ -504,10 +498,16 @@
           "lo": 1659128,
           "hi": 1664127,
           "seconds": 1.9656
+        },
+        {
+          "ts": "2026-11-18T11:51:47Z",
+          "lo": 1664128,
+          "hi": 1669127,
+          "seconds": 1.6813
         }
       ],
       "last_data": {
-        "certificates": 344
+        "certificates": 358
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -535,11 +535,11 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 846200000,
+        "hi": 850200000,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi2": 2947379,
-        "hl_ratio": 0.986672
+        "pi2": 2959860,
+        "hl_ratio": 0.986663
       },
       "window": 4000000,
       "min_window": 20000,
@@ -549,15 +549,9 @@
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-18T10:23:46Z",
-      "runs": 215,
+      "last_run": "2026-11-18T11:43:53Z",
+      "runs": 216,
       "extensions": [
-        {
-          "ts": "2026-11-17T21:27:40Z",
-          "lo": 806200001,
-          "hi": 810200000,
-          "seconds": 0.302
-        },
         {
           "ts": "2026-11-17T22:17:21Z",
           "lo": 810200001,
@@ -611,14 +605,20 @@
           "lo": 842200001,
           "hi": 846200000,
           "seconds": 0.2527
+        },
+        {
+          "ts": "2026-11-18T11:43:53Z",
+          "lo": 846200001,
+          "hi": 850200000,
+          "seconds": 0.2122
         }
       ],
       "last_data": {
-        "x": 846200000,
-        "pi2": 2947379,
-        "segment_pairs": 12378,
-        "hl_estimate": 2987192.24,
-        "ratio": 0.986672
+        "x": 850200000,
+        "pi2": 2959860,
+        "segment_pairs": 12481,
+        "hl_estimate": 2999869.88,
+        "ratio": 0.986663
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-18T11:09:30Z"
+  "updated_at": "2026-11-18T11:51:49Z"
 }
