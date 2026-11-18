@@ -82,22 +82,22 @@
       "reads": 13
     },
     "optimization_search": {
-      "cards_formed": 9,
+      "cards_formed": 11,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 16,
+      "concepts": 21,
       "distinct_concepts": 3,
-      "papers": 15,
-      "reads": 13
+      "papers": 21,
+      "reads": 14
     },
     "physics_complex_systems": {
-      "cards_formed": 1,
+      "cards_formed": 3,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 4,
-      "distinct_concepts": 3,
-      "papers": 15,
-      "reads": 13
+      "concepts": 7,
+      "distinct_concepts": 4,
+      "papers": 18,
+      "reads": 14
     },
     "recursive_self_improvement": {
       "cards_formed": 2,
@@ -160,6 +160,34 @@
       "n_papers": 14
     },
     {
+      "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
+      "examples": [
+        {
+          "arxiv_id": "2611.08615",
+          "field": "swarm_collective_intelligence",
+          "title": "s$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL"
+        },
+        {
+          "arxiv_id": "2611.07996",
+          "field": "swarm_collective_intelligence",
+          "title": "SEER: A Scalable Event-Driven Runtime for Parallel Execution of Multi-Agent Reinforcement Learning Environments"
+        },
+        {
+          "arxiv_id": "2611.07618",
+          "field": "swarm_collective_intelligence",
+          "title": "A Bilevel Neurodynamic Approach for Distributed SCAD-Regularized Sparse Least Squares"
+        }
+      ],
+      "fields": [
+        "multi_agent_systems",
+        "neural_architecture",
+        "physics_complex_systems",
+        "swarm_collective_intelligence"
+      ],
+      "idea": "swarm_topology",
+      "n_papers": 11
+    },
+    {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
       "examples": [
         {
@@ -183,33 +211,6 @@
       ],
       "idea": "specialist_routing",
       "n_papers": 11
-    },
-    {
-      "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
-      "examples": [
-        {
-          "arxiv_id": "2611.08615",
-          "field": "swarm_collective_intelligence",
-          "title": "s$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL"
-        },
-        {
-          "arxiv_id": "2611.07996",
-          "field": "swarm_collective_intelligence",
-          "title": "SEER: A Scalable Event-Driven Runtime for Parallel Execution of Multi-Agent Reinforcement Learning Environments"
-        },
-        {
-          "arxiv_id": "2611.07618",
-          "field": "swarm_collective_intelligence",
-          "title": "A Bilevel Neurodynamic Approach for Distributed SCAD-Regularized Sparse Least Squares"
-        }
-      ],
-      "fields": [
-        "multi_agent_systems",
-        "neural_architecture",
-        "swarm_collective_intelligence"
-      ],
-      "idea": "swarm_topology",
-      "n_papers": 10
     },
     {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
@@ -264,11 +265,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 46,
+    "cards_formed": 50,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 106,
-    "papers": 197,
-    "reads": 204
+    "concepts": 114,
+    "papers": 206,
+    "reads": 206
   }
 }

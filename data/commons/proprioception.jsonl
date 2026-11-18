@@ -5,3 +5,8 @@
 {"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 0, "bias": 99, "cycles_since_keep": 460, "posture": "moving"}
 {"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 0, "bias": 50, "cycles_since_keep": 460, "posture": "moving"}
 {"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 0, "bias": 99, "cycles_since_keep": 460, "posture": "moving"}
+{"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 4, "bias": 10, "cycles_since_keep": 461, "posture": "learning"}
+{"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 4, "bias": 50, "cycles_since_keep": 461, "posture": "moving"}
+{"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 4, "bias": 50, "cycles_since_keep": 462, "posture": "moving"}
+{"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 4, "bias": 113, "cycles_since_keep": 462, "posture": "moving"}
+{"source": "colony", "adopted": 15, "reverted": 10, "kept": 15, "holes": 0, "agreed": 4, "bias": 99, "cycles_since_keep": 462, "posture": "moving"}
