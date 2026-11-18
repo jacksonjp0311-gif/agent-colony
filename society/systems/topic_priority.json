@@ -66,11 +66,6 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "(3n-2)*c(n-1)",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -81,7 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "binomial(2*n-2",
+      "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-18T16:48:56Z",
-  "updated_cycle": "20261118T164618Z_746f8e",
+  "updated_at": "2026-11-18T18:05:55Z",
+  "updated_cycle": "20261118T180306Z_8d169c",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

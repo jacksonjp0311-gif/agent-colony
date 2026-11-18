@@ -1,127 +1,127 @@
 {
   "ci_health": {
-    "completed": 10,
-    "fetched_at": "2026-11-18T15:56:40Z",
+    "completed": 11,
+    "fetched_at": "2026-11-18T17:45:57Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-18T17:05:37Z",
+        "id": 44354729889,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-18T17:44:44Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T17:04:45Z",
+        "id": 44354559859,
+        "name": "Colony watch",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:05:34Z"
+      },
+      {
+        "conclusion": "failure",
+        "created_at": "2026-11-18T17:04:39Z",
+        "id": 44354543485,
+        "name": "Colony evolve",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:44:41Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T17:03:31Z",
+        "id": 44354322563,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:11:58Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T17:02:32Z",
+        "id": 44354134461,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:11:05Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T17:01:42Z",
+        "id": 44353978226,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:11:45Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T17:01:35Z",
+        "id": 44353957430,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:08:16Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T17:00:59Z",
+        "id": 44353839167,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:08:52Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T16:57:42Z",
+        "id": 44353221141,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:08:21Z"
+      },
+      {
+        "conclusion": "cancelled",
+        "created_at": "2026-11-18T16:27:57Z",
+        "id": 44347540193,
+        "name": "Colony new-data deep",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:04:41Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-18T15:58:55Z",
+        "id": 44341850429,
+        "name": "Colony evolve",
+        "status": "completed",
+        "updated_at": "2026-11-18T17:04:42Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-18T15:52:39Z",
         "id": 44340668317,
         "name": "Read-only tests",
-        "status": "in_progress",
-        "updated_at": "2026-11-18T15:52:42Z"
-      },
-      {
-        "conclusion": null,
-        "created_at": "2026-11-18T15:45:26Z",
-        "id": 44339295871,
-        "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-18T15:54:20Z"
-      },
-      {
-        "conclusion": "skipped",
-        "created_at": "2026-11-18T15:45:21Z",
-        "id": 44339279257,
-        "name": "Colony watch",
         "status": "completed",
-        "updated_at": "2026-11-18T15:45:22Z"
-      },
-      {
-        "conclusion": "cancelled",
-        "created_at": "2026-11-18T15:45:15Z",
-        "id": 44339259232,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:45:27Z"
-      },
-      {
-        "conclusion": "skipped",
-        "created_at": "2026-11-18T15:45:00Z",
-        "id": 44339208622,
-        "name": "Colony watch",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:45:11Z"
-      },
-      {
-        "conclusion": "cancelled",
-        "created_at": "2026-11-18T15:44:53Z",
-        "id": 44339187429,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:45:16Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T15:44:43Z",
-        "id": 44339155665,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:55:36Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T15:42:10Z",
-        "id": 44338672577,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:49:38Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T15:40:06Z",
-        "id": 44338277271,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:49:08Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T15:35:27Z",
-        "id": 44337396058,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:44:59Z"
-      },
-      {
-        "conclusion": "cancelled",
-        "created_at": "2026-11-18T15:28:53Z",
-        "id": 44336114554,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:44:55Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T15:28:52Z",
-        "id": 44336109699,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-18T15:40:04Z"
+        "updated_at": "2026-11-18T16:02:41Z"
       }
     ],
-    "success_rate": 0.5
+    "success_rate": 0.8182
   },
   "health": {
     "arxiv": {
       "fail": 11,
-      "ok": 104
+      "ok": 105
     },
     "crossref": {
       "fail": 0,
-      "ok": 107
+      "ok": 108
     },
     "oeis": {
       "fail": 0,
-      "ok": 107
+      "ok": 108
     },
     "oeis_conj": {
       "fail": 1,
-      "ok": 103
+      "ok": 104
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 107
+      "ok": 108
     }
   },
   "last_error": {
@@ -129,45 +129,50 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-18T12:16:21Z",
-    "crossref": "2026-11-18T12:16:23Z",
-    "oeis": "2026-11-18T12:16:22Z",
-    "oeis_conj": "2026-11-18T12:16:23Z",
-    "wikipedia": "2026-11-18T12:16:25Z"
+    "arxiv": "2026-11-18T17:45:52Z",
+    "crossref": "2026-11-18T17:45:55Z",
+    "oeis": "2026-11-18T17:45:54Z",
+    "oeis_conj": "2026-11-18T17:45:55Z",
+    "wikipedia": "2026-11-18T17:45:57Z"
   },
   "last_run": {
     "sources": {
       "arxiv": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 8,
+        "new": 2,
+        "ok": true
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 3,
+        "new": 3,
+        "ok": true
       },
       "oeis": {
+        "error": "",
+        "fetched": 2,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis_conj": {
+        "error": "",
+        "fetched": 10,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "wikipedia": {
+        "error": "",
+        "fetched": 0,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       }
     },
-    "ts": "2026-11-18T15:56:39Z"
+    "ts": "2026-11-18T17:45:49Z"
   },
-  "runs": 433
+  "runs": 434
 }
