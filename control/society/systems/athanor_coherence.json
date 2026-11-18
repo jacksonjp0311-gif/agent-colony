@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-18T16:03:49Z",
+  "ts": "2026-11-18T16:33:27Z",
   "version": 1,
   "mile": "spark3-port",
   "latest": {
@@ -24,15 +24,15 @@
     "double_gate": false,
     "durable_accept": false,
     "note": "ATHANOR H7 inform-only. Does NOT authorize durable ledger rows. P>=0.70 human authorize remains ceiling. Not AGI.",
-    "ts": "2026-11-18T16:03:49Z",
-    "cycle_id": "20261118T160155Z_8d8466",
+    "ts": "2026-11-18T16:33:27Z",
+    "cycle_id": "20261118T163119Z_38b2a3",
     "extra": {
       "n_agents": 14
     }
   },
   "distribution": {
     "APPROVE": 73,
-    "REFINE": 1529,
+    "REFINE": 1531,
     "REJECT": 0
   },
   "stabilizer_advice": {

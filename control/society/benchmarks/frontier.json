@@ -117,7 +117,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 691000000,
+        "hi": 694200000,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -129,15 +129,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-18T15:33:07Z",
-      "runs": 220,
+      "last_run": "2026-11-18T16:33:07Z",
+      "runs": 221,
       "extensions": [
-        {
-          "ts": "2026-11-18T04:49:27Z",
-          "lo": 659000001,
-          "hi": 662200000,
-          "seconds": 1.3024
-        },
         {
           "ts": "2026-11-18T06:07:09Z",
           "lo": 662200001,
@@ -191,11 +185,17 @@
           "lo": 687800001,
           "hi": 691000000,
           "seconds": 1.9064
+        },
+        {
+          "ts": "2026-11-18T16:33:07Z",
+          "lo": 691000001,
+          "hi": 694200000,
+          "seconds": 1.5919
         }
       ],
       "last_data": {
-        "max_stopping_time": 404,
-        "argmax": 688999451
+        "max_stopping_time": 466,
+        "argmax": 691964415
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -535,11 +535,11 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 862200000,
+        "hi": 866200000,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi2": 2997423,
-        "hl_ratio": 0.986686
+        "pi2": 3009952,
+        "hl_ratio": 0.9867
       },
       "window": 4000000,
       "min_window": 20000,
@@ -549,15 +549,9 @@
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-18T15:27:16Z",
-      "runs": 219,
+      "last_run": "2026-11-18T16:29:37Z",
+      "runs": 220,
       "extensions": [
-        {
-          "ts": "2026-11-18T04:46:36Z",
-          "lo": 822200001,
-          "hi": 826200000,
-          "seconds": 0.2029
-        },
         {
           "ts": "2026-11-18T06:01:41Z",
           "lo": 826200001,
@@ -611,14 +605,20 @@
           "lo": 858200001,
           "hi": 862200000,
           "seconds": 0.2979
+        },
+        {
+          "ts": "2026-11-18T16:29:37Z",
+          "lo": 862200001,
+          "hi": 866200000,
+          "seconds": 0.2406
         }
       ],
       "last_data": {
-        "x": 862200000,
-        "pi2": 2997423,
-        "segment_pairs": 12574,
-        "hl_estimate": 3037868.65,
-        "ratio": 0.986686
+        "x": 866200000,
+        "pi2": 3009952,
+        "segment_pairs": 12529,
+        "hl_estimate": 3050523.61,
+        "ratio": 0.9867
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-18T16:03:28Z"
+  "updated_at": "2026-11-18T16:33:09Z"
 }
