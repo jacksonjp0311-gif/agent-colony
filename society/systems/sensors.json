@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-17T18:40:28Z",
-  "cycle_id": "20261117T183955Z_cb7955",
+  "ts": "2026-11-18T01:29:17Z",
+  "cycle_id": "20261118T012856Z_2d7575",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -115,28 +115,28 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8452,
-      "slope": 0.00129,
+      "last": 0.8289,
+      "slope": 0.000532,
       "min": 0.8082,
-      "max": 0.8485
+      "max": 0.8479
     },
     "novelty": {
       "last": 0.4667,
-      "slope": -0.003609,
+      "slope": -0.003726,
       "min": 0.4667,
-      "max": 0.5333
+      "max": 0.5
     },
     "kill_rate": {
       "last": 0.3976,
-      "slope": -4.3e-05,
+      "slope": -4.5e-05,
       "min": 0.3976,
-      "max": 0.3984
+      "max": 0.398
     },
     "kill_rate_term": {
       "last": 0.9078,
-      "slope": -4e-05,
+      "slope": -4.5e-05,
       "min": 0.9078,
-      "max": 0.9085
+      "max": 0.9082
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -147,7 +147,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0064,
+    "aggregate_range": 0.0179,
     "novelty_max": 0.5,
     "window": 6,
     "reason": "moving"
@@ -283,23 +283,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.188,
+      "ratio": 0.774,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.182,
+      "ratio": 0.78,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.151,
+      "ratio": 0.773,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.171,
+      "ratio": 0.921,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.168,
+      "ratio": 0.79,
       "drift": false
     }
   },
@@ -307,11 +307,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 564434115,
-      "collatz_descent": 601400000,
+      "collatz_descent": 604600000,
       "legendre_square_gap": 3068607,
       "lehmer_totient": 285400001,
       "erdos_straus": 1544127,
-      "twin_primes_hl": 750200000,
+      "twin_primes_hl": 754200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],

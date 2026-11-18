@@ -34,7 +34,7 @@
       "concepts": 15,
       "distinct_concepts": 3,
       "papers": 13,
-      "reads": 13
+      "reads": 14
     },
     "mathematics": {
       "cards_formed": 0,
@@ -43,7 +43,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 31,
-      "reads": 26
+      "reads": 27
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -269,6 +269,6 @@
     "cards_tested": 0,
     "concepts": 106,
     "papers": 197,
-    "reads": 202
+    "reads": 204
   }
 }

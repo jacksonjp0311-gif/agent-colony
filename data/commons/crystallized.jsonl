@@ -22,3 +22,8 @@
 {"key": "colony:park_cycles:up:8", "fingerprint": "park_cycles:up:8", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662179+00:00"}
 {"key": "colony:park_cycles:up:10", "fingerprint": "park_cycles:up:10", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662431+00:00"}
 {"key": "colony:step_size:down:0.0975", "fingerprint": "step_size:down:0.0975", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662723+00:00"}
+{"key": "colony:watch:9:123", "fingerprint": "watch:9:123", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.118777+00:00"}
+{"key": "colony:watch:8:76", "fingerprint": "watch:8:76", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119069+00:00"}
+{"key": "colony:dream:colony:9", "fingerprint": "dream:colony:9", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119268+00:00"}
+{"key": "colony:dream:one-mind:8", "fingerprint": "dream:one-mind:8", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119465+00:00"}
+{"key": "colony:dream:one-mind:9", "fingerprint": "dream:one-mind:9", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119668+00:00"}
