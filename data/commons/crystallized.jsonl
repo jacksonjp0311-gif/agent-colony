@@ -31,3 +31,4 @@
 {"key": "colony:park_cycles:up:11", "fingerprint": "park_cycles:up:11", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-18T06:35:47.663556+00:00", "reactivated": true}
 {"key": "colony:evaluation_window:up:7", "fingerprint": "evaluation_window:up:7", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-18T08:50:43.325811+00:00", "reactivated": true}
 {"key": "colony:park_cycles:up:12", "fingerprint": "park_cycles:up:12", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-18T11:58:25.932610+00:00", "reactivated": true}
+{"key": "colony:dream:one-mind:33", "fingerprint": "dream:one-mind:33", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T22:22:42.660033+00:00"}

@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "(3n-2)*c(n-1)",
+      "topic": "<https://doi.org/10.52216/jfsi.vol8no2p36-41>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -81,7 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "binomial(2*n-2",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-18T21:16:49Z",
-  "updated_cycle": "20261118T211329Z_abe219",
+  "updated_at": "2026-11-18T22:35:08Z",
+  "updated_cycle": "20261118T223145Z_4046e8",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

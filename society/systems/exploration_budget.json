@@ -1,36 +1,15 @@
 {
-  "ts": "2026-11-18T21:17:05Z",
+  "ts": "2026-11-18T22:35:24Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261118T211329Z_abe219"
+    "cycle_id": "20261118T223145Z_4046e8"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 607,
+  "last_oracle_passes": 608,
   "spawn_retire_log": [
-    {
-      "ts": "2026-11-18T12:35:00Z",
-      "cycle_id": "20261118T123032Z_7337c5",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-18T12:41:20Z",
-      "cycle_id": "20261118T123643Z_d0ad6e",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-18T13:14:18Z",
-      "cycle_id": "20261118T130447Z_2f46ee",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-11-18T13:21:29Z",
       "cycle_id": "20261118T131602Z_33bbf6",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-18T22:23:22Z",
+      "cycle_id": "20261118T221919Z_a13b46",
+      "event": "credit",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 1
+    },
+    {
+      "ts": "2026-11-18T22:29:46Z",
+      "cycle_id": "20261118T222528Z_15f95e",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-18T22:36:28Z",
+      "cycle_id": "20261118T223145Z_4046e8",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
     }
   ],
-  "updated_at": "2026-11-18T21:18:23Z",
+  "updated_at": "2026-11-18T22:36:28Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.003809,
     "hockey_stick": 0.003809,
@@ -456,7 +456,8 @@
     "authored_mut_swap_related_sequence_e3906c4f261e": 1,
     "authored_mut_swap_related_sequence_63101141dfc9": 1,
     "authored_mut_swap_related_sequence_63557c19a320": 1,
-    "authored_mut_swap_related_sequence_99ba51d8108a": 1
+    "authored_mut_swap_related_sequence_99ba51d8108a": 1,
+    "authored_mut_swap_related_sequence_3ad2ed8607dd": 1
   },
   "keep_rewards": {
     "authored_bell_triangle_recurrence__hermite_recurrence_w1": 1,

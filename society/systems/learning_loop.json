@@ -2565,6 +2565,52 @@
           "treatment": 1661153.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T221919Z_a13b46",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "2da8e5f243364049",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "2da8e5f243364049",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-18T22:22:39Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8302
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 607.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
     }
   ],
   "families": {
@@ -2584,11 +2630,11 @@
       "voided": 1
     },
     "set_knob:evaluation_window": {
-      "keep_rate_permille": 500,
+      "keep_rate_permille": 333,
       "kept": 1,
-      "n": 2,
+      "n": 3,
       "reverted": 1,
-      "voided": 0
+      "voided": 1
     },
     "set_knob:fast_term_cap": {
       "inconclusive": 1,
@@ -2635,7 +2681,7 @@
       "voided": 2
     }
   },
-  "last_cycle": "20261118T211329Z_abe219",
+  "last_cycle": "20261118T223145Z_4046e8",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -2660,7 +2706,7 @@
   "n_proposed": 10,
   "n_reverted": 14,
   "n_twin_held": 0,
-  "n_voided": 19,
+  "n_voided": 20,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
   "pending": [
     {
@@ -2851,11 +2897,11 @@
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 4,
-    "pending": 196,
-    "resolved": 4,
+    "incorrect": 1,
+    "pending": 199,
+    "resolved": 1,
     "source": "hive_shadows",
-    "ts": "2026-11-18T21:20:02Z",
+    "ts": "2026-11-18T22:38:24Z",
     "unlabeled": 0
   },
   "twin_pending": [],

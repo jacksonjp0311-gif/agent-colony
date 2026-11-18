@@ -11,12 +11,12 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Method cards tried: **0**
 - Kept: **18**
 - Reverted (including twin-not-better): **14**
-- Voided (environment changed mid-trial): **19**
+- Voided (environment changed mid-trial): **20**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **3** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 4, correct 0, pending 196, accuracy 0‰
+- Hive shadow picks: resolved 1, correct 0, pending 199, accuracy 0‰
 
 ## Per method card
 
@@ -28,7 +28,7 @@ _None yet._
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
-| `set_knob:evaluation_window` | 2 | 1 | 1 | 500‰ |
+| `set_knob:evaluation_window` | 3 | 1 | 1 | 333‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
 | `set_knob:park_cycles` | 19 | 4 | 8 | 210‰ |
@@ -38,7 +38,6 @@ _None yet._
 
 ## Recent outcomes
 
-- `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261117T022831Z_add0c8` (baseline 4.0, trial None)
 - `kept` · card `—` · family `set_knob:step_size` · cycle `20261117T115227Z_31a000` (baseline 5.0, trial 7.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261117T121839Z_ea1759` (baseline 7.0, trial None)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261117T141904Z_441571` (baseline 5.0, trial None)
@@ -50,6 +49,7 @@ _None yet._
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261118T135951Z_b01427` (baseline 10.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261118T152905Z_deeb8d` (baseline 4.0, trial None)
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T202459Z_211471` (baseline 4.0, trial 4.0)
+- `voided` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T221919Z_a13b46` (baseline 4.0, trial None)
 
 ## Reading breadth (knowledge library)
 
