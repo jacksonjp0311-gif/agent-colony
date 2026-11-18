@@ -721,9 +721,10 @@ def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
         bonus = _ucb_bonus(proposal.fingerprint)
         delta = pen + bonus
         try:
-            from colony.tools.symbiotic_exchange import kept_prior, agreed_prior
+            from colony.tools.symbiotic_exchange import kept_prior, agreed_prior, foreign_kept_prior
             delta += kept_prior(proposal.fingerprint)
             delta += agreed_prior(proposal.fingerprint)
+            delta += foreign_kept_prior(proposal.fingerprint, "colony")
         except Exception:
             pass
         try:

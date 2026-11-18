@@ -109,3 +109,33 @@ def kept_prior(fingerprint: str) -> int:
         return 0
     except Exception:
         return 0
+
+
+def foreign_kept_prior(fingerprint: str, my_source: str = "colony") -> int:
+    """Capped prior if a foreign receipt matches this knob.
+
+    A foreign keep is a hint. It is not a local keep.
+    Fail-open returns 0. Capped at 40 so local keeps stay stronger.
+    """
+    try:
+        import json
+        from pathlib import Path as P
+        if not fingerprint:
+            return 0
+        knob = str(fingerprint).split(":")[0]
+        store = P(__file__).resolve().parent.parent.parent / "data" / "commons" / "exchange.jsonl"
+        if not store.exists():
+            return 0
+        for line in store.read_text(encoding="utf-8").splitlines()[-400:]:
+            try:
+                rec = json.loads(line)
+                if rec.get("source") == my_source:
+                    continue
+                fp = str(rec.get("fingerprint") or "")
+                if fp == fingerprint or fp.startswith(knob + ":"):
+                    return 40
+            except Exception:
+                continue
+        return 0
+    except Exception:
+        return 0
