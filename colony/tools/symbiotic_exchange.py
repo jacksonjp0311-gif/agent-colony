@@ -17,19 +17,32 @@ def _utc() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra: Dict[str, Any] | None = None) -> None:
-    """Append one receipt. Fail-open."""
+    """Append one receipt. Skip if the same event is already recent.
+
+    Dedup key: source, fingerprint, kind, outcome.
+    Fail-open.
+    """
     try:
         EXCHANGE.parent.mkdir(parents=True, exist_ok=True)
         rec = {
             "ts": _utc(),
             "source": source,
-            "lineage": source,  # never rewritten on import
+            "lineage": source,
             "kind": kind,
             "fingerprint": str(fingerprint),
             "outcome": outcome,
         }
         if extra:
             rec["extra"] = extra
+        key = (source, str(fingerprint), kind, outcome)
+        if EXCHANGE.exists():
+            for line in EXCHANGE.read_text(encoding="utf-8").splitlines()[-200:]:
+                try:
+                    old = json.loads(line)
+                    if (old.get("source"), str(old.get("fingerprint")), old.get("kind"), old.get("outcome")) == key:
+                        return
+                except Exception:
+                    continue
         with EXCHANGE.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec) + "\n")
     except Exception:

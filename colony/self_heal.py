@@ -2950,6 +2950,8 @@ def _close_trial(
             from colony.tools.crystallize import crystallize
             fp = f"{knob}:{trial.get('direction')}:{trial.get('to')}"
             crystallize({"fingerprint": fp}, source="colony", category="kept")
+            from colony.tools.symbiotic_exchange import append_receipt
+            append_receipt("colony", "keep", fp, "kept", extra={"to": trial.get("to")})
         except Exception:
             pass
         ev = append_evidence(state, {
