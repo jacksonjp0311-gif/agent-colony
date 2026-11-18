@@ -1,0 +1,17 @@
+{
+  "fingerprint": "deep_digits:up:7700",
+  "source": "one-mind",
+  "receiver": "colony",
+  "baseline": 100,
+  "trial_score": 100,
+  "with_foreign_prior": {
+    "score": 160,
+    "outcome": "adopt"
+  },
+  "without_foreign_prior": {
+    "score": 100,
+    "outcome": "revert"
+  },
+  "flipped": true,
+  "note": "Foreign prior is a prior. Colony does not inherit the keep."
+}
