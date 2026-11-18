@@ -112,17 +112,17 @@ def kept_prior(fingerprint: str) -> int:
 
 
 def foreign_kept_prior(fingerprint: str, my_source: str = "colony") -> int:
-    """Capped prior if a foreign receipt matches this knob.
+    """Capped prior only for a foreign record that is a confirmed keep.
 
-    A foreign keep is a hint. It is not a local keep.
-    Fail-open returns 0. Capped at 40 so local keeps stay stronger.
+    Exact fingerprint. Outcome must be kept or adopted.
+    A proposal, a revert, a dream, or a prefix match is not a reward.
+    Fail-open returns 0. Capped at 40.
     """
     try:
         import json
         from pathlib import Path as P
         if not fingerprint:
             return 0
-        knob = str(fingerprint).split(":")[0]
         store = P(__file__).resolve().parent.parent.parent / "data" / "commons" / "exchange.jsonl"
         if not store.exists():
             return 0
@@ -131,9 +131,11 @@ def foreign_kept_prior(fingerprint: str, my_source: str = "colony") -> int:
                 rec = json.loads(line)
                 if rec.get("source") == my_source:
                     continue
-                fp = str(rec.get("fingerprint") or "")
-                if fp == fingerprint or fp.startswith(knob + ":"):
-                    return 40
+                if str(rec.get("fingerprint") or "") != fingerprint:
+                    continue
+                if rec.get("outcome") not in ("kept", "adopted"):
+                    continue
+                return 40
             except Exception:
                 continue
         return 0
