@@ -2639,16 +2639,64 @@
    "status": "holds_on_range",
    "tested_hi": 89,
    "credit": 0.0
+  },
+  "oc_A198474_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 14848,
+   "credit": 0.05
+  },
+  "oc_A282318_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A304720_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A282192_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A309516_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.05
+  },
+  "oc_A324036_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.05
+  },
+  "oc_A295292_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.05
+  },
+  "oc_A309879_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.05
   }
  },
  "families": {
   "relation": {
-   "attempts": 705,
+   "attempts": 708,
    "credit": 24.3471
   },
   "gf": {
-   "attempts": 139,
-   "credit": 3.3376
+   "attempts": 144,
+   "credit": 3.5876
   },
   "only_prime": {
    "attempts": 6,
@@ -2659,7 +2707,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 27.6847,
+ "credit_total": 27.9347,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -3239,6 +3287,36 @@
     "anum": "A222139",
     "bfile_hi": 210,
     "to": 7424,
+    "check": "exact"
+   },
+   "oc_A198474_0": {
+    "anum": "A198474",
+    "bfile_hi": 200,
+    "to": 14848,
+    "check": "exact"
+   },
+   "oc_A309516_0": {
+    "anum": "A309516",
+    "bfile_hi": 1000,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A324036_0": {
+    "anum": "A324036",
+    "bfile_hi": 69,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A295292_0": {
+    "anum": "A295292",
+    "bfile_hi": 50,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A309879_0": {
+    "anum": "A309879",
+    "bfile_hi": 56,
+    "to": 19999,
     "check": "exact"
    }
   },

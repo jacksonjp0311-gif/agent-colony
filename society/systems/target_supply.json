@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 242,
- "last_refill_index": 241,
+ "cycle_index": 245,
+ "last_refill_index": 244,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -2815,65 +2815,23 @@
   "A046961": "20261118T103501Z_8cfe52",
   "A352542": "20261118T111531Z_dc9413"
  },
- "refills": 80,
+ "refills": 81,
  "added": 357,
  "last": {
-  "cycle_id": "20261118T111531Z_dc9413",
-  "open_before": 0,
-  "pages_read": 8,
-  "requests": 17,
-  "new": [
-   {
-    "id": "oc_A282192_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A282318_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A304720_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A309516_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A198474_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A309879_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A295292_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A324036_0",
-    "form": "gf",
-    "definition": false
-   }
-  ],
+  "cycle_id": "20261118T115552Z_3b7d06",
+  "open_before": 4,
+  "pages_read": 0,
+  "requests": 0,
+  "new": [],
   "stats": {
-   "entries": 71,
-   "resolved_skipped": 8,
-   "keyword_skipped": 4,
-   "statements": 78,
-   "parsed": 13,
-   "no_bfile": 1,
+   "entries": 0,
+   "resolved_skipped": 0,
+   "keyword_skipped": 0,
+   "statements": 0,
+   "parsed": 0,
+   "no_bfile": 0,
    "fails_on_data": 0,
-   "kept": 8,
-   "def_candidates": 0
+   "kept": 0
   }
  }
 }
