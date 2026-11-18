@@ -1290,6 +1290,22 @@
    "tried": [],
    "version": 1
   },
+  "oc_A060649_0": {
+   "anum": "A060649",
+   "definition": null,
+   "source_sha": "2a78d2b54e6be402",
+   "terms_sha": "b9920e98de025035",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
   "oc_A064088_0": {
    "anum": "A064088",
    "definition": null,
@@ -5269,6 +5285,22 @@
    "tried": [],
    "version": 1
   },
+  "oc_A304034_0": {
+   "anum": "A304034",
+   "definition": null,
+   "source_sha": "13d4e6c205d8f716",
+   "terms_sha": "5bd3fc01d3c6ae9b",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
   "oc_A304333_0": {
    "anum": "A304333",
    "definition": null,
@@ -5418,6 +5450,38 @@
    "definition": null,
    "source_sha": "763edefdfe7c3225",
    "terms_sha": "142844814226ce67",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A321266_0": {
+   "anum": "A321266",
+   "definition": null,
+   "source_sha": "d3e83886ad92e42b",
+   "terms_sha": "d00ed0ed9cc33328",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A321291_0": {
+   "anum": "A321291",
+   "definition": null,
+   "source_sha": "090f60e936b25703",
+   "terms_sha": "f84c566ae0613e63",
    "tried": [
     {
      "kind": "holo",

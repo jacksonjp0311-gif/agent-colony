@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 242,
+ "cycle_index": 245,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -150,7 +150,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261118T104145Z_b2acb7",
+  "cycle_id": "20261118T112231Z_158098",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -159,45 +159,43 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 179,
-     "duplicate": 18,
-     "trivial_formal": 3,
-     "trivial_shuffle_null": 4,
-     "trivial_idle_part": 4,
-     "trivial_implied_parts": 53,
+     "fitted": 195,
+     "duplicate": 15,
+     "trivial_formal": 2,
+     "trivial_shuffle_null": 2,
+     "trivial_idle_part": 6,
+     "trivial_implied_parts": 47,
      "trivial_shared_operand": 0,
-     "trivial_growth_dominance": 0,
-     "trivial_case_split": 0,
+     "trivial_growth_dominance": 1,
+     "trivial_case_split": 1,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 5,
+     "expected_by_closure": 2,
      "loose_inequality": 0,
-     "tested": 18,
-     "survived": 10,
-     "falsified": 8,
-     "machine_checked": 5,
-     "surprises": 1,
-     "known_result": 0,
-     "oeis_known": 1,
+     "tested": 14,
+     "survived": 3,
+     "falsified": 11,
+     "machine_checked": 2,
+     "surprises": 0,
+     "known_result": 1,
+     "oeis_known": 0,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 4,
-     "explained_by_known_check": 3,
-     "trivial_known_in_principle(definition_parity)": 1,
-     "deep_na": 1,
-     "trivial_confirmed on range": 3
+     "trivial_confirmed on range": 7,
+     "trivial_known_in_principle(compositional)": 1,
+     "trivial_known_in_principle(definition_parity)": 1
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 2.248
+  "cpu_s": 2.001
  },
  "last_skip": {
-  "cycle_id": "20261118T104145Z_b2acb7",
+  "cycle_id": "20261118T112231Z_158098",
   "reason": "self_heal_trial_open"
  },
  "kept_count": 1,
