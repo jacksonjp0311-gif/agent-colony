@@ -878,6 +878,8 @@ def propose_for_role(
             propriocept("colony")
             from colony.tools.feedback import feed
             feed("colony", "cycle closed. read feedback.jsonl before the next change.")
+            from colony.tools.evidence_view import project
+            project()
             from colony.tools.transfer_probe import probe
             if prop and getattr(prop, "fingerprint", ""):
                 probe(prop.fingerprint)
