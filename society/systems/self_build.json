@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 283,
+ "cycle_index": 286,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -150,7 +150,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261118T195233Z_a44726",
+  "cycle_id": "20261118T203141Z_d0dba6",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -159,44 +159,43 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 175,
-     "duplicate": 17,
-     "trivial_formal": 3,
+     "fitted": 169,
+     "duplicate": 15,
+     "trivial_formal": 0,
      "trivial_shuffle_null": 1,
-     "trivial_idle_part": 9,
+     "trivial_idle_part": 4,
      "trivial_implied_parts": 58,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
-     "trivial_basic_inequality": 1,
+     "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 1,
-     "expected_by_closure": 1,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 2,
      "loose_inequality": 0,
-     "tested": 18,
-     "survived": 5,
-     "falsified": 13,
-     "machine_checked": 1,
+     "tested": 14,
+     "survived": 3,
+     "falsified": 11,
+     "machine_checked": 2,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 3,
+     "oeis_known": 0,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
      "no_reference_found": 1,
      "explained_by_known_check": 1,
-     "trivial_known_in_principle(compositional)": 2,
-     "trivial_confirmed on range": 5
+     "trivial_confirmed on range": 3
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 2.414
+  "cpu_s": 1.716
  },
  "last_skip": {
-  "cycle_id": "20261118T195233Z_a44726",
+  "cycle_id": "20261118T203141Z_d0dba6",
   "reason": "self_heal_trial_open"
  },
  "kept_count": 1,
@@ -204,7 +203,7 @@
  "inconclusive_count": 0,
  "voided_count": 8,
  "heal_turn": null,
- "last_propose_cycle": "20261118T183830Z_e4e344",
+ "last_propose_cycle": "20261118T202459Z_211471",
  "operator_stats": {
   "add": {
    "tried": 4,

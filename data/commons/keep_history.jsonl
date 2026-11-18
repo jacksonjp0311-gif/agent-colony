@@ -9,3 +9,4 @@
 {"delta": 10.0, "accepted": true}
 {"delta": -6.0, "accepted": false}
 {"delta": -4.0, "accepted": false}
+{"delta": 0.0, "accepted": false}

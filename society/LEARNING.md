@@ -10,13 +10,13 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
 - Kept: **18**
-- Reverted (including twin-not-better): **13**
+- Reverted (including twin-not-better): **14**
 - Voided (environment changed mid-trial): **19**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **2** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 7, correct 0, pending 193, accuracy 0‰
+- Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive shadow picks: resolved 5, correct 0, pending 195, accuracy 0‰
 
 ## Per method card
 
@@ -34,11 +34,10 @@ _None yet._
 | `set_knob:park_cycles` | 19 | 4 | 8 | 210‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 1 | 0 | 0 | 0‰ |
-| `set_knob:step_size` | 4 | 1 | 1 | 250‰ |
+| `set_knob:step_size` | 5 | 1 | 2 | 200‰ |
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261117T010509Z_15fab9` (baseline 4.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261117T022831Z_add0c8` (baseline 4.0, trial None)
 - `kept` · card `—` · family `set_knob:step_size` · cycle `20261117T115227Z_31a000` (baseline 5.0, trial 7.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261117T121839Z_ea1759` (baseline 7.0, trial None)
@@ -50,6 +49,7 @@ _None yet._
 - `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261118T115552Z_3b7d06` (baseline 3.0, trial 13.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261118T135951Z_b01427` (baseline 10.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261118T152905Z_deeb8d` (baseline 4.0, trial None)
+- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T202459Z_211471` (baseline 4.0, trial 4.0)
 
 ## Reading breadth (knowledge library)
 
