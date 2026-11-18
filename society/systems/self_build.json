@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 203,
+ "cycle_index": 206,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -135,7 +135,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261118T024430Z_d8ae3e",
+  "cycle_id": "20261118T035307Z_9b5c72",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -144,24 +144,24 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 178,
-     "duplicate": 17,
-     "trivial_formal": 1,
-     "trivial_shuffle_null": 0,
-     "trivial_idle_part": 5,
-     "trivial_implied_parts": 51,
+     "fitted": 187,
+     "duplicate": 15,
+     "trivial_formal": 2,
+     "trivial_shuffle_null": 1,
+     "trivial_idle_part": 10,
+     "trivial_implied_parts": 60,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
-     "trivial_parity_rules": 1,
+     "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
      "expected_by_closure": 3,
      "loose_inequality": 0,
-     "tested": 17,
-     "survived": 5,
+     "tested": 18,
+     "survived": 6,
      "falsified": 12,
      "machine_checked": 3,
      "surprises": 0,
@@ -170,16 +170,17 @@
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 5,
-     "trivial_known_in_principle(definition_parity)": 1
+     "no_reference_found": 1,
+     "explained_by_known_check": 1,
+     "trivial_confirmed on range": 7
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 1.371
+  "cpu_s": 1.892
  },
  "last_skip": {
-  "cycle_id": "20261118T024430Z_d8ae3e",
+  "cycle_id": "20261118T035307Z_9b5c72",
   "reason": "no_candidate_passed_self_test",
   "rejected": [
    {
@@ -249,7 +250,7 @@
  "inconclusive_count": 0,
  "voided_count": 8,
  "heal_turn": null,
- "last_propose_cycle": "20261118T024430Z_d8ae3e",
+ "last_propose_cycle": "20261118T035307Z_9b5c72",
  "operator_stats": {
   "add": {
    "tried": 3,
