@@ -10,13 +10,13 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
 - Kept: **15**
-- Reverted (including twin-not-better): **10**
+- Reverted (including twin-not-better): **11**
 - Voided (environment changed mid-trial): **18**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **9**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=11`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 48, correct 0, pending 152, accuracy 0‰
+- Hive shadow picks: resolved 46, correct 0, pending 154, accuracy 0‰
 
 ## Per method card
 
@@ -33,11 +33,10 @@ _None yet._
 | `set_knob:park_cycles` | 15 | 2 | 7 | 133‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 1 | 0 | 0 | 0‰ |
-| `set_knob:step_size` | 3 | 1 | 0 | 333‰ |
+| `set_knob:step_size` | 4 | 1 | 1 | 250‰ |
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T173537Z_be43ea` (baseline 8.0, trial 5.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T183049Z_7f7d82` (baseline 5.0, trial 4.0)
 - `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261116T192905Z_bc22f0` (baseline 4.0, trial 5.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T202906Z_a13d81` (baseline 5.0, trial 4.0)
@@ -49,6 +48,7 @@ _None yet._
 - `kept` · card `—` · family `set_knob:step_size` · cycle `20261117T115227Z_31a000` (baseline 5.0, trial 7.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261117T121839Z_ea1759` (baseline 7.0, trial None)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261117T141904Z_441571` (baseline 5.0, trial None)
+- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T052640Z_d72734` (baseline 4.0, trial 4.0)
 
 ## Reading breadth (knowledge library)
 

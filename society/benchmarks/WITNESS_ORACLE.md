@@ -1,13 +1,13 @@
-# Oracle witness — 2026-11-18T04:30:33Z
+# Oracle witness — 2026-11-18T05:43:56Z
 
 HEAR bus debate → SENSE (held-out + stripped + CAS) → collective vote. **FAIL kills keep.** No Oracle pass → no fitness rise. Still candidate until human authorize. Not AGI. Not Millennium.
 
-- passes (full log): **599**
+- passes (full log): **600**
 - kills (full log): **394**
 - easy_pad kills (full log): **32**
-- kill_rate (full log, same as fitness kill_rate): **0.3968**
+- kill_rate (full log, same as fitness kill_rate): **0.3964**
 - recent window (last 60): kill_rate **0.0**
-- latest: `authored_mut_swap_related_sequence_71a3566eec17` kind=hard_enable → **PASS** fitness_credit=True
+- latest: `authored_mut_swap_related_sequence_854586f86d46` kind=hard_enable → **PASS** fitness_credit=True
   - kills=[]
   - Oracle PASS — keep as candidate until authorize.
 

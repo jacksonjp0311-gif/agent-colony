@@ -2189,6 +2189,52 @@
           "treatment": 783338.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T052640Z_d72734",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "34e2fa097eec44c4",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "34e2fa097eec44c4",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-18T05:30:58Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8214,
+          "treatment": 0.8437
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 599.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 291168.0,
+          "treatment": 1063324.0
+        }
+      }
     }
   ],
   "families": {
@@ -2245,14 +2291,14 @@
       "voided": 1
     },
     "set_knob:step_size": {
-      "keep_rate_permille": 333,
+      "keep_rate_permille": 250,
       "kept": 1,
-      "n": 3,
-      "reverted": 0,
+      "n": 4,
+      "reverted": 1,
       "voided": 2
     }
   },
-  "last_cycle": "20261118T050217Z_f75c44",
+  "last_cycle": "20261118T054151Z_5f731b",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -2275,7 +2321,7 @@
   "n_inconclusive": 6,
   "n_kept": 15,
   "n_proposed": 9,
-  "n_reverted": 10,
+  "n_reverted": 11,
   "n_twin_held": 0,
   "n_voided": 18,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
@@ -2451,11 +2497,11 @@
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 48,
-    "pending": 152,
-    "resolved": 48,
+    "incorrect": 46,
+    "pending": 154,
+    "resolved": 46,
     "source": "hive_shadows",
-    "ts": "2026-11-18T05:07:22Z",
+    "ts": "2026-11-18T05:46:49Z",
     "unlabeled": 0
   },
   "twin_pending": [],
