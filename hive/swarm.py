@@ -875,6 +875,9 @@ def propose_for_role(
             speak("colony")
             from colony.tools.proprioception import propriocept
             propriocept("colony")
+            from colony.tools.transfer_probe import probe
+            if prop and getattr(prop, "fingerprint", ""):
+                probe(prop.fingerprint)
             if prop and getattr(prop, "fingerprint", ""):
                 record_trace(prop.fingerprint, int(getattr(getattr(prop, "match", None), "score", 0) or 0))
         except Exception:
