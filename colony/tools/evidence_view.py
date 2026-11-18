@@ -31,11 +31,11 @@ def project() -> dict:
                 except Exception:
                     continue
                 key = (
+                    rec.get("event_id") or rec.get("ts"),
                     rec.get("source"),
                     rec.get("fingerprint"),
                     rec.get("kind"),
                     rec.get("outcome"),
-                    rec.get("ts"),
                 )
                 if key in seen:
                     continue
