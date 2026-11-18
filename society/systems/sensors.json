@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-18T06:45:06Z",
-  "cycle_id": "20261118T064439Z_bc4e64",
+  "ts": "2026-11-18T07:14:54Z",
+  "cycle_id": "20261118T071432Z_39fdcf",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_elastic_collision",
@@ -115,26 +115,26 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8424,
-      "slope": 0.000728,
-      "min": 0.8036,
-      "max": 0.8442
+      "last": 0.8433,
+      "slope": 0.000478,
+      "min": 0.8077,
+      "max": 0.8438
     },
     "novelty": {
       "last": 0.4,
-      "slope": -0.004192,
+      "slope": -0.003144,
       "min": 0.4,
       "max": 0.4333
     },
     "kill_rate": {
       "last": 0.3964,
-      "slope": -5e-05,
+      "slope": -3.8e-05,
       "min": 0.3964,
       "max": 0.3968
     },
     "kill_rate_term": {
       "last": 0.9067,
-      "slope": -5e-05,
+      "slope": -3.8e-05,
       "min": 0.9067,
       "max": 0.9071
     },
@@ -147,7 +147,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0361,
+    "aggregate_range": 0.0359,
     "novelty_max": 0.4,
     "window": 6,
     "reason": "moving"
@@ -283,23 +283,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.987,
+      "ratio": 0.696,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.104,
+      "ratio": 0.666,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.962,
+      "ratio": 0.681,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.947,
+      "ratio": 0.814,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.955,
+      "ratio": 0.896,
       "drift": false
     }
   },
@@ -308,10 +308,10 @@
     "verified": {
       "goldbach_even": 575559363,
       "collatz_descent": 614200000,
-      "legendre_square_gap": 3116607,
-      "lehmer_totient": 290200001,
+      "legendre_square_gap": 3132607,
+      "lehmer_totient": 291800001,
       "erdos_straus": 1564127,
-      "twin_primes_hl": 766200000,
+      "twin_primes_hl": 770200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -360,23 +360,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.8182,
+    "success_rate": 0.9091,
     "completed": 11,
     "last": [
       [
         null,
+        "2026-11-18T06:59:02Z"
+      ],
+      [
+        "success",
         "2026-11-18T06:25:59Z"
       ],
       [
         "success",
         "2026-11-18T05:58:20Z"
-      ],
-      [
-        "success",
-        "2026-11-18T05:18:35Z"
       ]
     ],
-    "fetched_at": "2026-11-18T06:27:02Z"
+    "fetched_at": "2026-11-18T07:00:33Z"
   },
   "feeds": {
     "by_source": {
@@ -424,7 +424,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-18T06:27:02Z"
+      "ts": "2026-11-18T07:00:33Z"
     },
     "health": {
       "arxiv": {

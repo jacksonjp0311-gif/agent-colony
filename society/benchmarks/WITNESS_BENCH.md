@@ -1,12 +1,12 @@
-# Benchmark witness — 2026-11-18T06:50:06Z
+# Benchmark witness — 2026-11-18T07:20:54Z
 
 - ok_all: `True`
-- aggregate_score: `0.881`
-- delta_vs_previous: `-0.0102`
+- aggregate_score: `0.8952`
+- delta_vs_previous: `-0.0068`
 
-- `fft_microbench` ok=True score=1.0 err=6.253262709264633e-12 s=0.001885 impl=fft_impl_cooley_tukey_iter_v1_slow0
-- `fft_stress_microbench` ok=True score=0.6708 err=7.367024535821709e-11 s=0.009309 impl=fft_impl_cooley_tukey_iter_v1_slow0
-- `autodiff_microbench` ok=True score=1.0 err=6.47925602059729e-11 s=0.000134 impl=autodiff_reverse_tape_v1
-- `lemma_microbench` ok=True score=0.8653 err=0.0 s=0.916083 impl=lemma_impl_v2_basic10_hard187
-- `kinematics_microbench` ok=True score=0.8688 err=0.0 s=9.5e-05 impl=kinematics_impl_v1_enabled5
+- `fft_microbench` ok=True score=1.0 err=6.253262709264633e-12 s=0.001226 impl=fft_impl_cooley_tukey_iter_v1_slow0
+- `fft_stress_microbench` ok=True score=0.7403 err=7.367024535821709e-11 s=0.005912 impl=fft_impl_cooley_tukey_iter_v1_slow0
+- `autodiff_microbench` ok=True score=1.0 err=6.47925602059729e-11 s=7.1e-05 impl=autodiff_reverse_tape_v1
+- `lemma_microbench` ok=True score=0.8668 err=0.0 s=0.777315 impl=lemma_impl_v2_basic10_hard187
+- `kinematics_microbench` ok=True score=0.8688 err=0.0 s=8.4e-05 impl=kinematics_impl_v1_enabled5
 
