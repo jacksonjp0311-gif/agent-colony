@@ -16,30 +16,49 @@ EXCHANGE = ROOT / "data" / "commons" / "exchange.jsonl"
 def _utc() -> str:
     return datetime.now(timezone.utc).isoformat()
 
-def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra: Dict[str, Any] | None = None) -> None:
-    """Append one receipt. Skip if the same event is already recent.
+def _event_id(source: str, kind: str, fingerprint: str, outcome: str, ts: str, extra: dict | None) -> str:
+    import hashlib
+    raw = "|".join([source, kind, fingerprint, outcome, ts, json.dumps(extra or {}, sort_keys=True)])
+    return hashlib.sha256(raw.encode()).hexdigest()[:16]
 
-    Dedup key: source, fingerprint, kind, outcome.
-    Fail-open.
+
+def _revision() -> str:
+    try:
+        import subprocess
+        return subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], text=True).strip()
+    except Exception:
+        return ""
+
+
+def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra: Dict[str, Any] | None = None) -> None:
+    """Append one receipt with an immutable event id.
+
+    Dedup on event_id. Two trials with the same fingerprint stay distinct
+    because ts and extra differ. Fail-open.
     """
     try:
         EXCHANGE.parent.mkdir(parents=True, exist_ok=True)
+        ts = _utc()
         rec = {
-            "ts": _utc(),
+            "ts": ts,
             "source": source,
             "lineage": source,
             "kind": kind,
             "fingerprint": str(fingerprint),
             "outcome": outcome,
+            "event_id": _event_id(source, kind, str(fingerprint), outcome, ts, extra),
+            "revision": _revision(),
+            "scope": "local",
         }
         if extra:
             rec["extra"] = extra
-        key = (source, str(fingerprint), kind, outcome)
+            if extra.get("experiment_id"):
+                rec["experiment_id"] = extra["experiment_id"]
         if EXCHANGE.exists():
             for line in EXCHANGE.read_text(encoding="utf-8").splitlines()[-200:]:
                 try:
                     old = json.loads(line)
-                    if (old.get("source"), str(old.get("fingerprint")), old.get("kind"), old.get("outcome")) == key:
+                    if old.get("event_id") and old.get("event_id") == rec["event_id"]:
                         return
                 except Exception:
                     continue
