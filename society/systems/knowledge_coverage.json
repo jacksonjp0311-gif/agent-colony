@@ -61,7 +61,7 @@
       "concepts": 4,
       "distinct_concepts": 3,
       "papers": 9,
-      "reads": 13
+      "reads": 14
     },
     "neural_architecture": {
       "cards_formed": 6,
@@ -100,22 +100,22 @@
       "reads": 14
     },
     "recursive_self_improvement": {
-      "cards_formed": 2,
+      "cards_formed": 4,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 1,
+      "concepts": 2,
       "distinct_concepts": 1,
-      "papers": 13,
-      "reads": 13
+      "papers": 21,
+      "reads": 14
     },
     "self_learning_loops": {
-      "cards_formed": 3,
+      "cards_formed": 5,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 10,
       "distinct_concepts": 4,
-      "papers": 14,
-      "reads": 14
+      "papers": 17,
+      "reads": 15
     },
     "swarm_collective_intelligence": {
       "cards_formed": 8,
@@ -157,7 +157,7 @@
         "recursive_self_improvement"
       ],
       "idea": "novelty_archive",
-      "n_papers": 19
+      "n_papers": 20
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -265,11 +265,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 55,
+    "cards_formed": 59,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 121,
-    "papers": 221,
-    "reads": 209
+    "concepts": 122,
+    "papers": 232,
+    "reads": 212
   }
 }

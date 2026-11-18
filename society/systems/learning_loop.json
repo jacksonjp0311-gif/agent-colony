@@ -2252,7 +2252,7 @@
       "voided": 2
     }
   },
-  "last_cycle": "20261118T035307Z_9b5c72",
+  "last_cycle": "20261118T042847Z_3cd35f",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
@@ -2263,18 +2263,18 @@
     "applied_to_live_oracle": false,
     "authorized": false,
     "card_id": "",
-    "cycle_id": "20261118T035307Z_9b5c72",
-    "deferred_count": 2,
+    "cycle_id": "20261118T041506Z_092681",
+    "deferred_count": 3,
     "deferred_under": "756784afc709e789fa610b490ada46ada5912336b15cced742f0ff8f8a1fa44b",
     "event": "hive_deferred",
     "fingerprint": "set_knob:direction=up:name=park_cycles:value=11",
     "label": "dead_end_streak",
     "method": "",
-    "ts": "2026-11-18T03:56:35Z"
+    "ts": "2026-11-18T04:20:24Z"
   },
   "n_inconclusive": 6,
   "n_kept": 15,
-  "n_proposed": 8,
+  "n_proposed": 9,
   "n_reverted": 10,
   "n_twin_held": 0,
   "n_voided": 18,
@@ -2427,16 +2427,35 @@
       "method": "Replay failed attempts before giving up, so the colony learns from its own misses.",
       "source": "hive_vote",
       "ts": "2026-11-17T10:53:55Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "desk_budget",
+        "op": "set_knob",
+        "value": 3
+      },
+      "card_id": "mc_8be63b92fc9d",
+      "concept": "",
+      "cycle_id": "20261118T042847Z_3cd35f",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=up:name=desk_budget:value=3",
+      "knob": "desk_budget",
+      "method": "Bound how much work one desk may do in a cycle.",
+      "source": "hive_vote",
+      "ts": "2026-11-18T04:31:52Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 52,
-    "pending": 148,
-    "resolved": 52,
+    "incorrect": 50,
+    "pending": 150,
+    "resolved": 50,
     "source": "hive_shadows",
-    "ts": "2026-11-18T03:58:28Z",
+    "ts": "2026-11-18T04:33:05Z",
     "unlabeled": 0
   },
   "twin_pending": [],
