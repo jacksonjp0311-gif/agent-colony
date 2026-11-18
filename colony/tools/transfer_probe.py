@@ -1,7 +1,8 @@
-"""Gate 3: matched comparison.
+"""Transfer probe.
 
-Same fingerprint. Score with the kept prior. Score without.
-Write the delta. Decide nothing.
+Pattern: same fingerprint, scored with the prior and without.
+A later session continues this by reading the delta.
+A hit is +60. A miss is 0. The probe does not decide.
 """
 from __future__ import annotations
 import json

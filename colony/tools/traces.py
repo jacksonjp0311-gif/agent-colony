@@ -1,6 +1,8 @@
-"""Small state between cycles. Counts and averages. No model.
+"""Traces.
 
-Fail-open. Missing file means no prior change.
+Pattern: counts and averages between cycles. No model.
+A later session continues this by appending, never by replacing.
+Missing file means no prior change.
 """
 from __future__ import annotations
 import json

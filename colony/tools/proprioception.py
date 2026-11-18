@@ -1,7 +1,8 @@
-"""Proprioception: the sense of the system's own posture.
+"""Proprioception.
 
-Reads the ledger. Writes a posture record. Decides nothing.
-Fail-open. Missing files mean a quiet report.
+Pattern: report the system's own posture. Never act on it.
+A later session continues this by reading the same posture record.
+Holes, agreement, bias, cycles since keep. A label, not a command.
 """
 from __future__ import annotations
 import json

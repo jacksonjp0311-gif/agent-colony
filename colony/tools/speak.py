@@ -1,4 +1,9 @@
-"""Read-only mouth. Says what the ledger already says. Changes nothing."""
+"""Read-only mouth.
+
+Pattern: say only what the ledger already says.
+A later session continues this by reading the same files.
+It does not invent. It does not decide.
+"""
 from __future__ import annotations
 import json
 from pathlib import Path
