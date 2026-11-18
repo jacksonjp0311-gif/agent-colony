@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updated_at": "2026-11-18T14:38:22Z",
-  "updated_cycle": "20261118T143434Z_3c14c9",
+  "updated_at": "2026-11-18T15:12:19Z",
+  "updated_cycle": "20261118T150822Z_13e88e",
   "signal": {
-    "ts": "2026-11-18T14:38:22Z",
+    "ts": "2026-11-18T15:12:19Z",
     "accepted_count": 6,
-    "strong_candidate_count": 135,
+    "strong_candidate_count": 136,
     "unknown_caution_count": 127,
     "strength": 0.85,
     "mutation_bias": {
@@ -29,7 +29,6 @@
       "fnd_17a72920e804"
     ],
     "strong_ids": [
-      "fnd_675a6f1e9352",
       "fnd_bbb02a4cb398",
       "fnd_be360350a948",
       "fnd_36408795c7f8",
@@ -40,7 +39,8 @@
       "fnd_7aa90886c5c3",
       "fnd_80dc935885d9",
       "fnd_af230df23b67",
-      "fnd_83195aeec84c"
+      "fnd_83195aeec84c",
+      "fnd_cb94304da6d4"
     ],
     "lessons": [
       {
