@@ -2435,6 +2435,11 @@ def sync_pending_with_heal_trial(state: dict[str, Any], cycle_id: str) -> dict[s
 
 def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     """One swarm cycle: mine, propose, vote, maybe start or close a trial."""
+    try:
+        from colony.tools.feedback import last
+        prior = last("colony", n=1)
+    except Exception:
+        prior = []
     st = load_state()
     st = _remember_cycle(st, cycle_id)
     if not st.get("seeded"):
