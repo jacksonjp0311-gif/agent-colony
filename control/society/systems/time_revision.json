@@ -1,15 +1,15 @@
 {
-  "ts": "2026-11-18T10:31:52Z",
+  "ts": "2026-11-18T11:09:51Z",
   "version": 1,
-  "latest_cycle_id": "20261118T102920Z_7c5078",
+  "latest_cycle_id": "20261118T110746Z_e3cace",
   "latest_revision_count": 0,
   "total_revisions": 4,
   "latest_revisions": [],
   "latest_inputs": {
     "pattern_kinds": [
+      "global_weather_spread",
       "pulsemesh_ops_health",
-      "pulsemesh_goes_live",
-      "global_weather_spread"
+      "pulsemesh_goes_live"
     ],
     "n_residual_conflicts": 24,
     "oracle_easy_pad_kills": 32,
