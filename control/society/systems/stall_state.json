@@ -736,11 +736,14 @@
     "20261118T091609Z_a91720",
     "20261118T094554Z_84f22c",
     "20261118T095132Z_cafa73",
-    "20261118T095526Z_c61d85"
+    "20261118T095526Z_c61d85",
+    "20261118T102137Z_6b1644",
+    "20261118T102531Z_d4b89b",
+    "20261118T102920Z_7c5078"
   ],
   "proposal_parks": {
     "254f76bd3854": {
-      "title": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
+      "title": "blocked repeat: Chain+seek `lemma_hard_combinatorics` from invariant priors",
       "action": "seek_enable:lemma_hard_combinatorics",
       "blocks": [
         "20261116T114732Z_98d5e2",
@@ -773,18 +776,6 @@
   },
   "pass_history": [
     {
-      "cycle_id": "20261117T170256Z_6dd260",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261117T170653Z_46e82e",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261117T171022Z_e5b4d7",
-      "pass_total": 528
-    },
-    {
       "cycle_id": "20261117T173604Z_b03fb1",
       "pass_total": 528
     },
@@ -1090,23 +1081,23 @@
     },
     {
       "cycle_id": "20261118T095526Z_c61d85",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261118T102137Z_6b1644",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261118T102531Z_d4b89b",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261118T102920Z_7c5078",
       "pass_total": 528
     }
   ],
   "kill_history": [
     {
-      "cycle_id": "20261117T170256Z_6dd260",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261117T170653Z_46e82e",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261117T171022Z_e5b4d7",
-      "kills": []
-    },
-    {
       "cycle_id": "20261117T173604Z_b03fb1",
       "kills": []
     },
@@ -1412,47 +1403,23 @@
     },
     {
       "cycle_id": "20261118T095526Z_c61d85",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261118T102137Z_6b1644",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261118T102531Z_d4b89b",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261118T102920Z_7c5078",
       "kills": []
     }
   ],
   "turns": [
     {
-      "cycle_id": "20261116T170218Z_ec8857",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261116T170218Z_ec8857",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T172029Z_682fba",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261116T172029Z_682fba",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261116T172546Z_d8ab2f",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261116T172546Z_d8ab2f",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
       "cycle_id": "20261116T172855Z_6d0ede",
       "kind": "proposal",
       "name": "254f76bd3854",
@@ -3812,6 +3779,42 @@
     },
     {
       "cycle_id": "20261118T095526Z_c61d85",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261118T102137Z_6b1644",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261118T102137Z_6b1644",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261118T102531Z_d4b89b",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261118T102531Z_d4b89b",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261118T102920Z_7c5078",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261118T102920Z_7c5078",
       "kind": "claim_theme",
       "name": "vandermonde",
       "outcome": "skip"
@@ -3949,10 +3952,20 @@
         "oc_A308775_0"
       ],
       "kind": "depth"
+    },
+    {
+      "cycle_id": "20261118T102531Z_d4b89b",
+      "targets": [
+        "oc_A230269_0",
+        "oc_A183897_0",
+        "oc_A222276_0",
+        "oc_A222459_0"
+      ],
+      "kind": "depth"
     }
   ],
   "last_new_pass_cycle": "20261112T214317Z_351b7f",
-  "last_depth_progress_cycle": "20261118T084255Z_f7d9cb",
+  "last_depth_progress_cycle": "20261118T102531Z_d4b89b",
   "depth_progress_history": [
     {
       "cycle_id": "20261116T020459Z_c1e273",
@@ -4033,33 +4046,42 @@
         "oc_A325695_0",
         "oc_A308775_0"
       ]
+    },
+    {
+      "cycle_id": "20261118T102531Z_d4b89b",
+      "targets": [
+        "oc_A230269_0",
+        "oc_A183897_0",
+        "oc_A222276_0",
+        "oc_A222459_0"
+      ]
     }
   ],
-  "stall_cycles": 7,
+  "stall_cycles": 1,
   "perturb": {
     "active": false,
-    "entered_at": "20261118T084255Z_f7d9cb",
-    "seed": 14102920894399241793,
+    "entered_at": "20261118T102531Z_d4b89b",
+    "seed": 17460656010090291404,
     "cycles_in_mode": 0,
     "park_multiplier": 4,
     "epsilon": 0.5,
     "exit_reason": "no_candidates",
-    "exit_cycle": "20261118T084649Z_dd3068",
-    "commit_sha": "bec8ce9159c767c52b99afc80719d543f9d7a59a",
-    "reason": "dead_end_turns",
+    "exit_cycle": "20261118T102920Z_7c5078",
+    "commit_sha": "af09d2040900d2cdf4aeec0e1a33c322140e6271",
+    "reason": "flat_passes",
     "cooldown_until": -1,
     "timeout_count": 5,
     "strategy": "mutate",
     "session_progress": true,
     "session_targets": [
-      "oc_A308759_0",
-      "oc_A325695_0",
-      "oc_A308775_0"
+      "oc_A183897_0",
+      "oc_A222276_0",
+      "oc_A222459_0"
     ],
     "exclude_targets": [],
     "last_timeout_cycle": "20261117T121729Z_7b3a61",
     "zero_pick_streak": 1,
-    "last_zero_pick_cycle": "20261118T084649Z_dd3068",
+    "last_zero_pick_cycle": "20261118T102920Z_7c5078",
     "no_candidates_pass_total": 528
   }
 }
