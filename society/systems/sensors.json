@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-18T10:04:15Z",
-  "cycle_id": "20261118T100349Z_f27817",
+  "ts": "2026-11-18T10:42:16Z",
+  "cycle_id": "20261118T104145Z_b2acb7",
   "lemma_streaks": {
     "revert_streaks": [
       "stem_isothermal_work",
@@ -110,8 +110,8 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8408,
-      "slope": 0.002564,
+      "last": 0.8402,
+      "slope": 0.001373,
       "min": 0.8043,
       "max": 0.8412
     },
@@ -142,7 +142,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0005,
+    "aggregate_range": 0.001,
     "novelty_max": 0.3667,
     "window": 6,
     "reason": "moving"
@@ -280,23 +280,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.008,
+      "ratio": 1.242,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.018,
+      "ratio": 1.241,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.008,
+      "ratio": 1.216,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.996,
+      "ratio": 1.253,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.993,
+      "ratio": 1.169,
       "drift": false
     }
   },
@@ -305,10 +305,10 @@
     "verified": {
       "goldbach_even": 580359363,
       "collatz_descent": 623800000,
-      "legendre_square_gap": 3164607,
-      "lehmer_totient": 295000001,
+      "legendre_square_gap": 3180607,
+      "lehmer_totient": 296600001,
       "erdos_straus": 1579127,
-      "twin_primes_hl": 778200000,
+      "twin_primes_hl": 782200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -362,18 +362,18 @@
     "last": [
       [
         null,
+        "2026-11-18T10:20:22Z"
+      ],
+      [
+        "success",
         "2026-11-18T09:44:46Z"
       ],
       [
         "success",
         "2026-11-18T08:36:13Z"
-      ],
-      [
-        "success",
-        "2026-11-18T08:35:25Z"
       ]
     ],
-    "fetched_at": "2026-11-18T09:46:17Z"
+    "fetched_at": "2026-11-18T10:21:25Z"
   },
   "feeds": {
     "by_source": {
@@ -421,7 +421,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-18T09:46:17Z"
+      "ts": "2026-11-18T10:21:25Z"
     },
     "health": {
       "arxiv": {

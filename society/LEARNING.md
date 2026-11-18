@@ -10,13 +10,13 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **0**
 - Kept: **17**
-- Reverted (including twin-not-better): **11**
+- Reverted (including twin-not-better): **12**
 - Voided (environment changed mid-trial): **18**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **5** times (`set_knob:direction=up:name=park_cycles:value=12`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 34, correct 0, pending 166, accuracy 0‰
+- Hive shadow picks: resolved 32, correct 0, pending 168, accuracy 0‰
 
 ## Per method card
 
@@ -28,7 +28,7 @@ _None yet._
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
-| `set_knob:evaluation_window` | 1 | 1 | 0 | 1000‰ |
+| `set_knob:evaluation_window` | 2 | 1 | 1 | 500‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
 | `set_knob:park_cycles` | 16 | 3 | 7 | 187‰ |
@@ -38,7 +38,6 @@ _None yet._
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T202906Z_a13d81` (baseline 5.0, trial 4.0)
 - `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261116T212728Z_656378` (baseline 4.0, trial 7.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T230504Z_2f9546` (baseline 7.0, trial 6.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261117T000430Z_7fec4f` (baseline 6.0, trial 4.0)
@@ -50,10 +49,11 @@ _None yet._
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T052640Z_d72734` (baseline 4.0, trial 4.0)
 - `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261118T063231Z_f7d8ec` (baseline 4.0, trial 9.0)
 - `kept` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T084732Z_ecfd3b` (baseline 4.0, trial 6.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T102815Z_f488c2` (baseline 9.0, trial 2.0)
 
 ## Reading breadth (knowledge library)
 
-knowledge: 250 papers across 14/14 fields, 140 concepts, 73 cards formed, 0 tested, 0 kept.
+knowledge: 257 papers across 14/14 fields, 143 concepts, 74 cards formed, 0 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -64,7 +64,7 @@ knowledge: 250 papers across 14/14 fields, 140 concepts, 73 cards formed, 0 test
 | mathematics | 34 | 0 | 0 | 0 | 0 |
 | meta_learning | 12 | 10 | 2 | 0 | 0 |
 | multi_agent_systems | 9 | 4 | 1 | 0 | 0 |
-| neural_architecture | 22 | 18 | 6 | 0 | 0 |
+| neural_architecture | 29 | 21 | 7 | 0 | 0 |
 | open_endedness | 20 | 20 | 20 | 0 | 0 |
 | optimization_search | 24 | 25 | 15 | 0 | 0 |
 | physics_complex_systems | 19 | 8 | 3 | 0 | 0 |
@@ -75,8 +75,8 @@ knowledge: 250 papers across 14/14 fields, 140 concepts, 73 cards formed, 0 test
 ## Architecture ideas (proposals for a human-built PR; never auto-executed)
 
 - `novelty_archive` — 24 papers (consciousness_self_models, neural_architecture, open_endedness, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
+- `specialist_routing` — 15 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `swarm_topology` — 12 papers (multi_agent_systems, neural_architecture, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
-- `specialist_routing` — 12 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `prediction_error_routing` — 7 papers (cognitive_science, learning_theory, neural_architecture, optimization_search, physics_complex_systems): Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).
 - `working_memory_buffer` — 7 papers (cognitive_science, consciousness_self_models, neural_architecture): A small per-cycle working-memory buffer of recent outcomes that every desk reads before choosing work.
 

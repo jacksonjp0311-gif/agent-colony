@@ -1,4 +1,4 @@
-# Proposal shortlist — 2026-11-18 05:09 AM ET
+# Proposal shortlist — 2026-11-18 05:48 AM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
@@ -50,9 +50,9 @@ Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 24, novelty_k
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 13 tested, 1 survived held-out, 12 falsified, 0 machine-checked, 0 surprises; dropped 15 duplicates, 92 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.0951.
-Totals: tested 18666, survived 6859, surprises 164, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
+Mode `live`. Last cycle: 18 tested, 10 survived held-out, 8 falsified, 5 machine-checked, 1 surprises; dropped 18 duplicates, 68 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.0951.
+Totals: tested 18774, survived 6894, surprises 165, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 4 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|
