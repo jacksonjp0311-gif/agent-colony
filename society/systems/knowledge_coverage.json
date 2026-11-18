@@ -7,7 +7,7 @@
       "concepts": 4,
       "distinct_concepts": 1,
       "papers": 25,
-      "reads": 14
+      "reads": 15
     },
     "cognitive_science": {
       "cards_formed": 3,
@@ -43,7 +43,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 33,
-      "reads": 29
+      "reads": 30
     },
     "meta_learning": {
       "cards_formed": 0,
@@ -79,7 +79,7 @@
       "concepts": 16,
       "distinct_concepts": 1,
       "papers": 16,
-      "reads": 14
+      "reads": 15
     },
     "optimization_search": {
       "cards_formed": 11,
@@ -270,6 +270,6 @@
     "cards_tested": 0,
     "concepts": 123,
     "papers": 233,
-    "reads": 221
+    "reads": 224
   }
 }

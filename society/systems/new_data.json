@@ -24,208 +24,6 @@
  ],
  "history": [
   {
-   "cpu_s": 4.631,
-   "cycle_id": "20261117T131856Z_b34a27",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_cls4_1:recval",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls4_1:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls4_1:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 6,
-   "oeis_index": "available",
-   "pushed": [
-    {
-     "anum": "A033959",
-     "cpu_s": 0.223,
-     "item": "col_odd:recval",
-     "n_values": 0,
-     "status": "matches published",
-     "ts": "2026-11-17T13:22:01Z",
-     "why": "no record beyond the published ones up to n = 200000"
-    },
-    {
-     "anum": "A006885",
-     "cpu_s": 0.222,
-     "item": "col_max:recval",
-     "n_values": 0,
-     "status": "matches published",
-     "ts": "2026-11-17T13:22:05Z",
-     "why": "no record beyond the published ones up to n = 200000"
-    },
-    {
-     "anum": "A155764",
-     "cpu_s": 0.403,
-     "item": "gb_close:recval",
-     "n_values": 0,
-     "status": "matches published",
-     "ts": "2026-11-17T13:22:09Z",
-     "why": "no record beyond the published ones up to n = 200000"
-    },
-    {
-     "anum": "A006878",
-     "item": "col_steps:recval",
-     "n_values": 0,
-     "status": "frontier unknown",
-     "ts": "2026-11-17T13:22:09Z",
-     "why": "b-file unavailable now"
-    }
-   ],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.018,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T13:22:09Z",
-   "work_sched": {
-    "done": 11,
-    "eligible": 1,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
-   "cpu_s": 3.944,
-   "cycle_id": "20261117T132244Z_e3bb6c",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_min_cls4_1:recval",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls4_3:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_cls4_3:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 2,
-   "oeis_index": "available",
-   "pushed": [
-    {
-     "anum": "A006878",
-     "cpu_s": 0.222,
-     "item": "col_steps:recval",
-     "n_values": 0,
-     "status": "matches published",
-     "ts": "2026-11-17T13:26:18Z",
-     "why": "no record beyond the published ones up to n = 200000"
-    }
-   ],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.017,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T13:26:19Z",
-   "work_sched": {
-    "done": 12,
-    "eligible": 0,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
-   "cpu_s": 5.322,
-   "cycle_id": "20261117T134454Z_485b7a",
-   "discovered": [
-    {
-     "anum": null,
-     "item": "gb_cls4_3:recval",
-     "status": "no_alignment",
-     "why": "OEIS terms differ beyond the probe"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls4_3:terms",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    },
-    {
-     "anum": null,
-     "item": "gb_min_cls4_3:recpos",
-     "status": "not_in_oeis",
-     "why": "not found in the local OEIS index (frontier unknown)"
-    }
-   ],
-   "mode": "live",
-   "net_requests": 4,
-   "oeis_index": "available",
-   "pushed": [],
-   "sparse": {
-    "candidates_seen": 466,
-    "cpu_s": 0.028,
-    "matched": [],
-    "pushed": [],
-    "queue": 0,
-    "searches": []
-   },
-   "ts": "2026-11-17T13:49:30Z",
-   "work_sched": {
-    "done": 12,
-    "eligible": 0,
-    "entries": 17,
-    "intractable": [
-     "A006877",
-     "A006884",
-     "A033958",
-     "A053033",
-     "A155765"
-    ],
-    "mode": "shadow",
-    "sparse_eligible": 0,
-    "sparse_entries": 6
-   }
-  },
-  {
    "cpu_s": 5.395,
    "cycle_id": "20261117T135019Z_739b1f",
    "discovered": [
@@ -1865,11 +1663,110 @@
     "sparse_eligible": 0,
     "sparse_entries": 6
    }
+  },
+  {
+   "cpu_s": 0.023,
+   "cycle_id": "20261118T063231Z_f7d8ec",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-18T06:36:55Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
+  },
+  {
+   "cpu_s": 0.021,
+   "cycle_id": "20261118T063802Z_9e9d78",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-18T06:43:47Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
+  },
+  {
+   "cpu_s": 0.021,
+   "cycle_id": "20261118T064439Z_bc4e64",
+   "discovered": [],
+   "mode": "live",
+   "net_requests": 0,
+   "oeis_index": "available",
+   "pushed": [],
+   "sparse": {
+    "candidates_seen": 466,
+    "cpu_s": 0.021,
+    "matched": [],
+    "pushed": [],
+    "queue": 0,
+    "searches": []
+   },
+   "ts": "2026-11-18T06:48:52Z",
+   "work_sched": {
+    "done": 12,
+    "eligible": 0,
+    "entries": 17,
+    "intractable": [
+     "A006877",
+     "A006884",
+     "A033958",
+     "A053033",
+     "A155765"
+    ],
+    "mode": "shadow",
+    "sparse_eligible": 0,
+    "sparse_entries": 6
+   }
   }
  ],
  "last": {
-  "cpu_s": 0.017,
-  "cycle_id": "20261118T061237Z_92222f",
+  "cpu_s": 0.021,
+  "cycle_id": "20261118T064439Z_bc4e64",
   "discovered": [],
   "mode": "live",
   "net_requests": 0,
@@ -1877,13 +1774,13 @@
   "pushed": [],
   "sparse": {
    "candidates_seen": 466,
-   "cpu_s": 0.016,
+   "cpu_s": 0.021,
    "matched": [],
    "pushed": [],
    "queue": 0,
    "searches": []
   },
-  "ts": "2026-11-18T06:15:48Z",
+  "ts": "2026-11-18T06:48:52Z",
   "work_sched": {
    "done": 12,
    "eligible": 0,
