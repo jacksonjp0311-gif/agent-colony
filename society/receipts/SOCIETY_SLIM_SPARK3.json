@@ -1,5 +1,5 @@
 {
-  "when": "2026-11-18T04:33:32Z",
+  "when": "2026-11-18T05:07:51Z",
   "mile": "spark3-port",
   "cycle_count": 894,
   "fitness_latest": {
@@ -655,7 +655,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.8811
+    "aggregate_score": 0.8752
   },
   "novelty_gate": {
     "hits": 13,
@@ -675,7 +675,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261118T042847Z_3cd35f"
+    "cycle_id": "20261118T050217Z_f75c44"
   },
   "oracle": {
     "passes": 599,

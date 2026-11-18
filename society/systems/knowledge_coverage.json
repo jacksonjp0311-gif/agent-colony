@@ -52,7 +52,7 @@
       "concepts": 8,
       "distinct_concepts": 3,
       "papers": 10,
-      "reads": 15
+      "reads": 16
     },
     "multi_agent_systems": {
       "cards_formed": 1,
@@ -70,7 +70,7 @@
       "concepts": 18,
       "distinct_concepts": 7,
       "papers": 22,
-      "reads": 14
+      "reads": 15
     },
     "open_endedness": {
       "cards_formed": 16,
@@ -118,13 +118,13 @@
       "reads": 15
     },
     "swarm_collective_intelligence": {
-      "cards_formed": 8,
+      "cards_formed": 9,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 9,
+      "concepts": 10,
       "distinct_concepts": 2,
-      "papers": 10,
-      "reads": 14
+      "papers": 11,
+      "reads": 15
     }
   },
   "fields_with_papers": 14,
@@ -185,7 +185,7 @@
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 11
+      "n_papers": 12
     },
     {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
@@ -265,11 +265,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 59,
+    "cards_formed": 60,
     "cards_kept": 0,
     "cards_tested": 0,
-    "concepts": 122,
-    "papers": 232,
-    "reads": 212
+    "concepts": 123,
+    "papers": 233,
+    "reads": 215
   }
 }

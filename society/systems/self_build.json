@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 209,
+ "cycle_index": 212,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -135,7 +135,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261118T042847Z_3cd35f",
+  "cycle_id": "20261118T050217Z_f75c44",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -144,44 +144,44 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 193,
-     "duplicate": 21,
-     "trivial_formal": 0,
-     "trivial_shuffle_null": 3,
-     "trivial_idle_part": 10,
-     "trivial_implied_parts": 74,
+     "fitted": 181,
+     "duplicate": 22,
+     "trivial_formal": 4,
+     "trivial_shuffle_null": 1,
+     "trivial_idle_part": 11,
+     "trivial_implied_parts": 40,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
      "trivial_parity_rules": 0,
-     "trivial_running_sum_tail": 1,
+     "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 2,
-     "expected_by_closure": 3,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 2,
      "loose_inequality": 0,
-     "tested": 18,
+     "tested": 14,
      "survived": 6,
-     "falsified": 12,
-     "machine_checked": 3,
+     "falsified": 8,
+     "machine_checked": 2,
      "surprises": 0,
      "known_result": 0,
      "oeis_known": 2,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 1,
-     "explained_by_known_check": 1,
-     "trivial_confirmed on range": 14,
-     "trivial_known_in_principle(definition_parity)": 3
+     "no_reference_found": 2,
+     "explained_by_known_check": 2,
+     "trivial_known_in_principle(definition_parity)": 1,
+     "trivial_confirmed on range": 2
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 2.003
+  "cpu_s": 2.035
  },
  "last_skip": {
-  "cycle_id": "20261118T042847Z_3cd35f",
+  "cycle_id": "20261118T050217Z_f75c44",
   "reason": "self_heal_trial_open"
  },
  "kept_count": 1,

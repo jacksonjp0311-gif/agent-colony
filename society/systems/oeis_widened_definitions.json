@@ -113,6 +113,22 @@
    ],
    "version": 1
   },
+  "oc_A001712_0": {
+   "anum": "A001712",
+   "definition": null,
+   "source_sha": "d8f1e5311047386d",
+   "terms_sha": "0de2074e52d9ee8e",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
   "oc_A001722_0": {
    "anum": "A001722",
    "definition": null,
