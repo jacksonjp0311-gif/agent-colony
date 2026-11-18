@@ -7,23 +7,23 @@
 {"key": "colony:set_knob:direction=up:name=park_cycles:value=11", "fingerprint": "set_knob:direction=up:name=park_cycles:value=11", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-17T14:21:45.024212+00:00", "reactivated": true}
 {"key": "colony:set_knob:direction=up:name=gf_term_cap:value=3618", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3618", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-17T14:21:45.024428+00:00", "reactivated": true}
 {"key": "colony:set_knob:direction=down:name=step_size:value=0.05", "fingerprint": "set_knob:direction=down:name=step_size:value=0.05", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-17T16:01:41.286534+00:00", "reactivated": true}
-{"key": "colony:gf_term_cap:up:2310", "fingerprint": "gf_term_cap:up:2310", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.620767+00:00"}
-{"key": "colony:deep_digits:up:6350", "fingerprint": "deep_digits:up:6350", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.658797+00:00"}
-{"key": "colony:deep_digits:up:7700", "fingerprint": "deep_digits:up:7700", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.659116+00:00"}
-{"key": "colony:deep_digits:up:9050", "fingerprint": "deep_digits:up:9050", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.659377+00:00"}
-{"key": "colony:fast_term_cap:up:13400", "fingerprint": "fast_term_cap:up:13400", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.659677+00:00"}
-{"key": "colony:fast_term_cap:up:16100", "fingerprint": "fast_term_cap:up:16100", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660058+00:00"}
-{"key": "colony:fast_term_cap:up:18800", "fingerprint": "fast_term_cap:up:18800", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660338+00:00"}
-{"key": "colony:fast_term_cap:up:20000", "fingerprint": "fast_term_cap:up:20000", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660656+00:00"}
-{"key": "colony:gf_term_cap:up:2865", "fingerprint": "gf_term_cap:up:2865", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660935+00:00"}
-{"key": "colony:deep_digits:up:10400", "fingerprint": "deep_digits:up:10400", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.661237+00:00"}
-{"key": "colony:gf_term_cap:up:3149", "fingerprint": "gf_term_cap:up:3149", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.661522+00:00"}
-{"key": "colony:deep_digits:up:12000", "fingerprint": "deep_digits:up:12000", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.661918+00:00"}
-{"key": "colony:park_cycles:up:8", "fingerprint": "park_cycles:up:8", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662179+00:00"}
-{"key": "colony:park_cycles:up:10", "fingerprint": "park_cycles:up:10", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662431+00:00"}
-{"key": "colony:step_size:down:0.0975", "fingerprint": "step_size:down:0.0975", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662723+00:00"}
-{"key": "colony:watch:9:123", "fingerprint": "watch:9:123", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.118777+00:00"}
-{"key": "colony:watch:8:76", "fingerprint": "watch:8:76", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119069+00:00"}
-{"key": "colony:dream:colony:9", "fingerprint": "dream:colony:9", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119268+00:00"}
-{"key": "colony:dream:one-mind:8", "fingerprint": "dream:one-mind:8", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119465+00:00"}
-{"key": "colony:dream:one-mind:9", "fingerprint": "dream:one-mind:9", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119668+00:00"}
+{"key": "colony:gf_term_cap:up:2310", "fingerprint": "gf_term_cap:up:2310", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.620767+00:00", "reactivated": true}
+{"key": "colony:deep_digits:up:6350", "fingerprint": "deep_digits:up:6350", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.658797+00:00", "reactivated": true}
+{"key": "colony:deep_digits:up:7700", "fingerprint": "deep_digits:up:7700", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.659116+00:00", "reactivated": true}
+{"key": "colony:deep_digits:up:9050", "fingerprint": "deep_digits:up:9050", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.659377+00:00", "reactivated": true}
+{"key": "colony:fast_term_cap:up:13400", "fingerprint": "fast_term_cap:up:13400", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.659677+00:00", "reactivated": true}
+{"key": "colony:fast_term_cap:up:16100", "fingerprint": "fast_term_cap:up:16100", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660058+00:00", "reactivated": true}
+{"key": "colony:fast_term_cap:up:18800", "fingerprint": "fast_term_cap:up:18800", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660338+00:00", "reactivated": true}
+{"key": "colony:fast_term_cap:up:20000", "fingerprint": "fast_term_cap:up:20000", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660656+00:00", "reactivated": true}
+{"key": "colony:gf_term_cap:up:2865", "fingerprint": "gf_term_cap:up:2865", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.660935+00:00", "reactivated": true}
+{"key": "colony:deep_digits:up:10400", "fingerprint": "deep_digits:up:10400", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.661237+00:00", "reactivated": true}
+{"key": "colony:gf_term_cap:up:3149", "fingerprint": "gf_term_cap:up:3149", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.661522+00:00", "reactivated": true}
+{"key": "colony:deep_digits:up:12000", "fingerprint": "deep_digits:up:12000", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.661918+00:00", "reactivated": true}
+{"key": "colony:park_cycles:up:8", "fingerprint": "park_cycles:up:8", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662179+00:00", "reactivated": true}
+{"key": "colony:park_cycles:up:10", "fingerprint": "park_cycles:up:10", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662431+00:00", "reactivated": true}
+{"key": "colony:step_size:down:0.0975", "fingerprint": "step_size:down:0.0975", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-17T19:20:40.662723+00:00", "reactivated": true}
+{"key": "colony:watch:9:123", "fingerprint": "watch:9:123", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.118777+00:00", "reactivated": true}
+{"key": "colony:watch:8:76", "fingerprint": "watch:8:76", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119069+00:00", "reactivated": true}
+{"key": "colony:dream:colony:9", "fingerprint": "dream:colony:9", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119268+00:00", "reactivated": true}
+{"key": "colony:dream:one-mind:8", "fingerprint": "dream:one-mind:8", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119465+00:00", "reactivated": true}
+{"key": "colony:dream:one-mind:9", "fingerprint": "dream:one-mind:9", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T01:26:54.119668+00:00", "reactivated": true}
