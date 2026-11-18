@@ -1895,3 +1895,4 @@
 {"ts": "2026-11-18T08:22:00.679039+00:00", "source": "colony", "lineage": "colony", "kind": "proposal", "fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "outcome": "proposed", "extra": {"bias_delta": 61}}
 {"ts": "2026-11-18T08:22:26.405017+00:00", "source": "colony", "lineage": "colony", "kind": "proposal", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "outcome": "proposed", "extra": {"bias_delta": 57}}
 {"ts": "2026-11-18T08:22:26.551236+00:00", "source": "colony", "lineage": "colony", "kind": "proposal", "fingerprint": "set_knob:direction=up:name=park_cycles:value=12", "outcome": "proposed", "extra": {"bias_delta": 50}}
+{"ts": "2026-11-18T08:36:05.095709+00:00", "source": "colony", "lineage": "colony", "kind": "dream", "fingerprint": "dream:one-mind:31", "outcome": "observed", "extra": {"checked": 31, "holes": 0, "foreign": 21, "reactivated": 31, "agreed": 4, "kept": 31, "to": "one-mind", "from": "colony"}}
