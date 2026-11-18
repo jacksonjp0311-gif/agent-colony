@@ -2532,6 +2532,8 @@ def check_authored_mut_swap_related_sequence_7a48b113081b() -> bool:
 
 
 
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
