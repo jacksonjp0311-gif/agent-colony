@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-18T23:10:49Z",
-  "cycle_id": "20261118T231023Z_c44df2",
+  "ts": "2026-11-18T23:51:34Z",
+  "cycle_id": "20261118T235105Z_98975d",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -107,26 +107,26 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8287,
-      "slope": 7e-05,
+      "last": 0.8285,
+      "slope": 0.000526,
       "min": 0.7898,
-      "max": 0.8304
+      "max": 0.8302
     },
     "novelty": {
       "last": 0.1333,
-      "slope": -0.004087,
+      "slope": -0.003737,
       "min": 0.1333,
       "max": 0.1667
     },
     "kill_rate": {
       "last": 0.3932,
-      "slope": -4.9e-05,
+      "slope": -4.5e-05,
       "min": 0.3932,
       "max": 0.3936
     },
     "kill_rate_term": {
       "last": 0.9039,
-      "slope": -3.7e-05,
+      "slope": -3.4e-05,
       "min": 0.9039,
       "max": 0.9042
     },
@@ -139,8 +139,8 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0061,
-    "novelty_max": 0.1667,
+    "aggregate_range": 0.0361,
+    "novelty_max": 0.1333,
     "window": 6,
     "reason": "moving"
   },
@@ -281,23 +281,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.9,
+      "ratio": 1.052,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.897,
+      "ratio": 1.045,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.863,
+      "ratio": 1.108,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.88,
+      "ratio": 1.06,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.898,
+      "ratio": 1.013,
       "drift": false
     }
   },
@@ -305,11 +305,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 602743491,
-      "collatz_descent": 652600000,
+      "collatz_descent": 655800000,
       "legendre_square_gap": 3324607,
       "lehmer_totient": 311000001,
-      "erdos_straus": 1624127,
-      "twin_primes_hl": 814200000,
+      "erdos_straus": 1629127,
+      "twin_primes_hl": 818200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -363,18 +363,18 @@
     "last": [
       [
         null,
+        "2026-11-18T23:29:19Z"
+      ],
+      [
+        "success",
         "2026-11-18T22:49:36Z"
       ],
       [
         "success",
         "2026-11-18T21:32:13Z"
-      ],
-      [
-        "success",
-        "2026-11-18T21:31:23Z"
       ]
     ],
-    "fetched_at": "2026-11-18T22:50:39Z"
+    "fetched_at": "2026-11-18T23:30:29Z"
   },
   "feeds": {
     "by_source": {
@@ -422,7 +422,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-18T22:50:38Z"
+      "ts": "2026-11-18T23:30:28Z"
     },
     "health": {
       "arxiv": {
