@@ -64,13 +64,13 @@
       "reads": 21
     },
     "neural_architecture": {
-      "cards_formed": 7,
+      "cards_formed": 8,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 21,
-      "distinct_concepts": 7,
-      "papers": 29,
-      "reads": 21
+      "concepts": 27,
+      "distinct_concepts": 8,
+      "papers": 37,
+      "reads": 22
     },
     "open_endedness": {
       "cards_formed": 20,
@@ -112,10 +112,10 @@
       "cards_formed": 5,
       "cards_kept": 0,
       "cards_tested": 1,
-      "concepts": 10,
+      "concepts": 12,
       "distinct_concepts": 4,
-      "papers": 17,
-      "reads": 21
+      "papers": 23,
+      "reads": 22
     },
     "swarm_collective_intelligence": {
       "cards_formed": 9,
@@ -124,7 +124,7 @@
       "concepts": 10,
       "distinct_concepts": 2,
       "papers": 11,
-      "reads": 21
+      "reads": 22
     }
   },
   "fields_with_papers": 14,
@@ -157,7 +157,7 @@
         "recursive_self_improvement"
       ],
       "idea": "novelty_archive",
-      "n_papers": 24
+      "n_papers": 25
     },
     {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
@@ -183,7 +183,7 @@
         "physics_complex_systems"
       ],
       "idea": "specialist_routing",
-      "n_papers": 15
+      "n_papers": 18
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -214,6 +214,31 @@
       "n_papers": 12
     },
     {
+      "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
+      "examples": [
+        {
+          "arxiv_id": "2611.15426",
+          "field": "self_learning_loops",
+          "title": "SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction"
+        },
+        {
+          "arxiv_id": "2611.10841",
+          "field": "self_learning_loops",
+          "title": "A Gamified Framework for Conflict-Driven Design: Discovering Strategies for Collaborative Resilience with Multi-Agent Learning"
+        },
+        {
+          "arxiv_id": "2611.08908",
+          "field": "self_learning_loops",
+          "title": "Toward LLM Self-Play Under Data Scarcity: Effectiveness, Generalizability, and Trustworthiness"
+        }
+      ],
+      "fields": [
+        "self_learning_loops"
+      ],
+      "idea": "self_play_challenger",
+      "n_papers": 9
+    },
+    {
       "description": "Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).",
       "examples": [
         {
@@ -241,41 +266,14 @@
       ],
       "idea": "prediction_error_routing",
       "n_papers": 7
-    },
-    {
-      "description": "A small per-cycle working-memory buffer of recent outcomes that every desk reads before choosing work.",
-      "examples": [
-        {
-          "arxiv_id": "2611.14035",
-          "field": "cognitive_science",
-          "title": "ScaleBrain: A Scale-Consistent Framework for EEG Foundation Models"
-        },
-        {
-          "arxiv_id": "2611.00387",
-          "field": "cognitive_science",
-          "title": "Geometric and algebraic inference in humans and neural networks"
-        },
-        {
-          "arxiv_id": "2611.18417",
-          "field": "neural_architecture",
-          "title": "CoPre-MoE: Consolidating and Preserving MoE for Multimodal Continual Instruction Tuning"
-        }
-      ],
-      "fields": [
-        "cognitive_science",
-        "consciousness_self_models",
-        "neural_architecture"
-      ],
-      "idea": "working_memory_buffer",
-      "n_papers": 7
     }
   ],
   "totals": {
-    "cards_formed": 74,
+    "cards_formed": 75,
     "cards_kept": 0,
     "cards_tested": 1,
-    "concepts": 143,
-    "papers": 266,
-    "reads": 316
+    "concepts": 151,
+    "papers": 280,
+    "reads": 319
   }
 }
