@@ -9,11 +9,13 @@
   ],
   "wilson_gate": 700,
   "generation": 2,
-  "last_score": 100.0,
+  "last_score": 0,
+  "receipts_seen": 0,
   "last_change": {
     "field": "last_score",
-    "value": 100.0,
-    "score": 100.0,
-    "prior": 2.0
+    "value": 0,
+    "score": 0,
+    "prior": 100.0,
+    "note": "reset so a delta can mean something"
   }
 }

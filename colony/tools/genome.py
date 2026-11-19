@@ -22,6 +22,7 @@ DEFAULT = {
     "wilson_gate": 700,
     "generation": 0,
     "last_score": 0,
+    "receipts_seen": 0,
 }
 
 
@@ -45,8 +46,13 @@ def save(g: dict) -> None:
 
 
 def propose(field: str, value, score: float, prior_score: float) -> dict:
-    """One field. Kept only if score beats prior. Else the genome is unchanged."""
+    """One field. Kept only if score beats prior. Else the genome is unchanged.
+
+    A last_score at or above 50 is the old window ceiling. Refuse it.
+    """
     g = load()
+    if field == "last_score" and float(value or 0) >= 50:
+        return {"kept": False, "reason": "saturated_window", "genome": g}
     if field not in g and field not in DEFAULT:
         return {"kept": False, "reason": "unknown_field"}
     if score <= prior_score:
@@ -67,7 +73,6 @@ def ensure() -> dict:
 
 
 def grow(name: str, score: float, prior_score: float) -> dict:
-    """Add one tool. Kept only if the score beats the prior."""
     g = load()
     tools = list(g.get("tools") or [])
     if name in tools:
@@ -79,7 +84,6 @@ def grow(name: str, score: float, prior_score: float) -> dict:
 
 
 def prune(name: str, score: float, bar: float) -> dict:
-    """Remove one tool if its score is at or below the bar."""
     g = load()
     tools = list(g.get("tools") or [])
     if name not in tools:
