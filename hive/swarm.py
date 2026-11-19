@@ -2462,7 +2462,13 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         from colony.tools.genome import load as _gload, propose as _gpropose
         _g = _gload()
         _prior = float(_g.get("last_score") or 0)
-        _now = float(len(prior) + 1)
+        # Count recent receipts. Can rise. A ceiling of 2 was a structural refuse.
+        try:
+            from colony.tools.feedback import last as _last
+            _rows = _last("colony", n=100)
+        except Exception:
+            _rows = prior
+        _now = float(len(_rows))
         _gpropose("last_score", _now, _now, _prior)
     except Exception:
         pass
