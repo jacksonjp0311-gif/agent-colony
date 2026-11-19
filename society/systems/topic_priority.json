@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-group",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "cameron--martin",
+      "topic": "barrier-guided",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-19T15:19:03Z",
-  "updated_cycle": "20261119T151628Z_2ac229",
+  "updated_at": "2026-11-19T15:52:58Z",
+  "updated_cycle": "20261119T155051Z_923ced",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

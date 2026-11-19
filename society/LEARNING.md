@@ -10,7 +10,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **1**
 - Kept: **18**
-- Reverted (including twin-not-better): **19**
+- Reverted (including twin-not-better): **20**
 - Voided (environment changed mid-trial): **22**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
@@ -30,7 +30,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
-| `set_knob:evaluation_window` | 5 | 1 | 3 | 200‰ |
+| `set_knob:evaluation_window` | 6 | 1 | 4 | 166‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
 | `set_knob:park_cycles` | 19 | 4 | 8 | 210‰ |
@@ -40,7 +40,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261118T115552Z_3b7d06` (baseline 3.0, trial 13.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261118T135951Z_b01427` (baseline 10.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261118T152905Z_deeb8d` (baseline 4.0, trial None)
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T202459Z_211471` (baseline 4.0, trial 4.0)
@@ -52,6 +51,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T102452Z_a9c344` (baseline 8.0, trial 0.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261119T113952Z_767269` (baseline 4.0, trial None)
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T140151Z_3ffac7` (baseline 4.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T153843Z_bb7b69` (baseline 4.0, trial 4.0)
 
 ## Reading breadth (knowledge library)
 
