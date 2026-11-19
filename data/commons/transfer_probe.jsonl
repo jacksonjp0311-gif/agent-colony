@@ -447,3 +447,15 @@
 {"fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
