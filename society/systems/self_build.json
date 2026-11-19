@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 322,
+ "cycle_index": 325,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -150,7 +150,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261119T045356Z_ac3ad0",
+  "cycle_id": "20261119T053156Z_96956e",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -159,12 +159,12 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 198,
-     "duplicate": 15,
+     "fitted": 179,
+     "duplicate": 16,
      "trivial_formal": 0,
-     "trivial_shuffle_null": 1,
-     "trivial_idle_part": 8,
-     "trivial_implied_parts": 69,
+     "trivial_shuffle_null": 3,
+     "trivial_idle_part": 10,
+     "trivial_implied_parts": 41,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
@@ -173,28 +173,28 @@
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 7,
+     "expected_by_closure": 4,
      "loose_inequality": 1,
-     "tested": 27,
-     "survived": 10,
-     "falsified": 17,
-     "machine_checked": 7,
+     "tested": 15,
+     "survived": 6,
+     "falsified": 9,
+     "machine_checked": 4,
      "surprises": 0,
-     "known_result": 1,
+     "known_result": 0,
      "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 7,
-     "trivial_known_in_principle(definition_parity)": 2
+     "trivial_known_in_principle(definition_parity)": 2,
+     "trivial_confirmed on range": 2
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 2.676
+  "cpu_s": 1.323
  },
  "last_skip": {
-  "cycle_id": "20261119T045356Z_ac3ad0",
+  "cycle_id": "20261119T053156Z_96956e",
   "reason": "no_candidate_passed_self_test",
   "rejected": [
    {
@@ -264,7 +264,7 @@
  "inconclusive_count": 0,
  "voided_count": 8,
  "heal_turn": null,
- "last_propose_cycle": "20261119T045356Z_ac3ad0",
+ "last_propose_cycle": "20261119T053156Z_96956e",
  "operator_stats": {
   "add": {
    "tried": 4,
