@@ -1,28 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-19T03:56:20Z",
-  "updated_cycle": "20261119T035436Z_e1012c",
+  "updated_at": "2026-11-19T04:42:43Z",
+  "updated_cycle": "20261119T044035Z_a88be2",
   "n_claims": 2,
   "n_proposed": 0,
   "recent_claims": [
-    {
-      "claim_id": "cl_vandermonde_170603762",
-      "theme_id": "vandermonde",
-      "text": "CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vandermonde*. Raw scrape \u2260 discovery. Needs hard check + authorize.",
-      "provenance": {
-        "title": "Attention Is All You Need",
-        "arxiv_id": "1706.03762",
-        "doi": "10.48550/arXiv.1706.03762",
-        "url": "https://arxiv.org/abs/1706.03762",
-        "source": "offline_seed"
-      },
-      "bench_hint": "lemma_microbench hard:vandermonde*",
-      "status": "rejected_raw",
-      "hard_ok": false,
-      "note": "lemma score=0.8729 hard_pass=187/187 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
-      "ts": "2026-11-19T03:56:20Z",
-      "not_discovery": true
-    },
     {
       "claim_id": "cl_vandermonde_261124386",
       "theme_id": "vandermonde",
@@ -37,8 +19,26 @@
       "bench_hint": "lemma_microbench hard:vandermonde*",
       "status": "rejected_raw",
       "hard_ok": false,
-      "note": "lemma score=0.8739 hard_pass=187/187 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
-      "ts": "2026-11-19T03:56:20Z",
+      "note": "lemma score=0.8689 hard_pass=187/187 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
+      "ts": "2026-11-19T04:42:43Z",
+      "not_discovery": true
+    },
+    {
+      "claim_id": "cl_vandermonde_170603762",
+      "theme_id": "vandermonde",
+      "text": "CLAIM CANDIDATE (not discovered): paper themes around `vandermonde` from `Attention Is All You Need` may relate to lemma_microbench hard:vandermonde*. Raw scrape \u2260 discovery. Needs hard check + authorize.",
+      "provenance": {
+        "title": "Attention Is All You Need",
+        "arxiv_id": "1706.03762",
+        "doi": "10.48550/arXiv.1706.03762",
+        "url": "https://arxiv.org/abs/1706.03762",
+        "source": "offline_seed"
+      },
+      "bench_hint": "lemma_microbench hard:vandermonde*",
+      "status": "rejected_raw",
+      "hard_ok": false,
+      "note": "lemma score=0.869 hard_pass=187/187 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
+      "ts": "2026-11-19T04:42:43Z",
       "not_discovery": true
     }
   ],
