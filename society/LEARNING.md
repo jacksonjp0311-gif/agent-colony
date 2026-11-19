@@ -10,12 +10,12 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **1**
 - Kept: **18**
-- Reverted (including twin-not-better): **15**
+- Reverted (including twin-not-better): **16**
 - Voided (environment changed mid-trial): **20**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **6** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive decision deferred **7** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
 - Hive shadow picks: resolved 1, correct 0, pending 199, accuracy 0‰
 
 ## Per method card
@@ -30,7 +30,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
-| `set_knob:evaluation_window` | 3 | 1 | 1 | 333‰ |
+| `set_knob:evaluation_window` | 4 | 1 | 2 | 250‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
 | `set_knob:park_cycles` | 19 | 4 | 8 | 210‰ |
@@ -40,7 +40,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `voided` · card `—` · family `set_knob:step_size` · cycle `20261117T121839Z_ea1759` (baseline 7.0, trial None)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261117T141904Z_441571` (baseline 5.0, trial None)
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T052640Z_d72734` (baseline 4.0, trial 4.0)
 - `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261118T063231Z_f7d8ec` (baseline 4.0, trial 9.0)
@@ -52,10 +51,11 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T202459Z_211471` (baseline 4.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T221919Z_a13b46` (baseline 4.0, trial None)
 - `reverted` · card `mc_bacbbd75d04b` · family `set_knob:perturb_epsilon` · cycle `20261119T005408Z_a427b4` (baseline 4.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T024154Z_15fcbb` (baseline 4.0, trial 0.0)
 
 ## Reading breadth (knowledge library)
 
-knowledge: 265 papers across 14/14 fields, 143 concepts, 74 cards formed, 1 tested, 0 kept.
+knowledge: 266 papers across 14/14 fields, 143 concepts, 74 cards formed, 1 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -63,7 +63,7 @@ knowledge: 265 papers across 14/14 fields, 143 concepts, 74 cards formed, 1 test
 | cognitive_science | 10 | 6 | 5 | 0 | 0 |
 | consciousness_self_models | 10 | 6 | 2 | 0 | 0 |
 | learning_theory | 15 | 17 | 1 | 0 | 0 |
-| mathematics | 42 | 0 | 0 | 0 | 0 |
+| mathematics | 43 | 0 | 0 | 0 | 0 |
 | meta_learning | 12 | 10 | 2 | 0 | 0 |
 | multi_agent_systems | 9 | 4 | 1 | 0 | 0 |
 | neural_architecture | 29 | 21 | 7 | 0 | 0 |

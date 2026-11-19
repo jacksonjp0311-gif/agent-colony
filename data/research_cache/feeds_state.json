@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-19T01:55:52Z",
+    "fetched_at": "2026-11-19T02:33:51Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-19T02:32:19Z",
+        "id": 44445047659,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-19T02:32:25Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-19T01:54:32Z",
         "id": 44440396698,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-19T01:54:38Z"
+        "status": "completed",
+        "updated_at": "2026-11-19T02:32:22Z"
       },
       {
         "conclusion": "success",
@@ -90,84 +98,81 @@
         "name": "Read-only tests",
         "status": "completed",
         "updated_at": "2026-11-18T21:15:27Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T21:04:02Z",
-        "id": 44397562428,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-18T21:13:34Z"
       }
     ],
     "success_rate": 0.9091
   },
   "health": {
     "arxiv": {
-      "fail": 11,
+      "fail": 12,
       "ok": 106
     },
     "crossref": {
       "fail": 0,
-      "ok": 109
+      "ok": 110
     },
     "oeis": {
       "fail": 0,
-      "ok": 109
+      "ok": 110
     },
     "oeis_conj": {
       "fail": 1,
-      "ok": 105
+      "ok": 106
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 109
+      "ok": 110
     }
   },
   "last_error": {
-    "arxiv": "math.CO:TimeoutError: The read operation timed out; math.NT:HTTPError: HTTP Error 429: Unknown Error",
+    "arxiv": "math.CO:HTTPError: HTTP Error 429: Unknown Error; math.NT:TimeoutError: The read operation timed out",
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
     "arxiv": "2026-11-18T22:12:13Z",
-    "crossref": "2026-11-18T22:12:16Z",
-    "oeis": "2026-11-18T22:12:14Z",
-    "oeis_conj": "2026-11-18T22:12:16Z",
-    "wikipedia": "2026-11-18T22:12:17Z"
+    "crossref": "2026-11-19T02:33:49Z",
+    "oeis": "2026-11-19T02:33:47Z",
+    "oeis_conj": "2026-11-19T02:33:49Z",
+    "wikipedia": "2026-11-19T02:33:50Z"
   },
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "math.CO:HTTPError: HTTP Error 429: Unknown Error; math.NT:TimeoutError: The read operation timed out",
+        "fetched": 0,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": false
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 4,
+        "new": 3,
+        "ok": true
       },
       "oeis": {
+        "error": "",
+        "fetched": 2,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis_conj": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 10,
+        "new": 4,
+        "ok": true
       },
       "wikipedia": {
+        "error": "",
+        "fetched": 0,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       }
     },
-    "ts": "2026-11-19T01:55:52Z"
+    "ts": "2026-11-19T02:33:21Z"
   },
-  "runs": 446
+  "runs": 447
 }

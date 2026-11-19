@@ -2571,6 +2571,8 @@ def check_authored_mut_swap_related_sequence_64cfeb1aea4b() -> bool:
     return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(oxa177122)', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
 
 
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep

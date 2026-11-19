@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-19T02:15:32Z",
-  "cycle_id": "20261119T021506Z_e812c5",
+  "ts": "2026-11-19T03:00:09Z",
+  "cycle_id": "20261119T025941Z_6cf143",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_71a3566eec17": 1,
       "authored_mut_swap_related_sequence_854586f86d46": 1,
       "authored_mut_swap_related_sequence_df664b88d631": 1,
       "authored_mut_swap_related_sequence_bf79c060344a": 1,
@@ -106,28 +105,28 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.791,
-      "slope": -0.000289,
+      "last": 0.7908,
+      "slope": -0.000883,
       "min": 0.7868,
       "max": 0.8289
     },
     "novelty": {
       "last": 0.1,
-      "slope": -0.003144,
+      "slope": 0.0,
       "min": 0.1,
-      "max": 0.1333
+      "max": 0.1
     },
     "kill_rate": {
       "last": 0.3928,
-      "slope": -3.8e-05,
+      "slope": 0.0,
       "min": 0.3928,
-      "max": 0.3932
+      "max": 0.3928
     },
     "kill_rate_term": {
       "last": 0.9035,
-      "slope": -3.8e-05,
+      "slope": 0.0,
       "min": 0.9035,
-      "max": 0.9039
+      "max": 0.9035
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -138,7 +137,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0377,
+    "aggregate_range": 0.0368,
     "novelty_max": 0.1,
     "window": 6,
     "reason": "moving"
@@ -156,7 +155,8 @@
       "authored_mut_swap_related_sequence_6ca4c72d7eac",
       "authored_mut_swap_related_sequence_7a48b113081b",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
-      "authored_mut_swap_related_sequence_d4676245056a"
+      "authored_mut_swap_related_sequence_d4676245056a",
+      "authored_mut_swap_related_sequence_fbd963a632e7"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -234,6 +234,7 @@
       "authored_mut_swap_related_sequence_7a48b113081b",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
       "authored_mut_swap_related_sequence_d4676245056a",
+      "authored_mut_swap_related_sequence_fbd963a632e7",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
       "authored_newdata_a006666_k10001_w1",
@@ -268,7 +269,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 10
   },
   "guides": {
     "n_guides": 17,
@@ -282,33 +283,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.168,
+      "ratio": 1.306,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.226,
+      "ratio": 1.325,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.145,
+      "ratio": 1.28,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.189,
+      "ratio": 1.339,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.166,
+      "ratio": 1.225,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 605943491,
+      "goldbach_even": 607543491,
       "collatz_descent": 662200000,
-      "legendre_square_gap": 3356607,
-      "lehmer_totient": 314200001,
+      "legendre_square_gap": 3372607,
+      "lehmer_totient": 315800001,
       "erdos_straus": 1639127,
       "twin_primes_hl": 826200000,
       "oeis_A104062_next": 518690000001
@@ -364,87 +365,92 @@
     "last": [
       [
         null,
+        "2026-11-19T02:32:19Z"
+      ],
+      [
+        "success",
         "2026-11-19T01:54:32Z"
       ],
       [
         "success",
         "2026-11-19T01:14:16Z"
-      ],
-      [
-        "success",
-        "2026-11-19T00:43:50Z"
       ]
     ],
-    "fetched_at": "2026-11-19T01:55:52Z"
+    "fetched_at": "2026-11-19T02:33:51Z"
   },
   "feeds": {
     "by_source": {
       "arxiv": 311,
       "oeis": 5,
-      "crossref": 154,
+      "crossref": 157,
       "wikipedia": 19,
-      "oeis_conj": 235
+      "oeis_conj": 239
     },
     "by_kind": {
-      "paper": 465,
+      "paper": 468,
       "sequence": 5,
       "summary": 19,
-      "conj_sequence": 235
+      "conj_sequence": 239
     },
     "last_run": {
       "sources": {
         "arxiv": {
+          "error": "math.CO:HTTPError: HTTP Error 429: Unknown Error; math.NT:TimeoutError: The read operation timed out",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": false
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 4,
+          "new": 3,
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 10,
+          "new": 4,
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-19T01:55:52Z"
+      "ts": "2026-11-19T02:33:21Z"
     },
     "health": {
       "arxiv": {
-        "fail": 11,
+        "fail": 12,
         "ok": 106
       },
       "crossref": {
         "fail": 0,
-        "ok": 109
+        "ok": 110
       },
       "oeis": {
         "fail": 0,
-        "ok": 109
+        "ok": 110
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 105
+        "ok": 106
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 109
+        "ok": 110
       }
     }
   },
