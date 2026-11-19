@@ -4,66 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 508,
-    "ok": 508
+    "n": 509,
+    "ok": 509
   },
   "rows": [
-    {
-      "ts": "2026-11-17T10:53:57Z",
-      "cycle_id": "",
-      "mutation": "Chain+seek `authored_mut_swap_related_sequence_4408c31f407d` from invariant priors",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.0,
-      "live_novel": false,
-      "status": "ok",
-      "terms": [
-        "chain",
-        "seek",
-        "mut",
-        "swap",
-        "related",
-        "sequence",
-        "4408c31f407d",
-        "from",
-        "invariant",
-        "priors",
-        "enable"
-      ],
-      "shadow_textbook_reuse": 0.2727,
-      "matches": [
-        {
-          "anum": "A363861",
-          "name_sha256": "9ffac27761ab7546",
-          "coverage": 0.2727,
-          "bm25": -17.303
-        },
-        {
-          "anum": "A208735",
-          "name_sha256": "5c5858a4044f3670",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208734",
-          "name_sha256": "79472b3df374d927",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208733",
-          "name_sha256": "fe89b080f3ceff7d",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208732",
-          "name_sha256": "5c5858a4044f3670",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-11-17T11:54:11Z",
       "cycle_id": "20261117T115227Z_31a000",
@@ -3404,6 +3348,63 @@
           "name_sha256": "3e200ccf46d954e0",
           "coverage": 0.0833,
           "bm25": -12.798
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-19T21:09:33Z",
+      "cycle_id": "",
+      "mutation": "Chain `authored_mut_widen_range_aa1dbe10fcc0` citing Forbidden subset sums in a linear range: an invers",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "chain",
+        "mut",
+        "widen",
+        "range",
+        "aa1dbe10fcc0",
+        "citing",
+        "forbidden",
+        "subset",
+        "sums",
+        "linear",
+        "invers",
+        "seek"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A159073",
+          "name_sha256": "b82b207ac4d903dd",
+          "coverage": 0.25,
+          "bm25": -10.542
+        },
+        {
+          "anum": "A046788",
+          "name_sha256": "d1bedbdec86f784d",
+          "coverage": 0.1667,
+          "bm25": -15.734
+        },
+        {
+          "anum": "A042949",
+          "name_sha256": "d1bedbdec86f784d",
+          "coverage": 0.1667,
+          "bm25": -15.734
+        },
+        {
+          "anum": "A038745",
+          "name_sha256": "2d5633fde30544ff",
+          "coverage": 0.1667,
+          "bm25": -15.734
+        },
+        {
+          "anum": "A038729",
+          "name_sha256": "2d5633fde30544ff",
+          "coverage": 0.1667,
+          "bm25": -15.734
         }
       ],
       "would_flag": false
