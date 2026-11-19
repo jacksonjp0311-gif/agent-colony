@@ -117,7 +117,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 758200000,
+        "hi": 761400000,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -129,15 +129,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Barina, to 2^68).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-19T17:35:07Z",
-      "runs": 241,
+      "last_run": "2026-11-19T18:43:38Z",
+      "runs": 242,
       "extensions": [
-        {
-          "ts": "2026-11-19T06:40:38Z",
-          "lo": 726200001,
-          "hi": 729400000,
-          "seconds": 2.0326
-        },
         {
           "ts": "2026-11-19T07:56:39Z",
           "lo": 729400001,
@@ -191,11 +185,17 @@
           "lo": 755000001,
           "hi": 758200000,
           "seconds": 1.5961
+        },
+        {
+          "ts": "2026-11-19T18:43:38Z",
+          "lo": 758200001,
+          "hi": 761400000,
+          "seconds": 1.9556
         }
       ],
       "last_data": {
-        "max_stopping_time": 481,
-        "argmax": 757916519
+        "max_stopping_time": 448,
+        "argmax": 760803327
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -328,7 +328,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 362200001,
+        "hi": 363800001,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -340,15 +340,9 @@
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-19T17:27:38Z",
-      "runs": 240,
+      "last_run": "2026-11-19T18:35:06Z",
+      "runs": 241,
       "extensions": [
-        {
-          "ts": "2026-11-19T06:31:33Z",
-          "lo": 346200002,
-          "hi": 347800001,
-          "seconds": 2.4552
-        },
         {
           "ts": "2026-11-19T07:49:07Z",
           "lo": 347800002,
@@ -402,6 +396,12 @@
           "lo": 360600002,
           "hi": 362200001,
           "seconds": 2.2707
+        },
+        {
+          "ts": "2026-11-19T18:35:06Z",
+          "lo": 362200002,
+          "hi": 363800001,
+          "seconds": 2.4432
         }
       ],
       "stall_streak": 0,
@@ -535,11 +535,11 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 946200000,
+        "hi": 950200000,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi2": 3258779,
-        "hl_ratio": 0.986766
+        "pi2": 3271028,
+        "hl_ratio": 0.986727
       },
       "window": 4000000,
       "min_window": 20000,
@@ -549,15 +549,9 @@
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-19T17:31:23Z",
-      "runs": 240,
+      "last_run": "2026-11-19T18:39:26Z",
+      "runs": 241,
       "extensions": [
-        {
-          "ts": "2026-11-19T06:36:26Z",
-          "lo": 906200001,
-          "hi": 910200000,
-          "seconds": 0.3015
-        },
         {
           "ts": "2026-11-19T07:53:50Z",
           "lo": 910200001,
@@ -611,14 +605,20 @@
           "lo": 942200001,
           "hi": 946200000,
           "seconds": 0.2318
+        },
+        {
+          "ts": "2026-11-19T18:39:26Z",
+          "lo": 946200001,
+          "hi": 950200000,
+          "seconds": 0.2888
         }
       ],
       "last_data": {
-        "x": 946200000,
-        "pi2": 3258779,
-        "segment_pairs": 12488,
-        "hl_estimate": 3302485.41,
-        "ratio": 0.986766
+        "x": 950200000,
+        "pi2": 3271028,
+        "segment_pairs": 12249,
+        "hl_estimate": 3315028.69,
+        "ratio": 0.986727
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-19T18:02:51Z"
+  "updated_at": "2026-11-19T18:43:41Z"
 }
