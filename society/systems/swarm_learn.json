@@ -1,5 +1,5 @@
 {
-  "abstained_count": 393,
+  "abstained_count": 395,
   "adopted_count": 0,
   "applied_count": 16,
   "applied_to_live_oracle": false,
@@ -1951,7 +1951,7 @@
         "margin": 69,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -1961,7 +1961,7 @@
         "margin": 62,
         "predicted": "set_knob:direction=up:name=unused_menu_cycles:value=23",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -1971,7 +1971,7 @@
         "margin": 173,
         "predicted": "add_skip_rule:cycles=12:target_kind=empty_label",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -1981,7 +1981,7 @@
         "margin": 245,
         "predicted": "add_park_rule:cycles=12:target_kind=proof_chain_parked",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -1991,7 +1991,7 @@
         "margin": 260,
         "predicted": "add_triviality_candidate:applied_to_live_oracle=False:direction=tighten:kind=triviality_pattern:pattern=textbook identity restated:pattern_type=literal:routed_to=checker_lane",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2001,7 +2001,7 @@
         "margin": 155,
         "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2011,7 +2011,7 @@
         "margin": 246,
         "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2021,7 +2021,7 @@
         "margin": 178,
         "predicted": "set_knob:direction=down:name=step_size:value=0.0634",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2031,7 +2031,7 @@
         "margin": 212,
         "predicted": "set_knob:direction=up:name=evaluation_window:value=8",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2041,7 +2041,7 @@
         "margin": 374,
         "predicted": "set_knob:direction=up:name=perturb_zero_pick_cycles:value=2",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2051,7 +2051,7 @@
         "margin": 197,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2061,7 +2061,7 @@
         "margin": 237,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2071,7 +2071,7 @@
         "margin": 320,
         "predicted": "set_knob:direction=up:name=gf_term_cap:value=3871",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2081,7 +2081,7 @@
         "margin": 358,
         "predicted": "mark_ceiling:depth=1200:reason=evaluator_cap:target=held-at-cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2091,7 +2091,7 @@
         "margin": 190,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2101,7 +2101,7 @@
         "margin": 212,
         "predicted": "set_knob:direction=up:name=unused_menu_cycles:value=23",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2111,7 +2111,7 @@
         "margin": 317,
         "predicted": "add_skip_rule:cycles=12:target_kind=empty_label",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2121,7 +2121,7 @@
         "margin": 272,
         "predicted": "add_park_rule:cycles=12:target_kind=proof_chain_parked",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2131,7 +2131,7 @@
         "margin": 335,
         "predicted": "add_triviality_candidate:applied_to_live_oracle=False:direction=tighten:kind=triviality_pattern:pattern=textbook identity restated:pattern_type=literal:routed_to=checker_lane",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2141,7 +2141,7 @@
         "margin": 219,
         "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2151,7 +2151,7 @@
         "margin": 241,
         "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2161,7 +2161,7 @@
         "margin": 179,
         "predicted": "set_knob:direction=down:name=step_size:value=0.0634",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2171,7 +2171,7 @@
         "margin": 260,
         "predicted": "set_knob:direction=up:name=evaluation_window:value=8",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2181,7 +2181,7 @@
         "margin": 409,
         "predicted": "set_knob:direction=up:name=perturb_zero_pick_cycles:value=2",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2191,7 +2191,7 @@
         "margin": 206,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2201,7 +2201,7 @@
         "margin": 263,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2211,7 +2211,7 @@
         "margin": 354,
         "predicted": "set_knob:direction=up:name=gf_term_cap:value=3871",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2221,7 +2221,7 @@
         "margin": 372,
         "predicted": "mark_ceiling:depth=1200:reason=evaluator_cap:target=held-at-cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2231,7 +2231,7 @@
         "margin": 226,
         "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2241,7 +2241,7 @@
         "margin": 247,
         "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2251,7 +2251,7 @@
         "margin": 173,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2261,7 +2261,7 @@
         "margin": 187,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2271,7 +2271,7 @@
         "margin": 228,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2281,7 +2281,7 @@
         "margin": 261,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2291,7 +2291,7 @@
         "margin": 37,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2301,7 +2301,7 @@
         "margin": 63,
         "predicted": "add_family_rotation:family=algebraic",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2311,7 +2311,7 @@
         "margin": 151,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2321,7 +2321,7 @@
         "margin": 78,
         "predicted": "add_family_rotation:family=algebraic",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2331,7 +2331,7 @@
         "margin": 35,
         "predicted": "set_knob:direction=up:name=gf_term_cap:value=3871",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2341,7 +2341,7 @@
         "margin": 18,
         "predicted": "set_knob:direction=up:name=deep_digits",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2351,7 +2351,7 @@
         "margin": 10,
         "predicted": "set_knob:direction=up:name=deep_digits",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2361,7 +2361,7 @@
         "margin": 14,
         "predicted": "set_knob:direction=up:name=deep_digits",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2371,7 +2371,7 @@
         "margin": 0,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2381,7 +2381,7 @@
         "margin": 0,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2391,7 +2391,7 @@
         "margin": 0,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2401,7 +2401,7 @@
         "margin": 0,
         "predicted": "set_knob:direction=up:name=fast_term_cap",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": false,
@@ -2411,7 +2411,7 @@
         "margin": 0,
         "predicted": "set_knob:direction=up:name=deep_digits",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2421,7 +2421,7 @@
         "margin": 20,
         "predicted": "set_knob:direction=up:name=deep_digits",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2431,7 +2431,7 @@
         "margin": 37,
         "predicted": "set_knob:direction=up:name=gf_term_cap:value=3871",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": false,
@@ -2441,7 +2441,7 @@
         "margin": 6,
         "predicted": "set_knob:direction=up:name=gf_term_cap:value=3871",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2451,7 +2451,7 @@
         "margin": 0,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2461,7 +2461,7 @@
         "margin": 2,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": false,
@@ -2471,7 +2471,7 @@
         "margin": 136,
         "predicted": "set_knob:direction=up:name=evaluation_window:value=8",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2481,7 +2481,7 @@
         "margin": 2,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": false,
@@ -2491,7 +2491,7 @@
         "margin": 117,
         "predicted": "set_knob:direction=down:name=step_size:value=0.0634",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       },
       {
         "correct": true,
@@ -2501,74 +2501,11 @@
         "margin": 4,
         "predicted": "set_knob:direction=up:name=park_cycles:value=13",
         "source": "replay",
-        "ts": "2026-11-19T05:34:42Z"
+        "ts": "2026-11-19T06:14:26Z"
       }
     ]
   },
   "curve": [
-    {
-      "abstained_count": 279,
-      "adopt_rate_permille": 0,
-      "adopted_count": 0,
-      "applied_count": 10,
-      "applied_to_live_oracle": false,
-      "cycle_id": "20261116T223741Z_2814ab",
-      "library_size": 70,
-      "replay_abstained": 15,
-      "replay_accuracy_permille": 961,
-      "replay_correct": 50,
-      "replay_lower_permille": 870,
-      "replay_n": 52,
-      "reverted_count": 0,
-      "time_to_fix": {
-        "by_kind": {},
-        "mean": null,
-        "n": 0
-      },
-      "ts": "2026-11-16T22:40:54Z"
-    },
-    {
-      "abstained_count": 280,
-      "adopt_rate_permille": 0,
-      "adopted_count": 0,
-      "applied_count": 10,
-      "applied_to_live_oracle": false,
-      "cycle_id": "20261116T225757Z_570ad4",
-      "library_size": 42,
-      "replay_abstained": 3,
-      "replay_accuracy_permille": 1000,
-      "replay_correct": 38,
-      "replay_lower_permille": 908,
-      "replay_n": 38,
-      "reverted_count": 0,
-      "time_to_fix": {
-        "by_kind": {},
-        "mean": null,
-        "n": 0
-      },
-      "ts": "2026-11-16T23:00:30Z"
-    },
-    {
-      "abstained_count": 280,
-      "adopt_rate_permille": 0,
-      "adopted_count": 0,
-      "applied_count": 10,
-      "applied_to_live_oracle": false,
-      "cycle_id": "20261116T230132Z_4734f8",
-      "library_size": 70,
-      "replay_abstained": 15,
-      "replay_accuracy_permille": 961,
-      "replay_correct": 50,
-      "replay_lower_permille": 870,
-      "replay_n": 52,
-      "reverted_count": 0,
-      "time_to_fix": {
-        "by_kind": {},
-        "mean": null,
-        "n": 0
-      },
-      "ts": "2026-11-16T23:03:55Z"
-    },
     {
       "abstained_count": 280,
       "adopt_rate_permille": 0,
@@ -6705,13 +6642,73 @@
         "n": 0
       },
       "ts": "2026-11-19T05:35:04Z"
+    },
+    {
+      "abstained_count": 394,
+      "adopt_rate_permille": 0,
+      "adopted_count": 0,
+      "applied_count": 16,
+      "applied_to_live_oracle": false,
+      "cycle_id": "20261119T055528Z_4489b3",
+      "library_size": 42,
+      "replay_abstained": 3,
+      "replay_accuracy_permille": 1000,
+      "replay_correct": 38,
+      "replay_lower_permille": 908,
+      "replay_n": 38,
+      "reverted_count": 0,
+      "time_to_fix": {
+        "by_kind": {},
+        "mean": null,
+        "n": 0
+      },
+      "ts": "2026-11-19T06:00:31Z"
+    },
+    {
+      "abstained_count": 395,
+      "adopt_rate_permille": 0,
+      "adopted_count": 0,
+      "applied_count": 16,
+      "applied_to_live_oracle": false,
+      "cycle_id": "20261119T060253Z_802934",
+      "library_size": 83,
+      "replay_abstained": 19,
+      "replay_accuracy_permille": 928,
+      "replay_correct": 52,
+      "replay_lower_permille": 830,
+      "replay_n": 56,
+      "reverted_count": 0,
+      "time_to_fix": {
+        "by_kind": {},
+        "mean": null,
+        "n": 0
+      },
+      "ts": "2026-11-19T06:07:50Z"
+    },
+    {
+      "abstained_count": 395,
+      "adopt_rate_permille": 0,
+      "adopted_count": 0,
+      "applied_count": 16,
+      "applied_to_live_oracle": false,
+      "cycle_id": "20261119T061011Z_ec09ba",
+      "library_size": 83,
+      "replay_abstained": 19,
+      "replay_accuracy_permille": 928,
+      "replay_correct": 52,
+      "replay_lower_permille": 830,
+      "replay_n": 56,
+      "reverted_count": 0,
+      "time_to_fix": {
+        "by_kind": {},
+        "mean": null,
+        "n": 0
+      },
+      "ts": "2026-11-19T06:15:03Z"
     }
   ],
-  "cycle_index": 643,
+  "cycle_index": 646,
   "cycles": [
-    "20261116T223741Z_2814ab",
-    "20261116T225757Z_570ad4",
-    "20261116T230132Z_4734f8",
     "20261116T230504Z_2f9546",
     "20261116T232447Z_30f349",
     "20261116T233004Z_af21ba",
@@ -6908,226 +6905,12 @@
     "20261119T045356Z_ac3ad0",
     "20261119T051831Z_a05806",
     "20261119T052419Z_5fe5b0",
-    "20261119T053156Z_96956e"
+    "20261119T053156Z_96956e",
+    "20261119T055528Z_4489b3",
+    "20261119T060253Z_802934",
+    "20261119T061011Z_ec09ba"
   ],
   "evidence": [
-    {
-      "applied_to_live_oracle": false,
-      "authorized": false,
-      "bucket": 0,
-      "bucket_n": 51,
-      "cycle_id": "20261117T012618Z_c63b0d",
-      "event": "abstain",
-      "id": "0570eb289fb7407a",
-      "lower_permille": 0,
-      "margin": 0,
-      "n_vetoes": 0,
-      "n_votes": 2,
-      "reason": "wilson_abstain",
-      "runner_up": {
-        "abstained": false,
-        "accepted": true,
-        "action": {
-          "cycles": 12,
-          "op": "add_park_rule",
-          "target_kind": "dead_end"
-        },
-        "card_id": "",
-        "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end",
-        "label": "dead_end_streak",
-        "lower_permille": 927,
-        "margin": 96,
-        "method": "",
-        "ok": true,
-        "prototype_key": "seed:pr6:hist-dead-end-park",
-        "reason": "ok",
-        "role": "pathfinder",
-        "score": 102,
-        "symptom": "failure_class:dead_end_streak dead end streak",
-        "veto": false
-      },
-      "shadow_id": "02134b55f57f499f",
-      "source": "shadow",
-      "tallies": {
-        "add_family_rotation:family=algebraic": 1,
-        "add_park_rule:cycles=12:target_kind=dead_end": 1
-      },
-      "ts": "2026-11-17T01:31:13Z",
-      "wilson_gate": 700,
-      "winner": {
-        "abstained": true,
-        "accepted": false,
-        "action": {
-          "family": "algebraic",
-          "op": "add_family_rotation"
-        },
-        "card_id": "",
-        "fingerprint": "add_family_rotation:family=algebraic",
-        "label": "empty_perturb_pool",
-        "lower_permille": 0,
-        "margin": 0,
-        "method": "",
-        "ok": true,
-        "prototype_key": "seed:empty-pool:family-rotation:p",
-        "reason": "ok",
-        "role": "improver",
-        "score": 150,
-        "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool",
-        "veto": false
-      }
-    },
-    {
-      "action": {
-        "direction": "up",
-        "name": "park_cycles",
-        "op": "set_knob",
-        "value": 14
-      },
-      "applied_to_live_oracle": false,
-      "authorized": false,
-      "bucket": 64,
-      "bucket_n": 51,
-      "cycle_id": "20261117T013246Z_fef545",
-      "deferred_count": 1,
-      "event": "apply_deferred",
-      "fingerprint": "set_knob:direction=up:name=park_cycles:value=14",
-      "id": "49ebce92786d4628",
-      "lower_permille": 929,
-      "margin": 189,
-      "n_vetoes": 0,
-      "n_votes": 4,
-      "pending_fingerprint": "set_knob:direction=up:name=park_cycles:value=14",
-      "reason": "self_heal_trial_running",
-      "runner_up": {
-        "abstained": false,
-        "accepted": true,
-        "action": {
-          "cycles": 12,
-          "op": "add_park_rule",
-          "target_kind": "dead_end"
-        },
-        "card_id": "",
-        "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end",
-        "label": "dead_end_streak",
-        "lower_permille": 929,
-        "margin": 96,
-        "method": "",
-        "ok": true,
-        "prototype_key": "seed:pr6:hist-dead-end-park",
-        "reason": "ok",
-        "role": "pathfinder",
-        "score": 102,
-        "symptom": "failure_class:dead_end_streak dead end streak",
-        "veto": false
-      },
-      "tallies": {
-        "add_park_rule:cycles=12:target_kind=dead_end": 1,
-        "set_knob:direction=up:name=gf_term_cap:value=4259": 1,
-        "set_knob:direction=up:name=park_cycles:value=14": 2
-      },
-      "ts": "2026-11-17T01:36:10Z",
-      "vote_reason": "accepted",
-      "wilson_gate": 700,
-      "winner": {
-        "abstained": false,
-        "accepted": true,
-        "action": {
-          "direction": "up",
-          "name": "park_cycles",
-          "op": "set_knob",
-          "value": 14
-        },
-        "card_id": "",
-        "fingerprint": "set_knob:direction=up:name=park_cycles:value=14",
-        "label": "dead_end_streak",
-        "lower_permille": 929,
-        "margin": 189,
-        "method": "",
-        "ok": true,
-        "prototype_key": "seed:pr6:hist-dead-end-park",
-        "reason": "ok",
-        "role": "archivist",
-        "score": 102,
-        "symptom": "failure_class:dead_end_streak dead end streak",
-        "veto": false
-      }
-    },
-    {
-      "action": {
-        "direction": "up",
-        "name": "park_cycles",
-        "op": "set_knob",
-        "value": 14
-      },
-      "applied_to_live_oracle": false,
-      "authorized": false,
-      "bucket": 64,
-      "bucket_n": 51,
-      "cycle_id": "20261117T013746Z_5ba9c8",
-      "deferred_count": 2,
-      "event": "apply_deferred",
-      "fingerprint": "set_knob:direction=up:name=park_cycles:value=14",
-      "id": "94fdecf17d964b01",
-      "lower_permille": 929,
-      "margin": 189,
-      "n_vetoes": 0,
-      "n_votes": 4,
-      "pending_fingerprint": "set_knob:direction=up:name=park_cycles:value=14",
-      "reason": "self_heal_trial_running",
-      "runner_up": {
-        "abstained": false,
-        "accepted": true,
-        "action": {
-          "cycles": 12,
-          "op": "add_park_rule",
-          "target_kind": "dead_end"
-        },
-        "card_id": "",
-        "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end",
-        "label": "dead_end_streak",
-        "lower_permille": 929,
-        "margin": 96,
-        "method": "",
-        "ok": true,
-        "prototype_key": "seed:pr6:hist-dead-end-park",
-        "reason": "ok",
-        "role": "pathfinder",
-        "score": 102,
-        "symptom": "failure_class:dead_end_streak dead end streak",
-        "veto": false
-      },
-      "tallies": {
-        "add_park_rule:cycles=12:target_kind=dead_end": 1,
-        "set_knob:direction=up:name=gf_term_cap:value=4259": 1,
-        "set_knob:direction=up:name=park_cycles:value=14": 2
-      },
-      "ts": "2026-11-17T01:41:19Z",
-      "vote_reason": "accepted",
-      "wilson_gate": 700,
-      "winner": {
-        "abstained": false,
-        "accepted": true,
-        "action": {
-          "direction": "up",
-          "name": "park_cycles",
-          "op": "set_knob",
-          "value": 14
-        },
-        "card_id": "",
-        "fingerprint": "set_knob:direction=up:name=park_cycles:value=14",
-        "label": "dead_end_streak",
-        "lower_permille": 929,
-        "margin": 189,
-        "method": "",
-        "ok": true,
-        "prototype_key": "seed:pr6:hist-dead-end-park",
-        "reason": "ok",
-        "role": "archivist",
-        "score": 102,
-        "symptom": "failure_class:dead_end_streak dead end streak",
-        "veto": false
-      }
-    },
     {
       "action": {
         "direction": "up",
@@ -20994,6 +20777,220 @@
         "symptom": "failure_class:depth_at_physical_cap cap_reason:digit_or_time_cap depth at physical cap",
         "veto": false
       }
+    },
+    {
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "bucket": 16,
+      "bucket_n": 49,
+      "cycle_id": "20261119T055528Z_4489b3",
+      "event": "abstain",
+      "id": "a3a4b8e289c14384",
+      "lower_permille": 0,
+      "margin": 23,
+      "n_vetoes": 0,
+      "n_votes": 3,
+      "reason": "wilson_abstain",
+      "runner_up": {
+        "abstained": true,
+        "accepted": false,
+        "action": {
+          "direction": "up",
+          "name": "gf_term_cap",
+          "op": "set_knob",
+          "value": 3871
+        },
+        "card_id": "",
+        "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871",
+        "label": "depth_at_physical_cap",
+        "lower_permille": 0,
+        "margin": 0,
+        "method": "",
+        "ok": true,
+        "prototype_key": "seed:pr7:depth-at-cap-gf",
+        "reason": "ok",
+        "role": "surveyor",
+        "score": -105,
+        "symptom": "failure_class:depth_at_physical_cap cap_reason:digit_or_time_cap depth at physical cap",
+        "veto": false
+      },
+      "shadow_id": "40523b783f6f4d9a",
+      "source": "shadow",
+      "tallies": {
+        "set_knob:direction=down:name=step_size:value=0.0634": 1,
+        "set_knob:direction=up:name=gf_term_cap:value=3871": 1,
+        "set_knob:direction=up:name=park_cycles:value=13": 1
+      },
+      "ts": "2026-11-19T06:00:30Z",
+      "wilson_gate": 700,
+      "winner": {
+        "abstained": true,
+        "accepted": false,
+        "action": {
+          "direction": "up",
+          "name": "park_cycles",
+          "op": "set_knob",
+          "value": 13
+        },
+        "card_id": "",
+        "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
+        "label": "high_revert_rate",
+        "lower_permille": 0,
+        "margin": 23,
+        "method": "",
+        "ok": true,
+        "prototype_key": "seed:pr6:hist-dead-end-park",
+        "reason": "ok",
+        "role": "archivist",
+        "score": -76,
+        "symptom": "failure_class:high_revert_rate high revert rate",
+        "veto": false
+      }
+    },
+    {
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "bucket": 0,
+      "bucket_n": 59,
+      "cycle_id": "20261119T060253Z_802934",
+      "event": "abstain",
+      "id": "c33d90a4629d4d5f",
+      "lower_permille": 36,
+      "margin": 0,
+      "n_vetoes": 0,
+      "n_votes": 3,
+      "reason": "wilson_abstain",
+      "runner_up": {
+        "abstained": true,
+        "accepted": false,
+        "action": {
+          "direction": "down",
+          "name": "step_size",
+          "op": "set_knob",
+          "value": 0.0634
+        },
+        "card_id": "",
+        "fingerprint": "set_knob:direction=down:name=step_size:value=0.0634",
+        "label": "high_revert_rate",
+        "lower_permille": 36,
+        "margin": 0,
+        "method": "",
+        "ok": true,
+        "prototype_key": "heal:adopt:128361acc0a14add:step_size",
+        "reason": "ok",
+        "role": "improver",
+        "score": -75,
+        "symptom": "failure_class:high_revert_rate high revert rate",
+        "veto": false
+      },
+      "shadow_id": "cc7340b7807e4463",
+      "source": "shadow",
+      "tallies": {
+        "set_knob:direction=down:name=step_size:value=0.0634": 1,
+        "set_knob:direction=up:name=gf_term_cap:value=3871": 1,
+        "set_knob:direction=up:name=park_cycles:value=13": 1
+      },
+      "ts": "2026-11-19T06:07:47Z",
+      "wilson_gate": 700,
+      "winner": {
+        "abstained": true,
+        "accepted": false,
+        "action": {
+          "direction": "up",
+          "name": "gf_term_cap",
+          "op": "set_knob",
+          "value": 3871
+        },
+        "card_id": "",
+        "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871",
+        "label": "depth_at_physical_cap",
+        "lower_permille": 36,
+        "margin": 0,
+        "method": "",
+        "ok": true,
+        "prototype_key": "heal:adopt:69b34c5245c64823:gf_term_cap",
+        "reason": "ok",
+        "role": "surveyor",
+        "score": 18,
+        "symptom": "failure_class:depth_at_physical_cap cap_reason:digit_or_time_cap depth at physical cap",
+        "veto": false
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 13
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "bucket": 64,
+      "bucket_n": 58,
+      "cycle_id": "20261119T061011Z_ec09ba",
+      "deferred_count": 8,
+      "event": "apply_deferred",
+      "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
+      "id": "e2e10d60dd7b4d49",
+      "lower_permille": 813,
+      "margin": 189,
+      "n_vetoes": 0,
+      "n_votes": 4,
+      "pending_fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
+      "reason": "confounded_baseline",
+      "runner_up": {
+        "abstained": false,
+        "accepted": true,
+        "action": {
+          "cycles": 12,
+          "op": "add_park_rule",
+          "target_kind": "dead_end"
+        },
+        "card_id": "",
+        "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end",
+        "label": "dead_end_streak",
+        "lower_permille": 813,
+        "margin": 96,
+        "method": "",
+        "ok": true,
+        "prototype_key": "seed:pr6:hist-dead-end-park",
+        "reason": "ok",
+        "role": "pathfinder",
+        "score": 102,
+        "symptom": "failure_class:dead_end_streak dead end streak",
+        "veto": false
+      },
+      "tallies": {
+        "add_park_rule:cycles=12:target_kind=dead_end": 1,
+        "set_knob:direction=up:name=gf_term_cap:value=3871": 1,
+        "set_knob:direction=up:name=park_cycles:value=13": 2
+      },
+      "ts": "2026-11-19T06:15:01Z",
+      "vote_reason": "accepted",
+      "wilson_gate": 700,
+      "winner": {
+        "abstained": false,
+        "accepted": true,
+        "action": {
+          "direction": "up",
+          "name": "park_cycles",
+          "op": "set_knob",
+          "value": 13
+        },
+        "card_id": "",
+        "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
+        "label": "dead_end_streak",
+        "lower_permille": 813,
+        "margin": 189,
+        "method": "",
+        "ok": true,
+        "prototype_key": "seed:pr6:hist-dead-end-park",
+        "reason": "ok",
+        "role": "improver",
+        "score": 142,
+        "symptom": "failure_class:dead_end_streak dead end streak",
+        "veto": false
+      }
     }
   ],
   "first_adopted": {},
@@ -21036,7 +21033,7 @@
     "n": 56
   },
   "library_persisted": true,
-  "library_records": 94,
+  "library_records": 90,
   "library_size": 83,
   "pending_apply": {
     "action": {
@@ -21046,16 +21043,16 @@
       "value": 13
     },
     "card_id": "",
-    "deferred_count": 7,
+    "deferred_count": 8,
     "deferred_under": "a120f20b8287a57d22658f773c678df178b8228f03e93915d450c870f9aaee1a",
     "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
     "first_deferred_cycle": "20261119T033259Z_3f67f4",
     "label": "dead_end_streak",
-    "last_deferred_cycle": "20261119T051831Z_a05806",
+    "last_deferred_cycle": "20261119T061011Z_ec09ba",
     "last_vote": {
       "bucket": 64,
-      "bucket_n": 56,
-      "lower_permille": 853,
+      "bucket_n": 58,
+      "lower_permille": 813,
       "margin": 189,
       "n_vetoes": 0,
       "n_votes": 4,
@@ -21070,7 +21067,7 @@
         "card_id": "",
         "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end",
         "label": "dead_end_streak",
-        "lower_permille": 853,
+        "lower_permille": 813,
         "margin": 96,
         "method": "",
         "ok": true,
@@ -21099,14 +21096,14 @@
         "card_id": "",
         "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
         "label": "dead_end_streak",
-        "lower_permille": 853,
+        "lower_permille": 813,
         "margin": 189,
         "method": "",
         "ok": true,
         "prototype_key": "seed:pr6:hist-dead-end-park",
         "reason": "ok",
         "role": "improver",
-        "score": 140,
+        "score": 142,
         "symptom": "failure_class:dead_end_streak dead end streak",
         "veto": false
       }
@@ -21175,52 +21172,52 @@
     },
     "wilson_gate": 700
   },
-  "proposals_count": 2001,
+  "proposals_count": 2011,
   "replay_calibrated": {
     "correct": 52,
     "n": 56,
     "source": "replay",
-    "updated_at": "2026-11-19T05:34:42Z"
+    "updated_at": "2026-11-19T06:14:26Z"
   },
   "retired_actions": {},
   "reverted_count": 0,
   "rules": [],
   "seeded": true,
   "seen_heal_ids": [
-    "fd8d02e33a614d69",
-    "36064ea1d567413c",
-    "0b0cdff584f74433",
-    "34e2fa097eec44c4",
-    "ad930af06fb241ab",
-    "c861ebffed944d4e",
-    "1cbfd35c05c849a8",
-    "83b241f06724425c",
-    "68e04a4a3627418e",
-    "54bc86fe03e24d7b",
-    "117844a4de8c4164",
-    "9fc601e9b28d4c5c",
-    "728f3a6e34b44ffd",
-    "8f83ffa55a8046db",
-    "ed78eed42edd4984",
-    "69b34c5245c64823",
-    "9996cd2bd3374f43",
-    "3048c8fb45ec4fc9",
-    "17fa44d3329f40f4",
-    "97acef1651ca4696",
-    "918f19ec064c4629",
-    "e0aae6080e724ac6",
-    "c0fc48644cc6447d",
-    "d4709cb76d3a4b32",
-    "02e606cb4909444a",
-    "128361acc0a14add",
     "da1d244fe42c46b7",
-    "6ce0dbb600f54203",
-    "dad56c561bfc4f09",
-    "d9d96dc1876a47d7",
+    "9996cd2bd3374f43",
+    "c0fc48644cc6447d",
     "1881f46f9b4d44c2",
-    "b635d23cf20d4fd3",
+    "6ce0dbb600f54203",
+    "918f19ec064c4629",
+    "0b0cdff584f74433",
+    "17fa44d3329f40f4",
+    "d4709cb76d3a4b32",
+    "e0aae6080e724ac6",
+    "54bc86fe03e24d7b",
+    "fd8d02e33a614d69",
+    "128361acc0a14add",
+    "8f83ffa55a8046db",
+    "d9d96dc1876a47d7",
     "1f26168288f243f9",
-    "7c13ec23f2784573"
+    "dad56c561bfc4f09",
+    "ed78eed42edd4984",
+    "117844a4de8c4164",
+    "b635d23cf20d4fd3",
+    "34e2fa097eec44c4",
+    "68e04a4a3627418e",
+    "7c13ec23f2784573",
+    "36064ea1d567413c",
+    "83b241f06724425c",
+    "02e606cb4909444a",
+    "9fc601e9b28d4c5c",
+    "c861ebffed944d4e",
+    "728f3a6e34b44ffd",
+    "69b34c5245c64823",
+    "97acef1651ca4696",
+    "1cbfd35c05c849a8",
+    "3048c8fb45ec4fc9",
+    "ad930af06fb241ab"
   ],
   "seen_shadow_ids": [
     "fdb263736be34606",
@@ -21355,46 +21352,6 @@
     "bf7b48d1fc0044c9"
   ],
   "shadows": [
-    {
-      "action": {
-        "direction": "up",
-        "name": "deep_seconds",
-        "op": "set_knob",
-        "value": 14.2
-      },
-      "correct": null,
-      "cycle_id": "20261115T191337Z_118293",
-      "fingerprint": "set_knob:direction=up:name=deep_seconds:value=14.2",
-      "id": "e5ce63c129cc4230",
-      "label": "empty_perturb_pool",
-      "margin": 27,
-      "matched": null,
-      "resolved": false,
-      "resolved_by": null,
-      "resolved_source": null,
-      "source": "shadow",
-      "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool",
-      "ts": "2026-11-15T19:15:46Z"
-    },
-    {
-      "action": {
-        "family": "algebraic",
-        "op": "add_family_rotation"
-      },
-      "correct": null,
-      "cycle_id": "20261115T193153Z_b74365",
-      "fingerprint": "add_family_rotation:family=algebraic",
-      "id": "4522c2dc5e084b41",
-      "label": "empty_perturb_pool",
-      "margin": 0,
-      "matched": null,
-      "resolved": false,
-      "resolved_by": null,
-      "resolved_source": null,
-      "source": "shadow",
-      "symptom": "failure_class:empty_perturb_pool exit_reason:no_candidates empty perturb pool",
-      "ts": "2026-11-15T19:34:45Z"
-    },
     {
       "action": {
         "family": "algebraic",
@@ -25425,6 +25382,48 @@
       "source": "shadow",
       "symptom": "failure_class:depth_at_physical_cap cap_reason:digit_or_time_cap depth at physical cap",
       "ts": "2026-11-19T05:35:02Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 13
+      },
+      "correct": null,
+      "cycle_id": "20261119T055528Z_4489b3",
+      "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
+      "id": "40523b783f6f4d9a",
+      "label": "high_revert_rate",
+      "margin": 23,
+      "matched": null,
+      "resolved": false,
+      "resolved_by": null,
+      "resolved_source": null,
+      "source": "shadow",
+      "symptom": "failure_class:high_revert_rate high revert rate",
+      "ts": "2026-11-19T06:00:30Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "gf_term_cap",
+        "op": "set_knob",
+        "value": 3871
+      },
+      "correct": null,
+      "cycle_id": "20261119T060253Z_802934",
+      "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871",
+      "id": "cc7340b7807e4463",
+      "label": "depth_at_physical_cap",
+      "margin": 0,
+      "matched": null,
+      "resolved": false,
+      "resolved_by": null,
+      "resolved_source": null,
+      "source": "shadow",
+      "symptom": "failure_class:depth_at_physical_cap cap_reason:digit_or_time_cap depth at physical cap",
+      "ts": "2026-11-19T06:07:47Z"
     },
     {
       "action": {
