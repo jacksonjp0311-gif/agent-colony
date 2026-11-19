@@ -2456,6 +2456,16 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
         prior = last("colony", n=1)
     except Exception:
         prior = []
+
+    # Habit: one genome field. Score is prior receipts. Kept only if better.
+    try:
+        from colony.tools.genome import load as _gload, propose as _gpropose
+        _g = _gload()
+        _prior = float(_g.get("last_score") or 0)
+        _now = float(len(prior) + 1)
+        _gpropose("last_score", _now, _now, _prior)
+    except Exception:
+        pass
     st = load_state()
     st = _remember_cycle(st, cycle_id)
     if not st.get("seeded"):
