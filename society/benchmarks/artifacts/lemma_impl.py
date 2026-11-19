@@ -2588,6 +2588,15 @@ def check_authored_mut_swap_related_sequence_674fad12f030() -> bool:
 
 
 
+def check_authored_mut_widen_range_a52065c8485c() -> bool:
+    """Authored mutated claim (target generator, widen_range):
+    gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1
+    verified on windows [(400, 700), (700, 1000), (1000, 1300)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(pell,tau)', 'params': {}, 'rhs': '(rad*sqfree)'}, a, b)) is int and c > 0 for a, b in [(400, 700), (700, 1000), (1000, 1300)])
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2839,6 +2848,7 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("authored_mut_swap_related_sequence_6ca4c72d7eac", check_authored_mut_swap_related_sequence_6ca4c72d7eac, False),
     ("authored_mut_swap_related_sequence_64cfeb1aea4b", check_authored_mut_swap_related_sequence_64cfeb1aea4b, False),
     ("authored_mut_swap_related_sequence_674fad12f030", check_authored_mut_swap_related_sequence_674fad12f030, False),
+    ("authored_mut_widen_range_a52065c8485c", check_authored_mut_widen_range_a52065c8485c, False),
 ]
 
 
