@@ -10,12 +10,12 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **1**
 - Kept: **18**
-- Reverted (including twin-not-better): **16**
+- Reverted (including twin-not-better): **17**
 - Voided (environment changed mid-trial): **21**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive decision deferred **2** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
 - Hive shadow picks: resolved 1, correct 0, pending 199, accuracy 0‰
 
 ## Per method card
@@ -36,11 +36,10 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | `set_knob:park_cycles` | 19 | 4 | 8 | 210‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 2 | 0 | 1 | 0‰ |
-| `set_knob:step_size` | 6 | 1 | 2 | 166‰ |
+| `set_knob:step_size` | 7 | 1 | 3 | 142‰ |
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261118T052640Z_d72734` (baseline 4.0, trial 4.0)
 - `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261118T063231Z_f7d8ec` (baseline 4.0, trial 9.0)
 - `kept` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T084732Z_ecfd3b` (baseline 4.0, trial 6.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261118T102815Z_f488c2` (baseline 9.0, trial 2.0)
@@ -52,10 +51,11 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `reverted` · card `mc_bacbbd75d04b` · family `set_knob:perturb_epsilon` · cycle `20261119T005408Z_a427b4` (baseline 4.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T024154Z_15fcbb` (baseline 4.0, trial 0.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261119T032234Z_7a7360` (baseline 4.0, trial None)
+- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T075824Z_51ad55` (baseline 4.0, trial 4.0)
 
 ## Reading breadth (knowledge library)
 
-knowledge: 295 papers across 14/14 fields, 156 concepts, 75 cards formed, 1 tested, 0 kept.
+knowledge: 298 papers across 14/14 fields, 157 concepts, 75 cards formed, 1 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -69,7 +69,7 @@ knowledge: 295 papers across 14/14 fields, 156 concepts, 75 cards formed, 1 test
 | neural_architecture | 37 | 27 | 8 | 0 | 0 |
 | open_endedness | 20 | 20 | 20 | 0 | 0 |
 | optimization_search | 24 | 25 | 15 | 0 | 0 |
-| physics_complex_systems | 19 | 8 | 3 | 0 | 0 |
+| physics_complex_systems | 22 | 9 | 3 | 0 | 0 |
 | recursive_self_improvement | 21 | 2 | 4 | 0 | 0 |
 | self_learning_loops | 23 | 12 | 5 | 1 | 0 |
 | swarm_collective_intelligence | 11 | 10 | 9 | 0 | 0 |
