@@ -63,3 +63,32 @@ def ensure() -> dict:
     if not GENOME.exists():
         save(g)
     return g
+
+
+def grow(name: str, score: float, prior_score: float) -> dict:
+    """Add one tool. Kept only if the score beats the prior."""
+    g = load()
+    tools = list(g.get("tools") or [])
+    if name in tools:
+        return {"kept": False, "reason": "already_present"}
+    if score <= prior_score:
+        return {"kept": False, "reason": "not_better"}
+    tools.append(name)
+    return propose("tools", tools, score, prior_score)
+
+
+def prune(name: str, score: float, bar: float) -> dict:
+    """Remove one tool if its score is at or below the bar."""
+    g = load()
+    tools = list(g.get("tools") or [])
+    if name not in tools:
+        return {"kept": False, "reason": "absent"}
+    if score > bar:
+        return {"kept": False, "reason": "still_above_bar"}
+    tools = [t for t in tools if t != name]
+    g = dict(g)
+    g["tools"] = tools
+    g["generation"] = int(g.get("generation") or 0) + 1
+    g["last_change"] = {"field": "tools", "pruned": name, "score": score, "bar": bar}
+    save(g)
+    return {"kept": True, "pruned": name, "genome": g}
