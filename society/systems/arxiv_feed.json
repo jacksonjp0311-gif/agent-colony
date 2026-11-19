@@ -1,23 +1,24 @@
 {
-  "last_attempt_at": "2026-11-19T03:23:04Z",
+  "last_attempt_at": "2026-11-19T03:56:46Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-19T03:23:04Z",
+  "last_ok_at": "2026-11-19T03:56:46Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching",
-      "abstract_snippet": "Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, which leads to overfitting and the catastrophic forgetting of the tails of the data distribution. To prevent this collapse, we introduce Ambient",
-      "url": "https://arxiv.org/abs/2611.23229",
-      "arxiv_id": "2611.23229",
+      "title": "RSIBench-Infra: Can Agents Optimize Their Own Training and Inference Infrastructure at Production Scale?",
+      "abstract_snippet": "Improving the efficiency of training and inference infrastructure is a practical component of recursive self-improvement. Existing benchmarks for agent-driven optimization largely focus on individual software layers such as kernel, leaving unclear whether agents can deliver end-to-end performance gains under production workloads. We introduce RSIBench-Infra, a benchmark of 20 training and inferenc",
+      "url": "https://arxiv.org/abs/2611.24395",
+      "arxiv_id": "2611.24395",
       "doi": "",
       "authors": [
-        "Giannis Daras",
-        "Marios Papachristou",
-        "Adam Klivans",
-        "Antonio Torralba",
-        "Constantinos Daskalakis"
+        "Hanlin Wu",
+        "Yifei Wang",
+        "Zhicheng Cai",
+        "Huan-ang Gao",
+        "Wei-Ying Ma",
+        "Ya-Qin Zhang"
       ],
       "year": 2026,
       "tags": [
@@ -27,19 +28,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T03:23:04Z"
+      "fetched_at": "2026-11-19T03:56:46Z"
     },
     {
       "source": "arxiv",
-      "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
-      "abstract_snippet": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. Th",
-      "url": "https://arxiv.org/abs/2611.23228",
-      "arxiv_id": "2611.23228",
+      "title": "Temporal Rank in Recurrent Neural Networks",
+      "abstract_snippet": "Recurrent Neural Networks (RNNs) are a natural framework for temporal modelling, yet are often dismissed due to their sequential, non-parallelisable computation and difficulty in capturing long-range dependencies, typically attributed to vanishing and exploding gradients. We identify a distinct and under-explored limitation: an information bottleneck induced by rank-constrained hidden state dynami",
+      "url": "https://arxiv.org/abs/2611.24394",
+      "arxiv_id": "2611.24394",
       "doi": "",
       "authors": [
-        "Rui Ning",
-        "Om Chabra",
-        "Hari Balakrishnan"
+        "Leo Dobson",
+        "Anton Ragni"
       ],
       "year": 2026,
       "tags": [
@@ -49,20 +49,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T03:23:04Z"
+      "fetched_at": "2026-11-19T03:56:46Z"
     },
     {
       "source": "arxiv",
-      "title": "Sidorenko Inequalities in Oriented Graphs",
-      "abstract_snippet": "We introduce relative Sidorenko and relative anti-Sidorenko inequalities for oriented graphs, strengthening the corresponding well-studied notions for tournaments by allowing arbitrary host graphs. An orientation $\\vec H$ of a graph $H$ is relatively Sidorenko if $\\hom(\\vec H,\\vec G) \\ge 2^{-e(H)}\\hom(H,G)$ for every oriented graph $\\vec G$ with underlying graph $G$, and relatively anti-Sidorenko ",
-      "url": "https://arxiv.org/abs/2611.23222",
-      "arxiv_id": "2611.23222",
+      "title": "Even Faster Algorithms for Bounded Integer Programming",
+      "abstract_snippet": "We study integer programs $\\min\\{\\mathbf{c}^{T}\\mathbf{x}: A\\mathbf{x}=\\mathbf{b},\\mathbf{l}\\le\\mathbf{x}\\le\\mathbf{u},\\mathbf{x}\\in\\mathbb{Z}^n\\}$ with a fixed number $d$ of equality constraints and constraint coefficients of absolute value at most $N$. Chen, Mao, and Zhang recently solved such programs in almost $N^{2d}$ time. We show that any polynomial saving for $(\\min,+)$-convolution carries",
+      "url": "https://arxiv.org/abs/2611.24386",
+      "arxiv_id": "2611.24386",
       "doi": "",
       "authors": [
-        "Veronica Bitonti",
-        "Emma Hogan",
-        "Jonathan A. Noel",
-        "Dmitry Tsarev"
+        "Lin Chen",
+        "Yuchen Mao",
+        "Guochuan Zhang"
       ],
       "year": 2026,
       "tags": [
@@ -72,18 +71,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T03:23:04Z"
+      "fetched_at": "2026-11-19T03:56:46Z"
     },
     {
       "source": "arxiv",
-      "title": "An inexact stochastic variance-reduced gradient method for constrained convex finite-sum optimization",
-      "abstract_snippet": "In this paper, we study a class of constrained convex finite-sum optimization problems. In many practical applications, all or some of the constraints are hard constraints that represent imperative requirements. Consequently, any desirable approximate solution must (nearly) satisfy these constraints. Motivated by this, we focus on computing an $ε$-$surely\\ feasible\\ stochastic\\ optimal$ ($ε$-SFSO)",
-      "url": "https://arxiv.org/abs/2611.23221",
-      "arxiv_id": "2611.23221",
+      "title": "Improved Bounds for Online TSP on the Half-Line",
+      "abstract_snippet": "In the open online traveling salesperson problem, requests appear over time at different positions of a metric space. A single agent traveling at unit speed must serve all requests, by visiting their positions, with the objective of minimizing the completion time. We propose online algorithms for this problem for the case that the metric space is the half-line. First, we present a $2$-competitive ",
+      "url": "https://arxiv.org/abs/2611.24385",
+      "arxiv_id": "2611.24385",
       "doi": "",
       "authors": [
-        "Zhaosong Lu",
-        "Yifeng Xiao"
+        "Júlia Baligács",
+        "Yann Disser",
+        "Linda Thelen"
       ],
       "year": 2026,
       "tags": [
@@ -93,19 +93,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T03:23:04Z"
+      "fetched_at": "2026-11-19T03:56:46Z"
     },
     {
       "source": "arxiv",
-      "title": "Do LLM Agents Still Need to Be Told How to Self-Improve?",
-      "abstract_snippet": "LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves. As models become more capable, this motivates a basic question: do these increasingly capable models still need us to specify how they should self-improve? In this paper we study an autonomous paradigm in which, given basic primitives, resources, an",
-      "url": "https://arxiv.org/abs/2611.23219",
-      "arxiv_id": "2611.23219",
+      "title": "How to Turn an Attention Neural Network into an Interpretable Hard-Logic Predicate Circuit: Truth-Table Predicate Extraction and State-Machine Merging under Ship-of-Theseus Replacement",
+      "abstract_snippet": "We convert a trained attention network as a whole, attention included, into a hard-logic predicate circuit that runs in its place. Every unit of the circuit is a 0/1 predicate on tokens, and every map between predicates is a minimised truth table. Short tables, such as the product of a query code and a key code, are minimised exactly, and wide feature-to-feature transitions become implication rule",
+      "url": "https://arxiv.org/abs/2611.24381",
+      "arxiv_id": "2611.24381",
       "doi": "",
       "authors": [
-        "Shobhita Sundaram",
-        "Cansu Sancaktar",
-        "Phillip Isola"
+        "Yuchen Li",
+        "Zongqi Fan",
+        "Xintong Li",
+        "Nguyen H. Tran",
+        "Ken-Tye Yong"
       ],
       "year": 2026,
       "tags": [
@@ -115,7 +117,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T03:23:04Z"
+      "fetched_at": "2026-11-19T03:56:46Z"
     }
   ]
 }

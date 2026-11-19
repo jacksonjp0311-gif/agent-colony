@@ -1,15 +1,39 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-19T03:17:49Z",
+    "fetched_at": "2026-11-19T03:47:48Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-19T03:46:36Z",
+        "id": 44453777618,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-19T03:46:41Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-19T03:27:08Z",
+        "id": 44451517282,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-19T03:33:59Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-19T03:25:30Z",
+        "id": 44451328318,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-19T03:34:02Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-19T03:16:36Z",
         "id": 44450289228,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-19T03:16:42Z"
+        "status": "completed",
+        "updated_at": "2026-11-19T03:46:38Z"
       },
       {
         "conclusion": "success",
@@ -74,33 +98,9 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-18T23:29:22Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T21:32:13Z",
-        "id": 44402481307,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-18T22:49:39Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-18T21:31:23Z",
-        "id": 44402334700,
-        "name": "Colony watch",
-        "status": "completed",
-        "updated_at": "2026-11-18T21:32:10Z"
-      },
-      {
-        "conclusion": "failure",
-        "created_at": "2026-11-18T21:31:16Z",
-        "id": 44402314010,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-18T22:11:07Z"
       }
     ],
-    "success_rate": 0.9091
+    "success_rate": 1.0
   },
   "health": {
     "arxiv": {
@@ -138,10 +138,9 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "",
-        "fetched": 8,
-        "new": 6,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-19T03:17:44Z"
+    "ts": "2026-11-19T03:47:47Z"
   },
-  "runs": 448
+  "runs": 449
 }

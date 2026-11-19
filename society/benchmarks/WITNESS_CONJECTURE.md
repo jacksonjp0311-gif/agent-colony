@@ -1,9 +1,9 @@
-# Conjecture desk witness — 2026-11-19T03:35:14Z
+# Conjecture desk witness — 2026-11-19T04:16:08Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.8744→0.8744 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['abel_summation', 'alternating_binomial_row', 'bell_stirling_sum', 'bell_triangle_recurrence', 'bezout_identity', 'binomial_hockey_deep', 'binomial_inversion_small', 'binomial_sum_row']. OEIS idle attempt: no open target.
-  - themes: AI Safety via Debate, Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temp, Spool: Low-Latency Streaming Inference for Hybrid Vision-Lan
+- `none` (-) → **skip** 0.8674→0.8674 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['abel_summation', 'alternating_binomial_row', 'bell_stirling_sum', 'bell_triangle_recurrence', 'bezout_identity', 'binomial_hockey_deep', 'binomial_inversion_small', 'binomial_sum_row']. OEIS idle attempt: no open target.
+  - themes: How to Turn an Attention Neural Network into an Interpretabl, Neutrosophic Convergence Spaces, The Sociolinguistics of Machine Identity: LLM Personality an
 
 ## Honesty
 
