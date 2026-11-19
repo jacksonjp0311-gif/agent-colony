@@ -197,6 +197,11 @@ jobs:
           python -m colony dashboard || true
           python -m colony status > society/CI_STATUS.json || true
 
+      - name: Habit at the end
+        if: always()
+        run: |
+          PYTHONPATH=. python3 -m colony.tools.habit_end || echo "::warning::habit_end non-fatal"
+
       - name: Trust gate — post-evolve (benches + rollback journal + manifest; FATAL before authorize/commit)
         run: |
           set -euo pipefail
