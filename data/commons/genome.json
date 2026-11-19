@@ -8,14 +8,13 @@
     "exchange"
   ],
   "wilson_gate": 700,
-  "generation": 2,
-  "last_score": 0,
-  "receipts_seen": 467,
+  "generation": 3,
+  "last_score": 9.0,
+  "receipts_seen": 476,
   "last_change": {
     "field": "last_score",
-    "value": 0,
-    "score": 0,
-    "prior": 100.0,
-    "note": "reset so a delta can mean something"
+    "value": 9.0,
+    "score": 9.0,
+    "prior": 0.0
   }
 }
