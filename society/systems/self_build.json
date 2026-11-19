@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 337,
+ "cycle_index": 340,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -150,7 +150,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261119T080658Z_e04879",
+  "cycle_id": "20261119T092055Z_c1bfcb",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -159,42 +159,45 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 185,
-     "duplicate": 13,
-     "trivial_formal": 3,
-     "trivial_shuffle_null": 7,
-     "trivial_idle_part": 19,
-     "trivial_implied_parts": 71,
+     "fitted": 194,
+     "duplicate": 18,
+     "trivial_formal": 1,
+     "trivial_shuffle_null": 1,
+     "trivial_idle_part": 5,
+     "trivial_implied_parts": 55,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
-     "trivial_parity_rules": 2,
+     "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 1,
+     "expected_by_closure": 7,
      "loose_inequality": 0,
-     "tested": 14,
-     "survived": 3,
+     "tested": 21,
+     "survived": 10,
      "falsified": 11,
-     "machine_checked": 1,
-     "surprises": 0,
+     "machine_checked": 7,
+     "surprises": 1,
      "known_result": 0,
-     "oeis_known": 2,
+     "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 2,
-     "trivial_known_in_principle(definition_parity)": 3
+     "no_reference_found": 2,
+     "explained_by_known_check": 1,
+     "trivial_known_in_principle(definition_parity)": 1,
+     "trivial_confirmed on range": 4,
+     "deep_na": 1
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 2.226
+  "cpu_s": 1.89
  },
  "last_skip": {
-  "cycle_id": "20261119T080658Z_e04879",
+  "cycle_id": "20261119T092055Z_c1bfcb",
   "reason": "self_heal_trial_open"
  },
  "kept_count": 1,

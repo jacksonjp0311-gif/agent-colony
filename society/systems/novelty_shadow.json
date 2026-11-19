@@ -4,66 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 490,
-    "ok": 490
+    "n": 491,
+    "ok": 491
   },
   "rows": [
-    {
-      "ts": "2026-11-16T17:10:50Z",
-      "cycle_id": "",
-      "mutation": "Chain+seek `authored_mut_swap_related_sequence_52a5162a7db1` from invariant priors",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.0,
-      "live_novel": false,
-      "status": "ok",
-      "terms": [
-        "chain",
-        "seek",
-        "mut",
-        "swap",
-        "related",
-        "sequence",
-        "52a5162a7db1",
-        "from",
-        "invariant",
-        "priors",
-        "enable"
-      ],
-      "shadow_textbook_reuse": 0.2727,
-      "matches": [
-        {
-          "anum": "A363861",
-          "name_sha256": "9ffac27761ab7546",
-          "coverage": 0.2727,
-          "bm25": -17.303
-        },
-        {
-          "anum": "A208735",
-          "name_sha256": "5c5858a4044f3670",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208734",
-          "name_sha256": "79472b3df374d927",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208733",
-          "name_sha256": "fe89b080f3ceff7d",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208732",
-          "name_sha256": "5c5858a4044f3670",
-          "coverage": 0.2727,
-          "bm25": -16.533
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-11-16T18:01:44Z",
       "cycle_id": "20261116T180001Z_faef68",
@@ -3402,6 +3346,61 @@
           "name_sha256": "3e200ccf46d954e0",
           "coverage": 0.0833,
           "bm25": -12.798
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-19T09:13:51Z",
+      "cycle_id": "",
+      "mutation": "Chain+seek `authored_mut_tighten_inequality_837c807f3fc1` from invariant priors",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "chain",
+        "seek",
+        "mut",
+        "tighten",
+        "inequality",
+        "837c807f3fc1",
+        "from",
+        "invariant",
+        "priors",
+        "enable"
+      ],
+      "shadow_textbook_reuse": 0.2,
+      "matches": [
+        {
+          "anum": "A232214",
+          "name_sha256": "03842dbb650b83da",
+          "coverage": 0.2,
+          "bm25": -13.576
+        },
+        {
+          "anum": "A232220",
+          "name_sha256": "c1827617dd0ee1a3",
+          "coverage": 0.2,
+          "bm25": -13.179
+        },
+        {
+          "anum": "A232219",
+          "name_sha256": "c1827617dd0ee1a3",
+          "coverage": 0.2,
+          "bm25": -13.179
+        },
+        {
+          "anum": "A232218",
+          "name_sha256": "c1827617dd0ee1a3",
+          "coverage": 0.2,
+          "bm25": -13.179
+        },
+        {
+          "anum": "A232217",
+          "name_sha256": "c1827617dd0ee1a3",
+          "coverage": 0.2,
+          "bm25": -13.179
         }
       ],
       "would_flag": false
