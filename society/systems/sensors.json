@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-19T17:07:22Z",
-  "cycle_id": "20261119T170655Z_9972b1",
+  "ts": "2026-11-19T17:39:30Z",
+  "cycle_id": "20261119T173913Z_14375c",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_99ba51d8108a": 1,
       "authored_mut_swap_related_sequence_3ad2ed8607dd": 1,
       "authored_mut_swap_related_sequence_8e5c44ae1b73": 1,
       "authored_mut_swap_related_sequence_fbd963a632e7": 1,
@@ -15,16 +14,10 @@
       "authored_mut_widen_range_35152b9916ea": 1,
       "authored_mut_widen_range_02ce1a87987c": 1,
       "authored_mut_widen_range_a4a0f43e9d31": 1,
-      "authored_mut_widen_range_2ae412bf995d": 1
+      "authored_mut_widen_range_2ae412bf995d": 1,
+      "authored_mut_widen_range_e8b64a3f1c6a": 1
     },
     "recent": {
-      "authored_mut_swap_related_sequence_99ba51d8108a": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_mut_swap_related_sequence_3ad2ed8607dd": {
         "last": "revert",
         "streak": 1,
@@ -101,16 +94,23 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "authored_mut_widen_range_e8b64a3f1c6a": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8215,
-      "slope": -0.000216,
+      "last": 0.8248,
+      "slope": 0.001226,
       "min": 0.7832,
-      "max": 0.8243
+      "max": 0.8248
     },
     "novelty": {
       "last": 0.0,
@@ -119,15 +119,15 @@
       "max": 0.0
     },
     "kill_rate": {
-      "last": 0.3893,
-      "slope": -5e-05,
-      "min": 0.3893,
+      "last": 0.3889,
+      "slope": -7.6e-05,
+      "min": 0.3889,
       "max": 0.3897
     },
     "kill_rate_term": {
-      "last": 0.9004,
-      "slope": -3.8e-05,
-      "min": 0.9004,
+      "last": 0.9,
+      "slope": -6.6e-05,
+      "min": 0.9,
       "max": 0.9007
     },
     "lesson_uptake": {
@@ -159,8 +159,7 @@
       "authored_mut_swap_related_sequence_7a48b113081b",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
       "authored_mut_swap_related_sequence_d4676245056a",
-      "authored_mut_widen_range_a52065c8485c",
-      "authored_mut_widen_range_e8b64a3f1c6a"
+      "authored_mut_widen_range_a52065c8485c"
     ],
     "authored": [
       "authored_bell_triangle_recurrence__binomial_inversion_small_w1",
@@ -240,7 +239,6 @@
       "authored_mut_swap_related_sequence_7f7f296d8a72",
       "authored_mut_swap_related_sequence_d4676245056a",
       "authored_mut_widen_range_a52065c8485c",
-      "authored_mut_widen_range_e8b64a3f1c6a",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
       "authored_newdata_a006666_k10001_w1",
@@ -275,7 +273,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 8
   },
   "guides": {
     "n_guides": 17,
@@ -289,23 +287,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.559,
-      "drift": true
+      "ratio": 0.726,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.59,
-      "drift": true
+      "ratio": 0.788,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.459,
+      "ratio": 0.806,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.509,
-      "drift": true
+      "ratio": 0.78,
+      "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.381,
+      "ratio": 0.794,
       "drift": false
     }
   },
@@ -313,11 +311,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 631543491,
-      "collatz_descent": 697400000,
+      "collatz_descent": 700600000,
       "legendre_square_gap": 3548607,
       "lehmer_totient": 333400001,
-      "erdos_straus": 1694127,
-      "twin_primes_hl": 870200000,
+      "erdos_straus": 1699127,
+      "twin_primes_hl": 874200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -329,11 +327,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4534,
+        "challenged": 4533,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 366,
+        "challenged": 367,
         "blocked": 0
       },
       "claim": {
@@ -341,8 +339,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.2777,
-    "post_challenger_oracle_judged": 461,
+    "post_challenger_oracle_kill_rate": 0.2771,
+    "post_challenger_oracle_judged": 462,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -371,18 +369,18 @@
     "last": [
       [
         null,
+        "2026-11-19T17:24:07Z"
+      ],
+      [
+        "success",
         "2026-11-19T16:39:38Z"
       ],
       [
         "cancelled",
         "2026-11-19T16:35:27Z"
-      ],
-      [
-        "success",
-        "2026-11-19T16:04:04Z"
       ]
     ],
-    "fetched_at": "2026-11-19T16:40:53Z"
+    "fetched_at": "2026-11-19T17:25:08Z"
   },
   "feeds": {
     "by_source": {
@@ -401,10 +399,9 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
@@ -431,7 +428,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-19T16:40:49Z"
+      "ts": "2026-11-19T17:25:08Z"
     },
     "health": {
       "arxiv": {
@@ -458,7 +455,6 @@
   },
   "signals": [
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench, fft_stress_microbench, lemma_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
