@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updated_at": "2026-11-19T13:34:16Z",
+  "updated_at": "2026-11-19T14:47:05Z",
   "hits": 0,
   "kills": 30,
   "rows": 30,
   "kill_rows": 30,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-19T13:34:16Z",
-    "cycle_id": "20261119T133217Z_2aff6c",
-    "mutation": "authored_mut_widen_range_02ce1a87987c",
+    "ts": "2026-11-19T14:47:05Z",
+    "cycle_id": "20261119T144513Z_fe198d",
+    "mutation": "authored_mut_widen_range_a4a0f43e9d31",
     "kind": "hard_enable",
     "novel_to_commons": false,
     "kills": [
@@ -25,7 +25,7 @@
       "hard_pass": 187,
       "hard_n": 187,
       "stripped_fails_usefulness": true,
-      "score": 0.8647,
+      "score": 0.8703,
       "impl_id": "lemma_impl_v2_basic10_hard187"
     },
     "held_out": {
