@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-19T13:32:43Z",
-  "cycle_id": "20261119T133217Z_2aff6c",
+  "ts": "2026-11-19T14:06:59Z",
+  "cycle_id": "20261119T140640Z_0e064e",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -14,16 +14,10 @@
       "authored_mut_tighten_inequality_e5042446cc47": 1,
       "authored_mut_tighten_inequality_837c807f3fc1": 1,
       "authored_mut_widen_range_1289e31f25b2": 1,
-      "authored_mut_widen_range_35152b9916ea": 1
+      "authored_mut_widen_range_35152b9916ea": 1,
+      "authored_mut_widen_range_02ce1a87987c": 1
     },
     "recent": {
-      "authored_mut_swap_related_sequence_e3906c4f261e": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_mut_swap_related_sequence_63101141dfc9": {
         "last": "revert",
         "streak": 1,
@@ -100,15 +94,22 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "authored_mut_widen_range_02ce1a87987c": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8219,
-      "slope": 8e-06,
-      "min": 0.8193,
+      "last": 0.8229,
+      "slope": -0.00025,
+      "min": 0.8174,
       "max": 0.8249
     },
     "novelty": {
@@ -118,15 +119,15 @@
       "max": 0.0
     },
     "kill_rate": {
-      "last": 0.3905,
-      "slope": -5e-05,
-      "min": 0.3905,
+      "last": 0.3901,
+      "slope": -7.6e-05,
+      "min": 0.3901,
       "max": 0.3909
     },
     "kill_rate_term": {
-      "last": 0.9014,
-      "slope": -5e-05,
-      "min": 0.9014,
+      "last": 0.9011,
+      "slope": -6.6e-05,
+      "min": 0.9011,
       "max": 0.9018
     },
     "lesson_uptake": {
@@ -137,11 +138,11 @@
     }
   },
   "stall": {
-    "stalled": true,
-    "aggregate_range": 0.0051,
+    "stalled": false,
+    "aggregate_range": 0.0065,
     "novelty_max": 0.0,
     "window": 6,
-    "reason": "aggregate flat and novelty 0"
+    "reason": "moving"
   },
   "catalog": {
     "enabled": 197,
@@ -158,7 +159,6 @@
       "authored_mut_swap_related_sequence_7a48b113081b",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
       "authored_mut_swap_related_sequence_d4676245056a",
-      "authored_mut_widen_range_02ce1a87987c",
       "authored_mut_widen_range_a52065c8485c"
     ],
     "authored": [
@@ -238,7 +238,6 @@
       "authored_mut_swap_related_sequence_7a48b113081b",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
       "authored_mut_swap_related_sequence_d4676245056a",
-      "authored_mut_widen_range_02ce1a87987c",
       "authored_mut_widen_range_a52065c8485c",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
@@ -274,7 +273,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 8
   },
   "guides": {
     "n_guides": 17,
@@ -288,23 +287,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.574,
-      "drift": true
+      "ratio": 0.807,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.672,
-      "drift": true
+      "ratio": 0.862,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.438,
+      "ratio": 0.821,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.588,
-      "drift": true
+      "ratio": 1.04,
+      "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.473,
+      "ratio": 0.957,
       "drift": false
     }
   },
@@ -312,11 +311,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 621943491,
-      "collatz_descent": 687800000,
+      "collatz_descent": 691000000,
       "legendre_square_gap": 3500607,
       "lehmer_totient": 328600001,
-      "erdos_straus": 1679127,
-      "twin_primes_hl": 858200000,
+      "erdos_straus": 1684127,
+      "twin_primes_hl": 862200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -328,11 +327,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4537,
+        "challenged": 4536,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 363,
+        "challenged": 364,
         "blocked": 0
       },
       "claim": {
@@ -340,8 +339,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.2795,
-    "post_challenger_oracle_judged": 458,
+    "post_challenger_oracle_kill_rate": 0.2789,
+    "post_challenger_oracle_judged": 459,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -370,18 +369,18 @@
     "last": [
       [
         null,
+        "2026-11-19T13:49:40Z"
+      ],
+      [
+        "success",
         "2026-11-19T13:07:27Z"
       ],
       [
         "success",
         "2026-11-19T12:37:43Z"
-      ],
-      [
-        "success",
-        "2026-11-19T12:05:05Z"
       ]
     ],
-    "fetched_at": "2026-11-19T13:08:39Z"
+    "fetched_at": "2026-11-19T13:51:39Z"
   },
   "feeds": {
     "by_source": {
@@ -429,7 +428,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-19T13:08:38Z"
+      "ts": "2026-11-19T13:51:39Z"
     },
     "health": {
       "arxiv": {
@@ -455,9 +454,7 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0051) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench, fft_stress_microbench, lemma_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
