@@ -4,67 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 498,
-    "ok": 498
+    "n": 499,
+    "ok": 499
   },
   "rows": [
-    {
-      "ts": "2026-11-16T21:03:13Z",
-      "cycle_id": "",
-      "mutation": "Chain+seek `authored_mut_swap_related_sequence_780ec4e5fee0` from invariant priors",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.0,
-      "live_novel": false,
-      "status": "ok",
-      "terms": [
-        "chain",
-        "seek",
-        "mut",
-        "swap",
-        "related",
-        "sequence",
-        "780ec4e5fee0",
-        "from",
-        "invariant",
-        "priors",
-        "enable",
-        "fee"
-      ],
-      "shadow_textbook_reuse": 0.25,
-      "matches": [
-        {
-          "anum": "A363861",
-          "name_sha256": "9ffac27761ab7546",
-          "coverage": 0.25,
-          "bm25": -17.303
-        },
-        {
-          "anum": "A208735",
-          "name_sha256": "5c5858a4044f3670",
-          "coverage": 0.25,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208734",
-          "name_sha256": "79472b3df374d927",
-          "coverage": 0.25,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208733",
-          "name_sha256": "fe89b080f3ceff7d",
-          "coverage": 0.25,
-          "bm25": -16.533
-        },
-        {
-          "anum": "A208732",
-          "name_sha256": "5c5858a4044f3670",
-          "coverage": 0.25,
-          "bm25": -16.533
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-11-16T22:35:00Z",
       "cycle_id": "20261116T223306Z_b283e1",
@@ -3402,6 +3345,63 @@
           "name_sha256": "3e200ccf46d954e0",
           "coverage": 0.0833,
           "bm25": -12.798
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-19T15:10:22Z",
+      "cycle_id": "",
+      "mutation": "Chain `authored_mut_widen_range_a4a0f43e9d31` citing Forbidden subset sums in a linear range: an invers",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "chain",
+        "mut",
+        "widen",
+        "range",
+        "a4a0f43e9d31",
+        "citing",
+        "forbidden",
+        "subset",
+        "sums",
+        "linear",
+        "invers",
+        "seek"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A159073",
+          "name_sha256": "b82b207ac4d903dd",
+          "coverage": 0.25,
+          "bm25": -10.542
+        },
+        {
+          "anum": "A046788",
+          "name_sha256": "d1bedbdec86f784d",
+          "coverage": 0.1667,
+          "bm25": -15.734
+        },
+        {
+          "anum": "A042949",
+          "name_sha256": "d1bedbdec86f784d",
+          "coverage": 0.1667,
+          "bm25": -15.734
+        },
+        {
+          "anum": "A038745",
+          "name_sha256": "2d5633fde30544ff",
+          "coverage": 0.1667,
+          "bm25": -15.734
+        },
+        {
+          "anum": "A038729",
+          "name_sha256": "2d5633fde30544ff",
+          "coverage": 0.1667,
+          "bm25": -15.734
         }
       ],
       "would_flag": false

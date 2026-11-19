@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-19T14:45:37Z",
-  "cycle_id": "20261119T144513Z_fe198d",
+  "ts": "2026-11-19T15:16:47Z",
+  "cycle_id": "20261119T151628Z_2ac229",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_swap_related_sequence_63101141dfc9": 1,
       "authored_mut_swap_related_sequence_63557c19a320": 1,
       "authored_mut_swap_related_sequence_99ba51d8108a": 1,
       "authored_mut_swap_related_sequence_3ad2ed8607dd": 1,
@@ -15,16 +14,10 @@
       "authored_mut_tighten_inequality_837c807f3fc1": 1,
       "authored_mut_widen_range_1289e31f25b2": 1,
       "authored_mut_widen_range_35152b9916ea": 1,
-      "authored_mut_widen_range_02ce1a87987c": 1
+      "authored_mut_widen_range_02ce1a87987c": 1,
+      "authored_mut_widen_range_a4a0f43e9d31": 1
     },
     "recent": {
-      "authored_mut_swap_related_sequence_63101141dfc9": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_mut_swap_related_sequence_63557c19a320": {
         "last": "revert",
         "streak": 1,
@@ -101,16 +94,23 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "authored_mut_widen_range_a4a0f43e9d31": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.822,
-      "slope": -3.6e-05,
-      "min": 0.8174,
-      "max": 0.8248
+      "last": 0.7878,
+      "slope": -0.001931,
+      "min": 0.7878,
+      "max": 0.8239
     },
     "novelty": {
       "last": 0.0,
@@ -119,15 +119,15 @@
       "max": 0.0
     },
     "kill_rate": {
-      "last": 0.3901,
-      "slope": -5e-05,
-      "min": 0.3901,
+      "last": 0.3897,
+      "slope": -7.6e-05,
+      "min": 0.3897,
       "max": 0.3905
     },
     "kill_rate_term": {
-      "last": 0.9011,
-      "slope": -3.8e-05,
-      "min": 0.9011,
+      "last": 0.9007,
+      "slope": -6.6e-05,
+      "min": 0.9007,
       "max": 0.9014
     },
     "lesson_uptake": {
@@ -138,11 +138,11 @@
     }
   },
   "stall": {
-    "stalled": true,
-    "aggregate_range": 0.0058,
+    "stalled": false,
+    "aggregate_range": 0.0351,
     "novelty_max": 0.0,
     "window": 6,
-    "reason": "aggregate flat and novelty 0"
+    "reason": "moving"
   },
   "catalog": {
     "enabled": 197,
@@ -159,7 +159,6 @@
       "authored_mut_swap_related_sequence_7a48b113081b",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
       "authored_mut_swap_related_sequence_d4676245056a",
-      "authored_mut_widen_range_a4a0f43e9d31",
       "authored_mut_widen_range_a52065c8485c"
     ],
     "authored": [
@@ -239,7 +238,6 @@
       "authored_mut_swap_related_sequence_7a48b113081b",
       "authored_mut_swap_related_sequence_7f7f296d8a72",
       "authored_mut_swap_related_sequence_d4676245056a",
-      "authored_mut_widen_range_a4a0f43e9d31",
       "authored_mut_widen_range_a52065c8485c",
       "authored_newdata_a002375_k20001_w1",
       "authored_newdata_a006577_k10001_w1",
@@ -275,7 +273,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 8
   },
   "guides": {
     "n_guides": 17,
@@ -289,23 +287,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.166,
+      "ratio": 0.84,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.245,
+      "ratio": 0.831,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.219,
+      "ratio": 0.811,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.183,
+      "ratio": 0.849,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.064,
+      "ratio": 0.872,
       "drift": false
     }
   },
@@ -313,11 +311,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 625143491,
-      "collatz_descent": 691000000,
+      "collatz_descent": 694200000,
       "legendre_square_gap": 3516607,
       "lehmer_totient": 330200001,
-      "erdos_straus": 1684127,
-      "twin_primes_hl": 862200000,
+      "erdos_straus": 1689127,
+      "twin_primes_hl": 866200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -329,11 +327,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4536,
+        "challenged": 4535,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 364,
+        "challenged": 365,
         "blocked": 0
       },
       "claim": {
@@ -341,8 +339,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.2789,
-    "post_challenger_oracle_judged": 459,
+    "post_challenger_oracle_kill_rate": 0.2783,
+    "post_challenger_oracle_judged": 460,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -371,18 +369,18 @@
     "last": [
       [
         null,
+        "2026-11-19T15:00:59Z"
+      ],
+      [
+        "success",
         "2026-11-19T14:22:42Z"
       ],
       [
         "success",
         "2026-11-19T13:49:40Z"
-      ],
-      [
-        "success",
-        "2026-11-19T13:07:27Z"
       ]
     ],
-    "fetched_at": "2026-11-19T14:24:11Z"
+    "fetched_at": "2026-11-19T15:02:01Z"
   },
   "feeds": {
     "by_source": {
@@ -430,7 +428,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-19T14:24:10Z"
+      "ts": "2026-11-19T15:02:01Z"
     },
     "health": {
       "arxiv": {
@@ -456,7 +454,6 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0058) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
