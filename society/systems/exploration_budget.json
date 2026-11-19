@@ -1,36 +1,15 @@
 {
-  "ts": "2026-11-19T10:44:53Z",
+  "ts": "2026-11-19T11:21:55Z",
   "fp": 0.5,
   "last_outcome": {
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261119T104054Z_981fe6"
+    "cycle_id": "20261119T111933Z_963f38"
   },
   "note": "actuation controlled experiment \u2014 bounded fp nudge",
-  "last_oracle_passes": 613,
+  "last_oracle_passes": 614,
   "spawn_retire_log": [
-    {
-      "ts": "2026-11-19T01:41:21Z",
-      "cycle_id": "20261119T013657Z_c41e7b",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-19T02:07:17Z",
-      "cycle_id": "20261119T020225Z_8a1991",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
-    {
-      "ts": "2026-11-19T02:13:31Z",
-      "cycle_id": "20261119T020856Z_7d5059",
-      "event": "pressure_retire_no_oracle_lift",
-      "delta_pass": 0.0,
-      "oracle_pass_delta": 0
-    },
     {
       "ts": "2026-11-19T02:19:42Z",
       "cycle_id": "20261119T021506Z_e812c5",
@@ -289,9 +268,30 @@
       "event": "pressure_retire_no_oracle_lift",
       "delta_pass": 0.0,
       "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-19T11:11:09Z",
+      "cycle_id": "20261119T110712Z_b16673",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-19T11:18:13Z",
+      "cycle_id": "20261119T111235Z_13b8bd",
+      "event": "pressure_retire_no_oracle_lift",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 0
+    },
+    {
+      "ts": "2026-11-19T11:22:31Z",
+      "cycle_id": "20261119T111933Z_963f38",
+      "event": "credit",
+      "delta_pass": 0.0,
+      "oracle_pass_delta": 1
     }
   ],
-  "updated_at": "2026-11-19T10:46:33Z",
+  "updated_at": "2026-11-19T11:22:31Z",
   "mutate_distribution": {
     "vandermonde_conv": 0.003809,
     "hockey_stick": 0.003809,
@@ -314,12 +314,12 @@
     "binomial_inversion_small": 0.003809,
     "legendre_duplication_small": 0.003809,
     "stem_easy_pad_units": 0.003809,
-    "easy_pad_assoc_add": 0.001,
-    "easy_pad_zero_identity": 0.001,
-    "easy_pad_square_again": 0.001,
-    "easy_pad_diff_squares": 0.001,
-    "easy_pad_commutativity": 0.001,
-    "easy_pad_abs_identity": 0.001,
+    "easy_pad_assoc_add": 0.000998,
+    "easy_pad_zero_identity": 0.000998,
+    "easy_pad_square_again": 0.000998,
+    "easy_pad_diff_squares": 0.000998,
+    "easy_pad_commutativity": 0.000998,
+    "easy_pad_abs_identity": 0.000998,
     "fermat_little": 0.005035,
     "euler_theorem": 0.005035,
     "wilson_theorem": 0.005035,
@@ -370,22 +370,22 @@
     "stem_thin_lens_matrix": 0.005316,
     "stem_velocity_addition": 0.005316,
     "stem_wheatstone_balance": 0.001618,
-    "oeis_a000032_lucas_norm": 0.039161,
-    "oeis_a001006_motzkin_ballot_sum": 0.039161,
-    "oeis_a005043_riordan_motzkin": 0.039161,
-    "oeis_a001850_central_delannoy": 0.039161,
-    "oeis_a006318_schroeder_paths": 0.039161,
-    "oeis_a000085_involutions": 0.039161,
-    "oeis_a001045_jacobsthal_sum": 0.039161,
-    "oeis_a002426_central_trinomial": 0.039161,
-    "oeis_a000111_zigzag_boustrophedon": 0.039161,
-    "oeis_a000262_lah_row_sums": 0.039161,
-    "oeis_a001764_ternary_trees": 0.039161,
-    "oeis_a000957_fine_no_hills": 0.039161,
-    "oeis_a001003_little_schroeder": 0.039161,
-    "oeis_a005259_apery_recurrence": 0.039161,
-    "oeis_a000172_franel_recurrence": 0.039161,
-    "oeis_a002893_hexagonal_walks": 0.039161
+    "oeis_a000032_lucas_norm": 0.039162,
+    "oeis_a001006_motzkin_ballot_sum": 0.039162,
+    "oeis_a005043_riordan_motzkin": 0.039162,
+    "oeis_a001850_central_delannoy": 0.039162,
+    "oeis_a006318_schroeder_paths": 0.039162,
+    "oeis_a000085_involutions": 0.039162,
+    "oeis_a001045_jacobsthal_sum": 0.039162,
+    "oeis_a002426_central_trinomial": 0.039162,
+    "oeis_a000111_zigzag_boustrophedon": 0.039162,
+    "oeis_a000262_lah_row_sums": 0.039162,
+    "oeis_a001764_ternary_trees": 0.039162,
+    "oeis_a000957_fine_no_hills": 0.039162,
+    "oeis_a001003_little_schroeder": 0.039162,
+    "oeis_a005259_apery_recurrence": 0.039162,
+    "oeis_a000172_franel_recurrence": 0.039162,
+    "oeis_a002893_hexagonal_walks": 0.039162
   },
   "revert_penalties": {
     "easy_pad_diff_squares": 3,
@@ -462,7 +462,8 @@
     "authored_mut_swap_related_sequence_fbd963a632e7": 1,
     "authored_mut_tighten_inequality_840389011216": 1,
     "authored_mut_tighten_inequality_e5042446cc47": 1,
-    "authored_mut_tighten_inequality_837c807f3fc1": 1
+    "authored_mut_tighten_inequality_837c807f3fc1": 1,
+    "authored_mut_widen_range_1289e31f25b2": 1
   },
   "keep_rewards": {
     "authored_bell_triangle_recurrence__hermite_recurrence_w1": 1,
