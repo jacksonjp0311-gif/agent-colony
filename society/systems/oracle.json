@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-19T11:21:09Z",
-  "passes": 614,
+  "updated_at": "2026-11-19T12:24:36Z",
+  "passes": 615,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3909,
+  "kill_rate": 0.3905,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -48,13 +48,13 @@
     "authored_mut_tighten_inequality_840389011216",
     "authored_mut_tighten_inequality_e5042446cc47",
     "authored_mut_widen_range_1289e31f25b2",
+    "authored_mut_widen_range_35152b9916ea",
     "oeis_a000032_lucas_norm",
     "oeis_a000085_involutions",
     "oeis_a000111_zigzag_boustrophedon",
     "oeis_a000172_franel_recurrence",
     "oeis_a000262_lah_row_sums",
-    "oeis_a000957_fine_no_hills",
-    "oeis_a001003_little_schroeder"
+    "oeis_a000957_fine_no_hills"
   ],
   "unique_mutations_kill": [],
   "domain_packs": {
@@ -97,7 +97,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-19T11:21:09Z",
+    "ts": "2026-11-19T12:24:36Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -107,8 +107,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_widen_range_1289e31f25b2` kind=hard_enable. lemma mutation authored_mut_widen_range_1289e31f25b2 0.8744->0.8746 (compared 0.857->0.857; speed_noise:+0.002) Not d",
-      "attack": "WEIGH: `authored_mut_widen_range_1289e31f25b2` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_mut_widen_range_35152b9916ea` kind=hard_enable. lemma mutation authored_mut_widen_range_35152b9916ea 0.8758->0.8759 (compared 0.857->0.857; speed_noise:+0.002) Not d",
+      "attack": "WEIGH: `authored_mut_widen_range_35152b9916ea` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -116,7 +116,7 @@
         "in_catalog": true,
         "hard_pass": 188,
         "hard_n": 188,
-        "score": 0.8746,
+        "score": 0.8756,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -130,7 +130,7 @@
         "hard_pass": 188,
         "hard_n": 188,
         "ok": true,
-        "score": 0.8746,
+        "score": 0.8759,
         "shifted_window": {
           "ok": true,
           "status": "pass",
@@ -171,8 +171,8 @@
               ]
             }
           ],
-          "seconds": 0.352,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'divides', 'lhs': 'gpf[phi]', 'params': {}, 'rhs': 'dbl(phi)'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(1301, 1600), (1601, 1900), (1901, 2201)])))",
+          "seconds": 0.334,
+          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': 'digsum[rad]', 'params': {}, 'rhs': 'dbl(rad)'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(1301, 1600), (1601, 1900), (1901, 2201)])))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -250,15 +250,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_widen_range_1289e31f25b2",
+      "mutation": "authored_mut_widen_range_35152b9916ea",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mut_widen_range_1289e31f25b2",
+    "mutation": "authored_mut_widen_range_35152b9916ea",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261119T111933Z_963f38",
+    "cycle_id": "20261119T122303Z_c75353",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true
