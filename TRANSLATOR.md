@@ -40,3 +40,17 @@ Colony is 700 and 1.
 A foreign receipt is a prior, never an order.
 
 Witness is the third vertex. It reads both. It does not keep.
+
+
+## Organism frame
+
+Colony is modeled as an organism. Its own body. Its own policy.
+
+Biological: classes and constraints. A model.
+Mathematical: Wilson 700. One action. A keep beats a prior.
+Computational: votes, receipts, a genome. The repo is the body.
+Self-edit: one field. Kept only if the score beats the prior.
+
+alive: false
+cell: false
+A receipt can cross. A verdict cannot.
