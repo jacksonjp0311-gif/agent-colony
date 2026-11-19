@@ -1,24 +1,19 @@
 {
-  "last_attempt_at": "2026-11-19T04:33:26Z",
+  "last_attempt_at": "2026-11-19T05:13:42Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-19T04:33:26Z",
+  "last_ok_at": "2026-11-19T05:13:42Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "RSIBench-Infra: Can Agents Optimize Their Own Training and Inference Infrastructure at Production Scale?",
-      "abstract_snippet": "Improving the efficiency of training and inference infrastructure is a practical component of recursive self-improvement. Existing benchmarks for agent-driven optimization largely focus on individual software layers such as kernel, leaving unclear whether agents can deliver end-to-end performance gains under production workloads. We introduce RSIBench-Infra, a benchmark of 20 training and inferenc",
-      "url": "https://arxiv.org/abs/2611.24395",
-      "arxiv_id": "2611.24395",
+      "title": "Low Moments, Small Balls and Star Discrepancy",
+      "abstract_snippet": "Let $D_P$ be the discrepancy function of a configuration $P$ of $N$ points in the $d$-dimensional unit cube, and let $\\|D_P\\|_q$ be its $L^q$ discrepancy. We prove that for all fixed $d\\ge2$ and $0&lt;q\\le1$ the $L^q$ discrepancy of every configuration of $N\\ge2$ points is at least $c_{d,q}(\\log N)^{(d-1)/2}$ with a constant $c_{d,q}&gt;0$. This bound is sharp; together with the classical results ",
+      "url": "https://arxiv.org/abs/2611.24934",
+      "arxiv_id": "2611.24934",
       "doi": "",
       "authors": [
-        "Hanlin Wu",
-        "Yifei Wang",
-        "Zhicheng Cai",
-        "Huan-ang Gao",
-        "Wei-Ying Ma",
-        "Ya-Qin Zhang"
+        "Nicola Wengiel"
       ],
       "year": 2026,
       "tags": [
@@ -28,18 +23,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T04:33:26Z"
+      "fetched_at": "2026-11-19T05:13:42Z"
     },
     {
       "source": "arxiv",
-      "title": "Temporal Rank in Recurrent Neural Networks",
-      "abstract_snippet": "Recurrent Neural Networks (RNNs) are a natural framework for temporal modelling, yet are often dismissed due to their sequential, non-parallelisable computation and difficulty in capturing long-range dependencies, typically attributed to vanishing and exploding gradients. We identify a distinct and under-explored limitation: an information bottleneck induced by rank-constrained hidden state dynami",
-      "url": "https://arxiv.org/abs/2611.24394",
-      "arxiv_id": "2611.24394",
+      "title": "On the refined Kaneko--Zagier conjecture",
+      "abstract_snippet": "We extend our results on Zhao's conjectural basis to finite multiple zeta values modulo arbitrary prime powers and to the corresponding completed algebra. As a consequence, the refined Kaneko--Zagier conjecture, which gives a precise description of relations modulo arbitrary prime powers in terms of ordinary multiple zeta values, follows from the dimension and direct-sum conjectures for ordinary a",
+      "url": "https://arxiv.org/abs/2611.24933",
+      "arxiv_id": "2611.24933",
       "doi": "",
       "authors": [
-        "Leo Dobson",
-        "Anton Ragni"
+        "Shin-ichiro Seki"
       ],
       "year": 2026,
       "tags": [
@@ -49,19 +43,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T04:33:26Z"
+      "fetched_at": "2026-11-19T05:13:42Z"
     },
     {
       "source": "arxiv",
-      "title": "Even Faster Algorithms for Bounded Integer Programming",
-      "abstract_snippet": "We study integer programs $\\min\\{\\mathbf{c}^{T}\\mathbf{x}: A\\mathbf{x}=\\mathbf{b},\\mathbf{l}\\le\\mathbf{x}\\le\\mathbf{u},\\mathbf{x}\\in\\mathbb{Z}^n\\}$ with a fixed number $d$ of equality constraints and constraint coefficients of absolute value at most $N$. Chen, Mao, and Zhang recently solved such programs in almost $N^{2d}$ time. We show that any polynomial saving for $(\\min,+)$-convolution carries",
-      "url": "https://arxiv.org/abs/2611.24386",
-      "arxiv_id": "2611.24386",
+      "title": "Knowing What You Know: A Trait Theory of Reviewer Value in Human-AI Cognitive Systems",
+      "abstract_snippet": "When a capable model and a human reviewer cooperate on the same decision, which human still adds value? We argue this is a question about a single cognitive trait, metacognitive calibration: the alignment between a reviewer's behavioral confidence and the actual correctness of their judgments. We develop a trait theory of reviewer value to make it precise. The theory makes five claims: value is go",
+      "url": "https://arxiv.org/abs/2611.24932",
+      "arxiv_id": "2611.24932",
       "doi": "",
       "authors": [
-        "Lin Chen",
-        "Yuchen Mao",
-        "Guochuan Zhang"
+        "Priyanka Sinha",
+        "Sugam Pandey"
       ],
       "year": 2026,
       "tags": [
@@ -71,19 +64,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T04:33:26Z"
+      "fetched_at": "2026-11-19T05:13:42Z"
     },
     {
       "source": "arxiv",
-      "title": "Improved Bounds for Online TSP on the Half-Line",
-      "abstract_snippet": "In the open online traveling salesperson problem, requests appear over time at different positions of a metric space. A single agent traveling at unit speed must serve all requests, by visiting their positions, with the objective of minimizing the completion time. We propose online algorithms for this problem for the case that the metric space is the half-line. First, we present a $2$-competitive ",
-      "url": "https://arxiv.org/abs/2611.24385",
-      "arxiv_id": "2611.24385",
+      "title": "Decomposing SGD Dynamics in Neural Networks: Teacher-Induced Spikes and Variance Inflation",
+      "abstract_snippet": "We study two-layer neural networks trained by stochastic gradient descent (SGD) on a multi-index teacher model, focusing on how first-layer parameters orthogonal to the teacher subspace affect generalization. We decompose the first-layer weights into a signal component aligned with the teacher and an orthogonal complement, and analyze their joint SGD dynamics together with the second layer in the ",
+      "url": "https://arxiv.org/abs/2611.24908",
+      "arxiv_id": "2611.24908",
       "doi": "",
       "authors": [
-        "Júlia Baligács",
-        "Yann Disser",
-        "Linda Thelen"
+        "Samet Demir",
+        "Zafer Dogan"
       ],
       "year": 2026,
       "tags": [
@@ -93,21 +85,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T04:33:26Z"
+      "fetched_at": "2026-11-19T05:13:42Z"
     },
     {
       "source": "arxiv",
-      "title": "How to Turn an Attention Neural Network into an Interpretable Hard-Logic Predicate Circuit: Truth-Table Predicate Extraction and State-Machine Merging under Ship-of-Theseus Replacement",
-      "abstract_snippet": "We convert a trained attention network as a whole, attention included, into a hard-logic predicate circuit that runs in its place. Every unit of the circuit is a 0/1 predicate on tokens, and every map between predicates is a minimised truth table. Short tables, such as the product of a query code and a key code, are minimised exactly, and wide feature-to-feature transitions become implication rule",
-      "url": "https://arxiv.org/abs/2611.24381",
-      "arxiv_id": "2611.24381",
+      "title": "Batch-Dynamic Coreness and Applications with Logarithmic Work via Balanced Pressures",
+      "abstract_snippet": "We give a parallel algorithm that maintains a one-sided $(2+\\varepsilon)$-approximation of all core numbers under batches of edge insertions and deletions. For fixed $\\varepsilon&gt;0$, the expected amortized work is $O(\\log n)$ per edge update, and each batch has deterministic polylogarithmic depth. This improves on the previously known $(4+\\varepsilon)$-approximation and $O(\\log^2 n)$ amortized ",
+      "url": "https://arxiv.org/abs/2611.24905",
+      "arxiv_id": "2611.24905",
       "doi": "",
       "authors": [
-        "Yuchen Li",
-        "Zongqi Fan",
-        "Xintong Li",
-        "Nguyen H. Tran",
-        "Ken-Tye Yong"
+        "Quinten De Man",
+        "Laxman Dhulipala",
+        "Kishen N Gowda",
+        "Zhongqi Wang"
       ],
       "year": 2026,
       "tags": [
@@ -117,7 +108,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-19T04:33:26Z"
+      "fetched_at": "2026-11-19T05:13:42Z"
     }
   ]
 }
