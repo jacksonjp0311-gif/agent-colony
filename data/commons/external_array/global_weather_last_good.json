@@ -8,20 +8,20 @@
       "city": "NYC",
       "lat": 40.71,
       "lon": -74.01,
-      "temperature_2m": 5.4,
-      "wind_speed_10m": 3.9,
+      "temperature_2m": 6.7,
+      "wind_speed_10m": 6.9,
       "weather_code": 0,
-      "time": "2026-11-19T12:15",
+      "time": "2026-11-19T12:45",
       "source": "open_meteo"
     },
     {
       "city": "London",
       "lat": 51.51,
       "lon": -0.13,
-      "temperature_2m": 8.3,
-      "wind_speed_10m": 7.9,
+      "temperature_2m": 8.4,
+      "wind_speed_10m": 8.6,
       "weather_code": 3,
-      "time": "2026-11-19T12:15",
+      "time": "2026-11-19T12:45",
       "source": "open_meteo"
     },
     {
@@ -29,23 +29,23 @@
       "lat": 35.68,
       "lon": 139.76,
       "temperature_2m": 11.6,
-      "wind_speed_10m": 8.7,
+      "wind_speed_10m": 8.2,
       "weather_code": 0,
-      "time": "2026-11-19T12:15",
+      "time": "2026-11-19T12:45",
       "source": "open_meteo"
     },
     {
       "city": "Sydney",
       "lat": -33.87,
       "lon": 151.21,
-      "temperature_2m": 20.7,
-      "wind_speed_10m": 18.5,
+      "temperature_2m": 20.5,
+      "wind_speed_10m": 17.5,
       "weather_code": 2,
-      "time": "2026-11-19T12:15",
+      "time": "2026-11-19T12:45",
       "source": "open_meteo"
     }
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-11-19T12:25:21Z"
+  "ts": "2026-11-19T12:55:18Z"
 }
