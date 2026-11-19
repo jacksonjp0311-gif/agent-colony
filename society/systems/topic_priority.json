@@ -71,12 +71,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "agent-group",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "barrier-guided",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-19T11:21:37Z",
-  "updated_cycle": "20261119T111933Z_963f38",
+  "updated_at": "2026-11-19T11:52:05Z",
+  "updated_cycle": "20261119T114939Z_7e63ba",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
