@@ -1,15 +1,63 @@
 {
   "ci_health": {
-    "completed": 11,
-    "fetched_at": "2026-11-20T06:16:16Z",
+    "completed": 9,
+    "fetched_at": "2026-11-20T06:58:02Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-20T06:55:35Z",
+        "id": 44691238814,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-20T06:56:30Z"
+      },
+      {
+        "conclusion": null,
+        "created_at": "2026-11-20T06:48:52Z",
+        "id": 44690456402,
+        "name": "Read-only tests",
+        "status": "in_progress",
+        "updated_at": "2026-11-20T06:48:55Z"
+      },
+      {
+        "conclusion": null,
+        "created_at": "2026-11-20T06:48:46Z",
+        "id": 44690446341,
+        "name": "Read-only tests",
+        "status": "in_progress",
+        "updated_at": "2026-11-20T06:48:49Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-20T06:21:23Z",
+        "id": 44687209083,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-20T06:33:30Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-20T06:20:44Z",
+        "id": 44687136634,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-20T06:31:40Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-20T06:20:40Z",
+        "id": 44687127883,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-20T06:29:40Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-20T06:13:57Z",
         "id": 44686339303,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-20T06:15:03Z"
+        "status": "completed",
+        "updated_at": "2026-11-20T06:55:38Z"
       },
       {
         "conclusion": "success",
@@ -50,54 +98,6 @@
         "name": "Read-only tests",
         "status": "completed",
         "updated_at": "2026-11-20T03:28:47Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T03:15:54Z",
-        "id": 44666529442,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-20T03:57:59Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T03:08:27Z",
-        "id": 44665663429,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T03:17:05Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T02:59:05Z",
-        "id": 44664564140,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T03:07:34Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T02:41:55Z",
-        "id": 44662637509,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T02:51:18Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T02:41:54Z",
-        "id": 44662635797,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T02:52:40Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T02:41:35Z",
-        "id": 44662601079,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T02:53:20Z"
       }
     ],
     "success_rate": 1.0
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 14,
-      "ok": 112
+      "ok": 113
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-20T01:23:06Z",
+    "arxiv": "2026-11-20T06:58:02Z",
     "crossref": "2026-11-20T04:50:33Z",
     "oeis": "2026-11-20T04:50:32Z",
     "oeis_conj": "2026-11-20T04:50:33Z",
@@ -138,10 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "math.CO:TimeoutError: The read operation timed out; math.NT:HTTPError: HTTP Error 429: Unknown Error",
-        "fetched": 0,
-        "new": 0,
-        "ok": false
+        "error": "",
+        "fetched": 8,
+        "new": 6,
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-20T06:16:00Z"
+    "ts": "2026-11-20T06:57:59Z"
   },
-  "runs": 489
+  "runs": 490
 }
