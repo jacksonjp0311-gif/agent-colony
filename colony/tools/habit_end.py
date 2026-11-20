@@ -1,31 +1,59 @@
-"""End-of-cycle habit. Score is a delta, not a window.
+"""End-of-cycle habit. Score is what the cycle proposed.
 
-Pattern: count receipts now, subtract the cursor, propose the delta.
-A quiet cycle can score 0 and refuse. A productive cycle can keep.
+Pattern: read new exchange rows since the cursor.
+Score is the mean bias of those rows.
+A quiet cycle scores 0 and refuses.
+A cycle that proposes more than the prior can keep.
 Fail-open.
 """
 from __future__ import annotations
+import json
+from pathlib import Path
+
+
+def _rows(path: Path) -> list:
+    out = []
+    try:
+        if not path.exists():
+            return out
+        for line in path.read_text(encoding="utf-8").splitlines():
+            try:
+                out.append(json.loads(line))
+            except Exception:
+                continue
+    except Exception:
+        return out
+    return out
 
 
 def apply(lineage: str = "colony") -> dict:
     try:
         from colony.tools.genome import load, save, propose
-        from colony.tools.feedback import last
 
+        root = Path(__file__).resolve().parent.parent.parent
+        exchange = root / "data" / "commons" / "exchange.jsonl"
         g = load()
-        before = int(g.get("receipts_seen") or 0)
-        rows = last(lineage, n=500)
+        before = int(g.get("exchange_seen") or 0)
+        rows = _rows(exchange)
         after = len(rows)
-        delta = float(max(0, after - before))
+        new = rows[before:after] if before < after else []
+        biases = []
+        for r in new:
+            if r.get("source") not in ("", lineage) and r.get("lineage") != lineage:
+                continue
+            b = (r.get("extra") or {}).get("bias_delta")
+            if isinstance(b, (int, float)):
+                biases.append(float(b))
+        score = round(sum(biases) / len(biases), 3) if biases else 0.0
         prior = float(g.get("last_score") or 0)
         g = dict(g)
-        g["receipts_seen"] = after
+        g["exchange_seen"] = after
+        g["last_bias_n"] = len(biases)
         save(g)
-        return propose("last_score", delta, delta, prior)
+        return propose("last_score", score, score, prior)
     except Exception as exc:
         return {"kept": False, "reason": "fail-open", "error": str(exc)}
 
 
 if __name__ == "__main__":
-    import json
     print(json.dumps(apply("colony")))

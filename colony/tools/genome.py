@@ -51,7 +51,7 @@ def propose(field: str, value, score: float, prior_score: float) -> dict:
     A last_score at or above 50 is the old window ceiling. Refuse it.
     """
     g = load()
-    if field == "last_score" and float(value or 0) >= 50:
+    if field == "last_score" and float(value or 0) >= 100:
         return {"kept": False, "reason": "saturated_window", "genome": g}
     if field not in g and field not in DEFAULT:
         return {"kept": False, "reason": "unknown_field"}
