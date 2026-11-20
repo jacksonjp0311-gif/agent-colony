@@ -127,6 +127,12 @@ jobs:
           python -m colony.novelty_shadow build || echo "::warning::novelty shadow corpus unavailable (report-only; live novelty unaffected)"
           python -m colony.oeis_terms build || echo "::warning::OEIS terms index unavailable (frontier conjectures will say OEIS unchecked)"
 
+      - name: Fold watch receipts into exchange.jsonl (single writer; append-only)
+        # Item 116: the Colony watch job writes data/commons/exchange_watch.jsonl only;
+        # this job is the one writer of exchange.jsonl. Gated by COLONY_EXTERNAL_PRIORS.
+        continue-on-error: true
+        run: PYTHONPATH=. python3 -m colony.tools.watch --fold || echo "::warning::fold non-fatal"
+
       - name: Gather → claim → evolve (keep/revert + lessons)
         env:
           # Athanor gate (James Jackson's ATHANOR 3.0.0) on lemma-desk self-edits.
@@ -392,11 +398,14 @@ jobs:
             git commit -m "ci(colony): spark loop benches+evolve+selective $(date -u +%Y-%m-%dT%H%MZ)"
             # main may have moved during the run (human push): rebase onto it and retry; never force
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::push failed after 5 rebase attempts"; exit 1; }
           fi
 
 
@@ -468,11 +477,14 @@ jobs:
           else
             git commit -m "ci(colony): seed control arm $(date -u +%Y-%m-%dT%H%MZ)"
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::control seed push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::control seed push failed after 5 rebase attempts"; exit 1; }
           fi
 
       - name: Evolve (control arm — self-mod off)
@@ -525,11 +537,14 @@ jobs:
           else
             git commit -m "ci(colony): control arm evolve $(date -u +%Y-%m-%dT%H%MZ)"
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::control push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::control push failed after 5 rebase attempts"; exit 1; }
           fi
 
   # After both arms have pushed, record treatment-minus-control and
@@ -583,11 +598,14 @@ jobs:
           else
             git commit -m "ci(colony): twin scoreboard $(date -u +%Y-%m-%dT%H%MZ)"
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::scoreboard push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::scoreboard push failed after 5 rebase attempts"; exit 1; }
           fi
 
 
