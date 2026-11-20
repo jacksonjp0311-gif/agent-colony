@@ -36,7 +36,16 @@ def _read_lines(path: Path) -> List[dict]:
     return out
 
 def fetch_remote(my_source: str, timeout: float = 8.0) -> List[dict]:
-    """Pull the other system's receipts. Fail-open returns []."""
+    """Pull the other system's receipts. Fail-open returns [].
+
+    Item 115: only with COLONY_EXTERNAL_PRIORS live on a treatment arm (never on control).
+    """
+    try:
+        from colony.external_priors import enabled as _ext_on
+        if not _ext_on():
+            return []
+    except Exception:  # noqa: BLE001
+        return []
     url = REMOTE.get(my_source)
     if not url:
         return []

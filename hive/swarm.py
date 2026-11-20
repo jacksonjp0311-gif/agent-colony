@@ -614,101 +614,33 @@ def drop_retired_proposals(state: dict[str, Any], proposals: list["Proposal"]) -
 
 
 
+def _priors(name: str, *args: Any, default: Any = 0) -> Any:
+    """Item 115: host-bound priors (see ``hive.host.bind_priors``). Unbound = ``default``."""
+    try:
+        from hive import host
+        return host.priors_call(name, *args, default=default)
+    except Exception:  # noqa: BLE001
+        return default
+
+
 def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
+    """Non-positive penalty from recent identical self-change failures (host prior; 0 unbound/off)."""
     try:
-        from colony.tools.reciprocal_exchange import merge_remote
-        merge_remote("colony")
-    except Exception:
-        pass
-
-    """Integer penalty from recent identical self-change failures.
-
-    Exact match on fingerprint or canonical action key only.
-    Pure count over the existing failure log. No new dependency.
-    Returns a non-positive integer. Fail-open: any error returns 0.
-    """
-    try:
-        from pathlib import Path
-        import json
-        if not fingerprint:
-            return 0
-        log = Path(__file__).resolve().parent.parent / "data" / "commons" / "self_change_failures.jsonl"
-        if not log.exists():
-            return 0
-        count = 0
-        fp = str(fingerprint)
-        for line in log.read_text(encoding="utf-8").splitlines()[-limit:]:
-            try:
-                rec = json.loads(line)
-                # Prefer explicit fingerprint or action_key fields when present
-                rec_fp = str(rec.get("fingerprint") or rec.get("action_key") or "")
-                subj = rec.get("subject") or {}
-                knob = str(subj.get("knob") or "")
-                # Exact equality only — no substring
-                if rec_fp and rec_fp == fp:
-                    count += 1
-                elif knob and knob == fp:
-                    count += 1
-            except Exception:
-                continue
-        local = -min(count * 50, 200)
-        # Symbiotic: add penalty from foreign receipts if present
-        try:
-            from colony.tools.symbiotic_exchange import foreign_penalty
-            from colony.tools.surgical_implants import graph_connected
-            if graph_connected("colony"):
-                local += foreign_penalty(fp, my_source="colony")
-        except Exception:
-            pass
-        return max(local, -300)  # hard cap
-    except Exception:
+        return int(_priors("failure_penalty", fingerprint, limit, default=0) or 0)
+    except (TypeError, ValueError):
         return 0
-
 
 
 def _ucb_bonus(fingerprint: str, c: int = 80) -> int:
-    """UCB-style exploration bonus. Under-tried fingerprints get a lift.
-
-    Pure count over failure log + exchange. Fail-open returns 0.
-    """
+    """UCB-style exploration bonus (host prior; 0 unbound/off)."""
     try:
-        import math
-        from pathlib import Path
-        import json
-        if not fingerprint:
-            return 0
-        n_fp = 0
-        n_total = 1
-        log = Path(__file__).resolve().parent.parent / "data" / "commons" / "self_change_failures.jsonl"
-        if log.exists():
-            for line in log.read_text(encoding="utf-8").splitlines()[-100:]:
-                n_total += 1
-                try:
-                    rec = json.loads(line)
-                    fp = str(rec.get("fingerprint") or (rec.get("subject") or {}).get("knob") or "")
-                    if fp == fingerprint:
-                        n_fp += 1
-                except Exception:
-                    continue
-        # Also count exchange
-        ex = Path(__file__).resolve().parent.parent / "data" / "commons" / "exchange.jsonl"
-        if ex.exists():
-            for line in ex.read_text(encoding="utf-8").splitlines()[-50:]:
-                n_total += 1
-                try:
-                    rec = json.loads(line)
-                    if str(rec.get("fingerprint") or "") == fingerprint:
-                        n_fp += 1
-                except Exception:
-                    continue
-        n_fp = max(n_fp, 1)
-        bonus = int(c * math.sqrt(math.log(max(n_total, 2)) / n_fp))
-        return min(bonus, 150)
-    except Exception:
+        return int(_priors("ucb_bonus", fingerprint, c, default=0) or 0)
+    except (TypeError, ValueError):
         return 0
 
+
 def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
-    """Fail-open score adjustment using existing failure log.
+    """Fail-open score adjustment from the host's priors (item 115: behind the host switch).
 
     Creates a new Match (frozen dataclass) with adjusted score.
     Does not mutate. Does not change the Wilson gate or vote structure.
@@ -717,48 +649,22 @@ def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
         return proposal
     try:
         from dataclasses import replace
-        pen = _failure_penalty(proposal.fingerprint)
-        bonus = _ucb_bonus(proposal.fingerprint)
-        delta = pen + bonus
         try:
-            from colony.tools.symbiotic_exchange import kept_prior, agreed_prior, foreign_kept_prior
-            kp = kept_prior(proposal.fingerprint)
-            ap = agreed_prior(proposal.fingerprint)
-            fp = foreign_kept_prior(proposal.fingerprint, "colony")
-            delta += kp + ap + fp
-            try:
-                from colony.tools.attribution import record
-                record(proposal.fingerprint, int(getattr(proposal.match, "score", 0)), fp, "ranked", "colony")
-            except Exception:
-                pass
-        except Exception:
-            pass
-        try:
-            from colony.tools.surgical_implants import (
-                refractory, component_scope, homeostatic_scale, energy_settled,
-            )
-            if energy_settled([getattr(proposal.match, "score", 0)]):
-                pass
-            if not refractory(proposal.fingerprint, last_fp=""):
-                return proposal
-            if not component_scope(getattr(proposal, "role", "improver"), getattr(proposal, "op", "set_knob")):
-                return proposal
-            delta = homeostatic_scale(delta, recent_mean=0.0)
-        except Exception:
-            pass
+            delta = int(_priors("bias_delta", proposal, default=0) or 0)
+        except (TypeError, ValueError):
+            delta = 0
         if delta == 0:
             return proposal
         old = proposal.match
-        new_score = int(getattr(old, "score", 0)) + delta
-        new_match = replace(old, score=new_score)
-        # Proposal may also be frozen or a simple namespace; try replace then fallback
+        new_match = replace(old, score=int(getattr(old, "score", 0)) + delta)
         try:
             return replace(proposal, match=new_match)
-        except Exception:
-            proposal.match = new_match  # if Proposal is mutable
+        except Exception:  # noqa: BLE001
+            proposal.match = new_match
             return proposal
-    except Exception:
+    except Exception:  # noqa: BLE001
         return proposal
+
 
 def propose_for_role(
     role: str,
@@ -838,78 +744,7 @@ def propose_for_role(
         method=method,
     )
     biased = _apply_evolutionary_bias(prop)
-    try:
-        from colony.tools.cycle_telemetry import emit
-        delta = 0
-        if biased and biased.match and prop and prop.match:
-            delta = int(getattr(biased.match, "score", 0)) - int(getattr(prop.match, "score", 0))
-        try:
-            from colony.tools.symbiotic_exchange import agreed_prior, kept_prior
-            if prop and getattr(prop, "fingerprint", ""):
-                delta += agreed_prior(prop.fingerprint)
-                delta += kept_prior(prop.fingerprint)
-                try:
-                    from colony.tools.surgical_implants import tag_and_capture, precision_weight
-                    delta += int(tag_and_capture(prop.fingerprint, [prop.fingerprint]) * precision_weight(1))
-                except Exception:
-                    pass
-        except Exception:
-            pass
-        foreign = 0
-        try:
-            from colony.tools.reciprocal_exchange import merge_remote
-            merge_remote("colony")
-            from colony.tools.symbiotic_exchange import foreign_fingerprints
-            foreign = len(foreign_fingerprints("colony", limit=200))
-            from colony.tools.crystallize import crystallize_stable
-            crystallize_stable("colony", min_count=2)
-        except Exception:
-            foreign = 0
-        outcome = "proposed"
-        try:
-            import json
-            from pathlib import Path as P
-            st = P("society/systems/self_heal.json")
-            if st.exists():
-                state = json.loads(st.read_text())
-                if int(state.get("adopted_count") or 0) > 0:
-                    outcome = "adopted_elsewhere"
-        except Exception:
-            pass
-        try:
-            from colony.tools.traces import record_trace
-            from colony.tools.speak import speak
-            speak("colony")
-            from colony.tools.proprioception import propriocept
-            propriocept("colony")
-            from colony.tools.feedback import feed
-            feed("colony", "cycle closed. read feedback.jsonl before the next change.")
-            from colony.tools.evidence_view import project
-            project()
-            from colony.tools.transfer_probe import probe
-            if prop and getattr(prop, "fingerprint", ""):
-                probe(prop.fingerprint)
-            if prop and getattr(prop, "fingerprint", ""):
-                record_trace(prop.fingerprint, int(getattr(getattr(prop, "match", None), "score", 0) or 0))
-        except Exception:
-            pass
-        emit("colony", cycle_id="", residual_max=0.0, foreign_fps=foreign,
-             bias_delta=delta, outcome=outcome)
-        try:
-            from colony.tools.symbiotic_exchange import append_receipt, foreign_fingerprints
-            if prop and getattr(prop, "fingerprint", ""):
-                append_receipt("colony", "proposal", prop.fingerprint, "proposed",
-                               {"bias_delta": delta})
-            if delta < 0 and prop and getattr(prop, "fingerprint", ""):
-                fps = foreign_fingerprints("colony", limit=200)
-                named = prop.fingerprint if prop.fingerprint in fps else (fps[0] if fps else "")
-                if named:
-                    from colony.tools.reciprocal_exchange import record_adoption
-                    record_adoption(named, helped=False, note=f"bias_delta={delta}")
-        except Exception:
-            pass
-    except Exception:
-        pass
+    _priors("after_propose", prop, biased, default=None)
     return biased
 
 
@@ -2451,27 +2286,8 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
             _t.read_text(encoding="utf-8")
     except Exception:
         pass
-    try:
-        from colony.tools.feedback import last
-        prior = last("colony", n=1)
-    except Exception:
-        prior = []
-
-    # Habit: one genome field. Score is prior receipts. Kept only if better.
-    try:
-        from colony.tools.genome import load as _gload, propose as _gpropose
-        _g = _gload()
-        _prior = float(_g.get("last_score") or 0)
-        # Count recent receipts. Can rise. A ceiling of 2 was a structural refuse.
-        try:
-            from colony.tools.feedback import last as _last
-            _rows = _last("colony", n=100)
-        except Exception:
-            _rows = prior
-        _now = float(len(_rows))
-        _gpropose("last_score", _now, _now, _prior)
-    except Exception:
-        pass
+    # Habit (item 115: host prior, off on control / when unbound).
+    _priors("cycle_habit", default=None)
     st = load_state()
     st = _remember_cycle(st, cycle_id)
     if not st.get("seeded"):
