@@ -71,12 +71,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "a(n-1)+a(n-2)-f(n)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "cameron--martin",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-20T01:07:01Z",
-  "updated_cycle": "20261120T010443Z_c16e98",
+  "updated_at": "2026-11-20T01:41:56Z",
+  "updated_cycle": "20261120T013909Z_c2aab3",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
