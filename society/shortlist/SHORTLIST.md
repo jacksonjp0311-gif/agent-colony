@@ -1,8 +1,8 @@
-# Proposal shortlist — 2026-11-19 08:44 PM ET
+# Proposal shortlist — 2026-11-19 09:17 PM ET
 
 View only: nothing here is authorized. Only James authorizes.
 
-36 of 219 proposals meet the authorize bar (27 after grouping near-duplicates; 23 colony-authored, 4 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
+36 of 220 proposals meet the authorize bar (27 after grouping near-duplicates; 23 colony-authored, 4 building blocks). Rank = 0.6*P + 0.2*novelty + 0.2*builds_on.
 
 | # | Proposal | P | Novelty | Builds on | Athanor | Similar | Shadow # (P) | What it is |
 |---|---|---:|---:|---:|---|---:|---|---|
@@ -45,14 +45,14 @@ Rules in colony/hunt_shadow.py. Would meet the bar: 14 (actual 36). Unknown clai
 | 9 | imp_18d1e0_50 | `authored_frontier_cong_xbb82919e_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 23 |
 | 10 | imp_53f6c2_49 | `authored_frontier_cong_x06b60875_w1` | 0.825 → 0.825 | meets | yes | 0.0 | 25 |
 
-Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 29, novelty_killed: 26, oracle_killed_in_own_cycle: 8, status: 99, target_unresolved: 137
+Excluded (reason: count): hearing: 2, no_oracle_pass_in_own_cycle: 29, novelty_killed: 26, oracle_killed_in_own_cycle: 8, status: 100, target_unresolved: 138
 
 
 ## Frontier conjectures (self-chosen; LIVE)
 
-Mode `live`. Last cycle: 16 tested, 9 survived held-out, 7 falsified, 4 machine-checked, 1 surprises; dropped 19 duplicates, 118 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.0867.
-Totals: tested 24632, survived 8880, surprises 188, false surprises (failed later re-test) 0.
-Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 3 with no reference found.
+Mode `live`. Last cycle: 20 tested, 7 survived held-out, 13 falsified, 6 machine-checked, 0 surprises; dropped 17 duplicates, 85 trivial rewrites. OEIS index: available. Pre-registration Brier: 0.0866.
+Totals: tested 24732, survived 8917, surprises 188, false surprises (failed later re-test) 0.
+Reference check (Stage 2, `live`): last cycle 0 explained by a reference, 0 with no reference found.
 
 | Statement | Label | Reference check | OEIS | Hunt v |
 |---|---|---|---|---|

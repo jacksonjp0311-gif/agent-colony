@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-20T01:39:29Z",
-  "cycle_id": "20261120T013909Z_c2aab3",
+  "ts": "2026-11-20T02:13:36Z",
+  "cycle_id": "20261120T021320Z_ed9646",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -107,10 +107,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8232,
-      "slope": 0.000251,
-      "min": 0.8047,
-      "max": 0.8239
+      "last": 0.7878,
+      "slope": -0.000467,
+      "min": 0.7878,
+      "max": 0.8246
     },
     "novelty": {
       "last": 0.0,
@@ -120,15 +120,15 @@
     },
     "kill_rate": {
       "last": 0.3867,
-      "slope": -6.6e-05,
+      "slope": -3.8e-05,
       "min": 0.3867,
-      "max": 0.3874
+      "max": 0.387
     },
     "kill_rate_term": {
       "last": 0.898,
-      "slope": -6.6e-05,
+      "slope": -3.8e-05,
       "min": 0.898,
-      "max": 0.8987
+      "max": 0.8983
     },
     "lesson_uptake": {
       "last": 0.9,
@@ -139,7 +139,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0065,
+    "aggregate_range": 0.0368,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "moving"
@@ -149,6 +149,7 @@
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xd9add9e9_w1",
+      "authored_mut_perturb_constant_a67e97a8b9c1",
       "authored_mut_swap_related_sequence_157fd7ef3654",
       "authored_mut_swap_related_sequence_3b3fef4a07b3",
       "authored_mut_swap_related_sequence_5632d000cf00",
@@ -228,6 +229,7 @@
       "authored_hockey_stick__pell_companion_w1",
       "authored_hockey_stick__stirling_second_row_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
+      "authored_mut_perturb_constant_a67e97a8b9c1",
       "authored_mut_swap_related_sequence_157fd7ef3654",
       "authored_mut_swap_related_sequence_3b3fef4a07b3",
       "authored_mut_swap_related_sequence_5632d000cf00",
@@ -273,7 +275,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 8
+    "exhausted_recent": 9
   },
   "guides": {
     "n_guides": 17,
@@ -287,33 +289,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.64,
+      "ratio": 0.598,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.678,
+      "ratio": 0.641,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.785,
+      "ratio": 0.694,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.805,
+      "ratio": 0.733,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.771,
+      "ratio": 0.719,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 649008835,
+      "goldbach_even": 652208835,
       "collatz_descent": 719800000,
-      "legendre_square_gap": 3644607,
-      "lehmer_totient": 343000001,
+      "legendre_square_gap": 3660607,
+      "lehmer_totient": 344600001,
       "erdos_straus": 1729127,
       "twin_primes_hl": 898200000,
       "oeis_A104062_next": 518690000001
@@ -364,23 +366,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.9091,
-    "completed": 11,
+    "success_rate": 1.0,
+    "completed": 8,
     "last": [
       [
         null,
-        "2026-11-20T01:21:57Z"
+        "2026-11-20T01:54:48Z"
       ],
       [
-        "success",
-        "2026-11-20T00:39:25Z"
+        null,
+        "2026-11-20T01:53:50Z"
       ],
       [
-        "success",
-        "2026-11-20T00:03:12Z"
+        null,
+        "2026-11-20T01:52:47Z"
       ]
     ],
-    "fetched_at": "2026-11-20T01:23:07Z"
+    "fetched_at": "2026-11-20T01:55:46Z"
   },
   "feeds": {
     "by_source": {
@@ -399,10 +401,9 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
-          "new": 1,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
@@ -429,7 +430,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-20T01:23:03Z"
+      "ts": "2026-11-20T01:55:45Z"
     },
     "health": {
       "arxiv": {
