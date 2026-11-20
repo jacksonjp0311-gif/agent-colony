@@ -522,6 +522,43 @@
    ],
    "version": 1
   },
+  "oc_A018917_0": {
+   "anum": "A018917",
+   "definition": {
+    "kind": "holo",
+    "polys": {
+     "0": [
+      1
+     ],
+     "1": [
+      -1
+     ],
+     "2": [
+      -1
+     ],
+     "4": [
+      1
+     ]
+    },
+    "provenance": "guessed",
+    "sound": false,
+    "source": "oeis_guess.guess_cfinite on 160 terms",
+    "text": "C-finite guess (order 4)",
+    "verified": "both paths reproduce all 500 stored terms"
+   },
+   "source_sha": "61e5d6492fe296b6",
+   "terms_sha": "81ab895ce2d5a099",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": true,
+     "provenance": "guessed",
+     "source": "oeis_guess.guess_cfinite on 160 terms",
+     "why": "both paths reproduce all 500 stored terms"
+    }
+   ],
+   "version": 1
+  },
   "oc_A023110_0": {
    "anum": "A023110",
    "definition": null,
@@ -2440,6 +2477,22 @@
    "definition": null,
    "source_sha": "4587236856b47097",
    "terms_sha": "93cc4e1a40cdc6f7",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A133044_0": {
+   "anum": "A133044",
+   "definition": null,
+   "source_sha": "89bb26e24a2bb2c3",
+   "terms_sha": "4a3949a91ee099a8",
    "tried": [
     {
      "kind": "holo",
