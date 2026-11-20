@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-20T05:14:02Z",
-  "cycle_id": "20261120T051339Z_a19703",
+  "ts": "2026-11-20T05:55:04Z",
+  "cycle_id": "20261120T055444Z_08d0ab",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_tighten_inequality_837c807f3fc1": 1,
       "authored_mut_widen_range_1289e31f25b2": 1,
       "authored_mut_widen_range_35152b9916ea": 1,
       "authored_mut_widen_range_02ce1a87987c": 1,
@@ -15,7 +14,8 @@
       "authored_mut_widen_range_0b15e0758e29": 1,
       "authored_mut_widen_range_aa1dbe10fcc0": 1,
       "lemma_hard_combinatorics": 1,
-      "authored_mut_widen_range_a1e42c8a9011": 1
+      "authored_mut_widen_range_a1e42c8a9011": 1,
+      "authored_mut_widen_range_b12499586517": 1
     },
     "recent": {
       "authored_mut_widen_range_35152b9916ea": {
@@ -107,10 +107,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8218,
-      "slope": 0.000107,
-      "min": 0.8191,
-      "max": 0.8227
+      "last": 0.8236,
+      "slope": -0.000432,
+      "min": 0.8066,
+      "max": 0.8236
     },
     "novelty": {
       "last": 0.0,
@@ -138,11 +138,11 @@
     }
   },
   "stall": {
-    "stalled": true,
-    "aggregate_range": 0.0009,
+    "stalled": false,
+    "aggregate_range": 0.017,
     "novelty_max": 0.0,
     "window": 6,
-    "reason": "aggregate flat and novelty 0"
+    "reason": "moving"
   },
   "catalog": {
     "enabled": 197,
@@ -287,23 +287,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.937,
+      "ratio": 0.61,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.968,
+      "ratio": 0.626,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.93,
+      "ratio": 0.723,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.947,
+      "ratio": 0.727,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.9,
+      "ratio": 0.931,
       "drift": false
     }
   },
@@ -311,11 +311,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 658608835,
-      "collatz_descent": 726200000,
+      "collatz_descent": 729400000,
       "legendre_square_gap": 3692607,
       "lehmer_totient": 347800001,
-      "erdos_straus": 1739127,
-      "twin_primes_hl": 906200000,
+      "erdos_straus": 1744127,
+      "twin_primes_hl": 910200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -369,18 +369,18 @@
     "last": [
       [
         null,
+        "2026-11-20T05:35:36Z"
+      ],
+      [
+        "success",
         "2026-11-20T04:48:35Z"
       ],
       [
         "success",
         "2026-11-20T03:57:56Z"
-      ],
-      [
-        "success",
-        "2026-11-20T03:17:13Z"
       ]
     ],
-    "fetched_at": "2026-11-20T04:50:35Z"
+    "fetched_at": "2026-11-20T05:37:58Z"
   },
   "feeds": {
     "by_source": {
@@ -399,44 +399,41 @@
     "last_run": {
       "sources": {
         "arxiv": {
+          "error": "cs.LG:TimeoutError: The read operation timed out; cs.MA:TimeoutError: The read operation timed out",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": false
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 4,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 10,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-20T04:50:30Z"
+      "ts": "2026-11-20T05:37:27Z"
     },
     "health": {
       "arxiv": {
-        "fail": 12,
+        "fail": 13,
         "ok": 112
       },
       "crossref": {
@@ -458,7 +455,6 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0009) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
