@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 496,
- "last_refill_index": 496,
+ "cycle_index": 499,
+ "last_refill_index": 499,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -3861,6 +3861,43 @@
   "c23a3e30ff4b0a84": {
    "cycle_id": "20261120T213650Z_187496",
    "n_hits": 10
+  },
+  "06d2509f2dc55d9d": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 5
+  },
+  "1526480cb74b0840": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 10
+  },
+  "4c959abc997c238b": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 10
+  },
+  "e8f41f74b790b7ed": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 10
+  },
+  "bd7219996cb6e363": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 10
+  },
+  "512ba6556b0b0e0d": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 2
+  },
+  "04e47cf4a315c656": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "9a6ae31a88e35634": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 10
+  },
+  "52bd3b14ddd70097": {
+   "cycle_id": "20261120T234459Z_60ed44",
+   "n_hits": 7
   }
  },
  "rejected": {
@@ -4128,31 +4165,57 @@
   "A225692": "20261120T191845Z_381910",
   "A256625": "20261120T203557Z_7d7888",
   "A157021": "20261120T203557Z_7d7888",
-  "A129366": "20261120T203557Z_7d7888"
+  "A129366": "20261120T203557Z_7d7888",
+  "A207319": "20261120T234459Z_60ed44",
+  "A207323": "20261120T234459Z_60ed44",
+  "A207318": "20261120T234459Z_60ed44",
+  "A102239": "20261120T234459Z_60ed44"
  },
- "refills": 165,
- "added": 384,
+ "refills": 166,
+ "added": 388,
  "last": {
-  "cycle_id": "20261120T213650Z_187496",
-  "open_before": 4,
+  "cycle_id": "20261120T234459Z_60ed44",
+  "open_before": 1,
   "pages_read": 8,
-  "pages_skipped_duplicate": 6,
-  "requests": 8,
-  "new": [],
+  "pages_skipped_duplicate": 1,
+  "requests": 16,
+  "new": [
+   {
+    "id": "oc_A245088_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A259714_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A026767_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A026765_0",
+    "form": "relation",
+    "definition": false
+   }
+  ],
   "stats": {
-   "entries": 30,
-   "resolved_skipped": 9,
+   "entries": 54,
+   "resolved_skipped": 13,
    "keyword_skipped": 0,
-   "statements": 28,
-   "parsed": 0,
-   "no_bfile": 0,
+   "statements": 63,
+   "parsed": 13,
+   "no_bfile": 4,
    "fails_on_data": 0,
-   "kept": 0
+   "kept": 4,
+   "def_candidates": 0
   }
  },
  "run_requests": {
-  "run_id": "44812440515",
-  "n": 8
+  "run_id": "44836738501",
+  "n": 16
  },
  "last_slot_refill_cycle": "20261120T203557Z_7d7888",
  "slot_refills": 1

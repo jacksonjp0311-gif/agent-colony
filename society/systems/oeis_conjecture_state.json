@@ -1027,7 +1027,7 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 27,
+   "attempts": 30,
    "status": "holds_on_range",
    "tested_hi": 299,
    "credit": 0.0
@@ -1285,7 +1285,7 @@
    "credit": 0.0
   },
   "oc_A025093_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -1303,7 +1303,7 @@
    "credit": 0.0
   },
   "oc_A176479_0": {
-   "attempts": 26,
+   "attempts": 29,
    "status": "holds_on_range",
    "tested_hi": 1026,
    "credit": 0.0006
@@ -2749,7 +2749,7 @@
    "credit": 0.05
   },
   "oc_A162533_0": {
-   "attempts": 14,
+   "attempts": 17,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -2841,11 +2841,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 810,
+   "attempts": 819,
    "credit": 25.5117
   },
   "gf": {
-   "attempts": 153,
+   "attempts": 154,
    "credit": 3.6876
   },
   "only_prime": {
