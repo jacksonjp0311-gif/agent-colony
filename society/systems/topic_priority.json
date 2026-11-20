@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "a(n-1)+a(n-2)-f(n)",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-20T18:33:21Z",
-  "updated_cycle": "20261120T183030Z_577e72",
+  "updated_at": "2026-11-20T19:22:39Z",
+  "updated_cycle": "20261120T191845Z_381910",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

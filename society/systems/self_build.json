@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 487,
+ "cycle_index": 490,
  "active": {
   "id": "bp_6af21df512e787b3",
   "signature": "6af21df512e787b3",
@@ -252,54 +252,54 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261120T183030Z_577e72",
-  "blueprint": "bp_6af21df512e787b3",
+  "cycle_id": "20261120T191845Z_381910",
+  "blueprint": "bp_acd0ce7efcd1c46e",
   "ran": [
+   {
+    "component": "oeis_prediction_error",
+    "n": 1,
+    "actions": 0,
+    "skipped": "nothing_open"
+   },
    {
     "component": "frontier_extra_batch",
     "n": 1,
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 190,
-     "duplicate": 22,
-     "trivial_formal": 1,
-     "trivial_shuffle_null": 2,
-     "trivial_idle_part": 10,
-     "trivial_implied_parts": 31,
+     "fitted": 171,
+     "duplicate": 17,
+     "trivial_formal": 2,
+     "trivial_shuffle_null": 3,
+     "trivial_idle_part": 6,
+     "trivial_implied_parts": 64,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
-     "trivial_parity_rules": 0,
+     "trivial_parity_rules": 1,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
      "expected_by_closure": 4,
      "loose_inequality": 0,
-     "tested": 18,
-     "survived": 4,
-     "falsified": 14,
+     "tested": 17,
+     "survived": 5,
+     "falsified": 12,
      "machine_checked": 4,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 0,
+     "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 2,
+     "trivial_confirmed on range": 4,
      "trivial_known_in_principle(definition_parity)": 1
     }
-   },
-   {
-    "component": "oeis_prediction_error",
-    "n": 1,
-    "actions": 0,
-    "skipped": "nothing_open"
    }
   ],
   "actions": 1,
-  "cpu_s": 15.144
+  "cpu_s": 23.989
  },
  "last_skip": null,
  "kept_count": 2,
