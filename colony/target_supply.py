@@ -31,6 +31,13 @@ the OEIS target list stocked without a human rerunning
   runs in parallel and cannot see the current run's rows). A lead over the
   control therefore cannot come from extra supply.
 
+* **Pace (item 121, ``COLONY_SUPPLY_PACE``, shared environment).** Live refills read bank v2
+  at 8 pages per run while the dry run read all 504 at once; the first 168 v2 pages are the
+  low-yield relation family (8 targets), so the high-yield pages were ~20 runs away. Now: a page
+  after a short page (< 10 hits; OEIS repeats it) is marked read with no request; each page is
+  vetted right after it is read, so no hit past ``MAX_NEW`` is dropped; a starved menu (0 open)
+  reads up to ``STARVED_PAGES``; all supply requests in one run share ``RUN_REQUEST_CAP``.
+
 * **Bank v2 (item 118).** The first bank (640 pages) was exhausted on
   2026-11-18. ``COLONY_SUPPLY_BANK_V2`` (live by default, on *both* arms,
   because supply is environment) appends relation-form and name-definition
@@ -62,6 +69,10 @@ COOLDOWN_CYCLES = 3        # at most one refill per run of 3 cycles
 REQUEST_BUDGET = 40        # network requests per refill (>= 2 s apart)
 PAGES_PER_REFILL = 8       # search pages read per refill
 MAX_NEW = 10               # targets added per refill
+PAGE_SIZE = 10             # OEIS JSON search hits per page
+STARVED_PAGES = 24         # item 121: pages per refill when no OEIS target is open
+STARVED_REQUEST_BUDGET = 64  # item 121: requests per starved refill (still >= 2 s apart)
+RUN_REQUEST_CAP = 120      # item 121: all supply requests in one workflow run (politeness ceiling)
 SUPPLY_MAX_TERMS = 500     # stored published terms per added target (published_hi keeps the real range)
 
 # New topics beyond the builder's TOPICS (combinatorics / number theory, the
@@ -305,11 +316,37 @@ def _cached(name: str) -> bool:
         return False
 
 
+def pace_live() -> bool:
+    """Item 121: ``COLONY_SUPPLY_PACE`` = live (default) | off. Supply is environment, so this is
+    shared by both arms (only the treatment job fetches; both adopt the same logged rows)."""
+    return (os.environ.get("COLONY_SUPPLY_PACE") or "live").strip().lower() != "off"
+
+
+def _short_previous_page(b: dict[str, Any], done: dict[str, Any], by_qp: dict[tuple[str, int], str]) -> bool:
+    """Page p > 0 whose page p-1 came back short (< PAGE_SIZE hits) is a duplicate.
+
+    Measured on the cached bank-v2 pages (item 121): OEIS clamps ``start`` past the end of a
+    short result, so all 142 page-1 reads whose page 0 was short returned exactly page 0's hits."""
+    if int(b.get("page") or 0) <= 0:
+        return False
+    prev = by_qp.get((b["q"], int(b["page"]) - 1))
+    row = done.get(prev) if prev else None
+    return isinstance(row, dict) and int(row.get("n_hits") or 0) < PAGE_SIZE
+
+
 def refill(cycle_id: str, *, net: Any = None, tool: Any = None, menu: list[dict[str, Any]] | None = None,
            st: dict[str, Any] | None = None, heal: dict[str, Any] | None = None,
            library_rows: list[dict[str, Any]] | None = None, write: bool = True,
            max_new: int = MAX_NEW, pages: int = PAGES_PER_REFILL) -> dict[str, Any]:
-    """Read new OEIS search pages and vet new targets. ``write=False`` is a dry run."""
+    """Read new OEIS search pages and vet new targets. ``write=False`` is a dry run.
+
+    Item 121 (``COLONY_SUPPLY_PACE``): each page is vetted right after it is read and the
+    refill stops after the page that reaches ``max_new``, so no hit is left unvetted on a
+    page already marked read (before, hits past ``max_new`` were dropped for good). A page
+    whose vetting the request budget cut short stays unread (its search result is cached, so
+    the retry costs no search request). Duplicate pages after a short page are marked read
+    without a request and do not use the page allowance.
+    """
     tool = tool or _tool()
     st = st if st is not None else load_state()
     if menu is None:
@@ -319,53 +356,116 @@ def refill(cycle_id: str, *, net: Any = None, tool: Any = None, menu: list[dict[
     bank = query_bank(tool)
     todo = pending_pages(bank, st, relevance(library_rows))
     known = known_anums(menu, st, heal)
-    raw: dict[str, dict[str, Any]] = {}
-    read = []
-    for b in todo[:pages]:
-        if net.exhausted():
-            break
-        fn = f"ts_{b['key']}.json"
-        hits = tool.search_page(net, b["q"], b["page"], fn)
-        if not hits and not _cached(fn):
-            break  # fetch failed or budget hit: retry this page on a later refill
-        read.append(b)
-        st.setdefault("done_pages", {})[b["key"]] = {"cycle_id": cycle_id, "n_hits": len(hits)}
-        for e in hits:
-            a = "A%06d" % int(e["number"])
-            if a not in known:
-                raw[a] = e
-    stats = {"entries": len(raw), "resolved_skipped": 0, "keyword_skipped": 0, "statements": 0, "parsed": 0,
+    paced = pace_live()
+    if paced:
+        known |= {str(r.get("anum")) for r in load_log() if r.get("event") == "target_added" and r.get("anum")}
+    by_qp = {(b["q"], int(b["page"])): b["key"] for b in bank}
+    done = st.setdefault("done_pages", {})
+    stats = {"entries": 0, "resolved_skipped": 0, "keyword_skipped": 0, "statements": 0, "parsed": 0,
              "no_bfile": 0, "fails_on_data": 0, "kept": 0, "reasons": {}}
     new: list[dict[str, Any]] = []
     per_anum: dict[str, int] = {}
-    for cand in tool.collect_candidates(raw, stats):
-        if len(new) >= max_new or net.exhausted():
-            break
-        a = cand[2]
-        if a in known or a in {x["anum"] for x in new}:
-            continue
-        before = net.n
-        try:
-            ent = tool.make_entry(cand, net, per_anum, stats, verbose=False)
-        except Exception:  # noqa: BLE001
-            ent = None
-        if ent is None:
-            # only remember a rejection the vetting made, not one the budget caused
-            if not net.exhausted() or net.n == before:
-                st.setdefault("rejected", {})[a] = cycle_id
-            continue
-        ent = _trim(dict(ent, supply={"cycle_id": cycle_id, "run_id": _run_id()}))
-        new.append(ent)
+    read: list[dict[str, Any]] = []
+    skipped_dup = 0
+
+    def vet(raw: dict[str, dict[str, Any]]) -> bool:
+        """Vet one batch of hits; False when the request budget cut it short."""
+        stats["entries"] += len(raw)
+        for cand in tool.collect_candidates(raw, stats):
+            if net.exhausted():
+                return False
+            if not paced and len(new) >= max_new:
+                break
+            a = cand[2]
+            if a in known or a in {x["anum"] for x in new}:
+                continue
+            before = net.n
+            try:
+                ent = tool.make_entry(cand, net, per_anum, stats, verbose=False)
+            except Exception:  # noqa: BLE001
+                ent = None
+            if ent is None:
+                # only remember a rejection the vetting made, not one the budget caused
+                if not net.exhausted() or net.n == before:
+                    st.setdefault("rejected", {})[a] = cycle_id
+                    known.add(a)
+                continue
+            ent = _trim(dict(ent, supply={"cycle_id": cycle_id, "run_id": _run_id()}))
+            new.append(ent)
+        return True
+
+    if paced:
+        for b in todo:
+            if len(read) >= pages or len(new) >= max_new or net.exhausted():
+                break
+            if _short_previous_page(b, done, by_qp):
+                done[b["key"]] = {"cycle_id": cycle_id, "n_hits": 0, "skipped": "duplicate_after_short_page"}
+                skipped_dup += 1
+                continue
+            fn = f"ts_{b['key']}.json"
+            hits = tool.search_page(net, b["q"], b["page"], fn)
+            if not hits and not _cached(fn):
+                break  # fetch failed or budget hit: retry this page on a later refill
+            raw = {}
+            for e in hits:
+                a = "A%06d" % int(e["number"])
+                if a not in known:
+                    raw[a] = e
+            if not vet(raw):
+                break  # budget ran out mid-page: the page stays unread (search result is cached)
+            read.append(b)
+            done[b["key"]] = {"cycle_id": cycle_id, "n_hits": len(hits)}
+    else:
+        raw_all: dict[str, dict[str, Any]] = {}
+        for b in todo[:pages]:
+            if net.exhausted():
+                break
+            fn = f"ts_{b['key']}.json"
+            hits = tool.search_page(net, b["q"], b["page"], fn)
+            if not hits and not _cached(fn):
+                break
+            read.append(b)
+            done[b["key"]] = {"cycle_id": cycle_id, "n_hits": len(hits)}
+            for e in hits:
+                a = "A%06d" % int(e["number"])
+                if a not in known:
+                    raw_all[a] = e
+        vet(raw_all)
     stats["kept"] = len(new)
     if write:
         for ent in new:
             append_log({"event": "target_added", "cycle_id": cycle_id, "run_id": _run_id(),
                         "anum": ent["anum"], "id": ent["id"], "form": (ent.get("claim") or {}).get("form"),
                         "definition": bool(ent.get("definition")), "entry": ent, "authorized": False})
-    return {"pages_read": len(read), "requests": net.n, "new": [
+    return {"pages_read": len(read), "pages_skipped_duplicate": skipped_dup, "requests": net.n, "new": [
         {"id": e["id"], "form": (e.get("claim") or {}).get("form"), "definition": bool(e.get("definition"))}
         for e in new], "stats": {k: v for k, v in stats.items() if k != "reasons"},
         "entries": new}
+
+
+def refill_size(n_open: int, st: dict[str, Any] | None = None) -> tuple[int, int]:
+    """(pages, request budget) for one refill. Item 121: a starved menu (0 open) reads more, and
+    every refill in one workflow run shares ``RUN_REQUEST_CAP`` requests."""
+    pages, budget = PAGES_PER_REFILL, REQUEST_BUDGET
+    if pace_live():
+        if n_open <= 0:
+            pages, budget = STARVED_PAGES, STARVED_REQUEST_BUDGET
+        if st is not None:
+            budget = max(0, min(budget, RUN_REQUEST_CAP - run_requests_used(st)))
+    return pages, budget
+
+
+def run_requests_used(st: dict[str, Any]) -> int:
+    row = st.get("run_requests") or {}
+    rid = _run_id()
+    return int(row.get("n") or 0) if rid and row.get("run_id") == rid else 0
+
+
+def note_run_requests(st: dict[str, Any], n: int) -> None:
+    rid = _run_id()
+    if not rid:
+        return
+    st["run_requests"] = {"run_id": rid, "n": run_requests_used(st) + int(n or 0)}
 
 
 def sync(*, oc: Any = None, rows: list[dict[str, Any]] | None = None, write: bool = True,
@@ -436,7 +536,9 @@ def run_cycle(cycle_id: str = "", *, write: bool = True) -> dict[str, Any]:
     cooling = last is not None and st["cycle_index"] - int(last) < COOLDOWN_CYCLES
     if n_open < OPEN_MIN and not cooling:
         try:
-            rep = refill(cycle_id, st=st, heal=_heal(), write=write)
+            pg, bud = refill_size(n_open, st)
+            rep = refill(cycle_id, net=BudgetNet(budget=bud), st=st, heal=_heal(), write=write, pages=pg)
+            note_run_requests(st, rep.get("requests") or 0)
             rep.pop("entries", None)
             st["last_refill_index"] = st["cycle_index"]
             st["refills"] = int(st.get("refills") or 0) + 1
@@ -471,7 +573,12 @@ def slot_refill(cycle_id: str = "", *, write: bool = True, net: Any = None, tool
     if n_open >= OPEN_MIN:
         return {**out, "skipped": "enough_open"}
     try:
-        rep = refill(cycle_id, net=net, tool=tool, menu=menu, st=st, heal=_heal(), write=write)
+        pg, bud = refill_size(n_open, st)
+        if net is None and bud <= 0:
+            return {**out, "skipped": "run_request_cap"}
+        rep = refill(cycle_id, net=net if net is not None else BudgetNet(budget=bud), tool=tool, menu=menu,
+                     st=st, heal=_heal(), write=write, pages=pg)
+        note_run_requests(st, rep.get("requests") or 0)
     except Exception as exc:  # noqa: BLE001
         return {**out, "error": f"{type(exc).__name__}: {str(exc)[:120]}"}
     rep.pop("entries", None)

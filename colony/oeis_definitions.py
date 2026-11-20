@@ -51,6 +51,10 @@ ROOT = Path(__file__).resolve().parent.parent
 FORMULA_CACHE = ROOT / "society" / "frontier" / "oeis_formula_cache.json"
 DEFS = ROOT / "society" / "systems" / "oeis_widened_definitions.json"
 VERSION = 1
+VERSION_WIDEN2 = 2       # item 121: table rows built with the widened grammar
+REF_DEF_TERMS = 2500      # item 121: stored terms per referenced b-file
+REF_DEF_DIGITS = 400_000  # item 121: total stored digits per referenced b-file
+REF_FETCH_BUDGET = 4      # item 121: polite b-file requests per in-loop refresh
 PROV_NAME, PROV_FORMULA, PROV_GUESS = "name", "formula", "guessed"
 SOUND = frozenset({PROV_NAME})
 KINDS = ("xexpr", "holo")
@@ -82,6 +86,10 @@ class EvalError(Exception):
 
 class Missing(Exception):
     pass
+
+
+class RefRange(Exception):
+    """Item 121: a referenced sequence was asked past its stored (published) b-file."""
 
 
 class Timeout(Exception):
@@ -307,6 +315,15 @@ class _Parser:
                 self.expect(")")
                 return ("a", arg)
             fn = ALIASES.get(nm)
+            if fn is None and nm == "C" and widen2_live():
+                fn = "binomial"
+            if fn is None and re.fullmatch(r"A\d{6}", nm) and self.peek() == ("op", "(") and widen2_live():
+                self.take()
+                arg = self.expr()
+                if self.peek() != ("op", ")"):
+                    raise ParseError("referenced sequence %s takes 1 arg" % nm)
+                self.take()
+                return ("ref", nm, arg)
             if fn and self.peek() == ("op", "("):
                 self.take()
                 args = [self.expr()]
@@ -333,6 +350,39 @@ def has_a(node) -> bool:
         return True
     return any(has_a(x) for x in node[1:] if isinstance(x, tuple)) or any(
         has_a(x) for x in (node[2] if node[0] == "call" else []))
+
+
+def ref_anums(node) -> set[str]:
+    """Item 121: A-numbers a parsed tree reads from their own b-files."""
+    out: set[str] = set()
+    if not isinstance(node, tuple):
+        return out
+    if node[0] == "ref":
+        out.add(node[1])
+    for x in node[1:]:
+        if isinstance(x, tuple):
+            out |= ref_anums(x)
+        elif isinstance(x, list):
+            for y in x:
+                out |= ref_anums(y)
+    return out
+
+
+_REF_CTX: list[dict[str, Any]] = []
+
+
+def _ref_value(anum: str, i: int) -> int:
+    table = _REF_CTX[-1] if _REF_CTX else {}
+    row = table.get(anum)
+    if not isinstance(row, dict):
+        raise EvalError("referenced sequence %s has no stored b-file" % anum)
+    off = int(row.get("offset") or 0)
+    terms = row.get("terms") or []
+    if i < off:
+        raise EvalError("%s(%d) below its offset" % (anum, i))
+    if i - off >= len(terms):
+        raise RefRange(anum)
+    return int(terms[i - off])
 
 
 # ----------------------------------------------------------------------------- path A (Fraction)
@@ -370,6 +420,11 @@ def eval_a(node, env: dict[str, int], seq: Callable[[int], int], deadline: float
         if i.denominator != 1:
             raise EvalError("non-integer index")
         return Fraction(seq(int(i)))
+    if k == "ref":
+        i = eval_a(node[2], env, seq, deadline)
+        if i.denominator != 1:
+            raise EvalError("non-integer index")
+        return Fraction(_ref_value(node[1], int(i)))
     if k == "call":
         vals = [eval_a(x, env, seq, deadline) for x in node[2]]
         fn = node[1]
@@ -452,6 +507,11 @@ def eval_b(node, env: dict[str, int], seq: Callable[[int], int], deadline: float
         if q != 1:
             raise EvalError("non-integer index")
         return (int(seq(p)), 1)
+    if k == "ref":
+        p, q = eval_b(node[2], env, seq, deadline)
+        if q != 1:
+            raise EvalError("non-integer index")
+        return (int(_ref_value(node[1], p)), 1)
     if k == "call":
         vals = [eval_b(x, env, seq, deadline) for x in node[2]]
         fn = node[1]
@@ -518,13 +578,37 @@ def _split_conditions(s: str) -> tuple[str, dict[int, int], int | None]:
     return s.strip(), init, start
 
 
+def widen2_live() -> bool:
+    """Item 121: ``COLONY_OEIS_DEF_WIDEN2`` = live (default) | off. Treatment only in effect: the
+    table is read through ``enabled()`` / ``definition_for``, which are off on the control arm.
+
+    * Sum-range fix: the chained-equality guard rejected every NAME of the form
+      ``a(n) = Sum_{k=0..n} ...`` because the ``=`` inside the range ``{k=0..n}`` counted as a
+      second equality. The guard now ignores ``=`` inside ``Sum_{..}`` / ``Product_{..}`` only.
+    * ``C(n,k)`` is read as binomial(n,k).
+    * Referenced sequences: a one-argument call ``Annnnnn(expr)`` in a NAME is evaluated from
+      that entry's own published b-file (stored with the definition as ``ref_terms``), never from
+      the claim. The target's own A-number is refused. Past the end of a referenced b-file the
+      extension stops (``ref_cap``), so depth is bounded by published data.
+    The acceptance rule is unchanged: both evaluators must reproduce every stored b-file term.
+    """
+    return (os.environ.get("COLONY_OEIS_DEF_WIDEN2") or "live").strip().lower() == "live"
+
+
+_BOUND_RANGE = re.compile(r"(?:Sum|Product)_\{[^{}]*\}")
+
+
+def _strip_bound_ranges(body: str) -> str:
+    return _BOUND_RANGE.sub("", body)
+
+
 def _xexpr_from(text: str) -> dict[str, Any] | None:
     s = _strip_text(text)
     m = re.search(r"(?:^|:\s*|\s)a\(n\)\s*=\s*(.+)$", s)
     if not m:
         return None
     body, init, start = _split_conditions(m.group(1))
-    if "=" in body or not body:
+    if not body or "=" in (_strip_bound_ranges(body) if widen2_live() else body):
         return None   # chained equalities: only the first form is a definition candidate
     try:
         tree = parse_expr(body)
@@ -708,6 +792,15 @@ def holo_terms(defn: dict[str, Any], off: int, seed: list[int], hi: int, path: s
 
 def xexpr_terms(defn: dict[str, Any], off: int, terms: list[int], want: int, path: str, seconds: float,
                 bits: int) -> tuple[list[int], str | None]:
+    _REF_CTX.append(defn.get("ref_terms") or {})
+    try:
+        return _xexpr_terms(defn, off, terms, want, path, seconds, bits)
+    finally:
+        _REF_CTX.pop()
+
+
+def _xexpr_terms(defn: dict[str, Any], off: int, terms: list[int], want: int, path: str, seconds: float,
+                 bits: int) -> tuple[list[int], str | None]:
     tree = defn.get("tree") or parse_expr(defn["expr"])
     init = {int(k): int(v) for k, v in (defn.get("init") or {}).items()}
     start = defn.get("start")
@@ -750,6 +843,10 @@ def xexpr_terms(defn: dict[str, Any], off: int, terms: list[int], want: int, pat
             raise EvalError("needs a value below the offset")
         except Timeout:
             return out, "time_cap"
+        except RefRange:
+            if j >= len(terms):
+                return out, "ref_cap"   # past the published range of a referenced b-file
+            raise EvalError("referenced b-file shorter than the stored terms")
         if j >= len(terms) and abs(out[-1]).bit_length() > bits:
             return out, "digit_cap"
         if j >= len(terms) and time.time() > deadline:
@@ -917,9 +1014,70 @@ def public_defn(d: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in d.items() if k != "tree"}
 
 
+def table_version() -> int:
+    return VERSION_WIDEN2 if widen2_live() else VERSION
+
+
+def _bfile_cache_loader(net: Any = None) -> Callable[[str], dict[str, Any] | None]:
+    """Item 121: referenced b-file -> {"offset", "terms"} from the polite new-data fetcher
+    (cache first; ``net`` None = cache only, no request). Numbers only; nothing is executed."""
+    from colony import new_data as N
+
+    def load(anum: str) -> dict[str, Any] | None:
+        name = "b%s.txt" % anum[1:]
+        txt = None
+        if net is not None:
+            txt = net.get("https://oeis.org/%s/b%s.txt" % (anum, anum[1:]), name)
+        else:
+            p = N._cache_dir() / name
+            if p.exists():
+                txt = p.read_text(encoding="utf-8", errors="replace")
+        pairs = N.parse_bfile(txt or "")
+        if not pairs:
+            return None
+        terms: list[int] = []
+        digits = 0
+        for _, v in pairs[:REF_DEF_TERMS]:
+            digits += len(str(abs(v)))
+            if digits > REF_DEF_DIGITS:
+                break
+            terms.append(int(v))
+        return {"offset": int(pairs[0][0]), "terms": terms, "published_hi": int(pairs[-1][0])}
+    return load
+
+
+def _attach_refs(d: dict[str, Any], e: dict[str, Any],
+                 ref_loader: Callable[[str], dict[str, Any] | None] | None) -> str | None:
+    """Store the referenced b-files a NAME definition reads; the reason when it cannot be used."""
+    if d.get("kind") != "xexpr":
+        return None
+    try:
+        tree = d.get("tree") or parse_expr(d["expr"])
+    except (ParseError, RecursionError):
+        return "does not parse"
+    anums = sorted(ref_anums(tree))
+    if not anums:
+        return None
+    if str(e.get("anum") or "") in anums:
+        return "refers to the target's own A-number"
+    loader = ref_loader or _bfile_cache_loader(None)
+    table: dict[str, Any] = {}
+    for a in anums:
+        row = loader(a)
+        if not row or not row.get("terms"):
+            return "referenced b-file %s unavailable" % a
+        table[a] = row
+    d["ref_terms"] = table
+    d["refs_used"] = anums
+    return None
+
+
 def find_definition(e: dict[str, Any], cache: dict[str, Any] | None = None, seconds: float = 20.0,
-                    use_guess: bool = True) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
+                    use_guess: bool = True,
+                    ref_loader: Callable[[str], dict[str, Any] | None] | None = None,
+                    ) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
     """The first candidate (trust order) that reproduces the whole stored b-file, plus the reject log."""
+
     off = int(e.get("offset") or 0)
     terms = [int(t) for t in e.get("terms") or []]
     tried: list[dict[str, Any]] = []
@@ -931,6 +1089,11 @@ def find_definition(e: dict[str, Any], cache: dict[str, Any] | None = None, seco
                       "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same "
                              "data would test it circularly"})
     for d in cands:
+        bad = _attach_refs(d, e, ref_loader)
+        if bad:
+            tried.append({"provenance": d["provenance"], "kind": d["kind"], "source": d.get("source", "")[:160],
+                          "ok": False, "why": bad})
+            continue
         ok, why = reproduces(d, off, terms, seconds)
         tried.append({"provenance": d["provenance"], "kind": d["kind"], "source": d.get("source", "")[:160],
                       "ok": ok, "why": why})
@@ -975,7 +1138,8 @@ def guesses_reopen() -> bool:
 
 
 def build(menu: list[dict[str, Any]], only: set[str] | None = None, seconds: float = 20.0,
-          cache: dict[str, Any] | None = None) -> dict[str, Any]:
+          cache: dict[str, Any] | None = None,
+          ref_loader: Callable[[str], dict[str, Any] | None] | None = None) -> dict[str, Any]:
     """Recompute the table for entries without a menu definition. Deterministic (same menu, same cache)."""
     table = load_defs()
     entries = table.setdefault("entries", {})
@@ -987,12 +1151,13 @@ def build(menu: list[dict[str, Any]], only: set[str] | None = None, seconds: flo
         sha = terms_sha(e)
         src = source_sha(e, cache)
         old = entries.get(eid)
-        if old and old.get("terms_sha") == sha and old.get("version") == VERSION and old.get("source_sha") == src:
+        ver = table_version()
+        if old and old.get("terms_sha") == sha and old.get("version") == ver and old.get("source_sha") == src:
             continue
-        d, tried = find_definition(e, cache, seconds)
-        entries[eid] = {"anum": e.get("anum"), "terms_sha": sha, "source_sha": src, "version": VERSION,
+        d, tried = find_definition(e, cache, seconds, ref_loader=ref_loader)
+        entries[eid] = {"anum": e.get("anum"), "terms_sha": sha, "source_sha": src, "version": ver,
                         "definition": d, "tried": tried[:12]}
-    table["version"] = VERSION
+    table["version"] = table_version()
     table["note"] = ("Item 105 widened definitions. Accepted only when both evaluators reproduce every "
                      "stored b-file term. provenance name = sound; formula / guessed = conditional.")
     _MEMO.pop("table", None)
@@ -1012,17 +1177,38 @@ def refresh(menu: list[dict[str, Any]], budget_s: float = 20.0) -> int:
     entries = load_defs().get("entries") or {}
     todo = [e for e in menu if not e.get("definition")
             and (entries.get(str(e.get("id") or ""), {}).get("terms_sha") != terms_sha(e))]
+    if widen2_live():
+        # Item 121: entries tried under the narrower grammar are re-tried, after never-tried ones, only
+        # when the item-121 grammar gives them a NAME candidate (cheap text check, no evaluation).
+        ver = table_version()
+        have = {str(e.get("id") or "") for e in todo}
+        for e in menu:
+            row = entries.get(str(e.get("id") or "")) or {}
+            if (e.get("definition") or str(e.get("id") or "") in have or not row
+                    or row.get("version") == ver or row.get("definition")):
+                continue
+            if any(d.get("provenance") == PROV_NAME for d in candidates(e, {"entries": {}})):
+                todo.append(e)
     if not todo:
         return 0
+    loader = None
+    if widen2_live() and not os.environ.get("PYTEST_CURRENT_TEST") \
+            and (os.environ.get("COLONY_OEIS_DEF_REF_FETCH") or "live").strip().lower() == "live":
+        try:
+            from colony.target_supply import BudgetNet
+            loader = _bfile_cache_loader(BudgetNet(budget=REF_FETCH_BUDGET))
+        except Exception:  # noqa: BLE001
+            loader = None
     t0 = time.time()
     done = 0
     for e in todo:
         left = budget_s - (time.time() - t0)
         if left <= 1.0:
             break
-        save_defs(build(menu, only={str(e.get("id") or "")}, seconds=min(10.0, left)))
+        save_defs(build(menu, only={str(e.get("id") or "")}, seconds=min(10.0, left), ref_loader=loader))
         done += 1
     return done
+
 
 
 # ----------------------------------------------------------------------------- deep-search generator

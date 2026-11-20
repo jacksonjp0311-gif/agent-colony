@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import random
 import re
 import subprocess
@@ -1917,6 +1918,50 @@ def _desk_attempt(entry: dict[str, Any], cycle_id: str) -> list[dict[str, Any]]:
         return acts
 
 
+PERTURB_SUPPLY_LOG = ROOT / "data" / "commons" / "perturb_supply_route.jsonl"
+
+
+def supply_route_live() -> bool:
+    """Item 121: ``COLONY_PERTURB_SUPPLY_ROUTE`` = live (default) | off; always off on the control arm.
+
+    When PERTURB finds 0 eligible picks even after escalation (novelty 0, no open target), it
+    asks the shared target supply for one extra bank-v2 refill this cycle instead of only
+    exiting ``no_candidates`` and waiting for the supply cooldown. Rows go to the shared supply
+    log, so both arms adopt the new targets next run (fair twin). On treatment the cycle start
+    also adopts earlier-run supply before the re-entry check. Selection only: the Oracle, gates
+    and windows are unchanged."""
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return False
+    except Exception:
+        return False
+    val = (os.environ.get("COLONY_PERTURB_SUPPLY_ROUTE") or "").strip().lower()
+    if os.environ.get("PYTEST_CURRENT_TEST") and val != "live":
+        return False   # tests opt in explicitly (no live supply state or network from unrelated tests)
+    return val != "off"
+
+
+def route_to_supply(cycle_id: str, supply: Any = None) -> dict[str, Any]:
+    """Item 121: one shared-supply slot refill for a starved PERTURB turn (append-only log row)."""
+    try:
+        ts = supply or __import__("colony.target_supply", fromlist=["x"])
+        rep = ts.slot_refill(cycle_id)
+    except Exception as exc:  # noqa: BLE001
+        rep = {"error": f"{type(exc).__name__}: {str(exc)[:120]}"}
+    row = {"event": "perturb_supply_route", "cycle_id": cycle_id, "skipped": rep.get("skipped"),
+           "open": rep.get("open"), "pages_read": rep.get("pages_read"), "requests": rep.get("requests"),
+           "new": [x.get("id") for x in (rep.get("new") or [])], "error": rep.get("error"),
+           "authorized": False}
+    try:
+        PERTURB_SUPPLY_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with PERTURB_SUPPLY_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(row, sort_keys=True, separators=(",", ":")) + "\n")
+    except Exception:
+        pass
+    return row
+
+
 def run_perturb_turn(
     cycle_id: str,
     n: int | None = None,
@@ -2169,6 +2214,9 @@ def run_perturb_turn(
         note_perturb_session(tried_ids, progress=progressed)
     except Exception:
         pass
+    supply_route = None
+    if n_attempts == 0 and perturb_active() and supply_route_live():
+        supply_route = route_to_supply(cycle_id)
     if n_attempts == 0 and perturb_active():
         try:
             escaped = note_zero_picks(cycle_id)
@@ -2196,6 +2244,8 @@ def run_perturb_turn(
         "n_authored": sum(1 for s in submissions if s.get("attempt") == "authored_check"),
         "escalated": escalated,
     }
+    if supply_route is not None:
+        out["supply_route"] = supply_route
     if escaped is not None:
         out["escaped"] = True
         out["exit_reason"] = str(escaped.get("exit_reason") or "")
@@ -2263,6 +2313,14 @@ def on_cycle_start(cycle_id: str, *, commit_sha: str | None = None) -> dict[str,
     except Exception:
         pass
     remember_cycle(cycle_id)
+    if supply_route_live():
+        # Item 121: adopt earlier-run supply now (the same rows the target_supply stage adopts later
+        # in this cycle), so the re-entry check below can see fresh targets.
+        try:
+            from colony.target_supply import sync as _ts_sync
+            _ts_sync()
+        except Exception:
+            pass
     # Enter at the start so the rest of the cycle explores.
     # Exit is decided at the end, once this cycle's Oracle results are known.
     # A no-progress timeout cooldown blocks re-entry so the next run does
