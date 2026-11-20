@@ -149,6 +149,62 @@ def should_dispatch(
     return True, "ok"
 
 
+def gate_workflow_run(
+    *,
+    event_name: str | None,
+    chain_var: str | None,
+    ref: str | None,
+    upstream_conclusion: str | None,
+    prior_completed: Iterable[Mapping[str, Any]] | None,
+) -> tuple[bool, str]:
+    """Item 117: may a ``workflow_run``-triggered evolve proceed? (go?, reason).
+
+    Other events pass. A workflow_run start obeys the same kill switch as
+    chain-next, runs only on main after a successful upstream run, and stops
+    after FAIL_STREAK_LIMIT consecutive evolve failures. ``prior_completed``
+    None means the run list could not be read: fail closed.
+    """
+    if str(event_name or "").strip() != "workflow_run":
+        return True, "not_workflow_run"
+    if kill_switch_off(chain_var):
+        return False, "kill_switch"
+    if not is_main_ref(ref):
+        return False, "not_main"
+    if str(upstream_conclusion or "").strip().lower() != "success":
+        return False, "upstream_not_success"
+    if prior_completed is None:
+        return False, "runs_unreadable"
+    if consecutive_failure_streak(prior_completed, "") >= FAIL_STREAK_LIMIT:
+        return False, "consecutive_failures"
+    return True, "ok"
+
+
+def gate_main() -> int:
+    """``python -m colony.chain_next --gate``: write go=true|false to $GITHUB_OUTPUT."""
+    event = os.environ.get("EVENT_NAME") or os.environ.get("GITHUB_EVENT_NAME") or ""
+    completed: list[dict[str, Any]] | None = []
+    if event == "workflow_run" and not kill_switch_off(os.environ.get("COLONY_CHAIN")):
+        try:
+            completed = _list_runs(os.environ.get("GITHUB_REPOSITORY") or "", "completed",
+                                   os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or "")
+        except Exception as exc:  # noqa: BLE001
+            print(f"gate: error listing runs: {exc}", flush=True)
+            completed = None
+    go, reason = gate_workflow_run(
+        event_name=event,
+        chain_var=os.environ.get("COLONY_CHAIN"),
+        ref=os.environ.get("GITHUB_REF") or os.environ.get("GITHUB_REF_NAME") or "",
+        upstream_conclusion=os.environ.get("UPSTREAM_CONCLUSION"),
+        prior_completed=completed,
+    )
+    print(f"gate: go={str(go).lower()} reason={reason}", flush=True)
+    out = os.environ.get("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a", encoding="utf-8") as fh:
+            fh.write(f"go={'true' if go else 'false'}\n")
+    return 0
+
+
 def dispatch_inputs(
     *,
     cycles: str = DEFAULT_CYCLES,
@@ -207,7 +263,9 @@ def _dispatch(repo: str, token: str | None, inputs: Mapping[str, str]) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    del argv  # env-driven; kept for python -m compatibility
+    args = list(sys.argv[1:] if argv is None else argv)
+    if "--gate" in args:
+        return gate_main()
     chain_var = os.environ.get("COLONY_CHAIN")
     ref = os.environ.get("GITHUB_REF") or os.environ.get("GITHUB_REF_NAME") or ""
     current_run_id = os.environ.get("CURRENT_RUN_ID") or os.environ.get("GITHUB_RUN_ID") or ""
