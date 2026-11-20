@@ -3082,6 +3082,7 @@ def _close_trial(
     predicted = [str(x) for x in (trial.get("predicted_targets") or []) if x]
     activity_score = trial_comparison_score(trial)
     baseline_activity = float(trial.get("baseline_activity_score") or trial.get("baseline_score") or 0)
+    knob = str(trial.get("knob") or "")
     if predicted:
         trial_score = float(trial.get("predicted_depth_gain") or 0)
         baseline_score = 0.0  # pre-trial depth is the reference
@@ -3103,7 +3104,6 @@ def _close_trial(
         trial_score = activity_score
         baseline_score = float(trial.get("baseline_score") or 0)
         helped = trial_score > baseline_score
-    knob = str(trial.get("knob") or "")
     link = {
         "started_cycle": trial.get("started_cycle"),
         "trial_evidence_id": trial.get("evidence_id"),
