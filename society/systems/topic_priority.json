@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "bio-pm-guided",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-20T17:51:10Z",
-  "updated_cycle": "20261120T174827Z_4491fb",
+  "updated_at": "2026-11-20T18:33:21Z",
+  "updated_cycle": "20261120T183030Z_577e72",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

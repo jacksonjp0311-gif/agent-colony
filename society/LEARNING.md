@@ -9,14 +9,14 @@ decides a keep. Reverts and voids are recorded too. This is not
 AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **1**
-- Kept: **18**
+- Kept: **19**
 - Reverted (including twin-not-better): **25**
 - Voided (environment changed mid-trial): **24**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **8** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 1, correct 0, pending 199, accuracy 0‰
+- Hive shadow picks: resolved 100, correct 0, pending 70, accuracy 0‰
 
 ## Per method card
 
@@ -32,7 +32,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
 | `set_knob:evaluation_window` | 8 | 1 | 6 | 125‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
-| `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
+| `set_knob:gf_term_cap` | 8 | 4 | 1 | 500‰ |
 | `set_knob:park_cycles` | 21 | 4 | 9 | 190‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 2 | 0 | 1 | 0‰ |
@@ -40,7 +40,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T075824Z_51ad55` (baseline 4.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T102452Z_a9c344` (baseline 8.0, trial 0.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261119T113952Z_767269` (baseline 4.0, trial None)
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T140151Z_3ffac7` (baseline 4.0, trial 4.0)
@@ -52,6 +51,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T233754Z_aa8d37` (baseline 4.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261120T012810Z_d01708` (baseline 8.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261120T020051Z_6fd496` (baseline 4.0, trial None)
+- `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261120T183030Z_577e72` (baseline 6.0, trial 7.0)
 
 ## Reading breadth (knowledge library)
 

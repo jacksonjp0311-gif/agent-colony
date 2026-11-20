@@ -33,3 +33,4 @@
 {"key": "colony:park_cycles:up:12", "fingerprint": "park_cycles:up:12", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-18T11:58:25.932610+00:00", "reactivated": true}
 {"key": "colony:dream:one-mind:33", "fingerprint": "dream:one-mind:33", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-18T22:22:42.660033+00:00", "reactivated": true}
 {"key": "colony:dream:one-mind:34", "fingerprint": "dream:one-mind:34", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-20T08:31:12.321463+00:00"}
+{"key": "colony:gf_term_cap:up:3871", "fingerprint": "gf_term_cap:up:3871", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-20T18:33:43.608976+00:00"}
