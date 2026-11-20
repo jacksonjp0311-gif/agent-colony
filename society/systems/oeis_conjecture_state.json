@@ -1027,7 +1027,7 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 4,
+   "attempts": 7,
    "status": "holds_on_range",
    "tested_hi": 299,
    "credit": 0.0
@@ -1303,7 +1303,7 @@
    "credit": 0.0
   },
   "oc_A176479_0": {
-   "attempts": 4,
+   "attempts": 7,
    "status": "holds_on_range",
    "tested_hi": 1026,
    "credit": 0.0006
@@ -2733,7 +2733,7 @@
  },
  "families": {
   "relation": {
-   "attempts": 728,
+   "attempts": 734,
    "credit": 25.4022
   },
   "gf": {
