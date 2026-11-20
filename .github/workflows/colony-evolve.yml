@@ -4,6 +4,9 @@
 name: Colony evolve
 
 on:
+  workflow_run:
+    workflows: ["Colony watch"]
+    types: [completed]
   schedule:
     - cron: "26 */6 * * *"
   workflow_dispatch:
@@ -39,10 +42,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Start from main as it is when the job actually starts, not the event SHA: a cron run
-          # queued behind a dispatch (concurrency group) otherwise evolves stale state and its
-          # slim-output push conflicts with the run that finished first (run 39046578411).
           ref: main
+
+      - name: Refresh to current main before computing
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          echo "Computing from $(git rev-parse --short HEAD)"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -190,6 +196,11 @@ jobs:
           python -m colony "${ARGS[@]}"
           python -m colony dashboard || true
           python -m colony status > society/CI_STATUS.json || true
+
+      - name: Habit at the end
+        if: always()
+        run: |
+          PYTHONPATH=. python3 -m colony.tools.habit_end || echo "::warning::habit_end non-fatal"
 
       - name: Trust gate — post-evolve (benches + rollback journal + manifest; FATAL before authorize/commit)
         run: |

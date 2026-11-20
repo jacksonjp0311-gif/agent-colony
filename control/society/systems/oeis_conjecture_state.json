@@ -31,10 +31,10 @@
    "credit": 0.0912
   },
   "oc_A023110_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
-   "tested_hi": 70,
-   "credit": 0.0
+   "tested_hi": 7999,
+   "credit": 0.05
   },
   "oc_A295286_0": {
    "attempts": 1,
@@ -61,10 +61,10 @@
    "credit": 0.0
   },
   "oc_A026923_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 1000,
-   "credit": 0.0
+   "tested_hi": 7999,
+   "credit": 0.0452
   },
   "oc_A163029_0": {
    "attempts": 1,
@@ -145,10 +145,10 @@
    "credit": 0.0
   },
   "oc_A026927_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 52,
-   "credit": 0.0
+   "tested_hi": 7999,
+   "credit": 0.05
   },
   "oc_A325690_0": {
    "attempts": 1,
@@ -457,7 +457,7 @@
    "credit": 0.0
   },
   "oc_A126089_0": {
-   "attempts": 17,
+   "attempts": 18,
    "status": "holds_on_range",
    "tested_hi": 1199,
    "credit": 0.0389
@@ -1361,27 +1361,1209 @@
    "status": "holds_on_range",
    "tested_hi": 7999,
    "credit": 0.0
+  },
+  "oc_A368633_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 188,
+   "credit": 0.0
+  },
+  "oc_A162477_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 178,
+   "credit": 0.0
+  },
+  "oc_A363559_0": {
+   "attempts": 1,
+   "status": "untestable_here",
+   "tested_hi": 7,
+   "credit": 0.0
+  },
+  "oc_A363569_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 8,
+   "credit": 0.0
+  },
+  "oc_A299406_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A363558_0": {
+   "attempts": 1,
+   "status": "untestable_here",
+   "tested_hi": 7,
+   "credit": 0.0
+  },
+  "oc_A173614_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 501,
+   "credit": 0.0
+  },
+  "oc_A365429_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A326781_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A328202_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 503,
+   "credit": 0.0
+  },
+  "oc_A003278_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 48,
+   "credit": 0.0
+  },
+  "oc_A236412_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A397501_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 47,
+   "credit": 0.0
+  },
+  "oc_A233390_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A294159_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 286,
+   "credit": 0.0
+  },
+  "oc_A221858_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A240722_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 167,
+   "credit": 0.0
+  },
+  "oc_A289873_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0
+  },
+  "oc_A117964_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 18,
+   "credit": 0.0
+  },
+  "oc_A155587_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 256,
+   "credit": 0.0
+  },
+  "oc_A204983_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 45,
+   "credit": 0.0
+  },
+  "oc_A302694_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 90,
+   "credit": 0.0
+  },
+  "oc_A360659_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 181,
+   "credit": 0.0
+  },
+  "oc_A261957_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 49,
+   "credit": 0.0
+  },
+  "oc_A261956_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A261951_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 48,
+   "credit": 0.0
+  },
+  "oc_A261954_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 50,
+   "credit": 0.0
+  },
+  "oc_A261952_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 49,
+   "credit": 0.0
+  },
+  "oc_A011553_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 110,
+   "credit": 0.0
+  },
+  "oc_A261950_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 46,
+   "credit": 0.0
+  },
+  "oc_A192382_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 250,
+   "credit": 0.0
+  },
+  "oc_A251419_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A286182_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A124352_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 50,
+   "credit": 0.0
+  },
+  "oc_A122047_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 43,
+   "credit": 0.0
+  },
+  "oc_A391346_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A286183_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A286185_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A301420_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 52,
+   "credit": 0.0
+  },
+  "oc_A333510_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 495,
+   "credit": 0.0
+  },
+  "oc_A216211_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 6912,
+   "credit": 0.05
+  },
+  "oc_A182879_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 356,
+   "credit": 0.0
+  },
+  "oc_A182881_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 358,
+   "credit": 0.0
+  },
+  "oc_A089324_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 399,
+   "credit": 0.0
+  },
+  "oc_A005560_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 255,
+   "credit": 0.0
+  },
+  "oc_A005561_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 255,
+   "credit": 0.0
+  },
+  "oc_A182531_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 57,
+   "credit": 0.0
+  },
+  "oc_A005562_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 255,
+   "credit": 0.0
+  },
+  "oc_A157792_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 72,
+   "credit": 0.0
+  },
+  "oc_A073155_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 206,
+   "credit": 0.0
+  },
+  "oc_A167481_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 251,
+   "credit": 0.0
+  },
+  "oc_A054341_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 377,
+   "credit": 0.0
+  },
+  "oc_A090826_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 256,
+   "credit": 0.0
+  },
+  "oc_A226857_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A028841_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0451
+  },
+  "oc_A015134_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A031149_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A100095_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 430,
+   "credit": 0.0
+  },
+  "oc_A028359_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 225,
+   "credit": 0.0
+  },
+  "oc_A233162_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 6656,
+   "credit": 0.05
+  },
+  "oc_A229004_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A224417_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 300,
+   "credit": 0.0
+  },
+  "oc_A143954_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 252,
+   "credit": 0.0
+  },
+  "oc_A230113_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A113910_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 48,
+   "credit": 0.0
+  },
+  "oc_A160191_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 68,
+   "credit": 0.0
+  },
+  "oc_A267534_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A233766_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A064089_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 112,
+   "credit": 0.0
+  },
+  "oc_A105151_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 95,
+   "credit": 0.0
+  },
+  "oc_A064091_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 102,
+   "credit": 0.0
+  },
+  "oc_A025756_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 161,
+   "credit": 0.0
+  },
+  "oc_A025757_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 127,
+   "credit": 0.0
+  },
+  "oc_A025758_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 110,
+   "credit": 0.0
+  },
+  "oc_A064088_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 118,
+   "credit": 0.0
+  },
+  "oc_A064092_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 99,
+   "credit": 0.0
+  },
+  "oc_A157003_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 270,
+   "credit": 0.0
+  },
+  "oc_A159715_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A179967_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 110,
+   "credit": 0.0
+  },
+  "oc_A116881_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 167,
+   "credit": 0.0
+  },
+  "oc_A098746_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 186,
+   "credit": 0.0
+  },
+  "oc_A000704_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 163,
+   "credit": 0.0
+  },
+  "oc_A086853_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 96,
+   "credit": 0.0
+  },
+  "oc_A190918_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 80,
+   "credit": 0.0
+  },
+  "oc_A228330_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 123,
+   "credit": 0.0
+  },
+  "oc_A235614_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A246697_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 42,
+   "credit": 0.0
+  },
+  "oc_A186390_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 86,
+   "credit": 0.0
+  },
+  "oc_A186388_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 93,
+   "credit": 0.0
+  },
+  "oc_A303399_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A131607_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
+  },
+  "oc_A257290_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 254,
+   "credit": 0.0
+  },
+  "oc_A100097_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 333,
+   "credit": 0.0
+  },
+  "oc_A114584_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 334,
+   "credit": 0.0
+  },
+  "oc_A187256_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 268,
+   "credit": 0.0
+  },
+  "oc_A252354_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 324,
+   "credit": 0.0
+  },
+  "oc_A191319_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 495,
+   "credit": 0.0
+  },
+  "oc_A257300_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 322,
+   "credit": 0.0
+  },
+  "oc_A191307_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A257178_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 253,
+   "credit": 0.0
+  },
+  "oc_A191313_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 498,
+   "credit": 0.0
+  },
+  "oc_A084261_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 184,
+   "credit": 0.0
+  },
+  "oc_A125267_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 361,
+   "credit": 0.0
+  },
+  "oc_A191309_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 496,
+   "credit": 0.0
+  },
+  "oc_A124431_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 264,
+   "credit": 0.0
+  },
+  "oc_A274479_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 255,
+   "credit": 0.0
+  },
+  "oc_A191398_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A191531_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A257388_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 223,
+   "credit": 0.0
+  },
+  "oc_A126568_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A187164_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A151341_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 145,
+   "credit": 0.0
+  },
+  "oc_A187166_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A187169_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A187167_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A284230_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 94,
+   "credit": 0.0
+  },
+  "oc_A191625_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 380,
+   "credit": 0.0
+  },
+  "oc_A303639_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A245094_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 60,
+   "credit": 0.0
+  },
+  "oc_A324275_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A247623_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 395,
+   "credit": 0.0
+  },
+  "oc_A143955_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A358588_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A054727_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 169,
+   "credit": 0.0
+  },
+  "oc_A232868_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 55,
+   "credit": 0.0
+  },
+  "oc_A114464_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A358587_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A321777_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
+  },
+  "oc_A232867_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A219314_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 321,
+   "credit": 0.0
+  },
+  "oc_A073783_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A321776_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
+  },
+  "oc_A232866_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 496,
+   "credit": 0.0
+  },
+  "oc_A074216_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 60,
+   "credit": 0.0
+  },
+  "oc_A400824_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 100,
+   "credit": 0.0
+  },
+  "oc_A234475_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A262311_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A165433_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 165,
+   "credit": 0.0
+  },
+  "oc_A370410_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A001712_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 91,
+   "credit": 0.0
+  },
+  "oc_A071684_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 256,
+   "credit": 0.0
+  },
+  "oc_A128750_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 200,
+   "credit": 0.0
+  },
+  "oc_A114590_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 251,
+   "credit": 0.0
+  },
+  "oc_A135339_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 255,
+   "credit": 0.0
+  },
+  "oc_A166300_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 369,
+   "credit": 0.0
+  },
+  "oc_A114589_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 320,
+   "credit": 0.0
+  },
+  "oc_A208599_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A128734_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 217,
+   "credit": 0.0
+  },
+  "oc_A119012_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 252,
+   "credit": 0.0
+  },
+  "oc_A128732_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 217,
+   "credit": 0.0
+  },
+  "oc_A208598_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A127154_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 255,
+   "credit": 0.0
+  },
+  "oc_A128726_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 218,
+   "credit": 0.0
+  },
+  "oc_A298794_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
+  },
+  "oc_A263135_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 249,
+   "credit": 0.0
+  },
+  "oc_A310640_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 49,
+   "credit": 0.0
+  },
+  "oc_A298795_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
+  },
+  "oc_A296361_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
+  },
+  "oc_A298793_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
+  },
+  "oc_A400195_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A277797_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A289097_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 126,
+   "credit": 0.0
+  },
+  "oc_A279118_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 126,
+   "credit": 0.0
+  },
+  "oc_A103673_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 104,
+   "credit": 0.0
+  },
+  "oc_A283505_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 5120,
+   "credit": 0.05
+  },
+  "oc_A279053_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 126,
+   "credit": 0.0
+  },
+  "oc_A118109_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 74,
+   "credit": 0.0
+  },
+  "oc_A242169_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 105,
+   "credit": 0.0
+  },
+  "oc_A289096_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 126,
+   "credit": 0.0
+  },
+  "oc_A308760_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A232504_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A308758_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A274100_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 168,
+   "credit": 0.0
+  },
+  "oc_A308733_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A391629_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 100,
+   "credit": 0.0
+  },
+  "oc_A026596_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 368,
+   "credit": 0.0
+  },
+  "oc_A136859_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A082647_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A164736_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 140,
+   "credit": 0.0
+  },
+  "oc_A164735_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 70,
+   "credit": 0.0
+  },
+  "oc_A085614_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 151,
+   "credit": 0.0
+  },
+  "oc_A222139_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 3328,
+   "credit": 0.05
+  },
+  "oc_A189665_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 90,
+   "credit": 0.0
+  },
+  "oc_A235189_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A002146_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A230269_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A300307_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 8,
+   "credit": 0.0
+  },
+  "oc_A144750_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A321266_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 89,
+   "credit": 0.0
+  },
+  "oc_A321291_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 104,
+   "credit": 0.0
+  },
+  "oc_A060649_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A304034_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A309879_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.05
+  },
+  "oc_A304720_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A282318_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A282192_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A309516_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 7999,
+   "credit": 0.0452
   }
  },
  "families": {
   "relation": {
-   "attempts": 512,
+   "attempts": 675,
    "credit": 24.1488
   },
   "gf": {
-   "attempts": 74,
-   "credit": 0.564
+   "attempts": 111,
+   "credit": 2.3159
   },
   "only_prime": {
    "attempts": 6,
    "credit": 0.0
   },
   "property": {
-   "attempts": 69,
+   "attempts": 70,
    "credit": 0.0
   }
  },
- "credit_total": 24.7128,
+ "credit_total": 26.4647,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -1594,6 +2776,222 @@
    "oc_A025093_0": {
     "anum": "A025093",
     "bfile_hi": 40,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A326781_0": {
+    "anum": "A326781",
+    "bfile_hi": 55,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A026923_0": {
+    "anum": "A026923",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A026927_0": {
+    "anum": "A026927",
+    "bfile_hi": 52,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A261956_0": {
+    "anum": "A261956",
+    "bfile_hi": 50,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A251419_0": {
+    "anum": "A251419",
+    "bfile_hi": 40,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A216211_0": {
+    "anum": "A216211",
+    "bfile_hi": 100,
+    "to": 6912,
+    "check": "exact"
+   },
+   "oc_A028841_0": {
+    "anum": "A028841",
+    "bfile_hi": 1001,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A023110_0": {
+    "anum": "A023110",
+    "bfile_hi": 70,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A233162_0": {
+    "anum": "A233162",
+    "bfile_hi": 210,
+    "to": 6656,
+    "check": "exact"
+   },
+   "oc_A230113_0": {
+    "anum": "A230113",
+    "bfile_hi": 96,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A233766_0": {
+    "anum": "A233766",
+    "bfile_hi": 96,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A159715_0": {
+    "anum": "A159715",
+    "bfile_hi": 100,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A131607_0": {
+    "anum": "A131607",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A187164_0": {
+    "anum": "A187164",
+    "bfile_hi": 50,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A187166_0": {
+    "anum": "A187166",
+    "bfile_hi": 50,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A187169_0": {
+    "anum": "A187169",
+    "bfile_hi": 50,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A187167_0": {
+    "anum": "A187167",
+    "bfile_hi": 50,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A324275_0": {
+    "anum": "A324275",
+    "bfile_hi": 46,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A321777_0": {
+    "anum": "A321777",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A321776_0": {
+    "anum": "A321776",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A208599_0": {
+    "anum": "A208599",
+    "bfile_hi": 210,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A208598_0": {
+    "anum": "A208598",
+    "bfile_hi": 210,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A298794_0": {
+    "anum": "A298794",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A298795_0": {
+    "anum": "A298795",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A296361_0": {
+    "anum": "A296361",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A298793_0": {
+    "anum": "A298793",
+    "bfile_hi": 1000,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A277797_0": {
+    "anum": "A277797",
+    "bfile_hi": 126,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A283505_0": {
+    "anum": "A283505",
+    "bfile_hi": 126,
+    "to": 5120,
+    "check": "exact"
+   },
+   "oc_A308760_0": {
+    "anum": "A308760",
+    "bfile_hi": 48,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A308758_0": {
+    "anum": "A308758",
+    "bfile_hi": 52,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A308733_0": {
+    "anum": "A308733",
+    "bfile_hi": 54,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A136859_0": {
+    "anum": "A136859",
+    "bfile_hi": 61,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A222139_0": {
+    "anum": "A222139",
+    "bfile_hi": 210,
+    "to": 3328,
+    "check": "exact"
+   },
+   "oc_A230269_0": {
+    "anum": "A230269",
+    "bfile_hi": 210,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A309879_0": {
+    "anum": "A309879",
+    "bfile_hi": 56,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A309516_0": {
+    "anum": "A309516",
+    "bfile_hi": 1000,
     "to": 7999,
     "check": "exact"
    }

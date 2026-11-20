@@ -8,19 +8,21 @@ lead on Oracle passes or verified depth. Fitness alone never
 decides a keep. Reverts and voids are recorded too. This is not
 AGI, not a novel theorem, and not a breakthrough claim.
 
-- Method cards tried: **0**
-- Kept: **13**
-- Reverted (including twin-not-better): **6**
-- Voided (environment changed mid-trial): **15**
+- Method cards tried: **1**
+- Kept: **18**
+- Reverted (including twin-not-better): **25**
+- Voided (environment changed mid-trial): **24**
 - Inconclusive (no signal in either window; not counted against the action): **6**
-- Proposed this snapshot: **7**
+- Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=10`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 100, correct 0, pending 97, accuracy 0‰
+- Hive decision deferred **2** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive shadow picks: resolved 1, correct 0, pending 199, accuracy 0‰
 
 ## Per method card
 
-_None yet._
+| Card | Method | Tried | Kept | Reverted | Keep rate |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `mc_bacbbd75d04b` | Perturb candidate claims a little more widely (annealing-style search). | 1 | 0 | 1 | 0‰ |
 
 ## Per op family
 
@@ -28,55 +30,57 @@ _None yet._
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
+| `set_knob:evaluation_window` | 8 | 1 | 6 | 125‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 7 | 3 | 1 | 428‰ |
-| `set_knob:park_cycles` | 9 | 1 | 3 | 111‰ |
+| `set_knob:park_cycles` | 21 | 4 | 9 | 190‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
-| `set_knob:perturb_epsilon` | 1 | 0 | 0 | 0‰ |
+| `set_knob:perturb_epsilon` | 2 | 0 | 1 | 0‰ |
+| `set_knob:step_size` | 12 | 1 | 6 | 83‰ |
 
 ## Recent outcomes
 
-- `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261115T175054Z_8f2c59` (baseline 0.0, trial 324.0)
-- `inconclusive` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T183448Z_55489d` (baseline 0.0, trial 0.0)
-- `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T195620Z_605bb7` (baseline 0.0, trial None)
-- `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T231100Z_0d2828` (baseline 0.0, trial 284.0)
-- `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261115T234549Z_0bd39c` (baseline 0.0, trial None)
-- `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261116T025134Z_61a584` (baseline 2.0, trial None)
-- `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261116T061643Z_252f96` (baseline 1.0, trial None)
-- `voided` · card `—` · family `set_knob:deep_digits` · cycle `20261116T075057Z_0b95bb` (baseline 24.0, trial None)
-- `kept` · card `—` · family `set_knob:deep_digits` · cycle `20261116T123849Z_0ac470` (baseline 0.0, trial 256.0)
-- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T173537Z_be43ea` (baseline 8.0, trial 5.0)
-- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261116T183049Z_7f7d82` (baseline 5.0, trial 4.0)
-- `kept` · card `—` · family `set_knob:park_cycles` · cycle `20261116T192905Z_bc22f0` (baseline 4.0, trial 5.0)
+- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T075824Z_51ad55` (baseline 4.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T102452Z_a9c344` (baseline 8.0, trial 0.0)
+- `voided` · card `—` · family `set_knob:step_size` · cycle `20261119T113952Z_767269` (baseline 4.0, trial None)
+- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T140151Z_3ffac7` (baseline 4.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T153843Z_bb7b69` (baseline 4.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261119T165615Z_1d9732` (baseline 4.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T183936Z_6fc954` (baseline 8.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T200241Z_af2e28` (baseline 4.0, trial 4.0)
+- `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261119T202351Z_2926a6` (baseline 4.0, trial None)
+- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T233754Z_aa8d37` (baseline 4.0, trial 4.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261120T012810Z_d01708` (baseline 8.0, trial 4.0)
+- `voided` · card `—` · family `set_knob:step_size` · cycle `20261120T020051Z_6fd496` (baseline 4.0, trial None)
 
 ## Reading breadth (knowledge library)
 
-knowledge: 126 papers across 14/14 fields, 76 concepts, 30 cards formed, 0 tested, 0 kept.
+knowledge: 332 papers across 14/14 fields, 173 concepts, 85 cards formed, 1 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| automated_reasoning | 8 | 2 | 0 | 0 | 0 |
-| cognitive_science | 8 | 4 | 3 | 0 | 0 |
-| consciousness_self_models | 8 | 4 | 1 | 0 | 0 |
-| learning_theory | 8 | 9 | 0 | 0 | 0 |
-| mathematics | 16 | 0 | 0 | 0 | 0 |
-| meta_learning | 8 | 7 | 0 | 0 | 0 |
-| multi_agent_systems | 8 | 3 | 1 | 0 | 0 |
-| neural_architecture | 14 | 12 | 5 | 0 | 0 |
-| open_endedness | 6 | 6 | 6 | 0 | 0 |
-| optimization_search | 7 | 7 | 3 | 0 | 0 |
-| physics_complex_systems | 8 | 4 | 1 | 0 | 0 |
-| recursive_self_improvement | 8 | 1 | 2 | 0 | 0 |
-| self_learning_loops | 11 | 10 | 2 | 0 | 0 |
-| swarm_collective_intelligence | 8 | 7 | 6 | 0 | 0 |
+| automated_reasoning | 33 | 4 | 1 | 0 | 0 |
+| cognitive_science | 10 | 6 | 5 | 0 | 0 |
+| consciousness_self_models | 11 | 7 | 2 | 0 | 0 |
+| learning_theory | 17 | 19 | 1 | 0 | 0 |
+| mathematics | 52 | 0 | 0 | 0 | 0 |
+| meta_learning | 16 | 12 | 2 | 0 | 0 |
+| multi_agent_systems | 10 | 5 | 1 | 0 | 0 |
+| neural_architecture | 42 | 31 | 8 | 0 | 0 |
+| open_endedness | 27 | 26 | 27 | 0 | 0 |
+| optimization_search | 28 | 29 | 17 | 0 | 0 |
+| physics_complex_systems | 22 | 9 | 3 | 0 | 0 |
+| recursive_self_improvement | 29 | 2 | 4 | 0 | 0 |
+| self_learning_loops | 24 | 13 | 5 | 1 | 0 |
+| swarm_collective_intelligence | 11 | 10 | 9 | 0 | 0 |
 
 ## Architecture ideas (proposals for a human-built PR; never auto-executed)
 
-- `novelty_archive` — 9 papers (consciousness_self_models, neural_architecture, open_endedness, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
-- `swarm_topology` — 8 papers (multi_agent_systems, neural_architecture, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
-- `self_play_challenger` — 7 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
-- `meta_controller` — 6 papers (meta_learning, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
-- `specialist_routing` — 6 papers (neural_architecture): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
+- `novelty_archive` — 31 papers (consciousness_self_models, neural_architecture, open_endedness, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
+- `specialist_routing` — 22 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
+- `swarm_topology` — 12 papers (multi_agent_systems, neural_architecture, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
+- `self_play_challenger` — 10 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
+- `meta_controller` — 9 papers (meta_learning, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 

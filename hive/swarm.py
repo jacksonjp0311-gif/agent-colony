@@ -613,6 +613,59 @@ def drop_retired_proposals(state: dict[str, Any], proposals: list["Proposal"]) -
     return dropped
 
 
+
+def _priors(name: str, *args: Any, default: Any = 0) -> Any:
+    """Item 115: host-bound priors (see ``hive.host.bind_priors``). Unbound = ``default``."""
+    try:
+        from hive import host
+        return host.priors_call(name, *args, default=default)
+    except Exception:  # noqa: BLE001
+        return default
+
+
+def _failure_penalty(fingerprint: str, limit: int = 20) -> int:
+    """Non-positive penalty from recent identical self-change failures (host prior; 0 unbound/off)."""
+    try:
+        return int(_priors("failure_penalty", fingerprint, limit, default=0) or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _ucb_bonus(fingerprint: str, c: int = 80) -> int:
+    """UCB-style exploration bonus (host prior; 0 unbound/off)."""
+    try:
+        return int(_priors("ucb_bonus", fingerprint, c, default=0) or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _apply_evolutionary_bias(proposal: "Proposal") -> "Proposal":
+    """Fail-open score adjustment from the host's priors (item 115: behind the host switch).
+
+    Creates a new Match (frozen dataclass) with adjusted score.
+    Does not mutate. Does not change the Wilson gate or vote structure.
+    """
+    if proposal is None or proposal.match is None:
+        return proposal
+    try:
+        from dataclasses import replace
+        try:
+            delta = int(_priors("bias_delta", proposal, default=0) or 0)
+        except (TypeError, ValueError):
+            delta = 0
+        if delta == 0:
+            return proposal
+        old = proposal.match
+        new_match = replace(old, score=int(getattr(old, "score", 0)) + delta)
+        try:
+            return replace(proposal, match=new_match)
+        except Exception:  # noqa: BLE001
+            proposal.match = new_match
+            return proposal
+    except Exception:  # noqa: BLE001
+        return proposal
+
+
 def propose_for_role(
     role: str,
     findings: list[dict[str, Any]],
@@ -678,7 +731,7 @@ def propose_for_role(
         )
     # Score the accepted action against the library.
     scored = router.score_action(symptom, validated.fingerprint)
-    return Proposal(
+    prop = Proposal(
         role=role,
         label=str(chosen.get("kind") or ""),
         action=validated.as_dict(),
@@ -690,6 +743,9 @@ def propose_for_role(
         card_id=card_id,
         method=method,
     )
+    biased = _apply_evolutionary_bias(prop)
+    _priors("after_propose", prop, biased, default=None)
+    return biased
 
 
 def swarm_propose(
@@ -2278,6 +2334,15 @@ def sync_pending_with_heal_trial(state: dict[str, Any], cycle_id: str) -> dict[s
 
 def run_cycle(cycle_id: str = "") -> dict[str, Any]:
     """One swarm cycle: mine, propose, vote, maybe start or close a trial."""
+    try:
+        from pathlib import Path as _P
+        _t = _P(__file__).resolve().parent.parent / "TRANSLATOR.md"
+        if _t.exists():
+            _t.read_text(encoding="utf-8")
+    except Exception:
+        pass
+    # Habit (item 115: host prior, off on control / when unbound).
+    _priors("cycle_habit", default=None)
     st = load_state()
     st = _remember_cycle(st, cycle_id)
     if not st.get("seeded"):

@@ -208,3 +208,49 @@ block dependent growth and promotion while ingestion remains fail-soft.
 Read-only pull-request CI runs the existing suite plus isolated real-cycle
 regressions. These are reliability fixes, not evidence of capability gain. The
 historical evaluation results and limitations above remain unchanged.
+
+
+## Evidence tools (optional, adaptive)
+
+The colony now exposes a small set of evidence-gated tools that Hive/swarm roles can call adaptively through the adapter:
+
+- Shared evidence graph
+- Statistical keep gate
+- Invariant contracts / reward isolation
+- Ablation harness
+- Constrained method composition
+- Prospective grading
+- Novelty / diversity filter
+- Hunter persistence
+
+Entry point: `colony.hive_adapter.query_tools(request_dict)`. Plain dict in, plain dict out. Fail-open. Hive never imports colony. The tools do not change keep decisions by themselves; they give the swarm cleaner signals and durable traces so its internal loops can become more attributable. See `docs/improvements/CYBERNETIC_TOOLS.md`.
+
+
+
+## Sensory, memory, and connective tissue
+
+The colony now has expanded surfaces the swarm and agents can query adaptively:
+
+- **Sensory surface** (`colony/tools/sensory_surface.py`) — unified snapshot of internal sensors, external array, PulseMesh, and recent evidence. Correlations remain debate input only.
+- **Memory organ** (`colony/tools/memory_organ.py`) — multi-rate (working / durable / retained) on top of the evidence graph. No auto-promote. Human authorize remains the ceiling.
+- **Connective tissue** (`colony/tools/connective.py`) — pulses a compact summary and routes sense/recall into the bus and swarm facade.
+
+Swarm entry points (via `colony.hive_adapter.query_tools`):
+- `{"action": "sense"}`
+- `{"action": "recall", "kind": "..."}`
+- `{"action": "pulse", "cycle": "..."}`
+
+Fail-soft. Local-first. Not AGI. See `docs/improvements/CYBERNETIC_TOOLS.md`.
+
+## Symbiosis (current)
+
+Colony and One Mind share `data/commons/exchange.jsonl`.
+Each pulls the other's receipts before scoring. Foreign fingerprints are priors, not verdicts.
+`crystallized.jsonl` holds durable records. Pruning is activity-dependent: most-used fingerprints stay.
+
+## Where the keep lives
+
+`cycle_telemetry.jsonl` records swarm proposals (`proposed`).
+`society/systems/self_heal.json` holds the keep: `adopted_count` and `event: adopt`.
+`data/commons/crystallized.jsonl` holds durable `kept` records.
+A proposal is not a keep.

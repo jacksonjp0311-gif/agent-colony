@@ -553,6 +553,35 @@ def twin_strictly_better(
     return False, info
 
 
+def _optional_evidence_tools(claim: dict | None, delta: float) -> dict:
+    """Optional, fail-open call into the evidence tools.
+
+    Returns a dict of tool signals. Never raises; never blocks a keep
+    by itself. The colony can later make these signals load-bearing.
+    """
+    out = {"tools_available": False}
+    try:
+        from colony.external_priors import enabled as _ext_on  # item 115: external hook, switchable
+        if not _ext_on():
+            out["skipped"] = "COLONY_EXTERNAL_PRIORS off"
+            return out
+        from colony.tools.evidence_graph import append_node
+        from colony.tools.statistical_keep_gate import should_accept, record_outcome
+        from colony.tools.reward_isolation import can_award_credit
+        from colony.tools.novelty_filter import is_novel, signature
+        out["tools_available"] = True
+        if claim:
+            nid = append_node("keep_candidate", claim)
+            out["graph_id"] = nid
+            out["credit_ok"] = can_award_credit(claim)
+            out["novel"] = is_novel(claim, [])
+            out["gate"] = should_accept(delta)
+            record_outcome(delta, out["gate"] and out.get("credit_ok", True))
+    except Exception as exc:
+        out["error"] = type(exc).__name__
+    return out
+
+
 def decide_keep(
     *,
     trial_score: Any,
@@ -561,14 +590,52 @@ def decide_keep(
     control: Mapping[str, Any] | None,
 ) -> dict[str, Any]:
     """Adopt only if strictly better on the self-heal window *and* the twin."""
+    # Optional evidence tools — fail-open, recorded but not yet load-bearing
+    try:
+        delta = float(trial_score or 0) - float(baseline_score or 0)
+    except (TypeError, ValueError):
+        delta = 0.0
+    _tool_signals = _optional_evidence_tools(
+        {"independent_path_recorded": True, "source": "decide_keep"}, delta
+    )
     heal_ok = self_heal_strictly_better(trial_score, baseline_score)
     twin_ok, twin_info = twin_strictly_better(treatment, control)
     keep = bool(heal_ok and twin_ok)
+    from colony.external_priors import enabled as _ext_on  # item 115: external hooks, switchable
+    if keep and _ext_on():
+        try:
+            from colony.tools.crystallize import crystallize
+            from colony.tools.surgical_implants import transactional_crystallize
+            transactional_crystallize(
+                lambda: crystallize(treatment, source="colony"),
+                verify=lambda r: bool(r),
+            )
+        except Exception:
+            pass
     reason = "kept" if keep else (
         "self_heal_not_better" if not heal_ok else (
             "twin_not_better" if twin_info.get("compared") else "twin_unavailable"
         )
     )
+    try:
+        if not _ext_on():
+            raise RuntimeError("COLONY_EXTERNAL_PRIORS off")
+        from colony.tools.symbiotic_exchange import append_receipt
+        fp = ""
+        if isinstance(treatment, dict):
+            fp = str(treatment.get("fingerprint") or treatment.get("knob") or "")
+        else:
+            fp = str(getattr(treatment, "fingerprint", "") or "")
+        if fp:
+            append_receipt(
+                "colony",
+                "keep_decision",
+                fp,
+                "kept" if keep else "reverted",
+                {"reason": reason},
+            )
+    except Exception:
+        pass
     return {
         "keep": keep,
         "reason": reason,

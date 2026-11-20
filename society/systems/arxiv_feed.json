@@ -1,24 +1,19 @@
 {
-  "last_attempt_at": "2026-11-16T19:21:07Z",
+  "last_attempt_at": "2026-11-20T02:01:19Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-16T19:21:07Z",
+  "last_ok_at": "2026-11-20T02:01:19Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Pairing AIS with RF: Analysis of a Markovian Approach for Maritime Data Fusion",
-      "abstract_snippet": "Monitoring maritime activities is important for safety and security, particularly for detecting illegal activities, but remains challenging due to the size and complexity of the maritime domain. The Automatic Identification System (AIS) is commonly used for this purpose, despite its known vulnerabilities. In contrast, space-based radio frequency (RF) observations provide an independent source of v",
-      "url": "https://arxiv.org/abs/2611.18563",
-      "arxiv_id": "2611.18563",
+      "title": "Low Moments, Small Balls and Star Discrepancy",
+      "abstract_snippet": "Let $D_P$ be the discrepancy function of a configuration $P$ of $N$ points in the $d$-dimensional unit cube, and let $\\|D_P\\|_q$ be its $L^q$ discrepancy. We prove that for all fixed $d\\ge2$ and $0&lt;q\\le1$ the $L^q$ discrepancy of every configuration of $N\\ge2$ points is at least $c_{d,q}(\\log N)^{(d-1)/2}$ with a constant $c_{d,q}&gt;0$. This bound is sharp; together with the classical results ",
+      "url": "https://arxiv.org/abs/2611.24934",
+      "arxiv_id": "2611.24934",
       "doi": "",
       "authors": [
-        "Daniel Grimm",
-        "Kyra Jongman",
-        "Renato Cordeiro Ferreira",
-        "Giuseppe Cascavilla",
-        "Alfredo Cuzzocrea",
-        "Willem-Jan Van Den Heuvel"
+        "Nicola Wengiel"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +23,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T19:21:07Z"
+      "fetched_at": "2026-11-20T02:01:19Z"
     },
     {
       "source": "arxiv",
-      "title": "FETTUCCINE: Fast and efficient brain-to-text decoding on mobile devices",
-      "abstract_snippet": "Recent advances in speech neuroprostheses have enabled new communication avenues for people who have lost the ability to speak due to neurological illness or injury. These systems can decode neural activity during attempted speech into text by relying on language priors to achieve high decoding accuracy. This performance currently comes at the cost of using a compute-intensive language modeling st",
-      "url": "https://arxiv.org/abs/2611.18561",
-      "arxiv_id": "2611.18561",
+      "title": "On the refined Kaneko--Zagier conjecture",
+      "abstract_snippet": "We extend our results on Zhao's conjectural basis to finite multiple zeta values modulo arbitrary prime powers and to the corresponding completed algebra. As a consequence, the refined Kaneko--Zagier conjecture, which gives a precise description of relations modulo arbitrary prime powers in terms of ordinary multiple zeta values, follows from the dimension and direct-sum conjectures for ordinary a",
+      "url": "https://arxiv.org/abs/2611.24933",
+      "arxiv_id": "2611.24933",
       "doi": "",
       "authors": [
-        "Jonathan D. McCart",
-        "Pranav I. Deevi",
-        "Mehdi Azabou",
-        "Nanda H. Krishna",
-        "Caleb A. McKinney",
-        "Nicholas S. Card"
+        "Shin-ichiro Seki"
       ],
       "year": 2026,
       "tags": [
@@ -53,22 +43,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T19:21:07Z"
+      "fetched_at": "2026-11-20T02:01:19Z"
     },
     {
       "source": "arxiv",
-      "title": "Training Reasoning Models in Simulation to Natively Use Real Robots",
-      "abstract_snippet": "Robot-use agents (RUAs) have emerged as a promising approach to general-purpose robot control. However, strong performance has so far been achieved only by frontier proprietary models such as GPT-6 Astra and Claude Fable 5.2, whereas open-weight models remain substantially less capable. We show that an open-weight 27B reasoning model can be trained to use real robots natively through reinforcement",
-      "url": "https://arxiv.org/abs/2611.18562",
-      "arxiv_id": "2611.18562",
+      "title": "Knowing What You Know: A Trait Theory of Reviewer Value in Human-AI Cognitive Systems",
+      "abstract_snippet": "When a capable model and a human reviewer cooperate on the same decision, which human still adds value? We argue this is a question about a single cognitive trait, metacognitive calibration: the alignment between a reviewer's behavioral confidence and the actual correctness of their judgments. We develop a trait theory of reviewer value to make it precise. The theory makes five claims: value is go",
+      "url": "https://arxiv.org/abs/2611.24932",
+      "arxiv_id": "2611.24932",
       "doi": "",
       "authors": [
-        "Jiaming Tang",
-        "Zhuoyang Zhang",
-        "Junxian Guo",
-        "Fangzhou Zhao",
-        "Yilong Zhao",
-        "Zekai Li"
+        "Priyanka Sinha",
+        "Sugam Pandey"
       ],
       "year": 2026,
       "tags": [
@@ -78,18 +64,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T19:21:07Z"
+      "fetched_at": "2026-11-20T02:01:19Z"
     },
     {
       "source": "arxiv",
-      "title": "BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations",
-      "abstract_snippet": "Learning semantically meaningful human movement representations from 3D pose sequences is essential for human behavior modeling. Existing self-supervised methods derive supervision from artificial assumptions, e.g., invariance to augmentation within a certain range or recoverability of masked regions at a certain temporal scale, introducing heuristic hyperparameters that make the learned semantics",
-      "url": "https://arxiv.org/abs/2611.18559",
-      "arxiv_id": "2611.18559",
+      "title": "Decomposing SGD Dynamics in Neural Networks: Teacher-Induced Spikes and Variance Inflation",
+      "abstract_snippet": "We study two-layer neural networks trained by stochastic gradient descent (SGD) on a multi-index teacher model, focusing on how first-layer parameters orthogonal to the teacher subspace affect generalization. We decompose the first-layer weights into a signal component aligned with the teacher and an orthogonal complement, and analyze their joint SGD dynamics together with the second layer in the ",
+      "url": "https://arxiv.org/abs/2611.24908",
+      "arxiv_id": "2611.24908",
       "doi": "",
       "authors": [
-        "Genki Kinoshita",
-        "Ko Nishino"
+        "Samet Demir",
+        "Zafer Dogan"
       ],
       "year": 2026,
       "tags": [
@@ -99,19 +85,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T19:21:07Z"
+      "fetched_at": "2026-11-20T02:01:19Z"
     },
     {
       "source": "arxiv",
-      "title": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
-      "abstract_snippet": "Recent work shows that large language models (LLMs) can operate directly on the parameters of other neural networks. They can read what a network was trained to do, fix a network that fails, and write working networks from scratch, all without gradient descent. This capability has been termed Weight-Space Programming (WSP). Exploring this new paradigm systematically requires a robust benchmark. We",
-      "url": "https://arxiv.org/abs/2611.18553",
-      "arxiv_id": "2611.18553",
+      "title": "Batch-Dynamic Coreness and Applications with Logarithmic Work via Balanced Pressures",
+      "abstract_snippet": "We give a parallel algorithm that maintains a one-sided $(2+\\varepsilon)$-approximation of all core numbers under batches of edge insertions and deletions. For fixed $\\varepsilon&gt;0$, the expected amortized work is $O(\\log n)$ per edge update, and each batch has deterministic polylogarithmic depth. This improves on the previously known $(4+\\varepsilon)$-approximation and $O(\\log^2 n)$ amortized ",
+      "url": "https://arxiv.org/abs/2611.24905",
+      "arxiv_id": "2611.24905",
       "doi": "",
       "authors": [
-        "Aayush Marasini",
-        "Barsat Khadka",
-        "Nick Rahimi"
+        "Quinten De Man",
+        "Laxman Dhulipala",
+        "Kishen N Gowda",
+        "Zhongqi Wang"
       ],
       "year": 2026,
       "tags": [
@@ -121,7 +108,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-16T19:21:07Z"
+      "fetched_at": "2026-11-20T02:01:19Z"
     }
   ]
 }

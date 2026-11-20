@@ -1,4 +1,4 @@
-# A002375 terms computed beyond the OEIS b-file (https://oeis.org/A002375/b002375.txt, checked 2026-10-18T12:22:31Z).
+# A002375 terms computed beyond the OEIS b-file (https://oeis.org/A002375/b002375.txt, checked 2026-11-17T12:45:45Z).
 # Computed by colony.new_data (gb_u_odd:terms); verified 2 ways: numpy FFT convolution of the prime indicator (floating point, rounded) / direct integer enumeration over an independent odd-only sieve.
 20001 593
 20002 305

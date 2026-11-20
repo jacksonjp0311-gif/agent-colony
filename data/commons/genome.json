@@ -1,0 +1,20 @@
+{
+  "lineage": "colony",
+  "keep_bar": 0,
+  "max_fields_per_cycle": 1,
+  "tools": [
+    "vote",
+    "self_heal",
+    "exchange"
+  ],
+  "wilson_gate": 700,
+  "generation": 4,
+  "last_score": 10.0,
+  "receipts_seen": 500,
+  "last_change": {
+    "field": "last_score",
+    "value": 10.0,
+    "score": 10.0,
+    "prior": 9.0
+  }
+}

@@ -2,15 +2,15 @@
  "attempted_now": 0,
  "by_kind": {
   "cong": [
-   86,
-   31
+   82,
+   27
   ],
   "divides": [
-   30,
+   33,
    3
   ],
   "le": [
-   31,
+   32,
    3
   ],
   "modpat": [
@@ -26,7 +26,7 @@
  "n_authored": 23,
  "n_authored_proved": 9,
  "n_claims": 150,
- "n_proved": 38,
+ "n_proved": 34,
  "n_proved_new": 7,
  "n_surprises_proved": 34,
  "note": "'machine-proved (certificate)' = every residue class derived from named classical lemmas and re-verified by colony.proof_check, n < N0 checked directly; anything else stays 'conjecture surviving N checks'.",
@@ -832,134 +832,6 @@
    "status": "proved",
    "summary": "periodic residues: n split mod 3, every class derived from 2 lemma(s): cheb4 changes only at primes; x is composite (a multiple of 3); phi(x) is even for x >= 3; n < 64 checked directly",
    "unknown": true,
-   "v": 3
-  },
-  "D(gcd(n,rad))(n) = 1 (mod 2) for all n = 0 (mod 2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 2,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "D(gcd(n,rad))",
-       "kids": [
-        {
-         "e": "gcd(n,rad)",
-         "kids": [
-          {
-           "e": "n",
-           "pt": [
-            1,
-            1
-           ],
-           "rule": "nclass",
-           "val": {
-            "a": {},
-            "c": 1,
-            "d": 2
-           }
-          },
-          {
-           "e": "rad",
-           "lemma": "rad(x) is odd for odd x",
-           "pt": [
-            1,
-            1
-           ],
-           "rule": "lemma",
-           "val": {
-            "a": {},
-            "c": 1,
-            "d": 2
-           }
-          }
-         ],
-         "pt": [
-          1,
-          1
-         ],
-         "rule": "gcd",
-         "val": {
-          "a": {},
-          "c": 1,
-          "d": 2
-         }
-        },
-        {
-         "e": "gcd(n,rad)",
-         "kids": [
-          {
-           "e": "n",
-           "pt": [
-            1,
-            0
-           ],
-           "rule": "nclass",
-           "val": {
-            "a": {},
-            "c": 0,
-            "d": 2
-           }
-          },
-          {
-           "e": "rad",
-           "lemma": "p | x implies p | rad(x)",
-           "pt": [
-            1,
-            0
-           ],
-           "rule": "lemma",
-           "val": {
-            "a": {},
-            "c": 0,
-            "d": 2
-           }
-          }
-         ],
-         "pt": [
-          1,
-          0
-         ],
-         "rule": "gcd",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "Ddiff",
-       "val": {
-        "a": {},
-        "c": 1,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "p | x implies p | rad(x)",
-     "rad(x) is odd for odd x"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x7b60d9ab_w1",
-   "checks": 29994,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 2, every class derived from 2 lemma(s): p | x implies p | rad(x); rad(x) is odd for odd x; n < 64 checked directly",
-   "unknown": false,
    "v": 3
   },
   "D(gcd(oxa157100,pdist))(n) = 0 (mod 2) for all n = 3 (mod 5)": {
@@ -2737,94 +2609,6 @@
    "unknown": true,
    "v": 4
   },
-  "dbl(fib)(n) = 0 (mod 3) for all n = 0 (mod 2)": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 4,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(fib)",
-       "kids": [
-        {
-         "e": "fib",
-         "lemma": "fib is periodic mod 3 (defining recurrence; state repeats)",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 3
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 3
-       }
-      }
-     },
-     "2": {
-      "lhs": {
-       "e": "dbl(fib)",
-       "kids": [
-        {
-         "e": "fib",
-         "lemma": "fib is periodic mod 3 (defining recurrence; state repeats)",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 3
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 3
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "fib is periodic mod 3 (defining recurrence; state repeats)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x026fe992_w1",
-   "checks": 1994,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 4, every class derived from 1 lemma(s): fib is periodic mod 3 (defining recurrence; state repeats); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "dbl(gcd(baum,oxa072856))(n) = 0 (mod 2) for all n = 1 (mod 3)": {
    "authored": false,
    "certificate": null,
@@ -3515,60 +3299,6 @@
    "unknown": true,
    "v": 4
   },
-  "dbl(n)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(n)",
-       "kids": [
-        {
-         "e": "n",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "nclass",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x559ffbb7_w1",
-   "checks": 59988,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 1, every class derived from 0 lemma(s); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
-  },
   "dbl(oxa009191)(n) <= dbl(tau)(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
    "certificate": null,
@@ -3709,63 +3439,6 @@
    "summary": null,
    "unknown": true,
    "v": 4
-  },
-  "dbl(pell)(n) = 0 (mod 2) for all n >= 1": {
-   "authored": false,
-   "certificate": {
-    "N0": 64,
-    "Q": 1,
-    "checker": "colony.proof_check.check: ok",
-    "classes": {
-     "0": {
-      "lhs": {
-       "e": "dbl(pell)",
-       "kids": [
-        {
-         "e": "pell",
-         "lemma": "pell is periodic mod 2 (defining recurrence; state repeats)",
-         "pt": [
-          2,
-          0
-         ],
-         "rule": "lemma",
-         "val": {
-          "a": {},
-          "c": 0,
-          "d": 2
-         }
-        }
-       ],
-       "pt": [
-        1,
-        0
-       ],
-       "rule": "dbl",
-       "val": {
-        "a": {},
-        "c": 0,
-        "d": 2
-       }
-      }
-     }
-    },
-    "finite_check": [
-     1,
-     63
-    ],
-    "lemmas": [
-     "pell is periodic mod 2 (defining recurrence; state repeats)"
-    ],
-    "method": "periodic residues"
-   },
-   "check": "authored_frontier_cong_x3cfdd636_w1",
-   "checks": 3988,
-   "kind": "cong",
-   "prior_certificate": true,
-   "status": "proved",
-   "summary": "periodic residues: n split mod 1, every class derived from 1 lemma(s): pell is periodic mod 2 (defining recurrence; state repeats); n < 64 checked directly",
-   "unknown": false,
-   "v": 3
   },
   "digsum[rad](n) <= dbl(rad)(n) for all n >= 1 (with equality at some n)": {
    "authored": true,
@@ -4880,6 +4553,18 @@
    "unknown": true,
    "v": 4
   },
+  "maxgap[oxa049980](n) divides dbl(oxa056971)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_xdc942d4e_w1",
+   "checks": 88,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "maxgap[oxa080076](n) = 0 (mod 2) for all n >= 1": {
    "authored": false,
    "certificate": null,
@@ -4904,6 +4589,18 @@
    "unknown": true,
    "v": 4
   },
+  "oxa009191(n) divides (mu*oxa316344)(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x1b8c8e75_w1",
+   "checks": 1988,
+   "kind": "divides",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "oxa035100(n) <= D((oxa035100*oxa257348))(n) for all n >= 1 (with equality at some n)": {
    "authored": false,
    "certificate": null,
@@ -4922,6 +4619,18 @@
    "check": "authored_frontier_le_xa99e5b07_w1",
    "checks": 988,
    "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
+  "oxa211337(n) divides dbl((oxa056971*rad))(n) for all n >= 1": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_divides_x79b807a0_w1",
+   "checks": 88,
+   "kind": "divides",
    "prior_certificate": false,
    "status": "not proved",
    "summary": null,
@@ -5334,6 +5043,18 @@
    "unknown": true,
    "v": 4
   },
+  "sopfr[oxa049980](n) <= dbl(oxa143773)(n) for all n >= 1 (with equality at some n)": {
+   "authored": false,
+   "certificate": null,
+   "check": "authored_frontier_le_x93975ecb_w1",
+   "checks": 988,
+   "kind": "le",
+   "prior_certificate": false,
+   "status": "not proved",
+   "summary": null,
+   "unknown": true,
+   "v": 4
+  },
   "sopfr[oxa238873](n) = 1 (mod 2) for all n = 4 (mod 7)": {
    "authored": false,
    "certificate": null,
@@ -5629,5 +5350,5 @@
   }
  },
  "seconds": 0.03,
- "ts": "2026-11-16T19:24:45Z"
+ "ts": "2026-11-20T02:08:12Z"
 }

@@ -1,7 +1,7 @@
 {
-  "ts": "2026-11-16T19:32:43Z",
+  "ts": "2026-11-20T02:17:35Z",
   "view_only": true,
-  "n_considered": 173,
+  "n_considered": 220,
   "n_meet_bar": 36,
   "n_groups": 27,
   "n_authored_groups": 23,
@@ -439,12 +439,12 @@
       "building_block": "catalog",
       "builds_on": 0.0,
       "building_blocks": [],
-      "athanor_verdict": "APPROVE",
+      "athanor_verdict": null,
       "rank": 0.5293,
       "hunt": {
         "unknown": false,
         "in_oeis": false,
-        "oeis_reuse": 0.0833,
+        "oeis_reuse": 0.5,
         "oeis_checked": true,
         "family": "kummer_carries",
         "siblings_passed": 0,
@@ -478,12 +478,12 @@
       "building_block": "catalog",
       "builds_on": 0.0,
       "building_blocks": [],
-      "athanor_verdict": "APPROVE",
+      "athanor_verdict": null,
       "rank": 0.5264,
       "hunt": {
         "unknown": false,
-        "in_oeis": false,
-        "oeis_reuse": 0.25,
+        "in_oeis": true,
+        "oeis_reuse": 1.0,
         "oeis_checked": true,
         "family": "pisano_prime_period",
         "siblings_passed": 0,
@@ -556,12 +556,12 @@
       "building_block": "catalog",
       "builds_on": 0.0,
       "building_blocks": [],
-      "athanor_verdict": "APPROVE",
+      "athanor_verdict": null,
       "rank": 0.495,
       "hunt": {
         "unknown": false,
-        "in_oeis": false,
-        "oeis_reuse": 0.0833,
+        "in_oeis": true,
+        "oeis_reuse": 1.0,
         "oeis_checked": true,
         "family": "zeckendorf_unique",
         "siblings_passed": 0,
@@ -582,8 +582,8 @@
     }
   ],
   "hunt_shadow": {
-    "ts": "2026-11-16T19:32:43Z",
-    "cycle_id": "20261116T192905Z_bc22f0",
+    "ts": "2026-11-20T02:17:35Z",
+    "cycle_id": "20261120T021320Z_ed9646",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -784,16 +784,16 @@
       }
     ],
     "near_misses": {
-      "oracle_rows": 0,
+      "oracle_rows": 1,
       "shifted_window_failures": [],
       "single_reason_kills": []
     }
   },
   "excluded_reasons": {
-    "status": 93,
-    "target_unresolved": 97,
+    "no_oracle_pass_in_own_cycle": 29,
     "novelty_killed": 26,
-    "no_oracle_pass_in_own_cycle": 23,
+    "target_unresolved": 138,
+    "status": 100,
     "hearing": 2,
     "oracle_killed_in_own_cycle": 8
   },
@@ -804,5 +804,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261116T192905Z_bc22f0"
+  "cycle_id": "20261120T021320Z_ed9646"
 }

@@ -2,8 +2,8 @@
   "mode": "report_only",
   "note": "P, scores, novelty kills, desk decisions and authorization are unchanged. COLONY_HUNT=live only reorders/re-rewards exploration (colony/hunt.py); see colony/hunt_shadow.py for the rules.",
   "last": {
-    "ts": "2026-11-16T19:25:11Z",
-    "cycle_id": "20261116T192212Z_a63f1e",
+    "ts": "2026-11-20T02:08:47Z",
+    "cycle_id": "20261120T020448Z_bef4ea",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -207,8 +207,8 @@
   },
   "history": [
     {
-      "ts": "2026-11-16T15:00:20Z",
-      "cycle_id": "20261116T145725Z_51e190",
+      "ts": "2026-11-19T20:21:19Z",
+      "cycle_id": "20261119T201758Z_584ad6",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -222,8 +222,8 @@
       }
     },
     {
-      "ts": "2026-11-16T15:03:11Z",
-      "cycle_id": "20261116T150023Z_f12872",
+      "ts": "2026-11-19T20:24:15Z",
+      "cycle_id": "20261119T202123Z_9b8218",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -237,8 +237,8 @@
       }
     },
     {
-      "ts": "2026-11-16T15:05:55Z",
-      "cycle_id": "20261116T150314Z_8d19f8",
+      "ts": "2026-11-19T20:27:17Z",
+      "cycle_id": "20261119T202418Z_38f1ee",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -252,8 +252,8 @@
       }
     },
     {
-      "ts": "2026-11-16T15:26:52Z",
-      "cycle_id": "20261116T152357Z_ced887",
+      "ts": "2026-11-19T21:00:56Z",
+      "cycle_id": "20261119T205735Z_3a3813",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -267,8 +267,8 @@
       }
     },
     {
-      "ts": "2026-11-16T15:29:26Z",
-      "cycle_id": "20261116T152656Z_811413",
+      "ts": "2026-11-19T21:04:16Z",
+      "cycle_id": "20261119T210100Z_a14ffd",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -282,8 +282,8 @@
       }
     },
     {
-      "ts": "2026-11-16T15:32:05Z",
-      "cycle_id": "20261116T152929Z_8629c3",
+      "ts": "2026-11-19T21:07:39Z",
+      "cycle_id": "20261119T210422Z_c39777",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -297,8 +297,8 @@
       }
     },
     {
-      "ts": "2026-11-16T15:55:09Z",
-      "cycle_id": "20261116T155155Z_ca3089",
+      "ts": "2026-11-19T21:42:45Z",
+      "cycle_id": "20261119T213739Z_dd95a2",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -312,8 +312,8 @@
       }
     },
     {
-      "ts": "2026-11-16T15:58:23Z",
-      "cycle_id": "20261116T155513Z_1809a9",
+      "ts": "2026-11-19T21:46:33Z",
+      "cycle_id": "20261119T214250Z_cad51f",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -327,8 +327,8 @@
       }
     },
     {
-      "ts": "2026-11-16T16:01:24Z",
-      "cycle_id": "20261116T155827Z_77bd19",
+      "ts": "2026-11-19T21:50:30Z",
+      "cycle_id": "20261119T214638Z_bd2e6b",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -342,8 +342,8 @@
       }
     },
     {
-      "ts": "2026-11-16T16:27:16Z",
-      "cycle_id": "20261116T162424Z_864e18",
+      "ts": "2026-11-19T22:16:04Z",
+      "cycle_id": "20261119T221236Z_6fd67d",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -357,8 +357,8 @@
       }
     },
     {
-      "ts": "2026-11-16T16:29:46Z",
-      "cycle_id": "20261116T162720Z_b6ff11",
+      "ts": "2026-11-19T22:19:27Z",
+      "cycle_id": "20261119T221609Z_322ebe",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -372,8 +372,8 @@
       }
     },
     {
-      "ts": "2026-11-16T16:32:23Z",
-      "cycle_id": "20261116T162950Z_4cef7f",
+      "ts": "2026-11-19T22:22:45Z",
+      "cycle_id": "20261119T221931Z_44bd08",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -387,8 +387,8 @@
       }
     },
     {
-      "ts": "2026-11-16T16:58:27Z",
-      "cycle_id": "20261116T165425Z_1e51d0",
+      "ts": "2026-11-19T22:56:01Z",
+      "cycle_id": "20261119T225231Z_3ef324",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -402,8 +402,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:02:13Z",
-      "cycle_id": "20261116T165831Z_1e1406",
+      "ts": "2026-11-19T22:59:19Z",
+      "cycle_id": "20261119T225605Z_b9bce9",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -417,8 +417,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:06:04Z",
-      "cycle_id": "20261116T170218Z_ec8857",
+      "ts": "2026-11-19T23:02:45Z",
+      "cycle_id": "20261119T225924Z_60ed63",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -432,8 +432,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:25:42Z",
-      "cycle_id": "20261116T172029Z_682fba",
+      "ts": "2026-11-19T23:29:17Z",
+      "cycle_id": "20261119T232450Z_5035ef",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -447,8 +447,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:28:50Z",
-      "cycle_id": "20261116T172546Z_d8ab2f",
+      "ts": "2026-11-19T23:33:24Z",
+      "cycle_id": "20261119T232922Z_464195",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -462,8 +462,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:31:59Z",
-      "cycle_id": "20261116T172855Z_6d0ede",
+      "ts": "2026-11-19T23:37:34Z",
+      "cycle_id": "20261119T233329Z_e85332",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -477,8 +477,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:54:04Z",
-      "cycle_id": "20261116T175114Z_4b1ef0",
+      "ts": "2026-11-20T00:09:11Z",
+      "cycle_id": "20261120T000549Z_25c51a",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -492,8 +492,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:56:38Z",
-      "cycle_id": "20261116T175407Z_57ad76",
+      "ts": "2026-11-20T00:12:18Z",
+      "cycle_id": "20261120T000915Z_11404a",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -507,8 +507,8 @@
       }
     },
     {
-      "ts": "2026-11-16T17:59:18Z",
-      "cycle_id": "20261116T175642Z_d0f033",
+      "ts": "2026-11-20T00:15:30Z",
+      "cycle_id": "20261120T001222Z_cc4b50",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -522,8 +522,8 @@
       }
     },
     {
-      "ts": "2026-11-16T18:22:02Z",
-      "cycle_id": "20261116T181857Z_419d8e",
+      "ts": "2026-11-20T00:44:37Z",
+      "cycle_id": "20261120T004117Z_e6425e",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -537,8 +537,8 @@
       }
     },
     {
-      "ts": "2026-11-16T18:24:48Z",
-      "cycle_id": "20261116T182206Z_beb618",
+      "ts": "2026-11-20T00:47:41Z",
+      "cycle_id": "20261120T004441Z_98ef5d",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -552,8 +552,8 @@
       }
     },
     {
-      "ts": "2026-11-16T18:27:31Z",
-      "cycle_id": "20261116T182451Z_788d91",
+      "ts": "2026-11-20T00:50:45Z",
+      "cycle_id": "20261120T004745Z_800593",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -567,8 +567,8 @@
       }
     },
     {
-      "ts": "2026-11-16T18:47:48Z",
-      "cycle_id": "20261116T184357Z_b7eb6c",
+      "ts": "2026-11-20T01:26:20Z",
+      "cycle_id": "20261120T012307Z_3f56d9",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -582,8 +582,8 @@
       }
     },
     {
-      "ts": "2026-11-16T18:51:06Z",
-      "cycle_id": "20261116T184752Z_dcd27c",
+      "ts": "2026-11-20T01:29:20Z",
+      "cycle_id": "20261120T012624Z_d5b713",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -597,8 +597,8 @@
       }
     },
     {
-      "ts": "2026-11-16T18:54:35Z",
-      "cycle_id": "20261116T185111Z_f967aa",
+      "ts": "2026-11-20T01:32:36Z",
+      "cycle_id": "20261120T012924Z_10ea42",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -612,8 +612,8 @@
       }
     },
     {
-      "ts": "2026-11-16T19:19:07Z",
-      "cycle_id": "20261116T191551Z_047f58",
+      "ts": "2026-11-20T02:00:38Z",
+      "cycle_id": "20261120T015608Z_059195",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -627,8 +627,8 @@
       }
     },
     {
-      "ts": "2026-11-16T19:22:08Z",
-      "cycle_id": "20261116T191911Z_c70733",
+      "ts": "2026-11-20T02:04:43Z",
+      "cycle_id": "20261120T020044Z_80fa2b",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,
@@ -642,8 +642,8 @@
       }
     },
     {
-      "ts": "2026-11-16T19:25:11Z",
-      "cycle_id": "20261116T192212Z_a63f1e",
+      "ts": "2026-11-20T02:08:47Z",
+      "cycle_id": "20261120T020448Z_bef4ea",
       "n_meet_bar_actual": 32,
       "n_meet_bar_shadow": 14,
       "n_unknown_claims": 33,

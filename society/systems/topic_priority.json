@@ -26,6 +26,11 @@
       "from_topic": "compute-useful-math"
     },
     {
+      "topic": "$2$-arc-transitive",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$2$-factor",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -61,17 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "$l$-values",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "`meta-learning`",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "agent-mediated",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -82,6 +77,11 @@
     },
     {
       "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-16T19:31:16Z",
-  "updated_cycle": "20261116T192905Z_bc22f0",
+  "updated_at": "2026-11-20T02:15:19Z",
+  "updated_cycle": "20261120T021320Z_ed9646",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

@@ -45,6 +45,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 import uuid
 from contextlib import contextmanager
@@ -67,6 +68,63 @@ W_PASSES = 3.0
 # After a revert, wait this many cycles before retrying the same knob
 # in the same direction. Not a knob.
 KNOB_RETRY_COOLDOWN = 6
+
+# Item 114: tie-revert thrash fix and fair experiment turns (treatment only).
+# A tie (trial window score == baseline window score) is "no evidence either
+# way": the strictly-better rule still reverts it, but it no longer counts
+# toward high_revert_rate, and a (knob, direction) with TIE_REVERTS_FOR_COOLDOWN
+# tie reverts since its last adopt is not retried for TIE_COOLDOWN_WINDOWS
+# evaluation windows (21 cycles at window 7) after the latest tie. Three
+# windows = one full baseline+trial for another experiment (2 windows) plus
+# one clean window, so a different slot can be scored before the same tie is
+# re-tested. Not a knob. Switch COLONY_HEAL_FAIR_TURNS = live (default) | off.
+TIE_REVERTS_FOR_COOLDOWN = 2
+TIE_COOLDOWN_WINDOWS = 3
+# After a self-heal trial closes, while Hive holds a deferred Wilson winner
+# (pending_apply) or self-build was refused by the reservation, self-heal opens
+# nothing for up to FAIR_YIELD_WINDOWS evaluation windows so the other slot
+# gets a free reservation and a clean baseline window.
+FAIR_YIELD_WINDOWS = 2
+
+
+def fair_turns_enabled() -> bool:
+    try:
+        from colony.arm import self_mod_enabled
+        if not self_mod_enabled():
+            return False
+    except Exception:  # noqa: BLE001
+        return False
+    return (os.environ.get("COLONY_HEAL_FAIR_TURNS") or "live").strip().lower() == "live"
+
+
+def _f(v: Any) -> float | None:
+    try:
+        return None if v is None else float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def is_tie_revert(ev: Mapping[str, Any] | None) -> bool:
+    """A revert whose trial window scored exactly the baseline (activity too, when recorded)."""
+    if not isinstance(ev, Mapping) or ev.get("event") != "revert":
+        return False
+    if ev.get("tie") is not None:
+        return bool(ev.get("tie"))
+    b, t = _f(ev.get("baseline_score")), _f(ev.get("trial_score"))
+    if b is None or t is None or b != t:
+        return False
+    ba, ta = _f(ev.get("baseline_activity_score")), _f(ev.get("activity_score"))
+    if ba is not None and ta is not None and ba != ta:
+        return False
+    return True
+
+
+def _cycle_index_of(state: Mapping[str, Any], cycle_id: Any) -> int | None:
+    cycles = list(state.get("cycles") or [])
+    cid = str(cycle_id or "")
+    if cid and cid in cycles:
+        return int(state.get("cycles_dropped") or 0) + cycles.index(cid)
+    return None
 
 # One trial at a time. Not a knob.
 MAX_CONCURRENT_TRIALS = 1
@@ -1766,7 +1824,15 @@ def diagnose(
         })
 
     evidence = list(hs.get("evidence") or [])
-    recent = [e for e in evidence if e.get("event") in ("adopt", "revert")][-6:]
+    closes = [e for e in evidence if e.get("event") in ("adopt", "revert")]
+    if fair_turns_enabled():
+        # Item 114: a tie is no evidence that the step is wrong; it does not feed the finding.
+        # Nor does a revert of a trial this finding itself opened (it fed itself: 24 trials
+        # Nov 18-19 cycled step_size / evaluation_window on its own reverts).
+        closes = [e for e in closes if not is_tie_revert(e)
+                  and not (e.get("event") == "revert" and str(e.get("finding_reason") or e.get("trial_reason")
+                                                             or e.get("reason") or "") == "high_revert_rate")]
+    recent = closes[-6:]
     reverts = [e for e in recent if e.get("event") == "revert"]
     if len(recent) >= 3 and len(reverts) >= 2 and len(reverts) >= (len(recent) + 1) // 2:
         findings.append({
@@ -1885,7 +1951,100 @@ def replay_proposal(
     }
 
 
+def tie_cooldown_cycles(state: Mapping[str, Any]) -> int:
+    try:
+        w = int(state_knob(dict(state), "evaluation_window"))
+    except Exception:  # noqa: BLE001
+        w = 6
+    return TIE_COOLDOWN_WINDOWS * max(1, w)
+
+
+def tie_cooldown(state: Mapping[str, Any], knob: str, direction: str) -> dict[str, Any] | None:
+    """Active tie cooldown for (knob, direction), or None.
+
+    Counts tie reverts of this (knob, direction) since its last adopt, among
+    events still in the remembered cycle list (older ones have long expired).
+    With TIE_REVERTS_FOR_COOLDOWN or more, the cooldown runs from the latest.
+    """
+    ties: list[int] = []
+    for e in (state.get("evidence") or []):
+        if not isinstance(e, Mapping) or e.get("event") not in ("revert", "adopt"):
+            continue
+        if str(e.get("knob") or "") != knob or str(e.get("direction") or "") != direction:
+            continue
+        if e.get("event") == "adopt":
+            ties = []
+            continue
+        if not is_tie_revert(e):
+            continue
+        idx = e.get("closed_index")
+        idx = int(idx) if isinstance(idx, int) else _cycle_index_of(state, e.get("cycle_id"))
+        if idx is not None:
+            ties.append(idx)
+    if len(ties) < TIE_REVERTS_FOR_COOLDOWN:
+        return None
+    last = max(ties)
+    n = tie_cooldown_cycles(state)
+    since = int(state.get("cycle_index") or 0) - last
+    if since >= n:
+        return None
+    return {"knob": knob, "direction": direction, "tie_reverts": len(ties), "since": since,
+            "cooldown": n, "until_index": last + n}
+
+
+def _others_waiting(state: Mapping[str, Any]) -> list[str]:
+    """Item 114: other experiment slots that were held off by self-heal and still want a turn."""
+    out: list[str] = []
+    try:
+        import hive.swarm as _sw
+        hs = json.loads(Path(_sw.STATE_PATH).read_text(encoding="utf-8"))
+        if isinstance(hs, dict) and isinstance(hs.get("pending_apply"), dict) and hs["pending_apply"] \
+                and not hs.get("trial"):
+            out.append("hive_pending_apply")
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        from colony import self_build as _sb
+        bs = _sb.load_state()
+        skip = bs.get("last_skip") if isinstance(bs.get("last_skip"), dict) else {}
+        started = str(state.get("fair_last_trial_started") or "")
+        sc = str(skip.get("cycle_id") or "")
+        if (not bs.get("trial") and "self_heal" in str(skip.get("reason") or "")
+                and started and sc >= started and str(bs.get("last_propose_cycle") or "") < sc):
+            out.append("self_build_refused")
+    except Exception:  # noqa: BLE001
+        pass
+    return out
+
+
+def fair_turn_yield(state: Mapping[str, Any]) -> dict[str, Any] | None:
+    """Item 114: self-heal yields the reservation after closing a trial while another slot waits.
+
+    Bounded: at most FAIR_YIELD_WINDOWS evaluation windows after the close,
+    then self-heal may propose again (rotation, not starvation either way).
+    """
+    if not fair_turns_enabled():
+        return None
+    closed = state.get("fair_last_close_index")
+    if closed is None:
+        return None
+    try:
+        window = int(state_knob(dict(state), "evaluation_window"))
+    except Exception:  # noqa: BLE001
+        window = 6
+    since = int(state.get("cycle_index") or 0) - int(closed)
+    limit = FAIR_YIELD_WINDOWS * max(1, window)
+    if since >= limit:
+        return None
+    waiting = _others_waiting(state)
+    if not waiting:
+        return None
+    return {"reason": "fair_turn_yield", "waiting": waiting, "since_close": since, "limit": limit}
+
+
 def _knob_on_cooldown(state: dict[str, Any], knob: str, direction: str) -> bool:
+    if fair_turns_enabled() and tie_cooldown(state, knob, direction) is not None:
+        return True
     last = (state.get("knob_last_trial") or {}).get(knob) or {}
     if not last:
         return False
@@ -2946,6 +3105,17 @@ def _close_trial(
     if decision == "adopt" and helped and knob:
         # Value is already the trial value. Strictly-better rule unchanged.
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
+        try:
+            from colony.external_priors import enabled as _ext_on  # item 115: external hook, switchable
+            if not _ext_on():
+                raise RuntimeError("COLONY_EXTERNAL_PRIORS off")
+            from colony.tools.crystallize import crystallize
+            fp = f"{knob}:{trial.get('direction')}:{trial.get('to')}"
+            crystallize({"fingerprint": fp}, source="colony", category="kept")
+            from colony.tools.symbiotic_exchange import append_receipt
+            append_receipt("colony", "keep", fp, "kept", extra={"to": trial.get("to")})
+        except Exception:
+            pass
         ev = append_evidence(state, {
             "event": "adopt",
             "cycle_id": cycle_id,
@@ -3022,6 +3192,9 @@ def _close_trial(
         "trial_metrics": trial_rows,
         "helped": False,
         "decision_requested": decision,
+        "trial_reason": trial.get("reason"),
+        "tie": bool(trial_score == baseline_score and (not predicted or activity_score == baseline_activity)),
+        "closed_index": int(state.get("cycle_index") or 0),
         **link,
         **stale_fields,
     })
@@ -3658,6 +3831,9 @@ def run_cycle(
     if trial and not st.get("trial") and self_mod:
         # Item 84: a self-heal trial ended this cycle; self-build proposes before the next one.
         st["build_turn"] = {"cycle_id": cycle_id}
+        if fair_turns_enabled():  # item 114: start of the fair-turn yield window
+            st["fair_last_close_index"] = int(st.get("cycle_index") or 0)
+            st["fair_last_trial_started"] = str((trial or {}).get("started_cycle") or "")
     if not st.get("trial"):
         # Item 80: wait while a self-build blueprint trial is open so neither
         # trial is credited with the other's gain (self-mod arm only).
@@ -3687,6 +3863,12 @@ def run_cycle(
         st["trial_skip"] = {"cycle_id": cycle_id,
                             "reason": (_reserve_reason or "self_build_trial_open")
                             if self_build_open else "self_build_turn"}
+        try:
+            save_state(st)
+        except Exception:
+            pass
+    elif not st.get("trial") and (_yield := fair_turn_yield(st)) is not None:
+        st["trial_skip"] = {"cycle_id": cycle_id, **_yield}
         try:
             save_state(st)
         except Exception:

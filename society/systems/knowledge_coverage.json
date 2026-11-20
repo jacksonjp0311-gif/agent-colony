@@ -1,40 +1,40 @@
 {
   "fields": {
     "automated_reasoning": {
-      "cards_formed": 0,
-      "cards_kept": 0,
-      "cards_tested": 0,
-      "concepts": 2,
-      "distinct_concepts": 1,
-      "papers": 8,
-      "reads": 7
-    },
-    "cognitive_science": {
-      "cards_formed": 3,
-      "cards_kept": 0,
-      "cards_tested": 0,
-      "concepts": 4,
-      "distinct_concepts": 3,
-      "papers": 8,
-      "reads": 8
-    },
-    "consciousness_self_models": {
       "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 4,
-      "distinct_concepts": 2,
-      "papers": 8,
-      "reads": 8
+      "distinct_concepts": 1,
+      "papers": 33,
+      "reads": 28
     },
-    "learning_theory": {
-      "cards_formed": 0,
+    "cognitive_science": {
+      "cards_formed": 5,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 9,
-      "distinct_concepts": 2,
-      "papers": 8,
-      "reads": 8
+      "concepts": 6,
+      "distinct_concepts": 3,
+      "papers": 10,
+      "reads": 28
+    },
+    "consciousness_self_models": {
+      "cards_formed": 2,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 7,
+      "distinct_concepts": 3,
+      "papers": 11,
+      "reads": 28
+    },
+    "learning_theory": {
+      "cards_formed": 1,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 19,
+      "distinct_concepts": 3,
+      "papers": 17,
+      "reads": 28
     },
     "mathematics": {
       "cards_formed": 0,
@@ -42,89 +42,89 @@
       "cards_tested": 0,
       "concepts": 0,
       "distinct_concepts": 0,
-      "papers": 16,
-      "reads": 15
+      "papers": 52,
+      "reads": 56
     },
     "meta_learning": {
-      "cards_formed": 0,
+      "cards_formed": 2,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 7,
+      "concepts": 12,
       "distinct_concepts": 3,
-      "papers": 8,
-      "reads": 9
+      "papers": 16,
+      "reads": 29
     },
     "multi_agent_systems": {
       "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 3,
+      "concepts": 5,
       "distinct_concepts": 3,
-      "papers": 8,
-      "reads": 7
+      "papers": 10,
+      "reads": 28
     },
     "neural_architecture": {
-      "cards_formed": 5,
+      "cards_formed": 8,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 12,
-      "distinct_concepts": 7,
-      "papers": 14,
-      "reads": 8
+      "concepts": 31,
+      "distinct_concepts": 8,
+      "papers": 42,
+      "reads": 29
     },
     "open_endedness": {
-      "cards_formed": 6,
+      "cards_formed": 27,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 6,
+      "concepts": 26,
       "distinct_concepts": 1,
-      "papers": 6,
-      "reads": 7
+      "papers": 27,
+      "reads": 28
     },
     "optimization_search": {
+      "cards_formed": 17,
+      "cards_kept": 0,
+      "cards_tested": 0,
+      "concepts": 29,
+      "distinct_concepts": 3,
+      "papers": 28,
+      "reads": 28
+    },
+    "physics_complex_systems": {
       "cards_formed": 3,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 7,
-      "distinct_concepts": 2,
-      "papers": 7,
-      "reads": 7
-    },
-    "physics_complex_systems": {
-      "cards_formed": 1,
-      "cards_kept": 0,
-      "cards_tested": 0,
-      "concepts": 4,
-      "distinct_concepts": 3,
-      "papers": 8,
-      "reads": 7
+      "concepts": 9,
+      "distinct_concepts": 5,
+      "papers": 22,
+      "reads": 28
     },
     "recursive_self_improvement": {
-      "cards_formed": 2,
+      "cards_formed": 4,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 1,
+      "concepts": 2,
       "distinct_concepts": 1,
-      "papers": 8,
-      "reads": 7
+      "papers": 29,
+      "reads": 28
     },
     "self_learning_loops": {
-      "cards_formed": 2,
+      "cards_formed": 5,
+      "cards_kept": 0,
+      "cards_tested": 1,
+      "concepts": 13,
+      "distinct_concepts": 4,
+      "papers": 24,
+      "reads": 29
+    },
+    "swarm_collective_intelligence": {
+      "cards_formed": 9,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 10,
-      "distinct_concepts": 4,
-      "papers": 11,
-      "reads": 8
-    },
-    "swarm_collective_intelligence": {
-      "cards_formed": 6,
-      "cards_kept": 0,
-      "cards_tested": 0,
-      "concepts": 7,
       "distinct_concepts": 2,
-      "papers": 8,
-      "reads": 8
+      "papers": 11,
+      "reads": 29
     }
   },
   "fields_with_papers": 14,
@@ -157,7 +157,33 @@
         "recursive_self_improvement"
       ],
       "idea": "novelty_archive",
-      "n_papers": 9
+      "n_papers": 31
+    },
+    {
+      "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
+      "examples": [
+        {
+          "arxiv_id": "2611.17879",
+          "field": "neural_architecture",
+          "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning"
+        },
+        {
+          "arxiv_id": "2611.17857",
+          "field": "neural_architecture",
+          "title": "Fuse-All MoE Inference Kernel with Load Balancing on TPUs"
+        },
+        {
+          "arxiv_id": "2611.17472",
+          "field": "neural_architecture",
+          "title": "Do Mixture-of-Experts Routers Benefit from Ensembling?"
+        }
+      ],
+      "fields": [
+        "neural_architecture",
+        "physics_complex_systems"
+      ],
+      "idea": "specialist_routing",
+      "n_papers": 22
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -181,10 +207,11 @@
       "fields": [
         "multi_agent_systems",
         "neural_architecture",
+        "physics_complex_systems",
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 8
+      "n_papers": 12
     },
     {
       "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
@@ -209,7 +236,7 @@
         "self_learning_loops"
       ],
       "idea": "self_play_challenger",
-      "n_papers": 7
+      "n_papers": 10
     },
     {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
@@ -235,40 +262,15 @@
         "self_learning_loops"
       ],
       "idea": "meta_controller",
-      "n_papers": 6
-    },
-    {
-      "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
-      "examples": [
-        {
-          "arxiv_id": "2611.17879",
-          "field": "neural_architecture",
-          "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning"
-        },
-        {
-          "arxiv_id": "2611.17857",
-          "field": "neural_architecture",
-          "title": "Fuse-All MoE Inference Kernel with Load Balancing on TPUs"
-        },
-        {
-          "arxiv_id": "2611.17472",
-          "field": "neural_architecture",
-          "title": "Do Mixture-of-Experts Routers Benefit from Ensembling?"
-        }
-      ],
-      "fields": [
-        "neural_architecture"
-      ],
-      "idea": "specialist_routing",
-      "n_papers": 6
+      "n_papers": 9
     }
   ],
   "totals": {
-    "cards_formed": 30,
+    "cards_formed": 85,
     "cards_kept": 0,
-    "cards_tested": 0,
-    "concepts": 76,
-    "papers": 126,
-    "reads": 114
+    "cards_tested": 1,
+    "concepts": 173,
+    "papers": 332,
+    "reads": 424
   }
 }

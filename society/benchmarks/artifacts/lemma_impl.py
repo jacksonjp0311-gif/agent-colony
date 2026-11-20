@@ -2460,6 +2460,169 @@ def check_oeis_a002893_hexagonal_walks(n: int) -> bool:
 
 
 
+
+
+
+
+
+
+
+
+
+
+def check_authored_mut_swap_related_sequence_3b3fef4a07b3() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    cheb3[oxa055394](n) divides (oxa056971*oxa009191)(n) for all n >= 1
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'cheb3[oxa055394]', 'params': {}, 'rhs': '(oxa056971*oxa009191)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+
+
+def check_authored_mut_swap_related_sequence_157fd7ef3654() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    (prime-oxa068307)(n) divides mu[cmax](n) for all n >= 1
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': '(prime-oxa068307)', 'params': {}, 'rhs': 'mu[cmax]'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+def check_authored_mut_swap_related_sequence_5632d000cf00() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    (bigomega+sopfr)(n) <= sigma(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(bigomega+sopfr)', 'params': {}, 'rhs': 'sigma'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def check_authored_mut_swap_related_sequence_7a48b113081b() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    tau[lpf](n) divides (lpf-rad)(n) for all n >= 1
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'tau[lpf]', 'params': {}, 'rhs': '(lpf-rad)'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def check_authored_mut_swap_related_sequence_d4676245056a() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    (bigomega+phi)(n) <= sigma(n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': '(bigomega+phi)', 'params': {}, 'rhs': 'sigma'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+def check_authored_mut_swap_related_sequence_6ca4c72d7eac() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    D(oxa213536)(n) <= prr[oxa213536](n) for all n >= 1 (with equality at some n)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'le', 'lhs': 'D(oxa213536)', 'params': {}, 'rhs': 'prr[oxa213536]'}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+
+
+def check_authored_mut_swap_related_sequence_64cfeb1aea4b() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    D(oxa177122)(n) = 0 (mod 2) for all n = 0 (mod 4)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'D(oxa177122)', 'params': {'m': 2, 'q': 4, 'r': 0, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+
+
+def check_authored_mut_swap_related_sequence_674fad12f030() -> bool:
+    """Authored mutated claim (target generator, swap_related_sequence):
+    gpf[sigma](n) = 1 (mod 2) for all n = 0 (mod 2)
+    verified on windows [(40, 80), (80, 120), (120, 160)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'cong', 'lhs': 'gpf[sigma]', 'params': {'m': 2, 'q': 2, 'r': 1, 's': 0}, 'rhs': ''}, a, b)) is int and c > 0 for a, b in [(40, 80), (80, 120), (120, 160)])
+
+
+
+
+
+
+
+
+def check_authored_mut_widen_range_a52065c8485c() -> bool:
+    """Authored mutated claim (target generator, widen_range):
+    gcd(pell,tau)(n) divides (rad*sqfree)(n) for all n >= 1
+    verified on windows [(400, 700), (700, 1000), (1000, 1300)]. Bounded evidence, not proof.
+    Disabled until the Oracle passes it. Never executes fetched code.
+    """
+    return all(type(c := frontier_holds({'kind': 'divides', 'lhs': 'gcd(pell,tau)', 'params': {}, 'rhs': '(rad*sqfree)'}, a, b)) is int and c > 0 for a, b in [(400, 700), (700, 1000), (1000, 1300)])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Adversarial aliases used by Oracle theme held-out windows (same callables)
 check_adversarial_vandermonde_asymmetric = check_vandermonde_asymmetric
 check_adversarial_hockey_deep = check_binomial_hockey_deep
@@ -2703,6 +2866,15 @@ HARD_TIER_LEMMAS: list[tuple[str, Callable[[], bool], bool]] = [
     ("oeis_a005259_apery_recurrence", lambda: all(check_oeis_a005259_apery_recurrence(n) for n in range(0, 40)), True),
     ("oeis_a000172_franel_recurrence", lambda: all(check_oeis_a000172_franel_recurrence(n) for n in range(0, 40)), True),
     ("oeis_a002893_hexagonal_walks", lambda: all(check_oeis_a002893_hexagonal_walks(n) for n in range(0, 40)), True),
+    ("authored_mut_swap_related_sequence_3b3fef4a07b3", check_authored_mut_swap_related_sequence_3b3fef4a07b3, False),
+    ("authored_mut_swap_related_sequence_157fd7ef3654", check_authored_mut_swap_related_sequence_157fd7ef3654, False),
+    ("authored_mut_swap_related_sequence_5632d000cf00", check_authored_mut_swap_related_sequence_5632d000cf00, False),
+    ("authored_mut_swap_related_sequence_7a48b113081b", check_authored_mut_swap_related_sequence_7a48b113081b, False),
+    ("authored_mut_swap_related_sequence_d4676245056a", check_authored_mut_swap_related_sequence_d4676245056a, False),
+    ("authored_mut_swap_related_sequence_6ca4c72d7eac", check_authored_mut_swap_related_sequence_6ca4c72d7eac, False),
+    ("authored_mut_swap_related_sequence_64cfeb1aea4b", check_authored_mut_swap_related_sequence_64cfeb1aea4b, False),
+    ("authored_mut_swap_related_sequence_674fad12f030", check_authored_mut_swap_related_sequence_674fad12f030, False),
+    ("authored_mut_widen_range_a52065c8485c", check_authored_mut_widen_range_a52065c8485c, False),
 ]
 
 

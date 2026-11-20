@@ -48,6 +48,11 @@ NUMERIC_FIELDS = (
     "adopts",
     "reverts",
     "cycle_count",
+    # Item 113: honest depth restatement (appended fields; old rows untouched).
+    "honest_verified_depth_sum",
+    "honest_beyond_published_count",
+    "honest_beyond_depth_sum",
+    "published_range_only_count",
 )
 
 NOISE_NOTE = (
@@ -167,6 +172,83 @@ def _self_heal_frozen(state_root: Path, heal: dict[str, Any]) -> bool:
     return bool(heal.get("frozen"))
 
 
+# Item 113: depth past the published range counts only with an INDEPENDENT
+# definition. A g.f. claim with no definition was extended by evaluating the
+# claim's own expression (computable_definition fallback, f83caede7), so past
+# the b-file the claim was compared with itself and could not fail. Such
+# entries are "published_range_only": credited depth is capped at published_hi.
+# Metric only: the Oracle and every gate are unchanged.
+BASIS_MENU = "independent_menu_definition"
+BASIS_NAME = "independent_name_definition"
+BASIS_PUBLISHED_ONLY = "published_range_only"
+_WIDENED_DEFS = Path(REPO_ROOT, "society", "systems", "oeis_widened_definitions.json")
+
+
+def _menu_by_id(state_root: Path) -> dict[str, dict[str, Any]]:
+    for p in (Path(state_root) / "society" / "frontier" / "oeis_conjectures.json",
+              Path(REPO_ROOT, "society", "frontier", "oeis_conjectures.json")):
+        doc = _load(p)
+        if doc:
+            return {str(e.get("id")): e for e in (doc.get("entries") or []) if isinstance(e, dict)}
+    return {}
+
+
+def _terms_sha(e: dict[str, Any]) -> str:
+    import hashlib
+    h = hashlib.sha256(json.dumps([e.get("offset"), e.get("terms")], separators=(",", ":")).encode())
+    return h.hexdigest()[:16]
+
+
+def depth_basis(entry: dict[str, Any] | None, widened: dict[str, Any] | None = None) -> str:
+    """Why an extension's depth past the published range can (or cannot) be credited.
+
+    Independent = the menu entry's own vetted definition (not the claim's own
+    expression), or an item-105 NAME definition (provenance ``name``; FORMULA
+    and guessed definitions are conditional and do not count). Anything else
+    is ``published_range_only``. Independent of env switches: same rule on
+    both arms.
+    """
+    if not isinstance(entry, dict):
+        return BASIS_PUBLISHED_ONLY
+    claim_expr = str(((entry.get("claim") or {}).get("expr")) or "").strip()
+    d = entry.get("definition")
+    if isinstance(d, dict) and (d.get("kind") or d.get("expr")):
+        if str(d.get("expr") or "").strip() and str(d.get("expr") or "").strip() == claim_expr:
+            return BASIS_PUBLISHED_ONLY
+        return BASIS_MENU
+    row = ((widened or {}).get("entries") or {}).get(str(entry.get("id") or ""))
+    if isinstance(row, dict) and isinstance(row.get("definition"), dict):
+        wd = row["definition"]
+        if (wd.get("provenance") == "name" and row.get("terms_sha") == _terms_sha(entry)
+                and str(wd.get("expr") or "").strip() != claim_expr):
+            return BASIS_NAME
+    return BASIS_PUBLISHED_ONLY
+
+
+def external_attribution() -> dict[str, Any]:
+    """Item 115: externally authored influences active on each arm (not colony-chosen).
+
+    The treatment flag follows the COLONY_EXTERNAL_PRIORS switch (default live);
+    the control arm never runs them. Read from the switch, not the scoreboard
+    job's own arm, so the record does not depend on which job writes it.
+    """
+    on = (os.environ.get("COLONY_EXTERNAL_PRIORS") or "live").strip().lower() == "live"
+    try:
+        from colony.external_priors import AUTHORED_BY, COMPONENTS
+    except Exception:  # noqa: BLE001
+        AUTHORED_BY, COMPONENTS = "external", ()
+    return {
+        "treatment_external_priors": on,
+        "control_external_priors": False,
+        "authored_by": AUTHORED_BY,
+        "colony_chosen": False,
+        "components": list(COMPONENTS),
+        "note": ("Externally authored Hive priors / live fetches were active on treatment only while "
+                 "treatment_external_priors is true; a lead in those runs is not credited to changes "
+                 "the colony chose itself."),
+    }
+
+
 def non_routine_count(proofs: dict[str, Any]) -> int:
     """Item 107: a proof is non-routine only with a VERIFIED machine certificate and a non-routine
     type. Rows without ``certificate_verified`` (all earlier proofs) never count as non-routine."""
@@ -189,6 +271,12 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
     depths: list[dict[str, Any]] = []
     depth_sum = 0
     beyond = 0
+    menu = _menu_by_id(Path(state_root)) if extensions else {}
+    widened = (_load(_WIDENED_DEFS) or {}) if extensions else {}
+    honest_sum = 0
+    honest_beyond = 0
+    honest_beyond_depth = 0
+    range_only = 0
     for eid, rec in extensions.items():
         if not isinstance(rec, dict):
             continue
@@ -204,6 +292,14 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
         is_beyond = to > published
         if is_beyond:
             beyond += 1
+        basis = depth_basis(menu.get(str(eid)), widened)
+        credited = to if basis != BASIS_PUBLISHED_ONLY else min(to, published)
+        honest_sum += credited
+        if basis != BASIS_PUBLISHED_ONLY and is_beyond:
+            honest_beyond += 1
+            honest_beyond_depth += to
+        if basis == BASIS_PUBLISHED_ONLY and is_beyond:
+            range_only += 1
         depths.append({
             "id": eid,
             "anum": rec.get("anum"),
@@ -211,6 +307,8 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
             "published_hi": published,
             "beyond_published": is_beyond,
             "check": rec.get("check"),
+            "depth_basis": basis,
+            "credited_depth": credited,
         })
     depths.sort(key=lambda r: (-int(r.get("verified_depth") or 0), str(r.get("anum") or "")))
 
@@ -250,6 +348,10 @@ def collect_arm_metrics(state_root: Path) -> dict[str, Any]:
         "oracle_kills": int(oracle.get("kills") or 0),
         "verified_depth_sum": int(depth_sum),
         "beyond_published_count": int(beyond),
+        "honest_verified_depth_sum": int(honest_sum),
+        "honest_beyond_published_count": int(honest_beyond),
+        "honest_beyond_depth_sum": int(honest_beyond_depth),
+        "published_range_only_count": int(range_only),
         "depths": depths,
         "counterexamples": int(len(counters)),
         "proofs": int(proofs_n),
@@ -443,9 +545,28 @@ def update_scoreboard(
             "treatment_cycles": t.get("cycle_count"),
             "control_cycles": 0 if control_missing else c.get("cycle_count"),
         }
+        _attr = external_attribution()
+        row["external_priors"] = {"treatment": _attr["treatment_external_priors"], "control": False,
+                                  "colony_chosen": False}
         history.append(row)
 
     paired_runs = sum(1 for row in history if _is_paired_row(row))
+
+    # Item 113: one-time restatement record (appended once; never rewritten).
+    restatements = [dict(r) for r in (board.get("restatements") or []) if isinstance(r, dict)]
+    if not any(r.get("item") == 113 for r in restatements) and t.get("honest_verified_depth_sum") is not None:
+        keys = ("verified_depth_sum", "beyond_published_count", "honest_verified_depth_sum",
+                "honest_beyond_published_count", "honest_beyond_depth_sum", "published_range_only_count")
+        restatements.append({
+            "item": 113,
+            "ts": _utc(),
+            "note": ("Depth past the published range is credited only with an independent definition "
+                     "(menu definition or item-105 NAME definition). g.f. claims extended with their own "
+                     "expression are published_range_only and capped at published_hi. Metric only; the "
+                     "Oracle is unchanged and earlier history rows are not rewritten."),
+            "treatment": {k: t.get(k) for k in keys},
+            "control": None if control_missing else {k: c.get(k) for k in keys},
+        })
 
     # Top-level delta is only for a paired run. A failed or missing
     # control does not invent a treatment-minus-control lead.
@@ -465,6 +586,9 @@ def update_scoreboard(
         "control_result": control_result,
         "history": history,
     }
+    if restatements:
+        board["restatements"] = restatements
+    board["attribution"] = external_attribution()
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(board, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     # Close any method-card adopts that were waiting on this snapshot.
@@ -490,6 +614,10 @@ def _empty_metrics() -> dict[str, Any]:
         "oracle_kills": 0,
         "verified_depth_sum": 0,
         "beyond_published_count": 0,
+        "honest_verified_depth_sum": 0,
+        "honest_beyond_published_count": 0,
+        "honest_beyond_depth_sum": 0,
+        "published_range_only_count": 0,
         "depths": [],
         "counterexamples": 0,
         "proofs": 0,
@@ -693,6 +821,9 @@ def dashboard_section(board: dict[str, Any] | None = None) -> str:
             f"(Δ { _fmt_delta(d.get('oracle_passes')) }); "
             f"verified depth sum {t.get('verified_depth_sum', '—')} vs {c.get('verified_depth_sum', '—')} "
             f"(Δ { _fmt_delta(d.get('verified_depth_sum')) }); "
+            f"honest depth (independent definitions only) {t.get('honest_verified_depth_sum', '—')} vs "
+            f"{c.get('honest_verified_depth_sum', '—')}, beyond published {t.get('honest_beyond_published_count', '—')} vs "
+            f"{c.get('honest_beyond_published_count', '—')}; "
             f"adopts {t.get('adopts', '—')} vs {c.get('adopts', '—')} "
             f"(Δ { _fmt_delta(d.get('adopts')) })."
         )
@@ -737,6 +868,7 @@ def format_visibility(board: dict[str, Any] | None = None) -> str:
         f"paired_runs {b.get('paired_runs') or 0}; "
         f"Δpasses {_fmt_delta(d.get('oracle_passes'))}; "
         f"Δdepth {_fmt_delta(d.get('verified_depth_sum'))}; "
+        f"Δhonest_depth {_fmt_delta(d.get('honest_verified_depth_sum'))}; "
         f"Δadopts {_fmt_delta(d.get('adopts'))} "
         f"(early differences are noise)"
     )

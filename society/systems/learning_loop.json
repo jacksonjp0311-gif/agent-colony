@@ -1,7 +1,16 @@
 {
   "applied_to_live_oracle": false,
   "authorized": false,
-  "cards": {},
+  "cards": {
+    "mc_bacbbd75d04b": {
+      "keep_rate_permille": 0,
+      "kept": 0,
+      "method": "Perturb candidate claims a little more widely (annealing-style search).",
+      "n": 1,
+      "reverted": 1,
+      "voided": 0
+    }
+  },
   "examples": [
     {
       "action": {
@@ -1775,6 +1784,1532 @@
           "treatment": 511350.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 8
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 5.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261116T202906Z_a13d81",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "3048c8fb45ec4fc9",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "3048c8fb45ec4fc9",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-16T20:32:03Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8563
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 586.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 133618.0,
+          "treatment": 531349.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 10
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261116T212728Z_656378",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "d9d96dc1876a47d7",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "kept",
+      "self_heal_helped": true,
+      "source": "self_heal",
+      "source_id": "d9d96dc1876a47d7",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": true,
+      "trial_score": 7.0,
+      "ts": "2026-11-16T21:29:59Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8338
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 587.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 133618.0,
+          "treatment": 531349.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 10
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 7.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261116T230504Z_2f9546",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "117844a4de8c4164",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "117844a4de8c4164",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 6.0,
+      "ts": "2026-11-16T23:07:17Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8592
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 588.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 141617.0,
+          "treatment": 551348.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 10
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 6.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261117T000430Z_7fec4f",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "8f83ffa55a8046db",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "8f83ffa55a8046db",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-17T00:07:12Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8579
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 589.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 157615.0,
+          "treatment": 591346.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 10
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261117T010509Z_15fab9",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "1cbfd35c05c849a8",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "1cbfd35c05c849a8",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-17T01:07:47Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8565
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 590.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 157615.0,
+          "treatment": 591346.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 10
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261117T022831Z_add0c8",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "d4e8086baa074c65",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "d4e8086baa074c65",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-17T02:31:30Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8562
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 590.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 157615.0,
+          "treatment": 611345.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 5.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261117T115227Z_31a000",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "128361acc0a14add",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "kept",
+      "self_heal_helped": true,
+      "source": "self_heal",
+      "source_id": "128361acc0a14add",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": true,
+      "trial_score": 7.0,
+      "ts": "2026-11-17T11:55:00Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8539
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 592.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 196523.0,
+          "treatment": 707725.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 7.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261117T121839Z_ea1759",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "1da374cd1f484711",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "1da374cd1f484711",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-17T12:21:56Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8527
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 593.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 203179.0,
+          "treatment": 723341.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 5.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261117T141904Z_441571",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "51e586d3633c4d3f",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "51e586d3633c4d3f",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-17T14:21:43Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8444
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 595.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 227176.0,
+          "treatment": 783338.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T052640Z_d72734",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "34e2fa097eec44c4",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "34e2fa097eec44c4",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-18T05:30:58Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8214,
+          "treatment": 0.8437
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 599.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 291168.0,
+          "treatment": 1063324.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 11
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T063231Z_f7d8ec",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "1f26168288f243f9",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "kept",
+      "self_heal_helped": true,
+      "source": "self_heal",
+      "source_id": "1f26168288f243f9",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": true,
+      "trial_score": 9.0,
+      "ts": "2026-11-18T06:35:47Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8077
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 600.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 307166.0,
+          "treatment": 1163319.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T084732Z_ecfd3b",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "fd8d02e33a614d69",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "kept",
+      "self_heal_helped": true,
+      "source": "self_heal",
+      "source_id": "fd8d02e33a614d69",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": true,
+      "trial_score": 6.0,
+      "ts": "2026-11-18T08:50:43Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8043
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 601.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 352281.0,
+          "treatment": 1367374.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 9.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T102815Z_f488c2",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "da1d244fe42c46b7",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "da1d244fe42c46b7",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 2.0,
+      "ts": "2026-11-18T10:32:13Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8407
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 601.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 384277.0,
+          "treatment": 1507367.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 12
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 3.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T115552Z_3b7d06",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "c861ebffed944d4e",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "kept",
+      "self_heal_helped": true,
+      "source": "self_heal",
+      "source_id": "c861ebffed944d4e",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": true,
+      "trial_score": 13.0,
+      "ts": "2026-11-18T11:58:25Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8403
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 601.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 395604.0,
+          "treatment": 1566309.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 12
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 10.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T135951Z_b01427",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "hive_vote": {
+        "correct": false,
+        "deferred_count": 2,
+        "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
+        "lower_permille": 853,
+        "margin": 189
+      },
+      "id": "c0fc48644cc6447d",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "c0fc48644cc6447d",
+      "sources": [
+        "self_heal",
+        "hive_vote"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-18T14:02:50Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8369
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 603.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 12
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T152905Z_deeb8d",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "797a1dbc64684c4d",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "797a1dbc64684c4d",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-18T15:32:32Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8214,
+          "treatment": 0.7996
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 604.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T202459Z_211471",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "d4709cb76d3a4b32",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "d4709cb76d3a4b32",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-18T20:28:47Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8257
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 607.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261118T221919Z_a13b46",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "2da8e5f243364049",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "2da8e5f243364049",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-18T22:22:39Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8302
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 607.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "perturb_epsilon",
+        "op": "set_knob",
+        "value": 0.3
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "mc_bacbbd75d04b",
+      "concept": "",
+      "cycle_id": "20261119T005408Z_a427b4",
+      "event": "labeled_example",
+      "family": "set_knob:perturb_epsilon",
+      "field": "",
+      "id": "9996cd2bd3374f43",
+      "knob": "perturb_epsilon",
+      "method": "Perturb candidate claims a little more widely (annealing-style search).",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "9996cd2bd3374f43",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T00:57:07Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.7868
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 609.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T024154Z_15fcbb",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "7c13ec23f2784573",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "7c13ec23f2784573",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 0.0,
+      "ts": "2026-11-19T02:46:12Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8214,
+          "treatment": 0.791
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 609.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T032234Z_7a7360",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "0d658d9ff43e47f8",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "0d658d9ff43e47f8",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-19T03:25:40Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.7847
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 610.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T075824Z_51ad55",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "49d5163b999948bc",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "49d5163b999948bc",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T08:02:43Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8216
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 612.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 8.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T102452Z_a9c344",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "39c274caa1c744e6",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "39c274caa1c744e6",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 0.0,
+      "ts": "2026-11-19T10:29:14Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.822
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 613.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T113952Z_767269",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "4a3d1362ac6e4136",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "4a3d1362ac6e4136",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-19T11:42:53Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8193
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 614.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T140151Z_3ffac7",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "3762588daef94d89",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "3762588daef94d89",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T14:04:38Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8174
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 616.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T153843Z_bb7b69",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "550f1e34348e40e2",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "550f1e34348e40e2",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T15:41:58Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8214,
+          "treatment": 0.8235
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 617.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 12
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T165615Z_1d9732",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "b7f1eae0b0d34e79",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "b7f1eae0b0d34e79",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T17:01:25Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.786
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 618.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 8.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T183936Z_6fc954",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "9d63f2503af94e2d",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "9d63f2503af94e2d",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T18:44:00Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8175
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 620.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T200241Z_af2e28",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "fcb18cc1fdc14ce5",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "fcb18cc1fdc14ce5",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T20:05:33Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8185
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 621.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "park_cycles",
+        "op": "set_knob",
+        "value": 12
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T202351Z_2926a6",
+      "event": "labeled_example",
+      "family": "set_knob:park_cycles",
+      "field": "",
+      "id": "be98aaf170e74ef3",
+      "knob": "park_cycles",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "be98aaf170e74ef3",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-19T20:27:40Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8238
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 621.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261119T233754Z_aa8d37",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "1c04a73361a64541",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "1c04a73361a64541",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-19T23:42:30Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8228
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 623.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "evaluation_window",
+        "op": "set_knob",
+        "value": 7
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 8.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261120T012810Z_d01708",
+      "event": "labeled_example",
+      "family": "set_knob:evaluation_window",
+      "field": "",
+      "id": "6fca46ef412e4bd6",
+      "knob": "evaluation_window",
+      "method": "",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "6fca46ef412e4bd6",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 4.0,
+      "ts": "2026-11-20T01:31:36Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8174
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 625.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
+    },
+    {
+      "action": {
+        "direction": "down",
+        "name": "step_size",
+        "op": "set_knob",
+        "value": 0.0975
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 4.0,
+      "card_id": "",
+      "concept": "",
+      "cycle_id": "20261120T020051Z_6fd496",
+      "event": "labeled_example",
+      "family": "set_knob:step_size",
+      "field": "",
+      "id": "e6196b5560864569",
+      "knob": "step_size",
+      "method": "",
+      "outcome": "voided",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "e6196b5560864569",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": null,
+      "ts": "2026-11-20T02:03:58Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8231
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 625.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 411602.0,
+          "treatment": 1661153.0
+        }
+      }
     }
   ],
   "families": {
@@ -1791,6 +3326,13 @@
       "kept": 0,
       "n": 2,
       "reverted": 1,
+      "voided": 1
+    },
+    "set_knob:evaluation_window": {
+      "keep_rate_permille": 125,
+      "kept": 1,
+      "n": 8,
+      "reverted": 6,
       "voided": 1
     },
     "set_knob:fast_term_cap": {
@@ -1810,11 +3352,11 @@
       "voided": 3
     },
     "set_knob:park_cycles": {
-      "keep_rate_permille": 111,
-      "kept": 1,
-      "n": 9,
-      "reverted": 3,
-      "voided": 5
+      "keep_rate_permille": 190,
+      "kept": 4,
+      "n": 21,
+      "reverted": 9,
+      "voided": 8
     },
     "set_knob:perturb_cooldown_cycles": {
       "keep_rate_permille": 0,
@@ -1826,37 +3368,44 @@
     "set_knob:perturb_epsilon": {
       "keep_rate_permille": 0,
       "kept": 0,
-      "n": 1,
-      "reverted": 0,
+      "n": 2,
+      "reverted": 1,
       "voided": 1
+    },
+    "set_knob:step_size": {
+      "keep_rate_permille": 83,
+      "kept": 1,
+      "n": 12,
+      "reverted": 6,
+      "voided": 5
     }
   },
-  "last_cycle": "20261116T192905Z_bc22f0",
+  "last_cycle": "20261120T021320Z_ed9646",
   "last_hive_deferral": {
     "action": {
       "direction": "up",
       "name": "park_cycles",
       "op": "set_knob",
-      "value": 10
+      "value": 13
     },
     "applied_to_live_oracle": false,
     "authorized": false,
     "card_id": "",
-    "cycle_id": "20261116T182728Z_138eae",
-    "deferred_count": 1,
-    "deferred_under": "cd915bf5d0c93375dd0757a6b8b65459b49add501582db78b99aa9f886265344",
+    "cycle_id": "20261120T020051Z_6fd496",
+    "deferred_count": 2,
+    "deferred_under": "b0959d50d1797c553605bd59bb9278bca0913bd084f8486d985ebf79d7e831d2",
     "event": "hive_deferred",
-    "fingerprint": "set_knob:direction=up:name=park_cycles:value=10",
+    "fingerprint": "set_knob:direction=up:name=park_cycles:value=13",
     "label": "dead_end_streak",
     "method": "",
-    "ts": "2026-11-16T18:29:44Z"
+    "ts": "2026-11-20T02:04:23Z"
   },
   "n_inconclusive": 6,
-  "n_kept": 13,
-  "n_proposed": 7,
-  "n_reverted": 6,
+  "n_kept": 18,
+  "n_proposed": 10,
+  "n_reverted": 25,
   "n_twin_held": 0,
-  "n_voided": 15,
+  "n_voided": 24,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
   "pending": [
     {
@@ -1987,16 +3536,71 @@
       "method": "Remember already-tried targets for longer before retrying them (longer working memory).",
       "source": "hive_vote",
       "ts": "2026-11-16T03:42:04Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "retry_policy_cycles",
+        "op": "set_knob",
+        "value": 4
+      },
+      "card_id": "mc_c54402191c99",
+      "concept": "",
+      "cycle_id": "20261117T105055Z_eb1662",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=up:name=retry_policy_cycles:value=4",
+      "knob": "retry_policy_cycles",
+      "method": "Replay failed attempts before giving up, so the colony learns from its own misses.",
+      "source": "hive_vote",
+      "ts": "2026-11-17T10:53:55Z"
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "desk_budget",
+        "op": "set_knob",
+        "value": 3
+      },
+      "card_id": "mc_8be63b92fc9d",
+      "concept": "",
+      "cycle_id": "20261118T042847Z_3cd35f",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "set_knob:direction=up:name=desk_budget:value=3",
+      "knob": "desk_budget",
+      "method": "Bound how much work one desk may do in a cycle.",
+      "source": "hive_vote",
+      "ts": "2026-11-18T04:31:52Z"
+    },
+    {
+      "action": {
+        "family": "algebraic",
+        "op": "add_family_rotation"
+      },
+      "card_id": "mc_dec77af285c3",
+      "concept": "",
+      "cycle_id": "20261118T092611Z_bdc428",
+      "deferred_count": 2,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "add_family_rotation:family=algebraic",
+      "knob": null,
+      "method": "Rotate which claim family is attempted so search does not stick on one shape.",
+      "source": "hive_vote",
+      "ts": "2026-11-18T09:32:09Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 100,
-    "pending": 97,
-    "resolved": 100,
+    "incorrect": 1,
+    "pending": 199,
+    "resolved": 1,
     "source": "hive_shadows",
-    "ts": "2026-11-16T19:32:44Z",
+    "ts": "2026-11-20T02:17:48Z",
     "unlabeled": 0
   },
   "twin_pending": [],

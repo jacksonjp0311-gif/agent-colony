@@ -1,76 +1,6 @@
 {
  "claims": [
   {
-   "anum": "A002375",
-   "bfile_sha256": "e917a47a97e47f19",
-   "checked": "2026-10-18T12:22:31Z",
-   "cpu_s": 0.642,
-   "cycle_id": "20261018T122117Z_9369ae",
-   "d": 0,
-   "data_file": "society/frontier/data/A002375_beyond.txt",
-   "first": [
-    20001,
-    593
-   ],
-   "frontier_k_max": 20000,
-   "frontier_source": "https://oeis.org/A002375/b002375.txt",
-   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "gb_u_odd:terms",
-   "k_range": [
-    20001,
-    21000
-   ],
-   "label": "computed beyond published frontier (verified 2 ways)",
-   "last": [
-    21000,
-    984
-   ],
-   "linked_k_max": 20000,
-   "methods": [
-    "numpy FFT convolution of the prime indicator (floating point, rounded)",
-    "direct integer enumeration over an independent odd-only sieve"
-   ],
-   "n_terms": 1000,
-   "name": "From Goldbach conjecture: number of decompositions of 2n into an unordered sum of two odd primes.",
-   "op": "terms",
-   "ts": "2026-10-18T12:22:32Z"
-  },
-  {
-   "anum": "A035026",
-   "bfile_sha256": "7587365638dd226b",
-   "checked": "2026-10-18T12:50:00Z",
-   "cpu_s": 0.376,
-   "cycle_id": "20261018T124829Z_74e36f",
-   "d": 0,
-   "data_file": "society/frontier/data/A035026_beyond.txt",
-   "first": [
-    10001,
-    352
-   ],
-   "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A035026/b035026.txt",
-   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "gb_o_all:terms",
-   "k_range": [
-    10001,
-    11000
-   ],
-   "label": "computed beyond published frontier (verified 2 ways)",
-   "last": [
-    11000,
-    544
-   ],
-   "linked_k_max": 10000,
-   "methods": [
-    "numpy FFT convolution of the prime indicator (floating point, rounded)",
-    "direct integer enumeration over an independent odd-only sieve"
-   ],
-   "n_terms": 1000,
-   "name": "Number of times that i and 2n-i are both prime, for i = 1, ..., 2n-1.",
-   "op": "terms",
-   "ts": "2026-10-18T12:50:01Z"
-  },
-  {
    "anum": "A047160",
    "bfile_sha256": "72ce0134afaabba4",
    "checked": "2026-10-18T12:55:48Z",
@@ -106,56 +36,56 @@
    "ts": "2026-10-18T12:55:48Z"
   },
   {
-   "anum": "A006577",
-   "bfile_sha256": "45d02dc2e7bbc236",
-   "checked": "2026-10-18T12:57:24Z",
-   "cpu_s": 0.039,
-   "cycle_id": "20261018T125555Z_a08606",
+   "anum": "A002375",
+   "bfile_sha256": "e917a47a97e47f19",
+   "checked": "2026-11-17T12:45:45Z",
+   "cpu_s": 0.471,
+   "cycle_id": "20261117T124152Z_26bf27",
    "d": 0,
-   "data_file": "society/frontier/data/A006577_beyond.txt",
+   "data_file": "control/society/frontier/data/A002375_beyond.txt",
    "first": [
-    10001,
-    179
+    20001,
+    593
    ],
-   "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A006577/b006577.txt",
+   "frontier_k_max": 20000,
+   "frontier_source": "https://oeis.org/A002375/b002375.txt",
    "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "col_steps:terms",
+   "item": "gb_u_odd:terms",
    "k_range": [
-    10001,
-    11000
+    20001,
+    21000
    ],
    "label": "computed beyond published frontier (verified 2 ways)",
    "last": [
-    11000,
-    42
+    21000,
+    984
    ],
-   "linked_k_max": 10000,
+   "linked_k_max": 20000,
    "methods": [
-    "memoized iteration (stops at the first smaller value)",
-    "naive bit-level iteration with the (3x+1)/2 shortcut"
+    "numpy FFT convolution of the prime indicator (floating point, rounded)",
+    "direct integer enumeration over an independent odd-only sieve"
    ],
    "n_terms": 1000,
-   "name": "Number of halving and tripling steps to reach 1 in '3x+1' problem, or -1 if 1 is never reached.",
+   "name": "From Goldbach conjecture: number of decompositions of 2n into an unordered sum of two odd primes.",
    "op": "terms",
-   "ts": "2026-10-18T12:57:24Z"
+   "ts": "2026-11-17T12:45:45Z"
   },
   {
-   "anum": "A006667",
-   "bfile_sha256": "23235908a8daf58b",
-   "checked": "2026-10-18T12:58:56Z",
-   "cpu_s": 0.039,
-   "cycle_id": "20261018T125730Z_b17c0b",
+   "anum": "A035026",
+   "bfile_sha256": "7587365638dd226b",
+   "checked": "2026-11-17T12:51:05Z",
+   "cpu_s": 0.247,
+   "cycle_id": "20261117T124852Z_efdda8",
    "d": 0,
-   "data_file": "society/frontier/data/A006667_beyond.txt",
+   "data_file": "control/society/frontier/data/A035026_beyond.txt",
    "first": [
     10001,
-    64
+    352
    ],
    "frontier_k_max": 10000,
-   "frontier_source": "https://oeis.org/A006667/b006667.txt",
+   "frontier_source": "https://oeis.org/A035026/b035026.txt",
    "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
-   "item": "col_odd:terms",
+   "item": "gb_o_all:terms",
    "k_range": [
     10001,
     11000
@@ -163,26 +93,26 @@
    "label": "computed beyond published frontier (verified 2 ways)",
    "last": [
     11000,
-    11
+    544
    ],
    "linked_k_max": 10000,
    "methods": [
-    "memoized iteration (stops at the first smaller value)",
-    "naive bit-level iteration with the (3x+1)/2 shortcut"
+    "numpy FFT convolution of the prime indicator (floating point, rounded)",
+    "direct integer enumeration over an independent odd-only sieve"
    ],
    "n_terms": 1000,
-   "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
+   "name": "Number of times that i and 2n-i are both prime, for i = 1, ..., 2n-1.",
    "op": "terms",
-   "ts": "2026-10-18T12:58:56Z"
+   "ts": "2026-11-17T12:51:06Z"
   },
   {
    "anum": "A006666",
    "bfile_sha256": "b4541b86d1985fa2",
-   "checked": "2026-10-18T13:02:20Z",
-   "cpu_s": 0.02,
-   "cycle_id": "20261018T130110Z_62a316",
+   "checked": "2026-11-17T13:14:03Z",
+   "cpu_s": 0.031,
+   "cycle_id": "20261117T130902Z_672f89",
    "d": 0,
-   "data_file": "society/frontier/data/A006666_beyond.txt",
+   "data_file": "control/society/frontier/data/A006666_beyond.txt",
    "first": [
     10001,
     115
@@ -208,16 +138,51 @@
    "n_terms": 1000,
    "name": "Number of halving steps to reach 1 in '3x+1' problem, or -1 if this never happens.",
    "op": "terms",
-   "ts": "2026-10-18T13:02:20Z"
+   "ts": "2026-11-17T13:14:03Z"
+  },
+  {
+   "anum": "A006667",
+   "bfile_sha256": "23235908a8daf58b",
+   "checked": "2026-11-17T13:17:15Z",
+   "cpu_s": 0.03,
+   "cycle_id": "20261117T131433Z_c03f69",
+   "d": 0,
+   "data_file": "control/society/frontier/data/A006667_beyond.txt",
+   "first": [
+    10001,
+    64
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A006667/b006667.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_odd:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    11
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Number of tripling steps to reach 1 from n in '3x+1' problem, or -1 if 1 is never reached.",
+   "op": "terms",
+   "ts": "2026-11-17T13:17:15Z"
   },
   {
    "anum": "A025586",
    "bfile_sha256": "9778c2d36745e53e",
-   "checked": "2026-10-18T13:03:33Z",
-   "cpu_s": 0.02,
-   "cycle_id": "20261018T130224Z_542f3d",
+   "checked": "2026-11-17T13:17:17Z",
+   "cpu_s": 0.028,
+   "cycle_id": "20261117T131433Z_c03f69",
    "d": 0,
-   "data_file": "society/frontier/data/A025586_beyond.txt",
+   "data_file": "control/society/frontier/data/A025586_beyond.txt",
    "first": [
     10001,
     250504
@@ -243,16 +208,16 @@
    "n_terms": 1000,
    "name": "Largest value in '3x+1' trajectory of n.",
    "op": "terms",
-   "ts": "2026-10-18T13:03:33Z"
+   "ts": "2026-11-17T13:17:17Z"
   },
   {
    "anum": "A102419",
    "bfile_sha256": "2e4226aa560903dd",
-   "checked": "2026-10-18T13:04:41Z",
-   "cpu_s": 0.02,
-   "cycle_id": "20261018T130337Z_925ac5",
+   "checked": "2026-11-17T13:17:21Z",
+   "cpu_s": 0.028,
+   "cycle_id": "20261117T131433Z_c03f69",
    "d": 0,
-   "data_file": "society/frontier/data/A102419_beyond.txt",
+   "data_file": "control/society/frontier/data/A102419_beyond.txt",
    "first": [
     10001,
     3
@@ -278,7 +243,42 @@
    "n_terms": 1000,
    "name": "\"Dropping time\" in 3x+1 problem starting at n (number of steps to reach a lower number than starting value); a(1) = 0 by convention. Also called glide(n).",
    "op": "terms",
-   "ts": "2026-10-18T13:04:41Z"
+   "ts": "2026-11-17T13:17:21Z"
+  },
+  {
+   "anum": "A006577",
+   "bfile_sha256": "45d02dc2e7bbc236",
+   "checked": "2026-11-17T13:20:51Z",
+   "cpu_s": 0.028,
+   "cycle_id": "20261117T131753Z_ebec71",
+   "d": 0,
+   "data_file": "control/society/frontier/data/A006577_beyond.txt",
+   "first": [
+    10001,
+    179
+   ],
+   "frontier_k_max": 10000,
+   "frontier_source": "https://oeis.org/A006577/b006577.txt",
+   "how_sure": "beyond the OEIS b-file and every table linked from the entry on the date checked; other sources (papers, personal sites) not checked; easy extension (under 5 CPU-seconds): the b-file is short, not the edge of what is known, so these values are very likely computed elsewhere",
+   "item": "col_steps:terms",
+   "k_range": [
+    10001,
+    11000
+   ],
+   "label": "computed beyond published frontier (verified 2 ways)",
+   "last": [
+    11000,
+    42
+   ],
+   "linked_k_max": 10000,
+   "methods": [
+    "memoized iteration (stops at the first smaller value)",
+    "naive bit-level iteration with the (3x+1)/2 shortcut"
+   ],
+   "n_terms": 1000,
+   "name": "Number of halving and tripling steps to reach 1 in '3x+1' problem, or -1 if 1 is never reached.",
+   "op": "terms",
+   "ts": "2026-11-17T13:20:51Z"
   }
  ]
 }

@@ -2150,6 +2150,17 @@ def remember_attempt(
             if r.get("deep_elapsed_s") is not None:
                 rec["deep_elapsed_s"] = r.get("deep_elapsed_s")
         log["attempts"].append(rec)
+    # Archive rows that fall off the 400-window. Append-only. Fail-open.
+    try:
+        dropped = log["attempts"][:-400] if len(log["attempts"]) > 400 else []
+        if dropped:
+            archive = ATTEMPT_LOG.with_name("oeis_attempt_archive.jsonl")
+            archive.parent.mkdir(parents=True, exist_ok=True)
+            with archive.open("a", encoding="utf-8") as f:
+                for row in dropped:
+                    f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
     log["attempts"] = log["attempts"][-400:]
     if form:
         last = list(log.get("last_forms") or [])

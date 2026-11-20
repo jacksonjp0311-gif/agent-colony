@@ -1,11 +1,11 @@
 {
-  "ts": "2026-11-16T19:24:25Z",
+  "ts": "2026-11-20T02:07:41Z",
   "version": 1,
   "mile": "spark2_telemetry",
   "internal": {
     "fitness_latest": {
-      "ts": "2026-11-16T19:21:29Z",
-      "cycle_id": "20261116T191911Z_c70733",
+      "ts": "2026-11-20T02:03:50Z",
+      "cycle_id": "20261120T020044Z_80fa2b",
       "tribute_quality": 1.0,
       "gather_coverage": 0.6522,
       "build_reuse": 0.84,
@@ -96,12 +96,12 @@
       "arm": "control"
     },
     "honest_scoreboard": {
-      "score": 39,
+      "score": 75,
       "counterexamples_verified": 0,
       "proofs_checked": 24,
       "proofs_routine_known_in_principle": 24,
-      "beyond_published_range": 15,
-      "beyond_exact": 14,
+      "beyond_published_range": 51,
+      "beyond_exact": 50,
       "max_depth": 49152,
       "note": "counterexamples, checked proofs, and range extensions only; not fitness"
     },
@@ -157,15 +157,15 @@
       "peer_cite_rate": 1.0,
       "action_changed_from_message": 1.0,
       "stats": {
-        "posted": 73871,
-        "read": 353576,
-        "replied": 46661,
-        "actions_planned": 24028,
-        "actions_changed_from_message": 24028,
-        "reply_quality_sum": 42481.30000002559,
-        "reply_quality_n": 46609,
-        "peer_cite_opportunities": 47820,
-        "peer_cites": 47820
+        "posted": 94661,
+        "read": 451100,
+        "replied": 59891,
+        "actions_planned": 30832,
+        "actions_changed_from_message": 30832,
+        "reply_quality_sum": 54539.500000039894,
+        "reply_quality_n": 59839,
+        "peer_cite_opportunities": 61428,
+        "peer_cites": 61428
       }
     },
     "oracle": {
@@ -315,39 +315,39 @@
       "n": 30,
       "delta_aggregate": 0.0,
       "before": {
-        "cycle_id": "20261116T191551Z_047f58",
+        "cycle_id": "20261120T015608Z_059195",
         "aggregate": 0.8574
       },
       "after": {
-        "cycle_id": "20261116T191911Z_c70733",
+        "cycle_id": "20261120T020044Z_80fa2b",
         "aggregate": 0.8574
       }
     },
-    "cycle_count": 1349,
+    "cycle_count": 1727,
     "population": {
       "soft_cap": 20,
       "spawns": 10,
       "child_spawns": 8,
       "last_child_cycle": "20260926T221715Z_05fedf"
     },
-    "ts": "2026-11-16T19:24:25Z"
+    "ts": "2026-11-20T02:07:41Z"
   },
   "external": {
     "resource_usage": {
       "loadavg": [
-        0.6279296875,
-        0.78076171875,
-        0.45947265625
+        0.61962890625,
+        0.87939453125,
+        0.5859375
       ],
-      "rss_kb": 1563736,
-      "user_time_s": 414.078961,
-      "probe_latency_ms": 0.015,
-      "disk_free_mb": 87957.6,
-      "pid": 2463,
-      "ts": "2026-11-16T19:24:25Z"
+      "rss_kb": 1736848,
+      "user_time_s": 586.955081,
+      "probe_latency_ms": 0.013,
+      "disk_free_mb": 87562.2,
+      "pid": 2689,
+      "ts": "2026-11-20T02:07:41Z"
     },
     "external_array": {
-      "ts": "2026-11-16T19:24:25Z",
+      "ts": "2026-11-20T02:07:41Z",
       "feed_ok": {
         "arxiv": true,
         "nasa_donki_solar": false,
@@ -361,24 +361,24 @@
       "patterns": [
         {
           "kind": "global_weather_spread",
-          "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 13.3), ('London', 6.4), ('Tokyo', 11.5), ('Sydney', 13.7)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+          "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 8.7), ('London', 7.7), ('Tokyo', 13.8), ('Sydney', 24.9)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
           "signals": {
             "cities": [
               [
                 "NYC",
-                13.3
+                8.7
               ],
               [
                 "London",
-                6.4
+                7.7
               ],
               [
                 "Tokyo",
-                11.5
+                13.8
               ],
               [
                 "Sydney",
-                13.7
+                24.9
               ]
             ],
             "kp": null
@@ -393,9 +393,9 @@
         },
         {
           "kind": "pulsemesh_goes_live",
-          "summary": "PulseMesh GOES X-ray live latest=-6.139749065876296. Space-weather debate input — not novel physics.",
+          "summary": "PulseMesh GOES X-ray live latest=-6.426958599171251. Space-weather debate input — not novel physics.",
           "signals": {
-            "goes_latest": -6.139749065876296
+            "goes_latest": -6.426958599171251
           },
           "domains": [
             "cosmos",
@@ -406,10 +406,10 @@
         },
         {
           "kind": "pulsemesh_ops_health",
-          "summary": "PulseMesh system_stat/tcp_probe: load1=0.6279296875 probe_ms=1.6923712500158672. Ops health for actuation — not consciousness.",
+          "summary": "PulseMesh system_stat/tcp_probe: load1=0.61962890625 probe_ms=5.863021750002417. Ops health for actuation — not consciousness.",
           "signals": {
-            "load1": 0.6279296875,
-            "probe_ms": 1.6923712500158672
+            "load1": 0.61962890625,
+            "probe_ms": 5.863021750002417
           },
           "domains": [
             "government",
@@ -439,22 +439,22 @@
         ]
       ],
       "stats": {
-        "updates": 18513,
-        "conflicts": 63112,
-        "redebatess": 2638
+        "updates": 23805,
+        "conflicts": 81256,
+        "redebatess": 3394
       }
     },
     "time_revision": {
-      "ts": "2026-11-16T19:24:09Z",
+      "ts": "2026-11-20T02:07:25Z",
       "version": 1,
-      "latest_cycle_id": "20261116T192212Z_a63f1e",
+      "latest_cycle_id": "20261120T020448Z_bef4ea",
       "latest_revision_count": 0,
       "total_revisions": 4,
       "latest_revisions": [],
       "latest_inputs": {
         "pattern_kinds": [
-          "global_weather_spread",
           "pulsemesh_ops_health",
+          "global_weather_spread",
           "pulsemesh_goes_live"
         ],
         "n_residual_conflicts": 24,
@@ -537,42 +537,42 @@
       ]
     },
     "actuation": {
-      "total_actions": 3977,
-      "successes": 3977,
+      "total_actions": 5111,
+      "successes": 5111,
       "failures": 0,
       "gated_blocked": 0,
       "success_rate": 1.0,
       "by_kind": {
-        "external_api_probe": 1323,
-        "spawn_subdebate": 1323,
-        "controlled_experiment": 1323,
+        "external_api_probe": 1701,
+        "spawn_subdebate": 1701,
+        "controlled_experiment": 1701,
         "adjust_telemetry_weights": 8
       },
       "examples": [
         {
-          "ts": "2026-11-16T19:24:09Z",
+          "ts": "2026-11-20T02:07:25Z",
           "kind": "external_api_probe",
           "hypothesis": "Refreshing EXTERNAL ARRAY will yield ≥1 cross-domain pattern usable as debate input.",
           "success": true,
           "result_snip": "{'feed_ok': {'arxiv': True, 'nasa_donki_solar': False, 'noaa_space_weather': False, 'global_weather': True, 'pulsemesh_goes_xray': True, 'pulsemesh_openmeteo': True, 'pulsemesh_usgs_quakes': True, 'pu",
           "motivating_signal": {
             "kind": "global_weather_spread",
-            "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 13.3), ('London', 6.4), ('Tokyo', 11.5), ('Sydney', 13.7)]. Cross-correlate with solar/space feeds for commons res"
+            "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 8.7), ('London', 7.7), ('Tokyo', 13.8), ('Sydney', 24.9)]. Cross-correlate with solar/space feeds for commons reso"
           }
         },
         {
-          "ts": "2026-11-16T19:24:25Z",
+          "ts": "2026-11-20T02:07:41Z",
           "kind": "spawn_subdebate",
           "hypothesis": "Targeted sub-debate on `global_weather_spread` will lift load-bear replies / hearing quality.",
           "success": true,
-          "result_snip": "{'msg_id': 'msg_ec8ccf6d0c', 'topic': 'global_weather_spread'}",
+          "result_snip": "{'msg_id': 'msg_0f0345ab76', 'topic': 'global_weather_spread'}",
           "motivating_signal": {
             "kind": "global_weather_spread",
             "from": "external_or_residual"
           }
         },
         {
-          "ts": "2026-11-16T19:24:25Z",
+          "ts": "2026-11-20T02:07:41Z",
           "kind": "controlled_experiment",
           "hypothesis": "Bounded exploration_budget.fp nudge will track Oracle easy_pad pressure / external richness.",
           "success": true,
@@ -588,7 +588,7 @@
       "external_array_errors": 0,
       "feed_fail_count": 1
     },
-    "ts": "2026-11-16T19:24:25Z"
+    "ts": "2026-11-20T02:07:41Z"
   },
   "note": "Agent-queryable telemetry. Internal colony metrics + external env/array/residuals. Query via colony.telemetry.query during debate. Not AGI.",
   "non_claims": [

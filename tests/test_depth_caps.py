@@ -454,8 +454,10 @@ def test_production_log_view_backfills_all_legacy_rows():
     """
     # Read the committed file directly so this is independent of any
     # test that monkeypatches ATTEMPT_LOG.
+    # Frozen fixture. Production log is append-only and no longer has 41
+    # legacy rows. Do not retarget this assertion at the live file.
     repo = Path(__file__).resolve().parents[1]
-    raw = json.loads((repo / "society" / "systems" / "oeis_attempt_log.json").read_text(encoding="utf-8"))
+    raw = json.loads((repo / "tests" / "fixtures" / "oeis_attempt_log_legacy41.json").read_text(encoding="utf-8"))
     view = OC.attempt_log_view(raw)
     legacy = [a for a in raw["attempts"] if "planned" not in a and "verified_depth" not in a]
     assert len(legacy) == 41

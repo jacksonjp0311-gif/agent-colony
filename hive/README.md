@@ -317,3 +317,8 @@ sources. An uncalibrated (empty) bucket still abstains.
 
 MIT, the same license as Agent Colony. See the repository's
 `LICENSE` file.
+
+
+## Colony evidence tools
+
+When running inside Agent Colony, swarm roles can call the evidence tools adaptively through the adapter (`colony.hive_adapter.query_tools`). The tools are optional, fail-open, and return plain dicts. Hive itself remains independent and does not import colony.

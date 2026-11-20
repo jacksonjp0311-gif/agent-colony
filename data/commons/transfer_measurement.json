@@ -1,0 +1,42 @@
+{
+  "measurement": "matched transfer",
+  "method": "same fingerprint, with prior vs without",
+  "hits": 3,
+  "misses": 1,
+  "delta_on_hit": 60,
+  "delta_on_miss": 0,
+  "results": [
+    {
+      "fingerprint": "park_cycles:up:10",
+      "base": 100,
+      "with_prior": 160,
+      "without_prior": 100,
+      "delta": 60,
+      "kept_hit": true
+    },
+    {
+      "fingerprint": "deep_digits:up:6350",
+      "base": 100,
+      "with_prior": 160,
+      "without_prior": 100,
+      "delta": 60,
+      "kept_hit": true
+    },
+    {
+      "fingerprint": "gf_term_cap:up:2310",
+      "base": 100,
+      "with_prior": 160,
+      "without_prior": 100,
+      "delta": 60,
+      "kept_hit": true
+    },
+    {
+      "fingerprint": "no_such_knob:up:1",
+      "base": 100,
+      "with_prior": 100,
+      "without_prior": 100,
+      "delta": 0,
+      "kept_hit": false
+    }
+  ]
+}

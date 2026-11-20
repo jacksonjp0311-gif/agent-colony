@@ -1,0 +1,14 @@
+{
+  "fingerprint": "park_cycles:up:10",
+  "baseline": 100,
+  "trial_score": 100,
+  "with_prior": {
+    "score": 160,
+    "outcome": "adopt"
+  },
+  "without_prior": {
+    "score": 100,
+    "outcome": "revert"
+  },
+  "flipped": true
+}
