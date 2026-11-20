@@ -4,67 +4,10 @@
   "flag_threshold": 0.75,
   "note": "Shadow only. Live novelty (novelty_gate.textbook_reuse_score) is unchanged.",
   "totals": {
-    "n": 517,
-    "ok": 517
+    "n": 518,
+    "ok": 518
   },
   "rows": [
-    {
-      "ts": "2026-11-17T18:28:48Z",
-      "cycle_id": "20261117T182622Z_c3d20f",
-      "mutation": "authored_mut_swap_related_sequence_af47d017ea80",
-      "mode": "report_only",
-      "live_textbook_reuse": 0.3333,
-      "live_novel": false,
-      "status": "ok",
-      "terms": [
-        "mut",
-        "swap",
-        "related",
-        "sequence",
-        "af47d017ea80",
-        "reverted",
-        "hard",
-        "enable",
-        "score",
-        "true",
-        "pass",
-        "oracle"
-      ],
-      "shadow_textbook_reuse": 0.25,
-      "matches": [
-        {
-          "anum": "A128756",
-          "name_sha256": "6322ffdda7181b95",
-          "coverage": 0.25,
-          "bm25": -11.105
-        },
-        {
-          "anum": "A159880",
-          "name_sha256": "69fd7f93cbeccea0",
-          "coverage": 0.1667,
-          "bm25": -14.864
-        },
-        {
-          "anum": "A123400",
-          "name_sha256": "69fd7f93cbeccea0",
-          "coverage": 0.1667,
-          "bm25": -14.864
-        },
-        {
-          "anum": "A125032",
-          "name_sha256": "a269de7ac71ab44e",
-          "coverage": 0.1667,
-          "bm25": -14.357
-        },
-        {
-          "anum": "A065176",
-          "name_sha256": "f6fbf9b1a0033747",
-          "coverage": 0.1667,
-          "bm25": -12.791
-        }
-      ],
-      "would_flag": false
-    },
     {
       "ts": "2026-11-17T18:36:51Z",
       "cycle_id": "",
@@ -3405,6 +3348,63 @@
           "name_sha256": "b207690f66879440",
           "coverage": 0.1667,
           "bm25": -11.589
+        }
+      ],
+      "would_flag": false
+    },
+    {
+      "ts": "2026-11-20T02:44:50Z",
+      "cycle_id": "",
+      "mutation": "Chain `authored_mut_perturb_constant_a67e97a8b9c1` citing On Borwein polynomials with multiple roots outside",
+      "mode": "report_only",
+      "live_textbook_reuse": 0.0,
+      "live_novel": false,
+      "status": "ok",
+      "terms": [
+        "chain",
+        "mut",
+        "perturb",
+        "constant",
+        "a67e97a8b9c1",
+        "citing",
+        "borwein",
+        "polynomials",
+        "multiple",
+        "roots",
+        "outside",
+        "seek"
+      ],
+      "shadow_textbook_reuse": 0.25,
+      "matches": [
+        {
+          "anum": "A273067",
+          "name_sha256": "48baa0f2a26e757c",
+          "coverage": 0.25,
+          "bm25": -14.027
+        },
+        {
+          "anum": "A392501",
+          "name_sha256": "757d032d38523613",
+          "coverage": 0.25,
+          "bm25": -13.096
+        },
+        {
+          "anum": "A392502",
+          "name_sha256": "e8d9e98ee6c498c1",
+          "coverage": 0.25,
+          "bm25": -12.813
+        },
+        {
+          "anum": "A027613",
+          "name_sha256": "99c7e8a1e918a019",
+          "coverage": 0.25,
+          "bm25": -11.573
+        },
+        {
+          "anum": "A065442",
+          "name_sha256": "bc405bf6f0c7cab8",
+          "coverage": 0.1667,
+          "bm25": -16.98
         }
       ],
       "would_flag": false

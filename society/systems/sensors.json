@@ -1,10 +1,9 @@
 {
-  "ts": "2026-11-20T02:13:36Z",
-  "cycle_id": "20261120T021320Z_ed9646",
+  "ts": "2026-11-20T02:54:48Z",
+  "cycle_id": "20261120T025421Z_d3f2a2",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
-      "authored_mut_tighten_inequality_840389011216": 1,
       "authored_mut_tighten_inequality_e5042446cc47": 1,
       "authored_mut_tighten_inequality_837c807f3fc1": 1,
       "authored_mut_widen_range_1289e31f25b2": 1,
@@ -15,16 +14,10 @@
       "authored_mut_widen_range_e8b64a3f1c6a": 1,
       "authored_mut_widen_range_132327efd258": 1,
       "authored_mut_widen_range_0b15e0758e29": 1,
-      "authored_mut_widen_range_aa1dbe10fcc0": 1
+      "authored_mut_widen_range_aa1dbe10fcc0": 1,
+      "lemma_hard_combinatorics": 1
     },
     "recent": {
-      "authored_mut_widen_range_1289e31f25b2": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_mut_widen_range_35152b9916ea": {
         "last": "revert",
         "streak": 1,
@@ -101,14 +94,21 @@
         "n": 1,
         "keeps": 0,
         "reverts": 1
+      },
+      "authored_mut_perturb_constant_a67e97a8b9c1": {
+        "last": "revert",
+        "streak": 1,
+        "n": 1,
+        "keeps": 0,
+        "reverts": 1
       }
     }
   },
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.7878,
-      "slope": -0.000467,
+      "last": 0.8214,
+      "slope": -0.000626,
       "min": 0.7878,
       "max": 0.8246
     },
@@ -119,15 +119,15 @@
       "max": 0.0
     },
     "kill_rate": {
-      "last": 0.3867,
-      "slope": -3.8e-05,
-      "min": 0.3867,
+      "last": 0.3863,
+      "slope": -6.6e-05,
+      "min": 0.3863,
       "max": 0.387
     },
     "kill_rate_term": {
-      "last": 0.898,
-      "slope": -3.8e-05,
-      "min": 0.898,
+      "last": 0.8976,
+      "slope": -6.6e-05,
+      "min": 0.8976,
       "max": 0.8983
     },
     "lesson_uptake": {
@@ -149,7 +149,6 @@
     "disabled": [
       "adversarial_vandermonde_asymmetric",
       "authored_frontier_cong_xd9add9e9_w1",
-      "authored_mut_perturb_constant_a67e97a8b9c1",
       "authored_mut_swap_related_sequence_157fd7ef3654",
       "authored_mut_swap_related_sequence_3b3fef4a07b3",
       "authored_mut_swap_related_sequence_5632d000cf00",
@@ -229,7 +228,6 @@
       "authored_hockey_stick__pell_companion_w1",
       "authored_hockey_stick__stirling_second_row_w1",
       "authored_motzkin_bounded__legendre_duplication_small_w1",
-      "authored_mut_perturb_constant_a67e97a8b9c1",
       "authored_mut_swap_related_sequence_157fd7ef3654",
       "authored_mut_swap_related_sequence_3b3fef4a07b3",
       "authored_mut_swap_related_sequence_5632d000cf00",
@@ -275,7 +273,7 @@
       "authored_sum_first_n_odds__bell_triangle_recurrence_w1",
       "authored_vandermonde_conv__stirling_second_row_w1"
     ],
-    "exhausted_recent": 9
+    "exhausted_recent": 8
   },
   "guides": {
     "n_guides": 17,
@@ -289,23 +287,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.598,
+      "ratio": 1.257,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.641,
+      "ratio": 1.395,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.694,
+      "ratio": 1.404,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.733,
+      "ratio": 1.436,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.719,
+      "ratio": 1.285,
       "drift": false
     }
   },
@@ -313,11 +311,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 652208835,
-      "collatz_descent": 719800000,
+      "collatz_descent": 723000000,
       "legendre_square_gap": 3660607,
       "lehmer_totient": 344600001,
-      "erdos_straus": 1729127,
-      "twin_primes_hl": 898200000,
+      "erdos_straus": 1734127,
+      "twin_primes_hl": 902200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -329,11 +327,11 @@
     "self_reject_rate": 0.0,
     "by_kind": {
       "frontier": {
-        "challenged": 4527,
+        "challenged": 4526,
         "blocked": 0
       },
       "lemma_mutation": {
-        "challenged": 373,
+        "challenged": 374,
         "blocked": 0
       },
       "claim": {
@@ -341,8 +339,8 @@
         "blocked": 0
       }
     },
-    "post_challenger_oracle_kill_rate": 0.2735,
-    "post_challenger_oracle_judged": 468,
+    "post_challenger_oracle_kill_rate": 0.2729,
+    "post_challenger_oracle_judged": 469,
     "pre_challenger_oracle_kill_rate": 0.1488,
     "pre_challenger_oracle_judged": 215,
     "post_challenger_frontier_recheck_fail_rate": 0.0,
@@ -367,22 +365,22 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 8,
+    "completed": 9,
     "last": [
       [
         null,
-        "2026-11-20T01:54:48Z"
+        "2026-11-20T02:32:00Z"
       ],
       [
         null,
-        "2026-11-20T01:53:50Z"
+        "2026-11-20T02:31:56Z"
       ],
       [
         null,
-        "2026-11-20T01:52:47Z"
+        "2026-11-20T02:30:44Z"
       ]
     ],
-    "fetched_at": "2026-11-20T01:55:46Z"
+    "fetched_at": "2026-11-20T02:32:28Z"
   },
   "feeds": {
     "by_source": {
@@ -430,7 +428,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-20T01:55:45Z"
+      "ts": "2026-11-20T02:32:28Z"
     },
     "health": {
       "arxiv": {
