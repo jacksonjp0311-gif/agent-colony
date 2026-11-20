@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-20T10:35:06Z",
+    "fetched_at": "2026-11-20T11:31:39Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-20T11:28:58Z",
+        "id": 44727956584,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-20T11:29:58Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-20T10:32:37Z",
         "id": 44720118595,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-20T10:33:38Z"
+        "status": "completed",
+        "updated_at": "2026-11-20T11:29:02Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Read-only tests",
         "status": "completed",
         "updated_at": "2026-11-20T06:31:40Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T06:20:40Z",
-        "id": 44687127883,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T06:29:40Z"
       }
     ],
     "success_rate": 1.0
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 14,
-      "ok": 113
+      "ok": 114
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-20T06:58:02Z",
+    "arxiv": "2026-11-20T11:31:38Z",
     "crossref": "2026-11-20T09:10:24Z",
     "oeis": "2026-11-20T09:10:22Z",
     "oeis_conj": "2026-11-20T09:10:23Z",
@@ -138,9 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 8,
+        "new": 2,
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -167,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-20T10:35:06Z"
+    "ts": "2026-11-20T11:31:35Z"
   },
-  "runs": 495
+  "runs": 496
 }

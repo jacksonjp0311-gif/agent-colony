@@ -553,3 +553,15 @@
 {"source": "colony", "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": -18, "foreign": 0, "with_prior": -18, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": -131, "foreign": 0, "with_prior": -131, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": -18, "foreign": 0, "with_prior": -18, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_park_rule:cycles=12:target_kind=dead_end", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=3871", "base": -18, "foreign": 0, "with_prior": -18, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 102, "foreign": 0, "with_prior": 102, "outcome": "ranked"}

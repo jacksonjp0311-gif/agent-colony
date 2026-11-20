@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "agent-based",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
+      "topic": "cameron--martin",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-20T11:08:46Z",
-  "updated_cycle": "20261120T110506Z_bfe4cd",
+  "updated_at": "2026-11-20T11:51:23Z",
+  "updated_cycle": "20261120T114853Z_b5a9d7",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
