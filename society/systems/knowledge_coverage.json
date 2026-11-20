@@ -42,8 +42,8 @@
       "cards_tested": 0,
       "concepts": 0,
       "distinct_concepts": 0,
-      "papers": 68,
-      "reads": 59
+      "papers": 71,
+      "reads": 60
     },
     "meta_learning": {
       "cards_formed": 2,
@@ -58,10 +58,10 @@
       "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 5,
+      "concepts": 6,
       "distinct_concepts": 3,
-      "papers": 10,
-      "reads": 29
+      "papers": 11,
+      "reads": 30
     },
     "neural_architecture": {
       "cards_formed": 8,
@@ -105,8 +105,8 @@
       "cards_tested": 0,
       "concepts": 2,
       "distinct_concepts": 1,
-      "papers": 29,
-      "reads": 29
+      "papers": 33,
+      "reads": 30
     },
     "self_learning_loops": {
       "cards_formed": 5,
@@ -270,8 +270,8 @@
     "cards_formed": 96,
     "cards_kept": 0,
     "cards_tested": 1,
-    "concepts": 193,
-    "papers": 377,
-    "reads": 448
+    "concepts": 194,
+    "papers": 385,
+    "reads": 451
   }
 }

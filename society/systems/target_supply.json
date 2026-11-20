@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 442,
- "last_refill_index": 442,
+ "cycle_index": 445,
+ "last_refill_index": 445,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -2786,6 +2786,38 @@
   "028ec37dd43a9a0d": {
    "cycle_id": "20261120T075556Z_f3a179",
    "n_hits": 0
+  },
+  "3fc3202ea1508cb6": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 7
+  },
+  "8b05c7d46291af34": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 7
+  },
+  "87af8dac21dcba17": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 6
+  },
+  "7d64c640a25751db": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 6
+  },
+  "4989083c1ddf307c": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 2
+  },
+  "87932c2724e16a3d": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 2
+  },
+  "77ea48cf67e0050a": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 5
+  },
+  "351d2986cb666b00": {
+   "cycle_id": "20261120T084208Z_da31eb",
+   "n_hits": 5
   }
  },
  "rejected": {
@@ -3040,29 +3072,39 @@
   "A352542": "20261118T111531Z_dc9413",
   "A297557": "20261120T034005Z_89bccb"
  },
- "refills": 147,
- "added": 359,
+ "refills": 148,
+ "added": 362,
  "last": {
-  "cycle_id": "20261120T075556Z_f3a179",
+  "cycle_id": "20261120T084208Z_da31eb",
   "open_before": 0,
   "pages_read": 8,
-  "requests": 9,
+  "requests": 12,
   "new": [
    {
-    "id": "oc_A210247_0",
+    "id": "oc_A069761_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A145920_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A005994_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 4,
-   "resolved_skipped": 1,
-   "keyword_skipped": 1,
-   "statements": 3,
-   "parsed": 1,
+   "entries": 14,
+   "resolved_skipped": 5,
+   "keyword_skipped": 2,
+   "statements": 12,
+   "parsed": 4,
    "no_bfile": 0,
    "fails_on_data": 0,
-   "kept": 1,
+   "kept": 3,
    "def_candidates": 0
   }
  }
