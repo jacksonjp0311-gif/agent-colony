@@ -187,6 +187,9 @@ def load_state() -> dict[str, Any]:
     for k in st:
         if k in raw:
             st[k] = raw[k]
+    for k in ("pending_defer_ledger", "pending_capped"):  # item 120 (only written with the cap on)
+        if k in raw:
+            st[k] = raw[k]
     st["adopted_count"] = int(st.get("adopted_count") or 0)
     st["reverted_count"] = int(st.get("reverted_count") or 0)
     st["abstained_count"] = int(st.get("abstained_count") or 0)
@@ -2054,7 +2057,134 @@ def _pending_summary(pending: Mapping[str, Any] | None) -> dict[str, Any] | None
         "deferred_count": int(pending.get("deferred_count") or 0),
         "wilson_gate": int(pending.get("wilson_gate") or WILSON_ACCEPT_PERMILLE),
         "linked_trial": dict(pending.get("linked_trial") or {}) or None,
+        **({k: pending.get(k) for k in (
+            "last_deferred_under", "deferred_under_changes", "deferred_reasons", "same_digest_cap_count",
+        ) if k in pending}),
     }
+
+
+# Item 120: pending-apply deferral cap (treatment only).
+# Trace (2026-11-20): the park_cycles->13 pending looked "deferred 8x under unchanged state" only
+# because ``deferred_under`` is written once at the first deferral and never updated; in that
+# episode the environment digest changed 4 times (PR merges + a trial knob), every one a real
+# confound while the 7-row window rolled over. Once the window was clean it was deferred for
+# ``no_signal_baseline`` (all-zero rows; park_cycles is not a cap knob, so the exploratory
+# exception never applies), then dropped by a clean-window abstain and re-created by the next
+# accepted vote. Confound and reservation waits end by themselves (the window rolls over, the
+# trial closes, item 114 fair turns). A no-signal wait under an unchanged environment does not:
+# nothing can change until the colony itself produces signal. So:
+#  * every deferral records the CURRENT digest (``last_deferred_under``), the number of digest
+#    changes and a per-reason count (bookkeeping fix; ``deferred_under`` keeps its old meaning);
+#  * after PENDING_DEFER_CAP ``no_signal_baseline`` deferrals of one action under one unchanged
+#    digest (counted across drop / re-create, in ``pending_defer_ledger``) the action moves to the
+#    shadow lane (graded like any shadow, never applied), logged as ``pending_apply_shadowed``;
+#    while that digest holds, the same action is not re-pended (``apply_deferred`` + ``capped``).
+# Nothing is ever adopted here; the Wilson 700 permille gate and every other gate are unchanged.
+# Switch HIVE_PENDING_DEFER_CAP = on (default) | off; always off when COLONY_ARM=control.
+PENDING_DEFER_CAP = 3
+PENDING_CAP_REASONS = ("no_signal_baseline",)
+PENDING_LEDGER_KEEP = 50
+
+
+def _pending_defer_cap_enabled() -> bool:
+    import os
+    if (os.environ.get("COLONY_ARM") or "treatment").strip().lower() == "control":
+        return False
+    return (os.environ.get("HIVE_PENDING_DEFER_CAP") or "on").strip().lower() != "off"
+
+
+def _note_deferral(pending: dict[str, Any], env_fp: str, reason: str) -> None:
+    """Item 120: keep the deferral record current (the digest the deferral really happened under)."""
+    last = str(pending.get("last_deferred_under") or pending.get("deferred_under") or "")
+    if env_fp and last and env_fp != last:
+        pending["deferred_under_changes"] = int(pending.get("deferred_under_changes") or 0) + 1
+    if env_fp:
+        pending["last_deferred_under"] = env_fp
+    if reason:
+        counts = dict(pending.get("deferred_reasons") or {})
+        counts[reason] = int(counts.get(reason) or 0) + 1
+        pending["deferred_reasons"] = counts
+
+
+def _defer_key(fingerprint: str, env_fp: str) -> str:
+    return f"{fingerprint}@{env_fp}"
+
+
+def _pending_is_capped(state: Mapping[str, Any], fingerprint: str, env_fp: str) -> bool:
+    capped = state.get("pending_capped") if isinstance(state.get("pending_capped"), Mapping) else None
+    return bool(
+        capped and env_fp
+        and str(capped.get("fingerprint") or "") == str(fingerprint or "")
+        and str(capped.get("env_digest") or "") == env_fp
+    )
+
+
+def _maybe_shadow_capped_pending(
+    state: dict[str, Any],
+    cycle_id: str,
+    reason: str,
+    env_fp: str,
+) -> dict[str, Any]:
+    """Item 120: count a cap-eligible deferral; at the cap move the pending action to the shadow lane."""
+    pending = state.get("pending_apply") if isinstance(state.get("pending_apply"), dict) else None
+    if not pending or reason not in PENDING_CAP_REASONS or not env_fp:
+        return state
+    fp = str(pending.get("fingerprint") or "")
+    ledger = dict(state.get("pending_defer_ledger") or {})
+    key = _defer_key(fp, env_fp)
+    ledger[key] = int(ledger.get(key) or 0) + 1
+    if len(ledger) > PENDING_LEDGER_KEEP:
+        ledger = dict(list(ledger.items())[-PENDING_LEDGER_KEEP:])
+    state["pending_defer_ledger"] = ledger
+    n = ledger[key]
+    pending["same_digest_cap_count"] = n
+    if n < PENDING_DEFER_CAP:
+        return state
+    vote = pending.get("vote") if isinstance(pending.get("vote"), Mapping) else {}
+    shadow = {
+        "id": _event_id(),
+        "ts": _utc(),
+        "cycle_id": cycle_id,
+        "label": pending.get("label"),
+        "symptom": pending.get("symptom"),
+        "action": pending.get("action"),
+        "fingerprint": fp,
+        "margin": int((vote or {}).get("margin") or 0),
+        "source": "shadow",
+        "via": "pending_defer_cap",
+        "resolved": False,
+        "matched": None,
+        "correct": None,
+        "resolved_by": None,
+        "resolved_source": None,
+    }
+    shadows = list(state.get("shadows") or [])
+    shadows.append(shadow)
+    state["shadows"] = _compact_shadows(shadows)
+    append_evidence(state, {
+        "event": "pending_apply_shadowed",
+        "cycle_id": cycle_id,
+        "reason": "defer_cap",
+        "cap_reason": reason,
+        "cap": PENDING_DEFER_CAP,
+        "same_digest_deferrals": n,
+        "env_digest": env_fp,
+        "shadow_id": shadow["id"],
+        "pending_fingerprint": fp,
+        "pending_action": pending.get("action"),
+        "pending_label": pending.get("label"),
+        "pending_deferred_count": int(pending.get("deferred_count") or 0),
+        "pending_deferred_under": pending.get("deferred_under") or "",
+        "pending_last_deferred_under": pending.get("last_deferred_under") or "",
+        "pending_deferred_reasons": dict(pending.get("deferred_reasons") or {}),
+        "pending_first_deferred_cycle": pending.get("first_deferred_cycle") or "",
+        "wilson_gate": WILSON_ACCEPT_PERMILLE,
+        "applied": False,
+    })
+    state["pending_capped"] = {"fingerprint": fp, "env_digest": env_fp, "cycle_id": cycle_id,
+                               "shadow_id": shadow["id"], "deferrals": n}
+    state["pending_apply"] = None
+    return state
 
 
 def _remember_pending_apply(
@@ -2062,6 +2192,9 @@ def _remember_pending_apply(
     winner: "Proposal",
     vote_result: "VoteResult",
     cycle_id: str,
+    *,
+    reason: str = "",
+    env_fp: str | None = None,
 ) -> dict[str, Any]:
     """Keep a gate-passing decision that could not apply because of a confound.
 
@@ -2071,18 +2204,23 @@ def _remember_pending_apply(
     never changed.
     """
     prev = state.get("pending_apply") if isinstance(state.get("pending_apply"), dict) else None
-    env_fp = _current_env_digest()
+    env_fp = _current_env_digest() if env_fp is None else env_fp
     audit = vote_audit_fields(vote_result)
+    note = _pending_defer_cap_enabled()
     if prev and str(prev.get("fingerprint") or "") == str(winner.fingerprint or ""):
         prev["deferred_count"] = int(prev.get("deferred_count") or 0) + 1
         prev["last_deferred_cycle"] = cycle_id
         prev["last_vote"] = audit
+        if note:
+            _note_deferral(prev, env_fp, reason)
         state["pending_apply"] = prev
         return state
     if prev:
         # Still waiting on a clean window: keep the original decision.
         prev["deferred_count"] = int(prev.get("deferred_count") or 0) + 1
         prev["last_deferred_cycle"] = cycle_id
+        if note:
+            _note_deferral(prev, env_fp, reason)
         state["pending_apply"] = prev
         return state
     state["pending_apply"] = {
@@ -2100,6 +2238,8 @@ def _remember_pending_apply(
         "vote": audit,
         "wilson_gate": WILSON_ACCEPT_PERMILLE,
     }
+    if note:
+        _note_deferral(state["pending_apply"], env_fp, reason)
     return state
 
 
@@ -2455,10 +2595,28 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                     pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
                     if pending and str(pending.get("fingerprint") or "") == str(winner.fingerprint or ""):
                         st = _drop_pending_apply(st, cycle_id, reason="action_retired", vote_result=vote_result)
+                capped_now = False
+                shadowed_now = False
                 if reason in ("confounded_baseline", "no_signal_baseline") or (
                     reason in RESERVATION_DEFER_REASONS and _pending_on_reservation()
                 ):
-                    st = _remember_pending_apply(st, winner, vote_result, cycle_id)
+                    cap_on = _pending_defer_cap_enabled()
+                    env_now = _current_env_digest() if cap_on else ""
+                    if cap_on:
+                        capped = st.get("pending_capped") if isinstance(st.get("pending_capped"), dict) else None
+                        if capped and env_now and str(capped.get("env_digest") or "") != env_now:
+                            st["pending_capped"] = None   # environment changed: the action may wait again
+                    pend0 = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
+                    if cap_on and not pend0 and _pending_is_capped(st, winner.fingerprint, env_now):
+                        # Item 120: already moved to the shadow lane under this exact environment.
+                        capped_now = True
+                    else:
+                        st = _remember_pending_apply(st, winner, vote_result, cycle_id,
+                                                     reason=reason, env_fp=env_now if cap_on else None)
+                        if cap_on:
+                            had = st.get("pending_apply")
+                            st = _maybe_shadow_capped_pending(st, cycle_id, reason, env_now)
+                            shadowed_now = bool(had) and st.get("pending_apply") is None
                     pending = st.get("pending_apply") if isinstance(st.get("pending_apply"), dict) else None
                     deferred_count = int((pending or {}).get("deferred_count") or 0)
                 append_evidence(st, {
@@ -2474,6 +2632,8 @@ def run_cycle(cycle_id: str = "") -> dict[str, Any]:
                     **({"retired_dropped": retired_dropped} if retired_dropped else {}),
                     "pending_fingerprint": (st.get("pending_apply") or {}).get("fingerprint")
                     if isinstance(st.get("pending_apply"), dict) else None,
+                    **({"capped": True} if capped_now else {}),
+                    **({"shadowed_by_cap": True} if shadowed_now else {}),
                 })
 
     # If a rule trial just closed as adopt, record first-adopted.
