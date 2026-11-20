@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-native",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "cameron--martin",
+      "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-20T02:57:53Z",
-  "updated_cycle": "20261120T025421Z_d3f2a2",
+  "updated_at": "2026-11-20T03:42:56Z",
+  "updated_cycle": "20261120T034005Z_89bccb",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

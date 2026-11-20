@@ -1,19 +1,21 @@
 {
-  "last_attempt_at": "2026-11-20T02:40:23Z",
+  "last_attempt_at": "2026-11-20T03:25:21Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-20T02:40:23Z",
+  "last_ok_at": "2026-11-20T03:25:21Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Low Moments, Small Balls and Star Discrepancy",
-      "abstract_snippet": "Let $D_P$ be the discrepancy function of a configuration $P$ of $N$ points in the $d$-dimensional unit cube, and let $\\|D_P\\|_q$ be its $L^q$ discrepancy. We prove that for all fixed $d\\ge2$ and $0&lt;q\\le1$ the $L^q$ discrepancy of every configuration of $N\\ge2$ points is at least $c_{d,q}(\\log N)^{(d-1)/2}$ with a constant $c_{d,q}&gt;0$. This bound is sharp; together with the classical results ",
-      "url": "https://arxiv.org/abs/2611.24934",
-      "arxiv_id": "2611.24934",
+      "title": "When Do Rankings Beat Signs? Gradient Direction Recovery under Even Nuisance",
+      "abstract_snippet": "Can ranking a batch of antipodal query pairs recover a gradient direction with fewer evaluations than using within-pair signs alone? We study fixed-center recovery in $d$ dimensions for a linear signal plus an unknown differentiable even nuisance, counting function evaluations and feedback rounds separately. Shared pair offsets create an information hierarchy: Mirror retains within-pair signs, Rev",
+      "url": "https://arxiv.org/abs/2611.26055",
+      "arxiv_id": "2611.26055",
       "doi": "",
       "authors": [
-        "Nicola Wengiel"
+        "Zhuangzhuang Pan",
+        "Yan Xia",
+        "Chee Seng Chan"
       ],
       "year": 2026,
       "tags": [
@@ -23,17 +25,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T02:40:23Z"
+      "fetched_at": "2026-11-20T03:25:21Z"
     },
     {
       "source": "arxiv",
-      "title": "On the refined Kaneko--Zagier conjecture",
-      "abstract_snippet": "We extend our results on Zhao's conjectural basis to finite multiple zeta values modulo arbitrary prime powers and to the corresponding completed algebra. As a consequence, the refined Kaneko--Zagier conjecture, which gives a precise description of relations modulo arbitrary prime powers in terms of ordinary multiple zeta values, follows from the dimension and direct-sum conjectures for ordinary a",
-      "url": "https://arxiv.org/abs/2611.24933",
-      "arxiv_id": "2611.24933",
+      "title": "Reference-Free Humanoid Skateboarding via Termination-Shaped Reinforcement Learning",
+      "abstract_snippet": "Humanoid locomotion research has advanced rapidly on walking and running, but \\emph {object-mediated} locomotion, in which a robot must coordinate its body with a passive external object, remains difficult. One challenging task is skateboarding, which requires simultaneous interaction with the ground and a passive but movable platform to achieve forward motion. Current methods for tackling skatebo",
+      "url": "https://arxiv.org/abs/2611.26054",
+      "arxiv_id": "2611.26054",
       "doi": "",
       "authors": [
-        "Shin-ichiro Seki"
+        "Ganeshvar Soenessardien",
+        "Michael Przystupa",
+        "Kevin Sebastian Luck"
       ],
       "year": 2026,
       "tags": [
@@ -43,18 +47,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T02:40:23Z"
+      "fetched_at": "2026-11-20T03:25:21Z"
     },
     {
       "source": "arxiv",
-      "title": "Knowing What You Know: A Trait Theory of Reviewer Value in Human-AI Cognitive Systems",
-      "abstract_snippet": "When a capable model and a human reviewer cooperate on the same decision, which human still adds value? We argue this is a question about a single cognitive trait, metacognitive calibration: the alignment between a reviewer's behavioral confidence and the actual correctness of their judgments. We develop a trait theory of reviewer value to make it precise. The theory makes five claims: value is go",
-      "url": "https://arxiv.org/abs/2611.24932",
-      "arxiv_id": "2611.24932",
+      "title": "Guided Cuckoo Filter: Full-Pipeline Insertion Optimization",
+      "abstract_snippet": "Cuckoo filters are widely deployed as space-efficient alternatives to Bloom filters, supporting fast lookups, insertions, and deletions. However, their insertion cost grows steeply at high load factors because the standard insertion procedure is entirely unguided: it places each fingerprint into whichever candidate bucket happens to be tried first, and when both candidates are full, it displaces a",
+      "url": "https://arxiv.org/abs/2611.26053",
+      "arxiv_id": "2611.26053",
       "doi": "",
       "authors": [
-        "Priyanka Sinha",
-        "Sugam Pandey"
+        "Min Liu"
       ],
       "year": 2026,
       "tags": [
@@ -64,18 +67,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T02:40:23Z"
+      "fetched_at": "2026-11-20T03:25:21Z"
     },
     {
       "source": "arxiv",
-      "title": "Decomposing SGD Dynamics in Neural Networks: Teacher-Induced Spikes and Variance Inflation",
-      "abstract_snippet": "We study two-layer neural networks trained by stochastic gradient descent (SGD) on a multi-index teacher model, focusing on how first-layer parameters orthogonal to the teacher subspace affect generalization. We decompose the first-layer weights into a signal component aligned with the teacher and an orthogonal complement, and analyze their joint SGD dynamics together with the second layer in the ",
-      "url": "https://arxiv.org/abs/2611.24908",
-      "arxiv_id": "2611.24908",
+      "title": "An improved Moore bound for girths seven and eleven",
+      "abstract_snippet": "Let $n(d,k)$ be the minimum number of vertices of a graph of minimum degree $d$ and girth at least $g=2k+1$. A simple counting argument gives the classical lower bound $n(d,k)\\ge m(d,k)=1+d\\sum_{i=0}^{k-1}(d-1)^i$, known as the Moore bound and dating back at least to 1960. Apart from complete graphs and odd cycles, graphs attaining this lower bound can exist only for girth $5$ and degrees $3,7$ an",
+      "url": "https://arxiv.org/abs/2611.26037",
+      "arxiv_id": "2611.26037",
       "doi": "",
       "authors": [
-        "Samet Demir",
-        "Zafer Dogan"
+        "Frederik Garbe"
       ],
       "year": 2026,
       "tags": [
@@ -85,20 +87,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T02:40:23Z"
+      "fetched_at": "2026-11-20T03:25:21Z"
     },
     {
       "source": "arxiv",
-      "title": "Batch-Dynamic Coreness and Applications with Logarithmic Work via Balanced Pressures",
-      "abstract_snippet": "We give a parallel algorithm that maintains a one-sided $(2+\\varepsilon)$-approximation of all core numbers under batches of edge insertions and deletions. For fixed $\\varepsilon&gt;0$, the expected amortized work is $O(\\log n)$ per edge update, and each batch has deterministic polylogarithmic depth. This improves on the previously known $(4+\\varepsilon)$-approximation and $O(\\log^2 n)$ amortized ",
-      "url": "https://arxiv.org/abs/2611.24905",
-      "arxiv_id": "2611.24905",
+      "title": "Fixing the Twin, Not the Detector: Sim-to-Real Roadside LiDAR Detection from Digital-Twin Data",
+      "abstract_snippet": "Roadside LiDAR detectors are expensive to train on real labels, and digital twins promise to replace these labels, but a detector trained on a twin meets a different sensor, different objects and different annotation conventions on the real site. We describe the pipeline that placed first in the LUMPI track of the UrbanTwin Sim2Real LiDAR Challenge (IEEE BigData 2026 Cup, 0.5541 combined score) an",
+      "url": "https://arxiv.org/abs/2611.26035",
+      "arxiv_id": "2611.26035",
       "doi": "",
       "authors": [
-        "Quinten De Man",
-        "Laxman Dhulipala",
-        "Kishen N Gowda",
-        "Zhongqi Wang"
+        "KuanLin Chen",
+        "Feng-jui Kuo"
       ],
       "year": 2026,
       "tags": [
@@ -108,7 +108,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T02:40:23Z"
+      "fetched_at": "2026-11-20T03:25:21Z"
     }
   ]
 }

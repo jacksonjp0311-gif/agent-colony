@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 424,
+ "cycle_index": 427,
  "active": {
   "id": "bp_1a40beac596f0ebe",
   "signature": "1a40beac596f0ebe",
@@ -150,7 +150,7 @@
  },
  "macros": {},
  "last_run": {
-  "cycle_id": "20261120T025421Z_d3f2a2",
+  "cycle_id": "20261120T034005Z_89bccb",
   "blueprint": "bp_1a40beac596f0ebe",
   "ran": [
    {
@@ -159,43 +159,43 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 177,
-     "duplicate": 15,
-     "trivial_formal": 4,
-     "trivial_shuffle_null": 2,
-     "trivial_idle_part": 12,
-     "trivial_implied_parts": 69,
+     "fitted": 184,
+     "duplicate": 9,
+     "trivial_formal": 1,
+     "trivial_shuffle_null": 3,
+     "trivial_idle_part": 14,
+     "trivial_implied_parts": 83,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
-     "trivial_case_split": 1,
+     "trivial_case_split": 0,
      "trivial_parity_rules": 0,
-     "trivial_running_sum_tail": 0,
+     "trivial_running_sum_tail": 1,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 1,
+     "expected_by_closure": 2,
      "loose_inequality": 0,
-     "tested": 14,
-     "survived": 1,
-     "falsified": 13,
-     "machine_checked": 1,
+     "tested": 15,
+     "survived": 5,
+     "falsified": 10,
+     "machine_checked": 2,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 0,
+     "oeis_known": 3,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
+     "trivial_confirmed on range": 10,
      "trivial_known_in_principle(definition_parity)": 2,
-     "trivial_confirmed on range": 8,
      "trivial_known_in_principle(compositional)": 1
     }
    }
   ],
   "actions": 1,
-  "cpu_s": 2.625
+  "cpu_s": 1.988
  },
  "last_skip": {
-  "cycle_id": "20261120T025421Z_d3f2a2",
+  "cycle_id": "20261120T034005Z_89bccb",
   "reason": "no_candidate_passed_self_test",
   "rejected": [
    {
@@ -265,7 +265,7 @@
  "inconclusive_count": 0,
  "voided_count": 8,
  "heal_turn": null,
- "last_propose_cycle": "20261120T025421Z_d3f2a2",
+ "last_propose_cycle": "20261120T034005Z_89bccb",
  "operator_stats": {
   "add": {
    "tried": 4,

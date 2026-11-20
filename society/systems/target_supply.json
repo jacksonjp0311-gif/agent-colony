@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 421,
- "last_refill_index": 421,
+ "cycle_index": 424,
+ "last_refill_index": 424,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -2562,6 +2562,38 @@
   "4e6986714fbae9ef": {
    "cycle_id": "20261118T111531Z_dc9413",
    "n_hits": 10
+  },
+  "c3fc627e42a30b3c": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 6
+  },
+  "4405f2d7ac063efb": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 6
+  },
+  "5e1880e771edfa09": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 0
+  },
+  "1726fbeb83b2a027": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 0
+  },
+  "730c5ee118f321d1": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 0
+  },
+  "e6ea94fd53f929a3": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 0
+  },
+  "4dd714b64168dc14": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 0
+  },
+  "83c85f8535f81bb4": {
+   "cycle_id": "20261120T034005Z_89bccb",
+   "n_hits": 0
   }
  },
  "rejected": {
@@ -2813,25 +2845,33 @@
   "A124999": "20261118T084732Z_ecfd3b",
   "A071900": "20261118T092054Z_d11de3",
   "A046961": "20261118T103501Z_8cfe52",
-  "A352542": "20261118T111531Z_dc9413"
+  "A352542": "20261118T111531Z_dc9413",
+  "A297557": "20261120T034005Z_89bccb"
  },
- "refills": 140,
- "added": 357,
+ "refills": 141,
+ "added": 358,
  "last": {
-  "cycle_id": "20261120T025421Z_d3f2a2",
+  "cycle_id": "20261120T034005Z_89bccb",
   "open_before": 0,
-  "pages_read": 0,
-  "requests": 0,
-  "new": [],
+  "pages_read": 8,
+  "requests": 13,
+  "new": [
+   {
+    "id": "oc_A006068_0",
+    "form": "relation",
+    "definition": false
+   }
+  ],
   "stats": {
-   "entries": 0,
-   "resolved_skipped": 0,
+   "entries": 6,
+   "resolved_skipped": 1,
    "keyword_skipped": 0,
-   "statements": 0,
-   "parsed": 0,
-   "no_bfile": 0,
+   "statements": 7,
+   "parsed": 2,
+   "no_bfile": 1,
    "fails_on_data": 0,
-   "kept": 0
+   "kept": 1,
+   "def_candidates": 0
   }
  }
 }
