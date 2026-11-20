@@ -2687,11 +2687,17 @@
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
+  },
+  "oc_A006068_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 708,
+   "attempts": 709,
    "credit": 24.3471
   },
   "gf": {
