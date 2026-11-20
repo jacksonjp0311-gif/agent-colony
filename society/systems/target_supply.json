@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 493,
- "last_refill_index": 493,
+ "cycle_index": 496,
+ "last_refill_index": 496,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -3799,6 +3799,68 @@
   "b60b6dc54deb4a77": {
    "cycle_id": "20261120T205251Z_984bb9",
    "n_hits": 0
+  },
+  "a48e1d2eedc910e6": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "4ba90561b6581666": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 6
+  },
+  "32b7fd97befc1545": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "47e1e455a23bdf10": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 0
+  },
+  "a542c8e58098d0da": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "bbf2ff021a516c26": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 2
+  },
+  "db21583075dabda2": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "a8fbb2df273291b2": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 4
+  },
+  "423bdcd3944b1444": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "61200a497cad9713": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 3
+  },
+  "a63e3559d6f7e078": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "19647c493f7e6cfd": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 10
+  },
+  "e9258588a77685e6": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 10
+  },
+  "c23a3e30ff4b0a84": {
+   "cycle_id": "20261120T213650Z_187496",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -4068,20 +4130,20 @@
   "A157021": "20261120T203557Z_7d7888",
   "A129366": "20261120T203557Z_7d7888"
  },
- "refills": 164,
+ "refills": 165,
  "added": 384,
  "last": {
-  "cycle_id": "20261120T205251Z_984bb9",
-  "open_before": 1,
+  "cycle_id": "20261120T213650Z_187496",
+  "open_before": 4,
   "pages_read": 8,
   "pages_skipped_duplicate": 6,
   "requests": 8,
   "new": [],
   "stats": {
-   "entries": 10,
-   "resolved_skipped": 0,
+   "entries": 30,
+   "resolved_skipped": 9,
    "keyword_skipped": 0,
-   "statements": 11,
+   "statements": 28,
    "parsed": 0,
    "no_bfile": 0,
    "fails_on_data": 0,
@@ -4089,8 +4151,8 @@
   }
  },
  "run_requests": {
-  "run_id": "44811314491",
-  "n": 42
+  "run_id": "44812440515",
+  "n": 8
  },
  "last_slot_refill_cycle": "20261120T203557Z_7d7888",
  "slot_refills": 1

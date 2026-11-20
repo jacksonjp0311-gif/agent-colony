@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 496,
+ "cycle_index": 499,
  "active": {
   "id": "bp_6af21df512e787b3",
   "signature": "6af21df512e787b3",
@@ -205,7 +205,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261120T205251Z_984bb9",
+  "cycle_id": "20261120T213650Z_187496",
   "blueprint": "bp_6af21df512e787b3",
   "ran": [
    {
@@ -214,33 +214,37 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 166,
-     "duplicate": 10,
-     "trivial_formal": 4,
-     "trivial_shuffle_null": 2,
-     "trivial_idle_part": 13,
-     "trivial_implied_parts": 111,
+     "fitted": 176,
+     "duplicate": 22,
+     "trivial_formal": 2,
+     "trivial_shuffle_null": 0,
+     "trivial_idle_part": 3,
+     "trivial_implied_parts": 36,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
-     "trivial_case_split": 0,
+     "trivial_case_split": 1,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 2,
+     "expected_by_closure": 4,
      "loose_inequality": 0,
-     "tested": 14,
-     "survived": 6,
-     "falsified": 8,
-     "machine_checked": 2,
+     "tested": 18,
+     "survived": 7,
+     "falsified": 11,
+     "machine_checked": 4,
      "surprises": 0,
-     "known_result": 1,
-     "oeis_known": 3,
+     "known_result": 0,
+     "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 8
+     "no_reference_found": 2,
+     "explained_by_known_check": 2,
+     "trivial_confirmed on range": 6,
+     "trivial_known_in_principle(definition_parity)": 1,
+     "trivial_known_in_principle(compositional)": 1
     }
    },
    {
@@ -251,10 +255,10 @@
    }
   ],
   "actions": 1,
-  "cpu_s": 18.333
+  "cpu_s": 15.371
  },
  "last_skip": {
-  "cycle_id": "20261120T205251Z_984bb9",
+  "cycle_id": "20261120T213650Z_187496",
   "reason": "self_heal_trial_open"
  },
  "kept_count": 2,

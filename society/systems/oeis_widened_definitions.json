@@ -2724,6 +2724,72 @@
    ],
    "version": 1
   },
+  "oc_A127361_0": {
+   "anum": "A127361",
+   "definition": {
+    "expr": "Sum_{k=0..n} binomial(n, floor(k/2))*(-2)^(n-k)",
+    "init": {},
+    "kind": "xexpr",
+    "provenance": "name",
+    "recursive": false,
+    "sound": true,
+    "source": "a(n) = Sum_{k=0..n} binomial(n, floor(k/2))*(-2)^(n-k).",
+    "start": null,
+    "verified": "both paths reproduce all 201 stored terms"
+   },
+   "source_sha": "0de10caf35bc820f",
+   "terms_sha": "1504c40f64c44543",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    },
+    {
+     "kind": "xexpr",
+     "ok": true,
+     "provenance": "name",
+     "source": "a(n) = Sum_{k=0..n} binomial(n, floor(k/2))*(-2)^(n-k).",
+     "why": "both paths reproduce all 201 stored terms"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A127363_0": {
+   "anum": "A127363",
+   "definition": {
+    "expr": "Sum_{k=0..n} C(n,floor(k/2))*(-4)^(n-k)",
+    "init": {},
+    "kind": "xexpr",
+    "provenance": "name",
+    "recursive": false,
+    "sound": true,
+    "source": "a(n) = Sum_{k=0..n} C(n,floor(k/2))*(-4)^(n-k).",
+    "start": null,
+    "verified": "both paths reproduce all 201 stored terms"
+   },
+   "source_sha": "524ae40101db6bc2",
+   "terms_sha": "978751da881dab00",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    },
+    {
+     "kind": "xexpr",
+     "ok": true,
+     "provenance": "name",
+     "source": "a(n) = Sum_{k=0..n} C(n,floor(k/2))*(-4)^(n-k).",
+     "why": "both paths reproduce all 201 stored terms"
+    }
+   ],
+   "version": 2
+  },
   "oc_A127632_0": {
    "anum": "A127632",
    "definition": {
@@ -3195,6 +3261,39 @@
     }
    ],
    "version": 1
+  },
+  "oc_A156894_0": {
+   "anum": "A156894",
+   "definition": {
+    "expr": "Sum_{k=0..n} binomial(n,k)*binomial(2*n+k-1,k)",
+    "init": {},
+    "kind": "xexpr",
+    "provenance": "name",
+    "recursive": false,
+    "sound": true,
+    "source": "a(n) = Sum_{k=0..n} binomial(n,k)*binomial(2*n+k-1,k).",
+    "start": null,
+    "verified": "both paths reproduce all 161 stored terms"
+   },
+   "source_sha": "10914b564b1a380c",
+   "terms_sha": "4e20308e351fa531",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    },
+    {
+     "kind": "xexpr",
+     "ok": true,
+     "provenance": "name",
+     "source": "a(n) = Sum_{k=0..n} binomial(n,k)*binomial(2*n+k-1,k).",
+     "why": "both paths reproduce all 161 stored terms"
+    }
+   ],
+   "version": 2
   },
   "oc_A157003_0": {
    "anum": "A157003",
@@ -7562,6 +7661,62 @@
    ],
    "version": 1
   },
+  "oc_A270530_0": {
+   "anum": "A270530",
+   "definition": {
+    "expr": "Sum_{k=0..n}((binomial(2*k,k)/(k+1)*binomial(2*n+2,n-k)))",
+    "init": {},
+    "kind": "xexpr",
+    "provenance": "name",
+    "recursive": false,
+    "sound": true,
+    "source": "a(n) = Sum_{k=0..n}((binomial(2*k,k)/(k+1)*binomial(2*n+2,n-k))).",
+    "start": null,
+    "verified": "both paths reproduce all 193 stored terms"
+   },
+   "source_sha": "6412ab6356023b2a",
+   "terms_sha": "462aeb50dc0c78be",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    },
+    {
+     "kind": "xexpr",
+     "ok": true,
+     "provenance": "name",
+     "source": "a(n) = Sum_{k=0..n}((binomial(2*k,k)/(k+1)*binomial(2*n+2,n-k))).",
+     "why": "both paths reproduce all 193 stored terms"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A270661_0": {
+   "anum": "A270661",
+   "definition": null,
+   "source_sha": "726319a8b2ee83da",
+   "terms_sha": "1c81862fc3e2777b",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    },
+    {
+     "kind": "xexpr",
+     "ok": false,
+     "provenance": "name",
+     "source": "a(n) = Sum_{k=0..n}((binomial(2*k,k)*Sum_{i=0..n-k}(binomial(k+1,n-k-i)*binomial(k+i,k)))/(k+1)^2)*(n+1).",
+     "why": "path A stopped at time_cap before the end of the b-file"
+    }
+   ],
+   "version": 2
+  },
   "oc_A273905_0": {
    "anum": "A273905",
    "definition": null,
@@ -8785,6 +8940,22 @@
     }
    ],
    "version": 1
+  },
+  "oc_A339669_0": {
+   "anum": "A339669",
+   "definition": null,
+   "source_sha": "5f900b94a8c5be98",
+   "terms_sha": "1eb7f5ae84ae730f",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
   },
   "oc_A344503_0": {
    "anum": "A344503",
