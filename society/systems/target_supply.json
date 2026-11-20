@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 487,
- "last_refill_index": 487,
+ "cycle_index": 490,
+ "last_refill_index": 490,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -3549,6 +3549,38 @@
   "62639d28a0000934": {
    "cycle_id": "20261120T191845Z_381910",
    "n_hits": 10
+  },
+  "1879547088b37d98": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
+  },
+  "a46cc943328658a7": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
+  },
+  "a267de011582adf7": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
+  },
+  "59c0fd6fa861b111": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
+  },
+  "55c43978c5fe1824": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
+  },
+  "7a81dd6018995c80": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
+  },
+  "d8717c4070bd599d": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
+  },
+  "38d59e6698a816ab": {
+   "cycle_id": "20261120T200444Z_f99d61",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -3815,50 +3847,28 @@
   "A336090": "20261120T191845Z_381910",
   "A225692": "20261120T191845Z_381910"
  },
- "refills": 162,
+ "refills": 163,
  "added": 378,
  "last": {
-  "cycle_id": "20261120T191845Z_381910",
+  "cycle_id": "20261120T200444Z_f99d61",
   "open_before": 1,
   "pages_read": 8,
   "pages_skipped_duplicate": 0,
-  "requests": 15,
-  "new": [
-   {
-    "id": "oc_A336344_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A188516_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A166135_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A211165_0",
-    "form": "relation",
-    "definition": false
-   }
-  ],
+  "requests": 8,
+  "new": [],
   "stats": {
-   "entries": 72,
-   "resolved_skipped": 11,
-   "keyword_skipped": 0,
-   "statements": 100,
-   "parsed": 7,
-   "no_bfile": 2,
-   "fails_on_data": 1,
-   "kept": 4,
-   "def_candidates": 0
+   "entries": 78,
+   "resolved_skipped": 22,
+   "keyword_skipped": 8,
+   "statements": 60,
+   "parsed": 0,
+   "no_bfile": 0,
+   "fails_on_data": 0,
+   "kept": 0
   }
  },
  "run_requests": {
-  "run_id": "44796668223",
-  "n": 15
+  "run_id": "44804925288",
+  "n": 8
  }
 }
