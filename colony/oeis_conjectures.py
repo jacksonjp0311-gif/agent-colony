@@ -1129,6 +1129,8 @@ def extend(defn: dict[str, Any], off: int, terms: list[int], N: int, path: str =
             cap_reason, cap_value = CAP_DIGIT, caps["deep_digits"]
         elif why == "time_cap":
             cap_reason, cap_value = CAP_TIME, seconds
+        elif why == "ref_cap":   # item 121: a referenced b-file ends (published data bounds the depth)
+            cap_reason, cap_value = CAP_REF, off + len(got) - 1
         used_fast = widened = True
     elif defn.get("kind") in ("gf", "rec"):
         got, cap_reason, cap_value = _extend_cfinite(defn, off, terms, want, seconds, bits)

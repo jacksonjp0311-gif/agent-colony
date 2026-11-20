@@ -95,7 +95,10 @@ def test_refill_adds_vetted_new_targets_dedupes_and_logs(paths):
     rows = TS.load_log()
     assert len(rows) == 1 and rows[0]["event"] == "target_added" and rows[0]["authorized"] is False
     # the next refill reads a different page and never re-adds a rejected anum
-    tool.pages[(bank[1]["q"], bank[1]["page"])] = [_hit(3), _hit(5)]
+    # (item 121: page 1 of a query whose page 0 was short is a duplicate and is skipped for free,
+    #  so the next real page is the next query's page 0)
+    nxt = next(b for b in bank[1:] if b["page"] == 0)
+    tool.pages[(nxt["q"], nxt["page"])] = [_hit(3), _hit(5)]
     rep2 = TS.refill("c2", net=FakeNet(), tool=tool, menu=menu + rep["entries"], st=st, heal=heal,
                      library_rows=[], pages=1)
     assert [e["id"] for e in rep2["new"]] == ["oc_A000005_0"]
