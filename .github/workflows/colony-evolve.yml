@@ -36,7 +36,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Item 117: a run started by the Colony watch `workflow_run` trigger goes
+  # through the same kill switch as chain-next (repo variable COLONY_CHAIN=off),
+  # needs a successful upstream run and stops after 3 consecutive evolve
+  # failures. Schedule and workflow_dispatch runs pass (dispatches already went
+  # through chain_next or a human).
+  chain-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      go: ${{ steps.gate.outputs.go }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Gate
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COLONY_CHAIN: ${{ vars.COLONY_CHAIN }}
+          EVENT_NAME: ${{ github.event_name }}
+          UPSTREAM_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+        run: python3 -m colony.chain_next --gate
+
   evolve:
+    needs: [chain-gate]
+    if: ${{ needs.chain-gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,9 +78,14 @@ jobs:
           ref: main
 
       - name: Refresh to current main before computing
+        # Item 117: fast-forward only. This runs before any cycle, on a fresh
+        # checkout, so there is no treatment output yet; --ff-only (instead of
+        # reset --hard) also refuses to drop a local commit if one ever exists.
         run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain)" || { echo "::error::dirty tree before evolve"; exit 1; }
           git fetch origin main
-          git reset --hard origin/main
+          git merge --ff-only origin/main
           echo "Computing from $(git rev-parse --short HEAD)"
 
       - name: Set up Python
@@ -414,7 +452,8 @@ jobs:
   # gate and benches (those are about the shared code, already run on
   # the treatment job). Same cycle count, same schedule, same Oracle.
   evolve-control:
-    if: ${{ github.event_name == 'schedule' || github.event.inputs.run_control != 'false' }}
+    needs: [chain-gate]
+    if: ${{ needs.chain-gate.outputs.go == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_control != 'false') }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -550,8 +589,8 @@ jobs:
   # After both arms have pushed, record treatment-minus-control and
   # refresh the growth chart. Does not authorize. Does not evolve.
   twin-scoreboard:
-    needs: [evolve, evolve-control]
-    if: ${{ always() && !cancelled() }}
+    needs: [chain-gate, evolve, evolve-control]
+    if: ${{ always() && !cancelled() && needs.chain-gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -615,8 +654,8 @@ jobs:
   # run is already queued or in progress. Chains after failures too,
   # but stops after 3 consecutive evolve-job failures. Never authorize.
   chain-next:
-    needs: [evolve, evolve-control, twin-scoreboard]
-    if: ${{ always() && !cancelled() && github.ref == 'refs/heads/main' }}
+    needs: [chain-gate, evolve, evolve-control, twin-scoreboard]
+    if: ${{ always() && !cancelled() && github.ref == 'refs/heads/main' && needs.chain-gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
