@@ -7446,6 +7446,22 @@
    ],
    "version": 1
   },
+  "oc_A328078_0": {
+   "anum": "A328078",
+   "definition": null,
+   "source_sha": "5dc25848133c814e",
+   "terms_sha": "e0b476d772a6e20a",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
   "oc_A328202_0": {
    "anum": "A328202",
    "definition": null,

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 481,
+ "cycle_index": 484,
  "active": {
   "id": "bp_6af21df512e787b3",
   "signature": "6af21df512e787b3",
@@ -190,7 +190,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261120T170526Z_edd8ee",
+  "cycle_id": "20261120T174827Z_4491fb",
   "blueprint": "bp_6af21df512e787b3",
   "ran": [
    {
@@ -199,36 +199,34 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 186,
-     "duplicate": 19,
-     "trivial_formal": 1,
-     "trivial_shuffle_null": 3,
-     "trivial_idle_part": 6,
-     "trivial_implied_parts": 47,
-     "trivial_shared_operand": 0,
+     "fitted": 168,
+     "duplicate": 18,
+     "trivial_formal": 2,
+     "trivial_shuffle_null": 6,
+     "trivial_idle_part": 5,
+     "trivial_implied_parts": 70,
+     "trivial_shared_operand": 1,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
-     "trivial_rewrite_closure": 1,
+     "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 4,
+     "expected_by_closure": 2,
      "loose_inequality": 0,
-     "tested": 17,
-     "survived": 6,
-     "falsified": 11,
-     "machine_checked": 4,
+     "tested": 15,
+     "survived": 3,
+     "falsified": 12,
+     "machine_checked": 2,
      "surprises": 0,
      "known_result": 0,
      "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 1,
-     "explained_by_known_check": 1,
-     "trivial_confirmed on range": 4,
-     "trivial_known_in_principle(compositional)": 1
+     "trivial_confirmed on range": 10,
+     "trivial_known_in_principle(definition_parity)": 2
     }
    },
    {
@@ -239,10 +237,10 @@
    }
   ],
   "actions": 1,
-  "cpu_s": 17.317
+  "cpu_s": 16.224
  },
  "last_skip": {
-  "cycle_id": "20261120T170526Z_edd8ee",
+  "cycle_id": "20261120T174827Z_4491fb",
   "reason": "self_heal_trial_open"
  },
  "kept_count": 2,
