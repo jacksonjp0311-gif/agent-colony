@@ -229,6 +229,11 @@ def pick_mutation(
         _ledger_view, _enabled_catalog = None, set()
         pick_skips_recorded = None  # type: ignore[assignment]
     _known: set[str] | None = None
+    try:  # Item 119: never-judged variants of a family the ledger already holds (None = off)
+        from colony.learned_family_skip import snapshot as _lfs_snapshot, SKIP_REASON as _LFS_REASON
+        _learned = _lfs_snapshot()
+    except Exception:  # noqa: BLE001
+        _learned, _LFS_REASON = None, "learned_family"
     for name, k, snip in ordered:
         if force_mutation and name != force_mutation:
             continue
@@ -243,6 +248,9 @@ def pick_mutation(
             continue
         if _ledger_view is not None and pick_skips_recorded(name, _ledger_view, _enabled_catalog):
             cooled[name] = "already_in_lesson_ledger_or_history"
+            continue
+        if _learned is not None and _learned.learned_by_name(name):
+            cooled[name] = _LFS_REASON
             continue
         # Short-window retry limit (kept): easy_pad 3, hard 2 recent reverts
         limit = 3 if name.startswith("easy_pad") else 2
@@ -454,6 +462,26 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = "", extra_
                 fresh_authored = fresh_authored | {r["name"] for r in author_checks(cycle_id=cycle_id) if r.get("accepted")}
         except Exception:
             pass
+    slot_rep = None
+    if not chosen and not extra_pick:
+        # Item 119: a turn freed by the learned-family skip (a cooled variant here, or a
+        # generator variant not authored this cycle) goes to one bank-v2 supply refill.
+        try:
+            from colony import learned_family_skip as _lfs
+            if _lfs.enabled():
+                freed = sorted(n for n, why in cooled.items() if why == _lfs.SKIP_REASON)
+                try:
+                    from colony.target_generator import last_supply as _tg_last
+                    _tgl = _tg_last()
+                    if (int(_tgl.get("learned_family_skipped") or 0) > 0
+                            and str(_tgl.get("cycle_id") or "") == str(cycle_id or "")):
+                        freed.append("generator:learned_family_skipped")
+                except Exception:  # noqa: BLE001
+                    pass
+                if freed:
+                    slot_rep = _lfs.give_slot(cycle_id, freed=freed, source="conjecture_desk")
+        except Exception:  # noqa: BLE001
+            slot_rep = None
     if not chosen:
         # The lemma catalog has nothing left that is not cooled or blocked. This cycle's
         # turn goes to one OEIS conjecture attempt (a zero-credit family, or a search
@@ -478,6 +506,10 @@ def improve_once(*, force_mutation=None, ledger=None, cycle_id: str = "", extra_
                 catalog_hint={
                     "oeis_idle": (oeis_rep or {}).get("purpose") or "unavailable",
                     "target": str(chosen0.get("id") or ""),
+                    **({"learned_family_slot": {
+                        "added": [x.get("id") for x in ((slot_rep or {}).get("refill") or {}).get("new") or []],
+                        "skipped": ((slot_rep or {}).get("refill") or {}).get("skipped"),
+                    }} if slot_rep and slot_rep.get("given") else {}),
                 },
                 tags=["catalog_exhausted", "oeis_idle"],
             )

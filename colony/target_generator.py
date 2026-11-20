@@ -628,6 +628,15 @@ def author_targets(
     except Exception:  # noqa: BLE001
         dead_fams = set()
     dead_skipped = 0
+    # Item 119: no further variants of a mutation family the lesson ledger already holds
+    # (COLONY_LEARNED_FAMILY_SKIP; None on control / off -> unchanged behaviour).
+    try:
+        from colony import learned_family_skip as _lfs
+        _learned = _lfs.snapshot()
+    except Exception:  # noqa: BLE001
+        _lfs, _learned = None, None
+    learned_skipped: list[dict[str, Any]] = []
+    learned_seen: set[str] = set()
 
     def _rows():
         # Default pass first; the wider pass runs only when the default pass
@@ -646,6 +655,18 @@ def author_targets(
             if pass_name == "wide":
                 break
             continue
+        if _learned is not None and not (
+            canonical_key(row, str(row.get("mut_kind") or "")) in seen_keys
+            or check_name(row, str(row.get("mut_kind") or "")) in seen_names
+        ):
+            by = _learned.learned_by_statement(row.get("source_statement"))
+            if by:
+                fk = _lfs.family_key(row.get("source_statement"))
+                if fk not in learned_seen:
+                    learned_seen.add(fk)
+                    learned_skipped.append({"family": fk, "learned_by": by,
+                                            "source_statement": str(row.get("source_statement") or "")[:160]})
+                continue
         cand = _eligible_candidate(row, seen_keys, seen_names, skip_filters=skip_filters)
         if cand is None:
             continue
@@ -710,6 +731,11 @@ def author_targets(
         })
     if dead_skipped:
         stats["dead_family_skipped"] = dead_skipped  # type: ignore[assignment]
+    if learned_skipped:
+        stats["learned_family_skipped"] = len(learned_skipped)  # type: ignore[assignment]
+        if write and _lfs is not None:
+            _lfs.log({"event": "skip_author", "cycle_id": cycle_id, "families": learned_skipped[:20],
+                      "n_families": len(learned_skipped), "authored": len(accepted)})
     _record_supply(accepted, stats, cycle_id, write=write)
     return accepted
 
@@ -747,8 +773,11 @@ def _record_supply(
     }
     if stats.get("dead_family_skipped"):
         info["dead_family_skipped"] = int(stats["dead_family_skipped"])  # type: ignore[arg-type]
+    if stats.get("learned_family_skipped"):
+        info["learned_family_skipped"] = int(stats["learned_family_skipped"])  # type: ignore[arg-type]
     _LAST_SUPPLY.clear()
     _LAST_SUPPLY.update(info)
+    _LAST_SUPPLY["cycle_id"] = cycle_id
     if exhausted and write:
         _append_log({"event": "supply_exhausted", "cycle_id": cycle_id, **info})
 
