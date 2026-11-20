@@ -55,7 +55,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 385 papers across 14/14 fields, 194 concepts, 96 cards formed, 1 tested, 0 kept.
+knowledge: 386 papers across 14/14 fields, 195 concepts, 96 cards formed, 1 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -71,7 +71,7 @@ knowledge: 385 papers across 14/14 fields, 194 concepts, 96 cards formed, 1 test
 | optimization_search | 32 | 34 | 20 | 0 | 0 |
 | physics_complex_systems | 23 | 9 | 3 | 0 | 0 |
 | recursive_self_improvement | 33 | 2 | 4 | 0 | 0 |
-| self_learning_loops | 24 | 13 | 5 | 1 | 0 |
+| self_learning_loops | 25 | 14 | 5 | 1 | 0 |
 | swarm_collective_intelligence | 11 | 10 | 9 | 0 | 0 |
 
 ## Architecture ideas (proposals for a human-built PR; never auto-executed)
@@ -79,8 +79,8 @@ knowledge: 385 papers across 14/14 fields, 194 concepts, 96 cards formed, 1 test
 - `novelty_archive` — 39 papers (consciousness_self_models, neural_architecture, open_endedness, optimization_search, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
 - `specialist_routing` — 22 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `swarm_topology` — 12 papers (multi_agent_systems, neural_architecture, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
+- `self_play_challenger` — 11 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 - `meta_controller` — 10 papers (meta_learning, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
-- `self_play_challenger` — 10 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 

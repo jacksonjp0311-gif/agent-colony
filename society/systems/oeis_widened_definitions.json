@@ -401,6 +401,55 @@
    ],
    "version": 1
   },
+  "oc_A005994_0": {
+   "anum": "A005994",
+   "definition": {
+    "kind": "holo",
+    "polys": {
+     "0": [
+      1
+     ],
+     "1": [
+      -3
+     ],
+     "2": [
+      1
+     ],
+     "3": [
+      5
+     ],
+     "4": [
+      -5
+     ],
+     "5": [
+      -1
+     ],
+     "6": [
+      3
+     ],
+     "7": [
+      -1
+     ]
+    },
+    "provenance": "guessed",
+    "sound": false,
+    "source": "oeis_guess.guess_cfinite on 160 terms",
+    "text": "C-finite guess (order 7)",
+    "verified": "both paths reproduce all 500 stored terms"
+   },
+   "source_sha": "cdcf5291290e336d",
+   "terms_sha": "402919e366976dd7",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": true,
+     "provenance": "guessed",
+     "source": "oeis_guess.guess_cfinite on 160 terms",
+     "why": "both paths reproduce all 500 stored terms"
+    }
+   ],
+   "version": 1
+  },
   "oc_A006068_0": {
    "anum": "A006068",
    "definition": null,
@@ -1391,6 +1440,22 @@
    "definition": null,
    "source_sha": "6a93f13d85ad4091",
    "terms_sha": "88cc287801ffa087",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A069761_0": {
+   "anum": "A069761",
+   "definition": null,
+   "source_sha": "dc8982fa31978b34",
+   "terms_sha": "3a8bfb9a034d5e3b",
    "tried": [
     {
      "kind": "holo",
@@ -2566,6 +2631,22 @@
    "definition": null,
    "source_sha": "a8cdad193fa5e7ea",
    "terms_sha": "0ca4f9d72ccee8ef",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 1
+  },
+  "oc_A145920_0": {
+   "anum": "A145920",
+   "definition": null,
+   "source_sha": "f0701fbce3dfcccd",
+   "terms_sha": "ce146900a507c432",
    "tried": [
     {
      "kind": "holo",

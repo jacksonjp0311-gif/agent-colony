@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-20T08:42:35Z",
-  "cycle_id": "20261120T084208Z_da31eb",
+  "ts": "2026-11-20T09:30:56Z",
+  "cycle_id": "20261120T093038Z_9497ac",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -107,9 +107,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8213,
-      "slope": -8.9e-05,
-      "min": 0.8213,
+      "last": 0.8228,
+      "slope": -8.4e-05,
+      "min": 0.8212,
       "max": 0.8241
     },
     "novelty": {
@@ -139,7 +139,7 @@
   },
   "stall": {
     "stalled": true,
-    "aggregate_range": 0.0028,
+    "aggregate_range": 0.0023,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "aggregate flat and novelty 0"
@@ -287,33 +287,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.889,
-      "drift": true
+      "ratio": 0.786,
+      "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.907,
-      "drift": true
+      "ratio": 0.814,
+      "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.768,
-      "drift": true
+      "ratio": 0.857,
+      "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.657,
-      "drift": true
+      "ratio": 0.92,
+      "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.429,
+      "ratio": 0.887,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 665008835,
+      "goldbach_even": 668208835,
       "collatz_descent": 735800000,
-      "legendre_square_gap": 3724607,
-      "lehmer_totient": 351000001,
+      "legendre_square_gap": 3740607,
+      "lehmer_totient": 352600001,
       "erdos_straus": 1754127,
       "twin_primes_hl": 918200000,
       "oeis_A104062_next": 518690000001
@@ -365,7 +365,7 @@
   },
   "ci_health": {
     "success_rate": 1.0,
-    "completed": 10,
+    "completed": 11,
     "last": [
       [
         null,
@@ -376,11 +376,11 @@
         "2026-11-20T08:15:43Z"
       ],
       [
-        null,
+        "success",
         "2026-11-20T08:15:37Z"
       ]
     ],
-    "fetched_at": "2026-11-20T08:17:40Z"
+    "fetched_at": "2026-11-20T09:10:25Z"
   },
   "feeds": {
     "by_source": {
@@ -408,27 +408,31 @@
           "ok": true
         },
         "crossref": {
+          "error": "",
+          "fetched": 3,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
+          "error": "",
+          "fetched": 8,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-20T08:17:39Z"
+      "ts": "2026-11-20T09:10:21Z"
     },
     "health": {
       "arxiv": {
@@ -437,26 +441,25 @@
       },
       "crossref": {
         "fail": 0,
-        "ok": 116
+        "ok": 117
       },
       "oeis": {
         "fail": 0,
-        "ok": 116
+        "ok": 117
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 112
+        "ok": 113
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 116
+        "ok": 117
       }
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0028) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
+    "stall: aggregate flat (0.0023) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "bench_timing_drift: fft_microbench, fft_stress_microbench, autodiff_microbench, lemma_microbench",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."

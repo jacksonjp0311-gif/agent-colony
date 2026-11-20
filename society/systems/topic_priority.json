@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-native",
+      "topic": "a(n-1)+a(n-2)-f(n)",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "agent-based",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-20T08:45:48Z",
-  "updated_cycle": "20261120T084208Z_da31eb",
+  "updated_at": "2026-11-20T09:33:06Z",
+  "updated_cycle": "20261120T093038Z_9497ac",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

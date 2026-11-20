@@ -70,7 +70,7 @@
       "concepts": 31,
       "distinct_concepts": 8,
       "papers": 42,
-      "reads": 30
+      "reads": 31
     },
     "open_endedness": {
       "cards_formed": 34,
@@ -112,10 +112,10 @@
       "cards_formed": 5,
       "cards_kept": 0,
       "cards_tested": 1,
-      "concepts": 13,
+      "concepts": 14,
       "distinct_concepts": 4,
-      "papers": 24,
-      "reads": 30
+      "papers": 25,
+      "reads": 31
     },
     "swarm_collective_intelligence": {
       "cards_formed": 9,
@@ -124,7 +124,7 @@
       "concepts": 10,
       "distinct_concepts": 2,
       "papers": 11,
-      "reads": 30
+      "reads": 31
     }
   },
   "fields_with_papers": 14,
@@ -215,6 +215,31 @@
       "n_papers": 12
     },
     {
+      "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
+      "examples": [
+        {
+          "arxiv_id": "2611.15426",
+          "field": "self_learning_loops",
+          "title": "SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction"
+        },
+        {
+          "arxiv_id": "2611.10841",
+          "field": "self_learning_loops",
+          "title": "A Gamified Framework for Conflict-Driven Design: Discovering Strategies for Collaborative Resilience with Multi-Agent Learning"
+        },
+        {
+          "arxiv_id": "2611.08908",
+          "field": "self_learning_loops",
+          "title": "Toward LLM Self-Play Under Data Scarcity: Effectiveness, Generalizability, and Trustworthiness"
+        }
+      ],
+      "fields": [
+        "self_learning_loops"
+      ],
+      "idea": "self_play_challenger",
+      "n_papers": 11
+    },
+    {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
       "examples": [
         {
@@ -239,39 +264,14 @@
       ],
       "idea": "meta_controller",
       "n_papers": 10
-    },
-    {
-      "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
-      "examples": [
-        {
-          "arxiv_id": "2611.15426",
-          "field": "self_learning_loops",
-          "title": "SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction"
-        },
-        {
-          "arxiv_id": "2611.10841",
-          "field": "self_learning_loops",
-          "title": "A Gamified Framework for Conflict-Driven Design: Discovering Strategies for Collaborative Resilience with Multi-Agent Learning"
-        },
-        {
-          "arxiv_id": "2611.08908",
-          "field": "self_learning_loops",
-          "title": "Toward LLM Self-Play Under Data Scarcity: Effectiveness, Generalizability, and Trustworthiness"
-        }
-      ],
-      "fields": [
-        "self_learning_loops"
-      ],
-      "idea": "self_play_challenger",
-      "n_papers": 10
     }
   ],
   "totals": {
     "cards_formed": 96,
     "cards_kept": 0,
     "cards_tested": 1,
-    "concepts": 194,
-    "papers": 385,
-    "reads": 451
+    "concepts": 195,
+    "papers": 386,
+    "reads": 454
   }
 }
