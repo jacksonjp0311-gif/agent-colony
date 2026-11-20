@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-20T05:55:04Z",
-  "cycle_id": "20261120T055444Z_08d0ab",
+  "ts": "2026-11-20T06:36:33Z",
+  "cycle_id": "20261120T063615Z_f4da98",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -107,8 +107,8 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8236,
-      "slope": -0.000432,
+      "last": 0.8231,
+      "slope": 3e-06,
       "min": 0.8066,
       "max": 0.8236
     },
@@ -287,33 +287,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.61,
+      "ratio": 0.642,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.626,
+      "ratio": 0.651,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.723,
+      "ratio": 0.721,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.727,
+      "ratio": 0.815,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.931,
+      "ratio": 0.815,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 658608835,
+      "goldbach_even": 661808835,
       "collatz_descent": 729400000,
-      "legendre_square_gap": 3692607,
-      "lehmer_totient": 347800001,
+      "legendre_square_gap": 3708607,
+      "lehmer_totient": 349400001,
       "erdos_straus": 1744127,
       "twin_primes_hl": 910200000,
       "oeis_A104062_next": 518690000001
@@ -369,18 +369,18 @@
     "last": [
       [
         null,
+        "2026-11-20T06:13:57Z"
+      ],
+      [
+        "success",
+        "2026-11-20T06:05:28Z"
+      ],
+      [
+        "success",
         "2026-11-20T05:35:36Z"
-      ],
-      [
-        "success",
-        "2026-11-20T04:48:35Z"
-      ],
-      [
-        "success",
-        "2026-11-20T03:57:56Z"
       ]
     ],
-    "fetched_at": "2026-11-20T05:37:58Z"
+    "fetched_at": "2026-11-20T06:16:16Z"
   },
   "feeds": {
     "by_source": {
@@ -399,7 +399,7 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "cs.LG:TimeoutError: The read operation timed out; cs.MA:TimeoutError: The read operation timed out",
+          "error": "math.CO:TimeoutError: The read operation timed out; math.NT:HTTPError: HTTP Error 429: Unknown Error",
           "fetched": 0,
           "new": 0,
           "ok": false
@@ -429,11 +429,11 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-20T05:37:27Z"
+      "ts": "2026-11-20T06:16:00Z"
     },
     "health": {
       "arxiv": {
-        "fail": 13,
+        "fail": 14,
         "ok": 112
       },
       "crossref": {

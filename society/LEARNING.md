@@ -15,7 +15,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **4** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive decision deferred **1** times (`set_knob:direction=up:name=park_cycles:value=13`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
 - Hive shadow picks: resolved 1, correct 0, pending 199, accuracy 0‰
 
 ## Per method card
@@ -55,13 +55,13 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 361 papers across 14/14 fields, 187 concepts, 95 cards formed, 1 tested, 0 kept.
+knowledge: 366 papers across 14/14 fields, 190 concepts, 96 cards formed, 1 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | automated_reasoning | 41 | 4 | 1 | 0 | 0 |
-| cognitive_science | 10 | 6 | 5 | 0 | 0 |
-| consciousness_self_models | 11 | 7 | 2 | 0 | 0 |
+| cognitive_science | 13 | 7 | 6 | 0 | 0 |
+| consciousness_self_models | 13 | 9 | 2 | 0 | 0 |
 | learning_theory | 18 | 20 | 1 | 0 | 0 |
 | mathematics | 60 | 0 | 0 | 0 | 0 |
 | meta_learning | 17 | 13 | 2 | 0 | 0 |

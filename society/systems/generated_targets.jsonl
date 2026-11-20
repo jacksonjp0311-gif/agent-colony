@@ -264,3 +264,4 @@
 {"event": "passed", "name": "authored_mut_perturb_constant_a67e97a8b9c1", "source": "oracle"}
 {"cycle_id": "20261120T033101Z_7eebae", "eligible": 0, "event": "supply_exhausted", "generator_supply_exhausted": true, "reason": "supply_exhausted", "tried": 0, "wide_accepted": 0, "wide_eligible": 0, "wide_tried": 0, "widened": true}
 {"cycle_id": "20261120T050405Z_4f995e", "eligible": 0, "event": "supply_exhausted", "generator_supply_exhausted": true, "reason": "supply_exhausted", "tried": 0, "wide_accepted": 0, "wide_eligible": 0, "wide_tried": 0, "widened": true}
+{"cycle_id": "20261120T062816Z_3075f0", "eligible": 0, "event": "supply_exhausted", "generator_supply_exhausted": true, "reason": "supply_exhausted", "tried": 0, "wide_accepted": 0, "wide_eligible": 0, "wide_tried": 0, "widened": true}
