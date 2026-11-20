@@ -908,3 +908,6 @@
 {"fingerprint": "set_knob:direction=up:name=perturb_epsilon:value=0.3585", "score": -319}
 {"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=4593", "score": -36}
 {"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "score": -72}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "score": -167}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "score": -36}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "score": -36}
