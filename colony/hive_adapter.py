@@ -104,6 +104,11 @@ def _desk_hint(evidence: Mapping[str, Any]) -> str:
 def bind() -> None:
     """Attach colony helpers and paths to Hive. Safe to call more than once."""
     host.bind(heal=_HealView(_heal) if _heal is not None else None, checker=_checker)
+    try:  # item 115: externally authored priors reach Hive only through this hook
+        from colony import external_priors as _xp
+        host.bind_priors(_xp)
+    except Exception:  # noqa: BLE001
+        host.bind_priors(None)
     library.LIBRARY_LOG = data_dir() / "commons" / "fix_library.jsonl"
     library.LIBRARY_SNAPSHOT = society_dir() / "systems" / "swarm_library.json"
     library.ROOT = REPO_ROOT
