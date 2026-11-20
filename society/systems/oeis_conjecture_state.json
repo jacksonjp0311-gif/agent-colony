@@ -673,10 +673,10 @@
    "credit": 0.0
   },
   "oc_A346074_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 499,
-   "credit": 0.0
+   "tested_hi": 2369,
+   "credit": 0.0187
   },
   "oc_A392211_0": {
    "attempts": 1,
@@ -781,15 +781,15 @@
    "credit": 0.0
   },
   "oc_A140829_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A278472_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 249,
+   "tested_hi": 966,
    "credit": 0.0
   },
   "oc_A135052_0": {
@@ -799,13 +799,13 @@
    "credit": 1.0
   },
   "oc_A322600_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A322599_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -835,10 +835,10 @@
    "credit": 0.0
   },
   "oc_A116406_0": {
-   "attempts": 1,
-   "status": "holds_on_range",
+   "attempts": 2,
+   "status": "proved_checked",
    "tested_hi": 3148,
-   "credit": 0.05
+   "credit": 1.05
   },
   "oc_A177258_0": {
    "attempts": 1,
@@ -1027,9 +1027,9 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 1,
+   "attempts": 4,
    "status": "holds_on_range",
-   "tested_hi": 286,
+   "tested_hi": 299,
    "credit": 0.0
   },
   "oc_A227375_0": {
@@ -1075,10 +1075,10 @@
    "credit": 0.0
   },
   "oc_A386844_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 133,
-   "credit": 0.0
+   "tested_hi": 815,
+   "credit": 0.0184
   },
   "oc_A094213_0": {
    "attempts": 3,
@@ -1087,16 +1087,16 @@
    "credit": 0.0512
   },
   "oc_A359643_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 148,
+   "tested_hi": 932,
    "credit": 0.0
   },
   "oc_A105872_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 251,
-   "credit": 0.0
+   "tested_hi": 1406,
+   "credit": 0.0074
   },
   "oc_A260147_0": {
    "attempts": 1,
@@ -1135,10 +1135,10 @@
    "credit": 0.0
   },
   "oc_A081798_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 103,
-   "credit": 0.0
+   "tested_hi": 793,
+   "credit": 0.01
   },
   "oc_A172025_0": {
    "attempts": 1,
@@ -1303,10 +1303,10 @@
    "credit": 0.0
   },
   "oc_A176479_0": {
-   "attempts": 1,
+   "attempts": 4,
    "status": "holds_on_range",
-   "tested_hi": 197,
-   "credit": 0.0
+   "tested_hi": 1026,
+   "credit": 0.0006
   },
   "oc_A025567_0": {
    "attempts": 1,
@@ -2733,11 +2733,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 715,
-   "credit": 24.3471
+   "attempts": 728,
+   "credit": 25.4022
   },
   "gf": {
-   "attempts": 144,
+   "attempts": 147,
    "credit": 3.5876
   },
   "only_prime": {
@@ -2749,7 +2749,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 27.9347,
+ "credit_total": 28.9898,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -2872,6 +2872,13 @@
     "anum": "A135052",
     "checker": "x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 5 by the operator identity",
     "routine": true
+   },
+   "oc_A116406_0": {
+    "anum": "A116406",
+    "checker": "x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 3 by the operator identit",
+    "routine": true,
+    "certificate_verified": false,
+    "certificate_type": null
    }
   },
   "extensions": {
@@ -3359,6 +3366,36 @@
     "anum": "A309879",
     "bfile_hi": 56,
     "to": 19999,
+    "check": "exact"
+   },
+   "oc_A105872_0": {
+    "anum": "A105872",
+    "bfile_hi": 1000,
+    "to": 1406,
+    "check": "exact"
+   },
+   "oc_A346074_0": {
+    "anum": "A346074",
+    "bfile_hi": 1000,
+    "to": 2369,
+    "check": "exact"
+   },
+   "oc_A176479_0": {
+    "anum": "A176479",
+    "bfile_hi": 1000,
+    "to": 1026,
+    "check": "exact"
+   },
+   "oc_A081798_0": {
+    "anum": "A081798",
+    "bfile_hi": 500,
+    "to": 793,
+    "check": "exact"
+   },
+   "oc_A386844_0": {
+    "anum": "A386844",
+    "bfile_hi": 350,
+    "to": 815,
     "check": "exact"
    }
   },

@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 469,
- "last_refill_index": 469,
+ "cycle_index": 472,
+ "last_refill_index": 472,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -3074,6 +3074,73 @@
   "a206c957c109f878": {
    "cycle_id": "20261120T144455Z_b16310",
    "n_hits": 1
+  },
+  "9230514752051c45": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0
+  },
+  "7a2eeb63cf60eef9": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "bd59d2c8d6b9021a": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0
+  },
+  "4ef52f889ce9efeb": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "e4dc8f934a04fc6f": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 1
+  },
+  "98bab38f33f5b180": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "c3325a0ac3215d66": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 8
+  },
+  "88346aee42d90cca": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "becd4437a95c6d6a": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0
+  },
+  "c9be8f489d3e7d82": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "0e42a1ca08296911": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0
+  },
+  "0c453a2faa97e54e": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "9608631e9d82de85": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0
+  },
+  "1ff3dbf57f111263": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "84ed37b019e2f9ab": {
+   "cycle_id": "20261120T153244Z_ce451e",
+   "n_hits": 0
   }
  },
  "rejected": {
@@ -3331,23 +3398,28 @@
   "A047881": "20261120T123018Z_52910c",
   "A338024": "20261120T123018Z_52910c"
  },
- "refills": 156,
+ "refills": 157,
  "added": 364,
  "last": {
-  "cycle_id": "20261120T144455Z_b16310",
-  "open_before": 0,
+  "cycle_id": "20261120T153244Z_ce451e",
+  "open_before": 2,
   "pages_read": 8,
+  "pages_skipped_duplicate": 7,
   "requests": 8,
   "new": [],
   "stats": {
-   "entries": 16,
+   "entries": 9,
    "resolved_skipped": 2,
    "keyword_skipped": 0,
-   "statements": 15,
+   "statements": 7,
    "parsed": 0,
    "no_bfile": 0,
    "fails_on_data": 0,
    "kept": 0
   }
+ },
+ "run_requests": {
+  "run_id": "44759978766",
+  "n": 8
  }
 }

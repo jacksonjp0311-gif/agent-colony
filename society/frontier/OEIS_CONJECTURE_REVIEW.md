@@ -121,3 +121,8 @@ Checker: x-side residual is a polynomial of degree 4 with zero radical part; rec
 OEIS text (formula): "Conjecture: (n+2)*a(n) +(-5*n-4)*a(n-1) +2*(2*n+1)*a(n-2) +4*(2*n-5)*a(n-3) +12*(-n+3)*a(n-4) +4*(n-4)*a(n-5)=0. - _R. J. Mathar_, Apr 19 2015"
 Parsed claim: `{"form": "relation", "mod": null, "n0": null, "parts": ["(n+2)*a(n)+(-5*n-4)*a(n-1)+2*(2*n+1)*a(n-2)+4*(2*n-5)*a(n-3)+12*(-n+3)*a(n-4)+4*(n-4)*a(n-5)", "0"], "rels": ["="]}`
 Checker: x-side residual is a polynomial of degree 3 with zero radical part; recurrence holds for n >= 5 by the operator identity and is checked directly on 0..4
+
+## A116406 — proved_checked (cycle 20261120T153244Z_ce451e)
+OEIS text (formula): "Conjecture: n*(n-3)*a(n) +2*(-n^2+4*n-2)*a(n-1) -4*(n-2)^2*a(n-2) +8*(n-2)*(n-3)*a(n-3)=0. - _R. J. Mathar_, Nov 28 2014"
+Parsed claim: `{"form": "relation", "mod": null, "n0": null, "parts": ["n*(n-3)*a(n)+2*(-n^2+4*n-2)*a(n-1)-4*(n-2)^2*a(n-2)+8*(n-2)*(n-3)*a(n-3)", "0"], "rels": ["="]}`
+Checker: x-side residual is a polynomial of degree -1 with zero radical part; recurrence holds for n >= 3 by the operator identity and is checked directly on 0..2
