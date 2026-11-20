@@ -2042,6 +2042,26 @@ def fair_turn_yield(state: Mapping[str, Any]) -> dict[str, Any] | None:
     return {"reason": "fair_turn_yield", "waiting": waiting, "since_close": since, "limit": limit}
 
 
+def _cap_raise_blocked(state: dict[str, Any], knob: str) -> str | None:
+    """Same cap cannot rise again until the last adopt's depth has an Oracle pass.
+
+    No gate is loosened. Fail-open if the Oracle log cannot be read.
+    """
+    if knob not in CAP_KNOBS:
+        return None
+    rec = (state.get("cap_adopt") or {}).get(knob)
+    if not isinstance(rec, dict):
+        return None
+    try:
+        from colony.oracle import counts
+        now = int(counts().get("passes") or 0)
+    except Exception:
+        return None
+    if now <= int(rec.get("oracle_passes") or 0):
+        return "cap_awaiting_oracle"
+    return None
+
+
 def _knob_on_cooldown(state: dict[str, Any], knob: str, direction: str) -> bool:
     if fair_turns_enabled() and tie_cooldown(state, knob, direction) is not None:
         return True
@@ -2571,6 +2591,8 @@ def propose_trial(
         tried.add((knob, direction))
         if _knob_on_cooldown(st, knob, direction):
             continue
+        if direction == "up" and _cap_raise_blocked(st, knob):
+            continue
         cur = state_knob(st, knob)
         if knob in CAP_KNOBS:
             # Item 67: step from the live frontier so a used-up value
@@ -3066,6 +3088,17 @@ def _close_trial(
         helped = trial_score > baseline_score or (
             trial_score == baseline_score and activity_score > baseline_activity
         )
+        # A prior raise of this cap that produced no Oracle passes
+        # means the next one must beat an Oracle baseline, not depth alone.
+        prior = (state.get("cap_adopt") or {}).get(knob) if knob else None
+        if isinstance(prior, dict) and prior.get("no_new_passes"):
+            pass_delta = 0
+            for row in trial.get("trial_metrics") or []:
+                if isinstance(row, dict):
+                    pass_delta += int(row.get("oracle_pass_delta") or 0)
+            if pass_delta <= 0:
+                helped = False
+                reason = reason or "oracle_baseline"
     else:
         trial_score = activity_score
         baseline_score = float(trial.get("baseline_score") or 0)
@@ -3104,6 +3137,22 @@ def _close_trial(
         link["baseline_activity_score"] = baseline_activity
     if decision == "adopt" and helped and knob:
         # Value is already the trial value. Strictly-better rule unchanged.
+        if knob in CAP_KNOBS:
+            try:
+                from colony.oracle import counts
+                passes = int(counts().get("passes") or 0)
+            except Exception:
+                passes = 0
+            trial_pass_delta = 0
+            for row in trial.get("trial_metrics") or []:
+                if isinstance(row, dict):
+                    trial_pass_delta += int(row.get("oracle_pass_delta") or 0)
+            state.setdefault("cap_adopt", {})[knob] = {
+                "oracle_passes": passes,
+                "to": trial.get("to"),
+                "cycle_id": cycle_id,
+                "no_new_passes": trial_pass_delta <= 0,
+            }
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
         try:
             from colony.external_priors import enabled as _ext_on  # item 115: external hook, switchable
