@@ -20,6 +20,8 @@ _DATA = Path(__file__).resolve().parent / "data"
 # Bound host modules. Looked up at call time; never imported by name.
 _heal: Any = None
 _checker: Any = None
+# Item 115: optional priors provider (externally authored Hive score priors).
+_priors: Any = None
 
 # Names that can never appear as a knob or rule target. Kept in the
 # same spirit as the colony's frozen-rule list; Hive also applies this
@@ -40,6 +42,24 @@ def bind(*, heal: Any = None, checker: Any = None) -> None:
     global _heal, _checker
     _heal = heal
     _checker = checker
+
+
+def bind_priors(provider: Any = None) -> None:
+    """Item 115: attach (or with ``None`` detach) a priors provider. Separate from
+    ``bind`` so rebinding heal/checker never drops it. Hive never imports it."""
+    global _priors
+    _priors = provider
+
+
+def priors_call(name: str, *args: Any, default: Any = None, **kwargs: Any) -> Any:
+    """Call ``name`` on the bound priors provider; ``default`` when unbound or on error."""
+    fn = getattr(_priors, name, None) if _priors is not None else None
+    if not callable(fn):
+        return default
+    try:
+        return fn(*args, **kwargs)
+    except Exception:  # noqa: BLE001
+        return default
 
 
 def is_bound() -> bool:

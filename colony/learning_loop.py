@@ -561,6 +561,10 @@ def _optional_evidence_tools(claim: dict | None, delta: float) -> dict:
     """
     out = {"tools_available": False}
     try:
+        from colony.external_priors import enabled as _ext_on  # item 115: external hook, switchable
+        if not _ext_on():
+            out["skipped"] = "COLONY_EXTERNAL_PRIORS off"
+            return out
         from colony.tools.evidence_graph import append_node
         from colony.tools.statistical_keep_gate import should_accept, record_outcome
         from colony.tools.reward_isolation import can_award_credit
@@ -597,7 +601,8 @@ def decide_keep(
     heal_ok = self_heal_strictly_better(trial_score, baseline_score)
     twin_ok, twin_info = twin_strictly_better(treatment, control)
     keep = bool(heal_ok and twin_ok)
-    if keep:
+    from colony.external_priors import enabled as _ext_on  # item 115: external hooks, switchable
+    if keep and _ext_on():
         try:
             from colony.tools.crystallize import crystallize
             from colony.tools.surgical_implants import transactional_crystallize
@@ -613,6 +618,8 @@ def decide_keep(
         )
     )
     try:
+        if not _ext_on():
+            raise RuntimeError("COLONY_EXTERNAL_PRIORS off")
         from colony.tools.symbiotic_exchange import append_receipt
         fp = ""
         if isinstance(treatment, dict):

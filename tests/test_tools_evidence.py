@@ -148,7 +148,17 @@ def test_existing_signals_via_facade():
     assert r["ok"] is True
 
 
-def test_evolutionary_bias_fail_open():
+def _bind_priors(monkeypatch):
+    """Item 115: priors reach Hive only through the host hook, treatment arm, switch live."""
+    from hive import host
+    from colony import external_priors
+    monkeypatch.setenv("COLONY_ARM", "treatment")
+    monkeypatch.delenv("COLONY_EXTERNAL_PRIORS", raising=False)
+    monkeypatch.setattr(host, "_priors", external_priors)
+
+
+def test_evolutionary_bias_fail_open(monkeypatch):
+    _bind_priors(monkeypatch)
     import hive.swarm as s
     pen = s._failure_penalty("nonexistent_knob_xyz")
     assert isinstance(pen, int)
@@ -158,7 +168,8 @@ def test_evolutionary_bias_fail_open():
     assert pen2 <= 0
 
 
-def test_bias_actually_changes_score():
+def test_bias_actually_changes_score(monkeypatch):
+    _bind_priors(monkeypatch)
     import hive.swarm as s
     from hive.bitwork import Match
     from dataclasses import dataclass

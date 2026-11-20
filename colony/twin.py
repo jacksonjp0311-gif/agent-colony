@@ -225,6 +225,30 @@ def depth_basis(entry: dict[str, Any] | None, widened: dict[str, Any] | None = N
     return BASIS_PUBLISHED_ONLY
 
 
+def external_attribution() -> dict[str, Any]:
+    """Item 115: externally authored influences active on each arm (not colony-chosen).
+
+    The treatment flag follows the COLONY_EXTERNAL_PRIORS switch (default live);
+    the control arm never runs them. Read from the switch, not the scoreboard
+    job's own arm, so the record does not depend on which job writes it.
+    """
+    on = (os.environ.get("COLONY_EXTERNAL_PRIORS") or "live").strip().lower() == "live"
+    try:
+        from colony.external_priors import AUTHORED_BY, COMPONENTS
+    except Exception:  # noqa: BLE001
+        AUTHORED_BY, COMPONENTS = "external", ()
+    return {
+        "treatment_external_priors": on,
+        "control_external_priors": False,
+        "authored_by": AUTHORED_BY,
+        "colony_chosen": False,
+        "components": list(COMPONENTS),
+        "note": ("Externally authored Hive priors / live fetches were active on treatment only while "
+                 "treatment_external_priors is true; a lead in those runs is not credited to changes "
+                 "the colony chose itself."),
+    }
+
+
 def non_routine_count(proofs: dict[str, Any]) -> int:
     """Item 107: a proof is non-routine only with a VERIFIED machine certificate and a non-routine
     type. Rows without ``certificate_verified`` (all earlier proofs) never count as non-routine."""
@@ -521,6 +545,9 @@ def update_scoreboard(
             "treatment_cycles": t.get("cycle_count"),
             "control_cycles": 0 if control_missing else c.get("cycle_count"),
         }
+        _attr = external_attribution()
+        row["external_priors"] = {"treatment": _attr["treatment_external_priors"], "control": False,
+                                  "colony_chosen": False}
         history.append(row)
 
     paired_runs = sum(1 for row in history if _is_paired_row(row))
@@ -561,6 +588,7 @@ def update_scoreboard(
     }
     if restatements:
         board["restatements"] = restatements
+    board["attribution"] = external_attribution()
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(board, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     # Close any method-card adopts that were waiting on this snapshot.

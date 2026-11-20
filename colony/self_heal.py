@@ -2947,6 +2947,9 @@ def _close_trial(
         # Value is already the trial value. Strictly-better rule unchanged.
         state["adopted_count"] = int(state.get("adopted_count") or 0) + 1
         try:
+            from colony.external_priors import enabled as _ext_on  # item 115: external hook, switchable
+            if not _ext_on():
+                raise RuntimeError("COLONY_EXTERNAL_PRIORS off")
             from colony.tools.crystallize import crystallize
             fp = f"{knob}:{trial.get('direction')}:{trial.get('to')}"
             crystallize({"fingerprint": fp}, source="colony", category="kept")
