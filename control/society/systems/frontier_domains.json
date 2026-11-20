@@ -13,106 +13,6 @@
  },
  "history": [
   {
-   "cycle_id": "20261120T015608Z_059195",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 11,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 1,
-     "produced": 14,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 1
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 7,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 8,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    }
-   },
-   "mode": "live",
-   "survivors": []
-  },
-  {
-   "cycle_id": "20261120T020044Z_80fa2b",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 11,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 1,
-     "produced": 12,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 1
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 9,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 9,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    }
-   },
-   "mode": "live",
-   "survivors": []
-  },
-  {
-   "cycle_id": "20261120T020448Z_bef4ea",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 9,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 9,
-     "surprise": 0,
-     "survived": 1,
-     "tested": 2
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 10,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 10,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    }
-   },
-   "mode": "live",
-   "survivors": [
-    {
-     "deep": null,
-     "statement": "cubic(n) = 0 (mod 3) for all n = 2 (mod 3)",
-     "unknown": false,
-     "why": null
-    }
-   ]
-  },
-  {
    "cycle_id": "20261120T023208Z_ba9f68",
    "groups": {
     "qseries": {
@@ -976,6 +876,118 @@
    },
    "mode": "live",
    "survivors": []
+  },
+  {
+   "cycle_id": "20261120T090936Z_f7fc26",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 9,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 10,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 13,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 13,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    }
+   },
+   "mode": "live",
+   "survivors": []
+  },
+  {
+   "cycle_id": "20261120T091345Z_3717d0",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 12,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 3,
+     "produced": 14,
+     "surprise": 0,
+     "survived": 2,
+     "tested": 3
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 21,
+     "machine_checked": 0,
+     "no_reference_found": 1,
+     "passed_filter": 1,
+     "produced": 23,
+     "surprise": 1,
+     "survived": 1,
+     "tested": 1
+    }
+   },
+   "mode": "live",
+   "survivors": [
+    {
+     "deep": null,
+     "statement": "cubic(n) = 0 (mod 3) for all n = 2 (mod 3)",
+     "unknown": false,
+     "why": null
+    },
+    {
+     "deep": null,
+     "statement": "sh(cubic)(n) = 0 (mod 3) for all n = 1 (mod 3)",
+     "unknown": false,
+     "why": null
+    },
+    {
+     "deep": null,
+     "statement": "cheb3[oxa073681](n) divides (oxa056971*pdbl)(n) for all n >= 1",
+     "unknown": true,
+     "why": null
+    }
+   ]
+  },
+  {
+   "cycle_id": "20261120T091733Z_d873df",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 7,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 9,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 13,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 13,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    }
+   },
+   "mode": "live",
+   "survivors": []
   }
  ],
  "mode": "live",
@@ -984,11 +996,11 @@
   "baum": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2442,
+   "fresh": 2444,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 166,
-   "produced": 2636,
+   "produced": 2638,
    "surprise": 1,
    "survived": 3,
    "tested": 166
@@ -996,23 +1008,23 @@
   "cubic": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2065,
+   "fresh": 2071,
    "machine_checked": 0,
    "no_reference_found": 1,
-   "passed_filter": 304,
-   "produced": 2214,
+   "passed_filter": 306,
+   "produced": 2220,
    "surprise": 1,
-   "survived": 189,
-   "tested": 304
+   "survived": 191,
+   "tested": 306
   },
   "fibw": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2406,
+   "fresh": 2411,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 137,
-   "produced": 2668,
+   "produced": 2673,
    "surprise": 2,
    "survived": 4,
    "tested": 137
@@ -1020,35 +1032,35 @@
   "overpart": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3910,
+   "fresh": 3917,
    "machine_checked": 0,
    "no_reference_found": 0,
-   "passed_filter": 100,
-   "produced": 4036,
+   "passed_filter": 101,
+   "produced": 4044,
    "surprise": 0,
    "survived": 0,
-   "tested": 100
+   "tested": 101
   },
   "pdbl": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2215,
+   "fresh": 2235,
    "machine_checked": 0,
-   "no_reference_found": 0,
-   "passed_filter": 151,
-   "produced": 2406,
-   "surprise": 0,
-   "survived": 7,
-   "tested": 151
+   "no_reference_found": 1,
+   "passed_filter": 154,
+   "produced": 2427,
+   "surprise": 1,
+   "survived": 8,
+   "tested": 154
   },
   "pfold": {
    "explained_by_known_check": 0,
    "explained_by_reference": 2,
-   "fresh": 2235,
+   "fresh": 2240,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 148,
-   "produced": 2365,
+   "produced": 2370,
    "surprise": 1,
    "survived": 8,
    "tested": 148
@@ -1056,23 +1068,23 @@
   "podd": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2524,
+   "fresh": 2535,
    "machine_checked": 0,
    "no_reference_found": 4,
-   "passed_filter": 230,
-   "produced": 3105,
+   "passed_filter": 232,
+   "produced": 3118,
    "surprise": 4,
    "survived": 11,
-   "tested": 230
+   "tested": 232
   },
   "pplane": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2089,
+   "fresh": 2093,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 218,
-   "produced": 2429,
+   "produced": 2435,
    "surprise": 0,
    "survived": 0,
    "tested": 218
@@ -1080,11 +1092,11 @@
   "rs": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2499,
+   "fresh": 2507,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 125,
-   "produced": 2631,
+   "produced": 2640,
    "surprise": 2,
    "survived": 6,
    "tested": 125
@@ -1092,11 +1104,11 @@
   "tm": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2667,
+   "fresh": 2674,
    "machine_checked": 0,
    "no_reference_found": 3,
    "passed_filter": 161,
-   "produced": 2795,
+   "produced": 2802,
    "surprise": 3,
    "survived": 18,
    "tested": 161
