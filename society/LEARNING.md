@@ -55,7 +55,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 386 papers across 14/14 fields, 195 concepts, 96 cards formed, 1 tested, 0 kept.
+knowledge: 393 papers across 14/14 fields, 199 concepts, 97 cards formed, 1 tested, 0 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -66,7 +66,7 @@ knowledge: 386 papers across 14/14 fields, 195 concepts, 96 cards formed, 1 test
 | mathematics | 71 | 0 | 0 | 0 | 0 |
 | meta_learning | 17 | 13 | 2 | 0 | 0 |
 | multi_agent_systems | 11 | 6 | 1 | 0 | 0 |
-| neural_architecture | 42 | 31 | 8 | 0 | 0 |
+| neural_architecture | 49 | 35 | 9 | 0 | 0 |
 | open_endedness | 34 | 33 | 34 | 0 | 0 |
 | optimization_search | 32 | 34 | 20 | 0 | 0 |
 | physics_complex_systems | 23 | 9 | 3 | 0 | 0 |
@@ -77,7 +77,7 @@ knowledge: 386 papers across 14/14 fields, 195 concepts, 96 cards formed, 1 test
 ## Architecture ideas (proposals for a human-built PR; never auto-executed)
 
 - `novelty_archive` — 39 papers (consciousness_self_models, neural_architecture, open_endedness, optimization_search, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
-- `specialist_routing` — 22 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
+- `specialist_routing` — 25 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `swarm_topology` — 12 papers (multi_agent_systems, neural_architecture, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
 - `self_play_challenger` — 11 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 - `meta_controller` — 10 papers (meta_learning, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
