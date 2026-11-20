@@ -1,0 +1,21 @@
+# Item 116: append-only JSONL logs written by the colony tools merge by union on
+# rebase (built-in git driver), so two writers appending different rows never
+# wedge a CI push. Only files that are never rewritten in place are listed.
+data/commons/exchange.jsonl merge=union
+data/commons/exchange_watch.jsonl merge=union
+data/commons/crystallized.jsonl merge=union
+data/commons/adoption_feedback.jsonl merge=union
+data/commons/attribution.jsonl merge=union
+data/commons/cycle_telemetry.jsonl merge=union
+data/commons/evidence_graph.jsonl merge=union
+data/commons/feedback.jsonl merge=union
+data/commons/genome_history.jsonl merge=union
+data/commons/keep_history.jsonl merge=union
+data/commons/memory_organ.jsonl merge=union
+data/commons/proprioception.jsonl merge=union
+data/commons/replay.jsonl merge=union
+data/commons/self_change_failures.jsonl merge=union
+data/commons/signature.jsonl merge=union
+data/commons/speak.jsonl merge=union
+data/commons/traces.jsonl merge=union
+data/commons/transfer_probe.jsonl merge=union

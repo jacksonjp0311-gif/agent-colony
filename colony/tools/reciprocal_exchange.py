@@ -72,10 +72,18 @@ def merge_remote(my_source: str) -> int:
         return 0
     def _stable(r):
         return json.dumps({k: r.get(k) for k in ("source", "lineage", "fingerprint", "kind", "outcome") if k in r}, sort_keys=True)
+    # Item 116: write only to this process's own exchange file (watch job: exchange_watch.jsonl).
+    try:
+        from colony.tools.symbiotic_exchange import write_path as _wp
+        dest = _wp()
+    except Exception:  # noqa: BLE001
+        dest = LOCAL
     existing = {_stable(r) for r in _read_lines(LOCAL)}
+    if dest != LOCAL:
+        existing |= {_stable(r) for r in _read_lines(dest)}
     added = 0
-    LOCAL.parent.mkdir(parents=True, exist_ok=True)
-    with LOCAL.open("a", encoding="utf-8") as f:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with dest.open("a", encoding="utf-8") as f:
         for rec in remote:
             # Dedup on stable fields only (ignore import metadata and local ts)
             key = _stable(rec)
