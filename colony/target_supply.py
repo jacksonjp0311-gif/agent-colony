@@ -448,3 +448,36 @@ def run_cycle(cycle_id: str = "", *, write: bool = True) -> dict[str, Any]:
     if write:
         save_state(st)
     return out
+
+
+def slot_refill(cycle_id: str = "", *, write: bool = True, net: Any = None, tool: Any = None,
+                menu: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    """Item 119: one extra refill for a conjecture-desk turn freed by the learned-family skip.
+
+    Treatment only (the control job never fetches). Ignores ``COOLDOWN_CYCLES``
+    but keeps ``OPEN_MIN``, the per-refill request budget, the page order (the
+    first bank is read, so this walks bank v2) and the unchanged vetting. At most
+    one per cycle. Rows go to the shared supply log, so both arms adopt the new
+    targets on their next run (fair twin); nothing is attempted here.
+    """
+    out: dict[str, Any] = {"cycle_id": cycle_id, "arm": _arm(), "slot": True}
+    if out["arm"] != "treatment" or os.environ.get("COLONY_TARGET_SUPPLY", "live").lower() == "off":
+        return {**out, "skipped": "not_treatment_or_supply_off"}
+    st = load_state()
+    if cycle_id and st.get("last_slot_refill_cycle") == cycle_id:
+        return {**out, "skipped": "already_this_cycle"}
+    n_open = open_count(cycle_id or "supply")
+    out["open"] = n_open
+    if n_open >= OPEN_MIN:
+        return {**out, "skipped": "enough_open"}
+    try:
+        rep = refill(cycle_id, net=net, tool=tool, menu=menu, st=st, heal=_heal(), write=write)
+    except Exception as exc:  # noqa: BLE001
+        return {**out, "error": f"{type(exc).__name__}: {str(exc)[:120]}"}
+    rep.pop("entries", None)
+    st["last_slot_refill_cycle"] = cycle_id
+    st["slot_refills"] = int(st.get("slot_refills") or 0) + 1
+    st["added"] = int(st.get("added") or 0) + len(rep.get("new") or [])
+    if write:
+        save_state(st)
+    return {**out, **rep}
