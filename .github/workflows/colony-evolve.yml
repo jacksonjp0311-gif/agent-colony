@@ -36,7 +36,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Item 117: a run started by the Colony watch `workflow_run` trigger goes
+  # through the same kill switch as chain-next (repo variable COLONY_CHAIN=off),
+  # needs a successful upstream run and stops after 3 consecutive evolve
+  # failures. Schedule and workflow_dispatch runs pass (dispatches already went
+  # through chain_next or a human).
+  chain-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      go: ${{ steps.gate.outputs.go }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Gate
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COLONY_CHAIN: ${{ vars.COLONY_CHAIN }}
+          EVENT_NAME: ${{ github.event_name }}
+          UPSTREAM_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+        run: python3 -m colony.chain_next --gate
+
   evolve:
+    needs: [chain-gate]
+    if: ${{ needs.chain-gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,9 +78,14 @@ jobs:
           ref: main
 
       - name: Refresh to current main before computing
+        # Item 117: fast-forward only. This runs before any cycle, on a fresh
+        # checkout, so there is no treatment output yet; --ff-only (instead of
+        # reset --hard) also refuses to drop a local commit if one ever exists.
         run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain)" || { echo "::error::dirty tree before evolve"; exit 1; }
           git fetch origin main
-          git reset --hard origin/main
+          git merge --ff-only origin/main
           echo "Computing from $(git rev-parse --short HEAD)"
 
       - name: Set up Python
@@ -126,6 +164,12 @@ jobs:
           export PYTHONPATH=.
           python -m colony.novelty_shadow build || echo "::warning::novelty shadow corpus unavailable (report-only; live novelty unaffected)"
           python -m colony.oeis_terms build || echo "::warning::OEIS terms index unavailable (frontier conjectures will say OEIS unchecked)"
+
+      - name: Fold watch receipts into exchange.jsonl (single writer; append-only)
+        # Item 116: the Colony watch job writes data/commons/exchange_watch.jsonl only;
+        # this job is the one writer of exchange.jsonl. Gated by COLONY_EXTERNAL_PRIORS.
+        continue-on-error: true
+        run: PYTHONPATH=. python3 -m colony.tools.watch --fold || echo "::warning::fold non-fatal"
 
       - name: Gather → claim → evolve (keep/revert + lessons)
         env:
@@ -392,11 +436,14 @@ jobs:
             git commit -m "ci(colony): spark loop benches+evolve+selective $(date -u +%Y-%m-%dT%H%MZ)"
             # main may have moved during the run (human push): rebase onto it and retry; never force
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::push failed after 5 rebase attempts"; exit 1; }
           fi
 
 
@@ -405,7 +452,8 @@ jobs:
   # gate and benches (those are about the shared code, already run on
   # the treatment job). Same cycle count, same schedule, same Oracle.
   evolve-control:
-    if: ${{ github.event_name == 'schedule' || github.event.inputs.run_control != 'false' }}
+    needs: [chain-gate]
+    if: ${{ needs.chain-gate.outputs.go == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_control != 'false') }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -468,11 +516,14 @@ jobs:
           else
             git commit -m "ci(colony): seed control arm $(date -u +%Y-%m-%dT%H%MZ)"
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::control seed push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::control seed push failed after 5 rebase attempts"; exit 1; }
           fi
 
       - name: Evolve (control arm — self-mod off)
@@ -525,18 +576,21 @@ jobs:
           else
             git commit -m "ci(colony): control arm evolve $(date -u +%Y-%m-%dT%H%MZ)"
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::control push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::control push failed after 5 rebase attempts"; exit 1; }
           fi
 
   # After both arms have pushed, record treatment-minus-control and
   # refresh the growth chart. Does not authorize. Does not evolve.
   twin-scoreboard:
-    needs: [evolve, evolve-control]
-    if: ${{ always() && !cancelled() }}
+    needs: [chain-gate, evolve, evolve-control]
+    if: ${{ always() && !cancelled() && needs.chain-gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -583,11 +637,14 @@ jobs:
           else
             git commit -m "ci(colony): twin scoreboard $(date -u +%Y-%m-%dT%H%MZ)"
             ok=0
-            for i in 1 2 3; do
+            for i in 1 2 3 4 5; do
               if git pull --rebase --autostash && git push; then ok=1; break; fi
+              # Item 116: a failed rebase must not wedge the next attempt (union merge for
+              # data/commons/*.jsonl lives in .gitattributes; anything else aborts and retries).
+              git rebase --abort 2>/dev/null || true
               sleep 5
             done
-            [ "$ok" = 1 ] || { echo "::error::scoreboard push failed after 3 rebase attempts"; exit 1; }
+            [ "$ok" = 1 ] || { echo "::error::scoreboard push failed after 5 rebase attempts"; exit 1; }
           fi
 
 
@@ -597,8 +654,8 @@ jobs:
   # run is already queued or in progress. Chains after failures too,
   # but stops after 3 consecutive evolve-job failures. Never authorize.
   chain-next:
-    needs: [evolve, evolve-control, twin-scoreboard]
-    if: ${{ always() && !cancelled() && github.ref == 'refs/heads/main' }}
+    needs: [chain-gate, evolve, evolve-control, twin-scoreboard]
+    if: ${{ always() && !cancelled() && github.ref == 'refs/heads/main' && needs.chain-gate.outputs.go == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

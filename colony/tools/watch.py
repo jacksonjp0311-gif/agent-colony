@@ -11,6 +11,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 STORE = ROOT / "data" / "commons" / "crystallized.jsonl"
 EXCHANGE = ROOT / "data" / "commons" / "exchange.jsonl"
+# Item 116: crystallized.jsonl is append-only (crystallize() appends). downscale()
+# used to rewrite it in place; its compacted view now goes to this derived file,
+# which is a regenerated snapshot, not a log.
+COMPACT = ROOT / "data" / "commons" / "crystallized_compact.jsonl"
+WATCH_EXCHANGE = ROOT / "data" / "commons" / "exchange_watch.jsonl"
 
 
 def reload_check(source: str = "one-mind") -> dict:
@@ -94,12 +99,19 @@ def integrate(source: str, reactivated: list) -> int:
 
 
 def downscale(reactivated: list, max_keep: int = 64) -> int:
-    """REM/SHY: keep only what replay reactivated. Weak die. Fail-open."""
+    """REM/SHY: keep only what replay reactivated. Weak die. Fail-open.
+
+    Item 116: writes the compacted view to the derived COMPACT file; the
+    append-only crystallized.jsonl is never rewritten.
+    """
     try:
         if not reactivated:
             return 0
         kept = reactivated[-max_keep:]
-        STORE.write_text("".join(json.dumps(r) + "\n" for r in kept), encoding="utf-8")
+        COMPACT.parent.mkdir(parents=True, exist_ok=True)
+        tmp = COMPACT.with_suffix(".jsonl.tmp")
+        tmp.write_text("".join(json.dumps(r) + "\n" for r in kept), encoding="utf-8")
+        tmp.replace(COMPACT)
         return len(kept)
     except Exception:
         return 0
@@ -127,6 +139,45 @@ def echo(source: str, report: dict) -> None:
         pass
 
 
+def _key(rec: dict) -> str:
+    if rec.get("event_id"):
+        return "id:" + str(rec["event_id"])
+    return "st:" + json.dumps({k: rec.get(k) for k in ("source", "lineage", "fingerprint", "kind", "outcome")
+                               if k in rec}, sort_keys=True)
+
+
+def fold_watch_receipts(src: Path | None = None, dest: Path | None = None) -> int:
+    """Item 116: append watch-job receipts not yet in exchange.jsonl (run by the evolve job,
+    the single writer of exchange.jsonl). Append-only on both files; returns rows added."""
+    src = Path(src or WATCH_EXCHANGE)
+    dest = Path(dest or EXCHANGE)
+    if not src.exists():
+        return 0
+    seen = set()
+    if dest.exists():
+        for line in dest.read_text(encoding="utf-8").splitlines():
+            try:
+                seen.add(_key(json.loads(line)))
+            except Exception:
+                continue
+    add = []
+    for line in src.read_text(encoding="utf-8").splitlines():
+        try:
+            rec = json.loads(line)
+        except Exception:
+            continue
+        k = _key(rec)
+        if k in seen:
+            continue
+        seen.add(k)
+        add.append(json.dumps(rec) + "\n")
+    if add:
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        with dest.open("a", encoding="utf-8") as f:
+            f.writelines(add)
+    return len(add)
+
+
 def run(source: str = "one-mind") -> dict:
     report = reload_check(source)
     report["foreign"] = listen(source)
@@ -141,5 +192,13 @@ def run(source: str = "one-mind") -> dict:
 
 if __name__ == "__main__":
     import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "--fold":
+        try:
+            from colony.external_priors import enabled as _ext_on
+            on = _ext_on()
+        except Exception:  # noqa: BLE001
+            on = True
+        print(json.dumps({"folded": fold_watch_receipts() if on else 0, "external_priors": on}))
+        raise SystemExit(0)
     src = sys.argv[1] if len(sys.argv) > 1 else "one-mind"
     print(json.dumps(run(src)))

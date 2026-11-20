@@ -23,12 +23,27 @@ jobs:
         with:
           python-version: "3.12"
       - name: Watch
+        # Item 116: the watch job writes only its own files. exchange.jsonl has one
+        # writer (the evolve job, which folds exchange_watch.jsonl in append-only);
+        # the compacted crystallized view goes to crystallized_compact.jsonl.
+        env:
+          COLONY_EXCHANGE_FILE: data/commons/exchange_watch.jsonl
         run: PYTHONPATH=. python3 -m colony.tools.watch colony
       - name: Commit watch receipt
         run: |
+          set -euo pipefail
           git config user.name "James Jackson"
           git config user.email "jacksonjp0311-gif@users.noreply.github.com"
-          git add -A
-          git diff --staged --quiet || git commit -m "colony watch $(date -u +%Y-%m-%dT%H%MZ)"
-          git pull --rebase origin main || true
-          git push
+          git add data/commons/exchange_watch.jsonl data/commons/crystallized_compact.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No watch changes to commit"
+            exit 0
+          fi
+          git commit -m "colony watch $(date -u +%Y-%m-%dT%H%MZ)"
+          ok=0
+          for i in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push; then ok=1; break; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          [ "$ok" = 1 ] || { echo "::error::watch push failed after 3 rebase attempts"; exit 1; }

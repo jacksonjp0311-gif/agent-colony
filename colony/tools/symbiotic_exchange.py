@@ -12,6 +12,16 @@ from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 EXCHANGE = ROOT / "data" / "commons" / "exchange.jsonl"
+# Item 116: one writer per file. The evolve job is the only writer of exchange.jsonl;
+# the Colony watch job sets COLONY_EXCHANGE_FILE to its own file
+# (data/commons/exchange_watch.jsonl), which evolve folds in append-only.
+WATCH_EXCHANGE = ROOT / "data" / "commons" / "exchange_watch.jsonl"
+
+
+def write_path() -> Path:
+    import os
+    rel = (os.environ.get("COLONY_EXCHANGE_FILE") or "").strip()
+    return (ROOT / rel) if rel else EXCHANGE
 
 def _utc() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -37,7 +47,8 @@ def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra
     because ts and extra differ. Fail-open.
     """
     try:
-        EXCHANGE.parent.mkdir(parents=True, exist_ok=True)
+        dest = write_path()
+        dest.parent.mkdir(parents=True, exist_ok=True)
         ts = _utc()
         rec = {
             "ts": ts,
@@ -54,15 +65,15 @@ def append_receipt(source: str, kind: str, fingerprint: str, outcome: str, extra
             rec["extra"] = extra
             if extra.get("experiment_id"):
                 rec["experiment_id"] = extra["experiment_id"]
-        if EXCHANGE.exists():
-            for line in EXCHANGE.read_text(encoding="utf-8").splitlines()[-200:]:
+        if dest.exists():
+            for line in dest.read_text(encoding="utf-8").splitlines()[-200:]:
                 try:
                     old = json.loads(line)
                     if old.get("event_id") and old.get("event_id") == rec["event_id"]:
                         return
                 except Exception:
                     continue
-        with EXCHANGE.open("a", encoding="utf-8") as f:
+        with dest.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec) + "\n")
     except Exception:
         pass
