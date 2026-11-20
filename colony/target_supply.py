@@ -31,6 +31,11 @@ the OEIS target list stocked without a human rerunning
   runs in parallel and cannot see the current run's rows). A lead over the
   control therefore cannot come from extra supply.
 
+* **Bank v2 (item 118).** The first bank (640 pages) was exhausted on
+  2026-11-18. ``COLONY_SUPPLY_BANK_V2`` (live by default, on *both* arms,
+  because supply is environment) appends relation-form and name-definition
+  query families; old page keys are unchanged, so nothing is re-read.
+
 Nothing here touches the Oracle, the P >= 0.70 gate, the 150 authored-check
 cap, Athanor math, Hive's Wilson gate, the 6-cycle windows, strictly-better
 or the triviality filter, and it authorizes nothing.
@@ -140,6 +145,40 @@ def append_log(row: dict[str, Any], path: Path | None = None) -> None:
 
 # --------------------------------------------------------------------------- query bank
 
+# Item 118: the first bank (640 pages) was fully read on 2026-11-18. Bank v2 adds
+# new query families, appended after the old pages so every old key is unchanged:
+#  * "rel": relation-form conjectures that tie a(n) to another OEIS entry
+#    ("Conjecture: a(n) = A...") -- both sides are published, independent data;
+#  * "name": conjectures on entries whose NAME is a definition the item-105 parser
+#    can evaluate (Sum / Product / "Number of" / "a(n) =") -- the route to an
+#    independent definition, which item 113 now requires for beyond-published depth.
+# Same vetting, same shared log, same fair-twin sync (both arms adopt the same rows).
+V2_TOPICS = ("semiprimes", "powers", "triangular", "fibonacci", "catalan", "binomial", "primes", "divisors",
+             "partitions", "digits", "sigma", "totient", "squares", "cubes", "factorial", "lattice", "paths",
+             "permutations", "compositions", "words", "trees", "graphs", "polyominoes", "necklaces",
+             "continued", "pell", "lucas", "motzkin", "narayana", "stirling", "bell", "dyck", "walks",
+             "convolution", "recurrence", "congruence", "mod", "sum", "binary", "odd", "squarefree", "palindromes")
+V2_FORMS = (
+    ("rel", 'formula:"Conjecture: a(n) = A" {t}'),
+    ("rel", 'comment:"Conjecture: a(n) = A" {t}'),
+    ("name", 'formula:Conjecture name:"a(n) = Sum" {t}'),
+    ("name", 'formula:Conjecture name:"Number of" {t}'),
+    ("name", 'comment:Conjecture name:"Number of" {t}'),
+    ("name", 'formula:Conjecture name:Product {t}'),
+)
+KIND_RANK = {"def": 0, "rel": 1, "name": 2, "plain": 3}
+
+
+def query_bank_v2() -> list[dict[str, Any]]:
+    bank: list[dict[str, Any]] = []
+    for kind, form in V2_FORMS:
+        for t in V2_TOPICS:
+            for page in range(2):
+                bank.append({"q": form.format(t=t) + " -keyword:tabl -keyword:dead", "page": page,
+                             "kind": kind, "topic": t, "bank": 2})
+    return bank
+
+
 def query_bank(tool: Any) -> list[dict[str, Any]]:
     """Fixed, ordered list of (query, page) the refill walks. Computable first.
 
@@ -162,9 +201,16 @@ def query_bank(tool: Any) -> list[dict[str, Any]]:
             for page in (range(tool.PAGES, min(10, tool.PAGES + 3)) if old else range(3)):
                 bank.append({"q": f"{f}:Conjecture keyword:nonn -keyword:core -keyword:nice -keyword:tabl "
                                   f"-keyword:cons {t}", "page": page, "kind": "plain", "topic": t})
+    if (os.environ.get("COLONY_SUPPLY_BANK_V2") or "live").strip().lower() != "off":
+        bank.extend(query_bank_v2())   # item 118: appended; old keys and order unchanged
+    seen: set[str] = set()
+    out: list[dict[str, Any]] = []
     for b in bank:
         b["key"] = hashlib.sha256(f"{b['q']}|{b['page']}".encode()).hexdigest()[:16]
-    return bank
+        if b["key"] not in seen:
+            seen.add(b["key"])
+            out.append(b)
+    return out
 
 
 def relevance(library_rows: Iterable[dict[str, Any]] | None = None) -> dict[str, int]:
@@ -178,7 +224,7 @@ def relevance(library_rows: Iterable[dict[str, Any]] | None = None) -> dict[str,
 def pending_pages(bank: list[dict[str, Any]], st: dict[str, Any], rel: dict[str, int]) -> list[dict[str, Any]]:
     done = st.get("done_pages") or {}
     todo = [(i, b) for i, b in enumerate(bank) if b["key"] not in done]
-    todo.sort(key=lambda ib: (0 if ib[1]["kind"] == "def" else 1, -rel.get(ib[1]["topic"], 0), ib[0]))
+    todo.sort(key=lambda ib: (KIND_RANK.get(ib[1]["kind"], 3), -rel.get(ib[1]["topic"], 0), ib[0]))
     return [b for _, b in todo]
 
 
