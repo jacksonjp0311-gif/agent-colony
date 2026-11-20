@@ -1,21 +1,24 @@
 {
-  "last_attempt_at": "2026-11-20T06:17:06Z",
-  "last_status": 429,
-  "retry_after_until": "2026-11-20T06:47:06Z",
-  "last_error": "HTTP 429 (throttled)",
-  "last_ok_at": "2026-11-20T04:51:18Z",
+  "last_attempt_at": "2026-11-20T06:58:35Z",
+  "last_status": 200,
+  "retry_after_until": null,
+  "last_error": "",
+  "last_ok_at": "2026-11-20T06:58:35Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "When Do Rankings Beat Signs? Gradient Direction Recovery under Even Nuisance",
-      "abstract_snippet": "Can ranking a batch of antipodal query pairs recover a gradient direction with fewer evaluations than using within-pair signs alone? We study fixed-center recovery in $d$ dimensions for a linear signal plus an unknown differentiable even nuisance, counting function evaluations and feedback rounds separately. Shared pair offsets create an information hierarchy: Mirror retains within-pair signs, Rev",
-      "url": "https://arxiv.org/abs/2611.26055",
-      "arxiv_id": "2611.26055",
+      "title": "RL Post-Training in Diffusion Transformers Is Activation Steering",
+      "abstract_snippet": "Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of t",
+      "url": "https://arxiv.org/abs/2611.26627",
+      "arxiv_id": "2611.26627",
       "doi": "",
       "authors": [
-        "Zhuangzhuang Pan",
-        "Yan Xia",
-        "Chee Seng Chan"
+        "Tuna Han Salih Meral",
+        "Kaan Oktay",
+        "Alec Helbling",
+        "Atakan Kara",
+        "Duen Horng Chau",
+        "Pinar Yanardag"
       ],
       "year": 2026,
       "tags": [
@@ -25,19 +28,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T04:51:18Z"
+      "fetched_at": "2026-11-20T06:58:35Z"
     },
     {
       "source": "arxiv",
-      "title": "Reference-Free Humanoid Skateboarding via Termination-Shaped Reinforcement Learning",
-      "abstract_snippet": "Humanoid locomotion research has advanced rapidly on walking and running, but \\emph {object-mediated} locomotion, in which a robot must coordinate its body with a passive external object, remains difficult. One challenging task is skateboarding, which requires simultaneous interaction with the ground and a passive but movable platform to achieve forward motion. Current methods for tackling skatebo",
-      "url": "https://arxiv.org/abs/2611.26054",
-      "arxiv_id": "2611.26054",
+      "title": "Quasipolynomial pyjamas",
+      "abstract_snippet": "The ``pyjama stripe\" $E(\\varepsilon)$ is the set of all complex numbers whose real part lies within $\\varepsilon$ of the nearest integer. The Pyjama Problem asks whether, for each $\\varepsilon &gt; 0$, there exists some union of finitely many rotations of $E(\\varepsilon)$ about the origin that covers the plane. This was answered in the affirmative by Manners. Kravitz and Leng subsequently showed t",
+      "url": "https://arxiv.org/abs/2611.26622",
+      "arxiv_id": "2611.26622",
       "doi": "",
       "authors": [
-        "Ganeshvar Soenessardien",
-        "Michael Przystupa",
-        "Kevin Sebastian Luck"
+        "Sida Li"
       ],
       "year": 2026,
       "tags": [
@@ -47,17 +48,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T04:51:18Z"
+      "fetched_at": "2026-11-20T06:58:35Z"
     },
     {
       "source": "arxiv",
-      "title": "Guided Cuckoo Filter: Full-Pipeline Insertion Optimization",
-      "abstract_snippet": "Cuckoo filters are widely deployed as space-efficient alternatives to Bloom filters, supporting fast lookups, insertions, and deletions. However, their insertion cost grows steeply at high load factors because the standard insertion procedure is entirely unguided: it places each fingerprint into whichever candidate bucket happens to be tried first, and when both candidates are full, it displaces a",
-      "url": "https://arxiv.org/abs/2611.26053",
-      "arxiv_id": "2611.26053",
+      "title": "TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming",
+      "abstract_snippet": "Hybrid architectures have become mainstream among open-weight language models. Their global-attention and bounded-state layers maintain heterogeneous caches whose demands vary with context length and concurrency. We present TideCache, a serving system on CPU--GPU superchips with three components for allocating GPU memory among caches and managing their residency across GPU and host memory. The Tra",
+      "url": "https://arxiv.org/abs/2611.26619",
+      "arxiv_id": "2611.26619",
       "doi": "",
       "authors": [
-        "Min Liu"
+        "Jinbin Luo",
+        "Xiaozhe Yao",
+        "Shang Yang",
+        "Zhijian Liu",
+        "Song Han",
+        "Qinghao Hu"
       ],
       "year": 2026,
       "tags": [
@@ -67,17 +73,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T04:51:18Z"
+      "fetched_at": "2026-11-20T06:58:35Z"
     },
     {
       "source": "arxiv",
-      "title": "An improved Moore bound for girths seven and eleven",
-      "abstract_snippet": "Let $n(d,k)$ be the minimum number of vertices of a graph of minimum degree $d$ and girth at least $g=2k+1$. A simple counting argument gives the classical lower bound $n(d,k)\\ge m(d,k)=1+d\\sum_{i=0}^{k-1}(d-1)^i$, known as the Moore bound and dating back at least to 1960. Apart from complete graphs and odd cycles, graphs attaining this lower bound can exist only for girth $5$ and degrees $3,7$ an",
-      "url": "https://arxiv.org/abs/2611.26037",
-      "arxiv_id": "2611.26037",
+      "title": "One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning",
+      "abstract_snippet": "Videos reveal how the world changes, but rarely the actions that cause those changes. Latent action learning recovers such supervision from visual transitions, yet often learns the underlying dynamics largely from scratch. We ask whether a pretrained video generator can instead provide the prior for both inverse and forward dynamics. We introduce O$^{2}$LaF, built on a simple principle: one prior,",
+      "url": "https://arxiv.org/abs/2611.26617",
+      "arxiv_id": "2611.26617",
       "doi": "",
       "authors": [
-        "Frederik Garbe"
+        "Yuxin Jiang",
+        "Wenqiang Sun",
+        "Jiaqi Li",
+        "Yuchao Gu",
+        "Lvmin Zhang",
+        "Ivor Tsang"
       ],
       "year": 2026,
       "tags": [
@@ -87,18 +98,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T04:51:18Z"
+      "fetched_at": "2026-11-20T06:58:35Z"
     },
     {
       "source": "arxiv",
-      "title": "Fixing the Twin, Not the Detector: Sim-to-Real Roadside LiDAR Detection from Digital-Twin Data",
-      "abstract_snippet": "Roadside LiDAR detectors are expensive to train on real labels, and digital twins promise to replace these labels, but a detector trained on a twin meets a different sensor, different objects and different annotation conventions on the real site. We describe the pipeline that placed first in the LUMPI track of the UrbanTwin Sim2Real LiDAR Challenge (IEEE BigData 2026 Cup, 0.5541 combined score) an",
-      "url": "https://arxiv.org/abs/2611.26035",
-      "arxiv_id": "2611.26035",
+      "title": "Variants of Beam Search for DiskANN",
+      "abstract_snippet": "Graph-based data structures such as DiskANN, HNSW, and NSG constitute the state of the art for large-scale approximate nearest-neighbor (ANN) search. Indyk and Xu introduced the notion of $α$-reachable graphs, which include graphs built by DiskANN's slow-preprocessing construction, and proved that greedy search achieves an approximation factor of $\\tfrac{α+1}{α-1}$. Independently, Al-Jazzazi et al",
+      "url": "https://arxiv.org/abs/2611.26609",
+      "arxiv_id": "2611.26609",
       "doi": "",
       "authors": [
-        "KuanLin Chen",
-        "Feng-jui Kuo"
+        "Viraj Agrawal",
+        "Kirankumar Shiragur"
       ],
       "year": 2026,
       "tags": [
@@ -108,7 +119,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-20T04:51:18Z"
+      "fetched_at": "2026-11-20T06:58:35Z"
     }
   ]
 }
