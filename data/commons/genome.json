@@ -8,13 +8,13 @@
     "exchange"
   ],
   "wilson_gate": 700,
-  "generation": 3,
-  "last_score": 9.0,
-  "receipts_seen": 476,
+  "generation": 4,
+  "last_score": 10.0,
+  "receipts_seen": 486,
   "last_change": {
     "field": "last_score",
-    "value": 9.0,
-    "score": 9.0,
-    "prior": 0.0
+    "value": 10.0,
+    "score": 10.0,
+    "prior": 9.0
   }
 }
