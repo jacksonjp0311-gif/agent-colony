@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-19T23:49:18Z",
-  "passes": 624,
+  "updated_at": "2026-11-20T01:06:31Z",
+  "passes": 625,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.387,
+  "kill_rate": 0.3867,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -53,8 +53,8 @@
     "authored_mut_widen_range_132327efd258",
     "authored_mut_widen_range_2ae412bf995d",
     "authored_mut_widen_range_35152b9916ea",
-    "authored_mut_widen_range_a1e42c8a9011",
-    "authored_mut_widen_range_a4a0f43e9d31"
+    "authored_mut_widen_range_83a2ff993bbe",
+    "authored_mut_widen_range_a1e42c8a9011"
   ],
   "unique_mutations_kill": [],
   "domain_packs": {
@@ -97,7 +97,7 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-19T23:49:18Z",
+    "ts": "2026-11-20T01:06:31Z",
     "passed": true,
     "kills": [],
     "hear": {
@@ -107,8 +107,8 @@
       "attack_weight": 0.35,
       "support_weight": 0.55,
       "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_widen_range_b12499586517` kind=hard_enable. lemma mutation authored_mut_widen_range_b12499586517 0.8703->0.8699 (compared 0.857->0.857; speed_noise:-0.007) Not d",
-      "attack": "WEIGH: `authored_mut_widen_range_b12499586517` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "propose": "PROPOSE for Oracle HEAR: `authored_mut_widen_range_83a2ff993bbe` kind=hard_enable. lemma mutation authored_mut_widen_range_83a2ff993bbe 0.8688->0.8687 (compared 0.857->0.857; speed_noise:-0.000) Not d",
+      "attack": "WEIGH: `authored_mut_widen_range_83a2ff993bbe` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
@@ -116,7 +116,7 @@
         "in_catalog": true,
         "hard_pass": 188,
         "hard_n": 188,
-        "score": 0.8699,
+        "score": 0.8688,
         "stripped_fails_usefulness": true,
         "ok_for_oracle": true,
         "reason": "pre_apply_disabled_and_delta=1",
@@ -130,7 +130,7 @@
         "hard_pass": 188,
         "hard_n": 188,
         "ok": true,
-        "score": 0.8699,
+        "score": 0.8687,
         "shifted_window": {
           "ok": true,
           "status": "pass",
@@ -158,21 +158,21 @@
               "to": [
                 [
                   1301,
-                  1478
+                  1534
                 ],
                 [
-                  1479,
-                  1656
+                  1535,
+                  1768
                 ],
                 [
-                  1657,
-                  1834
+                  1769,
+                  2003
                 ]
               ]
             }
           ],
-          "seconds": 0.463,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'cong', 'lhs': 'S((oxa083105*popcount))', 'params': {'m': 3, 'q': 4, 'r': 0, 's': 3}, 'rhs': ''}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(1301, 1478), (1479, 1656), (1657, 1834)",
+          "seconds": 0.511,
+          "window_expr": "all((type((c := frontier_holds({'kind': 'le', 'lhs': '(one+oxa055394)', 'params': {}, 'rhs': 'sh(oxa055394)'}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(1301, 1534), (1535, 1768), (1769, 2003)])))",
           "scope": "finite_shifted_window_only_not_universal_proof"
         },
         "reason": "held_out_hard_green",
@@ -250,15 +250,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_widen_range_b12499586517",
+      "mutation": "authored_mut_widen_range_83a2ff993bbe",
       "kind": "hard_enable",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mut_widen_range_b12499586517",
+    "mutation": "authored_mut_widen_range_83a2ff993bbe",
     "kind": "hard_enable",
     "source": "conjecture_desk",
-    "cycle_id": "20261119T234721Z_352224",
+    "cycle_id": "20261120T010443Z_c16e98",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

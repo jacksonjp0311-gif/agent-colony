@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 409,
- "last_refill_index": 409,
+ "cycle_index": 412,
+ "last_refill_index": 412,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -2815,10 +2815,10 @@
   "A046961": "20261118T103501Z_8cfe52",
   "A352542": "20261118T111531Z_dc9413"
  },
- "refills": 136,
+ "refills": 137,
  "added": 357,
  "last": {
-  "cycle_id": "20261120T002245Z_4107fe",
+  "cycle_id": "20261120T010443Z_c16e98",
   "open_before": 0,
   "pages_read": 0,
   "requests": 0,
