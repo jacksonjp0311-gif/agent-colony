@@ -1,15 +1,15 @@
 {
   "ci_health": {
-    "completed": 10,
-    "fetched_at": "2026-11-21T00:08:34Z",
+    "completed": 11,
+    "fetched_at": "2026-11-21T01:02:21Z",
     "runs": [
       {
         "conclusion": null,
         "created_at": "2026-11-21T00:07:32Z",
         "id": 44841682401,
         "name": "Colony evolve",
-        "status": "pending",
-        "updated_at": "2026-11-21T00:07:33Z"
+        "status": "in_progress",
+        "updated_at": "2026-11-21T01:00:47Z"
       },
       {
         "conclusion": "success",
@@ -20,12 +20,12 @@
         "updated_at": "2026-11-21T00:07:28Z"
       },
       {
-        "conclusion": null,
+        "conclusion": "success",
         "created_at": "2026-11-21T00:05:59Z",
         "id": 44841508912,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-21T00:07:00Z"
+        "status": "completed",
+        "updated_at": "2026-11-21T00:59:56Z"
       },
       {
         "conclusion": "success",
@@ -100,12 +100,12 @@
         "updated_at": "2026-11-20T21:58:45Z"
       }
     ],
-    "success_rate": 0.6
+    "success_rate": 0.6364
   },
   "health": {
     "arxiv": {
       "fail": 14,
-      "ok": 116
+      "ok": 117
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-20T20:28:12Z",
+    "arxiv": "2026-11-21T01:02:20Z",
     "crossref": "2026-11-20T23:27:54Z",
     "oeis": "2026-11-20T23:27:53Z",
     "oeis_conj": "2026-11-20T23:27:54Z",
@@ -138,9 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "cs.MA:HTTPError: HTTP Error 429: Unknown Error",
+        "fetched": 4,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -167,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-21T00:08:34Z"
+    "ts": "2026-11-21T01:02:17Z"
   },
-  "runs": 511
+  "runs": 512
 }

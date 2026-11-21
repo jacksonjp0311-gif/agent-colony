@@ -2,1212 +2,6 @@
  "runs": [
   {
    "mode": "live",
-   "cycle": "20261120T233916Z_6e4525",
-   "at": "2026-11-20T23:41:39Z",
-   "menu_size": 448,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "form": "relation",
-     "text": "Conjecture: n*a(n) + (4-5*n)*a(n-1) + 2*(4*n-7)*a(n-2) + 4*(3-n)*a(n-3) + 4*(2-n)*a(n-4) + 4*(n-4)*a(n-5) = 0. - _R. J. Mathar_, Nov 16 2011"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "tested": 996,
-     "range": [
-      5,
-      1000
-     ],
-     "deep_terms": 1001,
-     "bfile_terms": 348,
-     "bfile_hi": 1000,
-     "data_hi": 30,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 3.71,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 1000,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = Sum_{k=0..n} binomial(n,2k)*A002426(k).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261120T233916Z_6e4525",
-   "at": "2026-11-20T23:44:00Z",
-   "menu_size": 448,
-   "purpose": "",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "form": "relation",
-     "text": "Conjecture: 3*(n+1)*a(n) +10*(-n-1)*a(n-1) +12*(-n+2)*a(n-2) +40*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 26 2012"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "tested": 297,
-     "range": [
-      3,
-      299
-     ],
-     "deep_terms": 300,
-     "bfile_terms": 287,
-     "bfile_hi": 1912,
-     "data_hi": 24,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.0,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 299,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = A127359(n+1)/2 - A127359(n).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261120T234459Z_60ed44",
-   "at": "2026-11-20T23:46:32Z",
-   "menu_size": 448,
-   "purpose": "zero_credit_family",
-   "hunters": [],
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261120T234459Z_60ed44",
-   "at": "2026-11-20T23:46:53Z",
-   "menu_size": 448,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "form": "relation",
-     "text": "Conjecture: n*a(n) + (4-5*n)*a(n-1) + 2*(4*n-7)*a(n-2) + 4*(3-n)*a(n-3) + 4*(2-n)*a(n-4) + 4*(n-4)*a(n-5) = 0. - _R. J. Mathar_, Nov 16 2011"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "tested": 996,
-     "range": [
-      5,
-      1000
-     ],
-     "deep_terms": 1001,
-     "bfile_terms": 348,
-     "bfile_hi": 1000,
-     "data_hi": 30,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 3.81,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 1000,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = Sum_{k=0..n} binomial(n,2k)*A002426(k).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261120T234459Z_60ed44",
-   "at": "2026-11-20T23:47:14Z",
-   "menu_size": 448,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261120T234459Z_60ed44",
-   "at": "2026-11-20T23:47:31Z",
-   "menu_size": 448,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "form": "relation",
-     "text": "Conjecture: 3*(n+1)*a(n) +10*(-n-1)*a(n-1) +12*(-n+2)*a(n-2) +40*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 26 2012"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "tested": 297,
-     "range": [
-      3,
-      299
-     ],
-     "deep_terms": 300,
-     "bfile_terms": 287,
-     "bfile_hi": 1912,
-     "data_hi": 24,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.0,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 299,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = A127359(n+1)/2 - A127359(n).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261120T234459Z_60ed44",
-   "at": "2026-11-20T23:50:25Z",
-   "menu_size": 448,
-   "purpose": "",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A176479_0",
-     "anum": "A176479",
-     "form": "relation",
-     "text": "Conjecture: n*(n-1)*a(n) -3*(2*n-1)*(n-1)*a(n-1) +n*(n-2)*a(n-2) = 0. - _R. J. Mathar_, Dec 03 2014"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A176479_0",
-     "anum": "A176479",
-     "tested": 1025,
-     "range": [
-      2,
-      1026
-     ],
-     "deep_terms": 1027,
-     "bfile_terms": 198,
-     "bfile_hi": 1000,
-     "data_hi": 23,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.0,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 1026,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = (n+1)*A001003(n).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T001709Z_ea28df",
-   "at": "2026-11-21T00:19:28Z",
-   "menu_size": 452,
-   "purpose": "zero_credit_family",
-   "hunters": [],
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 117,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 92,
-    "beyond_exact": 90,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T001709Z_ea28df",
-   "at": "2026-11-21T00:19:57Z",
-   "menu_size": 452,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A245088_0",
-     "anum": "A245088",
-     "form": "relation",
-     "text": "Conjecture: +n^2*(23656*n-2233)*(n-1)*a(n) +(n-1)*(23656*n^3+655645*n^2-2273556*n+1915600)*a(n-1) -2*(n-2) *(177048*n^3-3748011*n^2+13870329*n-15407140)*a(n-2) -2*(n-3) *(2020728*n^3-18138829*n^2+63885382*n-73802216)*a(n-3) -5*(n-4) *(782552*n^3-11993599*n^2+55520403*n-80051816)*a(n-4) +125*(66088*n-203507)*(n-5)*(n-4)^2*a(n-5)=0. - _R. J. Mathar_, Jul 12 2014"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A245088_0",
-     "anum": "A245088",
-     "tested": 196,
-     "range": [
-      6,
-      201
-     ],
-     "deep_terms": 201,
-     "bfile_terms": 200,
-     "bfile_hi": 200,
-     "data_hi": 25,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.25,
-     "extended": 1,
-     "cap_reason": "ref_limited",
-     "cap_value": 201,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = (Sum_{k=0..n-1} (8*k^2+12*k+5)*A244973(k))/n^2.",
-     "credit": 0.0001
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T001709Z_ea28df",
-   "at": "2026-11-21T00:20:23Z",
-   "menu_size": 452,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T001709Z_ea28df",
-   "at": "2026-11-21T00:20:58Z",
-   "menu_size": 452,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "form": "relation",
-     "text": "Conjecture: n*a(n) + (4-5*n)*a(n-1) + 2*(4*n-7)*a(n-2) + 4*(3-n)*a(n-3) + 4*(2-n)*a(n-4) + 4*(n-4)*a(n-5) = 0. - _R. J. Mathar_, Nov 16 2011"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "tested": 996,
-     "range": [
-      5,
-      1000
-     ],
-     "deep_terms": 1001,
-     "bfile_terms": 348,
-     "bfile_hi": 1000,
-     "data_hi": 30,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 6.53,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 1000,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = Sum_{k=0..n} binomial(n,2k)*A002426(k).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T001709Z_ea28df",
-   "at": "2026-11-21T00:24:27Z",
-   "menu_size": 452,
-   "purpose": "",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A259714_0",
-     "anum": "A259714",
-     "form": "relation",
-     "text": "a(n) = a(n-1)+2*a(n-2)+3*a(n-3)+4*a(n-4)+a(n-5) for n>6."
-    },
-    {
-     "id": "oc_A026765_0",
-     "anum": "A026765",
-     "form": "relation",
-     "text": "Conjecture: (n+1)*a(n) -2*a(n-1) +2*(-5*n+3)*a(n-2) +12*a(n-3) +(29*n-71)*a(n-4) -10*a(n-5) +20*(-n+5)*a(n-6)=0. - _R. J. Mathar_, Jun 30 2013"
-    },
-    {
-     "id": "oc_A026767_0",
-     "anum": "A026767",
-     "form": "relation",
-     "text": "Conjecture: (n+1)*a(n) +(-n-3)*a(n-1) +2*(-5*n+4)*a(n-2) +2*(5*n+3)*a(n-3) +(29*n-83)*a(n-4) +(-29*n+61)*a(n-5) +10*(-2*n+11)*a(n-6) +20*(n-5)*a(n-7)=0. - _R. J. Mathar_, Jun 30 2013"
-    },
-    {
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "form": "relation",
-     "text": "Conjecture: 3*(n+1)*a(n) +10*(-n-1)*a(n-1) +12*(-n+2)*a(n-2) +40*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 26 2012"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A259714_0",
-     "anum": "A259714",
-     "tested": 367,
-     "range": [
-      7,
-      373
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 373,
-     "bfile_hi": 1000,
-     "data_hi": 30,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A026765_0",
-     "anum": "A026765",
-     "tested": 427,
-     "range": [
-      6,
-      432
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 433,
-     "bfile_hi": 1000,
-     "data_hi": 29,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A026767_0",
-     "anum": "A026767",
-     "tested": 425,
-     "range": [
-      7,
-      431
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 432,
-     "bfile_hi": 1000,
-     "data_hi": 28,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "tested": 297,
-     "range": [
-      3,
-      299
-     ],
-     "deep_terms": 300,
-     "bfile_terms": 287,
-     "bfile_hi": 1912,
-     "data_hi": 24,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.0,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 299,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = A127359(n+1)/2 - A127359(n).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T001709Z_ea28df",
-   "at": "2026-11-21T00:24:50Z",
-   "menu_size": 452,
-   "purpose": "self_build:oeis_prediction_error",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [
-    {
-     "id": "oc_A176479_0",
-     "anum": "A176479",
-     "form": "relation",
-     "text": "Conjecture: n*(n-1)*a(n) -3*(2*n-1)*(n-1)*a(n-1) +n*(n-2)*a(n-2) = 0. - _R. J. Mathar_, Dec 03 2014"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A176479_0",
-     "anum": "A176479",
-     "tested": 1025,
-     "range": [
-      2,
-      1026
-     ],
-     "deep_terms": 1027,
-     "bfile_terms": 198,
-     "bfile_hi": 1000,
-     "data_hi": 23,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.01,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 1026,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = (n+1)*A001003(n).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T002607Z_f0bd60",
-   "at": "2026-11-21T00:28:01Z",
-   "menu_size": 452,
-   "purpose": "zero_credit_family",
-   "hunters": [],
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T002607Z_f0bd60",
-   "at": "2026-11-21T00:28:32Z",
-   "menu_size": 452,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A298267_0",
-     "anum": "A298267",
-     "form": "gf",
-     "text": "G.f.: x*(1 + x)*(3 - 2*x + 4*x^2 - 2*x^3 + 3*x^4) / ((1 - x)^3*(1 + x + x^2 + x^3 + x^4 + x^5 + x^6))."
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A298267_0",
-     "anum": "A298267",
-     "tested": 20000,
-     "range": [
-      0,
-      19999
-     ],
-     "deep_terms": 20000,
-     "bfile_terms": 500,
-     "bfile_hi": 10000,
-     "data_hi": 49,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.02,
-     "extended": 0,
-     "cap_reason": "term_cap",
-     "cap_value": 20000,
-     "fast_cfinite": true,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T002607Z_f0bd60",
-   "at": "2026-11-21T00:28:59Z",
-   "menu_size": 452,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T002607Z_f0bd60",
-   "at": "2026-11-21T00:29:27Z",
-   "menu_size": 452,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A245088_0",
-     "anum": "A245088",
-     "form": "relation",
-     "text": "Conjecture: +n^2*(23656*n-2233)*(n-1)*a(n) +(n-1)*(23656*n^3+655645*n^2-2273556*n+1915600)*a(n-1) -2*(n-2) *(177048*n^3-3748011*n^2+13870329*n-15407140)*a(n-2) -2*(n-3) *(2020728*n^3-18138829*n^2+63885382*n-73802216)*a(n-3) -5*(n-4) *(782552*n^3-11993599*n^2+55520403*n-80051816)*a(n-4) +125*(66088*n-203507)*(n-5)*(n-4)^2*a(n-5)=0. - _R. J. Mathar_, Jul 12 2014"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A245088_0",
-     "anum": "A245088",
-     "tested": 196,
-     "range": [
-      6,
-      201
-     ],
-     "deep_terms": 201,
-     "bfile_terms": 200,
-     "bfile_hi": 200,
-     "data_hi": 25,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.25,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 201,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = (Sum_{k=0..n-1} (8*k^2+12*k+5)*A244973(k))/n^2.",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T002607Z_f0bd60",
-   "at": "2026-11-21T00:32:45Z",
-   "menu_size": 452,
-   "purpose": "",
-   "hunters": null,
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [
-    {
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "form": "relation",
-     "text": "Conjecture: n*a(n) + (4-5*n)*a(n-1) + 2*(4*n-7)*a(n-2) + 4*(3-n)*a(n-3) + 4*(2-n)*a(n-4) + 4*(n-4)*a(n-5) = 0. - _R. J. Mathar_, Nov 16 2011"
-    },
-    {
-     "id": "oc_A176479_0",
-     "anum": "A176479",
-     "form": "relation",
-     "text": "Conjecture: n*(n-1)*a(n) -3*(2*n-1)*(n-1)*a(n-1) +n*(n-2)*a(n-2) = 0. - _R. J. Mathar_, Dec 03 2014"
-    },
-    {
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "form": "relation",
-     "text": "Conjecture: 3*(n+1)*a(n) +10*(-n-1)*a(n-1) +12*(-n+2)*a(n-2) +40*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 26 2012"
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A162533_0",
-     "anum": "A162533",
-     "tested": 996,
-     "range": [
-      5,
-      1000
-     ],
-     "deep_terms": 1001,
-     "bfile_terms": 348,
-     "bfile_hi": 1000,
-     "data_hi": 30,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 6.48,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 1000,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = Sum_{k=0..n} binomial(n,2k)*A002426(k).",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A176479_0",
-     "anum": "A176479",
-     "tested": 1025,
-     "range": [
-      2,
-      1026
-     ],
-     "deep_terms": 1027,
-     "bfile_terms": 198,
-     "bfile_hi": 1000,
-     "data_hi": 23,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.01,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 1026,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = (n+1)*A001003(n).",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A126931_0",
-     "anum": "A126931",
-     "tested": 297,
-     "range": [
-      3,
-      299
-     ],
-     "deep_terms": 300,
-     "bfile_terms": 287,
-     "bfile_hi": 1912,
-     "data_hi": 24,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.0,
-     "extended": 0,
-     "cap_reason": "ref_limited",
-     "cap_value": 299,
-     "fast_cfinite": false,
-     "definition_provenance": "name",
-     "definition_source": "a(n) = A127359(n+1)/2 - A127359(n).",
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T002607Z_f0bd60",
-   "at": "2026-11-21T00:33:12Z",
-   "menu_size": 452,
-   "purpose": "self_build:oeis_calibrated_vote",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [
-    {
-     "id": "oc_A326781_0",
-     "anum": "A326781",
-     "form": "gf",
-     "text": "G.f.: 4*x^2*(1 + 3*x + x^2 + 3*x^3 + x^4 + 3*x^5 + x^6 + 3*x^7 + x^8 + 3*x^9 + x^10 + 3*x^11 + x^12 + 3*x^13 + x^14 + 35*x^15) / ((1 - x)^2*(1 + x)*(1 + x^2)*(1 + x^4)*(1 + x^8))."
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_prove",
-     "id": "oc_A326781_0",
-     "anum": "A326781",
-     "status": "proof_rejected",
-     "checker": "definition does not re-parse from the quoted OEIS name",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A326781_0",
-     "anum": "A326781",
-     "tested": 19999,
-     "range": [
-      1,
-      19999
-     ],
-     "deep_terms": 20000,
-     "bfile_terms": 55,
-     "bfile_hi": 55,
-     "data_hi": 55,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.02,
-     "extended": 0,
-     "cap_reason": "term_cap",
-     "cap_value": 20000,
-     "fast_cfinite": true,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T003407Z_2065c0",
-   "at": "2026-11-21T00:36:02Z",
-   "menu_size": 452,
-   "purpose": "zero_credit_family",
-   "hunters": [],
-   "lemmas": {
-    "stored": 0,
-    "stats": {
-     "pairs": 992,
-     "candidates": 31272,
-     "touch_filtered": 30933,
-     "trivial": 133,
-     "dalmatian": 24,
-     "implied": 85,
-     "held_out_fail": 2,
-     "passed": 0,
-     "converse": 83,
-     "not_simple": 12
-    }
-   },
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 118,
-    "counterexamples_verified": 0,
-    "proofs_checked": 25,
-    "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 93,
-    "beyond_exact": 91,
-    "max_depth": 155648
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
    "cycle": "20261121T003407Z_2065c0",
    "at": "2026-11-21T00:36:31Z",
    "menu_size": 452,
@@ -1522,6 +316,1280 @@
     "proofs_routine_known_in_principle": 25,
     "beyond_published_range": 93,
     "beyond_exact": 91,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T010856Z_bc134d",
+   "at": "2026-11-21T01:10:42Z",
+   "menu_size": 461,
+   "purpose": "zero_credit_family",
+   "hunters": [],
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 118,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 93,
+    "beyond_exact": 91,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T010856Z_bc134d",
+   "at": "2026-11-21T01:11:05Z",
+   "menu_size": 461,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A166212_0",
+     "anum": "A166212",
+     "form": "gf",
+     "text": "G.f.: (1 + x + x^2 + 3*x^3 + x^4 + x^5 + 3*x^6) / ((1 - x)^5*(1 + x)*(1 - x + x^2)*(1 + x + x^2)^3)."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A166212_0",
+     "anum": "A166212",
+     "tested": 20000,
+     "range": [
+      0,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 64,
+     "bfile_hi": 63,
+     "data_hi": 43,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.02,
+     "extended": 19936,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    }
+   ],
+   "scoreboard": {
+    "score": 119,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 94,
+    "beyond_exact": 92,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T010856Z_bc134d",
+   "at": "2026-11-21T01:11:25Z",
+   "menu_size": 461,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 119,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 94,
+    "beyond_exact": 92,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T010856Z_bc134d",
+   "at": "2026-11-21T01:11:47Z",
+   "menu_size": 461,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A212039_0",
+     "anum": "A212039",
+     "form": "gf",
+     "text": "G.f.: x^2*(1 - x + 9*x^2 - 7*x^3 + x^4) / (1 - x)^5."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A212039_0",
+     "anum": "A212039",
+     "tested": 19999,
+     "range": [
+      1,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 73,
+     "bfile_hi": 73,
+     "data_hi": 39,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.02,
+     "extended": 19926,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    }
+   ],
+   "scoreboard": {
+    "score": 120,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 95,
+    "beyond_exact": 93,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T010856Z_bc134d",
+   "at": "2026-11-21T01:14:20Z",
+   "menu_size": 461,
+   "purpose": "",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A166213_0",
+     "anum": "A166213",
+     "form": "gf",
+     "text": "G.f.: (1 + 2*x + 3*x^2 + 4*x^3 + 3*x^4) / ((1 - x)^6*(1 + x)^2*(1 + x + x^2)^2)."
+    },
+    {
+     "id": "oc_A213244_0",
+     "anum": "A213244",
+     "form": "relation",
+     "text": "a(n) = 17*a(n-4)-16*a(n-8)."
+    },
+    {
+     "id": "oc_A026923_0",
+     "anum": "A026923",
+     "form": "gf",
+     "text": "G.f.: x^3*(1 - x + x^2 + x^4) / ((1 - x)^3*(1 + x)^2*(1 - x + x^2)*(1 + x^2)*(1 + x + x^2))."
+    },
+    {
+     "id": "oc_A213246_0",
+     "anum": "A213246",
+     "form": "relation",
+     "text": "a(n) = 65*a(n-6)-64*a(n-12)."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A166213_0",
+     "anum": "A166213",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A166213_0",
+     "anum": "A166213",
+     "tested": 20000,
+     "range": [
+      0,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 64,
+     "bfile_hi": 63,
+     "data_hi": 38,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.02,
+     "extended": 19936,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A213244_0",
+     "anum": "A213244",
+     "tested": 490,
+     "range": [
+      9,
+      498
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 498,
+     "bfile_hi": 1000,
+     "data_hi": 27,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A026923_0",
+     "anum": "A026923",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A026923_0",
+     "anum": "A026923",
+     "tested": 19999,
+     "range": [
+      1,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 500,
+     "bfile_hi": 1000,
+     "data_hi": 55,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.02,
+     "extended": 0,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A213246_0",
+     "anum": "A213246",
+     "tested": 486,
+     "range": [
+      13,
+      498
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 498,
+     "bfile_hi": 1000,
+     "data_hi": 36,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 121,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 96,
+    "beyond_exact": 94,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T010856Z_bc134d",
+   "at": "2026-11-21T01:14:37Z",
+   "menu_size": 461,
+   "purpose": "self_build:oeis_prediction_error",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A245088_0",
+     "anum": "A245088",
+     "form": "relation",
+     "text": "Conjecture: +n^2*(23656*n-2233)*(n-1)*a(n) +(n-1)*(23656*n^3+655645*n^2-2273556*n+1915600)*a(n-1) -2*(n-2) *(177048*n^3-3748011*n^2+13870329*n-15407140)*a(n-2) -2*(n-3) *(2020728*n^3-18138829*n^2+63885382*n-73802216)*a(n-3) -5*(n-4) *(782552*n^3-11993599*n^2+55520403*n-80051816)*a(n-4) +125*(66088*n-203507)*(n-5)*(n-4)^2*a(n-5)=0. - _R. J. Mathar_, Jul 12 2014"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A245088_0",
+     "anum": "A245088",
+     "tested": 196,
+     "range": [
+      6,
+      201
+     ],
+     "deep_terms": 201,
+     "bfile_terms": 200,
+     "bfile_hi": 200,
+     "data_hi": 25,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.15,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 201,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = (Sum_{k=0..n-1} (8*k^2+12*k+5)*A244973(k))/n^2.",
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 121,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 96,
+    "beyond_exact": 94,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T010856Z_bc134d",
+   "at": "2026-11-21T01:14:53Z",
+   "menu_size": 461,
+   "purpose": "self_build:oeis_calibrated_vote",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A126931_0",
+     "anum": "A126931",
+     "form": "relation",
+     "text": "Conjecture: 3*(n+1)*a(n) +10*(-n-1)*a(n-1) +12*(-n+2)*a(n-2) +40*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 26 2012"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A126931_0",
+     "anum": "A126931",
+     "tested": 297,
+     "range": [
+      3,
+      299
+     ],
+     "deep_terms": 300,
+     "bfile_terms": 287,
+     "bfile_hi": 1912,
+     "data_hi": 24,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.0,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 299,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = A127359(n+1)/2 - A127359(n).",
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 121,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 96,
+    "beyond_exact": 94,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T011534Z_b2fe30",
+   "at": "2026-11-21T01:16:57Z",
+   "menu_size": 461,
+   "purpose": "zero_credit_family",
+   "hunters": [],
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 121,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 96,
+    "beyond_exact": 94,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T011534Z_b2fe30",
+   "at": "2026-11-21T01:17:18Z",
+   "menu_size": 461,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A211924_0",
+     "anum": "A211924",
+     "form": "gf",
+     "text": "G.f.: x^2*(2 - x)*(1 + 3*x^2 - x^3) / (1 - x)^5."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A211924_0",
+     "anum": "A211924",
+     "tested": 19999,
+     "range": [
+      1,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 74,
+     "bfile_hi": 74,
+     "data_hi": 39,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.02,
+     "extended": 19925,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T011534Z_b2fe30",
+   "at": "2026-11-21T01:17:36Z",
+   "menu_size": 461,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T011534Z_b2fe30",
+   "at": "2026-11-21T01:17:59Z",
+   "menu_size": 461,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A289873_0",
+     "anum": "A289873",
+     "form": "gf",
+     "text": "G.f.: x^2*(1 + x - x^2)*(1 + x^2 - x^3 + 2*x^4 + x^5) / ((1 - x)^3*(1 + x)*(1 - x + x^2)*(1 + x + x^2)) (conjectured). - _Colin Barker_, Jul 14 2017"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A289873_0",
+     "anum": "A289873",
+     "tested": 19998,
+     "range": [
+      2,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 500,
+     "bfile_hi": 10001,
+     "data_hi": 64,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 0,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T011534Z_b2fe30",
+   "at": "2026-11-21T01:20:27Z",
+   "menu_size": 461,
+   "purpose": "",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A213248_0",
+     "anum": "A213248",
+     "form": "relation",
+     "text": "a(n) = 4097*a(n-12)-4096*a(n-24)."
+    },
+    {
+     "id": "oc_A069755_0",
+     "anum": "A069755",
+     "form": "relation",
+     "text": "a(n) = (-14 + 6*(-1)^n + (3+9*(-1)^n)*n + 3*(5+(-1)^n)*n^2 + 6*n^3)/8."
+    },
+    {
+     "id": "oc_A213245_0",
+     "anum": "A213245",
+     "form": "relation",
+     "text": "a(n) = 9*a(n-3)-8*a(n-6)."
+    },
+    {
+     "id": "oc_A245088_0",
+     "anum": "A245088",
+     "form": "relation",
+     "text": "Conjecture: +n^2*(23656*n-2233)*(n-1)*a(n) +(n-1)*(23656*n^3+655645*n^2-2273556*n+1915600)*a(n-1) -2*(n-2) *(177048*n^3-3748011*n^2+13870329*n-15407140)*a(n-2) -2*(n-3) *(2020728*n^3-18138829*n^2+63885382*n-73802216)*a(n-3) -5*(n-4) *(782552*n^3-11993599*n^2+55520403*n-80051816)*a(n-4) +125*(66088*n-203507)*(n-5)*(n-4)^2*a(n-5)=0. - _R. J. Mathar_, Jul 12 2014"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A213248_0",
+     "anum": "A213248",
+     "tested": 474,
+     "range": [
+      25,
+      498
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 498,
+     "bfile_hi": 1000,
+     "data_hi": 36,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A069755_0",
+     "anum": "A069755",
+     "tested": 500,
+     "range": [
+      2,
+      501
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 500,
+     "bfile_hi": 1000,
+     "data_hi": 40,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A213245_0",
+     "anum": "A213245",
+     "tested": 492,
+     "range": [
+      7,
+      498
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 498,
+     "bfile_hi": 1000,
+     "data_hi": 36,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A245088_0",
+     "anum": "A245088",
+     "tested": 196,
+     "range": [
+      6,
+      201
+     ],
+     "deep_terms": 201,
+     "bfile_terms": 200,
+     "bfile_hi": 200,
+     "data_hi": 25,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.15,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 201,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = (Sum_{k=0..n-1} (8*k^2+12*k+5)*A244973(k))/n^2.",
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T011534Z_b2fe30",
+   "at": "2026-11-21T01:20:46Z",
+   "menu_size": 461,
+   "purpose": "self_build:oeis_prediction_error",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A126931_0",
+     "anum": "A126931",
+     "form": "relation",
+     "text": "Conjecture: 3*(n+1)*a(n) +10*(-n-1)*a(n-1) +12*(-n+2)*a(n-2) +40*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 26 2012"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A126931_0",
+     "anum": "A126931",
+     "tested": 297,
+     "range": [
+      3,
+      299
+     ],
+     "deep_terms": 300,
+     "bfile_terms": 287,
+     "bfile_hi": 1912,
+     "data_hi": 24,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.0,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 299,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = A127359(n+1)/2 - A127359(n).",
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T011534Z_b2fe30",
+   "at": "2026-11-21T01:21:07Z",
+   "menu_size": 461,
+   "purpose": "self_build:oeis_calibrated_vote",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A162533_0",
+     "anum": "A162533",
+     "form": "relation",
+     "text": "Conjecture: n*a(n) + (4-5*n)*a(n-1) + 2*(4*n-7)*a(n-2) + 4*(3-n)*a(n-3) + 4*(2-n)*a(n-4) + 4*(n-4)*a(n-5) = 0. - _R. J. Mathar_, Nov 16 2011"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A162533_0",
+     "anum": "A162533",
+     "tested": 996,
+     "range": [
+      5,
+      1000
+     ],
+     "deep_terms": 1001,
+     "bfile_terms": 348,
+     "bfile_hi": 1000,
+     "data_hi": 30,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 4.44,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 1000,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = Sum_{k=0..n} binomial(n,2k)*A002426(k).",
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T012148Z_5df6de",
+   "at": "2026-11-21T01:23:15Z",
+   "menu_size": 461,
+   "purpose": "zero_credit_family",
+   "hunters": [],
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T012148Z_5df6de",
+   "at": "2026-11-21T01:23:40Z",
+   "menu_size": 461,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A261956_0",
+     "anum": "A261956",
+     "form": "gf",
+     "text": "G.f.: -(9*x^13 +9*x^12 -12*x^11 -13*x^10 -12*x^9 -5*x^8 -3*x^7 -3*x^6 -9*x^5 -6*x^4 -6*x^3 -5*x^2 -3*x -1) / ((x-1)^2*(x+1)^2*(x^2+1)*(x^4+1))."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A261956_0",
+     "anum": "A261956",
+     "tested": 20000,
+     "range": [
+      0,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 51,
+     "bfile_hi": 50,
+     "data_hi": 50,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 0,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T012148Z_5df6de",
+   "at": "2026-11-21T01:24:00Z",
+   "menu_size": 461,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T012148Z_5df6de",
+   "at": "2026-11-21T01:24:22Z",
+   "menu_size": 461,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A126931_0",
+     "anum": "A126931",
+     "form": "relation",
+     "text": "Conjecture: 3*(n+1)*a(n) +10*(-n-1)*a(n-1) +12*(-n+2)*a(n-2) +40*(n-2)*a(n-3)=0. - _R. J. Mathar_, Nov 26 2012"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A126931_0",
+     "anum": "A126931",
+     "tested": 297,
+     "range": [
+      3,
+      299
+     ],
+     "deep_terms": 300,
+     "bfile_terms": 287,
+     "bfile_hi": 1912,
+     "data_hi": 24,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.0,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 299,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = A127359(n+1)/2 - A127359(n).",
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T012148Z_5df6de",
+   "at": "2026-11-21T01:27:23Z",
+   "menu_size": 461,
+   "purpose": "",
+   "hunters": null,
+   "lemmas": {
+    "stored": 0,
+    "stats": {
+     "pairs": 992,
+     "candidates": 31272,
+     "touch_filtered": 30933,
+     "trivial": 133,
+     "dalmatian": 24,
+     "implied": 85,
+     "held_out_fail": 2,
+     "passed": 0,
+     "converse": 83,
+     "not_simple": 12
+    }
+   },
+   "chosen": [
+    {
+     "id": "oc_A176479_0",
+     "anum": "A176479",
+     "form": "relation",
+     "text": "Conjecture: n*(n-1)*a(n) -3*(2*n-1)*(n-1)*a(n-1) +n*(n-2)*a(n-2) = 0. - _R. J. Mathar_, Dec 03 2014"
+    },
+    {
+     "id": "oc_A162533_0",
+     "anum": "A162533",
+     "form": "relation",
+     "text": "Conjecture: n*a(n) + (4-5*n)*a(n-1) + 2*(4*n-7)*a(n-2) + 4*(3-n)*a(n-3) + 4*(2-n)*a(n-4) + 4*(n-4)*a(n-5) = 0. - _R. J. Mathar_, Nov 16 2011"
+    },
+    {
+     "id": "oc_A245088_0",
+     "anum": "A245088",
+     "form": "relation",
+     "text": "Conjecture: +n^2*(23656*n-2233)*(n-1)*a(n) +(n-1)*(23656*n^3+655645*n^2-2273556*n+1915600)*a(n-1) -2*(n-2) *(177048*n^3-3748011*n^2+13870329*n-15407140)*a(n-2) -2*(n-3) *(2020728*n^3-18138829*n^2+63885382*n-73802216)*a(n-3) -5*(n-4) *(782552*n^3-11993599*n^2+55520403*n-80051816)*a(n-4) +125*(66088*n-203507)*(n-5)*(n-4)^2*a(n-5)=0. - _R. J. Mathar_, Jul 12 2014"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A176479_0",
+     "anum": "A176479",
+     "tested": 1025,
+     "range": [
+      2,
+      1026
+     ],
+     "deep_terms": 1027,
+     "bfile_terms": 198,
+     "bfile_hi": 1000,
+     "data_hi": 23,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.0,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 1026,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = (n+1)*A001003(n).",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A162533_0",
+     "anum": "A162533",
+     "tested": 996,
+     "range": [
+      5,
+      1000
+     ],
+     "deep_terms": 1001,
+     "bfile_terms": 348,
+     "bfile_hi": 1000,
+     "data_hi": 30,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 4.45,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 1000,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = Sum_{k=0..n} binomial(n,2k)*A002426(k).",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A245088_0",
+     "anum": "A245088",
+     "tested": 196,
+     "range": [
+      6,
+      201
+     ],
+     "deep_terms": 201,
+     "bfile_terms": 200,
+     "bfile_hi": 200,
+     "data_hi": 25,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.15,
+     "extended": 0,
+     "cap_reason": "ref_limited",
+     "cap_value": 201,
+     "fast_cfinite": false,
+     "definition_provenance": "name",
+     "definition_source": "a(n) = (Sum_{k=0..n-1} (8*k^2+12*k+5)*A244973(k))/n^2.",
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
+    "max_depth": 155648
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T012148Z_5df6de",
+   "at": "2026-11-21T01:27:46Z",
+   "menu_size": 461,
+   "purpose": "self_build:oeis_calibrated_vote",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A251419_0",
+     "anum": "A251419",
+     "form": "gf",
+     "text": "G.f.: (x^22 - x^21 - x^19 + 2*x^18 - x^17 - x^14 + 2*x^13 - 2*x^11 + 2*x^10 - 2*x^9 + x^8 + x^7 - 2*x^6 + x^5 - x^3 + x^2 - x)/(x^9 - 2*x^8 + x^7 - x^2 + 2*x - 1) (conjectured, equivalent to Wagon's conjectural formula from comments). - _Andy Huchala_, Mar 15 2024"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A251419_0",
+     "anum": "A251419",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A251419_0",
+     "anum": "A251419",
+     "tested": 19999,
+     "range": [
+      1,
+      19999
+     ],
+     "deep_terms": 20000,
+     "bfile_terms": 40,
+     "bfile_hi": 40,
+     "data_hi": 40,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.02,
+     "extended": 0,
+     "cap_reason": "term_cap",
+     "cap_value": 20000,
+     "fast_cfinite": true,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 122,
+    "counterexamples_verified": 0,
+    "proofs_checked": 25,
+    "proofs_routine_known_in_principle": 25,
+    "beyond_published_range": 97,
+    "beyond_exact": 95,
     "max_depth": 155648
    },
    "note": "selection-layer credit only; nothing authorized or posted"

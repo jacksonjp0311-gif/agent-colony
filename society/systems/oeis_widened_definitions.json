@@ -1560,6 +1560,22 @@
    ],
    "version": 1
   },
+  "oc_A069755_0": {
+   "anum": "A069755",
+   "definition": null,
+   "source_sha": "9e115bd655d39bae",
+   "terms_sha": "3701072b5a638ff6",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
   "oc_A069761_0": {
    "anum": "A069761",
    "definition": null,
@@ -4676,6 +4692,38 @@
    ],
    "version": 2
   },
+  "oc_A166212_0": {
+   "anum": "A166212",
+   "definition": null,
+   "source_sha": "e55c3207f9736ed5",
+   "terms_sha": "41603b11c7027e8e",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A166213_0": {
+   "anum": "A166213",
+   "definition": null,
+   "source_sha": "efc6aaf1459cca06",
+   "terms_sha": "90bbae630d9cecca",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
   "oc_A166300_0": {
    "anum": "A166300",
    "definition": null,
@@ -6617,6 +6665,102 @@
    "definition": null,
    "source_sha": "fe723b518c2d9306",
    "terms_sha": "3c50edd718a52568",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A211924_0": {
+   "anum": "A211924",
+   "definition": null,
+   "source_sha": "570b1197e0d23125",
+   "terms_sha": "470e65272522f27d",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A212039_0": {
+   "anum": "A212039",
+   "definition": null,
+   "source_sha": "9ecf811ed4e7585b",
+   "terms_sha": "9ada298bab21d024",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A213244_0": {
+   "anum": "A213244",
+   "definition": null,
+   "source_sha": "48b4223e20966ad1",
+   "terms_sha": "cf9452733a60b3ac",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A213245_0": {
+   "anum": "A213245",
+   "definition": null,
+   "source_sha": "4e798f5675762f8d",
+   "terms_sha": "e480685bde91585e",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A213246_0": {
+   "anum": "A213246",
+   "definition": null,
+   "source_sha": "4dd39c5a070414d9",
+   "terms_sha": "16181d21e0a8d7bb",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A213248_0": {
+   "anum": "A213248",
+   "definition": null,
+   "source_sha": "3f9815696a3e40ab",
+   "terms_sha": "9505e9da383a6ca8",
    "tried": [
     {
      "kind": "holo",
