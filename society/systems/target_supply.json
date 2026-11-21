@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 532,
- "last_refill_index": 532,
+ "cycle_index": 535,
+ "last_refill_index": 535,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -4215,6 +4215,38 @@
   "17213d22630d8ffc": {
    "cycle_id": "20261121T084508Z_228fba",
    "n_hits": 10
+  },
+  "b56756a9f4aaf513": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
+  },
+  "44b40dd94bde2448": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
+  },
+  "6ccaa2ef071d08bc": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
+  },
+  "54a4c9aeea750e9c": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
+  },
+  "36c3e531f9262a8a": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
+  },
+  "ebddcd34041773d4": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
+  },
+  "844d5b21c62affe8": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
+  },
+  "434501b797967854": {
+   "cycle_id": "20261121T094416Z_f99de3",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -4501,31 +4533,31 @@
   "A147817": "20261121T060553Z_7aaf51",
   "A147821": "20261121T060553Z_7aaf51"
  },
- "refills": 176,
- "added": 442,
+ "refills": 177,
+ "added": 444,
  "last": {
-  "cycle_id": "20261121T084508Z_228fba",
-  "open_before": 7,
+  "cycle_id": "20261121T094416Z_f99de3",
+  "open_before": 4,
   "pages_read": 8,
   "pages_skipped_duplicate": 0,
   "requests": 10,
   "new": [
    {
-    "id": "oc_A306471_0",
+    "id": "oc_A232353_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A303998_0",
+    "id": "oc_A235682_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 75,
-   "resolved_skipped": 24,
-   "keyword_skipped": 2,
-   "statements": 85,
+   "entries": 77,
+   "resolved_skipped": 12,
+   "keyword_skipped": 4,
+   "statements": 86,
    "parsed": 2,
    "no_bfile": 0,
    "fails_on_data": 0,
@@ -4534,7 +4566,7 @@
   }
  },
  "run_requests": {
-  "run_id": "44880224265",
+  "run_id": "44888371238",
   "n": 10
  },
  "last_slot_refill_cycle": "20261120T203557Z_7d7888",
