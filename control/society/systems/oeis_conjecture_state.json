@@ -2957,11 +2957,23 @@
    "status": "holds_on_range",
    "tested_hi": 500,
    "credit": 0.0
+  },
+  "oc_A375785_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 500,
+   "credit": 0.0
+  },
+  "oc_A005434_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 487,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 734,
+   "attempts": 735,
    "credit": 24.1488
   },
   "gf": {
@@ -2973,7 +2985,7 @@
    "credit": 0.0
   },
   "property": {
-   "attempts": 70,
+   "attempts": 71,
    "credit": 0.0
   }
  },
