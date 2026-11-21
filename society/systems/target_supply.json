@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 559,
- "last_refill_index": 557,
+ "cycle_index": 562,
+ "last_refill_index": 560,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -4950,20 +4950,20 @@
   "A133602": "20261121T121901Z_60689e",
   "A083178": "20261121T140403Z_0705a0"
  },
- "refills": 184,
+ "refills": 185,
  "added": 459,
  "last": {
-  "cycle_id": "20261121T164752Z_944ab5",
+  "cycle_id": "20261121T174517Z_167027",
   "open_before": 3,
-  "pages_read": 5,
-  "pages_skipped_duplicate": 3,
-  "requests": 5,
+  "pages_read": 0,
+  "pages_skipped_duplicate": 0,
+  "requests": 0,
   "new": [],
   "stats": {
-   "entries": 24,
-   "resolved_skipped": 8,
-   "keyword_skipped": 2,
-   "statements": 15,
+   "entries": 0,
+   "resolved_skipped": 0,
+   "keyword_skipped": 0,
+   "statements": 0,
    "parsed": 0,
    "no_bfile": 0,
    "fails_on_data": 0,
@@ -4971,8 +4971,8 @@
   }
  },
  "run_requests": {
-  "run_id": "44925582454",
-  "n": 5
+  "run_id": "44930694122",
+  "n": 0
  },
  "last_slot_refill_cycle": "20261121T121901Z_60689e",
  "slot_refills": 2
