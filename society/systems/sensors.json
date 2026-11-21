@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-21T22:22:16Z",
-  "cycle_id": "20261121T222151Z_c0ca5a",
+  "ts": "2026-11-21T23:18:16Z",
+  "cycle_id": "20261121T231749Z_7c25a3",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
@@ -59,10 +59,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8216,
-      "slope": -4e-05,
-      "min": 0.8214,
-      "max": 0.8225
+      "last": 0.8213,
+      "slope": -1.8e-05,
+      "min": 0.8213,
+      "max": 0.8221
     },
     "novelty": {
       "last": 0.0,
@@ -91,7 +91,7 @@
   },
   "stall": {
     "stalled": true,
-    "aggregate_range": 0.0007,
+    "aggregate_range": 0.0008,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "aggregate flat and novelty 0"
@@ -239,33 +239,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.136,
+      "ratio": 1.148,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.124,
+      "ratio": 1.189,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.079,
+      "ratio": 1.156,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.074,
+      "ratio": 1.182,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.076,
+      "ratio": 1.075,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 735408835,
+      "goldbach_even": 738608835,
       "collatz_descent": 806200000,
-      "legendre_square_gap": 4076607,
-      "lehmer_totient": 386200001,
+      "legendre_square_gap": 4092607,
+      "lehmer_totient": 387800001,
       "erdos_straus": 1864127,
       "twin_primes_hl": 1006200000,
       "oeis_A104062_next": 518690000001
@@ -321,18 +321,18 @@
     "last": [
       [
         null,
+        "2026-11-21T22:46:12Z"
+      ],
+      [
+        "success",
         "2026-11-21T21:06:26Z"
       ],
       [
         "success",
         "2026-11-21T21:05:30Z"
-      ],
-      [
-        "success",
-        "2026-11-21T21:05:22Z"
       ]
     ],
-    "fetched_at": "2026-11-21T21:56:24Z"
+    "fetched_at": "2026-11-21T22:48:32Z"
   },
   "feeds": {
     "by_source": {
@@ -360,31 +360,27 @@
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 5,
-          "new": 5,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 10,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 1,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-21T21:56:19Z"
+      "ts": "2026-11-21T22:48:31Z"
     },
     "health": {
       "arxiv": {
@@ -410,7 +406,7 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0007) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
+    "stall: aggregate flat (0.0008) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],

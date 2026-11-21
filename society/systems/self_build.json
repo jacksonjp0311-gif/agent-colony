@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 580,
+ "cycle_index": 583,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -370,7 +370,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261121T222151Z_c0ca5a",
+  "cycle_id": "20261121T231749Z_7c25a3",
   "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
@@ -379,11 +379,11 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 159,
-     "duplicate": 11,
-     "trivial_formal": 0,
-     "trivial_shuffle_null": 0,
-     "trivial_idle_part": 1,
+     "fitted": 183,
+     "duplicate": 19,
+     "trivial_formal": 2,
+     "trivial_shuffle_null": 1,
+     "trivial_idle_part": 5,
      "trivial_implied_parts": 19,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
@@ -392,34 +392,31 @@
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 0,
+     "trivial_digit_rule": 1,
      "expected_by_closure": 4,
-     "loose_inequality": 0,
-     "tested": 14,
-     "survived": 6,
+     "loose_inequality": 1,
+     "tested": 16,
+     "survived": 8,
      "falsified": 8,
      "machine_checked": 4,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 2,
+     "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 4
+     "no_reference_found": 2,
+     "explained_by_known_check": 2,
+     "trivial_confirmed on range": 2,
+     "trivial_known_in_principle(definition_parity)": 1
     }
    },
    {
     "component": "oeis_prediction_error",
     "n": 1,
-    "actions": 0,
-    "skipped": "nothing_open"
-   },
-   {
-    "component": "oeis_calibrated_vote",
-    "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A283505_0"
+     "oc_A245088_0"
     ]
    },
    {
@@ -427,15 +424,23 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A277797_0"
+     "oc_A230269_0"
+    ]
+   },
+   {
+    "component": "oeis_calibrated_vote",
+    "n": 1,
+    "actions": 1,
+    "ids": [
+     "oc_A198474_0"
     ]
    }
   ],
-  "actions": 3,
-  "cpu_s": 61.867
+  "actions": 4,
+  "cpu_s": 97.39
  },
  "last_skip": {
-  "cycle_id": "20261121T222151Z_c0ca5a",
+  "cycle_id": "20261121T231749Z_7c25a3",
   "reason": "hive_rule_trial_open"
  },
  "kept_count": 4,

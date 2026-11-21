@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s11139-026-01320-w>",
+      "topic": "(rogue-ai)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-21T22:25:49Z",
-  "updated_cycle": "20261121T222151Z_c0ca5a",
+  "updated_at": "2026-11-21T23:21:57Z",
+  "updated_cycle": "20261121T231749Z_7c25a3",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
