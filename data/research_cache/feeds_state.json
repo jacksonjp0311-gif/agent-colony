@@ -1,15 +1,31 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-21T06:30:19Z",
+    "fetched_at": "2026-11-21T07:19:33Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-21T07:17:20Z",
+        "id": 44879544441,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-21T07:18:21Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-21T06:37:54Z",
+        "id": 44876451133,
+        "name": "Read-only tests",
+        "status": "completed",
+        "updated_at": "2026-11-21T06:52:00Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-21T06:28:13Z",
         "id": 44875684653,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-21T06:28:58Z"
+        "status": "completed",
+        "updated_at": "2026-11-21T07:17:23Z"
       },
       {
         "conclusion": "success",
@@ -82,22 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-21T00:59:56Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T23:25:52Z",
-        "id": 44836738501,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-21T00:06:02Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T23:09:27Z",
-        "id": 44834670612,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T23:20:12Z"
       }
     ],
     "success_rate": 1.0
@@ -138,10 +138,9 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "",
-        "fetched": 8,
-        "new": 6,
-        "ok": true
+        "new": 0,
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-21T06:30:15Z"
+    "ts": "2026-11-21T07:19:33Z"
   },
-  "runs": 519
+  "runs": 520
 }

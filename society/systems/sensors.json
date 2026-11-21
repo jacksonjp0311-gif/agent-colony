@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-21T06:53:24Z",
-  "cycle_id": "20261121T065304Z_cf3923",
+  "ts": "2026-11-21T07:47:33Z",
+  "cycle_id": "20261121T074708Z_f0ad57",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -96,8 +96,8 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8222,
-      "slope": 0.000269,
+      "last": 0.8216,
+      "slope": 0.000481,
       "min": 0.8056,
       "max": 0.8231
     },
@@ -276,23 +276,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.936,
+      "ratio": 1.221,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.928,
+      "ratio": 1.16,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.908,
+      "ratio": 1.184,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.938,
+      "ratio": 1.196,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.975,
+      "ratio": 1.172,
       "drift": false
     }
   },
@@ -300,11 +300,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 709808835,
-      "collatz_descent": 777400000,
+      "collatz_descent": 780600000,
       "legendre_square_gap": 3948607,
       "lehmer_totient": 373400001,
-      "erdos_straus": 1819127,
-      "twin_primes_hl": 970200000,
+      "erdos_straus": 1824127,
+      "twin_primes_hl": 974200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -358,18 +358,18 @@
     "last": [
       [
         null,
+        "2026-11-21T07:17:20Z"
+      ],
+      [
+        "success",
+        "2026-11-21T06:37:54Z"
+      ],
+      [
+        "success",
         "2026-11-21T06:28:13Z"
-      ],
-      [
-        "success",
-        "2026-11-21T05:41:25Z"
-      ],
-      [
-        "success",
-        "2026-11-21T04:59:39Z"
       ]
     ],
-    "fetched_at": "2026-11-21T06:30:19Z"
+    "fetched_at": "2026-11-21T07:19:33Z"
   },
   "feeds": {
     "by_source": {
@@ -388,10 +388,9 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
-          "new": 6,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
@@ -418,7 +417,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-21T06:30:15Z"
+      "ts": "2026-11-21T07:19:33Z"
     },
     "health": {
       "arxiv": {

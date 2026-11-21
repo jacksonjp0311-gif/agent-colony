@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "$l$-functions",
+      "topic": "(rogue-ai)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-based",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "bio-pm-guided",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-21T06:56:11Z",
-  "updated_cycle": "20261121T065304Z_cf3923",
+  "updated_at": "2026-11-21T07:50:51Z",
+  "updated_cycle": "20261121T074708Z_f0ad57",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
