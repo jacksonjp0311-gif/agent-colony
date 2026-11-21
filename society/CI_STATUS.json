@@ -1769,32 +1769,35 @@
     "cycle_1717_evolve_note",
     "cycle_1718_evolve_note",
     "cycle_1719_evolve_note",
-    "cycle_1720_evolve_note"
+    "cycle_1720_evolve_note",
+    "cycle_1721_evolve_note",
+    "cycle_1722_evolve_note",
+    "cycle_1723_evolve_note"
   ],
   "systems": [
     {
       "name": "coverage_index",
-      "uses": 5110,
+      "uses": 5119,
       "path": "society/systems/coverage_index.json"
     },
     {
       "name": "skill_router",
-      "uses": 5082,
+      "uses": 5091,
       "path": "society/systems/skill_router.json"
     },
     {
       "name": "reply_tracker",
-      "uses": 3409,
+      "uses": 3415,
       "path": "society/systems/reply_tracker.json"
     },
     {
       "name": "fitness_ledger",
-      "uses": 1704,
+      "uses": 1707,
       "path": "society/systems/fitness_history.jsonl"
     },
     {
       "name": "topic_priority",
-      "uses": 6773,
+      "uses": 6785,
       "path": "society/systems/topic_priority.json"
     },
     {
@@ -1804,47 +1807,47 @@
     },
     {
       "name": "common_knowledge",
-      "uses": 5077,
+      "uses": 5086,
       "path": "society/systems/common_knowledge.json"
     },
     {
       "name": "rsi_coupling",
-      "uses": 1692,
+      "uses": 1695,
       "path": "society/systems/rsi_coupling.json"
     },
     {
       "name": "findings_coupling",
-      "uses": 1692,
+      "uses": 1695,
       "path": "society/systems/findings_coupling.json"
     },
     {
       "name": "athanor_coherence",
-      "uses": 1677,
+      "uses": 1680,
       "path": "society/systems/athanor_coherence.json"
     },
     {
       "name": "pulsemesh_feeds",
-      "uses": 1677,
+      "uses": 1680,
       "path": "society/systems/pulsemesh_feeds.json"
     },
     {
       "name": "hold_posture",
-      "uses": 1674,
+      "uses": 1677,
       "path": "society/systems/hold_posture.json"
     },
     {
       "name": "cortex_cerebrum",
-      "uses": 1674,
+      "uses": 1677,
       "path": "society/systems/cortex_cerebrum.json"
     },
     {
       "name": "institution_charters",
-      "uses": 1671,
+      "uses": 1674,
       "path": "society/systems/institution_charters.json"
     },
     {
       "name": "pilot_lane",
-      "uses": 1671,
+      "uses": 1674,
       "path": "society/systems/pilot_lane.json"
     }
   ],
@@ -2119,8 +2122,8 @@
   ],
   "commons_size": 200,
   "commons_stats": {
-    "appended": 6772,
-    "reused": 15232
+    "appended": 6784,
+    "reused": 15259
   },
   "commons_by_domain": {
     "science": 0,
@@ -2139,8 +2142,8 @@
     }
   ],
   "census_latest": {
-    "ts": "2026-11-21T11:44:53Z",
-    "cycle_id": "20261121T113849Z_68d505",
+    "ts": "2026-11-21T12:33:38Z",
+    "cycle_id": "20261121T122823Z_8f0008",
     "kind": "census",
     "active_count": 18,
     "retired_count": 0,
@@ -2152,31 +2155,31 @@
     "genome_count": 18
   },
   "fitness_latest": {
-    "ts": "2026-11-21T11:44:45Z",
-    "cycle_id": "20261121T113849Z_68d505",
-    "tribute_quality": 1.0,
+    "ts": "2026-11-21T12:33:33Z",
+    "cycle_id": "20261121T122823Z_8f0008",
+    "tribute_quality": 0.8,
     "gather_coverage": 0.6522,
     "build_reuse": 0.84,
     "comm_reply_rate": 0.8,
     "reply_quality": 0.9113,
     "commons_signal": 1.0,
-    "math_prize": 0.8147,
-    "compute_usefulness": 0.9144,
+    "math_prize": 0.8252,
+    "compute_usefulness": 0.9266,
     "citation_reuse": 1.0,
-    "prize_boost": 0.8867,
+    "prize_boost": 0.8957,
     "kill_rate": 0.3863,
     "kill_rate_term": 0.8976,
     "novelty": 0.0,
     "lesson_uptake": 0.9,
-    "aggregate": 0.8213,
+    "aggregate": 0.7867,
     "peer_cite_rate": 1.0,
     "action_changed_from_message": 1.0,
     "self_reject_rate": 0.0,
     "post_challenger_oracle_kill_rate": 0.2729,
-    "stall_cycles": 5,
+    "stall_cycles": 1,
     "perturb_active": false,
-    "distinct_targets_tried_last_3_cycles": 0,
-    "perturb_cooldown_remaining": 0,
+    "distinct_targets_tried_last_3_cycles": 2,
+    "perturb_cooldown_remaining": 5,
     "perturb_strategy": "mutate",
     "checker_proposals_awaiting_review": 0,
     "checker_proposals": [],
@@ -2196,7 +2199,7 @@
         "id": "chk_0c904dfae6fab86d"
       }
     ],
-    "checker_lane_cycle_id": "20261121T113849Z_68d505",
+    "checker_lane_cycle_id": "20261121T122823Z_8f0008",
     "self_changes_adopted": 20,
     "self_changes_reverted": 25,
     "self_changes_inconclusive": 6,
@@ -2217,13 +2220,18 @@
       "reverted": null
     },
     "quarantined_steps": [],
-    "self_heal_trial": null,
-    "trial_skip": {
-      "cycle_id": "20261121T113849Z_68d505",
-      "reason": "self_build_trial_open"
+    "self_heal_trial": {
+      "knob": "gf_term_cap",
+      "from": 4593,
+      "to": 5315,
+      "reason": "depth_at_physical_cap",
+      "window": 7,
+      "n_trial_metrics": 0,
+      "baseline_score": 3.0
     },
+    "trial_skip": null,
     "swarm_library_size": 94,
-    "swarm_library_records": 97,
+    "swarm_library_records": 100,
     "swarm_calibration": {
       "buckets": [
         {
@@ -6213,7 +6221,7 @@
           "margin": 69,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6223,7 +6231,7 @@
           "margin": 62,
           "predicted": "set_knob:direction=up:name=unused_menu_cycles:value=23",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6233,7 +6241,7 @@
           "margin": 173,
           "predicted": "add_skip_rule:cycles=12:target_kind=empty_label",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6243,7 +6251,7 @@
           "margin": 245,
           "predicted": "add_park_rule:cycles=12:target_kind=proof_chain_parked",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6253,7 +6261,7 @@
           "margin": 260,
           "predicted": "add_triviality_candidate:applied_to_live_oracle=False:direction=tighten:kind=triviality_pattern:pattern=textbook identity restated:pattern_type=literal:routed_to=checker_lane",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6263,7 +6271,7 @@
           "margin": 155,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6273,7 +6281,7 @@
           "margin": 246,
           "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6283,7 +6291,7 @@
           "margin": 178,
           "predicted": "set_knob:direction=down:name=step_size:value=0.0634",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6293,7 +6301,7 @@
           "margin": 212,
           "predicted": "set_knob:direction=up:name=evaluation_window:value=8",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6303,7 +6311,7 @@
           "margin": 374,
           "predicted": "set_knob:direction=up:name=perturb_zero_pick_cycles:value=2",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6313,7 +6321,7 @@
           "margin": 197,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6323,7 +6331,7 @@
           "margin": 237,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6333,7 +6341,7 @@
           "margin": 320,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=5315",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6343,7 +6351,7 @@
           "margin": 358,
           "predicted": "mark_ceiling:depth=1200:reason=evaluator_cap:target=held-at-cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6353,7 +6361,7 @@
           "margin": 190,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6363,7 +6371,7 @@
           "margin": 212,
           "predicted": "set_knob:direction=up:name=unused_menu_cycles:value=23",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6373,7 +6381,7 @@
           "margin": 317,
           "predicted": "add_skip_rule:cycles=12:target_kind=empty_label",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6383,7 +6391,7 @@
           "margin": 272,
           "predicted": "add_park_rule:cycles=12:target_kind=proof_chain_parked",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6393,7 +6401,7 @@
           "margin": 335,
           "predicted": "add_triviality_candidate:applied_to_live_oracle=False:direction=tighten:kind=triviality_pattern:pattern=textbook identity restated:pattern_type=literal:routed_to=checker_lane",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6403,7 +6411,7 @@
           "margin": 219,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6413,7 +6421,7 @@
           "margin": 241,
           "predicted": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6423,7 +6431,7 @@
           "margin": 179,
           "predicted": "set_knob:direction=down:name=step_size:value=0.0634",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6433,7 +6441,7 @@
           "margin": 260,
           "predicted": "set_knob:direction=up:name=evaluation_window:value=8",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6443,7 +6451,7 @@
           "margin": 409,
           "predicted": "set_knob:direction=up:name=perturb_zero_pick_cycles:value=2",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6453,7 +6461,7 @@
           "margin": 206,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6463,7 +6471,7 @@
           "margin": 263,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6473,7 +6481,7 @@
           "margin": 354,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=5315",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6483,7 +6491,7 @@
           "margin": 372,
           "predicted": "mark_ceiling:depth=1200:reason=evaluator_cap:target=held-at-cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6493,7 +6501,7 @@
           "margin": 226,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6503,7 +6511,7 @@
           "margin": 247,
           "predicted": "add_skip_rule:cycles=8:target_kind=already_held_range",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6513,7 +6521,7 @@
           "margin": 173,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6523,7 +6531,7 @@
           "margin": 187,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6533,7 +6541,7 @@
           "margin": 226,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6543,7 +6551,7 @@
           "margin": 257,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6553,7 +6561,7 @@
           "margin": 37,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6563,7 +6571,7 @@
           "margin": 63,
           "predicted": "add_family_rotation:family=algebraic",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6573,7 +6581,7 @@
           "margin": 151,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6583,7 +6591,7 @@
           "margin": 78,
           "predicted": "add_family_rotation:family=algebraic",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6593,7 +6601,7 @@
           "margin": 14,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=5315",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6603,7 +6611,7 @@
           "margin": 18,
           "predicted": "set_knob:direction=up:name=deep_digits",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6613,7 +6621,7 @@
           "margin": 10,
           "predicted": "set_knob:direction=up:name=deep_digits",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6623,7 +6631,7 @@
           "margin": 14,
           "predicted": "set_knob:direction=up:name=deep_digits",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6633,7 +6641,7 @@
           "margin": 0,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6643,7 +6651,7 @@
           "margin": 0,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6653,7 +6661,7 @@
           "margin": 0,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6663,7 +6671,7 @@
           "margin": 0,
           "predicted": "set_knob:direction=up:name=fast_term_cap",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": false,
@@ -6673,7 +6681,7 @@
           "margin": 0,
           "predicted": "set_knob:direction=up:name=deep_digits",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6683,7 +6691,7 @@
           "margin": 20,
           "predicted": "set_knob:direction=up:name=deep_digits",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6693,7 +6701,7 @@
           "margin": 16,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=5315",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": false,
@@ -6703,7 +6711,7 @@
           "margin": 6,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=5315",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6713,7 +6721,7 @@
           "margin": 0,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6723,7 +6731,7 @@
           "margin": 2,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": false,
@@ -6733,7 +6741,7 @@
           "margin": 136,
           "predicted": "set_knob:direction=up:name=evaluation_window:value=8",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6743,7 +6751,7 @@
           "margin": 2,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": false,
@@ -6753,7 +6761,7 @@
           "margin": 117,
           "predicted": "set_knob:direction=down:name=step_size:value=0.0634",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6763,7 +6771,7 @@
           "margin": 4,
           "predicted": "set_knob:direction=up:name=park_cycles:value=13",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6773,7 +6781,7 @@
           "margin": 0,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=5315",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         },
         {
           "correct": true,
@@ -6783,17 +6791,17 @@
           "margin": 2,
           "predicted": "set_knob:direction=up:name=gf_term_cap:value=5315",
           "source": "replay",
-          "ts": "2026-11-21T11:43:45Z"
+          "ts": "2026-11-21T12:32:50Z"
         }
       ]
     },
-    "swarm_shadows_open": 97,
+    "swarm_shadows_open": 99,
     "swarm_shadows_resolved": 100,
     "swarm_replay_calibrated": {
       "correct": 54,
       "n": 58,
       "source": "replay",
-      "updated_at": "2026-11-21T11:43:45Z"
+      "updated_at": "2026-11-21T12:32:50Z"
     },
     "swarm_replay_accuracy_permille": 931,
     "swarm_replay_lower_permille": 835,
@@ -6808,9 +6816,9 @@
     "swarm_adopted": 0,
     "swarm_reverted": 0,
     "swarm_adopt_rate_permille": 0,
-    "swarm_abstained": 536,
+    "swarm_abstained": 538,
     "swarm_applied": 18,
-    "swarm_proposals": 2661,
+    "swarm_proposals": 2672,
     "swarm_trial": null,
     "swarm_last_decision": null,
     "swarm_active_rules": 0,
@@ -6833,30 +6841,30 @@
   },
   "improvement_proposals": 49,
   "bus_stats": {
-    "posted": 94448,
-    "read": 451422,
-    "replied": 59711,
-    "actions_planned": 30738,
-    "actions_changed_from_message": 30738,
-    "reply_quality_sum": 54369.300000039635,
-    "reply_quality_n": 59659,
-    "peer_cite_opportunities": 61190,
-    "peer_cites": 61190
+    "posted": 94613,
+    "read": 452196,
+    "replied": 59816,
+    "actions_planned": 30792,
+    "actions_changed_from_message": 30792,
+    "reply_quality_sum": 54465.00000003975,
+    "reply_quality_n": 59764,
+    "peer_cite_opportunities": 61298,
+    "peer_cites": 61298
   },
   "bus_domains": {
-    "science": 5072,
-    "history": 5074,
-    "math": 15593,
-    "empire": 3385,
-    "bulletin": 12088,
-    "forum": 21485,
-    "software": 5059,
-    "nature": 5023,
-    "life": 5074,
-    "cosmos": 7861,
-    "rsi": 8626
+    "science": 5081,
+    "history": 5083,
+    "math": 15620,
+    "empire": 3391,
+    "bulletin": 12109,
+    "forum": 21521,
+    "software": 5068,
+    "nature": 5032,
+    "life": 5083,
+    "cosmos": 7876,
+    "rsi": 8641
   },
-  "communications_count": 94448,
+  "communications_count": 94613,
   "improvements": [
     "Chain+seek `authored_mut_swap_related_sequence_780ec4e5fee0` from invariant priors",
     "Chain+seek `authored_mut_swap_related_sequence_8d6d6a34114b` from invariant priors",
@@ -6909,16 +6917,16 @@
     "Chain+seek `lemma_hard_combinatorics` from invariant priors",
     "Chain+seek `lemma_hard_combinatorics` from invariant priors"
   ],
-  "cycle_count": 1720,
-  "ledger_count": 99051,
+  "cycle_count": 1723,
+  "ledger_count": 99219,
   "status_counts": {
-    "candidate": 98265,
+    "candidate": 98433,
     "accepted": 284,
     "rejected": 376,
     "unknown": 126
   },
-  "witness_events": 145828,
-  "tribute_cycles_compliant": 1720,
+  "witness_events": 146081,
+  "tribute_cycles_compliant": 1723,
   "standing_topics": [
     "recursive-self-improvement",
     "meta-learning",
