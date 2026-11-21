@@ -1,36 +1,6 @@
 {
  "attempts": [
   {
-   "id": "oc_A050168_0",
-   "anum": "A050168",
-   "form": "relation",
-   "depth": 499,
-   "bfile_hi": 1000,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T182206Z_beb618",
-   "planned": 1000,
-   "verified_depth": 499,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
-   "id": "oc_A026023_0",
-   "anum": "A026023",
-   "form": "relation",
-   "depth": 499,
-   "bfile_hi": 1000,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T182451Z_788d91",
-   "planned": 1000,
-   "verified_depth": 499,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
    "id": "oc_A026027_0",
    "anum": "A026027",
    "form": "relation",
@@ -6339,15 +6309,39 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A232353_0",
+   "anum": "A232353",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 5000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T101502Z_4315b7",
+   "planned": 5000,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A235682_0",
+   "anum": "A235682",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T101502Z_4315b7",
+   "planned": 10000,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
-  "20261117T110616Z_f9384e": [
-   "oc_A226857_0",
-   "oc_A028841_0",
-   "oc_A015134_0",
-   "oc_A031149_0"
-  ],
   "20261117T110942Z_265d93": [
    "oc_A023110_0",
    "oc_A100095_0"
@@ -6765,6 +6759,10 @@
   "20261121T091335Z_d10be4": [
    "oc_A306471_0",
    "oc_A303998_0"
+  ],
+  "20261121T101502Z_4315b7": [
+   "oc_A232353_0",
+   "oc_A235682_0"
   ]
  },
  "last_forms": [
@@ -6774,8 +6772,6 @@
   "gf",
   "relation",
   "gf",
-  "relation",
-  "gf",
   "gf",
   "gf",
   "relation",
@@ -6784,6 +6780,8 @@
   "relation",
   "relation",
   "gf",
+  "relation",
+  "relation",
   "relation",
   "relation",
   "relation",
