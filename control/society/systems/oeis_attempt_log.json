@@ -1,88 +1,6 @@
 {
  "attempts": [
   {
-   "id": "oc_A026923_0",
-   "anum": "A026923",
-   "form": "gf",
-   "depth": 7999,
-   "bfile_hi": 1000,
-   "beyond": true,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T225329Z_e725dd",
-   "planned": 8000,
-   "verified_depth": 7999,
-   "prior_tested_hi": 1000,
-   "extended": 6999,
-   "cap_reason": "term_cap",
-   "cap_value": 8000,
-   "fast_cfinite": true,
-   "deep_terms": 8000,
-   "deep_elapsed_s": 0.01
-  },
-  {
-   "id": "oc_A026927_0",
-   "anum": "A026927",
-   "form": "gf",
-   "depth": 52,
-   "bfile_hi": 52,
-   "beyond": false,
-   "status": "proof_rejected",
-   "cycle_id": "20261116T225329Z_e725dd",
-   "planned": 8000,
-   "verified_depth": 52,
-   "prior_tested_hi": 52,
-   "extended": 0
-  },
-  {
-   "id": "oc_A026927_0",
-   "anum": "A026927",
-   "form": "gf",
-   "depth": 7999,
-   "bfile_hi": 52,
-   "beyond": true,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T225329Z_e725dd",
-   "planned": 8000,
-   "verified_depth": 7999,
-   "prior_tested_hi": 52,
-   "extended": 7947,
-   "cap_reason": "term_cap",
-   "cap_value": 8000,
-   "fast_cfinite": true,
-   "deep_terms": 8000,
-   "deep_elapsed_s": 0.01
-  },
-  {
-   "id": "oc_A397501_0",
-   "anum": "A397501",
-   "form": "relation",
-   "depth": 47,
-   "bfile_hi": 48,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T225329Z_e725dd",
-   "planned": 48,
-   "verified_depth": 47,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
-   "id": "oc_A233390_0",
-   "anum": "A233390",
-   "form": "relation",
-   "depth": 500,
-   "bfile_hi": 8000,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T225717Z_8fc354",
-   "planned": 8000,
-   "verified_depth": 500,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
    "id": "oc_A294159_0",
    "anum": "A294159",
    "form": "relation",
@@ -6355,21 +6273,94 @@
    "fast_cfinite": true,
    "deep_terms": 8000,
    "deep_elapsed_s": 0.01
+  },
+  {
+   "id": "oc_A065026_0",
+   "anum": "A065026",
+   "form": "gf",
+   "depth": 42,
+   "bfile_hi": 42,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261121T163914Z_34d594",
+   "planned": 8000,
+   "verified_depth": 42,
+   "prior_tested_hi": 0,
+   "extended": 42
+  },
+  {
+   "id": "oc_A065026_0",
+   "anum": "A065026",
+   "form": "gf",
+   "depth": 7999,
+   "bfile_hi": 42,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T163914Z_34d594",
+   "planned": 8000,
+   "verified_depth": 7999,
+   "prior_tested_hi": 0,
+   "extended": 7957,
+   "cap_reason": "term_cap",
+   "cap_value": 8000,
+   "fast_cfinite": true,
+   "deep_terms": 8000,
+   "deep_elapsed_s": 0.02
+  },
+  {
+   "id": "oc_A026923_0",
+   "anum": "A026923",
+   "form": "gf",
+   "depth": 7999,
+   "bfile_hi": 1000,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T164405Z_189145",
+   "planned": 8000,
+   "verified_depth": 7999,
+   "prior_tested_hi": 7999,
+   "extended": 0,
+   "cap_reason": "term_cap",
+   "cap_value": 8000,
+   "fast_cfinite": true,
+   "deep_terms": 8000,
+   "deep_elapsed_s": 0.01
+  },
+  {
+   "id": "oc_A026927_0",
+   "anum": "A026927",
+   "form": "gf",
+   "depth": 52,
+   "bfile_hi": 52,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261121T164405Z_189145",
+   "planned": 8000,
+   "verified_depth": 52,
+   "prior_tested_hi": 7999,
+   "extended": 0
+  },
+  {
+   "id": "oc_A026927_0",
+   "anum": "A026927",
+   "form": "gf",
+   "depth": 7999,
+   "bfile_hi": 52,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T164405Z_189145",
+   "planned": 8000,
+   "verified_depth": 7999,
+   "prior_tested_hi": 7999,
+   "extended": 7947,
+   "cap_reason": "term_cap",
+   "cap_value": 8000,
+   "fast_cfinite": true,
+   "deep_terms": 8000,
+   "deep_elapsed_s": 0.01
   }
  ],
  "by_cycle": {
-  "20261117T124152Z_26bf27": [
-   "oc_A064089_0",
-   "oc_A105151_0",
-   "oc_A064091_0",
-   "oc_A025756_0"
-  ],
-  "20261117T124610Z_d2e6cc": [
-   "oc_A025757_0",
-   "oc_A025758_0",
-   "oc_A064088_0",
-   "oc_A064092_0"
-  ],
   "20261117T124852Z_efdda8": [
    "oc_A157003_0"
   ],
@@ -6780,12 +6771,16 @@
   ],
   "20261121T145611Z_947b11": [
    "oc_A295321_0"
+  ],
+  "20261121T163914Z_34d594": [
+   "oc_A065026_0"
+  ],
+  "20261121T164405Z_189145": [
+   "oc_A026923_0",
+   "oc_A026927_0"
   ]
  },
  "last_forms": [
-  "gf",
-  "relation",
-  "relation",
   "relation",
   "relation",
   "relation",
@@ -6801,6 +6796,9 @@
   "relation",
   "relation",
   "relation",
+  "gf",
+  "gf",
+  "gf",
   "gf",
   "gf"
  ]
