@@ -2,72 +2,6 @@
   "version": 1,
   "cycles": [
     {
-      "cycle_id": "20261120T143750Z_122cfd",
-      "ok": true,
-      "error": null,
-      "candidates_mined": 1,
-      "new_accepted": 0,
-      "new_rejected": 1,
-      "reasons": [
-        {
-          "fingerprint": "0c904dfae6fab86d",
-          "kind": "triviality_pattern",
-          "status": "rejected",
-          "reasons": [
-            "no_known_bad_caught"
-          ],
-          "id": "chk_0c904dfae6fab86d"
-        }
-      ],
-      "awaiting_review": 0,
-      "applied_to_live_oracle": false,
-      "ts": "2026-11-20T14:41:38Z"
-    },
-    {
-      "cycle_id": "20261120T144455Z_b16310",
-      "ok": true,
-      "error": null,
-      "candidates_mined": 1,
-      "new_accepted": 0,
-      "new_rejected": 1,
-      "reasons": [
-        {
-          "fingerprint": "0c904dfae6fab86d",
-          "kind": "triviality_pattern",
-          "status": "rejected",
-          "reasons": [
-            "no_known_bad_caught"
-          ],
-          "id": "chk_0c904dfae6fab86d"
-        }
-      ],
-      "awaiting_review": 0,
-      "applied_to_live_oracle": false,
-      "ts": "2026-11-20T14:48:41Z"
-    },
-    {
-      "cycle_id": "20261120T151708Z_1df187",
-      "ok": true,
-      "error": null,
-      "candidates_mined": 1,
-      "new_accepted": 0,
-      "new_rejected": 1,
-      "reasons": [
-        {
-          "fingerprint": "0c904dfae6fab86d",
-          "kind": "triviality_pattern",
-          "status": "rejected",
-          "reasons": [
-            "no_known_bad_caught"
-          ],
-          "id": "chk_0c904dfae6fab86d"
-        }
-      ],
-      "awaiting_review": 0,
-      "applied_to_live_oracle": false,
-      "ts": "2026-11-20T15:21:28Z"
-    },
-    {
       "cycle_id": "20261120T152522Z_223c68",
       "ok": true,
       "error": null,
@@ -1760,6 +1694,72 @@
       "awaiting_review": 0,
       "applied_to_live_oracle": false,
       "ts": "2026-11-21T13:30:53Z"
+    },
+    {
+      "cycle_id": "20261121T140403Z_0705a0",
+      "ok": true,
+      "error": null,
+      "candidates_mined": 1,
+      "new_accepted": 0,
+      "new_rejected": 1,
+      "reasons": [
+        {
+          "fingerprint": "0c904dfae6fab86d",
+          "kind": "triviality_pattern",
+          "status": "rejected",
+          "reasons": [
+            "no_known_bad_caught"
+          ],
+          "id": "chk_0c904dfae6fab86d"
+        }
+      ],
+      "awaiting_review": 0,
+      "applied_to_live_oracle": false,
+      "ts": "2026-11-21T14:09:26Z"
+    },
+    {
+      "cycle_id": "20261121T141609Z_189349",
+      "ok": true,
+      "error": null,
+      "candidates_mined": 1,
+      "new_accepted": 0,
+      "new_rejected": 1,
+      "reasons": [
+        {
+          "fingerprint": "0c904dfae6fab86d",
+          "kind": "triviality_pattern",
+          "status": "rejected",
+          "reasons": [
+            "no_known_bad_caught"
+          ],
+          "id": "chk_0c904dfae6fab86d"
+        }
+      ],
+      "awaiting_review": 0,
+      "applied_to_live_oracle": false,
+      "ts": "2026-11-21T14:20:52Z"
+    },
+    {
+      "cycle_id": "20261121T142556Z_783a14",
+      "ok": true,
+      "error": null,
+      "candidates_mined": 1,
+      "new_accepted": 0,
+      "new_rejected": 1,
+      "reasons": [
+        {
+          "fingerprint": "0c904dfae6fab86d",
+          "kind": "triviality_pattern",
+          "status": "rejected",
+          "reasons": [
+            "no_known_bad_caught"
+          ],
+          "id": "chk_0c904dfae6fab86d"
+        }
+      ],
+      "awaiting_review": 0,
+      "applied_to_live_oracle": false,
+      "ts": "2026-11-21T14:30:30Z"
     }
   ],
   "rejected": [
@@ -1774,7 +1774,7 @@
     }
   ],
   "last": {
-    "cycle_id": "20261121T132557Z_94c419",
+    "cycle_id": "20261121T142556Z_783a14",
     "ok": true,
     "error": null,
     "candidates_mined": 1,
@@ -1793,7 +1793,7 @@
     ],
     "awaiting_review": 0,
     "applied_to_live_oracle": false,
-    "ts": "2026-11-21T13:30:53Z"
+    "ts": "2026-11-21T14:30:30Z"
   },
-  "updated_at": "2026-11-21T13:30:53Z"
+  "updated_at": "2026-11-21T14:30:30Z"
 }
