@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 502,
+ "cycle_index": 505,
  "active": {
   "id": "bp_6af21df512e787b3",
   "signature": "6af21df512e787b3",
@@ -17,7 +17,95 @@
   "parent": "bp_1a40beac596f0ebe",
   "operator": "add"
  },
- "trial": null,
+ "trial": {
+  "blueprint": {
+   "id": "bp_e758d019f00c66eb",
+   "signature": "e758d019f00c66eb",
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    },
+    {
+     "component": "oeis_prediction_error",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    }
+   ],
+   "parent": "bp_6af21df512e787b3",
+   "operator": "add",
+   "evidence": [
+    "oeis_calibrated_vote"
+   ],
+   "weight": 0.589506,
+   "added": [
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    }
+   ],
+   "evidence_detail": {
+    "oeis_calibrated_vote": {
+     "papers": [
+      "2610.37327",
+      "2610.41738",
+      "2611.05844",
+      "2611.12762",
+      "2611.23106",
+      "2611.23795",
+      "2611.24932"
+     ],
+     "n_papers": 7,
+     "idea_rank": 6,
+     "cards": 2,
+     "lessons": 0,
+     "boost": 4.8143
+    }
+   },
+   "self_test": {
+    "ok": true,
+    "reason": "ok",
+    "plan": [
+     {
+      "component": "frontier_extra_batch",
+      "n": 1,
+      "planned": 1
+     },
+     {
+      "component": "oeis_prediction_error",
+      "n": 1,
+      "planned": 0
+     },
+     {
+      "component": "oeis_calibrated_vote",
+      "n": 1,
+      "planned": 1
+     }
+    ]
+   }
+  },
+  "opened_cycle_id": "20261121T001709Z_ea28df",
+  "code_fp": "dbe23dc7488229bc17afbd7ee73e0f6520213bee28d1cff133292b28c0efb204",
+  "opened_cycle_index": 503,
+  "open_row": 275,
+  "window_rows": 2,
+  "baseline_gain": [
+   0.0,
+   2812.0
+  ],
+  "baseline_overlaps": [
+   {
+    "slot": "self_heal",
+    "id": "gf_term_cap@20261120T203557Z_7d7888",
+    "start": "2026-11-20T20:35:57Z",
+    "end": "2026-11-20T23:33:27Z",
+    "outcome": "trial_voided_confound"
+   }
+  ]
+ },
  "tried": {
   "1a40beac596f0ebe": {
    "outcome": "kept",
@@ -186,6 +274,12 @@
    "kept": 1,
    "reverted": 1,
    "inconclusive": 0
+  },
+  "oeis_calibrated_vote": {
+   "tried": 1,
+   "kept": 0,
+   "reverted": 0,
+   "inconclusive": 0
   }
  },
  "macros": {
@@ -205,8 +299,8 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261120T234459Z_60ed44",
-  "blueprint": "bp_6af21df512e787b3",
+  "cycle_id": "20261121T003407Z_2065c0",
+  "blueprint": "bp_e758d019f00c66eb",
   "ran": [
    {
     "component": "frontier_extra_batch",
@@ -214,12 +308,12 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 179,
-     "duplicate": 10,
-     "trivial_formal": 5,
+     "fitted": 180,
+     "duplicate": 16,
+     "trivial_formal": 3,
      "trivial_shuffle_null": 0,
-     "trivial_idle_part": 6,
-     "trivial_implied_parts": 37,
+     "trivial_idle_part": 7,
+     "trivial_implied_parts": 50,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
@@ -228,22 +322,21 @@
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 2,
+     "expected_by_closure": 6,
      "loose_inequality": 0,
-     "tested": 19,
-     "survived": 6,
-     "falsified": 13,
-     "machine_checked": 2,
-     "surprises": 1,
+     "tested": 17,
+     "survived": 8,
+     "falsified": 9,
+     "machine_checked": 6,
+     "surprises": 0,
      "known_result": 0,
-     "oeis_known": 2,
+     "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 2,
+     "no_reference_found": 1,
      "explained_by_known_check": 1,
-     "deep_na": 1,
-     "trivial_confirmed on range": 1,
+     "trivial_confirmed on range": 3,
      "trivial_known_in_principle(definition_parity)": 1
     }
    },
@@ -252,83 +345,26 @@
     "n": 1,
     "actions": 0,
     "skipped": "nothing_open"
+   },
+   {
+    "component": "oeis_calibrated_vote",
+    "n": 1,
+    "actions": 1,
+    "ids": [
+     "oc_A026927_0"
+    ]
    }
   ],
-  "actions": 1,
-  "cpu_s": 13.731
+  "actions": 2,
+  "cpu_s": 25.328
  },
- "last_skip": {
-  "cycle_id": "20261120T234459Z_60ed44",
-  "reason": "no_candidate_passed_self_test",
-  "rejected": [
-   {
-    "id": "bp_c2b9ad24981f8d16",
-    "operator": "add",
-    "reason": "dead_step:new_data_extra_push"
-   },
-   {
-    "id": "bp_2dcbe2c1000d7af7",
-    "operator": "insert_front",
-    "reason": "dead_step:new_data_extra_push"
-   },
-   {
-    "id": "bp_2fd2fd7b72f64175",
-    "operator": "replace",
-    "reason": "dead_step:new_data_extra_push"
-   },
-   {
-    "id": "bp_b8870c8815e2f7b5",
-    "operator": "replace",
-    "reason": "dead_step:new_data_extra_push"
-   },
-   {
-    "id": "bp_3758d39191efc6db",
-    "operator": "add",
-    "reason": "dead_step:new_data_extra_push"
-   },
-   {
-    "id": "bp_dfda5b72099da0ff",
-    "operator": "add",
-    "reason": "dead_step:oeis_replay_buffer"
-   },
-   {
-    "id": "bp_9c81026436581974",
-    "operator": "resize",
-    "reason": "dead_step:oeis_prediction_error"
-   },
-   {
-    "id": "bp_218b742cbee61b1d",
-    "operator": "add",
-    "reason": "dead_step:oeis_prediction_error,oeis_prediction_error"
-   },
-   {
-    "id": "bp_427ca8f65d4023ce",
-    "operator": "pair",
-    "reason": "dead_step:new_data_extra_push,oeis_replay_buffer"
-   },
-   {
-    "id": "bp_e758d019f00c66eb",
-    "operator": "add",
-    "reason": "dead_step:oeis_calibrated_vote"
-   },
-   {
-    "id": "bp_c687c0cffc035d48",
-    "operator": "insert_front",
-    "reason": "dead_step:oeis_replay_buffer"
-   },
-   {
-    "id": "bp_3b6bfa603618caa2",
-    "operator": "pair",
-    "reason": "dead_step:new_data_extra_push,oeis_calibrated_vote"
-   }
-  ]
- },
+ "last_skip": null,
  "kept_count": 2,
  "reverted_count": 7,
  "inconclusive_count": 0,
  "voided_count": 8,
  "heal_turn": null,
- "last_propose_cycle": "20261120T234459Z_60ed44",
+ "last_propose_cycle": "20261121T001709Z_ea28df",
  "operator_stats": {
   "add": {
    "tried": 5,

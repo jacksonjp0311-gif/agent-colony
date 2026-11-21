@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 499,
- "last_refill_index": 499,
+ "cycle_index": 502,
+ "last_refill_index": 502,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -3898,6 +3898,53 @@
   "52bd3b14ddd70097": {
    "cycle_id": "20261120T234459Z_60ed44",
    "n_hits": 7
+  },
+  "37597397771f1db7": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 2
+  },
+  "e982832d35be2ec0": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "fa5a34e8342ddaad": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 0
+  },
+  "30715c128ea30664": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "915626c711afa1a6": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 2
+  },
+  "6442ea03eb918de7": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "296e023dee41e146": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 10
+  },
+  "b1f953ada330d28b": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 10
+  },
+  "f2b17d3f75f50029": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 10
+  },
+  "16b5cc53093a1ded": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 10
+  },
+  "a74261ae4be0e7b8": {
+   "cycle_id": "20261121T003407Z_2065c0",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -4169,53 +4216,80 @@
   "A207319": "20261120T234459Z_60ed44",
   "A207323": "20261120T234459Z_60ed44",
   "A207318": "20261120T234459Z_60ed44",
-  "A102239": "20261120T234459Z_60ed44"
+  "A102239": "20261120T234459Z_60ed44",
+  "A227918": "20261121T003407Z_2065c0",
+  "A289233": "20261121T003407Z_2065c0"
  },
- "refills": 166,
- "added": 388,
+ "refills": 167,
+ "added": 397,
  "last": {
-  "cycle_id": "20261120T234459Z_60ed44",
-  "open_before": 1,
+  "cycle_id": "20261121T003407Z_2065c0",
+  "open_before": 2,
   "pages_read": 8,
-  "pages_skipped_duplicate": 1,
-  "requests": 16,
+  "pages_skipped_duplicate": 3,
+  "requests": 19,
   "new": [
    {
-    "id": "oc_A245088_0",
+    "id": "oc_A213245_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A259714_0",
+    "id": "oc_A213248_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A026767_0",
+    "id": "oc_A213246_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A026765_0",
+    "id": "oc_A213244_0",
     "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A069755_0",
+    "form": "relation",
+    "definition": false
+   },
+   {
+    "id": "oc_A166212_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A166213_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A211924_0",
+    "form": "gf",
+    "definition": false
+   },
+   {
+    "id": "oc_A212039_0",
+    "form": "gf",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 54,
-   "resolved_skipped": 13,
-   "keyword_skipped": 0,
-   "statements": 63,
-   "parsed": 13,
-   "no_bfile": 4,
-   "fails_on_data": 0,
-   "kept": 4,
+   "entries": 52,
+   "resolved_skipped": 12,
+   "keyword_skipped": 3,
+   "statements": 58,
+   "parsed": 16,
+   "no_bfile": 1,
+   "fails_on_data": 1,
+   "kept": 9,
    "def_candidates": 0
   }
  },
  "run_requests": {
-  "run_id": "44836738501",
-  "n": 16
+  "run_id": "44841508912",
+  "n": 19
  },
  "last_slot_refill_cycle": "20261120T203557Z_7d7888",
  "slot_refills": 1

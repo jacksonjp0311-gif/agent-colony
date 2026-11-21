@@ -145,7 +145,7 @@
    "credit": 0.0
   },
   "oc_A026927_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -1027,7 +1027,7 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 30,
+   "attempts": 33,
    "status": "holds_on_range",
    "tested_hi": 299,
    "credit": 0.0
@@ -1303,7 +1303,7 @@
    "credit": 0.0
   },
   "oc_A176479_0": {
-   "attempts": 29,
+   "attempts": 32,
    "status": "holds_on_range",
    "tested_hi": 1026,
    "credit": 0.0006
@@ -1363,7 +1363,7 @@
    "credit": 0.0
   },
   "oc_A298267_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.0151
@@ -1411,7 +1411,7 @@
    "credit": 0.0
   },
   "oc_A326781_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2749,7 +2749,7 @@
    "credit": 0.05
   },
   "oc_A162533_0": {
-   "attempts": 17,
+   "attempts": 20,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -2837,15 +2837,39 @@
    "status": "holds_on_range",
    "tested_hi": 202,
    "credit": 0.0
+  },
+  "oc_A245088_0": {
+   "attempts": 3,
+   "status": "holds_on_range",
+   "tested_hi": 201,
+   "credit": 0.0001
+  },
+  "oc_A259714_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 373,
+   "credit": 0.0
+  },
+  "oc_A026765_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 432,
+   "credit": 0.0
+  },
+  "oc_A026767_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 431,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 819,
-   "credit": 25.5117
+   "attempts": 834,
+   "credit": 25.5118
   },
   "gf": {
-   "attempts": 154,
+   "attempts": 157,
    "credit": 3.6876
   },
   "only_prime": {
@@ -2857,7 +2881,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 29.1993,
+ "credit_total": 29.1994,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -3540,6 +3564,12 @@
     "anum": "A127361",
     "bfile_hi": 200,
     "to": 1303,
+    "check": "exact"
+   },
+   "oc_A245088_0": {
+    "anum": "A245088",
+    "bfile_hi": 200,
+    "to": 201,
     "check": "exact"
    }
   },
