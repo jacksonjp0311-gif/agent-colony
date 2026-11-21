@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 514,
- "last_refill_index": 514,
+ "cycle_index": 517,
+ "last_refill_index": 517,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -4045,6 +4045,48 @@
   "b1a798912e64db26": {
    "cycle_id": "20261121T033840Z_c01546",
    "n_hits": 10
+  },
+  "9a3a5812d466a0e1": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 0
+  },
+  "8aff9ef1c69ec8a0": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "1bf63fc84c04ab5f": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 10
+  },
+  "bc94ea6bcefa1a73": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 10
+  },
+  "37f1233e6978e31a": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 5
+  },
+  "62c54f3e12738a0b": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "227d9212fec83a0b": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 10
+  },
+  "697a25300944958e": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 10
+  },
+  "4c3baa800d5cdad9": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 10
+  },
+  "33fc682ba4dbce3d": {
+   "cycle_id": "20261121T043346Z_256d00",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -4327,81 +4369,41 @@
   "A121636": "20261121T033840Z_c01546",
   "A011946": "20261121T033840Z_c01546"
  },
- "refills": 171,
- "added": 423,
+ "refills": 172,
+ "added": 425,
  "last": {
-  "cycle_id": "20261121T033840Z_c01546",
-  "open_before": 6,
-  "pages_read": 5,
-  "pages_skipped_duplicate": 0,
-  "requests": 22,
+  "cycle_id": "20261121T043346Z_256d00",
+  "open_before": 3,
+  "pages_read": 8,
+  "pages_skipped_duplicate": 2,
+  "requests": 10,
   "new": [
    {
-    "id": "oc_A290745_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A258490_0",
+    "id": "oc_A143013_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A290744_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A335711_0",
+    "id": "oc_A081052_0",
     "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A075125_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A005654_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A208995_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A208826_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A208971_0",
-    "form": "gf",
-    "definition": false
-   },
-   {
-    "id": "oc_A209008_0",
-    "form": "gf",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 35,
-   "resolved_skipped": 8,
-   "keyword_skipped": 1,
-   "statements": 43,
-   "parsed": 18,
-   "no_bfile": 4,
-   "fails_on_data": 1,
-   "kept": 10,
+   "entries": 33,
+   "resolved_skipped": 10,
+   "keyword_skipped": 2,
+   "statements": 30,
+   "parsed": 2,
+   "no_bfile": 0,
+   "fails_on_data": 0,
+   "kept": 2,
    "def_candidates": 0
   }
  },
  "run_requests": {
-  "run_id": "44860113136",
-  "n": 22
+  "run_id": "44864144975",
+  "n": 10
  },
  "last_slot_refill_cycle": "20261120T203557Z_7d7888",
  "slot_refills": 1
