@@ -1544,6 +1544,14 @@
    "tried": [],
    "version": 1
   },
+  "oc_A067742_0": {
+   "anum": "A067742",
+   "definition": null,
+   "source_sha": "9a81d1b3930d5545",
+   "terms_sha": "86cada378b613755",
+   "tried": [],
+   "version": 2
+  },
   "oc_A068082_0": {
    "anum": "A068082",
    "definition": null,
