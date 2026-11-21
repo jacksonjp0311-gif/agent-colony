@@ -1,17 +1,10 @@
 {
-  "ts": "2026-11-21T18:06:09Z",
-  "cycle_id": "20261121T180541Z_2f16d2",
+  "ts": "2026-11-21T18:58:25Z",
+  "cycle_id": "20261121T185804Z_5d2655",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
     "recent": {
-      "authored_mut_widen_range_a4a0f43e9d31": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_mut_widen_range_2ae412bf995d": {
         "last": "revert",
         "streak": 1,
@@ -80,9 +73,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8214,
-      "slope": 0.001243,
-      "min": 0.8033,
+      "last": 0.8223,
+      "slope": -5.4e-05,
+      "min": 0.8213,
       "max": 0.8229
     },
     "novelty": {
@@ -260,23 +253,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.221,
+      "ratio": 0.695,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.193,
+      "ratio": 0.678,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.269,
+      "ratio": 0.782,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.282,
+      "ratio": 0.87,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.227,
+      "ratio": 0.861,
       "drift": false
     }
   },
@@ -284,11 +277,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 729008835,
-      "collatz_descent": 796600000,
+      "collatz_descent": 799800000,
       "legendre_square_gap": 4044607,
       "lehmer_totient": 383000001,
-      "erdos_straus": 1849127,
-      "twin_primes_hl": 994200000,
+      "erdos_straus": 1854127,
+      "twin_primes_hl": 998200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -342,18 +335,18 @@
     "last": [
       [
         null,
+        "2026-11-21T18:32:42Z"
+      ],
+      [
+        "success",
         "2026-11-21T17:33:25Z"
       ],
       [
         "success",
         "2026-11-21T16:37:23Z"
-      ],
-      [
-        "success",
-        "2026-11-21T15:45:02Z"
       ]
     ],
-    "fetched_at": "2026-11-21T17:36:05Z"
+    "fetched_at": "2026-11-21T18:34:21Z"
   },
   "feeds": {
     "by_source": {
@@ -381,31 +374,27 @@
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 5,
-          "new": 5,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 9,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-21T17:36:00Z"
+      "ts": "2026-11-21T18:34:20Z"
     },
     "health": {
       "arxiv": {

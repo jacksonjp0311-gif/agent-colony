@@ -1,9 +1,22 @@
 {
   "applied_to_live_oracle": false,
   "authorized": false,
-  "n": 0,
+  "n": 1,
   "note": "Active non-knob Hive rules. An empty list is a valid snapshot and must be written so the file persists.",
-  "rules": [],
-  "updated_at": "2026-11-21T18:11:58Z",
+  "rules": [
+    {
+      "action": {
+        "cycles": 8,
+        "op": "add_skip_rule",
+        "target_kind": "already_held_range"
+      },
+      "active": true,
+      "applied_to_live_oracle": false,
+      "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range",
+      "started_cycle": "20261121T185804Z_5d2655",
+      "trial": true
+    }
+  ],
+  "updated_at": "2026-11-21T19:03:21Z",
   "version": 1
 }
