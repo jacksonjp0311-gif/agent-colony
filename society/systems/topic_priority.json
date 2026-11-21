@@ -66,6 +66,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "(rogue-ai)",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -76,12 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
+      "topic": "bio-pm-guided",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-21T09:48:31Z",
-  "updated_cycle": "20261121T094416Z_f99de3",
+  "updated_at": "2026-11-21T10:47:53Z",
+  "updated_cycle": "20261121T104342Z_b6ae3b",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

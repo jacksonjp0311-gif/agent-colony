@@ -7635,6 +7635,22 @@
    ],
    "version": 1
   },
+  "oc_A232353_0": {
+   "anum": "A232353",
+   "definition": null,
+   "source_sha": "2bfd8b0b1f75a29e",
+   "terms_sha": "cbac66888c06bf2d",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
   "oc_A232504_0": {
    "anum": "A232504",
    "definition": null,
@@ -7858,6 +7874,22 @@
     }
    ],
    "version": 1
+  },
+  "oc_A235682_0": {
+   "anum": "A235682",
+   "definition": null,
+   "source_sha": "87678efac48c0d26",
+   "terms_sha": "dbee620d1abaeb71",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
   },
   "oc_A235924_0": {
    "anum": "A235924",
