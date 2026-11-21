@@ -1,81 +1,6 @@
 {
  "attempts": [
   {
-   "id": "oc_A081923_0",
-   "anum": "A081923",
-   "form": "relation",
-   "depth": 94,
-   "bfile_hi": 448,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T070030Z_9a8da8",
-   "planned": 448,
-   "verified_depth": 94,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
-   "id": "oc_A097180_0",
-   "anum": "A097180",
-   "form": "relation",
-   "depth": 166,
-   "bfile_hi": 1000,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T070030Z_9a8da8",
-   "planned": 1000,
-   "verified_depth": 166,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
-   "id": "oc_A097189_0",
-   "anum": "A097189",
-   "form": "relation",
-   "depth": 157,
-   "bfile_hi": 1000,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T070030Z_9a8da8",
-   "planned": 1000,
-   "verified_depth": 157,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
-   "id": "oc_A080894_0",
-   "anum": "A080894",
-   "form": "relation",
-   "depth": 78,
-   "bfile_hi": 380,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T072211Z_54127b",
-   "planned": 380,
-   "verified_depth": 78,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
-   "id": "oc_A273905_0",
-   "anum": "A273905",
-   "form": "relation",
-   "depth": 501,
-   "bfile_hi": 2000,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T072211Z_54127b",
-   "planned": 2000,
-   "verified_depth": 501,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
    "id": "oc_A116387_0",
    "anum": "A116387",
    "form": "relation",
@@ -6269,13 +6194,87 @@
    "prior_tested_hi": 0,
    "extended": 0,
    "deep_terms": 0
+  },
+  {
+   "id": "oc_A165025_0",
+   "anum": "A165025",
+   "form": "gf",
+   "depth": 200,
+   "bfile_hi": 200,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261121T024210Z_a1f936",
+   "planned": 8000,
+   "verified_depth": 200,
+   "prior_tested_hi": 200,
+   "extended": 0
+  },
+  {
+   "id": "oc_A165025_0",
+   "anum": "A165025",
+   "form": "gf",
+   "depth": 7999,
+   "bfile_hi": 200,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T024210Z_a1f936",
+   "planned": 8000,
+   "verified_depth": 7999,
+   "prior_tested_hi": 200,
+   "extended": 7799,
+   "cap_reason": "term_cap",
+   "cap_value": 8000,
+   "fast_cfinite": true,
+   "deep_terms": 8000,
+   "deep_elapsed_s": 0.01
+  },
+  {
+   "id": "oc_A131576_0",
+   "anum": "A131576",
+   "form": "relation",
+   "depth": 500,
+   "bfile_hi": 65537,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T024210Z_a1f936",
+   "planned": 65537,
+   "verified_depth": 500,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A006694_0",
+   "anum": "A006694",
+   "form": "relation",
+   "depth": 6,
+   "bfile_hi": 10000,
+   "beyond": false,
+   "status": "untestable_here",
+   "cycle_id": "20261121T024210Z_a1f936",
+   "planned": 10000,
+   "verified_depth": 6,
+   "prior_tested_hi": 0,
+   "extended": 6,
+   "deep_terms": 0
+  },
+  {
+   "id": "oc_A213243_0",
+   "anum": "A213243",
+   "form": "relation",
+   "depth": 498,
+   "bfile_hi": 1000,
+   "beyond": false,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T024210Z_a1f936",
+   "planned": 1000,
+   "verified_depth": 498,
+   "prior_tested_hi": 0,
+   "extended": 0,
+   "deep_terms": 0
   }
  ],
  "by_cycle": {
-  "20261117T011944Z_dfd334": [
-   "oc_A289873_0",
-   "oc_A117964_0"
-  ],
   "20261117T015221Z_91840a": [
    "oc_A155587_0"
   ],
@@ -6684,6 +6683,12 @@
   ],
   "20261121T014512Z_432592": [
    "oc_A067742_0"
+  ],
+  "20261121T024210Z_a1f936": [
+   "oc_A165025_0",
+   "oc_A131576_0",
+   "oc_A006694_0",
+   "oc_A213243_0"
   ]
  },
  "last_forms": [
@@ -6691,10 +6696,6 @@
   "relation",
   "relation",
   "relation",
-  "relation",
-  "relation",
-  "relation",
-  "relation",
   "gf",
   "relation",
   "relation",
@@ -6706,6 +6707,10 @@
   "relation",
   "relation",
   "gf",
+  "relation",
+  "gf",
+  "relation",
+  "relation",
   "relation"
  ]
 }
