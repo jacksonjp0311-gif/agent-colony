@@ -1,35 +1,6 @@
 {
  "attempts": [
   {
-   "id": "oc_A236412_0",
-   "anum": "A236412",
-   "form": "relation",
-   "depth": 500,
-   "bfile_hi": 10000,
-   "beyond": false,
-   "status": "holds_on_range",
-   "cycle_id": "20261116T225329Z_e725dd",
-   "planned": 10000,
-   "verified_depth": 500,
-   "prior_tested_hi": 0,
-   "extended": 0,
-   "deep_terms": 0
-  },
-  {
-   "id": "oc_A026923_0",
-   "anum": "A026923",
-   "form": "gf",
-   "depth": 1000,
-   "bfile_hi": 1000,
-   "beyond": false,
-   "status": "proof_rejected",
-   "cycle_id": "20261116T225329Z_e725dd",
-   "planned": 8000,
-   "verified_depth": 1000,
-   "prior_tested_hi": 1000,
-   "extended": 0
-  },
-  {
    "id": "oc_A026923_0",
    "anum": "A026923",
    "form": "gf",
@@ -6351,12 +6322,42 @@
    "fast_cfinite": true,
    "deep_terms": 8000,
    "deep_elapsed_s": 0.01
+  },
+  {
+   "id": "oc_A295321_0",
+   "anum": "A295321",
+   "form": "gf",
+   "depth": 5000,
+   "bfile_hi": 5000,
+   "beyond": false,
+   "status": "proof_rejected",
+   "cycle_id": "20261121T145611Z_947b11",
+   "planned": 8000,
+   "verified_depth": 5000,
+   "prior_tested_hi": 0,
+   "extended": 5000
+  },
+  {
+   "id": "oc_A295321_0",
+   "anum": "A295321",
+   "form": "gf",
+   "depth": 7999,
+   "bfile_hi": 5000,
+   "beyond": true,
+   "status": "holds_on_range",
+   "cycle_id": "20261121T145611Z_947b11",
+   "planned": 8000,
+   "verified_depth": 7999,
+   "prior_tested_hi": 0,
+   "extended": 7499,
+   "cap_reason": "term_cap",
+   "cap_value": 8000,
+   "fast_cfinite": true,
+   "deep_terms": 8000,
+   "deep_elapsed_s": 0.01
   }
  ],
  "by_cycle": {
-  "20261117T121729Z_7b3a61": [
-   "oc_A233766_0"
-  ],
   "20261117T124152Z_26bf27": [
    "oc_A064089_0",
    "oc_A105151_0",
@@ -6776,10 +6777,12 @@
   ],
   "20261121T130100Z_230f25": [
    "oc_A326781_0"
+  ],
+  "20261121T145611Z_947b11": [
+   "oc_A295321_0"
   ]
  },
  "last_forms": [
-  "relation",
   "gf",
   "relation",
   "relation",
@@ -6798,6 +6801,7 @@
   "relation",
   "relation",
   "relation",
+  "gf",
   "gf"
  ]
 }
