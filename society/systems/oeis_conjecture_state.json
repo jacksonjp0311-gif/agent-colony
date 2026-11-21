@@ -37,10 +37,10 @@
    "credit": 0.05
   },
   "oc_A295286_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 1199,
-   "credit": 0.0
+   "tested_hi": 19999,
+   "credit": 0.0151
   },
   "oc_A214946_0": {
    "attempts": 2,
@@ -433,7 +433,7 @@
    "credit": 0.0
   },
   "oc_A027174_0": {
-   "attempts": 8,
+   "attempts": 9,
    "status": "holds_on_range",
    "tested_hi": 7032,
    "credit": 0.0
@@ -607,7 +607,7 @@
    "credit": 0.0
   },
   "oc_A005558_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 10905,
    "credit": 0.0
@@ -733,7 +733,7 @@
    "credit": 0.0
   },
   "oc_A000781_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 7046,
    "credit": 0.0314
@@ -913,7 +913,7 @@
    "credit": 0.0
   },
   "oc_A002627_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 3821,
    "credit": 0.0465
@@ -1027,7 +1027,7 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 74,
+   "attempts": 77,
    "status": "holds_on_range",
    "tested_hi": 299,
    "credit": 0.0
@@ -1045,7 +1045,7 @@
    "credit": 0.0
   },
   "oc_A002867_0": {
-   "attempts": 3,
+   "attempts": 4,
    "status": "holds_on_range",
    "tested_hi": 3523,
    "credit": 0.05
@@ -1201,7 +1201,7 @@
    "credit": 0.0
   },
   "oc_A322043_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2749,7 +2749,7 @@
    "credit": 0.05
   },
   "oc_A162533_0": {
-   "attempts": 60,
+   "attempts": 62,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -2803,19 +2803,19 @@
    "credit": 0.0
   },
   "oc_A127363_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 1306,
    "credit": 0.0407
   },
   "oc_A127361_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 1303,
    "credit": 0.0407
   },
   "oc_A156894_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 945,
    "credit": 0.0
@@ -2827,7 +2827,7 @@
    "credit": 0.0
   },
   "oc_A270530_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
    "tested_hi": 851,
    "credit": 0.0
@@ -2839,7 +2839,7 @@
    "credit": 0.0
   },
   "oc_A245088_0": {
-   "attempts": 45,
+   "attempts": 48,
    "status": "holds_on_range",
    "tested_hi": 201,
    "credit": 0.0001
@@ -3167,16 +3167,64 @@
    "status": "holds_on_range",
    "tested_hi": 487,
    "credit": 0.0
+  },
+  "oc_A295293_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.0151
+  },
+  "oc_A295318_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.0301
+  },
+  "oc_A295317_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.0301
+  },
+  "oc_A051283_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 52,
+   "credit": 0.0
+  },
+  "oc_A105750_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 96,
+   "credit": 0.0
+  },
+  "oc_A295287_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.0151
+  },
+  "oc_A295320_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 19999,
+   "credit": 0.0301
+  },
+  "oc_A365078_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 75,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 1033,
+   "attempts": 1053,
    "credit": 25.5118
   },
   "gf": {
-   "attempts": 251,
-   "credit": 4.8677
+   "attempts": 258,
+   "credit": 5.0033
   },
   "only_prime": {
    "attempts": 6,
@@ -3187,7 +3235,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 30.3795,
+ "credit_total": 30.5151,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -4019,6 +4067,42 @@
    "oc_A214946_0": {
     "anum": "A214946",
     "bfile_hi": 210,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A295293_0": {
+    "anum": "A295293",
+    "bfile_hi": 10000,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A295318_0": {
+    "anum": "A295318",
+    "bfile_hi": 5000,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A295317_0": {
+    "anum": "A295317",
+    "bfile_hi": 5000,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A295286_0": {
+    "anum": "A295286",
+    "bfile_hi": 10000,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A295287_0": {
+    "anum": "A295287",
+    "bfile_hi": 10000,
+    "to": 19999,
+    "check": "exact"
+   },
+   "oc_A295320_0": {
+    "anum": "A295320",
+    "bfile_hi": 5000,
     "to": 19999,
     "check": "exact"
    }
