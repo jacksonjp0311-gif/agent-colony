@@ -1723,3 +1723,6 @@
 {"ts": "2026-11-21T20:26:04Z", "cycle_id": "20261121T202131Z_211170", "drift": 0.073659, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
 {"ts": "2026-11-21T20:35:12Z", "cycle_id": "20261121T203059Z_37455b", "drift": 0.073659, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
 {"ts": "2026-11-21T20:43:46Z", "cycle_id": "20261121T203927Z_d3ab92", "drift": 0.073696, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-11-21T21:19:00Z", "cycle_id": "20261121T211454Z_bbed61", "drift": 0.073646, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-11-21T21:26:58Z", "cycle_id": "20261121T212316Z_2d5429", "drift": 0.073733, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
+{"ts": "2026-11-21T21:34:52Z", "cycle_id": "20261121T213108Z_7c56e1", "drift": 0.073683, "memory_reuse": 0.75, "inform_only": true, "durable_accept": false}
