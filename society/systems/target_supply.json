@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 550,
- "last_refill_index": 548,
+ "cycle_index": 553,
+ "last_refill_index": 551,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -4506,6 +4506,78 @@
   "9b8e3710b475469d": {
    "cycle_id": "20261121T140403Z_0705a0",
    "n_hits": 5
+  },
+  "b79ddd049dedaaed": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "6c2eeaf4470594ae": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 2
+  },
+  "753364b0491d50e1": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "c0f48feadc71eed1": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0
+  },
+  "53b9779ff3549a88": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "3c33247ce7a60950": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0
+  },
+  "355b79bdf5604aee": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "1e20e23512e6ff7f": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 1
+  },
+  "7328d135f94d5f30": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "b4e52a46013e7836": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0
+  },
+  "167bc19cf16052f8": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "45c07405794e30d9": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0
+  },
+  "5a6d9b56c32b1fbc": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "21ee4dbccea6b701": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 4
+  },
+  "2e01a896c8d1a3c8": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 0,
+   "skipped": "duplicate_after_short_page"
+  },
+  "166f74be4bc5d943": {
+   "cycle_id": "20261121T150321Z_64eb8c",
+   "n_hits": 2
   }
  },
  "rejected": {
@@ -4796,36 +4868,29 @@
   "A133602": "20261121T121901Z_60689e",
   "A083178": "20261121T140403Z_0705a0"
  },
- "refills": 181,
+ "refills": 182,
  "added": 458,
  "last": {
-  "cycle_id": "20261121T140403Z_0705a0",
-  "open_before": 7,
+  "cycle_id": "20261121T150321Z_64eb8c",
+  "open_before": 3,
   "pages_read": 8,
-  "pages_skipped_duplicate": 2,
-  "requests": 10,
-  "new": [
-   {
-    "id": "oc_A295321_0",
-    "form": "gf",
-    "definition": false
-   }
-  ],
+  "pages_skipped_duplicate": 8,
+  "requests": 8,
+  "new": [],
   "stats": {
-   "entries": 46,
-   "resolved_skipped": 12,
-   "keyword_skipped": 3,
-   "statements": 36,
-   "parsed": 3,
-   "no_bfile": 1,
+   "entries": 7,
+   "resolved_skipped": 1,
+   "keyword_skipped": 1,
+   "statements": 6,
+   "parsed": 0,
+   "no_bfile": 0,
    "fails_on_data": 0,
-   "kept": 1,
-   "def_candidates": 0
+   "kept": 0
   }
  },
  "run_requests": {
-  "run_id": "44911052267",
-  "n": 10
+  "run_id": "44916284218",
+  "n": 8
  },
  "last_slot_refill_cycle": "20261121T121901Z_60689e",
  "slot_refills": 2

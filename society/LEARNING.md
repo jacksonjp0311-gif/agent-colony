@@ -11,11 +11,11 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Method cards tried: **1**
 - Kept: **20**
 - Reverted (including twin-not-better): **25**
-- Voided (environment changed mid-trial): **25**
+- Voided (environment changed mid-trial): **26**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
-- Hive decision deferred **6** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
+- Hive decision deferred **9** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
 - Hive shadow picks: resolved 100, correct 0, pending 99, accuracy 0‰
 
 ## Per method card
@@ -32,7 +32,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
 | `set_knob:evaluation_window` | 8 | 1 | 6 | 125‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
-| `set_knob:gf_term_cap` | 10 | 5 | 1 | 500‰ |
+| `set_knob:gf_term_cap` | 11 | 5 | 1 | 454‰ |
 | `set_knob:park_cycles` | 21 | 4 | 9 | 190‰ |
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 2 | 0 | 1 | 0‰ |
@@ -40,7 +40,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T140151Z_3ffac7` (baseline 4.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261119T153843Z_bb7b69` (baseline 4.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:park_cycles` · cycle `20261119T165615Z_1d9732` (baseline 4.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T183936Z_6fc954` (baseline 8.0, trial 4.0)
@@ -52,6 +51,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261120T183030Z_577e72` (baseline 6.0, trial 7.0)
 - `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261120T233327Z_2f9c90` (baseline 2.0, trial None)
 - `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261121T033840Z_c01546` (baseline 12.0, trial 15.0)
+- `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261121T150321Z_64eb8c` (baseline 4.0, trial None)
 
 ## Reading breadth (knowledge library)
 
