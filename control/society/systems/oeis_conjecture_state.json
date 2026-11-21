@@ -73,10 +73,10 @@
    "credit": 0.0
   },
   "oc_A215230_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 210,
-   "credit": 0.0
+   "tested_hi": 7999,
+   "credit": 0.05
   },
   "oc_A026923_1": {
    "attempts": 1,
@@ -85,10 +85,10 @@
    "credit": 0.0
   },
   "oc_A214944_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 210,
-   "credit": 0.0
+   "tested_hi": 7999,
+   "credit": 0.05
   },
   "oc_A215230_1": {
    "attempts": 1,
@@ -115,10 +115,10 @@
    "credit": 0.0
   },
   "oc_A215229_0": {
-   "attempts": 1,
+   "attempts": 2,
    "status": "holds_on_range",
-   "tested_hi": 210,
-   "credit": 0.0
+   "tested_hi": 7999,
+   "credit": 0.05
   },
   "oc_A295741_0": {
    "attempts": 1,
@@ -2879,16 +2879,34 @@
    "status": "holds_on_range",
    "tested_hi": 95,
    "credit": 0.0
+  },
+  "oc_A163493_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 499,
+   "credit": 0.0
+  },
+  "oc_A351008_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 53,
+   "credit": 0.0
+  },
+  "oc_A386993_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 314,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 721,
+   "attempts": 724,
    "credit": 24.1488
   },
   "gf": {
-   "attempts": 130,
-   "credit": 2.8761
+   "attempts": 133,
+   "credit": 3.0261
   },
   "only_prime": {
    "attempts": 6,
@@ -2899,7 +2917,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 27.0249,
+ "credit_total": 27.1749,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -3399,6 +3417,24 @@
    },
    "oc_A208826_0": {
     "anum": "A208826",
+    "bfile_hi": 210,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A215229_0": {
+    "anum": "A215229",
+    "bfile_hi": 210,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A214944_0": {
+    "anum": "A214944",
+    "bfile_hi": 210,
+    "to": 7999,
+    "check": "exact"
+   },
+   "oc_A215230_0": {
+    "anum": "A215230",
     "bfile_hi": 210,
     "to": 7999,
     "check": "exact"
