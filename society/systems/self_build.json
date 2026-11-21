@@ -1,9 +1,9 @@
 {
  "version": 1,
- "cycle_index": 520,
+ "cycle_index": 523,
  "active": {
-  "id": "bp_e758d019f00c66eb",
-  "signature": "e758d019f00c66eb",
+  "id": "bp_c67ed2dbddb00356",
+  "signature": "c67ed2dbddb00356",
   "steps": [
    {
     "component": "frontier_extra_batch",
@@ -16,116 +16,16 @@
    {
     "component": "oeis_calibrated_vote",
     "n": 1
+   },
+   {
+    "component": "oeis_calibrated_vote",
+    "n": 1
    }
   ],
-  "parent": "bp_6af21df512e787b3",
+  "parent": "bp_e758d019f00c66eb",
   "operator": "add"
  },
- "trial": {
-  "blueprint": {
-   "id": "bp_c67ed2dbddb00356",
-   "signature": "c67ed2dbddb00356",
-   "steps": [
-    {
-     "component": "frontier_extra_batch",
-     "n": 1
-    },
-    {
-     "component": "oeis_prediction_error",
-     "n": 1
-    },
-    {
-     "component": "oeis_calibrated_vote",
-     "n": 1
-    },
-    {
-     "component": "oeis_calibrated_vote",
-     "n": 1
-    }
-   ],
-   "parent": "bp_e758d019f00c66eb",
-   "operator": "add",
-   "evidence": [
-    "oeis_calibrated_vote"
-   ],
-   "weight": 0.91701,
-   "added": [
-    {
-     "component": "oeis_calibrated_vote",
-     "n": 1
-    }
-   ],
-   "evidence_detail": {
-    "oeis_calibrated_vote": {
-     "papers": [
-      "2610.37327",
-      "2610.41738",
-      "2611.05844",
-      "2611.12762",
-      "2611.23106",
-      "2611.23795",
-      "2611.24932"
-     ],
-     "n_papers": 7,
-     "idea_rank": 6,
-     "cards": 2,
-     "lessons": 0,
-     "boost": 4.8143
-    }
-   },
-   "self_test": {
-    "ok": true,
-    "reason": "ok",
-    "plan": [
-     {
-      "component": "frontier_extra_batch",
-      "n": 1,
-      "planned": 1
-     },
-     {
-      "component": "oeis_prediction_error",
-      "n": 1,
-      "planned": 0
-     },
-     {
-      "component": "oeis_calibrated_vote",
-      "n": 1,
-      "planned": 1
-     },
-     {
-      "component": "oeis_calibrated_vote",
-      "n": 1,
-      "planned": 1
-     }
-    ]
-   }
-  },
-  "opened_cycle_id": "20261121T033840Z_c01546",
-  "code_fp": "dbe23dc7488229bc17afbd7ee73e0f6520213bee28d1cff133292b28c0efb204",
-  "opened_cycle_index": 517,
-  "open_row": 279,
-  "window_rows": 2,
-  "baseline_gain": [
-   0.0,
-   12000.0
-  ],
-  "baseline_overlaps": [
-   {
-    "slot": "self_build",
-    "id": "bp_e758d019f00c66eb",
-    "start": "2026-11-21T00:17:09Z",
-    "end": "2026-11-21T01:53:34Z",
-    "outcome": "kept"
-   },
-   {
-    "slot": "self_heal",
-    "id": "gf_term_cap@20261121T020240Z_af6dfe",
-    "start": "2026-11-21T02:02:40Z",
-    "end": "2026-11-21T03:38:40Z",
-    "outcome": "adopt"
-   }
-  ]
- },
+ "trial": null,
  "tried": {
   "1a40beac596f0ebe": {
    "outcome": "kept",
@@ -263,6 +163,29 @@
    ],
    "id": "bp_e758d019f00c66eb",
    "cycle_id": "20261121T015334Z_cd4c81"
+  },
+  "c67ed2dbddb00356": {
+   "outcome": "kept",
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    },
+    {
+     "component": "oeis_prediction_error",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    }
+   ],
+   "id": "bp_c67ed2dbddb00356",
+   "cycle_id": "20261121T052200Z_1b0c7b"
   }
  },
  "component_stats": {
@@ -316,7 +239,7 @@
   },
   "oeis_calibrated_vote": {
    "tried": 2,
-   "kept": 1,
+   "kept": 2,
    "reverted": 0,
    "inconclusive": 0
   }
@@ -353,10 +276,32 @@
    ],
    "from": "bp_e758d019f00c66eb",
    "cycle_id": "20261121T015334Z_cd4c81"
+  },
+  "macro_c67ed2dbddb00356": {
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    },
+    {
+     "component": "oeis_prediction_error",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    }
+   ],
+   "from": "bp_c67ed2dbddb00356",
+   "cycle_id": "20261121T052200Z_1b0c7b"
   }
  },
  "last_run": {
-  "cycle_id": "20261121T043346Z_256d00",
+  "cycle_id": "20261121T052200Z_1b0c7b",
   "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
@@ -365,12 +310,12 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 181,
-     "duplicate": 10,
+     "fitted": 168,
+     "duplicate": 12,
      "trivial_formal": 1,
      "trivial_shuffle_null": 2,
      "trivial_idle_part": 3,
-     "trivial_implied_parts": 14,
+     "trivial_implied_parts": 56,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
@@ -378,23 +323,21 @@
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 0,
+     "trivial_digit_rule": 1,
      "expected_by_closure": 1,
      "loose_inequality": 0,
-     "tested": 13,
+     "tested": 14,
      "survived": 3,
-     "falsified": 10,
+     "falsified": 11,
      "machine_checked": 1,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 0,
+     "oeis_known": 2,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 2,
-     "explained_by_known_check": 2,
-     "trivial_known_in_principle(definition_parity)": 1,
-     "trivial_confirmed on range": 2
+     "trivial_confirmed on range": 3,
+     "trivial_known_in_principle(definition_parity)": 4
     }
    },
    {
@@ -408,7 +351,7 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A187166_0"
+     "oc_A321776_0"
     ]
    },
    {
@@ -416,24 +359,30 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A187165_0"
+     "oc_A321777_0"
     ]
    }
   ],
   "actions": 3,
-  "cpu_s": 58.525
+  "cpu_s": 43.94
  },
- "last_skip": null,
- "kept_count": 3,
+ "last_skip": {
+  "cycle_id": "20261121T052200Z_1b0c7b",
+  "reason": "self_heal_turn"
+ },
+ "kept_count": 4,
  "reverted_count": 7,
  "inconclusive_count": 0,
  "voided_count": 8,
- "heal_turn": null,
+ "heal_turn": {
+  "cycle_id": "20261121T052200Z_1b0c7b",
+  "cycle_index": 523
+ },
  "last_propose_cycle": "20261121T033840Z_c01546",
  "operator_stats": {
   "add": {
-   "tried": 6,
-   "kept": 3,
+   "tried": 7,
+   "kept": 4,
    "reverted": 3
   },
   "remove": {

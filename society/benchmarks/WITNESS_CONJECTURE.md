@@ -1,8 +1,8 @@
-# Conjecture desk witness — 2026-11-21T04:37:22Z
+# Conjecture desk witness — 2026-11-21T05:24:33Z
 
 Hard-tier mutations; keep only if lemma score/hard_pass rises AND Oracle passes. Easy pads die on Oracle. Not discovery. Not AGI. Not Millennium.
 
-- `none` (-) → **skip** 0.8676→0.8676 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['abel_summation', 'alternating_binomial_row', 'bell_stirling_sum', 'bell_triangle_recurrence', 'bezout_identity', 'binomial_hockey_deep', 'binomial_inversion_small', 'binomial_sum_row']. OEIS idle attempt: A126931 form=relation purpose=beyond_bfile.
+- `none` (-) → **skip** 0.8739→0.8739 (+0.0000) — No pending hard-tier lemma mutations (catalog exhausted or empty). Cooled/blocked skipped: ['abel_summation', 'alternating_binomial_row', 'bell_stirling_sum', 'bell_triangle_recurrence', 'bezout_identity', 'binomial_hockey_deep', 'binomial_inversion_small', 'binomial_sum_row']. OEIS idle attempt: A245088 form=relation purpose=beyond_bfile.
   - themes: Variants of Beam Search for DiskANN, Analysis of blood components and the mechanism of anti-phary, Short-form video and microlearning in English language educa
 
 ## Honesty
