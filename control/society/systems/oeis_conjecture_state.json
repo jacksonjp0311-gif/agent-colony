@@ -2873,11 +2873,17 @@
    "status": "holds_on_range",
    "tested_hi": 297,
    "credit": 0.0
+  },
+  "oc_A066534_0": {
+   "attempts": 1,
+   "status": "holds_on_range",
+   "tested_hi": 95,
+   "credit": 0.0
   }
  },
  "families": {
   "relation": {
-   "attempts": 720,
+   "attempts": 721,
    "credit": 24.1488
   },
   "gf": {
