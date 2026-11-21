@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-21T05:43:34Z",
+    "fetched_at": "2026-11-21T06:30:19Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-21T06:28:13Z",
+        "id": 44875684653,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-21T06:28:58Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-21T05:41:25Z",
         "id": 44872042988,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-21T05:42:24Z"
+        "status": "completed",
+        "updated_at": "2026-11-21T06:28:22Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Read-only tests",
         "status": "completed",
         "updated_at": "2026-11-20T23:20:12Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-20T23:07:17Z",
-        "id": 44834399336,
-        "name": "Read-only tests",
-        "status": "completed",
-        "updated_at": "2026-11-20T23:21:19Z"
       }
     ],
     "success_rate": 1.0
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 15,
-      "ok": 117
+      "ok": 118
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-21T01:02:20Z",
+    "arxiv": "2026-11-21T06:30:19Z",
     "crossref": "2026-11-21T04:05:16Z",
     "oeis": "2026-11-21T04:05:15Z",
     "oeis_conj": "2026-11-21T04:05:16Z",
@@ -138,10 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "cs.LG:HTTPError: HTTP Error 429: Unknown Error; cs.MA:HTTPError: HTTP Error 429: Unknown Error",
-        "fetched": 0,
-        "new": 0,
-        "ok": false
+        "error": "",
+        "fetched": 8,
+        "new": 6,
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-21T05:43:30Z"
+    "ts": "2026-11-21T06:30:15Z"
   },
-  "runs": 518
+  "runs": 519
 }
