@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 556,
+ "cycle_index": 559,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -420,7 +420,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261121T152038Z_f23fc7",
+  "cycle_id": "20261121T161343Z_21b427",
   "blueprint": "bp_7ebd0638be33c992",
   "ran": [
    {
@@ -429,45 +429,42 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 177,
-     "duplicate": 18,
-     "trivial_formal": 2,
+     "fitted": 178,
+     "duplicate": 11,
+     "trivial_formal": 1,
      "trivial_shuffle_null": 2,
-     "trivial_idle_part": 6,
-     "trivial_implied_parts": 69,
-     "trivial_shared_operand": 1,
+     "trivial_idle_part": 4,
+     "trivial_implied_parts": 26,
+     "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
-     "trivial_parity_rules": 1,
+     "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
-     "trivial_basic_inequality": 1,
+     "trivial_basic_inequality": 2,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 0,
-     "expected_by_closure": 1,
+     "trivial_digit_rule": 1,
+     "expected_by_closure": 3,
      "loose_inequality": 0,
-     "tested": 10,
-     "survived": 2,
+     "tested": 13,
+     "survived": 5,
      "falsified": 8,
-     "machine_checked": 1,
+     "machine_checked": 3,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 0,
+     "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
      "no_reference_found": 1,
      "explained_by_known_check": 1,
-     "trivial_confirmed on range": 9,
-     "trivial_known_in_principle(definition_parity)": 1
+     "trivial_confirmed on range": 7
     }
    },
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A261956_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    },
    {
     "component": "oeis_calibrated_vote",
@@ -482,8 +479,8 @@
     "skipped": "nothing_open"
    }
   ],
-  "actions": 2,
-  "cpu_s": 51.11
+  "actions": 1,
+  "cpu_s": 22.126
  },
  "last_skip": null,
  "kept_count": 4,
