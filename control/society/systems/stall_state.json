@@ -1023,7 +1023,10 @@
     "20261120T233549Z_447419",
     "20261121T000812Z_8709d8",
     "20261121T001154Z_3b6c02",
-    "20261121T001525Z_91bcd5"
+    "20261121T001525Z_91bcd5",
+    "20261121T010143Z_fd77c4",
+    "20261121T010526Z_72d20a",
+    "20261121T010859Z_532d2a"
   ],
   "proposal_parks": {
     "254f76bd3854": {
@@ -1060,18 +1063,6 @@
   },
   "pass_history": [
     {
-      "cycle_id": "20261120T054325Z_74c214",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261120T054807Z_3633db",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261120T061617Z_5a293a",
-      "pass_total": 528
-    },
-    {
       "cycle_id": "20261120T062113Z_8e01b6",
       "pass_total": 528
     },
@@ -1377,23 +1368,23 @@
     },
     {
       "cycle_id": "20261121T001525Z_91bcd5",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261121T010143Z_fd77c4",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261121T010526Z_72d20a",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261121T010859Z_532d2a",
       "pass_total": 528
     }
   ],
   "kill_history": [
     {
-      "cycle_id": "20261120T054325Z_74c214",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261120T054807Z_3633db",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261120T061617Z_5a293a",
-      "kills": []
-    },
-    {
       "cycle_id": "20261120T062113Z_8e01b6",
       "kills": []
     },
@@ -1699,47 +1690,23 @@
     },
     {
       "cycle_id": "20261121T001525Z_91bcd5",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261121T010143Z_fd77c4",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261121T010526Z_72d20a",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261121T010859Z_532d2a",
       "kills": []
     }
   ],
   "turns": [
     {
-      "cycle_id": "20261119T043652Z_dc9a1d",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261119T043652Z_dc9a1d",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261119T044035Z_a88be2",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261119T044035Z_a88be2",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261119T051313Z_7739b2",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261119T051313Z_7739b2",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
       "cycle_id": "20261119T051629Z_8f5d28",
       "kind": "proposal",
       "name": "254f76bd3854",
@@ -4099,6 +4066,42 @@
     },
     {
       "cycle_id": "20261121T001525Z_91bcd5",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261121T010143Z_fd77c4",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261121T010143Z_fd77c4",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261121T010526Z_72d20a",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261121T010526Z_72d20a",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261121T010859Z_532d2a",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261121T010859Z_532d2a",
       "kind": "claim_theme",
       "name": "vandermonde",
       "outcome": "skip"
@@ -4294,10 +4297,27 @@
         "oc_A116406_0"
       ],
       "kind": "depth"
+    },
+    {
+      "cycle_id": "20261121T010526Z_72d20a",
+      "targets": [
+        "oc_A212039_0",
+        "oc_A211924_0",
+        "oc_A166212_0",
+        "oc_A002414_0"
+      ],
+      "kind": "depth"
+    },
+    {
+      "cycle_id": "20261121T010859Z_532d2a",
+      "targets": [
+        "oc_A296516_0"
+      ],
+      "kind": "depth"
     }
   ],
   "last_new_pass_cycle": "20261112T214317Z_351b7f",
-  "last_depth_progress_cycle": "20261120T212121Z_2702a5",
+  "last_depth_progress_cycle": "20261121T010859Z_532d2a",
   "depth_progress_history": [
     {
       "cycle_id": "20261116T020459Z_c1e273",
@@ -4429,29 +4449,48 @@
       "targets": [
         "oc_A116406_0"
       ]
+    },
+    {
+      "cycle_id": "20261121T010526Z_72d20a",
+      "targets": [
+        "oc_A212039_0",
+        "oc_A211924_0",
+        "oc_A166212_0",
+        "oc_A002414_0"
+      ]
+    },
+    {
+      "cycle_id": "20261121T010859Z_532d2a",
+      "targets": [
+        "oc_A296516_0"
+      ]
     }
   ],
-  "stall_cycles": 16,
+  "stall_cycles": 0,
   "perturb": {
     "active": false,
-    "entered_at": "20261120T212121Z_2702a5",
-    "seed": 2147519087291186647,
+    "entered_at": "20261121T010526Z_72d20a",
+    "seed": 6968720261313832934,
     "cycles_in_mode": 0,
     "park_multiplier": 4,
     "epsilon": 0.5,
     "exit_reason": "no_candidates",
-    "exit_cycle": "20261120T212121Z_2702a5",
-    "commit_sha": "c45c19024ba2bfe3a4f288a1942cb477974e8a2e",
-    "reason": "dead_end_turns",
-    "cooldown_until": 1012,
+    "exit_cycle": "20261121T010859Z_532d2a",
+    "commit_sha": "443953d4da01ab8324cc890dd944f2b0237b10cb",
+    "reason": "flat_passes",
+    "cooldown_until": -1,
     "timeout_count": 8,
     "strategy": "mutate",
-    "session_progress": false,
-    "session_targets": [],
+    "session_progress": true,
+    "session_targets": [
+      "oc_A211924_0",
+      "oc_A166212_0",
+      "oc_A002414_0"
+    ],
     "exclude_targets": [],
     "last_timeout_cycle": "20261120T212121Z_2702a5",
-    "zero_pick_streak": 0,
-    "last_zero_pick_cycle": "20261120T212121Z_2702a5",
+    "zero_pick_streak": 1,
+    "last_zero_pick_cycle": "20261121T010859Z_532d2a",
     "no_candidates_pass_total": 528
   }
 }
