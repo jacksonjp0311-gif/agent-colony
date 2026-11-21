@@ -2,426 +2,6 @@
  "runs": [
   {
    "mode": "live",
-   "cycle": "20261121T014926Z_22da01",
-   "at": "2026-11-21T01:51:10Z",
-   "menu_size": 462,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T014926Z_22da01",
-   "at": "2026-11-21T01:51:16Z",
-   "menu_size": 462,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T014926Z_22da01",
-   "at": "2026-11-21T01:51:49Z",
-   "menu_size": 462,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T014926Z_22da01",
-   "at": "2026-11-21T01:51:54Z",
-   "menu_size": 462,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T014926Z_22da01",
-   "at": "2026-11-21T01:52:46Z",
-   "menu_size": 462,
-   "purpose": "",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T015319Z_defa52",
-   "at": "2026-11-21T01:55:03Z",
-   "menu_size": 462,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T015319Z_defa52",
-   "at": "2026-11-21T01:55:09Z",
-   "menu_size": 462,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T015319Z_defa52",
-   "at": "2026-11-21T01:55:51Z",
-   "menu_size": 462,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T015319Z_defa52",
-   "at": "2026-11-21T01:55:57Z",
-   "menu_size": 462,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T015319Z_defa52",
-   "at": "2026-11-21T01:56:47Z",
-   "menu_size": 462,
-   "purpose": "",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T024210Z_a1f936",
-   "at": "2026-11-21T02:43:40Z",
-   "menu_size": 462,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T024210Z_a1f936",
-   "at": "2026-11-21T02:43:44Z",
-   "menu_size": 462,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T024210Z_a1f936",
-   "at": "2026-11-21T02:44:14Z",
-   "menu_size": 462,
-   "purpose": "zero_credit_family",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T024210Z_a1f936",
-   "at": "2026-11-21T02:44:18Z",
-   "menu_size": 462,
-   "purpose": "beyond_bfile",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [],
-   "results": [],
-   "scoreboard": {
-    "score": 79,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 55,
-    "beyond_exact": 54,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
-   "cycle": "20261121T024210Z_a1f936",
-   "at": "2026-11-21T02:45:01Z",
-   "menu_size": 467,
-   "purpose": "",
-   "hunters": null,
-   "lemmas": null,
-   "chosen": [
-    {
-     "id": "oc_A165025_0",
-     "anum": "A165025",
-     "form": "gf",
-     "text": "G.f.: x*(1 - x^2 + x^3 - 2*x^6 + 3*x^8 - x^10) / ((1 - x)^3*(1 + x)^2*(1 + x + x^2))."
-    },
-    {
-     "id": "oc_A131576_0",
-     "anum": "A131576",
-     "form": "relation",
-     "text": "Conjectures: a(n) = (A001227(n) - A067742(n))/2 = A082647(n) - A067742(n). - _Omar E. Pol_, Feb 22 2017"
-    },
-    {
-     "id": "oc_A006694_0",
-     "anum": "A006694",
-     "form": "relation",
-     "text": "Conjecture: a((3^n-1)/2) = n. - _Vladimir Shevelev_, May 26 2008 [This is correct. 2*((3^n-1)/2) + 1 = 3^n and the polynomial (x^(3^n) - 1) / (x - 1) factors over GF(2) into Product_{k=0..n-1} x^(2*3^k) + x^(3^k) + 1. - _Joerg Arndt_, Apr 01 2019]"
-    },
-    {
-     "id": "oc_A213243_0",
-     "anum": "A213243",
-     "form": "relation",
-     "text": "a(n) = (-1)*((-2+(-1)^n)*(-1+2^n))/3."
-    }
-   ],
-   "results": [
-    {
-     "action": "attempt_prove",
-     "id": "oc_A165025_0",
-     "anum": "A165025",
-     "status": "proof_rejected",
-     "checker": "definition does not re-parse from the quoted OEIS name",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A165025_0",
-     "anum": "A165025",
-     "tested": 7999,
-     "range": [
-      1,
-      7999
-     ],
-     "deep_terms": 8000,
-     "bfile_terms": 200,
-     "bfile_hi": 200,
-     "data_hi": 67,
-     "status": "holds_on_range",
-     "deep_elapsed_s": 0.01,
-     "extended": 7799,
-     "cap_reason": "term_cap",
-     "cap_value": 8000,
-     "fast_cfinite": true,
-     "credit": 0.05
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A131576_0",
-     "anum": "A131576",
-     "tested": 500,
-     "range": [
-      1,
-      500
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 500,
-     "bfile_hi": 65537,
-     "data_hi": 105,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A006694_0",
-     "anum": "A006694",
-     "tested": 7,
-     "range": [
-      0,
-      6
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 500,
-     "bfile_hi": 10000,
-     "data_hi": 99,
-     "status": "untestable_here",
-     "credit": 0.0
-    },
-    {
-     "action": "attempt_disprove",
-     "id": "oc_A213243_0",
-     "anum": "A213243",
-     "tested": 498,
-     "range": [
-      1,
-      498
-     ],
-     "deep_terms": 0,
-     "bfile_terms": 498,
-     "bfile_hi": 1000,
-     "data_hi": 36,
-     "status": "holds_on_range",
-     "extended": 0,
-     "credit": 0.0
-    }
-   ],
-   "scoreboard": {
-    "score": 80,
-    "counterexamples_verified": 0,
-    "proofs_checked": 24,
-    "proofs_routine_known_in_principle": 24,
-    "beyond_published_range": 56,
-    "beyond_exact": 55,
-    "max_depth": 49152
-   },
-   "note": "selection-layer credit only; nothing authorized or posted"
-  },
-  {
-   "mode": "live",
    "cycle": "20261121T024525Z_0a32d7",
    "at": "2026-11-21T02:46:41Z",
    "menu_size": 467,
@@ -626,6 +206,569 @@
     "proofs_routine_known_in_principle": 24,
     "beyond_published_range": 56,
     "beyond_exact": 55,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T031659Z_555576",
+   "at": "2026-11-21T03:18:32Z",
+   "menu_size": 467,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 80,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 56,
+    "beyond_exact": 55,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T031659Z_555576",
+   "at": "2026-11-21T03:18:36Z",
+   "menu_size": 467,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 80,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 56,
+    "beyond_exact": 55,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T031659Z_555576",
+   "at": "2026-11-21T03:19:43Z",
+   "menu_size": 467,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 80,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 56,
+    "beyond_exact": 55,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T031659Z_555576",
+   "at": "2026-11-21T03:19:47Z",
+   "menu_size": 467,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 80,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 56,
+    "beyond_exact": 55,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T031659Z_555576",
+   "at": "2026-11-21T03:20:32Z",
+   "menu_size": 477,
+   "purpose": "",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A325689_0",
+     "anum": "A325689",
+     "form": "gf",
+     "text": "G.f.: x^3*(1 - x + 4*x^2) / ((1 - x)^3*(1 + x)^2) for n>5."
+    },
+    {
+     "id": "oc_A266734_0",
+     "anum": "A266734",
+     "form": "relation",
+     "text": "Conjecture: +3*n*(620202643096396011773 -608794959941727250938*n +146949290712243118000*n^2) *(n+1)^2 *(2*n+1)^2 *a(n) -n*(94389117512395618060544*n^6 -419724075420172456531120*n^5 +442263508538458916585360*n^4 +229131363207555256548194*n^3 -477880029525553894746823*n^2 +160086316440678171209939*n -11163647575735128211914) *a(n-1) -3*(n-1) *(23820522077322908587584*n^6 -1446304460086201780480376*n^5 +11080409117453774846145540*n^4 -35494287160655892321199502*n^3 +57163416479212379649118767*n^2 -45988763994280198223305139*n +14778623468656583258390502) *a(n-2) +36*(n-2) *(41902292735037258217056*n^6 -783254865433733876219472*n^5 +5235970136340811777332552*n^4 -17094365117036393449118734*n^3 +29518557363755878023892305*n^2 -25895204716899392803468055*n +9075752633781608162944050) *a(n-3) -8748*(n-2) *(125877543736438014048*n^2 -450267700517870762570*n +370949541619209268475) *(n-3)^2 *(2*n-7)^2 *a(n-4)=0. - _R. J. Mathar_, Apr 15 2016"
+    },
+    {
+     "id": "oc_A211278_0",
+     "anum": "A211278",
+     "form": "relation",
+     "text": "Conjecture: n*a(n) - 4*n*a(n-1) +2*(n+3)*a(n-2) + 4*(n-3)*a(n-3) + 3*(-n+2)*a(n-4) = 0. - _R. J. Mathar_, Jun 09 2013"
+    },
+    {
+     "id": "oc_A187170_0",
+     "anum": "A187170",
+     "form": "gf",
+     "text": "G.f.: 6*x^3*(27836 + 224216*x + 196068*x^2 - 37336*x^3 - 32904*x^4 + 4576*x^5 + 4625*x^6 + 836*x^7 + 49*x^8) / (1 - x)^4."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A325689_0",
+     "anum": "A325689",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A325689_0",
+     "anum": "A325689",
+     "tested": 8000,
+     "range": [
+      0,
+      7999
+     ],
+     "deep_terms": 8000,
+     "bfile_terms": 500,
+     "bfile_hi": 5000,
+     "data_hi": 55,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 7500,
+     "cap_reason": "term_cap",
+     "cap_value": 8000,
+     "fast_cfinite": true,
+     "credit": 0.0102
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A266734_0",
+     "anum": "A266734",
+     "tested": 88,
+     "range": [
+      4,
+      91
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 92,
+     "bfile_hi": 580,
+     "data_hi": 18,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A211278_0",
+     "anum": "A211278",
+     "tested": 314,
+     "range": [
+      4,
+      317
+     ],
+     "deep_terms": 0,
+     "bfile_terms": 318,
+     "bfile_hi": 1000,
+     "data_hi": 30,
+     "status": "holds_on_range",
+     "extended": 0,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A187170_0",
+     "anum": "A187170",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A187170_0",
+     "anum": "A187170",
+     "tested": 7999,
+     "range": [
+      1,
+      7999
+     ],
+     "deep_terms": 8000,
+     "bfile_terms": 50,
+     "bfile_hi": 50,
+     "data_hi": 22,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 7949,
+     "cap_reason": "term_cap",
+     "cap_value": 8000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    }
+   ],
+   "scoreboard": {
+    "score": 82,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 58,
+    "beyond_exact": 57,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032057Z_a31b47",
+   "at": "2026-11-21T03:22:18Z",
+   "menu_size": 477,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 82,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 58,
+    "beyond_exact": 57,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032057Z_a31b47",
+   "at": "2026-11-21T03:22:22Z",
+   "menu_size": 477,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A223197_0",
+     "anum": "A223197",
+     "form": "gf",
+     "text": "G.f.: 16*x*(1 - 4*x) / (1 - 40*x + 128*x^2)."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A223197_0",
+     "anum": "A223197",
+     "tested": 3328,
+     "range": [
+      1,
+      3328
+     ],
+     "deep_terms": 3328,
+     "bfile_terms": 96,
+     "bfile_hi": 210,
+     "data_hi": 15,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 3232,
+     "cap_reason": "digit_cap",
+     "cap_value": 5000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    }
+   ],
+   "scoreboard": {
+    "score": 83,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 59,
+    "beyond_exact": 58,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032057Z_a31b47",
+   "at": "2026-11-21T03:23:10Z",
+   "menu_size": 477,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 83,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 59,
+    "beyond_exact": 58,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032057Z_a31b47",
+   "at": "2026-11-21T03:23:15Z",
+   "menu_size": 477,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A188786_0",
+     "anum": "A188786",
+     "form": "gf",
+     "text": "G.f.: 8*x^2*(24 + 123*x + 17*x^2 + 5*x^3 - x^4) / (1 - x)^5."
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A188786_0",
+     "anum": "A188786",
+     "tested": 7999,
+     "range": [
+      1,
+      7999
+     ],
+     "deep_terms": 8000,
+     "bfile_terms": 43,
+     "bfile_hi": 43,
+     "data_hi": 29,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 7956,
+     "cap_reason": "term_cap",
+     "cap_value": 8000,
+     "fast_cfinite": true,
+     "credit": 0.05
+    }
+   ],
+   "scoreboard": {
+    "score": 84,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 60,
+    "beyond_exact": 59,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032057Z_a31b47",
+   "at": "2026-11-21T03:23:54Z",
+   "menu_size": 477,
+   "purpose": "",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [
+    {
+     "id": "oc_A094213_0",
+     "anum": "A094213",
+     "form": "gf",
+     "text": "G.f.: (1 - 263*x - 91731*x^2 + 3035380*x^3 + 1547833*x^4) / ((1 + x)*(1 - 512*x)*(1 + 246*x - 13605*x^2 + x^3))."
+    },
+    {
+     "id": "oc_A227375_0",
+     "anum": "A227375",
+     "form": "gf",
+     "text": "Conjecture: G.f. -(x^4+x-1)*(x^5+x^4+x^3-x-1) / ( (x-1)*(x^4+x^3+x^2+x+1)*(x^7+x^6+x^5-x^3-x^2-x+1) ). - _R. J. Mathar_, Jul 17 2013"
+    }
+   ],
+   "results": [
+    {
+     "action": "attempt_prove",
+     "id": "oc_A094213_0",
+     "anum": "A094213",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A094213_0",
+     "anum": "A094213",
+     "tested": 2049,
+     "range": [
+      0,
+      2048
+     ],
+     "deep_terms": 2049,
+     "bfile_terms": 56,
+     "bfile_hi": 369,
+     "data_hi": 12,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.01,
+     "extended": 0,
+     "cap_reason": "digit_cap",
+     "cap_value": 5000,
+     "fast_cfinite": true,
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_prove",
+     "id": "oc_A227375_0",
+     "anum": "A227375",
+     "status": "proof_rejected",
+     "checker": "definition does not re-parse from the quoted OEIS name",
+     "credit": 0.0
+    },
+    {
+     "action": "attempt_disprove",
+     "id": "oc_A227375_0",
+     "anum": "A227375",
+     "tested": 8000,
+     "range": [
+      0,
+      7999
+     ],
+     "deep_terms": 8000,
+     "bfile_terms": 42,
+     "bfile_hi": 41,
+     "data_hi": 41,
+     "status": "holds_on_range",
+     "deep_elapsed_s": 0.02,
+     "extended": 0,
+     "cap_reason": "term_cap",
+     "cap_value": 8000,
+     "fast_cfinite": true,
+     "credit": 0.0
+    }
+   ],
+   "scoreboard": {
+    "score": 84,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 60,
+    "beyond_exact": 59,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032419Z_367178",
+   "at": "2026-11-21T03:25:34Z",
+   "menu_size": 477,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 84,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 60,
+    "beyond_exact": 59,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032419Z_367178",
+   "at": "2026-11-21T03:25:39Z",
+   "menu_size": 477,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 84,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 60,
+    "beyond_exact": 59,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032419Z_367178",
+   "at": "2026-11-21T03:26:33Z",
+   "menu_size": 477,
+   "purpose": "zero_credit_family",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 84,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 60,
+    "beyond_exact": 59,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032419Z_367178",
+   "at": "2026-11-21T03:26:37Z",
+   "menu_size": 477,
+   "purpose": "beyond_bfile",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 84,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 60,
+    "beyond_exact": 59,
+    "max_depth": 49152
+   },
+   "note": "selection-layer credit only; nothing authorized or posted"
+  },
+  {
+   "mode": "live",
+   "cycle": "20261121T032419Z_367178",
+   "at": "2026-11-21T03:27:19Z",
+   "menu_size": 477,
+   "purpose": "",
+   "hunters": null,
+   "lemmas": null,
+   "chosen": [],
+   "results": [],
+   "scoreboard": {
+    "score": 84,
+    "counterexamples_verified": 0,
+    "proofs_checked": 24,
+    "proofs_routine_known_in_principle": 24,
+    "beyond_published_range": 60,
+    "beyond_exact": 59,
     "max_depth": 49152
    },
    "note": "selection-layer credit only; nothing authorized or posted"
