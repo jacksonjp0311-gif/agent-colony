@@ -1,8 +1,16 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-21T10:15:02Z",
+    "fetched_at": "2026-11-21T11:12:19Z",
     "runs": [
+      {
+        "conclusion": null,
+        "created_at": "2026-11-21T11:10:39Z",
+        "id": 44897844850,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-21T11:11:22Z"
+      },
       {
         "conclusion": "success",
         "created_at": "2026-11-21T09:20:00Z",
@@ -12,12 +20,12 @@
         "updated_at": "2026-11-21T09:34:46Z"
       },
       {
-        "conclusion": null,
+        "conclusion": "success",
         "created_at": "2026-11-21T09:12:35Z",
         "id": 44888479760,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-21T10:13:48Z"
+        "status": "completed",
+        "updated_at": "2026-11-21T11:10:42Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-21T04:59:41Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-21T03:14:53Z",
-        "id": 44860113136,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-21T04:03:05Z"
       }
     ],
     "success_rate": 1.0
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 15,
-      "ok": 118
+      "ok": 119
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-21T06:30:19Z",
+    "arxiv": "2026-11-21T11:12:19Z",
     "crossref": "2026-11-21T08:13:20Z",
     "oeis": "2026-11-21T08:13:19Z",
     "oeis_conj": "2026-11-21T08:13:20Z",
@@ -138,9 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "",
+        "fetched": 8,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -167,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-21T10:15:02Z"
+    "ts": "2026-11-21T11:12:15Z"
   },
-  "runs": 523
+  "runs": 524
 }

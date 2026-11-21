@@ -66,12 +66,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "(rogue-ai)",
+      "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "`meta-learning`",
+      "topic": "agent-based",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -81,7 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "bio-pm-guided",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-21T10:47:53Z",
-  "updated_cycle": "20261121T104342Z_b6ae3b",
+  "updated_at": "2026-11-21T11:42:54Z",
+  "updated_cycle": "20261121T113849Z_68d505",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

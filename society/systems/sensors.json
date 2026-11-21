@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-21T10:44:11Z",
-  "cycle_id": "20261121T104342Z_b6ae3b",
+  "ts": "2026-11-21T11:39:17Z",
+  "cycle_id": "20261121T113849Z_68d505",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
@@ -94,10 +94,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8213,
-      "slope": -6.2e-05,
+      "last": 0.8214,
+      "slope": -1.6e-05,
       "min": 0.8213,
-      "max": 0.8222
+      "max": 0.8218
     },
     "novelty": {
       "last": 0.0,
@@ -274,19 +274,19 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.107,
+      "ratio": 1.055,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.109,
+      "ratio": 1.053,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.078,
+      "ratio": 1.024,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.104,
+      "ratio": 1.055,
       "drift": false
     },
     "kinematics_microbench": {
@@ -298,11 +298,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 716208835,
-      "collatz_descent": 783800000,
+      "collatz_descent": 787000000,
       "legendre_square_gap": 3980607,
       "lehmer_totient": 376600001,
-      "erdos_straus": 1829127,
-      "twin_primes_hl": 978200000,
+      "erdos_straus": 1834127,
+      "twin_primes_hl": 982200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -355,19 +355,19 @@
     "completed": 11,
     "last": [
       [
+        null,
+        "2026-11-21T11:10:39Z"
+      ],
+      [
         "success",
         "2026-11-21T09:20:00Z"
       ],
       [
-        null,
-        "2026-11-21T09:12:35Z"
-      ],
-      [
         "success",
-        "2026-11-21T09:11:24Z"
+        "2026-11-21T09:12:35Z"
       ]
     ],
-    "fetched_at": "2026-11-21T10:15:02Z"
+    "fetched_at": "2026-11-21T11:12:19Z"
   },
   "feeds": {
     "by_source": {
@@ -386,9 +386,10 @@
     "last_run": {
       "sources": {
         "arxiv": {
+          "error": "",
+          "fetched": 8,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "ci_health": {
           "new": 0,
@@ -415,12 +416,12 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-21T10:15:02Z"
+      "ts": "2026-11-21T11:12:15Z"
     },
     "health": {
       "arxiv": {
         "fail": 15,
-        "ok": 118
+        "ok": 119
       },
       "crossref": {
         "fail": 0,
