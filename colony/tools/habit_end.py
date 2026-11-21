@@ -62,6 +62,11 @@ def apply(lineage: str = "colony") -> dict:
             replay(lineage)
         except Exception:
             pass
+        try:
+            from colony.tools.ear import observe
+            observe()
+        except Exception:
+            pass
         return out
     except Exception as exc:
         return {"kept": False, "reason": "fail-open", "error": str(exc)}
