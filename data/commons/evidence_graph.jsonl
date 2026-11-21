@@ -28,3 +28,4 @@
 {"ts": "2026-11-20T02:04:23.592597+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:dc4ad87c"}
 {"ts": "2026-11-20T18:34:32.453716+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:a0ade533"}
 {"ts": "2026-11-20T23:37:34.343050+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:7682e7ca"}
+{"ts": "2026-11-21T03:43:22.917295+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:fe64857a"}

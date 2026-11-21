@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-21T02:58:09Z",
-  "cycle_id": "20261121T025752Z_3ddcd4",
+  "ts": "2026-11-21T03:39:04Z",
+  "cycle_id": "20261121T033840Z_c01546",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -98,9 +98,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.824,
-      "slope": -8.7e-05,
-      "min": 0.8192,
+      "last": 0.8174,
+      "slope": -0.000277,
+      "min": 0.8174,
       "max": 0.824
     },
     "novelty": {
@@ -129,11 +129,11 @@
     }
   },
   "stall": {
-    "stalled": true,
-    "aggregate_range": 0.0048,
+    "stalled": false,
+    "aggregate_range": 0.0066,
     "novelty_max": 0.0,
     "window": 6,
-    "reason": "aggregate flat and novelty 0"
+    "reason": "moving"
   },
   "catalog": {
     "enabled": 197,
@@ -278,33 +278,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.705,
+      "ratio": 1.084,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.71,
+      "ratio": 1.088,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.725,
+      "ratio": 1.04,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.692,
+      "ratio": 1.041,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.75,
+      "ratio": 0.942,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 700208835,
+      "goldbach_even": 703408835,
       "collatz_descent": 771000000,
-      "legendre_square_gap": 3900607,
-      "lehmer_totient": 368600001,
+      "legendre_square_gap": 3916607,
+      "lehmer_totient": 370200001,
       "erdos_straus": 1809127,
       "twin_primes_hl": 962200000,
       "oeis_A104062_next": 518690000001
@@ -355,23 +355,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.7273,
+    "success_rate": 0.8182,
     "completed": 11,
     "last": [
       [
         null,
+        "2026-11-21T03:14:53Z"
+      ],
+      [
+        "success",
         "2026-11-21T02:38:58Z"
       ],
       [
         "success",
         "2026-11-21T01:42:38Z"
-      ],
-      [
-        "success",
-        "2026-11-21T00:07:32Z"
       ]
     ],
-    "fetched_at": "2026-11-21T02:40:57Z"
+    "fetched_at": "2026-11-21T03:16:57Z"
   },
   "feeds": {
     "by_source": {
@@ -419,7 +419,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-21T02:40:57Z"
+      "ts": "2026-11-21T03:16:57Z"
     },
     "health": {
       "arxiv": {
@@ -445,10 +445,8 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0048) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
-    "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge",
-    "ci_health: success_rate 0.7273 → be conservative"
+    "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
 }
