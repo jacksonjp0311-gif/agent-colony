@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-21T05:22:19Z",
-  "cycle_id": "20261121T052200Z_1b0c7b",
+  "ts": "2026-11-21T06:06:16Z",
+  "cycle_id": "20261121T060553Z_7aaf51",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {
@@ -97,10 +97,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.823,
-      "slope": -0.000373,
+      "last": 0.8219,
+      "slope": 0.000116,
       "min": 0.8056,
-      "max": 0.824
+      "max": 0.8231
     },
     "novelty": {
       "last": 0.0,
@@ -129,7 +129,7 @@
   },
   "stall": {
     "stalled": false,
-    "aggregate_range": 0.0174,
+    "aggregate_range": 0.0175,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "moving"
@@ -277,23 +277,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.687,
+      "ratio": 1.047,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.676,
+      "ratio": 1.066,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.708,
+      "ratio": 1.023,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.879,
+      "ratio": 1.045,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.866,
+      "ratio": 1.003,
       "drift": false
     }
   },
@@ -301,11 +301,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 706608835,
-      "collatz_descent": 774200000,
+      "collatz_descent": 777400000,
       "legendre_square_gap": 3932607,
       "lehmer_totient": 371800001,
-      "erdos_straus": 1814127,
-      "twin_primes_hl": 966200000,
+      "erdos_straus": 1819127,
+      "twin_primes_hl": 970200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -354,23 +354,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.9091,
+    "success_rate": 1.0,
     "completed": 11,
     "last": [
       [
         null,
+        "2026-11-21T05:41:25Z"
+      ],
+      [
+        "success",
         "2026-11-21T04:59:39Z"
       ],
       [
         "success",
         "2026-11-21T04:03:02Z"
-      ],
-      [
-        "success",
-        "2026-11-21T03:14:53Z"
       ]
     ],
-    "fetched_at": "2026-11-21T05:01:43Z"
+    "fetched_at": "2026-11-21T05:43:34Z"
   },
   "feeds": {
     "by_source": {
@@ -389,9 +389,10 @@
     "last_run": {
       "sources": {
         "arxiv": {
+          "error": "cs.LG:HTTPError: HTTP Error 429: Unknown Error; cs.MA:HTTPError: HTTP Error 429: Unknown Error",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": false
         },
         "ci_health": {
           "new": 0,
@@ -418,11 +419,11 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-21T05:01:43Z"
+      "ts": "2026-11-21T05:43:30Z"
     },
     "health": {
       "arxiv": {
-        "fail": 14,
+        "fail": 15,
         "ok": 117
       },
       "crossref": {
