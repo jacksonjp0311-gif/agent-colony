@@ -498,6 +498,22 @@
    ],
    "version": 1
   },
+  "oc_A006694_0": {
+   "anum": "A006694",
+   "definition": null,
+   "source_sha": "0aa017af9cbe9d4b",
+   "terms_sha": "f8cd4b9a7a721cf5",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
   "oc_A007016_0": {
    "anum": "A007016",
    "definition": null,
@@ -2139,6 +2155,61 @@
    ],
    "version": 1
   },
+  "oc_A110320_0": {
+   "anum": "A110320",
+   "definition": {
+    "kind": "holo",
+    "polys": {
+     "0": [
+      6,
+      -13,
+      0,
+      4
+     ],
+     "1": [
+      0,
+      12,
+      4,
+      -8
+     ],
+     "2": [
+      0,
+      -5,
+      4,
+      -4
+     ],
+     "3": [
+      -2,
+      4,
+      12,
+      -8
+     ],
+     "4": [
+      2,
+      -1,
+      -8,
+      4
+     ]
+    },
+    "provenance": "guessed",
+    "sound": false,
+    "source": "oeis_guess.guess_holonomic (order 4, degree 3) on 160 terms",
+    "text": "((6)+(-13)*n^1+(4)*n^3)*a(n)+((12)*n^1+(4)*n^2+(-8)*n^3)*a(n-1)+((-5)*n^1+(4)*n^2+(-4)*n^3)*a(n-2)+((-2)+(4)*n^1+(12)*n^2+(-8)*n^3)*a(n-3)+((2)+(-1)*n^1+(-8)*n^2+(4)*n^3)*a(n-4) = 0",
+    "verified": "both paths reproduce all 362 stored terms"
+   },
+   "source_sha": "d414ae4d73e2b26b",
+   "terms_sha": "f6ac2318c0067973",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": true,
+     "provenance": "guessed",
+     "source": "oeis_guess.guess_holonomic (order 4, degree 3) on 160 terms",
+     "why": "both paths reproduce all 362 stored terms"
+    }
+   ],
+   "version": 2
+  },
   "oc_A113910_0": {
    "anum": "A113910",
    "definition": null,
@@ -3029,6 +3100,14 @@
      "why": "both paths reproduce all 93 stored terms"
     }
    ],
+   "version": 2
+  },
+  "oc_A131576_0": {
+   "anum": "A131576",
+   "definition": null,
+   "source_sha": "1517138c49b09c7b",
+   "terms_sha": "1d73ae8f13cf580b",
+   "tried": [],
    "version": 2
   },
   "oc_A131607_0": {
@@ -4603,6 +4682,22 @@
     }
    ],
    "version": 1
+  },
+  "oc_A165025_0": {
+   "anum": "A165025",
+   "definition": null,
+   "source_sha": "24e8e2d696c1bf43",
+   "terms_sha": "03c175ce373a0dd1",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
   },
   "oc_A165027_0": {
    "anum": "A165027",
@@ -6705,6 +6800,22 @@
    "definition": null,
    "source_sha": "9ecf811ed4e7585b",
    "terms_sha": "9ada298bab21d024",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
+  "oc_A213243_0": {
+   "anum": "A213243",
+   "definition": null,
+   "source_sha": "8d686fbe102a3f8f",
+   "terms_sha": "c19b18698822d945",
    "tried": [
     {
      "kind": "holo",
