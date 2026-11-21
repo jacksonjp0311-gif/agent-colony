@@ -1,5 +1,5 @@
 {
-  "when": "2026-11-21T16:22:47Z",
+  "when": "2026-11-21T17:16:37Z",
   "mile": "spark3-port",
   "cycle_count": 894,
   "fitness_latest": {
@@ -627,12 +627,12 @@
     "swarm_max_actions_per_cycle": 1
   },
   "honest_scoreboard": {
-    "score": 149,
+    "score": 150,
     "counterexamples_verified": 0,
     "proofs_checked": 25,
     "proofs_routine_known_in_principle": 25,
-    "beyond_published_range": 124,
-    "beyond_exact": 122,
+    "beyond_published_range": 125,
+    "beyond_exact": 123,
     "max_depth": 155648,
     "note": "counterexamples, checked proofs, and range extensions only; not fitness"
   },
@@ -655,7 +655,7 @@
   },
   "benches": {
     "ok_all": true,
-    "aggregate_score": 0.896
+    "aggregate_score": 0.872
   },
   "novelty_gate": {
     "hits": 0,
@@ -675,7 +675,7 @@
     "before": 0.5,
     "after": 0.5,
     "delta": -0.05,
-    "cycle_id": "20261121T161343Z_21b427"
+    "cycle_id": "20261121T170654Z_9e49d8"
   },
   "oracle": {
     "passes": 626,

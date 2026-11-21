@@ -1600,6 +1600,22 @@
    "tried": [],
    "version": 1
   },
+  "oc_A065026_0": {
+   "anum": "A065026",
+   "definition": null,
+   "source_sha": "ed39264d4d0504ce",
+   "terms_sha": "f2520de3c1ba12a6",
+   "tried": [
+    {
+     "kind": "holo",
+     "ok": false,
+     "provenance": "guessed",
+     "source": "",
+     "why": "skipped: the claim is itself a recurrence, so a recurrence fitted to the same data would test it circularly"
+    }
+   ],
+   "version": 2
+  },
   "oc_A066534_0": {
    "anum": "A066534",
    "definition": null,
