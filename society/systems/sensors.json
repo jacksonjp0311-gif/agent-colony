@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-21T18:58:25Z",
-  "cycle_id": "20261121T185804Z_5d2655",
+  "ts": "2026-11-21T19:47:20Z",
+  "cycle_id": "20261121T194657Z_cb9701",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
@@ -73,10 +73,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8223,
-      "slope": -5.4e-05,
+      "last": 0.8218,
+      "slope": -0.0,
       "min": 0.8213,
-      "max": 0.8229
+      "max": 0.8227
     },
     "novelty": {
       "last": 0.0,
@@ -253,33 +253,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.695,
+      "ratio": 0.954,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.678,
+      "ratio": 0.953,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.782,
+      "ratio": 0.955,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.87,
+      "ratio": 0.965,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.861,
+      "ratio": 0.907,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 729008835,
+      "goldbach_even": 732208835,
       "collatz_descent": 799800000,
-      "legendre_square_gap": 4044607,
-      "lehmer_totient": 383000001,
+      "legendre_square_gap": 4060607,
+      "lehmer_totient": 384600001,
       "erdos_straus": 1854127,
       "twin_primes_hl": 998200000,
       "oeis_A104062_next": 518690000001
@@ -335,18 +335,18 @@
     "last": [
       [
         null,
+        "2026-11-21T19:22:04Z"
+      ],
+      [
+        "success",
         "2026-11-21T18:32:42Z"
       ],
       [
         "success",
         "2026-11-21T17:33:25Z"
-      ],
-      [
-        "success",
-        "2026-11-21T16:37:23Z"
       ]
     ],
-    "fetched_at": "2026-11-21T18:34:21Z"
+    "fetched_at": "2026-11-21T19:24:17Z"
   },
   "feeds": {
     "by_source": {
@@ -394,7 +394,7 @@
           "skipped": "ttl"
         }
       },
-      "ts": "2026-11-21T18:34:20Z"
+      "ts": "2026-11-21T19:24:16Z"
     },
     "health": {
       "arxiv": {

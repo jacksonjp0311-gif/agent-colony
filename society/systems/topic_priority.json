@@ -81,7 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "co-degree",
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-21T19:01:40Z",
-  "updated_cycle": "20261121T185804Z_5d2655",
+  "updated_at": "2026-11-21T19:50:24Z",
+  "updated_cycle": "20261121T194657Z_cb9701",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

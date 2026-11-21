@@ -223,7 +223,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 4044607,
+        "hi": 4060607,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -235,15 +235,9 @@
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-21T17:49:30Z",
-      "runs": 253,
+      "last_run": "2026-11-21T19:35:07Z",
+      "runs": 254,
       "extensions": [
-        {
-          "ts": "2026-11-21T01:57:32Z",
-          "lo": 3884608,
-          "hi": 3900607,
-          "seconds": 2.009
-        },
         {
           "ts": "2026-11-21T03:27:18Z",
           "lo": 3900608,
@@ -297,10 +291,16 @@
           "lo": 4028608,
           "hi": 4044607,
           "seconds": 1.8066
+        },
+        {
+          "ts": "2026-11-21T19:35:07Z",
+          "lo": 4044608,
+          "hi": 4060607,
+          "seconds": 1.5323
         }
       ],
       "last_data": {
-        "max_first_prime_offset": 268
+        "max_first_prime_offset": 225
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -328,7 +328,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 383000001,
+        "hi": 384600001,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -340,15 +340,9 @@
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-21T17:59:38Z",
-      "runs": 253,
+      "last_run": "2026-11-21T19:42:43Z",
+      "runs": 254,
       "extensions": [
-        {
-          "ts": "2026-11-21T02:06:16Z",
-          "lo": 367000002,
-          "hi": 368600001,
-          "seconds": 2.4737
-        },
         {
           "ts": "2026-11-21T03:34:14Z",
           "lo": 368600002,
@@ -402,6 +396,12 @@
           "lo": 381400002,
           "hi": 383000001,
           "seconds": 2.2572
+        },
+        {
+          "ts": "2026-11-21T19:42:43Z",
+          "lo": 383000002,
+          "hi": 384600001,
+          "seconds": 2.0994
         }
       ],
       "stall_streak": 0,
@@ -535,11 +535,11 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 998200000,
+        "hi": 1002200000,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi2": 3418883,
-        "hl_ratio": 0.986644
+        "pi2": 3431218,
+        "hl_ratio": 0.986651
       },
       "window": 4000000,
       "min_window": 20000,
@@ -549,15 +549,9 @@
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-21T18:09:38Z",
-      "runs": 253,
+      "last_run": "2026-11-21T19:50:04Z",
+      "runs": 254,
       "extensions": [
-        {
-          "ts": "2026-11-21T02:15:48Z",
-          "lo": 958200001,
-          "hi": 962200000,
-          "seconds": 0.3074
-        },
         {
           "ts": "2026-11-21T03:41:39Z",
           "lo": 962200001,
@@ -611,14 +605,20 @@
           "lo": 994200001,
           "hi": 998200000,
           "seconds": 0.2901
+        },
+        {
+          "ts": "2026-11-21T19:50:04Z",
+          "lo": 998200001,
+          "hi": 1002200000,
+          "seconds": 0.2421
         }
       ],
       "last_data": {
-        "x": 998200000,
-        "pi2": 3418883,
-        "segment_pairs": 12311,
-        "hl_estimate": 3465162.35,
-        "ratio": 0.986644
+        "x": 1002200000,
+        "pi2": 3431218,
+        "segment_pairs": 12335,
+        "hl_estimate": 3477642.04,
+        "ratio": 0.986651
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-21T19:01:12Z"
+  "updated_at": "2026-11-21T19:50:05Z"
 }

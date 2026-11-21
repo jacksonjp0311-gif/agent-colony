@@ -1027,7 +1027,7 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 95,
+   "attempts": 98,
    "status": "holds_on_range",
    "tested_hi": 299,
    "credit": 0.0
@@ -1303,7 +1303,7 @@
    "credit": 0.0
   },
   "oc_A176479_0": {
-   "attempts": 85,
+   "attempts": 88,
    "status": "holds_on_range",
    "tested_hi": 1026,
    "credit": 0.0006
@@ -2053,19 +2053,19 @@
    "credit": 0.0
   },
   "oc_A187166_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A187168_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A187165_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2077,19 +2077,19 @@
    "credit": 0.0
   },
   "oc_A187167_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A187164_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A324275_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2143,7 +2143,7 @@
    "credit": 0.0
   },
   "oc_A321775_0": {
-   "attempts": 2,
+   "attempts": 3,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2749,7 +2749,7 @@
    "credit": 0.05
   },
   "oc_A162533_0": {
-   "attempts": 80,
+   "attempts": 83,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -2839,7 +2839,7 @@
    "credit": 0.0
   },
   "oc_A245088_0": {
-   "attempts": 66,
+   "attempts": 69,
    "status": "holds_on_range",
    "tested_hi": 201,
    "credit": 0.0001
@@ -3237,11 +3237,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 1129,
+   "attempts": 1141,
    "credit": 25.5118
   },
   "gf": {
-   "attempts": 296,
+   "attempts": 303,
    "credit": 5.0834
   },
   "only_prime": {
