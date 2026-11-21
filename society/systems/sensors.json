@@ -1,11 +1,9 @@
 {
-  "ts": "2026-11-21T07:47:33Z",
-  "cycle_id": "20261121T074708Z_f0ad57",
+  "ts": "2026-11-21T08:45:36Z",
+  "cycle_id": "20261121T084508Z_228fba",
   "lemma_streaks": {
     "revert_streaks": [],
-    "oracle_kills_by_theme": {
-      "authored_mut_perturb_constant_a67e97a8b9c1": 1
-    },
+    "oracle_kills_by_theme": {},
     "recent": {
       "authored_mut_widen_range_35152b9916ea": {
         "last": "revert",
@@ -96,9 +94,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8216,
-      "slope": 0.000481,
-      "min": 0.8056,
+      "last": 0.8214,
+      "slope": -9.7e-05,
+      "min": 0.8214,
       "max": 0.8231
     },
     "novelty": {
@@ -128,7 +126,7 @@
   },
   "stall": {
     "stalled": true,
-    "aggregate_range": 0.0013,
+    "aggregate_range": 0.0008,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "aggregate flat and novelty 0"
@@ -276,33 +274,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.221,
+      "ratio": 1.34,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.16,
+      "ratio": 1.306,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.184,
+      "ratio": 1.375,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.196,
+      "ratio": 1.327,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.172,
+      "ratio": 1.199,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 709808835,
+      "goldbach_even": 713008835,
       "collatz_descent": 780600000,
-      "legendre_square_gap": 3948607,
-      "lehmer_totient": 373400001,
+      "legendre_square_gap": 3964607,
+      "lehmer_totient": 375000001,
       "erdos_straus": 1824127,
       "twin_primes_hl": 974200000,
       "oeis_A104062_next": 518690000001
@@ -358,18 +356,18 @@
     "last": [
       [
         null,
+        "2026-11-21T07:25:58Z"
+      ],
+      [
+        "success",
         "2026-11-21T07:17:20Z"
       ],
       [
         "success",
         "2026-11-21T06:37:54Z"
-      ],
-      [
-        "success",
-        "2026-11-21T06:28:13Z"
       ]
     ],
-    "fetched_at": "2026-11-21T07:19:33Z"
+    "fetched_at": "2026-11-21T08:13:22Z"
   },
   "feeds": {
     "by_source": {
@@ -397,27 +395,31 @@
           "ok": true
         },
         "crossref": {
+          "error": "",
+          "fetched": 5,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
+          "error": "",
+          "fetched": 7,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-21T07:19:33Z"
+      "ts": "2026-11-21T08:13:17Z"
     },
     "health": {
       "arxiv": {
@@ -426,24 +428,24 @@
       },
       "crossref": {
         "fail": 0,
-        "ok": 121
+        "ok": 122
       },
       "oeis": {
         "fail": 0,
-        "ok": 121
+        "ok": 122
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 117
+        "ok": 118
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 121
+        "ok": 122
       }
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0013) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
+    "stall: aggregate flat (0.0008) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],

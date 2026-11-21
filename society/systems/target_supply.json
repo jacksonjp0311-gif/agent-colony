@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 529,
- "last_refill_index": 529,
+ "cycle_index": 532,
+ "last_refill_index": 532,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -4183,6 +4183,38 @@
   "7a9e44e9602251f5": {
    "cycle_id": "20261121T074708Z_f0ad57",
    "n_hits": 10
+  },
+  "a635e23ce8f0e30b": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
+  },
+  "7cc6a15292e29919": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
+  },
+  "a4e2f427b0eecd43": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
+  },
+  "03b78d9c940c107d": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
+  },
+  "62e4431589227ec0": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
+  },
+  "d29757688218dfa2": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
+  },
+  "2f6ece4e94421714": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
+  },
+  "17213d22630d8ffc": {
+   "cycle_id": "20261121T084508Z_228fba",
+   "n_hits": 10
   }
  },
  "rejected": {
@@ -4469,61 +4501,41 @@
   "A147817": "20261121T060553Z_7aaf51",
   "A147821": "20261121T060553Z_7aaf51"
  },
- "refills": 175,
- "added": 440,
+ "refills": 176,
+ "added": 442,
  "last": {
-  "cycle_id": "20261121T074708Z_f0ad57",
+  "cycle_id": "20261121T084508Z_228fba",
   "open_before": 7,
   "pages_read": 8,
   "pages_skipped_duplicate": 0,
-  "requests": 14,
+  "requests": 10,
   "new": [
    {
-    "id": "oc_A400823_0",
+    "id": "oc_A306471_0",
     "form": "relation",
     "definition": false
    },
    {
-    "id": "oc_A283929_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A253138_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A282947_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A228431_0",
-    "form": "relation",
-    "definition": false
-   },
-   {
-    "id": "oc_A303235_0",
+    "id": "oc_A303998_0",
     "form": "relation",
     "definition": false
    }
   ],
   "stats": {
-   "entries": 70,
-   "resolved_skipped": 15,
+   "entries": 75,
+   "resolved_skipped": 24,
    "keyword_skipped": 2,
-   "statements": 79,
-   "parsed": 8,
+   "statements": 85,
+   "parsed": 2,
    "no_bfile": 0,
    "fails_on_data": 0,
-   "kept": 6,
+   "kept": 2,
    "def_candidates": 0
   }
  },
  "run_requests": {
-  "run_id": "44879544441",
-  "n": 14
+  "run_id": "44880224265",
+  "n": 10
  },
  "last_slot_refill_cycle": "20261120T203557Z_7d7888",
  "slot_refills": 1

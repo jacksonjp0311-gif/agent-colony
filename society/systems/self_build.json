@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 532,
+ "cycle_index": 535,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -398,7 +398,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261121T074708Z_f0ad57",
+  "cycle_id": "20261121T084508Z_228fba",
   "blueprint": "bp_a5d37ee564f2d237",
   "ran": [
    {
@@ -407,12 +407,12 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 175,
-     "duplicate": 20,
+     "fitted": 159,
+     "duplicate": 11,
      "trivial_formal": 1,
-     "trivial_shuffle_null": 2,
+     "trivial_shuffle_null": 0,
      "trivial_idle_part": 1,
-     "trivial_implied_parts": 43,
+     "trivial_implied_parts": 22,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
@@ -420,21 +420,20 @@
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 1,
-     "expected_by_closure": 5,
-     "loose_inequality": 1,
-     "tested": 19,
-     "survived": 6,
-     "falsified": 13,
-     "machine_checked": 5,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 3,
+     "loose_inequality": 0,
+     "tested": 14,
+     "survived": 3,
+     "falsified": 11,
+     "machine_checked": 3,
      "surprises": 0,
      "known_result": 0,
      "oeis_known": 0,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 5,
-     "trivial_known_in_principle(compositional)": 2,
+     "trivial_confirmed on range": 3,
      "trivial_known_in_principle(definition_parity)": 2
     }
    },
@@ -443,7 +442,7 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A176479_0"
+     "oc_A162533_0"
     ]
    },
    {
@@ -451,7 +450,7 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A222459_0"
+     "oc_A081798_0"
     ]
    },
    {
@@ -459,13 +458,13 @@
     "n": 2,
     "actions": 2,
     "ids": [
-     "oc_A222276_0",
-     "oc_A230269_0"
+     "oc_A278472_0",
+     "oc_A176479_0"
     ]
    }
   ],
   "actions": 5,
-  "cpu_s": 83.143
+  "cpu_s": 124.33
  },
  "last_skip": null,
  "kept_count": 4,
