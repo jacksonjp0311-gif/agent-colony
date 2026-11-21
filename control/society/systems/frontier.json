@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-11-20T23:37:52Z",
+  "updated_at": "2026-11-21T00:17:23Z",
   "label": "bounded evidence, not proof",
   "proof": false,
   "targets": {
     "goldbach_even": {
       "family": "goldbach",
       "status": "open",
-      "verified_hi": 698717891,
+      "verified_hi": 701917891,
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "window": 3200000,
       "result": null
@@ -23,7 +23,7 @@
     "legendre_square_gap": {
       "family": "legendre",
       "status": "open",
-      "verified_hi": 4188607,
+      "verified_hi": 4204607,
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "window": 16000,
       "result": null
@@ -39,7 +39,7 @@
     "erdos_straus": {
       "family": "erdos_straus",
       "status": "open",
-      "verified_hi": 1894127,
+      "verified_hi": 1899127,
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "window": 5000,
       "result": null
@@ -272,12 +272,12 @@
   },
   "reviews": [],
   "last": {
-    "target": "collatz_descent",
-    "lo": 825400001,
-    "hi": 828600000,
+    "target": "legendre_square_gap",
+    "lo": 4188608,
+    "hi": 4204607,
     "outcome": "extended",
-    "verified_hi": 828600000,
-    "cycle_id": "20261120T233549Z_447419"
+    "verified_hi": 4204607,
+    "cycle_id": "20261121T001525Z_91bcd5"
   },
   "note": "Frontier evidence is bounded evidence, not proof; it is never scored as a proof."
 }
