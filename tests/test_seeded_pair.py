@@ -13,3 +13,11 @@ def test_same_inputs_agree(tmp_path, monkeypatch):
 def test_equal_refuses():
     assert decide(10.0, 10.0) is False
     assert decide(10.0, 9.0) is False
+
+def test_replay_agrees(tmp_path, monkeypatch):
+    import colony.tools.seeded as S
+    monkeypatch.setattr(S, "STORE", tmp_path / "seeded.jsonl")
+    S.record(92.432, 61.7, S.decide(92.432, 61.7), "t")
+    got = S.replay("t")
+    assert got["agree"] is True
+    assert got["first"] is False

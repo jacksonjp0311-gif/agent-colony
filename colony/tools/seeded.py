@@ -66,3 +66,26 @@ def pairs() -> list:
     except Exception:
         return out
     return out
+
+
+def replay(source: str = "") -> dict:
+    """Replay the last receipt. Same inputs must agree. Fail-open."""
+    try:
+        if not STORE.exists():
+            return {"agree": None, "reason": "empty"}
+        last = None
+        for line in STORE.read_text(encoding="utf-8").splitlines():
+            try:
+                last = json.loads(line)
+            except Exception:
+                continue
+        if not last:
+            return {"agree": None, "reason": "empty"}
+        prior = float(last.get("prior") or 0)
+        score = float(last.get("score") or 0)
+        second = decide(prior, score)
+        rec = record(prior, score, second, source or last.get("source") or "")
+        agree = bool(last.get("kept")) == second
+        return {"agree": agree, "seed": rec["seed"], "first": last.get("kept"), "second": second}
+    except Exception as exc:
+        return {"agree": None, "reason": "fail-open", "error": str(exc)}
