@@ -40,11 +40,20 @@
       "status": "closed"
     },
     {
-      "bytes": 41022504,
+      "bytes": 41950804,
       "id": 5,
       "kind": "file",
+      "last_line_sha256": "9a6ffd4695789786653ca43f5c8e58b1ab011927d9761d763b210d9392a4b245",
       "path": "witness/witness-0005.jsonl",
       "prev_sha256": "af2e570b02c4f6d4cb73362eb7cc02c1518338d260ffd19c6c0075633c7ff578",
+      "status": "closed"
+    },
+    {
+      "bytes": 1782,
+      "id": 6,
+      "kind": "file",
+      "path": "witness/witness-0006.jsonl",
+      "prev_sha256": "9a6ffd4695789786653ca43f5c8e58b1ab011927d9761d763b210d9392a4b245",
       "status": "active"
     }
   ],

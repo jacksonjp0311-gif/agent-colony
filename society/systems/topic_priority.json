@@ -66,12 +66,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "`meta-learning`",
+      "topic": "(rogue-ai)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-based",
+      "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-22T02:00:06Z",
-  "updated_cycle": "20261122T015650Z_610d0a",
+  "updated_at": "2026-11-22T02:43:06Z",
+  "updated_cycle": "20261122T023954Z_ccf4d0",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
