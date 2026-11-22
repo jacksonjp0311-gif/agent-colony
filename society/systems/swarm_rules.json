@@ -1,7 +1,7 @@
 {
   "applied_to_live_oracle": false,
   "authorized": false,
-  "n": 4,
+  "n": 5,
   "note": "Active non-knob Hive rules. An empty list is a valid snapshot and must be written so the file persists.",
   "rules": [
     {
@@ -50,12 +50,25 @@
         "target_kind": "already_held_range"
       },
       "active": true,
+      "adopted_cycle": "20261122T152810Z_fb6037",
       "applied_to_live_oracle": false,
       "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range",
       "started_cycle": "20261122T131240Z_3c0470",
+      "trial": false
+    },
+    {
+      "action": {
+        "cycles": 8,
+        "op": "add_skip_rule",
+        "target_kind": "already_held_range"
+      },
+      "active": true,
+      "applied_to_live_oracle": false,
+      "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range",
+      "started_cycle": "20261122T152810Z_fb6037",
       "trial": true
     }
   ],
-  "updated_at": "2026-11-22T14:58:02Z",
+  "updated_at": "2026-11-22T15:48:28Z",
   "version": 1
 }
