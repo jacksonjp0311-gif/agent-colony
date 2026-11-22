@@ -24,5 +24,5 @@
   "challenger_catches": [],
   "can_approve": false,
   "note": "Observability only: the Challenger can block, never approve; not part of aggregate fitness.",
-  "updated_at": "2026-11-22T06:22:57Z"
+  "updated_at": "2026-11-22T07:13:03Z"
 }

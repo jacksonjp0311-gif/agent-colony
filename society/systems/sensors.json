@@ -1,17 +1,10 @@
 {
-  "ts": "2026-11-22T06:19:10Z",
-  "cycle_id": "20261122T061844Z_99c0cd",
+  "ts": "2026-11-22T07:09:34Z",
+  "cycle_id": "20261122T070910Z_5704ae",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
     "recent": {
-      "authored_mut_widen_range_b12499586517": {
-        "last": "revert",
-        "streak": 1,
-        "n": 1,
-        "keeps": 0,
-        "reverts": 1
-      },
       "authored_mut_widen_range_83a2ff993bbe": {
         "last": "revert",
         "streak": 1,
@@ -32,9 +25,9 @@
     "n": 12,
     "aggregate": {
       "last": 0.8219,
-      "slope": -0.000206,
+      "slope": 0.000217,
       "min": 0.8038,
-      "max": 0.8226
+      "max": 0.8222
     },
     "novelty": {
       "last": 0.0,
@@ -62,11 +55,11 @@
     }
   },
   "stall": {
-    "stalled": false,
-    "aggregate_range": 0.0184,
+    "stalled": true,
+    "aggregate_range": 0.0008,
     "novelty_max": 0.0,
     "window": 6,
-    "reason": "moving"
+    "reason": "aggregate flat and novelty 0"
   },
   "catalog": {
     "enabled": 197,
@@ -211,23 +204,23 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.866,
+      "ratio": 0.863,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.921,
+      "ratio": 0.925,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.912,
+      "ratio": 0.914,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.913,
+      "ratio": 0.935,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.895,
+      "ratio": 0.876,
       "drift": false
     }
   },
@@ -235,11 +228,11 @@
     "n_targets": 31,
     "verified": {
       "goldbach_even": 751408835,
-      "collatz_descent": 819000000,
+      "collatz_descent": 822200000,
       "legendre_square_gap": 4156607,
       "lehmer_totient": 394200001,
-      "erdos_straus": 1884127,
-      "twin_primes_hl": 1022200000,
+      "erdos_straus": 1889127,
+      "twin_primes_hl": 1026200000,
       "oeis_A104062_next": 518690000001
     },
     "reviews": [],
@@ -293,18 +286,18 @@
     "last": [
       [
         null,
+        "2026-11-22T06:43:23Z"
+      ],
+      [
+        "success",
         "2026-11-22T05:52:31Z"
       ],
       [
         "success",
         "2026-11-22T04:50:25Z"
-      ],
-      [
-        "success",
-        "2026-11-22T03:58:17Z"
       ]
     ],
-    "fetched_at": "2026-11-22T05:54:46Z"
+    "fetched_at": "2026-11-22T06:46:00Z"
   },
   "feeds": {
     "by_source": {
@@ -332,27 +325,31 @@
           "ok": true
         },
         "crossref": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis": {
+          "error": "",
+          "fetched": 2,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "oeis_conj": {
+          "error": "",
+          "fetched": 3,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         },
         "wikipedia": {
+          "error": "",
+          "fetched": 0,
           "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "ok": true
         }
       },
-      "ts": "2026-11-22T05:54:46Z"
+      "ts": "2026-11-22T06:45:56Z"
     },
     "health": {
       "arxiv": {
@@ -361,23 +358,24 @@
       },
       "crossref": {
         "fail": 0,
-        "ok": 126
+        "ok": 127
       },
       "oeis": {
         "fail": 0,
-        "ok": 126
+        "ok": 127
       },
       "oeis_conj": {
         "fail": 1,
-        "ok": 122
+        "ok": 123
       },
       "wikipedia": {
         "fail": 0,
-        "ok": 126
+        "ok": 127
       }
     }
   },
   "signals": [
+    "stall: aggregate flat (0.0008) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
