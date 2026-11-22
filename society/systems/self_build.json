@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 586,
+ "cycle_index": 589,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -370,7 +370,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261122T000914Z_e38dda",
+  "cycle_id": "20261122T010614Z_bd80eb",
   "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
@@ -379,69 +379,62 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 179,
-     "duplicate": 12,
-     "trivial_formal": 0,
-     "trivial_shuffle_null": 1,
-     "trivial_idle_part": 13,
-     "trivial_implied_parts": 85,
+     "fitted": 183,
+     "duplicate": 17,
+     "trivial_formal": 1,
+     "trivial_shuffle_null": 0,
+     "trivial_idle_part": 9,
+     "trivial_implied_parts": 35,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
-     "trivial_case_split": 1,
-     "trivial_parity_rules": 1,
+     "trivial_case_split": 0,
+     "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 1,
-     "expected_by_closure": 4,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 6,
      "loose_inequality": 0,
-     "tested": 18,
-     "survived": 6,
-     "falsified": 12,
-     "machine_checked": 4,
+     "tested": 16,
+     "survived": 7,
+     "falsified": 9,
+     "machine_checked": 6,
      "surprises": 0,
      "known_result": 0,
      "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 1,
-     "explained_by_known_check": 1,
-     "trivial_confirmed on range": 4,
-     "trivial_known_in_principle(definition_parity)": 2,
-     "trivial_known_in_principle(compositional)": 1
+     "trivial_confirmed on range": 5,
+     "trivial_known_in_principle(definition_parity)": 1
     }
    },
    {
     "component": "oeis_prediction_error",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A176479_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    },
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A386844_0"
+     "oc_A296516_0"
     ]
    },
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A359643_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    }
   ],
-  "actions": 4,
-  "cpu_s": 105.376
+  "actions": 2,
+  "cpu_s": 67.061
  },
  "last_skip": {
-  "cycle_id": "20261122T000914Z_e38dda",
+  "cycle_id": "20261122T010614Z_bd80eb",
   "reason": "hive_rule_trial_open"
  },
  "kept_count": 4,

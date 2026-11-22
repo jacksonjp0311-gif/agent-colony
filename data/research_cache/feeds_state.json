@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-21T23:47:06Z",
+    "fetched_at": "2026-11-22T00:37:17Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-22T00:35:08Z",
+        "id": 44967330570,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-22T00:36:02Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-21T23:44:34Z",
         "id": 44963260003,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-21T23:45:39Z"
+        "status": "completed",
+        "updated_at": "2026-11-22T00:35:11Z"
       },
       {
         "conclusion": "success",
@@ -90,22 +98,14 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-21T16:37:26Z"
-      },
-      {
-        "conclusion": "cancelled",
-        "created_at": "2026-11-21T15:23:12Z",
-        "id": 44918905601,
-        "name": "Colony new-data deep",
-        "status": "completed",
-        "updated_at": "2026-11-21T15:45:05Z"
       }
     ],
-    "success_rate": 0.9091
+    "success_rate": 1.0
   },
   "health": {
     "arxiv": {
       "fail": 15,
-      "ok": 121
+      "ok": 122
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-21T20:12:32Z",
+    "arxiv": "2026-11-22T00:37:17Z",
     "crossref": "2026-11-21T21:56:21Z",
     "oeis": "2026-11-21T21:56:20Z",
     "oeis_conj": "2026-11-21T21:56:21Z",
@@ -138,9 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "",
+        "fetched": 8,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -167,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-21T23:47:06Z"
+    "ts": "2026-11-22T00:37:13Z"
   },
-  "runs": 538
+  "runs": 539
 }

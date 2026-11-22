@@ -1,5 +1,5 @@
 {
-  "last_attempt_at": "2026-11-22T00:01:40Z",
-  "last_status": 429,
-  "retry_after_until": "2026-11-22T00:31:40Z"
+  "last_attempt_at": "2026-11-22T01:15:57Z",
+  "last_status": 200,
+  "retry_after_until": null
 }

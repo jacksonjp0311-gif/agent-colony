@@ -1062,3 +1062,7 @@
 {"fingerprint": "add_skip_rule:cycles=8:target=oc_A126931_0:target_kind=already_held_range", "score": 285}
 {"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "score": 2}
 {"fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "score": 285}
+{"fingerprint": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7", "score": -117}
+{"fingerprint": "add_skip_rule:cycles=8:target=oc_A126931_0:target_kind=already_held_range", "score": 285}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "score": 16}
+{"fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "score": 285}
