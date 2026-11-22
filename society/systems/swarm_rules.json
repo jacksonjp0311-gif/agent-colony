@@ -52,10 +52,10 @@
       "active": true,
       "applied_to_live_oracle": false,
       "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range",
-      "started_cycle": "20261122T110804Z_7a35ae",
+      "started_cycle": "20261122T131240Z_3c0470",
       "trial": true
     }
   ],
-  "updated_at": "2026-11-22T12:18:10Z",
+  "updated_at": "2026-11-22T13:19:17Z",
   "version": 1
 }
