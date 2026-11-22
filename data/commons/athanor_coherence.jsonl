@@ -1852,3 +1852,6 @@
 {"ts": "2026-11-22T09:31:36Z", "cycle_id": "20261122T092727Z_c1e88c", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 73, "REFINE": 1779, "REJECT": 0}}
 {"ts": "2026-11-22T09:40:03Z", "cycle_id": "20261122T093615Z_d98611", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 73, "REFINE": 1780, "REJECT": 0}}
 {"ts": "2026-11-22T09:48:11Z", "cycle_id": "20261122T094431Z_338967", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 73, "REFINE": 1781, "REJECT": 0}}
+{"ts": "2026-11-22T10:20:02Z", "cycle_id": "20261122T101653Z_cb176c", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 73, "REFINE": 1782, "REJECT": 0}}
+{"ts": "2026-11-22T10:26:13Z", "cycle_id": "20261122T102313Z_51236f", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 73, "REFINE": 1783, "REJECT": 0}}
+{"ts": "2026-11-22T10:32:29Z", "cycle_id": "20261122T102929Z_c4d60c", "verdict": "REFINE", "h7": 0.5384615384615384, "reason": "H7 in refine band", "distribution": {"APPROVE": 73, "REFINE": 1784, "REJECT": 0}}
