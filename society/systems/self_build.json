@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 631,
+ "cycle_index": 634,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -393,7 +393,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261122T131240Z_3c0470",
+  "cycle_id": "20261122T140242Z_6f798c",
   "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
@@ -402,51 +402,45 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 180,
-     "duplicate": 24,
-     "trivial_formal": 2,
-     "trivial_shuffle_null": 2,
-     "trivial_idle_part": 6,
-     "trivial_implied_parts": 78,
+     "fitted": 168,
+     "duplicate": 14,
+     "trivial_formal": 0,
+     "trivial_shuffle_null": 1,
+     "trivial_idle_part": 2,
+     "trivial_implied_parts": 30,
      "trivial_shared_operand": 0,
-     "trivial_growth_dominance": 0,
+     "trivial_growth_dominance": 1,
      "trivial_case_split": 0,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 1,
-     "expected_by_closure": 6,
+     "expected_by_closure": 1,
      "loose_inequality": 0,
-     "tested": 20,
-     "survived": 9,
-     "falsified": 11,
-     "machine_checked": 6,
+     "tested": 13,
+     "survived": 5,
+     "falsified": 8,
+     "machine_checked": 1,
      "surprises": 1,
      "known_result": 0,
-     "oeis_known": 0,
+     "oeis_known": 2,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 3,
-     "explained_by_known_check": 2,
-     "trivial_confirmed on range": 4,
+     "no_reference_found": 2,
+     "explained_by_known_check": 1,
      "deep_na": 1,
-     "trivial_known_in_principle(compositional)": 1
+     "trivial_known_in_principle(compositional)": 1,
+     "trivial_known_in_principle(definition_parity)": 2
     }
    },
    {
     "component": "oeis_prediction_error",
     "n": 1,
-    "actions": 0,
-    "skipped": "nothing_open"
-   },
-   {
-    "component": "oeis_calibrated_vote",
-    "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A277798_0"
+     "oc_A245088_0"
     ]
    },
    {
@@ -454,15 +448,23 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A298040_0"
+     "oc_A222459_0"
+    ]
+   },
+   {
+    "component": "oeis_calibrated_vote",
+    "n": 1,
+    "actions": 1,
+    "ids": [
+     "oc_A222276_0"
     ]
    }
   ],
-  "actions": 3,
-  "cpu_s": 70.731
+  "actions": 4,
+  "cpu_s": 56.546
  },
  "last_skip": {
-  "cycle_id": "20261122T131240Z_3c0470",
+  "cycle_id": "20261122T140242Z_6f798c",
   "reason": "hive_rule_trial_open"
  },
  "kept_count": 4,

@@ -1,9 +1,9 @@
 {
-  "last_attempt_at": "2026-11-22T13:13:06Z",
+  "last_attempt_at": "2026-11-22T13:49:21Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-22T13:13:06Z",
+  "last_ok_at": "2026-11-22T13:49:21Z",
   "hits": [
     {
       "source": "arxiv",
@@ -28,7 +28,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-22T13:13:06Z"
+      "fetched_at": "2026-11-22T13:49:21Z"
     },
     {
       "source": "arxiv",
@@ -48,7 +48,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-22T13:13:06Z"
+      "fetched_at": "2026-11-22T13:49:21Z"
     },
     {
       "source": "arxiv",
@@ -73,7 +73,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-22T13:13:06Z"
+      "fetched_at": "2026-11-22T13:49:21Z"
     },
     {
       "source": "arxiv",
@@ -98,7 +98,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-22T13:13:06Z"
+      "fetched_at": "2026-11-22T13:49:21Z"
     },
     {
       "source": "arxiv",
@@ -119,7 +119,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-22T13:13:06Z"
+      "fetched_at": "2026-11-22T13:49:21Z"
     }
   ]
 }
