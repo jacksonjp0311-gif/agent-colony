@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 658,
+ "cycle_index": 661,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -25,7 +25,80 @@
   "parent": "bp_e758d019f00c66eb",
   "operator": "add"
  },
- "trial": null,
+ "trial": {
+  "blueprint": {
+   "id": "bp_fee0f465b648dc3b",
+   "signature": "fee0f465b648dc3b",
+   "steps": [
+    {
+     "component": "frontier_extra_batch",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    },
+    {
+     "component": "oeis_prediction_error",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    }
+   ],
+   "parent": "bp_c67ed2dbddb00356",
+   "operator": "swap",
+   "evidence": [],
+   "weight": 0.3,
+   "added": [],
+   "evidence_detail": {},
+   "self_test": {
+    "ok": true,
+    "reason": "ok",
+    "plan": [
+     {
+      "component": "frontier_extra_batch",
+      "n": 1,
+      "planned": 1
+     },
+     {
+      "component": "oeis_calibrated_vote",
+      "n": 1,
+      "planned": 0
+     },
+     {
+      "component": "oeis_prediction_error",
+      "n": 1,
+      "planned": 0
+     },
+     {
+      "component": "oeis_calibrated_vote",
+      "n": 1,
+      "planned": 0
+     }
+    ]
+   }
+  },
+  "opened_cycle_id": "20261122T230426Z_3676ca",
+  "code_fp": "23ff778cc645c890e1f2c5dd4530bcad91491e133c63a914860d1972005a7833",
+  "opened_cycle_index": 659,
+  "open_row": 327,
+  "window_rows": 2,
+  "baseline_gain": [
+   0.0,
+   0.0
+  ],
+  "baseline_overlaps": [
+   {
+    "slot": "self_build",
+    "id": "bp_4442f1d4aee72807",
+    "start": "2026-11-22T20:20:09Z",
+    "end": "2026-11-22T22:32:44Z",
+    "outcome": "reverted"
+   }
+  ]
+ },
  "tried": {
   "1a40beac596f0ebe": {
    "outcome": "kept",
@@ -435,8 +508,8 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261122T223244Z_67a591",
-  "blueprint": "bp_c67ed2dbddb00356",
+  "cycle_id": "20261122T232201Z_9102c9",
+  "blueprint": "bp_fee0f465b648dc3b",
   "ran": [
    {
     "component": "frontier_extra_batch",
@@ -444,35 +517,45 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 180,
-     "duplicate": 15,
+     "fitted": 177,
+     "duplicate": 20,
      "trivial_formal": 1,
      "trivial_shuffle_null": 2,
-     "trivial_idle_part": 3,
-     "trivial_implied_parts": 31,
-     "trivial_shared_operand": 1,
+     "trivial_idle_part": 5,
+     "trivial_implied_parts": 50,
+     "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
-     "trivial_case_split": 0,
+     "trivial_case_split": 1,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 2,
+     "expected_by_closure": 3,
      "loose_inequality": 0,
-     "tested": 13,
-     "survived": 3,
-     "falsified": 10,
-     "machine_checked": 2,
+     "tested": 15,
+     "survived": 6,
+     "falsified": 9,
+     "machine_checked": 3,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 1,
+     "oeis_known": 2,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_known_in_principle(definition_parity)": 2,
-     "trivial_confirmed on range": 1
+     "no_reference_found": 1,
+     "explained_by_known_check": 1,
+     "trivial_confirmed on range": 5,
+     "trivial_known_in_principle(definition_parity)": 1
     }
+   },
+   {
+    "component": "oeis_calibrated_vote",
+    "n": 1,
+    "actions": 1,
+    "ids": [
+     "oc_A165025_0"
+    ]
    },
    {
     "component": "oeis_prediction_error",
@@ -483,34 +566,20 @@
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A251419_0"
-    ]
-   },
-   {
-    "component": "oeis_calibrated_vote",
-    "n": 1,
     "actions": 0,
     "skipped": "nothing_open"
    }
   ],
   "actions": 2,
-  "cpu_s": 42.742
+  "cpu_s": 46.572
  },
- "last_skip": {
-  "cycle_id": "20261122T223244Z_67a591",
-  "reason": "self_heal_turn"
- },
+ "last_skip": null,
  "kept_count": 4,
  "reverted_count": 13,
  "inconclusive_count": 0,
  "voided_count": 10,
- "heal_turn": {
-  "cycle_id": "20261122T223244Z_67a591",
-  "cycle_index": 658
- },
- "last_propose_cycle": "20261122T202009Z_434e9e",
+ "heal_turn": null,
+ "last_propose_cycle": "20261122T230426Z_3676ca",
  "operator_stats": {
   "add": {
    "tried": 7,
