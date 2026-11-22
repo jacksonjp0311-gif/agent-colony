@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-22T04:53:01Z",
+    "fetched_at": "2026-11-22T05:54:46Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-22T05:52:31Z",
+        "id": 44991258389,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-22T05:53:36Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-22T04:50:25Z",
         "id": 44986796456,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-22T04:51:29Z"
+        "status": "completed",
+        "updated_at": "2026-11-22T05:52:34Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-21T21:54:04Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-21T19:29:55Z",
-        "id": 44941233481,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-21T21:05:24Z"
       }
     ],
     "success_rate": 1.0
@@ -138,10 +138,9 @@
   "last_run": {
     "sources": {
       "arxiv": {
-        "error": "cs.MA:TimeoutError: The read operation timed out",
-        "fetched": 4,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "ci_health": {
         "new": 0,
@@ -168,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-22T04:52:43Z"
+    "ts": "2026-11-22T05:54:46Z"
   },
-  "runs": 544
+  "runs": 545
 }

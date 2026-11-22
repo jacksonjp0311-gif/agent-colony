@@ -802,3 +802,15 @@
 {"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target=oc_A176479_0:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "base": -36, "foreign": 0, "with_prior": -36, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7", "base": -117, "foreign": 0, "with_prior": -117, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target=oc_A176479_0:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "base": -103, "foreign": 0, "with_prior": -103, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7", "base": -117, "foreign": 0, "with_prior": -117, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target=oc_A176479_0:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "base": 16, "foreign": 0, "with_prior": 16, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7", "base": -117, "foreign": 0, "with_prior": -117, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target=oc_A176479_0:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5315", "base": 2, "foreign": 0, "with_prior": 2, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
