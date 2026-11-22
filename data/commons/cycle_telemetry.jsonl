@@ -1327,3 +1327,7 @@
 {"ts": "2026-11-22T21:09:38.318864+00:00", "source": "colony", "lineage": "colony", "cycle_id": "", "residual_max": 0.0, "foreign_fps": 0, "bias_delta": 56, "outcome": "adopted_elsewhere", "adoption_notes": 0}
 {"ts": "2026-11-22T21:31:58.672826+00:00", "source": "colony", "lineage": "colony", "cycle_id": "", "residual_max": 0.0, "foreign_fps": 0, "bias_delta": 54, "outcome": "adopted_elsewhere", "adoption_notes": 0}
 {"ts": "2026-11-22T21:42:39.476569+00:00", "source": "colony", "lineage": "colony", "cycle_id": "", "residual_max": 0.0, "foreign_fps": 0, "bias_delta": 53, "outcome": "adopted_elsewhere", "adoption_notes": 0}
+{"ts": "2026-11-22T22:21:00.440080+00:00", "source": "colony", "lineage": "colony", "cycle_id": "", "residual_max": 0.0, "foreign_fps": 0, "bias_delta": 53, "outcome": "adopted_elsewhere", "adoption_notes": 0}
+{"ts": "2026-11-22T22:30:35.777389+00:00", "source": "colony", "lineage": "colony", "cycle_id": "", "residual_max": 0.0, "foreign_fps": 0, "bias_delta": 52, "outcome": "adopted_elsewhere", "adoption_notes": 0}
+{"ts": "2026-11-22T22:30:36.090700+00:00", "source": "colony", "lineage": "colony", "cycle_id": "", "residual_max": 0.0, "foreign_fps": 0, "bias_delta": 10, "outcome": "adopted_elsewhere", "adoption_notes": 0}
+{"ts": "2026-11-22T22:36:59.791758+00:00", "source": "colony", "lineage": "colony", "cycle_id": "", "residual_max": 0.0, "foreign_fps": 0, "bias_delta": 52, "outcome": "adopted_elsewhere", "adoption_notes": 0}
