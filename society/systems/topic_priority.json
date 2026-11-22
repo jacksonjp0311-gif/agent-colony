@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.1007/s11139-025-01275-4>",
+      "topic": "<https://doi.org/10.1007/s00373-025-02999-2>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-native",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-22T11:22:35Z",
-  "updated_cycle": "20261122T111812Z_31ca1f",
+  "updated_at": "2026-11-22T12:17:03Z",
+  "updated_cycle": "20261122T121253Z_f0ab6b",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
