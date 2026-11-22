@@ -24,12 +24,13 @@
         "target_kind": "already_held_range"
       },
       "active": true,
+      "adopted_cycle": "20261122T051321Z_555e60",
       "applied_to_live_oracle": false,
       "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range",
       "started_cycle": "20261122T031316Z_dcb601",
-      "trial": true
+      "trial": false
     }
   ],
-  "updated_at": "2026-11-22T04:29:29Z",
+  "updated_at": "2026-11-22T05:30:40Z",
   "version": 1
 }
