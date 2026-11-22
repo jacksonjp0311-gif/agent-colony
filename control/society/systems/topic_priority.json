@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "a(n)=9^(-1)",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-22T00:48:49Z",
-  "updated_cycle": "20261122T004604Z_e29ef6",
+  "updated_at": "2026-11-22T01:46:03Z",
+  "updated_cycle": "20261122T014359Z_6be317",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
