@@ -5,7 +5,7 @@
 ![Spark and witness](../docs/assets/spark_witness_city.jpg)
 
 - cycle_count: `894`
-- benches ok_all: `True` score `0.8952`
+- benches ok_all: `True` score `0.8745`
 - novelty hits/kills: `0` / `30`
 - honest scoreboard: counterexamples 0; proofs 25 (25 routine); past published range 125
 - debate action_changed: `True`

@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "(rogue-ai)",
+      "topic": "<https://doi.org/10.1007/s11139-026-01396-4>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -76,12 +76,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "artifact-first",
+      "topic": "agent-native",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "ceiling-aware]",
+      "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-22T02:43:06Z",
-  "updated_cycle": "20261122T023954Z_ccf4d0",
+  "updated_at": "2026-11-22T03:38:10Z",
+  "updated_cycle": "20261122T033355Z_54e940",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
