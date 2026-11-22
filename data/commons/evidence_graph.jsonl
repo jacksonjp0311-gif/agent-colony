@@ -31,3 +31,4 @@
 {"ts": "2026-11-21T03:43:22.917295+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:fe64857a"}
 {"ts": "2026-11-21T15:08:44.562676+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:da3234f2"}
 {"ts": "2026-11-21T19:03:21.908475+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:c637a1e0"}
+{"ts": "2026-11-22T09:33:10.556788+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:d7d1e69e"}

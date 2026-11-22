@@ -1,15 +1,15 @@
 {
   "ci_health": {
-    "completed": 10,
-    "fetched_at": "2026-11-22T08:33:45Z",
+    "completed": 11,
+    "fetched_at": "2026-11-22T09:19:54Z",
     "runs": [
       {
         "conclusion": null,
         "created_at": "2026-11-22T08:32:25Z",
         "id": 45003282361,
         "name": "Colony evolve",
-        "status": "pending",
-        "updated_at": "2026-11-22T08:32:26Z"
+        "status": "in_progress",
+        "updated_at": "2026-11-22T09:18:44Z"
       },
       {
         "conclusion": "success",
@@ -20,12 +20,12 @@
         "updated_at": "2026-11-22T08:32:21Z"
       },
       {
-        "conclusion": null,
+        "conclusion": "success",
         "created_at": "2026-11-22T08:31:11Z",
         "id": 45003187001,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-22T08:32:16Z"
+        "status": "completed",
+        "updated_at": "2026-11-22T09:17:50Z"
       },
       {
         "conclusion": "success",
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 15,
-      "ok": 123
+      "ok": 124
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-22T04:53:01Z",
+    "arxiv": "2026-11-22T09:19:54Z",
     "crossref": "2026-11-22T06:45:58Z",
     "oeis": "2026-11-22T06:45:57Z",
     "oeis_conj": "2026-11-22T06:45:58Z",
@@ -138,9 +138,10 @@
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "",
+        "fetched": 8,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "ci_health": {
         "new": 0,
@@ -167,7 +168,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-22T08:33:45Z"
+    "ts": "2026-11-22T09:19:51Z"
   },
-  "runs": 548
+  "runs": 549
 }
