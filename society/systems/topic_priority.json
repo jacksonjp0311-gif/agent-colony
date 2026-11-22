@@ -66,22 +66,22 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "<https://doi.org/10.1007/s11139-025-01275-4>",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-based",
+      "topic": "agent-native",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-22T10:32:29Z",
-  "updated_cycle": "20261122T102929Z_c4d60c",
+  "updated_at": "2026-11-22T11:22:35Z",
+  "updated_cycle": "20261122T111812Z_31ca1f",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
