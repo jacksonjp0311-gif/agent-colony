@@ -46,6 +46,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$b_α$-spectral",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$k$-connected",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "$k$-inducible",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "$k_k$-free",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-23T19:34:40Z",
-  "updated_cycle": "20261123T193019Z_25bd5d",
+  "updated_at": "2026-11-23T20:29:35Z",
+  "updated_cycle": "20261123T202554Z_fb5fd0",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

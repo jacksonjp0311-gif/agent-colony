@@ -1,0 +1,26 @@
+{
+  "kind": "communications",
+  "note": "Append-only segment list. Segment 1 is the original file, left untouched after rotation. New appends go to the active segment. Earlier bytes are never rewritten.",
+  "primary": "communications.jsonl",
+  "segments": [
+    {
+      "bytes": 41943105,
+      "id": 1,
+      "kind": "file",
+      "last_line_sha256": "1bba1f93b1cd9277c79b7716541fe47754cbaa43875fe99572d69459f490f1f1",
+      "path": "communications.jsonl",
+      "prev_sha256": "",
+      "status": "closed"
+    },
+    {
+      "bytes": 86059,
+      "id": 2,
+      "kind": "file",
+      "path": "communications/communications-0002.jsonl",
+      "prev_sha256": "1bba1f93b1cd9277c79b7716541fe47754cbaa43875fe99572d69459f490f1f1",
+      "status": "active"
+    }
+  ],
+  "threshold_bytes": 41943040,
+  "version": 1
+}
