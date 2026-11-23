@@ -11,11 +11,11 @@
       "voided": 0
     },
     "mc_e170e02332fe": {
-      "keep_rate_permille": 1000,
+      "keep_rate_permille": 666,
       "kept": 2,
       "method": "Remember already-tried targets for longer before retrying them (longer working memory).",
-      "n": 2,
-      "reverted": 0,
+      "n": 3,
+      "reverted": 1,
       "voided": 0
     }
   },
@@ -3686,6 +3686,52 @@
           "treatment": 2331967.0
         }
       }
+    },
+    {
+      "action": {
+        "direction": "up",
+        "name": "unused_menu_cycles",
+        "op": "set_knob",
+        "value": 26
+      },
+      "applied_to_live_oracle": false,
+      "authorized": false,
+      "baseline_score": 21.0,
+      "card_id": "mc_e170e02332fe",
+      "concept": "",
+      "cycle_id": "20261123T210005Z_2f4d83",
+      "event": "labeled_example",
+      "family": "set_knob:unused_menu_cycles",
+      "field": "",
+      "id": "6a5379586d884836",
+      "knob": "unused_menu_cycles",
+      "method": "Remember already-tried targets for longer before retrying them (longer working memory).",
+      "outcome": "reverted",
+      "self_heal_helped": false,
+      "source": "self_heal",
+      "source_id": "6a5379586d884836",
+      "sources": [
+        "self_heal"
+      ],
+      "strictly_better": false,
+      "trial_score": 9.0,
+      "ts": "2026-11-23T21:05:27Z",
+      "twin": {
+        "compared": true,
+        "fitness": {
+          "control": 0.8574,
+          "treatment": 0.8218
+        },
+        "oracle_passes": {
+          "control": 528.0,
+          "treatment": 626.0
+        },
+        "reason": "oracle_passes",
+        "verified_depth_sum": {
+          "control": 555009.0,
+          "treatment": 2331967.0
+        }
+      }
     }
   ],
   "families": {
@@ -3756,14 +3802,14 @@
       "voided": 5
     },
     "set_knob:unused_menu_cycles": {
-      "keep_rate_permille": 1000,
+      "keep_rate_permille": 666,
       "kept": 2,
-      "n": 2,
-      "reverted": 0,
+      "n": 3,
+      "reverted": 1,
       "voided": 0
     }
   },
-  "last_cycle": "20261123T202554Z_fb5fd0",
+  "last_cycle": "20261123T212013Z_b52a2d",
   "last_hive_deferral": {
     "action": {
       "cycles": 8,
@@ -3785,7 +3831,7 @@
   "n_inconclusive": 6,
   "n_kept": 23,
   "n_proposed": 10,
-  "n_reverted": 26,
+  "n_reverted": 27,
   "n_twin_held": 0,
   "n_voided": 26,
   "note": "Method-card trials judged by self-heal windows and the twin control. Kept only if strictly better on both. Not AGI.",
@@ -3982,7 +4028,7 @@
     "pending": 124,
     "resolved": 76,
     "source": "hive_shadows",
-    "ts": "2026-11-23T20:33:40Z",
+    "ts": "2026-11-23T21:29:25Z",
     "unlabeled": 0
   },
   "twin_pending": [],

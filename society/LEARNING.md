@@ -10,7 +10,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **2**
 - Kept: **23**
-- Reverted (including twin-not-better): **26**
+- Reverted (including twin-not-better): **27**
 - Voided (environment changed mid-trial): **26**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
@@ -23,7 +23,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | Card | Method | Tried | Kept | Reverted | Keep rate |
 | --- | --- | ---: | ---: | ---: | ---: |
 | `mc_bacbbd75d04b` | Perturb candidate claims a little more widely (annealing-style search). | 1 | 0 | 1 | 0‰ |
-| `mc_e170e02332fe` | Remember already-tried targets for longer before retrying them (longer working memory). | 2 | 2 | 0 | 1000‰ |
+| `mc_e170e02332fe` | Remember already-tried targets for longer before retrying them (longer working memory). | 3 | 2 | 1 | 666‰ |
 
 ## Per op family
 
@@ -38,11 +38,10 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | `set_knob:perturb_cooldown_cycles` | 2 | 0 | 1 | 0‰ |
 | `set_knob:perturb_epsilon` | 2 | 0 | 1 | 0‰ |
 | `set_knob:step_size` | 12 | 1 | 6 | 83‰ |
-| `set_knob:unused_menu_cycles` | 2 | 2 | 0 | 1000‰ |
+| `set_knob:unused_menu_cycles` | 3 | 2 | 1 | 666‰ |
 
 ## Recent outcomes
 
-- `voided` · card `—` · family `set_knob:park_cycles` · cycle `20261119T202351Z_2926a6` (baseline 4.0, trial None)
 - `reverted` · card `—` · family `set_knob:step_size` · cycle `20261119T233754Z_aa8d37` (baseline 4.0, trial 4.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261120T012810Z_d01708` (baseline 8.0, trial 4.0)
 - `voided` · card `—` · family `set_knob:step_size` · cycle `20261120T020051Z_6fd496` (baseline 4.0, trial None)
@@ -54,6 +53,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261122T092727Z_c1e88c` (baseline 13.0, trial 14.0)
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261123T155301Z_5fe2da` (baseline 22.0, trial 4.0)
 - `kept` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261123T182437Z_d10804` (baseline 6.0, trial 22.0)
+- `reverted` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261123T210005Z_2f4d83` (baseline 21.0, trial 9.0)
 
 ## Reading breadth (knowledge library)
 
