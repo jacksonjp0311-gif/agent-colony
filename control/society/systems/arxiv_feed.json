@@ -1,19 +1,22 @@
 {
-  "last_attempt_at": "2026-11-23T05:13:45Z",
-  "last_status": 0,
+  "last_attempt_at": "2026-11-23T07:19:10Z",
+  "last_status": 200,
   "retry_after_until": null,
-  "last_error": "ReadTimeout: The read operation timed out",
-  "last_ok_at": "2026-11-23T03:29:02Z",
+  "last_error": "",
+  "last_ok_at": "2026-11-23T07:19:10Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Tight Probabilistic Aspects of Friends-and-Strangers Graphs",
-      "abstract_snippet": "Friends-and-strangers graphs, introduced by Defant and Kravitz, model arrangements of people on positions. We consider two graphs $X$ and $Y$ on $n$ vertices. The vertices of $X$ represent positions with edges denoting adjacencies while the vertices of $Y$ represent people with edges denoting friendships. Their \\emph{friends-and-strangers graph} is denoted by $\\mathsf{FS}(X,Y)$. Its vertices are a",
-      "url": "https://arxiv.org/abs/2611.27207",
-      "arxiv_id": "2611.27207",
+      "title": "Optimal Linear Regression Without a Variance",
+      "abstract_snippet": "We study high-probability linear regression in the infinite variance regime, wherecthe regression noise has only a finite conditional $α$-moment $ν$ for some unknown $α\\in(1,2)$, and the covariates may only have finite moments up to a given order (e.g., 4th moment). We give a black-box reduction that converts finite-variance regression procedures into weak-moment procedures. The reduction is based",
+      "url": "https://arxiv.org/abs/2611.27983",
+      "arxiv_id": "2611.27983",
       "doi": "",
       "authors": [
-        "Neil Krishnan"
+        "Artin Tajdini",
+        "Jasper C. H. Lee",
+        "Jonathan Scarlett",
+        "Kevin Jamieson"
       ],
       "year": 2026,
       "tags": [
@@ -23,22 +26,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T03:29:02Z"
+      "fetched_at": "2026-11-23T07:19:10Z"
     },
     {
       "source": "arxiv",
-      "title": "LingSante-Pulse: Unified Physiological Pretraining through Random-Feature Prediction and Cross-Modal Alignment",
-      "abstract_snippet": "Clinical monitoring and wearable devices capture complementary physiological signals, but their partially overlapping modality coverage makes within-signal information and cross-modal relationships difficult to exploit jointly. We introduce LingSante-Pulse, a unified, general-purpose and flexible physiological representation framework that learns from these heterogeneous recordings. A shared, sign",
-      "url": "https://arxiv.org/abs/2611.27206",
-      "arxiv_id": "2611.27206",
+      "title": "A Methodologically Rigorous Benchmark of Linear Regression,RNN, and LSTM for S&amp;P 500 Forecasting:Identifying Sources of Performance Inflation in Financial DeepLearning",
+      "abstract_snippet": "This study examines one-day-ahead forecasting of the S&amp;P 500 closing level using a 2006-2025 dataset that includes fundamental price data, macroeconomic indicators, and engineered technical features. We benchmark three model families, namely linear regression, vanilla recurrent neural networks (RNN), and long short-term memory networks (LSTM), within a unified preprocessing and chronological e",
+      "url": "https://arxiv.org/abs/2611.27978",
+      "arxiv_id": "2611.27978",
       "doi": "",
       "authors": [
-        "Linxiao Yang",
-        "Wenwei Wang",
-        "Tian Zhou",
-        "Bingqing Peng",
-        "Zihao Zhang",
-        "Zuyi Zhu"
+        "Hari Sitaula",
+        "Joseph Opitz"
       ],
       "year": 2026,
       "tags": [
@@ -48,17 +47,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T03:29:02Z"
+      "fetched_at": "2026-11-23T07:19:10Z"
     },
     {
       "source": "arxiv",
-      "title": "Rigidity in the Lichnerowicz inequality for word-length semigroups",
-      "abstract_snippet": "We give an operator-algebraic characterization of Cayley graphs that are partial cubes, that is, embed isometrically into a hypercube. More precisely, noncommutative versions of the Lichnerowicz inequality control the spectral gap of the generator of a quantum Markov semigroup by the constant in the complete $Γ_2$-criterion of Junge and Zeng or the constant in the geometric Ricci criterion of Jung",
-      "url": "https://arxiv.org/abs/2611.27204",
-      "arxiv_id": "2611.27204",
+      "title": "On the Complete Feature Set for ADHD Classification in Children and Adolescents Based on EEG Signals",
+      "abstract_snippet": "Attention-deficit/hyperactivity disorder is a neurodevelopmental condition that can affect attention, activity and impulse control. Electroencephalography (EEG) records brain activity as children and adolescents perform cognitive tasks. However, comparing features derived from these recordings requires consistent signal preparation, shared analysis windows and documented quality decisions. We cura",
+      "url": "https://arxiv.org/abs/2611.27970",
+      "arxiv_id": "2611.27970",
       "doi": "",
       "authors": [
-        "Melchior Wirth"
+        "Javier Sanchis",
+        "Álvaro Navarro",
+        "Jorge García-Carrasco",
+        "Tahar Kechadi",
+        "Juan Trujillo"
       ],
       "year": 2026,
       "tags": [
@@ -68,18 +71,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T03:29:02Z"
+      "fetched_at": "2026-11-23T07:19:10Z"
     },
     {
       "source": "arxiv",
-      "title": "Improved Accuracy Scaling with Problem Complexity in LLM Arithmetic Reasoning Using Executable Symbolic Representations",
-      "abstract_snippet": "High accuracy on mathematical benchmarks does not establish whether reasoning remains reliable as problem complexity increases. We examine how executable symbolic representations change accuracy scaling in large language models compared with natural-language reasoning. To address this limitation, we introduce the GSM Arithmetic Benchmark (GSM-AB), a controlled benchmark that independently varies o",
-      "url": "https://arxiv.org/abs/2611.27203",
-      "arxiv_id": "2611.27203",
+      "title": "Recognizing $k$-inducible Digraphs is NP-complete",
+      "abstract_snippet": "A digraph is k-inducible if its arcs correspond to the pairwise majority relation of a preference profile with k voters. By McGarvey's theorem, every asymmetric digraph is k-inducible for some k, but for every fixed k there are digraphs that are not k-inducible. Whether a digraph is 1-inducible or 2-inducible can easily be decided in polynomial time. The complexity of deciding whether a digraph is",
+      "url": "https://arxiv.org/abs/2611.27965",
+      "arxiv_id": "2611.27965",
       "doi": "",
       "authors": [
-        "Yu-Bin Liu",
-        "Shi-Ju Ran"
+        "Felix Brandt",
+        "Fabian Frank"
       ],
       "year": 2026,
       "tags": [
@@ -89,19 +92,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T03:29:02Z"
+      "fetched_at": "2026-11-23T07:19:10Z"
     },
     {
       "source": "arxiv",
-      "title": "Backbone-Specific LoRA Geometry: Orthogonality, Superposition, and Provenance",
-      "abstract_snippet": "Sharing one low-rank adaptation (LoRA) update across pretrained models simplifies deployment. Composition methods typically combine updates from a common backbone, while cross-model transfer transforms updates for a target backbone. The conditions for sharing updates across backbones while preserving accuracy and distinguishing individual contributions remain unclear. Our idea is to use backbone-s",
-      "url": "https://arxiv.org/abs/2611.27201",
-      "arxiv_id": "2611.27201",
+      "title": "Model Carving: Training Transformers That Optimize Their Own Topology",
+      "abstract_snippet": "Machine learning has largely kept separate the choice of architecture and the process of training. A classic Transformer, for instance, trains a fixed set of attention and MLP sublayers at every layer, in the same order, and optimizes the weights within. This uniformity is a convention rather than a principled design choice, and it is likely suboptimal: the best architecture for a given task may b",
+      "url": "https://arxiv.org/abs/2611.27962",
+      "arxiv_id": "2611.27962",
       "doi": "",
       "authors": [
-        "Kazuhiko Kawamoto",
-        "Keigo Watanabe",
-        "Hiroshi Kera"
+        "Kaden Zheng",
+        "Pratyusha Sharma"
       ],
       "year": 2026,
       "tags": [
@@ -111,7 +113,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T03:29:02Z"
+      "fetched_at": "2026-11-23T07:19:10Z"
     }
   ]
 }
