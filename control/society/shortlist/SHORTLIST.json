@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-23T01:53:36Z",
+  "ts": "2026-11-23T02:37:17Z",
   "view_only": true,
   "n_considered": 147,
   "n_meet_bar": 32,
@@ -425,8 +425,8 @@
   ],
   "building_blocks_enabled": [],
   "hunt_shadow": {
-    "ts": "2026-11-23T01:53:36Z",
-    "cycle_id": "20261123T014903Z_1e75f4",
+    "ts": "2026-11-23T02:37:17Z",
+    "cycle_id": "20261123T023355Z_c3add5",
     "mode": "report_only",
     "guidance": {
       "mode": "live",
@@ -643,5 +643,5 @@
     "building_blocks": "novelty=0 for ranking; listed separately"
   },
   "note": "View only. Does not authorize or change anything. Only James authorizes.",
-  "cycle_id": "20261123T014903Z_1e75f4"
+  "cycle_id": "20261123T023355Z_c3add5"
 }
