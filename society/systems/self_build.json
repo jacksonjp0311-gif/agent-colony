@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 682,
+ "cycle_index": 685,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -25,105 +25,7 @@
   "parent": "bp_e758d019f00c66eb",
   "operator": "add"
  },
- "trial": {
-  "blueprint": {
-   "id": "bp_131b1c38899be5e7",
-   "signature": "131b1c38899be5e7",
-   "steps": [
-    {
-     "component": "oeis_consensus_vote",
-     "n": 1
-    },
-    {
-     "component": "oeis_prediction_error",
-     "n": 1
-    },
-    {
-     "component": "oeis_calibrated_vote",
-     "n": 1
-    },
-    {
-     "component": "oeis_calibrated_vote",
-     "n": 1
-    }
-   ],
-   "parent": "bp_c67ed2dbddb00356",
-   "operator": "replace",
-   "evidence": [
-    "oeis_consensus_vote"
-   ],
-   "weight": 0.216667,
-   "added": [
-    {
-     "component": "oeis_consensus_vote",
-     "n": 1
-    }
-   ],
-   "evidence_detail": {
-    "oeis_consensus_vote": {
-     "papers": [
-      "2611.01081",
-      "2611.04370",
-      "2611.04504",
-      "2611.07618",
-      "2611.07996",
-      "2611.08615",
-      "2611.12953",
-      "2611.13161"
-     ],
-     "n_papers": 16,
-     "idea_rank": 2,
-     "cards": 13,
-     "lessons": 0,
-     "boost": 9.75
-    }
-   },
-   "self_test": {
-    "ok": true,
-    "reason": "ok",
-    "plan": [
-     {
-      "component": "oeis_consensus_vote",
-      "n": 1,
-      "planned": 1
-     },
-     {
-      "component": "oeis_prediction_error",
-      "n": 1,
-      "planned": 0
-     },
-     {
-      "component": "oeis_calibrated_vote",
-      "n": 1,
-      "planned": 1
-     },
-     {
-      "component": "oeis_calibrated_vote",
-      "n": 1,
-      "planned": 1
-     }
-    ]
-   }
-  },
-  "opened_cycle_id": "20261123T103144Z_aef5af",
-  "code_fp": "23ff778cc645c890e1f2c5dd4530bcad91491e133c63a914860d1972005a7833",
-  "opened_cycle_index": 678,
-  "open_row": 333,
-  "window_rows": 2,
-  "baseline_gain": [
-   0.0,
-   0.0
-  ],
-  "baseline_overlaps": [
-   {
-    "slot": "self_build",
-    "id": "bp_5525f9d018b79c13",
-    "start": "2026-11-23T08:24:01Z",
-    "end": "2026-11-23T10:21:31Z",
-    "outcome": "reverted"
-   }
-  ]
- },
+ "trial": null,
  "tried": {
   "1a40beac596f0ebe": {
    "outcome": "kept",
@@ -460,6 +362,29 @@
    ],
    "id": "bp_5525f9d018b79c13",
    "cycle_id": "20261123T102131Z_81ebbe"
+  },
+  "131b1c38899be5e7": {
+   "outcome": "reverted",
+   "steps": [
+    {
+     "component": "oeis_consensus_vote",
+     "n": 1
+    },
+    {
+     "component": "oeis_prediction_error",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    }
+   ],
+   "id": "bp_131b1c38899be5e7",
+   "cycle_id": "20261123T122736Z_bc17a1"
   }
  },
  "component_stats": {
@@ -478,7 +403,7 @@
   "oeis_consensus_vote": {
    "tried": 5,
    "kept": 0,
-   "reverted": 0,
+   "reverted": 1,
    "inconclusive": 0
   },
   "oeis_novelty_archive": {
@@ -575,50 +500,131 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261123T114129Z_5013f0",
-  "blueprint": "bp_131b1c38899be5e7",
+  "cycle_id": "20261123T123439Z_96b496",
+  "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
-    "component": "oeis_consensus_vote",
+    "component": "frontier_extra_batch",
     "n": 1,
     "actions": 1,
-    "ids": [
-     "oc_A245088_0"
-    ]
+    "counts": {
+     "expressions": 260,
+     "fitted": 172,
+     "duplicate": 15,
+     "trivial_formal": 1,
+     "trivial_shuffle_null": 3,
+     "trivial_idle_part": 4,
+     "trivial_implied_parts": 29,
+     "trivial_shared_operand": 0,
+     "trivial_growth_dominance": 1,
+     "trivial_case_split": 0,
+     "trivial_parity_rules": 0,
+     "trivial_running_sum_tail": 0,
+     "trivial_basic_inequality": 0,
+     "trivial_rewrite_closure": 1,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 2,
+     "loose_inequality": 0,
+     "tested": 13,
+     "survived": 4,
+     "falsified": 9,
+     "machine_checked": 2,
+     "surprises": 0,
+     "known_result": 0,
+     "oeis_known": 2,
+     "oeis_unchecked": 0,
+     "retested": 0,
+     "false_surprises": 0,
+     "trivial_confirmed on range": 2,
+     "trivial_known_in_principle(definition_parity)": 1
+    }
    },
    {
     "component": "oeis_prediction_error",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A176479_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    },
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A222459_0"
+     "oc_A309879_0"
     ]
    },
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
     "actions": 0,
-    "skipped": "cycle_budget"
+    "skipped": "nothing_open"
    }
   ],
-  "actions": 3,
-  "cpu_s": 99.707
+  "actions": 2,
+  "cpu_s": 47.605
  },
- "last_skip": null,
+ "last_skip": {
+  "cycle_id": "20261123T123439Z_96b496",
+  "reason": "no_candidate_passed_self_test",
+  "rejected": [
+   {
+    "id": "bp_00efb7ae5baaa038",
+    "operator": "replace",
+    "reason": "dead_step:new_data_extra_push"
+   },
+   {
+    "id": "bp_02eae7f7c52efc38",
+    "operator": "replace",
+    "reason": "dead_step:new_data_extra_push"
+   },
+   {
+    "id": "bp_1493d0fa33468995",
+    "operator": "replace",
+    "reason": "dead_step:new_data_extra_push"
+   },
+   {
+    "id": "bp_3b6bfa603618caa2",
+    "operator": "replace",
+    "reason": "dead_step:new_data_extra_push"
+   },
+   {
+    "id": "bp_0a683aaa7dbccde5",
+    "operator": "replace",
+    "reason": "dead_step:oeis_replay_buffer"
+   },
+   {
+    "id": "bp_2e28edd7b4fff161",
+    "operator": "replace",
+    "reason": "dead_step:oeis_replay_buffer"
+   },
+   {
+    "id": "bp_32ecf364f5131dd1",
+    "operator": "replace",
+    "reason": "dead_step:oeis_replay_buffer"
+   },
+   {
+    "id": "bp_ec40012b92726555",
+    "operator": "replace",
+    "reason": "dead_step:oeis_replay_buffer"
+   },
+   {
+    "id": "bp_d0cb5580c68093cd",
+    "operator": "jump",
+    "reason": "dead_step:oeis_prediction_error"
+   },
+   {
+    "id": "bp_d96a347e80bdbb1f",
+    "operator": "resize",
+    "reason": "dead_step:oeis_prediction_error"
+   }
+  ]
+ },
  "kept_count": 4,
- "reverted_count": 15,
+ "reverted_count": 16,
  "inconclusive_count": 0,
  "voided_count": 10,
  "heal_turn": null,
- "last_propose_cycle": "20261123T103144Z_aef5af",
+ "last_propose_cycle": "20261123T123439Z_96b496",
  "operator_stats": {
   "add": {
    "tried": 7,
@@ -636,9 +642,9 @@
    "reverted": 1
   },
   "replace": {
-   "tried": 1,
+   "tried": 2,
    "kept": 0,
-   "reverted": 1
+   "reverted": 2
   },
   "swap": {
    "tried": 3,
