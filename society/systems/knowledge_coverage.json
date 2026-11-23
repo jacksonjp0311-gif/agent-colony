@@ -43,7 +43,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 71,
-      "reads": 89
+      "reads": 90
     },
     "meta_learning": {
       "cards_formed": 2,
@@ -55,13 +55,13 @@
       "reads": 46
     },
     "multi_agent_systems": {
-      "cards_formed": 1,
+      "cards_formed": 2,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 6,
-      "distinct_concepts": 3,
-      "papers": 11,
-      "reads": 44
+      "concepts": 7,
+      "distinct_concepts": 4,
+      "papers": 12,
+      "reads": 45
     },
     "neural_architecture": {
       "cards_formed": 9,
@@ -73,7 +73,7 @@
       "reads": 45
     },
     "open_endedness": {
-      "cards_formed": 37,
+      "cards_formed": 40,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 41,
@@ -100,13 +100,13 @@
       "reads": 45
     },
     "recursive_self_improvement": {
-      "cards_formed": 4,
+      "cards_formed": 6,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 2,
-      "distinct_concepts": 1,
-      "papers": 33,
-      "reads": 44
+      "concepts": 5,
+      "distinct_concepts": 3,
+      "papers": 41,
+      "reads": 45
     },
     "self_learning_loops": {
       "cards_formed": 5,
@@ -215,6 +215,33 @@
       "n_papers": 12
     },
     {
+      "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
+      "examples": [
+        {
+          "arxiv_id": "2611.17314",
+          "field": "meta_learning",
+          "title": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces"
+        },
+        {
+          "arxiv_id": "2611.15923",
+          "field": "meta_learning",
+          "title": "Reinforcement Learning for Target Jerk Estimation in Interceptor Homing Phase"
+        },
+        {
+          "arxiv_id": "2611.15071",
+          "field": "meta_learning",
+          "title": "Improving Efficiency and Power in Small Rare-Disease Trials Through Prespecified, Data-Adaptive Covariate Adjustment"
+        }
+      ],
+      "fields": [
+        "meta_learning",
+        "recursive_self_improvement",
+        "self_learning_loops"
+      ],
+      "idea": "meta_controller",
+      "n_papers": 11
+    },
+    {
       "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
       "examples": [
         {
@@ -238,40 +265,14 @@
       ],
       "idea": "self_play_challenger",
       "n_papers": 11
-    },
-    {
-      "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
-      "examples": [
-        {
-          "arxiv_id": "2611.17314",
-          "field": "meta_learning",
-          "title": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces"
-        },
-        {
-          "arxiv_id": "2611.15923",
-          "field": "meta_learning",
-          "title": "Reinforcement Learning for Target Jerk Estimation in Interceptor Homing Phase"
-        },
-        {
-          "arxiv_id": "2611.15071",
-          "field": "meta_learning",
-          "title": "Improving Efficiency and Power in Small Rare-Disease Trials Through Prespecified, Data-Adaptive Covariate Adjustment"
-        }
-      ],
-      "fields": [
-        "meta_learning",
-        "self_learning_loops"
-      ],
-      "idea": "meta_controller",
-      "n_papers": 10
     }
   ],
   "totals": {
-    "cards_formed": 103,
+    "cards_formed": 109,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 215,
-    "papers": 414,
-    "reads": 673
+    "concepts": 219,
+    "papers": 423,
+    "reads": 676
   }
 }

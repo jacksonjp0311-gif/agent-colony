@@ -1027,7 +1027,7 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 192,
+   "attempts": 194,
    "status": "holds_on_range",
    "tested_hi": 299,
    "credit": 0.0
@@ -1303,7 +1303,7 @@
    "credit": 0.0
   },
   "oc_A176479_0": {
-   "attempts": 176,
+   "attempts": 178,
    "status": "holds_on_range",
    "tested_hi": 1026,
    "credit": 0.0006
@@ -2059,13 +2059,13 @@
    "credit": 0.05
   },
   "oc_A187168_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A187165_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2077,19 +2077,19 @@
    "credit": 0.0
   },
   "oc_A187167_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A187164_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
   },
   "oc_A324275_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2167,7 +2167,7 @@
    "credit": 0.0
   },
   "oc_A055278_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2185,7 +2185,7 @@
    "credit": 0.0301
   },
   "oc_A321776_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2197,7 +2197,7 @@
    "credit": 0.0
   },
   "oc_A321774_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -2749,7 +2749,7 @@
    "credit": 0.05
   },
   "oc_A162533_0": {
-   "attempts": 178,
+   "attempts": 181,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -2839,7 +2839,7 @@
    "credit": 0.0
   },
   "oc_A245088_0": {
-   "attempts": 152,
+   "attempts": 154,
    "status": "holds_on_range",
    "tested_hi": 201,
    "credit": 0.0001
@@ -3237,11 +3237,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 1538,
+   "attempts": 1547,
    "credit": 25.518
   },
   "gf": {
-   "attempts": 496,
+   "attempts": 504,
    "credit": 5.0834
   },
   "only_prime": {
