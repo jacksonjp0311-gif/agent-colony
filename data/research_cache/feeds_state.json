@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-23T15:31:04Z",
+    "fetched_at": "2026-11-23T16:17:23Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-23T16:14:27Z",
+        "id": 45214239824,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-23T16:15:52Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-23T15:28:47Z",
         "id": 45205686039,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-23T15:29:43Z"
+        "status": "completed",
+        "updated_at": "2026-11-23T16:14:31Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-23T09:17:38Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-23T07:16:04Z",
-        "id": 45129841587,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-23T08:12:21Z"
       }
     ],
     "success_rate": 1.0
@@ -109,19 +109,19 @@
     },
     "crossref": {
       "fail": 0,
-      "ok": 133
+      "ok": 134
     },
     "oeis": {
       "fail": 0,
-      "ok": 133
+      "ok": 134
     },
     "oeis_conj": {
       "fail": 1,
-      "ok": 129
+      "ok": 130
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 133
+      "ok": 134
     }
   },
   "last_error": {
@@ -130,10 +130,10 @@
   },
   "last_ok": {
     "arxiv": "2026-11-23T12:58:37Z",
-    "crossref": "2026-11-23T12:12:37Z",
-    "oeis": "2026-11-23T12:12:36Z",
-    "oeis_conj": "2026-11-23T12:12:37Z",
-    "wikipedia": "2026-11-23T12:12:39Z"
+    "crossref": "2026-11-23T16:17:21Z",
+    "oeis": "2026-11-23T16:17:20Z",
+    "oeis_conj": "2026-11-23T16:17:21Z",
+    "wikipedia": "2026-11-23T16:17:22Z"
   },
   "last_run": {
     "sources": {
@@ -147,27 +147,31 @@
         "ok": true
       },
       "crossref": {
+        "error": "",
+        "fetched": 5,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis": {
+        "error": "",
+        "fetched": 2,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis_conj": {
+        "error": "",
+        "fetched": 3,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "wikipedia": {
+        "error": "",
+        "fetched": 0,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       }
     },
-    "ts": "2026-11-23T15:31:03Z"
+    "ts": "2026-11-23T16:17:18Z"
   },
-  "runs": 575
+  "runs": 576
 }
