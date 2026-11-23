@@ -1873,3 +1873,6 @@
 {"ts": "2026-11-23T17:25:18Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.585863], ["improver", 0.36534900000000003], ["pathfinder", 0.35081400000000007]], "stats": {"updates": 25891, "conflicts": 88408, "redebatess": 3692}}
 {"ts": "2026-11-23T17:35:11Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5859575], ["improver", 0.3655725000000001], ["pathfinder", 0.350985]], "stats": {"updates": 25905, "conflicts": 88456, "redebatess": 3694}}
 {"ts": "2026-11-23T17:43:48Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.585989], ["improver", 0.36564700000000006], ["pathfinder", 0.351042]], "stats": {"updates": 25919, "conflicts": 88504, "redebatess": 3696}}
+{"ts": "2026-11-23T18:19:11Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5858945], ["improver", 0.36542349999999996], ["pathfinder", 0.350871]], "stats": {"updates": 25933, "conflicts": 88552, "redebatess": 3698}}
+{"ts": "2026-11-23T18:28:45Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.5858315], ["improver", 0.3652745], ["pathfinder", 0.35075700000000004]], "stats": {"updates": 25947, "conflicts": 88600, "redebatess": 3700}}
+{"ts": "2026-11-23T18:38:49Z", "n_agents": 14, "n_conflicts": 20, "high": [["spark", 0.585926], ["improver", 0.365498], ["pathfinder", 0.350928]], "stats": {"updates": 25961, "conflicts": 88648, "redebatess": 3702}}

@@ -1,8 +1,8 @@
 {
   "version": 1,
   "mile": "proposal-pilot-sandbox",
-  "updated_at": "2026-11-23T17:43:49Z",
-  "when_et": "2026-11-23 05:43 PM ET",
+  "updated_at": "2026-11-23T18:38:50Z",
+  "when_et": "2026-11-23 06:38 PM ET",
   "pilots": [
     {
       "id": "pilot_test_gather_filter_5c80956e",
@@ -148,5 +148,5 @@
   ],
   "note": "Pilots are reversible sandbox artifacts. Standing promotion needs James selective authorize. Charters/growth may inform only.",
   "last_proposed": "pilot_autonomy_demo_078ddff6",
-  "last_cycle": "20261123T174008Z_4fdc3c"
+  "last_cycle": "20261123T183442Z_ef5dcc"
 }
