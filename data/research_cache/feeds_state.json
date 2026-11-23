@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-23T20:50:59Z",
+    "fetched_at": "2026-11-23T21:49:56Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-23T21:46:49Z",
+        "id": 45273118655,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-23T21:48:18Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-23T20:48:41Z",
         "id": 45263197447,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-23T20:49:42Z"
+        "status": "completed",
+        "updated_at": "2026-11-23T21:46:52Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-23T14:40:00Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-23T12:55:37Z",
-        "id": 45178900135,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-23T13:53:21Z"
       }
     ],
     "success_rate": 0.9091
@@ -105,7 +105,7 @@
   "health": {
     "arxiv": {
       "fail": 16,
-      "ok": 130
+      "ok": 131
     },
     "crossref": {
       "fail": 0,
@@ -129,7 +129,7 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-23T17:13:20Z",
+    "arxiv": "2026-11-23T21:49:55Z",
     "crossref": "2026-11-23T20:50:58Z",
     "oeis": "2026-11-23T20:50:56Z",
     "oeis_conj": "2026-11-23T20:50:57Z",
@@ -138,40 +138,37 @@
   "last_run": {
     "sources": {
       "arxiv": {
+        "error": "",
+        "fetched": 8,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "error": "",
-        "fetched": 3,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis": {
-        "error": "",
-        "fetched": 2,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "oeis_conj": {
-        "error": "",
-        "fetched": 7,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       },
       "wikipedia": {
-        "error": "",
-        "fetched": 0,
         "new": 0,
-        "ok": true
+        "ok": true,
+        "skipped": "ttl"
       }
     },
-    "ts": "2026-11-23T20:50:55Z"
+    "ts": "2026-11-23T21:49:52Z"
   },
-  "runs": 581
+  "runs": 582
 }
