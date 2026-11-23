@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-23T16:44:21Z",
-  "cycle_id": "20261123T164355Z_a8f862",
+  "ts": "2026-11-23T17:40:32Z",
+  "cycle_id": "20261123T174008Z_4fdc3c",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
@@ -9,9 +9,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8219,
-      "slope": 0.001152,
-      "min": 0.787,
+      "last": 0.8216,
+      "slope": -6.6e-05,
+      "min": 0.8216,
       "max": 0.8244
     },
     "novelty": {
@@ -41,7 +41,7 @@
   },
   "stall": {
     "stalled": true,
-    "aggregate_range": 0.0027,
+    "aggregate_range": 0.0017,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "aggregate flat and novelty 0"
@@ -189,33 +189,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.281,
+      "ratio": 1.159,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.292,
+      "ratio": 1.132,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.235,
+      "ratio": 1.217,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.218,
+      "ratio": 1.139,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.083,
+      "ratio": 1.099,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 799408835,
+      "goldbach_even": 802608835,
       "collatz_descent": 870200000,
-      "legendre_square_gap": 4396607,
-      "lehmer_totient": 418200001,
+      "legendre_square_gap": 4412607,
+      "lehmer_totient": 419800001,
       "erdos_straus": 1964127,
       "twin_primes_hl": 1086200000,
       "oeis_A104062_next": 518690000001
@@ -271,29 +271,29 @@
     "last": [
       [
         null,
+        "2026-11-23T17:10:24Z"
+      ],
+      [
+        "success",
         "2026-11-23T16:14:27Z"
       ],
       [
         "success",
         "2026-11-23T15:28:47Z"
-      ],
-      [
-        "success",
-        "2026-11-23T14:39:57Z"
       ]
     ],
-    "fetched_at": "2026-11-23T16:17:23Z"
+    "fetched_at": "2026-11-23T17:13:21Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 355,
+      "arxiv": 361,
       "oeis": 5,
       "crossref": 173,
       "wikipedia": 19,
       "oeis_conj": 241
     },
     "by_kind": {
-      "paper": 528,
+      "paper": 534,
       "sequence": 5,
       "summary": 19,
       "conj_sequence": 241
@@ -301,45 +301,42 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "new": 0,
-          "ok": true,
-          "skipped": "ttl"
+          "error": "",
+          "fetched": 8,
+          "new": 6,
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 5,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 3,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-23T16:17:18Z"
+      "ts": "2026-11-23T17:13:12Z"
     },
     "health": {
       "arxiv": {
         "fail": 16,
-        "ok": 129
+        "ok": 130
       },
       "crossref": {
         "fail": 0,
@@ -360,7 +357,7 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0027) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
+    "stall: aggregate flat (0.0017) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
