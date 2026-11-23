@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 679,
+ "cycle_index": 682,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -575,7 +575,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261123T104236Z_20f984",
+  "cycle_id": "20261123T114129Z_5013f0",
   "blueprint": "bp_131b1c38899be5e7",
   "ran": [
    {
@@ -583,34 +583,34 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A214946_0"
+     "oc_A245088_0"
     ]
    },
    {
     "component": "oeis_prediction_error",
     "n": 1,
+    "actions": 1,
+    "ids": [
+     "oc_A176479_0"
+    ]
+   },
+   {
+    "component": "oeis_calibrated_vote",
+    "n": 1,
+    "actions": 1,
+    "ids": [
+     "oc_A222459_0"
+    ]
+   },
+   {
+    "component": "oeis_calibrated_vote",
+    "n": 1,
     "actions": 0,
-    "skipped": "nothing_open"
-   },
-   {
-    "component": "oeis_calibrated_vote",
-    "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A298793_0"
-    ]
-   },
-   {
-    "component": "oeis_calibrated_vote",
-    "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A298795_0"
-    ]
+    "skipped": "cycle_budget"
    }
   ],
   "actions": 3,
-  "cpu_s": 109.936
+  "cpu_s": 99.707
  },
  "last_skip": null,
  "kept_count": 4,
