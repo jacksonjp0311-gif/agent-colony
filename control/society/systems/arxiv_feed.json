@@ -1,24 +1,19 @@
 {
-  "last_attempt_at": "2026-11-23T02:27:26Z",
+  "last_attempt_at": "2026-11-23T02:54:27Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-23T02:27:26Z",
+  "last_ok_at": "2026-11-23T02:54:27Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "RL Post-Training in Diffusion Transformers Is Activation Steering",
-      "abstract_snippet": "Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of t",
-      "url": "https://arxiv.org/abs/2611.26627",
-      "arxiv_id": "2611.26627",
+      "title": "Tight Probabilistic Aspects of Friends-and-Strangers Graphs",
+      "abstract_snippet": "Friends-and-strangers graphs, introduced by Defant and Kravitz, model arrangements of people on positions. We consider two graphs $X$ and $Y$ on $n$ vertices. The vertices of $X$ represent positions with edges denoting adjacencies while the vertices of $Y$ represent people with edges denoting friendships. Their \\emph{friends-and-strangers graph} is denoted by $\\mathsf{FS}(X,Y)$. Its vertices are a",
+      "url": "https://arxiv.org/abs/2611.27207",
+      "arxiv_id": "2611.27207",
       "doi": "",
       "authors": [
-        "Tuna Han Salih Meral",
-        "Kaan Oktay",
-        "Alec Helbling",
-        "Atakan Kara",
-        "Duen Horng Chau",
-        "Pinar Yanardag"
+        "Neil Krishnan"
       ],
       "year": 2026,
       "tags": [
@@ -28,17 +23,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T02:27:26Z"
+      "fetched_at": "2026-11-23T02:54:28Z"
     },
     {
       "source": "arxiv",
-      "title": "Quasipolynomial pyjamas",
-      "abstract_snippet": "The ``pyjama stripe\" $E(\\varepsilon)$ is the set of all complex numbers whose real part lies within $\\varepsilon$ of the nearest integer. The Pyjama Problem asks whether, for each $\\varepsilon &gt; 0$, there exists some union of finitely many rotations of $E(\\varepsilon)$ about the origin that covers the plane. This was answered in the affirmative by Manners. Kravitz and Leng subsequently showed t",
-      "url": "https://arxiv.org/abs/2611.26622",
-      "arxiv_id": "2611.26622",
+      "title": "LingSante-Pulse: Unified Physiological Pretraining through Random-Feature Prediction and Cross-Modal Alignment",
+      "abstract_snippet": "Clinical monitoring and wearable devices capture complementary physiological signals, but their partially overlapping modality coverage makes within-signal information and cross-modal relationships difficult to exploit jointly. We introduce LingSante-Pulse, a unified, general-purpose and flexible physiological representation framework that learns from these heterogeneous recordings. A shared, sign",
+      "url": "https://arxiv.org/abs/2611.27206",
+      "arxiv_id": "2611.27206",
       "doi": "",
       "authors": [
-        "Sida Li"
+        "Linxiao Yang",
+        "Wenwei Wang",
+        "Tian Zhou",
+        "Bingqing Peng",
+        "Zihao Zhang",
+        "Zuyi Zhu"
       ],
       "year": 2026,
       "tags": [
@@ -48,22 +48,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T02:27:26Z"
+      "fetched_at": "2026-11-23T02:54:28Z"
     },
     {
       "source": "arxiv",
-      "title": "TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming",
-      "abstract_snippet": "Hybrid architectures have become mainstream among open-weight language models. Their global-attention and bounded-state layers maintain heterogeneous caches whose demands vary with context length and concurrency. We present TideCache, a serving system on CPU--GPU superchips with three components for allocating GPU memory among caches and managing their residency across GPU and host memory. The Tra",
-      "url": "https://arxiv.org/abs/2611.26619",
-      "arxiv_id": "2611.26619",
+      "title": "Rigidity in the Lichnerowicz inequality for word-length semigroups",
+      "abstract_snippet": "We give an operator-algebraic characterization of Cayley graphs that are partial cubes, that is, embed isometrically into a hypercube. More precisely, noncommutative versions of the Lichnerowicz inequality control the spectral gap of the generator of a quantum Markov semigroup by the constant in the complete $Γ_2$-criterion of Junge and Zeng or the constant in the geometric Ricci criterion of Jung",
+      "url": "https://arxiv.org/abs/2611.27204",
+      "arxiv_id": "2611.27204",
       "doi": "",
       "authors": [
-        "Jinbin Luo",
-        "Xiaozhe Yao",
-        "Shang Yang",
-        "Zhijian Liu",
-        "Song Han",
-        "Qinghao Hu"
+        "Melchior Wirth"
       ],
       "year": 2026,
       "tags": [
@@ -73,22 +68,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T02:27:26Z"
+      "fetched_at": "2026-11-23T02:54:28Z"
     },
     {
       "source": "arxiv",
-      "title": "One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning",
-      "abstract_snippet": "Videos reveal how the world changes, but rarely the actions that cause those changes. Latent action learning recovers such supervision from visual transitions, yet often learns the underlying dynamics largely from scratch. We ask whether a pretrained video generator can instead provide the prior for both inverse and forward dynamics. We introduce O$^{2}$LaF, built on a simple principle: one prior,",
-      "url": "https://arxiv.org/abs/2611.26617",
-      "arxiv_id": "2611.26617",
+      "title": "Improved Accuracy Scaling with Problem Complexity in LLM Arithmetic Reasoning Using Executable Symbolic Representations",
+      "abstract_snippet": "High accuracy on mathematical benchmarks does not establish whether reasoning remains reliable as problem complexity increases. We examine how executable symbolic representations change accuracy scaling in large language models compared with natural-language reasoning. To address this limitation, we introduce the GSM Arithmetic Benchmark (GSM-AB), a controlled benchmark that independently varies o",
+      "url": "https://arxiv.org/abs/2611.27203",
+      "arxiv_id": "2611.27203",
       "doi": "",
       "authors": [
-        "Yuxin Jiang",
-        "Wenqiang Sun",
-        "Jiaqi Li",
-        "Yuchao Gu",
-        "Lvmin Zhang",
-        "Ivor Tsang"
+        "Yu-Bin Liu",
+        "Shi-Ju Ran"
       ],
       "year": 2026,
       "tags": [
@@ -98,18 +89,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T02:27:26Z"
+      "fetched_at": "2026-11-23T02:54:28Z"
     },
     {
       "source": "arxiv",
-      "title": "Variants of Beam Search for DiskANN",
-      "abstract_snippet": "Graph-based data structures such as DiskANN, HNSW, and NSG constitute the state of the art for large-scale approximate nearest-neighbor (ANN) search. Indyk and Xu introduced the notion of $α$-reachable graphs, which include graphs built by DiskANN's slow-preprocessing construction, and proved that greedy search achieves an approximation factor of $\\tfrac{α+1}{α-1}$. Independently, Al-Jazzazi et al",
-      "url": "https://arxiv.org/abs/2611.26609",
-      "arxiv_id": "2611.26609",
+      "title": "Backbone-Specific LoRA Geometry: Orthogonality, Superposition, and Provenance",
+      "abstract_snippet": "Sharing one low-rank adaptation (LoRA) update across pretrained models simplifies deployment. Composition methods typically combine updates from a common backbone, while cross-model transfer transforms updates for a target backbone. The conditions for sharing updates across backbones while preserving accuracy and distinguishing individual contributions remain unclear. Our idea is to use backbone-s",
+      "url": "https://arxiv.org/abs/2611.27201",
+      "arxiv_id": "2611.27201",
       "doi": "",
       "authors": [
-        "Viraj Agrawal",
-        "Kirankumar Shiragur"
+        "Kazuhiko Kawamoto",
+        "Keigo Watanabe",
+        "Hiroshi Kera"
       ],
       "year": 2026,
       "tags": [
@@ -119,7 +111,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T02:27:26Z"
+      "fetched_at": "2026-11-23T02:54:28Z"
     }
   ]
 }
