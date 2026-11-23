@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 718,
+ "cycle_index": 721,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -500,7 +500,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261123T221922Z_2e4a2b",
+  "cycle_id": "20261123T231927Z_f66cdd",
   "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
@@ -509,36 +509,33 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 180,
-     "duplicate": 21,
+     "fitted": 164,
+     "duplicate": 18,
      "trivial_formal": 3,
-     "trivial_shuffle_null": 4,
-     "trivial_idle_part": 3,
-     "trivial_implied_parts": 23,
+     "trivial_shuffle_null": 1,
+     "trivial_idle_part": 4,
+     "trivial_implied_parts": 32,
      "trivial_shared_operand": 0,
-     "trivial_growth_dominance": 0,
+     "trivial_growth_dominance": 1,
      "trivial_case_split": 0,
      "trivial_parity_rules": 0,
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 1,
-     "expected_by_closure": 6,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 2,
      "loose_inequality": 0,
-     "tested": 19,
-     "survived": 9,
-     "falsified": 10,
-     "machine_checked": 6,
+     "tested": 13,
+     "survived": 2,
+     "falsified": 11,
+     "machine_checked": 2,
      "surprises": 0,
      "known_result": 0,
-     "oeis_known": 2,
+     "oeis_known": 0,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "no_reference_found": 1,
-     "explained_by_known_check": 1,
-     "trivial_confirmed on range": 4,
-     "trivial_known_in_principle(definition_parity)": 1
+     "trivial_confirmed on range": 3
     }
    },
    {
@@ -552,31 +549,29 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A290744_0"
+     "oc_A321775_0"
     ]
    },
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A131607_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    }
   ],
-  "actions": 3,
-  "cpu_s": 73.352
+  "actions": 2,
+  "cpu_s": 69.335
  },
  "last_skip": {
-  "cycle_id": "20261123T221922Z_2e4a2b",
-  "reason": "hive_rule_trial_open"
+  "cycle_id": "20261123T231927Z_f66cdd",
+  "reason": "self_heal_trial_open"
  },
  "kept_count": 4,
  "reverted_count": 16,
  "inconclusive_count": 0,
  "voided_count": 10,
  "heal_turn": null,
- "last_propose_cycle": "20261123T182437Z_d10804",
+ "last_propose_cycle": "20261123T230833Z_14ff7c",
  "operator_stats": {
   "add": {
    "tried": 7,

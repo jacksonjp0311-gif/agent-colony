@@ -70,7 +70,7 @@
       "concepts": 40,
       "distinct_concepts": 9,
       "papers": 57,
-      "reads": 48
+      "reads": 49
     },
     "open_endedness": {
       "cards_formed": 43,
@@ -115,7 +115,7 @@
       "concepts": 14,
       "distinct_concepts": 4,
       "papers": 29,
-      "reads": 48
+      "reads": 49
     },
     "swarm_collective_intelligence": {
       "cards_formed": 10,
@@ -124,7 +124,7 @@
       "concepts": 11,
       "distinct_concepts": 2,
       "papers": 12,
-      "reads": 48
+      "reads": 49
     }
   },
   "fields_with_papers": 14,
@@ -273,6 +273,6 @@
     "cards_tested": 2,
     "concepts": 228,
     "papers": 453,
-    "reads": 721
+    "reads": 724
   }
 }
