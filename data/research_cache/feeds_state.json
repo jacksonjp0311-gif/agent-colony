@@ -1,15 +1,31 @@
 {
   "ci_health": {
     "completed": 10,
-    "fetched_at": "2026-11-23T08:15:22Z",
+    "fetched_at": "2026-11-23T09:20:18Z",
     "runs": [
+      {
+        "conclusion": null,
+        "created_at": "2026-11-23T09:19:18Z",
+        "id": 45145950694,
+        "name": "Colony evolve",
+        "status": "pending",
+        "updated_at": "2026-11-23T09:19:19Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-23T09:17:42Z",
+        "id": 45145712880,
+        "name": "Colony watch",
+        "status": "completed",
+        "updated_at": "2026-11-23T09:19:16Z"
+      },
       {
         "conclusion": null,
         "created_at": "2026-11-23T08:13:37Z",
         "id": 45136893193,
         "name": "Colony evolve",
-        "status": "pending",
-        "updated_at": "2026-11-23T08:13:37Z"
+        "status": "in_progress",
+        "updated_at": "2026-11-23T09:18:46Z"
       },
       {
         "conclusion": "success",
@@ -20,12 +36,12 @@
         "updated_at": "2026-11-23T08:13:34Z"
       },
       {
-        "conclusion": null,
+        "conclusion": "success",
         "created_at": "2026-11-23T07:53:50Z",
         "id": 45134423043,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-23T08:13:39Z"
+        "status": "completed",
+        "updated_at": "2026-11-23T09:17:38Z"
       },
       {
         "conclusion": "success",
@@ -82,25 +98,9 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-23T02:50:47Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-23T01:36:34Z",
-        "id": 45095515855,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-23T02:23:53Z"
-      },
-      {
-        "conclusion": "failure",
-        "created_at": "2026-11-23T01:02:43Z",
-        "id": 45092273737,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-23T01:36:37Z"
       }
     ],
-    "success_rate": 0.4
+    "success_rate": 0.5
   },
   "health": {
     "arxiv": {
@@ -167,7 +167,7 @@
         "skipped": "ttl"
       }
     },
-    "ts": "2026-11-23T08:15:22Z"
+    "ts": "2026-11-23T09:20:17Z"
   },
-  "runs": 567
+  "runs": 568
 }

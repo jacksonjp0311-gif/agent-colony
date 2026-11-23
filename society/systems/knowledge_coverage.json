@@ -67,13 +67,13 @@
       "cards_formed": 9,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 35,
+      "concepts": 40,
       "distinct_concepts": 9,
-      "papers": 49,
-      "reads": 45
+      "papers": 57,
+      "reads": 46
     },
     "open_endedness": {
-      "cards_formed": 40,
+      "cards_formed": 43,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 41,
@@ -109,22 +109,22 @@
       "reads": 45
     },
     "self_learning_loops": {
-      "cards_formed": 5,
+      "cards_formed": 6,
       "cards_kept": 0,
       "cards_tested": 1,
       "concepts": 14,
       "distinct_concepts": 4,
-      "papers": 25,
-      "reads": 45
+      "papers": 29,
+      "reads": 46
     },
     "swarm_collective_intelligence": {
-      "cards_formed": 9,
+      "cards_formed": 10,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 10,
+      "concepts": 11,
       "distinct_concepts": 2,
-      "papers": 11,
-      "reads": 45
+      "papers": 12,
+      "reads": 46
     }
   },
   "fields_with_papers": 14,
@@ -184,7 +184,7 @@
         "physics_complex_systems"
       ],
       "idea": "specialist_routing",
-      "n_papers": 25
+      "n_papers": 30
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -212,7 +212,7 @@
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 12
+      "n_papers": 13
     },
     {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
@@ -268,11 +268,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 109,
+    "cards_formed": 114,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 219,
-    "papers": 423,
-    "reads": 676
+    "concepts": 225,
+    "papers": 436,
+    "reads": 679
   }
 }

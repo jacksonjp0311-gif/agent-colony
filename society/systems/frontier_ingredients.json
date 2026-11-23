@@ -29,198 +29,6 @@
      "explained_by_known_check": 0,
      "explained_by_reference": 0,
      "fresh": 9,
-     "machine_checked": 2,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 9,
-     "surprise": 0,
-     "survived": 2,
-     "tested": 2
-    },
-    "matrix": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 5,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 6,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    },
-    "partition": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 13,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 14,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 2
-    }
-   },
-   "cycle_id": "20261122T223244Z_67a591",
-   "mode": "live",
-   "survivors": [
-    {
-     "hunt_value": 0.0,
-     "label": "machine-checked (certificate)",
-     "oeis": [
-      "primitive"
-     ],
-     "prediction": 0.9331,
-     "statement": "a(n) = chrom_cycle3(n) satisfies a(n+2) = 2*a(n+0) + 1*a(n+1)",
-     "unknown": false
-    },
-    {
-     "hunt_value": 0.0,
-     "label": "machine-checked (certificate)",
-     "oeis": [
-      "found"
-     ],
-     "prediction": 0.9331,
-     "statement": "a(n) = dbl(chrom_cycle3)(n) satisfies a(n+2) = -4*a(n+0) + 5*a(n+1)",
-     "unknown": false
-    }
-   ]
-  },
-  {
-   "by_group": {
-    "graph": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 23,
-     "machine_checked": 2,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 24,
-     "surprise": 0,
-     "survived": 2,
-     "tested": 2
-    },
-    "matrix": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 5,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 5,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    },
-    "partition": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 5,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 6,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    }
-   },
-   "cycle_id": "20261122T223244Z_67a591",
-   "mode": "live",
-   "survivors": [
-    {
-     "hunt_value": 0.0,
-     "label": "machine-checked (certificate)",
-     "oeis": [
-      "not_found"
-     ],
-     "prediction": 0.9332,
-     "statement": "a(n) = dbl(stree_ladder)(n) satisfies a(n+2) = -1*a(n+0) + 14*a(n+1)",
-     "unknown": false
-    },
-    {
-     "hunt_value": 0.0,
-     "label": "machine-checked (certificate)",
-     "oeis": [
-      "not_found"
-     ],
-     "prediction": 0.9332,
-     "statement": "a(n) = D(chrom_grid3)(n) satisfies a(n+2) = -2*a(n+0) + 5*a(n+1)",
-     "unknown": false
-    }
-   ]
-  },
-  {
-   "by_group": {
-    "graph": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 23,
-     "machine_checked": 2,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 23,
-     "surprise": 0,
-     "survived": 2,
-     "tested": 2
-    },
-    "matrix": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 5,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 6,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    },
-    "partition": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 5,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 1,
-     "produced": 7,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 1
-    }
-   },
-   "cycle_id": "20261122T230426Z_3676ca",
-   "mode": "live",
-   "survivors": [
-    {
-     "hunt_value": 0.0,
-     "label": "machine-checked (certificate)",
-     "oeis": [
-      "found"
-     ],
-     "prediction": 0.9332,
-     "statement": "a(n) = sh(chrom_grid3)(n) satisfies a(n+2) = -2*a(n+0) + 5*a(n+1)",
-     "unknown": false
-    },
-    {
-     "hunt_value": 0.0,
-     "label": "machine-checked (certificate)",
-     "oeis": [
-      "not_found"
-     ],
-     "prediction": 0.9332,
-     "statement": "a(n) = D(chrom_grid3)(n) satisfies a(n+2) = -2*a(n+0) + 5*a(n+1)",
-     "unknown": false
-    }
-   ]
-  },
-  {
-   "by_group": {
-    "graph": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 9,
      "machine_checked": 0,
      "no_reference_found": 0,
      "passed_filter": 0,
@@ -1992,6 +1800,198 @@
      "unknown": false
     }
    ]
+  },
+  {
+   "by_group": {
+    "graph": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 11,
+     "machine_checked": 2,
+     "no_reference_found": 0,
+     "passed_filter": 2,
+     "produced": 11,
+     "surprise": 0,
+     "survived": 2,
+     "tested": 2
+    },
+    "matrix": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 4,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 5,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    },
+    "partition": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 18,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 5,
+     "produced": 18,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 5
+    }
+   },
+   "cycle_id": "20261123T092851Z_4a3665",
+   "mode": "live",
+   "survivors": [
+    {
+     "hunt_value": 0.0,
+     "label": "machine-checked (certificate)",
+     "oeis": [
+      "found"
+     ],
+     "prediction": 0.9327,
+     "statement": "a(n) = sh(chrom_grid3)(n) satisfies a(n+2) = -2*a(n+0) + 5*a(n+1)",
+     "unknown": false
+    },
+    {
+     "hunt_value": 0.0,
+     "label": "machine-checked (certificate)",
+     "oeis": [
+      "not_found"
+     ],
+     "prediction": 0.9328,
+     "statement": "a(n) = S(chrom_grid3)(n) satisfies a(n+3) = 2*a(n+0) + -7*a(n+1) + 6*a(n+2)",
+     "unknown": false
+    }
+   ]
+  },
+  {
+   "by_group": {
+    "graph": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 14,
+     "machine_checked": 2,
+     "no_reference_found": 0,
+     "passed_filter": 2,
+     "produced": 14,
+     "surprise": 0,
+     "survived": 2,
+     "tested": 2
+    },
+    "matrix": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 10,
+     "machine_checked": 1,
+     "no_reference_found": 0,
+     "passed_filter": 2,
+     "produced": 10,
+     "surprise": 0,
+     "survived": 1,
+     "tested": 2
+    },
+    "partition": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 13,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 3,
+     "produced": 15,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 3
+    }
+   },
+   "cycle_id": "20261123T093738Z_8c18b1",
+   "mode": "live",
+   "survivors": [
+    {
+     "hunt_value": 0.0,
+     "label": "machine-checked (certificate)",
+     "oeis": [
+      "not_found"
+     ],
+     "prediction": 0.9328,
+     "statement": "a(n) = dbl(chrom_wheel5)(n) satisfies a(n+2) = -9*a(n+0) + 10*a(n+1)",
+     "unknown": false
+    },
+    {
+     "hunt_value": 0.0,
+     "label": "machine-checked (certificate)",
+     "oeis": [
+      "not_found"
+     ],
+     "prediction": 0.9328,
+     "statement": "a(n) = D(tr_tribo)(n) satisfies a(n+3) = 1*a(n+0) + 1*a(n+1) + 1*a(n+2)",
+     "unknown": false
+    },
+    {
+     "hunt_value": 0.0,
+     "label": "machine-checked (certificate)",
+     "oeis": [
+      "not_found"
+     ],
+     "prediction": 0.9328,
+     "statement": "a(n) = D(chrom_cycle3)(n) satisfies a(n+2) = 2*a(n+0) + 1*a(n+1)",
+     "unknown": false
+    }
+   ]
+  },
+  {
+   "by_group": {
+    "graph": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 25,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 27,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    },
+    "matrix": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 9,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 9,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    },
+    "partition": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 8,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 9,
+     "surprise": 0,
+     "survived": 1,
+     "tested": 1
+    }
+   },
+   "cycle_id": "20261123T094634Z_f535c6",
+   "mode": "live",
+   "survivors": [
+    {
+     "hunt_value": 0.0,
+     "label": "conjecture surviving 398 checks",
+     "oeis": [
+      "primitive"
+     ],
+     "prediction": 0.0927,
+     "statement": "pdist(n) = 0 (mod 2) for all n = 3 (mod 5)",
+     "unknown": false
+    }
+   ]
   }
  ],
  "mode": "live",
@@ -2000,38 +2000,38 @@
   "chrom_cycle3": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 4255,
-   "machine_checked": 588,
+   "fresh": 4263,
+   "machine_checked": 589,
    "no_reference_found": 1,
-   "passed_filter": 666,
-   "produced": 4404,
+   "passed_filter": 667,
+   "produced": 4412,
    "surprise": 1,
-   "survived": 591,
-   "tested": 666
+   "survived": 592,
+   "tested": 667
   },
   "chrom_grid3": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 4359,
-   "machine_checked": 596,
+   "fresh": 4369,
+   "machine_checked": 598,
    "no_reference_found": 0,
-   "passed_filter": 638,
-   "produced": 4584,
+   "passed_filter": 640,
+   "produced": 4594,
    "surprise": 0,
-   "survived": 596,
-   "tested": 638
+   "survived": 598,
+   "tested": 640
   },
   "chrom_wheel5": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 4953,
-   "machine_checked": 579,
+   "fresh": 4965,
+   "machine_checked": 580,
    "no_reference_found": 0,
-   "passed_filter": 703,
-   "produced": 5322,
+   "passed_filter": 704,
+   "produced": 5334,
    "surprise": 0,
-   "survived": 579,
-   "tested": 703
+   "survived": 580,
+   "tested": 704
   },
   "hankel_part": {
    "explained_by_known_check": 0,
@@ -2048,11 +2048,11 @@
   "indep_grid3": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 6518,
+   "fresh": 6521,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 132,
-   "produced": 7142,
+   "produced": 7147,
    "surprise": 0,
    "survived": 0,
    "tested": 132
@@ -2060,11 +2060,11 @@
   "match_ladder": {
    "explained_by_known_check": 1,
    "explained_by_reference": 0,
-   "fresh": 3966,
+   "fresh": 3970,
    "machine_checked": 521,
    "no_reference_found": 2,
    "passed_filter": 597,
-   "produced": 4115,
+   "produced": 4119,
    "surprise": 1,
    "survived": 527,
    "tested": 597
@@ -2072,23 +2072,23 @@
   "pdist": {
    "explained_by_known_check": 2,
    "explained_by_reference": 0,
-   "fresh": 4112,
+   "fresh": 4126,
    "machine_checked": 0,
    "no_reference_found": 7,
-   "passed_filter": 405,
-   "produced": 4776,
+   "passed_filter": 409,
+   "produced": 4790,
    "surprise": 5,
-   "survived": 175,
-   "tested": 405
+   "survived": 176,
+   "tested": 409
   },
   "perm_derange": {
    "explained_by_known_check": 2,
    "explained_by_reference": 0,
-   "fresh": 6418,
+   "fresh": 6429,
    "machine_checked": 0,
    "no_reference_found": 7,
    "passed_filter": 168,
-   "produced": 6940,
+   "produced": 6952,
    "surprise": 7,
    "survived": 53,
    "tested": 168
@@ -2096,47 +2096,47 @@
   "ple3": {
    "explained_by_known_check": 1,
    "explained_by_reference": 0,
-   "fresh": 4894,
+   "fresh": 4900,
    "machine_checked": 1,
    "no_reference_found": 10,
-   "passed_filter": 633,
-   "produced": 5767,
+   "passed_filter": 634,
+   "produced": 5773,
    "surprise": 9,
    "survived": 42,
-   "tested": 633
+   "tested": 634
   },
   "pnot3": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 4055,
+   "fresh": 4069,
    "machine_checked": 0,
    "no_reference_found": 8,
-   "passed_filter": 427,
-   "produced": 4962,
+   "passed_filter": 430,
+   "produced": 4979,
    "surprise": 8,
    "survived": 25,
-   "tested": 427
+   "tested": 430
   },
   "prr": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 3763,
+   "fresh": 3768,
    "machine_checked": 0,
    "no_reference_found": 3,
-   "passed_filter": 466,
-   "produced": 4299,
+   "passed_filter": 467,
+   "produced": 4304,
    "surprise": 3,
    "survived": 10,
-   "tested": 466
+   "tested": 467
   },
   "stree_grid3": {
    "explained_by_known_check": 5,
    "explained_by_reference": 0,
-   "fresh": 5823,
+   "fresh": 5833,
    "machine_checked": 32,
    "no_reference_found": 11,
    "passed_filter": 247,
-   "produced": 6191,
+   "produced": 6201,
    "surprise": 7,
    "survived": 64,
    "tested": 247
@@ -2144,11 +2144,11 @@
   "stree_ladder": {
    "explained_by_known_check": 3,
    "explained_by_reference": 0,
-   "fresh": 4211,
+   "fresh": 4214,
    "machine_checked": 545,
    "no_reference_found": 8,
    "passed_filter": 686,
-   "produced": 4498,
+   "produced": 4501,
    "surprise": 5,
    "survived": 557,
    "tested": 686
@@ -2156,26 +2156,26 @@
   "tr_petersen": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 4451,
+   "fresh": 4458,
    "machine_checked": 501,
    "no_reference_found": 1,
-   "passed_filter": 658,
-   "produced": 4743,
+   "passed_filter": 659,
+   "produced": 4750,
    "surprise": 1,
    "survived": 502,
-   "tested": 658
+   "tested": 659
   },
   "tr_tribo": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3760,
-   "machine_checked": 494,
+   "fresh": 3765,
+   "machine_checked": 495,
    "no_reference_found": 0,
-   "passed_filter": 582,
-   "produced": 3915,
+   "passed_filter": 583,
+   "produced": 3920,
    "surprise": 0,
-   "survived": 494,
-   "tested": 582
+   "survived": 495,
+   "tested": 583
   }
  }
 }
