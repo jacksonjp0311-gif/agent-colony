@@ -931,3 +931,14 @@
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6759", "base": -167, "foreign": 0, "with_prior": -167, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6759", "base": -36, "foreign": 0, "with_prior": -36, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6759", "base": -36, "foreign": 0, "with_prior": -36, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=perturb_epsilon:value=0.3585", "base": -72, "foreign": 0, "with_prior": -72, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6759", "base": -167, "foreign": 0, "with_prior": -167, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -72, "foreign": 0, "with_prior": -72, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7", "base": -117, "foreign": 0, "with_prior": -117, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target=oc_A126931_0:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6759", "base": -36, "foreign": 0, "with_prior": -36, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7", "base": -117, "foreign": 0, "with_prior": -117, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target=oc_A126931_0:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6037", "base": 195, "foreign": 0, "with_prior": 195, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 285, "foreign": 0, "with_prior": 285, "outcome": "ranked"}
