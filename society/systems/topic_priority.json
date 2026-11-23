@@ -56,22 +56,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$k$-inducible",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$k_k$-free",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "$k_t$-minor-free",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "`meta-learning`",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "area-depth",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -82,6 +77,11 @@
     },
     {
       "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-23T02:06:10Z",
-  "updated_cycle": "20261123T020138Z_ae450e",
+  "updated_at": "2026-11-23T07:52:31Z",
+  "updated_cycle": "20261123T074650Z_3e55fb",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

@@ -1,24 +1,22 @@
 {
-  "last_attempt_at": "2026-11-23T01:46:21Z",
+  "last_attempt_at": "2026-11-23T07:28:00Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-23T01:46:21Z",
+  "last_ok_at": "2026-11-23T07:28:00Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "RL Post-Training in Diffusion Transformers Is Activation Steering",
-      "abstract_snippet": "Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of t",
-      "url": "https://arxiv.org/abs/2611.26627",
-      "arxiv_id": "2611.26627",
+      "title": "Optimal Linear Regression Without a Variance",
+      "abstract_snippet": "We study high-probability linear regression in the infinite variance regime, wherecthe regression noise has only a finite conditional $α$-moment $ν$ for some unknown $α\\in(1,2)$, and the covariates may only have finite moments up to a given order (e.g., 4th moment). We give a black-box reduction that converts finite-variance regression procedures into weak-moment procedures. The reduction is based",
+      "url": "https://arxiv.org/abs/2611.27983",
+      "arxiv_id": "2611.27983",
       "doi": "",
       "authors": [
-        "Tuna Han Salih Meral",
-        "Kaan Oktay",
-        "Alec Helbling",
-        "Atakan Kara",
-        "Duen Horng Chau",
-        "Pinar Yanardag"
+        "Artin Tajdini",
+        "Jasper C. H. Lee",
+        "Jonathan Scarlett",
+        "Kevin Jamieson"
       ],
       "year": 2026,
       "tags": [
@@ -28,17 +26,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T01:46:21Z"
+      "fetched_at": "2026-11-23T07:28:00Z"
     },
     {
       "source": "arxiv",
-      "title": "Quasipolynomial pyjamas",
-      "abstract_snippet": "The ``pyjama stripe\" $E(\\varepsilon)$ is the set of all complex numbers whose real part lies within $\\varepsilon$ of the nearest integer. The Pyjama Problem asks whether, for each $\\varepsilon &gt; 0$, there exists some union of finitely many rotations of $E(\\varepsilon)$ about the origin that covers the plane. This was answered in the affirmative by Manners. Kravitz and Leng subsequently showed t",
-      "url": "https://arxiv.org/abs/2611.26622",
-      "arxiv_id": "2611.26622",
+      "title": "A Methodologically Rigorous Benchmark of Linear Regression,RNN, and LSTM for S&amp;P 500 Forecasting:Identifying Sources of Performance Inflation in Financial DeepLearning",
+      "abstract_snippet": "This study examines one-day-ahead forecasting of the S&amp;P 500 closing level using a 2006-2025 dataset that includes fundamental price data, macroeconomic indicators, and engineered technical features. We benchmark three model families, namely linear regression, vanilla recurrent neural networks (RNN), and long short-term memory networks (LSTM), within a unified preprocessing and chronological e",
+      "url": "https://arxiv.org/abs/2611.27978",
+      "arxiv_id": "2611.27978",
       "doi": "",
       "authors": [
-        "Sida Li"
+        "Hari Sitaula",
+        "Joseph Opitz"
       ],
       "year": 2026,
       "tags": [
@@ -48,22 +47,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T01:46:21Z"
+      "fetched_at": "2026-11-23T07:28:00Z"
     },
     {
       "source": "arxiv",
-      "title": "TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming",
-      "abstract_snippet": "Hybrid architectures have become mainstream among open-weight language models. Their global-attention and bounded-state layers maintain heterogeneous caches whose demands vary with context length and concurrency. We present TideCache, a serving system on CPU--GPU superchips with three components for allocating GPU memory among caches and managing their residency across GPU and host memory. The Tra",
-      "url": "https://arxiv.org/abs/2611.26619",
-      "arxiv_id": "2611.26619",
+      "title": "On the Complete Feature Set for ADHD Classification in Children and Adolescents Based on EEG Signals",
+      "abstract_snippet": "Attention-deficit/hyperactivity disorder is a neurodevelopmental condition that can affect attention, activity and impulse control. Electroencephalography (EEG) records brain activity as children and adolescents perform cognitive tasks. However, comparing features derived from these recordings requires consistent signal preparation, shared analysis windows and documented quality decisions. We cura",
+      "url": "https://arxiv.org/abs/2611.27970",
+      "arxiv_id": "2611.27970",
       "doi": "",
       "authors": [
-        "Jinbin Luo",
-        "Xiaozhe Yao",
-        "Shang Yang",
-        "Zhijian Liu",
-        "Song Han",
-        "Qinghao Hu"
+        "Javier Sanchis",
+        "Álvaro Navarro",
+        "Jorge García-Carrasco",
+        "Tahar Kechadi",
+        "Juan Trujillo"
       ],
       "year": 2026,
       "tags": [
@@ -73,22 +71,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T01:46:21Z"
+      "fetched_at": "2026-11-23T07:28:00Z"
     },
     {
       "source": "arxiv",
-      "title": "One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning",
-      "abstract_snippet": "Videos reveal how the world changes, but rarely the actions that cause those changes. Latent action learning recovers such supervision from visual transitions, yet often learns the underlying dynamics largely from scratch. We ask whether a pretrained video generator can instead provide the prior for both inverse and forward dynamics. We introduce O$^{2}$LaF, built on a simple principle: one prior,",
-      "url": "https://arxiv.org/abs/2611.26617",
-      "arxiv_id": "2611.26617",
+      "title": "Recognizing $k$-inducible Digraphs is NP-complete",
+      "abstract_snippet": "A digraph is k-inducible if its arcs correspond to the pairwise majority relation of a preference profile with k voters. By McGarvey's theorem, every asymmetric digraph is k-inducible for some k, but for every fixed k there are digraphs that are not k-inducible. Whether a digraph is 1-inducible or 2-inducible can easily be decided in polynomial time. The complexity of deciding whether a digraph is",
+      "url": "https://arxiv.org/abs/2611.27965",
+      "arxiv_id": "2611.27965",
       "doi": "",
       "authors": [
-        "Yuxin Jiang",
-        "Wenqiang Sun",
-        "Jiaqi Li",
-        "Yuchao Gu",
-        "Lvmin Zhang",
-        "Ivor Tsang"
+        "Felix Brandt",
+        "Fabian Frank"
       ],
       "year": 2026,
       "tags": [
@@ -98,18 +92,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T01:46:21Z"
+      "fetched_at": "2026-11-23T07:28:00Z"
     },
     {
       "source": "arxiv",
-      "title": "Variants of Beam Search for DiskANN",
-      "abstract_snippet": "Graph-based data structures such as DiskANN, HNSW, and NSG constitute the state of the art for large-scale approximate nearest-neighbor (ANN) search. Indyk and Xu introduced the notion of $α$-reachable graphs, which include graphs built by DiskANN's slow-preprocessing construction, and proved that greedy search achieves an approximation factor of $\\tfrac{α+1}{α-1}$. Independently, Al-Jazzazi et al",
-      "url": "https://arxiv.org/abs/2611.26609",
-      "arxiv_id": "2611.26609",
+      "title": "Model Carving: Training Transformers That Optimize Their Own Topology",
+      "abstract_snippet": "Machine learning has largely kept separate the choice of architecture and the process of training. A classic Transformer, for instance, trains a fixed set of attention and MLP sublayers at every layer, in the same order, and optimizes the weights within. This uniformity is a convention rather than a principled design choice, and it is likely suboptimal: the best architecture for a given task may b",
+      "url": "https://arxiv.org/abs/2611.27962",
+      "arxiv_id": "2611.27962",
       "doi": "",
       "authors": [
-        "Viraj Agrawal",
-        "Kirankumar Shiragur"
+        "Kaden Zheng",
+        "Pratyusha Sharma"
       ],
       "year": 2026,
       "tags": [
@@ -119,7 +113,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-23T01:46:21Z"
+      "fetched_at": "2026-11-23T07:28:00Z"
     }
   ]
 }

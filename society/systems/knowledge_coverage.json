@@ -4,10 +4,10 @@
       "cards_formed": 1,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 4,
+      "concepts": 6,
       "distinct_concepts": 1,
-      "papers": 41,
-      "reads": 44
+      "papers": 49,
+      "reads": 45
     },
     "cognitive_science": {
       "cards_formed": 6,
@@ -73,22 +73,22 @@
       "reads": 45
     },
     "open_endedness": {
-      "cards_formed": 34,
+      "cards_formed": 37,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 33,
+      "concepts": 41,
       "distinct_concepts": 1,
-      "papers": 34,
-      "reads": 44
+      "papers": 42,
+      "reads": 45
     },
     "optimization_search": {
-      "cards_formed": 20,
+      "cards_formed": 23,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 34,
+      "concepts": 40,
       "distinct_concepts": 4,
-      "papers": 32,
-      "reads": 44
+      "papers": 37,
+      "reads": 45
     },
     "physics_complex_systems": {
       "cards_formed": 3,
@@ -158,7 +158,7 @@
         "recursive_self_improvement"
       ],
       "idea": "novelty_archive",
-      "n_papers": 39
+      "n_papers": 47
     },
     {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
@@ -267,11 +267,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 97,
+    "cards_formed": 103,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 199,
-    "papers": 393,
-    "reads": 670
+    "concepts": 215,
+    "papers": 414,
+    "reads": 673
   }
 }
