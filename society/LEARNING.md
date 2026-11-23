@@ -16,7 +16,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **1** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 100, correct 0, pending 100, accuracy 0‰
+- Hive shadow picks: resolved 97, correct 0, pending 103, accuracy 0‰
 
 ## Per method card
 
@@ -57,7 +57,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 436 papers across 14/14 fields, 225 concepts, 114 cards formed, 2 tested, 1 kept.
+knowledge: 437 papers across 14/14 fields, 225 concepts, 114 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -66,7 +66,7 @@ knowledge: 436 papers across 14/14 fields, 225 concepts, 114 cards formed, 2 tes
 | consciousness_self_models | 13 | 9 | 2 | 0 | 0 |
 | learning_theory | 20 | 23 | 1 | 0 | 0 |
 | mathematics | 71 | 0 | 0 | 0 | 0 |
-| meta_learning | 17 | 13 | 2 | 0 | 0 |
+| meta_learning | 18 | 13 | 2 | 0 | 0 |
 | multi_agent_systems | 12 | 7 | 2 | 0 | 0 |
 | neural_architecture | 57 | 40 | 9 | 0 | 0 |
 | open_endedness | 42 | 41 | 43 | 0 | 0 |

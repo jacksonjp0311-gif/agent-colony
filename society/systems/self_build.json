@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 676,
+ "cycle_index": 679,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -27,9 +27,13 @@
  },
  "trial": {
   "blueprint": {
-   "id": "bp_5525f9d018b79c13",
-   "signature": "5525f9d018b79c13",
+   "id": "bp_131b1c38899be5e7",
+   "signature": "131b1c38899be5e7",
    "steps": [
+    {
+     "component": "oeis_consensus_vote",
+     "n": 1
+    },
     {
      "component": "oeis_prediction_error",
      "n": 1
@@ -44,15 +48,45 @@
     }
    ],
    "parent": "bp_c67ed2dbddb00356",
-   "operator": "remove",
-   "evidence": [],
-   "weight": 0.25,
-   "added": [],
-   "evidence_detail": {},
+   "operator": "replace",
+   "evidence": [
+    "oeis_consensus_vote"
+   ],
+   "weight": 0.216667,
+   "added": [
+    {
+     "component": "oeis_consensus_vote",
+     "n": 1
+    }
+   ],
+   "evidence_detail": {
+    "oeis_consensus_vote": {
+     "papers": [
+      "2611.01081",
+      "2611.04370",
+      "2611.04504",
+      "2611.07618",
+      "2611.07996",
+      "2611.08615",
+      "2611.12953",
+      "2611.13161"
+     ],
+     "n_papers": 16,
+     "idea_rank": 2,
+     "cards": 13,
+     "lessons": 0,
+     "boost": 9.75
+    }
+   },
    "self_test": {
     "ok": true,
     "reason": "ok",
     "plan": [
+     {
+      "component": "oeis_consensus_vote",
+      "n": 1,
+      "planned": 1
+     },
      {
       "component": "oeis_prediction_error",
       "n": 1,
@@ -71,10 +105,10 @@
     ]
    }
   },
-  "opened_cycle_id": "20261123T082401Z_d5c234",
+  "opened_cycle_id": "20261123T103144Z_aef5af",
   "code_fp": "23ff778cc645c890e1f2c5dd4530bcad91491e133c63a914860d1972005a7833",
-  "opened_cycle_index": 671,
-  "open_row": 331,
+  "opened_cycle_index": 678,
+  "open_row": 333,
   "window_rows": 2,
   "baseline_gain": [
    0.0,
@@ -83,9 +117,9 @@
   "baseline_overlaps": [
    {
     "slot": "self_build",
-    "id": "bp_fee0f465b648dc3b",
-    "start": "2026-11-22T23:04:26Z",
-    "end": "2026-11-23T01:45:53Z",
+    "id": "bp_5525f9d018b79c13",
+    "start": "2026-11-23T08:24:01Z",
+    "end": "2026-11-23T10:21:31Z",
     "outcome": "reverted"
    }
   ]
@@ -407,6 +441,25 @@
    ],
    "id": "bp_fee0f465b648dc3b",
    "cycle_id": "20261123T014553Z_2fb5c8"
+  },
+  "5525f9d018b79c13": {
+   "outcome": "reverted",
+   "steps": [
+    {
+     "component": "oeis_prediction_error",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    },
+    {
+     "component": "oeis_calibrated_vote",
+     "n": 1
+    }
+   ],
+   "id": "bp_5525f9d018b79c13",
+   "cycle_id": "20261123T102131Z_81ebbe"
   }
  },
  "component_stats": {
@@ -423,7 +476,7 @@
    "inconclusive": 0
   },
   "oeis_consensus_vote": {
-   "tried": 4,
+   "tried": 5,
    "kept": 0,
    "reverted": 0,
    "inconclusive": 0
@@ -455,13 +508,13 @@
   "oeis_prediction_error": {
    "tried": 1,
    "kept": 1,
-   "reverted": 6,
+   "reverted": 7,
    "inconclusive": 0
   },
   "oeis_calibrated_vote": {
    "tried": 3,
    "kept": 2,
-   "reverted": 7,
+   "reverted": 8,
    "inconclusive": 0
   }
  },
@@ -522,9 +575,17 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261123T094634Z_f535c6",
-  "blueprint": "bp_5525f9d018b79c13",
+  "cycle_id": "20261123T104236Z_20f984",
+  "blueprint": "bp_131b1c38899be5e7",
   "ran": [
+   {
+    "component": "oeis_consensus_vote",
+    "n": 1,
+    "actions": 1,
+    "ids": [
+     "oc_A214946_0"
+    ]
+   },
    {
     "component": "oeis_prediction_error",
     "n": 1,
@@ -536,7 +597,7 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A214945_0"
+     "oc_A298793_0"
     ]
    },
    {
@@ -544,20 +605,20 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A208599_0"
+     "oc_A298795_0"
     ]
    }
   ],
-  "actions": 2,
-  "cpu_s": 61.765
+  "actions": 3,
+  "cpu_s": 109.936
  },
  "last_skip": null,
  "kept_count": 4,
- "reverted_count": 14,
+ "reverted_count": 15,
  "inconclusive_count": 0,
  "voided_count": 10,
  "heal_turn": null,
- "last_propose_cycle": "20261123T082401Z_d5c234",
+ "last_propose_cycle": "20261123T103144Z_aef5af",
  "operator_stats": {
   "add": {
    "tried": 7,
@@ -565,9 +626,9 @@
    "reverted": 3
   },
   "remove": {
-   "tried": 2,
+   "tried": 3,
    "kept": 0,
-   "reverted": 2
+   "reverted": 3
   },
   "insert_front": {
    "tried": 1,
