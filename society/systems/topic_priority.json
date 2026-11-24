@@ -51,6 +51,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$3$-uniform",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$\\ell_2$-norm",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -77,11 +82,6 @@
     },
     {
       "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-24T18:08:46Z",
-  "updated_cycle": "20261124T180532Z_c428e8",
+  "updated_at": "2026-11-24T19:06:24Z",
+  "updated_cycle": "20261124T190142Z_ed322c",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
