@@ -10,13 +10,13 @@
       "reads": 49
     },
     "cognitive_science": {
-      "cards_formed": 6,
+      "cards_formed": 7,
       "cards_kept": 1,
       "cards_tested": 1,
-      "concepts": 7,
+      "concepts": 8,
       "distinct_concepts": 3,
-      "papers": 14,
-      "reads": 49
+      "papers": 16,
+      "reads": 50
     },
     "consciousness_self_models": {
       "cards_formed": 2,
@@ -25,7 +25,7 @@
       "concepts": 9,
       "distinct_concepts": 4,
       "papers": 13,
-      "reads": 49
+      "reads": 50
     },
     "learning_theory": {
       "cards_formed": 1,
@@ -46,13 +46,13 @@
       "reads": 98
     },
     "meta_learning": {
-      "cards_formed": 2,
+      "cards_formed": 3,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 13,
+      "concepts": 14,
       "distinct_concepts": 3,
-      "papers": 18,
-      "reads": 50
+      "papers": 20,
+      "reads": 51
     },
     "multi_agent_systems": {
       "cards_formed": 2,
@@ -270,11 +270,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 125,
+    "cards_formed": 127,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 245,
-    "papers": 486,
-    "reads": 739
+    "concepts": 247,
+    "papers": 490,
+    "reads": 742
   }
 }
