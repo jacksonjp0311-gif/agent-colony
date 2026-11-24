@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "3-sat",
+      "topic": "$k$-fold",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -81,7 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "binary-encoded",
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-24T13:29:09Z",
-  "updated_cycle": "20261124T132555Z_486e57",
+  "updated_at": "2026-11-24T14:21:40Z",
+  "updated_cycle": "20261124T141738Z_446d2a",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
