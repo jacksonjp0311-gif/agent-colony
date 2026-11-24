@@ -1,7 +1,7 @@
 {
  "version": 1,
- "cycle_index": 763,
- "last_refill_index": 761,
+ "cycle_index": 766,
+ "last_refill_index": 764,
  "done_pages": {
   "4453a00f513ccdb5": {
    "cycle_id": "20261116T012311Z_c7865a",
@@ -4950,10 +4950,10 @@
   "A133602": "20261121T121901Z_60689e",
   "A083178": "20261121T140403Z_0705a0"
  },
- "refills": 252,
+ "refills": 253,
  "added": 459,
  "last": {
-  "cycle_id": "20261124T170123Z_b396cd",
+  "cycle_id": "20261124T175112Z_762116",
   "open_before": 3,
   "pages_read": 0,
   "pages_skipped_duplicate": 0,
@@ -4971,7 +4971,7 @@
   }
  },
  "run_requests": {
-  "run_id": "45441841080",
+  "run_id": "45451634701",
   "n": 0
  },
  "last_slot_refill_cycle": "20261124T131710Z_69d542",

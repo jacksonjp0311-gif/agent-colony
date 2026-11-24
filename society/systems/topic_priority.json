@@ -41,6 +41,11 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "$2^{n}-1$",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$3$-distance",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -57,11 +62,6 @@
     },
     {
       "topic": "$h$-vectors",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "$k$-connected",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-24T17:22:23Z",
-  "updated_cycle": "20261124T171846Z_f422f2",
+  "updated_at": "2026-11-24T18:08:46Z",
+  "updated_cycle": "20261124T180532Z_c428e8",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

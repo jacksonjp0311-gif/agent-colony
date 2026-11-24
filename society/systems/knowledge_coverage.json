@@ -10,13 +10,13 @@
       "reads": 51
     },
     "cognitive_science": {
-      "cards_formed": 7,
+      "cards_formed": 8,
       "cards_kept": 1,
       "cards_tested": 1,
-      "concepts": 8,
+      "concepts": 9,
       "distinct_concepts": 3,
-      "papers": 16,
-      "reads": 51
+      "papers": 17,
+      "reads": 52
     },
     "consciousness_self_models": {
       "cards_formed": 2,
@@ -25,7 +25,7 @@
       "concepts": 9,
       "distinct_concepts": 4,
       "papers": 13,
-      "reads": 51
+      "reads": 52
     },
     "learning_theory": {
       "cards_formed": 1,
@@ -51,8 +51,8 @@
       "cards_tested": 0,
       "concepts": 14,
       "distinct_concepts": 3,
-      "papers": 20,
-      "reads": 52
+      "papers": 22,
+      "reads": 53
     },
     "multi_agent_systems": {
       "cards_formed": 2,
@@ -243,39 +243,41 @@
       "n_papers": 13
     },
     {
-      "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
+      "description": "Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).",
       "examples": [
         {
-          "arxiv_id": "2611.17314",
-          "field": "meta_learning",
-          "title": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces"
+          "arxiv_id": "2611.17879",
+          "field": "neural_architecture",
+          "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning"
         },
         {
-          "arxiv_id": "2611.15923",
-          "field": "meta_learning",
-          "title": "Reinforcement Learning for Target Jerk Estimation in Interceptor Homing Phase"
+          "arxiv_id": "2610.37327",
+          "field": "cognitive_science",
+          "title": "Local learning is all you need: brain-aligned predictive coding networks"
         },
         {
-          "arxiv_id": "2611.15071",
-          "field": "meta_learning",
-          "title": "Improving Efficiency and Power in Small Rare-Disease Trials Through Prespecified, Data-Adaptive Covariate Adjustment"
+          "arxiv_id": "2611.16220",
+          "field": "physics_complex_systems",
+          "title": "Learning memory forces and bounding frequency errors in fractional Kuramoto grids"
         }
       ],
       "fields": [
-        "meta_learning",
-        "recursive_self_improvement",
-        "self_learning_loops"
+        "cognitive_science",
+        "learning_theory",
+        "neural_architecture",
+        "optimization_search",
+        "physics_complex_systems"
       ],
-      "idea": "meta_controller",
+      "idea": "prediction_error_routing",
       "n_papers": 11
     }
   ],
   "totals": {
-    "cards_formed": 145,
+    "cards_formed": 146,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 285,
-    "papers": 556,
-    "reads": 769
+    "concepts": 286,
+    "papers": 559,
+    "reads": 772
   }
 }

@@ -16,7 +16,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **6** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 64, correct 0, pending 136, accuracy 0‰
+- Hive shadow picks: resolved 61, correct 0, pending 139, accuracy 0‰
 
 ## Per method card
 
@@ -57,16 +57,16 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 556 papers across 14/14 fields, 285 concepts, 145 cards formed, 2 tested, 1 kept.
+knowledge: 559 papers across 14/14 fields, 286 concepts, 146 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | automated_reasoning | 61 | 8 | 2 | 0 | 0 |
-| cognitive_science | 16 | 8 | 7 | 1 | 1 |
+| cognitive_science | 17 | 9 | 8 | 1 | 1 |
 | consciousness_self_models | 13 | 9 | 2 | 0 | 0 |
 | learning_theory | 30 | 33 | 1 | 0 | 0 |
 | mathematics | 93 | 0 | 0 | 0 | 0 |
-| meta_learning | 20 | 14 | 3 | 0 | 0 |
+| meta_learning | 22 | 14 | 3 | 0 | 0 |
 | multi_agent_systems | 13 | 7 | 2 | 0 | 0 |
 | neural_architecture | 73 | 52 | 12 | 0 | 0 |
 | open_endedness | 57 | 57 | 59 | 0 | 0 |
@@ -82,7 +82,7 @@ knowledge: 556 papers across 14/14 fields, 285 concepts, 145 cards formed, 2 tes
 - `specialist_routing` — 40 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `swarm_topology` — 17 papers (multi_agent_systems, neural_architecture, open_endedness, optimization_search, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
 - `self_play_challenger` — 13 papers (recursive_self_improvement, self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
-- `meta_controller` — 11 papers (meta_learning, recursive_self_improvement, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
+- `prediction_error_routing` — 11 papers (cognitive_science, learning_theory, neural_architecture, optimization_search, physics_complex_systems): Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
