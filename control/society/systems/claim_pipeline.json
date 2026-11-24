@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-11-24T09:33:25Z",
-  "updated_cycle": "20261124T093040Z_30ea2e",
+  "updated_at": "2026-11-24T10:22:43Z",
+  "updated_cycle": "20261124T102007Z_67b37e",
   "n_claims": 1,
   "n_proposed": 0,
   "recent_claims": [
@@ -20,7 +20,7 @@
       "status": "rejected_raw",
       "hard_ok": false,
       "note": "lemma score=0.8674 hard_pass=187/187 \u2014 machine-checked harness only; not theorem discovery | theme_probe_cooldown:saturated_no_harder_window",
-      "ts": "2026-11-24T09:33:25Z",
+      "ts": "2026-11-24T10:22:43Z",
       "not_discovery": true
     }
   ],
