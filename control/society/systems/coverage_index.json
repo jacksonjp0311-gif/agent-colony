@@ -9,14 +9,14 @@
     "meta-learning": 1,
     "autogpt-loops": 1,
     "opendevin": 1,
-    "debate": 2306,
-    "agent-societies": 99339,
+    "debate": 2309,
+    "agent-societies": 99483,
     "recursive-self-improvement": 2,
-    "compute-useful-math": 3353,
+    "compute-useful-math": 3361,
     "mathematics-foundations": 1,
-    "open-math-problems": 10327
+    "open-math-problems": 10342
   },
   "source": "gather_pass",
-  "updated_at": "2026-11-24T06:40:41Z",
-  "updated_cycle": "20261124T063930Z_6065a8"
+  "updated_at": "2026-11-24T07:38:06Z",
+  "updated_cycle": "20261124T073612Z_c86c54"
 }
