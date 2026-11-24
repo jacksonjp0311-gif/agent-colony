@@ -1,22 +1,23 @@
 {
-  "last_attempt_at": "2026-11-24T05:48:11Z",
+  "last_attempt_at": "2026-11-24T06:40:52Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-24T05:48:11Z",
+  "last_ok_at": "2026-11-24T06:40:52Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Tabular Foundation Models for Weighted Regression and Classification",
-      "abstract_snippet": "Weighted regression and classification have applications ranging from missing-data analysis and causal inference to insurance pricing and particle physics. Existing weighted methods must be fitted and tuned on each dataset, which is costly for flexible nonlinear learners. Tabular foundation models avoid this cost. A Transformer is pretrained once on many simulated datasets and then predicts on a n",
-      "url": "https://arxiv.org/abs/2611.29789",
-      "arxiv_id": "2611.29789",
+      "title": "TrialAgentBench: Evaluating AI Agents for Clinical-Trial Analysis and Long-Horizon Drug-Development Decisions",
+      "abstract_snippet": "Clinical drug development is a long-horizon, high-stakes process requiring sequential decisions based on information that costs money and time to acquire. AI agents have demonstrated capabilities for scientific analysis, but there is no established way to evaluate them on these decisions, as real trials are expensive, involve people, and never reveal the counterfactual. We introduce TrialAgentBenc",
+      "url": "https://arxiv.org/abs/2611.30916",
+      "arxiv_id": "2611.30916",
       "doi": "",
       "authors": [
-        "Junwen Xia",
-        "Yan He",
-        "Dehan Kong",
-        "Zhenhua Lin"
+        "Bradley Segal",
+        "William Bolton",
+        "Philip Torr",
+        "David Clifton",
+        "Lei Clifton"
       ],
       "year": 2026,
       "tags": [
@@ -26,18 +27,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T05:48:12Z"
+      "fetched_at": "2026-11-24T06:40:52Z"
     },
     {
       "source": "arxiv",
-      "title": "Parity-safe digraphs with countably many ends are kernel-perfect",
-      "abstract_snippet": "A kernel of a digraph is an independent set that every other vertex points into, and a digraph is kernel-perfect if every induced subgraph has a kernel. A digraph without odd cycles in which no ray contains infinitely many vertices that each send an infinite fan of disjoint paths to that ray is safe. The conjecture that every safe digraph is kernel-perfect was proved earlier for digraphs with fini",
-      "url": "https://arxiv.org/abs/2611.29786",
-      "arxiv_id": "2611.29786",
+      "title": "Tight Analysis for Online Generalized Network Design with Power Functions",
+      "abstract_snippet": "We study the online generalized network design problem with heterogeneous power costs. Here, a sequence of $N$ requests arrive online, each of which needs to be assigned to some subset of available resources $E$. Each resource $e\\in E$ has its own coefficient $ξ_e&gt;0$ and exponent $p_e\\ge 1$, where the cost of a load vector $L\\in \\mathbb{R}^E_+$ is $Φ(L)=\\sum_{e\\in E}ξ_e L_e^{p_e}$. We provide a",
+      "url": "https://arxiv.org/abs/2611.30912",
+      "arxiv_id": "2611.30912",
       "doi": "",
       "authors": [
-        "Sjur Dyrkolbotn",
-        "Michal Walicki"
+        "Karl Li",
+        "Yanzhi Li",
+        "Viswanath Nagarajan"
       ],
       "year": 2026,
       "tags": [
@@ -47,17 +49,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T05:48:12Z"
+      "fetched_at": "2026-11-24T06:40:52Z"
     },
     {
       "source": "arxiv",
-      "title": "Commutative bishuffle algebras and Pattern Avoidance",
-      "abstract_snippet": "This paper introduces the notion of a commutative bishuffle algebra, that linearizes classical pattern avoidance. The free commutative bishuffle algebra on one generator has a basis of permutations, divisibility of monomials is pattern containment, and the classes of permutations avoiding given patterns are the monomial bases of its quotients by monomial ideals. This free algebra is not Noetherian",
-      "url": "https://arxiv.org/abs/2611.29782",
-      "arxiv_id": "2611.29782",
+      "title": "A Classification of Low Genus Modular Curves",
+      "abstract_snippet": "Let $G$ be an open subgroup of $\\mathrm{GL}_2(\\widehat{\\mathbb{Z}})$ satisfying $\\det(G)=\\widehat{\\mathbb{Z}}^{\\times}$ and $-I\\in G$. Associated to $G$, there is a modular curve $X_G$ defined over $\\mathbb{Q}$ which parametrizes elliptic curves with $G$-level structure. We give a classification of modular curves with genus equal to a fixed nonnegative integer $g$. In particular, we show that all ",
+      "url": "https://arxiv.org/abs/2611.30908",
+      "arxiv_id": "2611.30908",
       "doi": "",
       "authors": [
-        "Anton Khoroshkin"
+        "Eray Karabiyik"
       ],
       "year": 2026,
       "tags": [
@@ -67,18 +69,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T05:48:12Z"
+      "fetched_at": "2026-11-24T06:40:52Z"
     },
     {
       "source": "arxiv",
-      "title": "Constrained Diffusion from Binary Evaluations via Learned Doob h-Functions",
-      "abstract_snippet": "Conditional generation under constraints that can only be checked on a finished sample, such as a molecular property filter, remains challenging for diffusion models: most guidance methods require differentiable measurement operators, paired conditional data, or rollouts of the base model at every step. We present a framework grounded in the Doob $h$-transform that reduces conditional generation t",
-      "url": "https://arxiv.org/abs/2611.29779",
-      "arxiv_id": "2611.29779",
+      "title": "DexLatentWorld: 3D Cross-Embodiment Latent Action World Models for Zero-Shot Robotic Manipulation",
+      "abstract_snippet": "World models facilitate planning and control in robotic manipulation by enabling agents to anticipate the consequences of their actions. However, they typically rely on action-labelled interaction data that is costly to acquire and difficult to scale. These models are also often tied to the specific embodiment they were trained on, limiting transferability to previously unseen robot morphologies. ",
+      "url": "https://arxiv.org/abs/2611.30907",
+      "arxiv_id": "2611.30907",
       "doi": "",
       "authors": [
-        "Ssaumya Kammal Jaiswal",
-        "Mahfuza Farooque"
+        "Vinay Udit Mohan",
+        "Xuchuan Huang",
+        "Rolandos Alexandros Potamias"
       ],
       "year": 2026,
       "tags": [
@@ -88,22 +91,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T05:48:12Z"
+      "fetched_at": "2026-11-24T06:40:52Z"
     },
     {
       "source": "arxiv",
-      "title": "S1Arena-MM: Which Multimodal Decisions Can Be Left to System 1?",
-      "abstract_snippet": "Perception systems often make discrete decisions: flag a hateful meme, predict whether a pedestrian will cross, detect a spoofed voice, or select the next move in a game. System-1 models, such as OneJev and Jev-Omni, read the media and return probabilities over the options in a single forward pass, while multimodal large language models (MLLMs) generate text. Which multimodal decisions can System-",
-      "url": "https://arxiv.org/abs/2611.29773",
-      "arxiv_id": "2611.29773",
+      "title": "The number of non-isomorphic spanning trees in regular graphs",
+      "abstract_snippet": "By a classical theorem of Otter, the number of non-isomorphic trees on $n$ vertices is $α^n\\exp(-o(n))$, where $α\\approx 2.956$ is Otter's constant. We prove that every connected $d$-regular graph $G$ on $n$ vertices contains $α^n\\exp(-o_d(n))$ non-isomorphic spanning trees, where $o_d(n)/n\\to0$ as $d\\to\\infty$.",
+      "url": "https://arxiv.org/abs/2611.30899",
+      "arxiv_id": "2611.30899",
       "doi": "",
       "authors": [
-        "Lang Lin",
-        "Tianyu Chen",
-        "Yi Gu",
-        "Yang Zhao",
-        "Xinran Song",
-        "Xinyang Liu"
+        "Csongor Beke"
       ],
       "year": 2026,
       "tags": [
@@ -113,7 +111,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T05:48:12Z"
+      "fetched_at": "2026-11-24T06:40:52Z"
     }
   ]
 }

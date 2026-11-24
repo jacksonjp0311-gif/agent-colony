@@ -1,15 +1,23 @@
 {
   "ci_health": {
     "completed": 11,
-    "fetched_at": "2026-11-24T05:40:14Z",
+    "fetched_at": "2026-11-24T06:31:01Z",
     "runs": [
       {
         "conclusion": null,
+        "created_at": "2026-11-24T06:28:04Z",
+        "id": 45340659067,
+        "name": "Colony evolve",
+        "status": "in_progress",
+        "updated_at": "2026-11-24T06:29:24Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-11-24T05:37:33Z",
         "id": 45334635263,
         "name": "Colony evolve",
-        "status": "in_progress",
-        "updated_at": "2026-11-24T05:38:50Z"
+        "status": "completed",
+        "updated_at": "2026-11-24T06:28:07Z"
       },
       {
         "conclusion": "success",
@@ -90,14 +98,6 @@
         "name": "Colony evolve",
         "status": "completed",
         "updated_at": "2026-11-23T21:46:52Z"
-      },
-      {
-        "conclusion": "success",
-        "created_at": "2026-11-23T19:59:06Z",
-        "id": 45254572720,
-        "name": "Colony evolve",
-        "status": "completed",
-        "updated_at": "2026-11-23T20:48:45Z"
       }
     ],
     "success_rate": 1.0
@@ -105,23 +105,23 @@
   "health": {
     "arxiv": {
       "fail": 16,
-      "ok": 132
+      "ok": 133
     },
     "crossref": {
       "fail": 0,
-      "ok": 136
+      "ok": 137
     },
     "oeis": {
       "fail": 0,
-      "ok": 136
+      "ok": 137
     },
     "oeis_conj": {
       "fail": 1,
-      "ok": 132
+      "ok": 133
     },
     "wikipedia": {
       "fail": 0,
-      "ok": 136
+      "ok": 137
     }
   },
   "last_error": {
@@ -129,45 +129,50 @@
     "oeis_conj": "TypeError: _item() got multiple values for argument 'query'"
   },
   "last_ok": {
-    "arxiv": "2026-11-24T01:51:28Z",
-    "crossref": "2026-11-24T01:51:31Z",
-    "oeis": "2026-11-24T01:51:30Z",
-    "oeis_conj": "2026-11-24T01:51:31Z",
-    "wikipedia": "2026-11-24T01:51:32Z"
+    "arxiv": "2026-11-24T06:30:54Z",
+    "crossref": "2026-11-24T06:30:59Z",
+    "oeis": "2026-11-24T06:30:55Z",
+    "oeis_conj": "2026-11-24T06:30:56Z",
+    "wikipedia": "2026-11-24T06:31:00Z"
   },
   "last_run": {
     "sources": {
       "arxiv": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 8,
+        "new": 6,
+        "ok": true
       },
       "ci_health": {
         "new": 0,
         "ok": true
       },
       "crossref": {
-        "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "error": "",
+        "fetched": 5,
+        "new": 1,
+        "ok": true
       },
       "oeis": {
+        "error": "",
+        "fetched": 2,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "oeis_conj": {
+        "error": "",
+        "fetched": 9,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       },
       "wikipedia": {
+        "error": "",
+        "fetched": 0,
         "new": 0,
-        "ok": true,
-        "skipped": "ttl"
+        "ok": true
       }
     },
-    "ts": "2026-11-24T05:40:13Z"
+    "ts": "2026-11-24T06:30:51Z"
   },
-  "runs": 590
+  "runs": 591
 }

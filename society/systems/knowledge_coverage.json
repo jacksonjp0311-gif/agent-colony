@@ -4,10 +4,10 @@
       "cards_formed": 2,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 6,
-      "distinct_concepts": 1,
-      "papers": 52,
-      "reads": 49
+      "concepts": 8,
+      "distinct_concepts": 2,
+      "papers": 60,
+      "reads": 50
     },
     "cognitive_science": {
       "cards_formed": 7,
@@ -73,22 +73,22 @@
       "reads": 50
     },
     "open_endedness": {
-      "cards_formed": 50,
+      "cards_formed": 52,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 48,
+      "concepts": 56,
       "distinct_concepts": 2,
-      "papers": 48,
-      "reads": 49
+      "papers": 56,
+      "reads": 50
     },
     "optimization_search": {
-      "cards_formed": 23,
+      "cards_formed": 27,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 42,
-      "distinct_concepts": 4,
-      "papers": 39,
-      "reads": 49
+      "concepts": 52,
+      "distinct_concepts": 5,
+      "papers": 47,
+      "reads": 50
     },
     "physics_complex_systems": {
       "cards_formed": 3,
@@ -158,7 +158,7 @@
         "recursive_self_improvement"
       ],
       "idea": "novelty_archive",
-      "n_papers": 54
+      "n_papers": 62
     },
     {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
@@ -209,11 +209,12 @@
         "multi_agent_systems",
         "neural_architecture",
         "open_endedness",
+        "optimization_search",
         "physics_complex_systems",
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 15
+      "n_papers": 16
     },
     {
       "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
@@ -270,11 +271,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 127,
+    "cards_formed": 133,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 256,
-    "papers": 508,
-    "reads": 745
+    "concepts": 276,
+    "papers": 532,
+    "reads": 748
   }
 }
