@@ -57,21 +57,21 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 490 papers across 14/14 fields, 247 concepts, 127 cards formed, 2 tested, 1 kept.
+knowledge: 508 papers across 14/14 fields, 256 concepts, 127 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | automated_reasoning | 52 | 6 | 2 | 0 | 0 |
 | cognitive_science | 16 | 8 | 7 | 1 | 1 |
 | consciousness_self_models | 13 | 9 | 2 | 0 | 0 |
-| learning_theory | 22 | 25 | 1 | 0 | 0 |
-| mathematics | 80 | 0 | 0 | 0 | 0 |
+| learning_theory | 30 | 33 | 1 | 0 | 0 |
+| mathematics | 88 | 0 | 0 | 0 | 0 |
 | meta_learning | 20 | 14 | 3 | 0 | 0 |
 | multi_agent_systems | 13 | 7 | 2 | 0 | 0 |
 | neural_architecture | 65 | 45 | 10 | 0 | 0 |
 | open_endedness | 48 | 48 | 50 | 0 | 0 |
 | optimization_search | 39 | 42 | 23 | 0 | 0 |
-| physics_complex_systems | 28 | 10 | 3 | 0 | 0 |
+| physics_complex_systems | 30 | 11 | 3 | 0 | 0 |
 | recursive_self_improvement | 45 | 6 | 6 | 0 | 0 |
 | self_learning_loops | 33 | 15 | 7 | 1 | 0 |
 | swarm_collective_intelligence | 16 | 12 | 11 | 0 | 0 |

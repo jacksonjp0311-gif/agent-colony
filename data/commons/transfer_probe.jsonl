@@ -1315,3 +1315,7 @@
 {"fingerprint": "add_skip_rule:cycles=8:target=oc_A126931_0:target_kind=already_held_range", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6037", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=perturb_cooldown_cycles:value=7", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "add_skip_rule:cycles=8:target=oc_A126931_0:target_kind=already_held_range", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6037", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
