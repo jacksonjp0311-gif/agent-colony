@@ -1,23 +1,24 @@
 {
-  "last_attempt_at": "2026-11-24T08:33:42Z",
-  "last_status": 0,
+  "last_attempt_at": "2026-11-24T09:19:47Z",
+  "last_status": 200,
   "retry_after_until": null,
-  "last_error": "ReadTimeout: The read operation timed out",
-  "last_ok_at": "2026-11-24T08:00:23Z",
+  "last_error": "",
+  "last_ok_at": "2026-11-24T09:19:47Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "TrialAgentBench: Evaluating AI Agents for Clinical-Trial Analysis and Long-Horizon Drug-Development Decisions",
-      "abstract_snippet": "Clinical drug development is a long-horizon, high-stakes process requiring sequential decisions based on information that costs money and time to acquire. AI agents have demonstrated capabilities for scientific analysis, but there is no established way to evaluate them on these decisions, as real trials are expensive, involve people, and never reveal the counterfactual. We introduce TrialAgentBenc",
-      "url": "https://arxiv.org/abs/2611.30916",
-      "arxiv_id": "2611.30916",
+      "title": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
+      "abstract_snippet": "Reasoning vision-language-action (VLA) models for autonomous driving use chain-of-thought (CoT) reasoning to guide action generation, but incur substantial memory and computational costs. We study structured pruning for these models, focusing on preserving both scene understanding and trajectory prediction. Our analysis of Taylor importance in Alpamayo-1.5-10B shows that reasoning and trajectory o",
+      "url": "https://arxiv.org/abs/2611.31240",
+      "arxiv_id": "2611.31240",
       "doi": "",
       "authors": [
-        "Bradley Segal",
-        "William Bolton",
-        "Philip Torr",
-        "David Clifton",
-        "Lei Clifton"
+        "Seongchan Kim",
+        "Soowon Son",
+        "Sangoh Kim",
+        "Hyunah Ko",
+        "Eunbeen Hong",
+        "Hyunkoo Lee"
       ],
       "year": 2026,
       "tags": [
@@ -27,19 +28,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T08:00:23Z"
+      "fetched_at": "2026-11-24T09:19:48Z"
     },
     {
       "source": "arxiv",
-      "title": "Tight Analysis for Online Generalized Network Design with Power Functions",
-      "abstract_snippet": "We study the online generalized network design problem with heterogeneous power costs. Here, a sequence of $N$ requests arrive online, each of which needs to be assigned to some subset of available resources $E$. Each resource $e\\in E$ has its own coefficient $ξ_e&gt;0$ and exponent $p_e\\ge 1$, where the cost of a load vector $L\\in \\mathbb{R}^E_+$ is $Φ(L)=\\sum_{e\\in E}ξ_e L_e^{p_e}$. We provide a",
-      "url": "https://arxiv.org/abs/2611.30912",
-      "arxiv_id": "2611.30912",
+      "title": "Let Vision-Language Models Generate Images through Their Representations",
+      "abstract_snippet": "Recent unified multimodal models aim to combine visual understanding and generation within a single model, yet effectively integrating the two capabilities remains challenging. Leveraging pretrained vision-language models offers a way to build on already learned multimodal knowledge, but making this knowledge effectively accessible to visual generation remains nontrivial. We find that a central ch",
+      "url": "https://arxiv.org/abs/2611.31237",
+      "arxiv_id": "2611.31237",
       "doi": "",
       "authors": [
-        "Karl Li",
-        "Yanzhi Li",
-        "Viswanath Nagarajan"
+        "JB Kim",
+        "Byungwoo Jeon",
+        "Kyungmin Lee",
+        "Hyeonmo Kang",
+        "Cheonbok Park",
+        "Shinyoung Joo"
       ],
       "year": 2026,
       "tags": [
@@ -49,17 +53,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T08:00:23Z"
+      "fetched_at": "2026-11-24T09:19:48Z"
     },
     {
       "source": "arxiv",
-      "title": "A Classification of Low Genus Modular Curves",
-      "abstract_snippet": "Let $G$ be an open subgroup of $\\mathrm{GL}_2(\\widehat{\\mathbb{Z}})$ satisfying $\\det(G)=\\widehat{\\mathbb{Z}}^{\\times}$ and $-I\\in G$. Associated to $G$, there is a modular curve $X_G$ defined over $\\mathbb{Q}$ which parametrizes elliptic curves with $G$-level structure. We give a classification of modular curves with genus equal to a fixed nonnegative integer $g$. In particular, we show that all ",
-      "url": "https://arxiv.org/abs/2611.30908",
-      "arxiv_id": "2611.30908",
+      "title": "TowerBridge: Bridging the Dual-Encoder Modality Gap via Weight-Space Programming",
+      "abstract_snippet": "CLIP-style dual encoders map images and text through two separate towers into a shared embedding space, where the two modalities occupy distinct regions separated by a modality gap. Retrieval fails when wrong matches, or hard negatives, outrank the correct one, and the gap is the usual suspect. Yet removing it post hoc degrades retrieval on every CLIP checkpoint we test. We introduce a paired stat",
+      "url": "https://arxiv.org/abs/2611.31233",
+      "arxiv_id": "2611.31233",
       "doi": "",
       "authors": [
-        "Eray Karabiyik"
+        "Hani Alomari",
+        "Md Atabuzzaman",
+        "Chris Thomas"
       ],
       "year": 2026,
       "tags": [
@@ -69,19 +75,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T08:00:23Z"
+      "fetched_at": "2026-11-24T09:19:48Z"
     },
     {
       "source": "arxiv",
-      "title": "DexLatentWorld: 3D Cross-Embodiment Latent Action World Models for Zero-Shot Robotic Manipulation",
-      "abstract_snippet": "World models facilitate planning and control in robotic manipulation by enabling agents to anticipate the consequences of their actions. However, they typically rely on action-labelled interaction data that is costly to acquire and difficult to scale. These models are also often tied to the specific embodiment they were trained on, limiting transferability to previously unseen robot morphologies. ",
-      "url": "https://arxiv.org/abs/2611.30907",
-      "arxiv_id": "2611.30907",
+      "title": "How Far Can Linear Go? BiPert, a Unified Framework for Single-Cell Perturbation Modelling",
+      "abstract_snippet": "Understanding how genetic perturbations affect cellular behaviour is essential for studying gene function and regulatory mechanisms. Large-scale CRISPR screens measure these effects across thousands of genes, but cover relatively few cellular contexts. Predicting perturbation responses in unseen cell types and identifying perturbed genes from their transcriptional effects therefore remain challeng",
+      "url": "https://arxiv.org/abs/2611.31227",
+      "arxiv_id": "2611.31227",
       "doi": "",
       "authors": [
-        "Vinay Udit Mohan",
-        "Xuchuan Huang",
-        "Rolandos Alexandros Potamias"
+        "Abhishek Sharma",
+        "Aleksej Zelezniak"
       ],
       "year": 2026,
       "tags": [
@@ -91,17 +96,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T08:00:23Z"
+      "fetched_at": "2026-11-24T09:19:48Z"
     },
     {
       "source": "arxiv",
-      "title": "The number of non-isomorphic spanning trees in regular graphs",
-      "abstract_snippet": "By a classical theorem of Otter, the number of non-isomorphic trees on $n$ vertices is $α^n\\exp(-o(n))$, where $α\\approx 2.956$ is Otter's constant. We prove that every connected $d$-regular graph $G$ on $n$ vertices contains $α^n\\exp(-o_d(n))$ non-isomorphic spanning trees, where $o_d(n)/n\\to0$ as $d\\to\\infty$.",
-      "url": "https://arxiv.org/abs/2611.30899",
-      "arxiv_id": "2611.30899",
+      "title": "Self-Supervised Dataset Distillation via Mutual Information Maximization",
+      "abstract_snippet": "Dataset distillation (DD) aims to compress a large dataset into a small synthetic one that remains effective for training neural networks. Despite its success in supervised learning, DD remains underexplored in self-supervised learning (SSL), where distilled data must preserve the information needed to learn representations that remain consistent across augmentations. To bridge this gap, we introd",
+      "url": "https://arxiv.org/abs/2611.31225",
+      "arxiv_id": "2611.31225",
       "doi": "",
       "authors": [
-        "Csongor Beke"
+        "Mohammad Hossein Moslemi",
+        "Mahdi Beitollahi",
+        "Zhimin Mei",
+        "Jiale Cai",
+        "Bissan Ghaddar",
+        "Boyu Wang"
       ],
       "year": 2026,
       "tags": [
@@ -111,7 +121,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T08:00:23Z"
+      "fetched_at": "2026-11-24T09:19:48Z"
     }
   ]
 }
