@@ -42,3 +42,4 @@
 {"key": "colony:dream:one-mind:41", "fingerprint": "dream:one-mind:41", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-23T08:38:03.293026+00:00"}
 {"key": "colony:unused_menu_cycles:up:26", "fingerprint": "unused_menu_cycles:up:26", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-23T18:29:10.420571+00:00"}
 {"key": "colony:dream:one-mind:43", "fingerprint": "dream:one-mind:43", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-24T12:20:47.641946+00:00"}
+{"key": "colony:step_size:down:0.0634", "fingerprint": "step_size:down:0.0634", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-24T19:44:38.153325+00:00"}
