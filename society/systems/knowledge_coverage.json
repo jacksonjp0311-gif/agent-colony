@@ -1,13 +1,13 @@
 {
   "fields": {
     "automated_reasoning": {
-      "cards_formed": 1,
+      "cards_formed": 2,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 6,
       "distinct_concepts": 1,
-      "papers": 49,
-      "reads": 48
+      "papers": 52,
+      "reads": 49
     },
     "cognitive_science": {
       "cards_formed": 6,
@@ -73,22 +73,22 @@
       "reads": 49
     },
     "open_endedness": {
-      "cards_formed": 43,
+      "cards_formed": 46,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 41,
-      "distinct_concepts": 1,
-      "papers": 42,
-      "reads": 48
+      "concepts": 48,
+      "distinct_concepts": 2,
+      "papers": 48,
+      "reads": 49
     },
     "optimization_search": {
       "cards_formed": 23,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 40,
+      "concepts": 42,
       "distinct_concepts": 4,
-      "papers": 37,
-      "reads": 48
+      "papers": 39,
+      "reads": 49
     },
     "physics_complex_systems": {
       "cards_formed": 3,
@@ -158,7 +158,7 @@
         "recursive_self_improvement"
       ],
       "idea": "novelty_archive",
-      "n_papers": 47
+      "n_papers": 53
     },
     {
       "description": "A gating step that sends each target to a specialist desk (mixture-of-experts style routing).",
@@ -208,11 +208,12 @@
       "fields": [
         "multi_agent_systems",
         "neural_architecture",
+        "open_endedness",
         "physics_complex_systems",
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 13
+      "n_papers": 14
     },
     {
       "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
@@ -268,11 +269,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 114,
+    "cards_formed": 118,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 228,
-    "papers": 453,
-    "reads": 730
+    "concepts": 237,
+    "papers": 464,
+    "reads": 733
   }
 }
