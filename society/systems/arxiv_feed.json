@@ -1,22 +1,20 @@
 {
-  "last_attempt_at": "2026-11-24T01:59:43Z",
+  "last_attempt_at": "2026-11-24T02:53:19Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-24T01:59:43Z",
+  "last_ok_at": "2026-11-24T02:53:19Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Optimal Linear Regression Without a Variance",
-      "abstract_snippet": "We study high-probability linear regression in the infinite variance regime, wherecthe regression noise has only a finite conditional $α$-moment $ν$ for some unknown $α\\in(1,2)$, and the covariates may only have finite moments up to a given order (e.g., 4th moment). We give a black-box reduction that converts finite-variance regression procedures into weak-moment procedures. The reduction is based",
-      "url": "https://arxiv.org/abs/2611.27983",
-      "arxiv_id": "2611.27983",
+      "title": "Quadratic unitary Cayley graphs over finite commutative rings",
+      "abstract_snippet": "Let $R$ be a finite commutative ring with identity, and let $T_R=Q_R\\cup(-Q_R)$, where $Q_R=\\{u^2:u\\in R^\\times\\}$. In this paper, we investigate the spectral properties of quadratic unitary Cayley graphs $\\operatorname{Cay}(R,T_R)$, over finite commutative rings with identity. We determine all the eigenvalues of $\\operatorname{Cay}(R,T_R)$ when $R$ has odd characteristic. Our results extend the p",
+      "url": "https://arxiv.org/abs/2611.28672",
+      "arxiv_id": "2611.28672",
       "doi": "",
       "authors": [
-        "Artin Tajdini",
-        "Jasper C. H. Lee",
-        "Jonathan Scarlett",
-        "Kevin Jamieson"
+        "Priya Dhankhar",
+        "Sanjay Kumar Singh"
       ],
       "year": 2026,
       "tags": [
@@ -26,18 +24,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T01:59:43Z"
+      "fetched_at": "2026-11-24T02:53:19Z"
     },
     {
       "source": "arxiv",
-      "title": "A Methodologically Rigorous Benchmark of Linear Regression,RNN, and LSTM for S&amp;P 500 Forecasting:Identifying Sources of Performance Inflation in Financial DeepLearning",
-      "abstract_snippet": "This study examines one-day-ahead forecasting of the S&amp;P 500 closing level using a 2006-2025 dataset that includes fundamental price data, macroeconomic indicators, and engineered technical features. We benchmark three model families, namely linear regression, vanilla recurrent neural networks (RNN), and long short-term memory networks (LSTM), within a unified preprocessing and chronological e",
-      "url": "https://arxiv.org/abs/2611.27978",
-      "arxiv_id": "2611.27978",
+      "title": "The Evaluation Substrate Matters: Benchmarking Multi-Agent Serving Substrates",
+      "abstract_snippet": "Multi-agent systems (MAS) usually coordinate heterogeneous models and tools to solve complex tasks, creating a growing need for reliable evaluation. However, a multi-agent workflow that is fastest in one serving environment can lose its advantage in another, even when its models, prompts, and task remain fixed. This makes a benchmark result conditional on how the workflow is executed. We introduce",
+      "url": "https://arxiv.org/abs/2611.28671",
+      "arxiv_id": "2611.28671",
       "doi": "",
       "authors": [
-        "Hari Sitaula",
-        "Joseph Opitz"
+        "Haoyuan Zheng",
+        "Dongting Li",
+        "Hancheng Ye",
+        "Qinsi Wang",
+        "Mingyuan Ma",
+        "Yuncheng Yao"
       ],
       "year": 2026,
       "tags": [
@@ -47,21 +49,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T01:59:43Z"
+      "fetched_at": "2026-11-24T02:53:19Z"
     },
     {
       "source": "arxiv",
-      "title": "On the Complete Feature Set for ADHD Classification in Children and Adolescents Based on EEG Signals",
-      "abstract_snippet": "Attention-deficit/hyperactivity disorder is a neurodevelopmental condition that can affect attention, activity and impulse control. Electroencephalography (EEG) records brain activity as children and adolescents perform cognitive tasks. However, comparing features derived from these recordings requires consistent signal preparation, shared analysis windows and documented quality decisions. We cura",
-      "url": "https://arxiv.org/abs/2611.27970",
-      "arxiv_id": "2611.27970",
+      "title": "Physical regime changes expose formula misuse in large language models",
+      "abstract_snippet": "Large language models (LLMs) are increasingly employed for scientific computing across the Earth and environmental sciences, but problems in these fields often involve distinct physical regimes. LLMs may fail to recognize these regime-dependent constraints, applying formulas outside their domains of validity and producing plausible but physically incorrect results. We systematically investigate th",
+      "url": "https://arxiv.org/abs/2611.28669",
+      "arxiv_id": "2611.28669",
       "doi": "",
       "authors": [
-        "Javier Sanchis",
-        "Álvaro Navarro",
-        "Jorge García-Carrasco",
-        "Tahar Kechadi",
-        "Juan Trujillo"
+        "Maohao Ran",
+        "Yanting Zhang",
+        "Chendong Ma",
+        "Jun Song"
       ],
       "year": 2026,
       "tags": [
@@ -71,18 +72,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T01:59:43Z"
+      "fetched_at": "2026-11-24T02:53:19Z"
     },
     {
       "source": "arxiv",
-      "title": "Recognizing $k$-inducible Digraphs is NP-complete",
-      "abstract_snippet": "A digraph is k-inducible if its arcs correspond to the pairwise majority relation of a preference profile with k voters. By McGarvey's theorem, every asymmetric digraph is k-inducible for some k, but for every fixed k there are digraphs that are not k-inducible. Whether a digraph is 1-inducible or 2-inducible can easily be decided in polynomial time. The complexity of deciding whether a digraph is",
-      "url": "https://arxiv.org/abs/2611.27965",
-      "arxiv_id": "2611.27965",
+      "title": "Note on polychromatic coloring of hereditary hypergraph families III",
+      "abstract_snippet": "For every integer $h\\ge4$ we construct a hereditary family of hypergraphs with $m_2=h$ and \\[ m_3\\ge 2(h-1)+2\\left\\lfloor\\frac{h-1}{3}\\right\\rfloor+1 \\approx \\frac{8}{3}m_2. \\] This improves the lower bound $m_3\\ge 2m_2$ from the preceding notes for every $m_2\\ge4$. We also show that the worst-case integrality gap of the weighted transversal problem over hereditary families with $m_2\\le h$ is betw",
+      "url": "https://arxiv.org/abs/2611.28664",
+      "arxiv_id": "2611.28664",
       "doi": "",
       "authors": [
-        "Felix Brandt",
-        "Fabian Frank"
+        "Dömötör Pálvölgyi"
       ],
       "year": 2026,
       "tags": [
@@ -92,18 +92,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T01:59:43Z"
+      "fetched_at": "2026-11-24T02:53:19Z"
     },
     {
       "source": "arxiv",
-      "title": "Model Carving: Training Transformers That Optimize Their Own Topology",
-      "abstract_snippet": "Machine learning has largely kept separate the choice of architecture and the process of training. A classic Transformer, for instance, trains a fixed set of attention and MLP sublayers at every layer, in the same order, and optimizes the weights within. This uniformity is a convention rather than a principled design choice, and it is likely suboptimal: the best architecture for a given task may b",
-      "url": "https://arxiv.org/abs/2611.27962",
-      "arxiv_id": "2611.27962",
+      "title": "Cayley Regression for Finite Groups with a Cyclic Subgroup of Index Two",
+      "abstract_snippet": "A finite group $G$ is a Cayley regression if every generalized Cayley graph of $G$ is isomorphic to a Cayley graph of $G$, and a $k$-Cayley regression if this holds for all such graphs of valency at most $k$. We show that the dihedral group $D_{2n}$, $n\\geq2$, is a $2$-Cayley regression if and only if it is a $3$-Cayley regression, which holds exactly when $n$ is a prime power, and that for $k\\geq",
+      "url": "https://arxiv.org/abs/2611.28659",
+      "arxiv_id": "2611.28659",
       "doi": "",
       "authors": [
-        "Kaden Zheng",
-        "Pratyusha Sharma"
+        "Yingbi Jiang",
+        "Pengfei Guo",
+        "Jin-Hua Xie"
       ],
       "year": 2026,
       "tags": [
@@ -113,7 +114,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T01:59:43Z"
+      "fetched_at": "2026-11-24T02:53:19Z"
     }
   ]
 }

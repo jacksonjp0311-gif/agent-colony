@@ -57,7 +57,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 464 papers across 14/14 fields, 237 concepts, 118 cards formed, 2 tested, 1 kept.
+knowledge: 470 papers across 14/14 fields, 238 concepts, 122 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -65,14 +65,14 @@ knowledge: 464 papers across 14/14 fields, 237 concepts, 118 cards formed, 2 tes
 | cognitive_science | 14 | 7 | 6 | 1 | 1 |
 | consciousness_self_models | 13 | 9 | 2 | 0 | 0 |
 | learning_theory | 22 | 25 | 1 | 0 | 0 |
-| mathematics | 79 | 0 | 0 | 0 | 0 |
+| mathematics | 80 | 0 | 0 | 0 | 0 |
 | meta_learning | 18 | 13 | 2 | 0 | 0 |
-| multi_agent_systems | 12 | 7 | 2 | 0 | 0 |
+| multi_agent_systems | 13 | 7 | 2 | 0 | 0 |
 | neural_architecture | 57 | 40 | 9 | 0 | 0 |
-| open_endedness | 48 | 48 | 46 | 0 | 0 |
+| open_endedness | 48 | 48 | 50 | 0 | 0 |
 | optimization_search | 39 | 42 | 23 | 0 | 0 |
 | physics_complex_systems | 28 | 10 | 3 | 0 | 0 |
-| recursive_self_improvement | 41 | 5 | 6 | 0 | 0 |
+| recursive_self_improvement | 45 | 6 | 6 | 0 | 0 |
 | self_learning_loops | 29 | 14 | 6 | 1 | 0 |
 | swarm_collective_intelligence | 12 | 11 | 10 | 0 | 0 |
 
@@ -81,8 +81,8 @@ knowledge: 464 papers across 14/14 fields, 237 concepts, 118 cards formed, 2 tes
 - `novelty_archive` — 53 papers (consciousness_self_models, neural_architecture, open_endedness, optimization_search, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
 - `specialist_routing` — 30 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `swarm_topology` — 14 papers (multi_agent_systems, neural_architecture, open_endedness, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
+- `self_play_challenger` — 12 papers (recursive_self_improvement, self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 - `meta_controller` — 11 papers (meta_learning, recursive_self_improvement, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
-- `self_play_challenger` — 11 papers (self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 

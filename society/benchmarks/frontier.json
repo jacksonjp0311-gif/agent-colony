@@ -223,7 +223,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 4476607,
+        "hi": 4492607,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -235,15 +235,9 @@
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-24T01:04:18Z",
-      "runs": 280,
+      "last_run": "2026-11-24T02:56:34Z",
+      "runs": 281,
       "extensions": [
-        {
-          "ts": "2026-11-23T08:30:02Z",
-          "lo": 4316608,
-          "hi": 4332607,
-          "seconds": 1.4926
-        },
         {
           "ts": "2026-11-23T10:25:58Z",
           "lo": 4332608,
@@ -297,10 +291,16 @@
           "lo": 4460608,
           "hi": 4476607,
           "seconds": 1.8296
+        },
+        {
+          "ts": "2026-11-24T02:56:34Z",
+          "lo": 4476608,
+          "hi": 4492607,
+          "seconds": 1.799
         }
       ],
       "last_data": {
-        "max_first_prime_offset": 270
+        "max_first_prime_offset": 294
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -328,7 +328,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 426200001,
+        "hi": 427800001,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -340,15 +340,9 @@
       "literature": "Published work rules out small counterexamples (e.g. Cohen & Hagis: any counterexample has many prime factors); open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-24T01:15:14Z",
-      "runs": 280,
+      "last_run": "2026-11-24T03:05:37Z",
+      "runs": 281,
       "extensions": [
-        {
-          "ts": "2026-11-23T08:45:38Z",
-          "lo": 410200002,
-          "hi": 411800001,
-          "seconds": 2.25
-        },
         {
           "ts": "2026-11-23T10:35:46Z",
           "lo": 411800002,
@@ -402,6 +396,12 @@
           "lo": 424600002,
           "hi": 426200001,
           "seconds": 2.3199
+        },
+        {
+          "ts": "2026-11-24T03:05:37Z",
+          "lo": 426200002,
+          "hi": 427800001,
+          "seconds": 2.1333
         }
       ],
       "stall_streak": 0,
@@ -535,11 +535,11 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 1106200000,
+        "hi": 1110200000,
         "by": "colony",
         "label": "bounded evidence, not proof",
-        "pi2": 3749346,
-        "hl_ratio": 0.986537
+        "pi2": 3761422,
+        "hl_ratio": 0.986507
       },
       "window": 4000000,
       "min_window": 20000,
@@ -549,15 +549,9 @@
       "literature": "Asymptotic conjecture; finite counts can only be consistent or inconsistent with it, never decide it.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-24T01:25:33Z",
-      "runs": 280,
+      "last_run": "2026-11-24T03:14:44Z",
+      "runs": 281,
       "extensions": [
-        {
-          "ts": "2026-11-23T08:56:12Z",
-          "lo": 1066200001,
-          "hi": 1070200000,
-          "seconds": 0.2429
-        },
         {
           "ts": "2026-11-23T10:46:55Z",
           "lo": 1070200001,
@@ -611,14 +605,20 @@
           "lo": 1102200001,
           "hi": 1106200000,
           "seconds": 0.3199
+        },
+        {
+          "ts": "2026-11-24T03:14:44Z",
+          "lo": 1106200001,
+          "hi": 1110200000,
+          "seconds": 0.2957
         }
       ],
       "last_data": {
-        "x": 1106200000,
-        "pi2": 3749346,
-        "segment_pairs": 12152,
-        "hl_estimate": 3800512.02,
-        "ratio": 0.986537
+        "x": 1110200000,
+        "pi2": 3761422,
+        "segment_pairs": 12076,
+        "hl_estimate": 3812870.93,
+        "ratio": 0.986507
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-24T02:20:07Z"
+  "updated_at": "2026-11-24T03:14:45Z"
 }
