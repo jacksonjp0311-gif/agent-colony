@@ -1,20 +1,20 @@
 {
-  "last_attempt_at": "2026-11-24T02:53:19Z",
+  "last_attempt_at": "2026-11-24T04:12:59Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-24T02:53:19Z",
+  "last_ok_at": "2026-11-24T04:12:59Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Quadratic unitary Cayley graphs over finite commutative rings",
-      "abstract_snippet": "Let $R$ be a finite commutative ring with identity, and let $T_R=Q_R\\cup(-Q_R)$, where $Q_R=\\{u^2:u\\in R^\\times\\}$. In this paper, we investigate the spectral properties of quadratic unitary Cayley graphs $\\operatorname{Cay}(R,T_R)$, over finite commutative rings with identity. We determine all the eigenvalues of $\\operatorname{Cay}(R,T_R)$ when $R$ has odd characteristic. Our results extend the p",
-      "url": "https://arxiv.org/abs/2611.28672",
-      "arxiv_id": "2611.28672",
+      "title": "Fuzzy e-Means: Fuzzy c-Means on Large Data with Moving-Average Mini-Batch Updates",
+      "abstract_snippet": "Fuzzy c-means (FCM) gives every point a degree of membership in every cluster. Its standard solver, alternating optimization (AO), needs a full pass over the data per iteration and often many iterations, while methods built for large data stop at a worse objective or still need tens of passes. We run FCM with the optimizer of e-means, a recent mini-batch k-means that keeps moving averages of the n",
+      "url": "https://arxiv.org/abs/2611.29241",
+      "arxiv_id": "2611.29241",
       "doi": "",
       "authors": [
-        "Priya Dhankhar",
-        "Sanjay Kumar Singh"
+        "Paritosh Tiwari",
+        "Punit Rathore"
       ],
       "year": 2026,
       "tags": [
@@ -24,22 +24,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T02:53:19Z"
+      "fetched_at": "2026-11-24T04:12:59Z"
     },
     {
       "source": "arxiv",
-      "title": "The Evaluation Substrate Matters: Benchmarking Multi-Agent Serving Substrates",
-      "abstract_snippet": "Multi-agent systems (MAS) usually coordinate heterogeneous models and tools to solve complex tasks, creating a growing need for reliable evaluation. However, a multi-agent workflow that is fastest in one serving environment can lose its advantage in another, even when its models, prompts, and task remain fixed. This makes a benchmark result conditional on how the workflow is executed. We introduce",
-      "url": "https://arxiv.org/abs/2611.28671",
-      "arxiv_id": "2611.28671",
+      "title": "GameAnything: From Any Inspirations to Playable Game Worlds",
+      "abstract_snippet": "AI-driven game development holds the potential to transform diverse human inspirations into interactive experiences. However, existing systems and benchmarks primarily focus on explicit development specifications, with limited support for adapting multimodal references and evaluating actual gameplay experiences. We introduce GameAnything, an open-source agentic platform that transforms multimodal ",
+      "url": "https://arxiv.org/abs/2611.29238",
+      "arxiv_id": "2611.29238",
       "doi": "",
       "authors": [
-        "Haoyuan Zheng",
-        "Dongting Li",
-        "Hancheng Ye",
-        "Qinsi Wang",
-        "Mingyuan Ma",
-        "Yuncheng Yao"
+        "Wenyi Wu",
+        "Siqi Liu",
+        "Yuru Feng",
+        "Zixuan Song",
+        "Aayush Salvi",
+        "Sibo Zhu"
       ],
       "year": 2026,
       "tags": [
@@ -49,20 +49,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T02:53:19Z"
+      "fetched_at": "2026-11-24T04:12:59Z"
     },
     {
       "source": "arxiv",
-      "title": "Physical regime changes expose formula misuse in large language models",
-      "abstract_snippet": "Large language models (LLMs) are increasingly employed for scientific computing across the Earth and environmental sciences, but problems in these fields often involve distinct physical regimes. LLMs may fail to recognize these regime-dependent constraints, applying formulas outside their domains of validity and producing plausible but physically incorrect results. We systematically investigate th",
-      "url": "https://arxiv.org/abs/2611.28669",
-      "arxiv_id": "2611.28669",
+      "title": "A Local-to-Global Approximation Framework for Covering Disjointness-Compliable Set Families",
+      "abstract_snippet": "Many network design problems can be formulated as covering a family of vertex sets by edges. We develop a local-to-global approximation framework for disjointness-compliable families with polynomial-time membership tests. A class of vertices is deficient if it belongs to the family and feasible otherwise. Our local problem seeks a minimum-cost tree that connects one deficient class to feasible cla",
+      "url": "https://arxiv.org/abs/2611.29237",
+      "arxiv_id": "2611.29237",
       "doi": "",
       "authors": [
-        "Maohao Ran",
-        "Yanting Zhang",
-        "Chendong Ma",
-        "Jun Song"
+        "Jingyang Zhao",
+        "Mingyu Xiao"
       ],
       "year": 2026,
       "tags": [
@@ -72,17 +70,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T02:53:19Z"
+      "fetched_at": "2026-11-24T04:12:59Z"
     },
     {
       "source": "arxiv",
-      "title": "Note on polychromatic coloring of hereditary hypergraph families III",
-      "abstract_snippet": "For every integer $h\\ge4$ we construct a hereditary family of hypergraphs with $m_2=h$ and \\[ m_3\\ge 2(h-1)+2\\left\\lfloor\\frac{h-1}{3}\\right\\rfloor+1 \\approx \\frac{8}{3}m_2. \\] This improves the lower bound $m_3\\ge 2m_2$ from the preceding notes for every $m_2\\ge4$. We also show that the worst-case integrality gap of the weighted transversal problem over hereditary families with $m_2\\le h$ is betw",
-      "url": "https://arxiv.org/abs/2611.28664",
-      "arxiv_id": "2611.28664",
+      "title": "Why Adaptive Optimizers Struggle with Large Convolution Kernels",
+      "abstract_snippet": "Large convolution kernels enlarge the receptive fields of ConvNets at a modest computational cost, but they are notoriously difficult to train. Existing large-kernel networks therefore rely on costly training techniques, such as parallel small-kernel branches with batch normalization. In this paper, we trace this difficulty to adaptive optimizers such as Adam, which normalize the update of every w",
+      "url": "https://arxiv.org/abs/2611.29232",
+      "arxiv_id": "2611.29232",
       "doi": "",
       "authors": [
-        "Dömötör Pálvölgyi"
+        "Tianyu Ding",
+        "Jiachen Jiang",
+        "Jinxin Zhou",
+        "Yong Ma",
+        "Zhihui Zhu",
+        "Luming Liang"
       ],
       "year": 2026,
       "tags": [
@@ -92,19 +95,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T02:53:19Z"
+      "fetched_at": "2026-11-24T04:12:59Z"
     },
     {
       "source": "arxiv",
-      "title": "Cayley Regression for Finite Groups with a Cyclic Subgroup of Index Two",
-      "abstract_snippet": "A finite group $G$ is a Cayley regression if every generalized Cayley graph of $G$ is isomorphic to a Cayley graph of $G$, and a $k$-Cayley regression if this holds for all such graphs of valency at most $k$. We show that the dihedral group $D_{2n}$, $n\\geq2$, is a $2$-Cayley regression if and only if it is a $3$-Cayley regression, which holds exactly when $n$ is a prime power, and that for $k\\geq",
-      "url": "https://arxiv.org/abs/2611.28659",
-      "arxiv_id": "2611.28659",
+      "title": "Curvature Mismatch and Local Errors in Galaxy Property Estimation",
+      "abstract_snippet": "Linear probes are widely used to evaluate learned representations and infer physical quantities from unlabelled data. The probe's predictions are from an affine function in ambient space restricted to the underlying representation, and consequently, even a representation that has complete information needed to predict a target can produce systematic probe errors when that information is encoded in",
+      "url": "https://arxiv.org/abs/2611.29224",
+      "arxiv_id": "2611.29224",
       "doi": "",
       "authors": [
-        "Yingbi Jiang",
-        "Pengfei Guo",
-        "Jin-Hua Xie"
+        "Austin Lutterbach",
+        "Angus Hoy",
+        "Jasper Chong",
+        "Aman Kumar",
+        "Michael J. Smith"
       ],
       "year": 2026,
       "tags": [
@@ -114,7 +119,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-24T02:53:19Z"
+      "fetched_at": "2026-11-24T04:12:59Z"
     }
   ]
 }

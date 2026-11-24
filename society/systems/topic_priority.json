@@ -71,17 +71,17 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "area-depth",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "artifact-first",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "ceiling-aware]",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-24T03:15:04Z",
-  "updated_cycle": "20261124T031106Z_2b4e6a",
+  "updated_at": "2026-11-24T04:17:07Z",
+  "updated_cycle": "20261124T041233Z_8b63fc",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
