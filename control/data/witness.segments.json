@@ -22,11 +22,20 @@
       "status": "closed"
     },
     {
-      "bytes": 41837694,
+      "bytes": 41943456,
       "id": 3,
       "kind": "file",
+      "last_line_sha256": "716810b55fab9d0260169d8562d180cad17478d0bb20b086ff59959838246037",
       "path": "witness/witness-0003.jsonl",
       "prev_sha256": "245a563d6febd339e34faadb87211cf989b8e419c3f53ec5b3cd5c76bd0e0f30",
+      "status": "closed"
+    },
+    {
+      "bytes": 95519,
+      "id": 4,
+      "kind": "file",
+      "path": "witness/witness-0004.jsonl",
+      "prev_sha256": "716810b55fab9d0260169d8562d180cad17478d0bb20b086ff59959838246037",
       "status": "active"
     }
   ],
