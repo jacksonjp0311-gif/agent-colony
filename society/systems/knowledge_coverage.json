@@ -64,16 +64,16 @@
       "reads": 50
     },
     "neural_architecture": {
-      "cards_formed": 10,
+      "cards_formed": 12,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 45,
+      "concepts": 52,
       "distinct_concepts": 9,
-      "papers": 65,
-      "reads": 50
+      "papers": 73,
+      "reads": 51
     },
     "open_endedness": {
-      "cards_formed": 56,
+      "cards_formed": 58,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 56,
@@ -114,8 +114,8 @@
       "cards_tested": 1,
       "concepts": 15,
       "distinct_concepts": 4,
-      "papers": 33,
-      "reads": 50
+      "papers": 35,
+      "reads": 51
     },
     "swarm_collective_intelligence": {
       "cards_formed": 11,
@@ -124,7 +124,7 @@
       "concepts": 12,
       "distinct_concepts": 2,
       "papers": 16,
-      "reads": 50
+      "reads": 51
     }
   },
   "fields_with_papers": 14,
@@ -184,7 +184,7 @@
         "physics_complex_systems"
       ],
       "idea": "specialist_routing",
-      "n_papers": 34
+      "n_papers": 40
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -214,7 +214,7 @@
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 16
+      "n_papers": 17
     },
     {
       "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
@@ -271,11 +271,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 139,
+    "cards_formed": 143,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 276,
-    "papers": 532,
-    "reads": 751
+    "concepts": 283,
+    "papers": 542,
+    "reads": 754
   }
 }

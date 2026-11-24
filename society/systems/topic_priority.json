@@ -26,6 +26,11 @@
       "from_topic": "compute-useful-math"
     },
     {
+      "topic": "$(17/7-o(1))n$",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$2$-arc-transitive",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -66,22 +71,17 @@
       "reason": "inbox_gap"
     },
     {
+      "topic": "3-sat",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
       "topic": "artifact-first",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "ceiling-aware]",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-24T11:46:35Z",
-  "updated_cycle": "20261124T114202Z_14a28c",
+  "updated_at": "2026-11-24T12:38:33Z",
+  "updated_cycle": "20261124T123240Z_c70049",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

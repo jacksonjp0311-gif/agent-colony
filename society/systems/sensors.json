@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-24T11:42:22Z",
-  "cycle_id": "20261124T114202Z_14a28c",
+  "ts": "2026-11-24T12:33:03Z",
+  "cycle_id": "20261124T123240Z_c70049",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
@@ -9,9 +9,9 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8232,
-      "slope": 0.000145,
-      "min": 0.8213,
+      "last": 0.7874,
+      "slope": -0.001159,
+      "min": 0.7874,
       "max": 0.8242
     },
     "novelty": {
@@ -40,11 +40,11 @@
     }
   },
   "stall": {
-    "stalled": true,
-    "aggregate_range": 0.0029,
+    "stalled": false,
+    "aggregate_range": 0.0368,
     "novelty_max": 0.0,
     "window": 6,
-    "reason": "aggregate flat and novelty 0"
+    "reason": "moving"
   },
   "catalog": {
     "enabled": 197,
@@ -189,33 +189,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 0.57,
+      "ratio": 0.671,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 0.572,
+      "ratio": 0.641,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 0.731,
+      "ratio": 0.755,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 0.702,
+      "ratio": 0.751,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 0.683,
+      "ratio": 0.759,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 818475715,
+      "goldbach_even": 820075715,
       "collatz_descent": 895800000,
-      "legendre_square_gap": 4524607,
-      "lehmer_totient": 431000001,
+      "legendre_square_gap": 4540607,
+      "lehmer_totient": 432600001,
       "erdos_straus": 2004127,
       "twin_primes_hl": 1118200000,
       "oeis_A104062_next": 518690000001
@@ -266,23 +266,23 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.2727,
-    "completed": 11,
+    "success_rate": 0.4,
+    "completed": 10,
     "last": [
       [
         null,
-        "2026-11-24T11:16:05Z"
+        "2026-11-24T12:06:33Z"
       ],
       [
         "success",
-        "2026-11-24T10:40:01Z"
+        "2026-11-24T12:04:32Z"
       ],
       [
-        "skipped",
-        "2026-11-24T10:39:57Z"
+        null,
+        "2026-11-24T12:04:24Z"
       ]
     ],
-    "fetched_at": "2026-11-24T11:18:56Z"
+    "fetched_at": "2026-11-24T12:07:11Z"
   },
   "feeds": {
     "by_source": {
@@ -301,41 +301,36 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "",
-          "fetched": 8,
-          "new": 6,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 5,
-          "new": 5,
-          "ok": true
+          "new": 0,
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 9,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-24T11:18:48Z"
+      "ts": "2026-11-24T12:07:10Z"
     },
     "health": {
       "arxiv": {
@@ -361,10 +356,9 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0029) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge",
-    "ci_health: success_rate 0.2727 → be conservative"
+    "ci_health: success_rate 0.4 → be conservative"
   ],
   "note": "Sensors inform priors only; they never accept, enable, authorize or change a gate."
 }

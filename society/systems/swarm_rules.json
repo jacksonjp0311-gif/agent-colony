@@ -89,12 +89,13 @@
         "target_kind": "already_held_range"
       },
       "active": true,
+      "adopted_cycle": "20261124T121457Z_77a50c",
       "applied_to_live_oracle": false,
       "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range",
       "started_cycle": "20261124T060254Z_6e8c0c",
-      "trial": true
+      "trial": false
     }
   ],
-  "updated_at": "2026-11-24T11:47:49Z",
+  "updated_at": "2026-11-24T12:40:30Z",
   "version": 1
 }

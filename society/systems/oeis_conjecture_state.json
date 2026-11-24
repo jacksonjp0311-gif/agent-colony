@@ -433,9 +433,9 @@
    "credit": 0.0
   },
   "oc_A027174_0": {
-   "attempts": 12,
+   "attempts": 13,
    "status": "holds_on_range",
-   "tested_hi": 7032,
+   "tested_hi": 7385,
    "credit": 0.0
   },
   "oc_A027027_0": {
@@ -607,9 +607,9 @@
    "credit": 0.0
   },
   "oc_A005558_0": {
-   "attempts": 6,
+   "attempts": 7,
    "status": "holds_on_range",
-   "tested_hi": 10905,
+   "tested_hi": 11237,
    "credit": 0.0
   },
   "oc_A308217_0": {
@@ -733,10 +733,10 @@
    "credit": 0.0
   },
   "oc_A000781_0": {
-   "attempts": 7,
+   "attempts": 8,
    "status": "holds_on_range",
-   "tested_hi": 7046,
-   "credit": 0.0314
+   "tested_hi": 7311,
+   "credit": 0.0322
   },
   "oc_A263986_0": {
    "attempts": 6,
@@ -913,7 +913,7 @@
    "credit": 0.0
   },
   "oc_A002627_0": {
-   "attempts": 7,
+   "attempts": 8,
    "status": "holds_on_range",
    "tested_hi": 3821,
    "credit": 0.0465
@@ -1027,7 +1027,7 @@
    "credit": 0.0
   },
   "oc_A126931_0": {
-   "attempts": 267,
+   "attempts": 268,
    "status": "holds_on_range",
    "tested_hi": 299,
    "credit": 0.0
@@ -1201,7 +1201,7 @@
    "credit": 0.0
   },
   "oc_A322043_0": {
-   "attempts": 6,
+   "attempts": 7,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -1285,7 +1285,7 @@
    "credit": 0.0
   },
   "oc_A025093_0": {
-   "attempts": 5,
+   "attempts": 6,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.05
@@ -1303,7 +1303,7 @@
    "credit": 0.0
   },
   "oc_A176479_0": {
-   "attempts": 249,
+   "attempts": 252,
    "status": "holds_on_range",
    "tested_hi": 1026,
    "credit": 0.0006
@@ -2749,7 +2749,7 @@
    "credit": 0.05
   },
   "oc_A162533_0": {
-   "attempts": 255,
+   "attempts": 257,
    "status": "holds_on_range",
    "tested_hi": 1000,
    "credit": 0.0
@@ -2809,10 +2809,10 @@
    "credit": 0.0407
   },
   "oc_A127361_0": {
-   "attempts": 5,
+   "attempts": 6,
    "status": "holds_on_range",
-   "tested_hi": 1303,
-   "credit": 0.0407
+   "tested_hi": 1362,
+   "credit": 0.0417
   },
   "oc_A156894_0": {
    "attempts": 6,
@@ -3205,7 +3205,7 @@
    "credit": 0.0151
   },
   "oc_A295320_0": {
-   "attempts": 4,
+   "attempts": 5,
    "status": "holds_on_range",
    "tested_hi": 19999,
    "credit": 0.0301
@@ -3237,11 +3237,11 @@
  },
  "families": {
   "relation": {
-   "attempts": 1869,
-   "credit": 25.5182
+   "attempts": 1880,
+   "credit": 25.52
   },
   "gf": {
-   "attempts": 665,
+   "attempts": 668,
    "credit": 5.0834
   },
   "only_prime": {
@@ -3253,7 +3253,7 @@
    "credit": 0.0
   }
  },
- "credit_total": 30.6016,
+ "credit_total": 30.6034,
  "scoreboard": {
   "counterexamples": {},
   "proofs": {
@@ -3485,7 +3485,7 @@
    "oc_A000781_0": {
     "anum": "A000781",
     "bfile_hi": 1657,
-    "to": 7046,
+    "to": 7311,
     "check": "exact"
    },
    "oc_A002867_0": {
@@ -3935,7 +3935,7 @@
    "oc_A127361_0": {
     "anum": "A127361",
     "bfile_hi": 200,
-    "to": 1303,
+    "to": 1362,
     "check": "exact"
    },
    "oc_A245088_0": {
@@ -4163,7 +4163,7 @@
    "oc_A005558_0": {
     "anum": "A005558",
     "bfile_hi": 1000,
-    "to": 10905,
+    "to": 11237,
     "status": "holds_on_range",
     "provenance": "formula",
     "source": "a(n) = A000108(floor((n+1)/2))*A000108(floor(n/2))*(2*(floor(n/2))+1)"
@@ -4179,7 +4179,7 @@
    "oc_A027174_0": {
     "anum": "A027174",
     "bfile_hi": 1600,
-    "to": 7032,
+    "to": 7385,
     "status": "holds_on_range",
     "provenance": "formula",
     "source": "a(n) = 2*binomial(2*n+2, n-1) + binomial(2*n, n-2) - 4"
