@@ -12,7 +12,7 @@
       "start": 4,
       "verified": {
         "lo": 4,
-        "hi": 826717891,
+        "hi": 829917891,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -24,15 +24,9 @@
       "literature": "Published computations report verification far beyond this range (e.g. Oliveira e Silva, Herzog & Pardi, to 4·10^18).",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-23T22:57:25Z",
-      "runs": 302,
+      "last_run": "2026-11-24T00:57:18Z",
+      "runs": 303,
       "extensions": [
-        {
-          "ts": "2026-11-23T05:20:31Z",
-          "lo": 794717892,
-          "hi": 797917891,
-          "seconds": 1.9693
-        },
         {
           "ts": "2026-11-23T08:21:29Z",
           "lo": 797917892,
@@ -86,10 +80,16 @@
           "lo": 823517892,
           "hi": 826717891,
           "seconds": 1.7013
+        },
+        {
+          "ts": "2026-11-24T00:57:18Z",
+          "lo": 826717892,
+          "hi": 829917891,
+          "seconds": 2.2963
         }
       ],
       "last_data": {
-        "max_least_prime": 1201
+        "max_least_prime": 1033
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -223,7 +223,7 @@
       "start": 1,
       "verified": {
         "lo": 1,
-        "hi": 4828607,
+        "hi": 4844607,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -235,15 +235,9 @@
       "literature": "Implied far beyond this range by published prime-gap computations; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-23T23:02:43Z",
-      "runs": 302,
+      "last_run": "2026-11-24T01:01:31Z",
+      "runs": 303,
       "extensions": [
-        {
-          "ts": "2026-11-23T05:24:58Z",
-          "lo": 4668608,
-          "hi": 4684607,
-          "seconds": 1.595
-        },
         {
           "ts": "2026-11-23T08:25:30Z",
           "lo": 4684608,
@@ -297,10 +291,16 @@
           "lo": 4812608,
           "hi": 4828607,
           "seconds": 1.4353
+        },
+        {
+          "ts": "2026-11-24T01:01:31Z",
+          "lo": 4828608,
+          "hi": 4844607,
+          "seconds": 1.9793
         }
       ],
       "last_data": {
-        "max_first_prime_offset": 268
+        "max_first_prime_offset": 245
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -430,7 +430,7 @@
       "start": 2,
       "verified": {
         "lo": 2,
-        "hi": 2036219,
+        "hi": 2041219,
         "by": "colony",
         "label": "bounded evidence, not proof"
       },
@@ -442,15 +442,9 @@
       "literature": "Published computer searches reach far beyond this range; open in general.",
       "label": "bounded evidence, not proof",
       "proof": false,
-      "last_run": "2026-11-23T22:52:02Z",
-      "runs": 302,
+      "last_run": "2026-11-24T00:53:00Z",
+      "runs": 303,
       "extensions": [
-        {
-          "ts": "2026-11-23T05:15:43Z",
-          "lo": 2008720,
-          "hi": 2011219,
-          "seconds": 0.7462
-        },
         {
           "ts": "2026-11-23T08:17:24Z",
           "lo": 2011220,
@@ -504,10 +498,16 @@
           "lo": 2031220,
           "hi": 2036219,
           "seconds": 1.5366
+        },
+        {
+          "ts": "2026-11-24T00:53:00Z",
+          "lo": 2036220,
+          "hi": 2041219,
+          "seconds": 1.842
         }
       ],
       "last_data": {
-        "certificates": 358
+        "certificates": 336
       },
       "stall_streak": 0,
       "recipe_use": {
@@ -2673,5 +2673,5 @@
       }
     }
   ],
-  "updated_at": "2026-11-24T00:03:39Z"
+  "updated_at": "2026-11-24T01:01:44Z"
 }
