@@ -66,11 +66,6 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "$k$-inducible",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
       "topic": "3-sat",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -82,6 +77,11 @@
     },
     {
       "topic": "artifact-first",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "binary-encoded",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-24T12:38:33Z",
-  "updated_cycle": "20261124T123240Z_c70049",
+  "updated_at": "2026-11-24T13:29:09Z",
+  "updated_cycle": "20261124T132555Z_486e57",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
