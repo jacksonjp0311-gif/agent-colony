@@ -57,7 +57,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Reading breadth (knowledge library)
 
-knowledge: 532 papers across 14/14 fields, 276 concepts, 133 cards formed, 2 tested, 1 kept.
+knowledge: 532 papers across 14/14 fields, 276 concepts, 139 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -69,8 +69,8 @@ knowledge: 532 papers across 14/14 fields, 276 concepts, 133 cards formed, 2 tes
 | meta_learning | 20 | 14 | 3 | 0 | 0 |
 | multi_agent_systems | 13 | 7 | 2 | 0 | 0 |
 | neural_architecture | 65 | 45 | 10 | 0 | 0 |
-| open_endedness | 56 | 56 | 52 | 0 | 0 |
-| optimization_search | 47 | 52 | 27 | 0 | 0 |
+| open_endedness | 56 | 56 | 56 | 0 | 0 |
+| optimization_search | 47 | 52 | 29 | 0 | 0 |
 | physics_complex_systems | 30 | 11 | 3 | 0 | 0 |
 | recursive_self_improvement | 45 | 6 | 6 | 0 | 0 |
 | self_learning_loops | 33 | 15 | 7 | 1 | 0 |
