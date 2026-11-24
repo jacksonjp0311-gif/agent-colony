@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-23T23:05:25Z",
+  "ts": "2026-11-24T00:04:20Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.763530456895636,
+      "latest": -6.685779048893813,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-11-23T22:59:00Z",
+          "t": "2026-11-23T23:57:00Z",
           "v": -9.000000012282687
         },
         {
-          "t": "2026-11-23T22:59:00Z",
-          "v": -6.758596510577418
+          "t": "2026-11-23T23:57:00Z",
+          "v": -6.67673026905567
         },
         {
-          "t": "2026-11-23T23:00:00Z",
+          "t": "2026-11-23T23:58:00Z",
           "v": -9.000000012282687
         },
         {
-          "t": "2026-11-23T23:00:00Z",
-          "v": -6.76191439777158
+          "t": "2026-11-23T23:58:00Z",
+          "v": -6.678406680389748
         },
         {
-          "t": "2026-11-23T23:01:00Z",
+          "t": "2026-11-23T23:59:00Z",
           "v": -9.000000012282687
         },
         {
-          "t": "2026-11-23T23:01:00Z",
-          "v": -6.764652722918696
+          "t": "2026-11-23T23:59:00Z",
+          "v": -6.67876276990629
         },
         {
-          "t": "2026-11-23T23:02:00Z",
+          "t": "2026-11-24T00:00:00Z",
           "v": -9.000000012282687
         },
         {
-          "t": "2026-11-23T23:02:00Z",
-          "v": -6.763530456895636
+          "t": "2026-11-24T00:00:00Z",
+          "v": -6.685779048893813
         }
       ],
       "live": true,
-      "ts": "2026-11-23T23:05:25Z"
+      "ts": "2026-11-24T00:04:20Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
-      "note": "mem_ttl:cached_last_good_after:HTTPError: HTTP Error 429: Too Many Requests",
+      "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 13.4,
+      "latest": 3.7,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -61,101 +61,101 @@
       "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
       "items": [
         {
-          "t": "2026-11-22T00:00",
-          "v": 13.1
+          "t": "2026-11-23T00:00",
+          "v": 14.3
         },
         {
-          "t": "2026-11-22T01:00",
-          "v": 12.0
+          "t": "2026-11-23T01:00",
+          "v": 14.5
         },
         {
-          "t": "2026-11-22T02:00",
-          "v": 11.7
+          "t": "2026-11-23T02:00",
+          "v": 14.8
         },
         {
-          "t": "2026-11-22T03:00",
-          "v": 11.8
+          "t": "2026-11-23T03:00",
+          "v": 15.3
         },
         {
-          "t": "2026-11-22T04:00",
-          "v": 11.6
+          "t": "2026-11-23T04:00",
+          "v": 15.3
         },
         {
-          "t": "2026-11-22T05:00",
-          "v": 12.2
+          "t": "2026-11-23T05:00",
+          "v": 15.0
         },
         {
-          "t": "2026-11-22T06:00",
-          "v": 12.4
+          "t": "2026-11-23T06:00",
+          "v": 15.0
         },
         {
-          "t": "2026-11-22T07:00",
-          "v": 12.5
+          "t": "2026-11-23T07:00",
+          "v": 15.1
         }
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-11-23T23:05:25Z"
+      "ts": "2026-11-24T00:04:20Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
       "ok": true,
       "note": "ok",
       "count": 100,
-      "latest": 4.7,
+      "latest": 2.55,
       "items": [
         {
-          "mag": 4.7,
-          "place": "226 km NW of Tobelo, Indonesia",
-          "time": 1795391444048,
+          "mag": 2.55,
+          "place": "13 km SSW of Kapaau, Hawaii",
+          "time": 1795474945780,
           "source": "usgs"
         },
         {
-          "mag": 4.2,
-          "place": "33 km WSW of Pánormos, Greece",
-          "time": 1795390969074,
+          "mag": 3.2,
+          "place": "109 km NNE of Arctic Village, Alaska",
+          "time": 1795474074673,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.7,
+          "place": "33 km ENE of Nelson Lagoon, Alaska",
+          "time": 1795467389960,
+          "source": "usgs"
+        },
+        {
+          "mag": 4.4,
+          "place": "63 km SSW of Nikolski, Alaska",
+          "time": 1795466091026,
           "source": "usgs"
         },
         {
           "mag": 2.8,
-          "place": "9 km NW of Pinnacles, CA",
-          "time": 1795390256600,
+          "place": "25 km SW of Ackerly, Texas",
+          "time": 1795461287761,
           "source": "usgs"
         },
         {
-          "mag": 2.7,
-          "place": "85 km W of Akhiok, Alaska",
-          "time": 1795389856401,
+          "mag": 2.6,
+          "place": "49 km NW of Ninilchik, Alaska",
+          "time": 1795460097336,
           "source": "usgs"
         },
         {
-          "mag": 4.9,
-          "place": "170 km WNW of Port-Olry, Vanuatu",
-          "time": 1795384695571,
+          "mag": 2.9,
+          "place": "27 km S of Denali National Park, Alaska",
+          "time": 1795456582168,
           "source": "usgs"
         },
         {
-          "mag": 4.5,
-          "place": "54 km NNE of Calama, Chile",
-          "time": 1795384052112,
-          "source": "usgs"
-        },
-        {
-          "mag": 5.4,
-          "place": "9 km N of Carhuamayo, Peru",
-          "time": 1795383331763,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.5,
-          "place": "55 km S of Whites City, New Mexico",
-          "time": 1795382783560,
+          "mag": 4.2,
+          "place": "286 km NW of Houma, Tonga",
+          "time": 1795455539062,
           "source": "usgs"
         }
       ],
       "live": true,
-      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-16&endtime=2026-11-23&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-11-23T23:05:25Z"
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-17&endtime=2026-11-24&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-11-24T00:04:20Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.1103515625,
-          "disk_free_percent": 61.45889567543049,
-          "process_count": 181,
-          "uptime_hours": 0.31754444444444446,
-          "platform": "Linux-7.0.0-1016-aws-x86_64-with-glibc2.43",
-          "node": "ip-10-0-130-134",
+          "load1": 0.89794921875,
+          "disk_free_percent": 59.02738966960368,
+          "process_count": 163,
+          "uptime_hours": 0.2785916666666666,
+          "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.43",
+          "node": "runnervm0hi8g",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.1103515625,
+      "latest_load1": 0.89794921875,
       "live": true,
-      "ts": "2026-11-23T23:05:25Z"
+      "ts": "2026-11-24T00:04:20Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 2.199845999939498,
-      "mean_ms": 2.248085499957142,
+      "latest_ms": 1.7113830000425878,
+      "mean_ms": 2.454017249988283,
       "items": [
         {
           "probe": 0,
-          "ms": 2.5313910000477335
+          "ms": 4.55606799994257
         },
         {
           "probe": 1,
-          "ms": 2.3378309999770863
+          "ms": 1.8120290000069872
         },
         {
           "probe": 2,
-          "ms": 1.92327399986425
+          "ms": 1.7365889999609863
         },
         {
           "probe": 3,
-          "ms": 2.199845999939498
+          "ms": 1.7113830000425878
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-11-23T23:05:25Z"
+      "ts": "2026-11-24T00:04:20Z"
     }
   },
   "feed_health": {
@@ -216,7 +216,7 @@
     },
     "openmeteo_series": {
       "ok": true,
-      "note": "mem_ttl:cached_last_good_after:HTTPError: HTTP Error 429: Too Many Requests",
+      "note": "mem_ttl:ok",
       "count": 48
     },
     "usgs_quakes": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.1103515625 tcp_probe mean_ms=2.248085499957142 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.89794921875 tcp_probe mean_ms=2.454017249988283 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.1103515625,
-        "probe_ms": 2.248085499957142,
+        "load1": 0.89794921875,
+        "probe_ms": 2.454017249988283,
         "probe_ok": true
       },
       "domains": [
