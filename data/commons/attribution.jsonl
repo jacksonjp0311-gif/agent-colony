@@ -1086,3 +1086,12 @@
 {"source": "colony", "fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": -164, "foreign": 0, "with_prior": -164, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6037", "base": -36, "foreign": 0, "with_prior": -36, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": -223, "foreign": 0, "with_prior": -223, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6037", "base": -167, "foreign": 0, "with_prior": -167, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": -164, "foreign": 0, "with_prior": -164, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6037", "base": -18, "foreign": 0, "with_prior": -18, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=down:name=step_size:value=0.0634", "base": -164, "foreign": 0, "with_prior": -164, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=6037", "base": 34, "foreign": 0, "with_prior": 34, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
