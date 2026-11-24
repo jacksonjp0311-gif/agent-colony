@@ -43,7 +43,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 101,
-      "reads": 103
+      "reads": 104
     },
     "meta_learning": {
       "cards_formed": 3,
@@ -61,7 +61,7 @@
       "concepts": 7,
       "distinct_concepts": 4,
       "papers": 13,
-      "reads": 51
+      "reads": 52
     },
     "neural_architecture": {
       "cards_formed": 12,
@@ -106,7 +106,7 @@
       "concepts": 6,
       "distinct_concepts": 4,
       "papers": 51,
-      "reads": 51
+      "reads": 52
     },
     "self_learning_loops": {
       "cards_formed": 7,
@@ -278,6 +278,6 @@
     "cards_tested": 2,
     "concepts": 288,
     "papers": 569,
-    "reads": 778
+    "reads": 781
   }
 }
