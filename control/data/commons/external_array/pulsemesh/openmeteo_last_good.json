@@ -3,7 +3,7 @@
   "ok": true,
   "note": "ok",
   "count": 48,
-  "latest": 3.8,
+  "latest": 4.0,
   "unit": "°C",
   "variable": "temperature_2m",
   "lat": 40.71,
@@ -45,5 +45,5 @@
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-11-25T21:16:18Z"
+  "ts": "2026-11-25T22:20:20Z"
 }
