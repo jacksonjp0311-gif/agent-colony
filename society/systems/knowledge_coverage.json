@@ -64,13 +64,13 @@
       "reads": 53
     },
     "neural_architecture": {
-      "cards_formed": 12,
+      "cards_formed": 13,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 52,
+      "concepts": 57,
       "distinct_concepts": 9,
-      "papers": 73,
-      "reads": 53
+      "papers": 81,
+      "reads": 54
     },
     "open_endedness": {
       "cards_formed": 59,
@@ -109,13 +109,13 @@
       "reads": 53
     },
     "self_learning_loops": {
-      "cards_formed": 7,
+      "cards_formed": 9,
       "cards_kept": 0,
       "cards_tested": 1,
-      "concepts": 15,
-      "distinct_concepts": 4,
-      "papers": 35,
-      "reads": 53
+      "concepts": 16,
+      "distinct_concepts": 5,
+      "papers": 37,
+      "reads": 54
     },
     "swarm_collective_intelligence": {
       "cards_formed": 11,
@@ -124,7 +124,7 @@
       "concepts": 12,
       "distinct_concepts": 2,
       "papers": 16,
-      "reads": 53
+      "reads": 54
     }
   },
   "fields_with_papers": 14,
@@ -184,7 +184,7 @@
         "physics_complex_systems"
       ],
       "idea": "specialist_routing",
-      "n_papers": 40
+      "n_papers": 44
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -273,11 +273,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 146,
+    "cards_formed": 149,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 288,
-    "papers": 569,
-    "reads": 796
+    "concepts": 294,
+    "papers": 579,
+    "reads": 799
   }
 }
