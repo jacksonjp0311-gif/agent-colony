@@ -1158,3 +1158,12 @@
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=evaluation_window:value=9", "base": -167, "foreign": 0, "with_prior": -167, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": -32, "foreign": 0, "with_prior": -32, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=evaluation_window:value=9", "base": -191, "foreign": 0, "with_prior": -191, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": -87, "foreign": 0, "with_prior": -87, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=evaluation_window:value=9", "base": -167, "foreign": 0, "with_prior": -167, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 20, "foreign": 0, "with_prior": 20, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=evaluation_window:value=9", "base": -167, "foreign": 0, "with_prior": -167, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 16, "foreign": 0, "with_prior": 16, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": -76, "foreign": 0, "with_prior": -76, "outcome": "ranked"}
