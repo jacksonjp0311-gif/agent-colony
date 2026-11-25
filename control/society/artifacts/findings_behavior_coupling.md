@@ -2,8 +2,8 @@
 
 > Accepted math/compute/RSI findings change gather/debate/build choices via skill_router, genomes, topic_priority, and persona mandates. **Not museum metrics. Not AGI.**
 
-**Updated:** 2026-11-25T19:27:45Z  
-**Cycle:** `20261125T192430Z_d552cc`  
+**Updated:** 2026-11-25T20:22:29Z  
+**Cycle:** `20261125T201857Z_0b81a0`  
 **Strength:** 0.4  
 **Accepted math / compute / RSI:** 0 / 123 / 0  
 
