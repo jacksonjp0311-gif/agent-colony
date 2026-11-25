@@ -26,6 +26,11 @@
       "from_topic": "compute-useful-math"
     },
     {
+      "topic": "$$a_k$$-alignments",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
       "topic": "$(17/7-o(1))n$",
       "priority": 1.0,
       "reason": "inbox_gap"
@@ -61,17 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "$b_α$-spectral",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "((1+x)^(2*k-1)",
-      "priority": 1.0,
-      "reason": "inbox_gap"
-    },
-    {
-      "topic": "<https://doi.org/10.1007/s10801-026-01529-4>",
+      "topic": "<https://doi.org/10.1007/s00026-026-00848-4>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -82,6 +77,11 @@
     },
     {
       "topic": "artifact-first",
+      "priority": 1.0,
+      "reason": "inbox_gap"
+    },
+    {
+      "topic": "ceiling-aware]",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-25T18:14:57Z",
-  "updated_cycle": "20261125T180847Z_296632",
+  "updated_at": "2026-11-25T19:44:10Z",
+  "updated_cycle": "20261125T194052Z_b86d95",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
