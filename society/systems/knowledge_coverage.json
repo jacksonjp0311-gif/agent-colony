@@ -67,13 +67,13 @@
       "cards_formed": 13,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 57,
+      "concepts": 59,
       "distinct_concepts": 9,
-      "papers": 81,
-      "reads": 54
+      "papers": 89,
+      "reads": 55
     },
     "open_endedness": {
-      "cards_formed": 65,
+      "cards_formed": 67,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 65,
@@ -109,22 +109,22 @@
       "reads": 54
     },
     "self_learning_loops": {
-      "cards_formed": 9,
-      "cards_kept": 0,
-      "cards_tested": 1,
-      "concepts": 16,
-      "distinct_concepts": 5,
-      "papers": 37,
-      "reads": 54
-    },
-    "swarm_collective_intelligence": {
       "cards_formed": 11,
       "cards_kept": 0,
+      "cards_tested": 1,
+      "concepts": 19,
+      "distinct_concepts": 5,
+      "papers": 40,
+      "reads": 55
+    },
+    "swarm_collective_intelligence": {
+      "cards_formed": 13,
+      "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 12,
+      "concepts": 16,
       "distinct_concepts": 2,
-      "papers": 16,
-      "reads": 54
+      "papers": 18,
+      "reads": 55
     }
   },
   "fields_with_papers": 14,
@@ -184,7 +184,7 @@
         "physics_complex_systems"
       ],
       "idea": "specialist_routing",
-      "n_papers": 44
+      "n_papers": 45
     },
     {
       "description": "Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).",
@@ -215,7 +215,7 @@
         "swarm_collective_intelligence"
       ],
       "idea": "swarm_topology",
-      "n_papers": 18
+      "n_papers": 20
     },
     {
       "description": "A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).",
@@ -241,42 +241,44 @@
         "self_learning_loops"
       ],
       "idea": "self_play_challenger",
-      "n_papers": 13
+      "n_papers": 15
     },
     {
-      "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
+      "description": "A small per-cycle working-memory buffer of recent outcomes that every desk reads before choosing work.",
       "examples": [
         {
-          "arxiv_id": "2611.17314",
-          "field": "meta_learning",
-          "title": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces"
+          "arxiv_id": "2611.14035",
+          "field": "cognitive_science",
+          "title": "ScaleBrain: A Scale-Consistent Framework for EEG Foundation Models"
         },
         {
-          "arxiv_id": "2611.15923",
-          "field": "meta_learning",
-          "title": "Reinforcement Learning for Target Jerk Estimation in Interceptor Homing Phase"
+          "arxiv_id": "2611.00387",
+          "field": "cognitive_science",
+          "title": "Geometric and algebraic inference in humans and neural networks"
         },
         {
-          "arxiv_id": "2611.15071",
-          "field": "meta_learning",
-          "title": "Improving Efficiency and Power in Small Rare-Disease Trials Through Prespecified, Data-Adaptive Covariate Adjustment"
+          "arxiv_id": "2611.18417",
+          "field": "neural_architecture",
+          "title": "CoPre-MoE: Consolidating and Preserving MoE for Multimodal Continual Instruction Tuning"
         }
       ],
       "fields": [
-        "meta_learning",
+        "cognitive_science",
+        "consciousness_self_models",
+        "neural_architecture",
         "recursive_self_improvement",
         "self_learning_loops"
       ],
-      "idea": "meta_controller",
+      "idea": "working_memory_buffer",
       "n_papers": 12
     }
   ],
   "totals": {
-    "cards_formed": 162,
+    "cards_formed": 168,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 323,
-    "papers": 635,
-    "reads": 811
+    "concepts": 332,
+    "papers": 648,
+    "reads": 814
   }
 }
