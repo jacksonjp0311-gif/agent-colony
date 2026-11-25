@@ -1,6 +1,6 @@
 {
-  "ts": "2026-11-25T00:58:26Z",
-  "cycle_id": "20261125T005757Z_86a9cd",
+  "ts": "2026-11-25T01:49:34Z",
+  "cycle_id": "20261125T014916Z_2cdf6f",
   "lemma_streaks": {
     "revert_streaks": [],
     "oracle_kills_by_theme": {},
@@ -9,10 +9,10 @@
   "trends": {
     "n": 12,
     "aggregate": {
-      "last": 0.8213,
-      "slope": -0.000104,
+      "last": 0.8234,
+      "slope": 0.000129,
       "min": 0.8212,
-      "max": 0.823
+      "max": 0.8248
     },
     "novelty": {
       "last": 0.0,
@@ -41,7 +41,7 @@
   },
   "stall": {
     "stalled": true,
-    "aggregate_range": 0.0006,
+    "aggregate_range": 0.0036,
     "novelty_max": 0.0,
     "window": 6,
     "reason": "aggregate flat and novelty 0"
@@ -189,33 +189,33 @@
   },
   "bench_timing": {
     "fft_microbench": {
-      "ratio": 1.181,
+      "ratio": 0.893,
       "drift": false
     },
     "fft_stress_microbench": {
-      "ratio": 1.143,
+      "ratio": 0.643,
       "drift": false
     },
     "autodiff_microbench": {
-      "ratio": 1.179,
+      "ratio": 0.599,
       "drift": false
     },
     "lemma_microbench": {
-      "ratio": 1.128,
+      "ratio": 0.603,
       "drift": false
     },
     "kinematics_microbench": {
-      "ratio": 1.022,
+      "ratio": 0.66,
       "drift": false
     }
   },
   "frontier": {
     "n_targets": 31,
     "verified": {
-      "goldbach_even": 829675715,
+      "goldbach_even": 831275715,
       "collatz_descent": 918200000,
-      "legendre_square_gap": 4636607,
-      "lehmer_totient": 442200001,
+      "legendre_square_gap": 4652607,
+      "lehmer_totient": 443800001,
       "erdos_straus": 2039127,
       "twin_primes_hl": 1146200000,
       "oeis_A104062_next": 518690000001
@@ -266,8 +266,8 @@
     "method": "forecast (Hardy-Littlewood) -> count -> confirm with an independent counter"
   },
   "ci_health": {
-    "success_rate": 0.9,
-    "completed": 10,
+    "success_rate": 0.9091,
+    "completed": 11,
     "last": [
       [
         null,
@@ -278,22 +278,22 @@
         "2026-11-25T00:25:42Z"
       ],
       [
-        null,
+        "success",
         "2026-11-25T00:25:38Z"
       ]
     ],
-    "fetched_at": "2026-11-25T00:28:53Z"
+    "fetched_at": "2026-11-25T01:29:57Z"
   },
   "feeds": {
     "by_source": {
-      "arxiv": 381,
+      "arxiv": 382,
       "oeis": 5,
       "crossref": 180,
       "wikipedia": 19,
       "oeis_conj": 241
     },
     "by_kind": {
-      "paper": 561,
+      "paper": 562,
       "sequence": 5,
       "summary": 19,
       "conj_sequence": 241
@@ -301,46 +301,42 @@
     "last_run": {
       "sources": {
         "arxiv": {
-          "error": "cs.LG:HTTPError: HTTP Error 406: Not Acceptable; cs.MA:HTTPError: HTTP Error 406: Not Acceptable",
-          "fetched": 0,
-          "new": 0,
-          "ok": false
+          "error": "",
+          "fetched": 8,
+          "new": 1,
+          "ok": true
         },
         "ci_health": {
           "new": 0,
           "ok": true
         },
         "crossref": {
-          "error": "",
-          "fetched": 5,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis": {
-          "error": "",
-          "fetched": 2,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "oeis_conj": {
-          "error": "",
-          "fetched": 3,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         },
         "wikipedia": {
-          "error": "",
-          "fetched": 0,
           "new": 0,
-          "ok": true
+          "ok": true,
+          "skipped": "ttl"
         }
       },
-      "ts": "2026-11-25T00:28:45Z"
+      "ts": "2026-11-25T01:29:53Z"
     },
     "health": {
       "arxiv": {
         "fail": 17,
-        "ok": 136
+        "ok": 137
       },
       "crossref": {
         "fail": 0,
@@ -361,7 +357,7 @@
     }
   },
   "signals": [
-    "stall: aggregate flat (0.0006) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
+    "stall: aggregate flat (0.0036) and novelty 0 for 6 cycles → seek fresh feed themes / author feed-confirmed checks",
     "feeds: 5 OEIS sequence(s) cached → candidate cross-checks for authored checks",
     "instruments: 4 available (sieve.count_pattern, sieve.forecast_and_count, sieve.hl_constant, sieve.hl_predict) → measure, then let the Oracle judge"
   ],
