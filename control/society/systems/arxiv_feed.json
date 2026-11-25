@@ -1,20 +1,24 @@
 {
-  "last_attempt_at": "2026-11-25T05:23:32Z",
+  "last_attempt_at": "2026-11-25T07:16:12Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-25T05:23:32Z",
+  "last_ok_at": "2026-11-25T07:16:12Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Eliciting the Recall Capacity of Linear Attention",
-      "abstract_snippet": "Linear attention models exhibit a disproportionate deficit relative to softmax attention in associative recall (AR) in language modeling. We investigate this gap through natural language evaluations, synthetic recall tasks, and targeted training interventions. Using a synthetic setting, we quantify the role of state-size in how many items can be recalled from memory and find a similar empirical sc",
-      "url": "https://arxiv.org/abs/2611.32969",
-      "arxiv_id": "2611.32969",
+      "title": "OmniAct: One Policy, One Million Embodiments",
+      "abstract_snippet": "A single policy that controls diverse robots must not only transfer task knowledge across embodiments, but also adapt its behavior to each robot's capabilities. Existing approaches facilitate transfer through shared action representations, but these representations do not necessarily capture how differences in robot morphology should shape manipulation strategies. We introduce OmniAct, a cross-emb",
+      "url": "https://arxiv.org/abs/2611.33158",
+      "arxiv_id": "2611.33158",
       "doi": "",
       "authors": [
-        "Johan Lindqvist",
-        "Antonio Orvieto"
+        "Xiang Fan",
+        "Yuheng Wang",
+        "Jiayuan Yan",
+        "Bohan Fang",
+        "Wisdom Oluchi Ikezogwo",
+        "Ainaz Eftekhar"
       ],
       "year": 2026,
       "tags": [
@@ -24,17 +28,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T05:23:33Z"
+      "fetched_at": "2026-11-25T07:16:13Z"
     },
     {
       "source": "arxiv",
-      "title": "Boomerang identities and binomial transform",
-      "abstract_snippet": "In Pascal's triangle, the boomerang identities, which were recently introduced, combine and extend the well-known hockey-stick identities of the binomial coefficients by allowing additional terms. We show that the binomial transform of sequences in a ring play a central role in this context. Subsequently, we show several applications to Bell and Bernoulli numbers and polynomials, Appell polynomial",
-      "url": "https://arxiv.org/abs/2611.32965",
-      "arxiv_id": "2611.32965",
+      "title": "Dominoes tiling a common figure",
+      "abstract_snippet": "Call a two-element subset of $\\mathbb{Z}^2$ a domino. Given finitely many dominoes $D_1,\\ldots,D_k$, we show that there exists a finite non-empty $B\\subset \\mathbb{Z}^2$ such that $B$ can be partitioned into disjoint translates of $D_i$ for all $i$. The proof uses a new absorption mechanism for perfect matchings in algebraically defined hypergraphs.",
+      "url": "https://arxiv.org/abs/2611.33154",
+      "arxiv_id": "2611.33154",
       "doi": "",
       "authors": [
-        "Bernd C. Kellner"
+        "Peter Keevash",
+        "Jeck Lim"
       ],
       "year": 2026,
       "tags": [
@@ -44,17 +49,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T05:23:33Z"
+      "fetched_at": "2026-11-25T07:16:13Z"
     },
     {
       "source": "arxiv",
-      "title": "Polynomial-Time Learning of Random Automata from One Label per Word",
-      "abstract_snippet": "We study a binary deterministic finite automaton whose $2n$ transitions are chosen independently and uniformly from its $n$ states. The learner observes independent uniform words of length $m$, each labeled with a single bit indicating acceptance. For every fixed $β&gt;0$ we give a polynomial-time algorithm that works outside a set of transition tables of probability $o(n^{-β})$. On each remaining",
-      "url": "https://arxiv.org/abs/2611.32959",
-      "arxiv_id": "2611.32959",
+      "title": "BioLoom: Scaling Biomedical Vision-Language Models by Learning from the Structure of Scientific Articles",
+      "abstract_snippet": "The development of biomedical vision-language models (VLMs) with contrastive image-text pretraining has been driven by scaling to increasingly large and diverse image-text datasets. Beyond scaling, further progress can come from learning richer representations from existing data. We hypothesize that the structure of scientific literature itself provides an additional source of supervision: figures",
+      "url": "https://arxiv.org/abs/2611.33151",
+      "arxiv_id": "2611.33151",
       "doi": "",
       "authors": [
-        "Yilin Cheng"
+        "Yuwei Yang",
+        "Xiaoxiao Sun",
+        "Alejandro Lozano",
+        "Yuan-Sen Ting",
+        "Yuhui Yuan",
+        "Liang Zheng"
       ],
       "year": 2026,
       "tags": [
@@ -64,18 +74,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T05:23:33Z"
+      "fetched_at": "2026-11-25T07:16:13Z"
     },
     {
       "source": "arxiv",
-      "title": "Positive Geometry of Oriented Matroid Strata",
-      "abstract_snippet": "We study the positive geometry of Grassmannians whose boundary is a union of Plücker divisors. For the full Plücker boundary the regions are closures of realization spaces of uniform oriented matroids. In rank three we show that the pair $(\\mathrm{Gr}_{3,n},Z_{3,n})$ is a positive arrangement in the sense of Sturmfels and Telen for $n\\le 9$ points and compute its combinatorial rank from point coun",
-      "url": "https://arxiv.org/abs/2611.32956",
-      "arxiv_id": "2611.32956",
+      "title": "iWAM: Efficient Action Prediction from World Models without Explicit Future Prediction",
+      "abstract_snippet": "World-action models (WAMs) build policies on pretrained video-generation models, on the premise that predicting how a scene evolves helps determine how to act. However, generating future scenes is expensive for real-time control. This motivates efficient proxies for future imagination, but how to train such proxies without sacrificing action-prediction quality remains unclear. An effective proxy n",
+      "url": "https://arxiv.org/abs/2611.33141",
+      "arxiv_id": "2611.33141",
       "doi": "",
       "authors": [
-        "Arne Kuhrs",
-        "Artyom Lisitsyn"
+        "Vansh Kapoor",
+        "Max Sobol Mark",
+        "Sreyas Venkataraman",
+        "Max Simchowitz",
+        "Aviral Kumar"
       ],
       "year": 2026,
       "tags": [
@@ -85,18 +98,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T05:23:33Z"
+      "fetched_at": "2026-11-25T07:16:13Z"
     },
     {
       "source": "arxiv",
-      "title": "Online V-Learning with Adaptive Longitudinal Data",
-      "abstract_snippet": "Reinforcement learning methods for estimating optimal dynamic treatment regimes are increasingly applied in mobile health (mHealth), where treatment decisions are made continually. Luckett et al. (2020) proposed V-learning, which estimates an optimal policy from offline trajectories. In practice, mHealth policies are updated online. Batch updating, in which the policy is re-estimated after each bl",
-      "url": "https://arxiv.org/abs/2611.32947",
-      "arxiv_id": "2611.32947",
+      "title": "On Euclidean Diameter in Dynamic Streams",
+      "abstract_snippet": "We give a streaming algorithm for maintaining the diameter of a high-dimensional Euclidean point set under arbitrary insertions and deletions that achieves update time polylogarithmic in the number of points and polynomial in the dimension. For every fixed $c&gt;\\sqrt3$, there is an $ε_c &gt; 0$ such that our one-pass algorithm uses $\\tilde O(N^{1-ε_c}\\poly(d))$ space, has worst-case update time $",
+      "url": "https://arxiv.org/abs/2611.33139",
+      "arxiv_id": "2611.33139",
       "doi": "",
       "authors": [
-        "Aniruddhan Ganesaraman",
-        "Michael R. Kosorok"
+        "Jeff Giliberti",
+        "MohammadTaghi Hajiaghayi"
       ],
       "year": 2026,
       "tags": [
@@ -106,7 +119,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T05:23:33Z"
+      "fetched_at": "2026-11-25T07:16:13Z"
     }
   ]
 }
