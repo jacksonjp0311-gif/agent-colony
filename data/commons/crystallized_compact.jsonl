@@ -44,3 +44,4 @@
 {"key": "colony:dream:one-mind:43", "fingerprint": "dream:one-mind:43", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-24T12:20:47.641946+00:00", "reactivated": true}
 {"key": "colony:step_size:down:0.0634", "fingerprint": "step_size:down:0.0634", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-24T19:44:38.153325+00:00", "reactivated": true}
 {"key": "colony:step_size:down:0.05", "fingerprint": "step_size:down:0.05", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-24T21:55:23.551491+00:00", "reactivated": true}
+{"key": "colony:dream:one-mind:46", "fingerprint": "dream:one-mind:46", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-25T19:29:53.111029+00:00", "reactivated": true}
