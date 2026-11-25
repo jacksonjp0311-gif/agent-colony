@@ -1,23 +1,20 @@
 {
-  "last_attempt_at": "2026-11-25T03:59:37Z",
+  "last_attempt_at": "2026-11-25T04:31:44Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-25T03:59:37Z",
+  "last_ok_at": "2026-11-25T04:31:44Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "A Framework for Graph Node Symmetric Quantification under Dataset Shift",
-      "abstract_snippet": "Graph node quantification is the supervised learning task of estimating the prevalence of different classes within an arbitrary sample of unlabelled nodes from a graph, subject to some form of dataset shift. Existing approaches to graph node quantification typically follow the standard aggregative paradigm, i.e., they use labelled nodes from the graph to train an intermediate node classifier, and ",
-      "url": "https://arxiv.org/abs/2611.32403",
-      "arxiv_id": "2611.32403",
+      "title": "Eliciting the Recall Capacity of Linear Attention",
+      "abstract_snippet": "Linear attention models exhibit a disproportionate deficit relative to softmax attention in associative recall (AR) in language modeling. We investigate this gap through natural language evaluations, synthetic recall tasks, and targeted training interventions. Using a synthetic setting, we quantify the role of state-size in how many items can be recalled from memory and find a similar empirical sc",
+      "url": "https://arxiv.org/abs/2611.32969",
+      "arxiv_id": "2611.32969",
       "doi": "",
       "authors": [
-        "Alessio Micheli",
-        "Alejandro Moreo",
-        "Marco Podda",
-        "Fabrizio Sebastiani",
-        "Domenico Tortorella"
+        "Johan Lindqvist",
+        "Antonio Orvieto"
       ],
       "year": 2026,
       "tags": [
@@ -27,21 +24,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T03:59:37Z"
+      "fetched_at": "2026-11-25T04:31:44Z"
     },
     {
       "source": "arxiv",
-      "title": "Optimal Transport Meets t-SNE: Integrated Visualization without Batch Effects in OT-tSNE",
-      "abstract_snippet": "Visual exploration is an integral step in understanding the structure of datasets. However, systematic variation between datasets collected under different conditions, known as batch effects, can obscure shared structure and complicate their joint visualization. Existing methods often rely on cross-batch nearest-neighbor relations to integrate the batches. Yet, these local correspondences can be u",
-      "url": "https://arxiv.org/abs/2611.32402",
-      "arxiv_id": "2611.32402",
+      "title": "Boomerang identities and binomial transform",
+      "abstract_snippet": "In Pascal's triangle, the boomerang identities, which were recently introduced, combine and extend the well-known hockey-stick identities of the binomial coefficients by allowing additional terms. We show that the binomial transform of sequences in a ring play a central role in this context. Subsequently, we show several applications to Bell and Bernoulli numbers and polynomials, Appell polynomial",
+      "url": "https://arxiv.org/abs/2611.32965",
+      "arxiv_id": "2611.32965",
       "doi": "",
       "authors": [
-        "Azhar Akhmetova",
-        "Edward Eichhorn",
-        "Boris Landa",
-        "Dmitry Kobak",
-        "Sebastian Damrich"
+        "Bernd C. Kellner"
       ],
       "year": 2026,
       "tags": [
@@ -51,20 +44,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T03:59:37Z"
+      "fetched_at": "2026-11-25T04:31:44Z"
     },
     {
       "source": "arxiv",
-      "title": "Not All Pairs Align: Caption-Guided Audio-Visual Contrastive Learning",
-      "abstract_snippet": "We address the problem of learning audio-visual representations from co-occurring modalities. Multimodal contrastive learning typically assumes that paired observations provide shared views of the same underlying information. While this may be true for datasets collected in constrained environments, it does not always hold. For instance, co-occurring audio and visual signals can differ substantial",
-      "url": "https://arxiv.org/abs/2611.32399",
-      "arxiv_id": "2611.32399",
+      "title": "Polynomial-Time Learning of Random Automata from One Label per Word",
+      "abstract_snippet": "We study a binary deterministic finite automaton whose $2n$ transitions are chosen independently and uniformly from its $n$ states. The learner observes independent uniform words of length $m$, each labeled with a single bit indicating acceptance. For every fixed $β&gt;0$ we give a polynomial-time algorithm that works outside a set of transition tables of probability $o(n^{-β})$. On each remaining",
+      "url": "https://arxiv.org/abs/2611.32959",
+      "arxiv_id": "2611.32959",
       "doi": "",
       "authors": [
-        "Omar Emara",
-        "Nan Lu",
-        "Dima Damen",
-        "Hazel Doughty"
+        "Yilin Cheng"
       ],
       "year": 2026,
       "tags": [
@@ -74,17 +64,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T03:59:37Z"
+      "fetched_at": "2026-11-25T04:31:44Z"
     },
     {
       "source": "arxiv",
-      "title": "A direct majorant and an improved Huber constant on cofinite Fuchsian groups",
-      "abstract_snippet": "To obtain an effective upper bound for Huber's constant on cofinite Fuchsian groups, we introduce an algorithm that bypasses the quantitative Karamata Tauberian theorem in estimating spectral-counting growth by direct use of re-optimized Gaussian kernel instead. Further steps involve the different choice of a compactly supported test function, keeping linear and constant terms in the spectral esti",
-      "url": "https://arxiv.org/abs/2611.32398",
-      "arxiv_id": "2611.32398",
+      "title": "Positive Geometry of Oriented Matroid Strata",
+      "abstract_snippet": "We study the positive geometry of Grassmannians whose boundary is a union of Plücker divisors. For the full Plücker boundary the regions are closures of realization spaces of uniform oriented matroids. In rank three we show that the pair $(\\mathrm{Gr}_{3,n},Z_{3,n})$ is a positive arrangement in the sense of Sturmfels and Telen for $n\\le 9$ points and compute its combinatorial rank from point coun",
+      "url": "https://arxiv.org/abs/2611.32956",
+      "arxiv_id": "2611.32956",
       "doi": "",
       "authors": [
-        "Muharem Avdispahić"
+        "Arne Kuhrs",
+        "Artyom Lisitsyn"
       ],
       "year": 2026,
       "tags": [
@@ -94,19 +85,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T03:59:37Z"
+      "fetched_at": "2026-11-25T04:31:44Z"
     },
     {
       "source": "arxiv",
-      "title": "Fractal Neural Synthesis: Constant-Storage Procedural Weight Derivation via Complex Quadratic Boundary Dynamics",
-      "abstract_snippet": "Conventional neural networks store synaptic parameters as explicit tensors whose persistent Flash footprint scales linearly (O(W)) with parameter count, constraining resource-limited edge microcontrollers. We formulate and systematically evaluate Fractal Neural Synthesis (FNS), a procedural weight derivation architecture that replaces hidden-layer matrices with a constant 24-byte coordinate seed T",
-      "url": "https://arxiv.org/abs/2611.32393",
-      "arxiv_id": "2611.32393",
+      "title": "Online V-Learning with Adaptive Longitudinal Data",
+      "abstract_snippet": "Reinforcement learning methods for estimating optimal dynamic treatment regimes are increasingly applied in mobile health (mHealth), where treatment decisions are made continually. Luckett et al. (2020) proposed V-learning, which estimates an optimal policy from offline trajectories. In practice, mHealth policies are updated online. Batch updating, in which the policy is re-estimated after each bl",
+      "url": "https://arxiv.org/abs/2611.32947",
+      "arxiv_id": "2611.32947",
       "doi": "",
       "authors": [
-        "Volkan Dagli",
-        "Zerrin Dagli",
-        "Daghan Dagli"
+        "Aniruddhan Ganesaraman",
+        "Michael R. Kosorok"
       ],
       "year": 2026,
       "tags": [
@@ -116,7 +106,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T03:59:37Z"
+      "fetched_at": "2026-11-25T04:31:44Z"
     }
   ]
 }
