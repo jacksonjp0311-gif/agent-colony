@@ -41,3 +41,4 @@
 {"delta": 2.0, "accepted": true}
 {"delta": 8.0, "accepted": true}
 {"delta": -3.0, "accepted": false}
+{"delta": -1.0, "accepted": false}

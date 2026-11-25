@@ -1,24 +1,24 @@
 {
-  "last_attempt_at": "2026-11-25T02:21:01Z",
+  "last_attempt_at": "2026-11-25T18:09:09Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-25T02:21:01Z",
+  "last_ok_at": "2026-11-25T18:09:09Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
-      "abstract_snippet": "Reasoning vision-language-action (VLA) models for autonomous driving use chain-of-thought (CoT) reasoning to guide action generation, but incur substantial memory and computational costs. We study structured pruning for these models, focusing on preserving both scene understanding and trajectory prediction. Our analysis of Taylor importance in Alpamayo-1.5-10B shows that reasoning and trajectory o",
-      "url": "https://arxiv.org/abs/2611.31240",
-      "arxiv_id": "2611.31240",
+      "title": "OmniAct: One Policy, One Million Embodiments",
+      "abstract_snippet": "A single policy that controls diverse robots must not only transfer task knowledge across embodiments, but also adapt its behavior to each robot's capabilities. Existing approaches facilitate transfer through shared action representations, but these representations do not necessarily capture how differences in robot morphology should shape manipulation strategies. We introduce OmniAct, a cross-emb",
+      "url": "https://arxiv.org/abs/2611.33158",
+      "arxiv_id": "2611.33158",
       "doi": "",
       "authors": [
-        "Seongchan Kim",
-        "Soowon Son",
-        "Sangoh Kim",
-        "Hyunah Ko",
-        "Eunbeen Hong",
-        "Hyunkoo Lee"
+        "Xiang Fan",
+        "Yuheng Wang",
+        "Jiayuan Yan",
+        "Bohan Fang",
+        "Wisdom Oluchi Ikezogwo",
+        "Ainaz Eftekhar"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +28,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:21:01Z"
+      "fetched_at": "2026-11-25T18:09:09Z"
     },
     {
       "source": "arxiv",
-      "title": "Let Vision-Language Models Generate Images through Their Representations",
-      "abstract_snippet": "Recent unified multimodal models aim to combine visual understanding and generation within a single model, yet effectively integrating the two capabilities remains challenging. Leveraging pretrained vision-language models offers a way to build on already learned multimodal knowledge, but making this knowledge effectively accessible to visual generation remains nontrivial. We find that a central ch",
-      "url": "https://arxiv.org/abs/2611.31237",
-      "arxiv_id": "2611.31237",
+      "title": "Dominoes tiling a common figure",
+      "abstract_snippet": "Call a two-element subset of $\\mathbb{Z}^2$ a domino. Given finitely many dominoes $D_1,\\ldots,D_k$, we show that there exists a finite non-empty $B\\subset \\mathbb{Z}^2$ such that $B$ can be partitioned into disjoint translates of $D_i$ for all $i$. The proof uses a new absorption mechanism for perfect matchings in algebraically defined hypergraphs.",
+      "url": "https://arxiv.org/abs/2611.33154",
+      "arxiv_id": "2611.33154",
       "doi": "",
       "authors": [
-        "JB Kim",
-        "Byungwoo Jeon",
-        "Kyungmin Lee",
-        "Hyeonmo Kang",
-        "Cheonbok Park",
-        "Shinyoung Joo"
+        "Peter Keevash",
+        "Jeck Lim"
       ],
       "year": 2026,
       "tags": [
@@ -53,19 +49,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:21:01Z"
+      "fetched_at": "2026-11-25T18:09:09Z"
     },
     {
       "source": "arxiv",
-      "title": "TowerBridge: Bridging the Dual-Encoder Modality Gap via Weight-Space Programming",
-      "abstract_snippet": "CLIP-style dual encoders map images and text through two separate towers into a shared embedding space, where the two modalities occupy distinct regions separated by a modality gap. Retrieval fails when wrong matches, or hard negatives, outrank the correct one, and the gap is the usual suspect. Yet removing it post hoc degrades retrieval on every CLIP checkpoint we test. We introduce a paired stat",
-      "url": "https://arxiv.org/abs/2611.31233",
-      "arxiv_id": "2611.31233",
+      "title": "BioLoom: Scaling Biomedical Vision-Language Models by Learning from the Structure of Scientific Articles",
+      "abstract_snippet": "The development of biomedical vision-language models (VLMs) with contrastive image-text pretraining has been driven by scaling to increasingly large and diverse image-text datasets. Beyond scaling, further progress can come from learning richer representations from existing data. We hypothesize that the structure of scientific literature itself provides an additional source of supervision: figures",
+      "url": "https://arxiv.org/abs/2611.33151",
+      "arxiv_id": "2611.33151",
       "doi": "",
       "authors": [
-        "Hani Alomari",
-        "Md Atabuzzaman",
-        "Chris Thomas"
+        "Yuwei Yang",
+        "Xiaoxiao Sun",
+        "Alejandro Lozano",
+        "Yuan-Sen Ting",
+        "Yuhui Yuan",
+        "Liang Zheng"
       ],
       "year": 2026,
       "tags": [
@@ -75,18 +74,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:21:01Z"
+      "fetched_at": "2026-11-25T18:09:09Z"
     },
     {
       "source": "arxiv",
-      "title": "How Far Can Linear Go? BiPert, a Unified Framework for Single-Cell Perturbation Modelling",
-      "abstract_snippet": "Understanding how genetic perturbations affect cellular behaviour is essential for studying gene function and regulatory mechanisms. Large-scale CRISPR screens measure these effects across thousands of genes, but cover relatively few cellular contexts. Predicting perturbation responses in unseen cell types and identifying perturbed genes from their transcriptional effects therefore remain challeng",
-      "url": "https://arxiv.org/abs/2611.31227",
-      "arxiv_id": "2611.31227",
+      "title": "iWAM: Efficient Action Prediction from World Models without Explicit Future Prediction",
+      "abstract_snippet": "World-action models (WAMs) build policies on pretrained video-generation models, on the premise that predicting how a scene evolves helps determine how to act. However, generating future scenes is expensive for real-time control. This motivates efficient proxies for future imagination, but how to train such proxies without sacrificing action-prediction quality remains unclear. An effective proxy n",
+      "url": "https://arxiv.org/abs/2611.33141",
+      "arxiv_id": "2611.33141",
       "doi": "",
       "authors": [
-        "Abhishek Sharma",
-        "Aleksej Zelezniak"
+        "Vansh Kapoor",
+        "Max Sobol Mark",
+        "Sreyas Venkataraman",
+        "Max Simchowitz",
+        "Aviral Kumar"
       ],
       "year": 2026,
       "tags": [
@@ -96,22 +98,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:21:01Z"
+      "fetched_at": "2026-11-25T18:09:09Z"
     },
     {
       "source": "arxiv",
-      "title": "Self-Supervised Dataset Distillation via Mutual Information Maximization",
-      "abstract_snippet": "Dataset distillation (DD) aims to compress a large dataset into a small synthetic one that remains effective for training neural networks. Despite its success in supervised learning, DD remains underexplored in self-supervised learning (SSL), where distilled data must preserve the information needed to learn representations that remain consistent across augmentations. To bridge this gap, we introd",
-      "url": "https://arxiv.org/abs/2611.31225",
-      "arxiv_id": "2611.31225",
+      "title": "On Euclidean Diameter in Dynamic Streams",
+      "abstract_snippet": "We give a streaming algorithm for maintaining the diameter of a high-dimensional Euclidean point set under arbitrary insertions and deletions that achieves update time polylogarithmic in the number of points and polynomial in the dimension. For every fixed $c&gt;\\sqrt3$, there is an $ε_c &gt; 0$ such that our one-pass algorithm uses $\\tilde O(N^{1-ε_c}\\poly(d))$ space, has worst-case update time $",
+      "url": "https://arxiv.org/abs/2611.33139",
+      "arxiv_id": "2611.33139",
       "doi": "",
       "authors": [
-        "Mohammad Hossein Moslemi",
-        "Mahdi Beitollahi",
-        "Zhimin Mei",
-        "Jiale Cai",
-        "Bissan Ghaddar",
-        "Boyu Wang"
+        "Jeff Giliberti",
+        "MohammadTaghi Hajiaghayi"
       ],
       "year": 2026,
       "tags": [
@@ -121,7 +119,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:21:01Z"
+      "fetched_at": "2026-11-25T18:09:09Z"
     }
   ]
 }

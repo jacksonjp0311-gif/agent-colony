@@ -10,13 +10,13 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **2**
 - Kept: **25**
-- Reverted (including twin-not-better): **31**
+- Reverted (including twin-not-better): **32**
 - Voided (environment changed mid-trial): **26**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **6** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 50, correct 0, pending 150, accuracy 0‰
+- Hive shadow picks: resolved 47, correct 0, pending 153, accuracy 0‰
 
 ## Per method card
 
@@ -33,7 +33,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
 | `set_knob:evaluation_window` | 10 | 1 | 8 | 100‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
-| `set_knob:gf_term_cap` | 13 | 6 | 2 | 461‰ |
+| `set_knob:gf_term_cap` | 14 | 6 | 3 | 428‰ |
 | `set_knob:park_cycles` | 21 | 4 | 9 | 190‰ |
 | `set_knob:perturb_cooldown_cycles` | 3 | 0 | 2 | 0‰ |
 | `set_knob:perturb_epsilon` | 2 | 0 | 1 | 0‰ |
@@ -42,7 +42,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `voided` · card `—` · family `set_knob:gf_term_cap` · cycle `20261121T150321Z_64eb8c` (baseline 4.0, trial None)
 - `kept` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261121T185804Z_5d2655` (baseline 11.0, trial 20.0)
 - `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261122T092727Z_c1e88c` (baseline 13.0, trial 14.0)
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261123T155301Z_5fe2da` (baseline 22.0, trial 4.0)
@@ -54,19 +53,20 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `kept` · card `—` · family `set_knob:step_size` · cycle `20261124T194032Z_8650dd` (baseline 18.0, trial 20.0)
 - `kept` · card `—` · family `set_knob:step_size` · cycle `20261124T215001Z_33e498` (baseline 17.0, trial 25.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261125T004811Z_70ff30` (baseline 28.0, trial 25.0)
+- `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261125T172433Z_95534a` (baseline 18.0, trial 17.0)
 
 ## Reading breadth (knowledge library)
 
-knowledge: 579 papers across 14/14 fields, 294 concepts, 149 cards formed, 2 tested, 1 kept.
+knowledge: 584 papers across 14/14 fields, 298 concepts, 149 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | automated_reasoning | 61 | 8 | 2 | 0 | 0 |
 | cognitive_science | 17 | 9 | 8 | 1 | 1 |
-| consciousness_self_models | 13 | 9 | 2 | 0 | 0 |
+| consciousness_self_models | 16 | 12 | 2 | 0 | 0 |
 | learning_theory | 32 | 35 | 1 | 0 | 0 |
 | mathematics | 101 | 0 | 0 | 0 | 0 |
-| meta_learning | 22 | 14 | 3 | 0 | 0 |
+| meta_learning | 24 | 15 | 3 | 0 | 0 |
 | multi_agent_systems | 13 | 7 | 2 | 0 | 0 |
 | neural_architecture | 81 | 57 | 13 | 0 | 0 |
 | open_endedness | 57 | 57 | 59 | 0 | 0 |
@@ -82,7 +82,7 @@ knowledge: 579 papers across 14/14 fields, 294 concepts, 149 cards formed, 2 tes
 - `specialist_routing` — 44 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `swarm_topology` — 17 papers (multi_agent_systems, neural_architecture, open_endedness, optimization_search, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
 - `self_play_challenger` — 13 papers (recursive_self_improvement, self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
-- `prediction_error_routing` — 11 papers (cognitive_science, learning_theory, neural_architecture, optimization_search, physics_complex_systems): Route work to targets where predicted and actual outcomes differ most (prediction-error-driven routing).
+- `meta_controller` — 12 papers (meta_learning, recursive_self_improvement, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 
