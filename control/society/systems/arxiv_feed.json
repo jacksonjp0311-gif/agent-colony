@@ -1,24 +1,23 @@
 {
-  "last_attempt_at": "2026-11-25T02:15:26Z",
+  "last_attempt_at": "2026-11-25T03:27:27Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-25T02:15:26Z",
+  "last_ok_at": "2026-11-25T03:27:27Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
-      "abstract_snippet": "Reasoning vision-language-action (VLA) models for autonomous driving use chain-of-thought (CoT) reasoning to guide action generation, but incur substantial memory and computational costs. We study structured pruning for these models, focusing on preserving both scene understanding and trajectory prediction. Our analysis of Taylor importance in Alpamayo-1.5-10B shows that reasoning and trajectory o",
-      "url": "https://arxiv.org/abs/2611.31240",
-      "arxiv_id": "2611.31240",
+      "title": "A Framework for Graph Node Symmetric Quantification under Dataset Shift",
+      "abstract_snippet": "Graph node quantification is the supervised learning task of estimating the prevalence of different classes within an arbitrary sample of unlabelled nodes from a graph, subject to some form of dataset shift. Existing approaches to graph node quantification typically follow the standard aggregative paradigm, i.e., they use labelled nodes from the graph to train an intermediate node classifier, and ",
+      "url": "https://arxiv.org/abs/2611.32403",
+      "arxiv_id": "2611.32403",
       "doi": "",
       "authors": [
-        "Seongchan Kim",
-        "Soowon Son",
-        "Sangoh Kim",
-        "Hyunah Ko",
-        "Eunbeen Hong",
-        "Hyunkoo Lee"
+        "Alessio Micheli",
+        "Alejandro Moreo",
+        "Marco Podda",
+        "Fabrizio Sebastiani",
+        "Domenico Tortorella"
       ],
       "year": 2026,
       "tags": [
@@ -28,22 +27,21 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:15:26Z"
+      "fetched_at": "2026-11-25T03:27:28Z"
     },
     {
       "source": "arxiv",
-      "title": "Let Vision-Language Models Generate Images through Their Representations",
-      "abstract_snippet": "Recent unified multimodal models aim to combine visual understanding and generation within a single model, yet effectively integrating the two capabilities remains challenging. Leveraging pretrained vision-language models offers a way to build on already learned multimodal knowledge, but making this knowledge effectively accessible to visual generation remains nontrivial. We find that a central ch",
-      "url": "https://arxiv.org/abs/2611.31237",
-      "arxiv_id": "2611.31237",
+      "title": "Optimal Transport Meets t-SNE: Integrated Visualization without Batch Effects in OT-tSNE",
+      "abstract_snippet": "Visual exploration is an integral step in understanding the structure of datasets. However, systematic variation between datasets collected under different conditions, known as batch effects, can obscure shared structure and complicate their joint visualization. Existing methods often rely on cross-batch nearest-neighbor relations to integrate the batches. Yet, these local correspondences can be u",
+      "url": "https://arxiv.org/abs/2611.32402",
+      "arxiv_id": "2611.32402",
       "doi": "",
       "authors": [
-        "JB Kim",
-        "Byungwoo Jeon",
-        "Kyungmin Lee",
-        "Hyeonmo Kang",
-        "Cheonbok Park",
-        "Shinyoung Joo"
+        "Azhar Akhmetova",
+        "Edward Eichhorn",
+        "Boris Landa",
+        "Dmitry Kobak",
+        "Sebastian Damrich"
       ],
       "year": 2026,
       "tags": [
@@ -53,19 +51,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:15:26Z"
+      "fetched_at": "2026-11-25T03:27:28Z"
     },
     {
       "source": "arxiv",
-      "title": "TowerBridge: Bridging the Dual-Encoder Modality Gap via Weight-Space Programming",
-      "abstract_snippet": "CLIP-style dual encoders map images and text through two separate towers into a shared embedding space, where the two modalities occupy distinct regions separated by a modality gap. Retrieval fails when wrong matches, or hard negatives, outrank the correct one, and the gap is the usual suspect. Yet removing it post hoc degrades retrieval on every CLIP checkpoint we test. We introduce a paired stat",
-      "url": "https://arxiv.org/abs/2611.31233",
-      "arxiv_id": "2611.31233",
+      "title": "Not All Pairs Align: Caption-Guided Audio-Visual Contrastive Learning",
+      "abstract_snippet": "We address the problem of learning audio-visual representations from co-occurring modalities. Multimodal contrastive learning typically assumes that paired observations provide shared views of the same underlying information. While this may be true for datasets collected in constrained environments, it does not always hold. For instance, co-occurring audio and visual signals can differ substantial",
+      "url": "https://arxiv.org/abs/2611.32399",
+      "arxiv_id": "2611.32399",
       "doi": "",
       "authors": [
-        "Hani Alomari",
-        "Md Atabuzzaman",
-        "Chris Thomas"
+        "Omar Emara",
+        "Nan Lu",
+        "Dima Damen",
+        "Hazel Doughty"
       ],
       "year": 2026,
       "tags": [
@@ -75,18 +74,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:15:26Z"
+      "fetched_at": "2026-11-25T03:27:28Z"
     },
     {
       "source": "arxiv",
-      "title": "How Far Can Linear Go? BiPert, a Unified Framework for Single-Cell Perturbation Modelling",
-      "abstract_snippet": "Understanding how genetic perturbations affect cellular behaviour is essential for studying gene function and regulatory mechanisms. Large-scale CRISPR screens measure these effects across thousands of genes, but cover relatively few cellular contexts. Predicting perturbation responses in unseen cell types and identifying perturbed genes from their transcriptional effects therefore remain challeng",
-      "url": "https://arxiv.org/abs/2611.31227",
-      "arxiv_id": "2611.31227",
+      "title": "A direct majorant and an improved Huber constant on cofinite Fuchsian groups",
+      "abstract_snippet": "To obtain an effective upper bound for Huber's constant on cofinite Fuchsian groups, we introduce an algorithm that bypasses the quantitative Karamata Tauberian theorem in estimating spectral-counting growth by direct use of re-optimized Gaussian kernel instead. Further steps involve the different choice of a compactly supported test function, keeping linear and constant terms in the spectral esti",
+      "url": "https://arxiv.org/abs/2611.32398",
+      "arxiv_id": "2611.32398",
       "doi": "",
       "authors": [
-        "Abhishek Sharma",
-        "Aleksej Zelezniak"
+        "Muharem Avdispahić"
       ],
       "year": 2026,
       "tags": [
@@ -96,22 +94,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:15:26Z"
+      "fetched_at": "2026-11-25T03:27:28Z"
     },
     {
       "source": "arxiv",
-      "title": "Self-Supervised Dataset Distillation via Mutual Information Maximization",
-      "abstract_snippet": "Dataset distillation (DD) aims to compress a large dataset into a small synthetic one that remains effective for training neural networks. Despite its success in supervised learning, DD remains underexplored in self-supervised learning (SSL), where distilled data must preserve the information needed to learn representations that remain consistent across augmentations. To bridge this gap, we introd",
-      "url": "https://arxiv.org/abs/2611.31225",
-      "arxiv_id": "2611.31225",
+      "title": "Fractal Neural Synthesis: Constant-Storage Procedural Weight Derivation via Complex Quadratic Boundary Dynamics",
+      "abstract_snippet": "Conventional neural networks store synaptic parameters as explicit tensors whose persistent Flash footprint scales linearly (O(W)) with parameter count, constraining resource-limited edge microcontrollers. We formulate and systematically evaluate Fractal Neural Synthesis (FNS), a procedural weight derivation architecture that replaces hidden-layer matrices with a constant 24-byte coordinate seed T",
+      "url": "https://arxiv.org/abs/2611.32393",
+      "arxiv_id": "2611.32393",
       "doi": "",
       "authors": [
-        "Mohammad Hossein Moslemi",
-        "Mahdi Beitollahi",
-        "Zhimin Mei",
-        "Jiale Cai",
-        "Bissan Ghaddar",
-        "Boyu Wang"
+        "Volkan Dagli",
+        "Zerrin Dagli",
+        "Daghan Dagli"
       ],
       "year": 2026,
       "tags": [
@@ -121,7 +116,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-25T02:15:26Z"
+      "fetched_at": "2026-11-25T03:27:28Z"
     }
   ]
 }
