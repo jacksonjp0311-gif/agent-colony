@@ -10,13 +10,13 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **2**
 - Kept: **25**
-- Reverted (including twin-not-better): **32**
+- Reverted (including twin-not-better): **33**
 - Voided (environment changed mid-trial): **26**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **6** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 44, correct 0, pending 156, accuracy 0‰
+- Hive shadow picks: resolved 41, correct 0, pending 159, accuracy 0‰
 
 ## Per method card
 
@@ -31,7 +31,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
-| `set_knob:evaluation_window` | 10 | 1 | 8 | 100‰ |
+| `set_knob:evaluation_window` | 11 | 1 | 9 | 90‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 14 | 6 | 3 | 428‰ |
 | `set_knob:park_cycles` | 21 | 4 | 9 | 190‰ |
@@ -42,7 +42,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `kept` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261121T185804Z_5d2655` (baseline 11.0, trial 20.0)
 - `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261122T092727Z_c1e88c` (baseline 13.0, trial 14.0)
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261123T155301Z_5fe2da` (baseline 22.0, trial 4.0)
 - `kept` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261123T182437Z_d10804` (baseline 6.0, trial 22.0)
@@ -54,14 +53,15 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `kept` · card `—` · family `set_knob:step_size` · cycle `20261124T215001Z_33e498` (baseline 17.0, trial 25.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261125T004811Z_70ff30` (baseline 28.0, trial 25.0)
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261125T172433Z_95534a` (baseline 18.0, trial 17.0)
+- `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261125T203544Z_431fad` (baseline 27.0, trial 21.0)
 
 ## Reading breadth (knowledge library)
 
-knowledge: 598 papers across 14/14 fields, 305 concepts, 150 cards formed, 2 tested, 1 kept.
+knowledge: 621 papers across 14/14 fields, 322 concepts, 156 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| automated_reasoning | 61 | 8 | 2 | 0 | 0 |
+| automated_reasoning | 69 | 10 | 3 | 0 | 0 |
 | cognitive_science | 17 | 9 | 8 | 1 | 1 |
 | consciousness_self_models | 16 | 12 | 2 | 0 | 0 |
 | learning_theory | 35 | 41 | 2 | 0 | 0 |
@@ -69,8 +69,8 @@ knowledge: 598 papers across 14/14 fields, 305 concepts, 150 cards formed, 2 tes
 | meta_learning | 24 | 15 | 3 | 0 | 0 |
 | multi_agent_systems | 13 | 7 | 2 | 0 | 0 |
 | neural_architecture | 81 | 57 | 13 | 0 | 0 |
-| open_endedness | 57 | 57 | 59 | 0 | 0 |
-| optimization_search | 48 | 53 | 30 | 0 | 0 |
+| open_endedness | 65 | 65 | 61 | 0 | 0 |
+| optimization_search | 55 | 60 | 33 | 0 | 0 |
 | physics_complex_systems | 33 | 12 | 3 | 0 | 0 |
 | recursive_self_improvement | 51 | 6 | 6 | 0 | 0 |
 | self_learning_loops | 37 | 16 | 9 | 1 | 0 |
@@ -78,9 +78,9 @@ knowledge: 598 papers across 14/14 fields, 305 concepts, 150 cards formed, 2 tes
 
 ## Architecture ideas (proposals for a human-built PR; never auto-executed)
 
-- `novelty_archive` — 63 papers (consciousness_self_models, neural_architecture, open_endedness, optimization_search, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
+- `novelty_archive` — 71 papers (consciousness_self_models, neural_architecture, open_endedness, optimization_search, recursive_self_improvement): Keep an archive of behaviourally different claim forms and prefer under-explored ones (novelty/quality-diversity archive).
 - `specialist_routing` — 44 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
-- `swarm_topology` — 17 papers (multi_agent_systems, neural_architecture, open_endedness, optimization_search, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
+- `swarm_topology` — 18 papers (automated_reasoning, multi_agent_systems, neural_architecture, open_endedness, optimization_search, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
 - `self_play_challenger` — 13 papers (recursive_self_improvement, self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
 - `meta_controller` — 12 papers (meta_learning, recursive_self_improvement, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
 
