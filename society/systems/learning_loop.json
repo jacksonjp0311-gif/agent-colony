@@ -4223,7 +4223,7 @@
       "voided": 0
     }
   },
-  "last_cycle": "20261126T021548Z_397b12",
+  "last_cycle": "20261126T031347Z_2bae7e",
   "last_hive_deferral": {
     "action": {
       "cycles": 8,
@@ -4244,7 +4244,7 @@
   },
   "n_inconclusive": 6,
   "n_kept": 26,
-  "n_proposed": 10,
+  "n_proposed": 11,
   "n_reverted": 33,
   "n_twin_held": 0,
   "n_voided": 26,
@@ -4433,16 +4433,38 @@
       "method": "Rotate which claim family is attempted so search does not stick on one shape.",
       "source": "hive_vote",
       "ts": "2026-11-18T09:32:09Z"
+    },
+    {
+      "action": {
+        "op": "reorder_desk",
+        "order": [
+          "research",
+          "improve",
+          "conjecture",
+          "hunt"
+        ]
+      },
+      "card_id": "mc_0509c5d27991",
+      "concept": "",
+      "cycle_id": "20261126T025437Z_17b85c",
+      "deferred_count": 0,
+      "event": "proposed",
+      "field": "",
+      "fingerprint": "reorder_desk:order=['research', 'improve', 'conjecture', 'hunt']",
+      "knob": null,
+      "method": "Reorder desks so research and improvement run before spent catalogs.",
+      "source": "hive_vote",
+      "ts": "2026-11-26T03:01:05Z"
     }
   ],
   "shadow": {
     "accuracy_permille": 0,
     "correct": 0,
-    "incorrect": 24,
-    "pending": 176,
-    "resolved": 24,
+    "incorrect": 21,
+    "pending": 179,
+    "resolved": 21,
     "source": "hive_shadows",
-    "ts": "2026-11-26T02:26:42Z",
+    "ts": "2026-11-26T03:23:09Z",
     "unlabeled": 0
   },
   "twin_pending": [],

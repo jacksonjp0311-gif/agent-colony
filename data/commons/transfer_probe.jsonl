@@ -1544,3 +1544,12 @@
 {"fingerprint": "set_knob:direction=up:name=evaluation_window:value=10", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
 {"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "reorder_desk:order=['research', 'improve', 'conjecture', 'hunt']", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=evaluation_window:value=10", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=evaluation_window:value=10", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
+{"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "base": 100, "with_prior": 100, "without_prior": 100, "delta": 0, "kept_hit": false}
