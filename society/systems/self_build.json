@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 856,
+ "cycle_index": 859,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -500,7 +500,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261126T182420Z_03604a",
+  "cycle_id": "20261126T192158Z_b6f4f8",
   "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
@@ -509,13 +509,13 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 161,
-     "duplicate": 17,
-     "trivial_formal": 0,
+     "fitted": 172,
+     "duplicate": 13,
+     "trivial_formal": 4,
      "trivial_shuffle_null": 1,
      "trivial_idle_part": 6,
-     "trivial_implied_parts": 74,
-     "trivial_shared_operand": 1,
+     "trivial_implied_parts": 51,
+     "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
      "trivial_parity_rules": 0,
@@ -523,22 +523,23 @@
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
      "trivial_digit_rule": 0,
-     "expected_by_closure": 0,
+     "expected_by_closure": 3,
      "loose_inequality": 0,
      "tested": 16,
-     "survived": 4,
-     "falsified": 12,
-     "machine_checked": 0,
-     "surprises": 2,
+     "survived": 5,
+     "falsified": 11,
+     "machine_checked": 3,
+     "surprises": 0,
      "known_result": 0,
-     "oeis_known": 2,
+     "oeis_known": 1,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
-     "trivial_confirmed on range": 4,
-     "trivial_known_in_principle(definition_parity)": 1,
-     "no_reference_found": 2,
-     "deep_na": 2
+     "no_reference_found": 1,
+     "explained_by_known_check": 1,
+     "trivial_known_in_principle(compositional)": 1,
+     "trivial_confirmed on range": 5,
+     "trivial_known_in_principle(definition_parity)": 1
     }
    },
    {
@@ -550,10 +551,8 @@
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A233162_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    },
    {
     "component": "oeis_calibrated_vote",
@@ -562,11 +561,11 @@
     "skipped": "nothing_open"
    }
   ],
-  "actions": 2,
-  "cpu_s": 56.609
+  "actions": 1,
+  "cpu_s": 35.417
  },
  "last_skip": {
-  "cycle_id": "20261126T182420Z_03604a",
+  "cycle_id": "20261126T192158Z_b6f4f8",
   "reason": "hive_rule_trial_open"
  },
  "kept_count": 4,
