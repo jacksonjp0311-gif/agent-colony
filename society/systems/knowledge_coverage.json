@@ -43,7 +43,7 @@
       "concepts": 1,
       "distinct_concepts": 1,
       "papers": 121,
-      "reads": 113
+      "reads": 114
     },
     "meta_learning": {
       "cards_formed": 4,
@@ -60,8 +60,8 @@
       "cards_tested": 0,
       "concepts": 8,
       "distinct_concepts": 4,
-      "papers": 15,
-      "reads": 56
+      "papers": 16,
+      "reads": 57
     },
     "neural_architecture": {
       "cards_formed": 14,
@@ -73,7 +73,7 @@
       "reads": 57
     },
     "open_endedness": {
-      "cards_formed": 71,
+      "cards_formed": 72,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 70,
@@ -100,13 +100,13 @@
       "reads": 57
     },
     "recursive_self_improvement": {
-      "cards_formed": 7,
+      "cards_formed": 8,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 6,
-      "distinct_concepts": 4,
-      "papers": 60,
-      "reads": 56
+      "concepts": 7,
+      "distinct_concepts": 5,
+      "papers": 63,
+      "reads": 57
     },
     "self_learning_loops": {
       "cards_formed": 11,
@@ -273,11 +273,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 178,
+    "cards_formed": 180,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 365,
-    "papers": 704,
-    "reads": 853
+    "concepts": 366,
+    "papers": 708,
+    "reads": 856
   }
 }
