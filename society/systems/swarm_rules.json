@@ -104,10 +104,10 @@
       "active": true,
       "applied_to_live_oracle": false,
       "fingerprint": "add_skip_rule:cycles=8:target_kind=already_held_range",
-      "started_cycle": "20261126T155020Z_039883",
+      "started_cycle": "20261126T182420Z_03604a",
       "trial": true
     }
   ],
-  "updated_at": "2026-11-26T17:36:22Z",
+  "updated_at": "2026-11-26T18:29:49Z",
   "version": 1
 }

@@ -1601,3 +1601,7 @@
 {"source": "colony", "adopted": 27, "reverted": 34, "kept": 27, "holes": 0, "agreed": 0, "bias": 90, "cycles_since_keep": 1106, "posture": "moving"}
 {"source": "colony", "adopted": 27, "reverted": 34, "kept": 27, "holes": 0, "agreed": 0, "bias": 10, "cycles_since_keep": 1106, "posture": "steady"}
 {"source": "colony", "adopted": 27, "reverted": 34, "kept": 27, "holes": 0, "agreed": 0, "bias": 57, "cycles_since_keep": 1106, "posture": "moving"}
+{"source": "colony", "adopted": 27, "reverted": 34, "kept": 27, "holes": 0, "agreed": 0, "bias": 10, "cycles_since_keep": 1115, "posture": "steady"}
+{"source": "colony", "adopted": 27, "reverted": 34, "kept": 27, "holes": 0, "agreed": 0, "bias": 83, "cycles_since_keep": 1115, "posture": "moving"}
+{"source": "colony", "adopted": 27, "reverted": 34, "kept": 27, "holes": 0, "agreed": 0, "bias": 10, "cycles_since_keep": 1115, "posture": "steady"}
+{"source": "colony", "adopted": 27, "reverted": 34, "kept": 27, "holes": 0, "agreed": 0, "bias": 59, "cycles_since_keep": 1115, "posture": "moving"}

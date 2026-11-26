@@ -81,7 +81,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "classifier-free",
+      "topic": "compute-useful",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-26T17:35:13Z",
-  "updated_cycle": "20261126T173109Z_a24d4b",
+  "updated_at": "2026-11-26T18:28:06Z",
+  "updated_cycle": "20261126T182420Z_03604a",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
