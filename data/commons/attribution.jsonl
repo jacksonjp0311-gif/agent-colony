@@ -1290,3 +1290,6 @@
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": -85, "foreign": 0, "with_prior": -85, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 16, "foreign": 0, "with_prior": 16, "outcome": "ranked"}
 {"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 20, "foreign": 0, "with_prior": 20, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": -87, "foreign": 0, "with_prior": -87, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 4, "foreign": 0, "with_prior": 4, "outcome": "ranked"}
+{"source": "colony", "fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "base": 18, "foreign": 0, "with_prior": 18, "outcome": "ranked"}
