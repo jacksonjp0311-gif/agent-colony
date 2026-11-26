@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-26T05:00:49Z",
+  "ts": "2026-11-26T06:00:21Z",
   "version": 2,
   "mile": "spark3-port",
   "feeds": {
@@ -10,21 +10,21 @@
       "count": 2,
       "items": [
         {
-          "title": "RAP: Radial-Angular Random Projection for Hyperbolic Representations",
-          "id": "http://arxiv.org/abs/2611.34298v1",
-          "published": "2026-11-25T12:50:23Z",
-          "summary": "Random projection is a basic compression primitive for Euclidean representation learning, with the Johnson--Lindenstrauss lemma giving a target dimension $k=O(\\varepsilon^{-2}\\log n)$ independent of the ambient dimension. As hyperbolic representations gain increasing attention in",
+          "title": "Spectrum Adaptation of AI-Native Autoencoder Communications with Transfer Learning",
+          "id": "http://arxiv.org/abs/2611.34942v1",
+          "published": "2026-11-25T18:59:57Z",
+          "summary": "End-to-end physical-layer learning replaces separate modulation, coding, and detection operations with an autoencoder (AE) that consists of a jointly trained encoder-decoder pair at the transmitter and the receiver. This paper studies AI-native communications with AEs and quantif",
           "source": "arxiv"
         },
         {
-          "title": "WebVibe: Multimodal Interactive Website Generation via Reverse Synthesis and Visual Self-Distillation",
-          "id": "http://arxiv.org/abs/2611.34292v1",
+          "title": "Attack Policy Selection can Mislead Monitor Evaluators",
+          "id": "http://arxiv.org/abs/2611.34934v1",
           "published": "",
           "summary": "",
           "source": "arxiv"
         }
       ],
-      "ts": "2026-11-26T05:00:34Z"
+      "ts": "2026-11-26T06:00:05Z"
     },
     "nasa_donki_solar": {
       "feed": "nasa_donki_solar",
@@ -32,7 +32,7 @@
       "note": "URLError: <urlopen error [Errno 101] Network is unreachable>",
       "count": 0,
       "items": [],
-      "ts": "2026-11-26T05:00:46Z"
+      "ts": "2026-11-26T06:00:17Z"
     },
     "noaa_space_weather": {
       "feed": "noaa_space_weather",
@@ -43,7 +43,7 @@
       "count": 0,
       "latest_kp": null,
       "items": [],
-      "ts": "2026-11-26T05:00:46Z"
+      "ts": "2026-11-26T06:00:17Z"
     },
     "global_weather": {
       "feed": "global_weather",
@@ -55,91 +55,91 @@
           "city": "NYC",
           "lat": 40.71,
           "lon": -74.01,
-          "temperature_2m": 5.6,
+          "temperature_2m": 5.4,
           "wind_speed_10m": 17.8,
           "weather_code": 3,
-          "time": "2026-11-26T05:00",
+          "time": "2026-11-26T06:00",
           "source": "open_meteo"
         },
         {
           "city": "London",
           "lat": 51.51,
           "lon": -0.13,
-          "temperature_2m": 5.2,
-          "wind_speed_10m": 15.5,
+          "temperature_2m": 5.0,
+          "wind_speed_10m": 13.0,
           "weather_code": 3,
-          "time": "2026-11-26T05:00",
+          "time": "2026-11-26T06:00",
           "source": "open_meteo"
         },
         {
           "city": "Tokyo",
           "lat": 35.68,
           "lon": 139.76,
-          "temperature_2m": 14.3,
-          "wind_speed_10m": 3.1,
+          "temperature_2m": 14.2,
+          "wind_speed_10m": 3.4,
           "weather_code": 2,
-          "time": "2026-11-26T05:00",
+          "time": "2026-11-26T06:00",
           "source": "open_meteo"
         },
         {
           "city": "Sydney",
           "lat": -33.87,
           "lon": 151.21,
-          "temperature_2m": 23.3,
-          "wind_speed_10m": 15.8,
+          "temperature_2m": 22.9,
+          "wind_speed_10m": 14.9,
           "weather_code": 1,
-          "time": "2026-11-26T05:00",
+          "time": "2026-11-26T06:00",
           "source": "open_meteo"
         }
       ],
       "live": true,
       "cached": false,
-      "ts": "2026-11-26T05:00:49Z"
+      "ts": "2026-11-26T06:00:20Z"
     },
     "pulsemesh_goes_xray": {
       "feed": "pulsemesh_goes_xray",
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.773426921215053,
+      "latest": -6.772477313775279,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-11-26T04:54:00Z",
-          "v": -9.000000012282687
+          "t": "2026-11-26T05:53:00Z",
+          "v": -8.629929211097254
         },
         {
-          "t": "2026-11-26T04:54:00Z",
-          "v": -6.774529513446665
+          "t": "2026-11-26T05:53:00Z",
+          "v": -6.7784248425097875
         },
         {
-          "t": "2026-11-26T04:55:00Z",
-          "v": -8.738313895762195
+          "t": "2026-11-26T05:54:00Z",
+          "v": -8.700851777772337
         },
         {
-          "t": "2026-11-26T04:55:00Z",
-          "v": -6.775035809856678
+          "t": "2026-11-26T05:54:00Z",
+          "v": -6.776862958818151
         },
         {
-          "t": "2026-11-26T04:56:00Z",
-          "v": -9.000000012282687
+          "t": "2026-11-26T05:55:00Z",
+          "v": -8.64299317339318
         },
         {
-          "t": "2026-11-26T04:56:00Z",
-          "v": -6.775533127106765
+          "t": "2026-11-26T05:55:00Z",
+          "v": -6.777819550787288
         },
         {
-          "t": "2026-11-26T04:57:00Z",
-          "v": -8.548555846300738
+          "t": "2026-11-26T05:56:00Z",
+          "v": -8.562861053432345
         },
         {
-          "t": "2026-11-26T04:57:00Z",
-          "v": -6.773426921215053
+          "t": "2026-11-26T05:56:00Z",
+          "v": -6.772477313775279
         }
       ],
       "live": true,
-      "ts": "2026-11-26T05:00:49Z"
+      "ts": "2026-11-26T06:00:20Z"
     },
     "pulsemesh_openmeteo": {
       "feed": "pulsemesh_openmeteo",
@@ -188,7 +188,7 @@
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-11-26T05:00:49Z"
+      "ts": "2026-11-26T06:00:20Z"
     },
     "pulsemesh_usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
@@ -248,7 +248,7 @@
       ],
       "live": true,
       "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-19&endtime=2026-11-26&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-11-26T05:00:49Z"
+      "ts": "2026-11-26T06:00:20Z"
     },
     "pulsemesh_system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -257,48 +257,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.59765625,
-          "disk_free_percent": 61.364416917730885,
-          "process_count": 181,
-          "uptime_hours": 0.2223,
+          "load1": 0.60400390625,
+          "disk_free_percent": 61.362130992150895,
+          "process_count": 179,
+          "uptime_hours": 0.41356666666666664,
           "platform": "Linux-7.0.0-1016-aws-x86_64-with-glibc2.43",
-          "node": "ip-10-0-135-160",
+          "node": "ip-10-0-133-164",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.59765625,
+      "latest_load1": 0.60400390625,
       "live": true,
-      "ts": "2026-11-26T05:00:49Z"
+      "ts": "2026-11-26T06:00:20Z"
     },
     "pulsemesh_tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 6.586271000060151,
-      "mean_ms": 6.43217400002527,
+      "latest_ms": 6.62352699987423,
+      "mean_ms": 6.16411200002176,
       "items": [
         {
           "probe": 0,
-          "ms": 7.1311359999981505
+          "ms": 5.990133000068454
         },
         {
           "probe": 1,
-          "ms": 5.970154999999977
+          "ms": 5.661753000140379
         },
         {
           "probe": 2,
-          "ms": 6.041134000042803
+          "ms": 6.381035000003976
         },
         {
           "probe": 3,
-          "ms": 6.586271000060151
+          "ms": 6.62352699987423
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-11-26T05:00:49Z"
+      "ts": "2026-11-26T06:00:20Z"
     }
   },
   "pulsemesh_health": {
@@ -331,24 +331,24 @@
   "cross_domain_patterns": [
     {
       "kind": "global_weather_spread",
-      "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 5.6), ('London', 5.2), ('Tokyo', 14.3), ('Sydney', 23.3)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
+      "summary": "Open-Meteo snapshot across 4 cities: [('NYC', 5.4), ('London', 5.0), ('Tokyo', 14.2), ('Sydney', 22.9)]. Cross-correlate with solar/space feeds for commons resource planning debate — kinematics of environment signals, not prophecy.",
       "signals": {
         "cities": [
           [
             "NYC",
-            5.6
+            5.4
           ],
           [
             "London",
-            5.2
+            5.0
           ],
           [
             "Tokyo",
-            14.3
+            14.2
           ],
           [
             "Sydney",
-            23.3
+            22.9
           ]
         ],
         "kp": null
@@ -363,9 +363,9 @@
     },
     {
       "kind": "pulsemesh_goes_live",
-      "summary": "PulseMesh GOES X-ray live latest=-6.773426921215053. Space-weather debate input — not novel physics.",
+      "summary": "PulseMesh GOES X-ray live latest=-6.772477313775279. Space-weather debate input — not novel physics.",
       "signals": {
-        "goes_latest": -6.773426921215053
+        "goes_latest": -6.772477313775279
       },
       "domains": [
         "cosmos",
@@ -376,10 +376,10 @@
     },
     {
       "kind": "pulsemesh_ops_health",
-      "summary": "PulseMesh system_stat/tcp_probe: load1=0.59765625 probe_ms=6.43217400002527. Ops health for actuation — not consciousness.",
+      "summary": "PulseMesh system_stat/tcp_probe: load1=0.60400390625 probe_ms=6.16411200002176. Ops health for actuation — not consciousness.",
       "signals": {
-        "load1": 0.59765625,
-        "probe_ms": 6.43217400002527
+        "load1": 0.60400390625,
+        "probe_ms": 6.16411200002176
       },
       "domains": [
         "government",
