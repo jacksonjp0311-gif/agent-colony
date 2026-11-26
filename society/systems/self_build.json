@@ -1,6 +1,6 @@
 {
  "version": 1,
- "cycle_index": 817,
+ "cycle_index": 820,
  "active": {
   "id": "bp_c67ed2dbddb00356",
   "signature": "c67ed2dbddb00356",
@@ -500,7 +500,7 @@
   }
  },
  "last_run": {
-  "cycle_id": "20261126T001616Z_c9fece",
+  "cycle_id": "20261126T011532Z_e0f22a",
   "blueprint": "bp_c67ed2dbddb00356",
   "ran": [
    {
@@ -509,12 +509,12 @@
     "actions": 1,
     "counts": {
      "expressions": 260,
-     "fitted": 170,
+     "fitted": 184,
      "duplicate": 13,
-     "trivial_formal": 2,
-     "trivial_shuffle_null": 1,
-     "trivial_idle_part": 6,
-     "trivial_implied_parts": 58,
+     "trivial_formal": 0,
+     "trivial_shuffle_null": 6,
+     "trivial_idle_part": 10,
+     "trivial_implied_parts": 39,
      "trivial_shared_operand": 0,
      "trivial_growth_dominance": 0,
      "trivial_case_split": 0,
@@ -522,23 +522,23 @@
      "trivial_running_sum_tail": 0,
      "trivial_basic_inequality": 0,
      "trivial_rewrite_closure": 0,
-     "trivial_digit_rule": 2,
-     "expected_by_closure": 1,
+     "trivial_digit_rule": 0,
+     "expected_by_closure": 3,
      "loose_inequality": 0,
-     "tested": 15,
-     "survived": 4,
-     "falsified": 11,
-     "machine_checked": 1,
-     "surprises": 2,
+     "tested": 19,
+     "survived": 9,
+     "falsified": 10,
+     "machine_checked": 3,
+     "surprises": 0,
      "known_result": 0,
-     "oeis_known": 1,
+     "oeis_known": 5,
      "oeis_unchecked": 0,
      "retested": 0,
      "false_surprises": 0,
+     "no_reference_found": 1,
+     "explained_by_known_check": 1,
      "trivial_known_in_principle(definition_parity)": 2,
-     "trivial_confirmed on range": 6,
-     "no_reference_found": 2,
-     "deep_na": 2
+     "trivial_confirmed on range": 5
     }
    },
    {
@@ -552,23 +552,21 @@
     "n": 1,
     "actions": 1,
     "ids": [
-     "oc_A187167_0"
+     "oc_A321777_0"
     ]
    },
    {
     "component": "oeis_calibrated_vote",
     "n": 1,
-    "actions": 1,
-    "ids": [
-     "oc_A187168_0"
-    ]
+    "actions": 0,
+    "skipped": "nothing_open"
    }
   ],
-  "actions": 3,
-  "cpu_s": 41.722
+  "actions": 2,
+  "cpu_s": 76.088
  },
  "last_skip": {
-  "cycle_id": "20261126T001616Z_c9fece",
+  "cycle_id": "20261126T011532Z_e0f22a",
   "reason": "self_heal_trial_open"
  },
  "kept_count": 4,
@@ -576,7 +574,7 @@
  "inconclusive_count": 0,
  "voided_count": 10,
  "heal_turn": null,
- "last_propose_cycle": "20261125T222433Z_7d6bac",
+ "last_propose_cycle": "20261126T005125Z_276c73",
  "operator_stats": {
   "add": {
    "tried": 7,

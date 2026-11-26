@@ -9,14 +9,14 @@ decides a keep. Reverts and voids are recorded too. This is not
 AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **2**
-- Kept: **25**
+- Kept: **26**
 - Reverted (including twin-not-better): **33**
 - Voided (environment changed mid-trial): **26**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **10**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **6** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 29, correct 0, pending 171, accuracy 0‰
+- Hive shadow picks: resolved 27, correct 0, pending 173, accuracy 0‰
 
 ## Per method card
 
@@ -31,7 +31,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
-| `set_knob:evaluation_window` | 11 | 1 | 9 | 90‰ |
+| `set_knob:evaluation_window` | 12 | 2 | 9 | 166‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 14 | 6 | 3 | 428‰ |
 | `set_knob:park_cycles` | 21 | 4 | 9 | 190‰ |
@@ -42,7 +42,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `kept` · card `—` · family `set_knob:gf_term_cap` · cycle `20261122T092727Z_c1e88c` (baseline 13.0, trial 14.0)
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261123T155301Z_5fe2da` (baseline 22.0, trial 4.0)
 - `kept` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261123T182437Z_d10804` (baseline 6.0, trial 22.0)
 - `reverted` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261123T210005Z_2f4d83` (baseline 21.0, trial 9.0)
@@ -54,6 +53,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261125T004811Z_70ff30` (baseline 28.0, trial 25.0)
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261125T172433Z_95534a` (baseline 18.0, trial 17.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261125T203544Z_431fad` (baseline 27.0, trial 21.0)
+- `kept` · card `—` · family `set_knob:evaluation_window` · cycle `20261126T005125Z_276c73` (baseline 13.0, trial 22.0)
 
 ## Reading breadth (knowledge library)
 
