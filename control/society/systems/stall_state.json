@@ -1464,11 +1464,14 @@
     "20261126T162755Z_88625f",
     "20261126T170444Z_74d8e6",
     "20261126T170925Z_a0ef80",
-    "20261126T171341Z_af3ba8"
+    "20261126T171341Z_af3ba8",
+    "20261126T180119Z_0f9a36",
+    "20261126T180632Z_388029",
+    "20261126T181122Z_c6b6aa"
   ],
   "proposal_parks": {
     "254f76bd3854": {
-      "title": "Chain+seek `lemma_hard_combinatorics` from invariant priors",
+      "title": "blocked repeat: Chain+seek `lemma_hard_combinatorics` from invariant priors",
       "action": "seek_enable:lemma_hard_combinatorics",
       "blocks": [
         "20261123T144714Z_bb1ec7",
@@ -1501,18 +1504,6 @@
   },
   "pass_history": [
     {
-      "cycle_id": "20261125T135713Z_b1ff86",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261125T140126Z_0d6ffc",
-      "pass_total": 528
-    },
-    {
-      "cycle_id": "20261125T152238Z_315ea7",
-      "pass_total": 528
-    },
-    {
       "cycle_id": "20261125T152758Z_f02624",
       "pass_total": 528
     },
@@ -1818,23 +1809,23 @@
     },
     {
       "cycle_id": "20261126T171341Z_af3ba8",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261126T180119Z_0f9a36",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261126T180632Z_388029",
+      "pass_total": 528
+    },
+    {
+      "cycle_id": "20261126T181122Z_c6b6aa",
       "pass_total": 528
     }
   ],
   "kill_history": [
     {
-      "cycle_id": "20261125T135713Z_b1ff86",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261125T140126Z_0d6ffc",
-      "kills": []
-    },
-    {
-      "cycle_id": "20261125T152238Z_315ea7",
-      "kills": []
-    },
-    {
       "cycle_id": "20261125T152758Z_f02624",
       "kills": []
     },
@@ -2140,47 +2131,23 @@
     },
     {
       "cycle_id": "20261126T171341Z_af3ba8",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261126T180119Z_0f9a36",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261126T180632Z_388029",
+      "kills": []
+    },
+    {
+      "cycle_id": "20261126T181122Z_c6b6aa",
       "kills": []
     }
   ],
   "turns": [
     {
-      "cycle_id": "20261124T015635Z_4cea60",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261124T015635Z_4cea60",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261124T020004Z_71de15",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261124T020004Z_71de15",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
-      "cycle_id": "20261124T024503Z_c9b420",
-      "kind": "proposal",
-      "name": "254f76bd3854",
-      "outcome": "block"
-    },
-    {
-      "cycle_id": "20261124T024503Z_c9b420",
-      "kind": "claim_theme",
-      "name": "vandermonde",
-      "outcome": "skip"
-    },
-    {
       "cycle_id": "20261124T024849Z_fdc157",
       "kind": "proposal",
       "name": "254f76bd3854",
@@ -4540,6 +4507,42 @@
     },
     {
       "cycle_id": "20261126T171341Z_af3ba8",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261126T180119Z_0f9a36",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261126T180119Z_0f9a36",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261126T180632Z_388029",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261126T180632Z_388029",
+      "kind": "claim_theme",
+      "name": "vandermonde",
+      "outcome": "skip"
+    },
+    {
+      "cycle_id": "20261126T181122Z_c6b6aa",
+      "kind": "proposal",
+      "name": "254f76bd3854",
+      "outcome": "block"
+    },
+    {
+      "cycle_id": "20261126T181122Z_c6b6aa",
       "kind": "claim_theme",
       "name": "vandermonde",
       "outcome": "skip"
