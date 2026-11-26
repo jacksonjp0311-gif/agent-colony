@@ -8,10 +8,10 @@
       "city": "NYC",
       "lat": 40.71,
       "lon": -74.01,
-      "temperature_2m": 6.3,
-      "wind_speed_10m": 33.9,
+      "temperature_2m": 6.5,
+      "wind_speed_10m": 37.2,
       "weather_code": 63,
-      "time": "2026-11-26T20:30",
+      "time": "2026-11-26T21:00",
       "source": "open_meteo"
     },
     {
@@ -21,31 +21,31 @@
       "temperature_2m": 3.6,
       "wind_speed_10m": 9.4,
       "weather_code": 3,
-      "time": "2026-11-26T20:30",
+      "time": "2026-11-26T21:00",
       "source": "open_meteo"
     },
     {
       "city": "Tokyo",
       "lat": 35.68,
       "lon": 139.76,
-      "temperature_2m": 7.5,
+      "temperature_2m": 7.4,
       "wind_speed_10m": 3.1,
       "weather_code": 0,
-      "time": "2026-11-26T20:30",
+      "time": "2026-11-26T21:00",
       "source": "open_meteo"
     },
     {
       "city": "Sydney",
       "lat": -33.87,
       "lon": 151.21,
-      "temperature_2m": 20.8,
-      "wind_speed_10m": 1.5,
-      "weather_code": 2,
-      "time": "2026-11-26T20:30",
+      "temperature_2m": 22.2,
+      "wind_speed_10m": 7.0,
+      "weather_code": 3,
+      "time": "2026-11-26T21:00",
       "source": "open_meteo"
     }
   ],
   "live": true,
   "cached": false,
-  "ts": "2026-11-26T20:39:09Z"
+  "ts": "2026-11-26T21:13:22Z"
 }
