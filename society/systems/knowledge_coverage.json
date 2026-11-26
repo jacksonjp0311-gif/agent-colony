@@ -16,7 +16,7 @@
       "concepts": 9,
       "distinct_concepts": 3,
       "papers": 17,
-      "reads": 56
+      "reads": 57
     },
     "consciousness_self_models": {
       "cards_formed": 2,
@@ -25,7 +25,7 @@
       "concepts": 12,
       "distinct_concepts": 4,
       "papers": 16,
-      "reads": 56
+      "reads": 57
     },
     "learning_theory": {
       "cards_formed": 2,
@@ -52,7 +52,7 @@
       "concepts": 18,
       "distinct_concepts": 3,
       "papers": 27,
-      "reads": 57
+      "reads": 58
     },
     "multi_agent_systems": {
       "cards_formed": 2,
@@ -278,6 +278,6 @@
     "cards_tested": 2,
     "concepts": 359,
     "papers": 690,
-    "reads": 844
+    "reads": 847
   }
 }
