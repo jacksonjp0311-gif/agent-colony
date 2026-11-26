@@ -1,24 +1,20 @@
 {
-  "last_attempt_at": "2026-11-26T01:47:06Z",
+  "last_attempt_at": "2026-11-26T02:48:16Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-26T01:47:06Z",
+  "last_ok_at": "2026-11-26T02:48:16Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "OmniAct: One Policy, One Million Embodiments",
-      "abstract_snippet": "A single policy that controls diverse robots must not only transfer task knowledge across embodiments, but also adapt its behavior to each robot's capabilities. Existing approaches facilitate transfer through shared action representations, but these representations do not necessarily capture how differences in robot morphology should shape manipulation strategies. We introduce OmniAct, a cross-emb",
-      "url": "https://arxiv.org/abs/2611.33158",
-      "arxiv_id": "2611.33158",
+      "title": "OrbACE: Orbital and Atomic Cluster Expansion",
+      "abstract_snippet": "Accurate electronic-structure reference data are expensive, motivating interatomic potentials that learn effectively from limited training sets. We introduce OrbACE (Orbital and Atomic Cluster Expansion), a framework that supplements an E(3)-equivariant cluster-expansion backbone with inexpensive electronic-structure descriptors. On ANI-1x at the $ω$B97X/6-31G* level, its atom-centered variant, Or",
+      "url": "https://arxiv.org/abs/2611.33743",
+      "arxiv_id": "2611.33743",
       "doi": "",
       "authors": [
-        "Xiang Fan",
-        "Yuheng Wang",
-        "Jiayuan Yan",
-        "Bohan Fang",
-        "Wisdom Oluchi Ikezogwo",
-        "Ainaz Eftekhar"
+        "Etinosa Osaro",
+        "Dario Rocca"
       ],
       "year": 2026,
       "tags": [
@@ -28,18 +24,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T01:47:06Z"
+      "fetched_at": "2026-11-26T02:48:17Z"
     },
     {
       "source": "arxiv",
-      "title": "Dominoes tiling a common figure",
-      "abstract_snippet": "Call a two-element subset of $\\mathbb{Z}^2$ a domino. Given finitely many dominoes $D_1,\\ldots,D_k$, we show that there exists a finite non-empty $B\\subset \\mathbb{Z}^2$ such that $B$ can be partitioned into disjoint translates of $D_i$ for all $i$. The proof uses a new absorption mechanism for perfect matchings in algebraically defined hypergraphs.",
-      "url": "https://arxiv.org/abs/2611.33154",
-      "arxiv_id": "2611.33154",
+      "title": "FlashProve-Next: Verifiable Inference for Production LLM APIs",
+      "abstract_snippet": "Clients of closed-weight LLM APIs cannot verify whether a provider ran the advertised model, precision, hidden prompt, and reasoning budget. Existing approaches either trust hardware or third parties, or re-prove every layer of an integer surrogate at high cost while diverging from native floating-point serving. FlashProve-Next produces verifiable, zero-knowledge-masked proofs for individual LLM A",
+      "url": "https://arxiv.org/abs/2611.33741",
+      "arxiv_id": "2611.33741",
       "doi": "",
       "authors": [
-        "Peter Keevash",
-        "Jeck Lim"
+        "Liang Song"
       ],
       "year": 2026,
       "tags": [
@@ -49,22 +44,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T01:47:06Z"
+      "fetched_at": "2026-11-26T02:48:17Z"
     },
     {
       "source": "arxiv",
-      "title": "BioLoom: Scaling Biomedical Vision-Language Models by Learning from the Structure of Scientific Articles",
-      "abstract_snippet": "The development of biomedical vision-language models (VLMs) with contrastive image-text pretraining has been driven by scaling to increasingly large and diverse image-text datasets. Beyond scaling, further progress can come from learning richer representations from existing data. We hypothesize that the structure of scientific literature itself provides an additional source of supervision: figures",
-      "url": "https://arxiv.org/abs/2611.33151",
-      "arxiv_id": "2611.33151",
+      "title": "Toggle Tree: A New Data Structure for Efficient Parallel Graph Processing",
+      "abstract_snippet": "We present the Toggle Tree, a parallel data structure for frontier-based graph algorithms. A Toggle Tree is used to represent a subset of vertices using hierarchical bit vectors, enabling efficient parallel updates, traversal, and set-wise reductions without global packing. It provides an IndexSet interface that unifies a wide range of parallel graph algorithms under a common abstraction of fronti",
+      "url": "https://arxiv.org/abs/2611.33738",
+      "arxiv_id": "2611.33738",
       "doi": "",
       "authors": [
-        "Yuwei Yang",
-        "Xiaoxiao Sun",
-        "Alejandro Lozano",
-        "Yuan-Sen Ting",
-        "Yuhui Yuan",
-        "Liang Zheng"
+        "Xinjian Jiang",
+        "Youzhe Liu",
+        "Yan Gu",
+        "Yihan Sun"
       ],
       "year": 2026,
       "tags": [
@@ -74,21 +67,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T01:47:06Z"
+      "fetched_at": "2026-11-26T02:48:17Z"
     },
     {
       "source": "arxiv",
-      "title": "iWAM: Efficient Action Prediction from World Models without Explicit Future Prediction",
-      "abstract_snippet": "World-action models (WAMs) build policies on pretrained video-generation models, on the premise that predicting how a scene evolves helps determine how to act. However, generating future scenes is expensive for real-time control. This motivates efficient proxies for future imagination, but how to train such proxies without sacrificing action-prediction quality remains unclear. An effective proxy n",
-      "url": "https://arxiv.org/abs/2611.33141",
-      "arxiv_id": "2611.33141",
+      "title": "CovNovBench: A Benchmark for Evaluating Time Series Foundation Models under Covariate Novelty",
+      "abstract_snippet": "Covariate-aware time-series foundation models (TSFMs) condition their forecasts on additional input variables, called covariates, that are supplied over the future horizon. This capability makes them appealing for interventional forecasting, in which a target is predicted under a planned action such as a new product pricing policy or a new patient treatment schedule. We refer to covariates that en",
+      "url": "https://arxiv.org/abs/2611.33732",
+      "arxiv_id": "2611.33732",
       "doi": "",
       "authors": [
-        "Vansh Kapoor",
-        "Max Sobol Mark",
-        "Sreyas Venkataraman",
-        "Max Simchowitz",
-        "Aviral Kumar"
+        "Wenhao Pan",
+        "Ravi Kiran Selvam",
+        "Michael W. Mahoney",
+        "Mayank Jauhari",
+        "Mengfei Cao",
+        "Dmitry Efimov"
       ],
       "year": 2026,
       "tags": [
@@ -98,18 +92,17 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T01:47:06Z"
+      "fetched_at": "2026-11-26T02:48:17Z"
     },
     {
       "source": "arxiv",
-      "title": "On Euclidean Diameter in Dynamic Streams",
-      "abstract_snippet": "We give a streaming algorithm for maintaining the diameter of a high-dimensional Euclidean point set under arbitrary insertions and deletions that achieves update time polylogarithmic in the number of points and polynomial in the dimension. For every fixed $c&gt;\\sqrt3$, there is an $ε_c &gt; 0$ such that our one-pass algorithm uses $\\tilde O(N^{1-ε_c}\\poly(d))$ space, has worst-case update time $",
-      "url": "https://arxiv.org/abs/2611.33139",
-      "arxiv_id": "2611.33139",
+      "title": "Improved Quantum Algorithms for TSP and More",
+      "abstract_snippet": "The traveling salesman problem (TSP) is a canonical NP-hard optimization problem. For general edge weights, the classical dynamic programs of Bellman and of Held and Karp solve TSP on $n$ cities in $O^*(2^n)$ time. To date, no $\\Oh(c^n)$-time classical algorithm is known for any $c&lt;2$. Combining Grover search with the dynamic programming technique, Ambainis et al. (SODA 2019) introduced a quant",
+      "url": "https://arxiv.org/abs/2611.33730",
+      "arxiv_id": "2611.33730",
       "doi": "",
       "authors": [
-        "Jeff Giliberti",
-        "MohammadTaghi Hajiaghayi"
+        "Masayuki Miyamoto"
       ],
       "year": 2026,
       "tags": [
@@ -119,7 +112,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T01:47:06Z"
+      "fetched_at": "2026-11-26T02:48:17Z"
     }
   ]
 }
