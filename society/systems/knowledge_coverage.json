@@ -16,7 +16,7 @@
       "concepts": 9,
       "distinct_concepts": 3,
       "papers": 17,
-      "reads": 55
+      "reads": 56
     },
     "consciousness_self_models": {
       "cards_formed": 2,
@@ -25,7 +25,7 @@
       "concepts": 12,
       "distinct_concepts": 4,
       "papers": 16,
-      "reads": 55
+      "reads": 56
     },
     "learning_theory": {
       "cards_formed": 2,
@@ -46,13 +46,13 @@
       "reads": 110
     },
     "meta_learning": {
-      "cards_formed": 3,
+      "cards_formed": 4,
       "cards_kept": 0,
       "cards_tested": 0,
-      "concepts": 15,
+      "concepts": 18,
       "distinct_concepts": 3,
-      "papers": 24,
-      "reads": 56
+      "papers": 27,
+      "reads": 57
     },
     "multi_agent_systems": {
       "cards_formed": 2,
@@ -244,41 +244,39 @@
       "n_papers": 16
     },
     {
-      "description": "A small per-cycle working-memory buffer of recent outcomes that every desk reads before choosing work.",
+      "description": "A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.",
       "examples": [
         {
-          "arxiv_id": "2611.14035",
-          "field": "cognitive_science",
-          "title": "ScaleBrain: A Scale-Consistent Framework for EEG Foundation Models"
+          "arxiv_id": "2611.17314",
+          "field": "meta_learning",
+          "title": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces"
         },
         {
-          "arxiv_id": "2611.00387",
-          "field": "cognitive_science",
-          "title": "Geometric and algebraic inference in humans and neural networks"
+          "arxiv_id": "2611.15923",
+          "field": "meta_learning",
+          "title": "Reinforcement Learning for Target Jerk Estimation in Interceptor Homing Phase"
         },
         {
-          "arxiv_id": "2611.18417",
-          "field": "neural_architecture",
-          "title": "CoPre-MoE: Consolidating and Preserving MoE for Multimodal Continual Instruction Tuning"
+          "arxiv_id": "2611.15071",
+          "field": "meta_learning",
+          "title": "Improving Efficiency and Power in Small Rare-Disease Trials Through Prespecified, Data-Adaptive Covariate Adjustment"
         }
       ],
       "fields": [
-        "cognitive_science",
-        "consciousness_self_models",
-        "neural_architecture",
+        "meta_learning",
         "recursive_self_improvement",
         "self_learning_loops"
       ],
-      "idea": "working_memory_buffer",
-      "n_papers": 12
+      "idea": "meta_controller",
+      "n_papers": 14
     }
   ],
   "totals": {
-    "cards_formed": 169,
+    "cards_formed": 170,
     "cards_kept": 1,
     "cards_tested": 2,
-    "concepts": 339,
-    "papers": 658,
-    "reads": 829
+    "concepts": 342,
+    "papers": 661,
+    "reads": 832
   }
 }

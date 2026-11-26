@@ -1,20 +1,22 @@
 {
-  "last_attempt_at": "2026-11-26T02:55:17Z",
+  "last_attempt_at": "2026-11-26T04:19:43Z",
   "last_status": 200,
   "retry_after_until": null,
   "last_error": "",
-  "last_ok_at": "2026-11-26T02:55:17Z",
+  "last_ok_at": "2026-11-26T04:19:43Z",
   "hits": [
     {
       "source": "arxiv",
-      "title": "OrbACE: Orbital and Atomic Cluster Expansion",
-      "abstract_snippet": "Accurate electronic-structure reference data are expensive, motivating interatomic potentials that learn effectively from limited training sets. We introduce OrbACE (Orbital and Atomic Cluster Expansion), a framework that supplements an E(3)-equivariant cluster-expansion backbone with inexpensive electronic-structure descriptors. On ANI-1x at the $ω$B97X/6-31G* level, its atom-centered variant, Or",
-      "url": "https://arxiv.org/abs/2611.33743",
-      "arxiv_id": "2611.33743",
+      "title": "Cooperative colorings of cycles and uniform cycle factors",
+      "abstract_snippet": "A cooperative coloring of graphs on a common vertex set is a choice of one independent set in each graph such that their union covers the vertex set. We give a combinatorial proof that three cycles on a common vertex set always have a cooperative coloring. We also prove that, for every $\\ell\\geq4$ with $\\ell\\equiv1\\pmod3$, there are three graphs on a common vertex set, each a disjoint union of cyc",
+      "url": "https://arxiv.org/abs/2611.34299",
+      "arxiv_id": "2611.34299",
       "doi": "",
       "authors": [
-        "Etinosa Osaro",
-        "Dario Rocca"
+        "Xuqing Bai",
+        "Zhipeng Gao",
+        "Bi Li",
+        "Xin Zhang"
       ],
       "year": 2026,
       "tags": [
@@ -24,17 +26,22 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T02:55:17Z"
+      "fetched_at": "2026-11-26T04:19:43Z"
     },
     {
       "source": "arxiv",
-      "title": "FlashProve-Next: Verifiable Inference for Production LLM APIs",
-      "abstract_snippet": "Clients of closed-weight LLM APIs cannot verify whether a provider ran the advertised model, precision, hidden prompt, and reasoning budget. Existing approaches either trust hardware or third parties, or re-prove every layer of an integer surrogate at high cost while diverging from native floating-point serving. FlashProve-Next produces verifiable, zero-knowledge-masked proofs for individual LLM A",
-      "url": "https://arxiv.org/abs/2611.33741",
-      "arxiv_id": "2611.33741",
+      "title": "RAP: Radial-Angular Random Projection for Hyperbolic Representations",
+      "abstract_snippet": "Random projection is a basic compression primitive for Euclidean representation learning, with the Johnson--Lindenstrauss lemma giving a target dimension $k=O(\\varepsilon^{-2}\\log n)$ independent of the ambient dimension. As hyperbolic representations gain increasing attention in modern Transformers, vision-language models, and large language models, the same need for oblivious dimensionality redu",
+      "url": "https://arxiv.org/abs/2611.34298",
+      "arxiv_id": "2611.34298",
       "doi": "",
       "authors": [
-        "Liang Song"
+        "Jiahong Liu",
+        "Wenhao Yu",
+        "Yifan Li",
+        "Yanyu Chen",
+        "Rex Ying",
+        "Menglin Yang"
       ],
       "year": 2026,
       "tags": [
@@ -44,20 +51,18 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T02:55:17Z"
+      "fetched_at": "2026-11-26T04:19:43Z"
     },
     {
       "source": "arxiv",
-      "title": "Toggle Tree: A New Data Structure for Efficient Parallel Graph Processing",
-      "abstract_snippet": "We present the Toggle Tree, a parallel data structure for frontier-based graph algorithms. A Toggle Tree is used to represent a subset of vertices using hierarchical bit vectors, enabling efficient parallel updates, traversal, and set-wise reductions without global packing. It provides an IndexSet interface that unifies a wide range of parallel graph algorithms under a common abstraction of fronti",
-      "url": "https://arxiv.org/abs/2611.33738",
-      "arxiv_id": "2611.33738",
+      "title": "LatENSO v1.0: a learned latent state of the tropical Pacific for seasonal ENSO operators and forecasting",
+      "abstract_snippet": "Here we present LatENSO v1.0, a machine-learning forecast system for the El Niño-Southern Oscillation (ENSO) built around a learned, 32-dimensional state of the tropical Pacific. A Swin-transformer autoencoder compresses thirteen monthly-averaged ocean and atmosphere fields into 32 numbers, trained to reconstruct the fields, with no forecast target. The 32 numbers rebuild the fields as well as O(1",
+      "url": "https://arxiv.org/abs/2611.34296",
+      "arxiv_id": "2611.34296",
       "doi": "",
       "authors": [
-        "Xinjian Jiang",
-        "Youzhe Liu",
-        "Yan Gu",
-        "Yihan Sun"
+        "Milad Panahi",
+        "Annalisa Bracco"
       ],
       "year": 2026,
       "tags": [
@@ -67,22 +72,20 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T02:55:17Z"
+      "fetched_at": "2026-11-26T04:19:43Z"
     },
     {
       "source": "arxiv",
-      "title": "CovNovBench: A Benchmark for Evaluating Time Series Foundation Models under Covariate Novelty",
-      "abstract_snippet": "Covariate-aware time-series foundation models (TSFMs) condition their forecasts on additional input variables, called covariates, that are supplied over the future horizon. This capability makes them appealing for interventional forecasting, in which a target is predicted under a planned action such as a new product pricing policy or a new patient treatment schedule. We refer to covariates that en",
-      "url": "https://arxiv.org/abs/2611.33732",
-      "arxiv_id": "2611.33732",
+      "title": "The hitting time index: bounds, a sharp threshold, the proof of a conjecture and the disproof of another conjecture",
+      "abstract_snippet": "We prove some new upper and lower bounds for the hitting time index ($HT$ index) of an $n$-vertex graph, showing along the way that the largest order of the index is $n^5$ and the smallest is $n^3$. More specifically, we prove the conjecture that the smallest value of the index is $\\frac{n(n-1)^2}{2}$, which is attained by the complete graph. We also find a sharp threshold for the minimal degree $",
+      "url": "https://arxiv.org/abs/2611.34295",
+      "arxiv_id": "2611.34295",
       "doi": "",
       "authors": [
-        "Wenhao Pan",
-        "Ravi Kiran Selvam",
-        "Michael W. Mahoney",
-        "Mayank Jauhari",
-        "Mengfei Cao",
-        "Dmitry Efimov"
+        "José Luis Palacios",
+        "Shunya Tamura",
+        "Jason Wiberg",
+        "Aleksandar Petojević"
       ],
       "year": 2026,
       "tags": [
@@ -92,17 +95,19 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T02:55:17Z"
+      "fetched_at": "2026-11-26T04:19:43Z"
     },
     {
       "source": "arxiv",
-      "title": "Improved Quantum Algorithms for TSP and More",
-      "abstract_snippet": "The traveling salesman problem (TSP) is a canonical NP-hard optimization problem. For general edge weights, the classical dynamic programs of Bellman and of Held and Karp solve TSP on $n$ cities in $O^*(2^n)$ time. To date, no $\\Oh(c^n)$-time classical algorithm is known for any $c&lt;2$. Combining Grover search with the dynamic programming technique, Ambainis et al. (SODA 2019) introduced a quant",
-      "url": "https://arxiv.org/abs/2611.33730",
-      "arxiv_id": "2611.33730",
+      "title": "Irreducible trinomials over the binary field: an elliptic-curve criterion and explicit families",
+      "abstract_snippet": "We study irreducible trinomials over $\\mathbb{F}_2$. Using an elliptic curve and reciprocity laws, we prove that, for $k \\ge 2$, $X^{(4^k+2)/3}+X+1$ is irreducible if and only if $4^k+3$ is prime and $2$ is a primitive root modulo that prime. By power substitution and linearization, we also assemble explicit infinite families of irreducible trinomials $X^m+X^n+1$ in fourteen distinct reduced expon",
+      "url": "https://arxiv.org/abs/2611.34282",
+      "arxiv_id": "2611.34282",
       "doi": "",
       "authors": [
-        "Masayuki Miyamoto"
+        "Siyuan Fu",
+        "Zhiming Li",
+        "Huaiqing Zuo"
       ],
       "year": 2026,
       "tags": [
@@ -112,7 +117,7 @@
         "research_gather"
       ],
       "topic_id": "compute-useful-math",
-      "fetched_at": "2026-11-26T02:55:17Z"
+      "fetched_at": "2026-11-26T04:19:43Z"
     }
   ]
 }

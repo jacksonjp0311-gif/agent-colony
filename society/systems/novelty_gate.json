@@ -1,35 +1,37 @@
 {
   "version": 1,
-  "updated_at": "2026-11-20T02:14:52Z",
+  "updated_at": "2026-11-26T03:58:14Z",
   "hits": 0,
   "kills": 30,
   "rows": 30,
   "kill_rows": 30,
   "counting": "per_target_latest",
   "latest": {
-    "ts": "2026-11-20T02:14:52Z",
-    "cycle_id": "20261120T021320Z_ed9646",
-    "mutation": "authored_mut_perturb_constant_a67e97a8b9c1",
-    "kind": "hard_enable",
+    "ts": "2026-11-26T03:58:14Z",
+    "cycle_id": "20261126T035313Z_4f6575",
+    "mutation": "binomial_identities",
+    "kind": "claim_theme",
     "novel_to_commons": false,
     "kills": [
-      "already_in_lesson_ledger_or_history"
+      "already_in_lesson_ledger_or_history",
+      "stripped_baseline_does_not_fail_usefulness",
+      "held_out:hard_tier_green_and_hard_enable"
     ],
-    "textbook_reuse": 0.3333,
+    "textbook_reuse": 0.0,
     "in_ledger": true,
     "own_authoring_record_only": false,
     "oracle_used": "caller_verdict",
     "stripped": {
       "already_enabled": false,
-      "in_catalog": true,
+      "in_catalog": false,
       "hard_pass": 187,
       "hard_n": 187,
-      "stripped_fails_usefulness": true,
-      "score": 0.8759,
+      "stripped_fails_usefulness": false,
+      "score": 0.8668,
       "impl_id": "lemma_impl_v2_basic10_hard187"
     },
     "held_out": {
-      "survives": true,
+      "survives": false,
       "reason": "hard_tier_green_and_hard_enable",
       "hard_pass": 187,
       "ok": true

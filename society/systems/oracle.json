@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated_at": "2026-11-20T02:14:50Z",
-  "passes": 626,
+  "updated_at": "2026-11-26T03:58:12Z",
+  "passes": 627,
   "kills": 394,
   "easy_pad_kills": 32,
-  "kill_rate": 0.3863,
+  "kill_rate": 0.3859,
   "kill_rate_scope": "full_log",
   "recent_window": {
     "rows": 60,
@@ -13,7 +13,7 @@
     "easy_pad_kills": 0,
     "kill_rate": 0.0
   },
-  "bus_ok_rate": 0.0,
+  "bus_ok_rate": 0.0167,
   "unique_mutations_pass": [
     "authored_mut_perturb_constant_a67e97a8b9c1",
     "authored_mut_swap_related_sequence_12759e439dbb",
@@ -97,87 +97,40 @@
     "note": "Widen Oracle mutate distribution. Fail kills keep. Not discovery."
   },
   "latest": {
-    "ts": "2026-11-20T02:14:50Z",
+    "ts": "2026-11-26T03:58:12Z",
     "passed": true,
     "kills": [],
     "hear": {
       "heard": true,
-      "bus_ok": false,
+      "bus_ok": true,
       "is_easy_pad": false,
       "attack_weight": 0.35,
       "support_weight": 0.55,
-      "msg_ids": [],
-      "propose": "PROPOSE for Oracle HEAR: `authored_mut_perturb_constant_a67e97a8b9c1` kind=hard_enable. lemma mutation authored_mut_perturb_constant_a67e97a8b9c1 0.8758->0.8759 (compared 0.857->0.857; speed_noise:+0.",
-      "attack": "WEIGH: `authored_mut_perturb_constant_a67e97a8b9c1` (hard_enable) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
+      "msg_ids": [
+        "msg_6ad74102ce",
+        "msg_327cb97f8e",
+        "msg_709193a407"
+      ],
+      "propose": "PROPOSE for Oracle HEAR: `binomial_identities` kind=claim_theme. CLAIM CANDIDATE (not discovered): paper themes around `binomial_identities` from `Cooperative colorings of cycles and uniform cycle fac",
+      "attack": "WEIGH: `binomial_identities` (claim_theme) \u2014 require held-out harder + stripped baseline fail + CAS probe. No Oracle pass \u2192 no keep."
     },
     "sense": {
       "stripped": {
-        "already_enabled": true,
-        "in_catalog": true,
-        "hard_pass": 188,
-        "hard_n": 188,
-        "score": 0.8758,
         "stripped_fails_usefulness": true,
+        "reason": "claim_or_bench_path",
         "ok_for_oracle": true,
-        "reason": "pre_apply_disabled_and_delta=1",
-        "hard_pass_delta": 1,
-        "pre_apply_flag": false,
-        "basis": "before_src"
+        "kind_path": "claim_theme"
       },
       "held_out": {
         "survives": true,
         "ok_for_oracle": true,
-        "hard_pass": 188,
-        "hard_n": 188,
-        "ok": true,
-        "score": 0.8759,
-        "shifted_window": {
-          "ok": true,
-          "status": "pass",
-          "reason": "shift_window_pass",
-          "applied": true,
-          "ranges_shifted": 0,
-          "probes": 3,
-          "windows_shifted": 1,
-          "shifted": [
-            {
-              "from": [
-                [
-                  40,
-                  80
-                ],
-                [
-                  80,
-                  120
-                ],
-                [
-                  120,
-                  160
-                ]
-              ],
-              "to": [
-                [
-                  161,
-                  200
-                ],
-                [
-                  201,
-                  240
-                ],
-                [
-                  241,
-                  281
-                ]
-              ]
-            }
-          ],
-          "seconds": 0.335,
-          "window_expr": "all((type((c := frontier_holds({'kind': 'cong', 'lhs': 'rad[ple3]', 'params': {'m': 6, 'q': 6, 'r': 1, 's': 0}, 'rhs': ''}, a, b))) is int and c > 0 for a, b in _oracle_shifted_windows([(161, 200), (201, 240), (241, 281)])))",
-          "scope": "finite_shifted_window_only_not_universal_proof"
-        },
-        "reason": "held_out_hard_green",
-        "hard_pass_delta": 1,
-        "delta_override": false
+        "reason": "held_out_theme_window_green",
+        "theme_window": "adversarial_hockey_deep",
+        "in_catalog": true,
+        "enabled": true,
+        "hard_pass": 187,
+        "hard_n": 187,
+        "mutation": "binomial_identities"
       },
       "cas": {
         "cas_ok": true,
@@ -198,7 +151,7 @@
             "ok": true
           },
           {
-            "label": "hard_enable_probes",
+            "label": "binom_symmetry_numeric",
             "ok": true
           }
         ]
@@ -250,15 +203,15 @@
         }
       },
       "still_candidate_until_authorize": true,
-      "mutation": "authored_mut_perturb_constant_a67e97a8b9c1",
-      "kind": "hard_enable",
+      "mutation": "binomial_identities",
+      "kind": "claim_theme",
       "note": "Collective keep weight only if Oracle SENSE passes. Durable accepted still needs human authorize P\u22650.70 selective."
     },
     "fitness_credit": true,
-    "mutation": "authored_mut_perturb_constant_a67e97a8b9c1",
-    "kind": "hard_enable",
-    "source": "conjecture_desk",
-    "cycle_id": "20261120T021320Z_ed9646",
+    "mutation": "binomial_identities",
+    "kind": "claim_theme",
+    "source": "claim_pipeline",
+    "cycle_id": "20261126T035313Z_4f6575",
     "note": "Oracle PASS \u2014 keep as candidate until authorize.",
     "not_agi": true,
     "not_discovery": true

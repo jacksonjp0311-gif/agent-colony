@@ -9,14 +9,14 @@ decides a keep. Reverts and voids are recorded too. This is not
 AGI, not a novel theorem, and not a breakthrough claim.
 
 - Method cards tried: **2**
-- Kept: **26**
+- Kept: **27**
 - Reverted (including twin-not-better): **33**
 - Voided (environment changed mid-trial): **26**
 - Inconclusive (no signal in either window; not counted against the action): **6**
 - Proposed this snapshot: **11**
 - Waiting on a twin judgment: **0**
 - Hive decision deferred **6** times (`add_skip_rule:cycles=8:target_kind=already_held_range`), waiting on a clean 6-cycle window (same Wilson 700‰ gate).
-- Hive shadow picks: resolved 21, correct 0, pending 179, accuracy 0‰
+- Hive shadow picks: resolved 18, correct 0, pending 182, accuracy 0‰
 
 ## Per method card
 
@@ -31,7 +31,7 @@ AGI, not a novel theorem, and not a breakthrough claim.
 | --- | ---: | ---: | ---: | ---: |
 | `set_knob:deep_digits` | 6 | 5 | 0 | 833‰ |
 | `set_knob:deep_seconds` | 2 | 0 | 1 | 0‰ |
-| `set_knob:evaluation_window` | 12 | 2 | 9 | 166‰ |
+| `set_knob:evaluation_window` | 13 | 3 | 9 | 230‰ |
 | `set_knob:fast_term_cap` | 7 | 4 | 0 | 571‰ |
 | `set_knob:gf_term_cap` | 14 | 6 | 3 | 428‰ |
 | `set_knob:park_cycles` | 21 | 4 | 9 | 190‰ |
@@ -42,7 +42,6 @@ AGI, not a novel theorem, and not a breakthrough claim.
 
 ## Recent outcomes
 
-- `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261123T155301Z_5fe2da` (baseline 22.0, trial 4.0)
 - `kept` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261123T182437Z_d10804` (baseline 6.0, trial 22.0)
 - `reverted` · card `mc_e170e02332fe` · family `set_knob:unused_menu_cycles` · cycle `20261123T210005Z_2f4d83` (baseline 21.0, trial 9.0)
 - `reverted` · card `—` · family `set_knob:perturb_cooldown_cycles` · cycle `20261124T015904Z_56955f` (baseline 22.0, trial 15.0)
@@ -54,10 +53,11 @@ AGI, not a novel theorem, and not a breakthrough claim.
 - `reverted` · card `—` · family `set_knob:gf_term_cap` · cycle `20261125T172433Z_95534a` (baseline 18.0, trial 17.0)
 - `reverted` · card `—` · family `set_knob:evaluation_window` · cycle `20261125T203544Z_431fad` (baseline 27.0, trial 21.0)
 - `kept` · card `—` · family `set_knob:evaluation_window` · cycle `20261126T005125Z_276c73` (baseline 13.0, trial 22.0)
+- `kept` · card `—` · family `set_knob:evaluation_window` · cycle `20261126T035313Z_4f6575` (baseline 24.0, trial 25.0)
 
 ## Reading breadth (knowledge library)
 
-knowledge: 658 papers across 14/14 fields, 339 concepts, 169 cards formed, 2 tested, 1 kept.
+knowledge: 661 papers across 14/14 fields, 342 concepts, 170 cards formed, 2 tested, 1 kept.
 
 | Field | Papers | Concepts | Cards formed | Cards tested | Cards kept |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -66,7 +66,7 @@ knowledge: 658 papers across 14/14 fields, 339 concepts, 169 cards formed, 2 tes
 | consciousness_self_models | 16 | 12 | 2 | 0 | 0 |
 | learning_theory | 35 | 41 | 2 | 0 | 0 |
 | mathematics | 113 | 0 | 0 | 0 | 0 |
-| meta_learning | 24 | 15 | 3 | 0 | 0 |
+| meta_learning | 27 | 18 | 4 | 0 | 0 |
 | multi_agent_systems | 15 | 8 | 2 | 0 | 0 |
 | neural_architecture | 97 | 65 | 13 | 0 | 0 |
 | open_endedness | 65 | 65 | 67 | 0 | 0 |
@@ -82,7 +82,7 @@ knowledge: 658 papers across 14/14 fields, 339 concepts, 169 cards formed, 2 tes
 - `specialist_routing` — 50 papers (neural_architecture, physics_complex_systems): A gating step that sends each target to a specialist desk (mixture-of-experts style routing).
 - `swarm_topology` — 20 papers (automated_reasoning, multi_agent_systems, neural_architecture, open_endedness, optimization_search, physics_complex_systems, swarm_collective_intelligence): Several improver agents propose over one shared candidate pool and a vote picks one (swarm/consensus topology).
 - `self_play_challenger` — 16 papers (recursive_self_improvement, self_learning_loops): A challenger role that generates harder variants of solved targets for the solver desks (self-play curriculum).
-- `working_memory_buffer` — 12 papers (cognitive_science, consciousness_self_models, neural_architecture, recursive_self_improvement, self_learning_loops): A small per-cycle working-memory buffer of recent outcomes that every desk reads before choosing work.
+- `meta_controller` — 14 papers (meta_learning, recursive_self_improvement, self_learning_loops): A meta-level desk that learns which kinds of self-heal trials tend to win and orders trials accordingly.
 
 Not AGI. Not discovery. Human authorize still required for durable accepts.
 

@@ -1560,3 +1560,6 @@
 {"fingerprint": "set_knob:direction=up:name=evaluation_window:value=10", "score": -167}
 {"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "score": -22}
 {"fingerprint": "set_knob:direction=up:name=park_cycles:value=13", "score": -76}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "score": -103}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "score": 18}
+{"fingerprint": "set_knob:direction=up:name=gf_term_cap:value=5685", "score": 18}

@@ -46,3 +46,4 @@
 {"key": "colony:step_size:down:0.05", "fingerprint": "step_size:down:0.05", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-24T21:55:23.551491+00:00"}
 {"key": "colony:dream:one-mind:46", "fingerprint": "dream:one-mind:46", "category": "stable", "source": "colony", "lineage": "colony", "ts": "2026-11-25T19:29:53.111029+00:00"}
 {"key": "colony:evaluation_window:up:8", "fingerprint": "evaluation_window:up:8", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-26T00:57:10.868718+00:00"}
+{"key": "colony:evaluation_window:up:9", "fingerprint": "evaluation_window:up:9", "category": "kept", "source": "colony", "lineage": "colony", "ts": "2026-11-26T04:00:47.050445+00:00"}
