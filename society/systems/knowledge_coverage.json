@@ -43,7 +43,7 @@
       "concepts": 0,
       "distinct_concepts": 0,
       "papers": 113,
-      "reads": 109
+      "reads": 110
     },
     "meta_learning": {
       "cards_formed": 3,
@@ -61,7 +61,7 @@
       "concepts": 8,
       "distinct_concepts": 4,
       "papers": 15,
-      "reads": 54
+      "reads": 55
     },
     "neural_architecture": {
       "cards_formed": 13,
@@ -100,13 +100,13 @@
       "reads": 55
     },
     "recursive_self_improvement": {
-      "cards_formed": 6,
+      "cards_formed": 7,
       "cards_kept": 0,
       "cards_tested": 0,
       "concepts": 6,
       "distinct_concepts": 4,
-      "papers": 59,
-      "reads": 54
+      "papers": 60,
+      "reads": 55
     },
     "self_learning_loops": {
       "cards_formed": 11,
@@ -274,11 +274,11 @@
     }
   ],
   "totals": {
-    "cards_formed": 168,
+    "cards_formed": 169,
     "cards_kept": 1,
     "cards_tested": 2,
     "concepts": 332,
-    "papers": 648,
-    "reads": 823
+    "papers": 649,
+    "reads": 826
   }
 }

@@ -66,7 +66,7 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "<https://doi.org/10.26907/2949-3919.2026.2.4-75>",
+      "topic": "<https://doi.org/10.1007/s00373-026-03039-3>",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-26T01:20:08Z",
-  "updated_cycle": "20261126T011532Z_e0f22a",
+  "updated_at": "2026-11-26T02:20:35Z",
+  "updated_cycle": "20261126T021548Z_397b12",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,
