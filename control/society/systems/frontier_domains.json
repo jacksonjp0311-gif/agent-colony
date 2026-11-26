@@ -13,106 +13,6 @@
  },
  "history": [
   {
-   "cycle_id": "20261126T004212Z_e4a84b",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 14,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 1,
-     "produced": 15,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 1
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 9,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 1,
-     "produced": 9,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 1
-    }
-   },
-   "mode": "live",
-   "survivors": []
-  },
-  {
-   "cycle_id": "20261126T004714Z_00dcf6",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 11,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 2,
-     "produced": 12,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 2
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 16,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 1,
-     "produced": 17,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 1
-    }
-   },
-   "mode": "live",
-   "survivors": []
-  },
-  {
-   "cycle_id": "20261126T005146Z_f3594a",
-   "groups": {
-    "qseries": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 0,
-     "fresh": 9,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 0,
-     "produced": 10,
-     "surprise": 0,
-     "survived": 0,
-     "tested": 0
-    },
-    "words": {
-     "explained_by_known_check": 0,
-     "explained_by_reference": 1,
-     "fresh": 16,
-     "machine_checked": 0,
-     "no_reference_found": 0,
-     "passed_filter": 3,
-     "produced": 16,
-     "surprise": 0,
-     "survived": 1,
-     "tested": 3
-    }
-   },
-   "mode": "live",
-   "survivors": [
-    {
-     "deep": null,
-     "statement": "gcd(oxa038041,tm)(n) = 1 (mod 2) for all n = 2 (mod 4)",
-     "unknown": false,
-     "why": null
-    }
-   ]
-  },
-  {
    "cycle_id": "20261126T014618Z_36a0d8",
    "groups": {
     "qseries": {
@@ -975,6 +875,99 @@
      "why": null
     }
    ]
+  },
+  {
+   "cycle_id": "20261126T112027Z_db414c",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 14,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 14,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 16,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 16,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    }
+   },
+   "mode": "live",
+   "survivors": []
+  },
+  {
+   "cycle_id": "20261126T112507Z_12fd21",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 8,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 10,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 10,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 11,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    }
+   },
+   "mode": "live",
+   "survivors": []
+  },
+  {
+   "cycle_id": "20261126T112925Z_e0048e",
+   "groups": {
+    "qseries": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 6,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 1,
+     "produced": 8,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 1
+    },
+    "words": {
+     "explained_by_known_check": 0,
+     "explained_by_reference": 0,
+     "fresh": 9,
+     "machine_checked": 0,
+     "no_reference_found": 0,
+     "passed_filter": 0,
+     "produced": 10,
+     "surprise": 0,
+     "survived": 0,
+     "tested": 0
+    }
+   },
+   "mode": "live",
+   "survivors": []
   }
  ],
  "mode": "live",
@@ -983,11 +976,11 @@
   "baum": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3396,
+   "fresh": 3402,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 232,
-   "produced": 3655,
+   "produced": 3661,
    "surprise": 2,
    "survived": 6,
    "tested": 232
@@ -995,23 +988,23 @@
   "cubic": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2901,
+   "fresh": 2912,
    "machine_checked": 0,
    "no_reference_found": 2,
-   "passed_filter": 416,
-   "produced": 3068,
+   "passed_filter": 417,
+   "produced": 3079,
    "surprise": 2,
    "survived": 246,
-   "tested": 416
+   "tested": 417
   },
   "fibw": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3343,
+   "fresh": 3348,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 183,
-   "produced": 3698,
+   "produced": 3704,
    "surprise": 2,
    "survived": 6,
    "tested": 183
@@ -1019,11 +1012,11 @@
   "overpart": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 5411,
+   "fresh": 5418,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 135,
-   "produced": 5575,
+   "produced": 5582,
    "surprise": 0,
    "survived": 0,
    "tested": 135
@@ -1031,11 +1024,11 @@
   "pdbl": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3189,
+   "fresh": 3193,
    "machine_checked": 0,
    "no_reference_found": 1,
    "passed_filter": 227,
-   "produced": 3443,
+   "produced": 3448,
    "surprise": 1,
    "survived": 9,
    "tested": 227
@@ -1043,35 +1036,35 @@
   "pfold": {
    "explained_by_known_check": 0,
    "explained_by_reference": 3,
-   "fresh": 3193,
+   "fresh": 3203,
    "machine_checked": 0,
    "no_reference_found": 1,
-   "passed_filter": 217,
-   "produced": 3363,
+   "passed_filter": 218,
+   "produced": 3373,
    "surprise": 1,
    "survived": 10,
-   "tested": 217
+   "tested": 218
   },
   "podd": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 3453,
+   "fresh": 3458,
    "machine_checked": 0,
    "no_reference_found": 4,
-   "passed_filter": 316,
-   "produced": 4190,
+   "passed_filter": 318,
+   "produced": 4197,
    "surprise": 4,
    "survived": 17,
-   "tested": 316
+   "tested": 318
   },
   "pplane": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 2846,
+   "fresh": 2851,
    "machine_checked": 0,
    "no_reference_found": 0,
    "passed_filter": 297,
-   "produced": 3296,
+   "produced": 3303,
    "surprise": 0,
    "survived": 0,
    "tested": 297
@@ -1079,11 +1072,11 @@
   "rs": {
    "explained_by_known_check": 0,
    "explained_by_reference": 0,
-   "fresh": 3608,
+   "fresh": 3614,
    "machine_checked": 0,
    "no_reference_found": 2,
    "passed_filter": 179,
-   "produced": 3788,
+   "produced": 3794,
    "surprise": 2,
    "survived": 6,
    "tested": 179
@@ -1091,11 +1084,11 @@
   "tm": {
    "explained_by_known_check": 0,
    "explained_by_reference": 1,
-   "fresh": 3743,
+   "fresh": 3747,
    "machine_checked": 0,
    "no_reference_found": 3,
    "passed_filter": 222,
-   "produced": 3909,
+   "produced": 3913,
    "surprise": 3,
    "survived": 21,
    "tested": 222
