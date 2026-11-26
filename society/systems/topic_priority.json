@@ -66,12 +66,12 @@
       "reason": "inbox_gap"
     },
     {
-      "topic": "`meta-learning`",
+      "topic": "((1+x)^(2*k-1)",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
     {
-      "topic": "agent-to-business",
+      "topic": "`meta-learning`",
       "priority": 1.0,
       "reason": "inbox_gap"
     },
@@ -247,8 +247,8 @@
     }
   ],
   "source": "growth_refresh+findings_coupling",
-  "updated_at": "2026-11-26T14:29:14Z",
-  "updated_cycle": "20261126T142500Z_60aa5f",
+  "updated_at": "2026-11-26T15:54:08Z",
+  "updated_cycle": "20261126T155020Z_039883",
   "charter_inform": {
     "hints": 29,
     "inform_only": true,

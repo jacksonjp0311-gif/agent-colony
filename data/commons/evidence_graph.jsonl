@@ -45,3 +45,4 @@
 {"ts": "2026-11-25T20:41:51.248723+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:527e4c2e"}
 {"ts": "2026-11-26T00:59:42.171726+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:b3a17764"}
 {"ts": "2026-11-26T04:02:33.560006+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:7939c33c"}
+{"ts": "2026-11-26T15:55:51.453944+00:00", "type": "keep_candidate", "payload": {"independent_path_recorded": true, "source": "decide_keep"}, "edges": [], "id": "keep_candidate:21195287"}
