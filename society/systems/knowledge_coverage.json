@@ -34,7 +34,7 @@
       "concepts": 45,
       "distinct_concepts": 5,
       "papers": 39,
-      "reads": 57
+      "reads": 58
     },
     "mathematics": {
       "cards_formed": 1,
@@ -43,7 +43,7 @@
       "concepts": 1,
       "distinct_concepts": 1,
       "papers": 121,
-      "reads": 114
+      "reads": 115
     },
     "meta_learning": {
       "cards_formed": 4,
@@ -97,7 +97,7 @@
       "concepts": 12,
       "distinct_concepts": 5,
       "papers": 37,
-      "reads": 57
+      "reads": 58
     },
     "recursive_self_improvement": {
       "cards_formed": 8,
@@ -278,6 +278,6 @@
     "cards_tested": 2,
     "concepts": 366,
     "papers": 708,
-    "reads": 862
+    "reads": 865
   }
 }

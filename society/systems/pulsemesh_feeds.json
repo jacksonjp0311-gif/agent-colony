@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-26T19:29:17Z",
+  "ts": "2026-11-27T10:03:50Z",
   "version": 1,
   "mile": "spark3-port",
   "feeds": {
@@ -8,52 +8,52 @@
       "ok": true,
       "note": "ok",
       "count": 64,
-      "latest": -6.740753127054227,
+      "latest": -6.655176688528703,
       "unit": "log10 W/m^2",
       "source_url": "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
       "items": [
         {
-          "t": "2026-11-26T19:23:00Z",
-          "v": -8.581818125904604
+          "t": "2026-11-27T09:57:00Z",
+          "v": -9.000000012282687
         },
         {
-          "t": "2026-11-26T19:23:00Z",
-          "v": -6.742220872097756
+          "t": "2026-11-27T09:57:00Z",
+          "v": -6.652702954704288
         },
         {
-          "t": "2026-11-26T19:24:00Z",
-          "v": -8.461625603826315
+          "t": "2026-11-27T09:58:00Z",
+          "v": -8.819638987875855
         },
         {
-          "t": "2026-11-26T19:24:00Z",
-          "v": -6.745564117611319
+          "t": "2026-11-27T09:58:00Z",
+          "v": -6.651989622553837
         },
         {
-          "t": "2026-11-26T19:25:00Z",
-          "v": -8.486879280839709
+          "t": "2026-11-27T09:59:00Z",
+          "v": -9.000000012282687
         },
         {
-          "t": "2026-11-26T19:25:00Z",
-          "v": -6.742036587259094
+          "t": "2026-11-27T09:59:00Z",
+          "v": -6.652733053717185
         },
         {
-          "t": "2026-11-26T19:26:00Z",
-          "v": -8.639821039082362
+          "t": "2026-11-27T10:00:00Z",
+          "v": -8.627275187199864
         },
         {
-          "t": "2026-11-26T19:26:00Z",
-          "v": -6.740753127054227
+          "t": "2026-11-27T10:00:00Z",
+          "v": -6.655176688528703
         }
       ],
       "live": true,
-      "ts": "2026-11-26T19:29:17Z"
+      "ts": "2026-11-27T10:03:50Z"
     },
     "openmeteo_series": {
       "feed": "pulsemesh_openmeteo",
       "ok": true,
       "note": "mem_ttl:ok",
       "count": 48,
-      "latest": 7.6,
+      "latest": 7.3,
       "unit": "°C",
       "variable": "temperature_2m",
       "lat": 40.71,
@@ -61,101 +61,101 @@
       "source_url": "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m&past_days=1&forecast_days=1&timezone=UTC",
       "items": [
         {
-          "t": "2026-11-25T00:00",
-          "v": 5.3
+          "t": "2026-11-26T00:00",
+          "v": 5.9
         },
         {
-          "t": "2026-11-25T01:00",
-          "v": 4.3
+          "t": "2026-11-26T01:00",
+          "v": 5.6
         },
         {
-          "t": "2026-11-25T02:00",
-          "v": 3.3
+          "t": "2026-11-26T02:00",
+          "v": 5.9
         },
         {
-          "t": "2026-11-25T03:00",
-          "v": 2.9
+          "t": "2026-11-26T03:00",
+          "v": 6.0
         },
         {
-          "t": "2026-11-25T04:00",
-          "v": 2.2
+          "t": "2026-11-26T04:00",
+          "v": 5.7
         },
         {
-          "t": "2026-11-25T05:00",
-          "v": 1.7
+          "t": "2026-11-26T05:00",
+          "v": 6.0
         },
         {
-          "t": "2026-11-25T06:00",
-          "v": 1.4
+          "t": "2026-11-26T06:00",
+          "v": 6.4
         },
         {
-          "t": "2026-11-25T07:00",
-          "v": 1.0
+          "t": "2026-11-26T07:00",
+          "v": 6.3
         }
       ],
       "live": false,
       "cached": true,
-      "ts": "2026-11-26T19:29:17Z"
+      "ts": "2026-11-27T10:03:50Z"
     },
     "usgs_quakes": {
       "feed": "pulsemesh_usgs_quakes",
       "ok": true,
       "note": "ok",
       "count": 100,
-      "latest": 2.66,
+      "latest": 3.8,
       "items": [
         {
-          "mag": 2.66,
-          "place": "7 km NW of Pinnacles, CA",
-          "time": 1795648928910,
+          "mag": 3.8,
+          "place": "132 km NNW of Nikolski, Alaska",
+          "time": 1795737179392,
           "source": "usgs"
         },
         {
-          "mag": 2.5,
-          "place": "24 km W of Nanwalek, Alaska",
-          "time": 1795644801759,
+          "mag": 4.1,
+          "place": "64 km SSE of Kaş, Turkey",
+          "time": 1795735867918,
           "source": "usgs"
         },
         {
-          "mag": 3.12,
-          "place": "50 km N of Hatillo, Puerto Rico",
-          "time": 1795643260980,
+          "mag": 2.9,
+          "place": "55 km NE of Valmy, Nevada",
+          "time": 1795732825258,
           "source": "usgs"
         },
         {
-          "mag": 4.8,
-          "place": "190 km N of Hicks Bay, New Zealand",
-          "time": 1795642353545,
-          "source": "usgs"
-        },
-        {
-          "mag": 4.7,
-          "place": "13 km NW of Port-Vila, Vanuatu",
-          "time": 1795633169141,
-          "source": "usgs"
-        },
-        {
-          "mag": 2.87,
-          "place": "50 km NNW of Charlotte Amalie, U.S. Virgin Islands",
-          "time": 1795631194550,
+          "mag": 2.7,
+          "place": "19 km NNW of Goldsmith, Texas",
+          "time": 1795731930606,
           "source": "usgs"
         },
         {
           "mag": 3.1,
-          "place": "72 km N of Charlotte Amalie, U.S. Virgin Islands",
-          "time": 1795630965680,
+          "place": "40 km SE of Cantwell, Alaska",
+          "time": 1795731704644,
           "source": "usgs"
         },
         {
-          "mag": 4.4,
-          "place": "5 km NNW of Itháki, Greece",
-          "time": 1795630079725,
+          "mag": 2.5,
+          "place": "10 km NE of Talmage, CA",
+          "time": 1795730768690,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.3,
+          "place": "61 km SSW of Kaktovik, Alaska",
+          "time": 1795729400452,
+          "source": "usgs"
+        },
+        {
+          "mag": 3.21,
+          "place": "63 km ENE of Punta Cana, Dominican Republic",
+          "time": 1795728822450,
           "source": "usgs"
         }
       ],
       "live": true,
-      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-19&endtime=2026-11-26&minmagnitude=2.5&orderby=time&limit=100",
-      "ts": "2026-11-26T19:29:17Z"
+      "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-11-20&endtime=2026-11-27&minmagnitude=2.5&orderby=time&limit=100",
+      "ts": "2026-11-27T10:03:50Z"
     },
     "system_stat": {
       "feed": "pulsemesh_system_stat",
@@ -164,48 +164,48 @@
       "count": 4,
       "items": [
         {
-          "load1": 0.86572265625,
-          "disk_free_percent": 58.466605877783266,
-          "process_count": 163,
-          "uptime_hours": 0.7081277777777778,
+          "load1": 0.73779296875,
+          "disk_free_percent": 58.746384669954104,
+          "process_count": 160,
+          "uptime_hours": 0.6508861111111112,
           "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.43",
-          "node": "runnervm3lb7s",
+          "node": "runnervm0hi8g",
           "source": "system_stat"
         }
       ],
-      "latest_load1": 0.86572265625,
+      "latest_load1": 0.73779296875,
       "live": true,
-      "ts": "2026-11-26T19:29:17Z"
+      "ts": "2026-11-27T10:03:50Z"
     },
     "tcp_probe": {
       "feed": "pulsemesh_tcp_probe",
       "ok": true,
       "note": "ok=4/4 host=1.1.1.1:443",
       "count": 4,
-      "latest_ms": 5.555200999879162,
-      "mean_ms": 5.731280499958302,
+      "latest_ms": 8.743081999909919,
+      "mean_ms": 10.926085500045701,
       "items": [
         {
           "probe": 0,
-          "ms": 6.149914999696193
+          "ms": 17.122980000294774
         },
         {
           "probe": 1,
-          "ms": 5.748359000335768
+          "ms": 8.598128999892651
         },
         {
           "probe": 2,
-          "ms": 5.471646999922086
+          "ms": 9.240151000085461
         },
         {
           "probe": 3,
-          "ms": 5.555200999879162
+          "ms": 8.743081999909919
         }
       ],
       "live": true,
       "host": "1.1.1.1",
       "port": 443,
-      "ts": "2026-11-26T19:29:17Z"
+      "ts": "2026-11-27T10:03:50Z"
     }
   },
   "feed_health": {
@@ -238,10 +238,10 @@
   "cross_domain_patterns": [
     {
       "kind": "pulsemesh_local_ops_health",
-      "summary": "Local system_stat load1=0.86572265625 tcp_probe mean_ms=5.731280499958302 ok=True. Ops health for actuation throttle debates — not consciousness.",
+      "summary": "Local system_stat load1=0.73779296875 tcp_probe mean_ms=10.926085500045701 ok=True. Ops health for actuation throttle debates — not consciousness.",
       "signals": {
-        "load1": 0.86572265625,
-        "probe_ms": 5.731280499958302,
+        "load1": 0.73779296875,
+        "probe_ms": 10.926085500045701,
         "probe_ok": true
       },
       "domains": [
